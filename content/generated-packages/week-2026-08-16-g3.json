@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-08-16",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 9: Retelling and Summarizing!\n\nLet's learn how to retell and summarize a story! 📖\n\n## 🔁 Retelling a Story\n- **Retelling** means telling a story again in your own words.\n- Include the **characters, setting, and main events** in order.\n\n## ✂️ Summarizing\n- A **summary** is a SHORT version of a story that includes only the most important parts.\n- **Example:** Instead of retelling every detail, a summary might be: *\"A girl found a lost puppy and returned it to its owner.\"*\n\n## 🔍 Retelling vs. Summarizing\n- **Retelling** includes more details.\n- **Summarizing** is shorter and focuses only on the main points.\n\nPractice retelling and summarizing your favorite stories! 🌟",
+        "quiz": [
+          { "question": "What does retelling mean?", "options": ["Telling a story again in your own words", "Making up a new story", "Reading silently", "Drawing a picture"], "correct_answer": "Telling a story again in your own words" },
+          { "question": "What is a summary?", "options": ["A short version with only the important parts", "The full story with all details", "A drawing of the story", "The title only"], "correct_answer": "A short version with only the important parts" },
+          { "question": "What should a retelling include?", "options": ["Characters, setting, and main events", "Only the title", "Only the last sentence", "Nothing important"], "correct_answer": "Characters, setting, and main events" },
+          { "question": "Which is shorter, a retelling or a summary?", "options": ["A summary", "A retelling", "They are the same length", "Neither has a length"], "correct_answer": "A summary" },
+          { "question": "What should a summary focus on?", "options": ["The main points only", "Every small detail", "The title only", "Nothing"], "correct_answer": "The main points only" },
+          { "question": "In what order should you retell events?", "options": ["In the order they happened", "In random order", "Backward only", "It doesn't matter"], "correct_answer": "In the order they happened" },
+          { "question": "Why do we practice summarizing?", "options": ["To share the most important parts quickly", "To make stories longer", "To forget details", "To avoid reading"], "correct_answer": "To share the most important parts quickly" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 9: Equal Line Segments!\n\nLet's practice measuring and drawing line segments! 📏\n\n## 📏 Line Segments of Equal Length\n- We can use a **ruler** to draw line segments that are exactly the same length.\n- **Example:** Draw two line segments, each exactly **5 cm** long.\n\n## 🔍 Why This Matters\n- Equal line segments help us draw accurate shapes, like squares where all sides must be equal.\n\n## 📐 Review: Lines and Angles\n- **Parallel lines** never meet.\n- **Perpendicular lines** cross at a right angle (90°).\n\nGreat progress with geometry this term! 🌟",
+        "quiz": [
+          { "question": "What tool do we use to draw equal line segments?", "options": ["Ruler", "Crayon", "Eraser", "Glue"], "correct_answer": "Ruler" },
+          { "question": "Why are equal line segments important for drawing a square?", "options": ["All sides of a square must be equal", "Squares don't need equal sides", "It doesn't matter", "Squares have no sides"], "correct_answer": "All sides of a square must be equal" },
+          { "question": "What do parallel lines do?", "options": ["Never meet", "Always cross", "Curve", "Disappear"], "correct_answer": "Never meet" },
+          { "question": "What angle do perpendicular lines form?", "options": ["90°", "45°", "180°", "0°"], "correct_answer": "90°" },
+          { "question": "If you draw two 5 cm line segments, are they equal in length?", "options": ["Yes", "No", "Only sometimes", "Cannot tell"], "correct_answer": "Yes" },
+          { "question": "What does a ruler help us do?", "options": ["Measure and draw accurate lengths", "Color a picture", "Erase mistakes", "Cut paper"], "correct_answer": "Measure and draw accurate lengths" },
+          { "question": "Which shape needs all equal sides?", "options": ["Square", "Any rectangle", "A random shape", "A dot"], "correct_answer": "Square" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 9: Pagbuo ng Maikling Talata\n\nMatuto tayong bumuo ng maikling talata! ✍️\n\n## ✍️ Ano ang Talata?\n- Ang **talata** ay grupo ng mga pangungusap na may kaugnayan sa isang paksa.\n- Karaniwang may **3-5 pangungusap** ang isang maikling talata.\n\n## 📝 Mga Bahagi ng Talata\n- **Panimulang pangungusap** — nagpapakilala sa paksa\n- **Sumusuportang pangungusap** — nagbibigay ng detalye\n- **Pangwakas na pangungusap** — bumubuod sa ideya\n\n## 🔍 Halimbawa\n- *\"Ang aking komunidad ay may magandang kasaysayan. Itinatag ito ng mga unang naninirahan. Mayroon din itong lumang simbahan. Ipinagmamalaki ko ang aking komunidad.\"*\n\nSubukan mong gumawa ng sarili mong talata! 🌟",
+        "quiz": [
+          { "question": "Ano ang talata?", "options": ["Grupo ng pangungusap na may kaugnayan sa isang paksa", "Iisang salita lamang", "Isang titik lamang", "Isang tunog lamang"], "correct_answer": "Grupo ng pangungusap na may kaugnayan sa isang paksa" },
+          { "question": "Ilang pangungusap karaniwan ang mayroon sa isang maikling talata?", "options": ["3-5 pangungusap", "1 pangungusap lamang", "20 pangungusap", "0 pangungusap"], "correct_answer": "3-5 pangungusap" },
+          { "question": "Ano ang tawag sa unang pangungusap na nagpapakilala sa paksa?", "options": ["Panimulang pangungusap", "Pangwakas na pangungusap", "Sumusuportang pangungusap", "Walang tawag"], "correct_answer": "Panimulang pangungusap" },
+          { "question": "Ano ang bumubuod sa ideya ng talata?", "options": ["Pangwakas na pangungusap", "Panimulang pangungusap lamang", "Ang pamagat lamang", "Walang bumubuod"], "correct_answer": "Pangwakas na pangungusap" },
+          { "question": "Ano ang gawain ng sumusuportang pangungusap?", "options": ["Nagbibigay ng detalye", "Walang gawain", "Nagtatapos lamang ng talata", "Nagsisimula lamang ng talata"], "correct_answer": "Nagbibigay ng detalye" },
+          { "question": "Bakit mahalagang matuto bumuo ng talata?", "options": ["Para maipahayag natin nang malinaw ang ating ideya", "Walang dahilan", "Para lang sa pagsusulit", "Para hirapan ang bata"], "correct_answer": "Para maipahayag natin nang malinaw ang ating ideya" },
+          { "question": "Ilan ang bahagi ng isang maayos na talata?", "options": ["Tatlo — panimula, suporta, pangwakas", "Isa lamang", "Sampu", "Wala"], "correct_answer": "Tatlo — panimula, suporta, pangwakas" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 9: Mga Metal na Ginagamit sa Komunidad!\n\nAlamin natin ang mga metal na ginagamit sa ating komunidad! ⚙️\n\n## ⚙️ Mga Uri ng Metal\n- **Bakal (iron)** — matibay, ginagamit sa gusali at kagamitan\n- **Ginto (gold)** — makintab, ginagamit sa alahas\n- **Pilak (silver)** — makintab din, ginagamit sa alahas at kubyertos\n- **Tanso (copper)** — ginagamit sa kawad na pang-elektrisidad\n\n## 🔍 Katangian at Gamit\n- **Halimbawa 1:** Ang bakal ay matibay kaya ginagamit sa paggawa ng gusali.\n- **Halimbawa 2:** Ang tanso ay mahusay na konduktor kaya ginagamit sa kuryente.\n\n## 💛 Bakit Mahalaga Ito?\n- Ang mga metal na ito ay bahagi ng ating pang-araw-araw na buhay.\n\nMaraming metal ang tumutulong sa ating komunidad! 🌟",
+        "quiz": [
+          { "question": "Aling metal ang ginagamit sa gusali dahil sa tibay nito?", "options": ["Bakal", "Ginto", "Pilak", "Tanso"], "correct_answer": "Bakal" },
+          { "question": "Aling metal ang ginagamit sa alahas dahil sa kislap nito?", "options": ["Ginto", "Bakal lamang", "Tanso lamang", "Walang metal"], "correct_answer": "Ginto" },
+          { "question": "Aling metal ang ginagamit sa kawad na pang-elektrisidad?", "options": ["Tanso", "Bakal", "Ginto", "Pilak"], "correct_answer": "Tanso" },
+          { "question": "Ano ang katangian ng bakal?", "options": ["Matibay", "Malambot", "Malagkit", "Malamig lamang"], "correct_answer": "Matibay" },
+          { "question": "Aling metal ang ginagamit din sa kubyertos?", "options": ["Pilak", "Ginto lamang", "Bakal lamang", "Tanso lamang"], "correct_answer": "Pilak" },
+          { "question": "Bakit mahalaga ang mga metal na ito?", "options": ["Bahagi sila ng ating pang-araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Wala silang katangian"], "correct_answer": "Bahagi sila ng ating pang-araw-araw na buhay" },
+          { "question": "Ano ang gamit ng tanso bukod sa kawad?", "options": ["Pang-elektrisidad", "Alahas lamang", "Pagkain", "Damit"], "correct_answer": "Pang-elektrisidad" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 9: Buod ng Kasaysayan at Pagbabago\n\nBuuin natin ang ating natutunan tungkol sa kasaysayan at pagbabago ng komunidad! 📖\n\n## 📖 Buod ng Natutunan\n- Natutunan natin ang mahahalagang **tao, lugar, at pangyayari** sa kasaysayan ng ating pook.\n- Natutunan din natin ang mga **pagbabagong naganap** sa ating komunidad — mula sa lumang paraan tungo sa modernong pamumuhay.\n\n## 🎨 Pagpapahalaga sa Ating Kasaysayan\n- Ipinapakita natin ang pagpapahalaga sa ating kasaysayan sa pamamagitan ng likhang-sining at pagbabahagi ng kwentong-bayan.\n\n## 💭 Pagninilay\n- Anong pagbabago sa iyong komunidad ang pinakamahalaga sa iyo?\n\nIpagpatuloy nating ipagmalaki ang ating komunidad! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin sa nakaraang mga linggo?", "options": ["Kasaysayan at pagbabago ng komunidad", "Walang natutunan", "Mga bansa sa ibang mundo", "Mga bagong laruan lamang"], "correct_answer": "Kasaysayan at pagbabago ng komunidad" },
+          { "question": "Paano natin ipinapakita ang pagpapahalaga sa kasaysayan?", "options": ["Sa pamamagitan ng likhang-sining", "Sa pagkalimot dito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa pamamagitan ng likhang-sining" },
+          { "question": "Ano ang bahagi ng natutunan tungkol sa komunidad?", "options": ["Pagbabago mula lumang paraan tungo sa modernong pamumuhay", "Kulay ng damit lamang", "Pagkain lamang", "Walang bahagi"], "correct_answer": "Pagbabago mula lumang paraan tungo sa modernong pamumuhay" },
+          { "question": "Ano ang isa pang paraan ng pagpapahalaga sa kasaysayan?", "options": ["Pagbabahagi ng kwentong-bayan", "Pagkalimot nito", "Pag-iwas dito", "Walang paraan"], "correct_answer": "Pagbabahagi ng kwentong-bayan" },
+          { "question": "Bakit mahalagang balikan ang natutunan tungkol sa komunidad?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" },
+          { "question": "Ano ang dapat nating gawin sa ating komunidad?", "options": ["Ipagmalaki ito", "Kalimutan ito", "Iwasan ito", "Wala sa mga ito"], "correct_answer": "Ipagmalaki ito" },
+          { "question": "Ano ang buod ng ating pag-aaral tungkol sa komunidad?", "options": ["Pagkilala at pagpapahalaga sa kasaysayan at pagbabago nito", "Walang buod", "Pagkalimot dito", "Pag-iwas dito"], "correct_answer": "Pagkilala at pagpapahalaga sa kasaysayan at pagbabago nito" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 9: Typing Sentences!\n\nLet's practice typing simple sentences! ⌨️\n\n## ⌨️ Typing Practice\n- Start with your **name**, then try short words, then simple sentences.\n- **Example:** *I am in Grade 3.*\n\n## 🎯 Accuracy Before Speed\n- Focus on typing **correctly** first — check for typos before speed matters.\n- Use **Backspace** to fix mistakes as you go.\n\n## 📋 Following Instructions\n- Practice opening a program, typing a short sentence, and closing it correctly — following each step in order.\n\nEvery bit of practice makes you a better typist! 🌟",
+        "quiz": [
+          { "question": "What should you type first when practicing?", "options": ["Your name", "A whole paragraph", "Numbers only", "Nothing"], "correct_answer": "Your name" },
+          { "question": "What should you focus on before speed?", "options": ["Accuracy", "Loudness", "Color", "Size"], "correct_answer": "Accuracy" },
+          { "question": "What key do you use to fix a typing mistake?", "options": ["Backspace", "Enter", "Shift", "Space bar"], "correct_answer": "Backspace" },
+          { "question": "Which is an example of a simple sentence to type?", "options": ["I am in Grade 3.", "asdkjf laksjdf", "12345", "!!!!!"], "correct_answer": "I am in Grade 3." },
+          { "question": "What should you practice following in order?", "options": ["Steps like opening, typing, and closing a program", "Random clicking", "Nothing in particular", "Only closing programs"], "correct_answer": "Steps like opening, typing, and closing a program" },
+          { "question": "Why is checking for typos important?", "options": ["It helps you type correctly", "It slows down the computer", "It has no importance", "It deletes your work"], "correct_answer": "It helps you type correctly" },
+          { "question": "What helps you become a better typist?", "options": ["Practice", "Avoiding the keyboard", "Typing fast without checking", "Guessing keys"], "correct_answer": "Practice" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 9: Gawaing Nakabubuti sa Kapaligiran\n\nAlamin natin ang mga gawaing pansarili na nakabubuti sa kapaligiran! 🌳\n\n## 🌳 Mga Gawaing Pansarili para sa Kapaligiran\n- **Pagtatapon ng basura** sa tamang lalagyan.\n- **Pag-iimpok ng tubig at kuryente** sa bahay.\n- **Pagtatanim** ng puno o halaman.\n\n## 🏡 Epekto sa Komunidad\n- Ang mga simpleng gawaing ito ay nagreresulta sa isang **ligtas, maayos, at malinis** na komunidad.\n\n## 💚 Pagsasabuhay ng Disiplina\n- Ang pagsasagawa ng mga ito araw-araw ay nagpapakita ng **disiplina** sa pag-aalaga sa kapaligiran.\n\nAlagaan natin ang ating kapaligiran sa maliliit na paraan! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng gawaing pansarili para sa kapaligiran?", "options": ["Pagtatapon ng basura sa tamang lalagyan", "Pagtapon kahit saan", "Pag-aaksaya ng tubig", "Pagputol ng puno nang walang dahilan"], "correct_answer": "Pagtatapon ng basura sa tamang lalagyan" },
+          { "question": "Ano ang resulta ng mga gawaing ito sa komunidad?", "options": ["Ligtas, maayos, at malinis na komunidad", "Marumi at magulong komunidad", "Walang epekto", "Nagiging mas magulo"], "correct_answer": "Ligtas, maayos, at malinis na komunidad" },
+          { "question": "Ano ang ipinapakita ng pagsasagawa ng mga ito araw-araw?", "options": ["Disiplina", "Kapabayaan", "Katamaran", "Kawalang-galang"], "correct_answer": "Disiplina" },
+          { "question": "Alin ang halimbawa ng pag-iimpok ng tubig?", "options": ["Pagsara ng gripo kapag hindi ginagamit", "Pagbubukas ng gripo buong araw", "Pag-aaksaya ng tubig", "Walang gagawin"], "correct_answer": "Pagsara ng gripo kapag hindi ginagamit" },
+          { "question": "Ano ang halimbawa ng pagtulong sa kapaligiran?", "options": ["Pagtatanim ng puno", "Pagsunog ng basura", "Pagtapon kahit saan", "Pagputol ng puno nang walang dahilan"], "correct_answer": "Pagtatanim ng puno" },
+          { "question": "Bakit dapat ipraktis ang mga gawaing ito?", "options": ["Para sa maayos at malinis na kapaligiran", "Walang dahilan", "Para lang sa marka", "Para masira ang kapaligiran"], "correct_answer": "Para sa maayos at malinis na kapaligiran" },
+          { "question": "Ano pang halimbawa ng pag-iimpok sa bahay?", "options": ["Pagpatay ng ilaw kapag walang tao", "Pagbubukas ng lahat ng ilaw", "Pag-aaksaya ng kuryente", "Wala"], "correct_answer": "Pagpatay ng ilaw kapag walang tao" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of retelling and summarizing!\n\n- **Retelling** includes more details\n- **Summarizing** is shorter, only main points\n- Both should follow the order events happened\n\nGreat term of English learning! ⭐",
+        "quiz": [
+          { "question": "What does retelling mean?", "options": ["Telling a story again in your own words", "Making up a new story", "Reading silently", "Drawing a picture"], "correct_answer": "Telling a story again in your own words" },
+          { "question": "What is a summary?", "options": ["A short version with only the important parts", "The full story with all details", "A drawing of the story", "The title only"], "correct_answer": "A short version with only the important parts" },
+          { "question": "Which is shorter, a retelling or a summary?", "options": ["A summary", "A retelling", "They are the same length", "Neither has a length"], "correct_answer": "A summary" },
+          { "question": "What should a summary focus on?", "options": ["The main points only", "Every small detail", "The title only", "Nothing"], "correct_answer": "The main points only" },
+          { "question": "In what order should you retell events?", "options": ["In the order they happened", "In random order", "Backward only", "It doesn't matter"], "correct_answer": "In the order they happened" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of line segments and geometry!\n\n- Use a **ruler** for equal line segments\n- **Parallel** lines never meet; **perpendicular** form 90°\n\nGreat term of geometry! 🌟",
+        "quiz": [
+          { "question": "What tool do we use to draw equal line segments?", "options": ["Ruler", "Crayon", "Eraser", "Glue"], "correct_answer": "Ruler" },
+          { "question": "What do parallel lines do?", "options": ["Never meet", "Always cross", "Curve", "Disappear"], "correct_answer": "Never meet" },
+          { "question": "What angle do perpendicular lines form?", "options": ["90°", "45°", "180°", "0°"], "correct_answer": "90°" },
+          { "question": "Why are equal line segments important for drawing a square?", "options": ["All sides of a square must be equal", "Squares don't need equal sides", "It doesn't matter", "Squares have no sides"], "correct_answer": "All sides of a square must be equal" },
+          { "question": "What does a ruler help us do?", "options": ["Measure and draw accurate lengths", "Color a picture", "Erase mistakes", "Cut paper"], "correct_answer": "Measure and draw accurate lengths" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Talata** = grupo ng pangungusap tungkol sa isang paksa\n- May **panimula, suporta, pangwakas**\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang talata?", "options": ["Grupo ng pangungusap na may kaugnayan sa isang paksa", "Iisang salita lamang", "Isang titik lamang", "Isang tunog lamang"], "correct_answer": "Grupo ng pangungusap na may kaugnayan sa isang paksa" },
+          { "question": "Ilang pangungusap karaniwan ang mayroon sa isang maikling talata?", "options": ["3-5 pangungusap", "1 pangungusap lamang", "20 pangungusap", "0 pangungusap"], "correct_answer": "3-5 pangungusap" },
+          { "question": "Ano ang tawag sa unang pangungusap na nagpapakilala sa paksa?", "options": ["Panimulang pangungusap", "Pangwakas na pangungusap", "Sumusuportang pangungusap", "Walang tawag"], "correct_answer": "Panimulang pangungusap" },
+          { "question": "Ano ang bumubuod sa ideya ng talata?", "options": ["Pangwakas na pangungusap", "Panimulang pangungusap lamang", "Ang pamagat lamang", "Walang bumubuod"], "correct_answer": "Pangwakas na pangungusap" },
+          { "question": "Ilan ang bahagi ng isang maayos na talata?", "options": ["Tatlo — panimula, suporta, pangwakas", "Isa lamang", "Sampu", "Wala"], "correct_answer": "Tatlo — panimula, suporta, pangwakas" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Natutunan natin ang kasaysayan at pagbabago ng komunidad\n- Ipinapahalagahan natin ito sa pamamagitan ng likhang-sining\n\nMahusay kang batang Pilipino ngayong term! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin sa nakaraang mga linggo?", "options": ["Kasaysayan at pagbabago ng komunidad", "Walang natutunan", "Mga bansa sa ibang mundo", "Mga bagong laruan lamang"], "correct_answer": "Kasaysayan at pagbabago ng komunidad" },
+          { "question": "Paano natin ipinapakita ang pagpapahalaga sa kasaysayan?", "options": ["Sa pamamagitan ng likhang-sining", "Sa pagkalimot dito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa pamamagitan ng likhang-sining" },
+          { "question": "Ano ang dapat nating gawin sa ating komunidad?", "options": ["Ipagmalaki ito", "Kalimutan ito", "Iwasan ito", "Wala sa mga ito"], "correct_answer": "Ipagmalaki ito" },
+          { "question": "Ano ang isa pang paraan ng pagpapahalaga sa kasaysayan?", "options": ["Pagbabahagi ng kwentong-bayan", "Pagkalimot nito", "Pag-iwas dito", "Walang paraan"], "correct_answer": "Pagbabahagi ng kwentong-bayan" },
+          { "question": "Ano ang buod ng ating pag-aaral tungkol sa komunidad?", "options": ["Pagkilala at pagpapahalaga sa kasaysayan at pagbabago nito", "Walang buod", "Pagkalimot dito", "Pag-iwas dito"], "correct_answer": "Pagkilala at pagpapahalaga sa kasaysayan at pagbabago nito" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Bakal** = matibay | **Ginto/Pilak** = alahas\n- **Tanso** = kawad na pang-elektrisidad\n\nMahusay kang batang siyentipiko ngayong term! 🌟",
+        "quiz": [
+          { "question": "Aling metal ang ginagamit sa gusali dahil sa tibay nito?", "options": ["Bakal", "Ginto", "Pilak", "Tanso"], "correct_answer": "Bakal" },
+          { "question": "Aling metal ang ginagamit sa alahas dahil sa kislap nito?", "options": ["Ginto", "Bakal lamang", "Tanso lamang", "Walang metal"], "correct_answer": "Ginto" },
+          { "question": "Aling metal ang ginagamit sa kawad na pang-elektrisidad?", "options": ["Tanso", "Bakal", "Ginto", "Pilak"], "correct_answer": "Tanso" },
+          { "question": "Ano ang katangian ng bakal?", "options": ["Matibay", "Malambot", "Malagkit", "Malamig lamang"], "correct_answer": "Matibay" },
+          { "question": "Bakit mahalaga ang mga metal na ito?", "options": ["Bahagi sila ng ating pang-araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Wala silang katangian"], "correct_answer": "Bahagi sila ng ating pang-araw-araw na buhay" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Simulan sa **pangalan**, tapos maikling pangungusap\n- Tumuon sa **katumpakan** bago bilis\n\nMahusay ang iyong pag-aaral ngayong term! 🌟",
+        "quiz": [
+          { "question": "What should you type first when practicing?", "options": ["Your name", "A whole paragraph", "Numbers only", "Nothing"], "correct_answer": "Your name" },
+          { "question": "What should you focus on before speed?", "options": ["Accuracy", "Loudness", "Color", "Size"], "correct_answer": "Accuracy" },
+          { "question": "What key do you use to fix a typing mistake?", "options": ["Backspace", "Enter", "Shift", "Space bar"], "correct_answer": "Backspace" },
+          { "question": "Which is an example of a simple sentence to type?", "options": ["I am in Grade 3.", "asdkjf laksjdf", "12345", "!!!!!"], "correct_answer": "I am in Grade 3." },
+          { "question": "What helps you become a better typist?", "options": ["Practice", "Avoiding the keyboard", "Typing fast without checking", "Guessing keys"], "correct_answer": "Practice" }
+        ]
+      }
+    }
+  }
+}

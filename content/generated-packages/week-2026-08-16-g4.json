@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-08-16",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 9: Term Wrap-Up!\n\nLet's review everything we've learned this term! 📚\n\n## 📋 What We've Learned\n- **Enumeration-description** texts list details in order.\n- **Friendly letters** have 4 parts: heading, salutation, body, closing.\n- **Fluency** means reading with proper rate, accuracy, and expression.\n\n## ✍️ Putting Skills Together\n- Combine vocabulary, sentence structure, and letter-writing to express ideas clearly.\n\n## 🎯 Looking Ahead\n- Next term, we'll explore christenings and weddings with time-order texts!\n\nGreat work this term — you're becoming a confident writer! 🌟",
+        "quiz": [
+          { "question": "What does enumeration-description do?", "options": ["Lists details in order", "Tells a random story", "Only asks questions", "Shows only pictures"], "correct_answer": "Lists details in order" },
+          { "question": "How many parts does a friendly letter have?", "options": ["4", "2", "6", "1"], "correct_answer": "4" },
+          { "question": "What does fluency mean?", "options": ["Reading with proper rate, accuracy, and expression", "Reading as fast as possible", "Never reading aloud", "Reading only silently"], "correct_answer": "Reading with proper rate, accuracy, and expression" },
+          { "question": "What text type will we explore next term?", "options": ["Time-order texts", "Enumeration-description only", "No new text type", "Poetry only"], "correct_answer": "Time-order texts" },
+          { "question": "What topic connects to next term's texts?", "options": ["Christenings and weddings", "Mealtimes only", "Funerals only", "No topic"], "correct_answer": "Christenings and weddings" },
+          { "question": "What skills did we combine this term?", "options": ["Vocabulary, sentence structure, and letter-writing", "Only drawing", "Only counting", "Only singing"], "correct_answer": "Vocabulary, sentence structure, and letter-writing" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 8: Term Wrap-Up!\n\nLet's review our Term 1 math skills! 🧮\n\n## 📐 What We've Learned\n- **Angles**: right (90°), acute (<90°), obtuse (>90°)\n- **Perimeter**: total distance around a shape\n- **Big numbers**: up to 1,000,000 — place value, rounding, comparing\n\n## ➕➖✖️➗ Four Operations\n- We practiced addition, subtraction, multiplication, and division with big numbers.\n\n## 🎯 Multi-Step Problems\n- **Example:** A store sells 250 notebooks at ₱35 each, minus ₱500 in discounts. Total = (250×35) − 500 = **₱8,250**\n\nGreat term of math learning — keep practicing! 🌟",
+        "quiz": [
+          { "question": "What is a right angle?", "options": ["90°", "Less than 90°", "More than 90°", "0°"], "correct_answer": "90°" },
+          { "question": "What is perimeter?", "options": ["The total distance around a shape", "The space inside a shape", "The number of angles", "The color of a shape"], "correct_answer": "The total distance around a shape" },
+          { "question": "A store sells 250 notebooks at ₱35 each, minus ₱500 discount. What is the total?", "options": ["₱8,250", "₱8,750", "₱7,750", "₱8,000"], "correct_answer": "₱8,250" },
+          { "question": "What operations did we practice with big numbers?", "options": ["Addition, subtraction, multiplication, division", "Only addition", "Only division", "None"], "correct_answer": "Addition, subtraction, multiplication, division" },
+          { "question": "Up to what number did we learn to read and write?", "options": ["1,000,000", "1,000", "100", "10"], "correct_answer": "1,000,000" },
+          { "question": "What do we do to check if an answer to a problem is reasonable?", "options": ["Estimate first", "Guess randomly", "Skip the problem", "Ignore the numbers"], "correct_answer": "Estimate first" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 8: Pang-uri at Pang-abay\n\nAlamin natin ang pang-uri at pang-abay! 🎨\n\n## 🎨 Pang-uri\n- Naglalarawan ng katangian ng pangngalan.\n- **Kayarian:** payak (*maganda*) at maylapi (*ma-* + ganda = *maganda*)\n\n## ⏱️ Pang-abay\n- Naglalarawan ng kilos, oras, o lugar.\n- **Pamanahon** — kailan naganap (*kahapon, bukas*)\n- **Panlunan** — saan naganap (*dito, doon*)\n\n## 🔍 Halimbawa\n- *\"Kahapon, naglaro nang masaya ang mga bata dito.\"* — *kahapon* (pamanahon), *dito* (panlunan)\n\nMahusay na ginagamit ang pang-uri at pang-abay! 🌟",
+        "quiz": [
+          { "question": "Ano ang pang-uri?", "options": ["Naglalarawan ng katangian ng pangngalan", "Naglalarawan ng oras", "Salitang kilos", "Salitang pananong"], "correct_answer": "Naglalarawan ng katangian ng pangngalan" },
+          { "question": "Ano ang pang-abay pamanahon?", "options": ["Naglalarawan kung kailan naganap", "Naglalarawan ng katangian", "Naglalarawan kung saan naganap", "Salitang pananong"], "correct_answer": "Naglalarawan kung kailan naganap" },
+          { "question": "Alin ang halimbawa ng pang-abay panlunan?", "options": ["Dito", "Kahapon", "Maganda", "Bukas"], "correct_answer": "Dito" },
+          { "question": "Alin ang halimbawa ng pang-abay pamanahon?", "options": ["Kahapon", "Dito", "Doon", "Maganda"], "correct_answer": "Kahapon" },
+          { "question": "Sa \"Kahapon, naglaro ang mga bata dito\", alin ang pang-uri?", "options": ["Walang pang-uri sa pangungusap", "Kahapon", "Dito", "Naglaro"], "correct_answer": "Walang pang-uri sa pangungusap" },
+          { "question": "Ano ang halimbawa ng pang-uring maylapi?", "options": ["Maganda", "Ganda", "Aganda", "Gandaha"], "correct_answer": "Maganda" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 9: Term Review!\n\nLet's review all our Term 1 science learning! 🔬\n\n## 🧪 What We've Learned\n- **Science inventions** improve our daily lives.\n- **Chemical properties**: burnable, reactive, biodegradable.\n- **Body systems**: muscular, skeletal, digestive, circulatory, respiratory.\n- **Habitats**: terrestrial, aquatic, aerial.\n\n## 🔍 Connecting the Concepts\n- Our body systems work together, just like the parts of a habitat work together to support life.\n\n## 🌟 Looking Ahead\n- Next term, we'll explore life cycles, food chains, and forces!\n\nAmazing term of scientific discovery! 🌟",
+        "quiz": [
+          { "question": "Which body system helps us breathe?", "options": ["Respiratory system", "Skeletal system", "Digestive system", "Muscular system"], "correct_answer": "Respiratory system" },
+          { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Always hard", "Always shiny"], "correct_answer": "Breaks down naturally" },
+          { "question": "Which habitat type is a water habitat?", "options": ["Aquatic", "Terrestrial", "Aerial", "None"], "correct_answer": "Aquatic" },
+          { "question": "What do inventions do?", "options": ["Improve our daily lives", "Have no purpose", "Only exist in stories", "Make life harder"], "correct_answer": "Improve our daily lives" },
+          { "question": "What will we study next term?", "options": ["Life cycles, food chains, and forces", "Nothing new", "Only inventions again", "Only habitats again"], "correct_answer": "Life cycles, food chains, and forces" },
+          { "question": "How do body systems work together?", "options": ["Like parts of a habitat supporting life", "They don't work together", "Randomly", "Only one system works at a time"], "correct_answer": "Like parts of a habitat supporting life" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 9: Term Review!\n\nBuuin natin ang ating natutunan tungkol sa heograpiya at ekonomiya! 📖\n\n## 📖 Buod ng Natutunan\n- **Lokasyon** ng Pilipinas (ganap at kaugnay)\n- **Teritoryo** (kapuluan, karagatang teritoryal)\n- **Heyograpiyang pisikal at pantao**\n- **Gawaing pangkabuhayan** (agrikultura, pangingisda)\n\n## 🔍 Epekto ng Desisyong Pangkabuhayan\n- Ang mga desisyon tungkol sa paggamit ng likas na yaman ay may epekto sa **kapaligiran at komunidad**.\n- **Halimbawa:** Ang sobrang pagputol ng puno ay maaaring magdulot ng baha.\n\n## 🌟 Susunod na Termino\n- Pag-aaralan natin ang **Pambansang Pamahalaan**!\n\nMahusay na termino ng pagkatuto tungkol sa ating bansa! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa lokasyon ng Pilipinas?", "options": ["Ganap at kaugnay na lokasyon", "Walang natutunan", "Lokasyon lamang ng bahay", "Wala"], "correct_answer": "Ganap at kaugnay na lokasyon" },
+          { "question": "Ano ang epekto ng sobrang pagputol ng puno?", "options": ["Maaaring magdulot ng baha", "Walang epekto", "Nagpapabuti ng kapaligiran", "Wala itong kaugnayan"], "correct_answer": "Maaaring magdulot ng baha" },
+          { "question": "Ano ang pag-aaralan natin sa susunod na termino?", "options": ["Pambansang Pamahalaan", "Wala nang paksa", "Ibang bansa lamang", "Ulap lamang"], "correct_answer": "Pambansang Pamahalaan" },
+          { "question": "Ano ang naaapektuhan ng desisyong pangkabuhayan?", "options": ["Kapaligiran at komunidad", "Wala", "Kulay ng damit lamang", "Bilang ng aso lamang"], "correct_answer": "Kapaligiran at komunidad" },
+          { "question": "Ano ang mga bahagi ng heyograpiyang pisikal na natutunan natin?", "options": ["Anyong-lupa at anyong-tubig", "Populasyon lamang", "Kulay ng bandila", "Wala"], "correct_answer": "Anyong-lupa at anyong-tubig" },
+          { "question": "Bakit mahalagang isaalang-alang ang epekto ng desisyong pangkabuhayan?", "options": ["Para protektahan ang kapaligiran", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para protektahan ang kapaligiran" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Term Review!\n\nBalikan natin ang ating natutunan tungkol sa computer! 🖥️\n\n## 🖥️ Buod ng Natutunan\n- **Mga bahagi ng computer**: monitor, keyboard, mouse, CPU, speakers, peripherals\n- **Basic operations**: booting, shutting down, keyboarding, mouse techniques\n- **Kaligtasan**: wastong posisyon/oras, panuntunan sa Internet\n\n## 🎯 Digital Project\n- Gumawa ng isang simpleng dokumento na nagpapakita ng lahat ng natutunan.\n\n## 🌟 Susunod na Termino\n- Matututo tayo ng **word processing at presentation software**!\n\nMahusay na termino ng pagkatuto tungkol sa ICT! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa mga bahagi ng computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Wala", "Isang bahagi lamang", "Walang natutunan"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
+          { "question": "Ano ang natutunan natin tungkol sa kaligtasan online?", "options": ["Wastong posisyon at panuntunan sa Internet", "Walang natutunan", "Isang bagay lamang", "Wala"], "correct_answer": "Wastong posisyon at panuntunan sa Internet" },
+          { "question": "Ano ang gagawin sa digital project?", "options": ["Gumawa ng dokumentong nagpapakita ng natutunan", "Wala", "Manood lamang ng video", "Maglaro lamang"], "correct_answer": "Gumawa ng dokumentong nagpapakita ng natutunan" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Word processing at presentation software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Word processing at presentation software" },
+          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay", "Isang uri ng laro", "Wala"], "correct_answer": "Proseso ng pagsisimula ng computer" },
+          { "question": "Bakit mahalaga ang tamang pagsasanay sa computer?", "options": ["Tumutulong ito maging responsable at ligtas na gumagamit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maging responsable at ligtas na gumagamit" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏃 MAPEH — Week 8: Invasion Games!\n\nLet's play traditional Filipino invasion games! 🏃‍♂️\n\n## 🏃 Invasion Game Concepts\n- **Attacking** — creating or moving into space to advance\n- **Defending** — denying space to the other team\n\n## 🇵🇭 Philippine Traditional Invasion Games\n- **Patintero** — crossing lines without being tagged\n- **Agawan Base** — racing to capture the opposing team's base\n\n## 💪 Skills Practiced\n- **Agility, balance, coordination, speed** — essential for these fast-paced games!\n\nTraditional games build teamwork and quick thinking! 🌟",
+        "quiz": [
+          { "question": "What does \"attacking\" mean in invasion games?", "options": ["Creating or moving into space to advance", "Standing still", "Sitting down", "Avoiding the game"], "correct_answer": "Creating or moving into space to advance" },
+          { "question": "What does \"defending\" mean?", "options": ["Denying space to the other team", "Attacking constantly", "Ignoring the game", "Running away"], "correct_answer": "Denying space to the other team" },
+          { "question": "What is Patintero?", "options": ["Crossing lines without being tagged", "A dance", "A song", "A drawing game"], "correct_answer": "Crossing lines without being tagged" },
+          { "question": "What is Agawan Base?", "options": ["Racing to capture the opposing team's base", "A cooking game", "A math game", "A reading game"], "correct_answer": "Racing to capture the opposing team's base" },
+          { "question": "What skill is essential for invasion games?", "options": ["Speed", "Sitting still", "Sleeping", "Reading"], "correct_answer": "Speed" },
+          { "question": "What do traditional games build?", "options": ["Teamwork and quick thinking", "Nothing important", "Only individual skill", "Boredom"], "correct_answer": "Teamwork and quick thinking" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 8: Pangangalaga ng mga Pananim!\n\nAlamin natin kung paano alagaan ang ating mga pananim! 💧\n\n## 💧 Mga Gawain sa Pangangalaga\n- **Pagdidilig** — regular na pagbibigay ng tubig\n- **Pagbubungkal** — pagluluwag ng lupa sa paligid ng ugat\n- **Paglalagay ng pataba** — para sa sustansya ng halaman\n- **Pagsugpo sa insekto/peste** — pag-iwas sa pinsala\n\n## 🌱 Pagsubaybay ng Paglaki\n- Regular na tingnan ang **paglaki** ng iyong pananim.\n\n## 🔍 Bakit Mahalaga Ito?\n- Ang tamang pangangalaga ay nagbibigay ng **masustansyang ani**.\n\nMahalaga ang patuloy na pag-aalaga sa pananim! 🌟",
+        "quiz": [
+          { "question": "Ano ang gawain sa regular na pagbibigay ng tubig?", "options": ["Pagdidilig", "Pagbubungkal", "Pagpapataba", "Pagsugpo sa peste"], "correct_answer": "Pagdidilig" },
+          { "question": "Ano ang pagbubungkal?", "options": ["Pagluluwag ng lupa sa paligid ng ugat", "Pagdidilig ng halaman", "Paglalagay ng pataba", "Pagpuputol ng dahon"], "correct_answer": "Pagluluwag ng lupa sa paligid ng ugat" },
+          { "question": "Bakit naglalagay tayo ng pataba sa pananim?", "options": ["Para sa sustansya ng halaman", "Walang dahilan", "Para lang gumanda", "Para masira ang halaman"], "correct_answer": "Para sa sustansya ng halaman" },
+          { "question": "Ano ang dapat gawin upang maiwasan ang insekto/peste?", "options": ["Pagsugpo sa insekto/peste", "Balewalain ito", "Wala", "Hayaan lamang"], "correct_answer": "Pagsugpo sa insekto/peste" },
+          { "question": "Bakit dapat regular na tingnan ang paglaki ng pananim?", "options": ["Para masubaybayan ang kalusugan nito", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para masubaybayan ang kalusugan nito" },
+          { "question": "Ano ang resulta ng tamang pangangalaga?", "options": ["Masustansyang ani", "Walang ani", "Nasirang pananim", "Walang resulta"], "correct_answer": "Masustansyang ani" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 9: Mabuting Kaugaliang Pilipino\n\nAlamin natin ang mga mabuting kaugalian ng mga Pilipino! 🇵🇭\n\n## 💛 Mabuting Kaugaliang Pilipino\n- **Masayahin** — laging may positibong pananaw\n- **Madasalin** — laging nananalangin\n- **Masipag** — laging handang magtrabaho\n\n## 🤝 Pagsasabuhay ng Kaugalian\n- Ipakita ang mga kaugaliang ito sa pang-araw-araw na buhay, sa bahay man o paaralan.\n\n## 💚 Bakit Ito Mahalaga?\n- Ang mga kaugaliang ito ay bahagi ng ating **pagkakakilanlan bilang Pilipino**.\n\nIpagmalaki ang mabuting kaugaliang Pilipino! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang mabuting kaugaliang Pilipino?", "options": ["Masayahin", "Palasuko", "Tamad", "Mapaghinala"], "correct_answer": "Masayahin" },
+          { "question": "Ano ang ibig sabihin ng \"madasalin\"?", "options": ["Laging nananalangin", "Ayaw manalangin", "Laging naglalaro", "Laging kumakain"], "correct_answer": "Laging nananalangin" },
+          { "question": "Ano ang ibig sabihin ng \"masipag\"?", "options": ["Laging handang magtrabaho", "Laging tamad", "Ayaw gumalaw", "Laging natutulog"], "correct_answer": "Laging handang magtrabaho" },
+          { "question": "Saan dapat ipakita ang mabuting kaugalian?", "options": ["Sa bahay at paaralan", "Wala kahit saan", "Sa isang lugar lamang", "Kapag may nanonood lamang"], "correct_answer": "Sa bahay at paaralan" },
+          { "question": "Ano ang bahagi ng ating pagkakakilanlan bilang Pilipino?", "options": ["Mabuting kaugalian", "Kawalang-galang", "Katamaran", "Kasinungalingan"], "correct_answer": "Mabuting kaugalian" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagmamahal sa Bayan", "Pagtitipid", "Kasipagan lamang", "Katapatan lamang"], "correct_answer": "Pagmamahal sa Bayan" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of our Term 1 English!\n\n- **Enumeration-description** lists details in order\n- Friendly letters have **4 parts**\n- **Fluency** = rate, accuracy, expression\n\nGreat term of English learning! ⭐",
+        "quiz": [
+          { "question": "What does enumeration-description do?", "options": ["Lists details in order", "Tells a random story", "Only asks questions", "Shows only pictures"], "correct_answer": "Lists details in order" },
+          { "question": "How many parts does a friendly letter have?", "options": ["4", "2", "6", "1"], "correct_answer": "4" },
+          { "question": "What does fluency mean?", "options": ["Reading with proper rate, accuracy, and expression", "Reading as fast as possible", "Never reading aloud", "Reading only silently"], "correct_answer": "Reading with proper rate, accuracy, and expression" },
+          { "question": "What text type will we explore next term?", "options": ["Time-order texts", "Enumeration-description only", "No new text type", "Poetry only"], "correct_answer": "Time-order texts" },
+          { "question": "What topic connects to next term's texts?", "options": ["Christenings and weddings", "Mealtimes only", "Funerals only", "No topic"], "correct_answer": "Christenings and weddings" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of Term 1 Math!\n\n- **Angles, perimeter, big numbers up to 1,000,000**\n- Four operations with big numbers\n\nGreat term of math learning! 🌟",
+        "quiz": [
+          { "question": "What is a right angle?", "options": ["90°", "Less than 90°", "More than 90°", "0°"], "correct_answer": "90°" },
+          { "question": "What is perimeter?", "options": ["The total distance around a shape", "The space inside a shape", "The number of angles", "The color of a shape"], "correct_answer": "The total distance around a shape" },
+          { "question": "What operations did we practice with big numbers?", "options": ["Addition, subtraction, multiplication, division", "Only addition", "Only division", "None"], "correct_answer": "Addition, subtraction, multiplication, division" },
+          { "question": "Up to what number did we learn to read and write?", "options": ["1,000,000", "1,000", "100", "10"], "correct_answer": "1,000,000" },
+          { "question": "What do we do to check if an answer to a problem is reasonable?", "options": ["Estimate first", "Guess randomly", "Skip the problem", "Ignore the numbers"], "correct_answer": "Estimate first" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Pang-uri** = naglalarawan ng katangian\n- **Pang-abay pamanahon/panlunan** = kailan/saan\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang pang-uri?", "options": ["Naglalarawan ng katangian ng pangngalan", "Naglalarawan ng oras", "Salitang kilos", "Salitang pananong"], "correct_answer": "Naglalarawan ng katangian ng pangngalan" },
+          { "question": "Ano ang pang-abay pamanahon?", "options": ["Naglalarawan kung kailan naganap", "Naglalarawan ng katangian", "Naglalarawan kung saan naganap", "Salitang pananong"], "correct_answer": "Naglalarawan kung kailan naganap" },
+          { "question": "Alin ang halimbawa ng pang-abay panlunan?", "options": ["Dito", "Kahapon", "Maganda", "Bukas"], "correct_answer": "Dito" },
+          { "question": "Alin ang halimbawa ng pang-abay pamanahon?", "options": ["Kahapon", "Dito", "Doon", "Maganda"], "correct_answer": "Kahapon" },
+          { "question": "Ano ang halimbawa ng pang-uring maylapi?", "options": ["Maganda", "Ganda", "Aganda", "Gandaha"], "correct_answer": "Maganda" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Natutunan: lokasyon, teritoryo, heyograpiya, kabuhayan\n- Susunod: **Pambansang Pamahalaan**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa lokasyon ng Pilipinas?", "options": ["Ganap at kaugnay na lokasyon", "Walang natutunan", "Lokasyon lamang ng bahay", "Wala"], "correct_answer": "Ganap at kaugnay na lokasyon" },
+          { "question": "Ano ang epekto ng sobrang pagputol ng puno?", "options": ["Maaaring magdulot ng baha", "Walang epekto", "Nagpapabuti ng kapaligiran", "Wala itong kaugnayan"], "correct_answer": "Maaaring magdulot ng baha" },
+          { "question": "Ano ang pag-aaralan natin sa susunod na termino?", "options": ["Pambansang Pamahalaan", "Wala nang paksa", "Ibang bansa lamang", "Ulap lamang"], "correct_answer": "Pambansang Pamahalaan" },
+          { "question": "Ano ang naaapektuhan ng desisyong pangkabuhayan?", "options": ["Kapaligiran at komunidad", "Wala", "Kulay ng damit lamang", "Bilang ng aso lamang"], "correct_answer": "Kapaligiran at komunidad" },
+          { "question": "Ano ang mga bahagi ng heyograpiyang pisikal na natutunan natin?", "options": ["Anyong-lupa at anyong-tubig", "Populasyon lamang", "Kulay ng bandila", "Wala"], "correct_answer": "Anyong-lupa at anyong-tubig" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: bahagi ng computer, basic operations, kaligtasan online\n- Susunod: **word processing at presentation software**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa mga bahagi ng computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Wala", "Isang bahagi lamang", "Walang natutunan"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
+          { "question": "Ano ang natutunan natin tungkol sa kaligtasan online?", "options": ["Wastong posisyon at panuntunan sa Internet", "Walang natutunan", "Isang bagay lamang", "Wala"], "correct_answer": "Wastong posisyon at panuntunan sa Internet" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Word processing at presentation software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Word processing at presentation software" },
+          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay", "Isang uri ng laro", "Wala"], "correct_answer": "Proseso ng pagsisimula ng computer" },
+          { "question": "Bakit mahalaga ang tamang pagsasanay sa computer?", "options": ["Tumutulong ito maging responsable at ligtas na gumagamit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maging responsable at ligtas na gumagamit" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Natutunan: inventions, chemical properties, body systems, habitats\n- Susunod: **life cycles, food chains, forces**\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which body system helps us breathe?", "options": ["Respiratory system", "Skeletal system", "Digestive system", "Muscular system"], "correct_answer": "Respiratory system" },
+          { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Always hard", "Always shiny"], "correct_answer": "Breaks down naturally" },
+          { "question": "Which habitat type is a water habitat?", "options": ["Aquatic", "Terrestrial", "Aerial", "None"], "correct_answer": "Aquatic" },
+          { "question": "What do inventions do?", "options": ["Improve our daily lives", "Have no purpose", "Only exist in stories", "Make life harder"], "correct_answer": "Improve our daily lives" },
+          { "question": "What will we study next term?", "options": ["Life cycles, food chains, and forces", "Nothing new", "Only inventions again", "Only habitats again"], "correct_answer": "Life cycles, food chains, and forces" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏃 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Patintero, Agawan Base** — invasion games\n- Attacking = advance | Defending = deny space\n\nGreat active term! 🌟",
+        "quiz": [
+          { "question": "What does \"attacking\" mean in invasion games?", "options": ["Creating or moving into space to advance", "Standing still", "Sitting down", "Avoiding the game"], "correct_answer": "Creating or moving into space to advance" },
+          { "question": "What does \"defending\" mean?", "options": ["Denying space to the other team", "Attacking constantly", "Ignoring the game", "Running away"], "correct_answer": "Denying space to the other team" },
+          { "question": "What is Patintero?", "options": ["Crossing lines without being tagged", "A dance", "A song", "A drawing game"], "correct_answer": "Crossing lines without being tagged" },
+          { "question": "What is Agawan Base?", "options": ["Racing to capture the opposing team's base", "A cooking game", "A math game", "A reading game"], "correct_answer": "Racing to capture the opposing team's base" },
+          { "question": "What do traditional games build?", "options": ["Teamwork and quick thinking", "Nothing important", "Only individual skill", "Boredom"], "correct_answer": "Teamwork and quick thinking" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- **Pagdidilig, pagbubungkal, pagpapataba** — pangangalaga ng pananim\n- Tamang pangangalaga = masustansyang ani\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang gawain sa regular na pagbibigay ng tubig?", "options": ["Pagdidilig", "Pagbubungkal", "Pagpapataba", "Pagsugpo sa peste"], "correct_answer": "Pagdidilig" },
+          { "question": "Ano ang pagbubungkal?", "options": ["Pagluluwag ng lupa sa paligid ng ugat", "Pagdidilig ng halaman", "Paglalagay ng pataba", "Pagpuputol ng dahon"], "correct_answer": "Pagluluwag ng lupa sa paligid ng ugat" },
+          { "question": "Bakit naglalagay tayo ng pataba sa pananim?", "options": ["Para sa sustansya ng halaman", "Walang dahilan", "Para lang gumanda", "Para masira ang halaman"], "correct_answer": "Para sa sustansya ng halaman" },
+          { "question": "Bakit dapat regular na tingnan ang paglaki ng pananim?", "options": ["Para masubaybayan ang kalusugan nito", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para masubaybayan ang kalusugan nito" },
+          { "question": "Ano ang resulta ng tamang pangangalaga?", "options": ["Masustansyang ani", "Walang ani", "Nasirang pananim", "Walang resulta"], "correct_answer": "Masustansyang ani" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Mabuting kaugalian: **masayahin, madasalin, masipag**\n- Bahagi ito ng ating pagkakakilanlan bilang Pilipino\n\nIpagmalaki ang pagiging Pilipino! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang mabuting kaugaliang Pilipino?", "options": ["Masayahin", "Palasuko", "Tamad", "Mapaghinala"], "correct_answer": "Masayahin" },
+          { "question": "Ano ang ibig sabihin ng \"madasalin\"?", "options": ["Laging nananalangin", "Ayaw manalangin", "Laging naglalaro", "Laging kumakain"], "correct_answer": "Laging nananalangin" },
+          { "question": "Ano ang ibig sabihin ng \"masipag\"?", "options": ["Laging handang magtrabaho", "Laging tamad", "Ayaw gumalaw", "Laging natutulog"], "correct_answer": "Laging handang magtrabaho" },
+          { "question": "Saan dapat ipakita ang mabuting kaugalian?", "options": ["Sa bahay at paaralan", "Wala kahit saan", "Sa isang lugar lamang", "Kapag may nanonood lamang"], "correct_answer": "Sa bahay at paaralan" },
+          { "question": "Ano ang bahagi ng ating pagkakakilanlan bilang Pilipino?", "options": ["Mabuting kaugalian", "Kawalang-galang", "Katamaran", "Kasinungalingan"], "correct_answer": "Mabuting kaugalian" }
+        ]
+      }
+    }
+  }
+}

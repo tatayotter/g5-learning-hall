@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-06-21",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 1: Enumeration-Description Texts!\n\nLet's learn about a new type of text — enumeration-description! 📋\n\n## 📋 What Is Enumeration-Description?\n- This text type **lists** details about a topic **in the order presented**.\n- **Example:** A text about a birthday party might list: the cake, the games, the guests, the gifts.\n\n## 🍽️ Mealtime and Birthday Vocabulary\n- **Mealtime words:** *breakfast, lunch, dinner, snack, utensils*\n- **Birthday words:** *celebration, guest, decoration, candle*\n\n## 🔍 Finding the Topic\n- The **topic** is what the text is mainly listing details about.\n- **Example:** If a text lists foods served at a fiesta, the topic is \"foods at a fiesta.\"\n\nEnumeration-description helps us organize information clearly! 🌟",
+        "quiz": [
+          { "question": "What does an enumeration-description text do?", "options": ["Lists details in the order presented", "Tells a made-up story", "Asks questions only", "Shows a picture only"], "correct_answer": "Lists details in the order presented" },
+          { "question": "Which is a mealtime word?", "options": ["Utensils", "Celebration", "Candle", "Guest"], "correct_answer": "Utensils" },
+          { "question": "Which is a birthday word?", "options": ["Celebration", "Utensils", "Breakfast", "Dinner"], "correct_answer": "Celebration" },
+          { "question": "What is the topic of a text?", "options": ["What it is mainly listing details about", "The last word only", "The title only", "A character's name"], "correct_answer": "What it is mainly listing details about" },
+          { "question": "If a text lists foods at a fiesta, what is the topic?", "options": ["Foods at a fiesta", "The weather", "A random animal", "A made-up story"], "correct_answer": "Foods at a fiesta" },
+          { "question": "What order does enumeration-description follow?", "options": ["The order the details are presented", "Random order", "Backward order", "No particular order"], "correct_answer": "The order the details are presented" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 1: Angles!\n\nLet's learn about different types of angles! 📐\n\n## 📐 Types of Angles\n- A **right angle** measures exactly **90°** — like the corner of a square.\n- An **acute angle** is **smaller** than 90° — a sharp, narrow angle.\n- An **obtuse angle** is **bigger** than 90° but smaller than 180° — a wide angle.\n\n## 🛠️ Using a Protractor\n- A **protractor** is a tool used to **measure and draw** angles accurately.\n- Line up the protractor's center with the angle's vertex (corner point) to measure it.\n\n## 🔍 Examples\n- The corner of a book is a **right angle**.\n- The hands of a clock at 2:00 form an **acute angle**.\n\nGreat start exploring angles! 🌟",
+        "quiz": [
+          { "question": "How many degrees is a right angle?", "options": ["90°", "45°", "180°", "60°"], "correct_answer": "90°" },
+          { "question": "What is an acute angle?", "options": ["Smaller than 90°", "Exactly 90°", "Bigger than 90°", "Exactly 180°"], "correct_answer": "Smaller than 90°" },
+          { "question": "What is an obtuse angle?", "options": ["Bigger than 90° but smaller than 180°", "Smaller than 90°", "Exactly 90°", "Exactly 0°"], "correct_answer": "Bigger than 90° but smaller than 180°" },
+          { "question": "What tool measures and draws angles?", "options": ["Protractor", "Ruler only", "Calculator", "Compass"], "correct_answer": "Protractor" },
+          { "question": "The corner of a book is what type of angle?", "options": ["Right angle", "Acute angle", "Obtuse angle", "Not an angle"], "correct_answer": "Right angle" },
+          { "question": "What point should the protractor's center line up with?", "options": ["The angle's vertex (corner point)", "The angle's midpoint", "The edge only", "It doesn't matter"], "correct_answer": "The angle's vertex (corner point)" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 1: Alamat\n\nAlamin natin ang mga alamat at ang kanilang mga pangyayari! 📖\n\n## 📖 Ano ang Alamat?\n- Ang **alamat** ay kwentong nagpapaliwanag sa pinagmulan ng isang bagay, hal. isang bundok, isla, o hayop.\n- **Halimbawa:** Ang \"Alamat ng Pinya\" ay nagpapaliwanag kung paano nagsimula ang prutas na pinya.\n\n## 🔢 Pagsunod-sunod ng mga Pangyayari\n- Ang alamat ay may **anim o higit pang pangyayari** na dapat masunod nang tama.\n\n## 🎵 Onomatopeya\n- Ang **onomatopeya** ay tayutay na gumagaya sa tunog, tulad ng *\"kaluskos\"* o *\"putok.\"*\n\nMahalaga ang alamat sa ating kultura at kasaysayan! 🌟",
+        "quiz": [
+          { "question": "Ano ang alamat?", "options": ["Kwentong nagpapaliwanag sa pinagmulan ng isang bagay", "Balitang pang-araw-araw", "Isang tula lamang", "Isang liham"], "correct_answer": "Kwentong nagpapaliwanag sa pinagmulan ng isang bagay" },
+          { "question": "Alin ang halimbawa ng alamat?", "options": ["Alamat ng Pinya", "Balita ngayong araw", "Liham pangkaibigan", "Resipe ng adobo"], "correct_answer": "Alamat ng Pinya" },
+          { "question": "Ilang pangyayari ang dapat masunod nang tama sa alamat?", "options": ["Anim o higit pa", "Isa lamang", "Dalawa lamang", "Wala"], "correct_answer": "Anim o higit pa" },
+          { "question": "Ano ang onomatopeya?", "options": ["Tayutay na gumagaya sa tunog", "Salitang naglalarawan", "Salitang kilos", "Salitang pananong"], "correct_answer": "Tayutay na gumagaya sa tunog" },
+          { "question": "Alin ang halimbawa ng onomatopeya?", "options": ["Kaluskos", "Maganda", "Tumakbo", "Ako"], "correct_answer": "Kaluskos" },
+          { "question": "Bakit mahalaga ang alamat?", "options": ["Bahagi ito ng ating kultura at kasaysayan", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Bahagi ito ng ating kultura at kasaysayan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 1: Science Inventions!\n\nLet's learn about scientists and their amazing inventions! 💡\n\n## 👨‍🔬 Famous Filipino and Foreign Scientists\n- **Filipino inventor:** Roberto del Rosario invented the **karaoke sing-along system**.\n- **Foreign inventor:** Thomas Edison invented the **electric light bulb**.\n\n## 🏠 Inventions at Home and Community\n- Look around — inventions like the **refrigerator, telephone, and bicycle** all improve our daily lives.\n\n## 🔍 Why Study Inventions?\n- Understanding inventions helps us appreciate **science's impact** on everyday life.\n\nWhat invention would you like to create someday? 🌟",
+        "quiz": [
+          { "question": "What did Roberto del Rosario invent?", "options": ["The karaoke sing-along system", "The light bulb", "The telephone", "The bicycle"], "correct_answer": "The karaoke sing-along system" },
+          { "question": "What did Thomas Edison invent?", "options": ["The electric light bulb", "The karaoke system", "The bicycle", "The refrigerator"], "correct_answer": "The electric light bulb" },
+          { "question": "Which of these is an invention that helps at home?", "options": ["Refrigerator", "A rock", "A cloud", "A leaf"], "correct_answer": "Refrigerator" },
+          { "question": "Why do we study inventions?", "options": ["To appreciate science's impact on daily life", "For no reason", "To forget about science", "To avoid using them"], "correct_answer": "To appreciate science's impact on daily life" },
+          { "question": "Roberto del Rosario is what nationality?", "options": ["Filipino", "American", "British", "Japanese"], "correct_answer": "Filipino" },
+          { "question": "Which invention helps us travel?", "options": ["Bicycle", "Refrigerator", "Light bulb", "Karaoke"], "correct_answer": "Bicycle" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 1: Lokasyon ng Pilipinas\n\nAlamin natin kung saan matatagpuan ang ating bansa! 🌏\n\n## 🌏 Ganap na Lokasyon (Absolute Location)\n- Ang Pilipinas ay matatagpuan sa pagitan ng **4°N hanggang 21°N latitude** at **116°E hanggang 127°E longitude**.\n\n## 🧭 Kaugnay na Lokasyon (Relative Location)\n- Ang Pilipinas ay nasa **Timog-Silangang Asya**, katabi ng Taiwan, Vietnam, at Malaysia.\n\n## 🔍 Bakit Mahalaga ang Lokasyon?\n- Nakaaapekto ang lokasyon sa **klima, kalakalan, at kultura** ng bansa.\n\nMahalaga ang ating lokasyon sa mundo! 🇵🇭",
+        "quiz": [
+          { "question": "Nasaan ang Pilipinas?", "options": ["Timog-Silangang Asya", "Hilagang Amerika", "Europa", "Aprika"], "correct_answer": "Timog-Silangang Asya" },
+          { "question": "Ano ang tawag sa eksaktong lokasyon gamit ang latitude at longitude?", "options": ["Ganap na lokasyon", "Kaugnay na lokasyon", "Walang lokasyon", "Lokasyon ng bahay"], "correct_answer": "Ganap na lokasyon" },
+          { "question": "Ano ang tawag sa lokasyon batay sa kalapit na bansa?", "options": ["Kaugnay na lokasyon", "Ganap na lokasyon", "Walang lokasyon", "Lokasyon ng silid"], "correct_answer": "Kaugnay na lokasyon" },
+          { "question": "Alin ang bansang katabi ng Pilipinas?", "options": ["Taiwan", "Estados Unidos", "Espanya", "Canada"], "correct_answer": "Taiwan" },
+          { "question": "Ano ang naaapektuhan ng lokasyon ng isang bansa?", "options": ["Klima, kalakalan, at kultura", "Wala", "Kulay ng bahay lamang", "Bilang ng aso"], "correct_answer": "Klima, kalakalan, at kultura" },
+          { "question": "Bakit mahalaga malaman ang lokasyon ng ating bansa?", "options": ["Tumutulong ito maunawaan ang ating katangian bilang bansa", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito maunawaan ang ating katangian bilang bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 1: Bakit Mahalaga ang Computer?\n\nAlamin natin kung bakit mahalaga ang computer sa ating buhay! 🖥️\n\n## 💡 Kahalagahan ng Computer\n- Tumutulong ang computer sa **trabaho, pag-aaral, komunikasyon, at aliwan**.\n- Ginagamit ito sa bahay, paaralan, at negosyo.\n\n## 📱 Iba Pang Computing Devices\n- **Laptop, tablet, smartphone** — lahat ng ito ay uri ng computing device.\n\n## 🔍 Halimbawa sa Pang-araw-araw na Buhay\n- Ginagamit ang computer para gumawa ng proyekto, mag-video call sa pamilya, at maghanap ng impormasyon.\n\nMahalaga ang computer sa modernong buhay! 🌟",
+        "quiz": [
+          { "question": "Ano ang tumutulong sa trabaho, pag-aaral, at aliwan?", "options": ["Computer", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Computer" },
+          { "question": "Alin ang isa pang uri ng computing device?", "options": ["Tablet", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Tablet" },
+          { "question": "Saan ginagamit ang computer?", "options": ["Bahay, paaralan, at negosyo", "Wala kahit saan", "Ilalim ng dagat lamang", "Kalawakan lamang"], "correct_answer": "Bahay, paaralan, at negosyo" },
+          { "question": "Ano ang halimbawa ng gamit ng computer?", "options": ["Paggawa ng proyekto", "Pagtulog", "Paglangoy", "Pagkain"], "correct_answer": "Paggawa ng proyekto" },
+          { "question": "Alin ang uri ng computing device na maaaring dalhin kahit saan?", "options": ["Smartphone", "Desktop lamang", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Bakit mahalaga ang computer sa modernong buhay?", "options": ["Tumutulong ito sa maraming gawain", "Walang gamit", "Para lang sa laro", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa maraming gawain" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Week 1: Timbre and Dynamics!\n\nLet's explore the sounds of music! 🎶\n\n## 🎤 Timbre\n- **Timbre** is the unique quality or \"color\" of a sound that lets us tell instruments or voices apart.\n- **Example:** A guitar and a piano playing the same note still sound different — that's timbre!\n\n## 🔊 Dynamics\n- **Dynamics** refer to how **loud or soft** music is played.\n- **Example:** *Forte* means loud; *piano* means soft.\n\n## 🎵 Listening Practice\n- Listen to a local song and try to identify the **instruments** (timbre) and **loudness changes** (dynamics).\n\nMusic is all around us — listen closely! 🌟",
+        "quiz": [
+          { "question": "What is timbre?", "options": ["The unique quality or \"color\" of a sound", "How loud music is", "The speed of music", "The rhythm of music"], "correct_answer": "The unique quality or \"color\" of a sound" },
+          { "question": "What are dynamics in music?", "options": ["How loud or soft music is", "The instruments used", "The title of a song", "The composer's name"], "correct_answer": "How loud or soft music is" },
+          { "question": "What does \"forte\" mean?", "options": ["Loud", "Soft", "Fast", "Slow"], "correct_answer": "Loud" },
+          { "question": "What does \"piano\" (as a dynamic) mean?", "options": ["Soft", "Loud", "Fast", "Slow"], "correct_answer": "Soft" },
+          { "question": "Why do a guitar and piano sound different playing the same note?", "options": ["Because of timbre", "Because of dynamics only", "They actually sound the same", "Because of tempo"], "correct_answer": "Because of timbre" },
+          { "question": "What can we identify by listening to a local song?", "options": ["Instruments and loudness changes", "Nothing at all", "Only the title", "Only the singer's name"], "correct_answer": "Instruments and loudness changes" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 1: Kahulugan ng Agrikultura\n\nAlamin natin ang kahulugan ng agrikultura at ang mga sangay nito! 🌾\n\n## 🌾 Ano ang Agrikultura?\n- Ang **agrikultura** ay ang siyensya at sining ng pagtatanim at pag-aalaga ng halaman at hayop para sa pagkain at kita.\n\n## 🌿 Mga Sangay ng Agrikultura\n- **Agronomy** — pagtatanim ng mga pananim tulad ng palay at mais\n- **Horticulture** — pagtatanim ng halamang ornamental, gulay, at prutas\n- **Forestry** — pangangalaga sa mga kagubatan at puno\n\n## 🌱 Pamamaraan ng Pagtatanim\n- **Natural/organikong pagtatanim** — walang kemikal na pataba\n- **Intercropping** — magkasamang pagtatanim ng iba't ibang pananim\n\nMahalaga ang agrikultura sa ating pagkain at ekonomiya! 🌟",
+        "quiz": [
+          { "question": "Ano ang agrikultura?", "options": ["Siyensya at sining ng pagtatanim at pag-aalaga ng halaman at hayop", "Isang uri ng laro", "Isang uri ng musika", "Isang uri ng sayaw"], "correct_answer": "Siyensya at sining ng pagtatanim at pag-aalaga ng halaman at hayop" },
+          { "question": "Aling sangay ang tungkol sa pagtatanim ng palay at mais?", "options": ["Agronomy", "Horticulture", "Forestry", "Walang tama"], "correct_answer": "Agronomy" },
+          { "question": "Aling sangay ang tungkol sa halamang ornamental at gulay?", "options": ["Horticulture", "Agronomy", "Forestry", "Walang tama"], "correct_answer": "Horticulture" },
+          { "question": "Aling sangay ang tungkol sa pangangalaga sa kagubatan?", "options": ["Forestry", "Agronomy", "Horticulture", "Walang tama"], "correct_answer": "Forestry" },
+          { "question": "Ano ang intercropping?", "options": ["Magkasamang pagtatanim ng iba't ibang pananim", "Isang uri ng hayop", "Isang uri ng lupa", "Isang kasangkapan"], "correct_answer": "Magkasamang pagtatanim ng iba't ibang pananim" },
+          { "question": "Bakit mahalaga ang agrikultura?", "options": ["Mahalaga ito sa ating pagkain at ekonomiya", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Mahalaga ito sa ating pagkain at ekonomiya" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 1: Sariling Kakayahang Mag-isip\n\nAlamin natin ang natatanging kakayahan ng bawat tao! 🌟\n\n## 🧠 Sariling Kakayahang Mag-isip at Magmahal\n- Bawat tao ay may kakayahang **mag-isip, magpasiya, at umunawa ng damdamin ng iba** — natatangi ito sa tao.\n- Walang ibang nilalang na may ganitong kakayahan.\n\n## 💛 Pagpapahalaga sa Sarili\n- Ipagmalaki ang ating **kakayahang mag-isip** at gamitin ito para sa mabuti.\n\n## 🔍 Halimbawa\n- Kapag nagpasya kang tumulong sa kaklase, ginagamit mo ang iyong kakayahang mag-isip at magmahal.\n\nIkaw ay natatanging nilikha ng Diyos! 🌟",
+        "quiz": [
+          { "question": "Ano ang natatangi sa tao?", "options": ["Kakayahang mag-isip, magpasiya, at umunawa ng damdamin", "Kakayahang lumipad", "Kakayahang lumangoy", "Kakayahang tumakbo nang mabilis"], "correct_answer": "Kakayahang mag-isip, magpasiya, at umunawa ng damdamin" },
+          { "question": "Sino pa ang may ganitong kakayahan bukod sa tao?", "options": ["Walang iba", "Lahat ng hayop", "Lahat ng halaman", "Lahat ng bagay"], "correct_answer": "Walang iba" },
+          { "question": "Ano ang dapat gawin sa ating kakayahang mag-isip?", "options": ["Gamitin ito para sa mabuti", "Itago ito", "Kalimutan ito", "Gamitin para sa masama"], "correct_answer": "Gamitin ito para sa mabuti" },
+          { "question": "Ano ang halimbawa ng paggamit ng kakayahang magmahal?", "options": ["Tumulong sa kaklase", "Pananakit sa iba", "Pagsisinungaling", "Kawalang-interes"], "correct_answer": "Tumulong sa kaklase" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagpapahalaga sa Sarili", "Katapatan", "Pagtitipid", "Kasipagan"], "correct_answer": "Pagpapahalaga sa Sarili" },
+          { "question": "Bakit dapat ipagmalaki ang ating kakayahang mag-isip?", "options": ["Natatangi ito sa tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Natatangi ito sa tao" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of enumeration-description!\n\n- **Enumeration-description** lists details in order\n- Mealtime words: *utensils, breakfast*\n- Birthday words: *celebration, candle*\n\nGreat first week! ⭐",
+        "quiz": [
+          { "question": "What does an enumeration-description text do?", "options": ["Lists details in the order presented", "Tells a made-up story", "Asks questions only", "Shows a picture only"], "correct_answer": "Lists details in the order presented" },
+          { "question": "Which is a mealtime word?", "options": ["Utensils", "Celebration", "Candle", "Guest"], "correct_answer": "Utensils" },
+          { "question": "Which is a birthday word?", "options": ["Celebration", "Utensils", "Breakfast", "Dinner"], "correct_answer": "Celebration" },
+          { "question": "What is the topic of a text?", "options": ["What it is mainly listing details about", "The last word only", "The title only", "A character's name"], "correct_answer": "What it is mainly listing details about" },
+          { "question": "What order does enumeration-description follow?", "options": ["The order the details are presented", "Random order", "Backward order", "No particular order"], "correct_answer": "The order the details are presented" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of angles!\n\n- **Right angle** = 90° | **Acute** = less than 90° | **Obtuse** = more than 90°\n- A **protractor** measures angles\n\nGreat angle exploration! 🌟",
+        "quiz": [
+          { "question": "How many degrees is a right angle?", "options": ["90°", "45°", "180°", "60°"], "correct_answer": "90°" },
+          { "question": "What is an acute angle?", "options": ["Smaller than 90°", "Exactly 90°", "Bigger than 90°", "Exactly 180°"], "correct_answer": "Smaller than 90°" },
+          { "question": "What is an obtuse angle?", "options": ["Bigger than 90° but smaller than 180°", "Smaller than 90°", "Exactly 90°", "Exactly 0°"], "correct_answer": "Bigger than 90° but smaller than 180°" },
+          { "question": "What tool measures and draws angles?", "options": ["Protractor", "Ruler only", "Calculator", "Compass"], "correct_answer": "Protractor" },
+          { "question": "The corner of a book is what type of angle?", "options": ["Right angle", "Acute angle", "Obtuse angle", "Not an angle"], "correct_answer": "Right angle" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Alamat** = kwento tungkol sa pinagmulan ng isang bagay\n- **Onomatopeya** = tayutay na gumagaya sa tunog\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang alamat?", "options": ["Kwentong nagpapaliwanag sa pinagmulan ng isang bagay", "Balitang pang-araw-araw", "Isang tula lamang", "Isang liham"], "correct_answer": "Kwentong nagpapaliwanag sa pinagmulan ng isang bagay" },
+          { "question": "Alin ang halimbawa ng alamat?", "options": ["Alamat ng Pinya", "Balita ngayong araw", "Liham pangkaibigan", "Resipe ng adobo"], "correct_answer": "Alamat ng Pinya" },
+          { "question": "Ano ang onomatopeya?", "options": ["Tayutay na gumagaya sa tunog", "Salitang naglalarawan", "Salitang kilos", "Salitang pananong"], "correct_answer": "Tayutay na gumagaya sa tunog" },
+          { "question": "Alin ang halimbawa ng onomatopeya?", "options": ["Kaluskos", "Maganda", "Tumakbo", "Ako"], "correct_answer": "Kaluskos" },
+          { "question": "Bakit mahalaga ang alamat?", "options": ["Bahagi ito ng ating kultura at kasaysayan", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Bahagi ito ng ating kultura at kasaysayan" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Nasa **Timog-Silangang Asya** ang Pilipinas\n- **Ganap na lokasyon** = latitude/longitude | **Kaugnay** = kalapit bansa\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Nasaan ang Pilipinas?", "options": ["Timog-Silangang Asya", "Hilagang Amerika", "Europa", "Aprika"], "correct_answer": "Timog-Silangang Asya" },
+          { "question": "Ano ang tawag sa eksaktong lokasyon gamit ang latitude at longitude?", "options": ["Ganap na lokasyon", "Kaugnay na lokasyon", "Walang lokasyon", "Lokasyon ng bahay"], "correct_answer": "Ganap na lokasyon" },
+          { "question": "Alin ang bansang katabi ng Pilipinas?", "options": ["Taiwan", "Estados Unidos", "Espanya", "Canada"], "correct_answer": "Taiwan" },
+          { "question": "Ano ang naaapektuhan ng lokasyon ng isang bansa?", "options": ["Klima, kalakalan, at kultura", "Wala", "Kulay ng bahay lamang", "Bilang ng aso"], "correct_answer": "Klima, kalakalan, at kultura" },
+          { "question": "Ano ang tawag sa lokasyon batay sa kalapit na bansa?", "options": ["Kaugnay na lokasyon", "Ganap na lokasyon", "Walang lokasyon", "Lokasyon ng silid"], "correct_answer": "Kaugnay na lokasyon" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Tumutulong ang computer sa **trabaho, pag-aaral, komunikasyon, aliwan**\n- Uri ng computing devices: **laptop, tablet, smartphone**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang tumutulong sa trabaho, pag-aaral, at aliwan?", "options": ["Computer", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Computer" },
+          { "question": "Alin ang isa pang uri ng computing device?", "options": ["Tablet", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Tablet" },
+          { "question": "Saan ginagamit ang computer?", "options": ["Bahay, paaralan, at negosyo", "Wala kahit saan", "Ilalim ng dagat lamang", "Kalawakan lamang"], "correct_answer": "Bahay, paaralan, at negosyo" },
+          { "question": "Alin ang uri ng computing device na maaaring dalhin kahit saan?", "options": ["Smartphone", "Desktop lamang", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Bakit mahalaga ang computer sa modernong buhay?", "options": ["Tumutulong ito sa maraming gawain", "Walang gamit", "Para lang sa laro", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa maraming gawain" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Roberto del Rosario** — karaoke | **Thomas Edison** — light bulb\n- Inventions like refrigerators improve our lives\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What did Roberto del Rosario invent?", "options": ["The karaoke sing-along system", "The light bulb", "The telephone", "The bicycle"], "correct_answer": "The karaoke sing-along system" },
+          { "question": "What did Thomas Edison invent?", "options": ["The electric light bulb", "The karaoke system", "The bicycle", "The refrigerator"], "correct_answer": "The electric light bulb" },
+          { "question": "Which of these is an invention that helps at home?", "options": ["Refrigerator", "A rock", "A cloud", "A leaf"], "correct_answer": "Refrigerator" },
+          { "question": "Why do we study inventions?", "options": ["To appreciate science's impact on daily life", "For no reason", "To forget about science", "To avoid using them"], "correct_answer": "To appreciate science's impact on daily life" },
+          { "question": "Roberto del Rosario is what nationality?", "options": ["Filipino", "American", "British", "Japanese"], "correct_answer": "Filipino" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Timbre** = unique sound quality | **Dynamics** = loud/soft\n- **Forte** = loud | **Piano** = soft\n\nGreat music exploration! 🌟",
+        "quiz": [
+          { "question": "What is timbre?", "options": ["The unique quality or \"color\" of a sound", "How loud music is", "The speed of music", "The rhythm of music"], "correct_answer": "The unique quality or \"color\" of a sound" },
+          { "question": "What are dynamics in music?", "options": ["How loud or soft music is", "The instruments used", "The title of a song", "The composer's name"], "correct_answer": "How loud or soft music is" },
+          { "question": "What does \"forte\" mean?", "options": ["Loud", "Soft", "Fast", "Slow"], "correct_answer": "Loud" },
+          { "question": "What does \"piano\" (as a dynamic) mean?", "options": ["Soft", "Loud", "Fast", "Slow"], "correct_answer": "Soft" },
+          { "question": "Why do a guitar and piano sound different playing the same note?", "options": ["Because of timbre", "Because of dynamics only", "They actually sound the same", "Because of tempo"], "correct_answer": "Because of timbre" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- **Agrikultura** = siyensya ng pagtatanim at pag-aalaga\n- **Agronomy, Horticulture, Forestry** — mga sangay nito\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang agrikultura?", "options": ["Siyensya at sining ng pagtatanim at pag-aalaga ng halaman at hayop", "Isang uri ng laro", "Isang uri ng musika", "Isang uri ng sayaw"], "correct_answer": "Siyensya at sining ng pagtatanim at pag-aalaga ng halaman at hayop" },
+          { "question": "Aling sangay ang tungkol sa pagtatanim ng palay at mais?", "options": ["Agronomy", "Horticulture", "Forestry", "Walang tama"], "correct_answer": "Agronomy" },
+          { "question": "Aling sangay ang tungkol sa halamang ornamental at gulay?", "options": ["Horticulture", "Agronomy", "Forestry", "Walang tama"], "correct_answer": "Horticulture" },
+          { "question": "Aling sangay ang tungkol sa pangangalaga sa kagubatan?", "options": ["Forestry", "Agronomy", "Horticulture", "Walang tama"], "correct_answer": "Forestry" },
+          { "question": "Ano ang intercropping?", "options": ["Magkasamang pagtatanim ng iba't ibang pananim", "Isang uri ng hayop", "Isang uri ng lupa", "Isang kasangkapan"], "correct_answer": "Magkasamang pagtatanim ng iba't ibang pananim" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Natatangi sa tao ang kakayahang **mag-isip, magpasiya, magmahal**\n- Gamitin ito para sa mabuti\n\nIkaw ay natatangi! 🌟",
+        "quiz": [
+          { "question": "Ano ang natatangi sa tao?", "options": ["Kakayahang mag-isip, magpasiya, at umunawa ng damdamin", "Kakayahang lumipad", "Kakayahang lumangoy", "Kakayahang tumakbo nang mabilis"], "correct_answer": "Kakayahang mag-isip, magpasiya, at umunawa ng damdamin" },
+          { "question": "Ano ang dapat gawin sa ating kakayahang mag-isip?", "options": ["Gamitin ito para sa mabuti", "Itago ito", "Kalimutan ito", "Gamitin para sa masama"], "correct_answer": "Gamitin ito para sa mabuti" },
+          { "question": "Ano ang halimbawa ng paggamit ng kakayahang magmahal?", "options": ["Tumulong sa kaklase", "Pananakit sa iba", "Pagsisinungaling", "Kawalang-interes"], "correct_answer": "Tumulong sa kaklase" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagpapahalaga sa Sarili", "Katapatan", "Pagtitipid", "Kasipagan"], "correct_answer": "Pagpapahalaga sa Sarili" },
+          { "question": "Bakit dapat ipagmalaki ang ating kakayahang mag-isip?", "options": ["Natatangi ito sa tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Natatangi ito sa tao" }
+        ]
+      }
+    }
+  }
+}

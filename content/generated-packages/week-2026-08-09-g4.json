@@ -1,0 +1,216 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-08-09",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 8: Putting It All Together!\n\nLet's combine everything we've learned about writing! ✍️\n\n## ✍️ Writing a Complete Piece\n- Combine an **enumeration-description** paragraph with a **friendly letter** to describe a celebration.\n- **Example:** Describe a birthday party (list details), then write an invitation letter for it.\n\n## 📋 Checklist for Good Writing\n- Does it have a clear **topic sentence**?\n- Are details listed **in order**?\n- Does the letter have all **4 parts** (heading, salutation, body, closing)?\n\n## 🔍 Peer Review\n- Swap your writing with a partner and check each other's work!\n\nGreat writers always review and improve their work! 🌟",
+        "quiz": [
+          { "question": "What should you combine to describe a celebration?", "options": ["Enumeration-description and a friendly letter", "Only pictures", "Only numbers", "Nothing at all"], "correct_answer": "Enumeration-description and a friendly letter" },
+          { "question": "What should good writing include?", "options": ["A clear topic sentence", "Random unrelated facts", "No punctuation", "Only one word"], "correct_answer": "A clear topic sentence" },
+          { "question": "How many parts does a friendly letter have?", "options": ["4", "2", "6", "1"], "correct_answer": "4" },
+          { "question": "What is peer review?", "options": ["Swapping writing to check each other's work", "Writing alone with no feedback", "Ignoring mistakes", "Copying a partner's work exactly"], "correct_answer": "Swapping writing to check each other's work" },
+          { "question": "Why is peer review helpful?", "options": ["It helps improve writing", "It has no benefit", "It wastes time", "It confuses the writer"], "correct_answer": "It helps improve writing" },
+          { "question": "How should details be listed in enumeration-description writing?", "options": ["In order", "Randomly", "Never listed", "Backward only"], "correct_answer": "In order" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 7: Multi-Step Problems and Division!\n\nLet's solve problems with multiple steps! 🧮\n\n## 🧮 Multi-Step Word Problems\n- Some problems need **more than one operation** to solve.\n- **Example:** Maria buys 3 bags of rice at ₱450 each, then sells them for ₱600 each. Her profit is (600-450) × 3 = **₱450**\n\n## ➗ Division\n- Divide 3- to 4-digit numbers by 1-digit numbers, and 2- to 3-digit numbers by 2-digit numbers.\n- **Example:** 936 ÷ 4 = **234**\n\n## 🔍 Estimating Quotients\n- Round the divisor and dividend to the nearest 10 to estimate first.\n\nGreat multi-step problem solving! 🌟",
+        "quiz": [
+          { "question": "What is 936 ÷ 4?", "options": ["234", "224", "244", "204"], "correct_answer": "234" },
+          { "question": "What makes a problem \"multi-step\"?", "options": ["It needs more than one operation", "It only needs addition", "It has no numbers", "It is always easy"], "correct_answer": "It needs more than one operation" },
+          { "question": "How do we estimate a quotient?", "options": ["Round divisor and dividend to nearest 10", "Guess randomly", "Skip the problem", "Multiply instead"], "correct_answer": "Round divisor and dividend to nearest 10" },
+          { "question": "Maria buys rice for ₱450 and sells for ₱600. What is her profit per bag?", "options": ["₱150", "₱450", "₱600", "₱1,050"], "correct_answer": "₱150" },
+          { "question": "What is 848 ÷ 8?", "options": ["106", "116", "96", "126"], "correct_answer": "106" },
+          { "question": "What operation is the opposite of multiplication?", "options": ["Division", "Addition", "Subtraction", "None"], "correct_answer": "Division" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 7: Pangngalan at Panghalip\n\nAlamin natin ang uri ng pangngalan at panghalip! 📝\n\n## 🏷️ Uri ng Pangngalan\n- **Pantangi** — tiyak na pangalan (nagsisimula sa malaking titik): *Maria, Maynila*\n- **Pambalana** — pangkalahatang pangalan: *bata, lungsod*\n\n## 👤 Panghalip\n- **Panao** — pumapalit sa pangalan ng tao: *ako, ikaw, siya*\n- **Pamatlig** — pumapalit sa pangalan ng bagay: *ito, iyan, iyon*\n\n## 🔍 Halimbawa\n- Sa \"Si Ana ay nag-aral\", *Ana* ay pangngalang pantangi.\n\nMahusay na gamitin ang pangngalan at panghalip! 🌟",
+        "quiz": [
+          { "question": "Ano ang pangngalang pantangi?", "options": ["Tiyak na pangalan, nagsisimula sa malaking titik", "Pangkalahatang pangalan", "Salitang kilos", "Salitang naglalarawan"], "correct_answer": "Tiyak na pangalan, nagsisimula sa malaking titik" },
+          { "question": "Ano ang pangngalang pambalana?", "options": ["Pangkalahatang pangalan", "Tiyak na pangalan", "Salitang kilos", "Salitang pananong"], "correct_answer": "Pangkalahatang pangalan" },
+          { "question": "Alin ang halimbawa ng pangngalang pantangi?", "options": ["Maria", "Bata", "Lungsod", "Guro"], "correct_answer": "Maria" },
+          { "question": "Ano ang panghalip panao?", "options": ["Pumapalit sa pangalan ng tao", "Pumapalit sa pangalan ng bagay", "Salitang kilos", "Salitang naglalarawan"], "correct_answer": "Pumapalit sa pangalan ng tao" },
+          { "question": "Alin ang halimbawa ng panghalip panao?", "options": ["Ako", "Ito", "Iyan", "Iyon"], "correct_answer": "Ako" },
+          { "question": "Alin ang halimbawa ng panghalip pamatlig?", "options": ["Ito", "Ako", "Ikaw", "Siya"], "correct_answer": "Ito" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 8: Habitats of Plants and Animals!\n\nLet's classify where plants and animals live! 🏞️\n\n## 🏞️ Types of Habitats\n- **Terrestrial** — land habitats, like forests and grasslands\n- **Aquatic** — water habitats, like rivers and oceans\n- **Aerial** — air habitats, where birds and insects fly\n\n## 🐾 Philippine Habitats\n- **Rice field** — home to frogs, snails, and rice plants\n- **Mangrove swamp** — home to crabs, fish, and mangrove trees\n\n## 🔍 Why Habitats Matter\n- Each habitat provides what plants and animals need to **survive**.\n\nEvery habitat is a special home! 🌟",
+        "quiz": [
+          { "question": "What is a terrestrial habitat?", "options": ["A land habitat", "A water habitat", "An air habitat", "Not a real habitat"], "correct_answer": "A land habitat" },
+          { "question": "What is an aquatic habitat?", "options": ["A water habitat", "A land habitat", "An air habitat", "Not a real habitat"], "correct_answer": "A water habitat" },
+          { "question": "What animals live in a rice field?", "options": ["Frogs and snails", "Only birds", "Only fish", "Only insects"], "correct_answer": "Frogs and snails" },
+          { "question": "What lives in a mangrove swamp?", "options": ["Crabs, fish, and mangrove trees", "Only desert animals", "Only mountain animals", "Nothing lives there"], "correct_answer": "Crabs, fish, and mangrove trees" },
+          { "question": "What does a habitat provide for living things?", "options": ["What they need to survive", "Nothing important", "Only danger", "Only noise"], "correct_answer": "What they need to survive" },
+          { "question": "Which habitat is where birds and insects fly?", "options": ["Aerial", "Terrestrial", "Aquatic", "None"], "correct_answer": "Aerial" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 8: Heograpiya at Pamumuhay\n\nAlamin natin kung paano nakaaapekto ang heograpiya sa ating pamumuhay! 🏘️\n\n## 🏔️ Epekto ng Heograpiya sa Kabuhayan\n- Ang taong nakatira malapit sa **dagat** ay karaniwang mangingisda.\n- Ang taong nakatira sa **kabundukan** ay maaaring magsaka ng gulay.\n\n## 🌦️ Epekto sa Pamumuhay\n- Ang klima at lupa ay nakaaapekto sa **uri ng bahay, damit, at pagkain**.\n\n## 🔍 Halimbawa\n- Sa mga lugar na maulan, may mga bahay na may matarik na bubong upang hindi bumaha ang tubig.\n\nMalaki ang naitutulong ng heograpiya sa ating pamumuhay! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang karaniwang hanapbuhay ng taong malapit sa dagat?", "options": ["Mangingisda", "Magsasaka", "Doktor", "Guro"], "correct_answer": "Mangingisda" },
+          { "question": "Ano ang karaniwang hanapbuhay sa kabundukan?", "options": ["Pagsasaka ng gulay", "Pangingisda", "Turismo lamang", "Wala"], "correct_answer": "Pagsasaka ng gulay" },
+          { "question": "Ano ang naaapektuhan ng klima at lupa?", "options": ["Uri ng bahay, damit, at pagkain", "Wala", "Kulay ng langit lamang", "Bilang ng bituin"], "correct_answer": "Uri ng bahay, damit, at pagkain" },
+          { "question": "Bakit may matarik na bubong ang mga bahay sa maulang lugar?", "options": ["Para hindi bumaha ang tubig", "Walang dahilan", "Para gumanda lamang", "Para lang sundin ang uso"], "correct_answer": "Para hindi bumaha ang tubig" },
+          { "question": "Paano nakaaapekto ang heograpiya sa pamumuhay?", "options": ["Nakaaapekto ito sa hanapbuhay at pamumuhay", "Walang epekto", "Naaapektuhan lang ang panahon", "Wala itong kaugnayan"], "correct_answer": "Nakaaapekto ito sa hanapbuhay at pamumuhay" },
+          { "question": "Bakit mahalagang pag-aralan ang ugnayan ng heograpiya at pamumuhay?", "options": ["Tumutulong ito maunawaan ang ating bansa", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito maunawaan ang ating bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Kaligtasan sa Internet!\n\nAlamin natin ang mga panuntunan sa ligtas na paggamit ng Internet! 🛡️\n\n## 🛡️ Mga Panuntunang Pangkaligtasan\n- Huwag ibahagi ang **personal na impormasyon** online (pangalan, address, password).\n- Humingi ng **pahintulot ng magulang** bago mag-download o mag-sign up sa isang site.\n\n## 🚫 Pag-iwas sa Panganib Online\n- Iwasan ang pag-click sa **kahina-hinalang link** o mensahe mula sa estranghero.\n\n## 🔍 Kung May Problema\n- Palaging sabihin sa **pinagkakatiwalaang adult** kung may nakita kang kakaiba online.\n\nMaging matalino at ligtas sa paggamit ng Internet! 🌟",
+        "quiz": [
+          { "question": "Ano ang hindi dapat ibahagi online?", "options": ["Personal na impormasyon", "Larawan ng paboritong hayop", "Kulay ng gusto", "Pangalan ng bansa"], "correct_answer": "Personal na impormasyon" },
+          { "question": "Kanino dapat humingi ng pahintulot bago mag-download?", "options": ["Magulang", "Estranghero", "Walang sinuman", "Kaibigan sa online"], "correct_answer": "Magulang" },
+          { "question": "Ano ang dapat iwasan online?", "options": ["Kahina-hinalang link", "Ligtas na website", "Aralin sa paaralan", "Larong pang-edukasyon"], "correct_answer": "Kahina-hinalang link" },
+          { "question": "Ano ang dapat gawin kung may nakita kang kakaiba online?", "options": ["Sabihin sa pinagkakatiwalaang adult", "Itago ito", "Balewalain", "I-click ito"], "correct_answer": "Sabihin sa pinagkakatiwalaang adult" },
+          { "question": "Bakit mahalaga ang mga panuntunang pangkaligtasan sa Internet?", "options": ["Iniingatan nito tayo sa panganib online", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito tayo sa panganib online" },
+          { "question": "Ano ang halimbawa ng personal na impormasyon?", "options": ["Address", "Paboritong kulay", "Paboritong laro", "Paboritong pagkain"], "correct_answer": "Address" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏃 MAPEH — Week 7: Target Games!\n\nLet's play traditional Filipino target games! 🎯\n\n## 🎯 Target Game Concepts\n- **Positioning** — where you stand to aim well\n- **Sending/propelling** — throwing or hitting an object to a target\n\n## 🇵🇭 Philippine Traditional Target Games\n- **Tatsing** — flipping a slipper to hit a target\n- **Tumbang Preso** — throwing a slipper to knock down a can\n\n## 💪 Skills Practiced\n- **Agility, balance, coordination, speed** — all important for these games!\n\nTraditional games keep us active and connected to our culture! 🌟",
+        "quiz": [
+          { "question": "What does \"positioning\" mean in target games?", "options": ["Where you stand to aim well", "Running as fast as possible", "Sitting down", "Ignoring the target"], "correct_answer": "Where you stand to aim well" },
+          { "question": "What is Tumbang Preso?", "options": ["Throwing a slipper to knock down a can", "A dance", "A song", "A drawing activity"], "correct_answer": "Throwing a slipper to knock down a can" },
+          { "question": "What is Tatsing?", "options": ["Flipping a slipper to hit a target", "A type of food", "A type of song", "A math game"], "correct_answer": "Flipping a slipper to hit a target" },
+          { "question": "Which skill is practiced in target games?", "options": ["Coordination", "Only sleeping", "Only sitting", "Only reading"], "correct_answer": "Coordination" },
+          { "question": "What does \"sending/propelling\" mean?", "options": ["Throwing or hitting an object to a target", "Standing still", "Reading a book", "Doing nothing"], "correct_answer": "Throwing or hitting an object to a target" },
+          { "question": "Why are traditional games important?", "options": ["They keep us active and connected to culture", "They have no value", "They are only for adults", "They are boring"], "correct_answer": "They keep us active and connected to culture" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 7: Pagtatanim sa Natural na Pamamaraan!\n\nMatuto tayo ng mga hakbang sa pagtatanim! 🌱",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Mga Hakbang sa Pagtatanim ng Halaman",
+          "steps": [
+            { "label": "Gumawa ng plano", "detail": "piliin ang lugar at halamang itatanim" },
+            { "label": "Linisin ang lugar", "detail": "alisin ang damo at basura" },
+            { "label": "Bungkalin ang lupa", "detail": "gamit ang asarol" },
+            { "label": "Haluan ng organikong pataba", "detail": "para sa masustansyang lupa" },
+            { "label": "Simulan ang pagtatanim", "detail": "at diligan agad" }
+          ]
+        },
+        "quiz": [
+          { "question": "Ano ang unang hakbang sa pagtatanim?", "options": ["Gumawa ng plano", "Diligan agad", "Bungkalin ang lupa", "Simulan ang pagtatanim"], "correct_answer": "Gumawa ng plano" },
+          { "question": "Ano ang gamit sa pagbubungkal ng lupa?", "options": ["Asarol", "Gunting", "Kutsara", "Kalaykay lamang"], "correct_answer": "Asarol" },
+          { "question": "Bakit haluan ng organikong pataba ang lupa?", "options": ["Para maging masustansya ang lupa", "Walang dahilan", "Para lang gumanda", "Para masira ang lupa"], "correct_answer": "Para maging masustansya ang lupa" },
+          { "question": "Ano ang dapat gawin bago magtanim?", "options": ["Linisin ang lugar", "Diligan agad", "Wala", "Sunugin ang lupa"], "correct_answer": "Linisin ang lugar" },
+          { "question": "Ano ang huling hakbang matapos itanim ang halaman?", "options": ["Diligan agad", "Bungkalin ang lupa", "Gumawa ng plano", "Linisin ang lugar"], "correct_answer": "Diligan agad" },
+          { "question": "Bakit dapat sundin ang tamang pagkakasunod-sunod ng hakbang?", "options": ["Para matagumpay ang pagtatanim", "Walang dahilan", "Para lang mabilis matapos", "Wala itong epekto"], "correct_answer": "Para matagumpay ang pagtatanim" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 8: Pangangalaga sa Puno at Halaman\n\nAlamin natin kung paano alagaan ang mga puno at halaman! 🌳\n\n## 🌳 Mga Gawain sa Pangangalaga\n- **Pagdidilig** ng mga halaman araw-araw.\n- **Pagtatanim** ng bagong puno kapalit ng pinuputol.\n\n## 💚 Bakit Ito Mahalaga?\n- Ang mga puno ay nagbibigay ng **sariwang hangin at lilim**.\n\n## 🤝 Pakikilahok sa Paaralan\n- Sumali sa mga programang **pagtatanim ng puno** sa paaralan o komunidad.\n\nAlagaan natin ang ating mga puno at halaman! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng pangangalaga sa halaman?", "options": ["Pagdidilig araw-araw", "Pagputol nang walang dahilan", "Pagpabaya", "Pananakit"], "correct_answer": "Pagdidilig araw-araw" },
+          { "question": "Ano ang ibinibigay ng mga puno?", "options": ["Sariwang hangin at lilim", "Wala", "Polusyon lamang", "Panganib lamang"], "correct_answer": "Sariwang hangin at lilim" },
+          { "question": "Ano ang dapat gawin kapalit ng mga pinuputol na puno?", "options": ["Magtanim ng bagong puno", "Wala", "Mag-iwan ng bakante", "Magputol pa"], "correct_answer": "Magtanim ng bagong puno" },
+          { "question": "Paano tayo makikilahok sa pangangalaga ng puno?", "options": ["Sumali sa programang pagtatanim ng puno", "Umiwas dito", "Balewalain ito", "Wala"], "correct_answer": "Sumali sa programang pagtatanim ng puno" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapanagutan", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapanagutan" },
+          { "question": "Bakit mahalaga alagaan ang puno at halaman?", "options": ["Nakabubuti ito sa kapaligiran", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nakabubuti ito sa kapaligiran" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of combining writing skills!\n\n- Combine **enumeration-description** and **friendly letter**\n- Check for a **topic sentence** and all 4 letter parts\n\nGreat writing synthesis! ⭐",
+        "quiz": [
+          { "question": "What should you combine to describe a celebration?", "options": ["Enumeration-description and a friendly letter", "Only pictures", "Only numbers", "Nothing at all"], "correct_answer": "Enumeration-description and a friendly letter" },
+          { "question": "What should good writing include?", "options": ["A clear topic sentence", "Random unrelated facts", "No punctuation", "Only one word"], "correct_answer": "A clear topic sentence" },
+          { "question": "How many parts does a friendly letter have?", "options": ["4", "2", "6", "1"], "correct_answer": "4" },
+          { "question": "What is peer review?", "options": ["Swapping writing to check each other's work", "Writing alone with no feedback", "Ignoring mistakes", "Copying a partner's work exactly"], "correct_answer": "Swapping writing to check each other's work" },
+          { "question": "Why is peer review helpful?", "options": ["It helps improve writing", "It has no benefit", "It wastes time", "It confuses the writer"], "correct_answer": "It helps improve writing" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of multi-step problems and division!\n\n- 936 ÷ 4 = **234**\n- Multi-step problems need **more than one operation**\n\nGreat problem-solving! 🌟",
+        "quiz": [
+          { "question": "What is 936 ÷ 4?", "options": ["234", "224", "244", "204"], "correct_answer": "234" },
+          { "question": "What makes a problem \"multi-step\"?", "options": ["It needs more than one operation", "It only needs addition", "It has no numbers", "It is always easy"], "correct_answer": "It needs more than one operation" },
+          { "question": "How do we estimate a quotient?", "options": ["Round divisor and dividend to nearest 10", "Guess randomly", "Skip the problem", "Multiply instead"], "correct_answer": "Round divisor and dividend to nearest 10" },
+          { "question": "What is 848 ÷ 8?", "options": ["106", "116", "96", "126"], "correct_answer": "106" },
+          { "question": "What operation is the opposite of multiplication?", "options": ["Division", "Addition", "Subtraction", "None"], "correct_answer": "Division" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Pantangi** = tiyak na pangalan | **Pambalana** = pangkalahatan\n- **Panao** = tao | **Pamatlig** = bagay\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang pangngalang pantangi?", "options": ["Tiyak na pangalan, nagsisimula sa malaking titik", "Pangkalahatang pangalan", "Salitang kilos", "Salitang naglalarawan"], "correct_answer": "Tiyak na pangalan, nagsisimula sa malaking titik" },
+          { "question": "Ano ang pangngalang pambalana?", "options": ["Pangkalahatang pangalan", "Tiyak na pangalan", "Salitang kilos", "Salitang pananong"], "correct_answer": "Pangkalahatang pangalan" },
+          { "question": "Alin ang halimbawa ng pangngalang pantangi?", "options": ["Maria", "Bata", "Lungsod", "Guro"], "correct_answer": "Maria" },
+          { "question": "Ano ang panghalip panao?", "options": ["Pumapalit sa pangalan ng tao", "Pumapalit sa pangalan ng bagay", "Salitang kilos", "Salitang naglalarawan"], "correct_answer": "Pumapalit sa pangalan ng tao" },
+          { "question": "Alin ang halimbawa ng panghalip pamatlig?", "options": ["Ito", "Ako", "Ikaw", "Siya"], "correct_answer": "Ito" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Malapit sa dagat = **mangingisda** | Sa bundok = **magsasaka**\n- Naaapektuhan ang bahay, damit, pagkain ng heograpiya\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang karaniwang hanapbuhay ng taong malapit sa dagat?", "options": ["Mangingisda", "Magsasaka", "Doktor", "Guro"], "correct_answer": "Mangingisda" },
+          { "question": "Ano ang karaniwang hanapbuhay sa kabundukan?", "options": ["Pagsasaka ng gulay", "Pangingisda", "Turismo lamang", "Wala"], "correct_answer": "Pagsasaka ng gulay" },
+          { "question": "Ano ang naaapektuhan ng klima at lupa?", "options": ["Uri ng bahay, damit, at pagkain", "Wala", "Kulay ng langit lamang", "Bilang ng bituin"], "correct_answer": "Uri ng bahay, damit, at pagkain" },
+          { "question": "Bakit may matarik na bubong ang mga bahay sa maulang lugar?", "options": ["Para hindi bumaha ang tubig", "Walang dahilan", "Para gumanda lamang", "Para lang sundin ang uso"], "correct_answer": "Para hindi bumaha ang tubig" },
+          { "question": "Paano nakaaapekto ang heograpiya sa pamumuhay?", "options": ["Nakaaapekto ito sa hanapbuhay at pamumuhay", "Walang epekto", "Naaapektuhan lang ang panahon", "Wala itong kaugnayan"], "correct_answer": "Nakaaapekto ito sa hanapbuhay at pamumuhay" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Huwag ibahagi ang **personal na impormasyon** online\n- Sabihin sa magulang kung may nakita kang kakaiba\n\nMaging ligtas online! 🌟",
+        "quiz": [
+          { "question": "Ano ang hindi dapat ibahagi online?", "options": ["Personal na impormasyon", "Larawan ng paboritong hayop", "Kulay ng gusto", "Pangalan ng bansa"], "correct_answer": "Personal na impormasyon" },
+          { "question": "Kanino dapat humingi ng pahintulot bago mag-download?", "options": ["Magulang", "Estranghero", "Walang sinuman", "Kaibigan sa online"], "correct_answer": "Magulang" },
+          { "question": "Ano ang dapat iwasan online?", "options": ["Kahina-hinalang link", "Ligtas na website", "Aralin sa paaralan", "Larong pang-edukasyon"], "correct_answer": "Kahina-hinalang link" },
+          { "question": "Ano ang dapat gawin kung may nakita kang kakaiba online?", "options": ["Sabihin sa pinagkakatiwalaang adult", "Itago ito", "Balewalain", "I-click ito"], "correct_answer": "Sabihin sa pinagkakatiwalaang adult" },
+          { "question": "Bakit mahalaga ang mga panuntunang pangkaligtasan sa Internet?", "options": ["Iniingatan nito tayo sa panganib online", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito tayo sa panganib online" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Terrestrial** = lupa | **Aquatic** = tubig | **Aerial** = hangin\n- Bawat habitat ay may kailangan ang mga hayop\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is a terrestrial habitat?", "options": ["A land habitat", "A water habitat", "An air habitat", "Not a real habitat"], "correct_answer": "A land habitat" },
+          { "question": "What is an aquatic habitat?", "options": ["A water habitat", "A land habitat", "An air habitat", "Not a real habitat"], "correct_answer": "A water habitat" },
+          { "question": "What animals live in a rice field?", "options": ["Frogs and snails", "Only birds", "Only fish", "Only insects"], "correct_answer": "Frogs and snails" },
+          { "question": "What lives in a mangrove swamp?", "options": ["Crabs, fish, and mangrove trees", "Only desert animals", "Only mountain animals", "Nothing lives there"], "correct_answer": "Crabs, fish, and mangrove trees" },
+          { "question": "Which habitat is where birds and insects fly?", "options": ["Aerial", "Terrestrial", "Aquatic", "None"], "correct_answer": "Aerial" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏃 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Tatsing, Tumbang Preso** — traditional target games\n- Skills: **agility, balance, coordination, speed**\n\nGreat active learning! 🌟",
+        "quiz": [
+          { "question": "What does \"positioning\" mean in target games?", "options": ["Where you stand to aim well", "Running as fast as possible", "Sitting down", "Ignoring the target"], "correct_answer": "Where you stand to aim well" },
+          { "question": "What is Tumbang Preso?", "options": ["Throwing a slipper to knock down a can", "A dance", "A song", "A drawing activity"], "correct_answer": "Throwing a slipper to knock down a can" },
+          { "question": "What is Tatsing?", "options": ["Flipping a slipper to hit a target", "A type of food", "A type of song", "A math game"], "correct_answer": "Flipping a slipper to hit a target" },
+          { "question": "Which skill is practiced in target games?", "options": ["Coordination", "Only sleeping", "Only sitting", "Only reading"], "correct_answer": "Coordination" },
+          { "question": "Why are traditional games important?", "options": ["They keep us active and connected to culture", "They have no value", "They are only for adults", "They are boring"], "correct_answer": "They keep us active and connected to culture" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- Hakbang: **plano → linis → bungkal → pataba → tanim**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang unang hakbang sa pagtatanim?", "options": ["Gumawa ng plano", "Diligan agad", "Bungkalin ang lupa", "Simulan ang pagtatanim"], "correct_answer": "Gumawa ng plano" },
+          { "question": "Ano ang gamit sa pagbubungkal ng lupa?", "options": ["Asarol", "Gunting", "Kutsara", "Kalaykay lamang"], "correct_answer": "Asarol" },
+          { "question": "Bakit haluan ng organikong pataba ang lupa?", "options": ["Para maging masustansya ang lupa", "Walang dahilan", "Para lang gumanda", "Para masira ang lupa"], "correct_answer": "Para maging masustansya ang lupa" },
+          { "question": "Ano ang dapat gawin bago magtanim?", "options": ["Linisin ang lugar", "Diligan agad", "Wala", "Sunugin ang lupa"], "correct_answer": "Linisin ang lugar" },
+          { "question": "Bakit dapat sundin ang tamang pagkakasunod-sunod ng hakbang?", "options": ["Para matagumpay ang pagtatanim", "Walang dahilan", "Para lang mabilis matapos", "Wala itong epekto"], "correct_answer": "Para matagumpay ang pagtatanim" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Alagaan ang puno sa **pagdidilig** at **pagtatanim**\n- Puno = sariwang hangin at lilim\n\nAlagaan natin ang kalikasan! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng pangangalaga sa halaman?", "options": ["Pagdidilig araw-araw", "Pagputol nang walang dahilan", "Pagpabaya", "Pananakit"], "correct_answer": "Pagdidilig araw-araw" },
+          { "question": "Ano ang ibinibigay ng mga puno?", "options": ["Sariwang hangin at lilim", "Wala", "Polusyon lamang", "Panganib lamang"], "correct_answer": "Sariwang hangin at lilim" },
+          { "question": "Ano ang dapat gawin kapalit ng mga pinuputol na puno?", "options": ["Magtanim ng bagong puno", "Wala", "Mag-iwan ng bakante", "Magputol pa"], "correct_answer": "Magtanim ng bagong puno" },
+          { "question": "Paano tayo makikilahok sa pangangalaga ng puno?", "options": ["Sumali sa programang pagtatanim ng puno", "Umiwas dito", "Balewalain ito", "Wala"], "correct_answer": "Sumali sa programang pagtatanim ng puno" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapanagutan", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapanagutan" }
+        ]
+      }
+    }
+  }
+}

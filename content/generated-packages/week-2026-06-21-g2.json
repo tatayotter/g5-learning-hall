@@ -1,0 +1,172 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-06-21",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 1: Rhyming Words!\n\nLet's discover the fun of **rhyming words** — words that end with the same sound! 🎵\n\n## 🎶 What Are Rhyming Words?\n- Rhyming words **sound the same** at the end.\n- **Example 1:** *cat, bat, hat* — they all end in **\"-at\"**\n- **Example 2:** *sun, fun, run* — they all end in **\"-un\"**\n\n## ✂️ Breaking Words Apart: Onset and Rime\n- Every word has an **onset** (the beginning sound) and a **rime** (the rest of the word).\n- **Example:** In the word *cat* — the onset is **/c/** and the rime is **/at/**.\n- We can **blend** them back together: c + at = **cat**!\n\n## 🔤 Try It Yourself\n- *dog* → onset **/d/** + rime **/og/**\n- *sun* → onset **/s/** + rime **/un/**\n\nRhyming makes reading and poems so much fun! Let's practice every day. 🌟",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Breaking a Word into Onset and Rime",
+          "expression": "cat = ?",
+          "steps": [
+            { "label": "Say the whole word", "detail": "\"cat\"" },
+            { "label": "Find the onset", "detail": "the beginning sound: /c/" },
+            { "label": "Find the rime", "detail": "the ending part: /at/" },
+            { "label": "Blend them together", "detail": "c + at = cat" }
+          ]
+        },
+        "quiz": [
+          { "question": "Which word rhymes with \"cat\"?", "options": ["Hat", "Dog", "Sun", "Run"], "correct_answer": "Hat" },
+          { "question": "Which word rhymes with \"sun\"?", "options": ["Fun", "Cat", "Dog", "Hat"], "correct_answer": "Fun" },
+          { "question": "In the word \"dog\", what is the onset?", "options": ["/d/", "/og/", "/g/", "/o/"], "correct_answer": "/d/" },
+          { "question": "In the word \"cat\", what is the rime?", "options": ["/at/", "/c/", "/ca/", "/t/"], "correct_answer": "/at/" },
+          { "question": "Which two words rhyme?", "options": ["Bug and rug", "Bug and cat", "Bug and sun", "Bug and hat"], "correct_answer": "Bug and rug" },
+          { "question": "What do we call the beginning sound of a word?", "options": ["Onset", "Rime", "Rhyme", "Blend"], "correct_answer": "Onset" },
+          { "question": "What do we call the ending part of a word?", "options": ["Rime", "Onset", "Letter", "Vowel"], "correct_answer": "Rime" },
+          { "question": "Which word does NOT rhyme with \"mat\"?", "options": ["Dog", "Bat", "Sat", "Rat"], "correct_answer": "Dog" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Mathematics — Week 1: Circles, Half Circles, and Shapes!\n\nLet's explore circles and how shapes fit together! 🟢\n\n## ⭕ Circles, Half Circles, and Quarter Circles\n- A **circle** is a round shape with no corners.\n- Cut a circle in half — you get **two half circles**!\n- Cut a half circle in half again — you get **quarter circles**!\n\n## 🧩 Composite Figures\n- A **composite figure** is a bigger shape made from **smaller shapes** put together.\n- **Example 1:** A square + a triangle on top = a **house shape**!\n- **Example 2:** Two half circles put together = a **whole circle**!\n\n## 🔍 Try It Yourself\n- How many quarter circles make a whole circle? **Four!**\n- How many half circles make a whole circle? **Two!**\n\nShapes are everywhere — look around and find some today! 🌟",
+        "quiz": [
+          { "question": "How many half circles make one whole circle?", "options": ["Two", "Three", "Four", "One"], "correct_answer": "Two" },
+          { "question": "How many quarter circles make one whole circle?", "options": ["Four", "Two", "Three", "Six"], "correct_answer": "Four" },
+          { "question": "What do we call a bigger shape made from smaller shapes?", "options": ["Composite figure", "Circle", "Corner", "Angle"], "correct_answer": "Composite figure" },
+          { "question": "A square plus a triangle on top can make what shape?", "options": ["A house shape", "A circle", "A half circle", "A dot"], "correct_answer": "A house shape" },
+          { "question": "What shape has no corners?", "options": ["Circle", "Square", "Triangle", "Rectangle"], "correct_answer": "Circle" },
+          { "question": "If you cut a circle in half, what do you get?", "options": ["Two half circles", "Two squares", "Two triangles", "Two rectangles"], "correct_answer": "Two half circles" },
+          { "question": "What shape do you get if you cut a half circle in half again?", "options": ["Quarter circle", "Whole circle", "Square", "Triangle"], "correct_answer": "Quarter circle" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 1: Kamalayang Ponolohikal\n\nSimulan natin ang ating paglalakbay sa mga tunog ng salita! 🎵\n\n## 🔊 Tunog sa Salita\n- Ang bawat salita ay binubuo ng mga **tunog**.\n- Halimbawa: sa salitang **\"bata\"**, may tunog na /b/ sa simula.\n\n## 🔢 Pagbibilang ng Pantig\n- Ang **pantig** ay bahagi ng salita na binibigkas nang sabay.\n- **Halimbawa 1:** \"a-ma\" = 2 pantig\n- **Halimbawa 2:** \"ba-ha-y\" = 3 pantig\n\n## 🎶 Tugmang Salita\n- Ang mga **tugmang salita** ay nagtatapos sa parehong tunog.\n- **Halimbawa:** *bata, mata, pata* — nagtatapos sa \"-ata\"\n\nAng pag-aaral ng tunog ay mahalaga para sa mahusay na pagbasa! 🌟",
+        "quiz": [
+          { "question": "Ilang pantig ang salitang \"a-ma\"?", "options": ["Dalawa", "Isa", "Tatlo", "Apat"], "correct_answer": "Dalawa" },
+          { "question": "Ilang pantig ang salitang \"ba-ha-y\"?", "options": ["Tatlo", "Isa", "Dalawa", "Apat"], "correct_answer": "Tatlo" },
+          { "question": "Alin ang tugma sa salitang \"bata\"?", "options": ["Mata", "Bahay", "Aso", "Puno"], "correct_answer": "Mata" },
+          { "question": "Ano ang tinatawag na bahagi ng salita na binibigkas nang sabay?", "options": ["Pantig", "Titik", "Tunog", "Pangungusap"], "correct_answer": "Pantig" },
+          { "question": "Anong tunog ang nasa simula ng salitang \"bata\"?", "options": ["/b/", "/t/", "/a/", "/m/"], "correct_answer": "/b/" },
+          { "question": "Alin sa mga ito ang tugmang salita?", "options": ["Pata at mata", "Pata at aso", "Pata at bahay", "Pata at puno"], "correct_answer": "Pata at mata" },
+          { "question": "Alin ang binubuo ng mga tunog?", "options": ["Salita", "Larawan", "Numero", "Kulay"], "correct_answer": "Salita" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 1: Living and Nonliving Things\n\nLet's learn what makes something **alive**! 🌱\n\n## 🌟 Characteristics of Living Things\n- Living things **breathe**\n- Living things **eat/take in food**\n- Living things **grow**\n- Living things **move on their own**\n- Living things **respond** to light, touch, or sound\n\n## 🪨 Nonliving Things\n- Nonliving things do **not** breathe, eat, grow, or move on their own.\n- **Example 1:** A rock does not grow or breathe — it is **nonliving**.\n- **Example 2:** A dog breathes, eats, and grows — it is **living**.\n\n## 🔍 Sorting Living and Nonliving\n- A plant grows and needs water → **living**\n- A toy car does not eat or grow → **nonliving**\n\nLook around you — can you find living and nonliving things? 🌟",
+        "quiz": [
+          { "question": "Which of these is a living thing?", "options": ["Dog", "Rock", "Toy car", "Cloud"], "correct_answer": "Dog" },
+          { "question": "Which of these is a nonliving thing?", "options": ["Rock", "Plant", "Bird", "Fish"], "correct_answer": "Rock" },
+          { "question": "Which is NOT a characteristic of living things?", "options": ["Never moving", "Breathing", "Growing", "Eating food"], "correct_answer": "Never moving" },
+          { "question": "Why is a plant considered living?", "options": ["It grows and needs water", "It never changes", "It is made of plastic", "It cannot respond"], "correct_answer": "It grows and needs water" },
+          { "question": "Why is a toy car nonliving?", "options": ["It does not eat or grow", "It moves fast", "It has wheels", "It is colorful"], "correct_answer": "It does not eat or grow" },
+          { "question": "Which characteristic do all living things share?", "options": ["They grow", "They are red", "They are big", "They have wheels"], "correct_answer": "They grow" },
+          { "question": "Which of these responds to light, touch, or sound?", "options": ["A cat", "A stone", "A toy", "A cloud"], "correct_answer": "A cat" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 1: Konsepto ng Komunidad\n\nAlamin natin kung ano ang komunidad at bakit ito mahalaga! 🌟\n\n## 🏘️ Ano ang Komunidad?\n- Ang **komunidad** ay grupo ng mga taong magkakasama sa iisang lugar.\n- May **magkakatulad na pangangailangan at gawain** ang mga miyembro nito.\n\n## 👨‍👩‍👧 Komunidad vs. Pamilya\n- Ang **pamilya** ay mas maliit — binubuo ng magulang at mga anak.\n- Ang **komunidad** ay mas malaki — binubuo ng maraming pamilya at tao.\n\n## 🏡 Mga Halimbawa ng Komunidad\n- **Purok** — maliit na bahagi ng barangay\n- **Sitio** — maliit na pamayanan\n- **Barangay** — pangunahing yunit ng pamahalaan sa lokal na antas\n- **Baryo** — katulad ng barangay sa ilang lugar\n\nIkaw ay bahagi ng iyong sariling komunidad! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang komunidad?", "options": ["Grupo ng tao sa iisang lugar", "Isang bahay lamang", "Isang paaralan lamang", "Isang tao lamang"], "correct_answer": "Grupo ng tao sa iisang lugar" },
+          { "question": "Alin ang mas malaki, pamilya o komunidad?", "options": ["Komunidad", "Pamilya", "Pareho lang", "Walang sagot"], "correct_answer": "Komunidad" },
+          { "question": "Alin ang halimbawa ng komunidad?", "options": ["Barangay", "Kuwarto", "Bag", "Sapatos"], "correct_answer": "Barangay" },
+          { "question": "Ano ang binubuo ng pamilya?", "options": ["Magulang at mga anak", "Maraming barangay", "Buong bansa", "Buong mundo"], "correct_answer": "Magulang at mga anak" },
+          { "question": "Ano ang tawag sa maliit na bahagi ng barangay?", "options": ["Purok", "Bansa", "Lungsod", "Rehiyon"], "correct_answer": "Purok" },
+          { "question": "Ano ang pangunahing yunit ng pamahalaan sa lokal na antas?", "options": ["Barangay", "Pamilya", "Paaralan", "Simbahan"], "correct_answer": "Barangay" },
+          { "question": "Bakit magkakasama ang mga tao sa isang komunidad?", "options": ["May magkakatulad silang pangangailangan", "Sapilitan silang pinagsama", "Wala silang pagpipilian", "Walang dahilan"], "correct_answer": "May magkakatulad silang pangangailangan" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 1: What Is a Computer?\n\nLet's discover what a computer is and how it helps us! 🖥️\n\n## 💡 What Is a Computer?\n- A **computer** is a tool that helps people **work**, **learn**, **communicate**, and **play**.\n- Computers can follow instructions to do many different tasks.\n\n## 🖥️ Everyday Examples of Computers\n- **Desktop computer** — a computer you use at a table\n- **Laptop** — a portable computer you can carry\n- **Tablet** — a flat, touch-screen computer\n- **Smartphone** — a small computer you can call and text with\n\n## 🏠 Where Do We See Computers?\n- At **home** — for games, videos, and schoolwork\n- At **school** — for learning and typing\n- In the **community** — at stores, banks, and offices\n\nComputers are everywhere and help us in so many ways! 🌟",
+        "quiz": [
+          { "question": "What is a computer?", "options": ["A tool that helps us work, learn, and play", "A kind of food", "A type of animal", "A piece of clothing"], "correct_answer": "A tool that helps us work, learn, and play" },
+          { "question": "Which of these is a portable computer you can carry?", "options": ["Laptop", "Desktop computer", "Printer", "Monitor"], "correct_answer": "Laptop" },
+          { "question": "Which computer has a flat touch-screen?", "options": ["Tablet", "Desktop computer", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Which small computer can you call and text with?", "options": ["Smartphone", "Desktop computer", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Where might you use a computer for schoolwork?", "options": ["At school", "In the ocean", "On the moon", "Underground"], "correct_answer": "At school" },
+          { "question": "What can computers help us do?", "options": ["Work, learn, communicate, and play", "Only play games", "Only watch videos", "Nothing useful"], "correct_answer": "Work, learn, communicate, and play" },
+          { "question": "Which is an example of a computer used at home?", "options": ["Desktop computer", "A spoon", "A chair", "A blanket"], "correct_answer": "Desktop computer" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 1: Pagkilala sa Sarili\n\nMahalagang malaman natin ang tungkol sa ating sarili! 🌟\n\n## 🙋 Impormasyon Tungkol sa Sarili\n- Alamin ang **buong pangalan**, **palayaw**, **edad**, at **kaarawan**.\n- Alamin din ang **tirahan** at ang mga miyembro ng iyong **pamilya**.\n\n## 🛡️ Bakit Mahalaga Ito?\n- Makakatulong ito kapag kailangan mong sabihin ito sa **pinagkakatiwalaang matanda**.\n- Mahalaga rin ito sa oras ng **emergency**.\n\n## ⭐ Pagpapahalaga sa Sarili\n- Bawat bata ay natatangi — may sariling **hitsura, gusto, at kakayahan**.\n- Tanggapin at ipagmalaki ang iyong sariling pagkatao!\n\nIkaw ay natatangi at mahalaga! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman tungkol sa sarili?", "options": ["Buong pangalan at edad", "Paboritong laro lamang", "Paboritong kulay lamang", "Wala sa mga ito"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Bakit importante malaman ang iyong impormasyon?", "options": ["Para sa kaligtasan at emergency", "Para sa laro lamang", "Walang dahilan", "Para ipagmalaki lang"], "correct_answer": "Para sa kaligtasan at emergency" },
+          { "question": "Kanino mo dapat sabihin ang iyong impormasyon kung kailangan?", "options": ["Pinagkakatiwalaang matanda", "Kaninumang estranghero", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Pinagkakatiwalaang matanda" },
+          { "question": "Ano ang ibig sabihin na natatangi ang bawat bata?", "options": ["May sariling hitsura at kakayahan", "Magkakapareho silang lahat", "Walang pagkakaiba", "Wala itong kahulugan"], "correct_answer": "May sariling hitsura at kakayahan" },
+          { "question": "Ano ang dapat mong gawin sa iyong sariling pagkatao?", "options": ["Tanggapin at ipagmalaki ito", "Ikahiya ito", "Itago ito", "Ikumpara sa iba"], "correct_answer": "Tanggapin at ipagmalaki ito" },
+          { "question": "Alin ang bahagi ng impormasyon tungkol sa sarili?", "options": ["Tirahan", "Paboritong TV show", "Kulay ng damit", "Uri ng laruan"], "correct_answer": "Tirahan" },
+          { "question": "Sino ang mga miyembro ng iyong pamilya?", "options": ["Magulang at kapatid", "Estranghero", "Kaklase lamang", "Guro lamang"], "correct_answer": "Magulang at kapatid" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of rhyming words!\n\n- Rhyming words **sound the same** at the end: *cat, bat, hat*\n- **Onset** = beginning sound, **Rime** = ending part\n- Blend onset + rime to make a word: c + at = **cat**\n\nGreat job this week! ⭐",
+        "quiz": [
+          { "question": "Which word rhymes with \"sun\"?", "options": ["Fun", "Cat", "Dog", "Hat"], "correct_answer": "Fun" },
+          { "question": "In \"dog\", what is the onset?", "options": ["/d/", "/og/", "/g/", "/o/"], "correct_answer": "/d/" },
+          { "question": "Which word rhymes with \"bat\"?", "options": ["Hat", "Dog", "Sun", "Cup"], "correct_answer": "Hat" },
+          { "question": "What is the rime in \"cat\"?", "options": ["/at/", "/c/", "/ca/", "/t/"], "correct_answer": "/at/" },
+          { "question": "Which two words rhyme?", "options": ["Bug and rug", "Bug and cat", "Bug and sun", "Bug and hat"], "correct_answer": "Bug and rug" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Friday Weekly Review — Mathematics\n\nQuick review of circles and shapes!\n\n- Two **half circles** make a whole circle\n- Four **quarter circles** make a whole circle\n- A **composite figure** is made of smaller shapes put together\n\nGreat work with shapes this week! 🌟",
+        "quiz": [
+          { "question": "How many half circles make a whole circle?", "options": ["Two", "Three", "Four", "One"], "correct_answer": "Two" },
+          { "question": "How many quarter circles make a whole circle?", "options": ["Four", "Two", "Three", "Six"], "correct_answer": "Four" },
+          { "question": "What is a composite figure?", "options": ["A shape made from smaller shapes", "A single circle", "A number", "A color"], "correct_answer": "A shape made from smaller shapes" },
+          { "question": "What shape has no corners?", "options": ["Circle", "Square", "Triangle", "Rectangle"], "correct_answer": "Circle" },
+          { "question": "If you cut a circle in half, what do you get?", "options": ["Two half circles", "Two squares", "Two triangles", "Two rectangles"], "correct_answer": "Two half circles" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Ang **pantig** ay binibigkas nang sabay: \"a-ma\" = 2 pantig\n- **Tugmang salita** ay nagtatapos sa parehong tunog: *bata, mata, pata*\n- Bawat salita ay may **tunog**\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ilang pantig ang \"a-ma\"?", "options": ["Dalawa", "Isa", "Tatlo", "Apat"], "correct_answer": "Dalawa" },
+          { "question": "Alin ang tugma sa \"bata\"?", "options": ["Mata", "Bahay", "Aso", "Puno"], "correct_answer": "Mata" },
+          { "question": "Ano ang pantig?", "options": ["Bahaging binibigkas nang sabay", "Isang titik lamang", "Isang pangungusap", "Isang kulay"], "correct_answer": "Bahaging binibigkas nang sabay" },
+          { "question": "Ilang pantig ang \"ba-ha-y\"?", "options": ["Tatlo", "Isa", "Dalawa", "Apat"], "correct_answer": "Tatlo" },
+          { "question": "Alin ang tugmang salita?", "options": ["Pata at mata", "Pata at aso", "Pata at bahay", "Pata at puno"], "correct_answer": "Pata at mata" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ang **komunidad** ay grupo ng tao sa iisang lugar\n- Ang **pamilya** ay mas maliit kaysa komunidad\n- Halimbawa: **purok, sitio, barangay, baryo**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang komunidad?", "options": ["Grupo ng tao sa iisang lugar", "Isang bahay lamang", "Isang paaralan lamang", "Isang tao lamang"], "correct_answer": "Grupo ng tao sa iisang lugar" },
+          { "question": "Alin ang mas malaki?", "options": ["Komunidad", "Pamilya", "Pareho lang", "Walang sagot"], "correct_answer": "Komunidad" },
+          { "question": "Alin ang halimbawa ng komunidad?", "options": ["Barangay", "Kuwarto", "Bag", "Sapatos"], "correct_answer": "Barangay" },
+          { "question": "Ano ang binubuo ng pamilya?", "options": ["Magulang at mga anak", "Maraming barangay", "Buong bansa", "Buong mundo"], "correct_answer": "Magulang at mga anak" },
+          { "question": "Ano ang tawag sa maliit na bahagi ng barangay?", "options": ["Purok", "Bansa", "Lungsod", "Rehiyon"], "correct_answer": "Purok" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang buhay na bagay ay **humihinga, kumakain, lumalaki, gumagalaw**\n- Ang bagay na walang buhay ay hindi humihinga o lumalaki\n- Halimbawa: **aso** (may buhay), **bato** (walang buhay)\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which is a living thing?", "options": ["Dog", "Rock", "Toy car", "Cloud"], "correct_answer": "Dog" },
+          { "question": "Which is a nonliving thing?", "options": ["Rock", "Plant", "Bird", "Fish"], "correct_answer": "Rock" },
+          { "question": "Which is NOT a trait of living things?", "options": ["Never moving", "Breathing", "Growing", "Eating food"], "correct_answer": "Never moving" },
+          { "question": "Why is a plant living?", "options": ["It grows and needs water", "It never changes", "It is plastic", "It cannot respond"], "correct_answer": "It grows and needs water" },
+          { "question": "Why is a toy car nonliving?", "options": ["It does not eat or grow", "It moves fast", "It has wheels", "It is colorful"], "correct_answer": "It does not eat or grow" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Ang **computer** ay tumutulong sa atin sa **trabaho, pag-aaral, at paglalaro**\n- Halimbawa: **desktop, laptop, tablet, smartphone**\n- Makikita ang computer sa **bahay, paaralan, at komunidad**\n\nMahusay ang unang linggo mo! 🌟",
+        "quiz": [
+          { "question": "What is a computer?", "options": ["A tool that helps us work, learn, and play", "A kind of food", "A type of animal", "A piece of clothing"], "correct_answer": "A tool that helps us work, learn, and play" },
+          { "question": "Which computer can you carry around?", "options": ["Laptop", "Desktop computer", "Printer", "Monitor"], "correct_answer": "Laptop" },
+          { "question": "Which computer has a touch-screen?", "options": ["Tablet", "Desktop computer", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Where might you use a computer to learn?", "options": ["At school", "In the ocean", "On the moon", "Underground"], "correct_answer": "At school" },
+          { "question": "What can computers help us do?", "options": ["Work, learn, communicate, and play", "Only play games", "Only watch videos", "Nothing useful"], "correct_answer": "Work, learn, communicate, and play" }
+        ]
+      }
+    }
+  }
+}

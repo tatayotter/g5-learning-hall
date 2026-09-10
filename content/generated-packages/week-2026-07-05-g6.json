@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-07-05",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 3: Author's Purpose and Propaganda!\n\nLet's learn to spot persuasion techniques in texts! 📰\n\n## 🎯 Author's Purpose\n- Authors write to **entertain, inform, or persuade**.\n- Identifying the purpose helps us read critically.\n\n## 📢 Propaganda Techniques\n- **Name calling** — using negative labels to make something look bad\n- **Glittering generalities** — using vague, positive-sounding words without real substance\n\n## 🔍 Example\n- *\"Only weak people disagree with this!\"* uses **name calling** to pressure agreement.\n\nUnderstanding propaganda helps us think critically about what we read! 🌟",
+        "quiz": [
+          { "question": "What are the three main author's purposes?", "options": ["Entertain, inform, persuade", "Only entertain", "Only inform", "Only persuade"], "correct_answer": "Entertain, inform, persuade" },
+          { "question": "What is name calling as a propaganda technique?", "options": ["Using negative labels to make something look bad", "Using facts only", "Using kind words", "Telling a joke"], "correct_answer": "Using negative labels to make something look bad" },
+          { "question": "What are glittering generalities?", "options": ["Vague, positive-sounding words without substance", "Detailed factual statements", "Negative labels", "Specific numbers"], "correct_answer": "Vague, positive-sounding words without substance" },
+          { "question": "Why is identifying author's purpose important?", "options": ["It helps us read critically", "It has no use", "It makes reading harder", "It confuses readers"], "correct_answer": "It helps us read critically" },
+          { "question": "\"Only weak people disagree with this!\" is an example of what?", "options": ["Name calling", "A fact", "A glittering generality", "A question"], "correct_answer": "Name calling" },
+          { "question": "Why do we study propaganda techniques?", "options": ["To think critically about what we read", "To become persuaders ourselves only", "To avoid reading", "For no reason"], "correct_answer": "To think critically about what we read" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 3: Adding and Subtracting Decimals!\n\nLet's practice decimals with up to 4 decimal places! 🔢\n\n## ➕ Adding Decimals\n- Line up the **decimal points**, then add as usual.\n- **Example:** 3.2456 + 1.0325 = **4.2781**\n\n## ➖ Subtracting Decimals\n- **Example:** 5.6789 − 2.1234 = **3.5555**\n\n## 💰 Multi-Step Problems with Money\n- **Example:** Maria has ₱150.75, spends ₱45.50, then receives ₱20.25. Total = 150.75 − 45.50 + 20.25 = **₱125.50**\n\nGreat precision with decimals! 🌟",
+        "quiz": [
+          { "question": "What is 3.2456 + 1.0325?", "options": ["4.2781", "4.1781", "4.3781", "4.2681"], "correct_answer": "4.2781" },
+          { "question": "What is 5.6789 − 2.1234?", "options": ["3.5555", "3.4555", "3.6555", "3.5455"], "correct_answer": "3.5555" },
+          { "question": "What should you line up before adding decimals?", "options": ["The decimal points", "The whole numbers only", "Nothing", "The signs"], "correct_answer": "The decimal points" },
+          { "question": "Maria has ₱150.75, spends ₱45.50, then receives ₱20.25. What is her total?", "options": ["₱125.50", "₱115.50", "₱135.50", "₱120.50"], "correct_answer": "₱125.50" },
+          { "question": "What is 2.5 + 1.75?", "options": ["4.25", "4.15", "3.25", "4.75"], "correct_answer": "4.25" },
+          { "question": "How many decimal places can we work with this week?", "options": ["Up to 4", "Only 1", "Up to 10", "None"], "correct_answer": "Up to 4" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 3: Natuklasang Kaalaman sa Teksto\n\nMatuto tayong kumuha ng mahahalagang detalye sa isang teksto! 📖\n\n## 🔍 Natuklasang Kaalaman\n- Kapag bumabasa, hanapin ang **bagong kaalaman** na ibinibigay ng teksto.\n- **Halimbawa:** Sa isang artikulo tungkol sa kalikasan, ang natuklasang kaalaman ay maaaring bagong impormasyon tungkol sa isang hayop.\n\n## 📝 Mga Pagbabago sa Pangyayari\n- Minsan, nagbabago ang direksiyon ng kwento — kailangan nating **subaybayan** ito.\n\n## 🔍 Kaugnayan sa Sariling Karanasan\n- Iugnay ang natutunan sa iyong sariling **karanasan** sa buhay.\n\nMahusay na pagbasa ay nagbibigay-daan sa mas malalim na pag-unawa! 🌟",
+        "quiz": [
+          { "question": "Ano ang natuklasang kaalaman?", "options": ["Bagong kaalamang ibinibigay ng teksto", "Ang pamagat lamang", "Ang bilang ng pahina", "Wala"], "correct_answer": "Bagong kaalamang ibinibigay ng teksto" },
+          { "question": "Ano ang dapat gawin kapag nagbago ang direksiyon ng kwento?", "options": ["Subaybayan ito", "Balewalain ito", "Kalimutan ito", "Wala"], "correct_answer": "Subaybayan ito" },
+          { "question": "Ano ang dapat iugnay sa natutunan?", "options": ["Sariling karanasan", "Walang iuugnay", "Pangalan lamang", "Bilang lamang"], "correct_answer": "Sariling karanasan" },
+          { "question": "Bakit mahalaga ang pagkuha ng mahahalagang detalye?", "options": ["Para sa mas malalim na pag-unawa", "Walang dahilan", "Para lang sa laro", "Para hirapan ang mambabasa"], "correct_answer": "Para sa mas malalim na pag-unawa" },
+          { "question": "Alin ang halimbawa ng natuklasang kaalaman?", "options": ["Bagong impormasyon tungkol sa isang hayop", "Ang pamagat ng aklat", "Ang kulay ng pabalat", "Ang bilang ng titik"], "correct_answer": "Bagong impormasyon tungkol sa isang hayop" },
+          { "question": "Ano ang tinatawag na malalim na pag-unawa sa teksto?", "options": ["Mahusay na pagbasa", "Mabilis na pagbasa lamang", "Pagbabasa nang tahimik lamang", "Wala"], "correct_answer": "Mahusay na pagbasa" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 3: Uniform and Non-Uniform Mixtures!\n\nLet's explore different types of mixtures! 🧪\n\n## 🧪 Uniform Mixtures (Solutions)\n- A **solution** has particles evenly spread — like sugar dissolved in water. You can't see the sugar particles!\n\n## 🧪 Non-Uniform Mixtures (Suspensions)\n- A **suspension** has particles NOT evenly spread — like sand in water. The sand settles at the bottom.\n\n## 🌬️ Air as a Mixture\n- Air is a mixture of **oxygen, carbon dioxide, nitrogen, and water vapor**.\n\n## 🔍 Practice\n- Is salt water a solution or a suspension? **Solution** — the salt dissolves completely!\n\nGreat exploration of mixtures! 🌟",
+        "quiz": [
+          { "question": "What is a solution?", "options": ["A mixture with particles evenly spread", "A mixture with particles that settle", "A single pure substance", "Only a liquid"], "correct_answer": "A mixture with particles evenly spread" },
+          { "question": "What is a suspension?", "options": ["A mixture with particles NOT evenly spread", "A mixture with particles evenly spread", "A single pure substance", "Only a gas"], "correct_answer": "A mixture with particles NOT evenly spread" },
+          { "question": "Is sugar dissolved in water a solution or suspension?", "options": ["Solution", "Suspension", "Neither", "Both"], "correct_answer": "Solution" },
+          { "question": "Is sand in water a solution or suspension?", "options": ["Suspension", "Solution", "Neither", "Both"], "correct_answer": "Suspension" },
+          { "question": "What gases make up air?", "options": ["Oxygen, carbon dioxide, nitrogen, water vapor", "Only oxygen", "Only nitrogen", "Only carbon dioxide"], "correct_answer": "Oxygen, carbon dioxide, nitrogen, water vapor" },
+          { "question": "Is salt water a solution or suspension?", "options": ["Solution", "Suspension", "Neither", "Cannot tell"], "correct_answer": "Solution" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 3: Bunga ng Himagsikang Pilipino\n\nAlamin natin ang mga naging bunga ng Himagsikang Pilipino! 📜\n\n## 📜 Kasunduan sa Biak-na-Bato\n- Noong 1897, nilagdaan ang **Kasunduan sa Biak-na-Bato** — pansamantalang pagtigil ng labanan.\n- Napunta sa **Hong Kong** sina Aguinaldo bilang bahagi ng kasunduan.\n\n## ⚔️ Pagbabalik ng Labanan\n- Nang dumating ang mga Amerikano, bumalik si Aguinaldo at ipinagpatuloy ang paglaban.\n\n## 🇵🇭 Kahalagahan ng Himagsikan\n- Ipinakita nito ang determinasyon ng mga Pilipino para sa **kalayaan**.\n\nMahalaga ang mga pangyayaring ito sa ating kasaysayan! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Kasunduan sa Biak-na-Bato?", "options": ["Pansamantalang pagtigil ng labanan", "Deklarasyon ng kalayaan", "Batas Militar", "Kasal"], "correct_answer": "Pansamantalang pagtigil ng labanan" },
+          { "question": "Saan napunta si Aguinaldo bilang bahagi ng kasunduan?", "options": ["Hong Kong", "Estados Unidos", "Espanya", "Japan"], "correct_answer": "Hong Kong" },
+          { "question": "Anong taon nilagdaan ang Kasunduan sa Biak-na-Bato?", "options": ["1897", "1896", "1898", "1900"], "correct_answer": "1897" },
+          { "question": "Ano ang ginawa ni Aguinaldo nang dumating ang mga Amerikano?", "options": ["Bumalik siya at ipinagpatuloy ang paglaban", "Umalis siya magpakailanman", "Sumuko siya agad", "Wala siyang ginawa"], "correct_answer": "Bumalik siya at ipinagpatuloy ang paglaban" },
+          { "question": "Ano ang ipinakita ng Himagsikan sa mga Pilipino?", "options": ["Determinasyon para sa kalayaan", "Kawalang-pakialam", "Kasunduan lamang", "Wala"], "correct_answer": "Determinasyon para sa kalayaan" },
+          { "question": "Bakit mahalaga ang mga pangyayaring ito sa ating kasaysayan?", "options": ["Ipinapakita nito ang pakikibaka para sa kalayaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Ipinapakita nito ang pakikibaka para sa kalayaan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 3: Online Forms Builders!\n\nLet's learn to create simple online forms! 📋\n\n## 📋 What Is an Online Form Builder?\n- Tools like **Google Forms** let us create surveys, sign-up sheets, or quizzes online.\n\n## 🔒 Safe and Responsible Use\n- Keep forms **private** unless meant to be public.\n- Never collect personal information without proper permission.\n\n## 🎯 Real Application\n- We can create a \"School Event Sign-up\" form for a class activity!\n\nOnline forms make collecting information easy and organized! 🌟",
+        "quiz": [
+          { "question": "What is a tool used to create online forms?", "options": ["Google Forms", "A calculator", "A printer", "A camera"], "correct_answer": "Google Forms" },
+          { "question": "What should online forms be kept as unless meant to be public?", "options": ["Private", "Open to everyone", "Deleted", "Ignored"], "correct_answer": "Private" },
+          { "question": "What should you avoid collecting without proper permission?", "options": ["Personal information", "General feedback", "Simple opinions", "Nothing"], "correct_answer": "Personal information" },
+          { "question": "What is an example of using an online form?", "options": ["A School Event Sign-up form", "A printed letter", "A phone call", "A handwritten note"], "correct_answer": "A School Event Sign-up form" },
+          { "question": "What do online forms help us do?", "options": ["Collect information easily and in an organized way", "Confuse people", "Waste time", "Nothing useful"], "correct_answer": "Collect information easily and in an organized way" },
+          { "question": "Why is privacy important in form building?", "options": ["To protect people's information", "It doesn't matter", "To make forms slower", "To confuse respondents"], "correct_answer": "To protect people's information" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Week 3: Holistic Wellness!\n\nLet's explore the many dimensions of being healthy! 🌈\n\n## 🌈 Dimensions of Holistic Wellness\n- **Physical** — body health, exercise, nutrition\n- **Mental/Intellectual** — thinking, learning, curiosity\n- **Emotional** — managing feelings\n- **Social** — relationships with others\n- **Spiritual** — sense of purpose and values\n\n## 🔗 Interdependence\n- These dimensions **affect each other** — poor sleep (physical) can affect mood (emotional).\n\n## 🔍 Adolescent Changes\n- As we grow, changes in these dimensions affect our overall **well-being**.\n\nTrue wellness means caring for your whole self! 🌟",
+        "quiz": [
+          { "question": "Which is a dimension of holistic wellness?", "options": ["Emotional", "Only physical", "Only mental", "None of these"], "correct_answer": "Emotional" },
+          { "question": "What does the social dimension of wellness involve?", "options": ["Relationships with others", "Only exercise", "Only sleep", "Only grades"], "correct_answer": "Relationships with others" },
+          { "question": "What does \"interdependence\" of wellness dimensions mean?", "options": ["They affect each other", "They are unrelated", "Only one matters", "None affect each other"], "correct_answer": "They affect each other" },
+          { "question": "How can poor sleep affect us?", "options": ["It can affect our mood", "It has no effect", "It only affects our height", "It only affects our friends"], "correct_answer": "It can affect our mood" },
+          { "question": "What does the spiritual dimension involve?", "options": ["Sense of purpose and values", "Only exercise", "Only friendships", "Only grades"], "correct_answer": "Sense of purpose and values" },
+          { "question": "What does true wellness mean?", "options": ["Caring for your whole self", "Only physical fitness", "Only good grades", "Only having friends"], "correct_answer": "Caring for your whole self" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 3: Ahensya at Matagumpay na Fish Raisers!\n\nAlamin natin ang mga tumutulong sa mga mangingisda! 🐠\n\n## 🏢 Mga Ahensya ng Gobyerno\n- **BFAR** — sumusuporta sa mga mangingisda gamit ang training at teknolohiya.\n- May mga **NGO** ring tumutulong sa sustainable fishing practices.\n\n## 🌟 Matagumpay na Fish Raisers sa Komunidad\n- Maraming Pilipino ang naging matagumpay sa aquaculture sa pamamagitan ng **sipag at kaalaman**.\n\n## 🔍 Mga Katangian ng Tagumpay\n- **Masipag, matiyaga, at bukas sa bagong kaalaman**\n\nMaaari kang maging matagumpay rin sa fishery arts! 🌟",
+        "quiz": [
+          { "question": "Ano ang gawain ng BFAR?", "options": ["Sumusuporta sa mga mangingisda", "Nagbebenta ng isda lamang", "Wala itong gawain", "Nagtuturo ng musika"], "correct_answer": "Sumusuporta sa mga mangingisda" },
+          { "question": "Sino pang tumutulong sa sustainable fishing?", "options": ["Mga NGO", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "Mga NGO" },
+          { "question": "Ano ang katangian ng matagumpay na fish raiser?", "options": ["Masipag at matiyaga", "Tamad", "Walang pakialam", "Ayaw matuto"], "correct_answer": "Masipag at matiyaga" },
+          { "question": "Ano ang kailangan para maging matagumpay sa aquaculture?", "options": ["Sipag at kaalaman", "Swerte lamang", "Wala", "Kasinungalingan"], "correct_answer": "Sipag at kaalaman" },
+          { "question": "Ano ang ibinibigay ng training ng BFAR?", "options": ["Kaalaman at teknolohiya", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Kaalaman at teknolohiya" },
+          { "question": "Bakit mahalaga ang pagiging bukas sa bagong kaalaman?", "options": ["Nakatutulong ito sa tagumpay", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nakatutulong ito sa tagumpay" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 3: Mapanagutang Pagpapasiya\n\nAlamin natin kung paano gumawa ng mapanagutang desisyon! 🌟\n\n## 🤔 Mapanagutang Pagpapasiya\n- Bago magpasiya, **timbangin** ang mga opsyon at isipin ang magiging resulta nito.\n\n## 👥 Kasama ang Kapwa\n- Isaalang-alang din ang epekto ng iyong desisyon sa **ibang tao**.\n\n## 🔍 Halimbawa\n- Bago tumanggap ng imbitasyon sa isang lakad, isipin kung ito ay makakaapekto sa iyong tungkulin sa bahay.\n\nMahalaga ang maingat na pagpapasiya sa pang-araw-araw na buhay! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago magpasiya?", "options": ["Timbangin ang mga opsyon", "Basta na lang magpasiya", "Huwag mag-isip", "Sundin ang iba lamang"], "correct_answer": "Timbangin ang mga opsyon" },
+          { "question": "Ano pang dapat isaalang-alang sa pagpapasiya?", "options": ["Epekto sa ibang tao", "Sarili lamang", "Wala", "Damdamin lamang"], "correct_answer": "Epekto sa ibang tao" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Maingat na paghuhusga", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Maingat na paghuhusga" },
+          { "question": "Bakit mahalaga ang mapanagutang pagpapasiya?", "options": ["Tumutulong ito bumuo ng mabuting kinabukasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito bumuo ng mabuting kinabukasan" },
+          { "question": "Ano ang dapat gawin bago tumanggap ng imbitasyon?", "options": ["Isipin ang epekto nito sa tungkulin", "Tumanggap agad", "Huwag pag-isipan", "Wala"], "correct_answer": "Isipin ang epekto nito sa tungkulin" },
+          { "question": "Ano ang tawag sa tamang pagtitimbang ng mga opsyon?", "options": ["Mapanagutang pagpapasiya", "Kawalang-galang", "Kapabayaan", "Walang pagpapasiya"], "correct_answer": "Mapanagutang pagpapasiya" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of author's purpose and propaganda!\n\n- Purposes: **entertain, inform, persuade**\n- **Name calling** and **glittering generalities** are propaganda techniques\n\nGreat critical thinking! ⭐",
+        "quiz": [
+          { "question": "What are the three main author's purposes?", "options": ["Entertain, inform, persuade", "Only entertain", "Only inform", "Only persuade"], "correct_answer": "Entertain, inform, persuade" },
+          { "question": "What is name calling as a propaganda technique?", "options": ["Using negative labels to make something look bad", "Using facts only", "Using kind words", "Telling a joke"], "correct_answer": "Using negative labels to make something look bad" },
+          { "question": "What are glittering generalities?", "options": ["Vague, positive-sounding words without substance", "Detailed factual statements", "Negative labels", "Specific numbers"], "correct_answer": "Vague, positive-sounding words without substance" },
+          { "question": "Why is identifying author's purpose important?", "options": ["It helps us read critically", "It has no use", "It makes reading harder", "It confuses readers"], "correct_answer": "It helps us read critically" },
+          { "question": "Why do we study propaganda techniques?", "options": ["To think critically about what we read", "To become persuaders ourselves only", "To avoid reading", "For no reason"], "correct_answer": "To think critically about what we read" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of decimals!\n\n- 3.2456 + 1.0325 = **4.2781**\n- Line up the **decimal points**\n\nGreat decimal precision! 🌟",
+        "quiz": [
+          { "question": "What is 3.2456 + 1.0325?", "options": ["4.2781", "4.1781", "4.3781", "4.2681"], "correct_answer": "4.2781" },
+          { "question": "What is 5.6789 − 2.1234?", "options": ["3.5555", "3.4555", "3.6555", "3.5455"], "correct_answer": "3.5555" },
+          { "question": "What should you line up before adding decimals?", "options": ["The decimal points", "The whole numbers only", "Nothing", "The signs"], "correct_answer": "The decimal points" },
+          { "question": "What is 2.5 + 1.75?", "options": ["4.25", "4.15", "3.25", "4.75"], "correct_answer": "4.25" },
+          { "question": "How many decimal places can we work with this week?", "options": ["Up to 4", "Only 1", "Up to 10", "None"], "correct_answer": "Up to 4" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Natuklasang kaalaman** = bagong impormasyon sa teksto\n- Iugnay ang natutunan sa sariling karanasan\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang natuklasang kaalaman?", "options": ["Bagong kaalamang ibinibigay ng teksto", "Ang pamagat lamang", "Ang bilang ng pahina", "Wala"], "correct_answer": "Bagong kaalamang ibinibigay ng teksto" },
+          { "question": "Ano ang dapat iugnay sa natutunan?", "options": ["Sariling karanasan", "Walang iuugnay", "Pangalan lamang", "Bilang lamang"], "correct_answer": "Sariling karanasan" },
+          { "question": "Bakit mahalaga ang pagkuha ng mahahalagang detalye?", "options": ["Para sa mas malalim na pag-unawa", "Walang dahilan", "Para lang sa laro", "Para hirapan ang mambabasa"], "correct_answer": "Para sa mas malalim na pag-unawa" },
+          { "question": "Alin ang halimbawa ng natuklasang kaalaman?", "options": ["Bagong impormasyon tungkol sa isang hayop", "Ang pamagat ng aklat", "Ang kulay ng pabalat", "Ang bilang ng titik"], "correct_answer": "Bagong impormasyon tungkol sa isang hayop" },
+          { "question": "Ano ang dapat gawin kapag nagbago ang direksiyon ng kwento?", "options": ["Subaybayan ito", "Balewalain ito", "Kalimutan ito", "Wala"], "correct_answer": "Subaybayan ito" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Kasunduan sa Biak-na-Bato** (1897) — pansamantalang pagtigil ng labanan\n- Bumalik si Aguinaldo nang dumating ang Amerikano\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Kasunduan sa Biak-na-Bato?", "options": ["Pansamantalang pagtigil ng labanan", "Deklarasyon ng kalayaan", "Batas Militar", "Kasal"], "correct_answer": "Pansamantalang pagtigil ng labanan" },
+          { "question": "Saan napunta si Aguinaldo bilang bahagi ng kasunduan?", "options": ["Hong Kong", "Estados Unidos", "Espanya", "Japan"], "correct_answer": "Hong Kong" },
+          { "question": "Anong taon nilagdaan ang Kasunduan sa Biak-na-Bato?", "options": ["1897", "1896", "1898", "1900"], "correct_answer": "1897" },
+          { "question": "Ano ang ginawa ni Aguinaldo nang dumating ang mga Amerikano?", "options": ["Bumalik siya at ipinagpatuloy ang paglaban", "Umalis siya magpakailanman", "Sumuko siya agad", "Wala siyang ginawa"], "correct_answer": "Bumalik siya at ipinagpatuloy ang paglaban" },
+          { "question": "Ano ang ipinakita ng Himagsikan sa mga Pilipino?", "options": ["Determinasyon para sa kalayaan", "Kawalang-pakialam", "Kasunduan lamang", "Wala"], "correct_answer": "Determinasyon para sa kalayaan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Google Forms** — gamit sa paggawa ng online form\n- Panatilihing **private** ang form maliban kung dapat publiko\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What is a tool used to create online forms?", "options": ["Google Forms", "A calculator", "A printer", "A camera"], "correct_answer": "Google Forms" },
+          { "question": "What should online forms be kept as unless meant to be public?", "options": ["Private", "Open to everyone", "Deleted", "Ignored"], "correct_answer": "Private" },
+          { "question": "What should you avoid collecting without proper permission?", "options": ["Personal information", "General feedback", "Simple opinions", "Nothing"], "correct_answer": "Personal information" },
+          { "question": "What do online forms help us do?", "options": ["Collect information easily and in an organized way", "Confuse people", "Waste time", "Nothing useful"], "correct_answer": "Collect information easily and in an organized way" },
+          { "question": "Why is privacy important in form building?", "options": ["To protect people's information", "It doesn't matter", "To make forms slower", "To confuse respondents"], "correct_answer": "To protect people's information" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Solution** = evenly spread | **Suspension** = not evenly spread\n- Hangin = mixture ng oxygen, carbon dioxide, nitrogen\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is a solution?", "options": ["A mixture with particles evenly spread", "A mixture with particles that settle", "A single pure substance", "Only a liquid"], "correct_answer": "A mixture with particles evenly spread" },
+          { "question": "What is a suspension?", "options": ["A mixture with particles NOT evenly spread", "A mixture with particles evenly spread", "A single pure substance", "Only a gas"], "correct_answer": "A mixture with particles NOT evenly spread" },
+          { "question": "Is sugar dissolved in water a solution or suspension?", "options": ["Solution", "Suspension", "Neither", "Both"], "correct_answer": "Solution" },
+          { "question": "Is sand in water a solution or suspension?", "options": ["Suspension", "Solution", "Neither", "Both"], "correct_answer": "Suspension" },
+          { "question": "What gases make up air?", "options": ["Oxygen, carbon dioxide, nitrogen, water vapor", "Only oxygen", "Only nitrogen", "Only carbon dioxide"], "correct_answer": "Oxygen, carbon dioxide, nitrogen, water vapor" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Dimensions: **physical, mental, emotional, social, spiritual**\n- These dimensions **affect each other**\n\nGreat holistic wellness understanding! 🌟",
+        "quiz": [
+          { "question": "Which is a dimension of holistic wellness?", "options": ["Emotional", "Only physical", "Only mental", "None of these"], "correct_answer": "Emotional" },
+          { "question": "What does the social dimension of wellness involve?", "options": ["Relationships with others", "Only exercise", "Only sleep", "Only grades"], "correct_answer": "Relationships with others" },
+          { "question": "What does \"interdependence\" of wellness dimensions mean?", "options": ["They affect each other", "They are unrelated", "Only one matters", "None affect each other"], "correct_answer": "They affect each other" },
+          { "question": "What does the spiritual dimension involve?", "options": ["Sense of purpose and values", "Only exercise", "Only friendships", "Only grades"], "correct_answer": "Sense of purpose and values" },
+          { "question": "What does true wellness mean?", "options": ["Caring for your whole self", "Only physical fitness", "Only good grades", "Only having friends"], "correct_answer": "Caring for your whole self" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- **BFAR** at mga NGO — sumusuporta sa mangingisda\n- Matagumpay = masipag, matiyaga\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang gawain ng BFAR?", "options": ["Sumusuporta sa mga mangingisda", "Nagbebenta ng isda lamang", "Wala itong gawain", "Nagtuturo ng musika"], "correct_answer": "Sumusuporta sa mga mangingisda" },
+          { "question": "Ano ang katangian ng matagumpay na fish raiser?", "options": ["Masipag at matiyaga", "Tamad", "Walang pakialam", "Ayaw matuto"], "correct_answer": "Masipag at matiyaga" },
+          { "question": "Ano ang kailangan para maging matagumpay sa aquaculture?", "options": ["Sipag at kaalaman", "Swerte lamang", "Wala", "Kasinungalingan"], "correct_answer": "Sipag at kaalaman" },
+          { "question": "Ano ang ibinibigay ng training ng BFAR?", "options": ["Kaalaman at teknolohiya", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Kaalaman at teknolohiya" },
+          { "question": "Sino pang tumutulong sa sustainable fishing?", "options": ["Mga NGO", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "Mga NGO" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Timbangin ang mga opsyon bago magpasiya\n- Isaalang-alang ang epekto sa ibang tao\n\nMaingat na magpasiya! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago magpasiya?", "options": ["Timbangin ang mga opsyon", "Basta na lang magpasiya", "Huwag mag-isip", "Sundin ang iba lamang"], "correct_answer": "Timbangin ang mga opsyon" },
+          { "question": "Ano pang dapat isaalang-alang sa pagpapasiya?", "options": ["Epekto sa ibang tao", "Sarili lamang", "Wala", "Damdamin lamang"], "correct_answer": "Epekto sa ibang tao" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Maingat na paghuhusga", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Maingat na paghuhusga" },
+          { "question": "Bakit mahalaga ang mapanagutang pagpapasiya?", "options": ["Tumutulong ito bumuo ng mabuting kinabukasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito bumuo ng mabuting kinabukasan" },
+          { "question": "Ano ang tawag sa tamang pagtitimbang ng mga opsyon?", "options": ["Mapanagutang pagpapasiya", "Kawalang-galang", "Kapabayaan", "Walang pagpapasiya"], "correct_answer": "Mapanagutang pagpapasiya" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-06-21",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 1: Story Grammar Elements!\n\nLet's dive deep into what makes a story work! 📚\n\n## 📚 Story Grammar Elements\n- **Characters, setting, plot, conflict, resolution** — the building blocks of narratives.\n- We'll sequence at least **8 events** in a story this year!\n\n## 🎭 Culture-Based Texts\n- This year we explore stories about **Indigenous Peoples and regional celebrations** across the Philippines.\n\n## 🔍 Reading Purpose\n- Understanding these elements helps us identify the **author's message** and purpose.\n\nGreat storytelling starts with understanding its parts! 🌟",
+        "quiz": [
+          { "question": "What are story grammar elements?", "options": ["Characters, setting, plot, conflict, resolution", "Only the title", "Only the author's name", "Only the page count"], "correct_answer": "Characters, setting, plot, conflict, resolution" },
+          { "question": "How many events will we sequence in stories this year?", "options": ["At least 8", "At least 2", "At least 20", "None"], "correct_answer": "At least 8" },
+          { "question": "What topic will our culture-based texts focus on?", "options": ["Indigenous Peoples and regional celebrations", "Only foreign holidays", "Only sports", "Only science"], "correct_answer": "Indigenous Peoples and regional celebrations" },
+          { "question": "What does understanding story elements help us identify?", "options": ["The author's message and purpose", "Only the book's price", "Only the cover design", "Nothing important"], "correct_answer": "The author's message and purpose" },
+          { "question": "What is conflict in a story?", "options": ["The problem the characters face", "The setting only", "The title only", "The author's name"], "correct_answer": "The problem the characters face" },
+          { "question": "What is resolution in a story?", "options": ["How the problem is solved", "The beginning only", "The characters' names", "The setting only"], "correct_answer": "How the problem is solved" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 1: Tessellation!\n\nLet's explore how shapes can tile a surface without gaps! 🔷\n\n## 🔷 What Is Tessellation?\n- A shape **tessellates** if copies of it can cover a surface with **no gaps or overlaps**.\n- **Triangles, squares, and rectangles** all tessellate!\n\n## 🔍 Why Do Some Shapes Tessellate?\n- Shapes tessellate when their angles fit together perfectly around a point (adding up to 360°).\n\n## 🎨 Real-Life Examples\n- **Honeycombs** (hexagons) and **floor tiles** (squares) are real tessellations.\n\nExploring tessellation connects math to art and design! 🌟",
+        "quiz": [
+          { "question": "What does it mean for a shape to tessellate?", "options": ["It can cover a surface with no gaps or overlaps", "It can only be drawn once", "It has no sides", "It cannot be measured"], "correct_answer": "It can cover a surface with no gaps or overlaps" },
+          { "question": "Which shapes tessellate?", "options": ["Triangles, squares, and rectangles", "Only circles", "Nothing tessellates", "Only ovals"], "correct_answer": "Triangles, squares, and rectangles" },
+          { "question": "What do the angles need to add up to for a shape to tessellate around a point?", "options": ["360°", "180°", "90°", "45°"], "correct_answer": "360°" },
+          { "question": "What is a real-life example of tessellation?", "options": ["A honeycomb", "A single circle", "A random splash of paint", "A curved line"], "correct_answer": "A honeycomb" },
+          { "question": "What shape is a honeycomb made of?", "options": ["Hexagons", "Circles", "Ovals", "Stars"], "correct_answer": "Hexagons" },
+          { "question": "What connects tessellation to other subjects?", "options": ["Art and design", "Only cooking", "Only music", "Nothing"], "correct_answer": "Art and design" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 1: Pagsunod-sunod ng Pangyayari\n\nAlamin natin kung paano sundan ang mga pangyayari sa isang kwento! 📖\n\n## 🔢 Pagsunod-sunod ng Pangyayari\n- Sa taong ito, susundan natin ang **hindi bababa sa walong pangyayari** sa isang kwento.\n\n## 🏞️ Paglalarawan ng Tagpuan\n- Ang **tagpuan** ay kung saan at kailan naganap ang kwento — mahalaga ito sa pag-unawa ng kwento.\n\n## 🎭 Realidad at Pantasya\n- Natutukoy natin kung ang kwento ay **totoong pangyayari** o **kathang-isip** lamang.\n\nMahalagang kasanayan ito para sa mahusay na pag-unawa sa kwento! 🌟",
+        "quiz": [
+          { "question": "Ilang pangyayari ang susundan natin sa isang kwento ngayong taon?", "options": ["Hindi bababa sa walo", "Isa lamang", "Dalawa lamang", "Wala"], "correct_answer": "Hindi bababa sa walo" },
+          { "question": "Ano ang tagpuan?", "options": ["Kung saan at kailan naganap ang kwento", "Ang mga tauhan", "Ang aral ng kwento", "Ang pamagat ng kwento"], "correct_answer": "Kung saan at kailan naganap ang kwento" },
+          { "question": "Ano ang realidad?", "options": ["Totoong pangyayari", "Kathang-isip lamang", "Isang tula", "Isang liham"], "correct_answer": "Totoong pangyayari" },
+          { "question": "Ano ang pantasya?", "options": ["Kathang-isip lamang", "Totoong pangyayari", "Isang balita", "Isang liham"], "correct_answer": "Kathang-isip lamang" },
+          { "question": "Bakit mahalagang malaman ang pagkakasunod-sunod ng pangyayari?", "options": ["Para sa mahusay na pag-unawa sa kwento", "Walang gamit", "Para lang sa laro", "Para hirapan ang mambabasa"], "correct_answer": "Para sa mahusay na pag-unawa sa kwento" },
+          { "question": "Bakit mahalaga ang tagpuan sa isang kwento?", "options": ["Mahalaga ito sa pag-unawa ng kwento", "Walang gamit", "Hindi ito mahalaga", "Para lang sa hitsura"], "correct_answer": "Mahalaga ito sa pag-unawa ng kwento" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 1: Changes of State!\n\nLet's explore how matter changes from one state to another! 🧊\n\n## 🧊 Changes of State\n- **Melting** — solid to liquid (ice → water)\n- **Evaporation** — liquid to gas (water → water vapor)\n- **Freezing** — liquid to solid (water → ice)\n- **Condensation** — gas to liquid (water vapor → water droplets)\n\n## 🔥 Role of Heat Energy\n- **Adding heat** causes melting and evaporation.\n- **Removing heat** causes freezing and condensation.\n\n## 🔍 Everyday Example\n- Water droplets forming on a cold glass show **condensation** in action!\n\nGreat exploration of how matter transforms! 🌟",
+        "quiz": [
+          { "question": "What is melting?", "options": ["Solid to liquid", "Liquid to gas", "Gas to liquid", "Liquid to solid"], "correct_answer": "Solid to liquid" },
+          { "question": "What is evaporation?", "options": ["Liquid to gas", "Solid to liquid", "Gas to liquid", "Liquid to solid"], "correct_answer": "Liquid to gas" },
+          { "question": "What is freezing?", "options": ["Liquid to solid", "Solid to liquid", "Liquid to gas", "Gas to liquid"], "correct_answer": "Liquid to solid" },
+          { "question": "What is condensation?", "options": ["Gas to liquid", "Liquid to gas", "Solid to liquid", "Liquid to solid"], "correct_answer": "Gas to liquid" },
+          { "question": "What causes melting and evaporation?", "options": ["Adding heat", "Removing heat", "Neither", "Both equally"], "correct_answer": "Adding heat" },
+          { "question": "What forms on a cold glass on a hot day?", "options": ["Condensation", "Evaporation", "Melting", "Freezing"], "correct_answer": "Condensation" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 1: Ang Katipunan\n\nAlamin natin ang pagkakatatag ng Katipunan! ⚔️\n\n## ⚔️ Ano ang Katipunan?\n- Ang **Katipunan** ay isang lihim na samahang itinatag noong 1892 ni **Andres Bonifacio** upang labanan ang mga Espanyol.\n\n## 🎯 Layunin ng Katipunan\n- Makamit ang **kalayaan** ng Pilipinas mula sa Espanya sa pamamagitan ng **himagsikan**.\n\n## 📖 Paglaganap ng Katipunan\n- Kumalat ang Katipunan sa iba't ibang lalawigan bago ito natuklasan ng mga Espanyol noong 1896.\n\nMahalaga ang Katipunan sa ating pakikibaka para sa kalayaan! 🇵🇭",
+        "quiz": [
+          { "question": "Sino ang nagtatag ng Katipunan?", "options": ["Andres Bonifacio", "Jose Rizal", "Emilio Aguinaldo", "Apolinario Mabini"], "correct_answer": "Andres Bonifacio" },
+          { "question": "Anong taon itinatag ang Katipunan?", "options": ["1892", "1896", "1898", "1900"], "correct_answer": "1892" },
+          { "question": "Ano ang layunin ng Katipunan?", "options": ["Makamit ang kalayaan mula sa Espanya", "Makipagkaibigan sa Espanya", "Manatili sa ilalim ng Espanya", "Wala"], "correct_answer": "Makamit ang kalayaan mula sa Espanya" },
+          { "question": "Anong uri ng samahan ang Katipunan?", "options": ["Lihim na samahan", "Bukas na samahan", "Simbahan", "Paaralan"], "correct_answer": "Lihim na samahan" },
+          { "question": "Paano nakamit ang layunin ng Katipunan?", "options": ["Sa pamamagitan ng himagsikan", "Sa pamamagitan ng kalakalan", "Sa pamamagitan ng pag-aaral lamang", "Wala"], "correct_answer": "Sa pamamagitan ng himagsikan" },
+          { "question": "Kailan natuklasan ang Katipunan ng mga Espanyol?", "options": ["1896", "1892", "1898", "1900"], "correct_answer": "1896" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 1: Web Conferencing!\n\nLet's learn how to use video calls safely and responsibly! 📹\n\n## 📹 What Is Web Conferencing?\n- **Web conferencing** lets people meet and talk through **video and audio** over the Internet.\n- Tools like Zoom or Google Meet are used for online meetings or classes.\n\n## 🛡️ Safe and Responsible Use\n- Only join meetings with a **trusted link** shared by a teacher or known person.\n- Be mindful of your **background and privacy** during video calls.\n\n## 🔍 Practice Tip\n- Check your **camera and microphone settings** before joining a call.\n\nWeb conferencing connects us safely across distances! 🌟",
+        "quiz": [
+          { "question": "What is web conferencing?", "options": ["Meeting and talking through video and audio online", "A type of game", "A printed document", "A type of food"], "correct_answer": "Meeting and talking through video and audio online" },
+          { "question": "What should you check before joining a video call?", "options": ["Camera and microphone settings", "Nothing at all", "Only your outfit", "Only the time"], "correct_answer": "Camera and microphone settings" },
+          { "question": "What kind of link should you use to join a meeting?", "options": ["A trusted link from a teacher or known person", "Any random link", "A link from a stranger", "No link needed"], "correct_answer": "A trusted link from a teacher or known person" },
+          { "question": "What should you be mindful of during video calls?", "options": ["Your background and privacy", "Nothing important", "Only your voice", "Only the weather"], "correct_answer": "Your background and privacy" },
+          { "question": "Which tool is used for web conferencing?", "options": ["Zoom or Google Meet", "A calculator", "A printer", "A camera film roll"], "correct_answer": "Zoom or Google Meet" },
+          { "question": "Why is web conferencing useful?", "options": ["It connects people across distances", "It has no use", "It only works offline", "It's only for games"], "correct_answer": "It connects people across distances" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Week 1: Music of the Revolutionary Period!\n\nLet's discover how history shaped Filipino music! 🎶\n\n## 🎶 Music During the Revolutionary Period\n- Filipino composers created music that expressed **patriotism and the desire for freedom**.\n- Kundiman songs often carried hidden messages of **love for country**.\n\n## 🎨 Connection to History\n- Events like the Katipunan and the Philippine Revolution **influenced** the themes of songs and performances.\n\n## 🔍 Listening Practice\n- Listen to a patriotic Filipino song and identify its **message and mood**.\n\nMusic tells the story of our history! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period music express?", "options": ["Patriotism and desire for freedom", "Only sadness", "Only humor", "Nothing meaningful"], "correct_answer": "Patriotism and desire for freedom" },
+          { "question": "What is a Kundiman?", "options": ["A traditional Filipino love song, sometimes with hidden patriotic messages", "A type of dance", "A type of food", "A sport"], "correct_answer": "A traditional Filipino love song, sometimes with hidden patriotic messages" },
+          { "question": "What influenced the themes of Revolutionary period music?", "options": ["Events like the Katipunan and the Revolution", "Foreign trends only", "Nothing historical", "Random ideas"], "correct_answer": "Events like the Katipunan and the Revolution" },
+          { "question": "What can we identify when listening to a patriotic song?", "options": ["Its message and mood", "Only its length", "Only its price", "Nothing important"], "correct_answer": "Its message and mood" },
+          { "question": "What does music tell us about?", "options": ["The story of our history", "Nothing important", "Only random sounds", "Only numbers"], "correct_answer": "The story of our history" },
+          { "question": "What emotion is often tied to Kundiman songs?", "options": ["Love for country", "Anger only", "Boredom", "Confusion"], "correct_answer": "Love for country" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 1: Fishery Arts and Its Branches!\n\nLet's learn about the field of fishery arts! 🎣\n\n## 🎣 Ano ang Fishery Arts?\n- Ang **fishery arts** ay ang agham at kasanayan sa pag-aalaga, pag-aani, at pagbebenta ng isda.\n\n## 🐠 Mga Sangay ng Fishery Arts\n- **Aquaculture** — pag-aalaga ng isda sa kontroladong kapaligiran (fish pond, cage)\n- **Capture fisheries** — pangingisda sa dagat o ilog\n\n## 🔍 Kahalagahan ng Fishery Arts\n- Nagbibigay ito ng **pagkain at kabuhayan** sa maraming Pilipino.\n\nMahalaga ang fishery arts sa ating bansang kapuluan! 🌟",
+        "quiz": [
+          { "question": "Ano ang fishery arts?", "options": ["Agham at kasanayan sa pag-aalaga, pag-aani, at pagbebenta ng isda", "Isang uri ng musika", "Isang uri ng laro", "Isang uri ng sayaw"], "correct_answer": "Agham at kasanayan sa pag-aalaga, pag-aani, at pagbebenta ng isda" },
+          { "question": "Ano ang aquaculture?", "options": ["Pag-aalaga ng isda sa kontroladong kapaligiran", "Pangingisda sa dagat lamang", "Isang uri ng hayop", "Isang batas"], "correct_answer": "Pag-aalaga ng isda sa kontroladong kapaligiran" },
+          { "question": "Ano ang capture fisheries?", "options": ["Pangingisda sa dagat o ilog", "Pag-aalaga sa fish pond lamang", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Pangingisda sa dagat o ilog" },
+          { "question": "Ano ang ibinibigay ng fishery arts sa mga Pilipino?", "options": ["Pagkain at kabuhayan", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Pagkain at kabuhayan" },
+          { "question": "Bakit mahalaga ang fishery arts sa Pilipinas?", "options": ["Dahil ito ay bansang kapuluan", "Walang dahilan", "Dahil walang isda", "Wala itong kaugnayan"], "correct_answer": "Dahil ito ay bansang kapuluan" },
+          { "question": "Alin ang halimbawa ng kontroladong pag-aalaga ng isda?", "options": ["Fish cage", "Karagatan lamang", "Bundok", "Ilog lamang"], "correct_answer": "Fish cage" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 1: Sarili Bilang Nilikhang May Dignidad\n\nAlamin natin ang ating dignidad bilang tao! 🌟\n\n## 💛 Ano ang Dignidad?\n- Ang **dignidad** ay ang natatanging halaga ng bawat tao bilang nilikha, hindi batay sa yaman o kakayahan.\n\n## 🙋 Batayan ng Paggalang\n- Dahil bawat tao ay may dignidad, dapat nating igalang ang **sarili at kapwa**.\n\n## 🔍 Halimbawa\n- Hindi natin dapat husgahan ang isang tao batay lamang sa kanyang hitsura o kaya sa buhay.\n\nIpakita ang paggalang sa iyong sariling dignidad at sa dignidad ng iba! 🌟",
+        "quiz": [
+          { "question": "Ano ang dignidad?", "options": ["Natatanging halaga ng bawat tao bilang nilikha", "Yaman ng isang tao", "Kakayahan sa laro", "Bilang ng kaibigan"], "correct_answer": "Natatanging halaga ng bawat tao bilang nilikha" },
+          { "question": "Batay saan ang dignidad ng tao?", "options": ["Sa pagiging nilikha, hindi sa yaman o kakayahan", "Sa yaman lamang", "Sa kakayahan sa laro", "Sa bilang ng kaibigan"], "correct_answer": "Sa pagiging nilikha, hindi sa yaman o kakayahan" },
+          { "question": "Ano ang batayan ng paggalang sa kapwa?", "options": ["Dignidad ng bawat tao", "Yaman lamang", "Katanyagan lamang", "Wala"], "correct_answer": "Dignidad ng bawat tao" },
+          { "question": "Ano ang HINDI dapat batayan sa paghusga sa tao?", "options": ["Hitsura o kalagayan sa buhay", "Kanyang dignidad", "Kanyang pagkatao", "Wala sa mga ito"], "correct_answer": "Hitsura o kalagayan sa buhay" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagpapahalaga sa sarili", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pagpapahalaga sa sarili" },
+          { "question": "Sino ang may dignidad?", "options": ["Bawat tao", "Mayayaman lamang", "Matatalino lamang", "Walang may dignidad"], "correct_answer": "Bawat tao" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of story elements!\n\n- **Characters, setting, plot, conflict, resolution**\n- We sequence at least **8 events**\n- Culture-based texts: IP and regional celebrations\n\nGreat storytelling foundation! ⭐",
+        "quiz": [
+          { "question": "What are story grammar elements?", "options": ["Characters, setting, plot, conflict, resolution", "Only the title", "Only the author's name", "Only the page count"], "correct_answer": "Characters, setting, plot, conflict, resolution" },
+          { "question": "How many events will we sequence in stories this year?", "options": ["At least 8", "At least 2", "At least 20", "None"], "correct_answer": "At least 8" },
+          { "question": "What is conflict in a story?", "options": ["The problem the characters face", "The setting only", "The title only", "The author's name"], "correct_answer": "The problem the characters face" },
+          { "question": "What is resolution in a story?", "options": ["How the problem is solved", "The beginning only", "The characters' names", "The setting only"], "correct_answer": "How the problem is solved" },
+          { "question": "What topic will our culture-based texts focus on?", "options": ["Indigenous Peoples and regional celebrations", "Only foreign holidays", "Only sports", "Only science"], "correct_answer": "Indigenous Peoples and regional celebrations" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of tessellation!\n\n- A shape **tessellates** with no gaps or overlaps\n- Triangles, squares, rectangles tessellate\n- Angles must add up to **360°**\n\nGreat geometry exploration! 🌟",
+        "quiz": [
+          { "question": "What does it mean for a shape to tessellate?", "options": ["It can cover a surface with no gaps or overlaps", "It can only be drawn once", "It has no sides", "It cannot be measured"], "correct_answer": "It can cover a surface with no gaps or overlaps" },
+          { "question": "Which shapes tessellate?", "options": ["Triangles, squares, and rectangles", "Only circles", "Nothing tessellates", "Only ovals"], "correct_answer": "Triangles, squares, and rectangles" },
+          { "question": "What do the angles need to add up to for a shape to tessellate around a point?", "options": ["360°", "180°", "90°", "45°"], "correct_answer": "360°" },
+          { "question": "What is a real-life example of tessellation?", "options": ["A honeycomb", "A single circle", "A random splash of paint", "A curved line"], "correct_answer": "A honeycomb" },
+          { "question": "What shape is a honeycomb made of?", "options": ["Hexagons", "Circles", "Ovals", "Stars"], "correct_answer": "Hexagons" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Susundan natin ang hindi bababa sa **walong pangyayari**\n- **Realidad** = totoo | **Pantasya** = kathang-isip\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ilang pangyayari ang susundan natin sa isang kwento ngayong taon?", "options": ["Hindi bababa sa walo", "Isa lamang", "Dalawa lamang", "Wala"], "correct_answer": "Hindi bababa sa walo" },
+          { "question": "Ano ang tagpuan?", "options": ["Kung saan at kailan naganap ang kwento", "Ang mga tauhan", "Ang aral ng kwento", "Ang pamagat ng kwento"], "correct_answer": "Kung saan at kailan naganap ang kwento" },
+          { "question": "Ano ang realidad?", "options": ["Totoong pangyayari", "Kathang-isip lamang", "Isang tula", "Isang liham"], "correct_answer": "Totoong pangyayari" },
+          { "question": "Ano ang pantasya?", "options": ["Kathang-isip lamang", "Totoong pangyayari", "Isang balita", "Isang liham"], "correct_answer": "Kathang-isip lamang" },
+          { "question": "Bakit mahalaga ang tagpuan sa isang kwento?", "options": ["Mahalaga ito sa pag-unawa ng kwento", "Walang gamit", "Hindi ito mahalaga", "Para lang sa hitsura"], "correct_answer": "Mahalaga ito sa pag-unawa ng kwento" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Andres Bonifacio** ang nagtatag ng Katipunan noong **1892**\n- Layunin: makamit ang **kalayaan** mula sa Espanya\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Sino ang nagtatag ng Katipunan?", "options": ["Andres Bonifacio", "Jose Rizal", "Emilio Aguinaldo", "Apolinario Mabini"], "correct_answer": "Andres Bonifacio" },
+          { "question": "Anong taon itinatag ang Katipunan?", "options": ["1892", "1896", "1898", "1900"], "correct_answer": "1892" },
+          { "question": "Ano ang layunin ng Katipunan?", "options": ["Makamit ang kalayaan mula sa Espanya", "Makipagkaibigan sa Espanya", "Manatili sa ilalim ng Espanya", "Wala"], "correct_answer": "Makamit ang kalayaan mula sa Espanya" },
+          { "question": "Anong uri ng samahan ang Katipunan?", "options": ["Lihim na samahan", "Bukas na samahan", "Simbahan", "Paaralan"], "correct_answer": "Lihim na samahan" },
+          { "question": "Kailan natuklasan ang Katipunan ng mga Espanyol?", "options": ["1896", "1892", "1898", "1900"], "correct_answer": "1896" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Web conferencing** = pakikipagpulong online\n- Gamitin lamang ang **trusted link**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What is web conferencing?", "options": ["Meeting and talking through video and audio online", "A type of game", "A printed document", "A type of food"], "correct_answer": "Meeting and talking through video and audio online" },
+          { "question": "What should you check before joining a video call?", "options": ["Camera and microphone settings", "Nothing at all", "Only your outfit", "Only the time"], "correct_answer": "Camera and microphone settings" },
+          { "question": "What kind of link should you use to join a meeting?", "options": ["A trusted link from a teacher or known person", "Any random link", "A link from a stranger", "No link needed"], "correct_answer": "A trusted link from a teacher or known person" },
+          { "question": "What should you be mindful of during video calls?", "options": ["Your background and privacy", "Nothing important", "Only your voice", "Only the weather"], "correct_answer": "Your background and privacy" },
+          { "question": "Why is web conferencing useful?", "options": ["It connects people across distances", "It has no use", "It only works offline", "It's only for games"], "correct_answer": "It connects people across distances" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Melting** = solid→liquid | **Evaporation** = liquid→gas\n- **Freezing** = liquid→solid | **Condensation** = gas→liquid\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is melting?", "options": ["Solid to liquid", "Liquid to gas", "Gas to liquid", "Liquid to solid"], "correct_answer": "Solid to liquid" },
+          { "question": "What is evaporation?", "options": ["Liquid to gas", "Solid to liquid", "Gas to liquid", "Liquid to solid"], "correct_answer": "Liquid to gas" },
+          { "question": "What is freezing?", "options": ["Liquid to solid", "Solid to liquid", "Liquid to gas", "Gas to liquid"], "correct_answer": "Liquid to solid" },
+          { "question": "What is condensation?", "options": ["Gas to liquid", "Liquid to gas", "Solid to liquid", "Liquid to solid"], "correct_answer": "Gas to liquid" },
+          { "question": "What causes melting and evaporation?", "options": ["Adding heat", "Removing heat", "Neither", "Both equally"], "correct_answer": "Adding heat" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Revolutionary period music expressed **patriotism**\n- **Kundiman** = love song with patriotic messages\n\nGreat historical music appreciation! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period music express?", "options": ["Patriotism and desire for freedom", "Only sadness", "Only humor", "Nothing meaningful"], "correct_answer": "Patriotism and desire for freedom" },
+          { "question": "What is a Kundiman?", "options": ["A traditional Filipino love song, sometimes with hidden patriotic messages", "A type of dance", "A type of food", "A sport"], "correct_answer": "A traditional Filipino love song, sometimes with hidden patriotic messages" },
+          { "question": "What influenced the themes of Revolutionary period music?", "options": ["Events like the Katipunan and the Revolution", "Foreign trends only", "Nothing historical", "Random ideas"], "correct_answer": "Events like the Katipunan and the Revolution" },
+          { "question": "What can we identify when listening to a patriotic song?", "options": ["Its message and mood", "Only its length", "Only its price", "Nothing important"], "correct_answer": "Its message and mood" },
+          { "question": "What emotion is often tied to Kundiman songs?", "options": ["Love for country", "Anger only", "Boredom", "Confusion"], "correct_answer": "Love for country" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- **Fishery arts** = agham at kasanayan sa pag-aalaga ng isda\n- **Aquaculture, capture fisheries** — mga sangay nito\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang fishery arts?", "options": ["Agham at kasanayan sa pag-aalaga, pag-aani, at pagbebenta ng isda", "Isang uri ng musika", "Isang uri ng laro", "Isang uri ng sayaw"], "correct_answer": "Agham at kasanayan sa pag-aalaga, pag-aani, at pagbebenta ng isda" },
+          { "question": "Ano ang aquaculture?", "options": ["Pag-aalaga ng isda sa kontroladong kapaligiran", "Pangingisda sa dagat lamang", "Isang uri ng hayop", "Isang batas"], "correct_answer": "Pag-aalaga ng isda sa kontroladong kapaligiran" },
+          { "question": "Ano ang capture fisheries?", "options": ["Pangingisda sa dagat o ilog", "Pag-aalaga sa fish pond lamang", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Pangingisda sa dagat o ilog" },
+          { "question": "Ano ang ibinibigay ng fishery arts sa mga Pilipino?", "options": ["Pagkain at kabuhayan", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Pagkain at kabuhayan" },
+          { "question": "Bakit mahalaga ang fishery arts sa Pilipinas?", "options": ["Dahil ito ay bansang kapuluan", "Walang dahilan", "Dahil walang isda", "Wala itong kaugnayan"], "correct_answer": "Dahil ito ay bansang kapuluan" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- **Dignidad** = natatanging halaga ng bawat tao\n- Batayan ng paggalang sa sarili at kapwa\n\nIgalang ang dignidad ng bawat tao! 🌟",
+        "quiz": [
+          { "question": "Ano ang dignidad?", "options": ["Natatanging halaga ng bawat tao bilang nilikha", "Yaman ng isang tao", "Kakayahan sa laro", "Bilang ng kaibigan"], "correct_answer": "Natatanging halaga ng bawat tao bilang nilikha" },
+          { "question": "Batay saan ang dignidad ng tao?", "options": ["Sa pagiging nilikha, hindi sa yaman o kakayahan", "Sa yaman lamang", "Sa kakayahan sa laro", "Sa bilang ng kaibigan"], "correct_answer": "Sa pagiging nilikha, hindi sa yaman o kakayahan" },
+          { "question": "Ano ang batayan ng paggalang sa kapwa?", "options": ["Dignidad ng bawat tao", "Yaman lamang", "Katanyagan lamang", "Wala"], "correct_answer": "Dignidad ng bawat tao" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagpapahalaga sa sarili", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pagpapahalaga sa sarili" },
+          { "question": "Sino ang may dignidad?", "options": ["Bawat tao", "Mayayaman lamang", "Matatalino lamang", "Walang may dignidad"], "correct_answer": "Bawat tao" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-06-14",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 Welcome to Grade 4!\n\nHooray, a new school year and a new stage of learning! 💛\n\n## 👋 Introducing Yourself\n- Share your **name**, a **goal** for this year, and one thing you're excited to learn.\n  - Example: *My name is Carlo. This year, I want to become a better writer.*\n\n## 🗣️ Speaking and Listening\n- Use **complete sentences** and speak clearly so others understand.\n- **Listen actively** to classmates and respond thoughtfully.\n\n## 🤝 Classroom Courtesy\n- Use polite expressions: **\"please\"**, **\"thank you\"**, **\"excuse me\"**.\n- Wait for your turn before speaking.\n\nWe're excited for a great year of learning together! ⭐",
+        "quiz": [
+          { "question": "Which sentence shares a goal for the year?", "options": ["This year, I want to become a better writer.", "Writer year I want.", "Better this is writer.", "I writer this year."], "correct_answer": "This year, I want to become a better writer." },
+          { "question": "What should you do while a classmate speaks?", "options": ["Listen actively", "Talk over them", "Walk away", "Ignore them"], "correct_answer": "Listen actively" },
+          { "question": "What word politely asks for something?", "options": ["Please", "Now", "Hurry", "Quick"], "correct_answer": "Please" },
+          { "question": "What should you do before speaking if someone else is talking?", "options": ["Wait for your turn", "Interrupt them", "Talk louder", "Walk away"], "correct_answer": "Wait for your turn" },
+          { "question": "Why speak in complete sentences?", "options": ["So others understand clearly", "To talk faster", "To sound louder", "It doesn't matter"], "correct_answer": "So others understand clearly" },
+          { "question": "What do you say after someone helps you?", "options": ["Thank you", "Excuse me", "Goodbye", "Please"], "correct_answer": "Thank you" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Welcome Back to Math!\n\nLet's warm up with a review of Grade 3 skills! 🧠\n\n## 🔟 Place Value Review\n- Numbers have **thousands, hundreds, tens, ones** places.\n- **Example:** In 4,562, the 4 is in the thousands place (worth 4,000).\n\n## ➕➖✖️ Operations Review\n- **Example 1:** 2,350 + 1,420 = **3,770**\n- **Example 2:** 45 × 3 = **135**\n\n## 🔷 Shapes Review\n- A **square** has 4 equal sides; a **rectangle** has 2 pairs of equal sides.\n\nGreat warm-up — you're ready for an exciting year! 🌟",
+        "quiz": [
+          { "question": "In 4,562, what place is the 4 in?", "options": ["Thousands", "Hundreds", "Tens", "Ones"], "correct_answer": "Thousands" },
+          { "question": "What is 2,350 + 1,420?", "options": ["3,770", "3,670", "3,870", "3,750"], "correct_answer": "3,770" },
+          { "question": "What is 45 × 3?", "options": ["135", "125", "145", "115"], "correct_answer": "135" },
+          { "question": "How many sides does a rectangle have?", "options": ["4", "3", "5", "2"], "correct_answer": "4" },
+          { "question": "What operation combines numbers together?", "options": ["Addition", "Subtraction", "Neither", "Both equally"], "correct_answer": "Addition" },
+          { "question": "What is the value of 4 in 4,562?", "options": ["4,000", "400", "40", "4"], "correct_answer": "4,000" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Pagbati at Pagpapakilala\n\nMasayang pagbabalik-eskwela! Balikan natin ang mahusay na pagpapakilala. 💛\n\n## 🙋 Detalyadong Pagpapakilala\n- Ibahagi ang iyong **pangalan**, isang **layunin** ngayong taon, at isang bagay na masaya kang matutunan.\n  - Halimbawa: *Ako si Carlo. Ngayong taon, gusto kong maging mahusay na manunulat.*\n\n## 🗣️ Magaling na Pakikinig at Pagsasalita\n- Gumamit ng **kumpletong pangungusap**.\n- **Makinig nang mabuti** bago sumagot.\n\n## 🤝 Kagandahang-asal\n- Gamitin ang **\"po\"**, **\"opo\"**, **\"salamat\"**, **\"paumanhin\"**.\n\nMasaya tayong matuto nang magkakasama ngayong taon! 🌟",
+        "quiz": [
+          { "question": "Aling pangungusap ang naglalahad ng layunin sa taong ito?", "options": ["Ngayong taon, gusto kong maging manunulat.", "Manunulat taon gusto.", "Taon ito manunulat.", "Gusto manunulat ako."], "correct_answer": "Ngayong taon, gusto kong maging manunulat." },
+          { "question": "Ano ang dapat gawin habang nagsasalita ang kaklase?", "options": ["Makinig nang mabuti", "Makipag-usap sa iba", "Umalis", "Maglaro"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang sinasabi natin pagkatapos matulungan?", "options": ["Salamat", "Paumanhin", "Paalam", "Opo"], "correct_answer": "Salamat" },
+          { "question": "Bakit dapat gumamit ng kumpletong pangungusap?", "options": ["Para maintindihan ka nang mabuti", "Para mas mabilis magsalita", "Para mas malakas", "Walang dahilan"], "correct_answer": "Para maintindihan ka nang mabuti" },
+          { "question": "Ano ang dapat gawin bago magsalita kung may nagsasalita pa?", "options": ["Maghintay ng turn", "Sabayan sila", "Sumigaw", "Umalis"], "correct_answer": "Maghintay ng turn" },
+          { "question": "Alin ang magalang na salita sa nakatatanda?", "options": ["Po at opo", "Oo at hindi", "Ako at ikaw", "Sige at tama"], "correct_answer": "Po at opo" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nBalikan natin ang mga kasanayan bilang siyentipiko! 🧪\n\n## 🔍 Mga Kasanayan ng Siyentipiko\n- **Pagmamasid** — pagtingin nang mabuti sa mga detalye\n- **Paghula** — paghula ng maaaring mangyari batay sa ebidensiya\n- **Pagsukat** — paggamit ng ruler o timbangan\n\n## 🧰 Kagamitang Pang-Agham\n- **Ruler, hand lens, timbangan** — para sa iba't ibang eksperimento\n\n## 🔬 Halimbawa\n- Sinusukat mo ang haba ng iyong lapis gamit ang ruler — iyan ay isang eksperimento sa pagsukat!\n\nHanda ka na bang maging mahusay na siyentipiko ngayong taon? 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
+          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
+          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang haba ng lapis?", "options": ["Pagsukat", "Pagmamasid", "Paghula", "Walang isa"], "correct_answer": "Pagsukat" },
+          { "question": "Ano ang ginagamit para sukatin ang bigat?", "options": ["Timbangan", "Ruler", "Gunting", "Lapis"], "correct_answer": "Timbangan" },
+          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Ako at ang Aking Bansa\n\nMasayang pagbabalik-eskwela! Ngayong taon, tatalakayin natin ang buong bansang Pilipinas. 🌟\n\n## 🗺️ Ang Aking Bansa\n- Ang Pilipinas ay isang **kapuluan** sa Timog-Silangang Asya, binubuo ng maraming isla.\n- May sariling **wika, kultura, at tradisyon** ang bawat rehiyon ng bansa.\n\n## 🧭 Paglawak ng Ating Kaalaman\n- Sa Baitang 3, natutunan natin ang tungkol sa ating komunidad.\n- Ngayong taon, palalawakin natin ang ating kaalaman patungo sa **buong bansa**.\n\n## 💛 Pagiging Mabuting Pilipino\n- Ipakita ang pagmamahal sa bansa sa pamamagitan ng paggalang sa mga sagisag at tradisyon nito.\n\nMasayang taon ng pagtuklas sa ating bansa! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Pilipinas?", "options": ["Isang kapuluan sa Timog-Silangang Asya", "Isang lungsod lamang", "Isang barangay lamang", "Isang kontinente"], "correct_answer": "Isang kapuluan sa Timog-Silangang Asya" },
+          { "question": "Ano ang mayroon ang bawat rehiyon ng Pilipinas?", "options": ["Sariling wika, kultura, at tradisyon", "Walang pagkakaiba", "Parehong lahat", "Walang kultura"], "correct_answer": "Sariling wika, kultura, at tradisyon" },
+          { "question": "Ano ang tinalakay sa Baitang 3?", "options": ["Ang sariling komunidad", "Ang buong mundo", "Ang buwan", "Ang bituin"], "correct_answer": "Ang sariling komunidad" },
+          { "question": "Paano ipinapakita ang pagmamahal sa bansa?", "options": ["Sa paggalang sa mga sagisag at tradisyon", "Sa pagsisinungaling", "Sa kawalang-interes", "Sa pananakit"], "correct_answer": "Sa paggalang sa mga sagisag at tradisyon" },
+          { "question": "Ano ang palalawakin natin ngayong taon?", "options": ["Kaalaman patungo sa buong bansa", "Kaalaman tungkol sa ibang planeta", "Wala", "Kaalaman sa isang bahay lamang"], "correct_answer": "Kaalaman patungo sa buong bansa" },
+          { "question": "Binubuo ng ano ang isang kapuluan?", "options": ["Maraming isla", "Isang bundok lamang", "Isang ilog lamang", "Isang lungsod lamang"], "correct_answer": "Maraming isla" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Mga Panuntunan sa Silid-Computer\n\nBago natin simulan ang ating aralin sa ICT, balikan natin ang panuntunan! 🖥️\n\n## 📏 Mga Panuntunan\n- **Maglinis ng kamay** bago gumamit ng keyboard at mouse.\n- **Maging maingat** sa paghawak ng kagamitan.\n- **Walang pagkain o inumin** malapit sa computer.\n\n## 🙋 Bakit Mahalaga ang mga Panuntunan?\n- Iniingatan nito ang mahal na kagamitan ng paaralan at kaligtasan ng bawat mag-aaral.\n\n## 💡 Simpleng Paalala\n- Humingi ng tulong sa guro kung may hindi maintindihan.\n\nHanda ka na bang matuto tungkol sa ICT nang ligtas at responsable? 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng keyboard?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Para masarap", "Walang dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
+          { "question": "Paano dapat hawakan ang kagamitan sa computer?", "options": ["Nang maingat", "Nang malakas", "Nang basa", "Nang mabilis"], "correct_answer": "Nang maingat" },
+          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
+          { "question": "Sino ang dapat hingan ng tulong kung nalilito ka?", "options": ["Guro", "Estranghero", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Guro" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Welcome to MAPEH!\n\nLet's warm up for a year of Music, Arts, PE, and Health! 🎶\n\n## 🎵 Music and Arts Warm-Up\n- Music has **rhythm** (the beat) and **melody** (the tune).\n- Art uses **lines, shapes, and colors** to express ideas.\n\n## 🏃 PE and Health Warm-Up\n- Regular **exercise** keeps our bodies strong and healthy.\n- **Stretching** before activity helps prevent injury.\n\n## 💪 Goal for the Year\n- Explore your **cultural identity** through music, arts, and healthy movement!\n\nGet ready for a fun and active year! 🌟",
+        "quiz": [
+          { "question": "What is the beat of music called?", "options": ["Rhythm", "Melody", "Color", "Shape"], "correct_answer": "Rhythm" },
+          { "question": "What does art use to express ideas?", "options": ["Lines, shapes, and colors", "Only numbers", "Only words", "Nothing"], "correct_answer": "Lines, shapes, and colors" },
+          { "question": "What keeps our bodies strong and healthy?", "options": ["Regular exercise", "Sitting all day", "Skipping meals", "Avoiding movement"], "correct_answer": "Regular exercise" },
+          { "question": "What should you do before physical activity?", "options": ["Stretch", "Eat a heavy meal", "Sleep", "Nothing"], "correct_answer": "Stretch" },
+          { "question": "What is the tune of a song called?", "options": ["Melody", "Rhythm", "Color", "Shape"], "correct_answer": "Melody" },
+          { "question": "What will we explore this year through music, arts, and movement?", "options": ["Our cultural identity", "Only sports", "Only drawing", "Nothing new"], "correct_answer": "Our cultural identity" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Welcome to EPP!\n\nThis year we'll explore Agriculture, Family/Consumer Science, and Industrial Arts! 🔨\n\n## 🌱 What Will We Learn?\n- **Term 1:** Agriculture and Fishery Arts — planting and caring for plants\n- **Term 2:** Family and Consumer Science — self-care and household tasks\n- **Term 3:** Industrial Arts — drawing and making projects from recyclables\n\n## 🛡️ Safety First\n- Always handle tools **carefully** and follow instructions.\n- Ask an adult for help with anything unfamiliar.\n\nLet's build useful skills for life this year! 🌟",
+        "quiz": [
+          { "question": "What will we study in Term 1 of EPP?", "options": ["Agriculture and Fishery Arts", "Only cooking", "Only drawing", "Nothing new"], "correct_answer": "Agriculture and Fishery Arts" },
+          { "question": "What will we study in Term 2 of EPP?", "options": ["Family and Consumer Science", "Agriculture only", "Drawing only", "Nothing"], "correct_answer": "Family and Consumer Science" },
+          { "question": "What will we study in Term 3 of EPP?", "options": ["Industrial Arts", "Agriculture only", "Cooking only", "Nothing"], "correct_answer": "Industrial Arts" },
+          { "question": "How should you handle tools in EPP?", "options": ["Carefully", "Carelessly", "Quickly without thinking", "Never touch them"], "correct_answer": "Carefully" },
+          { "question": "What should you do if unsure how to use a tool?", "options": ["Ask an adult for help", "Guess and try anyway", "Ignore the tool", "Give up"], "correct_answer": "Ask an adult for help" },
+          { "question": "What kind of skills will EPP help build?", "options": ["Useful skills for life", "Only test-taking skills", "No useful skills", "Only drawing skills"], "correct_answer": "Useful skills for life" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Pagkilala sa Sarili\n\nMasayang pagbabalik-eskwela! Balikan natin ang ating sarili. 🌟\n\n## 🙋 Pagkilala sa Sarili\n- Alamin ang iyong **buong pangalan**, **edad**, at **tirahan** — mahalaga ito para sa kaligtasan.\n\n## 📏 Mga Alituntunin sa Silid-Aralan\n- **Makinig** kapag nagsasalita ang guro.\n- **Igalang** ang mga kaklase.\n\n## 💛 Bakit Mahalaga Ito?\n- Ipinapakita nito na tayo ay **responsableng** mag-aaral.\n\nIkaw ay mahalagang bahagi ng ating klase ngayong taon! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman tungkol sa sarili?", "options": ["Buong pangalan at edad", "Paboritong laro lamang", "Paboritong kulay lamang", "Wala sa mga ito"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Bakit importante malaman ang iyong impormasyon?", "options": ["Para sa kaligtasan", "Para sa laro lamang", "Walang dahilan", "Para ipagmalaki lang"], "correct_answer": "Para sa kaligtasan" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro ng gamit", "Kumain ng meryenda", "Makipag-usap sa kaklase"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Paano mo dapat tratuhin ang iyong mga kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit nila"], "correct_answer": "Sa paggalang" },
+          { "question": "Ano ang ipinapakita natin kapag sumusunod tayo sa alituntunin?", "options": ["Responsableng pag-uugali", "Kawalang-galang", "Kapabayaan", "Katamaran"], "correct_answer": "Responsableng pag-uugali" },
+          { "question": "Bakit mahalaga ang pagsunod sa alituntunin?", "options": ["Para maging maayos at ligtas", "Para hindi na makapasok", "Para matakot sa guro", "Wala itong dahilan"], "correct_answer": "Para maging maayos at ligtas" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — Getting Started!\n\nGreat first week! Let's review.\n\n- Introduce yourself with a **goal for the year**\n- **Listen actively** and use complete sentences\n- Say **\"please\"**, **\"thank you\"**, and **\"excuse me\"**\n\nGreat job this week! ⭐",
+        "quiz": [
+          { "question": "What should you do while a classmate speaks?", "options": ["Listen actively", "Talk over them", "Walk away", "Ignore them"], "correct_answer": "Listen actively" },
+          { "question": "What word politely asks for something?", "options": ["Please", "Now", "Hurry", "Quick"], "correct_answer": "Please" },
+          { "question": "What should you do before speaking if someone else is talking?", "options": ["Wait for your turn", "Interrupt them", "Talk louder", "Walk away"], "correct_answer": "Wait for your turn" },
+          { "question": "Why speak in complete sentences?", "options": ["So others understand clearly", "To talk faster", "To sound louder", "It doesn't matter"], "correct_answer": "So others understand clearly" },
+          { "question": "What do you say after someone helps you?", "options": ["Thank you", "Excuse me", "Goodbye", "Please"], "correct_answer": "Thank you" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Math\n\nQuick review of our warm-up!\n\n- Place value: **thousands, hundreds, tens, ones**\n- 2,350 + 1,420 = **3,770**\n- 45 × 3 = **135**\n\nGreat start to Grade 4 Math! 🌟",
+        "quiz": [
+          { "question": "In 4,562, what place is the 4 in?", "options": ["Thousands", "Hundreds", "Tens", "Ones"], "correct_answer": "Thousands" },
+          { "question": "What is 2,350 + 1,420?", "options": ["3,770", "3,670", "3,870", "3,750"], "correct_answer": "3,770" },
+          { "question": "What is 45 × 3?", "options": ["135", "125", "145", "115"], "correct_answer": "135" },
+          { "question": "How many sides does a rectangle have?", "options": ["4", "3", "5", "2"], "correct_answer": "4" },
+          { "question": "What is the value of 4 in 4,562?", "options": ["4,000", "400", "40", "4"], "correct_answer": "4,000" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Pagpapakilala: **pangalan, layunin ngayong taon**\n- Gumamit ng **kumpletong pangungusap**\n- Gamitin ang **po, opo, salamat, paumanhin**\n\nMasayang simula ng taon! 🌟",
+        "quiz": [
+          { "question": "Aling pangungusap ang naglalahad ng layunin sa taong ito?", "options": ["Ngayong taon, gusto kong maging manunulat.", "Manunulat taon gusto.", "Taon ito manunulat.", "Gusto manunulat ako."], "correct_answer": "Ngayong taon, gusto kong maging manunulat." },
+          { "question": "Ano ang dapat gawin habang nagsasalita ang kaklase?", "options": ["Makinig nang mabuti", "Makipag-usap sa iba", "Umalis", "Maglaro"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang sinasabi natin pagkatapos matulungan?", "options": ["Salamat", "Paumanhin", "Paalam", "Opo"], "correct_answer": "Salamat" },
+          { "question": "Alin ang magalang na salita sa nakatatanda?", "options": ["Po at opo", "Oo at hindi", "Ako at ikaw", "Sige at tama"], "correct_answer": "Po at opo" },
+          { "question": "Bakit dapat gumamit ng kumpletong pangungusap?", "options": ["Para maintindihan ka nang mabuti", "Para mas mabilis magsalita", "Para mas malakas", "Walang dahilan"], "correct_answer": "Para maintindihan ka nang mabuti" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Ang Pilipinas ay isang **kapuluan** sa Timog-Silangang Asya\n- May sariling **wika, kultura, tradisyon** ang bawat rehiyon\n- Palalawakin natin ang kaalaman patungo sa buong bansa\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Pilipinas?", "options": ["Isang kapuluan sa Timog-Silangang Asya", "Isang lungsod lamang", "Isang barangay lamang", "Isang kontinente"], "correct_answer": "Isang kapuluan sa Timog-Silangang Asya" },
+          { "question": "Ano ang mayroon ang bawat rehiyon ng Pilipinas?", "options": ["Sariling wika, kultura, at tradisyon", "Walang pagkakaiba", "Parehong lahat", "Walang kultura"], "correct_answer": "Sariling wika, kultura, at tradisyon" },
+          { "question": "Ano ang tinalakay sa Baitang 3?", "options": ["Ang sariling komunidad", "Ang buong mundo", "Ang buwan", "Ang bituin"], "correct_answer": "Ang sariling komunidad" },
+          { "question": "Paano ipinapakita ang pagmamahal sa bansa?", "options": ["Sa paggalang sa mga sagisag at tradisyon", "Sa pagsisinungaling", "Sa kawalang-interes", "Sa pananakit"], "correct_answer": "Sa paggalang sa mga sagisag at tradisyon" },
+          { "question": "Binubuo ng ano ang isang kapuluan?", "options": ["Maraming isla", "Isang bundok lamang", "Isang ilog lamang", "Isang lungsod lamang"], "correct_answer": "Maraming isla" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Maglinis ng kamay** bago gumamit ng keyboard/mouse\n- **Walang pagkain** malapit sa computer\n- Humingi ng tulong sa guro kung kailangan\n\nHanda ka nang matuto tungkol sa ICT! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng keyboard?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Para masarap", "Walang dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
+          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Paano dapat hawakan ang kagamitan?", "options": ["Nang maingat", "Nang malakas", "Nang basa", "Nang mabilis"], "correct_answer": "Nang maingat" },
+          { "question": "Bakit importante ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pagmamasid, paghula, pagsukat** — kasanayan ng siyentipiko\n- **Ruler** — sukat ng haba | **Timbangan** — sukat ng bigat\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
+          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
+          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "Ano ang ginagamit para sukatin ang bigat?", "options": ["Timbangan", "Ruler", "Gunting", "Lapis"], "correct_answer": "Timbangan" },
+          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Rhythm** = beat, **Melody** = tune\n- **Exercise** keeps us strong and healthy\n- **Stretch** before activity\n\nGreat start to MAPEH! 🌟",
+        "quiz": [
+          { "question": "What is the beat of music called?", "options": ["Rhythm", "Melody", "Color", "Shape"], "correct_answer": "Rhythm" },
+          { "question": "What keeps our bodies strong and healthy?", "options": ["Regular exercise", "Sitting all day", "Skipping meals", "Avoiding movement"], "correct_answer": "Regular exercise" },
+          { "question": "What should you do before physical activity?", "options": ["Stretch", "Eat a heavy meal", "Sleep", "Nothing"], "correct_answer": "Stretch" },
+          { "question": "What is the tune of a song called?", "options": ["Melody", "Rhythm", "Color", "Shape"], "correct_answer": "Melody" },
+          { "question": "What does art use to express ideas?", "options": ["Lines, shapes, and colors", "Only numbers", "Only words", "Nothing"], "correct_answer": "Lines, shapes, and colors" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Friday Weekly Review — EPP\n\nQuick review!\n\n- Term 1: **Agriculture** | Term 2: **Family/Consumer Science** | Term 3: **Industrial Arts**\n- Handle tools **carefully**\n\nGreat start to EPP! 🌟",
+        "quiz": [
+          { "question": "What will we study in Term 1 of EPP?", "options": ["Agriculture and Fishery Arts", "Only cooking", "Only drawing", "Nothing new"], "correct_answer": "Agriculture and Fishery Arts" },
+          { "question": "What will we study in Term 2 of EPP?", "options": ["Family and Consumer Science", "Agriculture only", "Drawing only", "Nothing"], "correct_answer": "Family and Consumer Science" },
+          { "question": "What will we study in Term 3 of EPP?", "options": ["Industrial Arts", "Agriculture only", "Cooking only", "Nothing"], "correct_answer": "Industrial Arts" },
+          { "question": "How should you handle tools in EPP?", "options": ["Carefully", "Carelessly", "Quickly without thinking", "Never touch them"], "correct_answer": "Carefully" },
+          { "question": "What should you do if unsure how to use a tool?", "options": ["Ask an adult for help", "Guess and try anyway", "Ignore the tool", "Give up"], "correct_answer": "Ask an adult for help" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Alamin ang iyong **buong pangalan** para sa kaligtasan\n- **Makinig** at **igalang** ang mga kaklase\n\nMahalagang bahagi ka ng klase! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman tungkol sa sarili?", "options": ["Buong pangalan at edad", "Paboritong laro lamang", "Paboritong kulay lamang", "Wala sa mga ito"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro ng gamit", "Kumain ng meryenda", "Makipag-usap sa kaklase"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Bakit importante malaman ang iyong impormasyon?", "options": ["Para sa kaligtasan", "Para sa laro lamang", "Walang dahilan", "Para ipagmalaki lang"], "correct_answer": "Para sa kaligtasan" },
+          { "question": "Paano mo dapat tratuhin ang iyong mga kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit nila"], "correct_answer": "Sa paggalang" },
+          { "question": "Bakit mahalaga ang pagsunod sa alituntunin?", "options": ["Para maging maayos at ligtas", "Para hindi na makapasok", "Para matakot sa guro", "Wala itong dahilan"], "correct_answer": "Para maging maayos at ligtas" }
+        ]
+      }
+    }
+  }
+}

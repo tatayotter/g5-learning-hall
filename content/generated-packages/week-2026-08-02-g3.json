@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-08-02",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 7: Story Elements!\n\nLet's learn the important parts of a story! 📚\n\n## 📖 Story Elements\n- **Characters** — the people or animals in the story\n- **Setting** — where and when the story happens\n- **Events** — what happens in the story, in order\n\n## 🔢 Sequencing Events\n- Stories usually happen in order: **beginning, middle, end**.\n- **Example:** First, Ana found a lost puppy. Next, she looked for its owner. Finally, she returned it home.\n\n## 🎭 Character Feelings\n- We can guess how a character feels from their **actions and words**.\n- **Example:** If a character smiles and laughs, they probably feel **happy**.\n\nUnderstanding story elements helps us enjoy stories more! 🌟",
+        "quiz": [
+          { "question": "What are the people or animals in a story called?", "options": ["Characters", "Setting", "Events", "Title"], "correct_answer": "Characters" },
+          { "question": "What is the setting of a story?", "options": ["Where and when it happens", "Who is in it", "What happens", "How long it is"], "correct_answer": "Where and when it happens" },
+          { "question": "What order do events in a story usually happen?", "options": ["Beginning, middle, end", "End, middle, beginning", "Random order", "Middle, end, beginning"], "correct_answer": "Beginning, middle, end" },
+          { "question": "How can we guess a character's feelings?", "options": ["From their actions and words", "From the title only", "We cannot guess", "From the page number"], "correct_answer": "From their actions and words" },
+          { "question": "If a character smiles and laughs, how do they probably feel?", "options": ["Happy", "Sad", "Angry", "Scared"], "correct_answer": "Happy" },
+          { "question": "What are the events of a story?", "options": ["What happens, in order", "Who is in it", "Where it happens", "The book's cover"], "correct_answer": "What happens, in order" },
+          { "question": "What comes first in sequencing a story?", "options": ["Beginning", "Middle", "End", "Title"], "correct_answer": "Beginning" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 7: Area Word Problems!\n\nLet's practice solving real-life area problems! 📐\n\n## 📐 Area in Square Centimeters and Meters\n- Use **sq. cm** for small objects and **sq. m** for bigger spaces like rooms.\n\n## 🧮 Solving Word Problems\n1. Read the problem carefully.\n2. Find the **length** and **width** (or side).\n3. **Multiply** to find the area.\n4. Write the answer with the correct **unit**.\n\n## 🔍 Example\n- A rectangular garden is 6 m long and 4 m wide. Area = 6 × 4 = **24 sq. m**\n\nGreat problem-solving skills! 🌟",
+        "quiz": [
+          { "question": "What unit do we use for small objects' area?", "options": ["Sq. cm", "Sq. m only", "Kilograms", "Liters"], "correct_answer": "Sq. cm" },
+          { "question": "A rectangular garden is 6 m long and 4 m wide. What is its area?", "options": ["24 sq. m", "10 sq. m", "20 sq. m", "12 sq. m"], "correct_answer": "24 sq. m" },
+          { "question": "What is the first step to solve an area word problem?", "options": ["Read the problem carefully", "Multiply right away", "Guess the answer", "Skip the problem"], "correct_answer": "Read the problem carefully" },
+          { "question": "What operation finds the area after finding length and width?", "options": ["Multiplication", "Addition", "Subtraction", "Division"], "correct_answer": "Multiplication" },
+          { "question": "A rectangular table is 2 m long and 1 m wide. What is its area?", "options": ["2 sq. m", "3 sq. m", "1 sq. m", "4 sq. m"], "correct_answer": "2 sq. m" },
+          { "question": "What should the final answer include?", "options": ["The correct unit", "No unit needed", "Only a color", "A guess"], "correct_answer": "The correct unit" },
+          { "question": "A square room has 5 m sides. What is its area?", "options": ["25 sq. m", "10 sq. m", "20 sq. m", "15 sq. m"], "correct_answer": "25 sq. m" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 7: Elemento ng Kwento\n\nAlamin natin ang mahahalagang bahagi ng isang kwento! 📖\n\n## 👤 Tauhan\n- Ang **tauhan** ay ang mga tao o hayop sa kwento.\n\n## 🏞️ Tagpuan\n- Ang **tagpuan** ay kung saan at kailan naganap ang kwento.\n\n## 🔢 Pagkakasunod-sunod ng Pangyayari\n- Ang kwento ay may **simula, gitna, at wakas**.\n- **Halimbawa:** Una, nakita ni Ana ang batang aso. Pagkatapos, hinanap niya ang may-ari. Sa huli, naibalik niya ito.\n\n## 😊 Damdamin ng Tauhan\n- Mahihinuha natin ang damdamin ng tauhan sa kanilang **kilos at salita**.\n\nMahalaga ang mga elemento ng kwento para maunawaan natin ito! 🌟",
+        "quiz": [
+          { "question": "Ano ang tauhan?", "options": ["Ang mga tao o hayop sa kwento", "Kung saan naganap ang kwento", "Ang aral ng kwento", "Ang pamagat ng kwento"], "correct_answer": "Ang mga tao o hayop sa kwento" },
+          { "question": "Ano ang tagpuan?", "options": ["Kung saan at kailan naganap ang kwento", "Ang mga tauhan", "Ang aral ng kwento", "Ang bilang ng pahina"], "correct_answer": "Kung saan at kailan naganap ang kwento" },
+          { "question": "Anong tatlong bahagi ang mayroon ang isang kwento?", "options": ["Simula, gitna, wakas", "Simula at wakas lamang", "Gitna lamang", "Walang bahagi"], "correct_answer": "Simula, gitna, wakas" },
+          { "question": "Paano natin mahihinuha ang damdamin ng tauhan?", "options": ["Sa kanilang kilos at salita", "Sa pamagat lamang", "Hindi natin ito mahihinuha", "Sa bilang ng pahina"], "correct_answer": "Sa kanilang kilos at salita" },
+          { "question": "Ano ang unang bahagi ng kwento?", "options": ["Simula", "Gitna", "Wakas", "Pamagat"], "correct_answer": "Simula" },
+          { "question": "Sino ang mga tao o hayop sa isang kwento?", "options": ["Tauhan", "Tagpuan", "Pamagat", "Aral"], "correct_answer": "Tauhan" },
+          { "question": "Bakit mahalaga ang mga elemento ng kwento?", "options": ["Tumutulong ito maunawaan ang kwento", "Walang gamit", "Para lang sa pagsusulit", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito maunawaan ang kwento" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 7: Wastong Pag-aalaga sa mga Materyales\n\nAlamin natin kung paano tamang ihandle at itapon ang mga materyales! ♻️\n\n## ♻️ Wastong Pag-aalaga sa Materyales\n- **Reuse** — gamitin muli ang mga bagay, tulad ng lalagyan ng biskwit para sa maliliit na gamit.\n- **Recycle** — gawing bago ang mga materyales tulad ng papel, plastik, at salamin.\n- **Wastong Pagtatapon** — itapon ang labis na langis sa basurahan, hindi sa lababo o kanal.\n\n## 🔍 Halimbawa\n- Sa halip na itapon lang ang lumang bote, maaari itong gamiting **plant pot**!\n\n## 💛 Bakit Ito Mahalaga?\n- Ang wastong pag-aalaga sa mga materyales ay nagpoprotekta sa ating kalikasan.\n\nTulungan natin ang kalikasan sa pamamagitan ng wastong pag-aalaga! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa paggamit muli ng mga bagay?", "options": ["Reuse", "Recycle", "Reduce", "Sunugin"], "correct_answer": "Reuse" },
+          { "question": "Ano ang tawag sa paggawang bago ng materyales?", "options": ["Recycle", "Reuse", "Sunugin", "Itapon"], "correct_answer": "Recycle" },
+          { "question": "Saan dapat itapon ang labis na langis?", "options": ["Sa basurahan", "Sa lababo", "Sa kanal", "Kahit saan"], "correct_answer": "Sa basurahan" },
+          { "question": "Ano ang maaaring gawin sa lumang bote?", "options": ["Gawing plant pot", "Itapon lamang", "Sunugin", "Walang gagawin"], "correct_answer": "Gawing plant pot" },
+          { "question": "Bakit mahalaga ang wastong pag-aalaga sa materyales?", "options": ["Nagpoprotekta ito sa kalikasan", "Walang dahilan", "Para lang sa marka", "Para mabuhat ang gamit"], "correct_answer": "Nagpoprotekta ito sa kalikasan" },
+          { "question": "Alin ang halimbawa ng materyales na maaaring i-recycle?", "options": ["Papel", "Basurang pagkain", "Usok", "Hangin"], "correct_answer": "Papel" },
+          { "question": "Ano ang epekto ng tamang pagtapon ng basura?", "options": ["Naiingatan ang kalikasan", "Walang epekto", "Nasisira ang kalikasan", "Nagdudulot ng problema"], "correct_answer": "Naiingatan ang kalikasan" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 7: Higit Pang Pagbabago sa Komunidad\n\nPatuloy nating alamin ang mga pagbabago sa ating komunidad! 🏙️\n\n## 🏙️ Mga Karagdagang Halimbawa ng Pagbabago\n- Noon, gumagamit ng liham para makipag-usap; ngayon, gumagamit ng **cellphone at internet**.\n- Noon, tradisyunal na tindahan lamang; ngayon, may **mall at online shopping** na rin.\n\n## 🔍 Pagsusuri ng Dokumento\n- Ang paghahambing ng lumang dokumento (tulad ng lumang mapa) sa bagong dokumento ay nagpapakita ng pagbabago sa paglipas ng panahon.\n\n## 💭 Pagninilay\n- Anong pagbabago sa iyong sariling komunidad ang pinaka-kapansin-pansin?\n\nPatuloy tayong natututo tungkol sa paglago ng ating komunidad! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang ginagamit ngayon para makipag-usap sa malayo?", "options": ["Cellphone at internet", "Liham lamang", "Walang paraan", "Usok lamang"], "correct_answer": "Cellphone at internet" },
+          { "question": "Ano ang bagong paraan ng pamimili?", "options": ["Online shopping", "Wala", "Palitan ng gamit lamang", "Walang binibili"], "correct_answer": "Online shopping" },
+          { "question": "Paano natin nakikita ang pagbabago sa dokumento?", "options": ["Paghahambing ng lumang at bagong dokumento", "Sa pagbabasa ng kwentong bayan lamang", "Sa pag-awit", "Sa paglalaro"], "correct_answer": "Paghahambing ng lumang at bagong dokumento" },
+          { "question": "Ano ang lumang paraan ng pakikipag-usap?", "options": ["Liham", "Cellphone", "Internet", "Video call"], "correct_answer": "Liham" },
+          { "question": "Bakit dapat pag-aralan ang pagbabago sa komunidad?", "options": ["Para maunawaan natin ang ating paglago", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating paglago" },
+          { "question": "Alin ang halimbawa ng lumang dokumento?", "options": ["Lumang mapa", "Bagong cellphone", "Bagong laruan", "Bagong sapatos"], "correct_answer": "Lumang mapa" },
+          { "question": "Ano ang tradisyunal na lugar ng pamimili noon?", "options": ["Tindahan", "Online shop", "Mall lamang", "App"], "correct_answer": "Tindahan" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 7: Opening and Closing Applications!\n\nLet's learn how to open and close programs correctly! 🖥️\n\n## 🖱️ Opening an Application\n- **Double-click** an icon on the desktop, or\n- Click the **menu/start button** and select the program.\n\n## ❌ Closing an Application\n- Click the **X button** in the corner, or\n- Use the **File menu** and select \"Close\" or \"Exit\".\n- Always **save your work first** before closing!\n\n## 🔍 Why This Matters\n- Closing programs properly helps prevent losing your work and keeps the computer running smoothly.\n\nPractice opening and closing programs carefully! 🌟",
+        "quiz": [
+          { "question": "How can you open an application?", "options": ["Double-click its icon", "Unplug the computer", "Press the power button", "Shake the mouse"], "correct_answer": "Double-click its icon" },
+          { "question": "What should you do before closing a program?", "options": ["Save your work", "Delete everything", "Unplug the computer", "Nothing"], "correct_answer": "Save your work" },
+          { "question": "How can you close an application?", "options": ["Click the X button", "Turn off the monitor", "Unplug the mouse", "Pull the keyboard"], "correct_answer": "Click the X button" },
+          { "question": "Why should you close programs properly?", "options": ["To prevent losing work and keep the computer running smoothly", "To make the computer louder", "It doesn't matter how you close them", "To slow down the computer"], "correct_answer": "To prevent losing work and keep the computer running smoothly" },
+          { "question": "Besides double-clicking, how else can you open a program?", "options": ["Using the menu/start button", "Unplugging the mouse", "Shutting down first", "Turning off the monitor"], "correct_answer": "Using the menu/start button" },
+          { "question": "Which menu option might close a program?", "options": ["Exit", "Save", "Print", "Copy"], "correct_answer": "Exit" },
+          { "question": "What could happen if you close a program without saving?", "options": ["You could lose your work", "Nothing happens", "The computer turns off", "Your work is automatically saved"], "correct_answer": "You could lose your work" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 7: Pagkilos nang May Paggalang sa Diyos\n\nAlamin natin kung paano ipakita ang paggalang sa Diyos! 🙏\n\n## 🙏 Mga Kilos na Nagpapakita ng Paggalang\n- **Pananalangin** bago at pagkatapos kumain, at bago matulog.\n- **Pagsisimba** o pakikilahok sa mga gawaing panrelihiyon kasama ang pamilya.\n\n## 💛 Kahulugan ng Paggalang sa Diyos\n- Ang paggalang sa Diyos ay pagkilala at pagmamahal sa Kanya.\n- Ito ay nagbubunga ng magandang ugali sa pang-araw-araw na buhay.\n\n## 🔍 Halimbawa sa Pang-araw-araw na Buhay\n- Pagiging matapat, mabait sa kapwa, at pagsunod sa magulang ay pagpapakita ng paggalang sa Diyos.\n\nMagpatuloy sa pagpapakita ng paggalang sa Diyos sa iyong mga kilos! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng pananalangin?", "options": ["Pananalangin bago kumain", "Panonood ng TV", "Paglalaro lamang", "Pagtulog"], "correct_answer": "Pananalangin bago kumain" },
+          { "question": "Ano ang ibig sabihin ng paggalang sa Diyos?", "options": ["Pagkilala at pagmamahal sa Kanya", "Kawalang-pansin sa Kanya", "Pagtatago", "Pagsisinungaling"], "correct_answer": "Pagkilala at pagmamahal sa Kanya" },
+          { "question": "Ano ang bunga ng paggalang sa Diyos?", "options": ["Magandang ugali", "Kapabayaan", "Katamaran", "Kawalang-galang"], "correct_answer": "Magandang ugali" },
+          { "question": "Alin ang halimbawa ng paggalang sa Diyos sa pang-araw-araw na buhay?", "options": ["Pagiging matapat at mabait", "Pagsisinungaling", "Pananakit sa iba", "Kawalang-galang"], "correct_answer": "Pagiging matapat at mabait" },
+          { "question": "Kailan tayo maaaring manalangin?", "options": ["Bago at pagkatapos kumain, bago matulog", "Isang beses lamang sa isang taon", "Hindi na kailangan", "Kapag may problema lamang"], "correct_answer": "Bago at pagkatapos kumain, bago matulog" },
+          { "question": "Ano ang isang paraan ng pagpapakita ng paggalang sa Diyos kasama ang pamilya?", "options": ["Pagsisimba", "Pag-iwas sa simbahan", "Pagsisinungaling", "Kawalang-interes"], "correct_answer": "Pagsisimba" },
+          { "question": "Bakit mahalaga ang paggalang sa Diyos?", "options": ["Nagbubunga ito ng magandang ugali", "Walang dahilan", "Para lang sundin ang guro", "Para makuha ang gantimpala"], "correct_answer": "Nagbubunga ito ng magandang ugali" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of story elements!\n\n- **Characters**, **setting**, and **events**\n- Stories happen **beginning, middle, end**\n- We guess feelings from **actions and words**\n\nGreat story comprehension this week! ⭐",
+        "quiz": [
+          { "question": "What are the people or animals in a story called?", "options": ["Characters", "Setting", "Events", "Title"], "correct_answer": "Characters" },
+          { "question": "What is the setting of a story?", "options": ["Where and when it happens", "Who is in it", "What happens", "How long it is"], "correct_answer": "Where and when it happens" },
+          { "question": "What order do events in a story usually happen?", "options": ["Beginning, middle, end", "End, middle, beginning", "Random order", "Middle, end, beginning"], "correct_answer": "Beginning, middle, end" },
+          { "question": "How can we guess a character's feelings?", "options": ["From their actions and words", "From the title only", "We cannot guess", "From the page number"], "correct_answer": "From their actions and words" },
+          { "question": "What are the events of a story?", "options": ["What happens, in order", "Who is in it", "Where it happens", "The book's cover"], "correct_answer": "What happens, in order" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of area word problems!\n\n- Small objects: **sq. cm** | Bigger spaces: **sq. m**\n- Find length and width, then **multiply**\n- Always include the correct **unit** in your answer\n\nGreat problem-solving this week! 🌟",
+        "quiz": [
+          { "question": "What unit do we use for small objects' area?", "options": ["Sq. cm", "Sq. m only", "Kilograms", "Liters"], "correct_answer": "Sq. cm" },
+          { "question": "A rectangular garden is 6 m long and 4 m wide. What is its area?", "options": ["24 sq. m", "10 sq. m", "20 sq. m", "12 sq. m"], "correct_answer": "24 sq. m" },
+          { "question": "What is the first step to solve an area word problem?", "options": ["Read the problem carefully", "Multiply right away", "Guess the answer", "Skip the problem"], "correct_answer": "Read the problem carefully" },
+          { "question": "What should the final answer include?", "options": ["The correct unit", "No unit needed", "Only a color", "A guess"], "correct_answer": "The correct unit" },
+          { "question": "A square room has 5 m sides. What is its area?", "options": ["25 sq. m", "10 sq. m", "20 sq. m", "15 sq. m"], "correct_answer": "25 sq. m" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Tauhan** = tao/hayop sa kwento | **Tagpuan** = saan/kailan\n- Kwento: **simula, gitna, wakas**\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang tauhan?", "options": ["Ang mga tao o hayop sa kwento", "Kung saan naganap ang kwento", "Ang aral ng kwento", "Ang pamagat ng kwento"], "correct_answer": "Ang mga tao o hayop sa kwento" },
+          { "question": "Ano ang tagpuan?", "options": ["Kung saan at kailan naganap ang kwento", "Ang mga tauhan", "Ang aral ng kwento", "Ang bilang ng pahina"], "correct_answer": "Kung saan at kailan naganap ang kwento" },
+          { "question": "Anong tatlong bahagi ang mayroon ang isang kwento?", "options": ["Simula, gitna, wakas", "Simula at wakas lamang", "Gitna lamang", "Walang bahagi"], "correct_answer": "Simula, gitna, wakas" },
+          { "question": "Paano natin mahihinuha ang damdamin ng tauhan?", "options": ["Sa kanilang kilos at salita", "Sa pamagat lamang", "Hindi natin ito mahihinuha", "Sa bilang ng pahina"], "correct_answer": "Sa kanilang kilos at salita" },
+          { "question": "Ano ang unang bahagi ng kwento?", "options": ["Simula", "Gitna", "Wakas", "Pamagat"], "correct_answer": "Simula" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ngayon: **cellphone, internet, online shopping**\n- Noon: **liham, tradisyunal na tindahan**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang ginagamit ngayon para makipag-usap sa malayo?", "options": ["Cellphone at internet", "Liham lamang", "Walang paraan", "Usok lamang"], "correct_answer": "Cellphone at internet" },
+          { "question": "Ano ang bagong paraan ng pamimili?", "options": ["Online shopping", "Wala", "Palitan ng gamit lamang", "Walang binibili"], "correct_answer": "Online shopping" },
+          { "question": "Paano natin nakikita ang pagbabago sa dokumento?", "options": ["Paghahambing ng lumang at bagong dokumento", "Sa pagbabasa ng kwentong bayan lamang", "Sa pag-awit", "Sa paglalaro"], "correct_answer": "Paghahambing ng lumang at bagong dokumento" },
+          { "question": "Ano ang lumang paraan ng pakikipag-usap?", "options": ["Liham", "Cellphone", "Internet", "Video call"], "correct_answer": "Liham" },
+          { "question": "Ano ang tradisyunal na lugar ng pamimili noon?", "options": ["Tindahan", "Online shop", "Mall lamang", "App"], "correct_answer": "Tindahan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Reuse** = gamitin muli | **Recycle** = gawing bago\n- Itapon ang labis na langis sa basurahan\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa paggamit muli ng mga bagay?", "options": ["Reuse", "Recycle", "Reduce", "Sunugin"], "correct_answer": "Reuse" },
+          { "question": "Ano ang tawag sa paggawang bago ng materyales?", "options": ["Recycle", "Reuse", "Sunugin", "Itapon"], "correct_answer": "Recycle" },
+          { "question": "Saan dapat itapon ang labis na langis?", "options": ["Sa basurahan", "Sa lababo", "Sa kanal", "Kahit saan"], "correct_answer": "Sa basurahan" },
+          { "question": "Bakit mahalaga ang wastong pag-aalaga sa materyales?", "options": ["Nagpoprotekta ito sa kalikasan", "Walang dahilan", "Para lang sa marka", "Para mabuhat ang gamit"], "correct_answer": "Nagpoprotekta ito sa kalikasan" },
+          { "question": "Alin ang halimbawa ng materyales na maaaring i-recycle?", "options": ["Papel", "Basurang pagkain", "Usok", "Hangin"], "correct_answer": "Papel" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Double-click** an icon to open a program\n- **Save your work** before closing\n- Click the **X button** to close a program\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "How can you open an application?", "options": ["Double-click its icon", "Unplug the computer", "Press the power button", "Shake the mouse"], "correct_answer": "Double-click its icon" },
+          { "question": "What should you do before closing a program?", "options": ["Save your work", "Delete everything", "Unplug the computer", "Nothing"], "correct_answer": "Save your work" },
+          { "question": "How can you close an application?", "options": ["Click the X button", "Turn off the monitor", "Unplug the mouse", "Pull the keyboard"], "correct_answer": "Click the X button" },
+          { "question": "Why should you close programs properly?", "options": ["To prevent losing work and keep the computer running smoothly", "To make the computer louder", "It doesn't matter how you close them", "To slow down the computer"], "correct_answer": "To prevent losing work and keep the computer running smoothly" },
+          { "question": "What could happen if you close a program without saving?", "options": ["You could lose your work", "Nothing happens", "The computer turns off", "Your work is automatically saved"], "correct_answer": "You could lose your work" }
+        ]
+      }
+    }
+  }
+}

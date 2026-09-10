@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-07-19",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 5: Sentence Types!\n\nLet's learn the different kinds of sentences! 📝\n\n## 📖 Declarative and Interrogative Sentences\n- **Declarative** sentences tell something and end with a **period (.)**\n  - Example: *I like reading books.*\n- **Interrogative** sentences ask a question and end with a **question mark (?)**\n  - Example: *Do you like reading books?*\n\n## 🙋 Parts of a Sentence\n- Every sentence has a **who/what** (subject) and **what they are doing** (predicate).\n- **Example:** *The dog (who) runs fast (what it's doing).*\n\n## ❗ Introducing Imperative Sentences\n- **Imperative** sentences give a command or request.\n  - Example: *Please close the door.*\n\nSentences help us share our ideas clearly! 🌟",
+        "quiz": [
+          { "question": "What does a declarative sentence end with?", "options": ["A period (.)", "A question mark (?)", "An exclamation (!)", "A comma (,)"], "correct_answer": "A period (.)" },
+          { "question": "What does an interrogative sentence do?", "options": ["Asks a question", "Tells something", "Gives a command", "Shows excitement"], "correct_answer": "Asks a question" },
+          { "question": "Which sentence is imperative?", "options": ["Please close the door.", "Do you like books?", "I like books.", "What a great book!"], "correct_answer": "Please close the door." },
+          { "question": "In \"The dog runs fast\", what is the subject?", "options": ["The dog", "Runs", "Fast", "The"], "correct_answer": "The dog" },
+          { "question": "Which sentence is declarative?", "options": ["I like reading books.", "Do you like reading?", "Read the book!", "Close the book."], "correct_answer": "I like reading books." },
+          { "question": "What is the predicate in \"The dog runs fast\"?", "options": ["Runs fast", "The dog", "The", "Fast"], "correct_answer": "Runs fast" },
+          { "question": "What does an imperative sentence do?", "options": ["Gives a command or request", "Asks a question", "Tells a fact", "Shows surprise"], "correct_answer": "Gives a command or request" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 5: Area of Squares and Rectangles!\n\nLet's learn how to find the area of shapes! 📐\n\n## 📏 What Is Area?\n- **Area** is the amount of space inside a shape, measured in **square units**.\n- We can estimate area by counting **square tiles** that fit inside a shape.\n\n## 🔲 Area of a Square\n- Area = **side × side**\n- **Example:** A square with 4 cm sides has an area of 4 × 4 = **16 sq. cm**\n\n## 🔳 Area of a Rectangle\n- Area = **length × width**\n- **Example:** A rectangle 5 cm long and 3 cm wide has an area of 5 × 3 = **15 sq. cm**\n\nGreat work exploring area! 🌟",
+        "quiz": [
+          { "question": "What is area?", "options": ["The amount of space inside a shape", "The distance around a shape", "The number of corners", "The color of a shape"], "correct_answer": "The amount of space inside a shape" },
+          { "question": "What is the formula for the area of a square?", "options": ["Side × side", "Side + side", "Side − side", "Side ÷ side"], "correct_answer": "Side × side" },
+          { "question": "A square has 4 cm sides. What is its area?", "options": ["16 sq. cm", "8 sq. cm", "12 sq. cm", "20 sq. cm"], "correct_answer": "16 sq. cm" },
+          { "question": "What is the formula for the area of a rectangle?", "options": ["Length × width", "Length + width", "Length − width", "Length ÷ width"], "correct_answer": "Length × width" },
+          { "question": "A rectangle is 5 cm long and 3 cm wide. What is its area?", "options": ["15 sq. cm", "8 sq. cm", "10 sq. cm", "20 sq. cm"], "correct_answer": "15 sq. cm" },
+          { "question": "What units do we use to measure area?", "options": ["Square units", "Only centimeters", "Only meters", "Degrees"], "correct_answer": "Square units" },
+          { "question": "How can we estimate area?", "options": ["By counting square tiles that fit inside", "By counting corners", "By measuring the perimeter only", "By guessing randomly"], "correct_answer": "By counting square tiles that fit inside" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 5: Simuno at Panaguri\n\nAlamin natin ang mga bahagi ng payak na pangungusap! 📝\n\n## 🗣️ Simuno\n- Ang **simuno** ay ang paksa ng pangungusap — kung sino o ano ang pinag-uusapan.\n- **Halimbawa:** *Si Ana* ay masipag.\n\n## 📖 Panaguri\n- Ang **panaguri** ay nagsasabi tungkol sa simuno — kung ano ang ginagawa o katangian nito.\n- **Halimbawa:** Si Ana ay *masipag*.\n\n## 🔍 Pagsasanay\n- Sa pangungusap na *\"Kumakain si Ben ng mangga\"*, ang simuno ay *si Ben*, ang panaguri ay *kumakain ng mangga*.\n\nMahalaga ang simuno at panaguri sa pagbuo ng malinaw na pangungusap! 🌟",
+        "quiz": [
+          { "question": "Ano ang simuno?", "options": ["Ang paksa ng pangungusap", "Ang nagsasabi tungkol sa paksa", "Ang salitang naglalarawan", "Ang salitang pananong"], "correct_answer": "Ang paksa ng pangungusap" },
+          { "question": "Ano ang panaguri?", "options": ["Nagsasabi tungkol sa simuno", "Ang paksa ng pangungusap", "Ang pangngalan lamang", "Ang salitang pananong"], "correct_answer": "Nagsasabi tungkol sa simuno" },
+          { "question": "Sa \"Si Ana ay masipag\", ano ang simuno?", "options": ["Si Ana", "Masipag", "Ay", "Walang simuno"], "correct_answer": "Si Ana" },
+          { "question": "Sa \"Kumakain si Ben ng mangga\", ano ang simuno?", "options": ["Si Ben", "Kumakain", "Mangga", "Ng"], "correct_answer": "Si Ben" },
+          { "question": "Sa \"Kumakain si Ben ng mangga\", ano ang panaguri?", "options": ["Kumakain ng mangga", "Si Ben", "Mangga lamang", "Walang panaguri"], "correct_answer": "Kumakain ng mangga" },
+          { "question": "Ano ang bahagi ng pangungusap na may dalawang bahagi?", "options": ["Simuno at panaguri", "Pangngalan at pandiwa lamang", "Pang-uri at pang-abay", "Walang bahagi"], "correct_answer": "Simuno at panaguri" },
+          { "question": "Sa \"Si Ana ay masipag\", ano ang panaguri?", "options": ["Masipag", "Si Ana", "Ay", "Walang panaguri"], "correct_answer": "Masipag" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 4: Physical Properties of Solid Materials!\n\nLet's explore how solid materials feel and look! 🧱\n\n## 🔍 Physical Properties\n- **Hard** — does not bend or change shape easily (e.g., rock, metal)\n- **Shiny** — reflects light (e.g., glass, polished metal)\n- **Stretchable** — can be pulled and stretched (e.g., rubber band, elastic)\n\n## 🧪 Sorting by Properties\n- **Example 1:** A rubber band is **stretchable** but not hard.\n- **Example 2:** A rock is **hard** but not shiny.\n\n## 🔍 Why Properties Matter\n- Knowing the properties of materials helps us choose the **right material** for a job — like using rubber for tires because it stretches.\n\nGreat job exploring materials! 🌟",
+        "quiz": [
+          { "question": "Which property describes something that does not bend easily?", "options": ["Hard", "Shiny", "Stretchable", "Soft"], "correct_answer": "Hard" },
+          { "question": "Which material is stretchable?", "options": ["Rubber band", "Rock", "Glass", "Metal spoon"], "correct_answer": "Rubber band" },
+          { "question": "Which property means it reflects light?", "options": ["Shiny", "Hard", "Stretchable", "Rough"], "correct_answer": "Shiny" },
+          { "question": "Why is rubber used for tires?", "options": ["Because it stretches", "Because it is shiny", "Because it is heavy", "Because it is cold"], "correct_answer": "Because it stretches" },
+          { "question": "Is a rock hard or stretchable?", "options": ["Hard", "Stretchable", "Both", "Neither"], "correct_answer": "Hard" },
+          { "question": "Why do we study the properties of materials?", "options": ["To choose the right material for a job", "To make things heavier", "To make things disappear", "For no reason"], "correct_answer": "To choose the right material for a job" },
+          { "question": "Which of these is shiny?", "options": ["Polished metal", "Rubber band", "Cotton", "Paper"], "correct_answer": "Polished metal" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 5: Buod ng Kasaysayan ng Aking Pook\n\nBuuin natin ang ating natutunan tungkol sa kasaysayan ng ating pook! 📜\n\n## 📖 Buod ng Natutunan\n- Natutunan natin ang mahahalagang **tao, lugar, at pangyayari** sa kasaysayan ng ating pook.\n- Natutunan din natin kung paano gamitin ang **timeline** para ipakita ang pagkakasunod-sunod ng pangyayari.\n\n## 🔄 Paghahanda sa Susunod na Paksa\n- Sa susunod na linggo, pag-uusapan natin ang mga **pagbabagong naganap** sa ating komunidad sa paglipas ng panahon.\n\n## 💡 Pagninilay\n- Isipin: Ano ang pinakanatutuwa mong natutunan tungkol sa kasaysayan ng iyong pook?\n\nMagpatuloy sa pagtuklas ng ating mayamang kasaysayan! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa ating pook?", "options": ["Mahahalagang tao, lugar, at pangyayari", "Walang natutunan", "Mga bansa sa ibang mundo", "Mga bagong laruan"], "correct_answer": "Mahahalagang tao, lugar, at pangyayari" },
+          { "question": "Ano ang ginagamit para ipakita ang pagkakasunod-sunod ng pangyayari?", "options": ["Timeline", "Larawan lamang", "Kanta", "Sayaw"], "correct_answer": "Timeline" },
+          { "question": "Ano ang paksa sa susunod na linggo?", "options": ["Pagbabagong naganap sa komunidad", "Bagong laro", "Ibang bansa", "Bagong pagkain"], "correct_answer": "Pagbabagong naganap sa komunidad" },
+          { "question": "Bakit mahalagang balikan ang natutunan natin?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" },
+          { "question": "Ano ang bahagi ng kasaysayan ng isang pook?", "options": ["Mahahalagang tao at pangyayari", "Kulay ng damit ngayon", "Pagkain ngayon lamang", "Walang bahagi"], "correct_answer": "Mahahalagang tao at pangyayari" },
+          { "question": "Ano ang layunin ng pag-aaral ng kasaysayan?", "options": ["Para maunawaan natin ang ating pinagmulan", "Para lang sa marka", "Walang layunin", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating pinagmulan" },
+          { "question": "Sino ang bahagi ng kasaysayan ng isang pook?", "options": ["Mga tagapagtatag at residente nito", "Estranghero lamang", "Walang sinuman", "Mga hayop lamang"], "correct_answer": "Mga tagapagtatag at residente nito" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 5: Mouse Control!\n\nLet's master using the mouse accurately! 🖱️\n\n## 🖱️ Types of Mouse Clicks\n- **Single-click** — press once to select an item\n- **Double-click** — press twice quickly to open a program or file\n- **Right-click** — opens a menu with more options\n- **Click-and-drag** — hold and move the mouse to move or resize something\n\n## 🔍 When to Use Each Click\n- **Example 1:** Double-click an icon to open a program.\n- **Example 2:** Click-and-drag a window to move it to a new spot.\n\n## 💡 Practice Tip\n- Practice slowly at first — accuracy is more important than speed!\n\nMastering the mouse takes practice — keep it up! 🌟",
+        "quiz": [
+          { "question": "What does a single-click do?", "options": ["Selects an item", "Opens a program", "Shows a menu", "Deletes a file"], "correct_answer": "Selects an item" },
+          { "question": "What does a double-click do?", "options": ["Opens a program or file", "Selects one item only", "Shows a menu", "Closes the computer"], "correct_answer": "Opens a program or file" },
+          { "question": "What does a right-click do?", "options": ["Opens a menu with more options", "Opens a program instantly", "Closes the computer", "Deletes everything"], "correct_answer": "Opens a menu with more options" },
+          { "question": "What is click-and-drag used for?", "options": ["Moving or resizing something", "Turning off the computer", "Typing letters", "Printing a page"], "correct_answer": "Moving or resizing something" },
+          { "question": "Which click type would you use to move a window?", "options": ["Click-and-drag", "Single-click", "Double-click", "Right-click"], "correct_answer": "Click-and-drag" },
+          { "question": "What should you focus on first when practicing mouse control?", "options": ["Accuracy", "Speed only", "Noise", "Color"], "correct_answer": "Accuracy" },
+          { "question": "Which click would you use to open an icon quickly?", "options": ["Double-click", "Single-click", "Right-click", "Click-and-drag"], "correct_answer": "Double-click" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 5: Gampanin sa Tahanan at Paaralan\n\nAlamin natin ang ating gampanin sa tahanan at paaralan! 🏠\n\n## 🏠 Gampanin sa Tahanan\n- Bilang bata, may mga **gawain** kang dapat tuparin, tulad ng pag-aayos ng sariling gamit.\n- Ang mga gampaning ito ay ginagabayan ng ating mga **magulang**.\n\n## 🏫 Gampanin sa Paaralan\n- Sa paaralan, ang iyong gampanin ay ang **pag-aaral nang mabuti** at pagsunod sa mga alituntunin.\n- Tumulong din sa mga gawain sa silid-aralan.\n\n## 💪 Kahalagahan ng Pagtupad sa Gampanin\n- Ang pagtupad sa ating mga gampanin ay bumubuo ng **responsibilidad**.\n\nTuparin natin ang ating mga gampanin nang may pananagutan! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng gampanin sa tahanan?", "options": ["Pag-aayos ng sariling gamit", "Panonood ng TV buong araw", "Paglalaro lamang", "Pagtulog buong araw"], "correct_answer": "Pag-aayos ng sariling gamit" },
+          { "question": "Ano ang gampanin ng bata sa paaralan?", "options": ["Pag-aaral nang mabuti", "Panggugulo", "Pagtulog sa klase", "Pag-iwas sa gawain"], "correct_answer": "Pag-aaral nang mabuti" },
+          { "question": "Sino ang gumagabay sa ating mga gampanin sa tahanan?", "options": ["Ating mga magulang", "Estranghero", "Walang gumagabay", "Kaklase lamang"], "correct_answer": "Ating mga magulang" },
+          { "question": "Ano ang binubuo ng pagtupad sa ating mga gampanin?", "options": ["Responsibilidad", "Kapabayaan", "Katamaran", "Kawalang-galang"], "correct_answer": "Responsibilidad" },
+          { "question": "Paano ka makakatulong sa silid-aralan?", "options": ["Sa pagtulong sa mga gawain", "Sa paggulo", "Sa pag-iwas", "Sa pagtulog"], "correct_answer": "Sa pagtulong sa mga gawain" },
+          { "question": "Bakit mahalagang tuparin ang mga gampanin sa buhay?", "options": ["Bumubuo ito ng responsibilidad", "Walang dahilan", "Para lang sa gantimpala", "Para maiwasan ang gawain"], "correct_answer": "Bumubuo ito ng responsibilidad" },
+          { "question": "Ano ang dapat gawin ng bata sa paaralan bukod sa pag-aaral?", "options": ["Sumunod sa mga alituntunin", "Manggulo sa kaklase", "Umalis nang walang pahintulot", "Matulog sa klase"], "correct_answer": "Sumunod sa mga alituntunin" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of sentence types!\n\n- **Declarative** ends with a period, **interrogative** ends with a question mark\n- **Imperative** sentences give a command\n- Every sentence has a subject and predicate\n\nGreat progress this week! ⭐",
+        "quiz": [
+          { "question": "What does a declarative sentence end with?", "options": ["A period (.)", "A question mark (?)", "An exclamation (!)", "A comma (,)"], "correct_answer": "A period (.)" },
+          { "question": "What does an interrogative sentence do?", "options": ["Asks a question", "Tells something", "Gives a command", "Shows excitement"], "correct_answer": "Asks a question" },
+          { "question": "Which sentence is imperative?", "options": ["Please close the door.", "Do you like books?", "I like books.", "What a great book!"], "correct_answer": "Please close the door." },
+          { "question": "In \"The dog runs fast\", what is the subject?", "options": ["The dog", "Runs", "Fast", "The"], "correct_answer": "The dog" },
+          { "question": "Which sentence is declarative?", "options": ["I like reading books.", "Do you like reading?", "Read the book!", "Close the book."], "correct_answer": "I like reading books." }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of area!\n\n- **Area** = space inside a shape, in square units\n- Area of a square = **side × side**\n- Area of a rectangle = **length × width**\n\nGreat work with area this week! 🌟",
+        "quiz": [
+          { "question": "What is area?", "options": ["The amount of space inside a shape", "The distance around a shape", "The number of corners", "The color of a shape"], "correct_answer": "The amount of space inside a shape" },
+          { "question": "What is the formula for the area of a square?", "options": ["Side × side", "Side + side", "Side − side", "Side ÷ side"], "correct_answer": "Side × side" },
+          { "question": "A square has 4 cm sides. What is its area?", "options": ["16 sq. cm", "8 sq. cm", "12 sq. cm", "20 sq. cm"], "correct_answer": "16 sq. cm" },
+          { "question": "What is the formula for the area of a rectangle?", "options": ["Length × width", "Length + width", "Length − width", "Length ÷ width"], "correct_answer": "Length × width" },
+          { "question": "A rectangle is 5 cm long and 3 cm wide. What is its area?", "options": ["15 sq. cm", "8 sq. cm", "10 sq. cm", "20 sq. cm"], "correct_answer": "15 sq. cm" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Simuno** = paksa ng pangungusap\n- **Panaguri** = nagsasabi tungkol sa simuno\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang simuno?", "options": ["Ang paksa ng pangungusap", "Ang nagsasabi tungkol sa paksa", "Ang salitang naglalarawan", "Ang salitang pananong"], "correct_answer": "Ang paksa ng pangungusap" },
+          { "question": "Ano ang panaguri?", "options": ["Nagsasabi tungkol sa simuno", "Ang paksa ng pangungusap", "Ang pangngalan lamang", "Ang salitang pananong"], "correct_answer": "Nagsasabi tungkol sa simuno" },
+          { "question": "Sa \"Si Ana ay masipag\", ano ang simuno?", "options": ["Si Ana", "Masipag", "Ay", "Walang simuno"], "correct_answer": "Si Ana" },
+          { "question": "Sa \"Kumakain si Ben ng mangga\", ano ang panaguri?", "options": ["Kumakain ng mangga", "Si Ben", "Mangga lamang", "Walang panaguri"], "correct_answer": "Kumakain ng mangga" },
+          { "question": "Ano ang bahagi ng pangungusap na may dalawang bahagi?", "options": ["Simuno at panaguri", "Pangngalan at pandiwa lamang", "Pang-uri at pang-abay", "Walang bahagi"], "correct_answer": "Simuno at panaguri" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Natutunan natin ang mahahalagang tao, lugar, at pangyayari sa ating pook\n- Ang **timeline** ay nagpapakita ng pagkakasunod-sunod ng pangyayari\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa ating pook?", "options": ["Mahahalagang tao, lugar, at pangyayari", "Walang natutunan", "Mga bansa sa ibang mundo", "Mga bagong laruan"], "correct_answer": "Mahahalagang tao, lugar, at pangyayari" },
+          { "question": "Ano ang ginagamit para ipakita ang pagkakasunod-sunod ng pangyayari?", "options": ["Timeline", "Larawan lamang", "Kanta", "Sayaw"], "correct_answer": "Timeline" },
+          { "question": "Bakit mahalagang balikan ang natutunan natin?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" },
+          { "question": "Ano ang layunin ng pag-aaral ng kasaysayan?", "options": ["Para maunawaan natin ang ating pinagmulan", "Para lang sa marka", "Walang layunin", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating pinagmulan" },
+          { "question": "Ano ang paksa sa susunod na linggo?", "options": ["Pagbabagong naganap sa komunidad", "Bagong laro", "Ibang bansa", "Bagong pagkain"], "correct_answer": "Pagbabagong naganap sa komunidad" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Hard** = hindi kumikibot | **Shiny** = kumikinang | **Stretchable** = naiuunat\n- Nakatutulong ang properties para pumili ng tamang materyales\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which property describes something that does not bend easily?", "options": ["Hard", "Shiny", "Stretchable", "Soft"], "correct_answer": "Hard" },
+          { "question": "Which material is stretchable?", "options": ["Rubber band", "Rock", "Glass", "Metal spoon"], "correct_answer": "Rubber band" },
+          { "question": "Which property means it reflects light?", "options": ["Shiny", "Hard", "Stretchable", "Rough"], "correct_answer": "Shiny" },
+          { "question": "Why is rubber used for tires?", "options": ["Because it stretches", "Because it is shiny", "Because it is heavy", "Because it is cold"], "correct_answer": "Because it stretches" },
+          { "question": "Why do we study the properties of materials?", "options": ["To choose the right material for a job", "To make things heavier", "To make things disappear", "For no reason"], "correct_answer": "To choose the right material for a job" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Single-click** = select | **Double-click** = open\n- **Right-click** = menu | **Click-and-drag** = move\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What does a single-click do?", "options": ["Selects an item", "Opens a program", "Shows a menu", "Deletes a file"], "correct_answer": "Selects an item" },
+          { "question": "What does a double-click do?", "options": ["Opens a program or file", "Selects one item only", "Shows a menu", "Closes the computer"], "correct_answer": "Opens a program or file" },
+          { "question": "What does a right-click do?", "options": ["Opens a menu with more options", "Opens a program instantly", "Closes the computer", "Deletes everything"], "correct_answer": "Opens a menu with more options" },
+          { "question": "What is click-and-drag used for?", "options": ["Moving or resizing something", "Turning off the computer", "Typing letters", "Printing a page"], "correct_answer": "Moving or resizing something" },
+          { "question": "Which click would you use to open an icon quickly?", "options": ["Double-click", "Single-click", "Right-click", "Click-and-drag"], "correct_answer": "Double-click" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-06-14",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 Welcome to Grade 6!\n\nYour final year in elementary — let's make it count! 💛\n\n## 👋 Introducing Yourself\n- Share your **name**, a **goal** for this year, and something you're proud of.\n  - Example: *My name is Diego. This year, I want to write my own short story.*\n\n## 🗣️ Speaking and Listening\n- Use **complex sentences** and speak with confidence.\n- **Listen critically** — think about what's being said, not just hear it.\n\n## 🤝 Leadership as a Grade 6 Student\n- As the oldest in elementary, be a **good example** for younger students.\n\nWe're excited for your final year of elementary! ⭐",
+        "quiz": [
+          { "question": "Which sentence shares a goal for the year?", "options": ["This year, I want to write my own short story.", "Story year I want.", "This write story.", "Want story I year."], "correct_answer": "This year, I want to write my own short story." },
+          { "question": "What does listening critically mean?", "options": ["Thinking about what's being said", "Just hearing sounds", "Ignoring the speaker", "Talking over others"], "correct_answer": "Thinking about what's being said" },
+          { "question": "As the oldest in elementary, what should you be?", "options": ["A good example", "Careless", "Disrespectful", "Uninvolved"], "correct_answer": "A good example" },
+          { "question": "What kind of sentences should Grade 6 students use?", "options": ["Complex sentences", "Only one-word answers", "No sentences", "Only questions"], "correct_answer": "Complex sentences" },
+          { "question": "What should you do before speaking if someone else is talking?", "options": ["Wait for your turn", "Interrupt them", "Talk louder", "Walk away"], "correct_answer": "Wait for your turn" },
+          { "question": "What year of elementary is Grade 6?", "options": ["The final year", "The first year", "The middle year", "Not elementary"], "correct_answer": "The final year" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Welcome Back to Math!\n\nLet's warm up with a review of Grade 5 skills! 🧠\n\n## 🔟 Review: Decimals and Fractions\n- **Example 1:** 4.5 + 2.3 = **6.8**\n- **Example 2:** 1/2 + 1/4 = **3/4**\n\n## ➗ Review: Operations\n- We can add, subtract, multiply, and divide with whole numbers, decimals, and fractions.\n\n## 🔷 Shapes Review\n- Shapes like triangles, squares, and circles have specific properties we can measure.\n\nGreat warm-up — you're ready for an exciting final year! 🌟",
+        "quiz": [
+          { "question": "What is 4.5 + 2.3?", "options": ["6.8", "6.5", "7.8", "6.3"], "correct_answer": "6.8" },
+          { "question": "What is 1/2 + 1/4?", "options": ["3/4", "2/4", "1/4", "1/2"], "correct_answer": "3/4" },
+          { "question": "What operations can we do with decimals and fractions?", "options": ["Add, subtract, multiply, divide", "Only addition", "Only subtraction", "None"], "correct_answer": "Add, subtract, multiply, divide" },
+          { "question": "What is 10 − 3.5?", "options": ["6.5", "7.5", "6", "7"], "correct_answer": "6.5" },
+          { "question": "What is 3/4 as a decimal?", "options": ["0.75", "0.25", "0.5", "0.34"], "correct_answer": "0.75" },
+          { "question": "What is 2 × 3.5?", "options": ["7", "6.5", "7.5", "6"], "correct_answer": "7" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Pagbati at Pagpapakilala\n\nMasayang pagbabalik-eskwela! Ito na ang huling taon mo sa elementarya. 💛\n\n## 🙋 Detalyadong Pagpapakilala\n- Ibahagi ang iyong **pangalan**, isang **layunin** ngayong taon, at isang bagay na ipinagmamalaki mo.\n  - Halimbawa: *Ako si Diego. Ngayong taon, gusto kong magsulat ng sarili kong maikling kwento.*\n\n## 🗣️ Magaling na Pakikinig at Pagsasalita\n- Gumamit ng **kumplikadong pangungusap** at magsalita nang may kumpiyansa.\n\n## 🤝 Pagiging Modelo bilang Grade 6\n- Bilang pinakamatanda sa elementarya, maging **magandang halimbawa** sa mas batang mag-aaral.\n\nMasaya tayong matuto nang magkakasama sa huling taon na ito! 🌟",
+        "quiz": [
+          { "question": "Aling pangungusap ang naglalahad ng layunin sa taong ito?", "options": ["Ngayong taon, gusto kong magsulat ng maikling kwento.", "Kwento taon gusto.", "Taon ito kwento.", "Gusto kwento ako."], "correct_answer": "Ngayong taon, gusto kong magsulat ng maikling kwento." },
+          { "question": "Ano ang dapat maging bilang pinakamatanda sa elementarya?", "options": ["Magandang halimbawa", "Walang pakialam", "Bastos", "Walang pananagutan"], "correct_answer": "Magandang halimbawa" },
+          { "question": "Anong uri ng pangungusap ang dapat gamitin ng Grade 6?", "options": ["Kumplikadong pangungusap", "Isang salita lamang", "Walang pangungusap", "Tanong lamang"], "correct_answer": "Kumplikadong pangungusap" },
+          { "question": "Ano ang huling taon ng elementarya?", "options": ["Grade 6", "Grade 1", "Grade 3", "Hindi elementarya"], "correct_answer": "Grade 6" },
+          { "question": "Ano ang dapat gawin bago magsalita kung may nagsasalita pa?", "options": ["Maghintay ng turn", "Sabayan sila", "Sumigaw", "Umalis"], "correct_answer": "Maghintay ng turn" },
+          { "question": "Paano dapat magsalita ang isang Grade 6 na estudyante?", "options": ["Nang may kumpiyansa", "Nang mahiyain lamang", "Hindi na magsasalita", "Nang padabog"], "correct_answer": "Nang may kumpiyansa" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nBalikan natin ang ating mga kasanayan bilang siyentipiko bago tayo magsimula! 🧪\n\n## 🔍 Mga Kasanayan ng Siyentipiko\n- **Pagmamasid, paghula, pagsukat** — mga pangunahing kasanayan.\n- **Fair test** — sinusubaybayan ang isang salik habang pinananatiling pareho ang iba.\n\n## 🧰 Kagamitang Pang-Agham\n- **Timbangan, ruler, thermometer** — para sa iba't ibang eksperimento.\n\n## 🔬 Halimbawa\n- Sinusukat mo ang temperatura ng tubig gamit ang thermometer bago at pagkatapos pinainit.\n\nHanda ka na bang maging mahusay na siyentipiko ngayong taon? 🌟",
+        "quiz": [
+          { "question": "Ano ang fair test?", "options": ["Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba", "Pagbibilang lamang", "Paglalaro lamang", "Walang kahulugan"], "correct_answer": "Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba" },
+          { "question": "Ano ang gamit ng thermometer?", "options": ["Sukat ng temperatura", "Sukat ng haba", "Sukat ng bigat", "Sukat ng oras"], "correct_answer": "Sukat ng temperatura" },
+          { "question": "Ano ang gamit ng timbangan?", "options": ["Sukat ng bigat", "Sukat ng temperatura", "Sukat ng haba", "Sukat ng oras"], "correct_answer": "Sukat ng bigat" },
+          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang temperatura?", "options": ["Pagsukat", "Pagmamasid lamang", "Paghula lamang", "Wala"], "correct_answer": "Pagsukat" },
+          { "question": "Ilang trial ang kailangan para sa balidong eksperimento?", "options": ["Kahit tatlo", "Isa lamang", "Wala", "Sampu"], "correct_answer": "Kahit tatlo" },
+          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Ako at ang Kasaysayan ng Aking Bansa\n\nMasayang pagbabalik-eskwela! Ngayong taon, tatalakayin natin ang mga hamon at pagtugon ng bansa. 🌟\n\n## 📜 Ang Ating Paksang-Taunan\n- Ngayong taon, pag-aaralan natin ang kasaysayan ng Pilipinas mula **1872 hanggang kasalukuyan**.\n\n## 🇵🇭 Bakit Mahalaga Ito?\n- Ang pag-unawa sa ating kasaysayan ay tumutulong sa atin bumuo ng **pambansang pagkakakilanlan**.\n\n## 💛 Pagiging Mapagmalaking Pilipino\n- Ipakita ang paggalang sa mga bayaning nakipaglaban para sa ating kalayaan.\n\nMasayang taon ng pagtuklas sa kasaysayan ng ating bansa! 🇵🇭",
+        "quiz": [
+          { "question": "Anong panahon ang saklaw ng ating pag-aaral ngayong taon?", "options": ["1872 hanggang kasalukuyan", "Kasalukuyan lamang", "1900 lamang", "Wala"], "correct_answer": "1872 hanggang kasalukuyan" },
+          { "question": "Ano ang tinutulungang buuin ng pag-unawa sa kasaysayan?", "options": ["Pambansang pagkakakilanlan", "Wala", "Kaalaman sa ibang bansa lamang", "Wala itong gamit"], "correct_answer": "Pambansang pagkakakilanlan" },
+          { "question": "Paano ipinapakita ang paggalang sa mga bayani?", "options": ["Pagkilala sa kanilang paglaban para sa kalayaan", "Pagkalimot sa kanila", "Kawalang-interes", "Pananakit"], "correct_answer": "Pagkilala sa kanilang paglaban para sa kalayaan" },
+          { "question": "Ano ang paksang-taunan ng Araling Panlipunan sa Grade 6?", "options": ["Mga Hamon at Pagtugon sa Pagkabansa", "Ang Aking Pamilya", "Ang Aking Paaralan", "Wala"], "correct_answer": "Mga Hamon at Pagtugon sa Pagkabansa" },
+          { "question": "Bakit mahalagang pag-aralan ang kasaysayan ng bansa?", "options": ["Tumutulong ito maunawaan ang ating pagkabansa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maunawaan ang ating pagkabansa" },
+          { "question": "Ano ang dapat nating gawin sa ating kasaysayan?", "options": ["Pahalagahan ito", "Kalimutan ito", "Iwasan ito", "Wala sa mga ito"], "correct_answer": "Pahalagahan ito" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Mga Panuntunan sa Silid-Computer\n\nBago natin simulan ang ating aralin sa ICT, balikan natin ang panuntunan! 🖥️\n\n## 📏 Mga Panuntunan\n- **Maglinis ng kamay** bago gumamit ng kagamitan.\n- **Maging responsable** sa paggamit ng Internet at online tools.\n\n## 🙋 Bakit Mahalaga Ito?\n- Iniingatan nito ang kagamitan at kaligtasan ng bawat mag-aaral online.\n\n## 💡 Simpleng Paalala\n- Humingi ng tulong sa guro kung may hindi maintindihan.\n\nHanda ka na bang matuto tungkol sa ICT nang ligtas at responsable? 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng kagamitan?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Ano ang dapat maging tayo sa paggamit ng Internet?", "options": ["Responsable", "Walang pakialam", "Padalos-dalos", "Bastos"], "correct_answer": "Responsable" },
+          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
+          { "question": "Sino ang dapat hingan ng tulong kung nalilito ka?", "options": ["Guro", "Estranghero", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Guro" },
+          { "question": "Ano ang mahalaga sa paggamit ng online tools?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Walang gamit", "Wala"], "correct_answer": "Kaligtasan at responsibilidad" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Welcome to MAPEH!\n\nLet's warm up for our final year of Music, Arts, PE, and Health! 🎶\n\n## 🎵 Music and Arts Warm-Up\n- Music and art reflect **history and identity** — we'll explore Filipino history through the arts this year.\n\n## 🏃 PE and Health Warm-Up\n- **Holistic wellness** means caring for our physical, mental, emotional, and social health.\n\n## 💪 Goal for the Year\n- Explore how music, arts, and movement connect to **being Filipino**.\n\nGet ready for a meaningful final year! 🌟",
+        "quiz": [
+          { "question": "What do music and art reflect?", "options": ["History and identity", "Only random facts", "Nothing important", "Only numbers"], "correct_answer": "History and identity" },
+          { "question": "What does holistic wellness include?", "options": ["Physical, mental, emotional, and social health", "Only physical health", "Only mental health", "Nothing"], "correct_answer": "Physical, mental, emotional, and social health" },
+          { "question": "What will we explore this year through the arts?", "options": ["Filipino history", "Only foreign history", "Nothing new", "Random topics"], "correct_answer": "Filipino history" },
+          { "question": "What connects music, arts, and movement this year?", "options": ["Being Filipino", "Nothing", "Only sports", "Only drawing"], "correct_answer": "Being Filipino" },
+          { "question": "What should you do before physical activity?", "options": ["Stretch", "Eat a heavy meal", "Sleep", "Nothing"], "correct_answer": "Stretch" },
+          { "question": "Why is holistic wellness important?", "options": ["It cares for our whole well-being", "It only matters for athletes", "It has no importance", "It's optional"], "correct_answer": "It cares for our whole well-being" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Welcome to EPP!\n\nThis year we'll explore Fishery Arts, Family/Consumer Science, and Industrial Arts! 🎣\n\n## 🐟 What Will We Learn?\n- **Term 1:** Fishery Arts — raising, harvesting, and selling fish\n- **Term 2:** Family and Consumer Science — budgeting, cooking, and food preservation\n- **Term 3:** Industrial Arts — wood, metal, and electrical work\n\n## 🛡️ Safety First\n- Always follow **safety precautions** when handling tools or materials.\n\nLet's build practical skills for life this year! 🌟",
+        "quiz": [
+          { "question": "What will we study in Term 1 of EPP?", "options": ["Fishery Arts", "Only cooking", "Only drawing", "Nothing new"], "correct_answer": "Fishery Arts" },
+          { "question": "What will we study in Term 2 of EPP?", "options": ["Family and Consumer Science", "Fishery Arts only", "Drawing only", "Nothing"], "correct_answer": "Family and Consumer Science" },
+          { "question": "What will we study in Term 3 of EPP?", "options": ["Industrial Arts", "Fishery Arts only", "Cooking only", "Nothing"], "correct_answer": "Industrial Arts" },
+          { "question": "What should you always follow when handling tools?", "options": ["Safety precautions", "No rules", "Random guesses", "Nothing"], "correct_answer": "Safety precautions" },
+          { "question": "What kind of skills will EPP help build?", "options": ["Practical skills for life", "Only test-taking skills", "No useful skills", "Only drawing skills"], "correct_answer": "Practical skills for life" },
+          { "question": "What does Term 1 EPP focus on?", "options": ["Raising, harvesting, and selling fish", "Only sewing", "Only painting", "Only singing"], "correct_answer": "Raising, harvesting, and selling fish" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Pagkilala sa Sarili\n\nMasayang pagbabalik-eskwela! Balikan natin ang ating sarili bilang ika-anim na baitang. 🌟\n\n## 🙋 Pagkilala sa Sarili\n- Alamin ang iyong **buong pangalan**, **edad**, at **tirahan** — mahalaga ito para sa kaligtasan.\n\n## 📏 Mga Alituntunin sa Silid-Aralan\n- **Makinig** kapag nagsasalita ang guro at **igalang** ang mga kaklase.\n\n## 💛 Bakit Mahalaga Ito?\n- Ipinapakita nito na tayo ay **responsableng** mag-aaral, bilang pinaka-matanda sa elementarya.\n\nIkaw ay mahalagang bahagi ng ating klase ngayong huling taon! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman tungkol sa sarili?", "options": ["Buong pangalan at edad", "Paboritong laro lamang", "Paboritong kulay lamang", "Wala sa mga ito"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Bakit importante malaman ang iyong impormasyon?", "options": ["Para sa kaligtasan", "Para sa laro lamang", "Walang dahilan", "Para ipagmalaki lang"], "correct_answer": "Para sa kaligtasan" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro ng gamit", "Kumain ng meryenda", "Makipag-usap sa kaklase"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Paano mo dapat tratuhin ang iyong mga kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit nila"], "correct_answer": "Sa paggalang" },
+          { "question": "Ano ang ipinapakita natin kapag sumusunod tayo sa alituntunin?", "options": ["Responsableng pag-uugali", "Kawalang-galang", "Kapabayaan", "Katamaran"], "correct_answer": "Responsableng pag-uugali" },
+          { "question": "Bakit dapat maging responsable bilang pinaka-matanda sa elementarya?", "options": ["Para maging magandang halimbawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maging magandang halimbawa" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — Getting Started!\n\nGreat first week! Let's review.\n\n- Share a **goal for the year**\n- Use **complex sentences** and **listen critically**\n- Be a **good example** as the oldest students\n\nGreat job this week! ⭐",
+        "quiz": [
+          { "question": "What does listening critically mean?", "options": ["Thinking about what's being said", "Just hearing sounds", "Ignoring the speaker", "Talking over others"], "correct_answer": "Thinking about what's being said" },
+          { "question": "As the oldest in elementary, what should you be?", "options": ["A good example", "Careless", "Disrespectful", "Uninvolved"], "correct_answer": "A good example" },
+          { "question": "What kind of sentences should Grade 6 students use?", "options": ["Complex sentences", "Only one-word answers", "No sentences", "Only questions"], "correct_answer": "Complex sentences" },
+          { "question": "What should you do before speaking if someone else is talking?", "options": ["Wait for your turn", "Interrupt them", "Talk louder", "Walk away"], "correct_answer": "Wait for your turn" },
+          { "question": "What year of elementary is Grade 6?", "options": ["The final year", "The first year", "The middle year", "Not elementary"], "correct_answer": "The final year" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Math\n\nQuick review of our warm-up!\n\n- 4.5 + 2.3 = **6.8**\n- 1/2 + 1/4 = **3/4**\n\nGreat start to Grade 6 Math! 🌟",
+        "quiz": [
+          { "question": "What is 4.5 + 2.3?", "options": ["6.8", "6.5", "7.8", "6.3"], "correct_answer": "6.8" },
+          { "question": "What is 1/2 + 1/4?", "options": ["3/4", "2/4", "1/4", "1/2"], "correct_answer": "3/4" },
+          { "question": "What is 10 − 3.5?", "options": ["6.5", "7.5", "6", "7"], "correct_answer": "6.5" },
+          { "question": "What is 3/4 as a decimal?", "options": ["0.75", "0.25", "0.5", "0.34"], "correct_answer": "0.75" },
+          { "question": "What is 2 × 3.5?", "options": ["7", "6.5", "7.5", "6"], "correct_answer": "7" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Pagpapakilala: **pangalan, layunin ngayong taon**\n- Maging **magandang halimbawa** sa mas batang mag-aaral\n\nMasayang simula ng huling taon! 🌟",
+        "quiz": [
+          { "question": "Aling pangungusap ang naglalahad ng layunin sa taong ito?", "options": ["Ngayong taon, gusto kong magsulat ng maikling kwento.", "Kwento taon gusto.", "Taon ito kwento.", "Gusto kwento ako."], "correct_answer": "Ngayong taon, gusto kong magsulat ng maikling kwento." },
+          { "question": "Ano ang dapat maging bilang pinakamatanda sa elementarya?", "options": ["Magandang halimbawa", "Walang pakialam", "Bastos", "Walang pananagutan"], "correct_answer": "Magandang halimbawa" },
+          { "question": "Anong uri ng pangungusap ang dapat gamitin ng Grade 6?", "options": ["Kumplikadong pangungusap", "Isang salita lamang", "Walang pangungusap", "Tanong lamang"], "correct_answer": "Kumplikadong pangungusap" },
+          { "question": "Ano ang huling taon ng elementarya?", "options": ["Grade 6", "Grade 1", "Grade 3", "Hindi elementarya"], "correct_answer": "Grade 6" },
+          { "question": "Paano dapat magsalita ang isang Grade 6 na estudyante?", "options": ["Nang may kumpiyansa", "Nang mahiyain lamang", "Hindi na magsasalita", "Nang padabog"], "correct_answer": "Nang may kumpiyansa" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Ang paksang-taunan: **Mga Hamon at Pagtugon sa Pagkabansa**\n- Saklaw: **1872 hanggang kasalukuyan**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Anong panahon ang saklaw ng ating pag-aaral ngayong taon?", "options": ["1872 hanggang kasalukuyan", "Kasalukuyan lamang", "1900 lamang", "Wala"], "correct_answer": "1872 hanggang kasalukuyan" },
+          { "question": "Ano ang tinutulungang buuin ng pag-unawa sa kasaysayan?", "options": ["Pambansang pagkakakilanlan", "Wala", "Kaalaman sa ibang bansa lamang", "Wala itong gamit"], "correct_answer": "Pambansang pagkakakilanlan" },
+          { "question": "Ano ang paksang-taunan ng Araling Panlipunan sa Grade 6?", "options": ["Mga Hamon at Pagtugon sa Pagkabansa", "Ang Aking Pamilya", "Ang Aking Paaralan", "Wala"], "correct_answer": "Mga Hamon at Pagtugon sa Pagkabansa" },
+          { "question": "Bakit mahalagang pag-aralan ang kasaysayan ng bansa?", "options": ["Tumutulong ito maunawaan ang ating pagkabansa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maunawaan ang ating pagkabansa" },
+          { "question": "Ano ang dapat nating gawin sa ating kasaysayan?", "options": ["Pahalagahan ito", "Kalimutan ito", "Iwasan ito", "Wala sa mga ito"], "correct_answer": "Pahalagahan ito" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Maglinis ng kamay** bago gumamit ng kagamitan\n- Maging **responsable** sa paggamit ng Internet\n\nHanda ka nang matuto tungkol sa ICT! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng kagamitan?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Ano ang dapat maging tayo sa paggamit ng Internet?", "options": ["Responsable", "Walang pakialam", "Padalos-dalos", "Bastos"], "correct_answer": "Responsable" },
+          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
+          { "question": "Ano ang mahalaga sa paggamit ng online tools?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Walang gamit", "Wala"], "correct_answer": "Kaligtasan at responsibilidad" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Fair test** = pagsubaybay sa isang salik lamang\n- **Timbangan, ruler, thermometer** — kagamitang pang-agham\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang fair test?", "options": ["Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba", "Pagbibilang lamang", "Paglalaro lamang", "Walang kahulugan"], "correct_answer": "Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba" },
+          { "question": "Ano ang gamit ng thermometer?", "options": ["Sukat ng temperatura", "Sukat ng haba", "Sukat ng bigat", "Sukat ng oras"], "correct_answer": "Sukat ng temperatura" },
+          { "question": "Ilang trial ang kailangan para sa balidong eksperimento?", "options": ["Kahit tatlo", "Isa lamang", "Wala", "Sampu"], "correct_answer": "Kahit tatlo" },
+          { "question": "Ano ang gamit ng timbangan?", "options": ["Sukat ng bigat", "Sukat ng temperatura", "Sukat ng haba", "Sukat ng oras"], "correct_answer": "Sukat ng bigat" },
+          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Music/art reflect **history and identity**\n- **Holistic wellness** = physical, mental, emotional, social health\n\nGreat start to MAPEH! 🌟",
+        "quiz": [
+          { "question": "What do music and art reflect?", "options": ["History and identity", "Only random facts", "Nothing important", "Only numbers"], "correct_answer": "History and identity" },
+          { "question": "What does holistic wellness include?", "options": ["Physical, mental, emotional, and social health", "Only physical health", "Only mental health", "Nothing"], "correct_answer": "Physical, mental, emotional, and social health" },
+          { "question": "What will we explore this year through the arts?", "options": ["Filipino history", "Only foreign history", "Nothing new", "Random topics"], "correct_answer": "Filipino history" },
+          { "question": "What connects music, arts, and movement this year?", "options": ["Being Filipino", "Nothing", "Only sports", "Only drawing"], "correct_answer": "Being Filipino" },
+          { "question": "Why is holistic wellness important?", "options": ["It cares for our whole well-being", "It only matters for athletes", "It has no importance", "It's optional"], "correct_answer": "It cares for our whole well-being" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Weekly Review — EPP\n\nQuick review!\n\n- Term 1: **Fishery Arts** | Term 2: **Family/Consumer Science** | Term 3: **Industrial Arts**\n- Always follow **safety precautions**\n\nGreat start to EPP! 🌟",
+        "quiz": [
+          { "question": "What will we study in Term 1 of EPP?", "options": ["Fishery Arts", "Only cooking", "Only drawing", "Nothing new"], "correct_answer": "Fishery Arts" },
+          { "question": "What will we study in Term 2 of EPP?", "options": ["Family and Consumer Science", "Fishery Arts only", "Drawing only", "Nothing"], "correct_answer": "Family and Consumer Science" },
+          { "question": "What will we study in Term 3 of EPP?", "options": ["Industrial Arts", "Fishery Arts only", "Cooking only", "Nothing"], "correct_answer": "Industrial Arts" },
+          { "question": "What should you always follow when handling tools?", "options": ["Safety precautions", "No rules", "Random guesses", "Nothing"], "correct_answer": "Safety precautions" },
+          { "question": "What does Term 1 EPP focus on?", "options": ["Raising, harvesting, and selling fish", "Only sewing", "Only painting", "Only singing"], "correct_answer": "Raising, harvesting, and selling fish" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Alamin ang iyong **buong pangalan** para sa kaligtasan\n- **Makinig** at **igalang** ang mga kaklase\n\nMahalagang bahagi ka ng klase! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman tungkol sa sarili?", "options": ["Buong pangalan at edad", "Paboritong laro lamang", "Paboritong kulay lamang", "Wala sa mga ito"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro ng gamit", "Kumain ng meryenda", "Makipag-usap sa kaklase"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Bakit importante malaman ang iyong impormasyon?", "options": ["Para sa kaligtasan", "Para sa laro lamang", "Walang dahilan", "Para ipagmalaki lang"], "correct_answer": "Para sa kaligtasan" },
+          { "question": "Paano mo dapat tratuhin ang iyong mga kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit nila"], "correct_answer": "Sa paggalang" },
+          { "question": "Bakit dapat maging responsable bilang pinaka-matanda sa elementarya?", "options": ["Para maging magandang halimbawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maging magandang halimbawa" }
+        ]
+      }
+    }
+  }
+}

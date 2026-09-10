@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-08-16",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 9: Term Wrap-Up!\n\nLet's review everything we've learned this term! 📚\n\n## 📋 What We've Learned\n- **Story elements**, flashback, and irony deepen our reading.\n- **Propaganda techniques** help us think critically about persuasion.\n- **Grammar skills**: intransitive verbs, perfect tenses, prepositional phrases, adverb order, complements, and compound-complex sentences.\n\n## ✍️ Putting Skills Together\n- We can now analyze texts deeply and write with more sophistication.\n\n## 🎯 Looking Ahead\n- Next term, we'll explore christening and wedding customs through time-order texts!\n\nGreat work this term — you're becoming a critical reader and writer! 🌟",
+        "quiz": [
+          { "question": "What does understanding propaganda help us do?", "options": ["Think critically about persuasion", "Ignore all texts", "Believe everything we read", "Avoid reading"], "correct_answer": "Think critically about persuasion" },
+          { "question": "Which grammar skill did we learn this term?", "options": ["Perfect tenses", "Only nouns", "Only colors", "Nothing new"], "correct_answer": "Perfect tenses" },
+          { "question": "What can we now do with texts?", "options": ["Analyze them deeply and write with sophistication", "Only read titles", "Ignore them", "Only draw pictures"], "correct_answer": "Analyze them deeply and write with sophistication" },
+          { "question": "What topic will we explore next term?", "options": ["Christening and wedding customs", "Only mealtimes", "Nothing new", "Only funerals"], "correct_answer": "Christening and wedding customs" },
+          { "question": "What kind of texts will we read next term?", "options": ["Time-order texts", "Only persuasive texts", "No new texts", "Only poems"], "correct_answer": "Time-order texts" },
+          { "question": "What have story elements helped us understand?", "options": ["How to read deeply", "Nothing", "Only titles", "Only covers"], "correct_answer": "How to read deeply" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 9: Ratio!\n\nLet's learn how to compare quantities using ratio! ⚖️\n\n## ⚖️ What Is Ratio?\n- A **ratio** compares two quantities. Written as *a:b* or *a/b*.\n- **Example:** If there are 3 boys and 5 girls, the ratio of boys to girls is **3:5**.\n\n## 🔗 Part-to-Whole vs. Part-to-Part\n- **Part-to-whole:** boys to total students = 3:8\n- **Part-to-part:** boys to girls = 3:5\n\n## 🔍 Equivalent Ratios\n- Ratios can be scaled up or down: 3:5 is equivalent to **6:10**.\n\nGreat introduction to comparing quantities! 🌟",
+        "quiz": [
+          { "question": "What does a ratio do?", "options": ["Compares two quantities", "Adds two numbers", "Only subtracts", "Only divides evenly"], "correct_answer": "Compares two quantities" },
+          { "question": "If there are 3 boys and 5 girls, what is the ratio of boys to girls?", "options": ["3:5", "5:3", "3:8", "8:3"], "correct_answer": "3:5" },
+          { "question": "What is the part-to-whole ratio of boys to total students (3 boys, 5 girls)?", "options": ["3:8", "3:5", "5:8", "8:3"], "correct_answer": "3:8" },
+          { "question": "What is an equivalent ratio to 3:5?", "options": ["6:10", "3:10", "6:5", "9:10"], "correct_answer": "6:10" },
+          { "question": "How is a ratio written?", "options": ["a:b or a/b", "a+b", "a-b", "a×b only"], "correct_answer": "a:b or a/b" },
+          { "question": "What type of ratio compares boys to girls only?", "options": ["Part-to-part", "Part-to-whole", "Neither", "Both equally"], "correct_answer": "Part-to-part" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 9: Buod ng Termino!\n\nBuuin natin ang ating natutunan ngayong termino! 📖\n\n## 📖 Buod ng Natutunan\n- **Pagsunod-sunod ng pangyayari, tagpuan, realidad at pantasya**\n- **Kasabihan** at ang kahulugan nito (denotasyon at konotasyon)\n- **Mga pormularyo**: Personal Data Form, Bio-data\n- **Mga liham**: paanyaya sa panauhin\n\n## 🎯 Susunod na Termino\n- Pag-aaralan natin ang tula, dula, at mas malalim na tekstong naratibo!\n\nMahusay na termino ng pagkatuto sa Filipino! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa kasabihan?", "options": ["Denotasyon at konotasyon", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Denotasyon at konotasyon" },
+          { "question": "Anong mga pormularyo ang natutunan natin?", "options": ["Personal Data Form at Bio-data", "Wala", "Isang form lamang", "Walang pormularyo"], "correct_answer": "Personal Data Form at Bio-data" },
+          { "question": "Anong uri ng liham ang natutunan natin?", "options": ["Liham paanyaya sa panauhin", "Wala", "Liham lamang", "Walang liham"], "correct_answer": "Liham paanyaya sa panauhin" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Tula, dula, at mas malalim na tekstong naratibo", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Tula, dula, at mas malalim na tekstong naratibo" },
+          { "question": "Anong kasanayan sa pagsunod-sunod ang natutunan natin?", "options": ["Pagsunod sa mga pangyayari sa kwento", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pagsunod sa mga pangyayari sa kwento" },
+          { "question": "Bakit mahalagang balikan ang natutunan sa termino?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 9: Vertebrates and Invertebrates!\n\nLet's classify animals by their skeletons! 🦴\n\n## 🦴 Vertebrates\n- **Vertebrates** have a **backbone** — examples: fish, frogs, birds, mammals.\n\n## 🐛 Invertebrates\n- **Invertebrates** have NO backbone — examples: insects, worms, jellyfish, spiders.\n\n## 🔍 Local Examples\n- **Vertebrate:** Philippine eagle (bird)\n- **Invertebrate:** Coconut crab (has an exoskeleton, not a backbone)\n\n## 🎯 Why This Matters\n- This classification helps scientists organize and study the vast diversity of animals.\n\nGreat exploration of the animal kingdom! 🌟",
+        "quiz": [
+          { "question": "What is a vertebrate?", "options": ["An animal with a backbone", "An animal with no backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with a backbone" },
+          { "question": "What is an invertebrate?", "options": ["An animal with no backbone", "An animal with a backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with no backbone" },
+          { "question": "Which is an example of a vertebrate?", "options": ["Philippine eagle", "Coconut crab", "Spider", "Jellyfish"], "correct_answer": "Philippine eagle" },
+          { "question": "Which is an example of an invertebrate?", "options": ["Coconut crab", "Philippine eagle", "Fish", "Frog"], "correct_answer": "Coconut crab" },
+          { "question": "Why is classifying animals into these groups useful?", "options": ["It helps organize and study animal diversity", "It has no use", "It confuses scientists", "It only matters for pets"], "correct_answer": "It helps organize and study animal diversity" },
+          { "question": "Which of these is a vertebrate group?", "options": ["Mammals", "Insects", "Worms", "Jellyfish"], "correct_answer": "Mammals" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 9: Buod ng Termino!\n\nBuuin natin ang ating natutunan tungkol sa Himagsikan at Imperyalismo! 📖\n\n## 📖 Buod ng Natutunan\n- **Katipunan** at ang Himagsikang Pilipino (1892-1896)\n- **Deklarasyon ng Kasarinlan** at Unang Republika\n- **Papel ng kababaihan** sa Himagsikan\n- **Imperyalismo** at ang Digmaang Pilipino-Amerikano\n\n## 🎯 Susunod na Termino\n- Pag-aaralan natin ang **Pamahalaang Kolonyal at Pananakop ng Hapones**!\n\n## 💛 Aral ng Termino\n- Ipinakita ng ating kasaysayan ang **determinasyon ng mga Pilipino** para sa kalayaan.\n\nMahusay na termino ng pagkatuto tungkol sa ating kasaysayan! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa Katipunan?", "options": ["Pagkakatatag at layunin nito", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pagkakatatag at layunin nito" },
+          { "question": "Sino ang mga kababaihang bayani na natutunan natin?", "options": ["Gabriela Silang at Tandang Sora", "Wala", "Isang bayani lamang", "Walang bayani"], "correct_answer": "Gabriela Silang at Tandang Sora" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Pamahalaang Kolonyal at Pananakop ng Hapones", "Wala nang paksa", "Ibang bansa lamang", "Wala"], "correct_answer": "Pamahalaang Kolonyal at Pananakop ng Hapones" },
+          { "question": "Ano ang ipinakita ng ating kasaysayan?", "options": ["Determinasyon ng mga Pilipino para sa kalayaan", "Kawalang-pag-asa", "Wala", "Kapabayaan"], "correct_answer": "Determinasyon ng mga Pilipino para sa kalayaan" },
+          { "question": "Ano ang natutunan natin tungkol sa imperyalismo?", "options": ["Konsepto nito at ang Digmaang Pilipino-Amerikano", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Konsepto nito at ang Digmaang Pilipino-Amerikano" },
+          { "question": "Bakit mahalagang balikan ang natutunan sa termino?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 9: Term Review!\n\nBalikan natin ang natutunan tungkol sa online tools! 🖥️\n\n## 🖥️ Buod ng Natutunan\n- **Web conferencing** — pakikipagpulong online nang ligtas\n- **Online forms** — paggawa ng survey o form nang may respeto sa privacy\n- **Cloud storage** — pag-iimbak at pagbabahagi ng files\n\n## 🎯 Susunod na Termino\n- Matututo tayo ng **productivity software** — paggawa ng word documents at presentations!\n\nMahusay na termino ng pagkatuto tungkol sa ICT! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa web conferencing?", "options": ["Pakikipagpulong online nang ligtas", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipagpulong online nang ligtas" },
+          { "question": "Ano ang natutunan natin tungkol sa online forms?", "options": ["Paggawa nito nang may respeto sa privacy", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Paggawa nito nang may respeto sa privacy" },
+          { "question": "Ano ang natutunan natin tungkol sa cloud storage?", "options": ["Pag-iimbak at pagbabahagi ng files", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pag-iimbak at pagbabahagi ng files" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Productivity software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Productivity software" },
+          { "question": "Ano ang gagawin gamit ang productivity software?", "options": ["Word documents at presentations", "Wala", "Isang bagay lamang", "Walang gagawin"], "correct_answer": "Word documents at presentations" },
+          { "question": "Bakit mahalaga ang mga online tool na natutunan natin?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 9: Term Review!\n\nBalikan natin ang natutunan ngayong termino! 📚\n\n## 🎨 Music & Arts Review\n- **Revolutionary at American Period** — kung paano naimpluwensyahan ng kasaysayan ang sining.\n\n## 💪 PE & Health Review\n- **Holistic wellness** — pangangalaga sa buong sarili.\n- **Target at Invasion Games** — mga laro ng lahi.\n\n## 🎯 Susunod na Termino\n- Pag-aaralan natin ang Commonwealth Period at Sexual/Reproductive Health!\n\nMahusay na termino ng MAPEH! 🌟",
+        "quiz": [
+          { "question": "Anong mga panahon ang natutunan natin sa Music & Arts?", "options": ["Revolutionary at American Period", "Wala", "Isang panahon lamang", "Walang natutunan"], "correct_answer": "Revolutionary at American Period" },
+          { "question": "Ano ang natutunan natin sa Health?", "options": ["Holistic wellness", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Holistic wellness" },
+          { "question": "Anong mga laro ang natutunan natin sa PE?", "options": ["Target at invasion games", "Wala", "Isang laro lamang", "Walang laro"], "correct_answer": "Target at invasion games" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Commonwealth Period at Sexual/Reproductive Health", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Commonwealth Period at Sexual/Reproductive Health" },
+          { "question": "Paano naiimpluwensyahan ang sining ng kasaysayan?", "options": ["Sa pamamagitan ng mga pangyayari at paniniwala ng panahon", "Wala", "Walang koneksyon", "Random lamang"], "correct_answer": "Sa pamamagitan ng mga pangyayari at paniniwala ng panahon" },
+          { "question": "Bakit mahalaga ang holistic wellness?", "options": ["Pinapangalagaan nito ang buong sarili", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Pinapangalagaan nito ang buong sarili" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 9: Pag-aani at Pagbebenta ng Isda!\n\nAlamin natin ang huling hakbang sa fishery arts! 💰\n\n## 🎣 Pag-aani ng Isda\n- Alamin ang mga **palatandaan** kung handa nang anihin ang isda (laki, edad, timbang).\n\n## 💰 Pagbebenta ng Isda\n- Maaaring ibenta sa **palengke, online, o direkta sa mamimili**.\n- Gamitin ang **spreadsheet o manual na pagkukwenta** para sa kita.\n\n## 🔍 Kabuuang Karanasan\n- Mula sa pag-aalaga hanggang sa pagbebenta, natutunan natin ang buong proseso ng fishery arts.\n\nMahusay na termino sa pag-aaral ng fishery arts! 🌟",
+        "quiz": [
+          { "question": "Ano ang tinitingnan bago anihin ang isda?", "options": ["Laki, edad, at timbang", "Kulay lamang", "Wala", "Random lamang"], "correct_answer": "Laki, edad, at timbang" },
+          { "question": "Saan maaaring ibenta ang isda?", "options": ["Palengke, online, o direkta sa mamimili", "Wala", "Isang lugar lamang", "Hindi maaaring ibenta"], "correct_answer": "Palengke, online, o direkta sa mamimili" },
+          { "question": "Ano ang ginagamit para kalkulahin ang kita?", "options": ["Spreadsheet o manual na pagkukwenta", "Wala", "Random na bilang", "Walang paraan"], "correct_answer": "Spreadsheet o manual na pagkukwenta" },
+          { "question": "Ano ang natutunan natin mula sa buong termino?", "options": ["Buong proseso ng fishery arts", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Buong proseso ng fishery arts" },
+          { "question": "Ano ang huling hakbang sa fishery arts na natutunan natin?", "options": ["Pag-aani at pagbebenta", "Paghahanda lamang", "Wala", "Walang huling hakbang"], "correct_answer": "Pag-aani at pagbebenta" },
+          { "question": "Bakit mahalagang malaman ang palatandaan ng pag-aani?", "options": ["Para matiyak na handa na ang isda", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para matiyak na handa na ang isda" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 9: Term Review!\n\nBuuin natin ang ating natutunan ngayong termino! 📖\n\n## 💛 Buod ng Natutunan\n- **Dignidad ng sarili, positibong pagtingin sa sarili, mapanagutang pagpapasiya**\n- **Pakikipag-ugnayan sa Diyos, kilos ng pagmamahal, pagtitipid ng enerhiya**\n- **Pagkilala sa may kontribusyon, ugnayan sa nakatatanda**\n\n## 🎯 Susunod na Termino\n- Pag-aaralan natin ang pamamahala sa sarili at pamilya tungo sa pakikipagkapuwa!\n\nMahusay na termino ng paglinang sa ating pagkatao! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa sarili ngayong termino?", "options": ["Dignidad at positibong pagtingin sa sarili", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Dignidad at positibong pagtingin sa sarili" },
+          { "question": "Ano ang natutunan natin tungkol sa Diyos?", "options": ["Pakikipag-ugnayan at kilos ng pagmamahal", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipag-ugnayan at kilos ng pagmamahal" },
+          { "question": "Ano ang natutunan natin tungkol sa kalikasan?", "options": ["Pagtitipid ng enerhiya", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pagtitipid ng enerhiya" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Pamamahala sa sarili at pamilya tungo sa pakikipagkapuwa", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Pamamahala sa sarili at pamilya tungo sa pakikipagkapuwa" },
+          { "question": "Ano ang natutunan natin tungkol sa nakatatanda?", "options": ["Tamang ugnayan at paggalang", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Tamang ugnayan at paggalang" },
+          { "question": "Bakit mahalagang balikan ang natutunan sa termino?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of Term 1!\n\n- Story elements, propaganda, and advanced grammar\n- We can now analyze texts deeply\n\nGreat term of English learning! ⭐",
+        "quiz": [
+          { "question": "What does understanding propaganda help us do?", "options": ["Think critically about persuasion", "Ignore all texts", "Believe everything we read", "Avoid reading"], "correct_answer": "Think critically about persuasion" },
+          { "question": "What can we now do with texts?", "options": ["Analyze them deeply and write with sophistication", "Only read titles", "Ignore them", "Only draw pictures"], "correct_answer": "Analyze them deeply and write with sophistication" },
+          { "question": "What topic will we explore next term?", "options": ["Christening and wedding customs", "Only mealtimes", "Nothing new", "Only funerals"], "correct_answer": "Christening and wedding customs" },
+          { "question": "What kind of texts will we read next term?", "options": ["Time-order texts", "Only persuasive texts", "No new texts", "Only poems"], "correct_answer": "Time-order texts" },
+          { "question": "What have story elements helped us understand?", "options": ["How to read deeply", "Nothing", "Only titles", "Only covers"], "correct_answer": "How to read deeply" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of ratio!\n\n- Ratio compares two quantities: **3:5**\n- **Part-to-whole** vs **part-to-part**\n\nGreat term of Math learning! 🌟",
+        "quiz": [
+          { "question": "What does a ratio do?", "options": ["Compares two quantities", "Adds two numbers", "Only subtracts", "Only divides evenly"], "correct_answer": "Compares two quantities" },
+          { "question": "If there are 3 boys and 5 girls, what is the ratio of boys to girls?", "options": ["3:5", "5:3", "3:8", "8:3"], "correct_answer": "3:5" },
+          { "question": "What is an equivalent ratio to 3:5?", "options": ["6:10", "3:10", "6:5", "9:10"], "correct_answer": "6:10" },
+          { "question": "How is a ratio written?", "options": ["a:b or a/b", "a+b", "a-b", "a×b only"], "correct_answer": "a:b or a/b" },
+          { "question": "What type of ratio compares boys to girls only?", "options": ["Part-to-part", "Part-to-whole", "Neither", "Both equally"], "correct_answer": "Part-to-part" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Natutunan: kasabihan, pormularyo, liham paanyaya\n- Susunod: tula, dula, at mas malalim na teksto\n\nMahusay na termino! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa kasabihan?", "options": ["Denotasyon at konotasyon", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Denotasyon at konotasyon" },
+          { "question": "Anong mga pormularyo ang natutunan natin?", "options": ["Personal Data Form at Bio-data", "Wala", "Isang form lamang", "Walang pormularyo"], "correct_answer": "Personal Data Form at Bio-data" },
+          { "question": "Anong uri ng liham ang natutunan natin?", "options": ["Liham paanyaya sa panauhin", "Wala", "Liham lamang", "Walang liham"], "correct_answer": "Liham paanyaya sa panauhin" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Tula, dula, at mas malalim na tekstong naratibo", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Tula, dula, at mas malalim na tekstong naratibo" },
+          { "question": "Bakit mahalagang balikan ang natutunan sa termino?", "options": ["Para matibay ang ating kaalaman", "Walang dahilan", "Para makalimutan ito", "Para mapagod tayo"], "correct_answer": "Para matibay ang ating kaalaman" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Natutunan: Katipunan, Himagsikan, Deklarasyon ng Kasarinlan, Imperyalismo\n- Susunod: Pamahalaang Kolonyal at Pananakop ng Hapones\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa Katipunan?", "options": ["Pagkakatatag at layunin nito", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pagkakatatag at layunin nito" },
+          { "question": "Sino ang mga kababaihang bayani na natutunan natin?", "options": ["Gabriela Silang at Tandang Sora", "Wala", "Isang bayani lamang", "Walang bayani"], "correct_answer": "Gabriela Silang at Tandang Sora" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Pamahalaang Kolonyal at Pananakop ng Hapones", "Wala nang paksa", "Ibang bansa lamang", "Wala"], "correct_answer": "Pamahalaang Kolonyal at Pananakop ng Hapones" },
+          { "question": "Ano ang ipinakita ng ating kasaysayan?", "options": ["Determinasyon ng mga Pilipino para sa kalayaan", "Kawalang-pag-asa", "Wala", "Kapabayaan"], "correct_answer": "Determinasyon ng mga Pilipino para sa kalayaan" },
+          { "question": "Ano ang natutunan natin tungkol sa imperyalismo?", "options": ["Konsepto nito at ang Digmaang Pilipino-Amerikano", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Konsepto nito at ang Digmaang Pilipino-Amerikano" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: web conferencing, online forms, cloud storage\n- Susunod: productivity software\n\nMahusay na termino! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa web conferencing?", "options": ["Pakikipagpulong online nang ligtas", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipagpulong online nang ligtas" },
+          { "question": "Ano ang natutunan natin tungkol sa cloud storage?", "options": ["Pag-iimbak at pagbabahagi ng files", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pag-iimbak at pagbabahagi ng files" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Productivity software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Productivity software" },
+          { "question": "Ano ang gagawin gamit ang productivity software?", "options": ["Word documents at presentations", "Wala", "Isang bagay lamang", "Walang gagawin"], "correct_answer": "Word documents at presentations" },
+          { "question": "Bakit mahalaga ang mga online tool na natutunan natin?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Vertebrates** = may backbone | **Invertebrates** = walang backbone\n- Halimbawa: Philippine eagle (vertebrate), coconut crab (invertebrate)\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is a vertebrate?", "options": ["An animal with a backbone", "An animal with no backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with a backbone" },
+          { "question": "What is an invertebrate?", "options": ["An animal with no backbone", "An animal with a backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with no backbone" },
+          { "question": "Which is an example of a vertebrate?", "options": ["Philippine eagle", "Coconut crab", "Spider", "Jellyfish"], "correct_answer": "Philippine eagle" },
+          { "question": "Which is an example of an invertebrate?", "options": ["Coconut crab", "Philippine eagle", "Fish", "Frog"], "correct_answer": "Coconut crab" },
+          { "question": "Why is classifying animals into these groups useful?", "options": ["It helps organize and study animal diversity", "It has no use", "It confuses scientists", "It only matters for pets"], "correct_answer": "It helps organize and study animal diversity" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Music/Arts: **Revolutionary at American Period**\n- Health: **holistic wellness** | PE: target/invasion games\n\nGreat term of MAPEH! 🌟",
+        "quiz": [
+          { "question": "Anong mga panahon ang natutunan natin sa Music & Arts?", "options": ["Revolutionary at American Period", "Wala", "Isang panahon lamang", "Walang natutunan"], "correct_answer": "Revolutionary at American Period" },
+          { "question": "Ano ang natutunan natin sa Health?", "options": ["Holistic wellness", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Holistic wellness" },
+          { "question": "Anong mga laro ang natutunan natin sa PE?", "options": ["Target at invasion games", "Wala", "Isang laro lamang", "Walang laro"], "correct_answer": "Target at invasion games" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Commonwealth Period at Sexual/Reproductive Health", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Commonwealth Period at Sexual/Reproductive Health" },
+          { "question": "Bakit mahalaga ang holistic wellness?", "options": ["Pinapangalagaan nito ang buong sarili", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Pinapangalagaan nito ang buong sarili" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- Pag-aani: tingnan ang laki, edad, timbang\n- Ibenta sa palengke, online, o direkta\n\nMahusay na termino sa fishery arts! 🌟",
+        "quiz": [
+          { "question": "Ano ang tinitingnan bago anihin ang isda?", "options": ["Laki, edad, at timbang", "Kulay lamang", "Wala", "Random lamang"], "correct_answer": "Laki, edad, at timbang" },
+          { "question": "Saan maaaring ibenta ang isda?", "options": ["Palengke, online, o direkta sa mamimili", "Wala", "Isang lugar lamang", "Hindi maaaring ibenta"], "correct_answer": "Palengke, online, o direkta sa mamimili" },
+          { "question": "Ano ang ginagamit para kalkulahin ang kita?", "options": ["Spreadsheet o manual na pagkukwenta", "Wala", "Random na bilang", "Walang paraan"], "correct_answer": "Spreadsheet o manual na pagkukwenta" },
+          { "question": "Ano ang natutunan natin mula sa buong termino?", "options": ["Buong proseso ng fishery arts", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Buong proseso ng fishery arts" },
+          { "question": "Bakit mahalagang malaman ang palatandaan ng pag-aani?", "options": ["Para matiyak na handa na ang isda", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para matiyak na handa na ang isda" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Natutunan: dignidad, pagpapasiya, pananampalataya, pagtitipid\n- Susunod: pamamahala sa sarili at pamilya\n\nMahusay na termino! 🌟",
+        "quiz": [
+          { "question": "Ano ang natutunan natin tungkol sa sarili ngayong termino?", "options": ["Dignidad at positibong pagtingin sa sarili", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Dignidad at positibong pagtingin sa sarili" },
+          { "question": "Ano ang natutunan natin tungkol sa Diyos?", "options": ["Pakikipag-ugnayan at kilos ng pagmamahal", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipag-ugnayan at kilos ng pagmamahal" },
+          { "question": "Ano ang natutunan natin tungkol sa kalikasan?", "options": ["Pagtitipid ng enerhiya", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pagtitipid ng enerhiya" },
+          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Pamamahala sa sarili at pamilya tungo sa pakikipagkapuwa", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Pamamahala sa sarili at pamilya tungo sa pakikipagkapuwa" },
+          { "question": "Ano ang natutunan natin tungkol sa nakatatanda?", "options": ["Tamang ugnayan at paggalang", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Tamang ugnayan at paggalang" }
+        ]
+      }
+    }
+  }
+}

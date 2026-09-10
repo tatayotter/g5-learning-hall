@@ -1,0 +1,170 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-06-21",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 2: New Word Patterns!\n\nLet's read trickier words with more letters! 🔤\n\n## 🧩 CVCC and CCVC Words\n- **CVCC** words end with two consonants: *desk, lamp, sand*\n- **CCVC** words start with two consonants (a cluster): *stop, frog, brain*\n\n## 📖 Reading Practice\n- **Example 1:** *desk* = d-e-s-k (CVCC)\n- **Example 2:** *frog* = f-r-o-g (CCVC)\n\n## 🗣️ Regional Vocabulary\n- Learn words about your **region**: local food, landmarks, and customs.\n- **Example:** *fiesta, barangay, palengke*\n\nKeep sounding out new words every day — you're becoming a stronger reader! 🌟",
+        "quiz": [
+          { "question": "Which word is a CVCC word?", "options": ["Desk", "Frog", "Cat", "Sun"], "correct_answer": "Desk" },
+          { "question": "Which word is a CCVC word?", "options": ["Frog", "Desk", "Cat", "Sun"], "correct_answer": "Frog" },
+          { "question": "How many consonants are at the end of a CVCC word?", "options": ["Two", "One", "Three", "None"], "correct_answer": "Two" },
+          { "question": "Which word starts with a consonant cluster?", "options": ["Stop", "Cat", "Dog", "Sun"], "correct_answer": "Stop" },
+          { "question": "Which word is an example of regional vocabulary?", "options": ["Barangay", "Elephant", "Robot", "Airplane"], "correct_answer": "Barangay" },
+          { "question": "Which word is a CVCC word?", "options": ["Sand", "Cat", "Sun", "Dog"], "correct_answer": "Sand" },
+          { "question": "What kind of word is \"palengke\"?", "options": ["Regional vocabulary", "CVCC word", "CCVC word", "Sight word"], "correct_answer": "Regional vocabulary" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 1: Numbers up to 10,000!\n\nLet's learn to read, write, and represent bigger numbers! 🔢\n\n## 🔟 Numbers up to 10,000\n- We can show numbers using **pictures**, **blocks**, or **numerals**.\n- **Example 1:** 3,254 can be shown as 3 thousands, 2 hundreds, 5 tens, 4 ones.\n- **Example 2:** The number **7,000** is written in words as *seven thousand*.\n\n## ✍️ Reading and Writing Numbers\n- **Numeral:** 5,600\n- **Words:** *five thousand six hundred*\n\n## 🔍 Practice\n- Write 8,342 in words: **eight thousand three hundred forty-two**\n\nGreat job working with bigger numbers! 🌟",
+        "quiz": [
+          { "question": "How do you write 7,000 in words?", "options": ["Seven thousand", "Seventy hundred", "Seven hundred", "Seventeen thousand"], "correct_answer": "Seven thousand" },
+          { "question": "What is 3,254 broken into place values?", "options": ["3 thousands, 2 hundreds, 5 tens, 4 ones", "3 hundreds, 2 tens, 5 ones, 4 thousands", "3 tens, 2 ones, 5 hundreds, 4 thousands", "3 ones, 2 tens, 5 hundreds, 4 thousands"], "correct_answer": "3 thousands, 2 hundreds, 5 tens, 4 ones" },
+          { "question": "How do you write 5,600 in words?", "options": ["Five thousand six hundred", "Fifty-six hundred", "Five hundred sixty", "Five thousand sixty"], "correct_answer": "Five thousand six hundred" },
+          { "question": "Which numeral matches \"eight thousand three hundred forty-two\"?", "options": ["8,342", "8,234", "8,432", "8,324"], "correct_answer": "8,342" },
+          { "question": "What is the largest number you can represent up to this unit?", "options": ["10,000", "1,000", "100,000", "100"], "correct_answer": "10,000" },
+          { "question": "How can we represent numbers besides using numerals?", "options": ["Pictures and blocks", "Only sounds", "Only colors", "We cannot"], "correct_answer": "Pictures and blocks" },
+          { "question": "Which numeral matches \"two thousand five hundred\"?", "options": ["2,500", "2,050", "2,005", "25,000"], "correct_answer": "2,500" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 1: Palabigkasan at Salitang Madalas Gamitin\n\nAlamin natin ang mga salitang madalas nating ginagamit! 📖\n\n## 🔤 High Frequency Words\n- Ang **high frequency words** ay mga salitang madalas nating makita o gamitin.\n- **Halimbawa:** *ako, ikaw, siya, may, ang, ng, sa, ay*\n\n## 📖 Palabigkasan\n- Basahin nang wasto at may tamang bigkas ang mga salita.\n- **Halimbawa:** *\"barangay\"* — ba-ra-ngay\n\n## 🗣️ Salitang May Tiyak na Tuon\n- Salitang GMRC/Makabansa: *pagmamahal, tungkulin, komunidad*\n\nMahalaga ang mga salitang ito sa mahusay na pagbasa! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng high frequency word?", "options": ["Ako", "Barangay", "Komunidad", "Tungkulin"], "correct_answer": "Ako" },
+          { "question": "Ilang pantig ang \"barangay\"?", "options": ["Tatlo", "Dalawa", "Apat", "Isa"], "correct_answer": "Tatlo" },
+          { "question": "Alin ang salitang may tiyak na tuon sa GMRC?", "options": ["Tungkulin", "Ako", "Ang", "Sa"], "correct_answer": "Tungkulin" },
+          { "question": "Bakit natin pinag-aaralan ang high frequency words?", "options": ["Para mas mabilis magbasa", "Para mas mabagal magbasa", "Para makalimutan ang letra", "Walang dahilan"], "correct_answer": "Para mas mabilis magbasa" },
+          { "question": "Alin ang salitang tumutukoy sa komunidad?", "options": ["Komunidad", "Ako", "May", "Ay"], "correct_answer": "Komunidad" },
+          { "question": "Ano ang high frequency words?", "options": ["Salitang madalas gamitin", "Salitang bihira gamitin", "Salitang mahaba lang", "Salitang banyaga"], "correct_answer": "Salitang madalas gamitin" },
+          { "question": "Alin ang tamang bigkas ng \"barangay\"?", "options": ["Ba-ra-ngay", "Ba-rang-ay", "B-a-r-a-ngay", "Bar-ang-ay"], "correct_answer": "Ba-ra-ngay" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 1: Agham sa Pang-araw-araw na Buhay\n\nMakikita ang agham sa ating paligid araw-araw! 🌍\n\n## 🔍 Agham sa Ating Kapaligiran\n- Maraming bagay at pangyayari sa paligid natin ang maaaring **ipaliwanag ng agham**.\n- **Halimbawa 1:** Bakit lumulutang ang bangka sa tubig? (Agham ng buoyancy!)\n- **Halimbawa 2:** Bakit umuulan? (Agham ng water cycle!)\n\n## 🌦️ Mga Halimbawa sa Bahay\n- Pagluluto ng pagkain — pagbabago ng anyo ng materyales\n- Paggamit ng ilaw — konsepto ng enerhiya\n\n## 🏡 Mga Halimbawa sa Komunidad\n- Pagpapatubo ng halaman sa taniman\n- Paggamit ng makina sa palengke\n\nAgham ay nasa lahat ng dako — subukan mong hanapin ito araw-araw! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng agham sa bahay?", "options": ["Pagluluto ng pagkain", "Paglalaro ng bola", "Pagtulog", "Panonood ng TV"], "correct_answer": "Pagluluto ng pagkain" },
+          { "question": "Anong agham ang nagpapaliwanag kung bakit umuulan?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
+          { "question": "Saan natin makikita ang agham?", "options": ["Sa ating paligid araw-araw", "Sa aklatan lamang", "Sa paaralan lamang", "Wala kahit saan"], "correct_answer": "Sa ating paligid araw-araw" },
+          { "question": "Alin ang halimbawa ng agham sa komunidad?", "options": ["Paggamit ng makina sa palengke", "Panonood ng pelikula", "Paglalaro ng laruan", "Pagkanta"], "correct_answer": "Paggamit ng makina sa palengke" },
+          { "question": "Ano ang tinatawag na kaalaman na nagpapaliwanag sa mundo?", "options": ["Agham", "Kwento", "Sayaw", "Awit"], "correct_answer": "Agham" },
+          { "question": "Anong konsepto ng agham ang ginagamit natin kapag nagsisindi ng ilaw?", "options": ["Enerhiya", "Kasaysayan", "Sining", "Musika"], "correct_answer": "Enerhiya" },
+          { "question": "Ano ang nangyayari sa pagluluto ng pagkain?", "options": ["Pagbabago ng anyo ng materyales", "Walang pagbabago", "Paglaki lamang", "Pagliit lamang"], "correct_answer": "Pagbabago ng anyo ng materyales" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 1: Kasaysayan ng Aking Pook\n\nAlamin natin ang mahahalagang tao, lugar, at pangyayari sa kasaysayan ng ating pook! 📜\n\n## 👤 Mahahalagang Tao at Lugar\n- Bawat barangay o bayan ay may **tagapagtatag** o mahahalagang taong bahagi ng kasaysayan nito.\n- May mga **lugar** ding makasaysayan, tulad ng lumang simbahan o plaza.\n\n## 🕰️ Paggamit ng Timeline\n- Ang **timeline** ay nagpapakita ng pagkakasunod-sunod ng mga pangyayari.\n- **Halimbawa:** Natatag ang bayan → Nagkaroon ng simbahan → Naging barangay → Ngayon\n\n## 📖 Kwentong-Bayan\n- Marami sa ating mga pook ay may **kwentong-bayan** tungkol sa kanilang pinagmulan.\n\nMahalagang malaman ang kasaysayan ng sariling pook! 🇵🇭",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Timeline ng Kasaysayan ng Aking Pook",
+          "steps": [
+            { "label": "Natatag ang bayan", "detail": "mga unang naninirahan" },
+            { "label": "Nagkaroon ng simbahan/plaza", "detail": "gitnang bahagi ng bayan" },
+            { "label": "Naging opisyal na barangay", "detail": "may sariling pamahalaan" },
+            { "label": "Kasalukuyang panahon", "detail": "ang bayan ngayon" }
+          ]
+        },
+        "quiz": [
+          { "question": "Ano ang tawag sa taong nagtatag ng isang bayan?", "options": ["Tagapagtatag", "Mangingisda", "Guro", "Doktor"], "correct_answer": "Tagapagtatag" },
+          { "question": "Ano ang gamit ng timeline?", "options": ["Nagpapakita ng pagkakasunod-sunod ng pangyayari", "Nagpapakita ng mapa", "Nagpapakita ng kulay", "Nagpapakita ng bilang"], "correct_answer": "Nagpapakita ng pagkakasunod-sunod ng pangyayari" },
+          { "question": "Alin ang halimbawa ng makasaysayang lugar?", "options": ["Lumang simbahan", "Bagong laruan", "Bagong sapatos", "Bagong bag"], "correct_answer": "Lumang simbahan" },
+          { "question": "Ano ang kwentong-bayan?", "options": ["Kwento tungkol sa pinagmulan ng isang pook", "Kwento tungkol sa hayop lamang", "Balitang pang-araw-araw", "Kwentong pantasya lamang"], "correct_answer": "Kwento tungkol sa pinagmulan ng isang pook" },
+          { "question": "Ano ang unang hakbang sa timeline ng isang bayan?", "options": ["Natatag ang bayan", "Naging barangay", "Kasalukuyang panahon", "Nagkaroon ng simbahan"], "correct_answer": "Natatag ang bayan" },
+          { "question": "Bakit mahalagang malaman ang kasaysayan ng sariling pook?", "options": ["Para maunawaan natin ang ating pinagmulan", "Walang dahilan", "Para lang sa pagsusulit", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating pinagmulan" },
+          { "question": "Ano ang huling bahagi ng timeline?", "options": ["Kasalukuyang panahon", "Natatag ang bayan", "Wala pang tao", "Simula pa lang"], "correct_answer": "Kasalukuyang panahon" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 1: Parts of a Computer\n\nLet's learn the main parts of a desktop or laptop computer! 🖥️\n\n## 🖥️ Main Parts and Jobs\n- **Monitor** — shows what the computer is doing (output)\n- **Keyboard** — for typing (input)\n- **Mouse/Trackpad** — for pointing and clicking (input)\n- **CPU (System Unit)** — the \"brain\" that processes everything\n- **Speakers** — let us hear sound (output)\n\n## 📥📤 Input vs. Output\n- **Input devices** send information TO the computer: keyboard, mouse\n- **Output devices** send information FROM the computer: monitor, speakers, printer\n\n## 🔍 Examples\n- Typing your name uses an **input** device (keyboard).\n- Hearing music uses an **output** device (speakers).\n\nEach part works together to help the computer run! 🌟",
+        "quiz": [
+          { "question": "Which part shows what the computer is doing?", "options": ["Monitor", "Keyboard", "Mouse", "Speakers"], "correct_answer": "Monitor" },
+          { "question": "Which of these is an INPUT device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Which of these is an OUTPUT device?", "options": ["Speakers", "Mouse", "Keyboard", "Trackpad"], "correct_answer": "Speakers" },
+          { "question": "What is the \"brain\" of the computer called?", "options": ["CPU", "Monitor", "Keyboard", "Mouse"], "correct_answer": "CPU" },
+          { "question": "Typing your name uses which kind of device?", "options": ["Input device", "Output device", "Neither", "Both equally"], "correct_answer": "Input device" },
+          { "question": "Hearing music uses which kind of device?", "options": ["Output device", "Input device", "Neither", "Both equally"], "correct_answer": "Output device" },
+          { "question": "What does a mouse or trackpad let you do?", "options": ["Point and click", "Hear sound", "Print paper", "Show pictures"], "correct_answer": "Point and click" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 1: Sariling Hilig at Kakayahan\n\nAlamin natin ang ating sariling hilig at kakayahan! 🌟\n\n## 🎨 Ano ang Hilig at Kakayahan?\n- Ang **hilig** ay mga bagay na gustong-gusto mong gawin.\n- Ang **kakayahan** ay mga bagay na magaling mong gawin.\n- **Halimbawa:** Mahilig si Ana sa pagguhit at magaling siya rito — iyan ang kanyang hilig AT kakayahan.\n\n## 🙋 Bakit Mahalaga Ito?\n- Ang pagkilala sa iyong hilig at kakayahan ay bahagi ng pagkilala sa iyong sarili.\n- Nakatutulong ito upang lumakas ang iyong **kumpiyansa sa sarili**.\n\n## 💪 Pagtuklas sa Sarili\n- Subukan ang iba't ibang gawain para matuklasan ang bago mong hilig.\n\nIkaw ay may natatanging hilig at kakayahan! 🌟",
+        "quiz": [
+          { "question": "Ano ang hilig?", "options": ["Mga bagay na gustong-gusto mong gawin", "Mga bagay na kinatatakutan mo", "Mga bagay na hindi mo alam", "Mga bagay na ayaw mo"], "correct_answer": "Mga bagay na gustong-gusto mong gawin" },
+          { "question": "Ano ang kakayahan?", "options": ["Mga bagay na magaling mong gawin", "Mga bagay na hindi mo kayang gawin", "Mga bagay na ayaw mong gawin", "Mga bagay na hindi mo alam"], "correct_answer": "Mga bagay na magaling mong gawin" },
+          { "question": "Bakit mahalagang kilalanin ang sariling hilig at kakayahan?", "options": ["Nakatutulong ito sa kumpiyansa sa sarili", "Walang gamit ito", "Para ipagmalaki lang sa iba", "Para hindi na mag-aral"], "correct_answer": "Nakatutulong ito sa kumpiyansa sa sarili" },
+          { "question": "Paano matutuklasan ang bagong hilig?", "options": ["Sa pagsubok ng iba't ibang gawain", "Sa pananatiling tahimik", "Sa hindi paggalaw", "Sa pag-iwas sa bagong bagay"], "correct_answer": "Sa pagsubok ng iba't ibang gawain" },
+          { "question": "Si Ana ay mahilig at magaling sa pagguhit. Ano ito?", "options": ["Kanyang hilig at kakayahan", "Kanyang takot", "Kanyang problema", "Kanyang kahinaan lamang"], "correct_answer": "Kanyang hilig at kakayahan" },
+          { "question": "Ano ang bahagi ng pagkilala sa iyong sarili?", "options": ["Pagkilala sa hilig at kakayahan", "Pagtatago ng sarili", "Pagsisinungaling", "Pag-iwas sa iba"], "correct_answer": "Pagkilala sa hilig at kakayahan" },
+          { "question": "Ano ang epekto ng pagkilala sa sariling kakayahan?", "options": ["Lumalakas ang kumpiyansa sa sarili", "Nawawalan ng gana", "Naglalaho ang tiwala", "Walang epekto"], "correct_answer": "Lumalakas ang kumpiyansa sa sarili" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of word patterns!\n\n- **CVCC** words end with 2 consonants: *desk, lamp*\n- **CCVC** words start with a cluster: *stop, frog*\n- Regional vocabulary: *barangay, palengke, fiesta*\n\nGreat reading progress! ⭐",
+        "quiz": [
+          { "question": "Which word is a CVCC word?", "options": ["Desk", "Frog", "Cat", "Sun"], "correct_answer": "Desk" },
+          { "question": "Which word is a CCVC word?", "options": ["Frog", "Desk", "Cat", "Sun"], "correct_answer": "Frog" },
+          { "question": "Which word is an example of regional vocabulary?", "options": ["Barangay", "Elephant", "Robot", "Airplane"], "correct_answer": "Barangay" },
+          { "question": "Which word starts with a consonant cluster?", "options": ["Stop", "Cat", "Dog", "Sun"], "correct_answer": "Stop" },
+          { "question": "Which word is a CVCC word?", "options": ["Sand", "Cat", "Sun", "Dog"], "correct_answer": "Sand" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of numbers up to 10,000!\n\n- We can represent numbers with **pictures, blocks, or numerals**\n- 7,000 = **seven thousand**\n- 3,254 = 3 thousands, 2 hundreds, 5 tens, 4 ones\n\nGreat work this week! 🌟",
+        "quiz": [
+          { "question": "How do you write 7,000 in words?", "options": ["Seven thousand", "Seventy hundred", "Seven hundred", "Seventeen thousand"], "correct_answer": "Seven thousand" },
+          { "question": "How do you write 5,600 in words?", "options": ["Five thousand six hundred", "Fifty-six hundred", "Five hundred sixty", "Five thousand sixty"], "correct_answer": "Five thousand six hundred" },
+          { "question": "Which numeral matches \"eight thousand three hundred forty-two\"?", "options": ["8,342", "8,234", "8,432", "8,324"], "correct_answer": "8,342" },
+          { "question": "What is 3,254 broken into place values?", "options": ["3 thousands, 2 hundreds, 5 tens, 4 ones", "3 hundreds, 2 tens, 5 ones, 4 thousands", "3 tens, 2 ones, 5 hundreds, 4 thousands", "3 ones, 2 tens, 5 hundreds, 4 thousands"], "correct_answer": "3 thousands, 2 hundreds, 5 tens, 4 ones" },
+          { "question": "Which numeral matches \"two thousand five hundred\"?", "options": ["2,500", "2,050", "2,005", "25,000"], "correct_answer": "2,500" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **High frequency words**: ako, ikaw, siya, ang\n- Salitang GMRC/Makabansa: **tungkulin, komunidad**\n- Basahin nang wasto ang mga salita\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng high frequency word?", "options": ["Ako", "Barangay", "Komunidad", "Tungkulin"], "correct_answer": "Ako" },
+          { "question": "Ano ang high frequency words?", "options": ["Salitang madalas gamitin", "Salitang bihira gamitin", "Salitang mahaba lang", "Salitang banyaga"], "correct_answer": "Salitang madalas gamitin" },
+          { "question": "Alin ang salitang tumutukoy sa komunidad?", "options": ["Komunidad", "Ako", "May", "Ay"], "correct_answer": "Komunidad" },
+          { "question": "Alin ang salitang may tiyak na tuon sa GMRC?", "options": ["Tungkulin", "Ako", "Ang", "Sa"], "correct_answer": "Tungkulin" },
+          { "question": "Bakit natin pinag-aaralan ang high frequency words?", "options": ["Para mas mabilis magbasa", "Para mas mabagal magbasa", "Para makalimutan ang letra", "Walang dahilan"], "correct_answer": "Para mas mabilis magbasa" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ang **timeline** ay nagpapakita ng pagkakasunod-sunod ng pangyayari\n- May **tagapagtatag** ang bawat bayan\n- Marami sa ating pook ay may **kwentong-bayan**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang tawag sa taong nagtatag ng isang bayan?", "options": ["Tagapagtatag", "Mangingisda", "Guro", "Doktor"], "correct_answer": "Tagapagtatag" },
+          { "question": "Ano ang gamit ng timeline?", "options": ["Nagpapakita ng pagkakasunod-sunod ng pangyayari", "Nagpapakita ng mapa", "Nagpapakita ng kulay", "Nagpapakita ng bilang"], "correct_answer": "Nagpapakita ng pagkakasunod-sunod ng pangyayari" },
+          { "question": "Ano ang kwentong-bayan?", "options": ["Kwento tungkol sa pinagmulan ng isang pook", "Kwento tungkol sa hayop lamang", "Balitang pang-araw-araw", "Kwentong pantasya lamang"], "correct_answer": "Kwento tungkol sa pinagmulan ng isang pook" },
+          { "question": "Alin ang halimbawa ng makasaysayang lugar?", "options": ["Lumang simbahan", "Bagong laruan", "Bagong sapatos", "Bagong bag"], "correct_answer": "Lumang simbahan" },
+          { "question": "Bakit mahalagang malaman ang kasaysayan ng sariling pook?", "options": ["Para maunawaan natin ang ating pinagmulan", "Walang dahilan", "Para lang sa pagsusulit", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating pinagmulan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Makikita ang **agham** sa paligid natin araw-araw\n- Halimbawa: **pagluluto**, **paggamit ng ilaw**, **water cycle**\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng agham sa bahay?", "options": ["Pagluluto ng pagkain", "Paglalaro ng bola", "Pagtulog", "Panonood ng TV"], "correct_answer": "Pagluluto ng pagkain" },
+          { "question": "Anong agham ang nagpapaliwanag kung bakit umuulan?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
+          { "question": "Saan natin makikita ang agham?", "options": ["Sa ating paligid araw-araw", "Sa aklatan lamang", "Sa paaralan lamang", "Wala kahit saan"], "correct_answer": "Sa ating paligid araw-araw" },
+          { "question": "Alin ang halimbawa ng agham sa komunidad?", "options": ["Paggamit ng makina sa palengke", "Panonood ng pelikula", "Paglalaro ng laruan", "Pagkanta"], "correct_answer": "Paggamit ng makina sa palengke" },
+          { "question": "Anong konsepto ng agham ang ginagamit natin kapag nagsisindi ng ilaw?", "options": ["Enerhiya", "Kasaysayan", "Sining", "Musika"], "correct_answer": "Enerhiya" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Monitor** = output | **Keyboard** = input\n- **CPU** = utak ng computer\n- Input devices send info TO computer, output devices send info FROM computer\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Which part shows what the computer is doing?", "options": ["Monitor", "Keyboard", "Mouse", "Speakers"], "correct_answer": "Monitor" },
+          { "question": "Which of these is an INPUT device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Which of these is an OUTPUT device?", "options": ["Speakers", "Mouse", "Keyboard", "Trackpad"], "correct_answer": "Speakers" },
+          { "question": "What is the \"brain\" of the computer called?", "options": ["CPU", "Monitor", "Keyboard", "Mouse"], "correct_answer": "CPU" },
+          { "question": "Typing your name uses which kind of device?", "options": ["Input device", "Output device", "Neither", "Both equally"], "correct_answer": "Input device" }
+        ]
+      }
+    }
+  }
+}
