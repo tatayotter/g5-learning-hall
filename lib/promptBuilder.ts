@@ -37,38 +37,48 @@ export type TermInfo = {
 /**
  * Maps a continuous school week → the term context used in the BOW.
  *
- * SY 2026-2027 calendar (from memory/project_school_calendar_sy2026.md):
+ * SY 2026-2027 calendar — rebuilt 2026-09-10 against DepEd's official
+ * trimester calendar (docs/claude-projects/grade5-project.md has the full
+ * derivation). Each term has an Instructional Block (new BOW content,
+ * continuous Wk-counter) followed by an Enrichment Block (review/periodic
+ * test, no new content):
  *   Week 1           – Orientation
- *   Weeks 2-13       – Term 1 / Q1   (BOW Week 1 = school Week 2)
- *   Week 13-14       – Term 1 break  (Sep 10-20)
- *   Weeks 15-27      – Term 2 / Q2   (BOW Week 1 = school Week 15)
- *   Weeks 27-29      – Term 2 break  (Dec 17-31)
- *   Weeks 30-50      – Term 3 / Q3+Q4 (BOW Week 1 = school Week 30)
+ *   Weeks 2-11       – Term 1 Instructional (BOW Wk1-10)
+ *   Weeks 12-13      – Term 1 Enrichment (review, no new content)
+ *   Weeks 14-25      – Term 2 Instructional (BOW Wk11 onward)
+ *   Weeks 26-27      – Term 2 Enrichment
+ *   Weeks 28-29      – Christmas break
+ *   Weeks 30-40      – Term 3 Instructional (BOW Wk continues)
+ *   Weeks 41-43      – Term 3 Enrichment
+ *   Week 44+         – EOSY break — school year has ended, no content weeks
  *                        (MATATAG has 3 terms, not 4 quarters — the old
  *                        Q3/Q4 split doesn't get its own label, it's all
  *                        just "Term 3".)
  *
  * `termWeek` (and the number baked into `label`) is a TEACHING-week count
  * that keeps climbing across term boundaries — it never resets to 1 at a
- * new term, it just skips break weeks. So Term 1 ends at teaching-week 12
- * and Term 2 picks up at 13, not back at 1. This is purely a display
+ * new term, it just skips break/enrichment weeks. This is purely a display
  * counter; BOW content lookup elsewhere keys off `term` (1/2/3) only, so
  * it doesn't affect which BOW section gets extracted.
  */
 export function weekToTermInfo(schoolWeek: number): TermInfo {
   if (schoolWeek <= 1)
     return { term: 1, termWeek: 0, label: 'Week 1 – Orientation', isBreak: false };
-  if (schoolWeek <= 13)
+  if (schoolWeek <= 11)
     return { term: 1, termWeek: schoolWeek - 1, label: `Term 1 Week ${schoolWeek - 1}`, isBreak: false };
-  if (schoolWeek === 14)
-    return { term: 1, termWeek: 12, label: 'Term 1 Break', isBreak: true };
+  if (schoolWeek <= 13)
+    return { term: 1, termWeek: 10, label: 'Term 1 Enrichment', isBreak: true };
+  if (schoolWeek <= 25)
+    return { term: 2, termWeek: schoolWeek - 3, label: `Term 2 Week ${schoolWeek - 3}`, isBreak: false };
   if (schoolWeek <= 27)
-    return { term: 2, termWeek: schoolWeek - 2, label: `Term 2 Week ${schoolWeek - 2}`, isBreak: false };
+    return { term: 2, termWeek: 22, label: 'Term 2 Enrichment', isBreak: true };
   if (schoolWeek <= 29)
-    return { term: 2, termWeek: 25, label: 'Term 2 Break (Christmas)', isBreak: true };
+    return { term: 2, termWeek: 22, label: 'Term 2 Break (Christmas)', isBreak: true };
   if (schoolWeek <= 40)
-    return { term: 3, termWeek: schoolWeek - 4, label: `Term 3 Week ${schoolWeek - 4}`, isBreak: false };
-  return { term: 3, termWeek: schoolWeek - 4, label: `Term 3 Week ${schoolWeek - 4}`, isBreak: false };
+    return { term: 3, termWeek: schoolWeek - 7, label: `Term 3 Week ${schoolWeek - 7}`, isBreak: false };
+  if (schoolWeek <= 43)
+    return { term: 3, termWeek: 33, label: 'Term 3 Enrichment', isBreak: true };
+  return { term: 3, termWeek: 33, label: 'School Year Ended (EOSY break)', isBreak: true };
 }
 
 // ─── BOW extraction from existing .md prompt files ───────────────────────────
@@ -184,8 +194,21 @@ const SHARED_OUTPUT_RULES_BASE = `OUTPUT RULES:
 - Return ONLY valid JSON. No explanation, no markdown, no code blocks.
 - Top-level keys: Monday, Tuesday, Wednesday, Thursday, Friday
 - Each day has subject keys (e.g. "English", "Mathematics")
-- Each subject has exactly two fields: "summary_markdown" and "quiz"
+- Each subject has "summary_markdown" and "quiz", plus an OPTIONAL "visual_aid" (see below)
 - Friday is always "Weekly Review" covering all subjects from Mon–Thu`;
+
+// Track 1 spec-driven diagrams — see lib/visualAid.ts for the exact shape and
+// components/quest/VisualAid.tsx for the renderer. Only these three shapes are ever
+// requested: they only need ordered/labeled CONTENT, never coordinates or colors, which is
+// what keeps every generated diagram on-theme and free of garbled text-in-image failures.
+const VISUAL_AID_RULES = `- visual_aid (OPTIONAL, per subject/day): add ONLY if a cycle, ordered procedure, or a
+  comparison would genuinely help the learner — omit the field entirely otherwise, don't force one.
+  Use EXACTLY ONE of these three shapes:
+    { "type": "cycle", "title": "...", "nodes": [{ "label": "...", "icon": "single emoji" }, ...] }  (3-6 nodes)
+    { "type": "steps", "title": "...", "expression": "optional starting expression", "steps": [{ "label": "...", "detail": "..." }, ...] }  (2-6 steps)
+    { "type": "bar-compare", "title": "...", "bars": [{ "label": "...", "totalParts": N, "filledParts": N }, ...], "verdict": "one-line takeaway" }  (2-3 bars)
+  NEVER use visual_aid for real-world maps, anatomy, or anything claiming geographic/scientific
+  precision — those are not supported by this field.`;
 
 const QUIZ_RULES = `- quiz: array of 8 questions, each with:
     "question" — clear, age-appropriate wording
@@ -238,6 +261,7 @@ export function buildLeanPrompt(
     '',
     SHARED_OUTPUT_RULES_BASE,
     summaryRule(grade),
+    VISUAL_AID_RULES,
     QUIZ_RULES,
     difficultyRule(grade),
     `GRADE: ${grade}`,

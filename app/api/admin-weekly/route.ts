@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import { supabase } from '@/lib/supabase';
 import { requireAdminPasscode } from '@/lib/adminAuth';
+import { schoolWeekFromDate, weekToTermInfo } from '@/lib/promptBuilder';
 
 // Every action here writes to (or reads, for get_content_week) another user's/grade's row,
 // which client-side RLS no longer allows directly — they go through passcode-gated SECURITY
@@ -62,6 +63,25 @@ export async function POST(request: NextRequest) {
       });
       if (error) return NextResponse.json({ success: false, error: error.message }, { status: 409 });
       return NextResponse.json({ success: true, days: data });
+    }
+
+    // Regular subject content has no business existing for a term-break/
+    // enrichment week — the Topic Mastery Gauntlet substitutes it entirely
+    // (see components/dashboard/board/BoardMapView.tsx and
+    // components/DailyChecklist.tsx's gauntlet-aware handling), and until
+    // this guard, nothing stopped a week that later got declared a break
+    // from having regular content authored/imported for it anyway: that's
+    // exactly what happened to the 2026-09-06 week (a scheduled-but-disabled
+    // generation run had already produced it before the break was on the
+    // calendar), which silently blocked the daily-checklist gold claim for
+    // any kid playing the gauntlet instead. `allowBreakWeek: true` opts out
+    // for a deliberate exception (e.g. authoring enrichment review content).
+    const termInfo = weekToTermInfo(schoolWeekFromDate(new Date(weekStartingDate)));
+    if (termInfo.isBreak && !body.allowBreakWeek) {
+      return NextResponse.json({
+        success: false,
+        error: `Week of ${weekStartingDate} falls in "${termInfo.label}" — a break/enrichment week gets the Topic Mastery Gauntlet instead of regular content. Pass allowBreakWeek: true to author it anyway.`,
+      }, { status: 409 });
     }
 
     const { error } = await supabase.rpc('admin_set_content_week', {

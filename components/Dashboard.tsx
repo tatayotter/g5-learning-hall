@@ -1163,6 +1163,11 @@ export default function Dashboard() {
             setActiveTab={setActiveTab}
             setActiveGuild={setActiveGuild}
             setActiveQuest={setActiveQuest}
+            activeEvent={activeEvent}
+            eventClaimed={eventClaimed}
+            eventQuests={eventQuests}
+            eventProgress={eventProgress}
+            gauntletDaysDone={gauntletDaysDone}
           />
         )}
 
