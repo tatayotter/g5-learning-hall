@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-07-05",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 4: Synonyms and Antonyms!\n\nLet's learn words that mean the same or the opposite! 🔤\n\n## 🔄 Synonyms\n- **Synonyms** are words that mean the **same** or almost the same thing.\n- **Example:** *happy* and **glad**; *big* and **large**\n\n## ↔️ Antonyms\n- **Antonyms** are words that mean the **opposite**.\n- **Example:** *hot* and **cold**; *fast* and **slow**\n\n## 🗣️ Content-Specific Words\n- Science word: **observe** (to watch carefully)\n- Math word: **estimate** (to guess a close answer)\n\nLearning synonyms and antonyms makes your writing more colorful! 🌟",
+        "quiz": [
+          { "question": "Which word is a synonym for \"happy\"?", "options": ["Glad", "Sad", "Angry", "Tired"], "correct_answer": "Glad" },
+          { "question": "Which word is an antonym for \"hot\"?", "options": ["Cold", "Warm", "Sunny", "Bright"], "correct_answer": "Cold" },
+          { "question": "What are synonyms?", "options": ["Words that mean the same thing", "Words that mean the opposite", "Words that rhyme", "Words that start with the same letter"], "correct_answer": "Words that mean the same thing" },
+          { "question": "What are antonyms?", "options": ["Words that mean the opposite", "Words that mean the same thing", "Words that rhyme", "Words with the same spelling"], "correct_answer": "Words that mean the opposite" },
+          { "question": "Which word is a synonym for \"big\"?", "options": ["Large", "Small", "Tiny", "Little"], "correct_answer": "Large" },
+          { "question": "What does \"observe\" mean?", "options": ["To watch carefully", "To run fast", "To sing loudly", "To sleep"], "correct_answer": "To watch carefully" },
+          { "question": "Which word is an antonym for \"fast\"?", "options": ["Slow", "Quick", "Speedy", "Rapid"], "correct_answer": "Slow" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 3: More Place Value and Rounding!\n\nLet's continue practicing place value and rounding! 🔢\n\n## 🔟 Deeper Place Value Practice\n- Every digit in a number has a **place** and a **value**.\n- **Example:** In 8,591, the digit 5 is in the **hundreds** place, worth **500**.\n\n## 🔄 Rounding to the Nearest Thousand\n- **Example 1:** 6,720 rounded to the nearest thousand is **7,000**.\n- **Example 2:** 3,200 rounded to the nearest thousand is **3,000**.\n\n## 🔍 Why This Matters\n- Rounding helps us quickly estimate totals, like when shopping!\n\nKeep practicing — you're mastering place value! 🌟",
+        "quiz": [
+          { "question": "In 8,591, what is the value of the digit 5?", "options": ["500", "50", "5", "5,000"], "correct_answer": "500" },
+          { "question": "What is 6,720 rounded to the nearest thousand?", "options": ["7,000", "6,000", "6,700", "7,500"], "correct_answer": "7,000" },
+          { "question": "What is 3,200 rounded to the nearest thousand?", "options": ["3,000", "4,000", "3,500", "3,200"], "correct_answer": "3,000" },
+          { "question": "Why is rounding useful when shopping?", "options": ["It helps us quickly estimate totals", "It makes prices go up", "It removes all numbers", "It has no use"], "correct_answer": "It helps us quickly estimate totals" },
+          { "question": "What is the place value of the digit 8 in 8,591?", "options": ["Thousands", "Hundreds", "Tens", "Ones"], "correct_answer": "Thousands" },
+          { "question": "What is 4,500 rounded to the nearest thousand?", "options": ["5,000", "4,000", "4,500", "4,900"], "correct_answer": "5,000" },
+          { "question": "Every digit in a number has a place and a what?", "options": ["Value", "Color", "Sound", "Shape"], "correct_answer": "Value" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 3: Salitang Kilos at Pangkayarian\n\nAlamin natin ang mga salitang kilos at pangkayarian! 🏃\n\n## 🏃 Salitang Kilos (Pandiwa)\n- Ang **salitang kilos** ay nagpapahayag ng ginagawa o kilos ng isang tao o bagay.\n- **Halimbawa:** *tumakbo, kumain, naglaro, nag-aral*\n\n## 🔗 Salitang Pangkayarian\n- Ang **pangatnig** ay nag-uugnay ng mga salita o pangungusap: *at, o, pero*\n- Ang **pang-angkop** ay ginagamit para pagdugtungin ang salita: *na, -ng*\n\n## 📖 Paggamit sa Pangungusap\n- **Halimbawa:** *Naglaro siya at kumain pagkatapos.*\n\nMahalaga ang mga salitang ito para bumuo ng mas malinaw na pangungusap! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang kilos?", "options": ["Nagpapahayag ng ginagawa o kilos", "Naglalarawan ng katangian", "Pangalan ng tao o bagay", "Salitang pananong"], "correct_answer": "Nagpapahayag ng ginagawa o kilos" },
+          { "question": "Alin ang halimbawa ng salitang kilos?", "options": ["Tumakbo", "Maganda", "Ako", "Ito"], "correct_answer": "Tumakbo" },
+          { "question": "Ano ang pangatnig?", "options": ["Nag-uugnay ng mga salita o pangungusap", "Naglalarawan ng katangian", "Nagbibilang ng bagay", "Salitang pananong"], "correct_answer": "Nag-uugnay ng mga salita o pangungusap" },
+          { "question": "Alin ang halimbawa ng pangatnig?", "options": ["At", "Maganda", "Tumakbo", "Ito"], "correct_answer": "At" },
+          { "question": "Sa \"Naglaro siya at kumain\", alin ang pangatnig?", "options": ["At", "Naglaro", "Siya", "Kumain"], "correct_answer": "At" },
+          { "question": "Ano ang pang-angkop?", "options": ["Ginagamit para pagdugtungin ang salita", "Ginagamit para magtanong", "Ginagamit para magbilang", "Ginagamit para tumawag"], "correct_answer": "Ginagamit para pagdugtungin ang salita" },
+          { "question": "Alin sa mga ito ang salitang kilos?", "options": ["Nag-aral", "Malaki", "Ako", "Doon"], "correct_answer": "Nag-aral" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 3: Observing, Predicting, and Measuring!\n\nLet's practice using our science skills together! 🔍\n\n## 👀 Observing\n- **Observing** means using our senses to gather information carefully.\n- **Example:** Noticing that ice is cold and hard.\n\n## 🔮 Predicting\n- **Predicting** means making a smart guess based on what we already know.\n- **Example:** If you leave ice in the sun, you can predict it will **melt**.\n\n## 📏 Measuring\n- **Measuring** means finding the exact size, length, or amount using tools like a ruler.\n- **Example:** Using centimeters (cm) or meters (m) to measure length.\n\nGreat scientists use all three skills together! 🌟",
+        "quiz": [
+          { "question": "What does observing mean?", "options": ["Using our senses to gather information", "Guessing randomly", "Measuring exactly", "Drawing pictures"], "correct_answer": "Using our senses to gather information" },
+          { "question": "What does predicting mean?", "options": ["Making a smart guess based on what we know", "Measuring with a ruler", "Drawing a picture", "Reading a book"], "correct_answer": "Making a smart guess based on what we know" },
+          { "question": "If you leave ice in the sun, what can you predict will happen?", "options": ["It will melt", "It will grow bigger", "It will turn blue", "Nothing will happen"], "correct_answer": "It will melt" },
+          { "question": "What units do we use to measure length?", "options": ["Centimeters and meters", "Liters and grams", "Minutes and hours", "Pesos and centavos"], "correct_answer": "Centimeters and meters" },
+          { "question": "What does measuring mean?", "options": ["Finding the exact size, length, or amount", "Guessing randomly", "Drawing a picture", "Singing a song"], "correct_answer": "Finding the exact size, length, or amount" },
+          { "question": "Noticing that ice is cold and hard is an example of what skill?", "options": ["Observing", "Predicting", "Measuring", "Guessing"], "correct_answer": "Observing" },
+          { "question": "What tool would you use to measure length?", "options": ["Ruler", "Balloon", "Clay", "Scissors"], "correct_answer": "Ruler" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 3: Pagpapahalaga sa Kasaysayan ng Aking Pook\n\nIpagpatuloy natin ang pagkilala sa kasaysayan ng ating pook! 📜\n\n## 🖼️ Pagpapahalaga sa Kasaysayan\n- Ang pag-alam sa kasaysayan ng ating pook ay nagpapakita ng **pagmamahal at pagpapahalaga** dito.\n- Maaari tayong lumikha ng **larawan o dula** na nagpapakita ng makasaysayang tanawin.\n\n## 🖌️ Paglikha ng Likhang-Sining\n- **Halimbawa:** Gumawa ng drawing ng lumang plaza ng iyong bayan.\n- Ang gawaing ito ay tumutulong sa atin na mas maunawaan ang kasaysayan.\n\n## 💛 Bakit Ito Mahalaga?\n- Pinapahalagahan natin ang ating pinagmulan sa pamamagitan ng pag-alam at paglikha ng mga bagay na nauugnay dito.\n\nIpagmalaki ang kasaysayan ng iyong sariling pook! 🇵🇭",
+        "quiz": [
+          { "question": "Paano natin maipapakita ang pagpapahalaga sa kasaysayan ng ating pook?", "options": ["Sa paglikha ng larawan o dula", "Sa pagkalimot nito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa paglikha ng larawan o dula" },
+          { "question": "Ano ang halimbawa ng likhang-sining tungkol sa kasaysayan?", "options": ["Drawing ng lumang plaza", "Panonood ng TV", "Paglalaro ng bola", "Pagtulog"], "correct_answer": "Drawing ng lumang plaza" },
+          { "question": "Ano ang ipinapakita ng pag-alam sa kasaysayan ng ating pook?", "options": ["Pagmamahal at pagpapahalaga dito", "Kawalang-interes", "Kapabayaan", "Kawalang-galang"], "correct_answer": "Pagmamahal at pagpapahalaga dito" },
+          { "question": "Bakit dapat ipagmalaki ang kasaysayan ng sariling pook?", "options": ["Ito ay bahagi ng ating pagkakakilanlan", "Walang dahilan", "Para lang sa gawain sa paaralan", "Dahil sinabi lamang"], "correct_answer": "Ito ay bahagi ng ating pagkakakilanlan" },
+          { "question": "Ano ang tumutulong sa atin na mas maunawaan ang kasaysayan?", "options": ["Paglikha ng likhang-sining tungkol dito", "Pagkalimot dito", "Pag-iwas dito", "Walang gagawin"], "correct_answer": "Paglikha ng likhang-sining tungkol dito" },
+          { "question": "Alin ang halimbawa ng makasaysayang tanawin?", "options": ["Lumang plaza", "Bagong laruan", "Bagong sapatos", "Bagong bag"], "correct_answer": "Lumang plaza" },
+          { "question": "Ano ang pangkalahatang aral ng linggong ito?", "options": ["Pahalagahan ang kasaysayan ng ating pook", "Kalimutan ang nakaraan", "Hindi mahalaga ang kasaysayan", "Ihinto ang pag-aaral"], "correct_answer": "Pahalagahan ang kasaysayan ng ating pook" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 3: Care, Posture, and Safety!\n\nLet's learn how to take care of ourselves and the computer! 🖥️\n\n## 🪑 Proper Posture\n- Sit up straight with your **back supported**.\n- Keep your **screen at eye level** and about an arm's length away.\n- Take **breaks** every 20-30 minutes to rest your eyes.\n\n## 🧼 Hardware Care\n- Keep hands **clean and dry** before touching the keyboard/mouse.\n- No food or drinks near the computer.\n- Don't **pull cables** — unplug gently by the plug, not the wire.\n\n## 🔌 Powering On and Off\n- Turn on the computer, **wait** for it to load, then log in.\n- To turn off: **save your work**, close programs, then shut down properly.\n\nGood habits keep you and the computer safe! 🌟",
+        "quiz": [
+          { "question": "How should you sit while using a computer?", "options": ["Sit up straight with back supported", "Slouch down low", "Lie down", "Stand far away"], "correct_answer": "Sit up straight with back supported" },
+          { "question": "How often should you take a break from the screen?", "options": ["Every 20-30 minutes", "Every 5 hours", "Never", "Only once a year"], "correct_answer": "Every 20-30 minutes" },
+          { "question": "What should you do before touching the keyboard?", "options": ["Have clean and dry hands", "Eat a snack first", "Drink water on the keyboard", "Nothing special"], "correct_answer": "Have clean and dry hands" },
+          { "question": "How should you unplug a cable?", "options": ["Gently by the plug", "By pulling the wire hard", "By cutting it", "Never unplug it"], "correct_answer": "Gently by the plug" },
+          { "question": "What should you do before shutting down a computer?", "options": ["Save your work and close programs", "Just turn off the power immediately", "Unplug it while running", "Nothing"], "correct_answer": "Save your work and close programs" },
+          { "question": "How far should the screen be from your eyes?", "options": ["About an arm's length away", "Very close, touching your face", "Across the room", "It doesn't matter"], "correct_answer": "About an arm's length away" },
+          { "question": "Why should you avoid food near the computer?", "options": ["It could damage the hardware", "It makes typing faster", "It has no effect", "Food helps the computer run"], "correct_answer": "It could damage the hardware" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 3: Pag-iimpok Kasama ang Pamilya\n\nAlamin natin ang kahalagahan ng pag-iimpok at pagtitipid! 💰\n\n## 💰 Gawi ng Pamilya sa Pag-iimpok\n- Maraming pamilya ang may **alkansya** o paraan ng pag-iimpok.\n- **Halimbawa:** Ilagay ang sukli sa alkansya sa halip na gastusin agad.\n\n## 🌱 Pagtitipid ng Iba't Ibang Bagay\n- Hindi lang pera ang dapat tipirin — pati **tubig, kuryente, at gamit**.\n- **Halimbawa:** Patayin ang ilaw kapag walang tao sa kwarto.\n\n## 🎯 Bakit Mahalaga Ito?\n- Ang pagsasanay sa pag-iimpok ngayon ay nakatutulong sa atin na maging responsable sa pera at yaman sa hinaharap.\n\nSimulan ang pag-iimpok ngayon kasama ang iyong pamilya! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit ng maraming pamilya para mag-ipon?", "options": ["Alkansya", "Bag", "Sapatos", "Payong"], "correct_answer": "Alkansya" },
+          { "question": "Bukod sa pera, ano pa ang dapat tipirin?", "options": ["Tubig at kuryente", "Aklat lamang", "Damit lamang", "Wala"], "correct_answer": "Tubig at kuryente" },
+          { "question": "Ano ang halimbawa ng pagtitipid ng kuryente?", "options": ["Patayin ang ilaw kapag walang tao", "Iwanan ang ilaw na bukas", "Buksan lahat ng ilaw", "Wala sa mga ito"], "correct_answer": "Patayin ang ilaw kapag walang tao" },
+          { "question": "Bakit mahalaga ang pagsasanay sa pag-iimpok?", "options": ["Nakatutulong ito na maging responsable sa pera", "Walang gamit", "Para lang sa laro", "Para mawalan ng pera"], "correct_answer": "Nakatutulong ito na maging responsable sa pera" },
+          { "question": "Ano ang dapat gawin sa sukli imbes na gastusin agad?", "options": ["Ilagay sa alkansya", "Itapon", "Ibigay sa estranghero", "Hindi na kailangan"], "correct_answer": "Ilagay sa alkansya" },
+          { "question": "Kailan tayo dapat magsimulang mag-ipon?", "options": ["Ngayon na", "Kapag matanda na", "Hindi na kailangan", "Kapag may problema na"], "correct_answer": "Ngayon na" },
+          { "question": "Sino ang makakatulong sa atin sa pag-iimpok?", "options": ["Ating pamilya", "Walang sinuman", "Estranghero lamang", "Walang tumutulong"], "correct_answer": "Ating pamilya" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of synonyms and antonyms!\n\n- **Synonyms** mean the same: *happy/glad*\n- **Antonyms** mean the opposite: *hot/cold*\n- Content words: *observe, estimate*\n\nGreat vocabulary growth! ⭐",
+        "quiz": [
+          { "question": "Which word is a synonym for \"happy\"?", "options": ["Glad", "Sad", "Angry", "Tired"], "correct_answer": "Glad" },
+          { "question": "Which word is an antonym for \"hot\"?", "options": ["Cold", "Warm", "Sunny", "Bright"], "correct_answer": "Cold" },
+          { "question": "What are synonyms?", "options": ["Words that mean the same thing", "Words that mean the opposite", "Words that rhyme", "Words that start with the same letter"], "correct_answer": "Words that mean the same thing" },
+          { "question": "What are antonyms?", "options": ["Words that mean the opposite", "Words that mean the same thing", "Words that rhyme", "Words with the same spelling"], "correct_answer": "Words that mean the opposite" },
+          { "question": "Which word is an antonym for \"fast\"?", "options": ["Slow", "Quick", "Speedy", "Rapid"], "correct_answer": "Slow" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of place value and rounding!\n\n- In 8,591, the 5 is worth **500**\n- 6,720 rounded to the nearest thousand is **7,000**\n- Rounding helps us estimate totals\n\nGreat work! 🌟",
+        "quiz": [
+          { "question": "In 8,591, what is the value of the digit 5?", "options": ["500", "50", "5", "5,000"], "correct_answer": "500" },
+          { "question": "What is 6,720 rounded to the nearest thousand?", "options": ["7,000", "6,000", "6,700", "7,500"], "correct_answer": "7,000" },
+          { "question": "What is 3,200 rounded to the nearest thousand?", "options": ["3,000", "4,000", "3,500", "3,200"], "correct_answer": "3,000" },
+          { "question": "Why is rounding useful when shopping?", "options": ["It helps us quickly estimate totals", "It makes prices go up", "It removes all numbers", "It has no use"], "correct_answer": "It helps us quickly estimate totals" },
+          { "question": "What is 4,500 rounded to the nearest thousand?", "options": ["5,000", "4,000", "4,500", "4,900"], "correct_answer": "5,000" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Salitang kilos**: tumakbo, kumain, naglaro\n- **Pangatnig**: at, o, pero\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang kilos?", "options": ["Nagpapahayag ng ginagawa o kilos", "Naglalarawan ng katangian", "Pangalan ng tao o bagay", "Salitang pananong"], "correct_answer": "Nagpapahayag ng ginagawa o kilos" },
+          { "question": "Alin ang halimbawa ng salitang kilos?", "options": ["Tumakbo", "Maganda", "Ako", "Ito"], "correct_answer": "Tumakbo" },
+          { "question": "Ano ang pangatnig?", "options": ["Nag-uugnay ng mga salita o pangungusap", "Naglalarawan ng katangian", "Nagbibilang ng bagay", "Salitang pananong"], "correct_answer": "Nag-uugnay ng mga salita o pangungusap" },
+          { "question": "Alin ang halimbawa ng pangatnig?", "options": ["At", "Maganda", "Tumakbo", "Ito"], "correct_answer": "At" },
+          { "question": "Sa \"Naglaro siya at kumain\", alin ang pangatnig?", "options": ["At", "Naglaro", "Siya", "Kumain"], "correct_answer": "At" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ipakita ang pagpapahalaga sa kasaysayan sa pamamagitan ng likhang-sining\n- Ang pag-alam sa kasaysayan ay pagmamahal sa ating pinagmulan\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Paano natin maipapakita ang pagpapahalaga sa kasaysayan ng ating pook?", "options": ["Sa paglikha ng larawan o dula", "Sa pagkalimot nito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa paglikha ng larawan o dula" },
+          { "question": "Ano ang ipinapakita ng pag-alam sa kasaysayan ng ating pook?", "options": ["Pagmamahal at pagpapahalaga dito", "Kawalang-interes", "Kapabayaan", "Kawalang-galang"], "correct_answer": "Pagmamahal at pagpapahalaga dito" },
+          { "question": "Bakit dapat ipagmalaki ang kasaysayan ng sariling pook?", "options": ["Ito ay bahagi ng ating pagkakakilanlan", "Walang dahilan", "Para lang sa gawain sa paaralan", "Dahil sinabi lamang"], "correct_answer": "Ito ay bahagi ng ating pagkakakilanlan" },
+          { "question": "Alin ang halimbawa ng makasaysayang tanawin?", "options": ["Lumang plaza", "Bagong laruan", "Bagong sapatos", "Bagong bag"], "correct_answer": "Lumang plaza" },
+          { "question": "Ano ang pangkalahatang aral ng linggong ito?", "options": ["Pahalagahan ang kasaysayan ng ating pook", "Kalimutan ang nakaraan", "Hindi mahalaga ang kasaysayan", "Ihinto ang pag-aaral"], "correct_answer": "Pahalagahan ang kasaysayan ng ating pook" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Observing** = using senses | **Predicting** = smart guess\n- **Measuring** = finding exact size using a tool\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What does observing mean?", "options": ["Using our senses to gather information", "Guessing randomly", "Measuring exactly", "Drawing pictures"], "correct_answer": "Using our senses to gather information" },
+          { "question": "What does predicting mean?", "options": ["Making a smart guess based on what we know", "Measuring with a ruler", "Drawing a picture", "Reading a book"], "correct_answer": "Making a smart guess based on what we know" },
+          { "question": "What units do we use to measure length?", "options": ["Centimeters and meters", "Liters and grams", "Minutes and hours", "Pesos and centavos"], "correct_answer": "Centimeters and meters" },
+          { "question": "What does measuring mean?", "options": ["Finding the exact size, length, or amount", "Guessing randomly", "Drawing a picture", "Singing a song"], "correct_answer": "Finding the exact size, length, or amount" },
+          { "question": "If you leave ice in the sun, what can you predict will happen?", "options": ["It will melt", "It will grow bigger", "It will turn blue", "Nothing will happen"], "correct_answer": "It will melt" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Sit up straight, screen at **eye level**\n- **Clean hands** before touching keyboard/mouse\n- **Save work** before shutting down\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "How should you sit while using a computer?", "options": ["Sit up straight with back supported", "Slouch down low", "Lie down", "Stand far away"], "correct_answer": "Sit up straight with back supported" },
+          { "question": "What should you do before touching the keyboard?", "options": ["Have clean and dry hands", "Eat a snack first", "Drink water on the keyboard", "Nothing special"], "correct_answer": "Have clean and dry hands" },
+          { "question": "What should you do before shutting down a computer?", "options": ["Save your work and close programs", "Just turn off the power immediately", "Unplug it while running", "Nothing"], "correct_answer": "Save your work and close programs" },
+          { "question": "How often should you take a break from the screen?", "options": ["Every 20-30 minutes", "Every 5 hours", "Never", "Only once a year"], "correct_answer": "Every 20-30 minutes" },
+          { "question": "How should you unplug a cable?", "options": ["Gently by the plug", "By pulling the wire hard", "By cutting it", "Never unplug it"], "correct_answer": "Gently by the plug" }
+        ]
+      }
+    }
+  }
+}

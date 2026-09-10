@@ -22,16 +22,20 @@ async function loadGradeContent(grade: number, weekStartingDate: string) {
 
   const { data: rows, error } = await supabaseAdmin
     .from('content_questions_public')
-    .select('id, prompt, options, sort_order, subject, weekday, summary_markdown')
+    .select('id, prompt, options, sort_order, subject, weekday, summary_markdown, visual_aid')
     .eq('content_week_id', week.id)
     .order('sort_order');
   if (error || !rows) return { content: {}, contentWeekId: week.id };
 
-  const byDay: Record<string, Record<string, { summary_markdown?: string; quiz: any[] }>> = {};
+  const byDay: Record<string, Record<string, { summary_markdown?: string; visual_aid?: unknown; quiz: any[] }>> = {};
   rows.forEach((r: any) => {
     if (!byDay[r.weekday]) byDay[r.weekday] = {};
     if (!byDay[r.weekday][r.subject]) {
-      byDay[r.weekday][r.subject] = { summary_markdown: r.summary_markdown ?? undefined, quiz: [] };
+      byDay[r.weekday][r.subject] = {
+        summary_markdown: r.summary_markdown ?? undefined,
+        visual_aid: r.visual_aid ?? undefined,
+        quiz: [],
+      };
     }
     byDay[r.weekday][r.subject].quiz.push({ id: r.id, question: r.prompt, options: r.options });
   });

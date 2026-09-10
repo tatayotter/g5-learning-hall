@@ -77,21 +77,31 @@ Return ONLY valid JSON. No explanation, no markdown fences, no code blocks. Star
 
 School Week 1 starts **Monday, June 15, 2026**. Each week adds 7 days.
 
-| School Weeks | Period |
-|---|---|
-| 1 | Orientation |
-| 2–13 | Term 1 |
-| 14 | Term 1 break |
-| 15–27 | Term 2 |
-| 28–29 | Christmas break |
-| 30–50 | Term 3 |
+Rebuilt 2026-09-10 against DepEd's official trimester calendar (Opening Block Jun 8-11,
+Term 1 Sep 15 end, Term 2 Sep 16-Dec 18, Term 3 Jan 4-Apr 8, EOSY break Apr 9-May 9, 2027
+— 201 total class days). Each term has an Instructional Block (new BOW content, continuous
+Wk-counter) followed by an Enrichment Block (review/periodic-test weeks, no new content).
+Boundaries are rounded to whole school-weeks by majority-of-week, since content generates
+per Mon-Fri week and DepEd's block transitions land mid-week.
+
+| School Weeks | Period | Notes |
+|---|---|---|
+| 1 | Orientation | |
+| 2–11 | Term 1 Instructional (BOW Wk1–10) | |
+| 12–13 | Term 1 Enrichment | review/periodic test, no new BOW content |
+| 14–25 | Term 2 Instructional (BOW Wk11 onward) | Wk25 end (Fri Dec 4) is an exact match to DepEd's official instructional-block end |
+| 26–27 | Term 2 Enrichment | exact match to DepEd's Dec 7-18 enrichment block |
+| 28–29 | Christmas break | |
+| 30–40 | Term 3 Instructional (BOW Wk continues) | Wk30 start (Jan 4) is an exact match to DepEd's official Term 3 start |
+| 41–43 | Term 3 Enrichment | ends Fri Apr 9, 1 day after DepEd's official Apr 8 end |
+| 44+ | EOSY break — **no content weeks** | school year has ended; do not generate Term 3 content past Week 43 |
 
 MATATAG has 3 terms, not 4 quarters — the old Q3/Q4 split doesn't get its own label, it's all just "Term 3."
 
 **Quick date lookup:**
-- Week 2 = Jun 22 · Week 5 = Jul 13 · Week 9 = Aug 10 · Week 13 = Sep 7
-- Week 15 = Sep 21 · Week 20 = Oct 26 · Week 27 = Dec 14
-- Week 30 = Jan 4, 2027 · Week 40 = Mar 15
+- Week 2 = Jun 22 · Week 5 = Jul 13 · Week 9 = Aug 10 · Week 11 = Aug 24 (last Term 1 instructional week)
+- Week 14 = Sep 14 (Term 2 starts) · Week 20 = Oct 26 · Week 25 = Nov 30 (last Term 2 instructional week) · Week 27 = Dec 14
+- Week 30 = Jan 4, 2027 (Term 3 starts) · Week 40 = Mar 15 (last Term 3 instructional week) · Week 43 = Apr 5 (last week of school year)
 
 ---
 

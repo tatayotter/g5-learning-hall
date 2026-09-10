@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-07-26",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 6: Imperative and Exclamatory Sentences!\n\nLet's finish learning all four sentence types! 📝\n\n## ❗ Imperative Sentences\n- **Imperative** sentences give a command or make a request.\n- **Example:** *Please pick up your toys.*\n\n## 😲 Exclamatory Sentences\n- **Exclamatory** sentences show strong feeling and end with an **exclamation point (!)**\n- **Example:** *What a beautiful sunset!*\n\n## 🔍 All Four Sentence Types\n- **Declarative** — tells something (.)\n- **Interrogative** — asks a question (?)\n- **Imperative** — gives a command (. or !)\n- **Exclamatory** — shows strong feeling (!)\n\nNow you know all four sentence types! 🌟",
+        "quiz": [
+          { "question": "Which sentence is exclamatory?", "options": ["What a beautiful sunset!", "Close the door.", "Is it raining?", "The sky is blue."], "correct_answer": "What a beautiful sunset!" },
+          { "question": "Which sentence is imperative?", "options": ["Please pick up your toys.", "What a nice day!", "Is it hot outside?", "The dog is brown."], "correct_answer": "Please pick up your toys." },
+          { "question": "What punctuation ends an exclamatory sentence?", "options": ["Exclamation point (!)", "Period (.)", "Question mark (?)", "Comma (,)"], "correct_answer": "Exclamation point (!)" },
+          { "question": "What does an imperative sentence do?", "options": ["Gives a command or request", "Asks a question", "Shows strong feeling", "Tells a fact"], "correct_answer": "Gives a command or request" },
+          { "question": "How many sentence types have we learned?", "options": ["Four", "Two", "Three", "Five"], "correct_answer": "Four" },
+          { "question": "Which sentence type ends with a question mark?", "options": ["Interrogative", "Declarative", "Imperative", "Exclamatory"], "correct_answer": "Interrogative" },
+          { "question": "What does an exclamatory sentence show?", "options": ["Strong feeling", "A question", "A command", "A boring fact"], "correct_answer": "Strong feeling" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 6: More Area Practice!\n\nLet's practice finding area with different shapes! 📐\n\n## 🔲 Reviewing the Formulas\n- Area of a **square** = side × side\n- Area of a **rectangle** = length × width\n\n## 📐 Practice Problems\n- **Example 1:** A square garden with 6 m sides has an area of 6 × 6 = **36 sq. m**\n- **Example 2:** A rectangular room 8 m long and 4 m wide has an area of 8 × 4 = **32 sq. m**\n\n## 🔍 Solving Word Problems\n- Read the problem, find the length and width (or side), then **multiply**.\n\nYou're becoming an area expert! 🌟",
+        "quiz": [
+          { "question": "A square garden has 6 m sides. What is its area?", "options": ["36 sq. m", "12 sq. m", "24 sq. m", "18 sq. m"], "correct_answer": "36 sq. m" },
+          { "question": "A rectangular room is 8 m long and 4 m wide. What is its area?", "options": ["32 sq. m", "12 sq. m", "24 sq. m", "16 sq. m"], "correct_answer": "32 sq. m" },
+          { "question": "What operation do we use to find area?", "options": ["Multiplication", "Addition", "Subtraction", "Division"], "correct_answer": "Multiplication" },
+          { "question": "A square has 7 cm sides. What is its area?", "options": ["49 sq. cm", "14 sq. cm", "28 sq. cm", "21 sq. cm"], "correct_answer": "49 sq. cm" },
+          { "question": "A rectangle is 10 m long and 2 m wide. What is its area?", "options": ["20 sq. m", "12 sq. m", "8 sq. m", "24 sq. m"], "correct_answer": "20 sq. m" },
+          { "question": "What should you find first to solve an area word problem?", "options": ["The length and width (or side)", "The color of the shape", "The number of corners", "The weight"], "correct_answer": "The length and width (or side)" },
+          { "question": "A square has 3 m sides. What is its area?", "options": ["9 sq. m", "6 sq. m", "12 sq. m", "3 sq. m"], "correct_answer": "9 sq. m" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 6: Pananda sa Teksto\n\nAlamin natin ang mga pananda na ginagamit sa pagbasa! 📖\n\n## 🔤 Hudyat ng Pag-iisa-isa/Paglalarawan\n- Ang mga salitang ito ay ginagamit kapag naglilista o naglalarawan: **una, pangalawa, halimbawa, katulad ng**\n- **Halimbawa:** *Una, kumuha ng papel. Pangalawa, gumuhit ng bilog.*\n\n## 🔗 Hudyat ng Pagsusunod-sunod\n- Ang mga salitang ito ay ginagamit kapag inilalarawan ang pagkakasunod-sunod ng mga hakbang: **una, susunod, pagkatapos, sa huli**\n\n## 📖 Bakit Mahalaga Ito?\n- Tumutulong ang mga pananda upang maunawaan natin kung paano nakaayos ang isang teksto.\n\nGamitin ang mga pananda para mas malinaw ang iyong pagkuwento! 🌟",
+        "quiz": [
+          { "question": "Ano ang gamit ng salitang \"una\" sa isang teksto?", "options": ["Nagpapakita ng pagkakasunod-sunod", "Naglalarawan ng damdamin", "Nagtatanong", "Wala itong gamit"], "correct_answer": "Nagpapakita ng pagkakasunod-sunod" },
+          { "question": "Alin ang hudyat ng pagsusunod-sunod?", "options": ["Susunod", "Maganda", "Malaki", "Ako"], "correct_answer": "Susunod" },
+          { "question": "Bakit mahalaga ang mga pananda sa teksto?", "options": ["Tumutulong maunawaan ang ayos ng teksto", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong maunawaan ang ayos ng teksto" },
+          { "question": "Alin ang halimbawa ng pananda?", "options": ["Halimbawa", "Malaki", "Tumakbo", "Ako"], "correct_answer": "Halimbawa" },
+          { "question": "Ano ang tinatawag na mga salitang gumagabay sa pagbasa ng ayos ng teksto?", "options": ["Pananda", "Pangngalan", "Pandiwa", "Panghalip"], "correct_answer": "Pananda" },
+          { "question": "Alin sa mga ito ang pananda ng huling hakbang?", "options": ["Sa huli", "Una", "Susunod", "Pangalawa"], "correct_answer": "Sa huli" },
+          { "question": "Kailan ginagamit ang mga pananda ng pag-iisa-isa?", "options": ["Kapag naglilista o naglalarawan", "Kapag nagtatanong lamang", "Kapag umaawit", "Kapag natutulog"], "correct_answer": "Kapag naglilista o naglalarawan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 6: Pagbabago na Maaaring Makasama\n\nAlamin natin kung paano makasama ang ilang pagbabago sa materyales! ⚠️\n\n## ⚠️ Mga Pagbabagong Nakakasama\n- Ang pagsunog ng basura sa bahay ay nagbubuga ng **usok** na nakasasama sa hangin.\n- Ang hindi tamang pagtatapon ng basura ay nakakasama sa **kalikasan** at mga hayop.\n\n## 🌍 Epekto sa Kapaligiran\n- Ang mga pagbabagong ito ay nakaaapekto sa parehong **may buhay** (tao, hayop, halaman) at **walang buhay** (tubig, hangin, lupa) na bagay.\n\n## ✅ Ano ang Dapat Gawin?\n- Iwasan ang pagsunog ng basura; itapon ito nang tama sa basurahan.\n\nAlagaan natin ang ating kapaligiran! 🌟",
+        "quiz": [
+          { "question": "Ano ang nagbubuga ng usok na nakakasama?", "options": ["Pagsunog ng basura", "Pagtatanim ng puno", "Pagbabasa ng libro", "Paglalaro ng bola"], "correct_answer": "Pagsunog ng basura" },
+          { "question": "Ano ang epekto ng maling pagtatapon ng basura?", "options": ["Nakakasama sa kalikasan at mga hayop", "Walang epekto", "Nakabubuti sa kalikasan", "Nagpapaganda ng lugar"], "correct_answer": "Nakakasama sa kalikasan at mga hayop" },
+          { "question": "Sino ang naaapektuhan ng mga pagbabagong ito?", "options": ["Parehong may buhay at walang buhay na bagay", "Tao lamang", "Hayop lamang", "Walang naaapektuhan"], "correct_answer": "Parehong may buhay at walang buhay na bagay" },
+          { "question": "Ano ang dapat gawin sa basura imbes na sunugin?", "options": ["Itapon nang tama sa basurahan", "Iwanan kahit saan", "Sunugin pa rin", "Itago sa bahay"], "correct_answer": "Itapon nang tama sa basurahan" },
+          { "question": "Ano ang halimbawa ng bagay na may buhay na maaapektuhan?", "options": ["Hayop", "Bato", "Metal", "Plastik"], "correct_answer": "Hayop" },
+          { "question": "Ano ang halimbawa ng bagay na walang buhay na maaapektuhan?", "options": ["Tubig", "Puno", "Hayop", "Tao"], "correct_answer": "Tubig" },
+          { "question": "Bakit dapat nating alagaan ang ating kapaligiran?", "options": ["Para maiwasan ang pagkasama nito", "Walang dahilan", "Para lang sundin ang guro", "Para makuha ang gantimpala"], "correct_answer": "Para maiwasan ang pagkasama nito" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 6: Pagbabago sa Komunidad\n\nAlamin natin kung paano nagbago ang ating komunidad sa paglipas ng panahon! 🔄\n\n## 🔄 Dating Hitsura Kumpara sa Kasalukuyan\n- Noon, kaunti lang ang mga bahay; ngayon, mas marami na ang **imprastraktura** tulad ng kalsada at gusali.\n- Noon, gamit ang **timbangan** para tumimbang; ngayon, may **digital na timbangan**.\n\n## 📈 Mga Dahilan ng Pagbabago\n- **Paglago ng populasyon** — mas maraming tao ang naninirahan\n- **Pag-unlad ng imprastraktura** — mas maraming gusali at kalsada\n- **Bagong teknolohiya** — mas mabilis na komunikasyon at transportasyon\n\n## 🔍 Pagsusuri ng Larawan\n- Ang paghahambing ng lumang larawan sa bagong larawan ng isang lugar ay tumutulong upang makita ang pagbabago.\n\nMasaya bang malaman kung paano lumago ang ating komunidad? 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang isang dahilan ng pagbabago sa komunidad?", "options": ["Paglago ng populasyon", "Walang dahilan", "Pagkalimot ng kasaysayan", "Pagliit ng bilang ng tao"], "correct_answer": "Paglago ng populasyon" },
+          { "question": "Ano ang halimbawa ng imprastraktura?", "options": ["Kalsada at gusali", "Puno lamang", "Ilog lamang", "Ulap lamang"], "correct_answer": "Kalsada at gusali" },
+          { "question": "Paano tumutulong ang bagong teknolohiya sa komunidad?", "options": ["Mas mabilis na komunikasyon at transportasyon", "Walang tulong", "Nagpapabagal ng buhay", "Nagpapababa ng populasyon"], "correct_answer": "Mas mabilis na komunikasyon at transportasyon" },
+          { "question": "Paano natin makikita ang pagbabago sa isang lugar?", "options": ["Sa paghahambing ng lumang at bagong larawan", "Sa pagbabasa ng kwentong bayan lamang", "Sa pag-awit", "Sa paglalaro"], "correct_answer": "Sa paghahambing ng lumang at bagong larawan" },
+          { "question": "Ano ang ginamit noon para tumimbang?", "options": ["Timbangan", "Digital scale lamang", "Walang ginamit", "Kompyuter"], "correct_answer": "Timbangan" },
+          { "question": "Ano ang epekto ng paglago ng populasyon?", "options": ["Mas maraming tao ang naninirahan", "Walang epekto", "Bumababa ang bilang ng tao", "Wala ni isa"], "correct_answer": "Mas maraming tao ang naninirahan" },
+          { "question": "Bakit mahalagang pag-aralan ang pagbabago sa komunidad?", "options": ["Para maunawaan natin ang ating paglago", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating paglago" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 6: Keys on the Keyboard!\n\nLet's learn the important keys on the keyboard! ⌨️\n\n## ⌨️ Important Keys\n- **Letter keys** — for typing letters (A-Z)\n- **Number keys** — for typing numbers (0-9)\n- **Spacebar** — adds a space between words\n- **Enter key** — starts a new line or confirms an action\n- **Backspace/Delete** — removes typed characters\n- **Shift key** — makes capital letters or symbols\n- **Arrow keys** — move the cursor up, down, left, or right\n\n## 🔍 Practice\n- **Example:** Press **Shift** + a letter key to type a capital letter.\n\nKnowing your keyboard helps you type accurately! 🌟",
+        "quiz": [
+          { "question": "What does the spacebar do?", "options": ["Adds a space between words", "Deletes letters", "Types numbers", "Moves the cursor"], "correct_answer": "Adds a space between words" },
+          { "question": "What does the Enter key do?", "options": ["Starts a new line or confirms an action", "Deletes letters", "Adds a space", "Types numbers"], "correct_answer": "Starts a new line or confirms an action" },
+          { "question": "What does the Backspace key do?", "options": ["Removes typed characters", "Adds a space", "Types numbers", "Moves the cursor"], "correct_answer": "Removes typed characters" },
+          { "question": "What does the Shift key help you do?", "options": ["Type capital letters or symbols", "Delete text", "Add space", "Move the cursor"], "correct_answer": "Type capital letters or symbols" },
+          { "question": "What do arrow keys do?", "options": ["Move the cursor up, down, left, or right", "Delete text", "Add space", "Type numbers"], "correct_answer": "Move the cursor up, down, left, or right" },
+          { "question": "Which keys let you type numbers?", "options": ["Number keys", "Letter keys", "Arrow keys", "Shift key"], "correct_answer": "Number keys" },
+          { "question": "How do you type a capital letter?", "options": ["Press Shift plus the letter key", "Press only the letter key", "Press the spacebar", "Press Enter"], "correct_answer": "Press Shift plus the letter key" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 6: Higit Pang Gampanin sa Tahanan at Paaralan\n\nPatuloy nating alamin ang ating mga gampanin! 🌟\n\n## 🏠 Higit pang Gampanin sa Tahanan\n- Tumulong sa **paghahanda ng hapag-kainan** o **paglilinis ng kwarto**.\n- Ang bawat gawaing ito ay bahagi ng pagiging **mabuting kasapi ng pamilya**.\n\n## 🏫 Higit pang Gampanin sa Paaralan\n- Sumali sa mga **gawaing pangkat** at tumulong sa kaklase kung kaya.\n- Alagaan ang mga gamit ng paaralan.\n\n## 💪 Pagtupad nang May Pananagutan\n- Ang laging pagtupad sa gampanin ay bumubuo ng **magandang ugali** na dadalhin natin hanggang lumaki.\n\nMagpatuloy sa pagiging mabuting anak, kapatid, at mag-aaral! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng gampanin sa tahanan?", "options": ["Paghahanda ng hapag-kainan", "Panonood ng TV buong araw", "Paglalaro lamang", "Pagtulog buong araw"], "correct_answer": "Paghahanda ng hapag-kainan" },
+          { "question": "Ano ang gampanin ng bata sa gawaing pangkat sa paaralan?", "options": ["Sumali at tumulong", "Umiwas", "Manggulo", "Matulog"], "correct_answer": "Sumali at tumulong" },
+          { "question": "Ano ang binubuo ng laging pagtupad sa gampanin?", "options": ["Magandang ugali", "Kapabayaan", "Katamaran", "Kawalang-galang"], "correct_answer": "Magandang ugali" },
+          { "question": "Bakit dapat alagaan ang mga gamit sa paaralan?", "options": ["Bahagi ito ng ating responsibilidad", "Walang dahilan", "Para lang ipakita sa iba", "Para hindi na gamitin"], "correct_answer": "Bahagi ito ng ating responsibilidad" },
+          { "question": "Ano ang tawag sa pagiging mabuting kasapi ng pamilya?", "options": ["Pagtulong sa gawaing bahay", "Pag-iwas sa gawain", "Pagtatago", "Pagsisinungaling"], "correct_answer": "Pagtulong sa gawaing bahay" },
+          { "question": "Hanggang kailan natin dadalhin ang magandang ugali?", "options": ["Hanggang lumaki", "Isang linggo lamang", "Isang buwan lamang", "Hindi na kailangan"], "correct_answer": "Hanggang lumaki" },
+          { "question": "Ano ang dapat gawin kapag may pangkat na gawain sa paaralan?", "options": ["Sumali at tumulong sa grupo", "Umiwas sa grupo", "Manggulo sa grupo", "Matulog na lang"], "correct_answer": "Sumali at tumulong sa grupo" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of all sentence types!\n\n- **Imperative**: gives a command — *Please close the door.*\n- **Exclamatory**: shows strong feeling — *What a nice day!*\n- 4 types: declarative, interrogative, imperative, exclamatory\n\nGreat mastery of sentences! ⭐",
+        "quiz": [
+          { "question": "Which sentence is exclamatory?", "options": ["What a beautiful sunset!", "Close the door.", "Is it raining?", "The sky is blue."], "correct_answer": "What a beautiful sunset!" },
+          { "question": "Which sentence is imperative?", "options": ["Please pick up your toys.", "What a nice day!", "Is it hot outside?", "The dog is brown."], "correct_answer": "Please pick up your toys." },
+          { "question": "What punctuation ends an exclamatory sentence?", "options": ["Exclamation point (!)", "Period (.)", "Question mark (?)", "Comma (,)"], "correct_answer": "Exclamation point (!)" },
+          { "question": "How many sentence types have we learned?", "options": ["Four", "Two", "Three", "Five"], "correct_answer": "Four" },
+          { "question": "What does an exclamatory sentence show?", "options": ["Strong feeling", "A question", "A command", "A boring fact"], "correct_answer": "Strong feeling" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of area!\n\n- Area of a square = **side × side**\n- Area of a rectangle = **length × width**\n- We use **multiplication** to find area\n\nGreat area practice this week! 🌟",
+        "quiz": [
+          { "question": "A square garden has 6 m sides. What is its area?", "options": ["36 sq. m", "12 sq. m", "24 sq. m", "18 sq. m"], "correct_answer": "36 sq. m" },
+          { "question": "A rectangular room is 8 m long and 4 m wide. What is its area?", "options": ["32 sq. m", "12 sq. m", "24 sq. m", "16 sq. m"], "correct_answer": "32 sq. m" },
+          { "question": "What operation do we use to find area?", "options": ["Multiplication", "Addition", "Subtraction", "Division"], "correct_answer": "Multiplication" },
+          { "question": "A square has 7 cm sides. What is its area?", "options": ["49 sq. cm", "14 sq. cm", "28 sq. cm", "21 sq. cm"], "correct_answer": "49 sq. cm" },
+          { "question": "A rectangle is 10 m long and 2 m wide. What is its area?", "options": ["20 sq. m", "12 sq. m", "8 sq. m", "24 sq. m"], "correct_answer": "20 sq. m" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Pananda ng pag-iisa-isa**: una, halimbawa\n- **Pananda ng pagsusunod-sunod**: susunod, sa huli\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang gamit ng salitang \"una\" sa isang teksto?", "options": ["Nagpapakita ng pagkakasunod-sunod", "Naglalarawan ng damdamin", "Nagtatanong", "Wala itong gamit"], "correct_answer": "Nagpapakita ng pagkakasunod-sunod" },
+          { "question": "Alin ang hudyat ng pagsusunod-sunod?", "options": ["Susunod", "Maganda", "Malaki", "Ako"], "correct_answer": "Susunod" },
+          { "question": "Bakit mahalaga ang mga pananda sa teksto?", "options": ["Tumutulong maunawaan ang ayos ng teksto", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong maunawaan ang ayos ng teksto" },
+          { "question": "Alin ang halimbawa ng pananda?", "options": ["Halimbawa", "Malaki", "Tumakbo", "Ako"], "correct_answer": "Halimbawa" },
+          { "question": "Alin sa mga ito ang pananda ng huling hakbang?", "options": ["Sa huli", "Una", "Susunod", "Pangalawa"], "correct_answer": "Sa huli" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Nagbabago ang komunidad dahil sa **paglago ng populasyon** at **bagong teknolohiya**\n- Ihambing ang lumang at bagong larawan para makita ang pagbabago\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang isang dahilan ng pagbabago sa komunidad?", "options": ["Paglago ng populasyon", "Walang dahilan", "Pagkalimot ng kasaysayan", "Pagliit ng bilang ng tao"], "correct_answer": "Paglago ng populasyon" },
+          { "question": "Ano ang halimbawa ng imprastraktura?", "options": ["Kalsada at gusali", "Puno lamang", "Ilog lamang", "Ulap lamang"], "correct_answer": "Kalsada at gusali" },
+          { "question": "Paano tumutulong ang bagong teknolohiya sa komunidad?", "options": ["Mas mabilis na komunikasyon at transportasyon", "Walang tulong", "Nagpapabagal ng buhay", "Nagpapababa ng populasyon"], "correct_answer": "Mas mabilis na komunikasyon at transportasyon" },
+          { "question": "Paano natin makikita ang pagbabago sa isang lugar?", "options": ["Sa paghahambing ng lumang at bagong larawan", "Sa pagbabasa ng kwentong bayan lamang", "Sa pag-awit", "Sa paglalaro"], "correct_answer": "Sa paghahambing ng lumang at bagong larawan" },
+          { "question": "Ano ang epekto ng paglago ng populasyon?", "options": ["Mas maraming tao ang naninirahan", "Walang epekto", "Bumababa ang bilang ng tao", "Wala ni isa"], "correct_answer": "Mas maraming tao ang naninirahan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang pagsunog ng basura ay nakakasama sa hangin\n- Itapon ang basura nang tama upang alagaan ang kalikasan\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang nagbubuga ng usok na nakakasama?", "options": ["Pagsunog ng basura", "Pagtatanim ng puno", "Pagbabasa ng libro", "Paglalaro ng bola"], "correct_answer": "Pagsunog ng basura" },
+          { "question": "Ano ang epekto ng maling pagtatapon ng basura?", "options": ["Nakakasama sa kalikasan at mga hayop", "Walang epekto", "Nakabubuti sa kalikasan", "Nagpapaganda ng lugar"], "correct_answer": "Nakakasama sa kalikasan at mga hayop" },
+          { "question": "Ano ang dapat gawin sa basura imbes na sunugin?", "options": ["Itapon nang tama sa basurahan", "Iwanan kahit saan", "Sunugin pa rin", "Itago sa bahay"], "correct_answer": "Itapon nang tama sa basurahan" },
+          { "question": "Sino ang naaapektuhan ng mga pagbabagong ito?", "options": ["Parehong may buhay at walang buhay na bagay", "Tao lamang", "Hayop lamang", "Walang naaapektuhan"], "correct_answer": "Parehong may buhay at walang buhay na bagay" },
+          { "question": "Bakit dapat nating alagaan ang ating kapaligiran?", "options": ["Para maiwasan ang pagkasama nito", "Walang dahilan", "Para lang sundin ang guro", "Para makuha ang gantimpala"], "correct_answer": "Para maiwasan ang pagkasama nito" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Spacebar** = space | **Enter** = new line\n- **Backspace** = delete | **Shift** = capital letters\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What does the spacebar do?", "options": ["Adds a space between words", "Deletes letters", "Types numbers", "Moves the cursor"], "correct_answer": "Adds a space between words" },
+          { "question": "What does the Enter key do?", "options": ["Starts a new line or confirms an action", "Deletes letters", "Adds a space", "Types numbers"], "correct_answer": "Starts a new line or confirms an action" },
+          { "question": "What does the Backspace key do?", "options": ["Removes typed characters", "Adds a space", "Types numbers", "Moves the cursor"], "correct_answer": "Removes typed characters" },
+          { "question": "What does the Shift key help you do?", "options": ["Type capital letters or symbols", "Delete text", "Add space", "Move the cursor"], "correct_answer": "Type capital letters or symbols" },
+          { "question": "What do arrow keys do?", "options": ["Move the cursor up, down, left, or right", "Delete text", "Add space", "Type numbers"], "correct_answer": "Move the cursor up, down, left, or right" }
+        ]
+      }
+    }
+  }
+}

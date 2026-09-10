@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-07-19",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 5: Friendly Letters!\n\nLet's learn to write a proper friendly letter! ✉️\n\n## ✉️ Parts of a Friendly Letter\n- **Heading** — your address and the date\n- **Salutation** — the greeting, like \"Dear Lola,\"\n- **Body** — the main message\n- **Closing** — like \"Love,\" followed by your name\n\n## 📝 Letter of Excuse\n- Used to explain an **absence**, like being sick.\n- **Example:** *\"I was unable to attend school yesterday because I had a fever.\"*\n\n## 🎉 Letter of Invitation\n- Used to **invite** someone to an event, like a birthday party.\n\nA well-written letter shows care and clear communication! 🌟",
+        "quiz": [
+          { "question": "What part of a letter includes the greeting?", "options": ["Salutation", "Heading", "Body", "Closing"], "correct_answer": "Salutation" },
+          { "question": "What part of a letter has the main message?", "options": ["Body", "Heading", "Salutation", "Closing"], "correct_answer": "Body" },
+          { "question": "What is a letter of excuse used for?", "options": ["Explaining an absence", "Inviting someone to a party", "Saying thank you", "Giving directions"], "correct_answer": "Explaining an absence" },
+          { "question": "What is a letter of invitation used for?", "options": ["Inviting someone to an event", "Explaining an absence", "Giving a command", "Asking a question"], "correct_answer": "Inviting someone to an event" },
+          { "question": "What part of a letter includes your address and date?", "options": ["Heading", "Body", "Salutation", "Closing"], "correct_answer": "Heading" },
+          { "question": "Which is an example of a closing?", "options": ["Love,", "Dear Lola,", "I was sick.", "January 1, 2026"], "correct_answer": "Love," }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 4: Numbers up to 1,000,000!\n\nLet's learn to read and write really big numbers! 🔢\n\n## 🔢 Numbers up to 1,000,000\n- We can read and write numbers up to **one million** in numerals and words.\n- **Example:** 385,204 = *three hundred eighty-five thousand, two hundred four*\n\n## 🔟 Place Value in 6-Digit Numbers\n- **Example:** In 725,469, the 7 is in the **hundred thousands** place (worth 700,000).\n\n## ⚖️ Comparing Numbers\n- Use **=, <, >** to compare: 542,300 **>** 524,300\n\nGreat work with big numbers! 🌟",
+        "quiz": [
+          { "question": "How do you write 385,204 in words?", "options": ["Three hundred eighty-five thousand, two hundred four", "Thirty-eight thousand five hundred", "Three million", "Eighty-five thousand"], "correct_answer": "Three hundred eighty-five thousand, two hundred four" },
+          { "question": "In 725,469, what place is the 7 in?", "options": ["Hundred thousands", "Ten thousands", "Thousands", "Hundreds"], "correct_answer": "Hundred thousands" },
+          { "question": "Which is bigger: 542,300 or 524,300?", "options": ["542,300", "524,300", "They are equal", "Cannot tell"], "correct_answer": "542,300" },
+          { "question": "What is the value of 7 in 725,469?", "options": ["700,000", "70,000", "7,000", "70"], "correct_answer": "700,000" },
+          { "question": "What is the largest number we're learning up to?", "options": ["1,000,000", "10,000", "100", "100,000,000"], "correct_answer": "1,000,000" },
+          { "question": "Which symbol means \"greater than\"?", "options": [">", "<", "=", "+"], "correct_answer": ">" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 4: Talatang Naglalarawan\n\nMatuto tayong sumulat ng talatang naglalarawan! ✍️\n\n## 🎨 Ano ang Talatang Naglalarawan (Deskriptibo)?\n- Ang **talatang deskriptibo** ay naglalarawan ng isang tauhan, lugar, o pangyayari nang detalyado.\n- Gumagamit ito ng mga salitang naglalarawan (pang-uri) para mas malinaw ang larawan sa isip ng mambabasa.\n\n## ✍️ Mga Hakbang sa Pagsulat\n1. Piliin ang paksa (tauhan, lugar, o pangyayari).\n2. Isipin ang mga **detalye** — hugis, kulay, tunog, damdamin.\n3. Isulat ang mga detalye gamit ang **matalinghagang salita**.\n\n## 🔍 Halimbawa\n- *\"Ang aming bahay-kubo ay maliit ngunit matibay, may mga bintanang bukas na nagpapasok ng malamig na hangin.\"*\n\nSubukan mong ilarawan ang isang paboritong lugar! 🌟",
+        "quiz": [
+          { "question": "Ano ang talatang deskriptibo?", "options": ["Naglalarawan ng tauhan, lugar, o pangyayari nang detalyado", "Nagsasabi ng balita", "Nagbibigay ng panuto", "Nagtatanong lamang"], "correct_answer": "Naglalarawan ng tauhan, lugar, o pangyayari nang detalyado" },
+          { "question": "Anong uri ng salita ang ginagamit sa paglalarawan?", "options": ["Pang-uri", "Pandiwa lamang", "Pang-ukol lamang", "Pangatnig lamang"], "correct_answer": "Pang-uri" },
+          { "question": "Ano ang unang hakbang sa pagsulat ng talatang deskriptibo?", "options": ["Piliin ang paksa", "Isulat kaagad", "Kalimutan ang paksa", "Magbasa ng ibang libro"], "correct_answer": "Piliin ang paksa" },
+          { "question": "Ano ang isinasaalang-alang sa paglalarawan?", "options": ["Hugis, kulay, tunog, damdamin", "Bilang lamang", "Presyo lamang", "Petsa lamang"], "correct_answer": "Hugis, kulay, tunog, damdamin" },
+          { "question": "Ano ang gamit ng matalinghagang salita sa paglalarawan?", "options": ["Para mas malinaw ang larawan sa isip ng mambabasa", "Para hirapan ang mambabasa", "Walang gamit", "Para paikliin ang teksto"], "correct_answer": "Para mas malinaw ang larawan sa isip ng mambabasa" },
+          { "question": "Alin ang halimbawa ng deskriptibong pangungusap?", "options": ["Ang aming bahay-kubo ay maliit ngunit matibay.", "Kumain ako kanina.", "Ano ang oras ngayon?", "Pumunta ka roon."], "correct_answer": "Ang aming bahay-kubo ay maliit ngunit matibay." }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 5: Changes from Temperature!\n\nLet's learn how heat changes materials! 🔥\n\n## 🔥 Temperature Changes Materials\n- When materials are heated, their properties can **change permanently**.\n- **Example 1:** Burning wood turns it into ash — this cannot be reversed.\n- **Example 2:** Burning coal releases smoke and changes its chemical makeup.\n\n## ⚠️ Minimizing Harmful Changes\n- **Restrict burning** of waste materials to avoid air pollution.\n- **Handle reactive materials carefully**, like chemicals that can cause burns.\n\n## 🔍 Why This Matters\n- Understanding these changes helps us protect our **health and environment**.\n\nBe a safe and thoughtful scientist! 🌟",
+        "quiz": [
+          { "question": "What happens when wood is burned?", "options": ["It turns into ash permanently", "It turns back into a tree", "Nothing changes", "It turns into water"], "correct_answer": "It turns into ash permanently" },
+          { "question": "What does burning coal release?", "options": ["Smoke and changed chemical makeup", "Only water", "Nothing", "Only light"], "correct_answer": "Smoke and changed chemical makeup" },
+          { "question": "Why should we restrict burning waste materials?", "options": ["To avoid air pollution", "It has no reason", "To make more smoke", "To save money only"], "correct_answer": "To avoid air pollution" },
+          { "question": "How should we handle reactive materials?", "options": ["Carefully", "Carelessly", "Without any thought", "By ignoring safety"], "correct_answer": "Carefully" },
+          { "question": "Why is understanding these changes important?", "options": ["To protect our health and environment", "For no reason", "To create more pollution", "It has no importance"], "correct_answer": "To protect our health and environment" },
+          { "question": "Can burnt wood turn back into its original form?", "options": ["No, the change is permanent", "Yes, easily", "Yes, with water", "Yes, with more heat"], "correct_answer": "No, the change is permanent" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 5: Heyograpiyang Pantao\n\nAlamin natin ang tungkol sa populasyon ng Pilipinas! 👥\n\n## 👥 Ano ang Heyograpiyang Pantao?\n- Ito ay ang pag-aaral kung paano **ipinamamahagi ang mga tao** sa isang bansa.\n\n## 📊 Populasyon ng Pilipinas\n- Ang Pilipinas ay may **mahigit 110 milyong** mamamayan.\n- Mas maraming tao ang naninirahan sa **lungsod** kaysa sa liblib na lugar.\n\n## 🔍 Bakit Hindi Pantay ang Pamamahagi?\n- Ang mga tao ay naninirahan malapit sa **trabaho, paaralan, at serbisyo**.\n\nMahalagang maunawaan ang pamamahagi ng ating populasyon! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang heyograpiyang pantao?", "options": ["Pag-aaral kung paano ipinamamahagi ang mga tao", "Pag-aaral ng anyong-lupa lamang", "Pag-aaral ng panahon", "Pag-aaral ng hayop"], "correct_answer": "Pag-aaral kung paano ipinamamahagi ang mga tao" },
+          { "question": "Humigit-kumulang ilan ang populasyon ng Pilipinas?", "options": ["Mahigit 110 milyon", "1,000", "1 milyon", "5 bilyon"], "correct_answer": "Mahigit 110 milyon" },
+          { "question": "Saan mas maraming tao ang naninirahan?", "options": ["Lungsod", "Liblib na lugar", "Parehong dami", "Walang tao kahit saan"], "correct_answer": "Lungsod" },
+          { "question": "Bakit naninirahan ang tao malapit sa lungsod?", "options": ["Malapit sa trabaho, paaralan, at serbisyo", "Walang dahilan", "Random lamang", "Dahil sa panahon lamang"], "correct_answer": "Malapit sa trabaho, paaralan, at serbisyo" },
+          { "question": "Ano ang tawag sa hindi pantay na pamamahagi ng populasyon?", "options": ["Hindi pantay na pamamahagi ng tao", "Pantay na pamamahagi", "Walang populasyon", "Wala sa mga ito"], "correct_answer": "Hindi pantay na pamamahagi ng tao" },
+          { "question": "Bakit mahalagang pag-aralan ang populasyon?", "options": ["Para maunawaan natin ang ating bansa", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Basic Computer Operations!\n\nAlamin natin ang mga pangunahing gawain sa computer! 🖥️\n\n## 🔛 Pag-boot at Pag-shutdown\n- **Booting** — proseso ng pagsisimula ng computer\n- **Shutting down** — tamang paraan ng pagpatay ng computer\n\n## ⌨️ Keyboarding Techniques\n- Gamitin ang **home row keys** (ASDF, JKL;) para sa mabilis na pag-type.\n\n## 🖱️ Mouse Techniques\n- **Single-click, double-click, right-click, drag** — mga pangunahing galaw ng mouse.\n\nMahusay na paraan para gamitin ang computer! 🌟",
+        "quiz": [
+          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay ng computer", "Isang uri ng software", "Isang uri ng laro"], "correct_answer": "Proseso ng pagsisimula ng computer" },
+          { "question": "Ano ang tamang paraan ng pagpatay ng computer?", "options": ["Shutting down", "Unplugging agad", "Pagbagsak sa sahig", "Walang tamang paraan"], "correct_answer": "Shutting down" },
+          { "question": "Aling keys ang home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
+          { "question": "Ano ang double-click?", "options": ["Pag-click ng dalawang beses nang mabilis", "Pag-click ng isang beses", "Pag-drag ng mouse", "Pag-scroll"], "correct_answer": "Pag-click ng dalawang beses nang mabilis" },
+          { "question": "Ano ang gamit ng right-click?", "options": ["Nagpapakita ng menu ng mga opsyon", "Nagbubukas agad ng file", "Nagpapatay ng computer", "Walang gamit"], "correct_answer": "Nagpapakita ng menu ng mga opsyon" },
+          { "question": "Bakit mahalaga ang tamang pag-shutdown?", "options": ["Para hindi masira ang computer", "Walang dahilan", "Para tumagal ang laro", "Wala itong gamit"], "correct_answer": "Para hindi masira ang computer" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Week 4: Personal Hygiene!\n\nLet's learn how to take care of our bodies! 🧼\n\n## 🧼 Proper Hygiene Practices\n- **Handwashing** — before eating, after using the toilet\n- **Oral care** — brushing teeth twice a day\n- **Body care** — daily bathing, wearing clean clothes\n\n## 🔍 Why Hygiene Matters\n- Good hygiene keeps us **healthy** and prevents the spread of germs.\n\n## 💡 Building Habits\n- Make hygiene practices part of your **daily routine**.\n\nTaking care of your body helps you feel your best! 🌟",
+        "quiz": [
+          { "question": "When should you wash your hands?", "options": ["Before eating and after using the toilet", "Only once a week", "Never", "Only when visible dirt shows"], "correct_answer": "Before eating and after using the toilet" },
+          { "question": "How many times a day should you brush your teeth?", "options": ["Twice a day", "Once a month", "Never", "Once a year"], "correct_answer": "Twice a day" },
+          { "question": "What does good hygiene help prevent?", "options": ["The spread of germs", "Nothing", "Learning", "Growth"], "correct_answer": "The spread of germs" },
+          { "question": "What should hygiene practices become part of?", "options": ["Your daily routine", "A once-a-year event", "Nothing important", "Someone else's job"], "correct_answer": "Your daily routine" },
+          { "question": "Which is an example of body care?", "options": ["Daily bathing", "Never washing", "Wearing dirty clothes", "Skipping baths"], "correct_answer": "Daily bathing" },
+          { "question": "Why is personal health important?", "options": ["It keeps us healthy and active", "It has no importance", "Only adults need it", "It's optional"], "correct_answer": "It keeps us healthy and active" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 4: Mga Taong Matagumpay sa Paghahalaman!\n\nAlamin natin ang mga katangian ng matagumpay na magsasaka! 🌾\n\n## 🌾 Mga Matagumpay na Magsasaka at Entrepreneur\n- Maraming Pilipino ang naging matagumpay sa agrikultura sa pamamagitan ng **sipag at dedikasyon**.\n\n## 💪 Mga Katangian ng Tagumpay\n- **Masipag** — laging handang magtrabaho\n- **Maparaan** — kayang lumikha ng solusyon sa problema\n- **Matiyaga** — hindi sumusuko kahit mahirap ang gawain\n\n## 🔍 Aral na Natutunan\n- Ang tagumpay sa agrikultura ay nangangailangan ng **dedikasyon at determinasyon**.\n\nMaaari kang maging matagumpay rin sa hinaharap! 🌟",
+        "quiz": [
+          { "question": "Ano ang katangian ng isang matagumpay na magsasaka?", "options": ["Masipag", "Tamad", "Walang pakialam", "Ayaw magtrabaho"], "correct_answer": "Masipag" },
+          { "question": "Ano ang ibig sabihin ng \"maparaan\"?", "options": ["Kayang lumikha ng solusyon sa problema", "Laging natatalo", "Ayaw sumubok", "Walang plano"], "correct_answer": "Kayang lumikha ng solusyon sa problema" },
+          { "question": "Ano ang ibig sabihin ng \"matiyaga\"?", "options": ["Hindi sumusuko kahit mahirap ang gawain", "Sumusuko agad", "Ayaw magsimula", "Walang pasensya"], "correct_answer": "Hindi sumusuko kahit mahirap ang gawain" },
+          { "question": "Ano ang kailangan para maging matagumpay sa agrikultura?", "options": ["Dedikasyon at determinasyon", "Swerte lamang", "Wala", "Kasinungalingan"], "correct_answer": "Dedikasyon at determinasyon" },
+          { "question": "Sino ang naging matagumpay sa agrikultura sa Pilipinas?", "options": ["Maraming Pilipinong magsasaka", "Walang sinuman", "Estranghero lamang", "Wala kahit isa"], "correct_answer": "Maraming Pilipinong magsasaka" },
+          { "question": "Bakit mahalagang pag-aralan ang mga matagumpay na magsasaka?", "options": ["Para maging inspirasyon natin", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maging inspirasyon natin" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 5: Karapatan ng Kapuwa-Bata\n\nAlamin natin ang mga karapatan ng bawat bata! 🌟\n\n## 👶 Mga Karapatan ng Bata\n- Bawat bata ay may karapatang **mabuhay, mag-aral, at protektahan**.\n- May karapatan din ang bata na **maglaro at magpahayag** ng kanyang opinyon.\n\n## 🤝 Pakikilahok sa Gawaing Kumikilala sa Karapatan\n- Sumali sa mga gawaing pumapaboran sa karapatan ng kapwa-bata, tulad ng pag-iwas sa pambu-bully.\n\n## 💛 Bakit Ito Mahalaga?\n- Ang paggalang sa karapatan ng bawat bata ay nagpapakita ng **pagmamalasakit**.\n\nIgalang ang karapatan ng bawat bata! 🌟",
+        "quiz": [
+          { "question": "Ano ang karapatan ng bawat bata?", "options": ["Mabuhay, mag-aral, at protektahan", "Walang karapatan", "Magtrabaho lamang", "Manatiling tahimik lamang"], "correct_answer": "Mabuhay, mag-aral, at protektahan" },
+          { "question": "Alin ang halimbawa ng paggalang sa karapatan ng kapwa-bata?", "options": ["Pag-iwas sa pambu-bully", "Panunukso", "Pananakit", "Kawalang-interes"], "correct_answer": "Pag-iwas sa pambu-bully" },
+          { "question": "Ano pang karapatan mayroon ang bata?", "options": ["Maglaro at magpahayag ng opinyon", "Walang karapatan", "Magtrabaho lamang", "Manahimik lamang"], "correct_answer": "Maglaro at magpahayag ng opinyon" },
+          { "question": "Ano ang ipinapakita ng paggalang sa karapatan ng bata?", "options": ["Pagmamalasakit", "Kawalang-interes", "Pang-aapi", "Kapabayaan"], "correct_answer": "Pagmamalasakit" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Magalang", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Magalang" },
+          { "question": "Paano tayo makikilahok sa gawaing kumikilala sa karapatan ng bata?", "options": ["Sa pagsali sa mga gawaing pumapaboran dito", "Sa pag-iwas dito", "Sa hindi pagpansin", "Sa panunukso"], "correct_answer": "Sa pagsali sa mga gawaing pumapaboran dito" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of friendly letters!\n\n- Parts: **heading, salutation, body, closing**\n- Letter of excuse: explains absence\n- Letter of invitation: invites to event\n\nGreat letter writing! ⭐",
+        "quiz": [
+          { "question": "What part of a letter includes the greeting?", "options": ["Salutation", "Heading", "Body", "Closing"], "correct_answer": "Salutation" },
+          { "question": "What part of a letter has the main message?", "options": ["Body", "Heading", "Salutation", "Closing"], "correct_answer": "Body" },
+          { "question": "What is a letter of excuse used for?", "options": ["Explaining an absence", "Inviting someone to a party", "Saying thank you", "Giving directions"], "correct_answer": "Explaining an absence" },
+          { "question": "What is a letter of invitation used for?", "options": ["Inviting someone to an event", "Explaining an absence", "Giving a command", "Asking a question"], "correct_answer": "Inviting someone to an event" },
+          { "question": "What part of a letter includes your address and date?", "options": ["Heading", "Body", "Salutation", "Closing"], "correct_answer": "Heading" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of big numbers!\n\n- 385,204 = **three hundred eighty-five thousand, two hundred four**\n- Compare using **=, <, >**\n\nGreat work with big numbers! 🌟",
+        "quiz": [
+          { "question": "How do you write 385,204 in words?", "options": ["Three hundred eighty-five thousand, two hundred four", "Thirty-eight thousand five hundred", "Three million", "Eighty-five thousand"], "correct_answer": "Three hundred eighty-five thousand, two hundred four" },
+          { "question": "In 725,469, what place is the 7 in?", "options": ["Hundred thousands", "Ten thousands", "Thousands", "Hundreds"], "correct_answer": "Hundred thousands" },
+          { "question": "Which is bigger: 542,300 or 524,300?", "options": ["542,300", "524,300", "They are equal", "Cannot tell"], "correct_answer": "542,300" },
+          { "question": "What is the value of 7 in 725,469?", "options": ["700,000", "70,000", "7,000", "70"], "correct_answer": "700,000" },
+          { "question": "What is the largest number we're learning up to?", "options": ["1,000,000", "10,000", "100", "100,000,000"], "correct_answer": "1,000,000" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Talatang deskriptibo** = naglalarawan nang detalyado\n- Isipin ang hugis, kulay, tunog, damdamin\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang talatang deskriptibo?", "options": ["Naglalarawan ng tauhan, lugar, o pangyayari nang detalyado", "Nagsasabi ng balita", "Nagbibigay ng panuto", "Nagtatanong lamang"], "correct_answer": "Naglalarawan ng tauhan, lugar, o pangyayari nang detalyado" },
+          { "question": "Anong uri ng salita ang ginagamit sa paglalarawan?", "options": ["Pang-uri", "Pandiwa lamang", "Pang-ukol lamang", "Pangatnig lamang"], "correct_answer": "Pang-uri" },
+          { "question": "Ano ang isinasaalang-alang sa paglalarawan?", "options": ["Hugis, kulay, tunog, damdamin", "Bilang lamang", "Presyo lamang", "Petsa lamang"], "correct_answer": "Hugis, kulay, tunog, damdamin" },
+          { "question": "Ano ang unang hakbang sa pagsulat ng talatang deskriptibo?", "options": ["Piliin ang paksa", "Isulat kaagad", "Kalimutan ang paksa", "Magbasa ng ibang libro"], "correct_answer": "Piliin ang paksa" },
+          { "question": "Alin ang halimbawa ng deskriptibong pangungusap?", "options": ["Ang aming bahay-kubo ay maliit ngunit matibay.", "Kumain ako kanina.", "Ano ang oras ngayon?", "Pumunta ka roon."], "correct_answer": "Ang aming bahay-kubo ay maliit ngunit matibay." }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Ang Pilipinas ay may mahigit **110 milyong** mamamayan\n- Mas maraming tao sa **lungsod**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang heyograpiyang pantao?", "options": ["Pag-aaral kung paano ipinamamahagi ang mga tao", "Pag-aaral ng anyong-lupa lamang", "Pag-aaral ng panahon", "Pag-aaral ng hayop"], "correct_answer": "Pag-aaral kung paano ipinamamahagi ang mga tao" },
+          { "question": "Humigit-kumulang ilan ang populasyon ng Pilipinas?", "options": ["Mahigit 110 milyon", "1,000", "1 milyon", "5 bilyon"], "correct_answer": "Mahigit 110 milyon" },
+          { "question": "Saan mas maraming tao ang naninirahan?", "options": ["Lungsod", "Liblib na lugar", "Parehong dami", "Walang tao kahit saan"], "correct_answer": "Lungsod" },
+          { "question": "Bakit naninirahan ang tao malapit sa lungsod?", "options": ["Malapit sa trabaho, paaralan, at serbisyo", "Walang dahilan", "Random lamang", "Dahil sa panahon lamang"], "correct_answer": "Malapit sa trabaho, paaralan, at serbisyo" },
+          { "question": "Bakit mahalagang pag-aralan ang populasyon?", "options": ["Para maunawaan natin ang ating bansa", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Para maunawaan natin ang ating bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Booting** = pagsisimula | **Shutting down** = tamang pagpatay\n- Home row: **ASDF, JKL;**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay ng computer", "Isang uri ng software", "Isang uri ng laro"], "correct_answer": "Proseso ng pagsisimula ng computer" },
+          { "question": "Ano ang tamang paraan ng pagpatay ng computer?", "options": ["Shutting down", "Unplugging agad", "Pagbagsak sa sahig", "Walang tamang paraan"], "correct_answer": "Shutting down" },
+          { "question": "Aling keys ang home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
+          { "question": "Ano ang double-click?", "options": ["Pag-click ng dalawang beses nang mabilis", "Pag-click ng isang beses", "Pag-drag ng mouse", "Pag-scroll"], "correct_answer": "Pag-click ng dalawang beses nang mabilis" },
+          { "question": "Bakit mahalaga ang tamang pag-shutdown?", "options": ["Para hindi masira ang computer", "Walang dahilan", "Para tumagal ang laro", "Wala itong gamit"], "correct_answer": "Para hindi masira ang computer" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang pagsunog ng kahoy ay permanenteng pagbabago\n- Iwasan ang pagsunog ng basura para sa malinis na hangin\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What happens when wood is burned?", "options": ["It turns into ash permanently", "It turns back into a tree", "Nothing changes", "It turns into water"], "correct_answer": "It turns into ash permanently" },
+          { "question": "Why should we restrict burning waste materials?", "options": ["To avoid air pollution", "It has no reason", "To make more smoke", "To save money only"], "correct_answer": "To avoid air pollution" },
+          { "question": "How should we handle reactive materials?", "options": ["Carefully", "Carelessly", "Without any thought", "By ignoring safety"], "correct_answer": "Carefully" },
+          { "question": "Why is understanding these changes important?", "options": ["To protect our health and environment", "For no reason", "To create more pollution", "It has no importance"], "correct_answer": "To protect our health and environment" },
+          { "question": "Can burnt wood turn back into its original form?", "options": ["No, the change is permanent", "Yes, easily", "Yes, with water", "Yes, with more heat"], "correct_answer": "No, the change is permanent" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Handwashing, oral care, body care** — hygiene practices\n- Good hygiene prevents the spread of germs\n\nGreat hygiene habits! 🌟",
+        "quiz": [
+          { "question": "When should you wash your hands?", "options": ["Before eating and after using the toilet", "Only once a week", "Never", "Only when visible dirt shows"], "correct_answer": "Before eating and after using the toilet" },
+          { "question": "How many times a day should you brush your teeth?", "options": ["Twice a day", "Once a month", "Never", "Once a year"], "correct_answer": "Twice a day" },
+          { "question": "What does good hygiene help prevent?", "options": ["The spread of germs", "Nothing", "Learning", "Growth"], "correct_answer": "The spread of germs" },
+          { "question": "Which is an example of body care?", "options": ["Daily bathing", "Never washing", "Wearing dirty clothes", "Skipping baths"], "correct_answer": "Daily bathing" },
+          { "question": "Why is personal health important?", "options": ["It keeps us healthy and active", "It has no importance", "Only adults need it", "It's optional"], "correct_answer": "It keeps us healthy and active" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- Matagumpay na magsasaka: **masipag, maparaan, matiyaga**\n- Kailangan ang dedikasyon at determinasyon\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang katangian ng isang matagumpay na magsasaka?", "options": ["Masipag", "Tamad", "Walang pakialam", "Ayaw magtrabaho"], "correct_answer": "Masipag" },
+          { "question": "Ano ang ibig sabihin ng \"maparaan\"?", "options": ["Kayang lumikha ng solusyon sa problema", "Laging natatalo", "Ayaw sumubok", "Walang plano"], "correct_answer": "Kayang lumikha ng solusyon sa problema" },
+          { "question": "Ano ang ibig sabihin ng \"matiyaga\"?", "options": ["Hindi sumusuko kahit mahirap ang gawain", "Sumusuko agad", "Ayaw magsimula", "Walang pasensya"], "correct_answer": "Hindi sumusuko kahit mahirap ang gawain" },
+          { "question": "Ano ang kailangan para maging matagumpay sa agrikultura?", "options": ["Dedikasyon at determinasyon", "Swerte lamang", "Wala", "Kasinungalingan"], "correct_answer": "Dedikasyon at determinasyon" },
+          { "question": "Bakit mahalagang pag-aralan ang mga matagumpay na magsasaka?", "options": ["Para maging inspirasyon natin", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maging inspirasyon natin" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Bawat bata ay may karapatang **mabuhay, mag-aral, protektahan**\n- Iwasan ang pambu-bully\n\nIgalang ang karapatan ng bawat bata! 🌟",
+        "quiz": [
+          { "question": "Ano ang karapatan ng bawat bata?", "options": ["Mabuhay, mag-aral, at protektahan", "Walang karapatan", "Magtrabaho lamang", "Manatiling tahimik lamang"], "correct_answer": "Mabuhay, mag-aral, at protektahan" },
+          { "question": "Alin ang halimbawa ng paggalang sa karapatan ng kapwa-bata?", "options": ["Pag-iwas sa pambu-bully", "Panunukso", "Pananakit", "Kawalang-interes"], "correct_answer": "Pag-iwas sa pambu-bully" },
+          { "question": "Ano pang karapatan mayroon ang bata?", "options": ["Maglaro at magpahayag ng opinyon", "Walang karapatan", "Magtrabaho lamang", "Manahimik lamang"], "correct_answer": "Maglaro at magpahayag ng opinyon" },
+          { "question": "Ano ang ipinapakita ng paggalang sa karapatan ng bata?", "options": ["Pagmamalasakit", "Kawalang-interes", "Pang-aapi", "Kapabayaan"], "correct_answer": "Pagmamalasakit" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Magalang", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Magalang" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-06-14",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 Welcome Back! Let's Get to Know Each Other\n\nHooray, a brand-new school year! This week we practice talking and listening politely with our new classmates and teacher. 💛\n\n## 👋 Greetings and Introductions\n- Use **polite greetings** at different times of day: *Good morning!*, *Good afternoon!*\n- Introduce yourself with a simple sentence: **\"My name is ___. I am ___ years old.\"**\n  - Example: *My name is Ana. I am 7 years old.*\n- Ask a new friend about themselves: **\"What is your name?\"**\n\n## 🗣️ Speaking Nicely\n- Say **\"please\"** when asking for something and **\"thank you\"** when you receive it.\n- Say **\"excuse me\"** when you need to pass by or interrupt politely.\n\n## 👂 Listening Well\n- Look at the person talking and **listen quietly** before you speak.\n- Raise your hand when you want to answer or ask a question in class.\n\nWe are so happy you're here — let's have an amazing school year together! ⭐",
+        "quiz": [
+          { "question": "What do you say when you meet your teacher in the morning?", "options": ["Good morning!", "Good night!", "Goodbye!", "See you!"], "correct_answer": "Good morning!" },
+          { "question": "Which sentence correctly introduces yourself?", "options": ["My name is Ben.", "Name Ben is.", "Ben name my.", "Is name Ben my."], "correct_answer": "My name is Ben." },
+          { "question": "What should you say after someone gives you something?", "options": ["Thank you", "Excuse me", "Goodbye", "Please"], "correct_answer": "Thank you" },
+          { "question": "What word do you use when you politely ask for something?", "options": ["Please", "Thanks", "Sorry", "Hello"], "correct_answer": "Please" },
+          { "question": "What should you do while your teacher is talking?", "options": ["Listen quietly", "Talk to a friend", "Play with toys", "Walk around"], "correct_answer": "Listen quietly" },
+          { "question": "What do you say when you need to pass by someone politely?", "options": ["Excuse me", "Goodbye", "Please", "Thank you"], "correct_answer": "Excuse me" },
+          { "question": "What should you do before you speak in class?", "options": ["Raise your hand", "Shout the answer", "Stand up quickly", "Tap the table"], "correct_answer": "Raise your hand" },
+          { "question": "Which question do you ask to learn a new friend's name?", "options": ["What is your name?", "Where is your bag?", "How old is the dog?", "What time is it?"], "correct_answer": "What is your name?" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Welcome Back to Math!\n\nLet's warm up our math brains with a quick review before we learn new things! 🧠\n\n## 🔟 Counting and Numbers\n- We can count objects **one by one**: 1, 2, 3, 4, 5...\n- Numbers can be written as **numerals** (5) or **words** (five).\n- **Example 1:** Count the apples: 🍎🍎🍎 = **3 apples**\n- **Example 2:** Five toys written as a numeral is **5**.\n\n## 🔷 Shapes All Around\n- A **circle** is round with no corners.\n- A **square** has 4 equal sides and 4 corners.\n- A **triangle** has 3 sides and 3 corners.\n- A **rectangle** has 4 sides — two long, two short.\n\n## ➕ Simple Addition Review\n- Adding means **putting groups together**.\n- **Example:** 2 balls + 3 balls = **5 balls**\n\nGreat job warming up! You're ready for a fantastic year of Math! 🌟",
+        "quiz": [
+          { "question": "Count the stars: ⭐⭐⭐⭐. How many are there?", "options": ["4", "3", "5", "6"], "correct_answer": "4" },
+          { "question": "Which shape has 3 sides and 3 corners?", "options": ["Triangle", "Square", "Circle", "Rectangle"], "correct_answer": "Triangle" },
+          { "question": "What is the word for the numeral 7?", "options": ["Seven", "Six", "Eight", "Five"], "correct_answer": "Seven" },
+          { "question": "Which shape is round with no corners?", "options": ["Circle", "Square", "Triangle", "Rectangle"], "correct_answer": "Circle" },
+          { "question": "3 apples + 2 apples = ?", "options": ["5 apples", "4 apples", "6 apples", "3 apples"], "correct_answer": "5 apples" },
+          { "question": "How many sides does a square have?", "options": ["4", "3", "5", "2"], "correct_answer": "4" },
+          { "question": "Which shape has two long sides and two short sides?", "options": ["Rectangle", "Circle", "Triangle", "Square"], "correct_answer": "Rectangle" },
+          { "question": "What does adding mean?", "options": ["Putting groups together", "Taking things away", "Making things smaller", "Erasing numbers"], "correct_answer": "Putting groups together" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Pagbati at Pagpapakilala\n\nMasaya ang pagbabalik-eskwela! Balikan natin kung paano bumati at magpakilala nang magalang. 💛\n\n## 👋 Mga Pagbati\n- **Magandang umaga** — sinasabi sa umaga\n- **Magandang hapon** — sinasabi sa hapon\n- **Magandang gabi** — sinasabi sa gabi\n\n## 🙋 Pagpapakilala sa Sarili\n- Gamitin ang payak na pangungusap: **\"Ako si ___. Ako ay ___ taong gulang.\"**\n  - Halimbawa: *Ako si Nena. Ako ay 7 taong gulang.*\n- Magtanong nang magalang sa kaklase: **\"Ano ang pangalan mo?\"**\n\n## 🤝 Magalang na Pananalita\n- Gamitin ang **\"po\"** at **\"opo\"** kapag kinakausap ang guro o nakatatanda.\n- Sabihin ang **\"salamat\"** kapag may natanggap na tulong.\n- Sabihin ang **\"paumanhin\"** kapag nagkamali.\n\nMasayang pagbati sa bagong taon ng pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang sinasabi natin kapag umaga?", "options": ["Magandang umaga", "Magandang hapon", "Magandang gabi", "Paalam"], "correct_answer": "Magandang umaga" },
+          { "question": "Aling pangungusap ang tamang pagpapakilala?", "options": ["Ako si Ben.", "Si Ben ako.", "Ben si ako.", "Ako Ben si."], "correct_answer": "Ako si Ben." },
+          { "question": "Anong salita ang ginagamit para magalang sa nakatatanda?", "options": ["Po at opo", "Oo at hindi", "Salamat lang", "Wala"], "correct_answer": "Po at opo" },
+          { "question": "Ano ang sinasabi natin kapag may natanggap na tulong?", "options": ["Salamat", "Paalam", "Paumanhin", "Opo"], "correct_answer": "Salamat" },
+          { "question": "Ano ang sinasabi natin kapag nagkamali tayo?", "options": ["Paumanhin", "Salamat", "Magandang umaga", "Po"], "correct_answer": "Paumanhin" },
+          { "question": "Ano ang tanong para malaman ang pangalan ng bagong kaibigan?", "options": ["Ano ang pangalan mo?", "Saan ka pupunta?", "Ilang taon ka na?", "Ano ang gusto mo?"], "correct_answer": "Ano ang pangalan mo?" },
+          { "question": "Ano ang sinasabi natin sa gabi?", "options": ["Magandang gabi", "Magandang umaga", "Magandang hapon", "Kumusta ka"], "correct_answer": "Magandang gabi" },
+          { "question": "Bakit mahalaga ang paggamit ng 'po' at 'opo'?", "options": ["Nagpapakita ito ng paggalang", "Nagpapatawa ito", "Wala itong kahulugan", "Ginagamit lang sa laro"], "correct_answer": "Nagpapakita ito ng paggalang" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nWelcome to Science! Simulan natin sa pagiging mahusay na **tagamasid** (observer) gamit ang ating limang pandama. 🧪\n\n## 👀 Ano ang Ginagawa ng Siyentipiko?\n- Ang siyentipiko ay **nagmamasid** (observes), **nagtatanong** (asks questions), at **sumusubok** (tests) para matuto tungkol sa mundo.\n- **Halimbawa:** Napansin mo bang mainit ang tubig? Iyan ay isang **obserbasyon**!\n\n## 👁️👂👃👅✋ Ating Limang Pandama\n- **Paningin (Mata)** — nakakakita tayo ng kulay at hugis\n- **Pandinig (Tainga)** — naririnig natin ang mga tunog\n- **Pang-amoy (Ilong)** — naaamoy natin ang mga bagay\n- **Panlasa (Dila)** — natitikman natin ang lasa ng pagkain\n- **Pandama (Balat)** — nararamdaman natin ang init, lamig, o texture\n\n**Halimbawa:** Kapag kumakain ka ng mangga, ginagamit mo ang paningin (kulay), pang-amoy (bango), at panlasa (tamis)!\n\nHanda ka na bang maging isang mahusay na siyentipiko sa taong ito? 🌟",
+        "quiz": [
+          { "question": "Anong ginagawa ng isang siyentipiko?", "options": ["Nagmamasid at nagtatanong", "Natutulog buong araw", "Naglalaro lamang", "Wala ni isa"], "correct_answer": "Nagmamasid at nagtatanong" },
+          { "question": "Aling bahagi ng katawan ang ginagamit sa PARINGIN?", "options": ["Mata", "Tainga", "Ilong", "Dila"], "correct_answer": "Mata" },
+          { "question": "Aling pandama ang ginagamit natin para marinig ang tunog?", "options": ["Tainga", "Mata", "Ilong", "Balat"], "correct_answer": "Tainga" },
+          { "question": "Alin ang ginagamit natin para malasahan ang matamis na pagkain?", "options": ["Dila", "Tainga", "Mata", "Ilong"], "correct_answer": "Dila" },
+          { "question": "Alin ang ginagamit natin para maamoy ang bulaklak?", "options": ["Ilong", "Mata", "Tainga", "Dila"], "correct_answer": "Ilong" },
+          { "question": "Aling pandama ang gamit para maramdaman ang init ng araw?", "options": ["Balat", "Mata", "Tainga", "Ilong"], "correct_answer": "Balat" },
+          { "question": "Ilan ang ating pandama?", "options": ["Lima", "Tatlo", "Apat", "Anim"], "correct_answer": "Lima" },
+          { "question": "Kapag napansin mong mainit ang tubig, ano ang ginawa mo?", "options": ["Obserbasyon", "Panaginip", "Paglalaro", "Pagkain"], "correct_answer": "Obserbasyon" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏫 Ako at ang Aking Paaralan\n\nMasayang pagbati sa iyong bagong paaralan! Kilalanin natin ang ating paligid. 🌟\n\n## 🏫 Ang Aking Paaralan\n- Ang paaralan ay isang lugar kung saan tayo **natututo** kasama ang ating guro at kaklase.\n- May iba't ibang bahagi ang paaralan: **silid-aralan**, **aklatan**, **canteen**, at **palaruan**.\n\n## 👨‍👩‍👧 Ang Aking Pamilya\n- Ang pamilya ay ang unang **komunidad** na kinabibilangan natin.\n- Bawat miyembro ng pamilya ay may **tungkulin** — halimbawa, tumutulong sa gawaing-bahay.\n\n## 🤝 Pagiging Mabuting Kaklase\n- Makipagtulungan sa mga gawain sa klase.\n- Igalang ang iba't ibang kaklase — magkakaiba man tayo, dapat tayong magkaisa.\n\nMasaya akong makasama kayo sa taong ito! 🇵🇭",
+        "quiz": [
+          { "question": "Saan tayo natututo kasama ang guro at kaklase?", "options": ["Paaralan", "Palengke", "Ospital", "Bahay"], "correct_answer": "Paaralan" },
+          { "question": "Saan tayo nagbabasa ng mga aklat sa paaralan?", "options": ["Aklatan", "Canteen", "Palaruan", "Silid-guro"], "correct_answer": "Aklatan" },
+          { "question": "Ano ang tawag sa unang komunidad na kinabibilangan natin?", "options": ["Pamilya", "Paaralan", "Barangay", "Bansa"], "correct_answer": "Pamilya" },
+          { "question": "Paano ka makikipagtulungan sa iyong kaklase?", "options": ["Sa pakikiisa sa gawain", "Sa pag-iwas sa kanila", "Sa pagtatago ng gamit", "Sa hindi pakikinig"], "correct_answer": "Sa pakikiisa sa gawain" },
+          { "question": "Saan tayo kumakain sa paaralan?", "options": ["Canteen", "Aklatan", "Silid-aralan", "Opisina"], "correct_answer": "Canteen" },
+          { "question": "Bakit dapat igalang ang ibang kaklase kahit magkaiba tayo?", "options": ["Para tayo ay magkaisa", "Para sila lang ang makinabang", "Para sila ang manalo", "Wala itong dahilan"], "correct_answer": "Para tayo ay magkaisa" },
+          { "question": "Saan tayo naglalaro sa oras ng recess?", "options": ["Palaruan", "Aklatan", "Silid-aralan", "Canteen"], "correct_answer": "Palaruan" },
+          { "question": "Ano ang halimbawa ng tungkulin sa pamilya?", "options": ["Pagtulong sa gawaing-bahay", "Paglalaro buong araw", "Pagtulog nang maaga", "Hindi pakikinig sa magulang"], "correct_answer": "Pagtulong sa gawaing-bahay" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Ligtas at Maayos sa Silid-Computer\n\nBago natin simulan ang ating paglalakbay sa mundo ng computer, alamin muna natin kung paano maging ligtas at maayos! 🖥️\n\n## 📏 Mga Panuntunan sa Silid-Computer\n- **Huwag hawakan** ang computer nang walang pahintulot ng guro.\n- **Maging malumanay** sa paggamit ng mouse at keyboard — huwag ibagsak o hilahin nang malakas.\n- **Walang pagkain o inumin** malapit sa computer.\n- **Maglinis muna ng kamay** bago gumamit ng keyboard at mouse.\n\n## 🙋 Bakit Mahalaga ang Mga Panuntunan?\n- Iniingatan nito ang **kagamitan** para tumagal nang matagal.\n- Iniingatan din nito ang **kaligtasan** ng bawat isa sa silid.\n\n## 💡 Simpleng Paalala\n- Laging **humingi ng tulong** sa guro kung may hindi maintindihan.\n- Maging **magalang** kapag naghihintay ng turn sa paggamit ng computer.\n\nHanda ka na bang matutong gumamit ng computer nang ligtas at responsable? 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng keyboard at mouse?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo sa silid", "Uminom ng tubig"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para hindi ka mabusog", "Para mas masarap kumain", "Wala itong dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
+          { "question": "Paano dapat hawakan ang mouse at keyboard?", "options": ["Nang malumanay", "Nang malakas", "Nang basa", "Nang mabilis lamang"], "correct_answer": "Nang malumanay" },
+          { "question": "Ano ang dapat mong gawin kung may hindi mo maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak na lang", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Ano ang dapat gawin habang naghihintay ng turn sa computer?", "options": ["Maging magalang at matiyaga", "Sumigaw at magtulak", "Umalis na lang", "Magtampo"], "correct_answer": "Maging magalang at matiyaga" },
+          { "question": "Bakit importante ang pagsunod sa mga panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro nang mas matagal", "Wala itong gamit", "Para hindi na gumamit ng computer"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
+          { "question": "Dapat bang hawakan ang computer nang walang pahintulot?", "options": ["Hindi, kailangan ng pahintulot ng guro", "Oo, kahit walang pahintulot", "Minsan lang", "Kailanman"], "correct_answer": "Hindi, kailangan ng pahintulot ng guro" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 Pagkilala sa Sarili at mga Panuntunan sa Silid-Aralan\n\nMasayang pagbati! Kilalanin natin ang ating sarili at ang mga panuntunang susundin sa buong taon. 🌟\n\n## 🙋 Pagkilala sa Sarili\n- Alamin ang iyong **buong pangalan**, **edad**, at **kaarawan**.\n- Alamin din ang pangalan ng iyong mga **magulang** at kapatid.\n- Mahalagang malaman mo ang mga ito para sa iyong **kaligtasan**.\n\n## 📏 Mga Panuntunan sa Silid-Aralan\n- **Makinig** kapag ang guro ay nagsasalita.\n- **Itaas ang kamay** bago magsalita o magtanong.\n- **Alagaan** ang iyong mga gamit-paaralan.\n- **Igalang** ang iyong mga kaklase.\n\n## 💛 Bakit Mahalaga ang mga Panuntunan?\n- Tinutulungan tayo nitong maging maayos at ligtas sa silid-aralan.\n- Ipinapakita rin nito na tayo ay **responsableng** mag-aaral.\n\nIkaw ay isang mahalagang bahagi ng ating klase! 🌟",
+        "quiz": [
+          { "question": "Ano ang mahalagang malaman mo tungkol sa sarili para sa kaligtasan?", "options": ["Buong pangalan at edad", "Paboritong laro", "Paboritong kulay", "Paboritong pagkain"], "correct_answer": "Buong pangalan at edad" },
+          { "question": "Ano ang dapat gawin bago magsalita sa klase?", "options": ["Itaas ang kamay", "Sumigaw agad", "Tumayo at umalis", "Tumawa nang malakas"], "correct_answer": "Itaas ang kamay" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro ng gamit", "Kumain ng meryenda", "Makipag-usap sa kaklase"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Bakit mahalaga ang pagsunod sa panuntunan sa silid-aralan?", "options": ["Para maging maayos at ligtas", "Para hindi na makapasok", "Para matakot sa guro", "Wala itong dahilan"], "correct_answer": "Para maging maayos at ligtas" },
+          { "question": "Paano mo dapat alagaan ang iyong gamit-paaralan?", "options": ["Sa maingat na paghawak at pag-iimbak", "Sa pagtapon kahit saan", "Sa pagpapahiram nang walang pahintulot", "Sa hindi pag-aalaga"], "correct_answer": "Sa maingat na paghawak at pag-iimbak" },
+          { "question": "Paano mo dapat tratuhin ang iyong mga kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit nila"], "correct_answer": "Sa paggalang" },
+          { "question": "Ano ang ipinapakita natin kapag sumusunod tayo sa panuntunan?", "options": ["Responsableng pag-uugali", "Kawalang-galang", "Kapabayaan", "Katamaran"], "correct_answer": "Responsableng pag-uugali" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — Getting Started!\n\nWhat a great first week! Let's review what we learned. 💪\n\n- Greet people with **\"Good morning\"**, **\"Good afternoon\"**, **\"Good night\"**\n- Introduce yourself: **\"My name is ___.\"**\n- Say **\"please\"**, **\"thank you\"**, and **\"excuse me\"** to be polite\n- **Listen quietly** and **raise your hand** before speaking\n\nYou did great this week! ⭐",
+        "quiz": [
+          { "question": "What do you say to introduce yourself?", "options": ["My name is ___.", "Where are you?", "What time is it?", "How much is it?"], "correct_answer": "My name is ___." },
+          { "question": "What should you do before speaking in class?", "options": ["Raise your hand", "Shout out loud", "Walk around", "Whisper to a friend"], "correct_answer": "Raise your hand" },
+          { "question": "What word shows politeness when asking for something?", "options": ["Please", "Now", "Quick", "Give"], "correct_answer": "Please" },
+          { "question": "What do you say in the evening?", "options": ["Good night", "Good morning", "Good afternoon", "Goodbye now"], "correct_answer": "Good night" },
+          { "question": "What should you do while someone is talking?", "options": ["Listen quietly", "Talk louder", "Walk away", "Play with toys"], "correct_answer": "Listen quietly" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Math Warm-Up!\n\nQuick review of our math warm-up this week!\n\n- Numbers can be counted, written as **numerals**, or as **words**\n- **Circle** = round, no corners | **Square** = 4 equal sides | **Triangle** = 3 sides\n- **Rectangle** = 2 long sides, 2 short sides\n- Adding means **putting groups together**\n\nGreat start to the school year! 🌟",
+        "quiz": [
+          { "question": "Which shape has 4 equal sides?", "options": ["Square", "Triangle", "Circle", "Rectangle"], "correct_answer": "Square" },
+          { "question": "2 stars + 3 stars = ?", "options": ["5 stars", "4 stars", "6 stars", "3 stars"], "correct_answer": "5 stars" },
+          { "question": "Which shape has 3 corners?", "options": ["Triangle", "Circle", "Square", "Rectangle"], "correct_answer": "Triangle" },
+          { "question": "What does adding mean?", "options": ["Putting groups together", "Taking away", "Erasing", "Subtracting"], "correct_answer": "Putting groups together" },
+          { "question": "Which shape is round?", "options": ["Circle", "Square", "Triangle", "Rectangle"], "correct_answer": "Circle" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan ng ating natutunan!\n\n- **Magandang umaga/hapon/gabi** — mga pagbati sa iba't ibang oras\n- **Ako si ___** — pagpapakilala ng sarili\n- **Po at opo** — magalang na salita sa matatanda\n- **Salamat** at **paumanhin** — mahahalagang salita\n\nMagandang simula ng taon! 🌟",
+        "quiz": [
+          { "question": "Ano ang sinasabi natin sa umaga?", "options": ["Magandang umaga", "Magandang gabi", "Paalam", "Salamat"], "correct_answer": "Magandang umaga" },
+          { "question": "Anong salita ang ginagamit para magalang sa matatanda?", "options": ["Po at opo", "Oo at hindi", "Ako at ikaw", "Sige at tama"], "correct_answer": "Po at opo" },
+          { "question": "Ano ang sinasabi kapag may natanggap na tulong?", "options": ["Salamat", "Paumanhin", "Paalam", "Opo"], "correct_answer": "Salamat" },
+          { "question": "Aling pangungusap ang tamang pagpapakilala?", "options": ["Ako si Ben.", "Si Ben ako.", "Ben si ako.", "Ako Ben si."], "correct_answer": "Ako si Ben." },
+          { "question": "Ano ang sinasabi natin kapag nagkamali?", "options": ["Paumanhin", "Salamat", "Magandang umaga", "Po"], "correct_answer": "Paumanhin" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏫 Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ang **paaralan** ay lugar ng pagkatuto\n- May **aklatan**, **canteen**, at **palaruan** sa paaralan\n- Ang **pamilya** ay unang komunidad natin\n- Dapat **makipagtulungan** at **igalang** ang kaklase\n\nMasayang taon ng pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Saan tayo nagbabasa ng aklat?", "options": ["Aklatan", "Canteen", "Palaruan", "Silid-guro"], "correct_answer": "Aklatan" },
+          { "question": "Ano ang unang komunidad na kinabibilangan natin?", "options": ["Pamilya", "Paaralan", "Barangay", "Bansa"], "correct_answer": "Pamilya" },
+          { "question": "Saan tayo natututo kasama ang guro?", "options": ["Paaralan", "Palengke", "Ospital", "Bahay"], "correct_answer": "Paaralan" },
+          { "question": "Paano ka makikipagtulungan sa klase?", "options": ["Sa pakikiisa sa gawain", "Sa pag-iwas", "Sa pagtatago", "Sa hindi pakikinig"], "correct_answer": "Sa pakikiisa sa gawain" },
+          { "question": "Saan tayo naglalaro sa recess?", "options": ["Palaruan", "Aklatan", "Silid-aralan", "Canteen"], "correct_answer": "Palaruan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan ng ating limang pandama!\n\n- **Mata** — paningin | **Tainga** — pandinig | **Ilong** — pang-amoy\n- **Dila** — panlasa | **Balat** — pandama\n- Ang siyentipiko ay **nagmamasid** at **nagtatanong**\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Aling bahagi ang ginagamit sa paningin?", "options": ["Mata", "Tainga", "Ilong", "Dila"], "correct_answer": "Mata" },
+          { "question": "Aling pandama ang gamit para marinig?", "options": ["Tainga", "Mata", "Ilong", "Balat"], "correct_answer": "Tainga" },
+          { "question": "Ano ang ginagawa ng siyentipiko?", "options": ["Nagmamasid at nagtatanong", "Natutulog buong araw", "Naglalaro lamang", "Wala ni isa"], "correct_answer": "Nagmamasid at nagtatanong" },
+          { "question": "Alin ang gamit para malasahan ang pagkain?", "options": ["Dila", "Tainga", "Mata", "Ilong"], "correct_answer": "Dila" },
+          { "question": "Ilan ang ating pandama?", "options": ["Lima", "Tatlo", "Apat", "Anim"], "correct_answer": "Lima" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan ng mga panuntunan sa silid-computer!\n\n- **Maglinis ng kamay** bago gumamit ng keyboard/mouse\n- **Walang pagkain o inumin** malapit sa computer\n- Maging **malumanay** sa paghawak ng kagamitan\n- **Humingi ng tulong** sa guro kung kailangan\n\nHanda ka nang matuto tungkol sa computer! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago gumamit ng keyboard?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Para masarap", "Walang dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
+          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
+          { "question": "Paano dapat hawakan ang mouse?", "options": ["Nang malumanay", "Nang malakas", "Nang basa", "Nang mabilis"], "correct_answer": "Nang malumanay" },
+          { "question": "Bakit importante ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Alamin ang iyong **buong pangalan** at **edad** para sa kaligtasan\n- **Makinig** at **itaas ang kamay** bago magsalita\n- **Igalang** ang iyong mga kaklase\n- **Alagaan** ang iyong mga gamit-paaralan\n\nMahalagang bahagi ka ng ating klase! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin bago magsalita sa klase?", "options": ["Itaas ang kamay", "Sumigaw", "Tumayo at umalis", "Tumawa"], "correct_answer": "Itaas ang kamay" },
+          { "question": "Ano ang dapat gawin kapag nagsasalita ang guro?", "options": ["Makinig nang mabuti", "Maglaro", "Kumain", "Makipag-usap"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Paano mo dapat tratuhin ang kaklase?", "options": ["Sa paggalang", "Sa pang-aasar", "Sa pagwawalang-bahala", "Sa pagtatago ng gamit"], "correct_answer": "Sa paggalang" },
+          { "question": "Bakit mahalaga malaman ang buong pangalan mo?", "options": ["Para sa kaligtasan", "Para sa laro", "Walang dahilan", "Para sa pagkain"], "correct_answer": "Para sa kaligtasan" },
+          { "question": "Ano ang dapat gawin sa iyong gamit-paaralan?", "options": ["Alagaan ito", "Itapon ito", "Ipahiram lagi", "Iwanan kahit saan"], "correct_answer": "Alagaan ito" }
+        ]
+      }
+    }
+  }
+}

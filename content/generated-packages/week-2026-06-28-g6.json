@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-06-28",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 2: Flashback and Irony!\n\nLet's explore advanced story techniques! 🎭\n\n## ⏪ Flashback\n- A **flashback** interrupts the present story to show an event from the **past**.\n- **Example:** A character remembers their childhood while at a family reunion.\n\n## 🎭 Irony\n- **Irony** happens when the opposite of what's expected occurs.\n- **Example:** A fire station burning down is ironic!\n\n## 🔍 Why These Matter\n- Flashback and irony add **depth and surprise** to storytelling.\n\nGreat writers use these techniques to keep readers engaged! 🌟",
+        "quiz": [
+          { "question": "What is a flashback?", "options": ["An interruption showing a past event", "The ending of a story", "The title of a book", "A character's name"], "correct_answer": "An interruption showing a past event" },
+          { "question": "What is irony?", "options": ["When the opposite of what's expected happens", "When everything goes as planned", "A type of setting", "A character's name"], "correct_answer": "When the opposite of what's expected happens" },
+          { "question": "Which is an example of irony?", "options": ["A fire station burning down", "A character eating breakfast", "A sunny day", "A character walking to school"], "correct_answer": "A fire station burning down" },
+          { "question": "What does flashback show?", "options": ["An event from the past", "An event from the future", "The title only", "The author's name"], "correct_answer": "An event from the past" },
+          { "question": "What do flashback and irony add to storytelling?", "options": ["Depth and surprise", "Nothing important", "Only confusion", "Only length"], "correct_answer": "Depth and surprise" },
+          { "question": "When might a flashback occur in a story?", "options": ["When a character remembers the past", "Only at the very end", "Never", "Only in the title"], "correct_answer": "When a character remembers the past" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 2: Transformations!\n\nLet's see how shapes move through translation, reflection, and rotation! 🔄\n\n## ➡️ Translation\n- A **translation** slides a shape without changing its size or orientation.\n\n## 🪞 Reflection\n- A **reflection** flips a shape, creating a mirror image.\n\n## 🔄 Rotation\n- A **rotation** turns a shape around a fixed point.\n\n## 🔍 Tessellation with Transformations\n- We can use these transformations to create beautiful **tessellating patterns**!\n\nGreat exploration of shapes in motion! 🌟",
+        "quiz": [
+          { "question": "What does a translation do to a shape?", "options": ["Slides it without changing size or orientation", "Flips it", "Turns it around a point", "Makes it bigger"], "correct_answer": "Slides it without changing size or orientation" },
+          { "question": "What does a reflection do to a shape?", "options": ["Creates a mirror image", "Slides it", "Turns it", "Makes it smaller"], "correct_answer": "Creates a mirror image" },
+          { "question": "What does a rotation do to a shape?", "options": ["Turns it around a fixed point", "Slides it", "Flips it", "Makes it bigger"], "correct_answer": "Turns it around a fixed point" },
+          { "question": "What can transformations help create?", "options": ["Tessellating patterns", "Only random shapes", "Nothing useful", "Only circles"], "correct_answer": "Tessellating patterns" },
+          { "question": "Does a translation change a shape's size?", "options": ["No", "Yes, it doubles it", "Yes, it halves it", "It depends"], "correct_answer": "No" },
+          { "question": "What is another word for a flip in geometry?", "options": ["Reflection", "Translation", "Rotation", "Tessellation"], "correct_answer": "Reflection" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 2: Kasabihang Pilipino\n\nAlamin natin ang mga kasabihang Pilipino at ang kanilang kahulugan! 📖\n\n## 💬 Ano ang Kasabihan?\n- Ang **kasabihan** ay maikling pahayag na naglalaman ng aral o karunungan.\n- **Halimbawa:** *\"Aanhin pa ang damo kung patay na ang kabayo\"* — nangangahulugang huli na ang lunas.\n\n## 🔍 Denotasyon at Konotasyon\n- **Denotasyon** — literal na kahulugan\n- **Konotasyon** — di-literal o matalinghagang kahulugan\n\n## 📝 Halimbawa\n- *\"Matigas ang ulo\"* (konotasyon) ay hindi ibig sabihing literal na matigas ang ulo, kundi **matigas ang pasya**.\n\nMahalaga ang kasabihan sa ating kultura at karunungan! 🌟",
+        "quiz": [
+          { "question": "Ano ang kasabihan?", "options": ["Maikling pahayag na naglalaman ng aral", "Isang balita", "Isang kwentong-bayan", "Isang liham"], "correct_answer": "Maikling pahayag na naglalaman ng aral" },
+          { "question": "Ano ang denotasyon?", "options": ["Literal na kahulugan", "Matalinghagang kahulugan", "Walang kahulugan", "Salitang kilos"], "correct_answer": "Literal na kahulugan" },
+          { "question": "Ano ang konotasyon?", "options": ["Di-literal o matalinghagang kahulugan", "Literal na kahulugan lamang", "Walang kahulugan", "Salitang pananong"], "correct_answer": "Di-literal o matalinghagang kahulugan" },
+          { "question": "Ano ang ibig sabihin ng \"matigas ang ulo\"?", "options": ["Matigas ang pasya", "Literal na matigas ang ulo", "Masakit ang ulo", "Wala itong kahulugan"], "correct_answer": "Matigas ang pasya" },
+          { "question": "Ano ang naglalaman ang isang kasabihan?", "options": ["Aral o karunungan", "Wala", "Kwento lamang", "Balita lamang"], "correct_answer": "Aral o karunungan" },
+          { "question": "Bakit mahalaga ang mga kasabihang Pilipino?", "options": ["Bahagi ito ng ating kultura at karunungan", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Bahagi ito ng ating kultura at karunungan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 2: Reversible and Irreversible Changes!\n\nLet's learn about changes we can and cannot undo! 🔄\n\n## 🔄 Physical Changes (Reversible)\n- Changes like **melting and freezing** can be reversed — ice can melt and refreeze.\n\n## ⚠️ Chemical Changes (Irreversible)\n- Changes like **burning or cooking** cannot be undone — you can't turn ash back into wood.\n\n## 🔍 Why This Matters\n- Understanding which changes are reversible helps us predict what will happen to materials.\n\n## 🧪 Practice\n- Is melting chocolate reversible or irreversible? **Reversible** — it can re-harden when cooled!\n\nGreat understanding of matter's changes! 🌟",
+        "quiz": [
+          { "question": "What type of change can be reversed?", "options": ["Physical change", "Chemical change", "Neither", "Both are irreversible"], "correct_answer": "Physical change" },
+          { "question": "What type of change cannot be undone?", "options": ["Chemical change", "Physical change", "Neither", "Both are reversible"], "correct_answer": "Chemical change" },
+          { "question": "Is melting ice reversible or irreversible?", "options": ["Reversible", "Irreversible", "Neither", "Cannot tell"], "correct_answer": "Reversible" },
+          { "question": "Is burning wood reversible or irreversible?", "options": ["Irreversible", "Reversible", "Neither", "Cannot tell"], "correct_answer": "Irreversible" },
+          { "question": "Is melting chocolate reversible or irreversible?", "options": ["Reversible", "Irreversible", "Neither", "Cannot tell"], "correct_answer": "Reversible" },
+          { "question": "Why is it useful to know which changes are reversible?", "options": ["It helps us predict what happens to materials", "It has no use", "It makes materials disappear", "It only matters in cooking"], "correct_answer": "It helps us predict what happens to materials" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 2: Ang Himagsikang Pilipino\n\nAlamin natin ang mahahalagang pangyayari sa Himagsikang Pilipino! ⚔️\n\n## ⚔️ Simula ng Himagsikan\n- Noong Agosto 1896, natuklasan ng mga Espanyol ang Katipunan, kaya nagsimula ang **himagsikan**.\n- Pinunit ni Bonifacio ang kanyang **sedula** bilang simbolo ng paghihimagsik — ang \"Sigaw ng Pugad Lawin.\"\n\n## ⚔️ Mahahalagang Labanan\n- Naganap ang maraming labanan sa Cavite, kabilang ang mga pinamunuan ni **Emilio Aguinaldo**.\n\n## 📖 Bunga ng Himagsikan\n- Bagama't hindi agad nagtagumpay, ito ay nagpasiklab ng diwang **makabayan** sa mga Pilipino.\n\nMahalagang alalahanin ang mga sakripisyo ng ating mga bayani! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan natuklasan ang Katipunan?", "options": ["Agosto 1896", "Hunyo 1898", "Enero 1900", "Disyembre 1892"], "correct_answer": "Agosto 1896" },
+          { "question": "Ano ang pinunit ni Bonifacio bilang simbolo ng paghihimagsik?", "options": ["Sedula", "Bandila", "Libro", "Papel"], "correct_answer": "Sedula" },
+          { "question": "Ano ang tawag sa pagpunit ng sedula?", "options": ["Sigaw ng Pugad Lawin", "Deklarasyon ng Kasarinlan", "Batas Militar", "Kasunduan"], "correct_answer": "Sigaw ng Pugad Lawin" },
+          { "question": "Sino ang pinuno ng mga labanan sa Cavite?", "options": ["Emilio Aguinaldo", "Jose Rizal", "Apolinario Mabini", "Marcelo del Pilar"], "correct_answer": "Emilio Aguinaldo" },
+          { "question": "Ano ang naidulot ng Himagsikan kahit hindi agad nagtagumpay?", "options": ["Nagpasiklab ng diwang makabayan", "Walang naidulot", "Kapayapaan agad", "Kasunduan sa Espanya"], "correct_answer": "Nagpasiklab ng diwang makabayan" },
+          { "question": "Bakit mahalagang alalahanin ang mga bayani ng Himagsikan?", "options": ["Dahil sa kanilang sakripisyo para sa kalayaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Dahil sa kanilang sakripisyo para sa kalayaan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Etiquette sa Web Conferencing!\n\nAlamin natin ang magandang asal sa video call! 📹\n\n## 📹 Wastong Asal sa Video Call\n- I-mute ang mikropono kapag hindi nagsasalita para maiwasan ang ingay.\n- Maging **maalintuntunin** sa oras — huwag maantala.\n\n## 🔒 Privacy at Kaligtasan\n- Iwasan ang pagpapakita ng personal na impormasyon sa background.\n- Huwag i-share ang meeting link sa mga hindi dapat sumali.\n\n## 🔍 Bakit Ito Mahalaga?\n- Ang magandang asal sa video call ay nagpapakita ng **paggalang** sa iba.\n\nMaging responsable sa bawat online meeting! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa mikropono kapag hindi nagsasalita?", "options": ["I-mute ito", "Palakasin ito", "Hayaang bukas lamang", "Sirain ito"], "correct_answer": "I-mute ito" },
+          { "question": "Bakit dapat maging maalintuntunin sa oras?", "options": ["Para hindi maantala ang meeting", "Walang dahilan", "Para lang sundin ang guro", "Wala itong silbi"], "correct_answer": "Para hindi maantala ang meeting" },
+          { "question": "Ano ang dapat iwasan sa background ng video call?", "options": ["Personal na impormasyon", "Malinis na kwarto", "Maayos na ilaw", "Wala sa mga ito"], "correct_answer": "Personal na impormasyon" },
+          { "question": "Kanino hindi dapat ibahagi ang meeting link?", "options": ["Sa mga hindi dapat sumali", "Sa guro", "Sa kaklase", "Walang paglalagyan"], "correct_answer": "Sa mga hindi dapat sumali" },
+          { "question": "Ano ang ipinapakita ng magandang asal sa video call?", "options": ["Paggalang sa iba", "Kawalang-galang", "Kapabayaan", "Walang gamit"], "correct_answer": "Paggalang sa iba" },
+          { "question": "Bakit mahalaga ang privacy sa video call?", "options": ["Iniingatan nito ang ating kaligtasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang ating kaligtasan" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 2: Visual Arts of the Revolutionary Period!\n\nLet's explore visual art from this significant era! 🎨\n\n## 🎨 Visual Arts of the Revolution\n- Artists created **paintings and illustrations** depicting scenes of struggle and hope for freedom.\n- Symbols like the **Philippine flag** and the sun with rays became powerful visual expressions.\n\n## 🖼️ Purpose of Revolutionary Art\n- Art was used to **inspire** Filipinos and document historical events.\n\n## 🔍 Connecting Art and History\n- Studying this art helps us understand the **emotions and hopes** of that era.\n\nArt captures the spirit of a nation's struggle! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period paintings depict?", "options": ["Scenes of struggle and hope for freedom", "Only landscapes", "Only animals", "Nothing meaningful"], "correct_answer": "Scenes of struggle and hope for freedom" },
+          { "question": "What symbol became powerful during this era?", "options": ["The Philippine flag", "A random logo", "A foreign flag", "Nothing symbolic"], "correct_answer": "The Philippine flag" },
+          { "question": "What was the purpose of Revolutionary art?", "options": ["To inspire Filipinos and document events", "Only for decoration", "To confuse people", "It had no purpose"], "correct_answer": "To inspire Filipinos and document events" },
+          { "question": "What does studying this art help us understand?", "options": ["The emotions and hopes of that era", "Nothing important", "Only colors used", "Only prices of paintings"], "correct_answer": "The emotions and hopes of that era" },
+          { "question": "What does art capture about a nation?", "options": ["The spirit of its struggle", "Nothing meaningful", "Only random images", "Only modern events"], "correct_answer": "The spirit of its struggle" },
+          { "question": "What did artists use to express hope for freedom?", "options": ["Paintings and illustrations", "Only sculptures", "Only photographs", "Nothing"], "correct_answer": "Paintings and illustrations" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 2: Kahalagahan ng Fish Raising!\n\nAlamin natin ang kahalagahan ng pag-aalaga ng isda! 🐠\n\n## 🐠 Kahalagahan ng Fish Raising\n- Nagbibigay ito ng **sapat na protina** sa ating pagkain.\n- Isang **mapagkakakitaang** hanapbuhay para sa maraming pamilya.\n\n## 🏢 Mga Ahensya at NGO\n- **BFAR (Bureau of Fisheries and Aquatic Resources)** — tumutulong sa mga mangingisda.\n- May mga NGO ring sumusuporta sa sustainable fishing.\n\n## 🌟 Matagumpay na Fish Raiser\n- Mga katangian: **masipag, matiyaga, at may kaalaman sa tamang pangangalaga.**\n\nMahalaga ang fish raising sa ating kabuhayan at nutrisyon! 🌟",
+        "quiz": [
+          { "question": "Ano ang ibinibigay ng fish raising sa ating pagkain?", "options": ["Sapat na protina", "Wala", "Kemikal lamang", "Wala itong halaga"], "correct_answer": "Sapat na protina" },
+          { "question": "Ano ang BFAR?", "options": ["Bureau of Fisheries and Aquatic Resources", "Isang uri ng isda", "Isang batas", "Isang kasangkapan"], "correct_answer": "Bureau of Fisheries and Aquatic Resources" },
+          { "question": "Ano ang katangian ng matagumpay na fish raiser?", "options": ["Masipag at matiyaga", "Tamad", "Walang pakialam", "Ayaw matuto"], "correct_answer": "Masipag at matiyaga" },
+          { "question": "Ano ang isa pang benepisyo ng fish raising?", "options": ["Mapagkakakitaang hanapbuhay", "Walang benepisyo", "Panganib lamang", "Wala itong gamit"], "correct_answer": "Mapagkakakitaang hanapbuhay" },
+          { "question": "Sino ang tumutulong sa mga mangingisda?", "options": ["BFAR at mga NGO", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "BFAR at mga NGO" },
+          { "question": "Bakit mahalaga ang tamang kaalaman sa pangangalaga ng isda?", "options": ["Para sa matagumpay na fish raising", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para sa matagumpay na fish raising" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 2: Positibong Pagtingin sa Sarili\n\nAlamin natin kung paano paunlarin ang positibong pagtingin sa sarili! 🌟\n\n## 💛 Positibong Pagtingin sa Sarili\n- Ito ay ang pagtanggap sa iyong sarili — mga lakas at kahinaan — nang walang labis na pag-aalinlangan.\n\n## 👨‍👩‍👧 Tulong ng Pamilya\n- Ang pamilya ay may mahalagang papel sa paglinang ng ating **positibong pagtingin sa sarili**.\n\n## 🔍 Halimbawa\n- Kapag hinihikayat ka ng iyong magulang na subukan ang bagong bagay, tumutulong ito sa iyong kumpiyansa.\n\nMahalin ang iyong sarili at tanggapin ang iyong natatanging pagkatao! 🌟",
+        "quiz": [
+          { "question": "Ano ang positibong pagtingin sa sarili?", "options": ["Pagtanggap sa sarili — lakas at kahinaan", "Pagkondena sa sarili", "Pagbabalewala sa sarili", "Wala sa mga ito"], "correct_answer": "Pagtanggap sa sarili — lakas at kahinaan" },
+          { "question": "Sino ang tumutulong sa paglinang ng positibong pagtingin sa sarili?", "options": ["Pamilya", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "Pamilya" },
+          { "question": "Ano ang epekto ng paghikayat ng magulang sa bagong bagay?", "options": ["Tumutulong ito sa kumpiyansa", "Walang epekto", "Nagpapahina ito", "Nagpapalungkot ito"], "correct_answer": "Tumutulong ito sa kumpiyansa" },
+          { "question": "Ano ang dapat tanggapin natin sa ating sarili?", "options": ["Ang ating lakas at kahinaan", "Lakas lamang", "Kahinaan lamang", "Wala"], "correct_answer": "Ang ating lakas at kahinaan" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pagiging totoo", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pagiging totoo" },
+          { "question": "Bakit mahalaga ang positibong pagtingin sa sarili?", "options": ["Nagbibigay ito ng kumpiyansa at kapayapaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng kumpiyansa at kapayapaan" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of flashback and irony!\n\n- **Flashback** = interruption showing past event\n- **Irony** = opposite of what's expected\n\nGreat storytelling techniques! ⭐",
+        "quiz": [
+          { "question": "What is a flashback?", "options": ["An interruption showing a past event", "The ending of a story", "The title of a book", "A character's name"], "correct_answer": "An interruption showing a past event" },
+          { "question": "What is irony?", "options": ["When the opposite of what's expected happens", "When everything goes as planned", "A type of setting", "A character's name"], "correct_answer": "When the opposite of what's expected happens" },
+          { "question": "Which is an example of irony?", "options": ["A fire station burning down", "A character eating breakfast", "A sunny day", "A character walking to school"], "correct_answer": "A fire station burning down" },
+          { "question": "What does flashback show?", "options": ["An event from the past", "An event from the future", "The title only", "The author's name"], "correct_answer": "An event from the past" },
+          { "question": "What do flashback and irony add to storytelling?", "options": ["Depth and surprise", "Nothing important", "Only confusion", "Only length"], "correct_answer": "Depth and surprise" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of transformations!\n\n- **Translation** = slide | **Reflection** = flip | **Rotation** = turn\n\nGreat shape transformations! 🌟",
+        "quiz": [
+          { "question": "What does a translation do to a shape?", "options": ["Slides it without changing size or orientation", "Flips it", "Turns it around a point", "Makes it bigger"], "correct_answer": "Slides it without changing size or orientation" },
+          { "question": "What does a reflection do to a shape?", "options": ["Creates a mirror image", "Slides it", "Turns it", "Makes it smaller"], "correct_answer": "Creates a mirror image" },
+          { "question": "What does a rotation do to a shape?", "options": ["Turns it around a fixed point", "Slides it", "Flips it", "Makes it bigger"], "correct_answer": "Turns it around a fixed point" },
+          { "question": "What can transformations help create?", "options": ["Tessellating patterns", "Only random shapes", "Nothing useful", "Only circles"], "correct_answer": "Tessellating patterns" },
+          { "question": "What is another word for a flip in geometry?", "options": ["Reflection", "Translation", "Rotation", "Tessellation"], "correct_answer": "Reflection" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Kasabihan** = maikling pahayag na may aral\n- **Denotasyon** = literal | **Konotasyon** = matalinghaga\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang kasabihan?", "options": ["Maikling pahayag na naglalaman ng aral", "Isang balita", "Isang kwentong-bayan", "Isang liham"], "correct_answer": "Maikling pahayag na naglalaman ng aral" },
+          { "question": "Ano ang denotasyon?", "options": ["Literal na kahulugan", "Matalinghagang kahulugan", "Walang kahulugan", "Salitang kilos"], "correct_answer": "Literal na kahulugan" },
+          { "question": "Ano ang konotasyon?", "options": ["Di-literal o matalinghagang kahulugan", "Literal na kahulugan lamang", "Walang kahulugan", "Salitang pananong"], "correct_answer": "Di-literal o matalinghagang kahulugan" },
+          { "question": "Ano ang ibig sabihin ng \"matigas ang ulo\"?", "options": ["Matigas ang pasya", "Literal na matigas ang ulo", "Masakit ang ulo", "Wala itong kahulugan"], "correct_answer": "Matigas ang pasya" },
+          { "question": "Bakit mahalaga ang mga kasabihang Pilipino?", "options": ["Bahagi ito ng ating kultura at karunungan", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Bahagi ito ng ating kultura at karunungan" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Simula ng Himagsikan: **Sigaw ng Pugad Lawin** (Agosto 1896)\n- **Emilio Aguinaldo** — pinuno ng mga labanan sa Cavite\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan natuklasan ang Katipunan?", "options": ["Agosto 1896", "Hunyo 1898", "Enero 1900", "Disyembre 1892"], "correct_answer": "Agosto 1896" },
+          { "question": "Ano ang pinunit ni Bonifacio bilang simbolo ng paghihimagsik?", "options": ["Sedula", "Bandila", "Libro", "Papel"], "correct_answer": "Sedula" },
+          { "question": "Ano ang tawag sa pagpunit ng sedula?", "options": ["Sigaw ng Pugad Lawin", "Deklarasyon ng Kasarinlan", "Batas Militar", "Kasunduan"], "correct_answer": "Sigaw ng Pugad Lawin" },
+          { "question": "Sino ang pinuno ng mga labanan sa Cavite?", "options": ["Emilio Aguinaldo", "Jose Rizal", "Apolinario Mabini", "Marcelo del Pilar"], "correct_answer": "Emilio Aguinaldo" },
+          { "question": "Ano ang naidulot ng Himagsikan kahit hindi agad nagtagumpay?", "options": ["Nagpasiklab ng diwang makabayan", "Walang naidulot", "Kapayapaan agad", "Kasunduan sa Espanya"], "correct_answer": "Nagpasiklab ng diwang makabayan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- I-mute ang mikropono kapag hindi nagsasalita\n- Iwasan ang personal na impormasyon sa background\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa mikropono kapag hindi nagsasalita?", "options": ["I-mute ito", "Palakasin ito", "Hayaang bukas lamang", "Sirain ito"], "correct_answer": "I-mute ito" },
+          { "question": "Ano ang dapat iwasan sa background ng video call?", "options": ["Personal na impormasyon", "Malinis na kwarto", "Maayos na ilaw", "Wala sa mga ito"], "correct_answer": "Personal na impormasyon" },
+          { "question": "Kanino hindi dapat ibahagi ang meeting link?", "options": ["Sa mga hindi dapat sumali", "Sa guro", "Sa kaklase", "Walang paglalagyan"], "correct_answer": "Sa mga hindi dapat sumali" },
+          { "question": "Ano ang ipinapakita ng magandang asal sa video call?", "options": ["Paggalang sa iba", "Kawalang-galang", "Kapabayaan", "Walang gamit"], "correct_answer": "Paggalang sa iba" },
+          { "question": "Bakit mahalaga ang privacy sa video call?", "options": ["Iniingatan nito ang ating kaligtasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang ating kaligtasan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Physical change** = reversible | **Chemical change** = irreversible\n- Melting ice = reversible; burning wood = irreversible\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What type of change can be reversed?", "options": ["Physical change", "Chemical change", "Neither", "Both are irreversible"], "correct_answer": "Physical change" },
+          { "question": "What type of change cannot be undone?", "options": ["Chemical change", "Physical change", "Neither", "Both are reversible"], "correct_answer": "Chemical change" },
+          { "question": "Is melting ice reversible or irreversible?", "options": ["Reversible", "Irreversible", "Neither", "Cannot tell"], "correct_answer": "Reversible" },
+          { "question": "Is burning wood reversible or irreversible?", "options": ["Irreversible", "Reversible", "Neither", "Cannot tell"], "correct_answer": "Irreversible" },
+          { "question": "Why is it useful to know which changes are reversible?", "options": ["It helps us predict what happens to materials", "It has no use", "It makes materials disappear", "It only matters in cooking"], "correct_answer": "It helps us predict what happens to materials" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Revolutionary art showed **struggle and hope for freedom**\n- Art documented history and inspired Filipinos\n\nGreat art history appreciation! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period paintings depict?", "options": ["Scenes of struggle and hope for freedom", "Only landscapes", "Only animals", "Nothing meaningful"], "correct_answer": "Scenes of struggle and hope for freedom" },
+          { "question": "What was the purpose of Revolutionary art?", "options": ["To inspire Filipinos and document events", "Only for decoration", "To confuse people", "It had no purpose"], "correct_answer": "To inspire Filipinos and document events" },
+          { "question": "What does studying this art help us understand?", "options": ["The emotions and hopes of that era", "Nothing important", "Only colors used", "Only prices of paintings"], "correct_answer": "The emotions and hopes of that era" },
+          { "question": "What does art capture about a nation?", "options": ["The spirit of its struggle", "Nothing meaningful", "Only random images", "Only modern events"], "correct_answer": "The spirit of its struggle" },
+          { "question": "What did artists use to express hope for freedom?", "options": ["Paintings and illustrations", "Only sculptures", "Only photographs", "Nothing"], "correct_answer": "Paintings and illustrations" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- Fish raising = **sapat na protina** at mapagkakakitaang hanapbuhay\n- **BFAR** — tumutulong sa mga mangingisda\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang ibinibigay ng fish raising sa ating pagkain?", "options": ["Sapat na protina", "Wala", "Kemikal lamang", "Wala itong halaga"], "correct_answer": "Sapat na protina" },
+          { "question": "Ano ang BFAR?", "options": ["Bureau of Fisheries and Aquatic Resources", "Isang uri ng isda", "Isang batas", "Isang kasangkapan"], "correct_answer": "Bureau of Fisheries and Aquatic Resources" },
+          { "question": "Ano ang katangian ng matagumpay na fish raiser?", "options": ["Masipag at matiyaga", "Tamad", "Walang pakialam", "Ayaw matuto"], "correct_answer": "Masipag at matiyaga" },
+          { "question": "Ano ang isa pang benepisyo ng fish raising?", "options": ["Mapagkakakitaang hanapbuhay", "Walang benepisyo", "Panganib lamang", "Wala itong gamit"], "correct_answer": "Mapagkakakitaang hanapbuhay" },
+          { "question": "Sino ang tumutulong sa mga mangingisda?", "options": ["BFAR at mga NGO", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "BFAR at mga NGO" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Positibong pagtingin sa sarili = pagtanggap sa lakas at kahinaan\n- Ang pamilya ay tumutulong dito\n\nMahalin ang iyong sarili! 🌟",
+        "quiz": [
+          { "question": "Ano ang positibong pagtingin sa sarili?", "options": ["Pagtanggap sa sarili — lakas at kahinaan", "Pagkondena sa sarili", "Pagbabalewala sa sarili", "Wala sa mga ito"], "correct_answer": "Pagtanggap sa sarili — lakas at kahinaan" },
+          { "question": "Sino ang tumutulong sa paglinang ng positibong pagtingin sa sarili?", "options": ["Pamilya", "Walang tumutulong", "Estranghero lamang", "Wala"], "correct_answer": "Pamilya" },
+          { "question": "Ano ang epekto ng paghikayat ng magulang sa bagong bagay?", "options": ["Tumutulong ito sa kumpiyansa", "Walang epekto", "Nagpapahina ito", "Nagpapalungkot ito"], "correct_answer": "Tumutulong ito sa kumpiyansa" },
+          { "question": "Ano ang dapat tanggapin natin sa ating sarili?", "options": ["Ang ating lakas at kahinaan", "Lakas lamang", "Kahinaan lamang", "Wala"], "correct_answer": "Ang ating lakas at kahinaan" },
+          { "question": "Bakit mahalaga ang positibong pagtingin sa sarili?", "options": ["Nagbibigay ito ng kumpiyansa at kapayapaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng kumpiyansa at kapayapaan" }
+        ]
+      }
+    }
+  }
+}

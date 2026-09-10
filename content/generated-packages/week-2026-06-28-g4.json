@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-06-28",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 2: Decoding Multisyllabic Words!\n\nLet's learn to read longer words with many syllables! 🔤\n\n## 🧩 Multisyllabic Words\n- Words with **many syllables** can be broken into smaller parts to read easily.\n- **Example:** *cel-e-bra-tion* (4 syllables)\n\n## 🔤 Common Affixes\n- **Prefixes** are added to the beginning: *un-happy, re-do*\n- **Suffixes** are added to the end: *happi-ness, celebrat-ion*\n\n## 📖 Practice\n- Break \"decoration\" into syllables: **dec-o-ra-tion**\n\nBreaking words into parts makes reading easier! 🌟",
+        "quiz": [
+          { "question": "How many syllables does \"celebration\" have?", "options": ["Four", "Two", "Three", "Five"], "correct_answer": "Four" },
+          { "question": "What is a prefix?", "options": ["Added to the beginning of a word", "Added to the end of a word", "A whole new word", "A punctuation mark"], "correct_answer": "Added to the beginning of a word" },
+          { "question": "What is a suffix?", "options": ["Added to the end of a word", "Added to the beginning of a word", "A whole new word", "A punctuation mark"], "correct_answer": "Added to the end of a word" },
+          { "question": "Which word has the prefix \"un-\"?", "options": ["Unhappy", "Happiness", "Celebration", "Decoration"], "correct_answer": "Unhappy" },
+          { "question": "Which word has the suffix \"-ness\"?", "options": ["Happiness", "Unhappy", "Redo", "Celebration"], "correct_answer": "Happiness" },
+          { "question": "Why do we break words into syllables?", "options": ["To make reading easier", "To make words longer", "To confuse readers", "For no reason"], "correct_answer": "To make reading easier" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 2: Triangles and Quadrilaterals!\n\nLet's learn about the properties of triangles and quadrilaterals! 🔺\n\n## 🔺 Triangles\n- A triangle has **3 sides** and **3 angles**.\n- Classified by sides: **equilateral** (all equal), **isosceles** (2 equal), **scalene** (none equal)\n\n## 🔲 Quadrilaterals\n- A quadrilateral has **4 sides**.\n- Types: **square** (4 equal sides, 4 right angles), **rectangle** (2 pairs equal sides), **rhombus** (4 equal sides, no right angles required), **trapezoid** (1 pair parallel sides)\n\n## 🔍 Classifying by Angles\n- Triangles can also be classified by angles: **right, acute, or obtuse triangle**.\n\nGreat progress learning shape properties! 🌟",
+        "quiz": [
+          { "question": "How many sides does a triangle have?", "options": ["3", "4", "5", "2"], "correct_answer": "3" },
+          { "question": "What is a triangle with all equal sides called?", "options": ["Equilateral", "Isosceles", "Scalene", "Right"], "correct_answer": "Equilateral" },
+          { "question": "What is a triangle with no equal sides called?", "options": ["Scalene", "Equilateral", "Isosceles", "Obtuse"], "correct_answer": "Scalene" },
+          { "question": "How many sides does a quadrilateral have?", "options": ["4", "3", "5", "6"], "correct_answer": "4" },
+          { "question": "What shape has 1 pair of parallel sides?", "options": ["Trapezoid", "Square", "Rhombus", "Triangle"], "correct_answer": "Trapezoid" },
+          { "question": "What shape has 4 equal sides and 4 right angles?", "options": ["Square", "Trapezoid", "Triangle", "Rhombus only"], "correct_answer": "Square" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 2: Pabula\n\nAlamin natin ang mga pabula at ang kanilang mga tauhan! 🐰🐢\n\n## 📖 Ano ang Pabula?\n- Ang **pabula** ay kwentong may hayop na tauhan na nagtuturo ng aral.\n- **Halimbawa:** \"Ang Pagong at ang Matsing\" — nagtuturo ng aral tungkol sa katalinuhan.\n\n## 🎭 Katangian at Kilos ng Tauhan\n- Ang mga hayop sa pabula ay may **katangian** tulad ng tao — matalino, mabait, o tuso.\n- **Halimbawa:** Ang pagong ay tinatanghal na **matiyaga**, ang matsing ay **tuso**.\n\n## 💡 Aral ng Pabula\n- Bawat pabula ay may **moral** o aral na natututunan sa dulo.\n\nMahusay na matutunan ang aral mula sa mga pabula! 🌟",
+        "quiz": [
+          { "question": "Ano ang pabula?", "options": ["Kwentong may hayop na tauhan na nagtuturo ng aral", "Balitang pang-araw-araw", "Isang liham", "Isang resipe"], "correct_answer": "Kwentong may hayop na tauhan na nagtuturo ng aral" },
+          { "question": "Alin ang halimbawa ng pabula?", "options": ["Ang Pagong at ang Matsing", "Balita ngayong araw", "Liham pangkaibigan", "Resipe ng adobo"], "correct_answer": "Ang Pagong at ang Matsing" },
+          { "question": "Ano ang katangian ng pagong sa pabula?", "options": ["Matiyaga", "Tuso", "Masungit", "Mayabang"], "correct_answer": "Matiyaga" },
+          { "question": "Ano ang tawag sa aral na natutunan sa dulo ng pabula?", "options": ["Moral", "Pamagat", "Tauhan", "Tagpuan"], "correct_answer": "Moral" },
+          { "question": "Ano ang katangian ng matsing sa pabula?", "options": ["Tuso", "Matiyaga", "Tahimik", "Mahiyain"], "correct_answer": "Tuso" },
+          { "question": "Bakit mahalaga ang pabula?", "options": ["Nagtuturo ito ng aral", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Nagtuturo ito ng aral" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 2: Inventions in Our Community!\n\nLet's find inventions that impact our daily lives! 🏘️\n\n## 🏘️ Inventions in the Local Community\n- Look for inventions used in your **barangay**: water pumps, streetlights, tricycles.\n\n## 🔍 Impact on Everyday Life\n- **Example 1:** Streetlights help people feel **safe** at night.\n- **Example 2:** Water pumps provide **clean water** for the community.\n\n## 💡 Thinking Like an Inventor\n- Inventors solve **problems** by creating new tools or improving old ones.\n\nWhat problem in your community could a new invention solve? 🌟",
+        "quiz": [
+          { "question": "What is an example of a community invention?", "options": ["Streetlights", "A rock", "A cloud", "A leaf"], "correct_answer": "Streetlights" },
+          { "question": "How do streetlights help the community?", "options": ["Help people feel safe at night", "Make it darker", "Have no use", "Only decorate"], "correct_answer": "Help people feel safe at night" },
+          { "question": "What do water pumps provide?", "options": ["Clean water", "Electricity", "Food", "Clothing"], "correct_answer": "Clean water" },
+          { "question": "What do inventors do?", "options": ["Solve problems by creating or improving tools", "Nothing useful", "Only play games", "Avoid new ideas"], "correct_answer": "Solve problems by creating or improving tools" },
+          { "question": "Which of these is a common community transportation invention?", "options": ["Tricycle", "Umbrella", "Pencil", "Chair"], "correct_answer": "Tricycle" },
+          { "question": "Why do we study community inventions?", "options": ["To understand their impact on our lives", "For no reason", "To forget about them", "To avoid using them"], "correct_answer": "To understand their impact on our lives" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 2: Teritoryo ng Pilipinas\n\nAlamin natin ang batayan ng ating pambansang teritoryo! 🏝️\n\n## 🏝️ Ang Pilipinas Bilang Kapuluan\n- Ang Pilipinas ay binubuo ng humigit-kumulang **7,641 na isla**.\n- Nahahati sa tatlong pangunahing grupo: **Luzon, Visayas, at Mindanao**.\n\n## 🌊 Karagatang Teritoryal\n- Ang **karagatang teritoryal** ay ang bahagi ng dagat na pag-aari ng bansa.\n- Mahalaga ito para sa **pangingisda at seguridad** ng bansa.\n\n## 🔍 Bakit Mahalaga Ito?\n- Nagbibigay ito ng batayan kung saan nagtatapos ang teritoryo ng Pilipinas.\n\nMahalaga ang ating teritoryo bilang isang bansa! 🇵🇭",
+        "quiz": [
+          { "question": "Humigit-kumulang ilang isla ang Pilipinas?", "options": ["7,641", "100", "1,000", "50,000"], "correct_answer": "7,641" },
+          { "question": "Ano ang tatlong pangunahing grupo ng isla ng Pilipinas?", "options": ["Luzon, Visayas, Mindanao", "Cebu, Davao, Manila", "Palawan, Bohol, Leyte", "Batangas, Rizal, Laguna"], "correct_answer": "Luzon, Visayas, Mindanao" },
+          { "question": "Ano ang karagatang teritoryal?", "options": ["Bahagi ng dagat na pag-aari ng bansa", "Isang uri ng ulan", "Isang uri ng hangin", "Walang kahulugan"], "correct_answer": "Bahagi ng dagat na pag-aari ng bansa" },
+          { "question": "Bakit mahalaga ang karagatang teritoryal?", "options": ["Para sa pangingisda at seguridad", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para sa pangingisda at seguridad" },
+          { "question": "Ano ang tawag sa isang bansang binubuo ng maraming isla?", "options": ["Kapuluan", "Kontinente", "Lambak", "Talampas"], "correct_answer": "Kapuluan" },
+          { "question": "Ano ang nagbibigay ng batayan kung saan nagtatapos ang teritoryo ng bansa?", "options": ["Karagatang teritoryal", "Kulay ng bandila", "Bilang ng tao", "Uri ng pagkain"], "correct_answer": "Karagatang teritoryal" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Paghahambing ng Computing Devices!\n\nAlamin natin ang pagkakaiba ng iba't ibang computing devices! 📱\n\n## 💻 Desktop vs. Laptop\n- **Desktop** — mas malaki, hindi madaling dalhin, madalas mas mabilis\n- **Laptop** — portable, may sariling baterya\n\n## 📱 Tablet at Smartphone\n- **Tablet** — flat, touch-screen, mas malaki kaysa smartphone\n- **Smartphone** — maliit, palaging dala-dala, may tawag at text\n\n## 🔍 Pagpili ng Tamang Device\n- Depende sa gawain, pipiliin natin ang pinaka-angkop na device.\n\nMay iba't ibang device para sa iba't ibang pangangailangan! 🌟",
+        "quiz": [
+          { "question": "Alin ang mas malaki at hindi madaling dalhin?", "options": ["Desktop", "Smartphone", "Tablet", "Walang tama"], "correct_answer": "Desktop" },
+          { "question": "Alin ang portable at may sariling baterya?", "options": ["Laptop", "Desktop lamang", "Printer", "Monitor lamang"], "correct_answer": "Laptop" },
+          { "question": "Alin ang flat at touch-screen, mas malaki sa smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Alin ang maliit at palaging dala-dala, may tawag at text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Paano tayo pumipili ng tamang device?", "options": ["Depende sa gawain", "Random lamang", "Kulay lamang", "Presyo lamang"], "correct_answer": "Depende sa gawain" },
+          { "question": "Bakit may iba't ibang uri ng computing devices?", "options": ["Para sa iba't ibang pangangailangan", "Walang dahilan", "Para lang magmukhang bago", "Wala itong silbi"], "correct_answer": "Para sa iba't ibang pangangailangan" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 2: Elements of Artistic Expression!\n\nLet's explore the building blocks of art and dance! 🎭\n\n## 🎨 Elements of Artistic Expression\n- **Lines, shapes, space, rhythm, sound, movement, color** — these are the tools artists use.\n\n## 💃 In Dance and Theater\n- **Movement** tells a story without words.\n- **Rhythm** guides the timing of steps and actions.\n\n## 🎭 Local Cultural Performances\n- Philippine folk dances use these elements — like the graceful movement in Tinikling or Singkil.\n\n## 🔍 Practice\n- Observe a local dance and identify the **movement, rhythm, and space** used.\n\nArt is everywhere in our culture! 🌟",
+        "quiz": [
+          { "question": "Which is an element of artistic expression?", "options": ["Movement", "Money", "Homework", "Weather"], "correct_answer": "Movement" },
+          { "question": "What does movement do in dance?", "options": ["Tells a story without words", "Makes noise only", "Has no purpose", "Only decorates"], "correct_answer": "Tells a story without words" },
+          { "question": "What guides the timing of dance steps?", "options": ["Rhythm", "Color", "Shape", "Line"], "correct_answer": "Rhythm" },
+          { "question": "Which is a Philippine folk dance?", "options": ["Tinikling", "Ballet", "Hip-hop", "Tango"], "correct_answer": "Tinikling" },
+          { "question": "What can you identify by observing a local dance?", "options": ["Movement, rhythm, and space", "Only the costume color", "Nothing important", "Only the music volume"], "correct_answer": "Movement, rhythm, and space" },
+          { "question": "Which is NOT one of the artistic elements listed?", "options": ["Homework", "Lines", "Shapes", "Color"], "correct_answer": "Homework" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 2: Kahalagahan ng Paghahalaman!\n\nAlamin natin kung bakit mahalaga ang paghahalaman! 🌿\n\n## 🌿 Kabutihang-Dulot sa Tao\n- **Stress reliever** — nakatutulong sa pagpapagaan ng isipan\n- **Medicinal value** — may mga halamang gamot\n- **Napagkakakitaan** — pinagkukunan ng kita\n\n## 🐾 Kabutihang-Dulot sa Hayop at Kalikasan\n- Nagbibigay ito ng **pagkain at silungan** sa mga hayop.\n- Nakapipigil ito sa **baha at pagguho ng lupa**.\n\n## 🔍 Halimbawa\n- Ang mga puno ay nagbibigay ng lilim, sariwang hangin, at pinipigilan ang polusyon.\n\nMaraming benepisyo ang paghahalaman sa lahat! 🌟",
+        "quiz": [
+          { "question": "Ano ang benepisyo ng paghahalaman sa isipan ng tao?", "options": ["Stress reliever", "Walang benepisyo", "Nagpapalalim ng problema", "Wala itong epekto"], "correct_answer": "Stress reliever" },
+          { "question": "Ano ang ibinibigay ng mga halamang gamot?", "options": ["Medicinal value", "Walang gamit", "Panganib lamang", "Wala itong halaga"], "correct_answer": "Medicinal value" },
+          { "question": "Paano nakatutulong ang paghahalaman sa kita?", "options": ["Napagkakakitaan", "Walang kaugnayan sa kita", "Nagpapabawas ng kita", "Wala itong silbi"], "correct_answer": "Napagkakakitaan" },
+          { "question": "Ano ang benepisyo ng puno sa kalikasan?", "options": ["Nakapipigil sa baha at pagguho ng lupa", "Wala itong benepisyo", "Nagdudulot ng problema", "Walang gamit"], "correct_answer": "Nakapipigil sa baha at pagguho ng lupa" },
+          { "question": "Ano ang ibinibigay ng halaman sa mga hayop?", "options": ["Pagkain at silungan", "Wala", "Panganib lamang", "Wala itong gamit"], "correct_answer": "Pagkain at silungan" },
+          { "question": "Ano ang isa pang kabutihang-dulot ng puno?", "options": ["Nagbibigay ng lilim at sariwang hangin", "Wala itong gamit", "Nagpapalala ng polusyon", "Walang benepisyo"], "correct_answer": "Nagbibigay ng lilim at sariwang hangin" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 2: Higit Pang Pagpapahalaga sa Sarili\n\nPatuloy nating alamin ang ating natatanging kakayahan! 🌟\n\n## 🧠 Paggamit ng Kakayahang Magpasiya\n- Ang bawat tao ay may kakayahang **magpasiya** nang tama sa iba't ibang sitwasyon.\n- **Halimbawa:** Kapag nagpasya kang mag-aral kaysa maglaro, ginamit mo ang iyong kakayahang magpasiya nang mabuti.\n\n## 💛 Pag-unawa sa Damdamin ng Iba\n- Ang **empatiya** ay ang kakayahang umunawa sa nararamdaman ng ibang tao.\n\n## 🔍 Pagsasabuhay\n- Gamitin ang iyong kakayahang mag-isip at magmahal araw-araw sa maliliit na paraan.\n\nPatuloy nating gamitin ang ating natatanging kakayahan! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit natin kapag nagpapasya nang tama?", "options": ["Kakayahang magpasiya", "Kakayahang tumakbo", "Kakayahang lumangoy", "Walang kakayahan"], "correct_answer": "Kakayahang magpasiya" },
+          { "question": "Ano ang empatiya?", "options": ["Kakayahang umunawa sa nararamdaman ng ibang tao", "Kakayahang tumakbo nang mabilis", "Kakayahang lumangoy", "Kakayahang kumanta"], "correct_answer": "Kakayahang umunawa sa nararamdaman ng ibang tao" },
+          { "question": "Ano ang halimbawa ng mabuting pagpapasiya?", "options": ["Mag-aral kaysa maglaro", "Manggulo sa klase", "Magsinungaling", "Umiwas sa gawain"], "correct_answer": "Mag-aral kaysa maglaro" },
+          { "question": "Paano natin dapat gamitin ang ating kakayahan?", "options": ["Sa maliliit na paraan araw-araw", "Isang beses lamang", "Hindi na kailangan", "Para lang sa sarili"], "correct_answer": "Sa maliliit na paraan araw-araw" },
+          { "question": "Ano ang dapat nating gawin sa ating kakayahang mag-isip?", "options": ["Gamitin ito nang tama at mabuti", "Itago ito", "Kalimutan ito", "Wala"], "correct_answer": "Gamitin ito nang tama at mabuti" },
+          { "question": "Bakit mahalaga ang empatiya?", "options": ["Tumutulong ito maunawaan ang iba", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maunawaan ang iba" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of syllables and affixes!\n\n- **Prefix** = added to beginning | **Suffix** = added to end\n- \"Celebration\" has 4 syllables\n\nGreat decoding progress! ⭐",
+        "quiz": [
+          { "question": "How many syllables does \"celebration\" have?", "options": ["Four", "Two", "Three", "Five"], "correct_answer": "Four" },
+          { "question": "What is a prefix?", "options": ["Added to the beginning of a word", "Added to the end of a word", "A whole new word", "A punctuation mark"], "correct_answer": "Added to the beginning of a word" },
+          { "question": "What is a suffix?", "options": ["Added to the end of a word", "Added to the beginning of a word", "A whole new word", "A punctuation mark"], "correct_answer": "Added to the end of a word" },
+          { "question": "Which word has the prefix \"un-\"?", "options": ["Unhappy", "Happiness", "Celebration", "Decoration"], "correct_answer": "Unhappy" },
+          { "question": "Which word has the suffix \"-ness\"?", "options": ["Happiness", "Unhappy", "Redo", "Celebration"], "correct_answer": "Happiness" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of triangles and quadrilaterals!\n\n- Triangle has **3 sides**; quadrilateral has **4 sides**\n- **Equilateral** = all equal sides | **Scalene** = no equal sides\n\nGreat shape learning! 🌟",
+        "quiz": [
+          { "question": "How many sides does a triangle have?", "options": ["3", "4", "5", "2"], "correct_answer": "3" },
+          { "question": "What is a triangle with all equal sides called?", "options": ["Equilateral", "Isosceles", "Scalene", "Right"], "correct_answer": "Equilateral" },
+          { "question": "How many sides does a quadrilateral have?", "options": ["4", "3", "5", "6"], "correct_answer": "4" },
+          { "question": "What shape has 1 pair of parallel sides?", "options": ["Trapezoid", "Square", "Rhombus", "Triangle"], "correct_answer": "Trapezoid" },
+          { "question": "What shape has 4 equal sides and 4 right angles?", "options": ["Square", "Trapezoid", "Triangle", "Rhombus only"], "correct_answer": "Square" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Pabula** = kwentong may hayop na nagtuturo ng aral\n- **Moral** = aral sa dulo ng kwento\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang pabula?", "options": ["Kwentong may hayop na tauhan na nagtuturo ng aral", "Balitang pang-araw-araw", "Isang liham", "Isang resipe"], "correct_answer": "Kwentong may hayop na tauhan na nagtuturo ng aral" },
+          { "question": "Alin ang halimbawa ng pabula?", "options": ["Ang Pagong at ang Matsing", "Balita ngayong araw", "Liham pangkaibigan", "Resipe ng adobo"], "correct_answer": "Ang Pagong at ang Matsing" },
+          { "question": "Ano ang katangian ng pagong sa pabula?", "options": ["Matiyaga", "Tuso", "Masungit", "Mayabang"], "correct_answer": "Matiyaga" },
+          { "question": "Ano ang tawag sa aral na natutunan sa dulo ng pabula?", "options": ["Moral", "Pamagat", "Tauhan", "Tagpuan"], "correct_answer": "Moral" },
+          { "question": "Ano ang katangian ng matsing sa pabula?", "options": ["Tuso", "Matiyaga", "Tahimik", "Mahiyain"], "correct_answer": "Tuso" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Ang Pilipinas ay may **7,641 na isla**\n- Tatlong grupo: **Luzon, Visayas, Mindanao**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Humigit-kumulang ilang isla ang Pilipinas?", "options": ["7,641", "100", "1,000", "50,000"], "correct_answer": "7,641" },
+          { "question": "Ano ang tatlong pangunahing grupo ng isla ng Pilipinas?", "options": ["Luzon, Visayas, Mindanao", "Cebu, Davao, Manila", "Palawan, Bohol, Leyte", "Batangas, Rizal, Laguna"], "correct_answer": "Luzon, Visayas, Mindanao" },
+          { "question": "Ano ang karagatang teritoryal?", "options": ["Bahagi ng dagat na pag-aari ng bansa", "Isang uri ng ulan", "Isang uri ng hangin", "Walang kahulugan"], "correct_answer": "Bahagi ng dagat na pag-aari ng bansa" },
+          { "question": "Bakit mahalaga ang karagatang teritoryal?", "options": ["Para sa pangingisda at seguridad", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para sa pangingisda at seguridad" },
+          { "question": "Ano ang tawag sa isang bansang binubuo ng maraming isla?", "options": ["Kapuluan", "Kontinente", "Lambak", "Talampas"], "correct_answer": "Kapuluan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Desktop** = malaki, hindi portable | **Laptop** = portable\n- **Tablet** at **Smartphone** — iba't ibang gamit\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Alin ang mas malaki at hindi madaling dalhin?", "options": ["Desktop", "Smartphone", "Tablet", "Walang tama"], "correct_answer": "Desktop" },
+          { "question": "Alin ang portable at may sariling baterya?", "options": ["Laptop", "Desktop lamang", "Printer", "Monitor lamang"], "correct_answer": "Laptop" },
+          { "question": "Alin ang flat at touch-screen, mas malaki sa smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Alin ang maliit at palaging dala-dala, may tawag at text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Paano tayo pumipili ng tamang device?", "options": ["Depende sa gawain", "Random lamang", "Kulay lamang", "Presyo lamang"], "correct_answer": "Depende sa gawain" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Streetlights** = kaligtasan sa gabi | **Water pumps** = malinis na tubig\n- Ang mga imbentor ay lumulutas ng mga problema\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is an example of a community invention?", "options": ["Streetlights", "A rock", "A cloud", "A leaf"], "correct_answer": "Streetlights" },
+          { "question": "How do streetlights help the community?", "options": ["Help people feel safe at night", "Make it darker", "Have no use", "Only decorate"], "correct_answer": "Help people feel safe at night" },
+          { "question": "What do water pumps provide?", "options": ["Clean water", "Electricity", "Food", "Clothing"], "correct_answer": "Clean water" },
+          { "question": "What do inventors do?", "options": ["Solve problems by creating or improving tools", "Nothing useful", "Only play games", "Avoid new ideas"], "correct_answer": "Solve problems by creating or improving tools" },
+          { "question": "Which of these is a common community transportation invention?", "options": ["Tricycle", "Umbrella", "Pencil", "Chair"], "correct_answer": "Tricycle" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Art elements: **lines, shapes, movement, rhythm, color**\n- Philippine folk dance: **Tinikling**\n\nGreat cultural exploration! 🌟",
+        "quiz": [
+          { "question": "Which is an element of artistic expression?", "options": ["Movement", "Money", "Homework", "Weather"], "correct_answer": "Movement" },
+          { "question": "What does movement do in dance?", "options": ["Tells a story without words", "Makes noise only", "Has no purpose", "Only decorates"], "correct_answer": "Tells a story without words" },
+          { "question": "What guides the timing of dance steps?", "options": ["Rhythm", "Color", "Shape", "Line"], "correct_answer": "Rhythm" },
+          { "question": "Which is a Philippine folk dance?", "options": ["Tinikling", "Ballet", "Hip-hop", "Tango"], "correct_answer": "Tinikling" },
+          { "question": "What can you identify by observing a local dance?", "options": ["Movement, rhythm, and space", "Only the costume color", "Nothing important", "Only the music volume"], "correct_answer": "Movement, rhythm, and space" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- Paghahalaman: **stress reliever, medicinal value, napagkakakitaan**\n- Puno: nakapipigil sa **baha at pagguho ng lupa**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang benepisyo ng paghahalaman sa isipan ng tao?", "options": ["Stress reliever", "Walang benepisyo", "Nagpapalalim ng problema", "Wala itong epekto"], "correct_answer": "Stress reliever" },
+          { "question": "Ano ang ibinibigay ng mga halamang gamot?", "options": ["Medicinal value", "Walang gamit", "Panganib lamang", "Wala itong halaga"], "correct_answer": "Medicinal value" },
+          { "question": "Paano nakatutulong ang paghahalaman sa kita?", "options": ["Napagkakakitaan", "Walang kaugnayan sa kita", "Nagpapabawas ng kita", "Wala itong silbi"], "correct_answer": "Napagkakakitaan" },
+          { "question": "Ano ang benepisyo ng puno sa kalikasan?", "options": ["Nakapipigil sa baha at pagguho ng lupa", "Wala itong benepisyo", "Nagdudulot ng problema", "Walang gamit"], "correct_answer": "Nakapipigil sa baha at pagguho ng lupa" },
+          { "question": "Ano ang ibinibigay ng halaman sa mga hayop?", "options": ["Pagkain at silungan", "Wala", "Panganib lamang", "Wala itong gamit"], "correct_answer": "Pagkain at silungan" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- **Kakayahang magpasiya** — pumipili nang tama\n- **Empatiya** — pag-unawa sa damdamin ng iba\n\nGamitin ang iyong kakayahan araw-araw! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit natin kapag nagpapasya nang tama?", "options": ["Kakayahang magpasiya", "Kakayahang tumakbo", "Kakayahang lumangoy", "Walang kakayahan"], "correct_answer": "Kakayahang magpasiya" },
+          { "question": "Ano ang empatiya?", "options": ["Kakayahang umunawa sa nararamdaman ng ibang tao", "Kakayahang tumakbo nang mabilis", "Kakayahang lumangoy", "Kakayahang kumanta"], "correct_answer": "Kakayahang umunawa sa nararamdaman ng ibang tao" },
+          { "question": "Ano ang halimbawa ng mabuting pagpapasiya?", "options": ["Mag-aral kaysa maglaro", "Manggulo sa klase", "Magsinungaling", "Umiwas sa gawain"], "correct_answer": "Mag-aral kaysa maglaro" },
+          { "question": "Paano natin dapat gamitin ang ating kakayahan?", "options": ["Sa maliliit na paraan araw-araw", "Isang beses lamang", "Hindi na kailangan", "Para lang sa sarili"], "correct_answer": "Sa maliliit na paraan araw-araw" },
+          { "question": "Bakit mahalaga ang empatiya?", "options": ["Tumutulong ito maunawaan ang iba", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maunawaan ang iba" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-07-05",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 3: Composing Enumeration-Description!\n\nLet's write our own enumeration-description paragraph! ✍️\n\n## ✍️ Writing an Enumeration-Description Paragraph\n- Start with a **topic sentence** that names what you'll describe.\n- **List details in order**, one at a time.\n- **Example:** *\"Our family mealtime has three special parts: the prayer, the sharing of stories, and the dessert.\"*\n\n## 📋 Using Simple and Compound Sentences\n- A **simple sentence** has one idea: *We eat dinner together.*\n- A **compound sentence** joins two ideas: *We eat dinner together, and we share our day.*\n\n## 🔍 Practice Tip\n- Think of a real family tradition and list its parts in order!\n\nGreat writing takes practice — keep going! 🌟",
+        "quiz": [
+          { "question": "What should you start an enumeration-description paragraph with?", "options": ["A topic sentence", "A random fact", "A question only", "Nothing"], "correct_answer": "A topic sentence" },
+          { "question": "What is a simple sentence?", "options": ["A sentence with one idea", "A sentence with two ideas joined", "A question", "A command"], "correct_answer": "A sentence with one idea" },
+          { "question": "What is a compound sentence?", "options": ["Two ideas joined together", "One idea only", "A question", "A single word"], "correct_answer": "Two ideas joined together" },
+          { "question": "How should details be listed in this text type?", "options": ["In order", "Randomly", "Backward only", "Not at all"], "correct_answer": "In order" },
+          { "question": "Which is a compound sentence?", "options": ["We eat dinner together, and we share our day.", "We eat dinner.", "Eat dinner!", "Dinner?"], "correct_answer": "We eat dinner together, and we share our day." },
+          { "question": "What could you write about for this paragraph?", "options": ["A real family tradition", "A random unrelated topic", "Nothing at all", "Just numbers"], "correct_answer": "A real family tradition" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 3: Perimeter!\n\nLet's learn to find the perimeter of different shapes! 📏\n\n## 📏 What Is Perimeter?\n- **Perimeter** is the total distance around a shape — add up all the sides!\n\n## 🔺 Perimeter of Quadrilaterals\n- **Example:** A quadrilateral with sides 5, 3, 6, and 4 cm has a perimeter of 5+3+6+4 = **18 cm**\n\n## 🧩 Perimeter of Composite Figures\n- For shapes made of triangles and quadrilaterals, **add all the outer sides** together.\n- **Example:** An L-shaped figure with outer sides 4, 3, 2, 2, 2, 5 cm has a perimeter of **18 cm**\n\nGreat work measuring around shapes! 🌟",
+        "quiz": [
+          { "question": "What is perimeter?", "options": ["The total distance around a shape", "The space inside a shape", "The number of corners", "The color of a shape"], "correct_answer": "The total distance around a shape" },
+          { "question": "A quadrilateral has sides 5, 3, 6, and 4 cm. What is its perimeter?", "options": ["18 cm", "15 cm", "20 cm", "12 cm"], "correct_answer": "18 cm" },
+          { "question": "How do you find the perimeter of a composite figure?", "options": ["Add all the outer sides together", "Multiply all the sides", "Count only the corners", "Guess randomly"], "correct_answer": "Add all the outer sides together" },
+          { "question": "What operation do we use to find perimeter?", "options": ["Addition", "Multiplication", "Division", "Subtraction"], "correct_answer": "Addition" },
+          { "question": "A square has 6 cm sides. What is its perimeter?", "options": ["24 cm", "12 cm", "36 cm", "18 cm"], "correct_answer": "24 cm" },
+          { "question": "A rectangle is 8 cm long and 3 cm wide. What is its perimeter?", "options": ["22 cm", "24 cm", "11 cm", "16 cm"], "correct_answer": "22 cm" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 3: Muling Pagsasalaysay\n\nMatuto tayong muling isalaysay ang isang kwento! 📖\n\n## 🔁 Ano ang Muling Pagsasalaysay?\n- Ito ay ang **pagkukwento ulit** ng isang alamat o pabula gamit ang **sariling salita**.\n\n## 📝 Mga Hakbang sa Muling Pagsasalaysay\n1. Alalahanin ang **mga tauhan at tagpuan**.\n2. Isaayos ang **pagkakasunod-sunod ng mga pangyayari**.\n3. Gamitin ang **sariling salita**, hindi eksaktong kopya ng orihinal.\n\n## 🔍 Halimbawa\n- Sa halip na sabihin ang eksaktong salita ng kwento, sabihin: *\"Unang-una, natuklasan ng pagong ang lansangan...\"*\n\nMahusay na isalaysay ang iyong paboritong alamat o pabula! 🌟",
+        "quiz": [
+          { "question": "Ano ang muling pagsasalaysay?", "options": ["Pagkukwento ulit gamit ang sariling salita", "Pagkopya ng eksaktong teksto", "Pagsulat ng bagong kwento", "Pagbasa lamang"], "correct_answer": "Pagkukwento ulit gamit ang sariling salita" },
+          { "question": "Ano ang unang hakbang sa muling pagsasalaysay?", "options": ["Alalahanin ang mga tauhan at tagpuan", "Kalimutan ang kwento", "Magbasa ng ibang kwento", "Tumigil"], "correct_answer": "Alalahanin ang mga tauhan at tagpuan" },
+          { "question": "Ano ang dapat gamitin sa muling pagsasalaysay?", "options": ["Sariling salita", "Eksaktong kopya ng orihinal", "Ibang wika lamang", "Walang salita"], "correct_answer": "Sariling salita" },
+          { "question": "Ano ang dapat isaayos sa muling pagsasalaysay?", "options": ["Pagkakasunod-sunod ng mga pangyayari", "Kulay ng damit ng tauhan", "Bilang ng pahina", "Wala"], "correct_answer": "Pagkakasunod-sunod ng mga pangyayari" },
+          { "question": "Bakit mahalaga ang muling pagsasalaysay?", "options": ["Tumutulong ito sa pag-unawa sa kwento", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito sa pag-unawa sa kwento" },
+          { "question": "Alin ang halimbawa ng muling pagsasalaysay?", "options": ["Unang-una, natuklasan ng pagong ang lansangan...", "Ang Pagong at ang Matsing (pamagat)", "Isang tugma lamang", "Isang bugtong"], "correct_answer": "Unang-una, natuklasan ng pagong ang lansangan..." }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 3: Chemical Properties of Materials!\n\nLet's discover how materials can chemically change! 🔥\n\n## 🔥 Chemical Properties\n- **Burnable** — materials that can catch fire, like paper and wood.\n- **Reactive** — materials that react with other materials, like vinegar and baking soda.\n- **Degradable/Biodegradable** — materials that break down naturally, like fruit peels.\n\n## 🔍 Examples\n- **Example 1:** Burning wood changes it into ash and smoke — a chemical change!\n- **Example 2:** A banana peel decomposes (biodegrades) over time.\n\n## ⚠️ Why This Matters\n- Understanding chemical properties helps us handle materials **safely**.\n\nGreat discovery of how materials change! 🌟",
+        "quiz": [
+          { "question": "What does \"burnable\" mean?", "options": ["Can catch fire", "Can float", "Can bend", "Can shine"], "correct_answer": "Can catch fire" },
+          { "question": "What happens when vinegar and baking soda mix?", "options": ["They react with each other", "Nothing happens", "They freeze", "They turn into metal"], "correct_answer": "They react with each other" },
+          { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Is always hard", "Is always shiny"], "correct_answer": "Breaks down naturally" },
+          { "question": "What happens when wood burns?", "options": ["It changes into ash and smoke", "It stays the same", "It becomes water", "It disappears completely with no trace"], "correct_answer": "It changes into ash and smoke" },
+          { "question": "Which of these is biodegradable?", "options": ["Banana peel", "Plastic bottle", "Glass", "Metal spoon"], "correct_answer": "Banana peel" },
+          { "question": "Why is understanding chemical properties important?", "options": ["It helps us handle materials safely", "It has no importance", "It makes materials disappear", "It only matters for scientists"], "correct_answer": "It helps us handle materials safely" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 3: Heyograpiyang Pisikal\n\nAlamin natin ang mga anyong-lupa at anyong-tubig ng Pilipinas! ⛰️\n\n## ⛰️ Anyong-Lupa\n- **Kabundukan** — hal. Cordillera, Sierra Madre\n- **Talampas at kapatagan** — mga patag na lupain\n\n## 🌊 Anyong-Tubig\n- **Ilog** — hal. Cagayan River, ang pinakamahabang ilog\n- **Katubigan** — dagat, look, at karagatan na nakapalibot sa Pilipinas\n\n## 🔍 Bakit Mahalaga Ito?\n- Ang mga anyong-lupa at anyong-tubig ay nakaaapekto sa **pamumuhay at kabuhayan** ng mga tao.\n\nMayaman ang Pilipinas sa likas na yaman! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng kabundukan sa Pilipinas?", "options": ["Cordillera", "Cagayan River", "Manila Bay", "Palawan"], "correct_answer": "Cordillera" },
+          { "question": "Ano ang pinakamahabang ilog sa Pilipinas?", "options": ["Cagayan River", "Pasig River", "Agno River", "Bicol River"], "correct_answer": "Cagayan River" },
+          { "question": "Ano ang anyong-tubig?", "options": ["Ilog, dagat, look, karagatan", "Bundok at talampas lamang", "Lungsod lamang", "Barangay lamang"], "correct_answer": "Ilog, dagat, look, karagatan" },
+          { "question": "Ano ang anyong-lupa?", "options": ["Bundok, talampas, kapatagan", "Ilog at dagat lamang", "Ulap lamang", "Hangin lamang"], "correct_answer": "Bundok, talampas, kapatagan" },
+          { "question": "Ano ang naaapektuhan ng heyograpiyang pisikal?", "options": ["Pamumuhay at kabuhayan ng mga tao", "Walang epekto", "Kulay ng damit lamang", "Bilang ng aso lamang"], "correct_answer": "Pamumuhay at kabuhayan ng mga tao" },
+          { "question": "Ano ang tawag sa patag na lupain?", "options": ["Kapatagan", "Bundok", "Ilog", "Dagat"], "correct_answer": "Kapatagan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 3: Bahagi ng Computer System!\n\nAlamin natin nang mas malalim ang mga bahagi ng computer! 🖥️\n\n## 🖥️ Mga Bahagi ng Computer System\n- **Monitor, keyboard, mouse, CPU, speakers** — ang mga pangunahing bahagi.\n\n## 🔌 Mga Peripheral Device\n- **Peripheral** ay kagamitang idinudugtong sa computer: **printer, webcam, scanner**.\n\n## 🔍 Gamit ng Bawat Bahagi\n- **CPU** — nagpoproseso ng impormasyon\n- **Printer** — gumagawa ng paper copy\n- **Scanner** — kumukuha ng digital na larawan ng dokumento\n\nAlam mo na ba ang gamit ng bawat bahagi? 🌟",
+        "quiz": [
+          { "question": "Ano ang pangunahing gawain ng CPU?", "options": ["Nagpoproseso ng impormasyon", "Nagpapakita ng litrato", "Nagbibigay ng tunog", "Naglilimbag ng papel"], "correct_answer": "Nagpoproseso ng impormasyon" },
+          { "question": "Ano ang peripheral device?", "options": ["Kagamitang idinudugtong sa computer", "Ang pangunahing computer lamang", "Isang uri ng software", "Isang uri ng internet"], "correct_answer": "Kagamitang idinudugtong sa computer" },
+          { "question": "Alin ang halimbawa ng peripheral device?", "options": ["Printer", "CPU lamang", "Monitor lamang", "Walang halimbawa"], "correct_answer": "Printer" },
+          { "question": "Ano ang gawain ng scanner?", "options": ["Kumukuha ng digital na larawan ng dokumento", "Naglilimbag ng papel", "Nagbibigay ng tunog", "Nagpoproseso ng impormasyon"], "correct_answer": "Kumukuha ng digital na larawan ng dokumento" },
+          { "question": "Ano ang gawain ng printer?", "options": ["Gumagawa ng paper copy", "Kumukuha ng larawan", "Nagpoproseso ng impormasyon", "Nagpapakita ng litrato"], "correct_answer": "Gumagawa ng paper copy" },
+          { "question": "Alin ang isa pang halimbawa ng peripheral device?", "options": ["Webcam", "CPU", "Monitor", "Motherboard"], "correct_answer": "Webcam" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 3: Balance, Proportion, and Scale!\n\nLet's explore how visual artists arrange their work! 🖼️\n\n## ⚖️ Balance\n- **Balance** means arranging elements so a piece of art feels **stable and even**.\n\n## 📏 Proportion and Scale\n- **Proportion** compares the size of parts to each other and to the whole.\n- **Scale** compares the size of an artwork to real life.\n\n## 🎨 Local Materials and Practices\n- Filipino visual arts use **local materials** like bamboo, shells, and natural dyes.\n\n## 🔍 Example\n- A mural with a big figure in the center and smaller details around it shows **balance and proportion**.\n\nArt reflects our culture and creativity! 🌟",
+        "quiz": [
+          { "question": "What does balance mean in art?", "options": ["Arranging elements so it feels stable and even", "Making everything the same color", "Using only one shape", "Ignoring arrangement"], "correct_answer": "Arranging elements so it feels stable and even" },
+          { "question": "What does proportion compare?", "options": ["The size of parts to each other and the whole", "Only colors", "Only sounds", "Only movement"], "correct_answer": "The size of parts to each other and the whole" },
+          { "question": "What does scale compare?", "options": ["The size of artwork to real life", "The color of artwork", "The sound of artwork", "The smell of artwork"], "correct_answer": "The size of artwork to real life" },
+          { "question": "Which is a local material used in Filipino visual arts?", "options": ["Bamboo", "Plastic only", "Steel only", "Glass only"], "correct_answer": "Bamboo" },
+          { "question": "A mural with a big center figure and smaller details shows what?", "options": ["Balance and proportion", "Only color", "Only sound", "Nothing important"], "correct_answer": "Balance and proportion" },
+          { "question": "What does Filipino visual art reflect?", "options": ["Our culture and creativity", "Nothing important", "Only random shapes", "Foreign culture only"], "correct_answer": "Our culture and creativity" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 3: Batas at Ahensya para sa Agrikultura!\n\nAlamin natin ang mga batas at ahensyang tumutulong sa mga magsasaka! 📜\n\n## 📜 Mga Batas\n- **RA 10068 (Organic Agriculture Act of 2010)** — naghihikayat ng organikong pagtatanim\n- **Ecological Solid Waste Management Act** — para sa tamang pamamahala ng basura\n\n## 🏢 Mga Ahensya ng Gobyerno\n- **DA (Department of Agriculture)** — tumutulong sa mga magsasaka\n- **DENR** — pangangalaga sa kapaligiran\n\n## 🤝 Mga NGO\n- **FAO, MASIPAG** — nagbibigay ng suporta sa mga magsasaka at agrikultura\n\nMaraming grupo ang tumutulong sa ating mga magsasaka! 🌟",
+        "quiz": [
+          { "question": "Ano ang RA 10068?", "options": ["Organic Agriculture Act of 2010", "Isang uri ng halaman", "Isang uri ng hayop", "Isang lugar"], "correct_answer": "Organic Agriculture Act of 2010" },
+          { "question": "Aling ahensya ang tumutulong sa mga magsasaka?", "options": ["DA (Department of Agriculture)", "DepEd", "DOH lamang", "Walang tumutulong"], "correct_answer": "DA (Department of Agriculture)" },
+          { "question": "Aling ahensya ang tumutulong sa pangangalaga ng kapaligiran?", "options": ["DENR", "DA lamang", "DepEd", "DOH"], "correct_answer": "DENR" },
+          { "question": "Ano ang tinutugunan ng Ecological Solid Waste Management Act?", "options": ["Tamang pamamahala ng basura", "Pagtatanim lamang", "Pag-aalaga ng hayop lamang", "Wala"], "correct_answer": "Tamang pamamahala ng basura" },
+          { "question": "Ano ang MASIPAG?", "options": ["Isang NGO na tumutulong sa agrikultura", "Isang ahensya ng gobyerno", "Isang uri ng halaman", "Isang batas"], "correct_answer": "Isang NGO na tumutulong sa agrikultura" },
+          { "question": "Bakit mahalaga ang mga batas at ahensyang ito?", "options": ["Tumutulong sila sa mga magsasaka at sa kapaligiran", "Wala silang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa mga magsasaka at sa kapaligiran" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 3: Mabuting Pakikitungo sa Pamilya\n\nAlamin natin kung paano magpakita ng tunay na saloobin sa pamilya! 🏠\n\n## 💛 Angkop na Paglalahad ng Saloobin\n- Ipahayag ang iyong tunay na **damdamin** sa mga kasapi ng pamilya nang may **katapatan** at **paggalang**.\n- **Halimbawa:** Kung malungkot ka, sabihin ito sa magulang imbes na itago.\n\n## 🤝 Pakikitungo sa Pamilya\n- Makinig nang mabuti sa mga kasapi ng pamilya.\n- Sabihin ang \"salamat\" at \"paumanhin\" kapag kinakailangan.\n\n## 🔍 Bakit Ito Mahalaga?\n- Ang mabuting pakikitungo ay nagpapalakas ng **ugnayan ng pamilya**.\n\nMagpakita ng tunay na pagmamahal sa iyong pamilya! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin kapag malungkot ka?", "options": ["Sabihin ito sa magulang", "Itago ang damdamin", "Magsinungaling", "Umiwas sa pamilya"], "correct_answer": "Sabihin ito sa magulang" },
+          { "question": "Paano dapat ipahayag ang damdamin sa pamilya?", "options": ["Nang may katapatan at paggalang", "Nang may kasinungalingan", "Nang hindi sinasabi", "Nang may galit"], "correct_answer": "Nang may katapatan at paggalang" },
+          { "question": "Ano ang dapat gawin habang nakikinig sa kasapi ng pamilya?", "options": ["Makinig nang mabuti", "Hindi pansinin", "Umalis", "Matulog"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang nagpapalakas ng ugnayan ng pamilya?", "options": ["Mabuting pakikitungo", "Kasinungalingan", "Kawalang-interes", "Pang-aasar"], "correct_answer": "Mabuting pakikitungo" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Matapat", "Pagtitipid", "Kasipagan", "Kagalingan"], "correct_answer": "Matapat" },
+          { "question": "Bakit mahalagang sabihin ang \"salamat\" at \"paumanhin\"?", "options": ["Nagpapakita ito ng respeto sa pamilya", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Nagpapakita ito ng respeto sa pamilya" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of writing paragraphs!\n\n- Start with a **topic sentence**\n- **Simple** sentence = one idea; **compound** = two ideas joined\n\nGreat writing progress! ⭐",
+        "quiz": [
+          { "question": "What should you start an enumeration-description paragraph with?", "options": ["A topic sentence", "A random fact", "A question only", "Nothing"], "correct_answer": "A topic sentence" },
+          { "question": "What is a simple sentence?", "options": ["A sentence with one idea", "A sentence with two ideas joined", "A question", "A command"], "correct_answer": "A sentence with one idea" },
+          { "question": "What is a compound sentence?", "options": ["Two ideas joined together", "One idea only", "A question", "A single word"], "correct_answer": "Two ideas joined together" },
+          { "question": "How should details be listed in this text type?", "options": ["In order", "Randomly", "Backward only", "Not at all"], "correct_answer": "In order" },
+          { "question": "Which is a compound sentence?", "options": ["We eat dinner together, and we share our day.", "We eat dinner.", "Eat dinner!", "Dinner?"], "correct_answer": "We eat dinner together, and we share our day." }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of perimeter!\n\n- **Perimeter** = total distance around a shape\n- Add all the sides together\n\nGreat perimeter practice! 🌟",
+        "quiz": [
+          { "question": "What is perimeter?", "options": ["The total distance around a shape", "The space inside a shape", "The number of corners", "The color of a shape"], "correct_answer": "The total distance around a shape" },
+          { "question": "A quadrilateral has sides 5, 3, 6, and 4 cm. What is its perimeter?", "options": ["18 cm", "15 cm", "20 cm", "12 cm"], "correct_answer": "18 cm" },
+          { "question": "How do you find the perimeter of a composite figure?", "options": ["Add all the outer sides together", "Multiply all the sides", "Count only the corners", "Guess randomly"], "correct_answer": "Add all the outer sides together" },
+          { "question": "A square has 6 cm sides. What is its perimeter?", "options": ["24 cm", "12 cm", "36 cm", "18 cm"], "correct_answer": "24 cm" },
+          { "question": "A rectangle is 8 cm long and 3 cm wide. What is its perimeter?", "options": ["22 cm", "24 cm", "11 cm", "16 cm"], "correct_answer": "22 cm" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Muling pagsasalaysay** = pagkukwento ulit gamit ang sariling salita\n- Alalahanin ang tauhan at tagpuan, isaayos ang pangyayari\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang muling pagsasalaysay?", "options": ["Pagkukwento ulit gamit ang sariling salita", "Pagkopya ng eksaktong teksto", "Pagsulat ng bagong kwento", "Pagbasa lamang"], "correct_answer": "Pagkukwento ulit gamit ang sariling salita" },
+          { "question": "Ano ang unang hakbang sa muling pagsasalaysay?", "options": ["Alalahanin ang mga tauhan at tagpuan", "Kalimutan ang kwento", "Magbasa ng ibang kwento", "Tumigil"], "correct_answer": "Alalahanin ang mga tauhan at tagpuan" },
+          { "question": "Ano ang dapat gamitin sa muling pagsasalaysay?", "options": ["Sariling salita", "Eksaktong kopya ng orihinal", "Ibang wika lamang", "Walang salita"], "correct_answer": "Sariling salita" },
+          { "question": "Ano ang dapat isaayos sa muling pagsasalaysay?", "options": ["Pagkakasunod-sunod ng mga pangyayari", "Kulay ng damit ng tauhan", "Bilang ng pahina", "Wala"], "correct_answer": "Pagkakasunod-sunod ng mga pangyayari" },
+          { "question": "Bakit mahalaga ang muling pagsasalaysay?", "options": ["Tumutulong ito sa pag-unawa sa kwento", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito sa pag-unawa sa kwento" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Anyong-lupa: **Cordillera** | Anyong-tubig: **Cagayan River**\n- Nakaaapekto sa pamumuhay ang heyograpiya\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng kabundukan sa Pilipinas?", "options": ["Cordillera", "Cagayan River", "Manila Bay", "Palawan"], "correct_answer": "Cordillera" },
+          { "question": "Ano ang pinakamahabang ilog sa Pilipinas?", "options": ["Cagayan River", "Pasig River", "Agno River", "Bicol River"], "correct_answer": "Cagayan River" },
+          { "question": "Ano ang anyong-tubig?", "options": ["Ilog, dagat, look, karagatan", "Bundok at talampas lamang", "Lungsod lamang", "Barangay lamang"], "correct_answer": "Ilog, dagat, look, karagatan" },
+          { "question": "Ano ang anyong-lupa?", "options": ["Bundok, talampas, kapatagan", "Ilog at dagat lamang", "Ulap lamang", "Hangin lamang"], "correct_answer": "Bundok, talampas, kapatagan" },
+          { "question": "Ano ang naaapektuhan ng heyograpiyang pisikal?", "options": ["Pamumuhay at kabuhayan ng mga tao", "Walang epekto", "Kulay ng damit lamang", "Bilang ng aso lamang"], "correct_answer": "Pamumuhay at kabuhayan ng mga tao" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **CPU** = nagpoproseso | **Peripheral** = idinudugtong sa computer\n- **Printer, webcam, scanner** — mga peripheral device\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang pangunahing gawain ng CPU?", "options": ["Nagpoproseso ng impormasyon", "Nagpapakita ng litrato", "Nagbibigay ng tunog", "Naglilimbag ng papel"], "correct_answer": "Nagpoproseso ng impormasyon" },
+          { "question": "Ano ang peripheral device?", "options": ["Kagamitang idinudugtong sa computer", "Ang pangunahing computer lamang", "Isang uri ng software", "Isang uri ng internet"], "correct_answer": "Kagamitang idinudugtong sa computer" },
+          { "question": "Alin ang halimbawa ng peripheral device?", "options": ["Printer", "CPU lamang", "Monitor lamang", "Walang halimbawa"], "correct_answer": "Printer" },
+          { "question": "Ano ang gawain ng scanner?", "options": ["Kumukuha ng digital na larawan ng dokumento", "Naglilimbag ng papel", "Nagbibigay ng tunog", "Nagpoproseso ng impormasyon"], "correct_answer": "Kumukuha ng digital na larawan ng dokumento" },
+          { "question": "Ano ang gawain ng printer?", "options": ["Gumagawa ng paper copy", "Kumukuha ng larawan", "Nagpoproseso ng impormasyon", "Nagpapakita ng litrato"], "correct_answer": "Gumagawa ng paper copy" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Burnable** = nagliliyab | **Biodegradable** = nabubulok\n- Pag-unawa sa chemical properties ay nagpapaligtas sa atin\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What does \"burnable\" mean?", "options": ["Can catch fire", "Can float", "Can bend", "Can shine"], "correct_answer": "Can catch fire" },
+          { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Is always hard", "Is always shiny"], "correct_answer": "Breaks down naturally" },
+          { "question": "What happens when wood burns?", "options": ["It changes into ash and smoke", "It stays the same", "It becomes water", "It disappears completely with no trace"], "correct_answer": "It changes into ash and smoke" },
+          { "question": "Which of these is biodegradable?", "options": ["Banana peel", "Plastic bottle", "Glass", "Metal spoon"], "correct_answer": "Banana peel" },
+          { "question": "Why is understanding chemical properties important?", "options": ["It helps us handle materials safely", "It has no importance", "It makes materials disappear", "It only matters for scientists"], "correct_answer": "It helps us handle materials safely" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Balance** = stable and even | **Proportion** = size comparison\n- Filipino art uses **local materials** like bamboo\n\nGreat visual arts exploration! 🌟",
+        "quiz": [
+          { "question": "What does balance mean in art?", "options": ["Arranging elements so it feels stable and even", "Making everything the same color", "Using only one shape", "Ignoring arrangement"], "correct_answer": "Arranging elements so it feels stable and even" },
+          { "question": "What does proportion compare?", "options": ["The size of parts to each other and the whole", "Only colors", "Only sounds", "Only movement"], "correct_answer": "The size of parts to each other and the whole" },
+          { "question": "What does scale compare?", "options": ["The size of artwork to real life", "The color of artwork", "The sound of artwork", "The smell of artwork"], "correct_answer": "The size of artwork to real life" },
+          { "question": "Which is a local material used in Filipino visual arts?", "options": ["Bamboo", "Plastic only", "Steel only", "Glass only"], "correct_answer": "Bamboo" },
+          { "question": "What does Filipino visual art reflect?", "options": ["Our culture and creativity", "Nothing important", "Only random shapes", "Foreign culture only"], "correct_answer": "Our culture and creativity" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- **RA 10068** — Organic Agriculture Act\n- **DA, DENR** — mga ahensya | **MASIPAG** — NGO\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang RA 10068?", "options": ["Organic Agriculture Act of 2010", "Isang uri ng halaman", "Isang uri ng hayop", "Isang lugar"], "correct_answer": "Organic Agriculture Act of 2010" },
+          { "question": "Aling ahensya ang tumutulong sa mga magsasaka?", "options": ["DA (Department of Agriculture)", "DepEd", "DOH lamang", "Walang tumutulong"], "correct_answer": "DA (Department of Agriculture)" },
+          { "question": "Aling ahensya ang tumutulong sa pangangalaga ng kapaligiran?", "options": ["DENR", "DA lamang", "DepEd", "DOH"], "correct_answer": "DENR" },
+          { "question": "Ano ang MASIPAG?", "options": ["Isang NGO na tumutulong sa agrikultura", "Isang ahensya ng gobyerno", "Isang uri ng halaman", "Isang batas"], "correct_answer": "Isang NGO na tumutulong sa agrikultura" },
+          { "question": "Ano ang tinutugunan ng Ecological Solid Waste Management Act?", "options": ["Tamang pamamahala ng basura", "Pagtatanim lamang", "Pag-aalaga ng hayop lamang", "Wala"], "correct_answer": "Tamang pamamahala ng basura" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Ipahayag ang tunay na damdamin sa pamilya nang may **katapatan**\n- Sabihin ang \"salamat\" at \"paumanhin\"\n\nMahalin ang iyong pamilya! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin kapag malungkot ka?", "options": ["Sabihin ito sa magulang", "Itago ang damdamin", "Magsinungaling", "Umiwas sa pamilya"], "correct_answer": "Sabihin ito sa magulang" },
+          { "question": "Paano dapat ipahayag ang damdamin sa pamilya?", "options": ["Nang may katapatan at paggalang", "Nang may kasinungalingan", "Nang hindi sinasabi", "Nang may galit"], "correct_answer": "Nang may katapatan at paggalang" },
+          { "question": "Ano ang dapat gawin habang nakikinig sa kasapi ng pamilya?", "options": ["Makinig nang mabuti", "Hindi pansinin", "Umalis", "Matulog"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang nagpapalakas ng ugnayan ng pamilya?", "options": ["Mabuting pakikitungo", "Kasinungalingan", "Kawalang-interes", "Pang-aasar"], "correct_answer": "Mabuting pakikitungo" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Matapat", "Pagtitipid", "Kasipagan", "Kagalingan"], "correct_answer": "Matapat" }
+        ]
+      }
+    }
+  }
+}

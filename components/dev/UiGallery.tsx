@@ -22,6 +22,7 @@
 // or a new overlay case for whatever screen you're about to restyle next.
 import { useState } from 'react';
 import QuestCard from '@/components/QuestCard';
+import VisualAid from '@/components/quest/VisualAid';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import InfoTag from '@/components/InfoTag';
 import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
@@ -327,6 +328,41 @@ export default function UiGallery() {
             <QuestCard subjectName="Demo Subject" subtitle="No SUBJECT_STYLE entry" completed={false} onEnter={() => {}} />
             <p className="text-[10px] text-[#6b4820] mt-2">Unassigned subject — falls back to DEFAULT_STYLE, which now reuses the Weekly Review art instead of a separate dark-panel look (2026-08-29).</p>
           </div>
+        </div>
+      </Section>
+
+      <Section title="Visual aid diagrams" note="components/quest/VisualAid.tsx — the three Track 1 spec-driven shapes (lib/visualAid.ts), fed hand-authored fixtures instead of live content.">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <VisualAid spec={{
+            type: 'cycle',
+            title: 'The Butterfly Life Cycle',
+            nodes: [
+              { label: 'Egg', icon: '🥚' },
+              { label: 'Caterpillar', icon: '🐛' },
+              { label: 'Chrysalis', icon: '🛡️' },
+              { label: 'Butterfly', icon: '🦋' },
+            ],
+          }} />
+          <VisualAid spec={{
+            type: 'steps',
+            title: 'Order of Operations (PEMDAS)',
+            expression: '3 + 4 × (2 − 1)² ÷ 2',
+            steps: [
+              { label: 'Parentheses', detail: '(2 − 1) = 1' },
+              { label: 'Exponents', detail: '1² = 1' },
+              { label: 'Multiply / Divide', detail: 'left to right' },
+              { label: 'Add / Subtract', detail: 'left to right → 5' },
+            ],
+          }} />
+          <VisualAid spec={{
+            type: 'bar-compare',
+            title: 'Comparing Fractions',
+            bars: [
+              { label: '3⁄4', totalParts: 4, filledParts: 3 },
+              { label: '2⁄3', totalParts: 3, filledParts: 2 },
+            ],
+            verdict: '3⁄4 > 2⁄3',
+          }} />
         </div>
       </Section>
 

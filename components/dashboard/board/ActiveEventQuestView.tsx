@@ -14,6 +14,10 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import GameButton from '@/components/GameButton';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
+// NOTE: event quests come from the separate `event_quests` table (lib/customEvents.ts's
+// EventQuest type), not the JSONB content_weeks package `visual_aid` rides on — wiring
+// VisualAid in here would need its own schema/migration decision, out of scope for the
+// main-quest Track 1 plan this file wasn't part of.
 import {
   CustomEvent,
   EventQuest,

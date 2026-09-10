@@ -1,0 +1,216 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-07-19",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 5: Verbs and Tenses!\n\nLet's master intransitive verbs and perfect tenses! 📝\n\n## 🏃 Intransitive Verbs\n- An **intransitive verb** does NOT need a direct object to complete its meaning.\n- **Example:** *The children danced.* (no object needed)\n\n## ⏰ Perfect Tenses\n- **Present perfect:** *has/have + past participle* — *She has danced.*\n- **Past perfect:** *had + past participle* — *She had danced before the rain started.*\n- **Future perfect:** *will have + past participle* — *She will have danced by then.*\n\n## 🔍 Practice\n- Identify: *\"The festival began at noon\"* — **began** is intransitive.\n\nMastering verbs makes our writing precise! 🌟",
+        "quiz": [
+          { "question": "What is an intransitive verb?", "options": ["A verb that doesn't need a direct object", "A verb that always needs an object", "A type of noun", "A punctuation mark"], "correct_answer": "A verb that doesn't need a direct object" },
+          { "question": "Which sentence has an intransitive verb?", "options": ["The children danced.", "She ate the mango.", "He read the book.", "They built a house."], "correct_answer": "The children danced." },
+          { "question": "What is the structure of present perfect tense?", "options": ["Has/have + past participle", "Will + verb", "Was/were + verb", "Simple past"], "correct_answer": "Has/have + past participle" },
+          { "question": "What is the structure of past perfect tense?", "options": ["Had + past participle", "Has + past participle", "Will have + past participle", "Simple present"], "correct_answer": "Had + past participle" },
+          { "question": "\"She will have danced by then\" is what tense?", "options": ["Future perfect", "Present perfect", "Past perfect", "Simple past"], "correct_answer": "Future perfect" },
+          { "question": "In \"The festival began at noon,\" is \"began\" transitive or intransitive?", "options": ["Intransitive", "Transitive", "Neither", "Cannot tell"], "correct_answer": "Intransitive" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 5: Multiplying Decimals Mentally!\n\nLet's learn shortcuts for multiplying decimals by powers of 10! ⚡\n\n## ⚡ Multiplying by 0.1, 0.01, 0.001\n- Multiplying by **0.1** moves the decimal point **1 place left**: 5.6 × 0.1 = **0.56**\n- Multiplying by **0.01** moves it **2 places left**: 5.6 × 0.01 = **0.056**\n\n## ⚡ Multiplying by 10, 100, 1000\n- Multiplying by **10** moves the decimal point **1 place right**: 5.6 × 10 = **56**\n- Multiplying by **100** moves it **2 places right**: 5.6 × 100 = **560**\n\n## 🔍 Practice\n- What is 3.25 × 1000? Move 3 places right: **3,250**\n\nGreat mental math shortcuts! 🌟",
+        "quiz": [
+          { "question": "What is 5.6 × 0.1?", "options": ["0.56", "5.6", "0.056", "56"], "correct_answer": "0.56" },
+          { "question": "What is 5.6 × 10?", "options": ["56", "5.6", "560", "0.56"], "correct_answer": "56" },
+          { "question": "What is 5.6 × 100?", "options": ["560", "56", "5.6", "0.56"], "correct_answer": "560" },
+          { "question": "What is 3.25 × 1000?", "options": ["3,250", "325", "32,500", "0.325"], "correct_answer": "3,250" },
+          { "question": "Which direction does the decimal move when multiplying by 0.01?", "options": ["2 places left", "2 places right", "1 place left", "1 place right"], "correct_answer": "2 places left" },
+          { "question": "What is 2.4 × 0.01?", "options": ["0.024", "0.24", "2.4", "24"], "correct_answer": "0.024" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 5: Personal Data Form\n\nMatuto tayong sagutan ang mga uri ng pormularyo! 📋\n\n## 📋 Personal Data Form (PSA)\n- Ginagamit ito para sa mga opisyal na dokumento, tulad ng birth certificate application.\n- Kailangan ang **buong pangalan, petsa ng kapanganakan, tirahan**.\n\n## 📋 Personal Data Form (Bio-data)\n- Ginagamit ito para sa aplikasyon sa trabaho o iskolarsyip — kasama ang **karanasan at kasanayan**.\n\n## 🔍 Kawastuhan sa Pagsagot\n- Laging sagutin nang **tumpak at malinaw** ang mga pormularyo.\n\nMahalagang kasanayan ito para sa hinaharap! 🌟",
+        "quiz": [
+          { "question": "Saan ginagamit ang Personal Data Form (PSA)?", "options": ["Sa mga opisyal na dokumento", "Sa laro lamang", "Sa pagkain lamang", "Wala"], "correct_answer": "Sa mga opisyal na dokumento" },
+          { "question": "Ano ang kailangan sa Personal Data Form?", "options": ["Buong pangalan, petsa ng kapanganakan, tirahan", "Paboritong laro lamang", "Wala", "Kulay lamang"], "correct_answer": "Buong pangalan, petsa ng kapanganakan, tirahan" },
+          { "question": "Saan ginagamit ang Bio-data form?", "options": ["Sa aplikasyon sa trabaho o iskolarsyip", "Sa laro lamang", "Sa pagluluto lamang", "Wala"], "correct_answer": "Sa aplikasyon sa trabaho o iskolarsyip" },
+          { "question": "Ano ang laman ng bio-data bukod sa personal na impormasyon?", "options": ["Karanasan at kasanayan", "Wala", "Kulay ng damit", "Uri ng pagkain"], "correct_answer": "Karanasan at kasanayan" },
+          { "question": "Paano dapat sagutan ang mga pormularyo?", "options": ["Nang tumpak at malinaw", "Nang basta-basta", "Nang hindi kumpleto", "Walang pakialam"], "correct_answer": "Nang tumpak at malinaw" },
+          { "question": "Bakit mahalagang matutong sumagot ng pormularyo?", "options": ["Mahalaga ito sa hinaharap", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Mahalaga ito sa hinaharap" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 5: More Separation Techniques!\n\nLet's explore more ways to separate mixtures! 🌾\n\n## 🌾 Winnowing and Sieving\n- **Winnowing** — using wind to separate lighter materials from heavier ones (like separating rice from husk).\n- **Sieving** — using a mesh to separate larger particles from smaller ones.\n\n## 🔍 Picking and Scooping\n- **Picking** — manually removing unwanted items.\n- **Scooping** — removing floating materials from the surface.\n\n## 🎯 Choosing the Right Method\n- The choice depends on particle **size, weight, and material type**.\n\nGreat understanding of practical separation methods! 🌟",
+        "quiz": [
+          { "question": "What is winnowing?", "options": ["Using wind to separate lighter materials from heavier ones", "Using a filter", "Using a magnet", "Heating a liquid"], "correct_answer": "Using wind to separate lighter materials from heavier ones" },
+          { "question": "What is sieving?", "options": ["Using a mesh to separate particles by size", "Pouring off liquid", "Using a magnet", "Heating until evaporated"], "correct_answer": "Using a mesh to separate particles by size" },
+          { "question": "What is picking?", "options": ["Manually removing unwanted items", "Using wind", "Using a magnet", "Heating"], "correct_answer": "Manually removing unwanted items" },
+          { "question": "What is scooping?", "options": ["Removing floating materials from the surface", "Using wind", "Using a mesh", "Heating a liquid"], "correct_answer": "Removing floating materials from the surface" },
+          { "question": "What determines the right separation method?", "options": ["Particle size, weight, and material type", "Random choice", "Color only", "Nothing"], "correct_answer": "Particle size, weight, and material type" },
+          { "question": "What is winnowing used for traditionally?", "options": ["Separating rice from husk", "Making bread", "Cooking rice", "Painting"], "correct_answer": "Separating rice from husk" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 5: Papel ng Kababaihan sa Himagsikan\n\nAlamin natin ang mahalagang papel ng kababaihan sa Himagsikan! 👩\n\n## 👩 Mga Kababaihang Bayani\n- **Gabriela Silang** — nanguna sa paglaban laban sa mga Espanyol matapos mamatay ang kanyang asawa.\n- **Melchora Aquino (Tandang Sora)** — tinulungan ang mga Katipunero sa pagkain at proteksyon.\n\n## 🎗️ Iba Pang Kontribusyon\n- Maraming kababaihan ang naging **nars, tagapagbalita, at tagapagtustos ng suplay** para sa mga rebolusyonaryo.\n\n## 🔍 Kahalagahan\n- Ipinapakita nito na ang **kababaihan ay may mahalagang papel** sa pakikibaka para sa kalayaan.\n\nIgalang ang kontribusyon ng ating mga bayaning kababaihan! 🇵🇭",
+        "quiz": [
+          { "question": "Sino si Gabriela Silang?", "options": ["Nanguna sa paglaban laban sa mga Espanyol", "Isang Espanyol na heneral", "Isang guro lamang", "Isang mangingisda"], "correct_answer": "Nanguna sa paglaban laban sa mga Espanyol" },
+          { "question": "Sino si Tandang Sora?", "options": ["Melchora Aquino, tumulong sa mga Katipunero", "Isang Espanyol", "Isang guro lamang", "Isang doktor"], "correct_answer": "Melchora Aquino, tumulong sa mga Katipunero" },
+          { "question": "Anong tulong ibinigay ng maraming kababaihan sa Himagsikan?", "options": ["Pagiging nars at tagapagtustos ng suplay", "Wala", "Panunulat lamang", "Panonood lamang"], "correct_answer": "Pagiging nars at tagapagtustos ng suplay" },
+          { "question": "Ano ang ipinapakita ng kontribusyon ng kababaihan?", "options": ["Mahalagang papel nila sa pakikibaka", "Kawalang-halaga", "Wala silang ginawa", "Wala"], "correct_answer": "Mahalagang papel nila sa pakikibaka" },
+          { "question": "Bakit kailangang alalahanin ang mga bayaning kababaihan?", "options": ["Dahil sa kanilang kontribusyon sa kalayaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Dahil sa kanilang kontribusyon sa kalayaan" },
+          { "question": "Ano ang ginawa ni Gabriela Silang matapos mamatay ang kanyang asawa?", "options": ["Nanguna siya sa paglaban", "Umalis siya sa bansa", "Tumigil siya sa paglaban", "Wala"], "correct_answer": "Nanguna siya sa paglaban" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 5: Cloud Storage!\n\nLet's learn about storing files online! ☁️\n\n## ☁️ What Is Cloud Storage?\n- **Cloud storage** lets us save files online, accessible from any device with Internet.\n- **Examples:** Google Drive, Dropbox, OneDrive.\n\n## 🔒 Safe Uploading and Sharing\n- Only share files with **trusted people**.\n- Check sharing **permissions** before sending a link.\n\n## 🔍 Benefits\n- Files are **backed up** and won't be lost if a device breaks.\n\nCloud storage keeps our work safe and accessible! 🌟",
+        "quiz": [
+          { "question": "What is cloud storage?", "options": ["Saving files online, accessible from any device", "A type of hardware", "A printed folder", "A type of pen"], "correct_answer": "Saving files online, accessible from any device" },
+          { "question": "Which is an example of cloud storage?", "options": ["Google Drive", "A notebook", "A pencil case", "A calculator"], "correct_answer": "Google Drive" },
+          { "question": "Who should you share files with?", "options": ["Trusted people", "Anyone at all", "Strangers only", "No one ever"], "correct_answer": "Trusted people" },
+          { "question": "What should you check before sending a sharing link?", "options": ["Permissions", "Nothing", "Only the color", "Only the file name"], "correct_answer": "Permissions" },
+          { "question": "What is a benefit of cloud storage?", "options": ["Files are backed up and not lost if a device breaks", "It deletes files automatically", "It has no benefit", "It slows down your computer"], "correct_answer": "Files are backed up and not lost if a device breaks" },
+          { "question": "What do you need to access cloud storage?", "options": ["A device with Internet", "Only a printer", "Only a pencil", "Nothing at all"], "correct_answer": "A device with Internet" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏃 MAPEH — Week 5: Invasion Games!\n\nLet's play traditional Filipino invasion games! 🏃‍♂️\n\n## 🏃 Invasion Game Concepts\n- **Attacking** — advancing into space to score or capture\n- **Defending** — blocking the other team's advance\n\n## 🇵🇭 Games to Play\n- **Patintero, Agawan Base** — classic Filipino invasion games.\n\n## 💪 Skills Applied\n- **Speed, agility, and teamwork** are key to success.\n\nThese games build both fitness and strategy! 🌟",
+        "quiz": [
+          { "question": "What does \"attacking\" mean in invasion games?", "options": ["Advancing into space to score or capture", "Standing still", "Sitting down", "Avoiding the game"], "correct_answer": "Advancing into space to score or capture" },
+          { "question": "What does \"defending\" mean?", "options": ["Blocking the other team's advance", "Attacking constantly", "Ignoring the game", "Running away"], "correct_answer": "Blocking the other team's advance" },
+          { "question": "What is Patintero?", "options": ["Crossing lines without being tagged", "A dance", "A song", "A drawing game"], "correct_answer": "Crossing lines without being tagged" },
+          { "question": "What is Agawan Base?", "options": ["Racing to capture the opposing team's base", "A cooking game", "A math game", "A reading game"], "correct_answer": "Racing to capture the opposing team's base" },
+          { "question": "What skills are key to invasion games?", "options": ["Speed, agility, and teamwork", "Only sitting still", "Only reading", "Only singing"], "correct_answer": "Speed, agility, and teamwork" },
+          { "question": "What do these games build?", "options": ["Fitness and strategy", "Nothing important", "Only individual skill", "Boredom"], "correct_answer": "Fitness and strategy" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 5: Requirements para sa Natural na Pag-aalaga ng Isda!\n\nAlamin natin ang kailangan para sa fish raising! 💧",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Mga Kailangan sa Natural na Pag-aalaga ng Isda",
+          "steps": [
+            { "label": "Piliin ang lugar", "detail": "malinis at may sapat na tubig" },
+            { "label": "Suriin ang kalidad ng tubig", "detail": "temperatura, kalinisan, at antas ng oxygen" },
+            { "label": "Piliin ang uri ng isda", "detail": "angkop sa lokal na klima" },
+            { "label": "Ihanda ang lalagyan o pond", "detail": "fish cage o fish pond" },
+            { "label": "Simulan ang pag-aalaga", "detail": "gamit ang tamang pakain at pangangalaga" }
+          ]
+        },
+        "quiz": [
+          { "question": "Ano ang unang hakbang sa pag-aalaga ng isda?", "options": ["Piliin ang lugar", "Ihanda agad ang pakain", "Bumili ng isda kaagad", "Wala"], "correct_answer": "Piliin ang lugar" },
+          { "question": "Ano ang dapat suriin sa tubig?", "options": ["Temperatura, kalinisan, at antas ng oxygen", "Kulay lamang", "Lasa lamang", "Wala"], "correct_answer": "Temperatura, kalinisan, at antas ng oxygen" },
+          { "question": "Bakit dapat piliin ang uri ng isda na angkop sa lokal na klima?", "options": ["Para lumago at mabuhay nang maayos", "Walang dahilan", "Para lang gumanda", "Wala itong epekto"], "correct_answer": "Para lumago at mabuhay nang maayos" },
+          { "question": "Alin ang halimbawa ng lalagyan sa pag-aalaga ng isda?", "options": ["Fish cage", "Kusina", "Silid-aklatan", "Kotse"], "correct_answer": "Fish cage" },
+          { "question": "Ano ang mahalaga sa pagsisimula ng pag-aalaga?", "options": ["Tamang pakain at pangangalaga", "Wala", "Random na aksyon", "Kawalang-alintuntunin"], "correct_answer": "Tamang pakain at pangangalaga" },
+          { "question": "Bakit dapat sundin ang tamang pagkakasunod-sunod ng mga hakbang?", "options": ["Para matagumpay ang fish raising", "Walang dahilan", "Para lang mabilis matapos", "Wala itong epekto"], "correct_answer": "Para matagumpay ang fish raising" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 5: Kilos ng Pagmamahal Bilang Indikasyon ng Pananampalataya\n\nAlamin natin kung paano ipakita ang pananampalataya sa mga kilos ng pagmamahal! 💛\n\n## 💛 Kilos ng Pagmamahal\n- Ang **pagbibigay-priyoridad sa kapakanan ng kasapi ng pamilya** ay isang paraan ng pagpapakita ng pananampalataya.\n\n## 🤝 Halimbawa\n- Pagtulong sa kapatid sa takdang-aralin, o pag-aalaga sa isang may sakit na miyembro ng pamilya.\n\n## 🔍 Kaugnayan sa Pananampalataya\n- Ang pananampalataya ay hindi lamang salita — ipinapakita rin ito sa **mabubuting kilos**.\n\nIpakita ang iyong pananampalataya sa pamamagitan ng pagmamahal! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang kilos ng pagmamahal na indikasyon ng pananampalataya?", "options": ["Pagbibigay-priyoridad sa kapakanan ng pamilya", "Kawalang-interes sa pamilya", "Pagsisinungaling", "Pananakit"], "correct_answer": "Pagbibigay-priyoridad sa kapakanan ng pamilya" },
+          { "question": "Alin ang halimbawa ng kilos ng pagmamahal?", "options": ["Pag-aalaga sa may sakit na miyembro ng pamilya", "Pag-iwas sa pamilya", "Kawalang-pansin", "Pananakit"], "correct_answer": "Pag-aalaga sa may sakit na miyembro ng pamilya" },
+          { "question": "Paano ipinapakita ang pananampalataya bukod sa salita?", "options": ["Sa mabubuting kilos", "Sa panonood ng TV lamang", "Sa pag-iwas sa iba", "Wala"], "correct_answer": "Sa mabubuting kilos" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapagmalasakit", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapagmalasakit" },
+          { "question": "Ano ang halimbawa ng pagtulong sa kapatid?", "options": ["Pagtulong sa takdang-aralin", "Pag-iwas sa kanya", "Pananakit sa kanya", "Kawalang-pansin"], "correct_answer": "Pagtulong sa takdang-aralin" },
+          { "question": "Bakit mahalaga ang kilos ng pagmamahal sa pamilya?", "options": ["Ipinapakita nito ang tunay na pananampalataya", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Ipinapakita nito ang tunay na pananampalataya" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of verbs and tenses!\n\n- **Intransitive verb** = no object needed\n- Perfect tenses: **has/have, had, will have** + past participle\n\nGreat grammar mastery! ⭐",
+        "quiz": [
+          { "question": "What is an intransitive verb?", "options": ["A verb that doesn't need a direct object", "A verb that always needs an object", "A type of noun", "A punctuation mark"], "correct_answer": "A verb that doesn't need a direct object" },
+          { "question": "Which sentence has an intransitive verb?", "options": ["The children danced.", "She ate the mango.", "He read the book.", "They built a house."], "correct_answer": "The children danced." },
+          { "question": "What is the structure of present perfect tense?", "options": ["Has/have + past participle", "Will + verb", "Was/were + verb", "Simple past"], "correct_answer": "Has/have + past participle" },
+          { "question": "What is the structure of past perfect tense?", "options": ["Had + past participle", "Has + past participle", "Will have + past participle", "Simple present"], "correct_answer": "Had + past participle" },
+          { "question": "\"She will have danced by then\" is what tense?", "options": ["Future perfect", "Present perfect", "Past perfect", "Simple past"], "correct_answer": "Future perfect" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of mental decimal multiplication!\n\n- × 0.1 moves decimal **1 left** | × 10 moves it **1 right**\n- 5.6 × 100 = **560**\n\nGreat mental math! 🌟",
+        "quiz": [
+          { "question": "What is 5.6 × 0.1?", "options": ["0.56", "5.6", "0.056", "56"], "correct_answer": "0.56" },
+          { "question": "What is 5.6 × 10?", "options": ["56", "5.6", "560", "0.56"], "correct_answer": "56" },
+          { "question": "What is 5.6 × 100?", "options": ["560", "56", "5.6", "0.56"], "correct_answer": "560" },
+          { "question": "What is 3.25 × 1000?", "options": ["3,250", "325", "32,500", "0.325"], "correct_answer": "3,250" },
+          { "question": "What is 2.4 × 0.01?", "options": ["0.024", "0.24", "2.4", "24"], "correct_answer": "0.024" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **PSA Form** = para sa opisyal na dokumento\n- **Bio-data** = para sa trabaho/iskolarsyip\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Saan ginagamit ang Personal Data Form (PSA)?", "options": ["Sa mga opisyal na dokumento", "Sa laro lamang", "Sa pagkain lamang", "Wala"], "correct_answer": "Sa mga opisyal na dokumento" },
+          { "question": "Saan ginagamit ang Bio-data form?", "options": ["Sa aplikasyon sa trabaho o iskolarsyip", "Sa laro lamang", "Sa pagluluto lamang", "Wala"], "correct_answer": "Sa aplikasyon sa trabaho o iskolarsyip" },
+          { "question": "Ano ang laman ng bio-data bukod sa personal na impormasyon?", "options": ["Karanasan at kasanayan", "Wala", "Kulay ng damit", "Uri ng pagkain"], "correct_answer": "Karanasan at kasanayan" },
+          { "question": "Paano dapat sagutan ang mga pormularyo?", "options": ["Nang tumpak at malinaw", "Nang basta-basta", "Nang hindi kumpleto", "Walang pakialam"], "correct_answer": "Nang tumpak at malinaw" },
+          { "question": "Bakit mahalagang matutong sumagot ng pormularyo?", "options": ["Mahalaga ito sa hinaharap", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Mahalaga ito sa hinaharap" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Gabriela Silang** at **Tandang Sora** — kababaihang bayani\n- Mahalaga ang kontribusyon ng kababaihan sa Himagsikan\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Sino si Gabriela Silang?", "options": ["Nanguna sa paglaban laban sa mga Espanyol", "Isang Espanyol na heneral", "Isang guro lamang", "Isang mangingisda"], "correct_answer": "Nanguna sa paglaban laban sa mga Espanyol" },
+          { "question": "Sino si Tandang Sora?", "options": ["Melchora Aquino, tumulong sa mga Katipunero", "Isang Espanyol", "Isang guro lamang", "Isang doktor"], "correct_answer": "Melchora Aquino, tumulong sa mga Katipunero" },
+          { "question": "Anong tulong ibinigay ng maraming kababaihan sa Himagsikan?", "options": ["Pagiging nars at tagapagtustos ng suplay", "Wala", "Panunulat lamang", "Panonood lamang"], "correct_answer": "Pagiging nars at tagapagtustos ng suplay" },
+          { "question": "Ano ang ipinapakita ng kontribusyon ng kababaihan?", "options": ["Mahalagang papel nila sa pakikibaka", "Kawalang-halaga", "Wala silang ginawa", "Wala"], "correct_answer": "Mahalagang papel nila sa pakikibaka" },
+          { "question": "Bakit kailangang alalahanin ang mga bayaning kababaihan?", "options": ["Dahil sa kanilang kontribusyon sa kalayaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Dahil sa kanilang kontribusyon sa kalayaan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Cloud storage** = pag-iimbak ng files online\n- Ibahagi lamang sa **trusted people**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What is cloud storage?", "options": ["Saving files online, accessible from any device", "A type of hardware", "A printed folder", "A type of pen"], "correct_answer": "Saving files online, accessible from any device" },
+          { "question": "Which is an example of cloud storage?", "options": ["Google Drive", "A notebook", "A pencil case", "A calculator"], "correct_answer": "Google Drive" },
+          { "question": "Who should you share files with?", "options": ["Trusted people", "Anyone at all", "Strangers only", "No one ever"], "correct_answer": "Trusted people" },
+          { "question": "What is a benefit of cloud storage?", "options": ["Files are backed up and not lost if a device breaks", "It deletes files automatically", "It has no benefit", "It slows down your computer"], "correct_answer": "Files are backed up and not lost if a device breaks" },
+          { "question": "What do you need to access cloud storage?", "options": ["A device with Internet", "Only a printer", "Only a pencil", "Nothing at all"], "correct_answer": "A device with Internet" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Winnowing** = hangin | **Sieving** = mesh\n- Winnowing ginagamit sa paghihiwalay ng bigas at busal\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is winnowing?", "options": ["Using wind to separate lighter materials from heavier ones", "Using a filter", "Using a magnet", "Heating a liquid"], "correct_answer": "Using wind to separate lighter materials from heavier ones" },
+          { "question": "What is sieving?", "options": ["Using a mesh to separate particles by size", "Pouring off liquid", "Using a magnet", "Heating until evaporated"], "correct_answer": "Using a mesh to separate particles by size" },
+          { "question": "What is picking?", "options": ["Manually removing unwanted items", "Using wind", "Using a magnet", "Heating"], "correct_answer": "Manually removing unwanted items" },
+          { "question": "What determines the right separation method?", "options": ["Particle size, weight, and material type", "Random choice", "Color only", "Nothing"], "correct_answer": "Particle size, weight, and material type" },
+          { "question": "What is winnowing used for traditionally?", "options": ["Separating rice from husk", "Making bread", "Cooking rice", "Painting"], "correct_answer": "Separating rice from husk" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏃 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Patintero, Agawan Base** — invasion games\n- Skills: **speed, agility, teamwork**\n\nGreat active learning! 🌟",
+        "quiz": [
+          { "question": "What does \"attacking\" mean in invasion games?", "options": ["Advancing into space to score or capture", "Standing still", "Sitting down", "Avoiding the game"], "correct_answer": "Advancing into space to score or capture" },
+          { "question": "What does \"defending\" mean?", "options": ["Blocking the other team's advance", "Attacking constantly", "Ignoring the game", "Running away"], "correct_answer": "Blocking the other team's advance" },
+          { "question": "What is Patintero?", "options": ["Crossing lines without being tagged", "A dance", "A song", "A drawing game"], "correct_answer": "Crossing lines without being tagged" },
+          { "question": "What skills are key to invasion games?", "options": ["Speed, agility, and teamwork", "Only sitting still", "Only reading", "Only singing"], "correct_answer": "Speed, agility, and teamwork" },
+          { "question": "What do these games build?", "options": ["Fitness and strategy", "Nothing important", "Only individual skill", "Boredom"], "correct_answer": "Fitness and strategy" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- Kailangan sa pag-aalaga ng isda: **lugar, kalidad ng tubig, uri ng isda**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang unang hakbang sa pag-aalaga ng isda?", "options": ["Piliin ang lugar", "Ihanda agad ang pakain", "Bumili ng isda kaagad", "Wala"], "correct_answer": "Piliin ang lugar" },
+          { "question": "Ano ang dapat suriin sa tubig?", "options": ["Temperatura, kalinisan, at antas ng oxygen", "Kulay lamang", "Lasa lamang", "Wala"], "correct_answer": "Temperatura, kalinisan, at antas ng oxygen" },
+          { "question": "Alin ang halimbawa ng lalagyan sa pag-aalaga ng isda?", "options": ["Fish cage", "Kusina", "Silid-aklatan", "Kotse"], "correct_answer": "Fish cage" },
+          { "question": "Ano ang mahalaga sa pagsisimula ng pag-aalaga?", "options": ["Tamang pakain at pangangalaga", "Wala", "Random na aksyon", "Kawalang-alintuntunin"], "correct_answer": "Tamang pakain at pangangalaga" },
+          { "question": "Bakit dapat sundin ang tamang pagkakasunod-sunod ng mga hakbang?", "options": ["Para matagumpay ang fish raising", "Walang dahilan", "Para lang mabilis matapos", "Wala itong epekto"], "correct_answer": "Para matagumpay ang fish raising" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Kilos ng pagmamahal = priyoridad sa kapakanan ng pamilya\n- Pananampalataya sa mabubuting kilos\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang kilos ng pagmamahal na indikasyon ng pananampalataya?", "options": ["Pagbibigay-priyoridad sa kapakanan ng pamilya", "Kawalang-interes sa pamilya", "Pagsisinungaling", "Pananakit"], "correct_answer": "Pagbibigay-priyoridad sa kapakanan ng pamilya" },
+          { "question": "Alin ang halimbawa ng kilos ng pagmamahal?", "options": ["Pag-aalaga sa may sakit na miyembro ng pamilya", "Pag-iwas sa pamilya", "Kawalang-pansin", "Pananakit"], "correct_answer": "Pag-aalaga sa may sakit na miyembro ng pamilya" },
+          { "question": "Paano ipinapakita ang pananampalataya bukod sa salita?", "options": ["Sa mabubuting kilos", "Sa panonood ng TV lamang", "Sa pag-iwas sa iba", "Wala"], "correct_answer": "Sa mabubuting kilos" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapagmalasakit", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapagmalasakit" },
+          { "question": "Bakit mahalaga ang kilos ng pagmamahal sa pamilya?", "options": ["Ipinapakita nito ang tunay na pananampalataya", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Ipinapakita nito ang tunay na pananampalataya" }
+        ]
+      }
+    }
+  }
+}
