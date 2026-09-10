@@ -140,18 +140,18 @@ export default function DailyChecklist({
   const guildsPlayedToday = GUILDS.filter(g => battleFlags.guild_last_played?.[g.key] === todayKey);
   const guildsAllDone = guildsPlayedToday.length === GUILDS.length;
 
-  // 'gauntlet' events (Topic Mastery Gauntlet) split their pool into one
-  // chunk per weekday — gauntletDaysDone is keyed by day name just like
-  // currentDayName, so "today's" chunk is a direct lookup. 'authored'
-  // events aren't day-keyed at all (event_quests has no day column, it's a
-  // flat list for the whole event run) — the closest analog to "today's"
-  // task there is whether every quest is mastered yet, same criterion the
-  // event's own claim-reward flow uses.
-  const eventDayDone = !!eventClaimed || (activeEvent
-    ? activeEvent.content_source === 'gauntlet'
-      ? !!gauntletDaysDone?.has(currentDayName)
-      : (eventQuests?.length ?? 0) > 0 && eventQuests!.every(q => eventProgress?.some(p => p.event_quest_id === q.id && p.is_mastered))
-    : false);
+  // Only 'gauntlet' events (Topic Mastery Gauntlet) get a checklist item —
+  // that's the only content_source claim_daily_checklist_bonus's SQL knows
+  // how to substitute for the regular quest requirement (see the migration).
+  // 'authored' events run their own separate claim-reward flow entirely
+  // server-side untouched by that fix, so surfacing one here too would add
+  // a client-only gate — requiring ALL of that event's quests mastered,
+  // since event_quests has no day column to scope "today's" task to — that
+  // the server was never taught to honor, silently blocking the Claim
+  // button past whatever the server actually requires. gauntletDaysDone is
+  // keyed by day name just like currentDayName, so "today's" chunk is a
+  // direct lookup, mirroring the server's mastery_gauntlet_sessions check.
+  const eventDayDone = gauntletActive && (!!eventClaimed || !!gauntletDaysDone?.has(currentDayName));
 
   const items: ChecklistItem[] = [
     {
@@ -176,8 +176,8 @@ export default function DailyChecklist({
       actionLabel: 'Go to Map',
       onAction: onGoToTrainingMap,
     },
-    ...(activeEvent ? [{
-      label: `Progress today's event: ${activeEvent.title}`,
+    ...(gauntletActive ? [{
+      label: `Progress today's event: ${activeEvent!.title}`,
       done: eventDayDone,
       actionLabel: 'Go to Event',
       onAction: onGoToEvent,
