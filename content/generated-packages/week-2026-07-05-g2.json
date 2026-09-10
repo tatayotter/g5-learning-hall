@@ -1,0 +1,171 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-07-05",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 3: Words About Me and My Family!\n\nLet's learn words that describe ourselves and our family! 👨‍👩‍👧‍👦\n\n## 👪 Family Vocabulary\n- **father, mother, brother, sister, grandmother, grandfather**\n- **Example:** *My father works hard. My sister likes to sing.*\n\n## 😊 Feeling Words\n- We use words like **happy, sad, excited, tired** to describe how we feel.\n- **Example:** *I am happy today because it is my birthday.*\n\n## 🏷️ Naming Words (Nouns)\n- A **noun** is a word that names a person, place, or thing.\n- **Example 1:** *mother* (person), *house* (place), *ball* (thing)\n- **Example 2:** *In \"My sister plays with a ball,\" the nouns are sister and ball.*\n\nKnowing these words helps us talk about ourselves and our family! 🌟",
+        "quiz": [
+          { "question": "Which word names a family member?", "options": ["Mother", "Happy", "Jump", "Blue"], "correct_answer": "Mother" },
+          { "question": "Which word describes a feeling?", "options": ["Happy", "House", "Ball", "Mother"], "correct_answer": "Happy" },
+          { "question": "What is a noun?", "options": ["A word that names a person, place, or thing", "A word that shows action", "A word that describes color", "A word that asks a question"], "correct_answer": "A word that names a person, place, or thing" },
+          { "question": "In \"My sister plays with a ball,\" which word is a noun?", "options": ["Sister", "Plays", "With", "My"], "correct_answer": "Sister" },
+          { "question": "Which sentence uses a feeling word correctly?", "options": ["I am happy today.", "I am house today.", "I am ball today.", "I am mother today."], "correct_answer": "I am happy today." },
+          { "question": "Which word names a place?", "options": ["House", "Happy", "Run", "Mother"], "correct_answer": "House" },
+          { "question": "Which of these is a family member word?", "options": ["Grandfather", "Excited", "Jump", "Green"], "correct_answer": "Grandfather" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Mathematics — Week 3: Sliding and Flipping Shapes!\n\nLet's learn how shapes can move! 🔄\n\n## ➡️ Slides (Translations)\n- A **slide** moves a shape in **one direction** — up, down, left, or right — **without turning it**.\n- **Example:** Sliding a triangle 3 spaces to the right keeps it the **same shape and size**, just in a new spot.\n\n## 🔃 Flips (Reflections)\n- A **flip** creates a **mirror image** of a shape — like looking in a mirror!\n- **Example:** Flipping the letter \"b\" makes it look like \"d\"!\n\n## 🔍 Slide vs. Flip\n- A **slide** keeps the shape facing the same way.\n- A **flip** makes the shape face the **opposite way**, like a mirror.\n\nTry sliding and flipping shapes with your own drawings! 🌟",
+        "quiz": [
+          { "question": "What is a slide?", "options": ["Moving a shape in one direction without turning it", "Making a mirror image", "Making a shape bigger", "Erasing a shape"], "correct_answer": "Moving a shape in one direction without turning it" },
+          { "question": "What is a flip?", "options": ["Making a mirror image of a shape", "Moving a shape sideways", "Making a shape smaller", "Coloring a shape"], "correct_answer": "Making a mirror image of a shape" },
+          { "question": "If you flip the letter \"b\", what does it look like?", "options": ["d", "p", "q", "b"], "correct_answer": "d" },
+          { "question": "Does a slide change the size of a shape?", "options": ["No, it stays the same size", "Yes, it gets bigger", "Yes, it gets smaller", "It disappears"], "correct_answer": "No, it stays the same size" },
+          { "question": "What is another name for a slide?", "options": ["Translation", "Reflection", "Rotation", "Decomposition"], "correct_answer": "Translation" },
+          { "question": "What is another name for a flip?", "options": ["Reflection", "Translation", "Addition", "Subtraction"], "correct_answer": "Reflection" },
+          { "question": "Which direction can a shape slide?", "options": ["Up, down, left, or right", "Only up", "Only down", "It cannot move"], "correct_answer": "Up, down, left, or right" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 3: Talasalitaan Tungkol sa Sarili at Pamilya\n\nMatuto tayo ng mga salitang naglalarawan sa atin at sa ating pamilya! 👨‍👩‍👧‍👦\n\n## 👪 Mga Miyembro ng Pamilya\n- **ama, ina, kapatid, lolo, lola, tiyo, tiya**\n- **Halimbawa:** *Ang aking ama ay masipag. Ang aking kapatid ay mabait.*\n\n## 😊 Mga Salitang Naglalarawan ng Damdamin\n- **masaya, malungkot, galit, takot, gulat**\n- **Halimbawa:** *Masaya ako ngayon dahil kaarawan ko.*\n\n## 🏷️ Mga Pangngalan\n- Ang **pangngalan** ay pangalan ng tao, bagay, hayop, o lugar.\n- **Halimbawa:** *ina* (tao), *bahay* (lugar), *bola* (bagay)\n\nMahalagang matutunan ang mga salitang ito para makapagkuwento tayo tungkol sa ating sarili! 🌟",
+        "quiz": [
+          { "question": "Alin ang salitang tumutukoy sa miyembro ng pamilya?", "options": ["Ina", "Masaya", "Tumakbo", "Asul"], "correct_answer": "Ina" },
+          { "question": "Alin ang naglalarawan ng damdamin?", "options": ["Masaya", "Bahay", "Bola", "Ina"], "correct_answer": "Masaya" },
+          { "question": "Ano ang pangngalan?", "options": ["Pangalan ng tao, bagay, hayop, o lugar", "Salitang kilos", "Salitang naglalarawan", "Salitang pananong"], "correct_answer": "Pangalan ng tao, bagay, hayop, o lugar" },
+          { "question": "Sa \"Ang aking kapatid ay mabait\", alin ang pangngalan?", "options": ["Kapatid", "Mabait", "Ang", "Ay"], "correct_answer": "Kapatid" },
+          { "question": "Alin ang tamang paggamit ng salitang damdamin?", "options": ["Masaya ako ngayon.", "Bahay ako ngayon.", "Bola ako ngayon.", "Ina ako ngayon."], "correct_answer": "Masaya ako ngayon." },
+          { "question": "Alin ang tumutukoy sa lugar?", "options": ["Bahay", "Masaya", "Tumakbo", "Ina"], "correct_answer": "Bahay" },
+          { "question": "Alin sa mga ito ang salitang tumutukoy sa pamilya?", "options": ["Lolo", "Malungkot", "Tumalon", "Berde"], "correct_answer": "Lolo" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 3: Basic Needs of Living Things\n\nAll living things need certain things to survive! 🌱\n\n## 🌟 The Five Basic Needs\n- **Air** — to breathe\n- **Food/Nutrients** — for energy to grow and stay healthy\n- **Water** — to drink and stay hydrated\n- **Space** — room to live and grow\n- **Shelter** — a safe place to stay\n\n## 🐾 How Different Living Things Meet Their Needs\n- **Plants** get water from soil and make food using sunlight.\n- **Animals** eat food, drink water, and find shelter like a nest or burrow.\n- **Humans** eat food, drink water, and live in houses for shelter.\n\n## 🔍 Comparing Needs\n- **Example:** A fish needs water to live in, while a bird needs air to fly and a nest for shelter.\n\nEvery living thing needs air, food, water, space, and shelter to survive! 🌟",
+        "quiz": [
+          { "question": "Which of these is a basic need of ALL living things?", "options": ["Water", "A toy", "A television", "Money"], "correct_answer": "Water" },
+          { "question": "What do plants use to make their own food?", "options": ["Sunlight", "Television", "Toys", "Money"], "correct_answer": "Sunlight" },
+          { "question": "What is shelter?", "options": ["A safe place to stay", "Something to eat", "Something to drink", "A type of food"], "correct_answer": "A safe place to stay" },
+          { "question": "Why do living things need air?", "options": ["To breathe", "To swim", "To hide", "To grow taller only"], "correct_answer": "To breathe" },
+          { "question": "Where might a bird find shelter?", "options": ["A nest", "A river", "A cloud", "A rock"], "correct_answer": "A nest" },
+          { "question": "Why do living things need food?", "options": ["For energy to grow and stay healthy", "To make noise", "To change color", "For no reason"], "correct_answer": "For energy to grow and stay healthy" },
+          { "question": "Which basic need means having room to live and grow?", "options": ["Space", "Air", "Water", "Food"], "correct_answer": "Space" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 3: Paghahambing ng mga Komunidad\n\nAlamin natin kung paano naiiba ang mga komunidad sa isa't isa! 🏙️\n\n## 📏 Sukat ng Komunidad\n- May **maliit na komunidad** (tulad ng purok) at may **malaking komunidad** (tulad ng lungsod).\n- Ang laki ng komunidad ay maaaring batay sa **bilang ng tao** na naninirahan dito.\n\n## 🗺️ Paggamit ng Simpleng Mapa\n- Ang **mapa** ay larawan na nagpapakita ng lokasyon ng mga lugar.\n- Ginagamit natin ang batayang direksiyon (**hilaga, timog, silangan, kanluran**) para basahin ito.\n\n## 🏔️ Epekto ng Heograpiya\n- Ang komunidad na malapit sa **dagat** ay maraming mangingisda.\n- Ang komunidad na malapit sa **palayan** ay maraming magsasaka.\n\nBawat komunidad ay natatangi dahil sa kanyang lokasyon at tanawin! 🇵🇭",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng maliit na komunidad?", "options": ["Purok", "Lungsod", "Bansa", "Mundo"], "correct_answer": "Purok" },
+          { "question": "Batay saan ang laki ng komunidad?", "options": ["Bilang ng tao na naninirahan dito", "Kulay ng mga bahay", "Bilang ng aso", "Uri ng pagkain"], "correct_answer": "Bilang ng tao na naninirahan dito" },
+          { "question": "Ano ang ginagamit natin para basahin ang mapa?", "options": ["Batayang direksiyon", "Kulay lamang", "Numero lamang", "Guhit lamang"], "correct_answer": "Batayang direksiyon" },
+          { "question": "Ang komunidad na malapit sa dagat ay malamang maraming ano?", "options": ["Mangingisda", "Magsasaka", "Doktor", "Guro"], "correct_answer": "Mangingisda" },
+          { "question": "Ano ang mapa?", "options": ["Larawan na nagpapakita ng lokasyon ng lugar", "Isang uri ng laro", "Isang uri ng pagkain", "Isang kanta"], "correct_answer": "Larawan na nagpapakita ng lokasyon ng lugar" },
+          { "question": "Ang komunidad na malapit sa palayan ay malamang maraming ano?", "options": ["Magsasaka", "Mangingisda", "Marino", "Pintor"], "correct_answer": "Magsasaka" },
+          { "question": "Bakit natatangi ang bawat komunidad?", "options": ["Dahil sa kanyang lokasyon at tanawin", "Dahil pareho lahat sila", "Dahil walang tao dito", "Walang dahilan"], "correct_answer": "Dahil sa kanyang lokasyon at tanawin" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 3: More Computer Parts!\n\nLet's learn about more parts and accessories of a computer! 🖥️\n\n## 🔊 More Computer Parts\n- **Speakers** — let us **hear sound** from the computer\n- **Printer** — makes **paper copies** of our work\n- **Webcam** — takes **pictures and videos**\n\n## 🔍 Matching Parts to What They Let Us Do\n- **Example 1:** To hear music, we use **speakers**.\n- **Example 2:** To make a paper copy of a drawing, we use a **printer**.\n- **Example 3:** To video call a friend, we use a **webcam**.\n\n## 🖥️ Putting It All Together\n- The monitor, keyboard, mouse, CPU, speakers, printer, and webcam **all work together** to help us use the computer!\n\nSo many amazing parts help our computer work! 🌟",
+        "quiz": [
+          { "question": "Which part lets us hear sound?", "options": ["Speakers", "Printer", "Webcam", "Keyboard"], "correct_answer": "Speakers" },
+          { "question": "Which part makes a paper copy of our work?", "options": ["Printer", "Speakers", "Webcam", "Mouse"], "correct_answer": "Printer" },
+          { "question": "Which part takes pictures and videos?", "options": ["Webcam", "Printer", "Speakers", "Monitor"], "correct_answer": "Webcam" },
+          { "question": "Which part would you use to video call a friend?", "options": ["Webcam", "Printer", "Speakers", "Keyboard"], "correct_answer": "Webcam" },
+          { "question": "Which part would you use to hear your favorite song?", "options": ["Speakers", "Printer", "Webcam", "Mouse"], "correct_answer": "Speakers" },
+          { "question": "Which part would you use to print your drawing on paper?", "options": ["Printer", "Speakers", "Webcam", "Monitor"], "correct_answer": "Printer" },
+          { "question": "All computer parts work together to help us do what?", "options": ["Use the computer", "Cook food", "Play outside", "Sleep"], "correct_answer": "Use the computer" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 3: Pag-aalaga sa Kalusugan\n\nAlamin natin kung paano alagaan ang ating kalusugan araw-araw! 🧼\n\n## 🧼 Mga Gawi sa Kalinisan\n- **Paghuhugas ng kamay** bago at pagkatapos kumain, at pagkatapos gumamit ng banyo\n- **Pagsisipilyo ng ngipin** dalawang beses sa isang araw\n- **Pagliligo** araw-araw at pagsusuot ng malinis na damit\n\n## 🍎 Tamang Pagkain at Sapat na Tulog\n- Kumain ng **masustansyang pagkain** tulad ng gulay at prutas.\n- Matulog nang **sapat** (8-10 oras) para lumakas ang katawan.\n\n## 🛡️ Simpleng Alituntunin sa Kaligtasan\n- Mag-ingat kapag tumatawid ng kalsada.\n- Iwasan ang matulis na bagay at mainit na ibabaw.\n\nAng pag-aalaga sa kalusugan ay paraan ng pagpapahalaga sa buhay na kaloob sa atin! 🌟",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Tamang Paghuhugas ng Kamay",
+          "steps": [
+            { "label": "Basain ang kamay", "detail": "gamit ang malinis na tubig" },
+            { "label": "Maglagay ng sabon", "detail": "kuskusin nang mabuti" },
+            { "label": "Kuskusin ng 20 segundo", "detail": "pati ang pagitan ng daliri" },
+            { "label": "Banlawan", "detail": "hanggang mawala ang sabon" },
+            { "label": "Punasan ng tuwalya", "detail": "gamit ang malinis na tuwalya" }
+          ]
+        },
+        "quiz": [
+          { "question": "Kailan tayo dapat maghugas ng kamay?", "options": ["Bago at pagkatapos kumain", "Isang beses lang sa isang linggo", "Hindi na kailangan", "Sa gabi lamang"], "correct_answer": "Bago at pagkatapos kumain" },
+          { "question": "Ilang beses dapat magsipilyo ng ngipin sa isang araw?", "options": ["Dalawang beses", "Isang beses", "Limang beses", "Hindi na kailangan"], "correct_answer": "Dalawang beses" },
+          { "question": "Ilang oras dapat matulog ang isang bata?", "options": ["8-10 oras", "1-2 oras", "20 oras", "Walang oras"], "correct_answer": "8-10 oras" },
+          { "question": "Ano ang dapat gawin bago tumawid ng kalsada?", "options": ["Mag-ingat at tumingin sa magkabilang panig", "Tumakbo agad", "Isara ang mata", "Tumalon"], "correct_answer": "Mag-ingat at tumingin sa magkabilang panig" },
+          { "question": "Ilang segundo dapat kuskusin ang kamay gamit ang sabon?", "options": ["20 segundo", "1 segundo", "1 oras", "5 segundo"], "correct_answer": "20 segundo" },
+          { "question": "Ano ang halimbawa ng masustansyang pagkain?", "options": ["Gulay at prutas", "Kendi lamang", "Softdrinks lamang", "Chichirya lamang"], "correct_answer": "Gulay at prutas" },
+          { "question": "Bakit mahalaga ang pag-aalaga sa kalusugan?", "options": ["Paraan ito ng pagpapahalaga sa buhay", "Walang dahilan", "Para lang sumunod", "Para makatakas sa gawain"], "correct_answer": "Paraan ito ng pagpapahalaga sa buhay" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of family and feeling words!\n\n- Family words: **father, mother, brother, sister**\n- Feeling words: **happy, sad, excited, tired**\n- A **noun** names a person, place, or thing\n\nGreat learning this week! ⭐",
+        "quiz": [
+          { "question": "Which word names a family member?", "options": ["Mother", "Happy", "Jump", "Blue"], "correct_answer": "Mother" },
+          { "question": "Which word describes a feeling?", "options": ["Happy", "House", "Ball", "Mother"], "correct_answer": "Happy" },
+          { "question": "What is a noun?", "options": ["A word that names a person, place, or thing", "A word that shows action", "A word that describes color", "A word that asks a question"], "correct_answer": "A word that names a person, place, or thing" },
+          { "question": "Which word names a place?", "options": ["House", "Happy", "Run", "Mother"], "correct_answer": "House" },
+          { "question": "In \"My sister plays with a ball,\" which word is a noun?", "options": ["Sister", "Plays", "With", "My"], "correct_answer": "Sister" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Friday Weekly Review — Mathematics\n\nQuick review of slides and flips!\n\n- A **slide** moves a shape without turning it\n- A **flip** makes a mirror image of a shape\n- A slide keeps a shape the **same size**\n\nGreat work with shapes this week! 🌟",
+        "quiz": [
+          { "question": "What is a slide?", "options": ["Moving a shape in one direction without turning it", "Making a mirror image", "Making a shape bigger", "Erasing a shape"], "correct_answer": "Moving a shape in one direction without turning it" },
+          { "question": "What is a flip?", "options": ["Making a mirror image of a shape", "Moving a shape sideways", "Making a shape smaller", "Coloring a shape"], "correct_answer": "Making a mirror image of a shape" },
+          { "question": "If you flip the letter \"b\", what does it look like?", "options": ["d", "p", "q", "b"], "correct_answer": "d" },
+          { "question": "What is another name for a slide?", "options": ["Translation", "Reflection", "Rotation", "Decomposition"], "correct_answer": "Translation" },
+          { "question": "Does a slide change the size of a shape?", "options": ["No, it stays the same size", "Yes, it gets bigger", "Yes, it gets smaller", "It disappears"], "correct_answer": "No, it stays the same size" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Miyembro ng pamilya: **ama, ina, kapatid, lolo, lola**\n- Salitang damdamin: **masaya, malungkot, galit**\n- Ang **pangngalan** ay pangalan ng tao, bagay, hayop, o lugar\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Alin ang salitang tumutukoy sa miyembro ng pamilya?", "options": ["Ina", "Masaya", "Tumakbo", "Asul"], "correct_answer": "Ina" },
+          { "question": "Alin ang naglalarawan ng damdamin?", "options": ["Masaya", "Bahay", "Bola", "Ina"], "correct_answer": "Masaya" },
+          { "question": "Ano ang pangngalan?", "options": ["Pangalan ng tao, bagay, hayop, o lugar", "Salitang kilos", "Salitang naglalarawan", "Salitang pananong"], "correct_answer": "Pangalan ng tao, bagay, hayop, o lugar" },
+          { "question": "Alin ang tumutukoy sa lugar?", "options": ["Bahay", "Masaya", "Tumakbo", "Ina"], "correct_answer": "Bahay" },
+          { "question": "Sa \"Ang aking kapatid ay mabait\", alin ang pangngalan?", "options": ["Kapatid", "Mabait", "Ang", "Ay"], "correct_answer": "Kapatid" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Maliit na komunidad: **purok** | Malaking komunidad: **lungsod**\n- Ang mapa ay nagpapakita ng lokasyon gamit ang batayang direksiyon\n- Malapit sa dagat = maraming mangingisda\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng maliit na komunidad?", "options": ["Purok", "Lungsod", "Bansa", "Mundo"], "correct_answer": "Purok" },
+          { "question": "Ano ang ginagamit natin para basahin ang mapa?", "options": ["Batayang direksiyon", "Kulay lamang", "Numero lamang", "Guhit lamang"], "correct_answer": "Batayang direksiyon" },
+          { "question": "Ang komunidad na malapit sa dagat ay malamang maraming ano?", "options": ["Mangingisda", "Magsasaka", "Doktor", "Guro"], "correct_answer": "Mangingisda" },
+          { "question": "Ano ang mapa?", "options": ["Larawan na nagpapakita ng lokasyon ng lugar", "Isang uri ng laro", "Isang uri ng pagkain", "Isang kanta"], "correct_answer": "Larawan na nagpapakita ng lokasyon ng lugar" },
+          { "question": "Batay saan ang laki ng komunidad?", "options": ["Bilang ng tao na naninirahan dito", "Kulay ng mga bahay", "Bilang ng aso", "Uri ng pagkain"], "correct_answer": "Bilang ng tao na naninirahan dito" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Limang pangangailangan: **hangin, pagkain, tubig, espasyo, tirahan**\n- Ang halaman ay gumagamit ng **sikat ng araw** para gumawa ng pagkain\n- Bawat buhay na bagay ay may pangangailangan\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which of these is a basic need of ALL living things?", "options": ["Water", "A toy", "A television", "Money"], "correct_answer": "Water" },
+          { "question": "What do plants use to make their own food?", "options": ["Sunlight", "Television", "Toys", "Money"], "correct_answer": "Sunlight" },
+          { "question": "What is shelter?", "options": ["A safe place to stay", "Something to eat", "Something to drink", "A type of food"], "correct_answer": "A safe place to stay" },
+          { "question": "Why do living things need air?", "options": ["To breathe", "To swim", "To hide", "To grow taller only"], "correct_answer": "To breathe" },
+          { "question": "Why do living things need food?", "options": ["For energy to grow and stay healthy", "To make noise", "To change color", "For no reason"], "correct_answer": "For energy to grow and stay healthy" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Speakers** — para marinig ang tunog\n- **Printer** — para gumawa ng paper copy\n- **Webcam** — para kumuha ng larawan/video\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Which part lets us hear sound?", "options": ["Speakers", "Printer", "Webcam", "Keyboard"], "correct_answer": "Speakers" },
+          { "question": "Which part makes a paper copy of our work?", "options": ["Printer", "Speakers", "Webcam", "Mouse"], "correct_answer": "Printer" },
+          { "question": "Which part takes pictures and videos?", "options": ["Webcam", "Printer", "Speakers", "Monitor"], "correct_answer": "Webcam" },
+          { "question": "Which part would you use to hear your favorite song?", "options": ["Speakers", "Printer", "Webcam", "Mouse"], "correct_answer": "Speakers" },
+          { "question": "Which part would you use to video call a friend?", "options": ["Webcam", "Printer", "Speakers", "Keyboard"], "correct_answer": "Webcam" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-07-12",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 4: Roots of Words!\n\nLet's learn about word roots and high-frequency words! 🔤\n\n## 🌱 Root Words\n- A **root word** is the base word before we add endings.\n- **Example:** *play* is the root of *playing, played, player*\n\n## 🔤 High-Frequency Words\n- These are common words we should recognize instantly: *because, through, about, before*\n\n## 🗣️ Using Roots to Understand Meaning\n- Knowing the root helps us understand new words.\n- **Example:** If you know *teach* is the root, you can understand *teacher* and *teaching*.\n\nFinding word roots makes learning new words easier! 🌟",
+        "quiz": [
+          { "question": "What is a root word?", "options": ["The base word before adding endings", "The longest word in a sentence", "A word that rhymes", "A punctuation mark"], "correct_answer": "The base word before adding endings" },
+          { "question": "What is the root of \"playing\"?", "options": ["Play", "Playing", "Ing", "Player"], "correct_answer": "Play" },
+          { "question": "Which is a high-frequency word?", "options": ["Because", "Elephant", "Dinosaur", "Umbrella"], "correct_answer": "Because" },
+          { "question": "How does knowing a root word help us?", "options": ["It helps us understand new words", "It makes words longer", "It has no use", "It confuses us"], "correct_answer": "It helps us understand new words" },
+          { "question": "What is the root of \"teacher\"?", "options": ["Teach", "Teacher", "Er", "Teaching"], "correct_answer": "Teach" },
+          { "question": "What is the root of \"played\"?", "options": ["Play", "Played", "Ed", "Playing"], "correct_answer": "Play" },
+          { "question": "Why do we study high-frequency words?", "options": ["To recognize them instantly while reading", "To forget them faster", "To make reading harder", "For no reason"], "correct_answer": "To recognize them instantly while reading" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 4: Comparing and Ordering Numbers!\n\nLet's learn to compare numbers up to 10,000! 🔢\n\n## ⚖️ Comparing Numbers\n- Use **=** (equal to), **>** (greater than), and **<** (less than) to compare numbers.\n- **Example:** 4,582 **>** 4,258 because 4,582 is bigger.\n\n## 🔢 Ordering Numbers\n- We can order numbers from **smallest to largest** or largest to smallest.\n- **Example:** 1,200 → 3,450 → 5,670 (smallest to largest)\n\n## 🔟 Ordinal Numbers to 100th\n- Ordinal numbers show **position**: 1st, 2nd, 3rd... up to 100th.\n\nGreat work comparing and ordering numbers! 🌟",
+        "quiz": [
+          { "question": "Which symbol means \"greater than\"?", "options": [">", "<", "=", "+"], "correct_answer": ">" },
+          { "question": "Which symbol means \"less than\"?", "options": ["<", ">", "=", "-"], "correct_answer": "<" },
+          { "question": "Which is bigger: 4,582 or 4,258?", "options": ["4,582", "4,258", "They are equal", "Cannot tell"], "correct_answer": "4,582" },
+          { "question": "What does an ordinal number show?", "options": ["Position", "Amount", "Color", "Weight"], "correct_answer": "Position" },
+          { "question": "Which set of numbers is ordered from smallest to largest?", "options": ["1,200 → 3,450 → 5,670", "5,670 → 1,200 → 3,450", "3,450 → 5,670 → 1,200", "5,670 → 3,450 → 1,200"], "correct_answer": "1,200 → 3,450 → 5,670" },
+          { "question": "What is the highest ordinal number we're learning up to?", "options": ["100th", "10th", "1000th", "50th"], "correct_answer": "100th" },
+          { "question": "Which symbol shows two numbers are the same?", "options": ["=", ">", "<", "+"], "correct_answer": "=" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 4: Karagdagang Salitang Madalas Gamitin\n\nPatuloy nating alamin ang mga salitang madalas gamitin! 📖\n\n## 🔤 Mga Karagdagang High Frequency Words\n- **Halimbawa:** *dahil, sapagkat, bago, pagkatapos*\n\n## 🔤 Salitang Dinaglat\n- Ang **salitang dinaglat** ay tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari.\n- **Halimbawa:** *guro* (tao), *paaralan* (lugar), *pagdiriwang* (pangyayari)\n\n## 📖 Paggamit sa Pagbasa\n- Ang pagkilala sa mga salitang ito ay tumutulong sa mabilis na pagbasa.\n\nMahalaga ang mga salitang ito sa ating pang-araw-araw na komunikasyon! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng karagdagang high frequency word?", "options": ["Dahil", "Guro", "Paaralan", "Pagdiriwang"], "correct_answer": "Dahil" },
+          { "question": "Ano ang salitang dinaglat?", "options": ["Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari", "Salitang kilos lamang", "Salitang pananong lamang", "Walang kahulugan"], "correct_answer": "Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari" },
+          { "question": "Alin ang halimbawa ng salitang dinaglat na tumutukoy sa tao?", "options": ["Guro", "Dahil", "Bago", "Pagkatapos"], "correct_answer": "Guro" },
+          { "question": "Bakit natin pinag-aaralan ang high frequency words?", "options": ["Tumutulong ito sa mabilis na pagbasa", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito sa mabilis na pagbasa" },
+          { "question": "Alin ang salitang dinaglat na tumutukoy sa pangyayari?", "options": ["Pagdiriwang", "Guro", "Dahil", "Bago"], "correct_answer": "Pagdiriwang" },
+          { "question": "Alin ang salitang dinaglat na tumutukoy sa lugar?", "options": ["Paaralan", "Dahil", "Bago", "Pagkatapos"], "correct_answer": "Paaralan" },
+          { "question": "Ano ang gamit ng salitang \"sapagkat\"?", "options": ["Nagpapaliwanag ng dahilan", "Nagtatanong", "Nagbibilang", "Naglalarawan ng kulay"], "correct_answer": "Nagpapaliwanag ng dahilan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 4: Physical Properties of Solid Materials!\n\nLet's learn how to describe solid materials! 🧱\n\n## 🔍 Describing Solid Materials\n- We describe solids using **physical properties** — how they look and feel.\n- **Hard** — like a rock or metal spoon\n- **Shiny** — like glass or polished metal\n- **Stretchable** — like a rubber band\n\n## 🧪 Sorting Materials\n- **Example 1:** Wood is hard but not shiny.\n- **Example 2:** A rubber band is stretchable but not hard.\n\n## 🔍 Why Study Properties?\n- Knowing properties helps us pick the **right material** for a task.\n\nGreat start exploring material properties! 🌟",
+        "quiz": [
+          { "question": "What property describes something that reflects light?", "options": ["Shiny", "Hard", "Stretchable", "Soft"], "correct_answer": "Shiny" },
+          { "question": "Which material is an example of \"hard\"?", "options": ["Rock", "Rubber band", "Cotton", "Sponge"], "correct_answer": "Rock" },
+          { "question": "Is wood hard or shiny?", "options": ["Hard", "Shiny", "Both", "Neither"], "correct_answer": "Hard" },
+          { "question": "What do we use to describe how a solid looks and feels?", "options": ["Physical properties", "Its name only", "Its price", "Its weight only"], "correct_answer": "Physical properties" },
+          { "question": "Why do we study properties of materials?", "options": ["To pick the right material for a task", "To make things disappear", "For no reason", "To make things heavier"], "correct_answer": "To pick the right material for a task" },
+          { "question": "Which material is stretchable?", "options": ["Rubber band", "Rock", "Glass", "Metal spoon"], "correct_answer": "Rubber band" },
+          { "question": "Which property describes a rock best?", "options": ["Hard", "Stretchable", "Soft", "Bendable"], "correct_answer": "Hard" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 4: Higit Pang Kasaysayan ng Aking Pook\n\nPatuloy nating alamin ang kasaysayan ng ating pook! 📜\n\n## 📜 Karagdagang Kwentong-Bayan\n- Maraming lugar ang pinangalanan batay sa isang **puno, halaman, o pangyayari** na naganap doon.\n- **Halimbawa:** Ang isang lugar ay maaaring pinangalanang \"Kamias\" dahil sa maraming puno ng kamias doon noon.\n\n## 🗺️ Mahahalagang Lugar\n- Ang **plaza, simbahan, at merkado** ay karaniwang mahahalagang lugar sa kasaysayan ng isang bayan.\n\n## 🔍 Pagsusuri\n- Alamin kung may kwentong-bayan ba ang pangalan ng iyong sariling barangay o bayan!\n\nMasayang tuklasin ang kasaysayan ng ating pook! 🇵🇭",
+        "quiz": [
+          { "question": "Batay saan maaaring pinangalanan ang isang lugar?", "options": ["Puno, halaman, o pangyayari", "Kulay lamang", "Bilang lamang", "Walang batayan"], "correct_answer": "Puno, halaman, o pangyayari" },
+          { "question": "Alin ang halimbawa ng mahalagang lugar sa kasaysayan ng bayan?", "options": ["Plaza", "Kuwarto ng bata", "Bagong laruan", "Bagong bag"], "correct_answer": "Plaza" },
+          { "question": "Ano ang maaaring pinagmulan ng pangalang \"Kamias\"?", "options": ["Maraming puno ng kamias doon noon", "Walang dahilan", "Random na pangalan", "Pangalan ng hayop"], "correct_answer": "Maraming puno ng kamias doon noon" },
+          { "question": "Alin pa ang halimbawa ng mahalagang lugar sa isang bayan?", "options": ["Simbahan", "Kusina ng bahay", "Kwarto ng bata", "Bagong sapatos"], "correct_answer": "Simbahan" },
+          { "question": "Ano ang dapat gawin para malaman ang kwentong-bayan ng sariling lugar?", "options": ["Magtanong sa matatanda o magbasa tungkol dito", "Kalimutan na lang ito", "Wala nang gagawin", "Umiwas dito"], "correct_answer": "Magtanong sa matatanda o magbasa tungkol dito" },
+          { "question": "Ano ang tawag sa kwentong tungkol sa pinagmulan ng isang lugar?", "options": ["Kwentong-bayan", "Balita", "Tula", "Awit"], "correct_answer": "Kwentong-bayan" },
+          { "question": "Bakit mahalagang malaman ang pinagmulan ng pangalan ng ating pook?", "options": ["Tumutulong ito na maunawaan natin ang ating kasaysayan", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito na maunawaan natin ang ating kasaysayan" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 4: Powering On and Off Safely!\n\nLet's learn the correct steps for turning a computer on and off! 🔌\n\n## 🔛 Turning On\n1. Press the **power button**.\n2. **Wait** for the computer to load completely.\n3. **Log in** if needed with your username.\n\n## 🔴 Turning Off\n1. **Save** your work first.\n2. **Close** all programs.\n3. **Log out**, then select \"Shut Down\".\n\n## ⚠️ Why Follow These Steps?\n- Skipping steps (like unplugging suddenly) can **damage** the computer or lose your work.\n\nAlways follow the correct steps to keep the computer safe! 🌟",
+        "quiz": [
+          { "question": "What is the first step to turn on a computer?", "options": ["Press the power button", "Unplug it", "Close programs", "Log out"], "correct_answer": "Press the power button" },
+          { "question": "What should you do before shutting down?", "options": ["Save your work", "Unplug it while running", "Nothing special", "Turn off the monitor only"], "correct_answer": "Save your work" },
+          { "question": "What could happen if you unplug the computer suddenly?", "options": ["It could damage the computer or lose work", "Nothing happens", "It saves your work automatically", "It turns on faster"], "correct_answer": "It could damage the computer or lose work" },
+          { "question": "What is the last step when turning off a computer properly?", "options": ["Select \"Shut Down\"", "Press the power button first", "Unplug immediately", "Open more programs"], "correct_answer": "Select \"Shut Down\"" },
+          { "question": "What should you do after pressing the power button?", "options": ["Wait for it to load completely", "Unplug it right away", "Close the lid immediately", "Turn off the monitor"], "correct_answer": "Wait for it to load completely" },
+          { "question": "What might you need to do after the computer loads?", "options": ["Log in with your username", "Unplug the mouse", "Close the computer", "Nothing"], "correct_answer": "Log in with your username" },
+          { "question": "Why is it important to close programs before shutting down?", "options": ["To avoid losing unsaved work", "To make the computer louder", "It has no importance", "To slow down the computer"], "correct_answer": "To avoid losing unsaved work" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 4: Higit Pang Pag-iimpok\n\nPatuloy nating alamin ang kahalagahan ng pag-iimpok! 💰\n\n## 💰 Pagtitipid sa Iba't Ibang Bagay\n- Bukod sa pera, dapat din nating tipirin ang ating **oras** at **enerhiya**.\n- **Halimbawa:** Gamitin ang oras nang mabuti sa pag-aaral, hindi lamang sa paglalaro.\n\n## 🌱 Pagsasanay Kasama ang Pamilya\n- Ang mga pamilyang nagsasanay ng pagtitipid ay nagiging **matalino sa paggastos**.\n- Sabay-sabay na magplano ng badyet para sa mga pangangailangan.\n\n## 🎯 Aral Para sa Buhay\n- Ang pagsasanay sa pagtitipid ngayon ay tumutulong sa atin maging **responsableng nasa hinaharap**.\n\nSimulan ang pagtitipid sa maliliit na paraan araw-araw! 🌟",
+        "quiz": [
+          { "question": "Bukod sa pera, ano pa ang dapat tipirin?", "options": ["Oras at enerhiya", "Damit lamang", "Laruan lamang", "Wala"], "correct_answer": "Oras at enerhiya" },
+          { "question": "Ano ang nagiging resulta ng pagsasanay ng pagtitipid sa pamilya?", "options": ["Nagiging matalino sa paggastos", "Nawawalan ng pera", "Walang epekto", "Nagiging maluho"], "correct_answer": "Nagiging matalino sa paggastos" },
+          { "question": "Ano ang halimbawa ng paggamit ng oras nang mabuti?", "options": ["Pag-aaral", "Paglalaro buong araw", "Panonood ng TV buong araw", "Pagtulog buong araw"], "correct_answer": "Pag-aaral" },
+          { "question": "Ano ang tinatawag na plano para sa paggastos?", "options": ["Badyet", "Alkansya", "Libro", "Kalendaryo"], "correct_answer": "Badyet" },
+          { "question": "Ano ang aral na natutunan natin sa pagsasanay ng pagtitipid?", "options": ["Maging responsable sa hinaharap", "Maging maluho", "Gastusin agad ang lahat", "Walang aral"], "correct_answer": "Maging responsable sa hinaharap" },
+          { "question": "Sino ang dapat magplano ng badyet kasama ka?", "options": ["Ang iyong pamilya", "Walang sinuman", "Estranghero lamang", "Kaklase lamang"], "correct_answer": "Ang iyong pamilya" },
+          { "question": "Bakit mahalagang tipirin ang enerhiya?", "options": ["Para maging responsable sa paggamit ng yaman", "Walang dahilan", "Para lang sundin ang guro", "Para hirapan ang sarili"], "correct_answer": "Para maging responsable sa paggamit ng yaman" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of word roots!\n\n- A **root word** is the base word: *play* → playing, played, player\n- High-frequency words: *because, through, about*\n\nGreat vocabulary building! ⭐",
+        "quiz": [
+          { "question": "What is a root word?", "options": ["The base word before adding endings", "The longest word in a sentence", "A word that rhymes", "A punctuation mark"], "correct_answer": "The base word before adding endings" },
+          { "question": "What is the root of \"playing\"?", "options": ["Play", "Playing", "Ing", "Player"], "correct_answer": "Play" },
+          { "question": "Which is a high-frequency word?", "options": ["Because", "Elephant", "Dinosaur", "Umbrella"], "correct_answer": "Because" },
+          { "question": "How does knowing a root word help us?", "options": ["It helps us understand new words", "It makes words longer", "It has no use", "It confuses us"], "correct_answer": "It helps us understand new words" },
+          { "question": "What is the root of \"teacher\"?", "options": ["Teach", "Teacher", "Er", "Teaching"], "correct_answer": "Teach" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of comparing numbers!\n\n- **>** means greater than, **<** means less than\n- Order numbers from **smallest to largest**\n- **Ordinal numbers** show position (1st, 2nd, 100th)\n\nGreat comparing and ordering! 🌟",
+        "quiz": [
+          { "question": "Which symbol means \"greater than\"?", "options": [">", "<", "=", "+"], "correct_answer": ">" },
+          { "question": "Which symbol means \"less than\"?", "options": ["<", ">", "=", "-"], "correct_answer": "<" },
+          { "question": "Which is bigger: 4,582 or 4,258?", "options": ["4,582", "4,258", "They are equal", "Cannot tell"], "correct_answer": "4,582" },
+          { "question": "What does an ordinal number show?", "options": ["Position", "Amount", "Color", "Weight"], "correct_answer": "Position" },
+          { "question": "Which set of numbers is ordered from smallest to largest?", "options": ["1,200 → 3,450 → 5,670", "5,670 → 1,200 → 3,450", "3,450 → 5,670 → 1,200", "5,670 → 3,450 → 1,200"], "correct_answer": "1,200 → 3,450 → 5,670" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- High frequency words: **dahil, bago, pagkatapos**\n- **Salitang dinaglat**: guro, paaralan, pagdiriwang\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Alin ang halimbawa ng karagdagang high frequency word?", "options": ["Dahil", "Guro", "Paaralan", "Pagdiriwang"], "correct_answer": "Dahil" },
+          { "question": "Ano ang salitang dinaglat?", "options": ["Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari", "Salitang kilos lamang", "Salitang pananong lamang", "Walang kahulugan"], "correct_answer": "Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari" },
+          { "question": "Alin ang halimbawa ng salitang dinaglat na tumutukoy sa tao?", "options": ["Guro", "Dahil", "Bago", "Pagkatapos"], "correct_answer": "Guro" },
+          { "question": "Bakit natin pinag-aaralan ang high frequency words?", "options": ["Tumutulong ito sa mabilis na pagbasa", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito sa mabilis na pagbasa" },
+          { "question": "Alin ang salitang dinaglat na tumutukoy sa pangyayari?", "options": ["Pagdiriwang", "Guro", "Dahil", "Bago"], "correct_answer": "Pagdiriwang" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Maraming lugar ang pinangalanan batay sa **puno, halaman, o pangyayari**\n- Mahahalagang lugar: **plaza, simbahan, merkado**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Batay saan maaaring pinangalanan ang isang lugar?", "options": ["Puno, halaman, o pangyayari", "Kulay lamang", "Bilang lamang", "Walang batayan"], "correct_answer": "Puno, halaman, o pangyayari" },
+          { "question": "Alin ang halimbawa ng mahalagang lugar sa kasaysayan ng bayan?", "options": ["Plaza", "Kuwarto ng bata", "Bagong laruan", "Bagong bag"], "correct_answer": "Plaza" },
+          { "question": "Alin pa ang halimbawa ng mahalagang lugar sa isang bayan?", "options": ["Simbahan", "Kusina ng bahay", "Kwarto ng bata", "Bagong sapatos"], "correct_answer": "Simbahan" },
+          { "question": "Ano ang tawag sa kwentong tungkol sa pinagmulan ng isang lugar?", "options": ["Kwentong-bayan", "Balita", "Tula", "Awit"], "correct_answer": "Kwentong-bayan" },
+          { "question": "Bakit mahalagang malaman ang pinagmulan ng pangalan ng ating pook?", "options": ["Tumutulong ito na maunawaan natin ang ating kasaysayan", "Walang dahilan", "Para lang sa marka", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito na maunawaan natin ang ating kasaysayan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Hard** = matigas | **Shiny** = makintab | **Stretchable** = naiuunat\n- Physical properties describe how a solid looks and feels\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What property describes something that reflects light?", "options": ["Shiny", "Hard", "Stretchable", "Soft"], "correct_answer": "Shiny" },
+          { "question": "Which material is an example of \"hard\"?", "options": ["Rock", "Rubber band", "Cotton", "Sponge"], "correct_answer": "Rock" },
+          { "question": "What do we use to describe how a solid looks and feels?", "options": ["Physical properties", "Its name only", "Its price", "Its weight only"], "correct_answer": "Physical properties" },
+          { "question": "Why do we study properties of materials?", "options": ["To pick the right material for a task", "To make things disappear", "For no reason", "To make things heavier"], "correct_answer": "To pick the right material for a task" },
+          { "question": "Which material is stretchable?", "options": ["Rubber band", "Rock", "Glass", "Metal spoon"], "correct_answer": "Rubber band" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Turning on: **press power → wait → log in**\n- Turning off: **save → close → shut down**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "What is the first step to turn on a computer?", "options": ["Press the power button", "Unplug it", "Close programs", "Log out"], "correct_answer": "Press the power button" },
+          { "question": "What should you do before shutting down?", "options": ["Save your work", "Unplug it while running", "Nothing special", "Turn off the monitor only"], "correct_answer": "Save your work" },
+          { "question": "What could happen if you unplug the computer suddenly?", "options": ["It could damage the computer or lose work", "Nothing happens", "It saves your work automatically", "It turns on faster"], "correct_answer": "It could damage the computer or lose work" },
+          { "question": "What is the last step when turning off a computer properly?", "options": ["Select \"Shut Down\"", "Press the power button first", "Unplug immediately", "Open more programs"], "correct_answer": "Select \"Shut Down\"" },
+          { "question": "What should you do after pressing the power button?", "options": ["Wait for it to load completely", "Unplug it right away", "Close the lid immediately", "Turn off the monitor"], "correct_answer": "Wait for it to load completely" }
+        ]
+      }
+    }
+  }
+}

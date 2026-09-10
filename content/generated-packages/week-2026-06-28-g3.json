@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-06-28",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 3: More Word Patterns!\n\nLet's read words with vowels in tricky spots! 🔤\n\n## 🧩 VCV and VCCV Words\n- **VCV** words: vowel-consonant-vowel, like *open, evil*\n- **VCCV** words: vowel-consonant-consonant-vowel, like *basket, window*\n\n## 📖 Reading Practice\n- **Example 1:** *open* = o-p-e-n (VCV)\n- **Example 2:** *basket* = b-a-s-k-e-t (VCCV)\n\n## 🗣️ Content-Specific Words\n- Math words: *sum, difference, product*\n- Science words: *observe, predict, matter*\n\nKeep practicing these word patterns every day! 🌟",
+        "quiz": [
+          { "question": "Which word is a VCV word?", "options": ["Open", "Basket", "Cat", "Sun"], "correct_answer": "Open" },
+          { "question": "Which word is a VCCV word?", "options": ["Basket", "Open", "Cat", "Sun"], "correct_answer": "Basket" },
+          { "question": "Which is a Math content word?", "options": ["Sum", "Observe", "Matter", "Predict"], "correct_answer": "Sum" },
+          { "question": "Which is a Science content word?", "options": ["Observe", "Sum", "Difference", "Product"], "correct_answer": "Observe" },
+          { "question": "What does VCV stand for?", "options": ["Vowel-Consonant-Vowel", "Vowel-Consonant-Consonant", "Consonant-Vowel-Consonant", "Vowel-Vowel-Consonant"], "correct_answer": "Vowel-Consonant-Vowel" },
+          { "question": "Which word has the VCCV pattern?", "options": ["Window", "Open", "Evil", "Sun"], "correct_answer": "Window" },
+          { "question": "What does \"predict\" mean?", "options": ["To guess what might happen", "To draw a picture", "To run fast", "To sing a song"], "correct_answer": "To guess what might happen" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 2: Place Value and Rounding!\n\nLet's learn place value in bigger numbers and how to round! 🔢\n\n## 🔟 Place Value in 4-Digit Numbers\n- Numbers up to 10,000 have **thousands, hundreds, tens, ones** places.\n- **Example:** In 6,432, the 6 is in the **thousands** place (worth 6,000).\n\n## 🔄 Rounding Numbers\n- **Rounding** means finding the nearest ten, hundred, or thousand.\n- **Example 1:** 47 rounded to the nearest ten is **50**.\n- **Example 2:** 2,340 rounded to the nearest hundred is **2,300**.\n\n## 🔍 Why Round?\n- Rounding makes numbers **easier to estimate and compare**.\n\nGreat progress with place value! 🌟",
+        "quiz": [
+          { "question": "In 6,432, what place is the 6 in?", "options": ["Thousands", "Hundreds", "Tens", "Ones"], "correct_answer": "Thousands" },
+          { "question": "What is 47 rounded to the nearest ten?", "options": ["50", "40", "45", "60"], "correct_answer": "50" },
+          { "question": "What is 2,340 rounded to the nearest hundred?", "options": ["2,300", "2,400", "2,000", "2,350"], "correct_answer": "2,300" },
+          { "question": "What does rounding help us do?", "options": ["Estimate and compare more easily", "Make numbers bigger only", "Confuse numbers", "Erase numbers"], "correct_answer": "Estimate and compare more easily" },
+          { "question": "What is the value of 6 in 6,432?", "options": ["6,000", "600", "60", "6"], "correct_answer": "6,000" },
+          { "question": "What is 83 rounded to the nearest ten?", "options": ["80", "90", "85", "100"], "correct_answer": "80" },
+          { "question": "In 4-digit numbers, what is the place to the left of hundreds?", "options": ["Thousands", "Tens", "Ones", "Millions"], "correct_answer": "Thousands" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 2: Salitang Naglalarawan\n\nAlamin natin ang mga salitang naglalarawan! 🎨\n\n## 🎨 Salitang Naglalarawan\n- Ang **salitang naglalarawan** ay naglalarawan ng katangian ng tao, bagay, hayop, o lugar.\n- **Halimbawa 1:** *maganda, malaki, matalino*\n- **Halimbawa 2:** *Ang bahay ay malaki at maganda.*\n\n## 🔤 Pamatlig\n- Ang **pamatlig** ay salitang pamalit sa pangalan ng bagay.\n- **Halimbawa:** *ito, iyan, iyon; dito, diyan, doon*\n\n## 📖 Paggamit sa Pangungusap\n- **Halimbawa:** *Ang lapis na ito ay matulis.*\n\nMahalaga ang mga salitang naglalarawan para mas malinaw ang ating pagsasalita! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang naglalarawan?", "options": ["Naglalarawan ng katangian ng tao, bagay, hayop, o lugar", "Salitang kilos", "Salitang pangalan", "Salitang pananong"], "correct_answer": "Naglalarawan ng katangian ng tao, bagay, hayop, o lugar" },
+          { "question": "Alin ang halimbawa ng salitang naglalarawan?", "options": ["Maganda", "Tumakbo", "Ako", "Sa"], "correct_answer": "Maganda" },
+          { "question": "Ano ang pamatlig?", "options": ["Salitang pamalit sa pangalan ng bagay", "Salitang kilos", "Salitang naglalarawan", "Salitang pananong"], "correct_answer": "Salitang pamalit sa pangalan ng bagay" },
+          { "question": "Alin ang halimbawa ng pamatlig?", "options": ["Ito", "Maganda", "Tumakbo", "Malaki"], "correct_answer": "Ito" },
+          { "question": "Sa \"Ang bahay ay malaki\", alin ang salitang naglalarawan?", "options": ["Malaki", "Bahay", "Ang", "Ay"], "correct_answer": "Malaki" },
+          { "question": "Alin ang gamit ng pamatlig na \"doon\"?", "options": ["Para tumukoy sa malayong lugar", "Para tumukoy sa sarili", "Para magtanong", "Para magbilang"], "correct_answer": "Para tumukoy sa malayong lugar" },
+          { "question": "Bakit mahalaga ang salitang naglalarawan?", "options": ["Para mas malinaw ang ating pagsasalita", "Para mas malito ang pakikinig", "Walang gamit", "Para lang sa laro"], "correct_answer": "Para mas malinaw ang ating pagsasalita" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 2: Mga Kasanayan at Kagamitang Pang-Agham\n\nMatuto tayo ng mga kasanayan sa paggamit ng kagamitang pang-agham! 🔬\n\n## 🧰 Kagamitang Pang-Agham\n- **Ruler** — sukat ng haba\n- **Gunting** — pangputol\n- **Balloon** — para sa mga eksperimento tungkol sa hangin\n- **Modeling clay** — panggawa ng modelo\n\n## 🔍 Mga Kasanayan sa Agham\n- **Pagtatanong** — kailangan magtanong ang siyentipiko upang matuto.\n- **Paggalaw ng materyales (tinkering)** — pagsubok at paglalaro gamit ang kagamitan para matuklasan kung paano ito gumagana.\n\n## 🔬 Halimbawa\n- Gamitin ang balloon para malaman kung paano gumagalaw ang hangin sa loob nito.\n\nMahusay ang mga batang siyentipiko na gumagamit ng tamang kagamitan! 🌟",
+        "quiz": [
+          { "question": "Ano ang gamit ng gunting sa agham?", "options": ["Pangputol", "Pansukat", "Pandikit", "Panglinis"], "correct_answer": "Pangputol" },
+          { "question": "Ano ang ginagamit para sukatin ang haba?", "options": ["Ruler", "Balloon", "Gunting", "Clay"], "correct_answer": "Ruler" },
+          { "question": "Ano ang tawag sa pagsubok at paglalaro gamit ang kagamitan?", "options": ["Tinkering", "Pagtulog", "Pagkain", "Paglalakad"], "correct_answer": "Tinkering" },
+          { "question": "Bakit kailangan magtanong ang isang siyentipiko?", "options": ["Upang matuto", "Upang mahirapan lamang", "Walang dahilan", "Upang makalimutan"], "correct_answer": "Upang matuto" },
+          { "question": "Ano ang gamit ng modeling clay?", "options": ["Panggawa ng modelo", "Pansukat", "Pangputol", "Pandikit"], "correct_answer": "Panggawa ng modelo" },
+          { "question": "Ano ang magagamit natin para malaman kung paano gumagalaw ang hangin?", "options": ["Balloon", "Ruler", "Gunting", "Lapis"], "correct_answer": "Balloon" },
+          { "question": "Alin ang isang kasanayang pang-agham?", "options": ["Pagtatanong", "Pagtulog", "Paglalaro lang", "Panonood ng TV"], "correct_answer": "Pagtatanong" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 2: Ang Aking Pook Noon at Ngayon\n\nPatuloy nating alamin ang kasaysayan ng ating pook! 📜\n\n## 🕰️ Paghahambing ng Noon at Ngayon\n- Noon, ang mga bahay ay gawa sa **kawayan at kugon** (bahay-kubo); ngayon, marami nang gawa sa **semento at bakal**.\n- Noon, naglalakad o sumasakay ng kalesa ang mga tao; ngayon, sumasakay sila ng **jeepney o kotse**.\n\n## 📜 Kwentong-Bayan\n- Maraming pook sa Pilipinas ang may **kwentong-bayan** tungkol sa pinagmulan ng kanilang pangalan.\n- **Halimbawa:** Ang isang lugar ay maaaring pinangalanan dahil sa isang puno o pangyayaring naganap doon.\n\n## 🔍 Ano ang Natutunan Natin?\n- Ang pag-alam sa kasaysayan ay tumutulong sa atin na pahalagahan ang ating pinagmulan.\n\nIpagmalaki natin ang kasaysayan ng ating pook! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang gamit na materyales sa bahay-kubo noon?", "options": ["Kawayan at kugon", "Semento at bakal", "Plastik", "Salamin"], "correct_answer": "Kawayan at kugon" },
+          { "question": "Ano ang sinasakyan ng mga tao noon?", "options": ["Kalesa", "Eroplano", "Barko lamang", "Wala"], "correct_answer": "Kalesa" },
+          { "question": "Ano ang kwentong-bayan?", "options": ["Kwento tungkol sa pinagmulan ng isang lugar", "Balita ngayong araw", "Kwentong pantasya lamang", "Kwentong internasyonal"], "correct_answer": "Kwento tungkol sa pinagmulan ng isang lugar" },
+          { "question": "Bakit mahalagang malaman ang kasaysayan ng ating pook?", "options": ["Tumutulong ito na pahalagahan ang ating pinagmulan", "Walang gamit", "Para lang sa pagsusulit", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito na pahalagahan ang ating pinagmulan" },
+          { "question": "Ano ang isang halimbawa ng pagbabago sa komunidad?", "options": ["Paggamit ng jeepney/kotse imbes na kalesa", "Walang pagbabago", "Parehong lahat noon at ngayon", "Wala kahit anong sasakyan"], "correct_answer": "Paggamit ng jeepney/kotse imbes na kalesa" },
+          { "question": "Bakit maaaring pinangalanan ang isang pook sa isang puno?", "options": ["Dahil sa isang pangyayaring naganap doon", "Walang dahilan", "Para lang sa laro", "Dahil sa numero lamang"], "correct_answer": "Dahil sa isang pangyayaring naganap doon" },
+          { "question": "Ano ang gawa sa semento at bakal ngayon?", "options": ["Maraming bahay", "Lahat ng puno", "Lahat ng ilog", "Lahat ng ulan"], "correct_answer": "Maraming bahay" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 2: Input at Output Devices!\n\nAlamin natin nang mas detalyado ang input at output devices! 🖥️\n\n## 📥 Input Devices\n- Nagpapadala ng impormasyon **PATUNGO** sa computer.\n- **Halimbawa:** keyboard, mouse, microphone, webcam\n\n## 📤 Output Devices\n- Nagpapadala ng impormasyon **MULA** sa computer.\n- **Halimbawa:** monitor, speakers, printer\n\n## 🔍 Pagsasanay\n- **Halimbawa 1:** Ang pag-type gamit ang keyboard ay isang **input**.\n- **Halimbawa 2:** Ang pagpapakita ng litrato sa monitor ay isang **output**.\n\nMahalaga ang bawat device para gumana ang computer! 🌟",
+        "quiz": [
+          { "question": "Alin ang input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Alin ang output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
+          { "question": "Ano ang gawain ng input device?", "options": ["Nagpapadala ng impormasyon patungo sa computer", "Nagpapadala ng impormasyon mula sa computer", "Walang ginagawa", "Nagpapabagal ng computer"], "correct_answer": "Nagpapadala ng impormasyon patungo sa computer" },
+          { "question": "Ang pag-type gamit ang keyboard ay anong uri ng gawain?", "options": ["Input", "Output", "Parehong hindi", "Parehong oo"], "correct_answer": "Input" },
+          { "question": "Alin sa mga ito ang isa pang input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" },
+          { "question": "Ang pagpapakita ng litrato sa monitor ay anong uri ng gawain?", "options": ["Output", "Input", "Parehong hindi", "Parehong oo"], "correct_answer": "Output" },
+          { "question": "Alin ang isa pang halimbawa ng output device?", "options": ["Printer", "Keyboard", "Mouse", "Webcam"], "correct_answer": "Printer" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 2: Higit pa sa Sariling Hilig\n\nPatuloy nating tuklasin ang ating sariling hilig at kakayahan! 🌟\n\n## 🎯 Pagpapaunlad ng Kakayahan\n- Ang kakayahan ay maaaring **paunlarin** sa pamamagitan ng pagsasanay.\n- **Halimbawa:** Kung mahilig ka sa pagkanta, maaari kang sumali sa koro para mapaunlad ang iyong boses.\n\n## 🌱 Pagtanggap sa Pagkakaiba\n- Iba-iba ang hilig at kakayahan ng bawat isa — ito ay **normal at maganda**.\n- Huwag ikumpara ang sarili sa iba; tuunan ang pagpapaunlad ng SARILING kakayahan.\n\n## 💪 Kumpiyansa sa Sarili\n- Ang pagkilala at pagpapaunlad ng kakayahan ay nagbibigay ng **kumpiyansa**.\n\nIpagpatuloy mong paunlarin ang iyong mga hilig at kakayahan! 🌟",
+        "quiz": [
+          { "question": "Paano mapapaunlad ang isang kakayahan?", "options": ["Sa pamamagitan ng pagsasanay", "Sa pag-iwas sa gawain", "Sa hindi paggalaw", "Sa pagtulog lang"], "correct_answer": "Sa pamamagitan ng pagsasanay" },
+          { "question": "Bakit hindi dapat ikumpara ang sarili sa iba?", "options": ["Iba-iba ang hilig at kakayahan ng bawat isa", "Dahil pareho tayong lahat", "Walang dahilan", "Dahil walang kakayahan ang iba"], "correct_answer": "Iba-iba ang hilig at kakayahan ng bawat isa" },
+          { "question": "Ano ang nagbibigay ng kumpiyansa sa sarili?", "options": ["Pagkilala at pagpapaunlad ng kakayahan", "Pagtatago ng sarili", "Pagsisinungaling", "Pag-iwas sa iba"], "correct_answer": "Pagkilala at pagpapaunlad ng kakayahan" },
+          { "question": "Ano ang dapat gawin kung mahilig ka sa pagkanta?", "options": ["Sumali sa koro para mapaunlad ang boses", "Itago ang sarili", "Huwag na kumanta", "Ikumpara sa iba"], "correct_answer": "Sumali sa koro para mapaunlad ang boses" },
+          { "question": "Ano ang dapat gawin sa pagkakaibang hilig ng bawat isa?", "options": ["Tanggapin ito bilang normal at maganda", "Ikahiya ito", "Ikumpara sa iba", "Wala itong pakialam"], "correct_answer": "Tanggapin ito bilang normal at maganda" },
+          { "question": "Saan dapat tumuon kapag pinapaunlad natin ang kakayahan?", "options": ["Sa sariling kakayahan", "Sa kakayahan ng iba lamang", "Sa pagtatago", "Sa pagsisinungaling"], "correct_answer": "Sa sariling kakayahan" },
+          { "question": "Ano ang epekto ng pagsasanay sa isang kakayahan?", "options": ["Nagpapaunlad nito", "Nagpapababa nito", "Walang epekto", "Nagpapawala nito"], "correct_answer": "Nagpapaunlad nito" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of word patterns!\n\n- **VCV** words: *open, evil*\n- **VCCV** words: *basket, window*\n- Content words: *sum, observe, predict*\n\nGreat work this week! ⭐",
+        "quiz": [
+          { "question": "Which word is a VCV word?", "options": ["Open", "Basket", "Cat", "Sun"], "correct_answer": "Open" },
+          { "question": "Which word is a VCCV word?", "options": ["Basket", "Open", "Cat", "Sun"], "correct_answer": "Basket" },
+          { "question": "Which is a Math content word?", "options": ["Sum", "Observe", "Matter", "Predict"], "correct_answer": "Sum" },
+          { "question": "What does \"predict\" mean?", "options": ["To guess what might happen", "To draw a picture", "To run fast", "To sing a song"], "correct_answer": "To guess what might happen" },
+          { "question": "Which is a Science content word?", "options": ["Observe", "Sum", "Difference", "Product"], "correct_answer": "Observe" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of place value and rounding!\n\n- In 6,432, the 6 is in the **thousands** place\n- 47 rounded to the nearest ten is **50**\n- Rounding helps us **estimate and compare**\n\nGreat progress! 🌟",
+        "quiz": [
+          { "question": "In 6,432, what place is the 6 in?", "options": ["Thousands", "Hundreds", "Tens", "Ones"], "correct_answer": "Thousands" },
+          { "question": "What is 47 rounded to the nearest ten?", "options": ["50", "40", "45", "60"], "correct_answer": "50" },
+          { "question": "What is 2,340 rounded to the nearest hundred?", "options": ["2,300", "2,400", "2,000", "2,350"], "correct_answer": "2,300" },
+          { "question": "What does rounding help us do?", "options": ["Estimate and compare more easily", "Make numbers bigger only", "Confuse numbers", "Erase numbers"], "correct_answer": "Estimate and compare more easily" },
+          { "question": "What is 83 rounded to the nearest ten?", "options": ["80", "90", "85", "100"], "correct_answer": "80" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Salitang naglalarawan**: maganda, malaki, matalino\n- **Pamatlig**: ito, iyan, iyon; dito, diyan, doon\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang naglalarawan?", "options": ["Naglalarawan ng katangian ng tao, bagay, hayop, o lugar", "Salitang kilos", "Salitang pangalan", "Salitang pananong"], "correct_answer": "Naglalarawan ng katangian ng tao, bagay, hayop, o lugar" },
+          { "question": "Alin ang halimbawa ng salitang naglalarawan?", "options": ["Maganda", "Tumakbo", "Ako", "Sa"], "correct_answer": "Maganda" },
+          { "question": "Ano ang pamatlig?", "options": ["Salitang pamalit sa pangalan ng bagay", "Salitang kilos", "Salitang naglalarawan", "Salitang pananong"], "correct_answer": "Salitang pamalit sa pangalan ng bagay" },
+          { "question": "Alin ang halimbawa ng pamatlig?", "options": ["Ito", "Maganda", "Tumakbo", "Malaki"], "correct_answer": "Ito" },
+          { "question": "Sa \"Ang bahay ay malaki\", alin ang salitang naglalarawan?", "options": ["Malaki", "Bahay", "Ang", "Ay"], "correct_answer": "Malaki" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Noon: **kawayan/kugon**, ngayon: **semento/bakal**\n- Maraming pook ang may **kwentong-bayan**\n- Mahalagang alamin ang kasaysayan ng ating pook\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang gamit na materyales sa bahay-kubo noon?", "options": ["Kawayan at kugon", "Semento at bakal", "Plastik", "Salamin"], "correct_answer": "Kawayan at kugon" },
+          { "question": "Ano ang kwentong-bayan?", "options": ["Kwento tungkol sa pinagmulan ng isang lugar", "Balita ngayong araw", "Kwentong pantasya lamang", "Kwentong internasyonal"], "correct_answer": "Kwento tungkol sa pinagmulan ng isang lugar" },
+          { "question": "Bakit mahalagang malaman ang kasaysayan ng ating pook?", "options": ["Tumutulong ito na pahalagahan ang ating pinagmulan", "Walang gamit", "Para lang sa pagsusulit", "Para makalimutan natin ito"], "correct_answer": "Tumutulong ito na pahalagahan ang ating pinagmulan" },
+          { "question": "Ano ang isang halimbawa ng pagbabago sa komunidad?", "options": ["Paggamit ng jeepney/kotse imbes na kalesa", "Walang pagbabago", "Parehong lahat noon at ngayon", "Wala kahit anong sasakyan"], "correct_answer": "Paggamit ng jeepney/kotse imbes na kalesa" },
+          { "question": "Ano ang sinasakyan ng mga tao noon?", "options": ["Kalesa", "Eroplano", "Barko lamang", "Wala"], "correct_answer": "Kalesa" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Ruler** — pansukat | **Gunting** — pangputol\n- **Tinkering** — pagsubok at paglalaro gamit ang kagamitan\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang gamit ng gunting sa agham?", "options": ["Pangputol", "Pansukat", "Pandikit", "Panglinis"], "correct_answer": "Pangputol" },
+          { "question": "Ano ang ginagamit para sukatin ang haba?", "options": ["Ruler", "Balloon", "Gunting", "Clay"], "correct_answer": "Ruler" },
+          { "question": "Ano ang tawag sa pagsubok at paglalaro gamit ang kagamitan?", "options": ["Tinkering", "Pagtulog", "Pagkain", "Paglalakad"], "correct_answer": "Tinkering" },
+          { "question": "Bakit kailangan magtanong ang isang siyentipiko?", "options": ["Upang matuto", "Upang mahirapan lamang", "Walang dahilan", "Upang makalimutan"], "correct_answer": "Upang matuto" },
+          { "question": "Ano ang gamit ng modeling clay?", "options": ["Panggawa ng modelo", "Pansukat", "Pangputol", "Pandikit"], "correct_answer": "Panggawa ng modelo" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Input**: keyboard, mouse (patungo sa computer)\n- **Output**: monitor, speakers, printer (mula sa computer)\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Alin ang input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Alin ang output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
+          { "question": "Ang pag-type gamit ang keyboard ay anong uri ng gawain?", "options": ["Input", "Output", "Parehong hindi", "Parehong oo"], "correct_answer": "Input" },
+          { "question": "Ang pagpapakita ng litrato sa monitor ay anong uri ng gawain?", "options": ["Output", "Input", "Parehong hindi", "Parehong oo"], "correct_answer": "Output" },
+          { "question": "Alin sa mga ito ang isa pang input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" }
+        ]
+      }
+    }
+  }
+}

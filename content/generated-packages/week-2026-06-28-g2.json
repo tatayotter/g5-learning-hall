@@ -1,0 +1,181 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-06-28",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 2: Sounding Out Words!\n\nLet's learn to read new words by **sounding them out**! 🔤\n\n## 🔠 Sight Words\n- **Sight words** are common words we should recognize instantly: *the, is, and, can, see*\n- Practicing sight words helps us read **faster and smoother**.\n\n## 🧩 CVC Words (Consonant-Vowel-Consonant)\n- CVC words have 3 letters: a **consonant**, then a **vowel**, then a **consonant**.\n- **Example 1:** *mat* = /m/ + /a/ + /t/\n- **Example 2:** *sit* = /s/ + /i/ + /t/\n\n## 🎯 How to Sound Out a Word\n1. Say the **first sound**.\n2. Say the **middle sound**.\n3. Say the **last sound**.\n4. **Blend** them together to say the whole word!\n\nPractice sounding out words every day — you'll become a super reader! 🌟",
+        "visual_aid": {
+          "type": "steps",
+          "title": "How to Sound Out a CVC Word",
+          "expression": "mat = ?",
+          "steps": [
+            { "label": "Say the first sound", "detail": "/m/" },
+            { "label": "Say the middle sound", "detail": "/a/" },
+            { "label": "Say the last sound", "detail": "/t/" },
+            { "label": "Blend all the sounds", "detail": "m + a + t = mat" }
+          ]
+        },
+        "quiz": [
+          { "question": "Which word is a sight word we should recognize instantly?", "options": ["The", "Elephant", "Butterfly", "Dinosaur"], "correct_answer": "The" },
+          { "question": "What does CVC stand for?", "options": ["Consonant-Vowel-Consonant", "Consonant-Verb-Consonant", "Color-Vowel-Color", "Consonant-Vowel-Vowel"], "correct_answer": "Consonant-Vowel-Consonant" },
+          { "question": "What is the middle sound in \"sit\"?", "options": ["/i/", "/s/", "/t/", "/e/"], "correct_answer": "/i/" },
+          { "question": "Which word is a CVC word?", "options": ["Pen", "Elephant", "School", "Airplane"], "correct_answer": "Pen" },
+          { "question": "What should you do after saying all three sounds of a word?", "options": ["Blend them together", "Forget them", "Say them backward", "Skip them"], "correct_answer": "Blend them together" },
+          { "question": "What is the first sound in \"mat\"?", "options": ["/m/", "/a/", "/t/", "/e/"], "correct_answer": "/m/" },
+          { "question": "Why do we practice sight words?", "options": ["To read faster and smoother", "To slow down reading", "To forget letters", "To avoid reading"], "correct_answer": "To read faster and smoother" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Mathematics — Week 2: More Circles and Composite Figures!\n\nLet's practice building bigger shapes from smaller ones! 🧩\n\n## ⭕ Review: Circles and Parts of Circles\n- A whole **circle** can be split into **2 half circles** or **4 quarter circles**.\n- We can put half circles and quarter circles **back together** to make a whole circle again!\n\n## 🧩 Building Composite Figures\n- **Composite figures** combine squares, rectangles, triangles, circles, half circles, and quarter circles.\n- **Example 1:** A rectangle body + a triangle roof = a **house**!\n- **Example 2:** A circle + two quarter circles = looks like a **flower petal pattern**!\n\n## 🔍 Decomposing Figures\n- We can also **break apart** a big figure into the smaller shapes that made it.\n- **Example:** A house shape breaks into 1 rectangle + 1 triangle.\n\nKeep practicing — you're becoming a shape expert! 🌟",
+        "quiz": [
+          { "question": "How many quarter circles make a whole circle?", "options": ["Four", "Two", "Three", "Six"], "correct_answer": "Four" },
+          { "question": "A rectangle body and triangle roof together look like what?", "options": ["A house", "A circle", "A fish", "A cloud"], "correct_answer": "A house" },
+          { "question": "What do we call breaking a big shape into smaller shapes?", "options": ["Decomposing", "Multiplying", "Erasing", "Counting"], "correct_answer": "Decomposing" },
+          { "question": "How many half circles make a whole circle?", "options": ["Two", "Four", "One", "Three"], "correct_answer": "Two" },
+          { "question": "A house shape breaks into which two shapes?", "options": ["A rectangle and a triangle", "Two circles", "Two squares", "A triangle and a circle"], "correct_answer": "A rectangle and a triangle" },
+          { "question": "What shapes can composite figures be made from?", "options": ["Squares, rectangles, triangles, and circles", "Only circles", "Only squares", "Only triangles"], "correct_answer": "Squares, rectangles, triangles, and circles" },
+          { "question": "What do we call a shape made from smaller shapes combined?", "options": ["Composite figure", "Simple figure", "Number line", "Pattern block"], "correct_answer": "Composite figure" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 2: Palabigkasan at Pagkilala ng Salita\n\nMatuto tayong magbasa ng mga bagong salita! 📖\n\n## 🔤 Mga Salitang Paningin (Sight Words)\n- Ang **salitang paningin** ay karaniwang salitang dapat nating makilala kaagad: *ako, ikaw, siya, ang, sa, at*\n\n## 🧩 Mga Salitang CVC\n- Ang mga salitang CVC ay binubuo ng **katinig-patinig-katinig**.\n- **Halimbawa 1:** *bata* — sa, ta\n- **Halimbawa 2:** *aso* — a, so\n\n## 🎯 Paano Bumigkas ng Salita\n1. Bigkasin ang **unang tunog**.\n2. Bigkasin ang **gitnang tunog**.\n3. Bigkasin ang **huling tunog**.\n4. **Pagsamahin** ang lahat ng tunog para bumuo ng buong salita!\n\nPagsanayan natin ito araw-araw upang maging mahusay na mambabasa! 🌟",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Paano Bigkasin ang Salitang \"bata\"",
+          "expression": "bata = ?",
+          "steps": [
+            { "label": "Bigkasin ang unang pantig", "detail": "\"ba\"" },
+            { "label": "Bigkasin ang ikalawang pantig", "detail": "\"ta\"" },
+            { "label": "Pagsamahin ang mga pantig", "detail": "ba + ta = bata" }
+          ]
+        },
+        "quiz": [
+          { "question": "Alin ang salitang paningin?", "options": ["Ako", "Elepante", "Paruparo", "Dinosaur"], "correct_answer": "Ako" },
+          { "question": "Ilang pantig ang salitang \"bata\"?", "options": ["Dalawa", "Isa", "Tatlo", "Apat"], "correct_answer": "Dalawa" },
+          { "question": "Ano ang unang pantig ng salitang \"aso\"?", "options": ["A", "So", "As", "O"], "correct_answer": "A" },
+          { "question": "Ano ang dapat gawin pagkatapos bigkasin ang bawat tunog?", "options": ["Pagsamahin ang mga ito", "Kalimutan ang mga ito", "Baligtarin ang mga ito", "Laktawan ang mga ito"], "correct_answer": "Pagsamahin ang mga ito" },
+          { "question": "Alin sa mga ito ang halimbawa ng salitang paningin?", "options": ["Ikaw", "Kabute", "Kabayo", "Kalabaw"], "correct_answer": "Ikaw" },
+          { "question": "Bakit natin pinag-aaralan ang salitang paningin?", "options": ["Para mas mabilis magbasa", "Para mas mabagal magbasa", "Para makalimutan ang letra", "Walang dahilan"], "correct_answer": "Para mas mabilis magbasa" },
+          { "question": "Ano ang tawag sa salitang may katinig-patinig-katinig?", "options": ["CVC", "Pantig", "Titik", "Pangungusap"], "correct_answer": "CVC" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 2: Sorting Living and Nonliving Things\n\nLet's practice sorting things around us! 🔍\n\n## 🏡 Living and Nonliving in Our Environment\n- We can find living and nonliving things at **home**, **school**, and in the **yard**.\n- **Example:** A plant in the garden is **living**; a garden fence is **nonliving**.\n\n## 🍂 Once-Living Materials\n- Some materials came from living things but are **no longer alive** — like a **dried leaf**, a **piece of wood**, or **cotton**.\n- These are different from truly nonliving things like **stone** or **metal**, which were never alive.\n\n## 🔍 Practice Sorting\n- **Example 1:** A cat (living) vs. a stone (nonliving, never alive)\n- **Example 2:** A piece of wood (once-living) vs. a rock (never alive)\n\nKeep observing your surroundings — you're becoming a great sorter! 🌟",
+        "quiz": [
+          { "question": "Which of these is nonliving?", "options": ["Stone", "Cat", "Tree", "Bird"], "correct_answer": "Stone" },
+          { "question": "Which material came from a living thing but is no longer alive?", "options": ["Dried leaf", "Stone", "Metal", "Plastic"], "correct_answer": "Dried leaf" },
+          { "question": "Where can we find living and nonliving things?", "options": ["Home, school, and yard", "Only in books", "Only in space", "Nowhere"], "correct_answer": "Home, school, and yard" },
+          { "question": "Which is a truly nonliving thing that was never alive?", "options": ["Rock", "Cotton", "Wood", "Dried leaf"], "correct_answer": "Rock" },
+          { "question": "What kind of material is cotton?", "options": ["Once-living material", "Never-living material", "A living animal", "A living plant"], "correct_answer": "Once-living material" },
+          { "question": "Is a plant in the garden living or nonliving?", "options": ["Living", "Nonliving", "Neither", "Both"], "correct_answer": "Living" },
+          { "question": "Is a garden fence living or nonliving?", "options": ["Nonliving", "Living", "Both", "Neither"], "correct_answer": "Nonliving" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 2: Ang Aking Komunidad\n\nAlamin natin ang lokasyon at hitsura ng ating sariling komunidad! 🗺️\n\n## 📍 Lokasyon ng Komunidad\n- Alamin ang pangalan ng iyong **barangay**, **bayan/lungsod**, at **probinsiya**.\n- Ang bawat komunidad ay may sariling **lokasyon** sa mapa.\n\n## 🧭 Batayang Direksiyon\n- **Hilaga** (North), **Timog** (South), **Silangan** (East), **Kanluran** (West)\n- Ginagamit natin ang mga ito para makahanap ng lugar sa isang mapa.\n\n## 🏔️ Heograpikong Tanawin\n- Ang komunidad ay maaaring may **bundok, ilog, dagat, look, parke,** o **palayan**.\n- Nakaaapekto ang mga tanawing ito sa **pamumuhay** ng mga residente — halimbawa, ang mangingisda ay nakatira malapit sa dagat.\n\nMahalagang kilalanin ang sarili nating komunidad! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang tawag sa direksiyong paitaas sa mapa?", "options": ["Hilaga", "Timog", "Silangan", "Kanluran"], "correct_answer": "Hilaga" },
+          { "question": "Alin ang mahalagang malaman tungkol sa sariling komunidad?", "options": ["Pangalan ng barangay at bayan", "Paboritong pagkain", "Paboritong kulay", "Paboritong laro"], "correct_answer": "Pangalan ng barangay at bayan" },
+          { "question": "Ang mangingisda ay malamang nakatira malapit saan?", "options": ["Dagat", "Bundok", "Disyerto", "Kagubatan"], "correct_answer": "Dagat" },
+          { "question": "Alin ang halimbawa ng heograpikong tanawin?", "options": ["Bundok", "Silid-aralan", "Bag", "Libro"], "correct_answer": "Bundok" },
+          { "question": "Ano ang gamit ng batayang direksiyon?", "options": ["Para makahanap ng lugar sa mapa", "Para magluto", "Para maglaro", "Para kumanta"], "correct_answer": "Para makahanap ng lugar sa mapa" },
+          { "question": "Alin sa mga ito ang isang batayang direksiyon?", "options": ["Silangan", "Itaas", "Ibaba", "Gitna"], "correct_answer": "Silangan" },
+          { "question": "Paano nakaaapekto ang heograpiya sa pamumuhay?", "options": ["Naaayon dito ang hanapbuhay ng mga tao", "Walang epekto ito", "Nagpapabago lamang ng oras", "Wala sa mga ito"], "correct_answer": "Naaayon dito ang hanapbuhay ng mga tao" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 2: Parts of a Desktop Computer\n\nLet's learn the main parts of a desktop computer! 🖥️\n\n## 🖥️ Main Parts and Their Jobs\n- **Monitor/Screen** — shows pictures and words so we can see what the computer is doing\n- **CPU (System Unit)** — the **\"brain\"** of the computer that runs everything\n- **Keyboard** — used for typing letters and numbers\n- **Mouse** — used for pointing and clicking\n\n## 🔍 Matching Parts to Jobs\n- **Example 1:** To type your name, you use the **keyboard**.\n- **Example 2:** To see your work on screen, you use the **monitor**.\n\nEach part has an important job — together, they help the computer work! 🌟",
+        "quiz": [
+          { "question": "What part of the computer shows pictures and words?", "options": ["Monitor", "Keyboard", "Mouse", "CPU"], "correct_answer": "Monitor" },
+          { "question": "What is the \"brain\" of the computer called?", "options": ["CPU", "Monitor", "Keyboard", "Mouse"], "correct_answer": "CPU" },
+          { "question": "Which part do you use to type your name?", "options": ["Keyboard", "Monitor", "Mouse", "CPU"], "correct_answer": "Keyboard" },
+          { "question": "Which part do you use to point and click?", "options": ["Mouse", "Monitor", "Keyboard", "CPU"], "correct_answer": "Mouse" },
+          { "question": "What is another name for the CPU?", "options": ["System unit", "Screen", "Typing tool", "Pointer"], "correct_answer": "System unit" },
+          { "question": "Which part lets you see what the computer is doing?", "options": ["Monitor", "Keyboard", "Mouse", "CPU"], "correct_answer": "Monitor" },
+          { "question": "Which of these is NOT a main part of a desktop computer?", "options": ["Umbrella", "Monitor", "Keyboard", "Mouse"], "correct_answer": "Umbrella" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 2: Pagpapahalaga sa Sarili\n\nPatuloy nating alamin at pahalagahan ang ating sarili! 🌟\n\n## ⭐ Natatanging Katangian\n- Bawat bata ay may sariling **hitsura**, **gusto**, at **kakayahan**.\n- Walang dalawang batang eksaktong magkapareho — at ito ay maganda!\n\n## 💪 Aking mga Lakas\n- Tukuyin ang mga bagay na **magaling kang gawin** (halimbawa: pagguhit, pagkanta, paglalaro ng bola).\n- Tanggapin din ang mga bagay na **kailangan mo pang matutunan** — ayos lang iyon!\n\n## 💛 Pagpapahalaga sa Sarili Bilang Regalo\n- Ang iyong buhay at katauhan ay isang **regalo**.\n- Ipakita ang paggalang sa sarili sa pamamagitan ng pag-aalaga sa iyong katawan at damdamin.\n\nIkaw ay natatangi at napakahalaga! 🌟",
+        "quiz": [
+          { "question": "Ano ang mayroon ang bawat bata na natatangi?", "options": ["Sariling hitsura, gusto, at kakayahan", "Parehong hitsura lamang", "Wala ni isa", "Parehong gusto lamang"], "correct_answer": "Sariling hitsura, gusto, at kakayahan" },
+          { "question": "Ano ang dapat gawin sa mga bagay na kailangan mo pang matutunan?", "options": ["Tanggapin ito, ayos lang iyon", "Ikahiya ito", "Itago ito", "Ikumpara sa iba"], "correct_answer": "Tanggapin ito, ayos lang iyon" },
+          { "question": "Ang iyong buhay at katauhan ay itinuturing na ano?", "options": ["Isang regalo", "Isang pabigat", "Isang problema", "Wala sa mga ito"], "correct_answer": "Isang regalo" },
+          { "question": "Paano mo maipapakita ang paggalang sa sarili?", "options": ["Sa pag-aalaga ng katawan at damdamin", "Sa pagsisinungaling", "Sa pananakit ng sarili", "Sa pagiging tamad"], "correct_answer": "Sa pag-aalaga ng katawan at damdamin" },
+          { "question": "Bakit maganda na walang dalawang batang magkapareho?", "options": ["Dahil natatangi ang bawat isa", "Dahil nakakalito ito", "Dahil hindi maganda ito", "Walang dahilan"], "correct_answer": "Dahil natatangi ang bawat isa" },
+          { "question": "Alin ang halimbawa ng sariling lakas o kakayahan?", "options": ["Magaling gumuhit", "Hindi makapagsalita", "Laging natatakot", "Ayaw makisama"], "correct_answer": "Magaling gumuhit" },
+          { "question": "Ano ang dapat nating gawin sa ating sariling katangian?", "options": ["Tanggapin at ipagmalaki", "Itago mula sa lahat", "Ikahiya", "Kalimutan"], "correct_answer": "Tanggapin at ipagmalaki" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of sight words and sounding out!\n\n- **Sight words**: *the, is, and, can, see* — recognize instantly\n- **CVC words** have 3 letters: consonant-vowel-consonant, like *mat*\n- To sound out: say first sound, middle sound, last sound, then **blend**\n\nGreat reading progress this week! ⭐",
+        "quiz": [
+          { "question": "Which is a sight word?", "options": ["The", "Elephant", "Butterfly", "Dinosaur"], "correct_answer": "The" },
+          { "question": "What does CVC mean?", "options": ["Consonant-Vowel-Consonant", "Consonant-Verb-Consonant", "Color-Vowel-Color", "Consonant-Vowel-Vowel"], "correct_answer": "Consonant-Vowel-Consonant" },
+          { "question": "What is the middle sound in \"sit\"?", "options": ["/i/", "/s/", "/t/", "/e/"], "correct_answer": "/i/" },
+          { "question": "What do you do after saying all the sounds?", "options": ["Blend them together", "Forget them", "Say them backward", "Skip them"], "correct_answer": "Blend them together" },
+          { "question": "Which word is a CVC word?", "options": ["Pen", "Elephant", "School", "Airplane"], "correct_answer": "Pen" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔷 Friday Weekly Review — Mathematics\n\nQuick review of composite figures!\n\n- A **composite figure** is made from smaller shapes combined\n- A rectangle + triangle can look like a **house**\n- **Decomposing** means breaking a figure into its smaller shapes\n\nGreat shape-building this week! 🌟",
+        "quiz": [
+          { "question": "What do we call breaking a shape into smaller shapes?", "options": ["Decomposing", "Multiplying", "Erasing", "Counting"], "correct_answer": "Decomposing" },
+          { "question": "A rectangle and triangle together can look like what?", "options": ["A house", "A circle", "A fish", "A cloud"], "correct_answer": "A house" },
+          { "question": "How many quarter circles make a whole circle?", "options": ["Four", "Two", "Three", "Six"], "correct_answer": "Four" },
+          { "question": "What is a composite figure?", "options": ["A shape made from smaller shapes", "A single circle", "A number", "A color"], "correct_answer": "A shape made from smaller shapes" },
+          { "question": "How many half circles make a whole circle?", "options": ["Two", "Four", "One", "Three"], "correct_answer": "Two" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Salitang paningin**: ako, ikaw, siya, ang, sa, at\n- **CVC** = katinig-patinig-katinig, tulad ng \"bata\"\n- Bigkasin ang bawat pantig, tapos **pagsamahin**\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Alin ang salitang paningin?", "options": ["Ako", "Elepante", "Paruparo", "Dinosaur"], "correct_answer": "Ako" },
+          { "question": "Ano ang unang pantig ng \"aso\"?", "options": ["A", "So", "As", "O"], "correct_answer": "A" },
+          { "question": "Ilang pantig ang \"bata\"?", "options": ["Dalawa", "Isa", "Tatlo", "Apat"], "correct_answer": "Dalawa" },
+          { "question": "Ano ang dapat gawin pagkatapos bigkasin ang tunog?", "options": ["Pagsamahin ang mga ito", "Kalimutan ang mga ito", "Baligtarin ang mga ito", "Laktawan ang mga ito"], "correct_answer": "Pagsamahin ang mga ito" },
+          { "question": "Ano ang tawag sa salitang may katinig-patinig-katinig?", "options": ["CVC", "Pantig", "Titik", "Pangungusap"], "correct_answer": "CVC" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Batayang direksiyon: **Hilaga, Timog, Silangan, Kanluran**\n- Heograpikong tanawin: **bundok, ilog, dagat, parke**\n- Nakaaapekto ang tanawin sa pamumuhay ng mga tao\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang direksiyong paitaas sa mapa?", "options": ["Hilaga", "Timog", "Silangan", "Kanluran"], "correct_answer": "Hilaga" },
+          { "question": "Ang mangingisda ay malamang nakatira malapit saan?", "options": ["Dagat", "Bundok", "Disyerto", "Kagubatan"], "correct_answer": "Dagat" },
+          { "question": "Alin ang halimbawa ng heograpikong tanawin?", "options": ["Bundok", "Silid-aralan", "Bag", "Libro"], "correct_answer": "Bundok" },
+          { "question": "Ano ang gamit ng batayang direksiyon?", "options": ["Para makahanap ng lugar sa mapa", "Para magluto", "Para maglaro", "Para kumanta"], "correct_answer": "Para makahanap ng lugar sa mapa" },
+          { "question": "Alin ang mahalagang malaman tungkol sa komunidad?", "options": ["Pangalan ng barangay at bayan", "Paboritong pagkain", "Paboritong kulay", "Paboritong laro"], "correct_answer": "Pangalan ng barangay at bayan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- May buhay: **hayop, halaman** | Walang buhay: **bato, metal**\n- Minsang-buhay na materyales: **tuyong dahon, kahoy, bulak**\n- Makikita ang mga ito sa bahay, paaralan, at bakuran\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which of these is nonliving?", "options": ["Stone", "Cat", "Tree", "Bird"], "correct_answer": "Stone" },
+          { "question": "Which material came from a living thing but is no longer alive?", "options": ["Dried leaf", "Stone", "Metal", "Plastic"], "correct_answer": "Dried leaf" },
+          { "question": "Is a plant in the garden living or nonliving?", "options": ["Living", "Nonliving", "Neither", "Both"], "correct_answer": "Living" },
+          { "question": "Which is a truly nonliving thing that was never alive?", "options": ["Rock", "Cotton", "Wood", "Dried leaf"], "correct_answer": "Rock" },
+          { "question": "Where can we find living and nonliving things?", "options": ["Home, school, and yard", "Only in books", "Only in space", "Nowhere"], "correct_answer": "Home, school, and yard" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Monitor** — nagpapakita ng larawan/salita\n- **CPU** — utak ng computer\n- **Keyboard** — pantype | **Mouse** — pang-click\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Which part shows pictures and words?", "options": ["Monitor", "Keyboard", "Mouse", "CPU"], "correct_answer": "Monitor" },
+          { "question": "What is the \"brain\" of the computer?", "options": ["CPU", "Monitor", "Keyboard", "Mouse"], "correct_answer": "CPU" },
+          { "question": "Which part do you use to type?", "options": ["Keyboard", "Monitor", "Mouse", "CPU"], "correct_answer": "Keyboard" },
+          { "question": "Which part do you use to point and click?", "options": ["Mouse", "Monitor", "Keyboard", "CPU"], "correct_answer": "Mouse" },
+          { "question": "What is another name for the CPU?", "options": ["System unit", "Screen", "Typing tool", "Pointer"], "correct_answer": "System unit" }
+        ]
+      }
+    }
+  }
+}

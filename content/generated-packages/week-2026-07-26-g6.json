@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-07-26",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 6: Prepositional Phrases as Adjectives!\n\nLet's learn how prepositional phrases can describe nouns! 📝\n\n## 📝 What Is a Prepositional Phrase?\n- A **prepositional phrase** starts with a preposition (in, on, at, with, of) and ends with a noun.\n- **Example:** *the festival in the plaza*\n\n## 🎨 Using It as an Adjective\n- When a prepositional phrase describes a noun, it acts like an **adjective**.\n- **Example:** *The dancer with the colorful costume* — \"with the colorful costume\" describes \"dancer.\"\n\n## 🔍 Practice\n- Identify the prepositional phrase acting as an adjective: *\"The drum from the village echoed loudly.\"*\n\nPrepositional phrases add rich detail to our writing! 🌟",
+        "quiz": [
+          { "question": "What does a prepositional phrase start with?", "options": ["A preposition", "A verb", "A noun only", "A question mark"], "correct_answer": "A preposition" },
+          { "question": "In \"the festival in the plaza,\" what is the prepositional phrase?", "options": ["In the plaza", "The festival", "Festival", "Plaza"], "correct_answer": "In the plaza" },
+          { "question": "What does a prepositional phrase act as when it describes a noun?", "options": ["An adjective", "A verb", "A conjunction", "An interjection"], "correct_answer": "An adjective" },
+          { "question": "In \"The dancer with the colorful costume,\" what does \"with the colorful costume\" describe?", "options": ["The dancer", "The color", "The costume alone", "Nothing"], "correct_answer": "The dancer" },
+          { "question": "Which is an example of a prepositional phrase?", "options": ["From the village", "Danced quickly", "Ran fast", "Happy today"], "correct_answer": "From the village" },
+          { "question": "What do prepositional phrases add to writing?", "options": ["Rich detail", "Confusion", "Nothing", "Only length"], "correct_answer": "Rich detail" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 6: Repeating Decimals!\n\nLet's explore division that creates repeating decimals! 🔁\n\n## 🔁 What Is a Repeating Decimal?\n- Some divisions never end evenly — the digits **repeat forever**.\n- **Example:** 1 ÷ 3 = 0.3333... (the 3 repeats forever)\n\n## ✍️ Writing Repeating Decimals\n- We write a bar over the repeating digit: **0.3̄**\n\n## 🔢 Dividing a Whole Number by a Decimal\n- **Example:** 12 ÷ 0.5 = **24** (dividing by a decimal less than 1 makes the result bigger!)\n\nGreat exploration of tricky decimal division! 🌟",
+        "quiz": [
+          { "question": "What is a repeating decimal?", "options": ["A decimal where digits repeat forever", "A decimal that ends quickly", "A whole number", "A fraction only"], "correct_answer": "A decimal where digits repeat forever" },
+          { "question": "What is 1 ÷ 3 as a decimal?", "options": ["0.3333...", "0.5", "0.25", "1.3"], "correct_answer": "0.3333..." },
+          { "question": "How do we show a repeating digit in writing?", "options": ["A bar over the digit", "A star next to it", "Nothing special", "A question mark"], "correct_answer": "A bar over the digit" },
+          { "question": "What is 12 ÷ 0.5?", "options": ["24", "6", "2.4", "12.5"], "correct_answer": "24" },
+          { "question": "Why does dividing by a decimal less than 1 make the answer bigger?", "options": ["You're dividing into smaller pieces, so there are more of them", "It always makes the answer smaller", "It has no effect", "Only sometimes"], "correct_answer": "You're dividing into smaller pieces, so there are more of them" },
+          { "question": "What is 2 ÷ 3 as a repeating decimal?", "options": ["0.6666...", "0.333...", "0.5", "0.75"], "correct_answer": "0.6666..." }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 6: Wastong Paggamit ng Silid-Aklatan\n\nAlamin natin ang mga dapat gawin sa silid-aklatan! 📚\n\n## 📚 Mga Asal sa Silid-Aklatan\n- Manatiling **tahimik** upang hindi maistorbo ang ibang nagbabasa.\n- Ibalik ang aklat sa **tamang lugar** matapos gamitin.\n\n## 🔍 Paggamit sa Pananaliksik\n- Gamitin ang silid-aklatan para sa **gawaing pananaliksik**.\n- Alamin kung paano hanapin ang aklat gamit ang **card catalog** o listahan.\n\n## 💡 Bakit Mahalaga Ito?\n- Ang tamang paggamit ng silid-aklatan ay tumutulong sa lahat na matuto nang maayos.\n\nIgalang ang silid-aklatan bilang lugar ng kaalaman! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa silid-aklatan?", "options": ["Manatiling tahimik", "Maingay na kumausap", "Tumakbo", "Kumain nang malakas"], "correct_answer": "Manatiling tahimik" },
+          { "question": "Ano ang dapat gawin sa aklat pagkatapos gamitin?", "options": ["Ibalik sa tamang lugar", "Iwanan kahit saan", "Isira", "Itago sa bag"], "correct_answer": "Ibalik sa tamang lugar" },
+          { "question": "Para saan ginagamit ang silid-aklatan?", "options": ["Gawaing pananaliksik", "Paglalaro lamang", "Pagtulog", "Panonood ng TV"], "correct_answer": "Gawaing pananaliksik" },
+          { "question": "Ano ang ginagamit para hanapin ang aklat?", "options": ["Card catalog", "Bola", "Laruan", "Wala"], "correct_answer": "Card catalog" },
+          { "question": "Bakit mahalaga ang tamang paggamit ng silid-aklatan?", "options": ["Tumutulong ito sa lahat na matuto nang maayos", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa lahat na matuto nang maayos" },
+          { "question": "Ano ang dapat igalang natin ang silid-aklatan?", "options": ["Bilang lugar ng kaalaman", "Bilang laruan lamang", "Bilang kusina", "Wala"], "correct_answer": "Bilang lugar ng kaalaman" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 6: Features of a Fair Test!\n\nLet's learn how to design a proper scientific experiment! ⚖️\n\n## ⚖️ Features of a Fair Test\n- **Change ONE factor** at a time.\n- **Measure ONE factor** to see the result.\n- **Keep everything else the same** so the results are accurate.\n\n## 🔁 Why We Need Multiple Trials\n- A valid experiment needs **at least 3 trials** with accurate measurement and recording.\n\n## 🔍 Example\n- Testing which type of soil helps a plant grow best — change only the soil type, keep water and sunlight the same.\n\nGreat scientific thinking builds valid experiments! 🌟",
+        "quiz": [
+          { "question": "How many factors should you change at a time in a fair test?", "options": ["One", "Two", "Three", "All of them"], "correct_answer": "One" },
+          { "question": "What should stay the same in a fair test?", "options": ["Everything except the one factor being tested", "Nothing", "Only the result", "Only the time"], "correct_answer": "Everything except the one factor being tested" },
+          { "question": "How many trials are needed for a valid experiment?", "options": ["At least 3", "Only 1", "None needed", "Exactly 100"], "correct_answer": "At least 3" },
+          { "question": "In a soil experiment, what should you change?", "options": ["Only the soil type", "Water and sunlight too", "Everything", "Nothing"], "correct_answer": "Only the soil type" },
+          { "question": "Why do we need multiple trials?", "options": ["For accurate measurement and recording", "To waste time", "It's not necessary", "To confuse results"], "correct_answer": "For accurate measurement and recording" },
+          { "question": "What makes a test \"fair\"?", "options": ["Changing one factor while keeping others the same", "Changing everything at once", "Guessing the result", "Ignoring measurements"], "correct_answer": "Changing one factor while keeping others the same" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 6: Konsepto ng Imperyalismo\n\nAlamin natin ang konsepto ng imperyalismo! 🌍\n\n## 🌍 Ano ang Imperyalismo?\n- Ang **imperyalismo** ay ang pagpapalawak ng kapangyarihan ng isang bansa sa ibang lupain, madalas sa pamamagitan ng pananakop.\n\n## 🔍 Mga Layunin ng Imperyalismo\n- **Ekonomiko** — pagkuha ng likas na yaman at merkado\n- **Pampulitika** — pagpapalawak ng teritoryo at impluwensya\n\n## 📖 Kaugnayan sa Pilipinas\n- Ang Estados Unidos ay nagpakita ng imperyalismo sa pagsakop nito sa Pilipinas matapos ang Digmaang Espanyol-Amerikano.\n\nMahalagang maunawaan ang imperyalismo para maunawaan ang ating kasaysayan! 🌍",
+        "quiz": [
+          { "question": "Ano ang imperyalismo?", "options": ["Pagpapalawak ng kapangyarihan ng isang bansa sa ibang lupain", "Pagtulong sa ibang bansa", "Pakikipagkalakalan lamang", "Wala"], "correct_answer": "Pagpapalawak ng kapangyarihan ng isang bansa sa ibang lupain" },
+          { "question": "Ano ang isang layunin ng imperyalismo?", "options": ["Ekonomiko — kuha ng yaman at merkado", "Wala", "Pagtulong lamang", "Pakikipagkaibigan lamang"], "correct_answer": "Ekonomiko — kuha ng yaman at merkado" },
+          { "question": "Anong bansa ang nagpakita ng imperyalismo sa Pilipinas?", "options": ["Estados Unidos", "Tsina", "Japan", "Indonesia"], "correct_answer": "Estados Unidos" },
+          { "question": "Kailan sinakop ng Estados Unidos ang Pilipinas?", "options": ["Matapos ang Digmaang Espanyol-Amerikano", "Bago ang Himagsikan", "Noong 1900s lamang", "Hindi kailanman"], "correct_answer": "Matapos ang Digmaang Espanyol-Amerikano" },
+          { "question": "Ano ang isa pang layunin ng imperyalismo?", "options": ["Pampulitika — pagpapalawak ng teritoryo", "Wala", "Kawalang-interes", "Pagtulong lamang"], "correct_answer": "Pampulitika — pagpapalawak ng teritoryo" },
+          { "question": "Bakit mahalagang maunawaan ang imperyalismo?", "options": ["Para maunawaan natin ang ating kasaysayan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maunawaan natin ang ating kasaysayan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Pagbabahagi sa Cloud Storage!\n\nAlamin natin nang mas malalim ang pagbabahagi ng files! 📤\n\n## 📤 Wastong Pagbabahagi\n- Gamitin ang **share button** upang bigyan ng access ang ibang tao.\n- Piliin kung sila ay makakapag-**view lamang** o makakapag-**edit** ng file.\n\n## 🔒 Pag-organisa ng Files\n- Gumamit ng **mga folder** para maayos ang mga file.\n\n## 🔍 Kaligtasan\n- I-check ang listahan ng mga taong may access sa file paminsan-minsan.\n\nMahusay na pag-oorganisa ay nagbibigay ng produktibong paggawa! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit para bigyan ng access ang ibang tao?", "options": ["Share button", "Delete button", "Print button", "Walang button"], "correct_answer": "Share button" },
+          { "question": "Anong dalawang uri ng access ang maaaring ibigay?", "options": ["View at edit", "Delete at print", "Walang uri", "Isa lamang"], "correct_answer": "View at edit" },
+          { "question": "Ano ang ginagamit para maayos ang mga file?", "options": ["Mga folder", "Wala", "Kulay lamang", "Font lamang"], "correct_answer": "Mga folder" },
+          { "question": "Ano ang dapat i-check paminsan-minsan?", "options": ["Listahan ng taong may access", "Wala", "Kulay ng file", "Presyo ng file"], "correct_answer": "Listahan ng taong may access" },
+          { "question": "Bakit mahalaga ang pag-organisa ng files?", "options": ["Nagbibigay ito ng produktibong paggawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng produktibong paggawa" },
+          { "question": "Ano ang dapat piliin bago magbahagi ng file?", "options": ["Kung view lamang o edit ang bibigyan", "Wala", "Random na opsyon", "Kulay lamang"], "correct_answer": "Kung view lamang o edit ang bibigyan" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Week 6: Music of the American Period!\n\nLet's explore how American influence shaped Filipino music! 🎶\n\n## 🎶 Music During the American Period\n- American influence brought new instruments and styles, like **jazz and marching bands**.\n- Filipino composers blended these with **local traditions**.\n\n## 🎨 Cultural Fusion\n- This era shows how Filipino identity **adapted** while keeping its own character.\n\n## 🔍 Comparing Periods\n- How does American-period music differ from Revolutionary-period music? One is more **foreign-influenced**, the other more **patriotic**.\n\nMusic reflects the changing times of our history! 🌟",
+        "quiz": [
+          { "question": "What new music styles came during the American Period?", "options": ["Jazz and marching bands", "Only traditional kundiman", "Only classical opera", "Nothing new"], "correct_answer": "Jazz and marching bands" },
+          { "question": "What did Filipino composers do with American influences?", "options": ["Blended them with local traditions", "Ignored them completely", "Rejected all new music", "Copied them exactly"], "correct_answer": "Blended them with local traditions" },
+          { "question": "What does this era of music show about Filipino identity?", "options": ["It adapted while keeping its own character", "It disappeared completely", "It never changed", "It became fully foreign"], "correct_answer": "It adapted while keeping its own character" },
+          { "question": "How does American-period music differ from Revolutionary-period music?", "options": ["One is more foreign-influenced, the other more patriotic", "They are exactly the same", "Neither has any theme", "Both are foreign only"], "correct_answer": "One is more foreign-influenced, the other more patriotic" },
+          { "question": "What does music reflect about our history?", "options": ["The changing times", "Nothing important", "Only random sounds", "Only modern trends"], "correct_answer": "The changing times" },
+          { "question": "What is cultural fusion?", "options": ["Blending different cultural influences", "Ignoring all cultures", "Only using one culture", "Rejecting new ideas"], "correct_answer": "Blending different cultural influences" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 6: Mga Sakit ng Isda!\n\nAlamin natin ang mga karaniwang sakit ng isda! 🐟\n\n## 🤒 Karaniwang Sakit ng Isda\n- **Fungal infection** — nagdudulot ng puting mantsa sa katawan ng isda\n- **Parasitic infection** — dulot ng maliliit na parasito na kumakapit sa katawan\n\n## 🔍 Mga Sintomas\n- Kawalan ng ganang kumain, hindi normal na paglangoy, at pamamaga.\n\n## 🛡️ Pag-iwas at Kontrol\n- **Panatilihing malinis** ang tubig at bigyan ng sapat na sustansya ang isda.\n\nMahalaga ang pag-alam sa sakit ng isda para sa matagumpay na pag-aalaga! 🌟",
+        "quiz": [
+          { "question": "Ano ang nagdudulot ng puting mantsa sa isda?", "options": ["Fungal infection", "Parasitic infection lamang", "Wala", "Malusog na isda"], "correct_answer": "Fungal infection" },
+          { "question": "Ano ang dulot ng parasitic infection?", "options": ["Maliliit na parasito na kumakapit sa katawan", "Walang sanhi", "Malusog na paglaki", "Wala"], "correct_answer": "Maliliit na parasito na kumakapit sa katawan" },
+          { "question": "Ano ang isang sintomas ng may sakit na isda?", "options": ["Kawalan ng ganang kumain", "Masiglang paglangoy", "Malusog na kulay", "Walang sintomas"], "correct_answer": "Kawalan ng ganang kumain" },
+          { "question": "Paano maiiwasan ang sakit ng isda?", "options": ["Panatilihing malinis ang tubig", "Hayaang marumi ang tubig", "Walang gagawin", "Bawasan ang pagkain"], "correct_answer": "Panatilihing malinis ang tubig" },
+          { "question": "Ano pang dapat ibigay sa isda para maiwasan ang sakit?", "options": ["Sapat na sustansya", "Wala", "Kulay na tubig", "Basura"], "correct_answer": "Sapat na sustansya" },
+          { "question": "Bakit mahalagang malaman ang sakit ng isda?", "options": ["Para sa matagumpay na pag-aalaga", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para sa matagumpay na pag-aalaga" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 6: Pagtitipid ng Enerhiya\n\nAlamin natin kung paano tipirin ang enerhiya para sa kalikasan! ⚡\n\n## ⚡ Mga Paraan ng Pagtitipid ng Enerhiya\n- **Patayin ang ilaw** kapag hindi ginagamit.\n- **Huwag iwanang naka-plug** ang mga gamit kapag hindi ginagamit.\n\n## 🌍 Bakit Ito Mahalaga?\n- Ang pagtitipid ng enerhiya ay tumutulong pangalagaan ang **kalikasan** at binabawasan ang polusyon.\n\n## 🔍 Halimbawa\n- Sa halip na gamitin ang aircon buong araw, buksan ang bintana kung malamig ang panahon.\n\nMaging responsable sa paggamit ng enerhiya! 🌟",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng pagtitipid ng enerhiya?", "options": ["Pagpatay ng ilaw kapag hindi ginagamit", "Pag-iwan ng ilaw na bukas", "Pag-aaksaya ng kuryente", "Wala"], "correct_answer": "Pagpatay ng ilaw kapag hindi ginagamit" },
+          { "question": "Bakit hindi dapat iwanang naka-plug ang mga gamit?", "options": ["Nag-aaksaya ito ng enerhiya", "Walang dahilan", "Para lang gumanda", "Wala itong epekto"], "correct_answer": "Nag-aaksaya ito ng enerhiya" },
+          { "question": "Ano ang tinutulungang pangalagaan ng pagtitipid ng enerhiya?", "options": ["Kalikasan", "Wala", "Polusyon lamang", "Walang tinutulungan"], "correct_answer": "Kalikasan" },
+          { "question": "Ano ang binabawasan ng pagtitipid ng enerhiya?", "options": ["Polusyon", "Kalinisan", "Kalusugan", "Wala"], "correct_answer": "Polusyon" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapagmalasakit", "Pagtitipid ng pera lamang", "Kasipagan", "Katapatan"], "correct_answer": "Mapagmalasakit" },
+          { "question": "Ano ang maaaring gawin sa halip na gamitin ang aircon buong araw?", "options": ["Buksan ang bintana", "Pahintulutan ang pag-aaksaya", "Wala", "Buksan pa ang lahat ng ilaw"], "correct_answer": "Buksan ang bintana" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of prepositional phrases!\n\n- Starts with a preposition, acts as an **adjective**\n- **Example:** *the dancer with the colorful costume*\n\nGreat detailed writing! ⭐",
+        "quiz": [
+          { "question": "What does a prepositional phrase start with?", "options": ["A preposition", "A verb", "A noun only", "A question mark"], "correct_answer": "A preposition" },
+          { "question": "In \"the festival in the plaza,\" what is the prepositional phrase?", "options": ["In the plaza", "The festival", "Festival", "Plaza"], "correct_answer": "In the plaza" },
+          { "question": "What does a prepositional phrase act as when it describes a noun?", "options": ["An adjective", "A verb", "A conjunction", "An interjection"], "correct_answer": "An adjective" },
+          { "question": "Which is an example of a prepositional phrase?", "options": ["From the village", "Danced quickly", "Ran fast", "Happy today"], "correct_answer": "From the village" },
+          { "question": "What do prepositional phrases add to writing?", "options": ["Rich detail", "Confusion", "Nothing", "Only length"], "correct_answer": "Rich detail" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of repeating decimals!\n\n- 1 ÷ 3 = **0.3333...**\n- Dividing by a decimal less than 1 makes the answer **bigger**\n\nGreat decimal division! 🌟",
+        "quiz": [
+          { "question": "What is a repeating decimal?", "options": ["A decimal where digits repeat forever", "A decimal that ends quickly", "A whole number", "A fraction only"], "correct_answer": "A decimal where digits repeat forever" },
+          { "question": "What is 1 ÷ 3 as a decimal?", "options": ["0.3333...", "0.5", "0.25", "1.3"], "correct_answer": "0.3333..." },
+          { "question": "What is 12 ÷ 0.5?", "options": ["24", "6", "2.4", "12.5"], "correct_answer": "24" },
+          { "question": "How do we show a repeating digit in writing?", "options": ["A bar over the digit", "A star next to it", "Nothing special", "A question mark"], "correct_answer": "A bar over the digit" },
+          { "question": "What is 2 ÷ 3 as a repeating decimal?", "options": ["0.6666...", "0.333...", "0.5", "0.75"], "correct_answer": "0.6666..." }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Manatiling **tahimik** sa silid-aklatan\n- Ibalik ang aklat sa tamang lugar\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa silid-aklatan?", "options": ["Manatiling tahimik", "Maingay na kumausap", "Tumakbo", "Kumain nang malakas"], "correct_answer": "Manatiling tahimik" },
+          { "question": "Ano ang dapat gawin sa aklat pagkatapos gamitin?", "options": ["Ibalik sa tamang lugar", "Iwanan kahit saan", "Isira", "Itago sa bag"], "correct_answer": "Ibalik sa tamang lugar" },
+          { "question": "Para saan ginagamit ang silid-aklatan?", "options": ["Gawaing pananaliksik", "Paglalaro lamang", "Pagtulog", "Panonood ng TV"], "correct_answer": "Gawaing pananaliksik" },
+          { "question": "Ano ang ginagamit para hanapin ang aklat?", "options": ["Card catalog", "Bola", "Laruan", "Wala"], "correct_answer": "Card catalog" },
+          { "question": "Bakit mahalaga ang tamang paggamit ng silid-aklatan?", "options": ["Tumutulong ito sa lahat na matuto nang maayos", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa lahat na matuto nang maayos" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Imperyalismo** = pagpapalawak ng kapangyarihan sa ibang bansa\n- Sinakop ng Estados Unidos ang Pilipinas matapos ang Digmaang Espanyol-Amerikano\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang imperyalismo?", "options": ["Pagpapalawak ng kapangyarihan ng isang bansa sa ibang lupain", "Pagtulong sa ibang bansa", "Pakikipagkalakalan lamang", "Wala"], "correct_answer": "Pagpapalawak ng kapangyarihan ng isang bansa sa ibang lupain" },
+          { "question": "Anong bansa ang nagpakita ng imperyalismo sa Pilipinas?", "options": ["Estados Unidos", "Tsina", "Japan", "Indonesia"], "correct_answer": "Estados Unidos" },
+          { "question": "Kailan sinakop ng Estados Unidos ang Pilipinas?", "options": ["Matapos ang Digmaang Espanyol-Amerikano", "Bago ang Himagsikan", "Noong 1900s lamang", "Hindi kailanman"], "correct_answer": "Matapos ang Digmaang Espanyol-Amerikano" },
+          { "question": "Ano ang isang layunin ng imperyalismo?", "options": ["Ekonomiko — kuha ng yaman at merkado", "Wala", "Pagtulong lamang", "Pakikipagkaibigan lamang"], "correct_answer": "Ekonomiko — kuha ng yaman at merkado" },
+          { "question": "Bakit mahalagang maunawaan ang imperyalismo?", "options": ["Para maunawaan natin ang ating kasaysayan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maunawaan natin ang ating kasaysayan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Share button** para bigyan ng access\n- Piliin: **view o edit**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit para bigyan ng access ang ibang tao?", "options": ["Share button", "Delete button", "Print button", "Walang button"], "correct_answer": "Share button" },
+          { "question": "Anong dalawang uri ng access ang maaaring ibigay?", "options": ["View at edit", "Delete at print", "Walang uri", "Isa lamang"], "correct_answer": "View at edit" },
+          { "question": "Ano ang ginagamit para maayos ang mga file?", "options": ["Mga folder", "Wala", "Kulay lamang", "Font lamang"], "correct_answer": "Mga folder" },
+          { "question": "Ano ang dapat i-check paminsan-minsan?", "options": ["Listahan ng taong may access", "Wala", "Kulay ng file", "Presyo ng file"], "correct_answer": "Listahan ng taong may access" },
+          { "question": "Bakit mahalaga ang pag-organisa ng files?", "options": ["Nagbibigay ito ng produktibong paggawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng produktibong paggawa" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Fair test: baguhin ang **isang salik lamang**\n- Kailangan ng **hindi bababa sa 3 trial**\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "How many factors should you change at a time in a fair test?", "options": ["One", "Two", "Three", "All of them"], "correct_answer": "One" },
+          { "question": "What should stay the same in a fair test?", "options": ["Everything except the one factor being tested", "Nothing", "Only the result", "Only the time"], "correct_answer": "Everything except the one factor being tested" },
+          { "question": "How many trials are needed for a valid experiment?", "options": ["At least 3", "Only 1", "None needed", "Exactly 100"], "correct_answer": "At least 3" },
+          { "question": "Why do we need multiple trials?", "options": ["For accurate measurement and recording", "To waste time", "It's not necessary", "To confuse results"], "correct_answer": "For accurate measurement and recording" },
+          { "question": "What makes a test \"fair\"?", "options": ["Changing one factor while keeping others the same", "Changing everything at once", "Guessing the result", "Ignoring measurements"], "correct_answer": "Changing one factor while keeping others the same" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- American Period music = **jazz, marching bands**\n- Blended with local traditions\n\nGreat historical music appreciation! 🌟",
+        "quiz": [
+          { "question": "What new music styles came during the American Period?", "options": ["Jazz and marching bands", "Only traditional kundiman", "Only classical opera", "Nothing new"], "correct_answer": "Jazz and marching bands" },
+          { "question": "What did Filipino composers do with American influences?", "options": ["Blended them with local traditions", "Ignored them completely", "Rejected all new music", "Copied them exactly"], "correct_answer": "Blended them with local traditions" },
+          { "question": "What does this era of music show about Filipino identity?", "options": ["It adapted while keeping its own character", "It disappeared completely", "It never changed", "It became fully foreign"], "correct_answer": "It adapted while keeping its own character" },
+          { "question": "What does music reflect about our history?", "options": ["The changing times", "Nothing important", "Only random sounds", "Only modern trends"], "correct_answer": "The changing times" },
+          { "question": "What is cultural fusion?", "options": ["Blending different cultural influences", "Ignoring all cultures", "Only using one culture", "Rejecting new ideas"], "correct_answer": "Blending different cultural influences" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- **Fungal, parasitic infection** — sakit ng isda\n- Panatilihing malinis ang tubig\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang nagdudulot ng puting mantsa sa isda?", "options": ["Fungal infection", "Parasitic infection lamang", "Wala", "Malusog na isda"], "correct_answer": "Fungal infection" },
+          { "question": "Ano ang isang sintomas ng may sakit na isda?", "options": ["Kawalan ng ganang kumain", "Masiglang paglangoy", "Malusog na kulay", "Walang sintomas"], "correct_answer": "Kawalan ng ganang kumain" },
+          { "question": "Paano maiiwasan ang sakit ng isda?", "options": ["Panatilihing malinis ang tubig", "Hayaang marumi ang tubig", "Walang gagawin", "Bawasan ang pagkain"], "correct_answer": "Panatilihing malinis ang tubig" },
+          { "question": "Ano pang dapat ibigay sa isda para maiwasan ang sakit?", "options": ["Sapat na sustansya", "Wala", "Kulay na tubig", "Basura"], "correct_answer": "Sapat na sustansya" },
+          { "question": "Bakit mahalagang malaman ang sakit ng isda?", "options": ["Para sa matagumpay na pag-aalaga", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para sa matagumpay na pag-aalaga" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Patayin ang ilaw kapag hindi ginagamit\n- Tumutulong sa kalikasan ang pagtitipid ng enerhiya\n\nMaging responsable sa enerhiya! 🌟",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng pagtitipid ng enerhiya?", "options": ["Pagpatay ng ilaw kapag hindi ginagamit", "Pag-iwan ng ilaw na bukas", "Pag-aaksaya ng kuryente", "Wala"], "correct_answer": "Pagpatay ng ilaw kapag hindi ginagamit" },
+          { "question": "Ano ang tinutulungang pangalagaan ng pagtitipid ng enerhiya?", "options": ["Kalikasan", "Wala", "Polusyon lamang", "Walang tinutulungan"], "correct_answer": "Kalikasan" },
+          { "question": "Ano ang binabawasan ng pagtitipid ng enerhiya?", "options": ["Polusyon", "Kalinisan", "Kalusugan", "Wala"], "correct_answer": "Polusyon" },
+          { "question": "Bakit hindi dapat iwanang naka-plug ang mga gamit?", "options": ["Nag-aaksaya ito ng enerhiya", "Walang dahilan", "Para lang gumanda", "Wala itong epekto"], "correct_answer": "Nag-aaksaya ito ng enerhiya" },
+          { "question": "Ano ang maaaring gawin sa halip na gamitin ang aircon buong araw?", "options": ["Buksan ang bintana", "Pahintulutan ang pag-aaksaya", "Wala", "Buksan pa ang lahat ng ilaw"], "correct_answer": "Buksan ang bintana" }
+        ]
+      }
+    }
+  }
+}

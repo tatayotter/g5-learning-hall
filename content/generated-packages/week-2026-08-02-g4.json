@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-08-02",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 7: Reading with Fluency!\n\nLet's practice reading smoothly and with expression! 📖\n\n## 📖 What Is Fluency?\n- **Fluency** means reading with proper **rate** (speed), **accuracy**, and **expression**.\n- Reading too fast or too slow makes it hard for listeners to understand.\n\n## 🗣️ Content-Specific Vocabulary\n- **Ceremonial words:** *tradition, custom, honor, gathering*\n- Understanding these words helps us read texts about celebrations.\n\n## 🎯 Practice Tip\n- Read a paragraph aloud, pause at commas and periods, and use **expression** for excitement or emotion.\n\nFluent reading makes stories come alive! 🌟",
+        "quiz": [
+          { "question": "What does fluency mean when reading?", "options": ["Reading with proper rate, accuracy, and expression", "Reading as fast as possible", "Reading without stopping ever", "Reading silently only"], "correct_answer": "Reading with proper rate, accuracy, and expression" },
+          { "question": "Which is a ceremonial word?", "options": ["Tradition", "Umbrella", "Bicycle", "Computer"], "correct_answer": "Tradition" },
+          { "question": "Why is fluency important?", "options": ["It helps listeners understand", "It has no purpose", "It slows down reading only", "It confuses readers"], "correct_answer": "It helps listeners understand" },
+          { "question": "What should you do at commas and periods when reading aloud?", "options": ["Pause", "Speed up", "Skip them", "Shout"], "correct_answer": "Pause" },
+          { "question": "What does \"custom\" mean?", "options": ["A tradition or usual way of doing something", "A type of food", "A type of animal", "A type of building"], "correct_answer": "A tradition or usual way of doing something" },
+          { "question": "What helps make stories come alive when reading aloud?", "options": ["Expression", "Reading silently", "Skipping words", "Reading too fast"], "correct_answer": "Expression" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 6: Addition, Subtraction, and Multiplication!\n\nLet's practice big number operations! ➕➖✖️\n\n## ➕ Addition and Subtraction\n- Add and subtract numbers up to **1,000,000**, with regrouping when needed.\n- **Example:** 452,300 + 218,600 = **670,900**\n\n## ✖️ Multiplication\n- Multiply 3- to 4-digit numbers by a 1-digit number, and 2- to 3-digit numbers by 2-digit numbers.\n- **Example:** 234 × 12 = **2,808**\n\n## 🔍 Estimating Products\n- Round factors first to check if your answer is reasonable.\n\nGreat progress with big number operations! 🌟",
+        "quiz": [
+          { "question": "What is 452,300 + 218,600?", "options": ["670,900", "660,900", "680,900", "650,900"], "correct_answer": "670,900" },
+          { "question": "What is 234 × 12?", "options": ["2,808", "2,708", "2,908", "2,608"], "correct_answer": "2,808" },
+          { "question": "What should we do before multiplying to check if the answer is reasonable?", "options": ["Round factors and estimate", "Skip the problem", "Guess randomly", "Ignore the numbers"], "correct_answer": "Round factors and estimate" },
+          { "question": "Up to what number can we add and subtract this week?", "options": ["1,000,000", "1,000", "100", "100,000,000"], "correct_answer": "1,000,000" },
+          { "question": "What is 100 × 25?", "options": ["2,500", "125", "2,000", "1,250"], "correct_answer": "2,500" },
+          { "question": "What operation combines groups of equal numbers repeatedly?", "options": ["Multiplication", "Addition", "Subtraction", "None of these"], "correct_answer": "Multiplication" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 6: Mga Panlapi\n\nAlamin natin ang mga panlapi sa pagbuo ng salita! 🔤\n\n## 🔤 Mga Uri ng Panlapi\n- **Unlapi** — inilalagay sa unahan: *mag-* + laro = **maglaro**\n- **Gitlapi** — inilalagay sa gitna: *-um-* + kain = **kumain**\n- **Hulapi** — inilalagay sa hulihan: *-in* + basa = **basahin**\n\n## 🔍 Halimbawa ng Iba't Ibang Panlapi\n- *nag-* + laro = **naglaro**\n- *-an* + tanong = **tanungan**\n\n## 📖 Bakit Mahalaga ang Panlapi?\n- Binabago ng panlapi ang **kahulugan** ng salitang-ugat.\n\nMahusay na paggamit ng panlapi para sa mas malinaw na pagsasalita! 🌟",
+        "quiz": [
+          { "question": "Ano ang unlapi?", "options": ["Inilalagay sa unahan ng salita", "Inilalagay sa gitna ng salita", "Inilalagay sa hulihan ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa unahan ng salita" },
+          { "question": "Ano ang gitlapi?", "options": ["Inilalagay sa gitna ng salita", "Inilalagay sa unahan ng salita", "Inilalagay sa hulihan ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa gitna ng salita" },
+          { "question": "Ano ang hulapi?", "options": ["Inilalagay sa hulihan ng salita", "Inilalagay sa unahan ng salita", "Inilalagay sa gitna ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa hulihan ng salita" },
+          { "question": "Alin ang salitang may unlapi?", "options": ["Maglaro", "Kumain", "Basahin", "Laro"], "correct_answer": "Maglaro" },
+          { "question": "Alin ang salitang may gitlapi?", "options": ["Kumain", "Maglaro", "Basahin", "Kain"], "correct_answer": "Kumain" },
+          { "question": "Ano ang binabago ng panlapi?", "options": ["Kahulugan ng salitang-ugat", "Kulay ng salita", "Tunog ng salita lamang", "Wala"], "correct_answer": "Kahulugan ng salitang-ugat" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 7: Body Systems!\n\nLet's learn how our body systems work together! 🫀\n\n## 🫀 Body Systems\n- **Muscular system** — helps us move using muscles\n- **Skeletal system** — bones that support our body\n- **Digestive system** — breaks down food for energy\n- **Circulatory system** — pumps blood through our body\n- **Respiratory system** — helps us breathe\n\n## 🌱 Systems in Plants\n- The **root system** absorbs water and nutrients.\n- The **shoot system** (stem and leaves) helps the plant grow and make food.\n\nOur bodies and plants work through amazing systems! 🌟",
+        "quiz": [
+          { "question": "Which system helps us move using muscles?", "options": ["Muscular system", "Skeletal system", "Digestive system", "Respiratory system"], "correct_answer": "Muscular system" },
+          { "question": "Which system supports our body with bones?", "options": ["Skeletal system", "Muscular system", "Circulatory system", "Digestive system"], "correct_answer": "Skeletal system" },
+          { "question": "Which system breaks down food for energy?", "options": ["Digestive system", "Skeletal system", "Respiratory system", "Muscular system"], "correct_answer": "Digestive system" },
+          { "question": "Which system pumps blood through our body?", "options": ["Circulatory system", "Digestive system", "Skeletal system", "Muscular system"], "correct_answer": "Circulatory system" },
+          { "question": "Which system helps us breathe?", "options": ["Respiratory system", "Digestive system", "Skeletal system", "Muscular system"], "correct_answer": "Respiratory system" },
+          { "question": "What does the root system of a plant do?", "options": ["Absorbs water and nutrients", "Makes sound", "Produces light", "Moves the plant"], "correct_answer": "Absorbs water and nutrients" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 7: Sustainable Development\n\nAlamin natin kung paano pangalagaan ang ating kapaligiran! 🌍\n\n## 🌍 Ano ang Sustainable Development?\n- Ito ay ang paggamit ng likas na yaman sa paraang **hindi nauubos** para sa susunod na henerasyon.\n\n## ♻️ Mga Halimbawa\n- **Pagtatanim ng puno** kapalit ng mga pinuputol.\n- **Wastong pangingisda** upang hindi maubos ang isda sa dagat.\n\n## 🔍 Bakit Ito Mahalaga?\n- Tinitiyak nito na may sapat na yaman para sa **kasalukuyan at hinaharap**.\n\nProtektahan natin ang ating kapaligiran para sa susunod na henerasyon! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang sustainable development?", "options": ["Paggamit ng yaman nang hindi ito nauubos", "Pag-ubos ng lahat ng yaman", "Pag-iwas sa paggamit ng yaman", "Walang kahulugan"], "correct_answer": "Paggamit ng yaman nang hindi ito nauubos" },
+          { "question": "Ano ang halimbawa ng sustainable practice?", "options": ["Pagtatanim ng puno kapalit ng pinuputol", "Pagputol ng lahat ng puno", "Pagsunog ng kagubatan", "Walang halimbawa"], "correct_answer": "Pagtatanim ng puno kapalit ng pinuputol" },
+          { "question": "Bakit mahalaga ang wastong pangingisda?", "options": ["Para hindi maubos ang isda", "Walang dahilan", "Para mabawasan ang pagkain", "Para hindi na mangisda"], "correct_answer": "Para hindi maubos ang isda" },
+          { "question": "Ano ang tinitiyak ng sustainable development?", "options": ["Sapat na yaman para sa kasalukuyan at hinaharap", "Walang yaman sa hinaharap", "Pag-ubos ng lahat ng yaman ngayon", "Wala sa mga ito"], "correct_answer": "Sapat na yaman para sa kasalukuyan at hinaharap" },
+          { "question": "Sino ang dapat mag-alaga sa kapaligiran?", "options": ["Lahat ng tao", "Gobyerno lamang", "Walang sinuman", "Isang tao lamang"], "correct_answer": "Lahat ng tao" },
+          { "question": "Ano ang epekto ng hindi pangangalaga sa kapaligiran?", "options": ["Maubos ang likas na yaman", "Walang epekto", "Dadami pa ang yaman", "Wala itong kaugnayan"], "correct_answer": "Maubos ang likas na yaman" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Wastong Posisyon at Oras sa Paggamit ng Computer!\n\nAlamin natin ang tamang paraan ng paggamit ng computer! 🖥️\n\n## 🪑 Wastong Posisyon\n- Umupo nang tuwid, katulad ng natutunan natin noong Grade 3.\n- Panatilihin ang screen sa **antas ng mata** at may **layo** na isang braso.\n\n## ⏰ Wastong Oras\n- Huwag gumamit ng computer nang **matagal** nang walang pahinga.\n- Kumuha ng break tuwing **20-30 minuto**.\n\n## 🔍 Bakit Mahalaga Ito?\n- Iniingatan nito ang ating **mata at katawan** mula sa pagod.\n\nMagsanay ng tamang posisyon at oras sa paggamit ng computer! 🌟",
+        "quiz": [
+          { "question": "Paano dapat umupo habang gumagamit ng computer?", "options": ["Nang tuwid", "Nakayuko", "Nakahiga", "Malayo sa upuan"], "correct_answer": "Nang tuwid" },
+          { "question": "Saan dapat nasa antas ang screen?", "options": ["Antas ng mata", "Mababa sa sahig", "Malayong-malayo", "Wala sa mga ito"], "correct_answer": "Antas ng mata" },
+          { "question": "Gaano kadalas dapat kumuha ng break?", "options": ["Tuwing 20-30 minuto", "Isang beses sa isang taon", "Hindi na kailangan", "Tuwing 5 oras"], "correct_answer": "Tuwing 20-30 minuto" },
+          { "question": "Bakit mahalaga ang wastong posisyon at oras?", "options": ["Iniingatan nito ang mata at katawan", "Walang dahilan", "Para mas matagal maglaro", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang mata at katawan" },
+          { "question": "Gaano dapat kalayo ang screen mula sa mata?", "options": ["Isang braso ang layo", "Napakalapit", "Napakalayo", "Walang tamang layo"], "correct_answer": "Isang braso ang layo" },
+          { "question": "Ano ang epekto ng paggamit ng computer nang walang pahinga?", "options": ["Pagod ang mata at katawan", "Walang epekto", "Mas malakas ang mata", "Mabuti sa katawan"], "correct_answer": "Pagod ang mata at katawan" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Week 6: Healthy Family!\n\nLet's learn what makes a family healthy! 👨‍👩‍👧‍👦\n\n## 👨‍👩‍👧‍👦 Characteristics of a Healthy Family\n- **Respecting members' opinions** — listening to each other\n- **Fair rules** — rules that apply to everyone equally\n- **Open communication** — talking honestly and openly\n\n## 💪 Roles in Promoting Family Health\n- Each family member can help — like doing chores or cooking together.\n\n## 🏃 Activities for Family Health\n- **Dance, exercise, gardening** — fun activities that bring families together.\n\nA healthy family grows stronger together! 🌟",
+        "quiz": [
+          { "question": "What is a characteristic of a healthy family?", "options": ["Open communication", "Ignoring each other", "Unfair rules", "No respect"], "correct_answer": "Open communication" },
+          { "question": "What does \"fair rules\" mean?", "options": ["Rules that apply to everyone equally", "Rules only for children", "No rules at all", "Rules that change randomly"], "correct_answer": "Rules that apply to everyone equally" },
+          { "question": "Which is a family activity that promotes health?", "options": ["Gardening together", "Ignoring each other", "Arguing constantly", "Staying separate"], "correct_answer": "Gardening together" },
+          { "question": "What role can family members play in family health?", "options": ["Helping with chores or cooking", "Doing nothing", "Only complaining", "Avoiding responsibility"], "correct_answer": "Helping with chores or cooking" },
+          { "question": "What does respecting members' opinions show?", "options": ["A healthy family", "An unhealthy family", "Nothing important", "Disrespect"], "correct_answer": "A healthy family" },
+          { "question": "What grows stronger through healthy family habits?", "options": ["The family bond", "Nothing", "Only individual members", "Only the parents"], "correct_answer": "The family bond" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 6: Mga Salik sa Paghahalaman!\n\nAlamin natin ang mga bagay na dapat isaalang-alang bago magtanim! 🌤️\n\n## 🌤️ Mga Salik na Dapat Isaalang-alang\n- **Lugar** — sapat ba ang sikat ng araw?\n- **Uri ng lupa** — matabang lupa ba?\n- **Suplay ng tubig** — may regular bang patubig?\n- **Panahon** — anong panahon ang angkop sa pananim?\n\n## 🛡️ Kaligtasan sa Paghahalaman\n- Gumamit ng **guwantes** at magsuot ng angkop na damit kapag nagtatanim.\n\n## 🔍 Bakit Mahalaga Ito?\n- Ang tamang pagsasaalang-alang sa mga salik na ito ay tumitiyak ng **matagumpay na pananim**.\n\nMagplano nang mabuti bago magtanim! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang salik na dapat isaalang-alang sa paghahalaman?", "options": ["Uri ng lupa", "Kulay ng damit", "Presyo ng gamit", "Wala sa mga ito"], "correct_answer": "Uri ng lupa" },
+          { "question": "Bakit mahalaga ang sikat ng araw sa paghahalaman?", "options": ["Kailangan ito ng halaman para lumago", "Walang gamit", "Nakakasama sa halaman", "Wala itong epekto"], "correct_answer": "Kailangan ito ng halaman para lumago" },
+          { "question": "Ano ang dapat isuot kapag nagtatanim para sa kaligtasan?", "options": ["Guwantes", "Sapatos na de-takong", "Alahas", "Walang kailangan"], "correct_answer": "Guwantes" },
+          { "question": "Bakit mahalaga ang suplay ng tubig?", "options": ["Kailangan ito ng halaman para mabuhay", "Walang gamit", "Nakakasama ito sa halaman", "Wala itong epekto"], "correct_answer": "Kailangan ito ng halaman para mabuhay" },
+          { "question": "Ano ang epekto ng tamang pagpaplano bago magtanim?", "options": ["Tumitiyak ng matagumpay na pananim", "Walang epekto", "Nagpapasama sa pananim", "Nagpapabagal ng pagtubo"], "correct_answer": "Tumitiyak ng matagumpay na pananim" },
+          { "question": "Ano pang salik ang dapat isaalang-alang?", "options": ["Angkop na panahon ng pagtatanim", "Kulay ng bahay", "Uri ng damit", "Presyo ng laruan"], "correct_answer": "Angkop na panahon ng pagtatanim" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 7: Pagkilala sa Sariling Pananampalataya\n\nAlamin natin ang ating sariling paraan ng pananampalataya! 🙏\n\n## 🙏 Mga Paraan ng Pagsamba\n- Bawat pamilya ay may sariling paraan ng **pagsamba** at pananampalataya.\n- Sundin ang mga **tagubilin** ng kinabibilangang pananampalataya.\n\n## 💛 Paggalang sa Ibang Pananampalataya\n- Igalang din ang pananampalataya ng ibang tao, kahit magkaiba sa iyo.\n\n## 🔍 Kahalagahan ng Pananampalataya\n- Ang pananampalataya ay nagbibigay ng **gabay at lakas** sa pang-araw-araw na buhay.\n\nIgalang at sundin ang iyong pananampalataya! 🌟",
+        "quiz": [
+          { "question": "Ano ang mayroon ang bawat pamilya tungkol sa pananampalataya?", "options": ["Sariling paraan ng pagsamba", "Wala", "Parehong paraan lamang", "Walang pananampalataya"], "correct_answer": "Sariling paraan ng pagsamba" },
+          { "question": "Ano ang dapat gawin sa pananampalataya ng ibang tao?", "options": ["Igalang ito", "Kutyain ito", "Balewalain ito", "Pilitin silang magbago"], "correct_answer": "Igalang ito" },
+          { "question": "Ano ang ibinibigay ng pananampalataya sa atin?", "options": ["Gabay at lakas", "Wala", "Kalungkutan lamang", "Kahinaan lamang"], "correct_answer": "Gabay at lakas" },
+          { "question": "Ano ang dapat sundin natin sa ating pananampalataya?", "options": ["Mga tagubilin nito", "Wala", "Walang gagawin", "Ang gusto lang natin"], "correct_answer": "Mga tagubilin nito" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pananalig sa Diyos", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pananalig sa Diyos" },
+          { "question": "Bakit mahalaga igalang ang ibang pananampalataya?", "options": ["Kahit magkaiba tayo, dapat tayong magalang", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Kahit magkaiba tayo, dapat tayong magalang" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of reading fluency!\n\n- **Fluency** = proper rate, accuracy, expression\n- Ceremonial words: *tradition, custom, honor*\n\nGreat reading progress! ⭐",
+        "quiz": [
+          { "question": "What does fluency mean when reading?", "options": ["Reading with proper rate, accuracy, and expression", "Reading as fast as possible", "Reading without stopping ever", "Reading silently only"], "correct_answer": "Reading with proper rate, accuracy, and expression" },
+          { "question": "Which is a ceremonial word?", "options": ["Tradition", "Umbrella", "Bicycle", "Computer"], "correct_answer": "Tradition" },
+          { "question": "Why is fluency important?", "options": ["It helps listeners understand", "It has no purpose", "It slows down reading only", "It confuses readers"], "correct_answer": "It helps listeners understand" },
+          { "question": "What should you do at commas and periods when reading aloud?", "options": ["Pause", "Speed up", "Skip them", "Shout"], "correct_answer": "Pause" },
+          { "question": "What helps make stories come alive when reading aloud?", "options": ["Expression", "Reading silently", "Skipping words", "Reading too fast"], "correct_answer": "Expression" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of big number operations!\n\n- 452,300 + 218,600 = **670,900**\n- 234 × 12 = **2,808**\n\nGreat operations practice! 🌟",
+        "quiz": [
+          { "question": "What is 452,300 + 218,600?", "options": ["670,900", "660,900", "680,900", "650,900"], "correct_answer": "670,900" },
+          { "question": "What is 234 × 12?", "options": ["2,808", "2,708", "2,908", "2,608"], "correct_answer": "2,808" },
+          { "question": "What should we do before multiplying to check if the answer is reasonable?", "options": ["Round factors and estimate", "Skip the problem", "Guess randomly", "Ignore the numbers"], "correct_answer": "Round factors and estimate" },
+          { "question": "Up to what number can we add and subtract this week?", "options": ["1,000,000", "1,000", "100", "100,000,000"], "correct_answer": "1,000,000" },
+          { "question": "What is 100 × 25?", "options": ["2,500", "125", "2,000", "1,250"], "correct_answer": "2,500" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Unlapi** = unahan | **Gitlapi** = gitna | **Hulapi** = hulihan\n- Binabago ng panlapi ang kahulugan ng salita\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang unlapi?", "options": ["Inilalagay sa unahan ng salita", "Inilalagay sa gitna ng salita", "Inilalagay sa hulihan ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa unahan ng salita" },
+          { "question": "Ano ang gitlapi?", "options": ["Inilalagay sa gitna ng salita", "Inilalagay sa unahan ng salita", "Inilalagay sa hulihan ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa gitna ng salita" },
+          { "question": "Ano ang hulapi?", "options": ["Inilalagay sa hulihan ng salita", "Inilalagay sa unahan ng salita", "Inilalagay sa gitna ng salita", "Walang lagay"], "correct_answer": "Inilalagay sa hulihan ng salita" },
+          { "question": "Alin ang salitang may unlapi?", "options": ["Maglaro", "Kumain", "Basahin", "Laro"], "correct_answer": "Maglaro" },
+          { "question": "Ano ang binabago ng panlapi?", "options": ["Kahulugan ng salitang-ugat", "Kulay ng salita", "Tunog ng salita lamang", "Wala"], "correct_answer": "Kahulugan ng salitang-ugat" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Sustainable development** = paggamit ng yaman nang hindi nauubos\n- Pagtatanim ng puno kapalit ng pinuputol\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang sustainable development?", "options": ["Paggamit ng yaman nang hindi ito nauubos", "Pag-ubos ng lahat ng yaman", "Pag-iwas sa paggamit ng yaman", "Walang kahulugan"], "correct_answer": "Paggamit ng yaman nang hindi ito nauubos" },
+          { "question": "Ano ang halimbawa ng sustainable practice?", "options": ["Pagtatanim ng puno kapalit ng pinuputol", "Pagputol ng lahat ng puno", "Pagsunog ng kagubatan", "Walang halimbawa"], "correct_answer": "Pagtatanim ng puno kapalit ng pinuputol" },
+          { "question": "Bakit mahalaga ang wastong pangingisda?", "options": ["Para hindi maubos ang isda", "Walang dahilan", "Para mabawasan ang pagkain", "Para hindi na mangisda"], "correct_answer": "Para hindi maubos ang isda" },
+          { "question": "Sino ang dapat mag-alaga sa kapaligiran?", "options": ["Lahat ng tao", "Gobyerno lamang", "Walang sinuman", "Isang tao lamang"], "correct_answer": "Lahat ng tao" },
+          { "question": "Ano ang epekto ng hindi pangangalaga sa kapaligiran?", "options": ["Maubos ang likas na yaman", "Walang epekto", "Dadami pa ang yaman", "Wala itong kaugnayan"], "correct_answer": "Maubos ang likas na yaman" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Umupo nang **tuwid**, screen sa antas ng mata\n- Break tuwing **20-30 minuto**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Paano dapat umupo habang gumagamit ng computer?", "options": ["Nang tuwid", "Nakayuko", "Nakahiga", "Malayo sa upuan"], "correct_answer": "Nang tuwid" },
+          { "question": "Saan dapat nasa antas ang screen?", "options": ["Antas ng mata", "Mababa sa sahig", "Malayong-malayo", "Wala sa mga ito"], "correct_answer": "Antas ng mata" },
+          { "question": "Gaano kadalas dapat kumuha ng break?", "options": ["Tuwing 20-30 minuto", "Isang beses sa isang taon", "Hindi na kailangan", "Tuwing 5 oras"], "correct_answer": "Tuwing 20-30 minuto" },
+          { "question": "Bakit mahalaga ang wastong posisyon at oras?", "options": ["Iniingatan nito ang mata at katawan", "Walang dahilan", "Para mas matagal maglaro", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang mata at katawan" },
+          { "question": "Gaano dapat kalayo ang screen mula sa mata?", "options": ["Isang braso ang layo", "Napakalapit", "Napakalayo", "Walang tamang layo"], "correct_answer": "Isang braso ang layo" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Muscular, skeletal, digestive, circulatory, respiratory** systems\n- Root system ng halaman ay sumisipsip ng tubig\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which system helps us move using muscles?", "options": ["Muscular system", "Skeletal system", "Digestive system", "Respiratory system"], "correct_answer": "Muscular system" },
+          { "question": "Which system supports our body with bones?", "options": ["Skeletal system", "Muscular system", "Circulatory system", "Digestive system"], "correct_answer": "Skeletal system" },
+          { "question": "Which system breaks down food for energy?", "options": ["Digestive system", "Skeletal system", "Respiratory system", "Muscular system"], "correct_answer": "Digestive system" },
+          { "question": "Which system pumps blood through our body?", "options": ["Circulatory system", "Digestive system", "Skeletal system", "Muscular system"], "correct_answer": "Circulatory system" },
+          { "question": "What does the root system of a plant do?", "options": ["Absorbs water and nutrients", "Makes sound", "Produces light", "Moves the plant"], "correct_answer": "Absorbs water and nutrients" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Healthy family: **open communication, fair rules, respect**\n- Family activities: **dance, exercise, gardening**\n\nGreat family health awareness! 🌟",
+        "quiz": [
+          { "question": "What is a characteristic of a healthy family?", "options": ["Open communication", "Ignoring each other", "Unfair rules", "No respect"], "correct_answer": "Open communication" },
+          { "question": "What does \"fair rules\" mean?", "options": ["Rules that apply to everyone equally", "Rules only for children", "No rules at all", "Rules that change randomly"], "correct_answer": "Rules that apply to everyone equally" },
+          { "question": "Which is a family activity that promotes health?", "options": ["Gardening together", "Ignoring each other", "Arguing constantly", "Staying separate"], "correct_answer": "Gardening together" },
+          { "question": "What role can family members play in family health?", "options": ["Helping with chores or cooking", "Doing nothing", "Only complaining", "Avoiding responsibility"], "correct_answer": "Helping with chores or cooking" },
+          { "question": "What grows stronger through healthy family habits?", "options": ["The family bond", "Nothing", "Only individual members", "Only the parents"], "correct_answer": "The family bond" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- Salik: **lugar, uri ng lupa, suplay ng tubig, panahon**\n- Magsuot ng guwantes para sa kaligtasan\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang isang salik na dapat isaalang-alang sa paghahalaman?", "options": ["Uri ng lupa", "Kulay ng damit", "Presyo ng gamit", "Wala sa mga ito"], "correct_answer": "Uri ng lupa" },
+          { "question": "Bakit mahalaga ang sikat ng araw sa paghahalaman?", "options": ["Kailangan ito ng halaman para lumago", "Walang gamit", "Nakakasama sa halaman", "Wala itong epekto"], "correct_answer": "Kailangan ito ng halaman para lumago" },
+          { "question": "Ano ang dapat isuot kapag nagtatanim para sa kaligtasan?", "options": ["Guwantes", "Sapatos na de-takong", "Alahas", "Walang kailangan"], "correct_answer": "Guwantes" },
+          { "question": "Bakit mahalaga ang suplay ng tubig?", "options": ["Kailangan ito ng halaman para mabuhay", "Walang gamit", "Nakakasama ito sa halaman", "Wala itong epekto"], "correct_answer": "Kailangan ito ng halaman para mabuhay" },
+          { "question": "Ano ang epekto ng tamang pagpaplano bago magtanim?", "options": ["Tumitiyak ng matagumpay na pananim", "Walang epekto", "Nagpapasama sa pananim", "Nagpapabagal ng pagtubo"], "correct_answer": "Tumitiyak ng matagumpay na pananim" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Bawat pamilya ay may sariling paraan ng **pagsamba**\n- Igalang ang pananampalataya ng ibang tao\n\nIgalang ang bawat pananampalataya! 🌟",
+        "quiz": [
+          { "question": "Ano ang mayroon ang bawat pamilya tungkol sa pananampalataya?", "options": ["Sariling paraan ng pagsamba", "Wala", "Parehong paraan lamang", "Walang pananampalataya"], "correct_answer": "Sariling paraan ng pagsamba" },
+          { "question": "Ano ang dapat gawin sa pananampalataya ng ibang tao?", "options": ["Igalang ito", "Kutyain ito", "Balewalain ito", "Pilitin silang magbago"], "correct_answer": "Igalang ito" },
+          { "question": "Ano ang ibinibigay ng pananampalataya sa atin?", "options": ["Gabay at lakas", "Wala", "Kalungkutan lamang", "Kahinaan lamang"], "correct_answer": "Gabay at lakas" },
+          { "question": "Ano ang dapat sundin natin sa ating pananampalataya?", "options": ["Mga tagubilin nito", "Wala", "Walang gagawin", "Ang gusto lang natin"], "correct_answer": "Mga tagubilin nito" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pananalig sa Diyos", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pananalig sa Diyos" }
+        ]
+      }
+    }
+  }
+}

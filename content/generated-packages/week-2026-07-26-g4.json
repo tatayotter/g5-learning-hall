@@ -1,0 +1,216 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-07-26",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 6: Interpreting Visuals!\n\nLet's learn to understand photos, menus, and invitation cards! 🖼️\n\n## 🖼️ Interpreting Visuals\n- Photos and cards use **design choices** to communicate a message quickly.\n- **Example:** A birthday invitation with balloons and bright colors shows it's a **fun celebration**.\n\n## 📋 Reading a Menu\n- Menus **list** food items, often with prices and descriptions.\n\n## 🎯 Purpose of Visual Design\n- Colors, fonts, and images are chosen to grab attention or set a **mood**.\n\nUnderstanding visuals helps us read the world around us! 🌟",
+        "quiz": [
+          { "question": "What do design choices in a photo or card communicate?", "options": ["A message quickly", "Nothing important", "Only the price", "Only numbers"], "correct_answer": "A message quickly" },
+          { "question": "What might bright colors and balloons on an invitation show?", "options": ["A fun celebration", "A sad event", "A boring day", "Nothing special"], "correct_answer": "A fun celebration" },
+          { "question": "What does a menu typically list?", "options": ["Food items with prices", "Only a story", "Only a song", "Only a poem"], "correct_answer": "Food items with prices" },
+          { "question": "Why are colors and fonts chosen carefully in design?", "options": ["To grab attention or set a mood", "For no reason", "To confuse the reader", "To use up space"], "correct_answer": "To grab attention or set a mood" },
+          { "question": "What skill helps us understand photos and cards?", "options": ["Interpreting visuals", "Only math", "Only spelling", "Only counting"], "correct_answer": "Interpreting visuals" },
+          { "question": "Why is understanding visuals useful?", "options": ["It helps us read the world around us", "It has no use", "It only matters in art class", "It confuses us"], "correct_answer": "It helps us read the world around us" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 5: Rounding and Estimating!\n\nLet's learn to round big numbers and estimate! 🔢\n\n## 🔄 Rounding to the Nearest Hundred Thousand\n- **Example:** 682,450 rounded to the nearest hundred thousand is **700,000**.\n\n## ➕ Estimating Sums and Differences\n- **Estimate first**, then calculate — this helps check if your answer makes sense.\n- **Example:** 385,200 + 214,600 ≈ 400,000 + 200,000 = **600,000** (estimate); actual = 599,800\n\n## 🔍 Why Estimate?\n- Estimating helps us quickly check if a calculated answer is **reasonable**.\n\nGreat work with rounding and estimating! 🌟",
+        "quiz": [
+          { "question": "What is 682,450 rounded to the nearest hundred thousand?", "options": ["700,000", "600,000", "680,000", "690,000"], "correct_answer": "700,000" },
+          { "question": "Why do we estimate before calculating?", "options": ["To check if the answer makes sense", "To make the problem harder", "It has no purpose", "To avoid math"], "correct_answer": "To check if the answer makes sense" },
+          { "question": "What is 415,000 rounded to the nearest hundred thousand?", "options": ["400,000", "500,000", "410,000", "420,000"], "correct_answer": "400,000" },
+          { "question": "Estimating helps us check if an answer is what?", "options": ["Reasonable", "Colorful", "Loud", "Heavy"], "correct_answer": "Reasonable" },
+          { "question": "What is 350,000 rounded to the nearest hundred thousand?", "options": ["400,000", "300,000", "350,000", "360,000"], "correct_answer": "400,000" },
+          { "question": "What do we do first before an exact calculation to check our work?", "options": ["Estimate", "Multiply randomly", "Skip the problem", "Guess without thinking"], "correct_answer": "Estimate" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 5: Liham Pangkaibigan na Paanyaya\n\nMatuto tayong sumulat ng liham na pang-aanyaya! ✉️\n\n## ✉️ Ano ang Liham na Paanyaya?\n- Ito ay liham na **nag-aanyaya** sa isang tao para sa isang okasyon, tulad ng kaarawan.\n\n## 📝 Mga Bahagi ng Liham\n- **Petsa, bating panimula, katawan (paanyaya), pagwawakas, at pangalan**\n\n## 🔍 Halimbawa\n- *\"Mahal kong Ana, Inaanyayahan kita sa aking kaarawan sa Sabado ng ika-3 ng hapon. Umasa akong makarating ka!\"*\n\nSubukan mong sumulat ng sarili mong liham na paanyaya! 🌟",
+        "quiz": [
+          { "question": "Ano ang liham na paanyaya?", "options": ["Liham na nag-aanyaya sa isang okasyon", "Liham na nagpapaliwanag ng absent", "Liham na nagpapasalamat", "Liham na nagpapahayag ng pakikiramay"], "correct_answer": "Liham na nag-aanyaya sa isang okasyon" },
+          { "question": "Ano ang isa sa mga bahagi ng liham?", "options": ["Bating panimula", "Pamagat ng kwento", "Tauhan", "Tagpuan"], "correct_answer": "Bating panimula" },
+          { "question": "Ano ang naglalaman ng katawan ng liham na paanyaya?", "options": ["Ang paanyaya mismo", "Isang balita lamang", "Isang tula lamang", "Isang kwento"], "correct_answer": "Ang paanyaya mismo" },
+          { "question": "Bakit sumusulat tayo ng liham na paanyaya?", "options": ["Para anyayahan ang isang tao sa okasyon", "Para lang sumulat", "Para hirapan ang mambabasa", "Walang dahilan"], "correct_answer": "Para anyayahan ang isang tao sa okasyon" },
+          { "question": "Ano ang dapat ilagay sa dulo ng liham?", "options": ["Pangalan ng sumulat", "Walang ilalagay", "Isang tanong", "Isang bugtong"], "correct_answer": "Pangalan ng sumulat" },
+          { "question": "Alin ang halimbawa ng paanyaya?", "options": ["Inaanyayahan kita sa aking kaarawan.", "Pasensya na po, may lagnat ako.", "Salamat sa iyong tulong.", "Nakikiramay ako sa iyo."], "correct_answer": "Inaanyayahan kita sa aking kaarawan." }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 6: Gathering Scientific Information!\n\nLet's learn how science can solve community problems! 🏘️\n\n## 🏘️ Issues in the Local Community\n- Problems like **waste management** and **water pollution** can be addressed with science.\n\n## 🔍 Science Process Skills\n- **Grouping and classifying** — sorting information into categories\n- **Communicating** — sharing findings clearly\n- **Open-mindedness** — being willing to consider new ideas\n\n## 📋 Doing a Simple Survey\n- Ask community members about an issue, then **organize** the answers.\n\nScience helps us make our community better! 🌟",
+        "quiz": [
+          { "question": "What community issue can science help address?", "options": ["Waste management", "Choosing a favorite color", "Picking a game", "Choosing a snack"], "correct_answer": "Waste management" },
+          { "question": "What does \"grouping and classifying\" mean?", "options": ["Sorting information into categories", "Ignoring information", "Making up data", "Avoiding organization"], "correct_answer": "Sorting information into categories" },
+          { "question": "What does \"communicating\" mean in science?", "options": ["Sharing findings clearly", "Staying silent", "Hiding results", "Ignoring others"], "correct_answer": "Sharing findings clearly" },
+          { "question": "What does \"open-mindedness\" mean?", "options": ["Being willing to consider new ideas", "Refusing all new ideas", "Ignoring evidence", "Only believing one idea"], "correct_answer": "Being willing to consider new ideas" },
+          { "question": "What should you do after asking community members about an issue?", "options": ["Organize the answers", "Throw them away", "Ignore them", "Forget them"], "correct_answer": "Organize the answers" },
+          { "question": "How does science help our community?", "options": ["It helps us solve real problems", "It has no use", "It only matters in labs", "It makes things worse"], "correct_answer": "It helps us solve real problems" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 6: Likas na Yaman at Kabuhayan\n\nAlamin natin ang likas na yaman at gawaing pangkabuhayan ng Pilipinas! 🌾\n\n## 🌾 Agrikultura\n- Ang Pilipinas ay nagtatanim ng **palay, mais, niyog, at prutas**.\n- Malaking bahagi ng populasyon ang umaasa sa pagsasaka.\n\n## 🐟 Pangingisda\n- Bilang kapuluan, ang Pilipinas ay mayaman sa **isda at iba pang produktong dagat**.\n\n## 🔍 Bakit Mahalaga Ito?\n- Ang mga gawaing pangkabuhayan ay nagbibigay ng **hanapbuhay at pagkain** sa mga Pilipino.\n\nMayaman ang Pilipinas sa likas na yaman! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang itinatanim ng mga magsasaka sa Pilipinas?", "options": ["Palay, mais, niyog", "Niyebe", "Yelo", "Bato"], "correct_answer": "Palay, mais, niyog" },
+          { "question": "Bakit mayaman sa isda ang Pilipinas?", "options": ["Dahil ito ay kapuluan", "Dahil walang dagat", "Dahil walang isda", "Walang dahilan"], "correct_answer": "Dahil ito ay kapuluan" },
+          { "question": "Ano ang ibinibigay ng mga gawaing pangkabuhayan?", "options": ["Hanapbuhay at pagkain", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Hanapbuhay at pagkain" },
+          { "question": "Sino ang umaasa sa pagsasaka sa Pilipinas?", "options": ["Malaking bahagi ng populasyon", "Walang tao", "Isang tao lamang", "Estranghero lamang"], "correct_answer": "Malaking bahagi ng populasyon" },
+          { "question": "Ano ang tawag sa gawaing may kinalaman sa pangingisda?", "options": ["Pangingisda", "Pagsasaka", "Pagmimina", "Turismo"], "correct_answer": "Pangingisda" },
+          { "question": "Bakit mahalaga ang likas na yaman sa Pilipinas?", "options": ["Nagbibigay ito ng hanapbuhay", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng hanapbuhay" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 5: Higit Pang Kasanayan sa Mouse at Keyboard!\n\nPatuloy nating paunlarin ang ating computer skills! ⌨️\n\n## 🖱️ Kasanayan sa Mouse\n- **Drag-and-drop** — paghila ng bagay mula sa isang lugar patungo sa iba.\n- Mahalaga ang **katumpakan** sa paggamit ng mouse.\n\n## ⌨️ Kasanayan sa Keyboard\n- Gamitin ang tamang daliri para sa bawat key upang mas mabilis at tumpak ang pag-type.\n\n## 🔍 Pagsasanay\n- Magsanay araw-araw upang mapaunlad ang bilis at katumpakan.\n\nPatuloy na pagsasanay ang susi sa tagumpay! 🌟",
+        "quiz": [
+          { "question": "Ano ang drag-and-drop?", "options": ["Paghila ng bagay mula sa isang lugar patungo sa iba", "Pag-type ng titik", "Pagpatay ng computer", "Pagbukas lamang"], "correct_answer": "Paghila ng bagay mula sa isang lugar patungo sa iba" },
+          { "question": "Ano ang mahalaga sa paggamit ng mouse?", "options": ["Katumpakan", "Bilis lamang", "Ingay", "Kulay"], "correct_answer": "Katumpakan" },
+          { "question": "Ano ang tumutulong sa mas mabilis na pag-type?", "options": ["Paggamit ng tamang daliri", "Paggamit ng isang daliri lamang", "Hindi pagtingin sa keyboard nang hindi nagsanay", "Walang paraan"], "correct_answer": "Paggamit ng tamang daliri" },
+          { "question": "Ano ang susi sa pagpapaunlad ng kasanayan?", "options": ["Patuloy na pagsasanay", "Isang beses lamang", "Hindi na pagsasanay", "Pag-iwas dito"], "correct_answer": "Patuloy na pagsasanay" },
+          { "question": "Ano ang dapat gawin araw-araw?", "options": ["Magsanay sa mouse at keyboard", "Umiwas sa computer", "Wala", "Manood lamang ng ibang gumagamit"], "correct_answer": "Magsanay sa mouse at keyboard" },
+          { "question": "Bakit mahalaga ang pagsasanay?", "options": ["Nagpapaunlad ito ng bilis at katumpakan", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapaunlad ito ng bilis at katumpakan" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Week 5: Health Appraisal!\n\nLet's learn about checking our own health! 🩺\n\n## 🩺 Health Appraisal Procedures\n- **Height and weight** — checked to monitor growth\n- **BMI (Body Mass Index)** — shows if weight is healthy for height\n- **Hearing and vision screening** — checks how well we hear and see\n- **Dental exam** — checks the health of our teeth\n\n## 🔍 Why Health Appraisal Matters\n- Regular check-ups help catch health problems **early**.\n\n## 💡 Being Body-Aware\n- Understanding our own health status helps us take better care of ourselves.\n\nRegular check-ups keep us healthy! 🌟",
+        "quiz": [
+          { "question": "What does BMI show?", "options": ["If weight is healthy for height", "How tall you are", "How fast you run", "How loud you sing"], "correct_answer": "If weight is healthy for height" },
+          { "question": "What does a vision screening check?", "options": ["How well you see", "How well you hear", "How well you run", "How well you sing"], "correct_answer": "How well you see" },
+          { "question": "What does a dental exam check?", "options": ["The health of your teeth", "The health of your eyes", "The health of your ears", "The health of your hair"], "correct_answer": "The health of your teeth" },
+          { "question": "Why do we do health appraisals?", "options": ["To catch health problems early", "For no reason", "To waste time", "To avoid school"], "correct_answer": "To catch health problems early" },
+          { "question": "What does a hearing test check?", "options": ["How well you hear", "How well you see", "How fast you run", "How well you sing"], "correct_answer": "How well you hear" },
+          { "question": "Why is being body-aware helpful?", "options": ["It helps us take better care of ourselves", "It has no purpose", "It's only for doctors", "It's not important"], "correct_answer": "It helps us take better care of ourselves" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 5: Paggawa ng Compost!\n\nMatuto tayong gumawa ng compost para sa mga halaman! 🍂\n\n## 🍂 Ano ang Compost?\n- Ang **compost** ay organikong pataba na gawa sa nabubulok na basura tulad ng balat ng prutas at dahon.\n\n## 🌿 Bakit Compost?\n- Nagpapayaman ito sa lupa nang walang kemikal, at binabawasan ang basura.\n\n## 🔍 Mga Hakbang sa Paggawa ng Compost\n- Sundin ang tamang pagkakasunod-sunod para sa masustansyang compost!\n\nAng compost ay likas na paraan ng pagpapayaman sa lupa! 🌟",
+        "visual_aid": {
+          "type": "steps",
+          "title": "Mga Hakbang sa Paggawa ng Compost",
+          "steps": [
+            { "label": "Maghanda ng lalagyan", "detail": "gamitin ang isang basket o compost bin" },
+            { "label": "Maglagay ng basurang nabubulok", "detail": "balat ng prutas, dahon, tira-tirang gulay" },
+            { "label": "Haluan ng lupa", "detail": "para mapabilis ang pagkabulok" },
+            { "label": "Diligan nang bahagya", "detail": "hindi masyadong basa" },
+            { "label": "Haluin paminsan-minsan", "detail": "hintayin matapos ang ilang linggo" }
+          ]
+        },
+        "quiz": [
+          { "question": "Ano ang compost?", "options": ["Organikong pataba mula sa nabubulok na basura", "Isang uri ng kemikal", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Organikong pataba mula sa nabubulok na basura" },
+          { "question": "Alin ang halimbawang basurang nabubulok?", "options": ["Balat ng prutas", "Plastik", "Bakal", "Salamin"], "correct_answer": "Balat ng prutas" },
+          { "question": "Ano ang unang hakbang sa paggawa ng compost?", "options": ["Maghanda ng lalagyan", "Diligan agad", "Haluin ng bakal", "Sunugin ang basura"], "correct_answer": "Maghanda ng lalagyan" },
+          { "question": "Bakit dapat haluin ang compost paminsan-minsan?", "options": ["Para mapabilis ang pagkabulok", "Walang dahilan", "Para masira ito", "Para itapon na lang"], "correct_answer": "Para mapabilis ang pagkabulok" },
+          { "question": "Ano ang benepisyo ng compost?", "options": ["Nagpapayaman ito sa lupa nang walang kemikal", "Walang benepisyo", "Nakakasira sa halaman", "Nakakasama sa kalikasan"], "correct_answer": "Nagpapayaman ito sa lupa nang walang kemikal" },
+          { "question": "Ano pang gamit ng paggawa ng compost?", "options": ["Binabawasan ang basura", "Nagdaragdag ng basura", "Walang gamit", "Nagpapalala ng problema"], "correct_answer": "Binabawasan ang basura" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 6: Higit Pang Karapatan ng Kapwa-Bata\n\nPatuloy nating pahalagahan ang karapatan ng bawat bata! 🌟\n\n## 🤝 Pakikiisa sa Pagkilala ng Karapatan\n- Sumali sa mga proyektong pang-eskwela na nagtataguyod ng karapatan ng bata.\n\n## 💛 Paggalang sa Kapwa-Bata\n- Igalang ang opinyon at damdamin ng ibang bata, kahit magkaiba sila sa iyo.\n\n## 🔍 Aral na Natutunan\n- Ang bawat bata ay karapat-dapat sa **paggalang at proteksyon**.\n\nIpagpatuloy nating igalang ang bawat bata! 🌟",
+        "quiz": [
+          { "question": "Paano tayo makikiisa sa pagkilala sa karapatan ng bata?", "options": ["Sumali sa mga proyektong pang-eskwela", "Umiwas sa mga proyekto", "Manatiling tahimik", "Walang gagawin"], "correct_answer": "Sumali sa mga proyektong pang-eskwela" },
+          { "question": "Paano igalang ang kapwa-bata?", "options": ["Igalang ang opinyon at damdamin nila", "Balewalain sila", "Iwasan sila", "Manukso sa kanila"], "correct_answer": "Igalang ang opinyon at damdamin nila" },
+          { "question": "Ano ang karapat-dapat sa bawat bata?", "options": ["Paggalang at proteksyon", "Walang karapatan", "Pang-aapi", "Kawalang-pansin"], "correct_answer": "Paggalang at proteksyon" },
+          { "question": "Ano ang dapat gawin kahit magkaiba ang opinyon ng kaibigan?", "options": ["Igalang pa rin ito", "Alisin ang pagkakaibigan", "Manukso", "Balewalain"], "correct_answer": "Igalang pa rin ito" },
+          { "question": "Bakit mahalagang igalang ang karapatan ng bawat bata?", "options": ["Nagpapakita ito ng pagmamalasakit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapakita ito ng pagmamalasakit" },
+          { "question": "Ano ang pagpapahalaga na patuloy nating ipinapraktis?", "options": ["Magalang", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Magalang" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of interpreting visuals!\n\n- Design choices communicate a **message quickly**\n- Colors and fonts set a **mood**\n\nGreat visual understanding! ⭐",
+        "quiz": [
+          { "question": "What do design choices in a photo or card communicate?", "options": ["A message quickly", "Nothing important", "Only the price", "Only numbers"], "correct_answer": "A message quickly" },
+          { "question": "What might bright colors and balloons on an invitation show?", "options": ["A fun celebration", "A sad event", "A boring day", "Nothing special"], "correct_answer": "A fun celebration" },
+          { "question": "What does a menu typically list?", "options": ["Food items with prices", "Only a story", "Only a song", "Only a poem"], "correct_answer": "Food items with prices" },
+          { "question": "Why are colors and fonts chosen carefully in design?", "options": ["To grab attention or set a mood", "For no reason", "To confuse the reader", "To use up space"], "correct_answer": "To grab attention or set a mood" },
+          { "question": "Why is understanding visuals useful?", "options": ["It helps us read the world around us", "It has no use", "It only matters in art class", "It confuses us"], "correct_answer": "It helps us read the world around us" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of rounding and estimating!\n\n- 682,450 rounds to **700,000** (nearest hundred thousand)\n- Estimating helps us check if an answer is **reasonable**\n\nGreat work with numbers! 🌟",
+        "quiz": [
+          { "question": "What is 682,450 rounded to the nearest hundred thousand?", "options": ["700,000", "600,000", "680,000", "690,000"], "correct_answer": "700,000" },
+          { "question": "Why do we estimate before calculating?", "options": ["To check if the answer makes sense", "To make the problem harder", "It has no purpose", "To avoid math"], "correct_answer": "To check if the answer makes sense" },
+          { "question": "What is 415,000 rounded to the nearest hundred thousand?", "options": ["400,000", "500,000", "410,000", "420,000"], "correct_answer": "400,000" },
+          { "question": "Estimating helps us check if an answer is what?", "options": ["Reasonable", "Colorful", "Loud", "Heavy"], "correct_answer": "Reasonable" },
+          { "question": "What is 350,000 rounded to the nearest hundred thousand?", "options": ["400,000", "300,000", "350,000", "360,000"], "correct_answer": "400,000" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Liham na paanyaya** = nag-aanyaya sa isang okasyon\n- Mga bahagi: petsa, bating panimula, katawan, pagwawakas\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang liham na paanyaya?", "options": ["Liham na nag-aanyaya sa isang okasyon", "Liham na nagpapaliwanag ng absent", "Liham na nagpapasalamat", "Liham na nagpapahayag ng pakikiramay"], "correct_answer": "Liham na nag-aanyaya sa isang okasyon" },
+          { "question": "Ano ang isa sa mga bahagi ng liham?", "options": ["Bating panimula", "Pamagat ng kwento", "Tauhan", "Tagpuan"], "correct_answer": "Bating panimula" },
+          { "question": "Ano ang naglalaman ng katawan ng liham na paanyaya?", "options": ["Ang paanyaya mismo", "Isang balita lamang", "Isang tula lamang", "Isang kwento"], "correct_answer": "Ang paanyaya mismo" },
+          { "question": "Bakit sumusulat tayo ng liham na paanyaya?", "options": ["Para anyayahan ang isang tao sa okasyon", "Para lang sumulat", "Para hirapan ang mambabasa", "Walang dahilan"], "correct_answer": "Para anyayahan ang isang tao sa okasyon" },
+          { "question": "Alin ang halimbawa ng paanyaya?", "options": ["Inaanyayahan kita sa aking kaarawan.", "Pasensya na po, may lagnat ako.", "Salamat sa iyong tulong.", "Nakikiramay ako sa iyo."], "correct_answer": "Inaanyayahan kita sa aking kaarawan." }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Nagtatanim ng **palay, mais, niyog** ang mga Pilipino\n- Mayaman sa **isda** ang Pilipinas dahil kapuluan\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang itinatanim ng mga magsasaka sa Pilipinas?", "options": ["Palay, mais, niyog", "Niyebe", "Yelo", "Bato"], "correct_answer": "Palay, mais, niyog" },
+          { "question": "Bakit mayaman sa isda ang Pilipinas?", "options": ["Dahil ito ay kapuluan", "Dahil walang dagat", "Dahil walang isda", "Walang dahilan"], "correct_answer": "Dahil ito ay kapuluan" },
+          { "question": "Ano ang ibinibigay ng mga gawaing pangkabuhayan?", "options": ["Hanapbuhay at pagkain", "Wala", "Panganib lamang", "Kalungkutan"], "correct_answer": "Hanapbuhay at pagkain" },
+          { "question": "Sino ang umaasa sa pagsasaka sa Pilipinas?", "options": ["Malaking bahagi ng populasyon", "Walang tao", "Isang tao lamang", "Estranghero lamang"], "correct_answer": "Malaking bahagi ng populasyon" },
+          { "question": "Ano ang tawag sa gawaing may kinalaman sa pangingisda?", "options": ["Pangingisda", "Pagsasaka", "Pagmimina", "Turismo"], "correct_answer": "Pangingisda" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Drag-and-drop** = paghila ng bagay\n- Katumpakan ang mahalaga sa mouse; tamang daliri para sa keyboard\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang drag-and-drop?", "options": ["Paghila ng bagay mula sa isang lugar patungo sa iba", "Pag-type ng titik", "Pagpatay ng computer", "Pagbukas lamang"], "correct_answer": "Paghila ng bagay mula sa isang lugar patungo sa iba" },
+          { "question": "Ano ang mahalaga sa paggamit ng mouse?", "options": ["Katumpakan", "Bilis lamang", "Ingay", "Kulay"], "correct_answer": "Katumpakan" },
+          { "question": "Ano ang tumutulong sa mas mabilis na pag-type?", "options": ["Paggamit ng tamang daliri", "Paggamit ng isang daliri lamang", "Hindi pagtingin sa keyboard nang hindi nagsanay", "Walang paraan"], "correct_answer": "Paggamit ng tamang daliri" },
+          { "question": "Ano ang susi sa pagpapaunlad ng kasanayan?", "options": ["Patuloy na pagsasanay", "Isang beses lamang", "Hindi na pagsasanay", "Pag-iwas dito"], "correct_answer": "Patuloy na pagsasanay" },
+          { "question": "Bakit mahalaga ang pagsasanay?", "options": ["Nagpapaunlad ito ng bilis at katumpakan", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapaunlad ito ng bilis at katumpakan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Nakatutulong ang agham sa mga problema ng komunidad\n- **Grouping, communicating, open-mindedness** — mga science process skills\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What community issue can science help address?", "options": ["Waste management", "Choosing a favorite color", "Picking a game", "Choosing a snack"], "correct_answer": "Waste management" },
+          { "question": "What does \"grouping and classifying\" mean?", "options": ["Sorting information into categories", "Ignoring information", "Making up data", "Avoiding organization"], "correct_answer": "Sorting information into categories" },
+          { "question": "What does \"communicating\" mean in science?", "options": ["Sharing findings clearly", "Staying silent", "Hiding results", "Ignoring others"], "correct_answer": "Sharing findings clearly" },
+          { "question": "What does \"open-mindedness\" mean?", "options": ["Being willing to consider new ideas", "Refusing all new ideas", "Ignoring evidence", "Only believing one idea"], "correct_answer": "Being willing to consider new ideas" },
+          { "question": "How does science help our community?", "options": ["It helps us solve real problems", "It has no use", "It only matters in labs", "It makes things worse"], "correct_answer": "It helps us solve real problems" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **BMI** = healthy weight for height check\n- Health appraisals catch problems **early**\n\nGreat health awareness! 🌟",
+        "quiz": [
+          { "question": "What does BMI show?", "options": ["If weight is healthy for height", "How tall you are", "How fast you run", "How loud you sing"], "correct_answer": "If weight is healthy for height" },
+          { "question": "What does a vision screening check?", "options": ["How well you see", "How well you hear", "How well you run", "How well you sing"], "correct_answer": "How well you see" },
+          { "question": "What does a dental exam check?", "options": ["The health of your teeth", "The health of your eyes", "The health of your ears", "The health of your hair"], "correct_answer": "The health of your teeth" },
+          { "question": "Why do we do health appraisals?", "options": ["To catch health problems early", "For no reason", "To waste time", "To avoid school"], "correct_answer": "To catch health problems early" },
+          { "question": "What does a hearing test check?", "options": ["How well you hear", "How well you see", "How fast you run", "How well you sing"], "correct_answer": "How well you hear" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- **Compost** = organikong pataba mula sa nabubulok na basura\n- Nagpapayaman ito sa lupa nang walang kemikal\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang compost?", "options": ["Organikong pataba mula sa nabubulok na basura", "Isang uri ng kemikal", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Organikong pataba mula sa nabubulok na basura" },
+          { "question": "Alin ang halimbawang basurang nabubulok?", "options": ["Balat ng prutas", "Plastik", "Bakal", "Salamin"], "correct_answer": "Balat ng prutas" },
+          { "question": "Bakit dapat haluin ang compost paminsan-minsan?", "options": ["Para mapabilis ang pagkabulok", "Walang dahilan", "Para masira ito", "Para itapon na lang"], "correct_answer": "Para mapabilis ang pagkabulok" },
+          { "question": "Ano ang benepisyo ng compost?", "options": ["Nagpapayaman ito sa lupa nang walang kemikal", "Walang benepisyo", "Nakakasira sa halaman", "Nakakasama sa kalikasan"], "correct_answer": "Nagpapayaman ito sa lupa nang walang kemikal" },
+          { "question": "Ano pang gamit ng paggawa ng compost?", "options": ["Binabawasan ang basura", "Nagdaragdag ng basura", "Walang gamit", "Nagpapalala ng problema"], "correct_answer": "Binabawasan ang basura" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Sumali sa proyektong nagtataguyod ng karapatan ng bata\n- Igalang ang opinyon at damdamin ng kapwa-bata\n\nIgalang natin ang bawat bata! 🌟",
+        "quiz": [
+          { "question": "Paano tayo makikiisa sa pagkilala sa karapatan ng bata?", "options": ["Sumali sa mga proyektong pang-eskwela", "Umiwas sa mga proyekto", "Manatiling tahimik", "Walang gagawin"], "correct_answer": "Sumali sa mga proyektong pang-eskwela" },
+          { "question": "Paano igalang ang kapwa-bata?", "options": ["Igalang ang opinyon at damdamin nila", "Balewalain sila", "Iwasan sila", "Manukso sa kanila"], "correct_answer": "Igalang ang opinyon at damdamin nila" },
+          { "question": "Ano ang karapat-dapat sa bawat bata?", "options": ["Paggalang at proteksyon", "Walang karapatan", "Pang-aapi", "Kawalang-pansin"], "correct_answer": "Paggalang at proteksyon" },
+          { "question": "Ano ang dapat gawin kahit magkaiba ang opinyon ng kaibigan?", "options": ["Igalang pa rin ito", "Alisin ang pagkakaibigan", "Manukso", "Balewalain"], "correct_answer": "Igalang pa rin ito" },
+          { "question": "Bakit mahalagang igalang ang karapatan ng bawat bata?", "options": ["Nagpapakita ito ng pagmamalasakit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapakita ito ng pagmamalasakit" }
+        ]
+      }
+    }
+  }
+}

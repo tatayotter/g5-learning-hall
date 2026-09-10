@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-07-12",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 4: Context Clues and References!\n\nLet's learn to use punctuation and reference tools! 📖\n\n## ❓ Context Clues from Punctuation\n- **Quotation marks** can signal a direct quote or a special term.\n- **Dashes** often set apart extra explanation.\n- **Example:** *\"The datu — the village leader — welcomed the guests.\"*\n\n## 📚 Using an Almanac\n- An **almanac** is a reference book with facts, statistics, and calendars — useful for research.\n\n## 🔍 Practice\n- Look up a fact about a regional festival using an almanac or reliable source.\n\nGood readers use every clue available in a text! 🌟",
+        "quiz": [
+          { "question": "What can quotation marks signal?", "options": ["A direct quote or special term", "The end of a story", "A math problem", "A drawing"], "correct_answer": "A direct quote or special term" },
+          { "question": "What do dashes often do in a sentence?", "options": ["Set apart extra explanation", "End a sentence", "Start a question", "Show a number"], "correct_answer": "Set apart extra explanation" },
+          { "question": "What is an almanac?", "options": ["A reference book with facts, statistics, and calendars", "A type of story", "A math tool", "A musical instrument"], "correct_answer": "A reference book with facts, statistics, and calendars" },
+          { "question": "In \"The datu — the village leader — welcomed the guests,\" what do the dashes do?", "options": ["Explain who the datu is", "End the sentence", "Ask a question", "Show excitement"], "correct_answer": "Explain who the datu is" },
+          { "question": "Why is an almanac useful?", "options": ["It's useful for research", "It has no use", "It's only for fiction", "It's only for math"], "correct_answer": "It's useful for research" },
+          { "question": "What do good readers use in a text?", "options": ["Every clue available", "Only the title", "Only pictures", "Nothing"], "correct_answer": "Every clue available" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 4: More Decimal Word Problems!\n\nLet's apply decimal skills to real-life problems! 💰\n\n## 💰 Multi-Step Decimal Word Problems\n- **Example:** A vendor sells 3 items for ₱45.25, ₱12.50, and ₱8.75. What's the total?\n- Total = 45.25 + 12.50 + 8.75 = **₱66.50**\n\n## 🔍 Checking Your Work\n- Always **estimate first** to check if your exact answer makes sense.\n\n## 📊 Practice\n- Subtract a discount: If the total is ₱66.50 and there's a ₱10.25 discount, the final price is **₱56.25**.\n\nGreat real-world application of decimals! 🌟",
+        "quiz": [
+          { "question": "A vendor sells items for ₱45.25, ₱12.50, and ₱8.75. What is the total?", "options": ["₱66.50", "₱65.50", "₱67.50", "₱64.50"], "correct_answer": "₱66.50" },
+          { "question": "If the total is ₱66.50 and there's a ₱10.25 discount, what is the final price?", "options": ["₱56.25", "₱55.25", "₱57.25", "₱54.25"], "correct_answer": "₱56.25" },
+          { "question": "What should you do first to check if an answer makes sense?", "options": ["Estimate", "Skip the problem", "Guess randomly", "Ignore it"], "correct_answer": "Estimate" },
+          { "question": "What is 12.50 + 8.75?", "options": ["21.25", "20.25", "22.25", "21.75"], "correct_answer": "21.25" },
+          { "question": "What is 100.00 − 45.25?", "options": ["54.75", "55.75", "53.75", "56.75"], "correct_answer": "54.75" },
+          { "question": "Why is estimating helpful before solving?", "options": ["It helps check if the exact answer is reasonable", "It replaces the need to solve", "It has no purpose", "It makes the problem harder"], "correct_answer": "It helps check if the exact answer is reasonable" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 4: Liham Paanyaya sa Panauhin\n\nMatuto tayong sumulat ng liham na pang-aanyaya sa isang panauhin! ✉️\n\n## ✉️ Liham Paanyaya sa Panauhin\n- Ginagamit ito upang **imbitahan** ang isang tao bilang bisita sa isang kaganapan (hal. programa sa paaralan).\n\n## 📝 Mga Bahagi\n- **Petsa, bating panimula, katawan (detalye ng kaganapan), pagwawakas, pangalan**\n\n## 🔍 Halimbawa\n- *\"Kagalang-galang na Punong Guro, Kami po ay may kaganapang pangkultura sa Agosto 15. Kami po ay nag-aanyaya sa inyo bilang panauhing pandangal.\"*\n\nSubukan mong gumawa ng sarili mong liham na paanyaya! 🌟",
+        "quiz": [
+          { "question": "Ano ang liham paanyaya sa panauhin?", "options": ["Liham na nag-aanyaya sa isang tao bilang bisita", "Liham ng pasasalamat", "Liham ng pakikiramay", "Liham ng paumanhin"], "correct_answer": "Liham na nag-aanyaya sa isang tao bilang bisita" },
+          { "question": "Ano ang isa sa mga bahagi ng liham?", "options": ["Petsa", "Pamagat ng kwento", "Tauhan", "Tagpuan"], "correct_answer": "Petsa" },
+          { "question": "Ano ang naglalaman ang katawan ng liham na paanyaya?", "options": ["Detalye ng kaganapan", "Isang balita lamang", "Isang tula lamang", "Isang kwento"], "correct_answer": "Detalye ng kaganapan" },
+          { "question": "Sino ang maaaring imbitahan bilang panauhing pandangal?", "options": ["Isang kagalang-galang na bisita", "Estranghero lamang", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Isang kagalang-galang na bisita" },
+          { "question": "Ano ang dapat ilagay sa dulo ng liham?", "options": ["Pangalan ng sumulat", "Walang ilalagay", "Isang tanong", "Isang bugtong"], "correct_answer": "Pangalan ng sumulat" },
+          { "question": "Bakit sumusulat tayo ng liham na paanyaya sa panauhin?", "options": ["Para imbitahan sila sa isang kaganapan", "Para lang sumulat", "Para hirapan ang mambabasa", "Walang dahilan"], "correct_answer": "Para imbitahan sila sa isang kaganapan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 4: Separation Techniques!\n\nLet's learn how to separate mixtures! ♻️\n\n## ♻️ Separation Techniques\n- **Decantation** — pouring off the liquid, leaving solids behind\n- **Filtering** — using a filter to separate solids from liquids\n- **Evaporation** — heating a liquid until it turns to gas, leaving solids\n- **Using magnets** — attracting magnetic materials out of a mixture\n\n## 🔍 Choosing the Right Technique\n- The best technique depends on the **properties of the mixture**.\n\n## 🧪 Example\n- To separate salt from water, use **evaporation** — the water evaporates, leaving salt behind.\n\nGreat exploration of separating mixtures! 🌟",
+        "quiz": [
+          { "question": "What is decantation?", "options": ["Pouring off liquid, leaving solids behind", "Using a magnet", "Heating until it evaporates", "Using a filter"], "correct_answer": "Pouring off liquid, leaving solids behind" },
+          { "question": "What is filtering?", "options": ["Using a filter to separate solids from liquids", "Pouring off liquid only", "Using a magnet", "Heating a liquid"], "correct_answer": "Using a filter to separate solids from liquids" },
+          { "question": "What technique separates salt from water?", "options": ["Evaporation", "Using a magnet", "Filtering", "Decantation"], "correct_answer": "Evaporation" },
+          { "question": "What technique uses magnets?", "options": ["Attracting magnetic materials", "Pouring off liquid", "Heating", "Filtering only"], "correct_answer": "Attracting magnetic materials" },
+          { "question": "What determines the best separation technique?", "options": ["The properties of the mixture", "Random choice", "The color of the mixture", "Nothing"], "correct_answer": "The properties of the mixture" },
+          { "question": "What happens during evaporation?", "options": ["A liquid turns to gas, leaving solids behind", "Solids turn to liquid", "Nothing changes", "Gas turns to liquid"], "correct_answer": "A liquid turns to gas, leaving solids behind" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 4: Deklarasyon ng Kasarinlan\n\nAlamin natin ang Deklarasyon ng Kasarinlan ng Pilipinas! 🎉\n\n## 🎉 Deklarasyon ng Kasarinlan\n- Noong **Hunyo 12, 1898**, idineklara ni Emilio Aguinaldo ang kasarinlan ng Pilipinas sa Kawit, Cavite.\n- Doon unang inilabas ang **watawat ng Pilipinas**.\n\n## 🏛️ Unang Republika\n- Itinatag ang **Unang Republika ng Pilipinas** noong 1899 sa Malolos, Bulacan.\n- Si Aguinaldo ang naging unang Pangulo.\n\n## 🔍 Kahalagahan\n- Ipinakita nito ang kakayahan ng mga Pilipino na **mamuno sa kanilang sarili**.\n\nMagalaking pangyayari sa ating kasaysayan! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan idineklara ang kasarinlan ng Pilipinas?", "options": ["Hunyo 12, 1898", "Agosto 1896", "Disyembre 1898", "Enero 1899"], "correct_answer": "Hunyo 12, 1898" },
+          { "question": "Saan idineklara ang kasarinlan?", "options": ["Kawit, Cavite", "Malolos, Bulacan", "Maynila", "Cebu"], "correct_answer": "Kawit, Cavite" },
+          { "question": "Sino ang nagdeklara ng kasarinlan?", "options": ["Emilio Aguinaldo", "Andres Bonifacio", "Jose Rizal", "Apolinario Mabini"], "correct_answer": "Emilio Aguinaldo" },
+          { "question": "Saan itinatag ang Unang Republika?", "options": ["Malolos, Bulacan", "Kawit, Cavite", "Maynila", "Cebu"], "correct_answer": "Malolos, Bulacan" },
+          { "question": "Sino ang naging unang Pangulo ng Unang Republika?", "options": ["Emilio Aguinaldo", "Andres Bonifacio", "Jose Rizal", "Apolinario Mabini"], "correct_answer": "Emilio Aguinaldo" },
+          { "question": "Ano ang ipinakita ng deklarasyon ng kasarinlan?", "options": ["Kakayahang mamuno sa sariling bansa", "Kawalang-kakayahan", "Kasunduan sa Espanya", "Wala"], "correct_answer": "Kakayahang mamuno sa sariling bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Higit Pang Online Forms!\n\nPatuloy nating alamin ang paggawa ng online forms! 📋\n\n## 📋 Karagdagang Kasanayan\n- Magdagdag ng **maramihang uri ng tanong** — multiple choice, short answer, at checkbox.\n- Gamitin ang **settings** para gawing private o closed ang form.\n\n## 🔒 Data Ethics\n- Isaalang-alang ang **etika sa pagkolekta ng datos** — huwag mangolekta ng hindi kailangang impormasyon.\n\n## 🔍 Pagsasanay\n- Gumawa ng maikling form tungkol sa paboritong libangan ng klase!\n\nMahusay na paggamit ng online forms para sa mga totoong pangangailangan! 🌟",
+        "quiz": [
+          { "question": "Anong uri ng tanong ang maaaring idagdag sa form?", "options": ["Multiple choice, short answer, checkbox", "Isang uri lamang", "Wala", "Larawan lamang"], "correct_answer": "Multiple choice, short answer, checkbox" },
+          { "question": "Ano ang ginagamit para gawing private ang form?", "options": ["Settings", "Walang paraan", "Kulay", "Font"], "correct_answer": "Settings" },
+          { "question": "Ano ang dapat iwasan sa pagkolekta ng datos?", "options": ["Hindi kailangang impormasyon", "Lahat ng impormasyon", "Walang dapat iwasan", "Pangalan lamang"], "correct_answer": "Hindi kailangang impormasyon" },
+          { "question": "Ano ang tawag sa pag-iingat sa pagkolekta ng datos?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
+          { "question": "Ano ang halimbawa ng gagawing form?", "options": ["Form tungkol sa paboritong libangan", "Walang halimbawa", "Isang larawan lamang", "Isang video lamang"], "correct_answer": "Form tungkol sa paboritong libangan" },
+          { "question": "Bakit mahalaga ang data ethics?", "options": ["Iniingatan nito ang privacy ng tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang privacy ng tao" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏃 MAPEH — Week 4: Target Games!\n\nLet's play traditional Filipino target games! 🎯\n\n## 🎯 Target Game Skills\n- **Agility, balance, coordination, speed** — needed for these games.\n\n## 🇵🇭 Games to Play\n- **Tatsing, Tumbang Preso, Batuhang Bola** — traditional target games.\n\n## 💪 Applying Movement Concepts\n- Practice **positioning** and **aiming** to improve accuracy.\n\nTraditional games keep us active while connecting to culture! 🌟",
+        "quiz": [
+          { "question": "What skill is needed for target games?", "options": ["Coordination", "Only sitting", "Only reading", "Only sleeping"], "correct_answer": "Coordination" },
+          { "question": "What is Tumbang Preso?", "options": ["Throwing a slipper to knock down a can", "A dance", "A song", "A math game"], "correct_answer": "Throwing a slipper to knock down a can" },
+          { "question": "What is Tatsing?", "options": ["Flipping a slipper to hit a target", "A type of food", "A type of song", "A drawing game"], "correct_answer": "Flipping a slipper to hit a target" },
+          { "question": "What should you practice to improve accuracy?", "options": ["Positioning and aiming", "Standing still only", "Ignoring the target", "Sitting down"], "correct_answer": "Positioning and aiming" },
+          { "question": "Why are traditional games important?", "options": ["They keep us active and connect us to culture", "They have no value", "They are only for adults", "They are boring"], "correct_answer": "They keep us active and connect us to culture" },
+          { "question": "What is Batuhang Bola?", "options": ["A traditional target game", "A cooking activity", "A math game", "A reading game"], "correct_answer": "A traditional target game" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 4: Anatomy ng Isda!\n\nAlamin natin ang mga bahagi ng katawan ng isda! 🐟\n\n## 🐟 Mga Bahagi ng Isda\n- **Hasang (gills)** — ginagamit para huminga sa tubig\n- **Palikpik (fins)** — para sa paglangoy\n- **Kaliskis (scales)** — nagpoprotekta sa balat ng isda\n\n## 🔍 Bakit Mahalaga Ito?\n- Ang pag-alam sa anatomiya ng isda ay tumutulong upang matukoy ang kalusugan at uri ng isda.\n\n## 🩺 Kaugnay na Kaalaman\n- Ang **kalusugan** ng isda ay makikita sa hitsura ng kanyang hasang at kaliskis.\n\nMahusay na kaalaman para sa isang mangingisda! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit ng isda para huminga sa tubig?", "options": ["Hasang", "Palikpik", "Kaliskis", "Buntot"], "correct_answer": "Hasang" },
+          { "question": "Ano ang ginagamit ng isda para lumangoy?", "options": ["Palikpik", "Hasang", "Kaliskis", "Mata"], "correct_answer": "Palikpik" },
+          { "question": "Ano ang nagpoprotekta sa balat ng isda?", "options": ["Kaliskis", "Hasang", "Palikpik", "Buntot"], "correct_answer": "Kaliskis" },
+          { "question": "Bakit mahalagang malaman ang anatomiya ng isda?", "options": ["Tumutulong ito matukoy ang kalusugan nito", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito matukoy ang kalusugan nito" },
+          { "question": "Saan makikita ang kalusugan ng isda?", "options": ["Sa hitsura ng hasang at kaliskis", "Sa laki lamang", "Sa kulay lamang", "Wala"], "correct_answer": "Sa hitsura ng hasang at kaliskis" },
+          { "question": "Sino ang nangangailangan ng kaalaman sa anatomiya ng isda?", "options": ["Isang mangingisda", "Isang guro lamang", "Isang doktor lamang", "Walang nangangailangan"], "correct_answer": "Isang mangingisda" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 4: Pakikipag-ugnayan sa Diyos\n\nAlamin natin ang kahalagahan ng regular na pananalangin! 🙏\n\n## 🙏 Sariling Pakikipag-ugnayan sa Diyos\n- Ang **regular na pananalangin kasama ang pamilya** ay indikasyon ng ating pananampalataya.\n\n## 💛 Bakit Ito Mahalaga?\n- Nagpapatibay ito ng ating relasyon sa Diyos at sa pamilya.\n\n## 🔍 Halimbawa\n- Pananalangin bago kumain, bago matulog, o tuwing may okasyon.\n\nPatatagin natin ang ating pananampalataya sa pamamagitan ng pananalangin! 🌟",
+        "quiz": [
+          { "question": "Ano ang indikasyon ng pananampalataya?", "options": ["Regular na pananalangin kasama ang pamilya", "Wala", "Pagtulog lamang", "Paglalaro lamang"], "correct_answer": "Regular na pananalangin kasama ang pamilya" },
+          { "question": "Ano ang pinapatibay ng pananalangin?", "options": ["Relasyon sa Diyos at pamilya", "Wala", "Kalungkutan", "Kawalang-interes"], "correct_answer": "Relasyon sa Diyos at pamilya" },
+          { "question": "Kailan tayo maaaring manalangin?", "options": ["Bago kumain, bago matulog", "Isang beses lamang sa isang taon", "Hindi na kailangan", "Kapag may problema lamang"], "correct_answer": "Bago kumain, bago matulog" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pananampalataya", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pananampalataya" },
+          { "question": "Sino ang dapat kasama sa pananalangin?", "options": ["Pamilya", "Walang sinuman", "Estranghero lamang", "Wala"], "correct_answer": "Pamilya" },
+          { "question": "Bakit mahalaga ang pakikipag-ugnayan sa Diyos?", "options": ["Nagpapatibay ito ng ating pananampalataya", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Nagpapatibay ito ng ating pananampalataya" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of context clues and references!\n\n- **Quotation marks** and **dashes** give context clues\n- **Almanac** = reference book with facts\n\nGreat reading skills! ⭐",
+        "quiz": [
+          { "question": "What can quotation marks signal?", "options": ["A direct quote or special term", "The end of a story", "A math problem", "A drawing"], "correct_answer": "A direct quote or special term" },
+          { "question": "What do dashes often do in a sentence?", "options": ["Set apart extra explanation", "End a sentence", "Start a question", "Show a number"], "correct_answer": "Set apart extra explanation" },
+          { "question": "What is an almanac?", "options": ["A reference book with facts, statistics, and calendars", "A type of story", "A math tool", "A musical instrument"], "correct_answer": "A reference book with facts, statistics, and calendars" },
+          { "question": "Why is an almanac useful?", "options": ["It's useful for research", "It has no use", "It's only for fiction", "It's only for math"], "correct_answer": "It's useful for research" },
+          { "question": "What do good readers use in a text?", "options": ["Every clue available", "Only the title", "Only pictures", "Nothing"], "correct_answer": "Every clue available" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of decimal word problems!\n\n- ₱45.25 + ₱12.50 + ₱8.75 = **₱66.50**\n- **Estimate first** to check reasonableness\n\nGreat real-world math! 🌟",
+        "quiz": [
+          { "question": "A vendor sells items for ₱45.25, ₱12.50, and ₱8.75. What is the total?", "options": ["₱66.50", "₱65.50", "₱67.50", "₱64.50"], "correct_answer": "₱66.50" },
+          { "question": "If the total is ₱66.50 and there's a ₱10.25 discount, what is the final price?", "options": ["₱56.25", "₱55.25", "₱57.25", "₱54.25"], "correct_answer": "₱56.25" },
+          { "question": "What should you do first to check if an answer makes sense?", "options": ["Estimate", "Skip the problem", "Guess randomly", "Ignore it"], "correct_answer": "Estimate" },
+          { "question": "What is 12.50 + 8.75?", "options": ["21.25", "20.25", "22.25", "21.75"], "correct_answer": "21.25" },
+          { "question": "What is 100.00 − 45.25?", "options": ["54.75", "55.75", "53.75", "56.75"], "correct_answer": "54.75" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Liham paanyaya sa panauhin** = nag-aanyaya bilang bisita\n- Mga bahagi: petsa, bating panimula, katawan, pagwawakas\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang liham paanyaya sa panauhin?", "options": ["Liham na nag-aanyaya sa isang tao bilang bisita", "Liham ng pasasalamat", "Liham ng pakikiramay", "Liham ng paumanhin"], "correct_answer": "Liham na nag-aanyaya sa isang tao bilang bisita" },
+          { "question": "Ano ang isa sa mga bahagi ng liham?", "options": ["Petsa", "Pamagat ng kwento", "Tauhan", "Tagpuan"], "correct_answer": "Petsa" },
+          { "question": "Ano ang naglalaman ang katawan ng liham na paanyaya?", "options": ["Detalye ng kaganapan", "Isang balita lamang", "Isang tula lamang", "Isang kwento"], "correct_answer": "Detalye ng kaganapan" },
+          { "question": "Sino ang maaaring imbitahan bilang panauhing pandangal?", "options": ["Isang kagalang-galang na bisita", "Estranghero lamang", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Isang kagalang-galang na bisita" },
+          { "question": "Bakit sumusulat tayo ng liham na paanyaya sa panauhin?", "options": ["Para imbitahan sila sa isang kaganapan", "Para lang sumulat", "Para hirapan ang mambabasa", "Walang dahilan"], "correct_answer": "Para imbitahan sila sa isang kaganapan" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Deklarasyon ng Kasarinlan: **Hunyo 12, 1898** sa Kawit, Cavite\n- Unang Republika sa **Malolos, Bulacan**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan idineklara ang kasarinlan ng Pilipinas?", "options": ["Hunyo 12, 1898", "Agosto 1896", "Disyembre 1898", "Enero 1899"], "correct_answer": "Hunyo 12, 1898" },
+          { "question": "Saan idineklara ang kasarinlan?", "options": ["Kawit, Cavite", "Malolos, Bulacan", "Maynila", "Cebu"], "correct_answer": "Kawit, Cavite" },
+          { "question": "Sino ang nagdeklara ng kasarinlan?", "options": ["Emilio Aguinaldo", "Andres Bonifacio", "Jose Rizal", "Apolinario Mabini"], "correct_answer": "Emilio Aguinaldo" },
+          { "question": "Saan itinatag ang Unang Republika?", "options": ["Malolos, Bulacan", "Kawit, Cavite", "Maynila", "Cebu"], "correct_answer": "Malolos, Bulacan" },
+          { "question": "Ano ang ipinakita ng deklarasyon ng kasarinlan?", "options": ["Kakayahang mamuno sa sariling bansa", "Kawalang-kakayahan", "Kasunduan sa Espanya", "Wala"], "correct_answer": "Kakayahang mamuno sa sariling bansa" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Uri ng tanong: **multiple choice, short answer, checkbox**\n- Gamitin ang settings para gawing private\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Anong uri ng tanong ang maaaring idagdag sa form?", "options": ["Multiple choice, short answer, checkbox", "Isang uri lamang", "Wala", "Larawan lamang"], "correct_answer": "Multiple choice, short answer, checkbox" },
+          { "question": "Ano ang ginagamit para gawing private ang form?", "options": ["Settings", "Walang paraan", "Kulay", "Font"], "correct_answer": "Settings" },
+          { "question": "Ano ang dapat iwasan sa pagkolekta ng datos?", "options": ["Hindi kailangang impormasyon", "Lahat ng impormasyon", "Walang dapat iwasan", "Pangalan lamang"], "correct_answer": "Hindi kailangang impormasyon" },
+          { "question": "Ano ang tawag sa pag-iingat sa pagkolekta ng datos?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
+          { "question": "Bakit mahalaga ang data ethics?", "options": ["Iniingatan nito ang privacy ng tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang privacy ng tao" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Decantation, filtering, evaporation, magnets** — mga separation technique\n- Salt water = evaporation ang gamit\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is decantation?", "options": ["Pouring off liquid, leaving solids behind", "Using a magnet", "Heating until it evaporates", "Using a filter"], "correct_answer": "Pouring off liquid, leaving solids behind" },
+          { "question": "What is filtering?", "options": ["Using a filter to separate solids from liquids", "Pouring off liquid only", "Using a magnet", "Heating a liquid"], "correct_answer": "Using a filter to separate solids from liquids" },
+          { "question": "What technique separates salt from water?", "options": ["Evaporation", "Using a magnet", "Filtering", "Decantation"], "correct_answer": "Evaporation" },
+          { "question": "What technique uses magnets?", "options": ["Attracting magnetic materials", "Pouring off liquid", "Heating", "Filtering only"], "correct_answer": "Attracting magnetic materials" },
+          { "question": "What determines the best separation technique?", "options": ["The properties of the mixture", "Random choice", "The color of the mixture", "Nothing"], "correct_answer": "The properties of the mixture" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏃 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- **Tatsing, Tumbang Preso** — traditional target games\n- Skills: **agility, coordination, speed**\n\nGreat active learning! 🌟",
+        "quiz": [
+          { "question": "What skill is needed for target games?", "options": ["Coordination", "Only sitting", "Only reading", "Only sleeping"], "correct_answer": "Coordination" },
+          { "question": "What is Tumbang Preso?", "options": ["Throwing a slipper to knock down a can", "A dance", "A song", "A math game"], "correct_answer": "Throwing a slipper to knock down a can" },
+          { "question": "What is Tatsing?", "options": ["Flipping a slipper to hit a target", "A type of food", "A type of song", "A drawing game"], "correct_answer": "Flipping a slipper to hit a target" },
+          { "question": "What should you practice to improve accuracy?", "options": ["Positioning and aiming", "Standing still only", "Ignoring the target", "Sitting down"], "correct_answer": "Positioning and aiming" },
+          { "question": "Why are traditional games important?", "options": ["They keep us active and connect us to culture", "They have no value", "They are only for adults", "They are boring"], "correct_answer": "They keep us active and connect us to culture" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- **Hasang** = paghinga | **Palikpik** = paglangoy | **Kaliskis** = proteksyon\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang ginagamit ng isda para huminga sa tubig?", "options": ["Hasang", "Palikpik", "Kaliskis", "Buntot"], "correct_answer": "Hasang" },
+          { "question": "Ano ang ginagamit ng isda para lumangoy?", "options": ["Palikpik", "Hasang", "Kaliskis", "Mata"], "correct_answer": "Palikpik" },
+          { "question": "Ano ang nagpoprotekta sa balat ng isda?", "options": ["Kaliskis", "Hasang", "Palikpik", "Buntot"], "correct_answer": "Kaliskis" },
+          { "question": "Bakit mahalagang malaman ang anatomiya ng isda?", "options": ["Tumutulong ito matukoy ang kalusugan nito", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito matukoy ang kalusugan nito" },
+          { "question": "Saan makikita ang kalusugan ng isda?", "options": ["Sa hitsura ng hasang at kaliskis", "Sa laki lamang", "Sa kulay lamang", "Wala"], "correct_answer": "Sa hitsura ng hasang at kaliskis" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Regular na pananalangin kasama ang pamilya\n- Nagpapatibay ito ng ating relasyon sa Diyos\n\nPatatagin ang pananampalataya! 🌟",
+        "quiz": [
+          { "question": "Ano ang indikasyon ng pananampalataya?", "options": ["Regular na pananalangin kasama ang pamilya", "Wala", "Pagtulog lamang", "Paglalaro lamang"], "correct_answer": "Regular na pananalangin kasama ang pamilya" },
+          { "question": "Ano ang pinapatibay ng pananalangin?", "options": ["Relasyon sa Diyos at pamilya", "Wala", "Kalungkutan", "Kawalang-interes"], "correct_answer": "Relasyon sa Diyos at pamilya" },
+          { "question": "Kailan tayo maaaring manalangin?", "options": ["Bago kumain, bago matulog", "Isang beses lamang sa isang taon", "Hindi na kailangan", "Kapag may problema lamang"], "correct_answer": "Bago kumain, bago matulog" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Pananampalataya", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Pananampalataya" },
+          { "question": "Sino ang dapat kasama sa pananalangin?", "options": ["Pamilya", "Walang sinuman", "Estranghero lamang", "Wala"], "correct_answer": "Pamilya" }
+        ]
+      }
+    }
+  }
+}

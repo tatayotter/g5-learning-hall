@@ -1,0 +1,160 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-08-09",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 8: Informational Texts!\n\nLet's learn how to read texts that give us facts! 📰\n\n## 📰 What Is an Informational Text?\n- An **informational text** gives facts about a topic, like a news report or a science article.\n- Unlike stories, it does not have characters or a plot.\n\n## 🔍 Finding the Main Idea\n- The **main idea** is what the text is mostly about.\n- **Supporting details** give more information about the main idea.\n- **Example:** Main idea: *Bees are important for plants.* Detail: *Bees carry pollen from flower to flower.*\n\n## 📋 Types of Informational Texts\n- **Procedural** — gives steps to do something\n- **Descriptive** — describes a topic in detail\n\nFinding the main idea helps us understand what we read! 🌟",
+        "quiz": [
+          { "question": "What does an informational text give us?", "options": ["Facts about a topic", "A made-up story", "A poem", "A song"], "correct_answer": "Facts about a topic" },
+          { "question": "What is the main idea?", "options": ["What the text is mostly about", "The last sentence only", "The title only", "A character's name"], "correct_answer": "What the text is mostly about" },
+          { "question": "What do supporting details do?", "options": ["Give more information about the main idea", "Replace the main idea", "Confuse the reader", "Have nothing to do with the topic"], "correct_answer": "Give more information about the main idea" },
+          { "question": "Which type of text gives steps to do something?", "options": ["Procedural", "Descriptive", "Poem", "Song"], "correct_answer": "Procedural" },
+          { "question": "Does an informational text have characters?", "options": ["No, it gives facts instead", "Yes, always", "Only sometimes", "It has a plot instead"], "correct_answer": "No, it gives facts instead" },
+          { "question": "\"Bees carry pollen from flower to flower\" is an example of what?", "options": ["A supporting detail", "The main idea", "A character", "A title"], "correct_answer": "A supporting detail" },
+          { "question": "Which type of text describes a topic in detail?", "options": ["Descriptive", "Procedural", "Poem", "Fable"], "correct_answer": "Descriptive" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 8: Points, Lines, and Rays!\n\nLet's learn about basic shapes in geometry! 📏\n\n## 📍 Points, Lines, and Rays\n- A **point** shows an exact location, shown as a dot.\n- A **line** goes on forever in both directions.\n- A **line segment** has two endpoints — it does NOT go on forever.\n- A **ray** starts at one point and goes on forever in ONE direction.\n\n## ↔️ Types of Lines\n- **Parallel lines** never meet — they stay the same distance apart, like train tracks.\n- **Intersecting lines** cross each other at a point.\n- **Perpendicular lines** intersect and form a **right angle (90°)**.\n\nUnderstanding these shapes helps us describe the world around us! 🌟",
+        "quiz": [
+          { "question": "What shows an exact location?", "options": ["Point", "Line", "Ray", "Angle"], "correct_answer": "Point" },
+          { "question": "What has two endpoints and does NOT go on forever?", "options": ["Line segment", "Line", "Ray", "Point"], "correct_answer": "Line segment" },
+          { "question": "What goes on forever in ONE direction?", "options": ["Ray", "Line segment", "Point", "Angle"], "correct_answer": "Ray" },
+          { "question": "What do parallel lines do?", "options": ["Never meet, stay the same distance apart", "Always cross", "Form a right angle", "Curve"], "correct_answer": "Never meet, stay the same distance apart" },
+          { "question": "What do perpendicular lines form?", "options": ["A right angle (90°)", "A curve", "A circle", "Nothing special"], "correct_answer": "A right angle (90°)" },
+          { "question": "What do intersecting lines do?", "options": ["Cross each other at a point", "Never touch", "Disappear", "Become one line"], "correct_answer": "Cross each other at a point" },
+          { "question": "Which is an example of parallel lines?", "options": ["Train tracks", "A plus sign", "A single dot", "A curved road"], "correct_answer": "Train tracks" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 8: Pag-unawa sa Tekstong Impormatibo\n\nAlamin natin kung paano unawain ang tekstong nagbibigay ng impormasyon! 📰\n\n## 📰 Ano ang Tekstong Impormatibo?\n- Ang **tekstong impormatibo** ay nagbibigay ng mga katotohanan tungkol sa isang paksa, tulad ng balita o babala.\n\n## 🔍 Mahahalagang Detalye\n- Kailangan nating hanapin ang **mahahalagang detalye** — sino, ano, saan, kailan, bakit.\n- **Halimbawa:** Sa balitang tungkol sa bagyo, mahahalagang detalye ay ang lugar na tinamaan at ang oras ng pagdating.\n\n## 📋 Suliranin at Solusyon\n- Minsan, ang tekstong impormatibo ay naglalahad ng isang **suliranin** at ang **solusyon** dito.\n\nMahalaga ang pag-unawa sa tekstong impormatibo para sa araw-araw na buhay! 🌟",
+        "quiz": [
+          { "question": "Ano ang tekstong impormatibo?", "options": ["Nagbibigay ng mga katotohanan tungkol sa isang paksa", "Isang kwentong pambata", "Isang tula", "Isang kanta"], "correct_answer": "Nagbibigay ng mga katotohanan tungkol sa isang paksa" },
+          { "question": "Alin ang halimbawa ng tekstong impormatibo?", "options": ["Balita", "Kwentong-bayan", "Tula", "Awit"], "correct_answer": "Balita" },
+          { "question": "Anong mga tanong ang kailangan nating sagutin para makuha ang mahahalagang detalye?", "options": ["Sino, ano, saan, kailan, bakit", "Kulay at hugis lamang", "Bilang lamang", "Walang tanong"], "correct_answer": "Sino, ano, saan, kailan, bakit" },
+          { "question": "Ano pang inilalahad ng tekstong impormatibo bukod sa suliranin?", "options": ["Solusyon", "Tauhan lamang", "Pamagat lamang", "Walang iba"], "correct_answer": "Solusyon" },
+          { "question": "Bakit mahalaga ang pag-unawa sa tekstong impormatibo?", "options": ["Mahalaga ito sa araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Para hirapan ang bata"], "correct_answer": "Mahalaga ito sa araw-araw na buhay" },
+          { "question": "Sa balitang tungkol sa bagyo, ano ang mahalagang detalye?", "options": ["Lugar na tinamaan at oras ng pagdating", "Kulay ng damit ng reporter", "Pangalan ng aso", "Uri ng pagkain"], "correct_answer": "Lugar na tinamaan at oras ng pagdating" },
+          { "question": "Alin ang HINDI bahagi ng tekstong impormatibo?", "options": ["Kwentong-bayan tungkol sa hayop", "Mahahalagang detalye", "Suliranin", "Solusyon"], "correct_answer": "Kwentong-bayan tungkol sa hayop" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 8: Paggawang Kapaki-pakinabang ang mga Solidong Materyales\n\nAlamin natin kung paano ginagawang kapaki-pakinabang ang mga materyales! 🔨\n\n## 🔨 Paraan ng Pagbabago sa Materyales\n- **Pag-hulma (shaped)** — binibigyan ng anyo ang materyales, tulad ng luwad na ginagawang palayok\n- **Pindutin (pressed)** — pinipiga o pinipisil, tulad ng paggawa ng juice\n- **Pukpukin (hammered)** — pinupukpok upang mahubog, tulad ng bakal na ginagawang kutsara\n- **Putulin (cut)** — pinuputol upang magkaroon ng bagong hugis, tulad ng papel na ginagawang libro\n\n## 🔍 Halimbawa\n- Ang isang piraso ng kahoy ay maaaring **putulin** at **hulmahin** para gawing upuan.\n\nMaraming paraan para gawing kapaki-pakinabang ang mga materyales! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa pagbibigay ng anyo sa materyales?", "options": ["Pag-hulma", "Pagputol", "Pagpindot", "Pagpukpok"], "correct_answer": "Pag-hulma" },
+          { "question": "Alin ang halimbawa ng pagpindot?", "options": ["Paggawa ng juice", "Paggawa ng palayok", "Paggawa ng libro", "Paggawa ng upuan"], "correct_answer": "Paggawa ng juice" },
+          { "question": "Ano ang ginagawa sa bakal para maging kutsara?", "options": ["Pinupukpok", "Pinipindot lamang", "Sinusunog", "Wala"], "correct_answer": "Pinupukpok" },
+          { "question": "Ano ang ginagawa sa papel para maging libro?", "options": ["Pinuputol at hinuhulma", "Sinusunog lamang", "Wala", "Pinupukpok lamang"], "correct_answer": "Pinuputol at hinuhulma" },
+          { "question": "Ano ang ginagawa sa luwad para maging palayok?", "options": ["Hinuhulma", "Pinuputol lamang", "Sinusunog agad", "Wala"], "correct_answer": "Hinuhulma" },
+          { "question": "Bakit ginagawang bago ang mga solidong materyales?", "options": ["Para maging kapaki-pakinabang", "Walang dahilan", "Para itapon lamang", "Para masira"], "correct_answer": "Para maging kapaki-pakinabang" },
+          { "question": "Ano ang maaaring gawin sa isang piraso ng kahoy?", "options": ["Putulin at hulmahin para gawing upuan", "Walang magagawa dito", "Itapon lamang", "Sunugin lamang"], "correct_answer": "Putulin at hulmahin para gawing upuan" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Linggo 8: Pagpapahalaga sa Kasaysayan at Pagbabago\n\nAlamin natin kung paano ipakita ang pagpapahalaga sa kasaysayan ng ating komunidad! 🖼️\n\n## 🖼️ Pagpapahalaga sa Kasaysayan at Pagbabago\n- Maaari tayong gumawa ng **likhang-sining** (drawing, painting, o jigsaw puzzle) na nagpapakita ng makasaysayang tanawin.\n- Ang gawaing ito ay tumutulong sa atin upang maalala at pahalagahan ang ating kasaysayan.\n\n## 🎨 Halimbawa ng Likhang-Sining\n- Gumawa ng drawing ng lumang plaza kasama ang bagong gusali sa paligid nito.\n- Gumawa ng maikling cityscape na nagpapakita ng lumang at bagong bahagi ng bayan.\n\n## 💛 Bakit Ito Mahalaga?\n- Ang pagpapahalaga sa kasaysayan at pagbabago ay nagpapalakas ng ating pagmamahal sa ating pook.\n\nIpakita ang iyong pagmamahal sa iyong komunidad sa pamamagitan ng sining! 🇵🇭",
+        "quiz": [
+          { "question": "Paano natin maipapakita ang pagpapahalaga sa kasaysayan ng ating pook?", "options": ["Sa paggawa ng likhang-sining", "Sa pagkalimot nito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa paggawa ng likhang-sining" },
+          { "question": "Ano ang halimbawa ng likhang-sining tungkol sa kasaysayan?", "options": ["Drawing ng lumang plaza", "Panonood ng TV", "Paglalaro ng bola", "Pagtulog"], "correct_answer": "Drawing ng lumang plaza" },
+          { "question": "Ano ang tumutulong sa atin para maalala ang ating kasaysayan?", "options": ["Paggawa ng likhang-sining tungkol dito", "Pagkalimot dito", "Pag-iwas dito", "Walang gagawin"], "correct_answer": "Paggawa ng likhang-sining tungkol dito" },
+          { "question": "Ano ang nagpapalakas ng ating pagmamahal sa ating pook?", "options": ["Pagpapahalaga sa kasaysayan at pagbabago", "Kawalang-interes", "Kapabayaan", "Pagkalimot"], "correct_answer": "Pagpapahalaga sa kasaysayan at pagbabago" },
+          { "question": "Ano ang halimbawa ng cityscape na likhang-sining?", "options": ["Nagpapakita ng lumang at bagong bahagi ng bayan", "Larawan lamang ng ulap", "Larawan ng ibang bansa", "Walang halimbawa"], "correct_answer": "Nagpapakita ng lumang at bagong bahagi ng bayan" },
+          { "question": "Bakit gumagawa tayo ng sining tungkol sa kasaysayan?", "options": ["Para alalahanin at pahalagahan ito", "Para lang ipakita sa iba", "Walang dahilan", "Para makalimutan ito"], "correct_answer": "Para alalahanin at pahalagahan ito" },
+          { "question": "Ano pang halimbawa ng likhang-sining na maaaring gawin?", "options": ["Jigsaw puzzle ng makasaysayang tanawin", "Walang halimbawa", "Larawan ng ibang planeta", "Larawan ng bagong laruan lamang"], "correct_answer": "Jigsaw puzzle ng makasaysayang tanawin" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Week 8: Home Row Typing!\n\nLet's learn correct finger placement for typing! ⌨️\n\n## ⌨️ Home Row Keys\n- **Left hand**: A S D F\n- **Right hand**: J K L ;\n- **Thumbs**: rest on the Space Bar\n\n## 🎯 Why the Home Row Matters\n- Starting from the home row helps you find every other key **without looking down**.\n- Each finger has its own \"home\" key and reaches out to nearby keys.\n\n## 💡 Practice Tip\n- Type slowly and correctly first — speed comes naturally with practice!\n\nGood finger placement is the foundation of good typing! 🌟",
+        "quiz": [
+          { "question": "Which keys are for the left hand on the home row?", "options": ["A S D F", "J K L ;", "Q W E R", "Z X C V"], "correct_answer": "A S D F" },
+          { "question": "Which keys are for the right hand on the home row?", "options": ["J K L ;", "A S D F", "Q W E R", "Z X C V"], "correct_answer": "J K L ;" },
+          { "question": "Where do your thumbs rest?", "options": ["Space Bar", "Enter key", "Shift key", "Backspace"], "correct_answer": "Space Bar" },
+          { "question": "Why does the home row matter?", "options": ["It helps you find keys without looking down", "It makes the keyboard louder", "It changes the letters", "It has no purpose"], "correct_answer": "It helps you find keys without looking down" },
+          { "question": "What should you focus on first when typing?", "options": ["Typing slowly and correctly", "Typing as fast as possible", "Ignoring mistakes", "Looking away from the screen"], "correct_answer": "Typing slowly and correctly" },
+          { "question": "How does speed improve when typing?", "options": ["Naturally with practice", "By typing faster right away", "By skipping the home row", "It never improves"], "correct_answer": "Naturally with practice" },
+          { "question": "What does each finger have on the home row?", "options": ["Its own \"home\" key", "No specific position", "The same key as other fingers", "A different keyboard"], "correct_answer": "Its own \"home\" key" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 8: Higit pang Paggalang sa Diyos\n\nPatuloy nating alamin ang paggalang sa Diyos sa ating pang-araw-araw na buhay! 🙏\n\n## 🙏 Pagpapakita ng Paggalang sa Iba't Ibang Pagkakataon\n- Pagiging **magalang** sa simbahan, moske, o templo.\n- **Pakikinig** nang mabuti sa mga aral tungkol sa pananampalataya.\n\n## 💛 Kaugnayan ng Paggalang sa Diyos at sa Kapwa\n- Ang paggalang sa Diyos ay nakikita rin sa kung paano natin tinatrato ang ating kapwa.\n- **Halimbawa:** Ang pagiging mabait sa kapwa ay isa ring pagpapakita ng pagmamahal sa Diyos.\n\n## 🌟 Pagpapatuloy ng Magandang Kilos\n- Patuloy nating isabuhay ang mga kilos na nagpapakita ng paggalang sa Diyos araw-araw.\n\nIpagpatuloy ang pagiging mabuting anak ng Diyos! 🌟",
+        "quiz": [
+          { "question": "Paano tayo dapat kumilos sa simbahan o moske?", "options": ["Nang magalang", "Nang maingay", "Nang walang pansin", "Nang basta-basta lang"], "correct_answer": "Nang magalang" },
+          { "question": "Paano nakikita ang paggalang sa Diyos sa ating pakikitungo sa kapwa?", "options": ["Sa pagiging mabait sa kapwa", "Sa pagsisinungaling", "Sa pananakit ng iba", "Sa kawalang-interes"], "correct_answer": "Sa pagiging mabait sa kapwa" },
+          { "question": "Ano ang dapat gawin sa mga aral tungkol sa pananampalataya?", "options": ["Makinig nang mabuti", "Iwasan ang pakikinig", "Balewalain ito", "Matulog na lang"], "correct_answer": "Makinig nang mabuti" },
+          { "question": "Ano ang dapat isabuhay araw-araw?", "options": ["Mga kilos na nagpapakita ng paggalang sa Diyos", "Kawalang-galang", "Pagsisinungaling", "Pananakit ng iba"], "correct_answer": "Mga kilos na nagpapakita ng paggalang sa Diyos" },
+          { "question": "Alin ang halimbawa ng pagpapakita ng pagmamahal sa Diyos sa kapwa?", "options": ["Pagiging mabait", "Pagiging bastos", "Pagsisinungaling", "Pananakit"], "correct_answer": "Pagiging mabait" },
+          { "question": "Sino ang tinatawag na mabuting anak ng Diyos?", "options": ["Ang gumagawa ng mabuti at magalang na kilos", "Ang gumagawa ng masamang gawa", "Ang walang pakialam sa iba", "Ang laging naiinis"], "correct_answer": "Ang gumagawa ng mabuti at magalang na kilos" },
+          { "question": "Bakit mahalaga ang paggalang sa panahon ng pagsamba?", "options": ["Nagpapakita ito ng respeto", "Walang dahilan", "Para lang sundin ang iba", "Para makakuha ng papuri"], "correct_answer": "Nagpapakita ito ng respeto" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of informational texts!\n\n- Informational texts give **facts**, not stories\n- **Main idea** = what it's mostly about\n- **Supporting details** give more information\n\nGreat comprehension skills this week! ⭐",
+        "quiz": [
+          { "question": "What does an informational text give us?", "options": ["Facts about a topic", "A made-up story", "A poem", "A song"], "correct_answer": "Facts about a topic" },
+          { "question": "What is the main idea?", "options": ["What the text is mostly about", "The last sentence only", "The title only", "A character's name"], "correct_answer": "What the text is mostly about" },
+          { "question": "What do supporting details do?", "options": ["Give more information about the main idea", "Replace the main idea", "Confuse the reader", "Have nothing to do with the topic"], "correct_answer": "Give more information about the main idea" },
+          { "question": "Which type of text gives steps to do something?", "options": ["Procedural", "Descriptive", "Poem", "Song"], "correct_answer": "Procedural" },
+          { "question": "Does an informational text have characters?", "options": ["No, it gives facts instead", "Yes, always", "Only sometimes", "It has a plot instead"], "correct_answer": "No, it gives facts instead" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of points, lines, and rays!\n\n- **Point** = exact location | **Line** = goes on forever both ways\n- **Ray** = one direction | **Line segment** = has 2 endpoints\n- **Parallel** lines never meet; **perpendicular** lines form 90°\n\nGreat geometry work! 🌟",
+        "quiz": [
+          { "question": "What shows an exact location?", "options": ["Point", "Line", "Ray", "Angle"], "correct_answer": "Point" },
+          { "question": "What has two endpoints and does NOT go on forever?", "options": ["Line segment", "Line", "Ray", "Point"], "correct_answer": "Line segment" },
+          { "question": "What goes on forever in ONE direction?", "options": ["Ray", "Line segment", "Point", "Angle"], "correct_answer": "Ray" },
+          { "question": "What do parallel lines do?", "options": ["Never meet, stay the same distance apart", "Always cross", "Form a right angle", "Curve"], "correct_answer": "Never meet, stay the same distance apart" },
+          { "question": "What do perpendicular lines form?", "options": ["A right angle (90°)", "A curve", "A circle", "Nothing special"], "correct_answer": "A right angle (90°)" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Tekstong impormatibo**: nagbibigay ng katotohanan\n- Hanapin ang **sino, ano, saan, kailan, bakit**\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang tekstong impormatibo?", "options": ["Nagbibigay ng mga katotohanan tungkol sa isang paksa", "Isang kwentong pambata", "Isang tula", "Isang kanta"], "correct_answer": "Nagbibigay ng mga katotohanan tungkol sa isang paksa" },
+          { "question": "Alin ang halimbawa ng tekstong impormatibo?", "options": ["Balita", "Kwentong-bayan", "Tula", "Awit"], "correct_answer": "Balita" },
+          { "question": "Anong mga tanong ang kailangan nating sagutin para makuha ang mahahalagang detalye?", "options": ["Sino, ano, saan, kailan, bakit", "Kulay at hugis lamang", "Bilang lamang", "Walang tanong"], "correct_answer": "Sino, ano, saan, kailan, bakit" },
+          { "question": "Ano pang inilalahad ng tekstong impormatibo bukod sa suliranin?", "options": ["Solusyon", "Tauhan lamang", "Pamagat lamang", "Walang iba"], "correct_answer": "Solusyon" },
+          { "question": "Bakit mahalaga ang pag-unawa sa tekstong impormatibo?", "options": ["Mahalaga ito sa araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Para hirapan ang bata"], "correct_answer": "Mahalaga ito sa araw-araw na buhay" }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes — Lingguhang Pagsasanay: Makabansa\n\nMabilis na balikan!\n\n- Ipakita ang pagpapahalaga sa kasaysayan sa pamamagitan ng likhang-sining\n- Halimbawa: **drawing ng lumang plaza, jigsaw puzzle**\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Paano natin maipapakita ang pagpapahalaga sa kasaysayan ng ating pook?", "options": ["Sa paggawa ng likhang-sining", "Sa pagkalimot nito", "Sa pagsisinungaling", "Sa pag-iwas dito"], "correct_answer": "Sa paggawa ng likhang-sining" },
+          { "question": "Ano ang halimbawa ng likhang-sining tungkol sa kasaysayan?", "options": ["Drawing ng lumang plaza", "Panonood ng TV", "Paglalaro ng bola", "Pagtulog"], "correct_answer": "Drawing ng lumang plaza" },
+          { "question": "Ano ang nagpapalakas ng ating pagmamahal sa ating pook?", "options": ["Pagpapahalaga sa kasaysayan at pagbabago", "Kawalang-interes", "Kapabayaan", "Pagkalimot"], "correct_answer": "Pagpapahalaga sa kasaysayan at pagbabago" },
+          { "question": "Bakit gumagawa tayo ng sining tungkol sa kasaysayan?", "options": ["Para alalahanin at pahalagahan ito", "Para lang ipakita sa iba", "Walang dahilan", "Para makalimutan ito"], "correct_answer": "Para alalahanin at pahalagahan ito" },
+          { "question": "Ano pang halimbawa ng likhang-sining na maaaring gawin?", "options": ["Jigsaw puzzle ng makasaysayang tanawin", "Walang halimbawa", "Larawan ng ibang planeta", "Larawan ng bagong laruan lamang"], "correct_answer": "Jigsaw puzzle ng makasaysayang tanawin" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pag-hulma, pagpindot, pagpukpok, pagputol** — paraan ng pagbabago sa materyales\n- Ginagawang kapaki-pakinabang ang mga materyales\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa pagbibigay ng anyo sa materyales?", "options": ["Pag-hulma", "Pagputol", "Pagpindot", "Pagpukpok"], "correct_answer": "Pag-hulma" },
+          { "question": "Alin ang halimbawa ng pagpindot?", "options": ["Paggawa ng juice", "Paggawa ng palayok", "Paggawa ng libro", "Paggawa ng upuan"], "correct_answer": "Paggawa ng juice" },
+          { "question": "Ano ang ginagawa sa bakal para maging kutsara?", "options": ["Pinupukpok", "Pinipindot lamang", "Sinusunog", "Wala"], "correct_answer": "Pinupukpok" },
+          { "question": "Ano ang ginagawa sa luwad para maging palayok?", "options": ["Hinuhulma", "Pinuputol lamang", "Sinusunog agad", "Wala"], "correct_answer": "Hinuhulma" },
+          { "question": "Bakit ginagawang bago ang mga solidong materyales?", "options": ["Para maging kapaki-pakinabang", "Walang dahilan", "Para itapon lamang", "Para masira"], "correct_answer": "Para maging kapaki-pakinabang" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Home row: **A S D F** (left), **J K L ;** (right)\n- Thumbs rest on the **Space Bar**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Which keys are for the left hand on the home row?", "options": ["A S D F", "J K L ;", "Q W E R", "Z X C V"], "correct_answer": "A S D F" },
+          { "question": "Which keys are for the right hand on the home row?", "options": ["J K L ;", "A S D F", "Q W E R", "Z X C V"], "correct_answer": "J K L ;" },
+          { "question": "Where do your thumbs rest?", "options": ["Space Bar", "Enter key", "Shift key", "Backspace"], "correct_answer": "Space Bar" },
+          { "question": "Why does the home row matter?", "options": ["It helps you find keys without looking down", "It makes the keyboard louder", "It changes the letters", "It has no purpose"], "correct_answer": "It helps you find keys without looking down" },
+          { "question": "What should you focus on first when typing?", "options": ["Typing slowly and correctly", "Typing as fast as possible", "Ignoring mistakes", "Looking away from the screen"], "correct_answer": "Typing slowly and correctly" }
+        ]
+      }
+    }
+  }
+}

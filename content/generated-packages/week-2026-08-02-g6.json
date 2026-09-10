@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-08-02",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 7: Order of Adverbs!\n\nLet's learn the correct order for multiple adverbs! 📝\n\n## 📝 Order of Adverbs\n- When using multiple adverbs, follow this order: **Manner, Place, Frequency, Time, Purpose**\n- **Example:** *She danced gracefully (manner) at the festival (place) every year (frequency).*\n\n## 🔍 Why Order Matters\n- Correct order makes sentences **clear and natural-sounding**.\n\n## ✍️ Practice\n- Arrange: *quickly / in the plaza / yesterday* → *\"He performed quickly in the plaza yesterday.\"*\n\nMastering adverb order makes your writing sound polished! 🌟",
+        "quiz": [
+          { "question": "What is the correct order of adverbs?", "options": ["Manner, Place, Frequency, Time, Purpose", "Time, Place, Manner", "Random order", "Purpose, Manner, Time"], "correct_answer": "Manner, Place, Frequency, Time, Purpose" },
+          { "question": "In \"She danced gracefully at the festival every year,\" what type is \"gracefully\"?", "options": ["Manner", "Place", "Frequency", "Time"], "correct_answer": "Manner" },
+          { "question": "In \"at the festival,\" what type of adverb phrase is this?", "options": ["Place", "Manner", "Frequency", "Time"], "correct_answer": "Place" },
+          { "question": "Why does adverb order matter?", "options": ["It makes sentences clear and natural-sounding", "It has no effect", "It confuses readers", "It changes the meaning randomly"], "correct_answer": "It makes sentences clear and natural-sounding" },
+          { "question": "Arrange correctly: quickly / in the plaza / yesterday", "options": ["He performed quickly in the plaza yesterday.", "He performed yesterday quickly in the plaza.", "In the plaza he performed yesterday quickly.", "Yesterday in the plaza quickly he performed."], "correct_answer": "He performed quickly in the plaza yesterday." },
+          { "question": "What comes last in the adverb order?", "options": ["Purpose", "Manner", "Place", "Frequency"], "correct_answer": "Purpose" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 7: Multiplying Fractions and Mixed Numbers!\n\nLet's practice multiplying different number types! ✖️\n\n## ✖️ Multiplying Fractions\n- Multiply numerators together, then denominators together.\n- **Example:** 2/3 × 3/4 = 6/12 = **1/2**\n\n## ✖️ Multiplying Mixed Numbers\n- Convert to improper fractions first, then multiply.\n- **Example:** 1½ × 2⅓ = 3/2 × 7/3 = 21/6 = **3½**\n\n## ✖️ Multiplying Whole Numbers with Fractions\n- **Example:** 4 × 2/5 = 8/5 = **1⅗**\n\nGreat practice with different number combinations! 🌟",
+        "quiz": [
+          { "question": "What is 2/3 × 3/4?", "options": ["1/2", "6/7", "5/12", "1/4"], "correct_answer": "1/2" },
+          { "question": "What is the first step to multiply mixed numbers?", "options": ["Convert to improper fractions", "Add them", "Subtract them", "Round them"], "correct_answer": "Convert to improper fractions" },
+          { "question": "What is 4 × 2/5?", "options": ["1⅗", "8/5 simplified differently", "2⅘", "1⅖"], "correct_answer": "1⅗" },
+          { "question": "How do you multiply two fractions?", "options": ["Multiply numerators, then denominators", "Add numerators and denominators", "Only multiply denominators", "Only multiply numerators"], "correct_answer": "Multiply numerators, then denominators" },
+          { "question": "What is 1/2 × 1/2?", "options": ["1/4", "1/2", "2/4 unsimplified", "1"], "correct_answer": "1/4" },
+          { "question": "What is 1½ × 2?", "options": ["3", "2½", "3½", "2"], "correct_answer": "3" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 7: Elementong Biswal sa Multimedia\n\nAlamin natin ang mga elemento sa tekstong multimedia! 🎬\n\n## 🎬 Mga Elementong Biswal\n- **Text** — headlines, subtitles, at slogans\n- **Graphics** — still images, drawings, graphs, illustrations, icons\n\n## 🔍 Layunin ng Elementong Biswal\n- Tumutulong ang mga ito upang mas maunawaan at mahikayat ang manonood.\n\n## 📱 Halimbawa\n- Isang poster tungkol sa isang pagdiriwang na may **larawan at maikling headline**.\n\nMahalaga ang pag-unawa sa mga elementong ito para sa mas mahusay na komunikasyon! 🌟",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng text element sa multimedia?", "options": ["Headlines", "Larawan lamang", "Tunog lamang", "Kulay lamang"], "correct_answer": "Headlines" },
+          { "question": "Ano ang halimbawa ng graphics?", "options": ["Still images", "Headlines lamang", "Salita lamang", "Wala"], "correct_answer": "Still images" },
+          { "question": "Ano ang layunin ng elementong biswal?", "options": ["Tumutulong maunawaan at mahikayat ang manonood", "Walang layunin", "Para lang gumanda", "Para hirapan ang manonood"], "correct_answer": "Tumutulong maunawaan at mahikayat ang manonood" },
+          { "question": "Alin ang halimbawa ng poster na may elementong biswal?", "options": ["May larawan at headline", "Walang laman", "Puting papel lamang", "Wala sa mga ito"], "correct_answer": "May larawan at headline" },
+          { "question": "Bakit mahalaga ang pag-unawa sa elementong biswal?", "options": ["Para sa mas mahusay na komunikasyon", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Para sa mas mahusay na komunikasyon" },
+          { "question": "Ano ang isa pang halimbawa ng graphics?", "options": ["Icons", "Salita lamang", "Slogan lamang", "Wala"], "correct_answer": "Icons" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 7: The Circulatory System!\n\nLet's learn how blood travels through our body! ❤️\n\n## ❤️ Parts of the Circulatory System\n- **Heart** — pumps blood throughout the body\n- **Blood** — carries oxygen and nutrients to cells\n- **Blood vessels** — tubes that carry blood (arteries, veins, capillaries)\n\n## 🔄 How It Works\n- The heart pumps blood through arteries to the body, and veins bring it back to the heart.\n\n## 🔍 Why It Matters\n- The circulatory system delivers **oxygen and nutrients** essential for life.\n\nOur hearts work tirelessly to keep us alive! 🌟",
+        "quiz": [
+          { "question": "What pumps blood throughout the body?", "options": ["Heart", "Lungs", "Stomach", "Brain"], "correct_answer": "Heart" },
+          { "question": "What does blood carry?", "options": ["Oxygen and nutrients", "Only water", "Only air", "Nothing important"], "correct_answer": "Oxygen and nutrients" },
+          { "question": "What are blood vessels?", "options": ["Tubes that carry blood", "Parts of the brain", "Parts of the stomach", "Bones"], "correct_answer": "Tubes that carry blood" },
+          { "question": "What carries blood away from the heart?", "options": ["Arteries", "Veins", "Capillaries only", "None"], "correct_answer": "Arteries" },
+          { "question": "What brings blood back to the heart?", "options": ["Veins", "Arteries", "Capillaries only", "None"], "correct_answer": "Veins" },
+          { "question": "Why is the circulatory system important?", "options": ["It delivers oxygen and nutrients essential for life", "It has no purpose", "It only matters for exercise", "It only affects the brain"], "correct_answer": "It delivers oxygen and nutrients essential for life" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 7: Digmaang Pilipino-Amerikano\n\nAlamin natin ang simula ng Digmaang Pilipino-Amerikano! ⚔️\n\n## ⚔️ Simula ng Digmaan\n- Noong Pebrero 4, 1899, sumiklab ang labanan sa pagitan ng mga Pilipino at Amerikano.\n- Naganap ito matapos hindi kilalanin ng Estados Unidos ang kasarinlan ng Pilipinas.\n\n## 🎯 Pakikibaka ng mga Pilipino\n- Gumamit ang mga Pilipino ng **guerrilla warfare** — estratehiyang paglaban sa gubat at kabundukan.\n\n## 🔍 Kahalagahan\n- Ipinakita nito ang matatag na determinasyon ng mga Pilipino kahit sa harap ng mas malakas na kaaway.\n\nMahalagang alalahanin ang pakikibakang ito para sa kalayaan! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan sumiklab ang Digmaang Pilipino-Amerikano?", "options": ["Pebrero 4, 1899", "Hunyo 12, 1898", "Agosto 1896", "Enero 1900"], "correct_answer": "Pebrero 4, 1899" },
+          { "question": "Bakit sumiklab ang digmaan?", "options": ["Hindi kinilala ng US ang kasarinlan ng Pilipinas", "Nagkasundo sila", "Walang dahilan", "Nagkaroon ng kapayapaan"], "correct_answer": "Hindi kinilala ng US ang kasarinlan ng Pilipinas" },
+          { "question": "Anong estratehiya ang ginamit ng mga Pilipino?", "options": ["Guerrilla warfare", "Direktang labanan lamang", "Walang estratehiya", "Kapayapaan lamang"], "correct_answer": "Guerrilla warfare" },
+          { "question": "Ano ang guerrilla warfare?", "options": ["Paglaban sa gubat at kabundukan", "Direktang labanan sa bukas na larangan", "Wala", "Kasunduan"], "correct_answer": "Paglaban sa gubat at kabundukan" },
+          { "question": "Ano ang ipinakita ng pakikibaka ng mga Pilipino?", "options": ["Matatag na determinasyon", "Kawalang-pag-asa", "Kasunduan agad", "Wala"], "correct_answer": "Matatag na determinasyon" },
+          { "question": "Bakit mahalagang alalahanin ang digmaang ito?", "options": ["Ipinapakita nito ang pakikibaka para sa kalayaan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Ipinapakita nito ang pakikibaka para sa kalayaan" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Term Review — Cloud Storage!\n\nBalikan natin ang natutunan tungkol sa cloud storage! ☁️\n\n## ☁️ Buod ng Natutunan\n- **Web conferencing, online forms, at cloud storage** — natutunan natin ang tatlong makabagong kasangkapan.\n\n## 🔒 Kaligtasan Online\n- Palaging isaalang-alang ang **privacy at responsibilidad** sa paggamit ng mga tool na ito.\n\n## 🎯 Pagsasabuhay\n- Gamitin ang natutunan sa totoong buhay — halimbawa, pag-uupload ng proyekto sa cloud.\n\nMahusay na termino ng pagkatuto tungkol sa online tools! 🌟",
+        "quiz": [
+          { "question": "Anong tatlong kasangkapan ang natutunan natin ngayong term?", "options": ["Web conferencing, online forms, cloud storage", "Wala", "Isang kasangkapan lamang", "Walang natutunan"], "correct_answer": "Web conferencing, online forms, cloud storage" },
+          { "question": "Ano ang dapat isaalang-alang sa paggamit ng mga online tool?", "options": ["Privacy at responsibilidad", "Wala", "Bilis lamang", "Kulay lamang"], "correct_answer": "Privacy at responsibilidad" },
+          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-uupload ng proyekto sa cloud", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-uupload ng proyekto sa cloud" },
+          { "question": "Bakit mahalaga ang mga online tool na ito?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" },
+          { "question": "Ano ang mahalaga sa web conferencing?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Wala", "Kulay lamang"], "correct_answer": "Kaligtasan at responsibilidad" },
+          { "question": "Ano ang mahalaga sa online forms?", "options": ["Data ethics", "Walang mahalaga", "Kulay lamang", "Wala"], "correct_answer": "Data ethics" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💪 MAPEH — Week 7: Applying Wellness Concepts!\n\nLet's apply what we've learned about holistic wellness! 🌈\n\n## 🌈 Applying Wellness in Daily Life\n- Create a **personal wellness plan** covering physical, emotional, and social health.\n\n## 🏃 Physical Activity Connection\n- Regular physical activity supports **multiple dimensions** of wellness at once.\n\n## 🔍 Reflection\n- Which dimension of wellness do you need to focus on more?\n\nTrue wellness is a lifelong journey of balance! 🌟",
+        "quiz": [
+          { "question": "What should a personal wellness plan cover?", "options": ["Physical, emotional, and social health", "Only physical health", "Only grades", "Nothing important"], "correct_answer": "Physical, emotional, and social health" },
+          { "question": "What does regular physical activity support?", "options": ["Multiple dimensions of wellness", "Only muscles", "Nothing", "Only sleep"], "correct_answer": "Multiple dimensions of wellness" },
+          { "question": "What is wellness described as?", "options": ["A lifelong journey of balance", "A one-time event", "Something that never changes", "Only for athletes"], "correct_answer": "A lifelong journey of balance" },
+          { "question": "Why reflect on which wellness dimension needs focus?", "options": ["To improve overall balance", "It's not useful", "To ignore weaknesses", "To copy others"], "correct_answer": "To improve overall balance" },
+          { "question": "What connects physical activity to wellness?", "options": ["It benefits body, mind, and mood together", "It has no connection", "Only physical benefits exist", "It only affects sleep"], "correct_answer": "It benefits body, mind, and mood together" },
+          { "question": "What is the goal of applying wellness concepts?", "options": ["Living a balanced, healthy life", "Getting perfect grades only", "Winning competitions only", "None of these"], "correct_answer": "Living a balanced, healthy life" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 7: Kaligtasan sa Pag-aalaga ng Isda!\n\nAlamin natin ang mga panuntunang pangkaligtasan sa fish raising! 🛡️\n\n## 🛡️ Mga Panuntunang Pangkaligtasan\n- Gumamit ng **guwantes** kapag humahawak ng isda o kemikal.\n- Maging maingat sa paggamit ng mga kasangkapan tulad ng lambat at aerator.\n\n## 🔍 Wastong Paghawak ng Isda\n- Iwasan ang **labis na pagpisil** sa isda para hindi masaktan ito.\n\n## 💧 Kalinisan ng Tubig\n- Regular na suriin ang **kalidad ng tubig** para sa kaligtasan ng isda.\n\nMahalaga ang kaligtasan sa bawat hakbang ng fish raising! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat isuot kapag humahawak ng isda o kemikal?", "options": ["Guwantes", "Alahas", "Sapatos na de-takong", "Walang kailangan"], "correct_answer": "Guwantes" },
+          { "question": "Ano ang dapat iwasan sa paghawak ng isda?", "options": ["Labis na pagpisil", "Malumanay na paghawak", "Wala", "Pag-alaga rito"], "correct_answer": "Labis na pagpisil" },
+          { "question": "Ano ang dapat regular na suriin?", "options": ["Kalidad ng tubig", "Kulay ng damit", "Uri ng pagkain", "Wala"], "correct_answer": "Kalidad ng tubig" },
+          { "question": "Bakit mahalaga ang kaligtasan sa fish raising?", "options": ["Iniingatan nito ang tao at isda", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang tao at isda" },
+          { "question": "Ano ang halimbawa ng kasangkapan sa fish raising?", "options": ["Lambat at aerator", "Kutsara at tinidor", "Payong", "Sapatos"], "correct_answer": "Lambat at aerator" },
+          { "question": "Ano ang epekto ng labis na pagpisil sa isda?", "options": ["Masasaktan ito", "Walang epekto", "Lalakas ito", "Lalaki ito"], "correct_answer": "Masasaktan ito" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 7: Pagkilala sa mga Pilipinong May Kontribusyon\n\nAlamin natin ang mga Pilipinong may mahalagang ambag sa bansa! 🌟\n\n## 🌟 Mga Pilipinong May Kontribusyon\n- Maraming Pilipino — **indibidwal, grupo, o organisasyon** — ang nag-ambag sa pag-unlad ng bansa.\n- **Halimbawa:** mga manggagawang pangkalusugan, guro, at siyentipiko.\n\n## 💛 Pagpapasalamat\n- Ipahayag ang **pasasalamat** sa kanilang mga ambag.\n\n## 🔍 Aral\n- Ang bawat isa, kahit maliit ang ambag, ay may mahalagang papel sa bansa.\n\nMagpasalamat sa mga Pilipinong nag-aambag sa ating bansa! 🌟",
+        "quiz": [
+          { "question": "Sino ang may kontribusyon sa bansa?", "options": ["Indibidwal, grupo, o organisasyon", "Walang sinuman", "Estranghero lamang", "Wala"], "correct_answer": "Indibidwal, grupo, o organisasyon" },
+          { "question": "Alin ang halimbawa ng may kontribusyon sa bansa?", "options": ["Manggagawang pangkalusugan", "Walang halimbawa", "Bata lamang", "Wala"], "correct_answer": "Manggagawang pangkalusugan" },
+          { "question": "Ano ang dapat ipahayag sa mga nag-ambag?", "options": ["Pasasalamat", "Kawalang-interes", "Kasinungalingan", "Wala"], "correct_answer": "Pasasalamat" },
+          { "question": "Ano ang aral tungkol sa kontribusyon?", "options": ["Kahit maliit na ambag ay mahalaga", "Isang tao lamang ang mahalaga", "Walang mahalaga", "Wala"], "correct_answer": "Kahit maliit na ambag ay mahalaga" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapagpasalamat", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapagpasalamat" },
+          { "question": "Bakit mahalagang kilalanin ang mga Pilipinong nag-ambag?", "options": ["Nagpapakita ito ng pasasalamat sa kanilang gawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapakita ito ng pasasalamat sa kanilang gawa" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of order of adverbs!\n\n- Order: **Manner, Place, Frequency, Time, Purpose**\n\nGreat polished writing! ⭐",
+        "quiz": [
+          { "question": "What is the correct order of adverbs?", "options": ["Manner, Place, Frequency, Time, Purpose", "Time, Place, Manner", "Random order", "Purpose, Manner, Time"], "correct_answer": "Manner, Place, Frequency, Time, Purpose" },
+          { "question": "In \"at the festival,\" what type of adverb phrase is this?", "options": ["Place", "Manner", "Frequency", "Time"], "correct_answer": "Place" },
+          { "question": "Why does adverb order matter?", "options": ["It makes sentences clear and natural-sounding", "It has no effect", "It confuses readers", "It changes the meaning randomly"], "correct_answer": "It makes sentences clear and natural-sounding" },
+          { "question": "Arrange correctly: quickly / in the plaza / yesterday", "options": ["He performed quickly in the plaza yesterday.", "He performed yesterday quickly in the plaza.", "In the plaza he performed yesterday quickly.", "Yesterday in the plaza quickly he performed."], "correct_answer": "He performed quickly in the plaza yesterday." },
+          { "question": "What comes last in the adverb order?", "options": ["Purpose", "Manner", "Place", "Frequency"], "correct_answer": "Purpose" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of multiplying fractions!\n\n- 2/3 × 3/4 = **1/2**\n- Convert mixed numbers to improper fractions first\n\nGreat fraction multiplication! 🌟",
+        "quiz": [
+          { "question": "What is 2/3 × 3/4?", "options": ["1/2", "6/7", "5/12", "1/4"], "correct_answer": "1/2" },
+          { "question": "What is the first step to multiply mixed numbers?", "options": ["Convert to improper fractions", "Add them", "Subtract them", "Round them"], "correct_answer": "Convert to improper fractions" },
+          { "question": "How do you multiply two fractions?", "options": ["Multiply numerators, then denominators", "Add numerators and denominators", "Only multiply denominators", "Only multiply numerators"], "correct_answer": "Multiply numerators, then denominators" },
+          { "question": "What is 1/2 × 1/2?", "options": ["1/4", "1/2", "2/4 unsimplified", "1"], "correct_answer": "1/4" },
+          { "question": "What is 1½ × 2?", "options": ["3", "2½", "3½", "2"], "correct_answer": "3" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Text at graphics** — mga elementong biswal sa multimedia\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang halimbawa ng text element sa multimedia?", "options": ["Headlines", "Larawan lamang", "Tunog lamang", "Kulay lamang"], "correct_answer": "Headlines" },
+          { "question": "Ano ang halimbawa ng graphics?", "options": ["Still images", "Headlines lamang", "Salita lamang", "Wala"], "correct_answer": "Still images" },
+          { "question": "Ano ang layunin ng elementong biswal?", "options": ["Tumutulong maunawaan at mahikayat ang manonood", "Walang layunin", "Para lang gumanda", "Para hirapan ang manonood"], "correct_answer": "Tumutulong maunawaan at mahikayat ang manonood" },
+          { "question": "Bakit mahalaga ang pag-unawa sa elementong biswal?", "options": ["Para sa mas mahusay na komunikasyon", "Walang gamit", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Para sa mas mahusay na komunikasyon" },
+          { "question": "Ano ang isa pang halimbawa ng graphics?", "options": ["Icons", "Salita lamang", "Slogan lamang", "Wala"], "correct_answer": "Icons" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- Digmaang Pilipino-Amerikano: **Pebrero 4, 1899**\n- Gumamit ng **guerrilla warfare** ang mga Pilipino\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Kailan sumiklab ang Digmaang Pilipino-Amerikano?", "options": ["Pebrero 4, 1899", "Hunyo 12, 1898", "Agosto 1896", "Enero 1900"], "correct_answer": "Pebrero 4, 1899" },
+          { "question": "Bakit sumiklab ang digmaan?", "options": ["Hindi kinilala ng US ang kasarinlan ng Pilipinas", "Nagkasundo sila", "Walang dahilan", "Nagkaroon ng kapayapaan"], "correct_answer": "Hindi kinilala ng US ang kasarinlan ng Pilipinas" },
+          { "question": "Anong estratehiya ang ginamit ng mga Pilipino?", "options": ["Guerrilla warfare", "Direktang labanan lamang", "Walang estratehiya", "Kapayapaan lamang"], "correct_answer": "Guerrilla warfare" },
+          { "question": "Ano ang guerrilla warfare?", "options": ["Paglaban sa gubat at kabundukan", "Direktang labanan sa bukas na larangan", "Wala", "Kasunduan"], "correct_answer": "Paglaban sa gubat at kabundukan" },
+          { "question": "Ano ang ipinakita ng pakikibaka ng mga Pilipino?", "options": ["Matatag na determinasyon", "Kawalang-pag-asa", "Kasunduan agad", "Wala"], "correct_answer": "Matatag na determinasyon" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: **web conferencing, online forms, cloud storage**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Anong tatlong kasangkapan ang natutunan natin ngayong term?", "options": ["Web conferencing, online forms, cloud storage", "Wala", "Isang kasangkapan lamang", "Walang natutunan"], "correct_answer": "Web conferencing, online forms, cloud storage" },
+          { "question": "Ano ang dapat isaalang-alang sa paggamit ng mga online tool?", "options": ["Privacy at responsibilidad", "Wala", "Bilis lamang", "Kulay lamang"], "correct_answer": "Privacy at responsibilidad" },
+          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-uupload ng proyekto sa cloud", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-uupload ng proyekto sa cloud" },
+          { "question": "Bakit mahalaga ang mga online tool na ito?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" },
+          { "question": "Ano ang mahalaga sa online forms?", "options": ["Data ethics", "Walang mahalaga", "Kulay lamang", "Wala"], "correct_answer": "Data ethics" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Heart, blood, blood vessels** — circulatory system\n- **Arteries** = away from heart | **Veins** = back to heart\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What pumps blood throughout the body?", "options": ["Heart", "Lungs", "Stomach", "Brain"], "correct_answer": "Heart" },
+          { "question": "What does blood carry?", "options": ["Oxygen and nutrients", "Only water", "Only air", "Nothing important"], "correct_answer": "Oxygen and nutrients" },
+          { "question": "What carries blood away from the heart?", "options": ["Arteries", "Veins", "Capillaries only", "None"], "correct_answer": "Arteries" },
+          { "question": "What brings blood back to the heart?", "options": ["Veins", "Arteries", "Capillaries only", "None"], "correct_answer": "Veins" },
+          { "question": "Why is the circulatory system important?", "options": ["It delivers oxygen and nutrients essential for life", "It has no purpose", "It only matters for exercise", "It only affects the brain"], "correct_answer": "It delivers oxygen and nutrients essential for life" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💪 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Wellness plan covers **physical, emotional, social health**\n- Wellness = **lifelong journey of balance**\n\nGreat wellness application! 🌟",
+        "quiz": [
+          { "question": "What should a personal wellness plan cover?", "options": ["Physical, emotional, and social health", "Only physical health", "Only grades", "Nothing important"], "correct_answer": "Physical, emotional, and social health" },
+          { "question": "What does regular physical activity support?", "options": ["Multiple dimensions of wellness", "Only muscles", "Nothing", "Only sleep"], "correct_answer": "Multiple dimensions of wellness" },
+          { "question": "What is wellness described as?", "options": ["A lifelong journey of balance", "A one-time event", "Something that never changes", "Only for athletes"], "correct_answer": "A lifelong journey of balance" },
+          { "question": "What connects physical activity to wellness?", "options": ["It benefits body, mind, and mood together", "It has no connection", "Only physical benefits exist", "It only affects sleep"], "correct_answer": "It benefits body, mind, and mood together" },
+          { "question": "What is the goal of applying wellness concepts?", "options": ["Living a balanced, healthy life", "Getting perfect grades only", "Winning competitions only", "None of these"], "correct_answer": "Living a balanced, healthy life" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- Magsuot ng **guwantes** sa paghawak ng isda\n- Suriin ang **kalidad ng tubig** regular\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat isuot kapag humahawak ng isda o kemikal?", "options": ["Guwantes", "Alahas", "Sapatos na de-takong", "Walang kailangan"], "correct_answer": "Guwantes" },
+          { "question": "Ano ang dapat iwasan sa paghawak ng isda?", "options": ["Labis na pagpisil", "Malumanay na paghawak", "Wala", "Pag-alaga rito"], "correct_answer": "Labis na pagpisil" },
+          { "question": "Ano ang dapat regular na suriin?", "options": ["Kalidad ng tubig", "Kulay ng damit", "Uri ng pagkain", "Wala"], "correct_answer": "Kalidad ng tubig" },
+          { "question": "Bakit mahalaga ang kaligtasan sa fish raising?", "options": ["Iniingatan nito ang tao at isda", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang tao at isda" },
+          { "question": "Ano ang epekto ng labis na pagpisil sa isda?", "options": ["Masasaktan ito", "Walang epekto", "Lalakas ito", "Lalaki ito"], "correct_answer": "Masasaktan ito" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Maraming Pilipino ang nag-ambag sa bansa\n- Ipahayag ang pasasalamat sa kanila\n\nMagpasalamat sa mga nag-aambag! 🌟",
+        "quiz": [
+          { "question": "Sino ang may kontribusyon sa bansa?", "options": ["Indibidwal, grupo, o organisasyon", "Walang sinuman", "Estranghero lamang", "Wala"], "correct_answer": "Indibidwal, grupo, o organisasyon" },
+          { "question": "Alin ang halimbawa ng may kontribusyon sa bansa?", "options": ["Manggagawang pangkalusugan", "Walang halimbawa", "Bata lamang", "Wala"], "correct_answer": "Manggagawang pangkalusugan" },
+          { "question": "Ano ang dapat ipahayag sa mga nag-ambag?", "options": ["Pasasalamat", "Kawalang-interes", "Kasinungalingan", "Wala"], "correct_answer": "Pasasalamat" },
+          { "question": "Ano ang aral tungkol sa kontribusyon?", "options": ["Kahit maliit na ambag ay mahalaga", "Isang tao lamang ang mahalaga", "Walang mahalaga", "Wala"], "correct_answer": "Kahit maliit na ambag ay mahalaga" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Mapagpasalamat", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Mapagpasalamat" }
+        ]
+      }
+    }
+  }
+}

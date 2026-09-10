@@ -1,0 +1,205 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-07-12",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 4: Mealtime and Birthday Vocabulary!\n\nLet's deepen our vocabulary about mealtimes and celebrations! 🍽️\n\n## 🍽️ More Mealtime Words\n- **Appetizer, main course, dessert** — parts of a meal, served in order\n- **Host, guest** — people at a gathering\n\n## 🎂 More Birthday Words\n- **Souvenir, program, emcee** — parts of a Filipino birthday celebration\n\n## 🔍 Using New Words in Sentences\n- **Example:** *\"The host served the main course before dessert.\"*\n\nExpanding our vocabulary helps us describe events clearly! 🌟",
+        "quiz": [
+          { "question": "Which word names the sweet food served at the end of a meal?", "options": ["Dessert", "Appetizer", "Host", "Guest"], "correct_answer": "Dessert" },
+          { "question": "Which word names the person who welcomes guests?", "options": ["Host", "Guest", "Dessert", "Souvenir"], "correct_answer": "Host" },
+          { "question": "What is a souvenir at a birthday party?", "options": ["A small gift for guests to take home", "The main food", "The cake", "The music"], "correct_answer": "A small gift for guests to take home" },
+          { "question": "Who is the emcee at a celebration?", "options": ["The person who hosts and guides the program", "The main guest", "The cook", "The photographer"], "correct_answer": "The person who hosts and guides the program" },
+          { "question": "Which word names someone invited to an event?", "options": ["Guest", "Host", "Emcee", "Dessert"], "correct_answer": "Guest" },
+          { "question": "In what order is a meal usually served?", "options": ["Appetizer, main course, dessert", "Dessert, appetizer, main course", "Random order", "Main course only"], "correct_answer": "Appetizer, main course, dessert" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 4: Reading and Writing Numbers to 1,000,000!\n\nLet's practice reading and writing really big numbers! 🔢\n\n## ✍️ Reading and Writing Big Numbers\n- **Numeral:** 458,209\n- **Words:** *four hundred fifty-eight thousand, two hundred nine*\n\n## 🔢 Building Numbers\n- We build big numbers from **periods**: ones, thousands, and so on.\n- **Example:** 3 hundred thousands + 4 ten thousands + 5 thousands = **345,000**\n\n## 🔍 Practice\n- Try writing 672,015 in words: **six hundred seventy-two thousand, fifteen**\n\nGreat progress reading and writing big numbers! 🌟",
+        "quiz": [
+          { "question": "How do you write 458,209 in words?", "options": ["Four hundred fifty-eight thousand, two hundred nine", "Forty-five thousand eight hundred", "Four hundred fifty-eight", "Four million"], "correct_answer": "Four hundred fifty-eight thousand, two hundred nine" },
+          { "question": "What is 3 hundred thousands + 4 ten thousands + 5 thousands?", "options": ["345,000", "354,000", "300,405", "34,500"], "correct_answer": "345,000" },
+          { "question": "How do you write 672,015 in words?", "options": ["Six hundred seventy-two thousand, fifteen", "Sixty-seven thousand two hundred", "Six hundred seventy-two", "Six million"], "correct_answer": "Six hundred seventy-two thousand, fifteen" },
+          { "question": "What do we call the groups of three digits in a big number?", "options": ["Periods", "Angles", "Fractions", "Decimals"], "correct_answer": "Periods" },
+          { "question": "Which numeral matches \"two hundred thousand\"?", "options": ["200,000", "20,000", "2,000,000", "2,000"], "correct_answer": "200,000" },
+          { "question": "What is the numeral for \"one hundred thousand, fifty\"?", "options": ["100,050", "100,500", "10,050", "1,000,050"], "correct_answer": "100,050" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 4: Salitang Dinaglat at Pananda\n\nAlamin natin ang salitang dinaglat at mga pananda sa teksto! 📖\n\n## 🏷️ Salitang Dinaglat\n- Tumutukoy ito sa ngalan ng tao, bagay, hayop, lugar, o pangyayari.\n- **Halimbawa:** *guro* (tao), *simbahan* (lugar), *kasal* (pangyayari)\n\n## 🔗 Pananda sa Teksto\n- **Hudyat ng pag-iisa-isa** — una, pangalawa, halimbawa\n- **Hudyat ng pagsusunod-sunod** — susunod, pagkatapos, sa huli\n\n## 🔍 Halimbawa sa Pangungusap\n- *\"Una, dumating ang mga bisita. Pagkatapos, kumain silang lahat.\"*\n\nMahalaga ang mga panandang ito para sa malinaw na pagkukwento! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang dinaglat?", "options": ["Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari", "Salitang kilos lamang", "Salitang pananong lamang", "Walang kahulugan"], "correct_answer": "Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari" },
+          { "question": "Alin ang halimbawa ng salitang dinaglat na tumutukoy sa pangyayari?", "options": ["Kasal", "Guro", "Simbahan", "Wala"], "correct_answer": "Kasal" },
+          { "question": "Ano ang hudyat ng pag-iisa-isa?", "options": ["Una, pangalawa, halimbawa", "Bahagyang mangyayari", "Wala", "Salitang kilos"], "correct_answer": "Una, pangalawa, halimbawa" },
+          { "question": "Ano ang hudyat ng pagsusunod-sunod?", "options": ["Susunod, pagkatapos, sa huli", "Kulay ng damit", "Bilang lamang", "Walang gamit"], "correct_answer": "Susunod, pagkatapos, sa huli" },
+          { "question": "Bakit mahalaga ang mga panandang ito?", "options": ["Para sa malinaw na pagkukwento", "Walang gamit", "Para lang sa laro", "Para hirapan ang mambabasa"], "correct_answer": "Para sa malinaw na pagkukwento" },
+          { "question": "Alin ang halimbawa ng salitang dinaglat na tumutukoy sa lugar?", "options": ["Simbahan", "Kasal", "Guro", "Wala"], "correct_answer": "Simbahan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 4: Reviewing Chemical Properties!\n\nLet's connect what we've learned about materials! 🧪\n\n## 🔍 Review: Chemical Properties\n- **Burnable, reactive, biodegradable** — properties that describe how materials change.\n\n## 🏠 Real-Life Application\n- At home, we see chemical changes daily: cooking food, rusting metal, or ripening fruit.\n\n## 🛡️ Safety Reminder\n- Always ask an adult before handling materials that might be reactive, like cleaning chemicals.\n\n## 🔬 Practice\n- Identify one chemical change you saw at home this week!\n\nGreat scientific thinking about everyday changes! 🌟",
+        "quiz": [
+          { "question": "Which of these is a chemical change?", "options": ["Rusting metal", "Folding paper", "Cutting cloth", "Bending a wire"], "correct_answer": "Rusting metal" },
+          { "question": "What is an example of a chemical change while cooking?", "options": ["Food changing color and texture when heated", "Water staying the same", "Nothing changes", "Ice staying frozen"], "correct_answer": "Food changing color and texture when heated" },
+          { "question": "What should you do before handling reactive materials?", "options": ["Ask an adult", "Handle them alone", "Ignore safety", "Mix them randomly"], "correct_answer": "Ask an adult" },
+          { "question": "Is ripening fruit a chemical change?", "options": ["Yes", "No", "Only sometimes", "Never"], "correct_answer": "Yes" },
+          { "question": "Which property means a material can catch fire?", "options": ["Burnable", "Shiny", "Stretchable", "Hard"], "correct_answer": "Burnable" },
+          { "question": "Why is it important to identify chemical changes at home?", "options": ["It helps us understand science in daily life", "It has no purpose", "It only matters in a lab", "It's not useful"], "correct_answer": "It helps us understand science in daily life" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Linggo 4: Paghahambing ng mga Rehiyon\n\nAlamin natin kung paano naiiba ang mga rehiyon ng Pilipinas! 🗾\n\n## 🗾 Mga Rehiyon ng Pilipinas\n- May **17 rehiyon** ang Pilipinas, bawat isa ay may sariling katangian.\n\n## 🔍 Paghahambing ng mga Rehiyon\n- Naiiba ang mga rehiyon sa **heograpiya, kultura, at gawaing pangkabuhayan**.\n- **Halimbawa:** Mas maraming palayan sa Gitnang Luzon, habang maraming isda sa mga rehiyong may dagat.\n\n## 🔍 Bakit Ito Mahalaga?\n- Ang pag-unawa sa pagkakaiba ng mga rehiyon ay tumutulong sa atin maunawaan ang pagkakaisa sa gitna ng pagkakaiba.\n\nMayaman ang ating bansa sa pagkakaiba-iba! 🇵🇭",
+        "quiz": [
+          { "question": "Ilang rehiyon ang mayroon ang Pilipinas?", "options": ["17", "5", "50", "100"], "correct_answer": "17" },
+          { "question": "Saan mas maraming palayan?", "options": ["Gitnang Luzon", "Isang isla lamang", "Walang palayan", "Wala sa mga ito"], "correct_answer": "Gitnang Luzon" },
+          { "question": "Sa ano naiiba ang mga rehiyon?", "options": ["Heograpiya, kultura, at gawaing pangkabuhayan", "Wala silang pagkakaiba", "Kulay lamang", "Bilang lamang"], "correct_answer": "Heograpiya, kultura, at gawaing pangkabuhayan" },
+          { "question": "Ano ang tumutulong sa atin maunawaan ang pagkakaisa?", "options": ["Pag-unawa sa pagkakaiba ng mga rehiyon", "Pagkalimot sa mga ito", "Pag-iwas sa mga ito", "Wala sa mga ito"], "correct_answer": "Pag-unawa sa pagkakaiba ng mga rehiyon" },
+          { "question": "Saan karaniwang mas maraming isda?", "options": ["Mga rehiyong may dagat", "Mga rehiyong walang tubig", "Mga bundok lamang", "Wala sa mga ito"], "correct_answer": "Mga rehiyong may dagat" },
+          { "question": "Bakit mayaman ang Pilipinas?", "options": ["Dahil sa pagkakaiba-iba ng mga rehiyon", "Walang dahilan", "Dahil sa iisang rehiyon lamang", "Wala itong dahilan"], "correct_answer": "Dahil sa pagkakaiba-iba ng mga rehiyon" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Pag-aalaga sa Computer Equipment!\n\nAlamin natin kung paano alagaan ang ating computer equipment! 🧰\n\n## 🧰 Pangangalaga sa Kagamitan\n- Takpan ang keyboard kapag hindi ginagamit upang maiwasan ang alikabok.\n- Huwag ilapat ang pagkain o inumin malapit sa kagamitan.\n\n## 🔌 Wastong Paghawak ng Cables\n- Iwasan ang pagbaluktot o paghila ng cable nang malakas.\n\n## 🔍 Regular na Paglilinis\n- Punasan ang screen gamit ang malinis, tuyong tela.\n\nMahalaga ang pag-aalaga sa kagamitan para tumagal ito! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa keyboard kapag hindi ginagamit?", "options": ["Takpan ito", "Basain ito", "Hayaang mabuksan", "Wala"], "correct_answer": "Takpan ito" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Walang dahilan", "Para masarap"], "correct_answer": "Para hindi masira ang kagamitan" },
+          { "question": "Paano dapat hawakan ang cable?", "options": ["Iwasan ang pagbaluktot o paghila", "Hilahin nang malakas", "Ikuyom", "Walang paraan"], "correct_answer": "Iwasan ang pagbaluktot o paghila" },
+          { "question": "Ano ang gamitin sa paglilinis ng screen?", "options": ["Malinis at tuyong tela", "Basang tuwalya", "Kutsara", "Walang gamitin"], "correct_answer": "Malinis at tuyong tela" },
+          { "question": "Bakit mahalaga ang pag-aalaga sa kagamitan?", "options": ["Para tumagal ito", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para tumagal ito" },
+          { "question": "Ano pang paraan ng pag-aalaga sa computer?", "options": ["Regular na paglilinis", "Pagsira dito", "Pag-iwan sa ulan", "Wala"], "correct_answer": "Regular na paglilinis" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 4: Local Visual Arts Practices!\n\nLet's explore visual art forms from our own province! 🎨\n\n## 🎨 Local Visual Arts\n- Different provinces have unique art forms, like **weaving, pottery, and wood carving**.\n\n## 🖼️ Materials Used\n- Local artists use materials from nature: **bamboo, clay, shells, and natural dyes**.\n\n## 🔍 Appreciating Local Art\n- Observing local art helps us understand our **cultural identity**.\n\n## 💡 Practice\n- Look for an art form unique to your own province or region!\n\nOur local arts are treasures of Filipino culture! 🌟",
+        "quiz": [
+          { "question": "Which is a local Filipino art form?", "options": ["Weaving", "Only foreign painting", "Only digital art", "None of these"], "correct_answer": "Weaving" },
+          { "question": "What material might local artists use?", "options": ["Bamboo", "Only plastic", "Only steel", "Only glass"], "correct_answer": "Bamboo" },
+          { "question": "What does observing local art help us understand?", "options": ["Our cultural identity", "Nothing important", "Only foreign culture", "Random facts"], "correct_answer": "Our cultural identity" },
+          { "question": "Which is another example of local visual art?", "options": ["Pottery", "Only video games", "Only movies", "None of these"], "correct_answer": "Pottery" },
+          { "question": "Where do natural dyes come from?", "options": ["Nature", "Factories only", "Plastic", "Metal"], "correct_answer": "Nature" },
+          { "question": "Why are local arts considered treasures?", "options": ["They are part of Filipino culture", "They have no value", "They are foreign", "They are unimportant"], "correct_answer": "They are part of Filipino culture" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 EPP (AFA) — Week 4: Alternatibong Paraan ng Paghahalaman!\n\nAlamin natin ang mga makabagong paraan ng pagtatanim! 🪴\n\n## 🪴 Alternatibong Paraan\n- **Urban gardening** — pagtatanim sa maliit na espasyo sa lungsod\n- **Vertical gardening** — pagtatanim paakyat, gamit ang paso na nakapatong-patong\n- **Hydroponics** — pagtatanim gamit ang tubig na may sustansya, walang lupa\n\n## 🔍 Bakit Kailangan ang mga Ito?\n- Nakatutulong ang mga alternatibong paraan sa mga taong **limitado ang espasyo**.\n\n## 🌟 Halimbawa\n- Isang pamilya sa condo ay maaaring magtanim ng gulay gamit ang **dish gardening**.\n\nMaraming paraan para magtanim kahit maliit ang espasyo! 🌟",
+        "quiz": [
+          { "question": "Ano ang urban gardening?", "options": ["Pagtatanim sa maliit na espasyo sa lungsod", "Pagtatanim sa malawak na bukid lamang", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Pagtatanim sa maliit na espasyo sa lungsod" },
+          { "question": "Ano ang hydroponics?", "options": ["Pagtatanim gamit ang tubig na may sustansya, walang lupa", "Pagtatanim gamit ang lupa lamang", "Isang uri ng hayop", "Isang batas"], "correct_answer": "Pagtatanim gamit ang tubig na may sustansya, walang lupa" },
+          { "question": "Ano ang vertical gardening?", "options": ["Pagtatanim paakyat gamit ang paso na nakapatong-patong", "Pagtatanim sa ilalim ng lupa", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Pagtatanim paakyat gamit ang paso na nakapatong-patong" },
+          { "question": "Sino ang nakikinabang sa alternatibong paraan ng paghahalaman?", "options": ["Mga taong limitado ang espasyo", "Walang nakikinabang", "Mga taong may malawak na bukid lamang", "Wala sa mga ito"], "correct_answer": "Mga taong limitado ang espasyo" },
+          { "question": "Ano ang halimbawa ng alternatibong pagtatanim sa condo?", "options": ["Dish gardening", "Malawak na bukid", "Pangingisda", "Wala"], "correct_answer": "Dish gardening" },
+          { "question": "Bakit kailangan ang mga alternatibong paraan ng pagtatanim?", "options": ["Para may magtanim kahit maliit ang espasyo", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para may magtanim kahit maliit ang espasyo" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 4: Higit Pang Pakikitungo sa Pamilya\n\nPatuloy nating alamin ang mabuting pakikitungo sa pamilya! 🏠\n\n## 🤝 Pagpapakita ng Pagmamahal sa Pamilya\n- Tumulong sa mga gawaing pambahay nang **kusang-loob**.\n- Ipahayag ang **pasasalamat** sa mga ginagawa ng pamilya para sa iyo.\n\n## 💛 Pakikinig at Pag-unawa\n- Unawain ang **pananaw** ng bawat kasapi ng pamilya, kahit magkaiba sa iyo.\n\n## 🔍 Bakit Ito Mahalaga?\n- Pinalalalim nito ang ugnayan sa loob ng pamilya.\n\nMagpakita ng pagmamahal sa iyong pamilya araw-araw! 🌟",
+        "quiz": [
+          { "question": "Paano ka makatutulong sa mga gawaing pambahay?", "options": ["Nang kusang-loob", "Kapag pinipilit lamang", "Hindi na kailangan", "Sa pag-iwas"], "correct_answer": "Nang kusang-loob" },
+          { "question": "Ano ang dapat ipahayag sa pamilya?", "options": ["Pasasalamat", "Kawalang-interes", "Kasinungalingan", "Kayabangan"], "correct_answer": "Pasasalamat" },
+          { "question": "Ano ang dapat unawain sa bawat kasapi ng pamilya?", "options": ["Ang kanilang pananaw", "Wala", "Ang kanilang mga bagay lamang", "Ang kanilang mga gamit lamang"], "correct_answer": "Ang kanilang pananaw" },
+          { "question": "Ano ang pinalalalim ng mabuting pakikitungo sa pamilya?", "options": ["Ugnayan sa loob ng pamilya", "Walang epekto", "Kalayuan sa pamilya", "Kawalang-interes"], "correct_answer": "Ugnayan sa loob ng pamilya" },
+          { "question": "Ano ang dapat gawin kahit magkaiba ang pananaw ng kapatid?", "options": ["Unawain pa rin ito", "Balewalain ito", "Away agad", "Umiwas sa kapatid"], "correct_answer": "Unawain pa rin ito" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Matapat", "Pagtitipid", "Kasipagan", "Kagalingan"], "correct_answer": "Matapat" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of mealtime and birthday vocabulary!\n\n- **Host, guest, dessert, souvenir** — celebration words\n- Meals served in order: appetizer, main course, dessert\n\nGreat vocabulary growth! ⭐",
+        "quiz": [
+          { "question": "Which word names the sweet food served at the end of a meal?", "options": ["Dessert", "Appetizer", "Host", "Guest"], "correct_answer": "Dessert" },
+          { "question": "Which word names the person who welcomes guests?", "options": ["Host", "Guest", "Dessert", "Souvenir"], "correct_answer": "Host" },
+          { "question": "What is a souvenir at a birthday party?", "options": ["A small gift for guests to take home", "The main food", "The cake", "The music"], "correct_answer": "A small gift for guests to take home" },
+          { "question": "Which word names someone invited to an event?", "options": ["Guest", "Host", "Emcee", "Dessert"], "correct_answer": "Guest" },
+          { "question": "In what order is a meal usually served?", "options": ["Appetizer, main course, dessert", "Dessert, appetizer, main course", "Random order", "Main course only"], "correct_answer": "Appetizer, main course, dessert" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of reading and writing big numbers!\n\n- 458,209 = **four hundred fifty-eight thousand, two hundred nine**\n- Numbers are built from **periods**\n\nGreat work with big numbers! 🌟",
+        "quiz": [
+          { "question": "How do you write 458,209 in words?", "options": ["Four hundred fifty-eight thousand, two hundred nine", "Forty-five thousand eight hundred", "Four hundred fifty-eight", "Four million"], "correct_answer": "Four hundred fifty-eight thousand, two hundred nine" },
+          { "question": "What is 3 hundred thousands + 4 ten thousands + 5 thousands?", "options": ["345,000", "354,000", "300,405", "34,500"], "correct_answer": "345,000" },
+          { "question": "What do we call the groups of three digits in a big number?", "options": ["Periods", "Angles", "Fractions", "Decimals"], "correct_answer": "Periods" },
+          { "question": "Which numeral matches \"two hundred thousand\"?", "options": ["200,000", "20,000", "2,000,000", "2,000"], "correct_answer": "200,000" },
+          { "question": "What is the numeral for \"one hundred thousand, fifty\"?", "options": ["100,050", "100,500", "10,050", "1,000,050"], "correct_answer": "100,050" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- **Salitang dinaglat** = ngalan ng tao, bagay, lugar, pangyayari\n- **Pananda**: una, susunod, sa huli\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang salitang dinaglat?", "options": ["Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari", "Salitang kilos lamang", "Salitang pananong lamang", "Walang kahulugan"], "correct_answer": "Tumutukoy sa ngalan ng tao, bagay, hayop, lugar, o pangyayari" },
+          { "question": "Ano ang hudyat ng pag-iisa-isa?", "options": ["Una, pangalawa, halimbawa", "Bahagyang mangyayari", "Wala", "Salitang kilos"], "correct_answer": "Una, pangalawa, halimbawa" },
+          { "question": "Ano ang hudyat ng pagsusunod-sunod?", "options": ["Susunod, pagkatapos, sa huli", "Kulay ng damit", "Bilang lamang", "Walang gamit"], "correct_answer": "Susunod, pagkatapos, sa huli" },
+          { "question": "Bakit mahalaga ang mga panandang ito?", "options": ["Para sa malinaw na pagkukwento", "Walang gamit", "Para lang sa laro", "Para hirapan ang mambabasa"], "correct_answer": "Para sa malinaw na pagkukwento" },
+          { "question": "Alin ang halimbawa ng salitang dinaglat na tumutukoy sa lugar?", "options": ["Simbahan", "Kasal", "Guro", "Wala"], "correct_answer": "Simbahan" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- May **17 rehiyon** ang Pilipinas\n- Naiiba sila sa heograpiya, kultura, at kabuhayan\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ilang rehiyon ang mayroon ang Pilipinas?", "options": ["17", "5", "50", "100"], "correct_answer": "17" },
+          { "question": "Saan mas maraming palayan?", "options": ["Gitnang Luzon", "Isang isla lamang", "Walang palayan", "Wala sa mga ito"], "correct_answer": "Gitnang Luzon" },
+          { "question": "Sa ano naiiba ang mga rehiyon?", "options": ["Heograpiya, kultura, at gawaing pangkabuhayan", "Wala silang pagkakaiba", "Kulay lamang", "Bilang lamang"], "correct_answer": "Heograpiya, kultura, at gawaing pangkabuhayan" },
+          { "question": "Ano ang tumutulong sa atin maunawaan ang pagkakaisa?", "options": ["Pag-unawa sa pagkakaiba ng mga rehiyon", "Pagkalimot sa mga ito", "Pag-iwas sa mga ito", "Wala sa mga ito"], "correct_answer": "Pag-unawa sa pagkakaiba ng mga rehiyon" },
+          { "question": "Bakit mayaman ang Pilipinas?", "options": ["Dahil sa pagkakaiba-iba ng mga rehiyon", "Walang dahilan", "Dahil sa iisang rehiyon lamang", "Wala itong dahilan"], "correct_answer": "Dahil sa pagkakaiba-iba ng mga rehiyon" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Takpan ang keyboard kapag hindi ginagamit\n- Punasan ang screen gamit ang tuyong tela\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin sa keyboard kapag hindi ginagamit?", "options": ["Takpan ito", "Basain ito", "Hayaang mabuksan", "Wala"], "correct_answer": "Takpan ito" },
+          { "question": "Paano dapat hawakan ang cable?", "options": ["Iwasan ang pagbaluktot o paghila", "Hilahin nang malakas", "Ikuyom", "Walang paraan"], "correct_answer": "Iwasan ang pagbaluktot o paghila" },
+          { "question": "Ano ang gamitin sa paglilinis ng screen?", "options": ["Malinis at tuyong tela", "Basang tuwalya", "Kutsara", "Walang gamitin"], "correct_answer": "Malinis at tuyong tela" },
+          { "question": "Bakit mahalaga ang pag-aalaga sa kagamitan?", "options": ["Para tumagal ito", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para tumagal ito" },
+          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Walang dahilan", "Para masarap"], "correct_answer": "Para hindi masira ang kagamitan" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pagkalawang, pagluto** — mga chemical change\n- Humingi ng tulong ng adult para sa reactive materials\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "Which of these is a chemical change?", "options": ["Rusting metal", "Folding paper", "Cutting cloth", "Bending a wire"], "correct_answer": "Rusting metal" },
+          { "question": "What should you do before handling reactive materials?", "options": ["Ask an adult", "Handle them alone", "Ignore safety", "Mix them randomly"], "correct_answer": "Ask an adult" },
+          { "question": "Is ripening fruit a chemical change?", "options": ["Yes", "No", "Only sometimes", "Never"], "correct_answer": "Yes" },
+          { "question": "Which property means a material can catch fire?", "options": ["Burnable", "Shiny", "Stretchable", "Hard"], "correct_answer": "Burnable" },
+          { "question": "Why is it important to identify chemical changes at home?", "options": ["It helps us understand science in daily life", "It has no purpose", "It only matters in a lab", "It's not useful"], "correct_answer": "It helps us understand science in daily life" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Local art forms: **weaving, pottery, wood carving**\n- Materials from nature: **bamboo, clay, shells**\n\nGreat cultural appreciation! 🌟",
+        "quiz": [
+          { "question": "Which is a local Filipino art form?", "options": ["Weaving", "Only foreign painting", "Only digital art", "None of these"], "correct_answer": "Weaving" },
+          { "question": "What material might local artists use?", "options": ["Bamboo", "Only plastic", "Only steel", "Only glass"], "correct_answer": "Bamboo" },
+          { "question": "What does observing local art help us understand?", "options": ["Our cultural identity", "Nothing important", "Only foreign culture", "Random facts"], "correct_answer": "Our cultural identity" },
+          { "question": "Which is another example of local visual art?", "options": ["Pottery", "Only video games", "Only movies", "None of these"], "correct_answer": "Pottery" },
+          { "question": "Why are local arts considered treasures?", "options": ["They are part of Filipino culture", "They have no value", "They are foreign", "They are unimportant"], "correct_answer": "They are part of Filipino culture" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🌱 Biyernes — Lingguhang Pagsasanay: EPP (AFA)\n\nMabilis na balikan!\n\n- **Urban, vertical gardening, hydroponics** — alternatibong pagtatanim\n- Para sa mga taong limitado ang espasyo\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang urban gardening?", "options": ["Pagtatanim sa maliit na espasyo sa lungsod", "Pagtatanim sa malawak na bukid lamang", "Isang uri ng hayop", "Isang kasangkapan"], "correct_answer": "Pagtatanim sa maliit na espasyo sa lungsod" },
+          { "question": "Ano ang hydroponics?", "options": ["Pagtatanim gamit ang tubig na may sustansya, walang lupa", "Pagtatanim gamit ang lupa lamang", "Isang uri ng hayop", "Isang batas"], "correct_answer": "Pagtatanim gamit ang tubig na may sustansya, walang lupa" },
+          { "question": "Sino ang nakikinabang sa alternatibong paraan ng paghahalaman?", "options": ["Mga taong limitado ang espasyo", "Walang nakikinabang", "Mga taong may malawak na bukid lamang", "Wala sa mga ito"], "correct_answer": "Mga taong limitado ang espasyo" },
+          { "question": "Ano ang halimbawa ng alternatibong pagtatanim sa condo?", "options": ["Dish gardening", "Malawak na bukid", "Pangingisda", "Wala"], "correct_answer": "Dish gardening" },
+          { "question": "Bakit kailangan ang mga alternatibong paraan ng pagtatanim?", "options": ["Para may magtanim kahit maliit ang espasyo", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para may magtanim kahit maliit ang espasyo" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Tumulong sa bahay nang **kusang-loob**\n- Ipahayag ang pasasalamat sa pamilya\n\nMahalin ang iyong pamilya! 🌟",
+        "quiz": [
+          { "question": "Paano ka makatutulong sa mga gawaing pambahay?", "options": ["Nang kusang-loob", "Kapag pinipilit lamang", "Hindi na kailangan", "Sa pag-iwas"], "correct_answer": "Nang kusang-loob" },
+          { "question": "Ano ang dapat ipahayag sa pamilya?", "options": ["Pasasalamat", "Kawalang-interes", "Kasinungalingan", "Kayabangan"], "correct_answer": "Pasasalamat" },
+          { "question": "Ano ang dapat unawain sa bawat kasapi ng pamilya?", "options": ["Ang kanilang pananaw", "Wala", "Ang kanilang mga bagay lamang", "Ang kanilang mga gamit lamang"], "correct_answer": "Ang kanilang pananaw" },
+          { "question": "Ano ang pinalalalim ng mabuting pakikitungo sa pamilya?", "options": ["Ugnayan sa loob ng pamilya", "Walang epekto", "Kalayuan sa pamilya", "Kawalang-interes"], "correct_answer": "Ugnayan sa loob ng pamilya" },
+          { "question": "Ano ang dapat gawin kahit magkaiba ang pananaw ng kapatid?", "options": ["Unawain pa rin ito", "Balewalain ito", "Away agad", "Umiwas sa kapatid"], "correct_answer": "Unawain pa rin ito" }
+        ]
+      }
+    }
+  }
+}

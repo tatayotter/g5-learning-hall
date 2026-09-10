@@ -1,0 +1,205 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-08-09",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Week 8: Complements and Compound-Complex Sentences!\n\nLet's build more sophisticated sentences! 📝\n\n## 🧩 Complements\n- A **complement** completes the meaning of a sentence.\n- **Noun complement:** *She became a leader.*\n- **Adjective complement:** *The festival was beautiful.*\n\n## 🔗 Compound-Complex Sentences\n- Combines **2+ independent clauses** with at least **1 dependent clause**.\n- **Example:** *Because the rain stopped, the dancers performed, and the crowd cheered.*\n\n## 🔍 Practice\n- Identify the dependent clause: *\"Although it was late, we stayed, and we enjoyed the show.\"*\n\nComplex sentences let us express connected ideas clearly! 🌟",
+        "quiz": [
+          { "question": "What does a complement do?", "options": ["Completes the meaning of a sentence", "Ends a sentence", "Starts a question", "Nothing important"], "correct_answer": "Completes the meaning of a sentence" },
+          { "question": "\"She became a leader\" uses what type of complement?", "options": ["Noun complement", "Adjective complement", "Verb complement", "No complement"], "correct_answer": "Noun complement" },
+          { "question": "What makes a compound-complex sentence?", "options": ["2+ independent clauses and 1+ dependent clause", "Only one clause", "Only questions", "No clauses"], "correct_answer": "2+ independent clauses and 1+ dependent clause" },
+          { "question": "In \"Although it was late, we stayed, and we enjoyed the show,\" what is the dependent clause?", "options": ["Although it was late", "We stayed", "We enjoyed the show", "None"], "correct_answer": "Although it was late" },
+          { "question": "\"The festival was beautiful\" uses what type of complement?", "options": ["Adjective complement", "Noun complement", "Verb complement", "No complement"], "correct_answer": "Adjective complement" },
+          { "question": "Why do we use complex sentences?", "options": ["To express connected ideas clearly", "To confuse readers", "To make writing shorter", "For no reason"], "correct_answer": "To express connected ideas clearly" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Week 8: Dividing Fractions and Mixed Numbers!\n\nLet's learn to divide fractions using a clever trick! ➗\n\n## ➗ Dividing Fractions\n- **Keep, Change, Flip:** Keep the first fraction, change ÷ to ×, flip the second fraction.\n- **Example:** 2/3 ÷ 1/4 = 2/3 × 4/1 = **8/3 = 2⅔**\n\n## ➗ Dividing Mixed Numbers\n- Convert to improper fractions first, then use Keep, Change, Flip.\n- **Example:** 1½ ÷ ⅓ = 3/2 ÷ 1/3 = 3/2 × 3/1 = **9/2 = 4½**\n\nGreat mastery of fraction division! 🌟",
+        "quiz": [
+          { "question": "What is the rule for dividing fractions?", "options": ["Keep, Change, Flip", "Add, Subtract, Multiply", "Only multiply", "Only add"], "correct_answer": "Keep, Change, Flip" },
+          { "question": "What is 2/3 ÷ 1/4?", "options": ["2⅔", "1½", "3/4", "8/12"], "correct_answer": "2⅔" },
+          { "question": "What should you do first before dividing mixed numbers?", "options": ["Convert to improper fractions", "Add them", "Round them", "Subtract them"], "correct_answer": "Convert to improper fractions" },
+          { "question": "What is 1½ ÷ ⅓?", "options": ["4½", "3½", "5", "2½"], "correct_answer": "4½" },
+          { "question": "In Keep, Change, Flip, what do we change?", "options": ["The operation sign from ÷ to ×", "The first fraction", "Nothing", "The answer"], "correct_answer": "The operation sign from ÷ to ×" },
+          { "question": "What is 1/2 ÷ 1/4?", "options": ["2", "1/8", "1/2", "4"], "correct_answer": "2" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Linggo 8: Pagsusuri sa Lokal na Kultura\n\nAlamin natin kung paano suriin ang kultura sa tekstong multimedia! 🎭\n\n## 🎭 Pagsusuri sa Nilalaman\n- Tingnan kung ang isang tekstong multimedia ay **totoong kumakatawan** sa kulturang Pilipino.\n\n## 🔍 Pagkamakatotohanan ng Teksto\n- Isaalang-alang ang **mapananaligang sanggunian, petsa, at pananaw ng eksperto**.\n\n## 📖 Halimbawa\n- Kapag panonood ng video tungkol sa isang katutubong pagdiriwang, tingnan kung tumpak ang paglalarawan nito.\n\nMahalagang maging matalas na manonood at mambabasa! 🌟",
+        "quiz": [
+          { "question": "Ano ang tinitingnan sa pagsusuri sa nilalaman?", "options": ["Kung totoong kumakatawan sa kulturang Pilipino", "Kulay lamang", "Haba lamang", "Wala"], "correct_answer": "Kung totoong kumakatawan sa kulturang Pilipino" },
+          { "question": "Ano ang isinasaalang-alang sa pagkamakatotohanan ng teksto?", "options": ["Mapananaligang sanggunian at petsa", "Kulay lamang", "Bilang ng salita", "Wala"], "correct_answer": "Mapananaligang sanggunian at petsa" },
+          { "question": "Bakit dapat maging matalas na manonood?", "options": ["Para matukoy ang tumpak na impormasyon", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para matukoy ang tumpak na impormasyon" },
+          { "question": "Ano ang halimbawa ng pagsusuri sa kultura?", "options": ["Pagtingin kung tumpak ang paglalarawan ng pagdiriwang", "Pagbabasa lamang", "Panonood lamang nang walang pagsusuri", "Wala"], "correct_answer": "Pagtingin kung tumpak ang paglalarawan ng pagdiriwang" },
+          { "question": "Ano ang mahalaga sa pananaw ng eksperto?", "options": ["Nagbibigay ito ng katiyakan sa impormasyon", "Walang gamit", "Hindi na kailangan", "Wala"], "correct_answer": "Nagbibigay ito ng katiyakan sa impormasyon" },
+          { "question": "Bakit mahalaga ang pagsusuri sa multimedia?", "options": ["Tumutulong ito maiwasan ang maling impormasyon", "Walang dahilan", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito maiwasan ang maling impormasyon" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Week 8: Plant Reproduction!\n\nLet's learn how plants make more plants! 🌸\n\n## 🌸 Pollination\n- **Pollination** happens when pollen moves from one flower to another, often carried by **bees or wind**.\n\n## 🌱 Seed Production\n- After pollination, plants produce **seeds** that can grow into new plants.\n\n## ✂️ Plant Propagation Methods\n- **Cutting** — growing a new plant from a stem piece\n- **Budding** — attaching a bud to another plant\n- **Layering** — bending a branch to root in soil\n- **Grafting** — joining parts of two different plants\n\nGreat exploration of how plants multiply! 🌟",
+        "quiz": [
+          { "question": "What is pollination?", "options": ["Pollen moving from one flower to another", "Seeds growing underground", "Leaves falling off", "Roots absorbing water"], "correct_answer": "Pollen moving from one flower to another" },
+          { "question": "What carries pollen between flowers?", "options": ["Bees or wind", "Only rain", "Only humans", "Only soil"], "correct_answer": "Bees or wind" },
+          { "question": "What do plants produce after pollination?", "options": ["Seeds", "Only leaves", "Only roots", "Nothing"], "correct_answer": "Seeds" },
+          { "question": "What is cutting as a propagation method?", "options": ["Growing a new plant from a stem piece", "Joining two plants", "Bending a branch", "Attaching a bud"], "correct_answer": "Growing a new plant from a stem piece" },
+          { "question": "What is grafting?", "options": ["Joining parts of two different plants", "Growing from a stem piece", "Bending a branch to root", "Attaching a bud only"], "correct_answer": "Joining parts of two different plants" },
+          { "question": "What is layering?", "options": ["Bending a branch to root in soil", "Joining two plants", "Growing from seed only", "Attaching a bud"], "correct_answer": "Bending a branch to root in soil" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Araling Panlipunan — Linggo 8: Imperyalistang Pamamaraan ng mga Amerikano\n\nAlamin natin ang mga pamamaraang ginamit ng mga Amerikano! 🇺🇸\n\n## 🇺🇸 Mga Pamamaraan\n- **Benevolent Assimilation** — inangkin ng US na sila ay tutulong sa Pilipinas, hindi sasakop.\n- **Edukasyon at Pangkalusugan** — itinatag ang mga paaralan at ospital, ngunit sa ilalim ng kontrol ng Amerikano.\n\n## 🔍 Epekto sa mga Pilipino\n- Kahit may mga benepisyo, nawalan pa rin ng ganap na kalayaan ang mga Pilipino.\n\n## 📖 Pagtutol ng mga Pilipino\n- Patuloy na lumaban ang ilang grupo ng mga Pilipino kahit matapos ang opisyal na katapusan ng digmaan.\n\nMahalagang unawain ang tunay na kahulugan ng imperyalismo! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Benevolent Assimilation?", "options": ["Pag-angkin ng US na tutulong sila, hindi sasakop", "Isang uri ng batas", "Isang uri ng laro", "Wala"], "correct_answer": "Pag-angkin ng US na tutulong sila, hindi sasakop" },
+          { "question": "Ano ang itinatag ng mga Amerikano sa Pilipinas?", "options": ["Mga paaralan at ospital", "Wala", "Simbahan lamang", "Palengke lamang"], "correct_answer": "Mga paaralan at ospital" },
+          { "question": "Sa ilalim ng kontrol nino ang mga paaralan noon?", "options": ["Amerikano", "Espanyol", "Hapones", "Walang kontrol"], "correct_answer": "Amerikano" },
+          { "question": "Ano ang epekto sa mga Pilipino kahit may benepisyo?", "options": ["Nawalan pa rin ng ganap na kalayaan", "Nagkaroon agad ng kalayaan", "Walang epekto", "Naging mas malaya"], "correct_answer": "Nawalan pa rin ng ganap na kalayaan" },
+          { "question": "Ano ang ginawa ng ilang grupo ng mga Pilipino?", "options": ["Patuloy na lumaban", "Sumuko agad", "Wala", "Nagtiwala agad sa US"], "correct_answer": "Patuloy na lumaban" },
+          { "question": "Bakit mahalagang unawain ang imperyalismo?", "options": ["Para maunawaan natin ang tunay na kahulugan nito", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maunawaan natin ang tunay na kahulugan nito" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Pag-upload at Pagsasabuhay ng Kasanayan!\n\nAlamin natin ang pag-upload ng files sa cloud! ⬆️\n\n## ⬆️ Pag-upload ng Files\n- I-drag o piliin ang file para i-upload sa iyong cloud storage account.\n- Bigyan ito ng **malinaw na pangalan** para madaling mahanap.\n\n## 🗂️ Pag-oorganisa\n- Gumawa ng folder ayon sa **paksa o petsa** para mas maayos.\n\n## 🔍 Halimbawa\n- Mag-upload ng iyong proyekto sa \"Araling Panlipunan Folder\" para madaling mahanap ng guro.\n\nMahusay na pag-upload at pag-oorganisa ay nagpapadali sa gawain! 🌟",
+        "quiz": [
+          { "question": "Paano mag-upload ng file sa cloud?", "options": ["I-drag o piliin ang file", "Isulat lamang ang pangalan", "Walang paraan", "I-print ito"], "correct_answer": "I-drag o piliin ang file" },
+          { "question": "Bakit dapat bigyan ng malinaw na pangalan ang file?", "options": ["Para madaling mahanap", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para madaling mahanap" },
+          { "question": "Paano dapat i-organisa ang mga folder?", "options": ["Ayon sa paksa o petsa", "Random lamang", "Walang ayos", "Kulay lamang"], "correct_answer": "Ayon sa paksa o petsa" },
+          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-upload ng proyekto sa tamang folder", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-upload ng proyekto sa tamang folder" },
+          { "question": "Bakit mahalaga ang maayos na pag-oorganisa ng files?", "options": ["Nagpapadali ito sa gawain", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapadali ito sa gawain" },
+          { "question": "Sino ang makikinabang sa maayos na pag-uupload ng proyekto?", "options": ["Ikaw at ang iyong guro", "Walang nakikinabang", "Estranghero lamang", "Wala"], "correct_answer": "Ikaw at ang iyong guro" }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Week 8: Reviewing Historical Arts!\n\nLet's review the eras of Filipino arts we've studied! 🎨\n\n## 🎨 Review: Revolutionary and American Periods\n- **Revolutionary period** art expressed patriotism and struggle.\n- **American period** art blended foreign influence with Filipino tradition.\n\n## 🔍 Connecting Art to History\n- Each era's art reflects the **events and values** of its time.\n\n## 🎯 Creating Your Own\n- Try creating a simple artwork inspired by one of these historical periods!\n\nArt is a window into our nation's journey! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period art express?", "options": ["Patriotism and struggle", "Only foreign themes", "Nothing meaningful", "Only humor"], "correct_answer": "Patriotism and struggle" },
+          { "question": "What did American period art do?", "options": ["Blended foreign influence with Filipino tradition", "Ignored all foreign influence", "Rejected Filipino tradition completely", "Had no distinct style"], "correct_answer": "Blended foreign influence with Filipino tradition" },
+          { "question": "What does each era's art reflect?", "options": ["The events and values of its time", "Nothing important", "Only random ideas", "Only modern trends"], "correct_answer": "The events and values of its time" },
+          { "question": "What is art described as in relation to history?", "options": ["A window into our nation's journey", "An unrelated activity", "Only decoration", "A waste of time"], "correct_answer": "A window into our nation's journey" },
+          { "question": "What can you try creating this week?", "options": ["Artwork inspired by a historical period", "Nothing new", "Only copying exactly", "A random drawing with no theme"], "correct_answer": "Artwork inspired by a historical period" },
+          { "question": "How many periods have we studied so far?", "options": ["Two — Revolutionary and American", "Only one", "Five", "None"], "correct_answer": "Two — Revolutionary and American" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP (Fishery Arts) — Week 8: Prosesong Pang-agrikultura sa Pag-aalaga ng Isda!\n\nAlamin natin ang buong proseso ng natural na pag-aalaga ng isda! 🐟\n\n## 🐟 Buong Proseso\n- **Paghahanda** ng lugar at tubig → **Pagbibigay** ng pakain → **Pagsubaybay** sa paglaki → **Pag-aalaga** laban sa sakit\n\n## 🔍 Konsistent na Pangangalaga\n- Ang tuluy-tuloy na pangangalaga ay tumitiyak ng **malusog na isda**.\n\n## 💧 Pagsubaybay sa Kondisyon ng Tubig\n- Regular na suriin ang tubig para sa **kalidad at kalinisan**.\n\nMahalaga ang bawat hakbang sa matagumpay na pag-aalaga ng isda! 🌟",
+        "quiz": [
+          { "question": "Ano ang unang bahagi ng proseso ng pag-aalaga ng isda?", "options": ["Paghahanda ng lugar at tubig", "Pagbibigay ng pakain agad", "Pag-aani agad", "Wala"], "correct_answer": "Paghahanda ng lugar at tubig" },
+          { "question": "Ano ang tumitiyak ng malusog na isda?", "options": ["Konsistent na pangangalaga", "Walang pangangalaga", "Random na pagkain", "Wala"], "correct_answer": "Konsistent na pangangalaga" },
+          { "question": "Ano ang dapat regular na suriin?", "options": ["Kalidad at kalinisan ng tubig", "Kulay ng damit", "Uri ng pagkain lamang", "Wala"], "correct_answer": "Kalidad at kalinisan ng tubig" },
+          { "question": "Ano ang ginagawa pagkatapos magbigay ng pakain?", "options": ["Pagsubaybay sa paglaki", "Wala", "Pag-aani agad", "Pagtapon ng isda"], "correct_answer": "Pagsubaybay sa paglaki" },
+          { "question": "Bakit mahalaga ang bawat hakbang sa proseso?", "options": ["Para matagumpay ang pag-aalaga ng isda", "Walang dahilan", "Para lang mabilis matapos", "Wala itong epekto"], "correct_answer": "Para matagumpay ang pag-aalaga ng isda" },
+          { "question": "Ano ang huling bahagi ng proseso?", "options": ["Pag-aalaga laban sa sakit", "Paghahanda ng lugar", "Wala", "Pagtigil sa pag-aalaga"], "correct_answer": "Pag-aalaga laban sa sakit" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 GMRC — Linggo 8: Ugnayan sa mga Nakatatanda\n\nAlamin natin ang tamang paggalang sa mga nakatatanda! 👵👴\n\n## 👵 Ugnayan sa mga Elders\n- Gumamit ng angkop na salita o galaw kapag kinakausap ang **mas matanda** sa pamilya.\n\n## 🤝 Pag-alalay sa mga May Edad\n- Tumulong sa mga nakatatandang miyembro ng pamilya sa kanilang mga pangangailangan.\n\n## 🔍 Halimbawa\n- Tumulong sa lolo o lola sa pagbili ng gamot, o makinig sa kanilang mga kwento.\n\nIgalang at alagaan ang mga nakatatanda sa ating buhay! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin kapag kinakausap ang matanda?", "options": ["Gumamit ng angkop na salita o galaw", "Magsalita nang bastos", "Balewalain sila", "Wala"], "correct_answer": "Gumamit ng angkop na salita o galaw" },
+          { "question": "Ano ang dapat gawin sa mga nakatatandang miyembro ng pamilya?", "options": ["Tumulong sa kanilang pangangailangan", "Iwasan sila", "Kalimutan sila", "Wala"], "correct_answer": "Tumulong sa kanilang pangangailangan" },
+          { "question": "Alin ang halimbawa ng pag-alalay sa may edad?", "options": ["Tumulong sa pagbili ng gamot", "Iwasan sila", "Manukso sa kanila", "Wala"], "correct_answer": "Tumulong sa pagbili ng gamot" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Kagandahang-loob", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Kagandahang-loob" },
+          { "question": "Bakit mahalagang igalang ang mga nakatatanda?", "options": ["Bahagi ito ng ating kultura at pagpapahalaga", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Bahagi ito ng ating kultura at pagpapahalaga" },
+          { "question": "Ano pang halimbawa ng pagtulong sa nakatatanda?", "options": ["Makinig sa kanilang mga kwento", "Iwasan sila", "Manukso sa kanila", "Wala"], "correct_answer": "Makinig sa kanilang mga kwento" }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Weekly Review — English\n\nQuick review of complements and complex sentences!\n\n- **Complement** completes sentence meaning\n- **Compound-complex** = 2+ independent + 1+ dependent clause\n\nGreat sentence mastery! ⭐",
+        "quiz": [
+          { "question": "What does a complement do?", "options": ["Completes the meaning of a sentence", "Ends a sentence", "Starts a question", "Nothing important"], "correct_answer": "Completes the meaning of a sentence" },
+          { "question": "What makes a compound-complex sentence?", "options": ["2+ independent clauses and 1+ dependent clause", "Only one clause", "Only questions", "No clauses"], "correct_answer": "2+ independent clauses and 1+ dependent clause" },
+          { "question": "In \"Although it was late, we stayed, and we enjoyed the show,\" what is the dependent clause?", "options": ["Although it was late", "We stayed", "We enjoyed the show", "None"], "correct_answer": "Although it was late" },
+          { "question": "\"The festival was beautiful\" uses what type of complement?", "options": ["Adjective complement", "Noun complement", "Verb complement", "No complement"], "correct_answer": "Adjective complement" },
+          { "question": "Why do we use complex sentences?", "options": ["To express connected ideas clearly", "To confuse readers", "To make writing shorter", "For no reason"], "correct_answer": "To express connected ideas clearly" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Weekly Review — Mathematics\n\nQuick review of dividing fractions!\n\n- Rule: **Keep, Change, Flip**\n- 2/3 ÷ 1/4 = **2⅔**\n\nGreat fraction division! 🌟",
+        "quiz": [
+          { "question": "What is the rule for dividing fractions?", "options": ["Keep, Change, Flip", "Add, Subtract, Multiply", "Only multiply", "Only add"], "correct_answer": "Keep, Change, Flip" },
+          { "question": "What is 2/3 ÷ 1/4?", "options": ["2⅔", "1½", "3/4", "8/12"], "correct_answer": "2⅔" },
+          { "question": "What should you do first before dividing mixed numbers?", "options": ["Convert to improper fractions", "Add them", "Round them", "Subtract them"], "correct_answer": "Convert to improper fractions" },
+          { "question": "What is 1½ ÷ ⅓?", "options": ["4½", "3½", "5", "2½"], "correct_answer": "4½" },
+          { "question": "What is 1/2 ÷ 1/4?", "options": ["2", "1/8", "1/2", "4"], "correct_answer": "2" }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Filipino\n\nMabilis na balikan!\n\n- Suriin kung totoong kumakatawan sa kultura ang teksto\n- Isaalang-alang ang mapananaligang sanggunian\n\nMahusay ka! 🌟",
+        "quiz": [
+          { "question": "Ano ang tinitingnan sa pagsusuri sa nilalaman?", "options": ["Kung totoong kumakatawan sa kulturang Pilipino", "Kulay lamang", "Haba lamang", "Wala"], "correct_answer": "Kung totoong kumakatawan sa kulturang Pilipino" },
+          { "question": "Ano ang isinasaalang-alang sa pagkamakatotohanan ng teksto?", "options": ["Mapananaligang sanggunian at petsa", "Kulay lamang", "Bilang ng salita", "Wala"], "correct_answer": "Mapananaligang sanggunian at petsa" },
+          { "question": "Bakit dapat maging matalas na manonood?", "options": ["Para matukoy ang tumpak na impormasyon", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para matukoy ang tumpak na impormasyon" },
+          { "question": "Ano ang mahalaga sa pananaw ng eksperto?", "options": ["Nagbibigay ito ng katiyakan sa impormasyon", "Walang gamit", "Hindi na kailangan", "Wala"], "correct_answer": "Nagbibigay ito ng katiyakan sa impormasyon" },
+          { "question": "Bakit mahalaga ang pagsusuri sa multimedia?", "options": ["Tumutulong ito maiwasan ang maling impormasyon", "Walang dahilan", "Para lang sa laro", "Para hirapan ang bata"], "correct_answer": "Tumutulong ito maiwasan ang maling impormasyon" }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🇵🇭 Biyernes — Lingguhang Pagsasanay: Araling Panlipunan\n\nMabilis na balikan!\n\n- **Benevolent Assimilation** — pag-angkin ng US na tutulong, hindi sasakop\n- Itinatag ang mga paaralan at ospital sa ilalim ng kontrol nila\n\nMahusay kang batang Pilipino! 🇵🇭",
+        "quiz": [
+          { "question": "Ano ang Benevolent Assimilation?", "options": ["Pag-angkin ng US na tutulong sila, hindi sasakop", "Isang uri ng batas", "Isang uri ng laro", "Wala"], "correct_answer": "Pag-angkin ng US na tutulong sila, hindi sasakop" },
+          { "question": "Ano ang itinatag ng mga Amerikano sa Pilipinas?", "options": ["Mga paaralan at ospital", "Wala", "Simbahan lamang", "Palengke lamang"], "correct_answer": "Mga paaralan at ospital" },
+          { "question": "Ano ang epekto sa mga Pilipino kahit may benepisyo?", "options": ["Nawalan pa rin ng ganap na kalayaan", "Nagkaroon agad ng kalayaan", "Walang epekto", "Naging mas malaya"], "correct_answer": "Nawalan pa rin ng ganap na kalayaan" },
+          { "question": "Ano ang ginawa ng ilang grupo ng mga Pilipino?", "options": ["Patuloy na lumaban", "Sumuko agad", "Wala", "Nagtiwala agad sa US"], "correct_answer": "Patuloy na lumaban" },
+          { "question": "Bakit mahalagang unawain ang imperyalismo?", "options": ["Para maunawaan natin ang tunay na kahulugan nito", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Para maunawaan natin ang tunay na kahulugan nito" }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- I-drag o piliin ang file para mag-upload\n- I-organisa ang folder ayon sa paksa\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Paano mag-upload ng file sa cloud?", "options": ["I-drag o piliin ang file", "Isulat lamang ang pangalan", "Walang paraan", "I-print ito"], "correct_answer": "I-drag o piliin ang file" },
+          { "question": "Bakit dapat bigyan ng malinaw na pangalan ang file?", "options": ["Para madaling mahanap", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para madaling mahanap" },
+          { "question": "Paano dapat i-organisa ang mga folder?", "options": ["Ayon sa paksa o petsa", "Random lamang", "Walang ayos", "Kulay lamang"], "correct_answer": "Ayon sa paksa o petsa" },
+          { "question": "Bakit mahalaga ang maayos na pag-oorganisa ng files?", "options": ["Nagpapadali ito sa gawain", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapadali ito sa gawain" },
+          { "question": "Sino ang makikinabang sa maayos na pag-uupload ng proyekto?", "options": ["Ikaw at ang iyong guro", "Walang nakikinabang", "Estranghero lamang", "Wala"], "correct_answer": "Ikaw at ang iyong guro" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pollination** = paggalaw ng pollen\n- **Cutting, budding, layering, grafting** — paraan ng propagation\n\nMahusay kang batang siyentipiko! 🌟",
+        "quiz": [
+          { "question": "What is pollination?", "options": ["Pollen moving from one flower to another", "Seeds growing underground", "Leaves falling off", "Roots absorbing water"], "correct_answer": "Pollen moving from one flower to another" },
+          { "question": "What carries pollen between flowers?", "options": ["Bees or wind", "Only rain", "Only humans", "Only soil"], "correct_answer": "Bees or wind" },
+          { "question": "What is cutting as a propagation method?", "options": ["Growing a new plant from a stem piece", "Joining two plants", "Bending a branch", "Attaching a bud"], "correct_answer": "Growing a new plant from a stem piece" },
+          { "question": "What is grafting?", "options": ["Joining parts of two different plants", "Growing from a stem piece", "Bending a branch to root", "Attaching a bud only"], "correct_answer": "Joining parts of two different plants" },
+          { "question": "What is layering?", "options": ["Bending a branch to root in soil", "Joining two plants", "Growing from seed only", "Attaching a bud"], "correct_answer": "Bending a branch to root in soil" }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Revolutionary art = **patriotism** | American art = **blended influence**\n- Art reflects the events of its time\n\nGreat art history review! 🌟",
+        "quiz": [
+          { "question": "What did Revolutionary period art express?", "options": ["Patriotism and struggle", "Only foreign themes", "Nothing meaningful", "Only humor"], "correct_answer": "Patriotism and struggle" },
+          { "question": "What did American period art do?", "options": ["Blended foreign influence with Filipino tradition", "Ignored all foreign influence", "Rejected Filipino tradition completely", "Had no distinct style"], "correct_answer": "Blended foreign influence with Filipino tradition" },
+          { "question": "What does each era's art reflect?", "options": ["The events and values of its time", "Nothing important", "Only random ideas", "Only modern trends"], "correct_answer": "The events and values of its time" },
+          { "question": "What is art described as in relation to history?", "options": ["A window into our nation's journey", "An unrelated activity", "Only decoration", "A waste of time"], "correct_answer": "A window into our nation's journey" },
+          { "question": "How many periods have we studied so far?", "options": ["Two — Revolutionary and American", "Only one", "Five", "None"], "correct_answer": "Two — Revolutionary and American" }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Biyernes — Lingguhang Pagsasanay: EPP (Fishery Arts)\n\nMabilis na balikan!\n\n- Proseso: **paghahanda → pakain → subaybay → alaga laban sa sakit**\n- Konsistent na pangangalaga = malusog na isda\n\nMahusay ang iyong pag-aaral! 🌟",
+        "quiz": [
+          { "question": "Ano ang unang bahagi ng proseso ng pag-aalaga ng isda?", "options": ["Paghahanda ng lugar at tubig", "Pagbibigay ng pakain agad", "Pag-aani agad", "Wala"], "correct_answer": "Paghahanda ng lugar at tubig" },
+          { "question": "Ano ang tumitiyak ng malusog na isda?", "options": ["Konsistent na pangangalaga", "Walang pangangalaga", "Random na pagkain", "Wala"], "correct_answer": "Konsistent na pangangalaga" },
+          { "question": "Ano ang dapat regular na suriin?", "options": ["Kalidad at kalinisan ng tubig", "Kulay ng damit", "Uri ng pagkain lamang", "Wala"], "correct_answer": "Kalidad at kalinisan ng tubig" },
+          { "question": "Ano ang ginagawa pagkatapos magbigay ng pakain?", "options": ["Pagsubaybay sa paglaki", "Wala", "Pag-aani agad", "Pagtapon ng isda"], "correct_answer": "Pagsubaybay sa paglaki" },
+          { "question": "Ano ang huling bahagi ng proseso?", "options": ["Pag-aalaga laban sa sakit", "Paghahanda ng lugar", "Wala", "Pagtigil sa pag-aalaga"], "correct_answer": "Pag-aalaga laban sa sakit" }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💖 Biyernes — Lingguhang Pagsasanay: GMRC\n\nMabilis na balikan!\n\n- Gumamit ng angkop na salita sa nakatatanda\n- Tumulong sa kanilang pangangailangan\n\nIgalang ang mga nakatatanda! 🌟",
+        "quiz": [
+          { "question": "Ano ang dapat gawin kapag kinakausap ang matanda?", "options": ["Gumamit ng angkop na salita o galaw", "Magsalita nang bastos", "Balewalain sila", "Wala"], "correct_answer": "Gumamit ng angkop na salita o galaw" },
+          { "question": "Ano ang dapat gawin sa mga nakatatandang miyembro ng pamilya?", "options": ["Tumulong sa kanilang pangangailangan", "Iwasan sila", "Kalimutan sila", "Wala"], "correct_answer": "Tumulong sa kanilang pangangailangan" },
+          { "question": "Alin ang halimbawa ng pag-alalay sa may edad?", "options": ["Tumulong sa pagbili ng gamot", "Iwasan sila", "Manukso sa kanila", "Wala"], "correct_answer": "Tumulong sa pagbili ng gamot" },
+          { "question": "Ano ang pagpapahalaga na natutunan natin ngayong linggo?", "options": ["Kagandahang-loob", "Pagtitipid", "Kasipagan", "Katapatan"], "correct_answer": "Kagandahang-loob" },
+          { "question": "Bakit mahalagang igalang ang mga nakatatanda?", "options": ["Bahagi ito ng ating kultura at pagpapahalaga", "Walang dahilan", "Para lang sundin ang guro", "Wala itong gamit"], "correct_answer": "Bahagi ito ng ating kultura at pagpapahalaga" }
+        ]
+      }
+    }
+  }
+}

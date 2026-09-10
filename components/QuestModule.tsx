@@ -7,6 +7,7 @@ import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { calculateReward } from '@/lib/quizReward';
+import VisualAid from '@/components/quest/VisualAid';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -216,6 +217,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       {!hasStarted && (
         <div className="mb-10 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl p-6">
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{content}</ReactMarkdown>
+          <VisualAid spec={questData?.visual_aid} />
         </div>
       )}
 
