@@ -18,6 +18,7 @@ import { trackEvent } from '@/lib/analytics';
 import GameButton from '@/components/GameButton';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
 import DailyBonusModal from '@/components/DailyBonusModal';
+import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 
 // Buttons here previously ran a homemade comic-outline look (yellow-400 +
 // hard black shadow) instead of the app's shared GameButton quest system —
@@ -51,6 +52,21 @@ interface DailyChecklistProps {
   onGoToMainQuest?: () => void;
   onGoToTrainingMap?: () => void;
   onCountChange?: (done: number, total: number) => void;
+  // Term-break special events (Topic Mastery Gauntlet, authored one-offs) run
+  // on a completely separate progress system from the weekday Main Quest —
+  // mastering one never touches `mastered_quizzes`, so a kid who finished
+  // today's event quest saw the checklist call the day incomplete even
+  // though they'd genuinely done "a quest" today. This surfaces that
+  // separate system as its own item instead of folding it into (or being
+  // silently absent from) the Main Quest row. All optional so pages that
+  // don't fetch event state (there are none left, but keeps this component
+  // decoupled) still render.
+  activeEvent?: CustomEvent | null;
+  eventClaimed?: boolean;
+  eventQuests?: EventQuest[];
+  eventProgress?: UserEventProgressRow[];
+  gauntletDaysDone?: Set<string>;
+  onGoToEvent?: () => void;
 }
 
 interface ChecklistItem {
@@ -74,6 +90,12 @@ export default function DailyChecklist({
   onGoToMainQuest,
   onGoToTrainingMap,
   onCountChange,
+  activeEvent,
+  eventClaimed,
+  eventQuests,
+  eventProgress,
+  gauntletDaysDone,
+  onGoToEvent,
 }: DailyChecklistProps) {
   const todayKey = format(new Date(), 'yyyy-MM-dd');
   const [battleFlags, setBattleFlags] = useState<ChecklistBattleFlags>({
@@ -104,10 +126,32 @@ export default function DailyChecklist({
   }, [loadFlags]);
 
   const journalDone = !!journalLogs?.[todayKey];
-  const questDone = isQuestDayDone(currentDayName, packageData, masteredQuizzes || []);
+  // A live 'gauntlet' event (Topic Mastery Gauntlet) substitutes the normal
+  // Mon-Fri quest board entirely — see BoardMapView.tsx's "mainQuestPackageData
+  // is irrelevant this week" comment — so the regular Main Quest item would
+  // otherwise point kids at a "Go to Main Quest" button that lands on a board
+  // with no regular subject cards to complete (that content still exists in
+  // packageData even during a break week; the board just doesn't render it).
+  // The event row below covers what's actually playable this week instead.
+  const gauntletActive = activeEvent?.content_source === 'gauntlet';
+  const questScheduledToday = Object.keys(packageData?.[currentDayName] || {}).length > 0;
+  const questDone = gauntletActive || isQuestDayDone(currentDayName, packageData, masteredQuizzes || []);
   const battleDone = battleFlags.last_wild_encounter_win === todayKey;
   const guildsPlayedToday = GUILDS.filter(g => battleFlags.guild_last_played?.[g.key] === todayKey);
   const guildsAllDone = guildsPlayedToday.length === GUILDS.length;
+
+  // 'gauntlet' events (Topic Mastery Gauntlet) split their pool into one
+  // chunk per weekday — gauntletDaysDone is keyed by day name just like
+  // currentDayName, so "today's" chunk is a direct lookup. 'authored'
+  // events aren't day-keyed at all (event_quests has no day column, it's a
+  // flat list for the whole event run) — the closest analog to "today's"
+  // task there is whether every quest is mastered yet, same criterion the
+  // event's own claim-reward flow uses.
+  const eventDayDone = !!eventClaimed || (activeEvent
+    ? activeEvent.content_source === 'gauntlet'
+      ? !!gauntletDaysDone?.has(currentDayName)
+      : (eventQuests?.length ?? 0) > 0 && eventQuests!.every(q => eventProgress?.some(p => p.event_quest_id === q.id && p.is_mastered))
+    : false);
 
   const items: ChecklistItem[] = [
     {
@@ -117,12 +161,14 @@ export default function DailyChecklist({
       onAction: onGoToJournal,
     },
     {
-      label: Object.keys(packageData?.[currentDayName] || {}).length === 0
-        ? 'No quest scheduled today'
-        : "Finish today's Main Quest",
+      label: gauntletActive
+        ? "Main Quest is paused for the event — see below"
+        : questScheduledToday
+          ? "Finish today's Main Quest"
+          : 'No quest scheduled today',
       done: questDone,
-      actionLabel: 'Go to Main Quest',
-      onAction: onGoToMainQuest,
+      actionLabel: gauntletActive ? undefined : 'Go to Main Quest',
+      onAction: gauntletActive ? undefined : onGoToMainQuest,
     },
     {
       label: 'Answer a training map question correctly',
@@ -130,6 +176,12 @@ export default function DailyChecklist({
       actionLabel: 'Go to Map',
       onAction: onGoToTrainingMap,
     },
+    ...(activeEvent ? [{
+      label: `Progress today's event: ${activeEvent.title}`,
+      done: eventDayDone,
+      actionLabel: 'Go to Event',
+      onAction: onGoToEvent,
+    }] : []),
   ];
 
   const allDone = items.every(i => i.done) && guildsAllDone;

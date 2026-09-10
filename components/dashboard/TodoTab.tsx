@@ -9,6 +9,7 @@ import { useWeeklyData } from '@/hooks/useWeeklyData';
 import { GuildKey } from '@/lib/dailyChecklist';
 import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import DailyChecklist from '@/components/DailyChecklist';
+import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 
 type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
 
@@ -27,6 +28,13 @@ interface TodoTabProps {
   setActiveTab: (tab: string) => void;
   setActiveGuild: (guild: GuildKey | null) => void;
   setActiveQuest: (quest: string | null) => void;
+  // Term-break special event (see DailyChecklist's own comment) — all
+  // optional/nullable since most weeks have no active event at all.
+  activeEvent?: CustomEvent | null;
+  eventClaimed?: boolean;
+  eventQuests?: EventQuest[];
+  eventProgress?: UserEventProgressRow[];
+  gauntletDaysDone?: Set<string>;
 }
 
 export default function TodoTab({
@@ -42,6 +50,11 @@ export default function TodoTab({
   setActiveTab,
   setActiveGuild,
   setActiveQuest,
+  activeEvent,
+  eventClaimed,
+  eventQuests,
+  eventProgress,
+  gauntletDaysDone,
 }: TodoTabProps) {
   return (
     <div>
@@ -77,6 +90,12 @@ export default function TodoTab({
         onGoToMainQuest={() => { setActiveTab('board'); setActiveQuest(null); }}
         onGoToTrainingMap={() => setActiveTab('monster')}
         onCountChange={onTodoCountChange}
+        activeEvent={activeEvent}
+        eventClaimed={eventClaimed}
+        eventQuests={eventQuests}
+        eventProgress={eventProgress}
+        gauntletDaysDone={gauntletDaysDone}
+        onGoToEvent={() => { setActiveTab('board'); setActiveQuest(null); }}
       />
     </div>
   );
