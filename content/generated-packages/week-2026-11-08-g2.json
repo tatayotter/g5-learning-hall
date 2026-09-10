@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-11-08",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌈 English — The Two Philippine Seasons\n\nGrade 2, Week 22! Let's learn more about tag-init and tag-ulan in English! 🌈\n\n## 🔄 Review\nWe learned weather words: sunny, rainy, windy, cloudy.\n\n## ☀️ The Dry Season\nThe **dry season** (tag-init) is hot, with little rain. People wear light clothes and drink lots of water.\n\n## 🌧️ The Rainy Season\nThe **rainy season** (tag-ulan) has lots of rain and sometimes strong winds called **typhoons**. People bring umbrellas and raincoats.\n\n## 📝 Describing Seasons\n\"During the dry season, the weather is hot and sunny.\"\n\"During the rainy season, we often see dark clouds and rain.\"\n\n**Key words:** dry season, rainy season, typhoon, umbrella, raincoat",
+        "quiz": [
+          {
+            "question": "What is the dry season like?",
+            "options": [
+              "Hot with little rain",
+              "Cold with snow",
+              "Full of rain",
+              "Always dark"
+            ],
+            "correct_answer": "Hot with little rain"
+          },
+          {
+            "question": "What is the rainy season like?",
+            "options": [
+              "Lots of rain and sometimes strong wind",
+              "Always sunny and dry",
+              "Very cold with snow",
+              "No weather at all"
+            ],
+            "correct_answer": "Lots of rain and sometimes strong wind"
+          },
+          {
+            "question": "What is a typhoon?",
+            "options": [
+              "A strong storm with heavy rain and wind",
+              "A type of sunny day",
+              "A kind of dry weather",
+              "A type of clear sky"
+            ],
+            "correct_answer": "A strong storm with heavy rain and wind"
+          },
+          {
+            "question": "What do people usually wear during the dry season?",
+            "options": [
+              "Light clothes",
+              "Heavy winter coats",
+              "Raincoats only",
+              "Snow boots"
+            ],
+            "correct_answer": "Light clothes"
+          },
+          {
+            "question": "What do people bring during the rainy season?",
+            "options": [
+              "Umbrellas and raincoats",
+              "Sunglasses only",
+              "Winter coats",
+              "Snow boots"
+            ],
+            "correct_answer": "Umbrellas and raincoats"
+          },
+          {
+            "question": "Why do people drink lots of water during the dry season?",
+            "options": [
+              "Because it is hot",
+              "Because it is cold",
+              "Because it is raining",
+              "Because it is snowing"
+            ],
+            "correct_answer": "Because it is hot"
+          },
+          {
+            "question": "Which sentence correctly describes the dry season?",
+            "options": [
+              "The weather is hot and sunny",
+              "The weather is full of snow",
+              "The weather is very cold",
+              "The weather has typhoons every day"
+            ],
+            "correct_answer": "The weather is hot and sunny"
+          },
+          {
+            "question": "Which sentence correctly describes the rainy season?",
+            "options": [
+              "We often see dark clouds and rain",
+              "The sky is always clear",
+              "It never rains",
+              "It is always cold with snow"
+            ],
+            "correct_answer": "We often see dark clouds and rain"
+          },
+          {
+            "question": "How many main seasons does the Philippines have?",
+            "options": [
+              "Two",
+              "Four",
+              "One",
+              "Six"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Why might schools cancel classes during a typhoon?",
+            "options": [
+              "For the safety of students during strong storms",
+              "Because it is too sunny",
+              "Because it is too cold",
+              "There is no real reason"
+            ],
+            "correct_answer": "For the safety of students during strong storms"
+          },
+          {
+            "question": "What would you most likely wear on a rainy day?",
+            "options": [
+              "A raincoat",
+              "Shorts and slippers only",
+              "Sunglasses",
+              "A swimsuit"
+            ],
+            "correct_answer": "A raincoat"
+          },
+          {
+            "question": "What season comes with hot weather and little rain?",
+            "options": [
+              "Dry season",
+              "Rainy season",
+              "Winter",
+              "Autumn"
+            ],
+            "correct_answer": "Dry season"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Division with 2, 5, and 10\n\nGrade 2, Week 22! Let's learn how to share things equally! ➗\n\n## 🔄 Review\nWe practiced multiplying by 2 and 3.\n\n## ➗ What Is Division?\n**Division** means sharing a group of things equally into smaller groups.\n\n**Example:** 10 ÷ 2 means \"share 10 things into 2 equal groups\" = **5** in each group.\n\n## 🔢 Division Practice\n- 10 ÷ 5 = **2**\n- 20 ÷ 10 = **2**\n- 6 ÷ 2 = **3**\n\n## 💡 Division and Multiplication Are Connected!\nSince 2 × 5 = 10, we know 10 ÷ 2 = 5 and 10 ÷ 5 = 2.\n\n**Key words:** divide, share equally, division, groups",
+        "quiz": [
+          {
+            "question": "What does division mean?",
+            "options": [
+              "Sharing a group of things equally",
+              "Adding numbers together",
+              "Making a number bigger",
+              "Comparing two numbers"
+            ],
+            "correct_answer": "Sharing a group of things equally"
+          },
+          {
+            "question": "What is 10 ÷ 2?",
+            "options": [
+              "5",
+              "8",
+              "12",
+              "2"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 10 ÷ 5?",
+            "options": [
+              "2",
+              "5",
+              "15",
+              "50"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 20 ÷ 10?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "200"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 6 ÷ 2?",
+            "options": [
+              "3",
+              "4",
+              "8",
+              "12"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "If 2 × 5 = 10, what is 10 ÷ 2?",
+            "options": [
+              "5",
+              "2",
+              "10",
+              "20"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 15 ÷ 5?",
+            "options": [
+              "3",
+              "5",
+              "10",
+              "20"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "If you share 8 candies equally between 2 friends, how many does each get?",
+            "options": [
+              "4",
+              "2",
+              "6",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 100 ÷ 10?",
+            "options": [
+              "10",
+              "100",
+              "1",
+              "20"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "How are multiplication and division connected?",
+            "options": [
+              "Division undoes multiplication",
+              "They are not related",
+              "Division always makes numbers bigger",
+              "Multiplication always makes numbers smaller"
+            ],
+            "correct_answer": "Division undoes multiplication"
+          },
+          {
+            "question": "What is 4 ÷ 2?",
+            "options": [
+              "2",
+              "8",
+              "6",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "If you share 20 pencils equally among 10 students, how many does each student get?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "5"
+            ],
+            "correct_answer": "2"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌧️ Filipino — Mga Uri ng Panahon sa Pilipinas\n\nGrade 2, Linggo 22! Higit pa nating alamin ang tag-init at tag-ulan. 🌧️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga bagong salita tungkol sa panahon.\n\n## ☀️ Ang Tag-init\nAng **tag-init** ay mainit at bihirang umulan. Kadalasang nagsusuot ang mga tao ng manipis na damit at umiinom ng maraming tubig.\n\n## 🌧️ Ang Tag-ulan\nAng **tag-ulan** ay may maraming ulan at kung minsan ay may **bagyo** (malakas na hangin at ulan).\n\n## 📝 Halimbawang Pangungusap\n\"Sa tag-init, mainit at maaraw ang panahon.\"\n\"Sa tag-ulan, madalas nating makita ang madilim na ulap at ulan.\"\n\n**Mahahalagang salita:** tag-init, tag-ulan, bagyo, payong",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mainit at bihirang umulan na panahon",
+              "Malamig na panahon",
+              "Panahon ng niyebe",
+              "Panahon ng bulaklak"
+            ],
+            "correct_answer": "Mainit at bihirang umulan na panahon"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Panahong may maraming ulan",
+              "Panahong laging maaraw",
+              "Panahong malamig at may niyebe",
+              "Panahong walang ulap"
+            ],
+            "correct_answer": "Panahong may maraming ulan"
+          },
+          {
+            "question": "Ano ang bagyo?",
+            "options": [
+              "Malakas na hangin at ulan",
+              "Isang uri ng bulaklak",
+              "Isang uri ng prutas",
+              "Isang malinaw na araw"
+            ],
+            "correct_answer": "Malakas na hangin at ulan"
+          },
+          {
+            "question": "Ano ang karaniwang isinusuot sa tag-init?",
+            "options": [
+              "Manipis na damit",
+              "Makapal na damit pantaglamig",
+              "Payong lamang",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Manipis na damit"
+          },
+          {
+            "question": "Ano ang dinadala ng mga tao sa tag-ulan?",
+            "options": [
+              "Payong at kapote",
+              "Sunglasses lamang",
+              "Makapal na kasuotan pantaglamig",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Payong at kapote"
+          },
+          {
+            "question": "Bakit maraming umiinom ng tubig sa tag-init?",
+            "options": [
+              "Dahil mainit ang panahon",
+              "Dahil malamig ang panahon",
+              "Dahil umuulan",
+              "Dahil may niyebe"
+            ],
+            "correct_answer": "Dahil mainit ang panahon"
+          },
+          {
+            "question": "Alin ang tamang paglalarawan sa tag-init?",
+            "options": [
+              "Mainit at maaraw ang panahon",
+              "Puno ng niyebe",
+              "Napakalamig",
+              "May bagyo araw-araw"
+            ],
+            "correct_answer": "Mainit at maaraw ang panahon"
+          },
+          {
+            "question": "Alin ang tamang paglalarawan sa tag-ulan?",
+            "options": [
+              "Madalas madilim na ulap at ulan",
+              "Laging malinaw ang langit",
+              "Hindi kailanman umuulan",
+              "Palaging malamig at niyebe"
+            ],
+            "correct_answer": "Madalas madilim na ulap at ulan"
+          },
+          {
+            "question": "Ilan ang pangunahing panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Bakit kung minsan sinususpinde ang klase kapag may bagyo?",
+            "options": [
+              "Para sa kaligtasan ng mga estudyante",
+              "Dahil masyadong maaraw",
+              "Dahil masyadong malamig",
+              "Walang tunay na dahilan"
+            ],
+            "correct_answer": "Para sa kaligtasan ng mga estudyante"
+          },
+          {
+            "question": "Ano ang isusuot mo sa maulang araw?",
+            "options": [
+              "Kapote",
+              "Damit pang-swimming lamang",
+              "Sunglasses",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Kapote"
+          },
+          {
+            "question": "Anong panahon ang may mainit at kaunting ulan?",
+            "options": [
+              "Tag-init",
+              "Tag-ulan",
+              "Taglamig",
+              "Tagsibol"
+            ],
+            "correct_answer": "Tag-init"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌦️ Science — Ang Dalawang Panahon sa Pilipinas\n\nGrade 2, Week 22! Alamin natin ang tag-ulan at tag-init sa Agham. 🌦️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga kasangkapan sa pagsukat ng panahon.\n\n## ☀️ Ang Tag-init (Dry Season)\nMataas ang temperatura, kaunti ang ulan. Ito ay karaniwang nagaganap mula Marso hanggang Mayo.\n\n## 🌧️ Ang Tag-ulan (Rainy Season)\nMaraming ulan at mas mababang temperatura. Ito ay karaniwang nagaganap mula Hunyo hanggang Nobyembre, kabilang ang mga **bagyo**.\n\n## 🔬 Pag-obserba sa Panahon\nGinagamit ng mga siyentipiko ang **thermometer** para sukatin ang init, at **rain gauge** para sukatin ang ulan, upang malaman kung anong panahon ang nararanasan.\n\n**Mahahalagang salita:** tag-init, tag-ulan, temperatura, bagyo",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Panahong mataas ang temperatura at kaunti ang ulan",
+              "Panahong maraming ulan",
+              "Panahong may niyebe",
+              "Panahong walang araw"
+            ],
+            "correct_answer": "Panahong mataas ang temperatura at kaunti ang ulan"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Panahong maraming ulan at mas mababang temperatura",
+              "Panahong laging mainit",
+              "Panahong walang ulan",
+              "Panahong may niyebe"
+            ],
+            "correct_answer": "Panahong maraming ulan at mas mababang temperatura"
+          },
+          {
+            "question": "Kailan karaniwang nagaganap ang tag-init?",
+            "options": [
+              "Marso hanggang Mayo",
+              "Hunyo hanggang Nobyembre",
+              "Disyembre hanggang Enero",
+              "Buong taon"
+            ],
+            "correct_answer": "Marso hanggang Mayo"
+          },
+          {
+            "question": "Kailan karaniwang nagaganap ang tag-ulan?",
+            "options": [
+              "Hunyo hanggang Nobyembre",
+              "Marso hanggang Mayo",
+              "Enero hanggang Pebrero lamang",
+              "Hindi kailanman nagaganap"
+            ],
+            "correct_answer": "Hunyo hanggang Nobyembre"
+          },
+          {
+            "question": "Ano ang ginagamit ng siyentipiko para sukatin ang init?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Ano ang ginagamit ng siyentipiko para sukatin ang ulan?",
+            "options": [
+              "Rain gauge",
+              "Thermometer",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Rain gauge"
+          },
+          {
+            "question": "Ano ang tinatawag na malakas na bagyo na dulot ng hangin at ulan?",
+            "options": [
+              "Bagyo",
+              "Tag-init",
+              "Amihan lamang",
+              "Tag-araw"
+            ],
+            "correct_answer": "Bagyo"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang panahon?",
+            "options": [
+              "Para makapaghanda tayo sa kung ano ang aasahan",
+              "Walang kahalagahan",
+              "Para lamang libangin ang sarili",
+              "Hindi ito nakakatulong sa pang-araw-araw na buhay"
+            ],
+            "correct_answer": "Para makapaghanda tayo sa kung ano ang aasahan"
+          },
+          {
+            "question": "Anong instrumento ang tumutulong malaman kung gaano kainit ang araw?",
+            "options": [
+              "Thermometer",
+              "Payong",
+              "Kapote",
+              "Bota"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Ano ang epekto ng tag-ulan sa pang-araw-araw na buhay?",
+            "options": [
+              "Kailangang magdala ng payong at mag-ingat sa baha",
+              "Walang epekto",
+              "Kailangang uminom ng maraming tubig",
+              "Kailangang magsuot ng manipis na damit"
+            ],
+            "correct_answer": "Kailangang magdala ng payong at mag-ingat sa baha"
+          },
+          {
+            "question": "Ano ang epekto ng tag-init sa pang-araw-araw na buhay?",
+            "options": [
+              "Kailangang uminom ng maraming tubig at magsuot ng manipis na damit",
+              "Kailangang magsuot ng makapal na kasuotan",
+              "Kailangang mag-ingat sa niyebe",
+              "Walang epekto"
+            ],
+            "correct_answer": "Kailangang uminom ng maraming tubig at magsuot ng manipis na damit"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang mga kasangkapang panukat sa panahon?",
+            "options": [
+              "Nagbibigay ito ng tumpak na impormasyon",
+              "Hindi na kailangan gamitin ang mga ito",
+              "Basta na lamang manghula",
+              "Wala itong gamit"
+            ],
+            "correct_answer": "Nagbibigay ito ng tumpak na impormasyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🌾 Makabansa — Mga Uri ng Kabuhayan: Agrikultural at Industriyal\n\nGrade 2, Linggo 22! Alamin natin ang iba't ibang uri ng kabuhayan. 🌾\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **konsepto ng kabuhayan**.\n\n## 🌾 Kabuhayang Agrikultural\nAng **agrikultural** na kabuhayan ay nagsasangkot ng pagsasaka o pagtatanim, tulad ng pagtatanim ng palay, gulay, o prutas.\n\n## 🏭 Kabuhayang Industriyal\nAng **industriyal** na kabuhayan ay nagsasangkot ng paggawa o pagpapatakbo ng pabrika, tulad ng paggawa ng damit o pagkain sa pabrika.\n\n## 🔍 Paghahambing\nAng agrikultural ay karaniwan sa kanayunan (probinsya), habang ang industriyal ay karaniwan sa lungsod kung saan maraming pabrika.\n\n**Mahahalagang salita:** agrikultural, industriyal, pabrika, pagsasaka",
+        "quiz": [
+          {
+            "question": "Ano ang agrikultural na kabuhayan?",
+            "options": [
+              "Pagsasaka o pagtatanim",
+              "Paggawa sa pabrika",
+              "Pagtitinda sa palengke",
+              "Pagtuturo sa paaralan"
+            ],
+            "correct_answer": "Pagsasaka o pagtatanim"
+          },
+          {
+            "question": "Ano ang industriyal na kabuhayan?",
+            "options": [
+              "Paggawa o pagpapatakbo ng pabrika",
+              "Pagsasaka",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa o pagpapatakbo ng pabrika"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang kabuhayang agrikultural?",
+            "options": [
+              "Sa kanayunan o probinsya",
+              "Sa lungsod lamang",
+              "Sa dagat lamang",
+              "Sa ibang bansa lamang"
+            ],
+            "correct_answer": "Sa kanayunan o probinsya"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang kabuhayang industriyal?",
+            "options": [
+              "Sa lungsod kung saan maraming pabrika",
+              "Sa gubat",
+              "Sa dagat lamang",
+              "Sa bundok lamang"
+            ],
+            "correct_answer": "Sa lungsod kung saan maraming pabrika"
+          },
+          {
+            "question": "Alin ang halimbawa ng agrikultural na kabuhayan?",
+            "options": [
+              "Pagtatanim ng palay",
+              "Paggawa ng sasakyan sa pabrika",
+              "Pagtitinda ng damit",
+              "Pagtuturo ng matematika"
+            ],
+            "correct_answer": "Pagtatanim ng palay"
+          },
+          {
+            "question": "Alin ang halimbawa ng industriyal na kabuhayan?",
+            "options": [
+              "Paggawa ng damit sa pabrika",
+              "Pagtatanim ng gulay",
+              "Pangingisda sa dagat",
+              "Pagtuturo sa paaralan"
+            ],
+            "correct_answer": "Paggawa ng damit sa pabrika"
+          },
+          {
+            "question": "Ano ang tinatanim sa kabuhayang agrikultural?",
+            "options": [
+              "Palay, gulay, o prutas",
+              "Damit",
+              "Sasakyan",
+              "Kompyuter"
+            ],
+            "correct_answer": "Palay, gulay, o prutas"
+          },
+          {
+            "question": "Ano ang ginagawa sa isang pabrika?",
+            "options": [
+              "Paggawa ng mga produkto tulad ng damit o pagkain",
+              "Pagtatanim ng gulay",
+              "Pangingisda",
+              "Pagtuturo sa mga bata"
+            ],
+            "correct_answer": "Paggawa ng mga produkto tulad ng damit o pagkain"
+          },
+          {
+            "question": "Bakit mahalaga ang agrikultural na kabuhayan?",
+            "options": [
+              "Nagbibigay ito ng pagkain para sa mga tao",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa mayaman",
+              "Hindi ito nakakatulong sa komunidad"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkain para sa mga tao"
+          },
+          {
+            "question": "Bakit mahalaga ang industriyal na kabuhayan?",
+            "options": [
+              "Gumagawa ito ng mga produktong ginagamit natin araw-araw",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa lungsod",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Gumagawa ito ng mga produktong ginagamit natin araw-araw"
+          },
+          {
+            "question": "Paano naiiba ang agrikultural sa industriyal na kabuhayan?",
+            "options": [
+              "Ang agrikultural ay pagsasaka, ang industriyal ay paggawa sa pabrika",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Parehong ginagawa sa dagat"
+            ],
+            "correct_answer": "Ang agrikultural ay pagsasaka, ang industriyal ay paggawa sa pabrika"
+          },
+          {
+            "question": "Bakit kailangan natin ng iba't ibang uri ng kabuhayan sa isang bansa?",
+            "options": [
+              "Iba't ibang pangangailangan ang tinutugunan ng bawat isa",
+              "Isang uri lamang ang kailangan",
+              "Walang pagkakaiba ang mga ito",
+              "Hindi mahalaga ang kabuhayan"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan ang tinutugunan ng bawat isa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🌐 Computer — Ano ang Internet?\n\nGrade 2, Week 22! Alamin natin ang Internet sa payak na paraan. 🌐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pag-save at pagbukas ng file.\n\n## 🌐 Ano ang Internet?\nAng **Internet** ay isang malaking network na nagkokonekta ng mga kompyuter sa buong mundo, na nagpapahintulot sa atin na maghanap ng impormasyon, manood ng bidyo, at makipag-usap sa iba.\n\n## 👶 Nilalaman para sa Bata\nHindi lahat ng nasa Internet ay angkop para sa mga bata — dapat lamang manood o gumamit ng nilalamang **ginawa para sa mga bata** (kid-friendly).\n\n## 👨‍👩‍👧 Bakit Kailangan ng Gabay ng Matanda\nPalaging humingi ng pahintulot at gabay ng magulang o guro bago gumamit ng Internet.\n\n**Mahahalagang salita:** Internet, network, kid-friendly, gabay ng matanda",
+        "quiz": [
+          {
+            "question": "Ano ang Internet?",
+            "options": [
+              "Network na nagkokonekta ng kompyuter sa buong mundo",
+              "Isang uri ng laruan",
+              "Isang uri ng libro",
+              "Isang uri ng gunting"
+            ],
+            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+          },
+          {
+            "question": "Ano ang maaaring gawin gamit ang Internet?",
+            "options": [
+              "Maghanap ng impormasyon, manood ng bidyo, makipag-usap",
+              "Manahi ng damit",
+              "Magluto ng pagkain",
+              "Maglakbay sa ibang bansa"
+            ],
+            "correct_answer": "Maghanap ng impormasyon, manood ng bidyo, makipag-usap"
+          },
+          {
+            "question": "Angkop bang lahat ng nasa Internet para sa mga bata?",
+            "options": [
+              "Hindi, dapat lamang nilalamang ginawa para sa bata",
+              "Oo, lahat ay angkop",
+              "Walang nilalaman ang Internet",
+              "Hindi na kailangan pumili"
+            ],
+            "correct_answer": "Hindi, dapat lamang nilalamang ginawa para sa bata"
+          },
+          {
+            "question": "Bakit kailangan ng gabay ng matanda kapag gumagamit ng Internet?",
+            "options": [
+              "Para tumulong pumili ng ligtas at angkop na nilalaman",
+              "Hindi na kailangan ng gabay",
+              "Palaging ligtas ang lahat sa Internet",
+              "Ang bata na lamang ang dapat magpasya"
+            ],
+            "correct_answer": "Para tumulong pumili ng ligtas at angkop na nilalaman"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'kid-friendly'?",
+            "options": [
+              "Nilalamang angkop at ginawa para sa mga bata",
+              "Nilalamang para lamang sa matatanda",
+              "Nilalamang mapanganib",
+              "Nilalamang walang laman"
+            ],
+            "correct_answer": "Nilalamang angkop at ginawa para sa mga bata"
+          },
+          {
+            "question": "Ano ang dapat gawin bago gumamit ng Internet?",
+            "options": [
+              "Humingi ng pahintulot at gabay ng magulang o guro",
+              "Direktang gamitin nang mag-isa",
+              "Hindi na kailangan magtanong",
+              "Gawin lamang kapag walang matanda"
+            ],
+            "correct_answer": "Humingi ng pahintulot at gabay ng magulang o guro"
+          },
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay angkop para sa bata?",
+            "options": [
+              "May ilang nilalaman na para lamang sa matatanda o mapanganib",
+              "Lahat ay ligtas para sa bata",
+              "Walang mapanganib na nilalaman",
+              "Hindi totoo ito"
+            ],
+            "correct_answer": "May ilang nilalaman na para lamang sa matatanda o mapanganib"
+          },
+          {
+            "question": "Ano ang halimbawa ng maaaring gawin sa Internet nang may gabay ng magulang?",
+            "options": [
+              "Manood ng bidyong pang-edukasyon para sa bata",
+              "Manahi ng damit",
+              "Mag-drive ng kotse",
+              "Magluto ng ulam"
+            ],
+            "correct_answer": "Manood ng bidyong pang-edukasyon para sa bata"
+          },
+          {
+            "question": "Bakit itinuturing na malaking network ang Internet?",
+            "options": [
+              "Nagkokonekta ito ng maraming kompyuter sa iba't ibang lugar",
+              "Isa lamang kompyuter ang bumubuo dito",
+              "Wala itong konektadong kompyuter",
+              "Ito ay hiwalay sa buong mundo"
+            ],
+            "correct_answer": "Nagkokonekta ito ng maraming kompyuter sa iba't ibang lugar"
+          },
+          {
+            "question": "Ano ang mahalagang aral tungkol sa Internet para sa bata?",
+            "options": [
+              "Gamitin ito nang may gabay ng matanda at pumili lamang ng angkop na nilalaman",
+              "Puwedeng gamitin nang mag-isa kahit kailan",
+              "Hindi na kailangan pag-ingatan",
+              "Walang panganib sa Internet"
+            ],
+            "correct_answer": "Gamitin ito nang may gabay ng matanda at pumili lamang ng angkop na nilalaman"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumamit ng Internet nang tama simula pagkabata?",
+            "options": [
+              "Upang maging ligtas at responsable sa paggamit nito paglaki",
+              "Hindi na kailangan matutunan ito",
+              "Ito ay para lamang sa matatanda",
+              "Walang epekto ito sa buhay ng bata"
+            ],
+            "correct_answer": "Upang maging ligtas at responsable sa paggamit nito paglaki"
+          },
+          {
+            "question": "Sino ang dapat humingi ng pahintulot bago pumunta online?",
+            "options": [
+              "Ang bata, sa kanyang magulang o guro",
+              "Walang kailangang humingi ng pahintulot",
+              "Ang guro sa bata",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Ang bata, sa kanyang magulang o guro"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# ❤️ GMRC — Paggawa ng Kabutihan sa Kapuwa\n\nGrade 2, Linggo 22! Pagpapahalaga: **Loving (Pagmamahal)**. ❤️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **hospitality** sa bisita.\n\n## ❤️ Ano ang Loving?\nAng **loving** ay ang pagpapakita ng pagmamalasakit at kabaitan sa ibang tao, kahit sa maliliit na paraan.\n\n## 🤝 Paraan ng Pagpapakita ng Kabutihan\n- Tulungan ang kaklase na nahihirapan\n- Ibahagi ang meryenda\n- Sabihin ang \"salamat\" at \"pakisuyo\"\n- Tumulong sa gawaing bahay nang walang inaasahan\n\n## 💡 Bakit Mahalaga Ito?\nAng maliliit na kabutihan araw-araw ay nakakatulong lumikha ng **mapagmahal na komunidad**.\n\n**Mahahalagang salita:** loving, kabutihan, pagtulong, pagbabahagi",
+        "quiz": [
+          {
+            "question": "Ano ang loving?",
+            "options": [
+              "Pagpapakita ng pagmamalasakit at kabaitan sa iba",
+              "Pagiging bastos sa iba",
+              "Pag-iwas sa kapwa",
+              "Pagsasarili nang walang tulong"
+            ],
+            "correct_answer": "Pagpapakita ng pagmamalasakit at kabaitan sa iba"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng kabutihan?",
+            "options": [
+              "Tulungan ang kaklaseng nahihirapan",
+              "Iwasan ang kaklase",
+              "Kutyain ang iba",
+              "Manakit ng kapwa"
+            ],
+            "correct_answer": "Tulungan ang kaklaseng nahihirapan"
+          },
+          {
+            "question": "Ano ang isang paraan ng pagbabahagi?",
+            "options": [
+              "Ibahagi ang meryenda",
+              "Kunin ang laruan ng iba",
+              "Itago ang lahat para sa sarili",
+              "Ipagkait ang tulong sa iba"
+            ],
+            "correct_answer": "Ibahagi ang meryenda"
+          },
+          {
+            "question": "Bakit mahalagang magsabi ng 'salamat' at 'pakisuyo'?",
+            "options": [
+              "Nagpapakita ito ng magandang asal at paggalang",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa matatanda",
+              "Hindi na kailangan sabihin"
+            ],
+            "correct_answer": "Nagpapakita ito ng magandang asal at paggalang"
+          },
+          {
+            "question": "Anong halimbawa ng pagtulong nang walang inaasahan?",
+            "options": [
+              "Pagtulong sa gawaing bahay nang kusa",
+              "Paghingi ng bayad sa pagtulong",
+              "Pag-iwas sa pagtulong",
+              "Pagtulong lamang kung may gantimpala"
+            ],
+            "correct_answer": "Pagtulong sa gawaing bahay nang kusa"
+          },
+          {
+            "question": "Bakit mahalaga ang maliliit na kabutihan araw-araw?",
+            "options": [
+              "Nakakatulong lumikha ng mapagmahal na komunidad",
+              "Wala itong epekto",
+              "Hindi ito napapansin",
+              "Wala itong kabuluhan"
+            ],
+            "correct_answer": "Nakakatulong lumikha ng mapagmahal na komunidad"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng pagpapakita ng kabutihan?",
+            "options": [
+              "Kutyain ang kaklaseng may kapansanan",
+              "Tulungan ang kaklaseng nahihirapan",
+              "Ibahagi ang meryenda",
+              "Sabihin ang salamat"
+            ],
+            "correct_answer": "Kutyain ang kaklaseng may kapansanan"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang loving sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng pagmamalasakit sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Ano ang mararamdaman ng taong tinulungan mo?",
+            "options": [
+              "Pasasalamat at kasiyahan",
+              "Galit",
+              "Kalungkutan",
+              "Walang mararamdaman"
+            ],
+            "correct_answer": "Pasasalamat at kasiyahan"
+          },
+          {
+            "question": "Kailan mo maaaring ipakita ang kabutihan sa iba?",
+            "options": [
+              "Anumang oras, kahit sa maliliit na paraan",
+              "Kapag lamang may kapistahan",
+              "Isang beses lamang sa isang taon",
+              "Hindi na kailangan ipakita ito"
+            ],
+            "correct_answer": "Anumang oras, kahit sa maliliit na paraan"
+          },
+          {
+            "question": "Bakit dapat tumulong sa kapwa kahit walang gantimpala?",
+            "options": [
+              "Ang tunay na kabutihan ay walang inaasahang kapalit",
+              "Dapat palaging may gantimpala",
+              "Hindi ito kailangang gawin",
+              "Walang saysay ang tumulong"
+            ],
+            "correct_answer": "Ang tunay na kabutihan ay walang inaasahang kapalit"
+          },
+          {
+            "question": "Paano nakakatulong ang pagbabahagi ng meryenda sa pagbuo ng pagkakaibigan?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at kabaitan",
+              "Walang epekto sa pagkakaibigan",
+              "Nagdudulot ito ng away",
+              "Hindi ito kailangang gawin"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at kabaitan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌈 Friday Review — English (Grade 2)\n\n- Dry season and rainy season\n\nGreat weather knowledge! 🌟",
+        "quiz": [
+          {
+            "question": "What is the dry season like?",
+            "options": [
+              "Hot with little rain",
+              "Cold with snow",
+              "Full of rain",
+              "Always dark"
+            ],
+            "correct_answer": "Hot with little rain"
+          },
+          {
+            "question": "What is the rainy season like?",
+            "options": [
+              "Lots of rain and sometimes strong wind",
+              "Always sunny",
+              "Very cold with snow",
+              "No weather"
+            ],
+            "correct_answer": "Lots of rain and sometimes strong wind"
+          },
+          {
+            "question": "What is a typhoon?",
+            "options": [
+              "A strong storm with heavy rain and wind",
+              "A sunny day",
+              "Dry weather",
+              "A clear sky"
+            ],
+            "correct_answer": "A strong storm with heavy rain and wind"
+          },
+          {
+            "question": "What do people wear during the dry season?",
+            "options": [
+              "Light clothes",
+              "Heavy winter coats",
+              "Raincoats only",
+              "Snow boots"
+            ],
+            "correct_answer": "Light clothes"
+          },
+          {
+            "question": "What do people bring during the rainy season?",
+            "options": [
+              "Umbrellas and raincoats",
+              "Sunglasses only",
+              "Winter coats",
+              "Snow boots"
+            ],
+            "correct_answer": "Umbrellas and raincoats"
+          },
+          {
+            "question": "Why drink lots of water during the dry season?",
+            "options": [
+              "Because it is hot",
+              "Because it is cold",
+              "Because it is raining",
+              "Because it is snowing"
+            ],
+            "correct_answer": "Because it is hot"
+          },
+          {
+            "question": "Which describes the dry season?",
+            "options": [
+              "Hot and sunny",
+              "Full of snow",
+              "Very cold",
+              "Typhoons every day"
+            ],
+            "correct_answer": "Hot and sunny"
+          },
+          {
+            "question": "Which describes the rainy season?",
+            "options": [
+              "Dark clouds and rain",
+              "Clear sky always",
+              "Never rains",
+              "Cold with snow"
+            ],
+            "correct_answer": "Dark clouds and rain"
+          },
+          {
+            "question": "How many main seasons does the Philippines have?",
+            "options": [
+              "Two",
+              "Four",
+              "One",
+              "Six"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Why might schools cancel classes during a typhoon?",
+            "options": [
+              "For student safety",
+              "Too sunny",
+              "Too cold",
+              "No real reason"
+            ],
+            "correct_answer": "For student safety"
+          },
+          {
+            "question": "What would you wear on a rainy day?",
+            "options": [
+              "A raincoat",
+              "Shorts and slippers only",
+              "Sunglasses",
+              "A swimsuit"
+            ],
+            "correct_answer": "A raincoat"
+          },
+          {
+            "question": "Which season is hot with little rain?",
+            "options": [
+              "Dry season",
+              "Rainy season",
+              "Winter",
+              "Autumn"
+            ],
+            "correct_answer": "Dry season"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 2)\n\n- Division with 2, 5, and 10\n\nGreat division work! ⭐",
+        "quiz": [
+          {
+            "question": "What does division mean?",
+            "options": [
+              "Sharing a group equally",
+              "Adding numbers",
+              "Making a number bigger",
+              "Comparing numbers"
+            ],
+            "correct_answer": "Sharing a group equally"
+          },
+          {
+            "question": "What is 10 ÷ 2?",
+            "options": [
+              "5",
+              "8",
+              "12",
+              "2"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 10 ÷ 5?",
+            "options": [
+              "2",
+              "5",
+              "15",
+              "50"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 20 ÷ 10?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "200"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 6 ÷ 2?",
+            "options": [
+              "3",
+              "4",
+              "8",
+              "12"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "If 2 × 5 = 10, what is 10 ÷ 2?",
+            "options": [
+              "5",
+              "2",
+              "10",
+              "20"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is 15 ÷ 5?",
+            "options": [
+              "3",
+              "5",
+              "10",
+              "20"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "Share 8 candies between 2 friends: how many each?",
+            "options": [
+              "4",
+              "2",
+              "6",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is 100 ÷ 10?",
+            "options": [
+              "10",
+              "100",
+              "1",
+              "20"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "How are multiplication and division connected?",
+            "options": [
+              "Division undoes multiplication",
+              "Not related",
+              "Division makes numbers bigger",
+              "Multiplication makes numbers smaller"
+            ],
+            "correct_answer": "Division undoes multiplication"
+          },
+          {
+            "question": "What is 4 ÷ 2?",
+            "options": [
+              "2",
+              "8",
+              "6",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "Share 20 pencils among 10 students: how many each?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "5"
+            ],
+            "correct_answer": "2"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌧️ Friday Review — Filipino (Grade 2)\n\n- Tag-init, tag-ulan, bagyo\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mainit at bihirang umulan",
+              "Malamig na panahon",
+              "Panahon ng niyebe",
+              "Panahon ng bulaklak"
+            ],
+            "correct_answer": "Mainit at bihirang umulan"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Panahong may maraming ulan",
+              "Panahong laging maaraw",
+              "Panahong may niyebe",
+              "Panahong walang ulap"
+            ],
+            "correct_answer": "Panahong may maraming ulan"
+          },
+          {
+            "question": "Ano ang bagyo?",
+            "options": [
+              "Malakas na hangin at ulan",
+              "Uri ng bulaklak",
+              "Uri ng prutas",
+              "Malinaw na araw"
+            ],
+            "correct_answer": "Malakas na hangin at ulan"
+          },
+          {
+            "question": "Ano ang isinusuot sa tag-init?",
+            "options": [
+              "Manipis na damit",
+              "Makapal na damit",
+              "Payong lamang",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Manipis na damit"
+          },
+          {
+            "question": "Ano ang dinadala sa tag-ulan?",
+            "options": [
+              "Payong at kapote",
+              "Sunglasses lamang",
+              "Makapal na kasuotan",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Payong at kapote"
+          },
+          {
+            "question": "Bakit maraming umiinom ng tubig sa tag-init?",
+            "options": [
+              "Dahil mainit",
+              "Dahil malamig",
+              "Dahil umuulan",
+              "Dahil may niyebe"
+            ],
+            "correct_answer": "Dahil mainit"
+          },
+          {
+            "question": "Tamang paglalarawan ng tag-init?",
+            "options": [
+              "Mainit at maaraw",
+              "Puno ng niyebe",
+              "Napakalamig",
+              "May bagyo araw-araw"
+            ],
+            "correct_answer": "Mainit at maaraw"
+          },
+          {
+            "question": "Tamang paglalarawan ng tag-ulan?",
+            "options": [
+              "Madalas madilim na ulap at ulan",
+              "Laging malinaw",
+              "Hindi kailanman umuulan",
+              "Palaging niyebe"
+            ],
+            "correct_answer": "Madalas madilim na ulap at ulan"
+          },
+          {
+            "question": "Ilan ang pangunahing panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Bakit sinususpinde ang klase kapag may bagyo?",
+            "options": [
+              "Para sa kaligtasan",
+              "Masyadong maaraw",
+              "Masyadong malamig",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para sa kaligtasan"
+          },
+          {
+            "question": "Isusuot sa maulang araw?",
+            "options": [
+              "Kapote",
+              "Damit pang-swimming",
+              "Sunglasses",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Kapote"
+          },
+          {
+            "question": "Panahong may mainit at kaunting ulan?",
+            "options": [
+              "Tag-init",
+              "Tag-ulan",
+              "Taglamig",
+              "Tagsibol"
+            ],
+            "correct_answer": "Tag-init"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- Ang dalawang panahon sa Pilipinas\n\nMagaling sa Agham! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mataas ang temperatura, kaunti ang ulan",
+              "Maraming ulan",
+              "May niyebe",
+              "Walang araw"
+            ],
+            "correct_answer": "Mataas ang temperatura, kaunti ang ulan"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Maraming ulan, mas mababang temperatura",
+              "Laging mainit",
+              "Walang ulan",
+              "May niyebe"
+            ],
+            "correct_answer": "Maraming ulan, mas mababang temperatura"
+          },
+          {
+            "question": "Kailan nagaganap ang tag-init?",
+            "options": [
+              "Marso hanggang Mayo",
+              "Hunyo hanggang Nobyembre",
+              "Disyembre hanggang Enero",
+              "Buong taon"
+            ],
+            "correct_answer": "Marso hanggang Mayo"
+          },
+          {
+            "question": "Kailan nagaganap ang tag-ulan?",
+            "options": [
+              "Hunyo hanggang Nobyembre",
+              "Marso hanggang Mayo",
+              "Enero hanggang Pebrero",
+              "Hindi kailanman"
+            ],
+            "correct_answer": "Hunyo hanggang Nobyembre"
+          },
+          {
+            "question": "Ginagamit para sukatin ang init?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Ginagamit para sukatin ang ulan?",
+            "options": [
+              "Rain gauge",
+              "Thermometer",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Rain gauge"
+          },
+          {
+            "question": "Tawag sa malakas na bagyo?",
+            "options": [
+              "Bagyo",
+              "Tag-init",
+              "Amihan lamang",
+              "Tag-araw"
+            ],
+            "correct_answer": "Bagyo"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang panahon?",
+            "options": [
+              "Para makapaghanda tayo",
+              "Walang kahalagahan",
+              "Para lamang libangin",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Para makapaghanda tayo"
+          },
+          {
+            "question": "Instrumento para malaman ang init ng araw?",
+            "options": [
+              "Thermometer",
+              "Payong",
+              "Kapote",
+              "Bota"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Epekto ng tag-ulan sa buhay?",
+            "options": [
+              "Magdala ng payong at mag-ingat sa baha",
+              "Walang epekto",
+              "Uminom ng maraming tubig",
+              "Magsuot ng manipis"
+            ],
+            "correct_answer": "Magdala ng payong at mag-ingat sa baha"
+          },
+          {
+            "question": "Epekto ng tag-init sa buhay?",
+            "options": [
+              "Uminom ng maraming tubig, manipis na damit",
+              "Makapal na kasuotan",
+              "Mag-ingat sa niyebe",
+              "Walang epekto"
+            ],
+            "correct_answer": "Uminom ng maraming tubig, manipis na damit"
+          },
+          {
+            "question": "Bakit gamitin ang mga kasangkapang panukat?",
+            "options": [
+              "Nagbibigay ng tumpak na impormasyon",
+              "Hindi na kailangan",
+              "Basta manghula lamang",
+              "Walang gamit"
+            ],
+            "correct_answer": "Nagbibigay ng tumpak na impormasyon"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🌾 Friday Review — Makabansa (Grade 2)\n\n- Agrikultural at industriyal na kabuhayan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang agrikultural na kabuhayan?",
+            "options": [
+              "Pagsasaka o pagtatanim",
+              "Paggawa sa pabrika",
+              "Pagtitinda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Pagsasaka o pagtatanim"
+          },
+          {
+            "question": "Ano ang industriyal na kabuhayan?",
+            "options": [
+              "Paggawa o pagpapatakbo ng pabrika",
+              "Pagsasaka",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa o pagpapatakbo ng pabrika"
+          },
+          {
+            "question": "Saan matatagpuan ang agrikultural na kabuhayan?",
+            "options": [
+              "Sa kanayunan o probinsya",
+              "Sa lungsod lamang",
+              "Sa dagat lamang",
+              "Sa ibang bansa lamang"
+            ],
+            "correct_answer": "Sa kanayunan o probinsya"
+          },
+          {
+            "question": "Saan matatagpuan ang industriyal na kabuhayan?",
+            "options": [
+              "Sa lungsod na may pabrika",
+              "Sa gubat",
+              "Sa dagat lamang",
+              "Sa bundok lamang"
+            ],
+            "correct_answer": "Sa lungsod na may pabrika"
+          },
+          {
+            "question": "Halimbawa ng agrikultural?",
+            "options": [
+              "Pagtatanim ng palay",
+              "Paggawa ng sasakyan",
+              "Pagtitinda ng damit",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Pagtatanim ng palay"
+          },
+          {
+            "question": "Halimbawa ng industriyal?",
+            "options": [
+              "Paggawa ng damit sa pabrika",
+              "Pagtatanim ng gulay",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa ng damit sa pabrika"
+          },
+          {
+            "question": "Ano ang tinatanim sa agrikultural?",
+            "options": [
+              "Palay, gulay, prutas",
+              "Damit",
+              "Sasakyan",
+              "Kompyuter"
+            ],
+            "correct_answer": "Palay, gulay, prutas"
+          },
+          {
+            "question": "Ano ang ginagawa sa pabrika?",
+            "options": [
+              "Paggawa ng produkto tulad ng damit o pagkain",
+              "Pagtatanim ng gulay",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa ng produkto tulad ng damit o pagkain"
+          },
+          {
+            "question": "Bakit mahalaga ang agrikultural na kabuhayan?",
+            "options": [
+              "Nagbibigay ng pagkain",
+              "Walang kahalagahan",
+              "Para sa mayaman lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay ng pagkain"
+          },
+          {
+            "question": "Bakit mahalaga ang industriyal na kabuhayan?",
+            "options": [
+              "Gumagawa ng produktong ginagamit araw-araw",
+              "Walang kahalagahan",
+              "Para sa lungsod lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Gumagawa ng produktong ginagamit araw-araw"
+          },
+          {
+            "question": "Pagkakaiba ng agrikultural sa industriyal?",
+            "options": [
+              "Agrikultural pagsasaka, industriyal paggawa sa pabrika",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Parehong sa dagat"
+            ],
+            "correct_answer": "Agrikultural pagsasaka, industriyal paggawa sa pabrika"
+          },
+          {
+            "question": "Bakit kailangan ng iba't ibang uri ng kabuhayan?",
+            "options": [
+              "Iba't ibang pangangailangan tinutugunan",
+              "Isang uri lamang kailangan",
+              "Walang pagkakaiba",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan tinutugunan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 2)\n\n- Ano ang Internet at kid-friendly na nilalaman\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang Internet?",
+            "options": [
+              "Network na nagkokonekta ng kompyuter sa buong mundo",
+              "Uri ng laruan",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+          },
+          {
+            "question": "Maaaring gawin gamit ang Internet?",
+            "options": [
+              "Maghanap ng impormasyon, manood ng bidyo",
+              "Manahi",
+              "Magluto",
+              "Maglakbay"
+            ],
+            "correct_answer": "Maghanap ng impormasyon, manood ng bidyo"
+          },
+          {
+            "question": "Angkop ba lahat ng nasa Internet para sa bata?",
+            "options": [
+              "Hindi, dapat kid-friendly lamang",
+              "Oo, lahat angkop",
+              "Walang nilalaman",
+              "Hindi na kailangan pumili"
+            ],
+            "correct_answer": "Hindi, dapat kid-friendly lamang"
+          },
+          {
+            "question": "Bakit kailangan ng gabay ng matanda online?",
+            "options": [
+              "Tumulong pumili ng ligtas na nilalaman",
+              "Hindi na kailangan",
+              "Palaging ligtas ang lahat",
+              "Bata na lamang magpasya"
+            ],
+            "correct_answer": "Tumulong pumili ng ligtas na nilalaman"
+          },
+          {
+            "question": "Ibig sabihin ng kid-friendly?",
+            "options": [
+              "Nilalamang angkop para sa bata",
+              "Para lamang sa matatanda",
+              "Mapanganib na nilalaman",
+              "Walang laman"
+            ],
+            "correct_answer": "Nilalamang angkop para sa bata"
+          },
+          {
+            "question": "Gawin bago gumamit ng Internet?",
+            "options": [
+              "Humingi ng pahintulot ng magulang",
+              "Direktang gamitin nang mag-isa",
+              "Hindi na magtanong",
+              "Gawin kapag walang matanda"
+            ],
+            "correct_answer": "Humingi ng pahintulot ng magulang"
+          },
+          {
+            "question": "Bakit hindi angkop lahat sa Internet para sa bata?",
+            "options": [
+              "May nilalamang para sa matatanda o mapanganib",
+              "Lahat ligtas",
+              "Walang mapanganib",
+              "Hindi totoo"
+            ],
+            "correct_answer": "May nilalamang para sa matatanda o mapanganib"
+          },
+          {
+            "question": "Halimbawa ng magagawa nang may gabay ng magulang?",
+            "options": [
+              "Manood ng bidyong pang-edukasyon",
+              "Manahi",
+              "Mag-drive",
+              "Magluto"
+            ],
+            "correct_answer": "Manood ng bidyong pang-edukasyon"
+          },
+          {
+            "question": "Bakit malaking network ang Internet?",
+            "options": [
+              "Nagkokonekta ng maraming kompyuter",
+              "Isang kompyuter lamang",
+              "Walang konektado",
+              "Hiwalay sa mundo"
+            ],
+            "correct_answer": "Nagkokonekta ng maraming kompyuter"
+          },
+          {
+            "question": "Mahalagang aral tungkol sa Internet?",
+            "options": [
+              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
+              "Gamitin nang mag-isa kahit kailan",
+              "Hindi kailangan pag-ingatan",
+              "Walang panganib"
+            ],
+            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+          },
+          {
+            "question": "Bakit matutong gumamit nang tama simula pagkabata?",
+            "options": [
+              "Maging ligtas at responsable paglaki",
+              "Hindi kailangan matutunan",
+              "Para lamang sa matatanda",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging ligtas at responsable paglaki"
+          },
+          {
+            "question": "Sino dapat humingi ng pahintulot bago pumunta online?",
+            "options": [
+              "Ang bata, sa magulang o guro",
+              "Walang kailangan humingi",
+              "Ang guro sa bata",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Ang bata, sa magulang o guro"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ❤️ Friday Review — GMRC (Grade 2)\n\n- Loving: paggawa ng kabutihan\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang loving?",
+            "options": [
+              "Pagpapakita ng pagmamalasakit at kabaitan",
+              "Pagiging bastos",
+              "Pag-iwas sa kapwa",
+              "Pagsasarili"
+            ],
+            "correct_answer": "Pagpapakita ng pagmamalasakit at kabaitan"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng kabutihan?",
+            "options": [
+              "Tulungan ang kaklaseng nahihirapan",
+              "Iwasan ang kaklase",
+              "Kutyain ang iba",
+              "Manakit ng kapwa"
+            ],
+            "correct_answer": "Tulungan ang kaklaseng nahihirapan"
+          },
+          {
+            "question": "Halimbawa ng pagbabahagi?",
+            "options": [
+              "Ibahagi ang meryenda",
+              "Kunin ang laruan ng iba",
+              "Itago para sa sarili",
+              "Ipagkait ang tulong"
+            ],
+            "correct_answer": "Ibahagi ang meryenda"
+          },
+          {
+            "question": "Bakit magsabi ng salamat at pakisuyo?",
+            "options": [
+              "Nagpapakita ng magandang asal",
+              "Wala itong kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi kailangan sabihin"
+            ],
+            "correct_answer": "Nagpapakita ng magandang asal"
+          },
+          {
+            "question": "Halimbawa ng pagtulong nang walang inaasahan?",
+            "options": [
+              "Pagtulong sa gawaing bahay nang kusa",
+              "Paghingi ng bayad",
+              "Pag-iwas sa pagtulong",
+              "Pagtulong kung may gantimpala lamang"
+            ],
+            "correct_answer": "Pagtulong sa gawaing bahay nang kusa"
+          },
+          {
+            "question": "Bakit mahalaga ang maliliit na kabutihan?",
+            "options": [
+              "Nakakatulong lumikha ng mapagmahal na komunidad",
+              "Walang epekto",
+              "Hindi napapansin",
+              "Walang kabuluhan"
+            ],
+            "correct_answer": "Nakakatulong lumikha ng mapagmahal na komunidad"
+          },
+          {
+            "question": "Alin ang HINDI kabutihan?",
+            "options": [
+              "Kutyain ang may kapansanan",
+              "Tulungan ang nahihirapan",
+              "Ibahagi ang meryenda",
+              "Sabihin ang salamat"
+            ],
+            "correct_answer": "Kutyain ang may kapansanan"
+          },
+          {
+            "question": "Bakit loving ay pagpapahalaga sa GMRC?",
+            "options": [
+              "Nagtuturo ng pagmamalasakit sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng pagmamalasakit sa kapwa"
+          },
+          {
+            "question": "Mararamdaman ng taong tinulungan mo?",
+            "options": [
+              "Pasasalamat at kasiyahan",
+              "Galit",
+              "Kalungkutan",
+              "Wala"
+            ],
+            "correct_answer": "Pasasalamat at kasiyahan"
+          },
+          {
+            "question": "Kailan maaaring ipakita ang kabutihan?",
+            "options": [
+              "Anumang oras",
+              "Kapag lamang may kapistahan",
+              "Isang beses sa isang taon",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Anumang oras"
+          },
+          {
+            "question": "Bakit tumulong kahit walang gantimpala?",
+            "options": [
+              "Tunay na kabutihan ay walang inaasahang kapalit",
+              "Dapat may gantimpala",
+              "Hindi kailangang gawin",
+              "Walang saysay"
+            ],
+            "correct_answer": "Tunay na kabutihan ay walang inaasahang kapalit"
+          },
+          {
+            "question": "Paano nakakatulong ang pagbabahagi sa pagkakaibigan?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit",
+              "Walang epekto",
+              "Nagdudulot ng away",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-11-22",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ✍️ English — In-Text Citation\n\nGrade 6, Week 24! Let's learn how to properly credit our sources in writing! ✍️\n\n## 🔄 Review\nWe began planning a research-based essay.\n\n## ✍️ What Is In-Text Citation?\n**In-text citation** is a short note within your writing that shows where a specific piece of information came from.\n\n## 📝 Simple Citation Format\nA common simple format: (Author's Last Name, Year) — for example: (Santos, 2024)\n\n## ⚠️ Why Cite Sources?\n- Gives credit to the original author\n- Allows readers to verify your information\n- Avoids **plagiarism** (using someone's work without credit)\n\n## 🔍 When to Cite\nCite whenever you use a direct quote, paraphrase someone's idea, or use specific facts/statistics that aren't common knowledge.\n\n## 🎯 Why This Matters\nProper citation makes your research-based essay credible and respects the work of other writers.\n\n**Key words:** in-text citation, plagiarism, credit, paraphrase",
+        "quiz": [
+          {
+            "question": "What is in-text citation?",
+            "options": [
+              "A short note showing where information came from",
+              "A long summary of the whole book",
+              "A title for an essay",
+              "A type of illustration"
+            ],
+            "correct_answer": "A short note showing where information came from"
+          },
+          {
+            "question": "What is a simple citation format?",
+            "options": [
+              "(Author's Last Name, Year)",
+              "(Full Book Title)",
+              "(Random Number)",
+              "(Page Color)"
+            ],
+            "correct_answer": "(Author's Last Name, Year)"
+          },
+          {
+            "question": "What is plagiarism?",
+            "options": [
+              "Using someone's work without giving credit",
+              "Reading a book carefully",
+              "Writing an original essay",
+              "Citing a source properly"
+            ],
+            "correct_answer": "Using someone's work without giving credit"
+          },
+          {
+            "question": "Why should you cite sources?",
+            "options": [
+              "To give credit and allow readers to verify information",
+              "To make the essay longer for no reason",
+              "Citations are never necessary",
+              "To confuse the reader"
+            ],
+            "correct_answer": "To give credit and allow readers to verify information"
+          },
+          {
+            "question": "When should you cite a source?",
+            "options": [
+              "When quoting, paraphrasing, or using specific facts",
+              "Only when writing fiction",
+              "Never, citations aren't needed",
+              "Only for very long essays"
+            ],
+            "correct_answer": "When quoting, paraphrasing, or using specific facts"
+          },
+          {
+            "question": "What does paraphrasing mean?",
+            "options": [
+              "Restating someone's idea in your own words",
+              "Copying text exactly",
+              "Ignoring the source entirely",
+              "Making up new information"
+            ],
+            "correct_answer": "Restating someone's idea in your own words"
+          },
+          {
+            "question": "Why is citation important for credibility of an essay?",
+            "options": [
+              "It shows the writer respects other authors' work and supports claims",
+              "Citations make the essay less believable",
+              "Citations are only decorative",
+              "Credibility has nothing to do with citations"
+            ],
+            "correct_answer": "It shows the writer respects other authors' work and supports claims"
+          },
+          {
+            "question": "If you use a statistic that isn't common knowledge, what should you do?",
+            "options": [
+              "Cite where the statistic came from",
+              "Ignore where it came from",
+              "Make up a new statistic",
+              "Remove all numbers from the essay"
+            ],
+            "correct_answer": "Cite where the statistic came from"
+          },
+          {
+            "question": "How does citation connect to the essay planning we started last week?",
+            "options": [
+              "Tracking sources during research makes citing them later easier",
+              "Citation has no connection to planning",
+              "Planning replaces the need to cite",
+              "Citations are added after publishing only"
+            ],
+            "correct_answer": "Tracking sources during research makes citing them later easier"
+          },
+          {
+            "question": "What happens if you don't cite a source you used?",
+            "options": [
+              "It may be considered plagiarism",
+              "Nothing happens at all",
+              "The essay automatically improves",
+              "Citations are optional in all cases"
+            ],
+            "correct_answer": "It may be considered plagiarism"
+          },
+          {
+            "question": "Why might a reader want to check your citations?",
+            "options": [
+              "To verify the accuracy of your claims",
+              "To criticize your handwriting",
+              "Readers never check citations",
+              "To count how many pages you wrote"
+            ],
+            "correct_answer": "To verify the accuracy of your claims"
+          },
+          {
+            "question": "What is one key difference between quoting and paraphrasing?",
+            "options": [
+              "Quoting uses exact words; paraphrasing restates in your own words",
+              "They are exactly the same thing",
+              "Quoting never needs citation",
+              "Paraphrasing is always wrong"
+            ],
+            "correct_answer": "Quoting uses exact words; paraphrasing restates in your own words"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Mathematics — Circumference of a Circle\n\nGrade 6, Week 24! Let's calculate the distance around a circle! ⭕\n\n## 🔄 Review\nWe learned the parts of a circle: center, radius, diameter.\n\n## ⭕ Formula for Circumference\n**Circumference (C) = π × diameter**, or equivalently, **C = 2 × π × radius**\n\nWe use **π (pi) ≈ 3.14** for calculations.\n\n## 🔍 Worked Example 1\nA circle has a diameter of 10 cm.\nC = π × d = 3.14 × 10 = **31.4 cm**\n\n## 🔍 Worked Example 2\nA circle has a radius of 7 cm.\nC = 2 × π × r = 2 × 3.14 × 7 = **43.96 cm**\n\n## 🎯 Why This Matters\nCircumference helps us measure things like the distance around a wheel, a pool, or a circular track.\n\n**Key words:** circumference, pi, diameter, radius",
+        "quiz": [
+          {
+            "question": "What is the formula for circumference using diameter?",
+            "options": [
+              "C = π × d",
+              "C = π × r²",
+              "C = 2 × d",
+              "C = d ÷ π"
+            ],
+            "correct_answer": "C = π × d"
+          },
+          {
+            "question": "What is the formula for circumference using radius?",
+            "options": [
+              "C = 2 × π × r",
+              "C = π × r²",
+              "C = 2 × r",
+              "C = r ÷ π"
+            ],
+            "correct_answer": "C = 2 × π × r"
+          },
+          {
+            "question": "What value of pi is commonly used in calculations?",
+            "options": [
+              "3.14",
+              "3.41",
+              "31.4",
+              "1.34"
+            ],
+            "correct_answer": "3.14"
+          },
+          {
+            "question": "A circle has diameter 10 cm. What is its circumference?",
+            "options": [
+              "31.4 cm",
+              "10 cm",
+              "20 cm",
+              "3.14 cm"
+            ],
+            "correct_answer": "31.4 cm"
+          },
+          {
+            "question": "A circle has radius 7 cm. What is its circumference?",
+            "options": [
+              "43.96 cm",
+              "21.98 cm",
+              "7 cm",
+              "14 cm"
+            ],
+            "correct_answer": "43.96 cm"
+          },
+          {
+            "question": "What does circumference measure?",
+            "options": [
+              "The distance around a circle",
+              "The distance across a circle",
+              "The area inside a circle",
+              "The center point"
+            ],
+            "correct_answer": "The distance around a circle"
+          },
+          {
+            "question": "If diameter is 20 cm, what is the circumference?",
+            "options": [
+              "62.8 cm",
+              "20 cm",
+              "10 cm",
+              "40 cm"
+            ],
+            "correct_answer": "62.8 cm"
+          },
+          {
+            "question": "If radius is 5 cm, what is the circumference?",
+            "options": [
+              "31.4 cm",
+              "15.7 cm",
+              "5 cm",
+              "10 cm"
+            ],
+            "correct_answer": "31.4 cm"
+          },
+          {
+            "question": "Why is circumference useful in real life?",
+            "options": [
+              "It helps measure the distance around circular objects like wheels",
+              "It has no practical use",
+              "Circumference only applies to math class",
+              "It measures weight, not distance"
+            ],
+            "correct_answer": "It helps measure the distance around circular objects like wheels"
+          },
+          {
+            "question": "How is circumference similar to perimeter?",
+            "options": [
+              "Both measure the distance around a shape",
+              "They measure completely different things",
+              "Circumference measures area",
+              "Perimeter only applies to circles"
+            ],
+            "correct_answer": "Both measure the distance around a shape"
+          },
+          {
+            "question": "If you know the circumference, how could you find the diameter?",
+            "options": [
+              "Divide circumference by π",
+              "Multiply circumference by π",
+              "Add circumference and π",
+              "Subtract π from circumference"
+            ],
+            "correct_answer": "Divide circumference by π"
+          },
+          {
+            "question": "Why do both formulas for circumference give the same result?",
+            "options": [
+              "Because diameter is always twice the radius",
+              "They actually give different results",
+              "Radius and diameter are unrelated",
+              "Pi changes depending on the formula used"
+            ],
+            "correct_answer": "Because diameter is always twice the radius"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🔊 Science — Sound and Moving Sources\n\nGrade 6, Week 24! Let's explore how sound changes when its source is moving! 🔊\n\n## 🔄 Review\nWe learned about waves and how they carry energy.\n\n## 🔊 What Is Sound?\n**Sound** is a longitudinal wave produced by vibrations that travels through a medium like air, water, or solids.\n\n## 🚗 The Doppler Effect\nWhen a sound source is **moving**, the pitch of the sound changes for a listener — this is called the **Doppler Effect**.\n\n- As a source **moves toward** you, the sound waves bunch together, making the pitch **higher**\n- As a source **moves away** from you, the sound waves stretch out, making the pitch **lower**\n\n## 🔍 Real-World Example\nAn ambulance siren sounds higher-pitched as it approaches and lower-pitched as it passes and moves away.\n\n## 🎯 Why This Matters\nUnderstanding the Doppler Effect helps explain everyday sound experiences and has uses in technology like radar and weather forecasting.\n\n**Key words:** sound, Doppler Effect, pitch, vibration, medium",
+        "quiz": [
+          {
+            "question": "What is sound?",
+            "options": [
+              "A longitudinal wave produced by vibrations",
+              "A type of light",
+              "A solid object",
+              "A type of chemical"
+            ],
+            "correct_answer": "A longitudinal wave produced by vibrations"
+          },
+          {
+            "question": "What is the Doppler Effect?",
+            "options": [
+              "The change in pitch when a sound source is moving",
+              "The speed of light in a vacuum",
+              "The color of sound waves",
+              "A type of simple machine"
+            ],
+            "correct_answer": "The change in pitch when a sound source is moving"
+          },
+          {
+            "question": "What happens to pitch as a source moves toward you?",
+            "options": [
+              "The pitch becomes higher",
+              "The pitch becomes lower",
+              "The pitch disappears",
+              "The pitch stays exactly the same"
+            ],
+            "correct_answer": "The pitch becomes higher"
+          },
+          {
+            "question": "What happens to pitch as a source moves away from you?",
+            "options": [
+              "The pitch becomes lower",
+              "The pitch becomes higher",
+              "The pitch disappears",
+              "The pitch stays exactly the same"
+            ],
+            "correct_answer": "The pitch becomes lower"
+          },
+          {
+            "question": "Give a real-world example of the Doppler Effect.",
+            "options": [
+              "An ambulance siren changing pitch as it passes",
+              "A rock sitting still",
+              "A book on a shelf",
+              "A plant growing"
+            ],
+            "correct_answer": "An ambulance siren changing pitch as it passes"
+          },
+          {
+            "question": "Why does the pitch increase as a source approaches?",
+            "options": [
+              "Sound waves bunch together in front of the moving source",
+              "Sound waves disappear",
+              "The source gets quieter",
+              "Sound stops moving entirely"
+            ],
+            "correct_answer": "Sound waves bunch together in front of the moving source"
+          },
+          {
+            "question": "Why does the pitch decrease as a source moves away?",
+            "options": [
+              "Sound waves stretch out behind the moving source",
+              "Sound waves bunch together",
+              "The source gets louder",
+              "Sound waves disappear"
+            ],
+            "correct_answer": "Sound waves stretch out behind the moving source"
+          },
+          {
+            "question": "What medium can sound travel through?",
+            "options": [
+              "Air, water, and solids",
+              "Only air",
+              "Only a vacuum",
+              "Sound cannot travel through anything"
+            ],
+            "correct_answer": "Air, water, and solids"
+          },
+          {
+            "question": "What practical use does the Doppler Effect have in technology?",
+            "options": [
+              "Radar and weather forecasting",
+              "Cooking food",
+              "Building furniture",
+              "Growing plants"
+            ],
+            "correct_answer": "Radar and weather forecasting"
+          },
+          {
+            "question": "How is sound classified as a wave?",
+            "options": [
+              "It is a longitudinal wave",
+              "It is a transverse wave",
+              "It is not a wave at all",
+              "It has no classification"
+            ],
+            "correct_answer": "It is a longitudinal wave"
+          },
+          {
+            "question": "Why is it important to understand how sound behaves with motion?",
+            "options": [
+              "It explains real-world sound experiences and has technological uses",
+              "Sound never changes regardless of motion",
+              "It has no practical importance",
+              "Sound and motion are unrelated"
+            ],
+            "correct_answer": "It explains real-world sound experiences and has technological uses"
+          },
+          {
+            "question": "How does this topic connect to the waves lesson from last week?",
+            "options": [
+              "Sound is a specific type of wave that carries energy",
+              "Sound has nothing to do with waves",
+              "Waves and sound are entirely separate topics",
+              "Sound is not related to energy at all"
+            ],
+            "correct_answer": "Sound is a specific type of wave that carries energy"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎤 Filipino — Retorika ng Argumento\n\nGrade 6, Linggo 24! Alamin natin kung paano bumuo ng malakas na argumento sa pagsasalita at pagsulat! 🎤\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pasibo at aktibong anyo ng pandiwa.\n\n## 🎤 Ano ang Retorika?\nAng **retorika** ay ang sining ng epektibong pagsasalita o pagsulat upang kumbinsihin ang tagapakinig o mambabasa.\n\n## 🔍 Mga Bahagi ng Argumento\n- **Claim** — ang pangunahing panukala o paninindigan\n- **Warrant** — ang paliwanag kung bakit valid ang katibayan para sa claim\n- **Backing** — dagdag na suporta upang palakasin ang warrant\n\n## ✍️ Halimbawa\n**Claim:** Dapat bawasan ang paggamit ng plastik.\n**Warrant:** Nakakasama ito sa kapaligiran.\n**Backing:** Milyon-milyong tonelada ng plastik ang nasa karagatan.\n\n**Mahahalagang salita:** retorika, claim, warrant, backing, argumento",
+        "quiz": [
+          {
+            "question": "Ano ang retorika?",
+            "options": [
+              "Sining ng epektibong pagsasalita o pagsulat upang kumbinsihin",
+              "Isang uri ng tula",
+              "Isang bantas",
+              "Isang uri ng laro"
+            ],
+            "correct_answer": "Sining ng epektibong pagsasalita o pagsulat upang kumbinsihin"
+          },
+          {
+            "question": "Ano ang claim sa isang argumento?",
+            "options": [
+              "Ang pangunahing panukala o paninindigan",
+              "Ang dagdag na suporta",
+              "Ang paliwanag kung bakit valid",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Ang pangunahing panukala o paninindigan"
+          },
+          {
+            "question": "Ano ang warrant sa isang argumento?",
+            "options": [
+              "Paliwanag kung bakit valid ang katibayan",
+              "Ang pangunahing panukala",
+              "Dagdag na suporta lamang",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Paliwanag kung bakit valid ang katibayan"
+          },
+          {
+            "question": "Ano ang backing sa isang argumento?",
+            "options": [
+              "Dagdag na suporta upang palakasin ang warrant",
+              "Ang pangunahing panukala",
+              "Ang paliwanag lamang",
+              "Isang uri ng bantas"
+            ],
+            "correct_answer": "Dagdag na suporta upang palakasin ang warrant"
+          },
+          {
+            "question": "Sa halimbawa tungkol sa plastik, ano ang claim?",
+            "options": [
+              "Dapat bawasan ang paggamit ng plastik",
+              "Nakakasama ito sa kapaligiran",
+              "Milyon-milyong tonelada ng plastik",
+              "Walang claim sa halimbawa"
+            ],
+            "correct_answer": "Dapat bawasan ang paggamit ng plastik"
+          },
+          {
+            "question": "Sa halimbawa tungkol sa plastik, ano ang warrant?",
+            "options": [
+              "Nakakasama ito sa kapaligiran",
+              "Dapat bawasan ang plastik",
+              "Milyon-milyong tonelada ng plastik",
+              "Walang warrant sa halimbawa"
+            ],
+            "correct_answer": "Nakakasama ito sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalaga ang retorika sa pagsulat ng argumento?",
+            "options": [
+              "Tumutulong itong bumuo ng mas malakas na paninindigan",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito bahagi ng Filipino"
+            ],
+            "correct_answer": "Tumutulong itong bumuo ng mas malakas na paninindigan"
+          },
+          {
+            "question": "Bakit kailangan ng backing sa isang argumento?",
+            "options": [
+              "Upang palakasin ang katotohanan ng warrant",
+              "Walang layunin ito",
+              "Hindi na kailangan ito",
+              "Basta pandagdag lamang"
+            ],
+            "correct_answer": "Upang palakasin ang katotohanan ng warrant"
+          },
+          {
+            "question": "Anong kasanayan ang binubuo sa pag-aaral ng retorika?",
+            "options": [
+              "Kakayahang kumbinsihin sa pamamagitan ng malinaw na argumento",
+              "Kakayahang gumuhit lamang",
+              "Kakayahang kumanta lamang",
+              "Kakayahang magsayaw lamang"
+            ],
+            "correct_answer": "Kakayahang kumbinsihin sa pamamagitan ng malinaw na argumento"
+          },
+          {
+            "question": "Paano konektado ang retorika sa pagsulat ng persweysibong sanaysay?",
+            "options": [
+              "Ang parehong bahagi ay gumagamit ng claim, warrant, at backing",
+              "Walang koneksyon ang dalawa",
+              "Retorika ay para lamang sa berbal na pagsasalita",
+              "Persweysibong sanaysay ay hindi gumagamit ng argumento"
+            ],
+            "correct_answer": "Ang parehong bahagi ay gumagamit ng claim, warrant, at backing"
+          },
+          {
+            "question": "Bakit dapat may katibayan ang isang malakas na argumento?",
+            "options": [
+              "Nagpapatunay ito na may batayan ang claim",
+              "Walang kahalagahan ang katibayan",
+              "Ang claim ay palaging totoo kahit walang katibayan",
+              "Hindi na kailangan ng katibayan"
+            ],
+            "correct_answer": "Nagpapatunay ito na may batayan ang claim"
+          },
+          {
+            "question": "Bakit itinuturo ang retorika sa Grade 6?",
+            "options": [
+              "Upang mahusay silang makapagpahayag ng kanilang opinyon",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng Filipino"
+            ],
+            "correct_answer": "Upang mahusay silang makapagpahayag ng kanilang opinyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ✊ Araling Panlipunan — EDSA People Power I\n\nGrade 6, Linggo 24! Alamin natin ang makasaysayang rebolusyon sa EDSA! ✊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang Batas Militar ni Marcos.\n\n## ✊ Ano ang EDSA People Power I?\nAng **EDSA People Power I** (Pebrero 22-25, 1986) ay ang mapayapang rebolusyon na nagpatalsik kay Pangulong Ferdinand Marcos matapos ang mahabang panahon ng Batas Militar.\n\n## 🕊️ Paano Naganap ang Rebolusyon?\nMilyon-milyong Pilipino ang nagtipon sa EDSA upang mapayapang tumutol sa mapanlinlang na eleksyon at ipahayag ang kanilang kagustuhan para sa demokrasya.\n\n## 🌟 Bunga ng EDSA\n- Napalitan si Marcos ni Corazon Aquino bilang bagong pangulo\n- Naibalik ang demokratikong institusyon ng bansa\n\n## 🎯 Bakit Mahalaga Ito?\nIpinapakita ng EDSA ang kapangyarihan ng mapayapang pagkilos ng mamamayan laban sa isang mapaniil na pamahalaan.\n\n**Mahahalagang salita:** EDSA People Power, Marcos, Corazon Aquino, demokrasya",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang EDSA People Power I?",
+            "options": [
+              "Pebrero 22-25, 1986",
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Pebrero 22-25, 1986"
+          },
+          {
+            "question": "Sino ang napatalsik sa EDSA People Power?",
+            "options": [
+              "Ferdinand Marcos",
+              "Corazon Aquino",
+              "Jose Rizal",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Sino ang naging bagong pangulo pagkatapos ng EDSA?",
+            "options": [
+              "Corazon Aquino",
+              "Ferdinand Marcos",
+              "Manuel Quezon",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Corazon Aquino"
+          },
+          {
+            "question": "Bakit nagtipon ang mga Pilipino sa EDSA?",
+            "options": [
+              "Upang mapayapang tumutol sa mapanlinlang na eleksyon",
+              "Upang magdiwang ng bagong taon",
+              "Upang bumili ng gamit",
+              "Upang manood ng palabas"
+            ],
+            "correct_answer": "Upang mapayapang tumutol sa mapanlinlang na eleksyon"
+          },
+          {
+            "question": "Ano ang naging bunga ng EDSA People Power?",
+            "options": [
+              "Naibalik ang demokratikong institusyon ng bansa",
+              "Nagpatuloy ang Batas Militar",
+              "Walang pagbabagong naganap",
+              "Nagkaroon ng bagong digmaan"
+            ],
+            "correct_answer": "Naibalik ang demokratikong institusyon ng bansa"
+          },
+          {
+            "question": "Anong uri ng rebolusyon ang EDSA People Power?",
+            "options": [
+              "Mapayapang rebolusyon",
+              "Marahas na digmaan",
+              "Sikretong kudeta",
+              "Digmaang sibil"
+            ],
+            "correct_answer": "Mapayapang rebolusyon"
+          },
+          {
+            "question": "Bakit mahalaga ang EDSA People Power sa kasaysayan ng Pilipinas?",
+            "options": [
+              "Ipinapakita nito ang kapangyarihan ng mamamayan laban sa mapaniil na pamahalaan",
+              "Walang kahalagahan ito",
+              "Hindi ito bahagi ng kasaysayan",
+              "Ito ay tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Ipinapakita nito ang kapangyarihan ng mamamayan laban sa mapaniil na pamahalaan"
+          },
+          {
+            "question": "Konsepto bago ang EDSA People Power sa serye ng AP?",
+            "options": [
+              "Batas Militar ni Marcos",
+              "Neokolonyalismo",
+              "Ikatlong Republika",
+              "Digmaang Pilipino-Amerikano"
+            ],
+            "correct_answer": "Batas Militar ni Marcos"
+          },
+          {
+            "question": "Bakit itinuturing na makasaysayan ang taong 1986?",
+            "options": [
+              "Iyon ang taon ng EDSA People Power at pagbabago ng pamahalaan",
+              "Walang pangyayari noong taong iyon",
+              "Iyon ang taon ng kalayaan ng Pilipinas",
+              "Iyon ang taon ng Batas Militar"
+            ],
+            "correct_answer": "Iyon ang taon ng EDSA People Power at pagbabago ng pamahalaan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng EDSA tungkol sa demokrasya?",
+            "options": [
+              "Mahalaga ang boses ng mamamayan sa pagbabago ng pamahalaan",
+              "Walang halaga ang boses ng mamamayan",
+              "Ang pamahalaan lamang ang may kapangyarihang magbago",
+              "Hindi mahalaga ang demokrasya"
+            ],
+            "correct_answer": "Mahalaga ang boses ng mamamayan sa pagbabago ng pamahalaan"
+          },
+          {
+            "question": "Bakit itinuturing na kabaligtaran ng Batas Militar ang EDSA People Power?",
+            "options": [
+              "Ibinalik nito ang kalayaan pagkatapos ng panahon ng pagsupil",
+              "Magkatulad lamang sila",
+              "Walang koneksyon ang dalawang pangyayari",
+              "Parehong nagdulot ng pagsupil sa karapatan"
+            ],
+            "correct_answer": "Ibinalik nito ang kalayaan pagkatapos ng panahon ng pagsupil"
+          },
+          {
+            "question": "Bakit mahalagang alalahanin ang EDSA People Power bilang mamamayan ngayon?",
+            "options": [
+              "Nagpapaalala ito ng halaga ng pagbabantay sa demokrasya",
+              "Wala itong kahalagahan ngayon",
+              "Hindi na ito importante sa kasalukuyan",
+              "Ito ay dapat lamang kalimutan"
+            ],
+            "correct_answer": "Nagpapaalala ito ng halaga ng pagbabantay sa demokrasya"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎉 MAPEH — Lokal at Rehiyonal na Street Dance\n\nGrade 6, Linggo 24! Alamin natin ang mga sikat na street dance festival sa Pilipinas! 🎉\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dance exercise.\n\n## 🎉 Ano ang Street Dance Festival?\nAng mga **street dance festival** ay taunang kaganapan kung saan nagsasayaw ang mga komunidad sa lansangan bilang pagdiriwang ng kultura at kasaysayang panrehiyon.\n\n## 🌟 Mga Halimbawa\n- **Sinulog** (Cebu) — parangal kay Santo Niño\n- **Ati-Atihan** (Aklan) — pinakamatandang pista sa Pilipinas\n- **Dinagyang** (Iloilo) — makulay na pagdiriwang na may mga tribung sumasayaw\n\n## 💃 Katangian ng Street Dance\nBinubuo ito ng malakas na tunog ng tambol, makukulay na kasuotan, at magkakasabay na koreograpiya ng malaking grupo ng manananayaw.\n\n## 🎯 Bakit Mahalaga Ito?\nIpinapakita ng street dance festivals ang mayamang kultura at diwa ng pagdiriwang ng mga Pilipino.\n\n**Mahahalagang salita:** street dance, Sinulog, Ati-Atihan, Dinagyang, pagdiriwang",
+        "quiz": [
+          {
+            "question": "Ano ang street dance festival?",
+            "options": [
+              "Taunang kaganapan ng pagsasayaw sa lansangan bilang pagdiriwang",
+              "Isang uri ng laro sa bahay",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Taunang kaganapan ng pagsasayaw sa lansangan bilang pagdiriwang"
+          },
+          {
+            "question": "Saan ginaganap ang Sinulog?",
+            "options": [
+              "Cebu",
+              "Aklan",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Cebu"
+          },
+          {
+            "question": "Saan ginaganap ang Ati-Atihan?",
+            "options": [
+              "Aklan",
+              "Cebu",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Aklan"
+          },
+          {
+            "question": "Saan ginaganap ang Dinagyang?",
+            "options": [
+              "Iloilo",
+              "Cebu",
+              "Aklan",
+              "Manila"
+            ],
+            "correct_answer": "Iloilo"
+          },
+          {
+            "question": "Kanino iginagalang ang Sinulog?",
+            "options": [
+              "Santo Niño",
+              "Ina ng Kalamba",
+              "Rizal",
+              "Bonifacio"
+            ],
+            "correct_answer": "Santo Niño"
+          },
+          {
+            "question": "Alin ang pinakamatandang pista sa Pilipinas?",
+            "options": [
+              "Ati-Atihan",
+              "Sinulog",
+              "Dinagyang",
+              "MassKara"
+            ],
+            "correct_answer": "Ati-Atihan"
+          },
+          {
+            "question": "Anong katangian mayroon ang street dance?",
+            "options": [
+              "Malakas na tunog ng tambol at makukulay na kasuotan",
+              "Katahimikan at walang musika",
+              "Isang tao lamang ang sumasayaw",
+              "Walang koreograpiya"
+            ],
+            "correct_answer": "Malakas na tunog ng tambol at makukulay na kasuotan"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang mga street dance festival?",
+            "options": [
+              "Ipinapakita nila ang mayamang kultura ng Pilipinas",
+              "Walang kahalagahan ito",
+              "Ito ay basta libangan lamang",
+              "Hindi ito bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nila ang mayamang kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit itinuturo ang mga street dance festival sa MAPEH?",
+            "options": [
+              "Upang mapahalagahan ang kultura at kasaysayang panrehiyon",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang mapahalagahan ang kultura at kasaysayang panrehiyon"
+          },
+          {
+            "question": "Ano ang layunin ng magkakasabay na koreograpiya sa street dance?",
+            "options": [
+              "Nagpapakita ng pagkakaisa at kasanayan ng grupo",
+              "Walang layunin ito",
+              "Nagdudulot lamang ng kalituhan",
+              "Ito ay hindi bahagi ng festival"
+            ],
+            "correct_answer": "Nagpapakita ng pagkakaisa at kasanayan ng grupo"
+          },
+          {
+            "question": "Paano nauugnay ang street dance sa dance exercise na natutunan noon?",
+            "options": [
+              "Parehong gumagamit ng galaw at musika bilang bahagi ng sayaw",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham lamang",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong gumagamit ng galaw at musika bilang bahagi ng sayaw"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pagkakakilanlan ng Pilipino ang mga festival na ito?",
+            "options": [
+              "Ipinapakita nila ang natatanging kultura ng bawat rehiyon",
+              "Wala silang kaugnayan sa pagkakakilanlan",
+              "Ito ay hiram lamang sa ibang bansa",
+              "Hindi ito bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nila ang natatanging kultura ng bawat rehiyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍯 EPP (FCS) — Pangangalaga ng Pagkain: Pag-aasin at Pagbibilad\n\nGrade 6, Linggo 24! Alamin natin ang mga tradisyunal na paraan ng pangangalaga ng pagkain! 🍯\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga kasangkapan sa kusina at teknik sa paghihiwa.\n\n## 🧂 Ano ang Pag-aasin?\nAng **pag-aasin** ay isang paraan ng pangangalaga ng pagkain kung saan gumagamit ng asin upang tanggalin ang tubig mula sa pagkain, na pumipigil sa paglaki ng bakterya.\n\n## ☀️ Ano ang Pagbibilad?\nAng **pagbibilad** (sun-drying) ay ang pagbababa ng tubig sa pagkain sa pamamagitan ng pagsalang sa araw, na tumutulong pahabain ang buhay-imbak nito.\n\n## 🐟 Halimbawa\n- Tuyo (tuyong isda na inasnan at binilad)\n- Bagoong (isdang inasnan)\n\n## 🎯 Bakit Mahalaga Ito?\nAng mga tradisyunal na pamamaraang ito ay nagpapahaba ng buhay-imbak ng pagkain nang walang gamit ng modernong teknolohiya.\n\n**Mahahalagang salita:** pag-aasin, pagbibilad, pangangalaga ng pagkain, buhay-imbak",
+        "quiz": [
+          {
+            "question": "Ano ang pag-aasin?",
+            "options": [
+              "Paraan ng pangangalaga gamit ang asin",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Paraan ng pangangalaga gamit ang asin"
+          },
+          {
+            "question": "Ano ang pagbibilad?",
+            "options": [
+              "Pagbababa ng tubig sa pagkain sa pamamagitan ng araw",
+              "Pagluluto sa kalan",
+              "Pagpiga ng prutas",
+              "Pagbabalot ng pagkain"
+            ],
+            "correct_answer": "Pagbababa ng tubig sa pagkain sa pamamagitan ng araw"
+          },
+          {
+            "question": "Bakit tumutulong ang pag-aasin sa pangangalaga ng pagkain?",
+            "options": [
+              "Tinatanggal nito ang tubig na pumipigil sa paglaki ng bakterya",
+              "Walang epekto ito sa pagkain",
+              "Nagdaragdag ito ng bakterya",
+              "Pinapabilis nito ang pagkasira"
+            ],
+            "correct_answer": "Tinatanggal nito ang tubig na pumipigil sa paglaki ng bakterya"
+          },
+          {
+            "question": "Anong halimbawa ng pagkaing inasnan at binilad?",
+            "options": [
+              "Tuyo",
+              "Sinigang",
+              "Adobo",
+              "Lumpia"
+            ],
+            "correct_answer": "Tuyo"
+          },
+          {
+            "question": "Ano ang bagoong?",
+            "options": [
+              "Isdang inasnan",
+              "Isang uri ng gulay",
+              "Isang uri ng prutas",
+              "Isang uri ng inumin"
+            ],
+            "correct_answer": "Isdang inasnan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpapahaba ng buhay-imbak ng pagkain?",
+            "options": [
+              "Nakakatulong itong maiwasan ang pag-aaksaya ng pagkain",
+              "Walang kahalagahan ito",
+              "Hindi na kailangang mag-imbak ng pagkain",
+              "Nagpapabilis lamang ito ng pagkasira"
+            ],
+            "correct_answer": "Nakakatulong itong maiwasan ang pag-aaksaya ng pagkain"
+          },
+          {
+            "question": "Bakit ginagamit ang tradisyunal na pamamaraan ng pangangalaga kahit may modernong teknolohiya?",
+            "options": [
+              "Mabisa pa rin ito at bahagi ng kultura ng Pilipino",
+              "Walang kabuluhan ang tradisyunal na paraan",
+              "Mas mahal ito kaysa modernong teknolohiya",
+              "Hindi na ito ginagamit sa kasalukuyan"
+            ],
+            "correct_answer": "Mabisa pa rin ito at bahagi ng kultura ng Pilipino"
+          },
+          {
+            "question": "Bakit epektibo ang sikat ng araw sa pagbibilad ng pagkain?",
+            "options": [
+              "Tumutulong itong tanggalin ang tubig sa pagkain",
+              "Walang epekto ang araw sa pagkain",
+              "Pinapabilis nito ang pagkabulok",
+              "Nagdaragdag ito ng tubig sa pagkain"
+            ],
+            "correct_answer": "Tumutulong itong tanggalin ang tubig sa pagkain"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pangangalaga ng pagkain?",
+            "options": [
+              "Nakakatulong ito bawasan ang pag-aaksaya at magbigay ng kabuhayan",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Nakakatulong ito bawasan ang pag-aaksaya at magbigay ng kabuhayan"
+          },
+          {
+            "question": "Paano nauugnay ang pangangalaga ng pagkain sa mga kasangkapan sa kusina na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng buong proseso ng paghahanda at pag-iimbak ng pagkain",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng buong proseso ng paghahanda at pag-iimbak ng pagkain"
+          },
+          {
+            "question": "Bakit itinuturo ang pag-aasin at pagbibilad sa Grade 6?",
+            "options": [
+              "Upang malaman ang mga tradisyunal na paraan ng pangangalaga ng pagkain",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Upang malaman ang mga tradisyunal na paraan ng pangangalaga ng pagkain"
+          },
+          {
+            "question": "Bakit maaaring maging negosyo ang mga produktong inimbak tulad ng tuyo at bagoong?",
+            "options": [
+              "Maaari itong ibenta at magbigay ng kita sa pamilya",
+              "Walang halaga ang mga ito",
+              "Hindi na kailangan ipagbili ang mga ito",
+              "Basta pagkain lamang ito para sarili"
+            ],
+            "correct_answer": "Maaari itong ibenta at magbigay ng kita sa pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ⚖️ GMRC — Pagiging Patas sa Kapuwa (Makatarungan)\n\nGrade 6, Linggo 24! Pagpapahalaga: **Makatarungan (Fairness/Justice)**. ⚖️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagtugon sa emosyon ng kapuwa gamit ang mapagpasensiya.\n\n## ⚖️ Ano ang Makatarungan?\nAng pagiging **makatarungan** ay ang pagtrato sa lahat nang pantay-pantay at walang kinikilingan, batay sa katotohanan at hindi sa personal na kagustuhan.\n\n## 🤝 Halimbawa ng Pagiging Makatarungan\n- Pagbibigay ng pagkakataon sa lahat na magsalita bago humatol\n- Hindi paboritismo sa mga kaibigan lamang\n- Pagsunod sa parehong panuntunan para sa lahat\n\n## 💡 Bakit Mahalaga Ito?\nAng pagiging makatarungan ay nagpapanatili ng tiwala at paggalang sa isang relasyon o komunidad.\n\n**Mahahalagang salita:** makatarungan, pagiging patas, walang kinikilingan, pagtitiwala",
+        "quiz": [
+          {
+            "question": "Ano ang makatarungan?",
+            "options": [
+              "Pagtrato sa lahat nang pantay-pantay at walang kinikilingan",
+              "Pagbibigay ng pabor sa kaibigan lamang",
+              "Kawalang pakialam sa katarungan",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Pagtrato sa lahat nang pantay-pantay at walang kinikilingan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Makatarungan (Fairness/Justice)",
+              "Mapagpasensiya",
+              "Lakas ng loob",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Makatarungan (Fairness/Justice)"
+          },
+          {
+            "question": "Anong halimbawa ng pagiging makatarungan?",
+            "options": [
+              "Pagbibigay ng pagkakataon sa lahat na magsalita bago humatol",
+              "Paboritismo sa mga kaibigan",
+              "Pagsunod sa ibang panuntunan para sa iba",
+              "Pagtanggi makinig sa lahat ng panig"
+            ],
+            "correct_answer": "Pagbibigay ng pagkakataon sa lahat na magsalita bago humatol"
+          },
+          {
+            "question": "Bakit hindi dapat magpakita ng paboritismo?",
+            "options": [
+              "Nagreresulta ito sa hindi patas na pagtrato",
+              "Walang kahalagahan ito",
+              "Ito ay palaging tama",
+              "Hindi ito nakakaapekto sa iba"
+            ],
+            "correct_answer": "Nagreresulta ito sa hindi patas na pagtrato"
+          },
+          {
+            "question": "Anong konsepto ang natutunan bago ang paksang ito?",
+            "options": [
+              "Pagtugon sa emosyon ng kapuwa (Mapagpasensiya)",
+              "Pagtugon sa pambubulas",
+              "Pananalig sa Diyos",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pagtugon sa emosyon ng kapuwa (Mapagpasensiya)"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang parehong panuntunan para sa lahat?",
+            "options": [
+              "Tinitiyak nitong walang sinuman ang nabibigyan ng espesyal na pabor",
+              "Walang kahalagahan ito",
+              "Dapat may pabor sa ilan",
+              "Hindi importante ang pantay na panuntunan"
+            ],
+            "correct_answer": "Tinitiyak nitong walang sinuman ang nabibigyan ng espesyal na pabor"
+          },
+          {
+            "question": "Bakit mahalaga ang pagiging makatarungan sa isang relasyon?",
+            "options": [
+              "Nagpapanatili ito ng tiwala at paggalang",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ng katarungan",
+              "Ito ay palaging madali gawin"
+            ],
+            "correct_answer": "Nagpapanatili ito ng tiwala at paggalang"
+          },
+          {
+            "question": "Ano ang ikatlong hakbang sa serye ng pakikipagkapuwa sa Term 3?",
+            "options": [
+              "Pagiging patas sa kapuwa (Makatarungan)",
+              "Pagtugon sa pambubulas",
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagiging patas sa kapuwa (Makatarungan)"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng pakikipagkapuwa ang pagiging makatarungan?",
+            "options": [
+              "Tumutulong itong mapanatili ang katarungan sa relasyon at komunidad",
+              "Walang kaugnayan ito",
+              "Ito ay uri lamang ng laro",
+              "Hindi ito totoong pagpapahalaga"
+            ],
+            "correct_answer": "Tumutulong itong mapanatili ang katarungan sa relasyon at komunidad"
+          },
+          {
+            "question": "Bakit dapat pakinggan ang lahat ng panig bago humatol?",
+            "options": [
+              "Nagbibigay ito ng pantay na pagkakataon na maunawaan ang buong sitwasyon",
+              "Walang kailangang pakinggan",
+              "Sapat na ang isang panig lamang",
+              "Hindi kailanman kailangan makinig"
+            ],
+            "correct_answer": "Nagbibigay ito ng pantay na pagkakataon na maunawaan ang buong sitwasyon"
+          },
+          {
+            "question": "Bakit itinuturo ang pagiging makatarungan sa Grade 6?",
+            "options": [
+              "Upang matulungan silang gumawa ng patas na desisyon",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matulungan silang gumawa ng patas na desisyon"
+          },
+          {
+            "question": "Bakit itinuturing na progresibo ang serye ng pagpapahalaga sa pakikipagkapuwa (lakas ng loob, mapagpasensiya, makatarungan)?",
+            "options": [
+              "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na pakikitungo sa kapwa",
+              "Walang kaugnayan ang bawat hakbang sa isa't isa",
+              "Random lamang ang pagkakasunod-sunod",
+              "Iisa lamang ang mahalaga sa lahat"
+            ],
+            "correct_answer": "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na pakikitungo sa kapwa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ✍️ Friday Review — English (Grade 6)\n\n- In-text citation\n\nGreat citation skills! 🌟",
+        "quiz": [
+          {
+            "question": "What is in-text citation?",
+            "options": [
+              "A short note showing where information came from",
+              "A long summary of the book",
+              "A title for an essay",
+              "A type of illustration"
+            ],
+            "correct_answer": "A short note showing where information came from"
+          },
+          {
+            "question": "A simple citation format?",
+            "options": [
+              "(Author's Last Name, Year)",
+              "(Full Book Title)",
+              "(Random Number)",
+              "(Page Color)"
+            ],
+            "correct_answer": "(Author's Last Name, Year)"
+          },
+          {
+            "question": "What is plagiarism?",
+            "options": [
+              "Using someone's work without credit",
+              "Reading a book carefully",
+              "Writing an original essay",
+              "Citing a source properly"
+            ],
+            "correct_answer": "Using someone's work without credit"
+          },
+          {
+            "question": "Why cite sources?",
+            "options": [
+              "To give credit and allow verification",
+              "To make essay longer",
+              "Citations aren't necessary",
+              "To confuse the reader"
+            ],
+            "correct_answer": "To give credit and allow verification"
+          },
+          {
+            "question": "When should you cite?",
+            "options": [
+              "When quoting, paraphrasing, or using facts",
+              "Only in fiction",
+              "Never",
+              "Only for long essays"
+            ],
+            "correct_answer": "When quoting, paraphrasing, or using facts"
+          },
+          {
+            "question": "What is paraphrasing?",
+            "options": [
+              "Restating an idea in your own words",
+              "Copying text exactly",
+              "Ignoring the source",
+              "Making up information"
+            ],
+            "correct_answer": "Restating an idea in your own words"
+          },
+          {
+            "question": "Why is citation important for credibility?",
+            "options": [
+              "Shows respect for authors and supports claims",
+              "Makes essay less believable",
+              "Only decorative",
+              "No connection to credibility"
+            ],
+            "correct_answer": "Shows respect for authors and supports claims"
+          },
+          {
+            "question": "If using an uncommon statistic, what should you do?",
+            "options": [
+              "Cite where it came from",
+              "Ignore the source",
+              "Make up a new statistic",
+              "Remove all numbers"
+            ],
+            "correct_answer": "Cite where it came from"
+          },
+          {
+            "question": "How does citation connect to essay planning?",
+            "options": [
+              "Tracking sources makes citing easier later",
+              "No connection",
+              "Planning replaces citing",
+              "Citations added after publishing only"
+            ],
+            "correct_answer": "Tracking sources makes citing easier later"
+          },
+          {
+            "question": "What happens if you don't cite a source?",
+            "options": [
+              "May be considered plagiarism",
+              "Nothing happens",
+              "Essay improves automatically",
+              "Citations are optional always"
+            ],
+            "correct_answer": "May be considered plagiarism"
+          },
+          {
+            "question": "Why might a reader check citations?",
+            "options": [
+              "To verify accuracy of claims",
+              "To criticize handwriting",
+              "Never checked",
+              "To count pages"
+            ],
+            "correct_answer": "To verify accuracy of claims"
+          },
+          {
+            "question": "Difference between quoting and paraphrasing?",
+            "options": [
+              "Quoting uses exact words; paraphrasing restates",
+              "Exactly the same",
+              "Quoting never needs citation",
+              "Paraphrasing is always wrong"
+            ],
+            "correct_answer": "Quoting uses exact words; paraphrasing restates"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⭕ Friday Review — Mathematics (Grade 6)\n\n- Circumference of a circle\n\nGreat circumference calculations! ⭐",
+        "quiz": [
+          {
+            "question": "Formula for circumference using diameter?",
+            "options": [
+              "C = π × d",
+              "C = π × r²",
+              "C = 2 × d",
+              "C = d ÷ π"
+            ],
+            "correct_answer": "C = π × d"
+          },
+          {
+            "question": "Formula for circumference using radius?",
+            "options": [
+              "C = 2 × π × r",
+              "C = π × r²",
+              "C = 2 × r",
+              "C = r ÷ π"
+            ],
+            "correct_answer": "C = 2 × π × r"
+          },
+          {
+            "question": "Common value of pi used?",
+            "options": [
+              "3.14",
+              "3.41",
+              "31.4",
+              "1.34"
+            ],
+            "correct_answer": "3.14"
+          },
+          {
+            "question": "Diameter 10 cm, circumference?",
+            "options": [
+              "31.4 cm",
+              "10 cm",
+              "20 cm",
+              "3.14 cm"
+            ],
+            "correct_answer": "31.4 cm"
+          },
+          {
+            "question": "Radius 7 cm, circumference?",
+            "options": [
+              "43.96 cm",
+              "21.98 cm",
+              "7 cm",
+              "14 cm"
+            ],
+            "correct_answer": "43.96 cm"
+          },
+          {
+            "question": "What does circumference measure?",
+            "options": [
+              "Distance around a circle",
+              "Distance across",
+              "Area inside",
+              "The center point"
+            ],
+            "correct_answer": "Distance around a circle"
+          },
+          {
+            "question": "Diameter 20 cm, circumference?",
+            "options": [
+              "62.8 cm",
+              "20 cm",
+              "10 cm",
+              "40 cm"
+            ],
+            "correct_answer": "62.8 cm"
+          },
+          {
+            "question": "Radius 5 cm, circumference?",
+            "options": [
+              "31.4 cm",
+              "15.7 cm",
+              "5 cm",
+              "10 cm"
+            ],
+            "correct_answer": "31.4 cm"
+          },
+          {
+            "question": "Why is circumference useful?",
+            "options": [
+              "Measures distance around circular objects",
+              "No practical use",
+              "Only for math class",
+              "Measures weight"
+            ],
+            "correct_answer": "Measures distance around circular objects"
+          },
+          {
+            "question": "How is circumference similar to perimeter?",
+            "options": [
+              "Both measure distance around a shape",
+              "Completely different",
+              "Circumference measures area",
+              "Perimeter only for circles"
+            ],
+            "correct_answer": "Both measure distance around a shape"
+          },
+          {
+            "question": "How to find diameter from circumference?",
+            "options": [
+              "Divide circumference by π",
+              "Multiply by π",
+              "Add π",
+              "Subtract π"
+            ],
+            "correct_answer": "Divide circumference by π"
+          },
+          {
+            "question": "Why do both formulas give the same result?",
+            "options": [
+              "Diameter is always twice the radius",
+              "They give different results",
+              "Radius and diameter are unrelated",
+              "Pi changes per formula"
+            ],
+            "correct_answer": "Diameter is always twice the radius"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔊 Friday Review — Science (Grade 6)\n\n- Sound and moving sources\n\nGreat Doppler Effect knowledge! 🌟",
+        "quiz": [
+          {
+            "question": "What is sound?",
+            "options": [
+              "A longitudinal wave from vibrations",
+              "A type of light",
+              "A solid object",
+              "A chemical"
+            ],
+            "correct_answer": "A longitudinal wave from vibrations"
+          },
+          {
+            "question": "What is the Doppler Effect?",
+            "options": [
+              "Pitch change when a source is moving",
+              "Speed of light in a vacuum",
+              "Color of sound waves",
+              "A simple machine"
+            ],
+            "correct_answer": "Pitch change when a source is moving"
+          },
+          {
+            "question": "Pitch as a source moves toward you?",
+            "options": [
+              "Higher",
+              "Lower",
+              "Disappears",
+              "Stays the same"
+            ],
+            "correct_answer": "Higher"
+          },
+          {
+            "question": "Pitch as a source moves away?",
+            "options": [
+              "Lower",
+              "Higher",
+              "Disappears",
+              "Stays the same"
+            ],
+            "correct_answer": "Lower"
+          },
+          {
+            "question": "Real-world Doppler Effect example?",
+            "options": [
+              "An ambulance siren changing pitch",
+              "A rock sitting still",
+              "A book on a shelf",
+              "A growing plant"
+            ],
+            "correct_answer": "An ambulance siren changing pitch"
+          },
+          {
+            "question": "Why does pitch increase as source approaches?",
+            "options": [
+              "Waves bunch together in front",
+              "Waves disappear",
+              "Source gets quieter",
+              "Sound stops"
+            ],
+            "correct_answer": "Waves bunch together in front"
+          },
+          {
+            "question": "Why does pitch decrease as source moves away?",
+            "options": [
+              "Waves stretch out behind",
+              "Waves bunch together",
+              "Source gets louder",
+              "Waves disappear"
+            ],
+            "correct_answer": "Waves stretch out behind"
+          },
+          {
+            "question": "What medium can sound travel through?",
+            "options": [
+              "Air, water, and solids",
+              "Only air",
+              "Only a vacuum",
+              "Nothing"
+            ],
+            "correct_answer": "Air, water, and solids"
+          },
+          {
+            "question": "Practical use of Doppler Effect?",
+            "options": [
+              "Radar and weather forecasting",
+              "Cooking food",
+              "Building furniture",
+              "Growing plants"
+            ],
+            "correct_answer": "Radar and weather forecasting"
+          },
+          {
+            "question": "How is sound classified?",
+            "options": [
+              "A longitudinal wave",
+              "A transverse wave",
+              "Not a wave",
+              "No classification"
+            ],
+            "correct_answer": "A longitudinal wave"
+          },
+          {
+            "question": "Why understand sound behavior with motion?",
+            "options": [
+              "Explains everyday experiences and tech uses",
+              "Sound never changes",
+              "No practical importance",
+              "Sound and motion unrelated"
+            ],
+            "correct_answer": "Explains everyday experiences and tech uses"
+          },
+          {
+            "question": "Connection to last week's waves lesson?",
+            "options": [
+              "Sound is a specific type of wave",
+              "Sound has nothing to do with waves",
+              "Entirely separate topics",
+              "Sound isn't related to energy"
+            ],
+            "correct_answer": "Sound is a specific type of wave"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎤 Friday Review — Filipino (Grade 6)\n\n- Retorika ng argumento\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang retorika?",
+            "options": [
+              "Sining ng epektibong pagsasalita upang kumbinsihin",
+              "Uri ng tula",
+              "Bantas",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Sining ng epektibong pagsasalita upang kumbinsihin"
+          },
+          {
+            "question": "Ano ang claim?",
+            "options": [
+              "Pangunahing panukala o paninindigan",
+              "Dagdag na suporta",
+              "Paliwanag kung bakit valid",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Pangunahing panukala o paninindigan"
+          },
+          {
+            "question": "Ano ang warrant?",
+            "options": [
+              "Paliwanag kung bakit valid ang katibayan",
+              "Pangunahing panukala",
+              "Dagdag na suporta lamang",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Paliwanag kung bakit valid ang katibayan"
+          },
+          {
+            "question": "Ano ang backing?",
+            "options": [
+              "Dagdag na suporta para sa warrant",
+              "Pangunahing panukala",
+              "Paliwanag lamang",
+              "Uri ng bantas"
+            ],
+            "correct_answer": "Dagdag na suporta para sa warrant"
+          },
+          {
+            "question": "Sa halimbawang plastik, ano ang claim?",
+            "options": [
+              "Dapat bawasan ang plastik",
+              "Nakakasama sa kapaligiran",
+              "Milyon-milyong tonelada",
+              "Walang claim"
+            ],
+            "correct_answer": "Dapat bawasan ang plastik"
+          },
+          {
+            "question": "Sa halimbawang plastik, ano ang warrant?",
+            "options": [
+              "Nakakasama sa kapaligiran",
+              "Dapat bawasan ang plastik",
+              "Milyon-milyong tonelada",
+              "Walang warrant"
+            ],
+            "correct_answer": "Nakakasama sa kapaligiran"
+          },
+          {
+            "question": "Bakit mahalaga ang retorika sa pagsulat?",
+            "options": [
+              "Bumuo ng mas malakas na paninindigan",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng Filipino"
+            ],
+            "correct_answer": "Bumuo ng mas malakas na paninindigan"
+          },
+          {
+            "question": "Bakit kailangan ng backing?",
+            "options": [
+              "Palakasin ang katotohanan ng warrant",
+              "Walang layunin",
+              "Hindi na kailangan",
+              "Pandagdag lamang"
+            ],
+            "correct_answer": "Palakasin ang katotohanan ng warrant"
+          },
+          {
+            "question": "Anong kasanayan ang binubuo sa retorika?",
+            "options": [
+              "Kakayahang kumbinsihin sa malinaw na argumento",
+              "Kakayahang gumuhit lamang",
+              "Kakayahang kumanta lamang",
+              "Kakayahang magsayaw"
+            ],
+            "correct_answer": "Kakayahang kumbinsihin sa malinaw na argumento"
+          },
+          {
+            "question": "Koneksyon sa persweysibong sanaysay?",
+            "options": [
+              "Parehong gumagamit ng claim, warrant, backing",
+              "Walang koneksyon",
+              "Retorika ay para lamang sa berbal",
+              "Sanaysay ay walang argumento"
+            ],
+            "correct_answer": "Parehong gumagamit ng claim, warrant, backing"
+          },
+          {
+            "question": "Bakit dapat may katibayan ang argumento?",
+            "options": [
+              "Nagpapatunay ng batayan ng claim",
+              "Walang kahalagahan",
+              "Claim ay laging totoo",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Nagpapatunay ng batayan ng claim"
+          },
+          {
+            "question": "Bakit ituro ang retorika sa Grade 6?",
+            "options": [
+              "Mahusay makapagpahayag ng opinyon",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng Filipino"
+            ],
+            "correct_answer": "Mahusay makapagpahayag ng opinyon"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ✊ Friday Review — Araling Panlipunan (Grade 6)\n\n- EDSA People Power I\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan naganap ang EDSA People Power I?",
+            "options": [
+              "Pebrero 22-25, 1986",
+              "Setyembre 21, 1972",
+              "Hulyo 4, 1946",
+              "Hunyo 12, 1898"
+            ],
+            "correct_answer": "Pebrero 22-25, 1986"
+          },
+          {
+            "question": "Sino ang napatalsik?",
+            "options": [
+              "Ferdinand Marcos",
+              "Corazon Aquino",
+              "Jose Rizal",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Ferdinand Marcos"
+          },
+          {
+            "question": "Sino ang naging bagong pangulo?",
+            "options": [
+              "Corazon Aquino",
+              "Ferdinand Marcos",
+              "Manuel Quezon",
+              "Emilio Aguinaldo"
+            ],
+            "correct_answer": "Corazon Aquino"
+          },
+          {
+            "question": "Bakit nagtipon ang mga Pilipino sa EDSA?",
+            "options": [
+              "Mapayapang tumutol sa mapanlinlang na eleksyon",
+              "Magdiwang ng bagong taon",
+              "Bumili ng gamit",
+              "Manood ng palabas"
+            ],
+            "correct_answer": "Mapayapang tumutol sa mapanlinlang na eleksyon"
+          },
+          {
+            "question": "Bunga ng EDSA People Power?",
+            "options": [
+              "Naibalik ang demokratikong institusyon",
+              "Nagpatuloy ang Batas Militar",
+              "Walang nagbago",
+              "Bagong digmaan"
+            ],
+            "correct_answer": "Naibalik ang demokratikong institusyon"
+          },
+          {
+            "question": "Uri ng rebolusyon ang EDSA?",
+            "options": [
+              "Mapayapang rebolusyon",
+              "Marahas na digmaan",
+              "Sikretong kudeta",
+              "Digmaang sibil"
+            ],
+            "correct_answer": "Mapayapang rebolusyon"
+          },
+          {
+            "question": "Bakit mahalaga ang EDSA sa kasaysayan?",
+            "options": [
+              "Kapangyarihan ng mamamayan laban sa mapaniil na pamahalaan",
+              "Walang kahalagahan",
+              "Hindi bahagi ng kasaysayan",
+              "Tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Kapangyarihan ng mamamayan laban sa mapaniil na pamahalaan"
+          },
+          {
+            "question": "Konsepto bago ang EDSA sa serye ng AP?",
+            "options": [
+              "Batas Militar ni Marcos",
+              "Neokolonyalismo",
+              "Ikatlong Republika",
+              "Digmaang Pilipino-Amerikano"
+            ],
+            "correct_answer": "Batas Militar ni Marcos"
+          },
+          {
+            "question": "Bakit makasaysayan ang 1986?",
+            "options": [
+              "Taon ng EDSA People Power",
+              "Walang pangyayari",
+              "Taon ng kalayaan",
+              "Taon ng Batas Militar"
+            ],
+            "correct_answer": "Taon ng EDSA People Power"
+          },
+          {
+            "question": "Ipinapakita ng EDSA tungkol sa demokrasya?",
+            "options": [
+              "Mahalaga ang boses ng mamamayan",
+              "Walang halaga ang boses",
+              "Pamahalaan lamang may kapangyarihan",
+              "Hindi mahalaga ang demokrasya"
+            ],
+            "correct_answer": "Mahalaga ang boses ng mamamayan"
+          },
+          {
+            "question": "Bakit kabaligtaran ng Batas Militar ang EDSA?",
+            "options": [
+              "Ibinalik ang kalayaan pagkatapos ng pagsupil",
+              "Magkatulad lamang",
+              "Walang koneksyon",
+              "Parehong nagdulot ng pagsupil"
+            ],
+            "correct_answer": "Ibinalik ang kalayaan pagkatapos ng pagsupil"
+          },
+          {
+            "question": "Bakit alalahanin ang EDSA ngayon?",
+            "options": [
+              "Paalala ng halaga ng pagbabantay sa demokrasya",
+              "Walang kahalagahan ngayon",
+              "Hindi na importante",
+              "Dapat kalimutan"
+            ],
+            "correct_answer": "Paalala ng halaga ng pagbabantay sa demokrasya"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 6)\n\n- Lokal at rehiyonal na street dance\n\nMagaling sa kultura! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang street dance festival?",
+            "options": [
+              "Taunang kaganapan ng pagsasayaw sa lansangan",
+              "Uri ng laro sa bahay",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Taunang kaganapan ng pagsasayaw sa lansangan"
+          },
+          {
+            "question": "Saan ginaganap ang Sinulog?",
+            "options": [
+              "Cebu",
+              "Aklan",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Cebu"
+          },
+          {
+            "question": "Saan ginaganap ang Ati-Atihan?",
+            "options": [
+              "Aklan",
+              "Cebu",
+              "Iloilo",
+              "Manila"
+            ],
+            "correct_answer": "Aklan"
+          },
+          {
+            "question": "Saan ginaganap ang Dinagyang?",
+            "options": [
+              "Iloilo",
+              "Cebu",
+              "Aklan",
+              "Manila"
+            ],
+            "correct_answer": "Iloilo"
+          },
+          {
+            "question": "Kanino iginagalang ang Sinulog?",
+            "options": [
+              "Santo Niño",
+              "Ina ng Kalamba",
+              "Rizal",
+              "Bonifacio"
+            ],
+            "correct_answer": "Santo Niño"
+          },
+          {
+            "question": "Pinakamatandang pista sa Pilipinas?",
+            "options": [
+              "Ati-Atihan",
+              "Sinulog",
+              "Dinagyang",
+              "MassKara"
+            ],
+            "correct_answer": "Ati-Atihan"
+          },
+          {
+            "question": "Katangian ng street dance?",
+            "options": [
+              "Malakas na tunog ng tambol at makukulay na kasuotan",
+              "Katahimikan",
+              "Isang tao lamang",
+              "Walang koreograpiya"
+            ],
+            "correct_answer": "Malakas na tunog ng tambol at makukulay na kasuotan"
+          },
+          {
+            "question": "Bakit pahalagahan ang mga festival na ito?",
+            "options": [
+              "Mayamang kultura ng Pilipinas",
+              "Walang kahalagahan",
+              "Libangan lamang",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Mayamang kultura ng Pilipinas"
+          },
+          {
+            "question": "Bakit ituro ang mga festival sa MAPEH?",
+            "options": [
+              "Mapahalagahan ang kultura at kasaysayan",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Mapahalagahan ang kultura at kasaysayan"
+          },
+          {
+            "question": "Layunin ng magkakasabay na koreograpiya?",
+            "options": [
+              "Pagkakaisa at kasanayan ng grupo",
+              "Walang layunin",
+              "Nagdudulot ng kalituhan",
+              "Hindi bahagi ng festival"
+            ],
+            "correct_answer": "Pagkakaisa at kasanayan ng grupo"
+          },
+          {
+            "question": "Koneksyon sa dance exercise na natutunan noon?",
+            "options": [
+              "Parehong gumagamit ng galaw at musika",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong gumagamit ng galaw at musika"
+          },
+          {
+            "question": "Bakit mahalaga ang mga festival sa pagkakakilanlan?",
+            "options": [
+              "Ipinapakita ang natatanging kultura ng bawat rehiyon",
+              "Walang kaugnayan",
+              "Hiram lamang sa ibang bansa",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita ang natatanging kultura ng bawat rehiyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🍯 Friday Review — EPP (Grade 6)\n\n- Pag-aasin at pagbibilad\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pag-aasin?",
+            "options": [
+              "Paraan ng pangangalaga gamit ang asin",
+              "Uri ng pagluluto lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Paraan ng pangangalaga gamit ang asin"
+          },
+          {
+            "question": "Ano ang pagbibilad?",
+            "options": [
+              "Pagbababa ng tubig gamit ang araw",
+              "Pagluluto sa kalan",
+              "Pagpiga ng prutas",
+              "Pagbabalot ng pagkain"
+            ],
+            "correct_answer": "Pagbababa ng tubig gamit ang araw"
+          },
+          {
+            "question": "Bakit tumutulong ang pag-aasin?",
+            "options": [
+              "Tinatanggal ang tubig na pumipigil sa bakterya",
+              "Walang epekto",
+              "Nagdaragdag ng bakterya",
+              "Pinapabilis ang pagkasira"
+            ],
+            "correct_answer": "Tinatanggal ang tubig na pumipigil sa bakterya"
+          },
+          {
+            "question": "Halimbawa ng inasnan at binilad?",
+            "options": [
+              "Tuyo",
+              "Sinigang",
+              "Adobo",
+              "Lumpia"
+            ],
+            "correct_answer": "Tuyo"
+          },
+          {
+            "question": "Ano ang bagoong?",
+            "options": [
+              "Isdang inasnan",
+              "Uri ng gulay",
+              "Uri ng prutas",
+              "Uri ng inumin"
+            ],
+            "correct_answer": "Isdang inasnan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpapahaba ng buhay-imbak?",
+            "options": [
+              "Maiwasan ang pag-aaksaya ng pagkain",
+              "Walang kahalagahan",
+              "Hindi kailangang mag-imbak",
+              "Pinapabilis ang pagkasira"
+            ],
+            "correct_answer": "Maiwasan ang pag-aaksaya ng pagkain"
+          },
+          {
+            "question": "Bakit ginagamit ang tradisyunal na paraan kahit may modernong teknolohiya?",
+            "options": [
+              "Mabisa pa rin at bahagi ng kultura",
+              "Walang kabuluhan",
+              "Mas mahal kaysa modernong teknolohiya",
+              "Hindi na ginagamit"
+            ],
+            "correct_answer": "Mabisa pa rin at bahagi ng kultura"
+          },
+          {
+            "question": "Bakit epektibo ang araw sa pagbibilad?",
+            "options": [
+              "Tumutulong tanggalin ang tubig sa pagkain",
+              "Walang epekto",
+              "Pinapabilis ang pagkabulok",
+              "Nagdaragdag ng tubig"
+            ],
+            "correct_answer": "Tumutulong tanggalin ang tubig sa pagkain"
+          },
+          {
+            "question": "Bakit mahalaga ang pangangalaga ng pagkain?",
+            "options": [
+              "Bawasan ang pag-aaksaya at magbigay kabuhayan",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng EPP"
+            ],
+            "correct_answer": "Bawasan ang pag-aaksaya at magbigay kabuhayan"
+          },
+          {
+            "question": "Koneksyon sa mga kasangkapan sa kusina na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng paghahanda at pag-iimbak ng pagkain",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng paghahanda at pag-iimbak ng pagkain"
+          },
+          {
+            "question": "Bakit ituro ang pag-aasin at pagbibilad sa Grade 6?",
+            "options": [
+              "Malaman ang tradisyunal na paraan ng pangangalaga",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Malaman ang tradisyunal na paraan ng pangangalaga"
+          },
+          {
+            "question": "Bakit maaaring maging negosyo ang tuyo at bagoong?",
+            "options": [
+              "Maibenta at magbigay kita sa pamilya",
+              "Walang halaga",
+              "Hindi na kailangan ipagbili",
+              "Basta para sa sarili lamang"
+            ],
+            "correct_answer": "Maibenta at magbigay kita sa pamilya"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# ⚖️ Friday Review — GMRC (Grade 6)\n\n- Pagiging patas sa kapuwa (Makatarungan)\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang makatarungan?",
+            "options": [
+              "Pagtrato sa lahat nang pantay-pantay",
+              "Pabor sa kaibigan lamang",
+              "Kawalang pakialam",
+              "Uri ng laro"
+            ],
+            "correct_answer": "Pagtrato sa lahat nang pantay-pantay"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Makatarungan",
+              "Mapagpasensiya",
+              "Lakas ng loob",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Makatarungan"
+          },
+          {
+            "question": "Halimbawa ng pagiging makatarungan?",
+            "options": [
+              "Pagbibigay ng pagkakataon sa lahat magsalita",
+              "Paboritismo sa kaibigan",
+              "Ibang panuntunan para sa iba",
+              "Pagtanggi makinig sa lahat"
+            ],
+            "correct_answer": "Pagbibigay ng pagkakataon sa lahat magsalita"
+          },
+          {
+            "question": "Bakit hindi dapat magpakita ng paboritismo?",
+            "options": [
+              "Nagreresulta sa hindi patas na pagtrato",
+              "Walang kahalagahan",
+              "Palaging tama ito",
+              "Hindi nakakaapekto sa iba"
+            ],
+            "correct_answer": "Nagreresulta sa hindi patas na pagtrato"
+          },
+          {
+            "question": "Konsepto bago ang paksang ito?",
+            "options": [
+              "Pagtugon sa emosyon ng kapuwa",
+              "Pagtugon sa pambubulas",
+              "Pananalig sa Diyos",
+              "Nasyonalismo"
+            ],
+            "correct_answer": "Pagtugon sa emosyon ng kapuwa"
+          },
+          {
+            "question": "Bakit sundin ang parehong panuntunan para sa lahat?",
+            "options": [
+              "Walang sinuman ang nabibigyan ng espesyal na pabor",
+              "Walang kahalagahan",
+              "Dapat may pabor",
+              "Hindi importante"
+            ],
+            "correct_answer": "Walang sinuman ang nabibigyan ng espesyal na pabor"
+          },
+          {
+            "question": "Bakit mahalaga ang katarungan sa relasyon?",
+            "options": [
+              "Nagpapanatili ng tiwala at paggalang",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Palaging madali"
+            ],
+            "correct_answer": "Nagpapanatili ng tiwala at paggalang"
+          },
+          {
+            "question": "Ikatlong hakbang sa serye ng Term 3?",
+            "options": [
+              "Pagiging patas sa kapuwa",
+              "Pagtugon sa pambubulas",
+              "Pagtugon sa emosyon",
+              "Pananalig sa Diyos"
+            ],
+            "correct_answer": "Pagiging patas sa kapuwa"
+          },
+          {
+            "question": "Bakit mahalagang bahagi ng pakikipagkapuwa ang makatarungan?",
+            "options": [
+              "Mapanatili ang katarungan sa relasyon at komunidad",
+              "Walang kaugnayan",
+              "Uri lamang ng laro",
+              "Hindi totoong pagpapahalaga"
+            ],
+            "correct_answer": "Mapanatili ang katarungan sa relasyon at komunidad"
+          },
+          {
+            "question": "Bakit pakinggan ang lahat ng panig bago humatol?",
+            "options": [
+              "Pantay na pagkakataon maunawaan ang buong sitwasyon",
+              "Walang kailangang pakinggan",
+              "Sapat ang isang panig",
+              "Hindi kailanman kailangan"
+            ],
+            "correct_answer": "Pantay na pagkakataon maunawaan ang buong sitwasyon"
+          },
+          {
+            "question": "Bakit ituro ang makatarungan sa Grade 6?",
+            "options": [
+              "Matulungan gumawa ng patas na desisyon",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Matulungan gumawa ng patas na desisyon"
+          },
+          {
+            "question": "Bakit itinuturing na progresibo ang serye ng pagpapahalaga sa pakikipagkapuwa (lakas ng loob, mapagpasensiya, makatarungan)?",
+            "options": [
+              "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na pakikitungo sa kapwa",
+              "Walang kaugnayan ang bawat hakbang sa isa't isa",
+              "Random lamang ang pagkakasunod-sunod",
+              "Iisa lamang ang mahalaga sa lahat"
+            ],
+            "correct_answer": "Bawat hakbang ay bumubuo sa naunang natutuhan tungo sa mas malalim na pakikitungo sa kapwa"
+          }
+        ]
+      }
+    }
+  }
+}

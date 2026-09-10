@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-12-06",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔍 English — Reflective Essay: Sharing Personal Insight\n\nGrade 6, Week 26! Let's learn to write about our own thoughts and growth! 🔍\n\n## 🔄 Review\nWe wrote a literary essay analyzing theme.\n\n## 🔍 What Is a Reflective Essay?\nA **reflective essay** shares the writer's personal thoughts, feelings, and insights about an experience or a piece of literature they've encountered.\n\n## 📝 Key Elements\n- Describe the **experience or text** briefly\n- Share your **personal reaction** or feelings\n- Explain what you **learned** or how you've grown\n\n## ✍️ Example Starter\n\"When I read the story about the fisherman who lost everything, I realized...\"\n\n## 🔍 Difference from a Literary Essay\nA literary essay analyzes the TEXT objectively; a reflective essay shares YOUR personal connection and growth from it.\n\n## 🎯 Why This Matters\nReflective writing helps us process our experiences and understand our own thinking more deeply.\n\n**Key words:** reflective essay, personal insight, experience, growth",
+        "quiz": [
+          {
+            "question": "What is a reflective essay?",
+            "options": [
+              "An essay sharing personal thoughts and insights about an experience",
+              "A list of dates and events",
+              "A weather report",
+              "An objective news article"
+            ],
+            "correct_answer": "An essay sharing personal thoughts and insights about an experience"
+          },
+          {
+            "question": "What should a reflective essay describe first?",
+            "options": [
+              "The experience or text briefly",
+              "A random unrelated topic",
+              "Only statistics",
+              "The price of a book"
+            ],
+            "correct_answer": "The experience or text briefly"
+          },
+          {
+            "question": "What should you share after describing the experience?",
+            "options": [
+              "Your personal reaction or feelings",
+              "A grocery list",
+              "Someone else's opinion only",
+              "A math equation"
+            ],
+            "correct_answer": "Your personal reaction or feelings"
+          },
+          {
+            "question": "What should a reflective essay explain at the end?",
+            "options": [
+              "What you learned or how you've grown",
+              "The book's price",
+              "A random unrelated fact",
+              "The author's full biography"
+            ],
+            "correct_answer": "What you learned or how you've grown"
+          },
+          {
+            "question": "How is a reflective essay different from a literary essay?",
+            "options": [
+              "A reflective essay shares personal connection; a literary essay analyzes the text objectively",
+              "They are exactly the same type of essay",
+              "A literary essay is always shorter",
+              "A reflective essay never mentions the text"
+            ],
+            "correct_answer": "A reflective essay shares personal connection; a literary essay analyzes the text objectively"
+          },
+          {
+            "question": "Why is reflective writing valuable?",
+            "options": [
+              "It helps process experiences and understand our thinking",
+              "It has no educational value",
+              "It replaces the need for any other writing",
+              "Reflection is never useful"
+            ],
+            "correct_answer": "It helps process experiences and understand our thinking"
+          },
+          {
+            "question": "What might a reflective essay be written about?",
+            "options": [
+              "A personal experience or a piece of literature",
+              "Only mathematical formulas",
+              "Only weather patterns",
+              "Only historical dates"
+            ],
+            "correct_answer": "A personal experience or a piece of literature"
+          },
+          {
+            "question": "Why include personal feelings in a reflective essay?",
+            "options": [
+              "They show your genuine connection to the experience",
+              "Feelings are irrelevant to writing",
+              "Only facts should ever be included",
+              "Personal feelings make writing less credible"
+            ],
+            "correct_answer": "They show your genuine connection to the experience"
+          },
+          {
+            "question": "How does describing 'growth' strengthen a reflective essay?",
+            "options": [
+              "It shows how the experience changed your understanding",
+              "Growth has no connection to reflection",
+              "It makes the essay less personal",
+              "Growth should never be mentioned"
+            ],
+            "correct_answer": "It shows how the experience changed your understanding"
+          },
+          {
+            "question": "How might a reflective essay connect to a literary essay from last week?",
+            "options": [
+              "Both start from analyzing a text, but reflection adds a personal angle",
+              "They are entirely unrelated types of writing",
+              "A reflective essay never references texts",
+              "Literary essays are always more personal"
+            ],
+            "correct_answer": "Both start from analyzing a text, but reflection adds a personal angle"
+          },
+          {
+            "question": "What is one benefit of processing experiences through writing?",
+            "options": [
+              "It can deepen self-understanding and awareness",
+              "It has no psychological benefit",
+              "Writing about experiences is pointless",
+              "It only works for professional writers"
+            ],
+            "correct_answer": "It can deepen self-understanding and awareness"
+          },
+          {
+            "question": "Why might a teacher assign reflective essays?",
+            "options": [
+              "To help students connect learning to personal meaning",
+              "To make students memorize facts",
+              "To test spelling only",
+              "To avoid any critical thinking"
+            ],
+            "correct_answer": "To help students connect learning to personal meaning"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🥧 Mathematics — Reading and Interpreting Pie Graphs\n\nGrade 6, Week 26! Let's learn to read and understand pie graphs! 🥧\n\n## 🔄 Review\nWe learned to calculate the area of a circle.\n\n## 🥧 What Is a Pie Graph?\nA **pie graph** (or pie chart) is a circular graph divided into slices, where each slice represents a percentage or proportion of the whole.\n\n## 🔍 Reading a Pie Graph\n- The whole circle represents **100%**\n- Each slice's size shows its **percentage** of the total\n- Larger slices mean a bigger proportion\n\n## 📐 Angle and Percentage\nSince a full circle is 360°, you can convert percentage to degrees: **degrees = percentage × 3.6**\n\n**Example:** 25% of a pie graph = 25 × 3.6 = **90°**\n\n## 🔍 Drawing Conclusions\nWhen looking at a pie graph, we can compare slices to identify the largest category, smallest category, or make observations about the data.\n\n**Key words:** pie graph, percentage, degrees, proportion",
+        "quiz": [
+          {
+            "question": "What is a pie graph?",
+            "options": [
+              "A circular graph divided into slices showing proportions",
+              "A bar-shaped chart",
+              "A line on a graph",
+              "A single number"
+            ],
+            "correct_answer": "A circular graph divided into slices showing proportions"
+          },
+          {
+            "question": "What does the whole circle in a pie graph represent?",
+            "options": [
+              "100%",
+              "50%",
+              "10%",
+              "360%"
+            ],
+            "correct_answer": "100%"
+          },
+          {
+            "question": "What does a larger slice in a pie graph mean?",
+            "options": [
+              "A bigger proportion of the total",
+              "A smaller proportion of the total",
+              "No meaningful data",
+              "An error in the graph"
+            ],
+            "correct_answer": "A bigger proportion of the total"
+          },
+          {
+            "question": "How many degrees are in a full circle?",
+            "options": [
+              "360°",
+              "180°",
+              "100°",
+              "90°"
+            ],
+            "correct_answer": "360°"
+          },
+          {
+            "question": "What is the formula to convert percentage to degrees?",
+            "options": [
+              "degrees = percentage × 3.6",
+              "degrees = percentage ÷ 3.6",
+              "degrees = percentage + 360",
+              "degrees = percentage - 100"
+            ],
+            "correct_answer": "degrees = percentage × 3.6"
+          },
+          {
+            "question": "What is 25% of a pie graph in degrees?",
+            "options": [
+              "90°",
+              "25°",
+              "180°",
+              "360°"
+            ],
+            "correct_answer": "90°"
+          },
+          {
+            "question": "What is 50% of a pie graph in degrees?",
+            "options": [
+              "180°",
+              "50°",
+              "90°",
+              "360°"
+            ],
+            "correct_answer": "180°"
+          },
+          {
+            "question": "What can you determine by comparing slices in a pie graph?",
+            "options": [
+              "The largest and smallest categories in the data",
+              "The exact temperature of a place",
+              "The speed of an object",
+              "The weight of an item"
+            ],
+            "correct_answer": "The largest and smallest categories in the data"
+          },
+          {
+            "question": "Why are pie graphs useful for showing data?",
+            "options": [
+              "They visually show how parts relate to a whole",
+              "They only show single numbers",
+              "They cannot represent percentages",
+              "They are only used for money"
+            ],
+            "correct_answer": "They visually show how parts relate to a whole"
+          },
+          {
+            "question": "If one slice takes up 10% of the pie graph, how many degrees is it?",
+            "options": [
+              "36°",
+              "10°",
+              "100°",
+              "360°"
+            ],
+            "correct_answer": "36°"
+          },
+          {
+            "question": "Why might all the slices in a pie graph add up to exactly 100%?",
+            "options": [
+              "Together they represent the entire data set",
+              "Pie graphs never add up to 100%",
+              "Each slice is always equal in size",
+              "Percentages have no relation to the whole"
+            ],
+            "correct_answer": "Together they represent the entire data set"
+          },
+          {
+            "question": "How does understanding pie graphs connect to what we learned about circles?",
+            "options": [
+              "Pie graphs use circle properties like degrees and proportions",
+              "Pie graphs are unrelated to circles",
+              "Circles have no connection to data",
+              "Pie graphs are always squares"
+            ],
+            "correct_answer": "Pie graphs use circle properties like degrees and proportions"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🌏 Science — Philippine Seasons and Earth's Rotation\n\nGrade 6, Week 26! Let's learn why we experience day, night, and seasons! 🌏\n\n## 🔄 Review\nWe learned about volcanoes and PHIVOLCS Alert Levels.\n\n## 🌏 Earth's Rotation: Day and Night\nThe Earth **rotates** on its axis once every 24 hours, causing day and night as different parts face or turn away from the Sun.\n\n## ☀️ Philippine Seasons\nThe Philippines experiences two main seasons:\n- **Tag-init/Tag-araw (dry season)** — roughly March to May\n- **Tag-ulan (wet/rainy season)** — roughly June to November\n\n## 🔍 What Causes Seasons Globally?\nGlobally, seasons are caused by Earth's **tilted axis** as it revolves around the Sun, changing how directly sunlight hits different regions.\n\n## 🎯 Why This Matters\nUnderstanding Earth's rotation and seasons helps explain daily and yearly patterns that affect agriculture, weather, and daily life.\n\n**Key words:** rotation, axis, revolution, tag-init, tag-ulan",
+        "quiz": [
+          {
+            "question": "What causes day and night?",
+            "options": [
+              "Earth's rotation on its axis",
+              "The Moon blocking the Sun",
+              "Clouds covering the sky",
+              "The Sun moving around Earth"
+            ],
+            "correct_answer": "Earth's rotation on its axis"
+          },
+          {
+            "question": "How long does it take Earth to complete one rotation?",
+            "options": [
+              "24 hours",
+              "12 hours",
+              "365 days",
+              "1 hour"
+            ],
+            "correct_answer": "24 hours"
+          },
+          {
+            "question": "What are the two main seasons in the Philippines?",
+            "options": [
+              "Tag-init and Tag-ulan",
+              "Winter and Summer",
+              "Spring and Fall",
+              "Wet and Frozen"
+            ],
+            "correct_answer": "Tag-init and Tag-ulan"
+          },
+          {
+            "question": "When does the Philippine dry season (Tag-init) generally occur?",
+            "options": [
+              "March to May",
+              "June to November",
+              "December to February",
+              "All year round equally"
+            ],
+            "correct_answer": "March to May"
+          },
+          {
+            "question": "When does the Philippine wet season (Tag-ulan) generally occur?",
+            "options": [
+              "June to November",
+              "March to May",
+              "December to February",
+              "All year round equally"
+            ],
+            "correct_answer": "June to November"
+          },
+          {
+            "question": "What causes seasons globally?",
+            "options": [
+              "Earth's tilted axis as it revolves around the Sun",
+              "The Moon's phases",
+              "Random weather patterns",
+              "The Earth stopping its rotation"
+            ],
+            "correct_answer": "Earth's tilted axis as it revolves around the Sun"
+          },
+          {
+            "question": "What is the difference between rotation and revolution?",
+            "options": [
+              "Rotation is spinning on an axis; revolution is orbiting the Sun",
+              "They mean exactly the same thing",
+              "Rotation takes a year; revolution takes a day",
+              "Revolution causes day and night"
+            ],
+            "correct_answer": "Rotation is spinning on an axis; revolution is orbiting the Sun"
+          },
+          {
+            "question": "Why does the side of Earth facing the Sun experience day?",
+            "options": [
+              "It receives direct sunlight",
+              "It receives no sunlight",
+              "The Sun is closer to that side permanently",
+              "Day and night have no relation to sunlight"
+            ],
+            "correct_answer": "It receives direct sunlight"
+          },
+          {
+            "question": "Why is understanding Earth's rotation important?",
+            "options": [
+              "It explains daily patterns that affect life and activities",
+              "It has no real-world relevance",
+              "It only matters for astronauts",
+              "Rotation doesn't affect daily life"
+            ],
+            "correct_answer": "It explains daily patterns that affect life and activities"
+          },
+          {
+            "question": "How do Philippine seasons affect daily life?",
+            "options": [
+              "They influence agriculture and weather patterns",
+              "They have no effect on anything",
+              "They only affect people near the equator",
+              "Seasons don't exist in the Philippines"
+            ],
+            "correct_answer": "They influence agriculture and weather patterns"
+          },
+          {
+            "question": "Why does Earth's axis tilt matter for seasons?",
+            "options": [
+              "It changes how directly sunlight hits different regions over the year",
+              "Tilt has no effect on sunlight",
+              "The axis never tilts",
+              "Tilt only affects the Moon"
+            ],
+            "correct_answer": "It changes how directly sunlight hits different regions over the year"
+          },
+          {
+            "question": "How does this topic connect to the volcanoes we studied last week?",
+            "options": [
+              "Both are part of understanding Earth and space science",
+              "They are completely unrelated topics",
+              "Volcanoes cause Earth's rotation",
+              "Seasons cause volcanic eruptions"
+            ],
+            "correct_answer": "Both are part of understanding Earth and space science"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Editoryal: Panimulang Kaalaman\n\nGrade 6, Linggo 26! Alamin natin ang tungkol sa editoryal bilang uri ng teksto! 📖\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsulat sa mataas na antas.\n\n## 📖 Ano ang Editoryal?\nAng **editoryal** ay isang artikulong nagpapahayag ng opinyon ng patnugot o pahayagan tungkol sa isang isyu, karaniwang may layuning maghikayat o magpaalam.\n\n## 🔍 Katangian ng Editoryal\n- May malinaw na **paninindigan** o opinyon\n- Sinusuportahan ng **katibayan o katwiran**\n- Karaniwang tumatalakay sa **napapanahong isyu**\n\n## ✍️ Halimbawa ng Paksa ng Editoryal\n\"Dapat bang gawing mandatory ang paggamit ng reusable bag sa lahat ng tindahan?\"\n\n## 🎯 Bakit Mahalaga Ito?\nAng pag-unawa sa editoryal ay tumutulong makilala natin ang opinyon ng may-akda laban sa balita, na dapat suriin nang may kritikal na pag-iisip.\n\n**Mahahalagang salita:** editoryal, paninindigan, katibayan, opinyon",
+        "quiz": [
+          {
+            "question": "Ano ang editoryal?",
+            "options": [
+              "Artikulong nagpapahayag ng opinyon tungkol sa isyu",
+              "Isang balitang walang opinyon",
+              "Isang uri ng tula",
+              "Isang bantas"
+            ],
+            "correct_answer": "Artikulong nagpapahayag ng opinyon tungkol sa isyu"
+          },
+          {
+            "question": "Ano ang layunin ng editoryal?",
+            "options": [
+              "Maghikayat o magpaalam sa mambabasa",
+              "Magbigay lamang ng datos",
+              "Walang layunin",
+              "Maglaro lamang ng salita"
+            ],
+            "correct_answer": "Maghikayat o magpaalam sa mambabasa"
+          },
+          {
+            "question": "Ano ang katangian ng editoryal?",
+            "options": [
+              "May malinaw na paninindigan na sinusuportahan ng katibayan",
+              "Walang opinyon",
+              "Puro balita lamang",
+              "Walang katibayan"
+            ],
+            "correct_answer": "May malinaw na paninindigan na sinusuportahan ng katibayan"
+          },
+          {
+            "question": "Bakit mahalagang suriin nang kritikal ang isang editoryal?",
+            "options": [
+              "Naglalaman ito ng opinyon, hindi lamang totoong balita",
+              "Palaging tama ang lahat ng editoryal",
+              "Walang opinyon ang editoryal",
+              "Hindi na kailangang suriin ito"
+            ],
+            "correct_answer": "Naglalaman ito ng opinyon, hindi lamang totoong balita"
+          },
+          {
+            "question": "Anong halimbawa ng napapanahong paksa ng editoryal?",
+            "options": [
+              "Dapat bang gawing mandatory ang reusable bag?",
+              "Ang buhay ni Rizal",
+              "Ang mga bahagi ng katawan",
+              "Ang mga hayop sa gubat"
+            ],
+            "correct_answer": "Dapat bang gawing mandatory ang reusable bag?"
+          },
+          {
+            "question": "Sino karaniwang sumusulat ng editoryal?",
+            "options": [
+              "Patnugot ng pahayagan",
+              "Mga bata lamang",
+              "Mga hayop",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Patnugot ng pahayagan"
+          },
+          {
+            "question": "Bakit dapat may katibayan ang isang editoryal?",
+            "options": [
+              "Upang palakasin ang paninindigang isinusulong",
+              "Walang kahalagahan ito",
+              "Hindi kailangan ng katibayan",
+              "Basta opinyon lamang, tama na"
+            ],
+            "correct_answer": "Upang palakasin ang paninindigang isinusulong"
+          },
+          {
+            "question": "Paano naiiba ang editoryal sa balitang pangkaraniwan?",
+            "options": [
+              "Naglalaman ito ng opinyon, hindi puro katotohanan lamang",
+              "Magkatulad lamang sila",
+              "Balita ay palaging may opinyon",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "Naglalaman ito ng opinyon, hindi puro katotohanan lamang"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang panig ng may-akda sa isang editoryal?",
+            "options": [
+              "Tumutulong itong maunawaan ang layunin ng sulatin",
+              "Walang kahalagahan ito",
+              "Ang may-akda ay hindi kailanman may panig",
+              "Basta't nailathala na, tama na"
+            ],
+            "correct_answer": "Tumutulong itong maunawaan ang layunin ng sulatin"
+          },
+          {
+            "question": "Paano nauugnay ang retorika na natutunan noon sa editoryal?",
+            "options": [
+              "Parehong bahagi ng pagpapahayag ng malakas na argumento",
+              "Walang koneksyon ang dalawa",
+              "Retorika ay para sa berbal lamang",
+              "Editoryal ay walang argumento"
+            ],
+            "correct_answer": "Parehong bahagi ng pagpapahayag ng malakas na argumento"
+          },
+          {
+            "question": "Bakit itinuturo ang editoryal bilang bagong uri ng teksto sa Grade 6?",
+            "options": [
+              "Upang matutong tukuyin ang opinyon laban sa katotohanan",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito bahagi ng Filipino"
+            ],
+            "correct_answer": "Upang matutong tukuyin ang opinyon laban sa katotohanan"
+          },
+          {
+            "question": "Bakit dapat malaman ang layunin ng isang editoryal bago ito paniwalaan agad?",
+            "options": [
+              "Maaaring may kinikilingan ang editoryal dahil ito ay opinyon",
+              "Palaging walang kinikilingan ang editoryal",
+              "Hindi na kailangang alamin ang layunin",
+              "Ang editoryal ay laging balanseng balita"
+            ],
+            "correct_answer": "Maaaring may kinikilingan ang editoryal dahil ito ay opinyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Araling Panlipunan — Pilipinas sa UN at ASEAN\n\nGrade 6, Linggo 26! Alamin natin ang papel ng Pilipinas sa mga internasyonal na organisasyon! 🌏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang Saligang Batas 1987.\n\n## 🌏 Ano ang United Nations (UN)?\nAng **United Nations** ay isang internasyonal na organisasyon na nagsusulong ng kapayapaan, seguridad, at kooperasyon sa pagitan ng mga bansa. Miyembro ang Pilipinas dito mula pa noong 1945.\n\n## 🤝 Ano ang ASEAN?\nAng **Association of Southeast Asian Nations (ASEAN)** ay isang samahan ng mga bansang Timog-Silangang Asya na naglalayong itaguyod ang kaunlaran at kapayapaan sa rehiyon. Kasapi ang Pilipinas dito mula 1967.\n\n## 🌟 Kontribusyon ng Pilipinas\nAktibong lumalahok ang Pilipinas sa mga usaping pangkapayapaan, kalusugan, at karapatang pantao sa parehong organisasyon.\n\n## 🎯 Bakit Mahalaga Ito?\nAng pakikilahok sa UN at ASEAN ay nagpapakita ng papel ng Pilipinas bilang responsableng bahagi ng internasyonal na komunidad.\n\n**Mahahalagang salita:** United Nations, ASEAN, internasyonal na organisasyon, kooperasyon",
+        "quiz": [
+          {
+            "question": "Ano ang United Nations?",
+            "options": [
+              "Internasyonal na organisasyong nagsusulong ng kapayapaan at kooperasyon",
+              "Isang bansa sa Asya",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Internasyonal na organisasyong nagsusulong ng kapayapaan at kooperasyon"
+          },
+          {
+            "question": "Ano ang ASEAN?",
+            "options": [
+              "Samahan ng mga bansang Timog-Silangang Asya",
+              "Isang bansa sa Europa",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Samahan ng mga bansang Timog-Silangang Asya"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa UN?",
+            "options": [
+              "1945",
+              "1967",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1945"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa ASEAN?",
+            "options": [
+              "1967",
+              "1945",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1967"
+          },
+          {
+            "question": "Ano ang layunin ng ASEAN?",
+            "options": [
+              "Itaguyod ang kaunlaran at kapayapaan sa rehiyon",
+              "Magdulot ng digmaan",
+              "Walang layunin",
+              "Kontrolin ang ibang bansa"
+            ],
+            "correct_answer": "Itaguyod ang kaunlaran at kapayapaan sa rehiyon"
+          },
+          {
+            "question": "Saang usapin aktibong lumalahok ang Pilipinas sa UN/ASEAN?",
+            "options": [
+              "Kapayapaan, kalusugan, at karapatang pantao",
+              "Walang lahok ang Pilipinas",
+              "Isport lamang",
+              "Libangan lamang"
+            ],
+            "correct_answer": "Kapayapaan, kalusugan, at karapatang pantao"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikilahok ng Pilipinas sa UN at ASEAN?",
+            "options": [
+              "Ipinapakita nito ang papel bilang responsableng bahagi ng internasyonal na komunidad",
+              "Walang kahalagahan ito",
+              "Hindi ito kaugnay sa Pilipinas",
+              "Nagdudulot lamang ito ng problema"
+            ],
+            "correct_answer": "Ipinapakita nito ang papel bilang responsableng bahagi ng internasyonal na komunidad"
+          },
+          {
+            "question": "Konsepto bago ang UN/ASEAN sa serye ng AP?",
+            "options": [
+              "Saligang Batas 1987",
+              "EDSA People Power",
+              "Batas Militar",
+              "Neokolonyalismo"
+            ],
+            "correct_answer": "Saligang Batas 1987"
+          },
+          {
+            "question": "Bakit mahalagang bahagi ang Pilipinas ng mga internasyonal na organisasyon?",
+            "options": [
+              "Nakakatulong ito sa kooperasyon at proteksyon ng interes ng bansa",
+              "Walang benepisyo dito",
+              "Hindi mahalaga ang internasyonal na relasyon",
+              "Basta't kasapi na, tama na"
+            ],
+            "correct_answer": "Nakakatulong ito sa kooperasyon at proteksyon ng interes ng bansa"
+          },
+          {
+            "question": "Bakit itinuring na mahalaga ang kooperasyon sa pagitan ng mga bansa sa Timog-Silangang Asya?",
+            "options": [
+              "Nagbibigay ito ng katatagan at kaunlarang pang-ekonomiya sa rehiyon",
+              "Walang kahalagahan ito",
+              "Nagdudulot lamang ito ng alitan",
+              "Hindi ito nakakaapekto sa Pilipinas"
+            ],
+            "correct_answer": "Nagbibigay ito ng katatagan at kaunlarang pang-ekonomiya sa rehiyon"
+          },
+          {
+            "question": "Paano nauugnay ang pagiging kasapi ng UN sa Saligang Batas 1987?",
+            "options": [
+              "Parehong nagpapakita ng pananagutan ng Pilipinas sa demokrasya at karapatan",
+              "Walang koneksyon ang dalawa",
+              "Hiwalay na paksa",
+              "Hindi kaugnay ang dalawa"
+            ],
+            "correct_answer": "Parehong nagpapakita ng pananagutan ng Pilipinas sa demokrasya at karapatan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang papel ng Pilipinas sa internasyonal na komunidad bilang mag-aaral?",
+            "options": [
+              "Nagpapalawak ito ng pananaw sa relasyon ng bansa sa mundo",
+              "Walang kaugnayan ito sa mag-aaral",
+              "Hindi na kailangang alamin ito",
+              "Ito ay tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapalawak ito ng pananaw sa relasyon ng bansa sa mundo"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🌐 MAPEH — Aking Pagkakakilanlang Pilipino\n\nGrade 6, Linggo 26! Simulan natin ang kontemporanyong paksa tungkol sa ating pagkakakilanlan! 🌐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tradisyunal at pambansang sayaw.\n\n## 🌐 Ano ang Kontemporanyong Sining Pilipino?\nAng **kontemporanyong sining** ay tumutukoy sa mga makabagong likhang-sining (musika, sayaw, biswal na sining) na naglalarawan ng kasalukuyang karanasan ng mga Pilipino.\n\n## 🎨 Halimbawa ng Kontemporanyong Ekspresyon\n- Modernong musikang Pilipino na may impluwensyang OPM (Original Pilipino Music)\n- Sayaw na naghahalo ng tradisyunal at modernong galaw\n- Biswal na sining na naglalarawan ng buhay-Pilipino ngayon\n\n## 💡 Bakit Mahalaga Ito?\nIpinapakita ng kontemporanyong sining kung paano patuloy na umuunlad ang pagkakakilanlang Pilipino habang pinapanatili ang ugat nito sa tradisyon.\n\n**Mahahalagang salita:** kontemporanyong sining, pagkakakilanlan, OPM, ekspresyon",
+        "quiz": [
+          {
+            "question": "Ano ang kontemporanyong sining?",
+            "options": [
+              "Makabagong likhang-sining na naglalarawan ng kasalukuyang karanasan",
+              "Sining na galing sa ibang bansa lamang",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Makabagong likhang-sining na naglalarawan ng kasalukuyang karanasan"
+          },
+          {
+            "question": "Ano ang OPM?",
+            "options": [
+              "Original Pilipino Music",
+              "Isang uri ng sayaw",
+              "Isang bansa",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Original Pilipino Music"
+          },
+          {
+            "question": "Anong halimbawa ng kontemporanyong ekspresyon?",
+            "options": [
+              "Modernong musikang may impluwensyang OPM",
+              "Sayaw ng ibang bansa lamang",
+              "Walang halimbawa",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Modernong musikang may impluwensyang OPM"
+          },
+          {
+            "question": "Bakit mahalaga ang kontemporanyong sining sa pagkakakilanlan?",
+            "options": [
+              "Ipinapakita nito kung paano umuunlad ang pagkakakilanlang Pilipino",
+              "Walang kahalagahan ito",
+              "Nawawala ang tradisyon dahil dito",
+              "Hindi ito bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nito kung paano umuunlad ang pagkakakilanlang Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang mapanatili ang ugat sa tradisyon habang umuunlad ang sining?",
+            "options": [
+              "Nagbibigay ito ng pagkakakilanlan sa gitna ng pagbabago",
+              "Walang kahalagahan ito",
+              "Dapat kalimutan na ang tradisyon",
+              "Hindi na kailangan ng ugat"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkakakilanlan sa gitna ng pagbabago"
+          },
+          {
+            "question": "Anong bagong yunit ang sinimulan ngayong linggo sa MAPEH?",
+            "options": [
+              "Kontemporanyong Pagkakakilanlan ng Pilipino",
+              "Musika ng Rebolusyon",
+              "Sayaw ng Amerikano",
+              "PE lamang"
+            ],
+            "correct_answer": "Kontemporanyong Pagkakakilanlan ng Pilipino"
+          },
+          {
+            "question": "Bakit ginagamit ang sining upang ipahayag ang pagkakakilanlan?",
+            "options": [
+              "Nagbibigay ito ng malikhaing paraan para ipakita ang kultura",
+              "Walang kahalagahan ang sining sa pagpapahayag",
+              "Sining ay hindi kaugnay ng identidad",
+              "Hindi ito kaugnay ng kultura"
+            ],
+            "correct_answer": "Nagbibigay ito ng malikhaing paraan para ipakita ang kultura"
+          },
+          {
+            "question": "Paano naiiba ang kontemporanyong sining sa tradisyunal na sining?",
+            "options": [
+              "Kontemporanyo ay makabago habang tradisyunal ay naipasa mula noon",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang tradisyunal ay laging mas mahusay"
+            ],
+            "correct_answer": "Kontemporanyo ay makabago habang tradisyunal ay naipasa mula noon"
+          },
+          {
+            "question": "Bakit itinuro ang kontemporanyong sining sa MAPEH?",
+            "options": [
+              "Upang maunawaan ang patuloy na ebolusyon ng kultura ng Pilipino",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang maunawaan ang patuloy na ebolusyon ng kultura ng Pilipino"
+          },
+          {
+            "question": "Paano nauugnay ang kontemporanyong sining sa tradisyunal na sayaw na natutunan noon?",
+            "options": [
+              "Parehong bahagi ng pagpapahayag ng identidad ng Pilipino sa iba't ibang panahon",
+              "Walang koneksyon ang dalawa",
+              "Isa tungkol sa agham lamang",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong bahagi ng pagpapahayag ng identidad ng Pilipino sa iba't ibang panahon"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsasama ng tradisyunal at makabagong galaw sa sayaw?",
+            "options": [
+              "Isang natatanging estilo na sumasalamin sa parehong nakaraan at kasalukuyan",
+              "Walang naidudulot",
+              "Nakakalito lamang ito",
+              "Nagpapawala ito ng tradisyon"
+            ],
+            "correct_answer": "Isang natatanging estilo na sumasalamin sa parehong nakaraan at kasalukuyan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang paksa ang kontemporanyong pagkakakilanlan bago matapos ang taon?",
+            "options": [
+              "Nagbubuod ito ng buong paglalakbay ng kultura ng Pilipino sa iba't ibang panahon",
+              "Walang kahalagahan ito",
+              "Basta huling paksa lamang",
+              "Hindi angkop na paksa"
+            ],
+            "correct_answer": "Nagbubuod ito ng buong paglalakbay ng kultura ng Pilipino sa iba't ibang panahon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🪵 EPP (IA) — Basic Wood Joints at Pagtatapos\n\nGrade 6, Linggo 26! Simulan natin ang bagong sangay — Industrial Arts! 🪵\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagpapakete at pag-la-label ng produkto.\n\n## 🪵 Ano ang Wood Joint?\nAng **wood joint** ay ang paraan ng pagdurugtong ng dalawang piraso ng kahoy o kawayan upang bumuo ng isang matibay na istruktura.\n\n## 🔍 Mga Uri ng Wood Joint\n- **Butt joint** — simpleng pagdikit ng dalawang dulo\n- **Lap joint** — pagpapatong ng isang piraso sa ibabaw ng isa pa\n- **Miter joint** — pagdurugtong sa anggulo, karaniwang 45°\n\n## 🎨 Pagtatapos (Finishing)\nAng **pagtatapos** ay ang huling hakbang para protektahan at pagandahin ang kahoy, tulad ng pag-amplas at paglagay ng bernis o pintura.\n\n## ⚠️ Kaligtasan\nGumamit lagi ng proteksyon sa mata kapag gumagamit ng mga kagamitan sa pagputol o pag-amplas.\n\n**Mahahalagang salita:** wood joint, butt joint, lap joint, miter joint, pagtatapos",
+        "quiz": [
+          {
+            "question": "Ano ang wood joint?",
+            "options": [
+              "Paraan ng pagdurugtong ng dalawang piraso ng kahoy",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang bantas"
+            ],
+            "correct_answer": "Paraan ng pagdurugtong ng dalawang piraso ng kahoy"
+          },
+          {
+            "question": "Ano ang butt joint?",
+            "options": [
+              "Simpleng pagdikit ng dalawang dulo",
+              "Pagpapatong ng piraso",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Simpleng pagdikit ng dalawang dulo"
+          },
+          {
+            "question": "Ano ang lap joint?",
+            "options": [
+              "Pagpapatong ng isang piraso sa ibabaw ng isa pa",
+              "Simpleng pagdikit ng dulo",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagpapatong ng isang piraso sa ibabaw ng isa pa"
+          },
+          {
+            "question": "Ano ang miter joint?",
+            "options": [
+              "Pagdurugtong sa anggulo, karaniwang 45°",
+              "Simpleng pagdikit ng dulo",
+              "Pagpapatong ng piraso",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagdurugtong sa anggulo, karaniwang 45°"
+          },
+          {
+            "question": "Ano ang pagtatapos (finishing) sa gawaing kahoy?",
+            "options": [
+              "Huling hakbang para protektahan at pagandahin ang kahoy",
+              "Unang hakbang ng gawain",
+              "Paggupit ng kahoy lamang",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Huling hakbang para protektahan at pagandahin ang kahoy"
+          },
+          {
+            "question": "Anong halimbawa ng proseso ng pagtatapos?",
+            "options": [
+              "Pag-amplas at paglagay ng bernis",
+              "Pagputol ng kahoy lamang",
+              "Pagbili ng kahoy",
+              "Walang proseso"
+            ],
+            "correct_answer": "Pag-amplas at paglagay ng bernis"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng proteksyon sa mata sa pagputol o pag-amplas?",
+            "options": [
+              "Upang maiwasan ang pinsala mula sa mga particle ng kahoy",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ang proteksyon",
+              "Nakakasagabal lamang ito"
+            ],
+            "correct_answer": "Upang maiwasan ang pinsala mula sa mga particle ng kahoy"
+          },
+          {
+            "question": "Bakit mahalaga ang matibay na wood joint sa isang proyekto?",
+            "options": [
+              "Tinitiyak nito na matatag ang buong istruktura",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan ng matibay na koneksyon",
+              "Basta may dikit lamang, okay na"
+            ],
+            "correct_answer": "Tinitiyak nito na matatag ang buong istruktura"
+          },
+          {
+            "question": "Anong sangay ng EPP ang sinimulan ngayong linggo?",
+            "options": [
+              "Industrial Arts",
+              "Fishery Arts",
+              "Family and Consumer Science",
+              "ICT"
+            ],
+            "correct_answer": "Industrial Arts"
+          },
+          {
+            "question": "Bakit ginagamit ang miter joint sa anggulong 45°?",
+            "options": [
+              "Karaniwan itong ginagamit para sa mga hugis-kahon na proyekto tulad ng frame",
+              "Walang gamit ang anggulong ito",
+              "Palaging mali ang anggulong ito",
+              "Hindi ito totoong wood joint"
+            ],
+            "correct_answer": "Karaniwan itong ginagamit para sa mga hugis-kahon na proyekto tulad ng frame"
+          },
+          {
+            "question": "Bakit mahalagang matutong gumawa ng iba't ibang wood joint?",
+            "options": [
+              "Nagbibigay ito ng kakayahang bumuo ng iba't ibang uri ng proyekto",
+              "Walang gamit ito",
+              "Isa lamang na uri ang kailangan matutunan",
+              "Hindi ito kapaki-pakinabang"
+            ],
+            "correct_answer": "Nagbibigay ito ng kakayahang bumuo ng iba't ibang uri ng proyekto"
+          },
+          {
+            "question": "Bakit itinuturo ang pagtatapos bilang bahagi ng industrial arts?",
+            "options": [
+              "Pinapahusay nito ang tibay at itsura ng natapos na proyekto",
+              "Walang kahalagahan ito",
+              "Hindi na kailangan pagandahin ang proyekto",
+              "Ito ay opsyonal lamang at walang gamit"
+            ],
+            "correct_answer": "Pinapahusay nito ang tibay at itsura ng natapos na proyekto"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💚 GMRC — Espirituwalidad sa Pakikipagkapuwa (Mapagmalasakit)\n\nGrade 6, Linggo 26! Pagpapahalaga: **Mapagmalasakit (Compassion/Concern)**. 💚\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pananalig sa Diyos bilang batayan ng pakikipagkapuwa.\n\n## 💚 Ano ang Mapagmalasakit sa Konteksto ng Espirituwalidad?\nAng **espirituwal na mapagmalasakit** ay ang pagpapakita ng pag-aalala at kabaitan sa iba bilang natural na bunga ng malalim na pananampalataya.\n\n## 🤲 Halimbawa ng Espirituwal na Mapagmalasakit\n- Pagbisita sa maysakit bilang gawaing pang-espirituwal\n- Pagbabahagi ng biyaya sa mga nangangailangan\n- Pagsama-samang panalangin para sa kagalingan ng komunidad\n\n## 💡 Bakit Mahalaga Ito?\nAng espirituwalidad na nagbubunga ng mapagmalasakit ay nagpapatibay ng ugnayan sa loob ng isang pamayanan.\n\n**Mahahalagang salita:** mapagmalasakit, espirituwalidad, pananampalataya, kabaitan",
+        "quiz": [
+          {
+            "question": "Ano ang espirituwal na mapagmalasakit?",
+            "options": [
+              "Pagpapakita ng pag-aalala at kabaitan bunga ng pananampalataya",
+              "Kawalang pakialam sa iba",
+              "Isang uri ng laro",
+              "Isang bantas"
+            ],
+            "correct_answer": "Pagpapakita ng pag-aalala at kabaitan bunga ng pananampalataya"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Mapagmalasakit (Compassion/Concern)",
+              "Pananalig sa Diyos",
+              "Makatarungan",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Mapagmalasakit (Compassion/Concern)"
+          },
+          {
+            "question": "Anong halimbawa ng espirituwal na mapagmalasakit?",
+            "options": [
+              "Pagbisita sa maysakit",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa nangangailangan",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagbisita sa maysakit"
+          },
+          {
+            "question": "Bakit itinuturing na natural na bunga ng pananampalataya ang mapagmalasakit?",
+            "options": [
+              "Ang malalim na paniniwala ay karaniwang nagbubunga ng kabaitan sa iba",
+              "Walang koneksyon ang dalawa",
+              "Pananampalataya ay hiwalay sa kabaitan",
+              "Hindi ito totoong paniniwala"
+            ],
+            "correct_answer": "Ang malalim na paniniwala ay karaniwang nagbubunga ng kabaitan sa iba"
+          },
+          {
+            "question": "Anong konsepto ang natutunan bago ang paksang ito?",
+            "options": [
+              "Pananalig tungo sa pakikipagkapuwa",
+              "Pagiging patas sa kapuwa",
+              "Pagtugon sa emosyon",
+              "Pagtugon sa pambubulas"
+            ],
+            "correct_answer": "Pananalig tungo sa pakikipagkapuwa"
+          },
+          {
+            "question": "Bakit mahalagang magbahagi ng biyaya sa nangangailangan?",
+            "options": [
+              "Nagpapakita ito ng tunay na pagmamalasakit at pananampalataya",
+              "Walang kahalagahan ito",
+              "Dapat lamang itago ang biyaya para sa sarili",
+              "Hindi na kailangang magbahagi"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pagmamalasakit at pananampalataya"
+          },
+          {
+            "question": "Ano ang ikalimang hakbang sa serye ng pakikipagkapuwa sa Term 3?",
+            "options": [
+              "Espirituwalidad sa pakikipagkapuwa (Mapagmalasakit)",
+              "Pananalig sa Diyos",
+              "Pagiging patas sa kapuwa",
+              "Pagtugon sa emosyon"
+            ],
+            "correct_answer": "Espirituwalidad sa pakikipagkapuwa (Mapagmalasakit)"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasama-samang panalangin para sa komunidad?",
+            "options": [
+              "Nagpapatibay ito ng ugnayan at pagmamalasakit sa isa't isa",
+              "Walang gamit ito",
+              "Ito ay para sa matatanda lamang",
+              "Hindi ito bahagi ng espirituwalidad"
+            ],
+            "correct_answer": "Nagpapatibay ito ng ugnayan at pagmamalasakit sa isa't isa"
+          },
+          {
+            "question": "Paano nauugnay ang espirituwal na mapagmalasakit sa pananalig sa Diyos na natutunan noon?",
+            "options": [
+              "Parehong nagpapakita ng pagmamahal sa kapwa bilang bunga ng pananampalataya",
+              "Walang koneksyon ang dalawa",
+              "Magkatulad lamang sila",
+              "Isa lamang ang mahalaga"
+            ],
+            "correct_answer": "Parehong nagpapakita ng pagmamahal sa kapwa bilang bunga ng pananampalataya"
+          },
+          {
+            "question": "Bakit itinuturo ang espirituwal na mapagmalasakit sa Grade 6?",
+            "options": [
+              "Upang matulungan silang isabuhay ang pananampalataya sa pagtulong sa iba",
+              "Walang layunin ito",
+              "Para sa matatanda lamang ito",
+              "Hindi ito kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Upang matulungan silang isabuhay ang pananampalataya sa pagtulong sa iba"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang pagpapatibay ng ugnayan sa komunidad sa pamamagitan ng espirituwalidad?",
+            "options": [
+              "Nagpapalakas ito ng pagkakaisa at suportang panlipunan",
+              "Walang kahalagahan ito",
+              "Hindi kaugnay ang espirituwalidad sa komunidad",
+              "Basta indibidwal na bagay lamang ito"
+            ],
+            "correct_answer": "Nagpapalakas ito ng pagkakaisa at suportang panlipunan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang uri ng mapagmalasakit ang espirituwal na uri nito kumpara sa iba pang uri?",
+            "options": [
+              "Nagmumula ito sa isang panloob na paniniwala na hindi lamang nakabatay sa emosyon",
+              "Wala itong pagkakaiba sa ibang uri ng mapagmalasakit",
+              "Ito ay palaging mas mahina kaysa ibang uri",
+              "Hindi ito totoong uri ng mapagmalasakit"
+            ],
+            "correct_answer": "Nagmumula ito sa isang panloob na paniniwala na hindi lamang nakabatay sa emosyon"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔍 Friday Review — English (Grade 6)\n\n- Reflective essay: sharing personal insight\n\nGreat reflective writing! 🌟",
+        "quiz": [
+          {
+            "question": "What is a reflective essay?",
+            "options": [
+              "An essay sharing personal thoughts and insights",
+              "A list of dates and events",
+              "A weather report",
+              "An objective news article"
+            ],
+            "correct_answer": "An essay sharing personal thoughts and insights"
+          },
+          {
+            "question": "What should be described first?",
+            "options": [
+              "The experience or text briefly",
+              "A random topic",
+              "Only statistics",
+              "The book's price"
+            ],
+            "correct_answer": "The experience or text briefly"
+          },
+          {
+            "question": "What comes after describing the experience?",
+            "options": [
+              "Your personal reaction",
+              "A grocery list",
+              "Someone else's opinion only",
+              "A math equation"
+            ],
+            "correct_answer": "Your personal reaction"
+          },
+          {
+            "question": "What should the essay explain at the end?",
+            "options": [
+              "What you learned or how you grew",
+              "The book's price",
+              "A random fact",
+              "The author's biography"
+            ],
+            "correct_answer": "What you learned or how you grew"
+          },
+          {
+            "question": "How is it different from a literary essay?",
+            "options": [
+              "Shares personal connection vs. analyzing objectively",
+              "They are exactly the same",
+              "Literary essays are always shorter",
+              "Reflective never mentions the text"
+            ],
+            "correct_answer": "Shares personal connection vs. analyzing objectively"
+          },
+          {
+            "question": "Why is reflective writing valuable?",
+            "options": [
+              "Helps process experiences and thinking",
+              "No educational value",
+              "Replaces other writing",
+              "Never useful"
+            ],
+            "correct_answer": "Helps process experiences and thinking"
+          },
+          {
+            "question": "What might it be written about?",
+            "options": [
+              "A personal experience or literature",
+              "Only math formulas",
+              "Only weather",
+              "Only historical dates"
+            ],
+            "correct_answer": "A personal experience or literature"
+          },
+          {
+            "question": "Why include personal feelings?",
+            "options": [
+              "Shows genuine connection",
+              "Feelings are irrelevant",
+              "Only facts matter",
+              "Feelings make writing less credible"
+            ],
+            "correct_answer": "Shows genuine connection"
+          },
+          {
+            "question": "How does describing 'growth' help?",
+            "options": [
+              "Shows how experience changed understanding",
+              "No connection to reflection",
+              "Makes essay less personal",
+              "Growth shouldn't be mentioned"
+            ],
+            "correct_answer": "Shows how experience changed understanding"
+          },
+          {
+            "question": "How does this connect to last week's literary essay?",
+            "options": [
+              "Both start from a text, reflection adds personal angle",
+              "Entirely unrelated",
+              "Reflective never references texts",
+              "Literary essays are more personal"
+            ],
+            "correct_answer": "Both start from a text, reflection adds personal angle"
+          },
+          {
+            "question": "Benefit of processing experiences through writing?",
+            "options": [
+              "Deepens self-understanding",
+              "No psychological benefit",
+              "Pointless",
+              "Only for professionals"
+            ],
+            "correct_answer": "Deepens self-understanding"
+          },
+          {
+            "question": "Why might teachers assign reflective essays?",
+            "options": [
+              "Connect learning to personal meaning",
+              "Memorize facts",
+              "Test spelling only",
+              "Avoid critical thinking"
+            ],
+            "correct_answer": "Connect learning to personal meaning"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🥧 Friday Review — Mathematics (Grade 6)\n\n- Reading and interpreting pie graphs\n\nGreat pie graph skills! ⭐",
+        "quiz": [
+          {
+            "question": "What is a pie graph?",
+            "options": [
+              "A circular graph divided into slices showing proportions",
+              "A bar-shaped chart",
+              "A line on a graph",
+              "A single number"
+            ],
+            "correct_answer": "A circular graph divided into slices showing proportions"
+          },
+          {
+            "question": "What does the whole circle represent?",
+            "options": [
+              "100%",
+              "50%",
+              "10%",
+              "360%"
+            ],
+            "correct_answer": "100%"
+          },
+          {
+            "question": "What does a larger slice mean?",
+            "options": [
+              "A bigger proportion",
+              "A smaller proportion",
+              "No meaningful data",
+              "An error"
+            ],
+            "correct_answer": "A bigger proportion"
+          },
+          {
+            "question": "How many degrees in a full circle?",
+            "options": [
+              "360°",
+              "180°",
+              "100°",
+              "90°"
+            ],
+            "correct_answer": "360°"
+          },
+          {
+            "question": "Formula to convert percentage to degrees?",
+            "options": [
+              "degrees = percentage × 3.6",
+              "degrees = percentage ÷ 3.6",
+              "degrees = percentage + 360",
+              "degrees = percentage - 100"
+            ],
+            "correct_answer": "degrees = percentage × 3.6"
+          },
+          {
+            "question": "25% of a pie graph in degrees?",
+            "options": [
+              "90°",
+              "25°",
+              "180°",
+              "360°"
+            ],
+            "correct_answer": "90°"
+          },
+          {
+            "question": "50% of a pie graph in degrees?",
+            "options": [
+              "180°",
+              "50°",
+              "90°",
+              "360°"
+            ],
+            "correct_answer": "180°"
+          },
+          {
+            "question": "What can comparing slices show?",
+            "options": [
+              "Largest and smallest categories",
+              "Exact temperature",
+              "Speed of an object",
+              "Weight of an item"
+            ],
+            "correct_answer": "Largest and smallest categories"
+          },
+          {
+            "question": "Why are pie graphs useful?",
+            "options": [
+              "Show how parts relate to a whole",
+              "Show only single numbers",
+              "Cannot represent percentages",
+              "Only used for money"
+            ],
+            "correct_answer": "Show how parts relate to a whole"
+          },
+          {
+            "question": "10% of a pie graph in degrees?",
+            "options": [
+              "36°",
+              "10°",
+              "100°",
+              "360°"
+            ],
+            "correct_answer": "36°"
+          },
+          {
+            "question": "Why do slices add up to 100%?",
+            "options": [
+              "Together they represent the whole data set",
+              "They never add up to 100%",
+              "Each slice is equal",
+              "Percentages have no relation to whole"
+            ],
+            "correct_answer": "Together they represent the whole data set"
+          },
+          {
+            "question": "Connection to circle properties?",
+            "options": [
+              "Pie graphs use degrees and proportions",
+              "Unrelated to circles",
+              "Circles have no connection to data",
+              "Pie graphs are squares"
+            ],
+            "correct_answer": "Pie graphs use degrees and proportions"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌏 Friday Review — Science (Grade 6)\n\n- Philippine seasons and Earth's rotation\n\nGreat Earth science! 🌟",
+        "quiz": [
+          {
+            "question": "What causes day and night?",
+            "options": [
+              "Earth's rotation on its axis",
+              "The Moon blocking the Sun",
+              "Clouds",
+              "The Sun moving around Earth"
+            ],
+            "correct_answer": "Earth's rotation on its axis"
+          },
+          {
+            "question": "How long is one Earth rotation?",
+            "options": [
+              "24 hours",
+              "12 hours",
+              "365 days",
+              "1 hour"
+            ],
+            "correct_answer": "24 hours"
+          },
+          {
+            "question": "Two main Philippine seasons?",
+            "options": [
+              "Tag-init and Tag-ulan",
+              "Winter and Summer",
+              "Spring and Fall",
+              "Wet and Frozen"
+            ],
+            "correct_answer": "Tag-init and Tag-ulan"
+          },
+          {
+            "question": "When is Tag-init generally?",
+            "options": [
+              "March to May",
+              "June to November",
+              "December to February",
+              "All year equally"
+            ],
+            "correct_answer": "March to May"
+          },
+          {
+            "question": "When is Tag-ulan generally?",
+            "options": [
+              "June to November",
+              "March to May",
+              "December to February",
+              "All year equally"
+            ],
+            "correct_answer": "June to November"
+          },
+          {
+            "question": "What causes seasons globally?",
+            "options": [
+              "Earth's tilted axis as it revolves",
+              "The Moon's phases",
+              "Random weather",
+              "Earth stopping rotation"
+            ],
+            "correct_answer": "Earth's tilted axis as it revolves"
+          },
+          {
+            "question": "Difference between rotation and revolution?",
+            "options": [
+              "Rotation spins on axis; revolution orbits the Sun",
+              "Exactly the same",
+              "Rotation takes a year",
+              "Revolution causes day/night"
+            ],
+            "correct_answer": "Rotation spins on axis; revolution orbits the Sun"
+          },
+          {
+            "question": "Why does the sunlit side experience day?",
+            "options": [
+              "It receives direct sunlight",
+              "It receives no sunlight",
+              "Sun is closer permanently",
+              "No relation to sunlight"
+            ],
+            "correct_answer": "It receives direct sunlight"
+          },
+          {
+            "question": "Why is understanding rotation important?",
+            "options": [
+              "Explains daily patterns affecting life",
+              "No real-world relevance",
+              "Only for astronauts",
+              "Doesn't affect life"
+            ],
+            "correct_answer": "Explains daily patterns affecting life"
+          },
+          {
+            "question": "How do seasons affect daily life?",
+            "options": [
+              "Influence agriculture and weather",
+              "No effect",
+              "Only near the equator",
+              "Seasons don't exist here"
+            ],
+            "correct_answer": "Influence agriculture and weather"
+          },
+          {
+            "question": "Why does axis tilt matter?",
+            "options": [
+              "Changes sunlight intensity across regions over the year",
+              "No effect on sunlight",
+              "Axis never tilts",
+              "Only affects the Moon"
+            ],
+            "correct_answer": "Changes sunlight intensity across regions over the year"
+          },
+          {
+            "question": "Connection to volcanoes lesson?",
+            "options": [
+              "Both part of Earth and space science",
+              "Completely unrelated",
+              "Volcanoes cause rotation",
+              "Seasons cause eruptions"
+            ],
+            "correct_answer": "Both part of Earth and space science"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 6)\n\n- Editoryal: panimulang kaalaman\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang editoryal?",
+            "options": [
+              "Artikulong nagpapahayag ng opinyon",
+              "Balitang walang opinyon",
+              "Uri ng tula",
+              "Bantas"
+            ],
+            "correct_answer": "Artikulong nagpapahayag ng opinyon"
+          },
+          {
+            "question": "Layunin ng editoryal?",
+            "options": [
+              "Maghikayat o magpaalam",
+              "Magbigay lamang ng datos",
+              "Walang layunin",
+              "Maglaro ng salita"
+            ],
+            "correct_answer": "Maghikayat o magpaalam"
+          },
+          {
+            "question": "Katangian ng editoryal?",
+            "options": [
+              "Malinaw na paninindigan na may katibayan",
+              "Walang opinyon",
+              "Puro balita lamang",
+              "Walang katibayan"
+            ],
+            "correct_answer": "Malinaw na paninindigan na may katibayan"
+          },
+          {
+            "question": "Bakit suriin nang kritikal ang editoryal?",
+            "options": [
+              "Naglalaman ito ng opinyon, hindi lamang balita",
+              "Palaging tama ito",
+              "Walang opinyon dito",
+              "Hindi na kailangang suriin"
+            ],
+            "correct_answer": "Naglalaman ito ng opinyon, hindi lamang balita"
+          },
+          {
+            "question": "Halimbawa ng paksa ng editoryal?",
+            "options": [
+              "Dapat bang mandatory ang reusable bag?",
+              "Ang buhay ni Rizal",
+              "Bahagi ng katawan",
+              "Hayop sa gubat"
+            ],
+            "correct_answer": "Dapat bang mandatory ang reusable bag?"
+          },
+          {
+            "question": "Sino sumusulat ng editoryal?",
+            "options": [
+              "Patnugot ng pahayagan",
+              "Mga bata lamang",
+              "Mga hayop",
+              "Walang sinuman"
+            ],
+            "correct_answer": "Patnugot ng pahayagan"
+          },
+          {
+            "question": "Bakit dapat may katibayan?",
+            "options": [
+              "Palakasin ang paninindigan",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Basta opinyon lamang"
+            ],
+            "correct_answer": "Palakasin ang paninindigan"
+          },
+          {
+            "question": "Pagkakaiba sa balitang pangkaraniwan?",
+            "options": [
+              "May opinyon, hindi puro katotohanan",
+              "Magkatulad lamang",
+              "Balita ay may opinyon",
+              "Walang pagkakaiba"
+            ],
+            "correct_answer": "May opinyon, hindi puro katotohanan"
+          },
+          {
+            "question": "Bakit malaman ang panig ng may-akda?",
+            "options": [
+              "Maunawaan ang layunin ng sulatin",
+              "Walang kahalagahan",
+              "Walang panig ang may-akda",
+              "Nailathala na, tama na"
+            ],
+            "correct_answer": "Maunawaan ang layunin ng sulatin"
+          },
+          {
+            "question": "Koneksyon sa retorika na natutunan?",
+            "options": [
+              "Parehong bahagi ng malakas na argumento",
+              "Walang koneksyon",
+              "Berbal lamang ang retorika",
+              "Editoryal ay walang argumento"
+            ],
+            "correct_answer": "Parehong bahagi ng malakas na argumento"
+          },
+          {
+            "question": "Bakit ituro ang editoryal sa Grade 6?",
+            "options": [
+              "Matutong tukuyin ang opinyon laban sa katotohanan",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng Filipino"
+            ],
+            "correct_answer": "Matutong tukuyin ang opinyon laban sa katotohanan"
+          },
+          {
+            "question": "Bakit malaman ang layunin bago paniwalaan?",
+            "options": [
+              "May kinikilingan dahil opinyon ito",
+              "Walang kinikilingan ito",
+              "Hindi na kailangang alamin",
+              "Laging balanseng balita"
+            ],
+            "correct_answer": "May kinikilingan dahil opinyon ito"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🌏 Friday Review — Araling Panlipunan (Grade 6)\n\n- Pilipinas sa UN at ASEAN\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang United Nations?",
+            "options": [
+              "Internasyonal na organisasyong nagsusulong ng kapayapaan",
+              "Isang bansa sa Asya",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Internasyonal na organisasyong nagsusulong ng kapayapaan"
+          },
+          {
+            "question": "Ano ang ASEAN?",
+            "options": [
+              "Samahan ng mga bansang Timog-Silangang Asya",
+              "Bansa sa Europa",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Samahan ng mga bansang Timog-Silangang Asya"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa UN?",
+            "options": [
+              "1945",
+              "1967",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1945"
+          },
+          {
+            "question": "Kailan naging kasapi ang Pilipinas sa ASEAN?",
+            "options": [
+              "1967",
+              "1945",
+              "1986",
+              "1946"
+            ],
+            "correct_answer": "1967"
+          },
+          {
+            "question": "Layunin ng ASEAN?",
+            "options": [
+              "Itaguyod ang kaunlaran at kapayapaan",
+              "Magdulot ng digmaan",
+              "Walang layunin",
+              "Kontrolin ang ibang bansa"
+            ],
+            "correct_answer": "Itaguyod ang kaunlaran at kapayapaan"
+          },
+          {
+            "question": "Saan aktibong lumalahok ang Pilipinas?",
+            "options": [
+              "Kapayapaan, kalusugan, karapatang pantao",
+              "Walang lahok",
+              "Isport lamang",
+              "Libangan lamang"
+            ],
+            "correct_answer": "Kapayapaan, kalusugan, karapatang pantao"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikilahok sa UN/ASEAN?",
+            "options": [
+              "Ipinapakita ang papel bilang responsableng bansa",
+              "Walang kahalagahan",
+              "Hindi kaugnay sa Pilipinas",
+              "Nagdudulot ng problema"
+            ],
+            "correct_answer": "Ipinapakita ang papel bilang responsableng bansa"
+          },
+          {
+            "question": "Konsepto bago ang UN/ASEAN?",
+            "options": [
+              "Saligang Batas 1987",
+              "EDSA People Power",
+              "Batas Militar",
+              "Neokolonyalismo"
+            ],
+            "correct_answer": "Saligang Batas 1987"
+          },
+          {
+            "question": "Bakit mahalagang kasapi ng internasyonal na organisasyon?",
+            "options": [
+              "Kooperasyon at proteksyon ng interes ng bansa",
+              "Walang benepisyo",
+              "Hindi mahalaga",
+              "Kasapi na, tama na"
+            ],
+            "correct_answer": "Kooperasyon at proteksyon ng interes ng bansa"
+          },
+          {
+            "question": "Bakit mahalaga ang kooperasyon sa Timog-Silangang Asya?",
+            "options": [
+              "Katatagan at kaunlarang pang-ekonomiya",
+              "Walang kahalagahan",
+              "Nagdudulot lamang ng alitan",
+              "Hindi nakakaapekto"
+            ],
+            "correct_answer": "Katatagan at kaunlarang pang-ekonomiya"
+          },
+          {
+            "question": "Koneksyon ng UN sa Saligang Batas 1987?",
+            "options": [
+              "Parehong pananagutan sa demokrasya at karapatan",
+              "Walang koneksyon",
+              "Hiwalay na paksa",
+              "Hindi kaugnay"
+            ],
+            "correct_answer": "Parehong pananagutan sa demokrasya at karapatan"
+          },
+          {
+            "question": "Bakit malaman ang papel sa internasyonal na komunidad?",
+            "options": [
+              "Nagpapalawak ng pananaw sa relasyon ng bansa",
+              "Walang kaugnayan",
+              "Hindi kailangang alamin",
+              "Tungkol lamang sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapalawak ng pananaw sa relasyon ng bansa"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🌐 Friday Review — MAPEH (Grade 6)\n\n- Aking pagkakakilanlang Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kontemporanyong sining?",
+            "options": [
+              "Makabagong sining ng kasalukuyang karanasan",
+              "Sining ng ibang bansa lamang",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Makabagong sining ng kasalukuyang karanasan"
+          },
+          {
+            "question": "Ano ang OPM?",
+            "options": [
+              "Original Pilipino Music",
+              "Uri ng sayaw",
+              "Bansa",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Original Pilipino Music"
+          },
+          {
+            "question": "Halimbawa ng kontemporanyong ekspresyon?",
+            "options": [
+              "Modernong musikang may impluwensyang OPM",
+              "Sayaw ng ibang bansa lamang",
+              "Walang halimbawa",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Modernong musikang may impluwensyang OPM"
+          },
+          {
+            "question": "Bakit mahalaga sa pagkakakilanlan?",
+            "options": [
+              "Ipinapakita ang ebolusyon ng identidad",
+              "Walang kahalagahan",
+              "Nawawala ang tradisyon",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita ang ebolusyon ng identidad"
+          },
+          {
+            "question": "Bakit mapanatili ang ugat sa tradisyon?",
+            "options": [
+              "Nagbibigay ng identidad sa gitna ng pagbabago",
+              "Walang kahalagahan",
+              "Kalimutan na ang tradisyon",
+              "Hindi kailangan ng ugat"
+            ],
+            "correct_answer": "Nagbibigay ng identidad sa gitna ng pagbabago"
+          },
+          {
+            "question": "Bagong yunit sinimulan ngayong linggo?",
+            "options": [
+              "Kontemporanyong Pagkakakilanlan",
+              "Musika ng Rebolusyon",
+              "Sayaw ng Amerikano",
+              "PE lamang"
+            ],
+            "correct_answer": "Kontemporanyong Pagkakakilanlan"
+          },
+          {
+            "question": "Bakit ginagamit ang sining sa pagkakakilanlan?",
+            "options": [
+              "Malikhaing paraan ipakita ang kultura",
+              "Walang kahalagahan",
+              "Hindi kaugnay ng identidad",
+              "Hindi kaugnay ng kultura"
+            ],
+            "correct_answer": "Malikhaing paraan ipakita ang kultura"
+          },
+          {
+            "question": "Pagkakaiba ng kontemporanyo sa tradisyunal?",
+            "options": [
+              "Kontemporanyo ay makabago, tradisyunal ay naipasa mula noon",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Tradisyunal laging mas mahusay"
+            ],
+            "correct_answer": "Kontemporanyo ay makabago, tradisyunal ay naipasa mula noon"
+          },
+          {
+            "question": "Bakit ituro ang kontemporanyong sining?",
+            "options": [
+              "Maunawaan ang ebolusyon ng kultura",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Maunawaan ang ebolusyon ng kultura"
+          },
+          {
+            "question": "Koneksyon sa tradisyunal na sayaw?",
+            "options": [
+              "Parehong pagpapahayag ng identidad sa iba't ibang panahon",
+              "Walang koneksyon",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Parehong pagpapahayag ng identidad sa iba't ibang panahon"
+          },
+          {
+            "question": "Naidudulot ng pagsasama ng tradisyunal at makabagong galaw?",
+            "options": [
+              "Natatanging estilo sumasalamin sa nakaraan at kasalukuyan",
+              "Wala",
+              "Nakakalito lamang",
+              "Nagpapawala ng tradisyon"
+            ],
+            "correct_answer": "Natatanging estilo sumasalamin sa nakaraan at kasalukuyan"
+          },
+          {
+            "question": "Bakit mahalagang paksa bago matapos ang taon?",
+            "options": [
+              "Nagbubuod ng buong paglalakbay ng kultura",
+              "Walang kahalagahan",
+              "Basta huling paksa",
+              "Hindi angkop"
+            ],
+            "correct_answer": "Nagbubuod ng buong paglalakbay ng kultura"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🪵 Friday Review — EPP (Grade 6)\n\n- Basic wood joints at pagtatapos\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang wood joint?",
+            "options": [
+              "Paraan ng pagdurugtong ng dalawang piraso ng kahoy",
+              "Uri ng laro",
+              "Uri ng pagkain",
+              "Bantas"
+            ],
+            "correct_answer": "Paraan ng pagdurugtong ng dalawang piraso ng kahoy"
+          },
+          {
+            "question": "Ano ang butt joint?",
+            "options": [
+              "Simpleng pagdikit ng dalawang dulo",
+              "Pagpapatong ng piraso",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Simpleng pagdikit ng dalawang dulo"
+          },
+          {
+            "question": "Ano ang lap joint?",
+            "options": [
+              "Pagpapatong ng piraso sa ibabaw ng isa pa",
+              "Simpleng pagdikit ng dulo",
+              "Pagdurugtong sa anggulo",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagpapatong ng piraso sa ibabaw ng isa pa"
+          },
+          {
+            "question": "Ano ang miter joint?",
+            "options": [
+              "Pagdurugtong sa anggulo, karaniwang 45°",
+              "Simpleng pagdikit ng dulo",
+              "Pagpapatong ng piraso",
+              "Walang koneksyon"
+            ],
+            "correct_answer": "Pagdurugtong sa anggulo, karaniwang 45°"
+          },
+          {
+            "question": "Ano ang pagtatapos (finishing)?",
+            "options": [
+              "Huling hakbang para protektahan ang kahoy",
+              "Unang hakbang",
+              "Paggupit lamang",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Huling hakbang para protektahan ang kahoy"
+          },
+          {
+            "question": "Halimbawa ng proseso ng pagtatapos?",
+            "options": [
+              "Pag-amplas at paglagay ng bernis",
+              "Pagputol lamang",
+              "Pagbili ng kahoy",
+              "Walang proseso"
+            ],
+            "correct_answer": "Pag-amplas at paglagay ng bernis"
+          },
+          {
+            "question": "Bakit gumamit ng proteksyon sa mata?",
+            "options": [
+              "Maiwasan ang pinsala mula sa particle ng kahoy",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Nakakasagabal lamang"
+            ],
+            "correct_answer": "Maiwasan ang pinsala mula sa particle ng kahoy"
+          },
+          {
+            "question": "Bakit mahalaga ang matibay na wood joint?",
+            "options": [
+              "Tinitiyak na matatag ang istruktura",
+              "Walang kahalagahan",
+              "Hindi kailangan ng matibay na koneksyon",
+              "May dikit lamang, okay na"
+            ],
+            "correct_answer": "Tinitiyak na matatag ang istruktura"
+          },
+          {
+            "question": "Sangay ng EPP na sinimulan?",
+            "options": [
+              "Industrial Arts",
+              "Fishery Arts",
+              "FCS",
+              "ICT"
+            ],
+            "correct_answer": "Industrial Arts"
+          },
+          {
+            "question": "Bakit ginagamit ang miter joint sa 45°?",
+            "options": [
+              "Karaniwan sa hugis-kahon na proyekto tulad ng frame",
+              "Walang gamit",
+              "Palaging mali",
+              "Hindi totoong joint"
+            ],
+            "correct_answer": "Karaniwan sa hugis-kahon na proyekto tulad ng frame"
+          },
+          {
+            "question": "Bakit matutong gumawa ng iba't ibang wood joint?",
+            "options": [
+              "Kakayahang bumuo ng iba't ibang proyekto",
+              "Walang gamit",
+              "Isa lamang kailangan",
+              "Hindi kapaki-pakinabang"
+            ],
+            "correct_answer": "Kakayahang bumuo ng iba't ibang proyekto"
+          },
+          {
+            "question": "Bakit ituro ang pagtatapos sa industrial arts?",
+            "options": [
+              "Pinapahusay ang tibay at itsura ng proyekto",
+              "Walang kahalagahan",
+              "Hindi kailangan pagandahin",
+              "Opsyonal lamang"
+            ],
+            "correct_answer": "Pinapahusay ang tibay at itsura ng proyekto"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💚 Friday Review — GMRC (Grade 6)\n\n- Espirituwalidad sa pakikipagkapuwa (Mapagmalasakit)\n\nMagaling! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang espirituwal na mapagmalasakit?",
+            "options": [
+              "Pag-aalala at kabaitan bunga ng pananampalataya",
+              "Kawalang pakialam",
+              "Uri ng laro",
+              "Bantas"
+            ],
+            "correct_answer": "Pag-aalala at kabaitan bunga ng pananampalataya"
+          },
+          {
+            "question": "Pagpapahalaga sa linggong ito?",
+            "options": [
+              "Mapagmalasakit",
+              "Pananalig sa Diyos",
+              "Makatarungan",
+              "Mapagpasensiya"
+            ],
+            "correct_answer": "Mapagmalasakit"
+          },
+          {
+            "question": "Halimbawa ng espirituwal na mapagmalasakit?",
+            "options": [
+              "Pagbisita sa maysakit",
+              "Kawalang pakialam",
+              "Pag-iwas sa nangangailangan",
+              "Pagtanggi tumulong"
+            ],
+            "correct_answer": "Pagbisita sa maysakit"
+          },
+          {
+            "question": "Bakit natural na bunga ng pananampalataya ang mapagmalasakit?",
+            "options": [
+              "Malalim na paniniwala ay nagbubunga ng kabaitan",
+              "Walang koneksyon",
+              "Hiwalay sa kabaitan",
+              "Hindi totoong paniniwala"
+            ],
+            "correct_answer": "Malalim na paniniwala ay nagbubunga ng kabaitan"
+          },
+          {
+            "question": "Konsepto bago ang paksang ito?",
+            "options": [
+              "Pananalig tungo sa pakikipagkapuwa",
+              "Pagiging patas",
+              "Pagtugon sa emosyon",
+              "Pagtugon sa pambubulas"
+            ],
+            "correct_answer": "Pananalig tungo sa pakikipagkapuwa"
+          },
+          {
+            "question": "Bakit magbahagi ng biyaya sa nangangailangan?",
+            "options": [
+              "Tunay na pagmamalasakit at pananampalataya",
+              "Walang kahalagahan",
+              "Itago para sa sarili",
+              "Hindi kailangang magbahagi"
+            ],
+            "correct_answer": "Tunay na pagmamalasakit at pananampalataya"
+          },
+          {
+            "question": "Ikalimang hakbang sa serye ng Term 3?",
+            "options": [
+              "Espirituwalidad sa pakikipagkapuwa",
+              "Pananalig sa Diyos",
+              "Pagiging patas",
+              "Pagtugon sa emosyon"
+            ],
+            "correct_answer": "Espirituwalidad sa pakikipagkapuwa"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasama-samang panalangin?",
+            "options": [
+              "Nagpapatibay ng ugnayan at pagmamalasakit",
+              "Walang gamit",
+              "Para sa matatanda lamang",
+              "Hindi bahagi ng espirituwalidad"
+            ],
+            "correct_answer": "Nagpapatibay ng ugnayan at pagmamalasakit"
+          },
+          {
+            "question": "Koneksyon sa pananalig sa Diyos na natutunan?",
+            "options": [
+              "Parehong nagpapakita ng pagmamahal sa kapwa",
+              "Walang koneksyon",
+              "Magkatulad lamang",
+              "Isa lamang mahalaga"
+            ],
+            "correct_answer": "Parehong nagpapakita ng pagmamahal sa kapwa"
+          },
+          {
+            "question": "Bakit ituro ang espirituwal na mapagmalasakit?",
+            "options": [
+              "Isabuhay ang pananampalataya sa pagtulong",
+              "Walang layunin",
+              "Para sa matatanda lamang",
+              "Hindi kaugnay ng edukasyon"
+            ],
+            "correct_answer": "Isabuhay ang pananampalataya sa pagtulong"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpapatibay ng ugnayan sa komunidad?",
+            "options": [
+              "Pagkakaisa at suportang panlipunan",
+              "Walang kahalagahan",
+              "Hindi kaugnay ng komunidad",
+              "Indibidwal na bagay lamang"
+            ],
+            "correct_answer": "Pagkakaisa at suportang panlipunan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang uri ng mapagmalasakit ang espirituwal na uri nito kumpara sa iba pang uri?",
+            "options": [
+              "Nagmumula ito sa isang panloob na paniniwala na hindi lamang nakabatay sa emosyon",
+              "Wala itong pagkakaiba sa ibang uri ng mapagmalasakit",
+              "Ito ay palaging mas mahina kaysa ibang uri",
+              "Hindi ito totoong uri ng mapagmalasakit"
+            ],
+            "correct_answer": "Nagmumula ito sa isang panloob na paniniwala na hindi lamang nakabatay sa emosyon"
+          }
+        ]
+      }
+    }
+  }
+}

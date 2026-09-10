@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-11-01",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ☀️ English — Describing Weather and Seasons\n\nGrade 2, Week 21! Let's learn new words to talk about weather! ☀️\n\n## 🔄 Review\nWe practiced sentences and stories with **all four sentence types**.\n\n## ☀️ Weather Words\n- **Sunny** — bright with lots of sun\n- **Rainy** — falling water from clouds\n- **Windy** — strong moving air\n- **Cloudy** — sky covered with clouds\n\n## 📝 Using Weather Words in Sentences\n\"It is **sunny** today!\" (declarative)\n\"Is it **rainy** outside?\" (interrogative)\n\"Bring an umbrella!\" (imperative)\n\"What a **windy** day!\" (exclamatory)\n\n## 🌦️ Two Seasons in the Philippines\nOur country has two seasons: **tag-init** (dry/hot season) and **tag-ulan** (rainy season).\n\n**Key words:** sunny, rainy, windy, cloudy, dry season, rainy season",
+        "quiz": [
+          {
+            "question": "What does 'sunny' mean?",
+            "options": [
+              "Bright with lots of sun",
+              "Falling water from clouds",
+              "Strong moving air",
+              "Sky covered with clouds"
+            ],
+            "correct_answer": "Bright with lots of sun"
+          },
+          {
+            "question": "What does 'rainy' mean?",
+            "options": [
+              "Falling water from clouds",
+              "Bright and sunny",
+              "Strong moving air",
+              "A clear sky"
+            ],
+            "correct_answer": "Falling water from clouds"
+          },
+          {
+            "question": "What does 'windy' mean?",
+            "options": [
+              "Strong moving air",
+              "Falling water",
+              "A clear sky",
+              "Bright sunshine"
+            ],
+            "correct_answer": "Strong moving air"
+          },
+          {
+            "question": "What does 'cloudy' mean?",
+            "options": [
+              "Sky covered with clouds",
+              "Bright sunshine",
+              "Strong moving air",
+              "Falling snow"
+            ],
+            "correct_answer": "Sky covered with clouds"
+          },
+          {
+            "question": "How many seasons does the Philippines have?",
+            "options": [
+              "Two",
+              "Four",
+              "One",
+              "Six"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "What are the two Philippine seasons called?",
+            "options": [
+              "Dry season and rainy season",
+              "Spring and fall",
+              "Summer and winter",
+              "Morning and night"
+            ],
+            "correct_answer": "Dry season and rainy season"
+          },
+          {
+            "question": "'It is sunny today!' is what type of sentence?",
+            "options": [
+              "Declarative",
+              "Interrogative",
+              "Imperative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Declarative"
+          },
+          {
+            "question": "'Is it rainy outside?' is what type of sentence?",
+            "options": [
+              "Interrogative",
+              "Declarative",
+              "Imperative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Interrogative"
+          },
+          {
+            "question": "'Bring an umbrella!' is what type of sentence?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "'What a windy day!' is what type of sentence?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Interrogative",
+              "Imperative"
+            ],
+            "correct_answer": "Exclamatory"
+          },
+          {
+            "question": "Why should you bring an umbrella on a rainy day?",
+            "options": [
+              "To stay dry from the rain",
+              "To block the sun",
+              "To feel the wind",
+              "To see the clouds better"
+            ],
+            "correct_answer": "To stay dry from the rain"
+          },
+          {
+            "question": "Which weather word describes a day with no clouds and lots of sunshine?",
+            "options": [
+              "Sunny",
+              "Rainy",
+              "Cloudy",
+              "Windy"
+            ],
+            "correct_answer": "Sunny"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Mathematics — Multiplication with 2s and 3s\n\nGrade 2, Week 21! Let's practice multiplying by 2 and 3! ✖️\n\n## 🔄 Review\nWe practiced multiplication as repeated addition.\n\n## ✖️ Multiplying by 2\n2 × 3 means \"2 groups of 3\" = 3 + 3 = **6**\n\n## ✖️ Multiplying by 3\n3 × 4 means \"3 groups of 4\" = 4 + 4 + 4 = **12**\n\n## 🔢 Multiplication Table Practice\n| × | 1 | 2 | 3 | 4 | 5 |\n|---|---|---|---|---|---|\n| 2 | 2 | 4 | 6 | 8 | 10 |\n| 3 | 3 | 6 | 9 | 12 | 15 |\n\n## 💡 Tip\nMultiplying by 2 is the same as **doubling** a number!\n\n**Key words:** multiply, groups of, times table, double",
+        "quiz": [
+          {
+            "question": "What is 2 × 3?",
+            "options": [
+              "6",
+              "5",
+              "8",
+              "9"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 3 × 4?",
+            "options": [
+              "12",
+              "7",
+              "10",
+              "9"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is 2 × 5?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "8"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 3 × 3?",
+            "options": [
+              "9",
+              "6",
+              "12",
+              "3"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What does '2 groups of 3' mean?",
+            "options": [
+              "3 + 3",
+              "2 + 2 + 2",
+              "3 + 2",
+              "2 × 2"
+            ],
+            "correct_answer": "3 + 3"
+          },
+          {
+            "question": "What is multiplying by 2 the same as?",
+            "options": [
+              "Doubling a number",
+              "Halving a number",
+              "Adding 10",
+              "Subtracting 2"
+            ],
+            "correct_answer": "Doubling a number"
+          },
+          {
+            "question": "What is 2 × 4?",
+            "options": [
+              "8",
+              "6",
+              "10",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 3 × 5?",
+            "options": [
+              "15",
+              "8",
+              "10",
+              "18"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "What is 3 × 2?",
+            "options": [
+              "6",
+              "5",
+              "9",
+              "3"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 2 × 2?",
+            "options": [
+              "4",
+              "2",
+              "6",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If you have 3 baskets with 4 apples each, how many apples in total?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "15"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is the double of 5?",
+            "options": [
+              "10",
+              "7",
+              "15",
+              "8"
+            ],
+            "correct_answer": "10"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌦️ Filipino — Bagong Talasalitaan: Panahon at Kapaligiran\n\nGrade 2, Linggo 21! Matuto tayo ng bagong salita tungkol sa panahon. 🌦️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsulat ng **liham**.\n\n## 🌦️ Mga Salita tungkol sa Panahon\n- **Maaraw** — maraming sikat ng araw\n- **Maulan** — may bumabagsak na tubig mula sa ulap\n- **Mahangin** — may malakas na hangin\n- **Maulap** — natatakpan ng ulap ang langit\n\n## 🌤️ Dalawang Panahon sa Pilipinas\nMay **tag-init** (mainit at tuyo) at **tag-ulan** (maulan) tayo sa Pilipinas.\n\n## 📝 Halimbawang Pangungusap\n\"Maaraw ngayong araw!\" (paturol)\n\"Maulan ba bukas?\" (patanong)\n\n**Mahahalagang salita:** maaraw, maulan, mahangin, maulap, tag-init, tag-ulan",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'maaraw'?",
+            "options": [
+              "Maraming sikat ng araw",
+              "May bumabagsak na tubig",
+              "May malakas na hangin",
+              "Natatakpan ng ulap"
+            ],
+            "correct_answer": "Maraming sikat ng araw"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'maulan'?",
+            "options": [
+              "May bumabagsak na tubig mula sa ulap",
+              "Maraming sikat ng araw",
+              "May malakas na hangin",
+              "Malinaw ang langit"
+            ],
+            "correct_answer": "May bumabagsak na tubig mula sa ulap"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'mahangin'?",
+            "options": [
+              "May malakas na hangin",
+              "May bumabagsak na tubig",
+              "Malinaw ang langit",
+              "Maraming sikat ng araw"
+            ],
+            "correct_answer": "May malakas na hangin"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'maulap'?",
+            "options": [
+              "Natatakpan ng ulap ang langit",
+              "Maraming sikat ng araw",
+              "May malakas na hangin",
+              "May bumabagsak na niyebe"
+            ],
+            "correct_answer": "Natatakpan ng ulap ang langit"
+          },
+          {
+            "question": "Ilan ang panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang tawag sa mainit at tuyong panahon?",
+            "options": [
+              "Tag-init",
+              "Tag-ulan",
+              "Taglamig",
+              "Tagsibol"
+            ],
+            "correct_answer": "Tag-init"
+          },
+          {
+            "question": "Ano ang tawag sa maulang panahon?",
+            "options": [
+              "Tag-ulan",
+              "Tag-init",
+              "Taglamig",
+              "Tagsibol"
+            ],
+            "correct_answer": "Tag-ulan"
+          },
+          {
+            "question": "'Maaraw ngayong araw!' ay anong uri ng pangungusap?",
+            "options": [
+              "Paturol",
+              "Patanong",
+              "Pautos",
+              "Padamdam"
+            ],
+            "correct_answer": "Paturol"
+          },
+          {
+            "question": "'Maulan ba bukas?' ay anong uri ng pangungusap?",
+            "options": [
+              "Patanong",
+              "Paturol",
+              "Pautos",
+              "Padamdam"
+            ],
+            "correct_answer": "Patanong"
+          },
+          {
+            "question": "Bakit kailangang magdala ng payong kapag maulan?",
+            "options": [
+              "Para hindi mabasa",
+              "Para makita ang araw",
+              "Para maramdaman ang hangin",
+              "Para makita ang ulap"
+            ],
+            "correct_answer": "Para hindi mabasa"
+          },
+          {
+            "question": "Alin ang salitang tumutukoy sa panahong walang ulap sa langit?",
+            "options": [
+              "Maaraw",
+              "Maulap",
+              "Mahangin",
+              "Maulan"
+            ],
+            "correct_answer": "Maaraw"
+          },
+          {
+            "question": "Anong salita ang gagamitin kung may nagpapalipad-lipad na dahon dahil sa hangin?",
+            "options": [
+              "Mahangin",
+              "Maaraw",
+              "Maulap",
+              "Maulan"
+            ],
+            "correct_answer": "Mahangin"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌤️ Science — Everyday Weather Conditions and Tools\n\nGrade 2, Week 21! Let's explore how we observe the weather. 🌤️\n\n## 🔄 Review\nWe learned about caring for plants and animals.\n\n## 🌤️ Common Weather Conditions\n- **Sunny** — the sun is bright and visible\n- **Rainy** — water falls from the clouds\n- **Cloudy** — the sky is covered by clouds\n- **Windy** — the air moves strongly\n\n## 🌡️ Simple Weather Tools\n- **Thermometer** — measures how hot or cold it is\n- **Rain gauge** — measures how much rain has fallen\n- **Wind vane** — shows which direction the wind is blowing\n\n## 👀 Observing the Weather\nEvery day, we can look outside and use our senses (and tools!) to describe the weather.\n\n**Key words:** weather, thermometer, rain gauge, wind vane, observe",
+        "quiz": [
+          {
+            "question": "What tool measures how hot or cold it is?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Ruler"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "What tool measures how much rain has fallen?",
+            "options": [
+              "Rain gauge",
+              "Thermometer",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Rain gauge"
+          },
+          {
+            "question": "What tool shows the direction the wind is blowing?",
+            "options": [
+              "Wind vane",
+              "Thermometer",
+              "Rain gauge",
+              "Clock"
+            ],
+            "correct_answer": "Wind vane"
+          },
+          {
+            "question": "What is a sunny day like?",
+            "options": [
+              "The sun is bright and visible",
+              "Water falls from clouds",
+              "The sky is covered by clouds",
+              "There is snow"
+            ],
+            "correct_answer": "The sun is bright and visible"
+          },
+          {
+            "question": "What is a cloudy day like?",
+            "options": [
+              "The sky is covered by clouds",
+              "The sun is very bright",
+              "It never rains",
+              "There is strong wind only"
+            ],
+            "correct_answer": "The sky is covered by clouds"
+          },
+          {
+            "question": "How can we observe the weather every day?",
+            "options": [
+              "Look outside and use our senses or tools",
+              "Guess without looking",
+              "Only ask someone else",
+              "It cannot be observed"
+            ],
+            "correct_answer": "Look outside and use our senses or tools"
+          },
+          {
+            "question": "What does a windy day feel like?",
+            "options": [
+              "Strong moving air",
+              "No air moving at all",
+              "Falling rain",
+              "Bright sunshine only"
+            ],
+            "correct_answer": "Strong moving air"
+          },
+          {
+            "question": "Why is it useful to use a thermometer?",
+            "options": [
+              "To know exactly how hot or cold it is outside",
+              "To measure how much it rained",
+              "To see which way the wind blows",
+              "To tell time"
+            ],
+            "correct_answer": "To know exactly how hot or cold it is outside"
+          },
+          {
+            "question": "Why is it useful to use a rain gauge?",
+            "options": [
+              "To know exactly how much rain fell",
+              "To know the temperature",
+              "To know wind direction",
+              "To tell time"
+            ],
+            "correct_answer": "To know exactly how much rain fell"
+          },
+          {
+            "question": "If the wind vane points north, what does that tell you?",
+            "options": [
+              "The wind is blowing from that direction",
+              "It will rain soon",
+              "The temperature is cold",
+              "There is no wind at all"
+            ],
+            "correct_answer": "The wind is blowing from that direction"
+          },
+          {
+            "question": "Which weather tool would you use before deciding what to wear outside?",
+            "options": [
+              "Thermometer",
+              "A picture book",
+              "A toy car",
+              "A pencil"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Why do scientists use weather tools instead of just guessing?",
+            "options": [
+              "Tools give more accurate information",
+              "Guessing is always more accurate",
+              "Tools are only for decoration",
+              "Weather cannot be measured"
+            ],
+            "correct_answer": "Tools give more accurate information"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 💼 Makabansa — Konsepto ng Kabuhayan\n\nGrade 2, Linggo 21! Alamin natin kung paano kumikita ang mga tao sa ating komunidad. 💼\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **kultura ng ating komunidad**.\n\n## 💼 Ano ang Kabuhayan?\nAng **kabuhayan** ay ang paraan ng pagkita ng pera ng isang tao para matugunan ang pangangailangan ng kanyang pamilya.\n\n## 🌾 Mga Halimbawa ng Kabuhayan\n- **Magsasaka** — nagtatanim ng palay o gulay\n- **Mangingisda** — nangingisda sa dagat o ilog\n- **Tindero/Tindera** — nagtitinda ng paninda\n- **Guro** — nagtuturo sa mga bata\n\nBawat kabuhayan ay mahalaga at nagbibigay ng serbisyo sa komunidad.\n\n**Mahahalagang salita:** kabuhayan, magsasaka, mangingisda, serbisyo",
+        "quiz": [
+          {
+            "question": "Ano ang kabuhayan?",
+            "options": [
+              "Ang paraan ng pagkita ng pera para matugunan ang pangangailangan",
+              "Ang pangalan ng isang lugar",
+              "Ang kulay ng bahay",
+              "Isang uri ng pagkain"
+            ],
+            "correct_answer": "Ang paraan ng pagkita ng pera para matugunan ang pangangailangan"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang magsasaka?",
+            "options": [
+              "Nagtatanim ng palay o gulay",
+              "Nangingisda sa dagat",
+              "Nagtitinda ng paninda",
+              "Nagtuturo sa mga bata"
+            ],
+            "correct_answer": "Nagtatanim ng palay o gulay"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang mangingisda?",
+            "options": [
+              "Nangingisda sa dagat o ilog",
+              "Nagtatanim ng palay",
+              "Nagtuturo sa paaralan",
+              "Nagtitinda sa palengke"
+            ],
+            "correct_answer": "Nangingisda sa dagat o ilog"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang tindero o tindera?",
+            "options": [
+              "Nagtitinda ng paninda",
+              "Nagtuturo sa mga bata",
+              "Nangingisda sa ilog",
+              "Nagtatanim ng gulay"
+            ],
+            "correct_answer": "Nagtitinda ng paninda"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang guro?",
+            "options": [
+              "Nagtuturo sa mga bata",
+              "Nagtatanim ng palay",
+              "Nangingisda sa dagat",
+              "Nagtitinda ng gulay"
+            ],
+            "correct_answer": "Nagtuturo sa mga bata"
+          },
+          {
+            "question": "Bakit mahalaga ang kabuhayan ng bawat tao?",
+            "options": [
+              "Nagbibigay ito ng serbisyo sa komunidad",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa mayaman",
+              "Hindi nakakatulong sa iba"
+            ],
+            "correct_answer": "Nagbibigay ito ng serbisyo sa komunidad"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng kabuhayan?",
+            "options": [
+              "Pagtitinda sa palengke",
+              "Pagtulog buong araw",
+              "Panonood ng TV",
+              "Paglalaro sa labas"
+            ],
+            "correct_answer": "Pagtitinda sa palengke"
+          },
+          {
+            "question": "Bakit iba-iba ang uri ng kabuhayan sa komunidad?",
+            "options": [
+              "Iba't iba ang pangangailangang tinutugunan ng bawat isa",
+              "Lahat ay dapat magsasaka",
+              "Lahat ay dapat maging guro",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Iba't iba ang pangangailangang tinutugunan ng bawat isa"
+          },
+          {
+            "question": "Ano ang natatanggap ng isang tao mula sa kanyang kabuhayan?",
+            "options": [
+              "Kita o suweldo para sa pangangailangan ng pamilya",
+              "Walang natatanggap",
+              "Parusa lamang",
+              "Wala itong gantimpala"
+            ],
+            "correct_answer": "Kita o suweldo para sa pangangailangan ng pamilya"
+          },
+          {
+            "question": "Sino ang tumutulong magpalaki ng gulay at palay para sa komunidad?",
+            "options": [
+              "Magsasaka",
+              "Guro",
+              "Tindero",
+              "Mangingisda"
+            ],
+            "correct_answer": "Magsasaka"
+          },
+          {
+            "question": "Bakit mahalaga ang guro sa komunidad?",
+            "options": [
+              "Nagtuturo siya sa mga bata upang matuto",
+              "Wala siyang gagampanan",
+              "Siya ang tanging kabuhayan",
+              "Wala siyang saysay sa komunidad"
+            ],
+            "correct_answer": "Nagtuturo siya sa mga bata upang matuto"
+          },
+          {
+            "question": "Ano ang kaugnayan ng kabuhayan sa pangangailangan ng pamilya?",
+            "options": [
+              "Ang kita mula sa kabuhayan ay ginagamit para sa pangangailangan ng pamilya",
+              "Walang kaugnayan ang dalawa",
+              "Ang kabuhayan ay hiwalay sa pamilya",
+              "Hindi kailangan ng kabuhayan ang pamilya"
+            ],
+            "correct_answer": "Ang kita mula sa kabuhayan ay ginagamit para sa pangangailangan ng pamilya"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Computer — Pag-save at Pagbukas ng File\n\nGrade 2, Week 21! Matuto tayo kung paano i-save ang ating trabaho. 💾\n\n## 🔄 Balik-Aral\nNatutuhan natin ang word-processing at pag-type ng simpleng pangungusap.\n\n## 💾 Ano ang \"Pag-save\"?\nAng **pag-save** ay ang pagtatago ng iyong trabaho sa kompyuter para hindi mawala kahit patayin ang kompyuter.\n\n## 📂 Mga Hakbang sa Pag-save (kasama ang matanda)\n1. I-click ang **\"Save\"** o pindutin ang **Ctrl+S**\n2. Bigyan ng **pangalan** ang file\n3. Piliin kung saan itatago (folder)\n\n## 📂 Ano ang Pagbukas ng File?\nAng **pagbukas ng file** ay ang paghahanap at pag-click sa isang na-save mong trabaho para muli itong makita.\n\n**Mahalaga:** Palaging humingi ng tulong sa matanda kapag nagse-save o nagbubukas ng file.\n\n**Mahahalagang salita:** pag-save, file, folder, pagbukas",
+        "quiz": [
+          {
+            "question": "Ano ang pag-save?",
+            "options": [
+              "Pagtatago ng trabaho para hindi mawala",
+              "Pagtapon ng trabaho",
+              "Pagpapalit ng kompyuter",
+              "Pagpindot ng mouse"
+            ],
+            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+          },
+          {
+            "question": "Anong susi ang maaaring pindutin para mag-save?",
+            "options": [
+              "Ctrl+S",
+              "Enter lamang",
+              "Backspace",
+              "Shift lamang"
+            ],
+            "correct_answer": "Ctrl+S"
+          },
+          {
+            "question": "Ano ang dapat bigyan sa file bago i-save?",
+            "options": [
+              "Pangalan",
+              "Kulay lamang",
+              "Larawan lamang",
+              "Wala"
+            ],
+            "correct_answer": "Pangalan"
+          },
+          {
+            "question": "Ano ang folder?",
+            "options": [
+              "Lugar kung saan itinatago ang file",
+              "Isang uri ng laruan",
+              "Isang uri ng gunting",
+              "Isang uri ng libro"
+            ],
+            "correct_answer": "Lugar kung saan itinatago ang file"
+          },
+          {
+            "question": "Ano ang pagbukas ng file?",
+            "options": [
+              "Paghahanap at pag-click sa na-save na trabaho",
+              "Pagtapon ng file",
+              "Pagbabago ng pangalan",
+              "Pagpatay ng kompyuter"
+            ],
+            "correct_answer": "Paghahanap at pag-click sa na-save na trabaho"
+          },
+          {
+            "question": "Bakit mahalagang i-save ang iyong trabaho?",
+            "options": [
+              "Para hindi ito mawala kahit patayin ang kompyuter",
+              "Para gawing mas kulay ang trabaho",
+              "Hindi mahalaga ito",
+              "Para awtomatikong matapos ang trabaho"
+            ],
+            "correct_answer": "Para hindi ito mawala kahit patayin ang kompyuter"
+          },
+          {
+            "question": "Sino dapat kasama kapag nagse-save ng file?",
+            "options": [
+              "Isang may sapat na gulang na matanda",
+              "Walang sinuman",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Isang may sapat na gulang na matanda"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi mo i-save ang iyong trabaho?",
+            "options": [
+              "Maaaring mawala ito kapag pinatay ang kompyuter",
+              "Palaging naiipon ito kahit hindi ma-save",
+              "Awtomatikong nase-save ito",
+              "Walang mangyayari"
+            ],
+            "correct_answer": "Maaaring mawala ito kapag pinatay ang kompyuter"
+          },
+          {
+            "question": "Bakit kailangang piliin ang folder kung saan itatago ang file?",
+            "options": [
+              "Para malaman kung saan ito mahahanap muli",
+              "Hindi na kailangan piliin ito",
+              "Palaging nasa iisang lugar lamang",
+              "Walang gamit ang folder"
+            ],
+            "correct_answer": "Para malaman kung saan ito mahahanap muli"
+          },
+          {
+            "question": "Anong ginagawa mo kapag gusto mong makita muli ang dating trabaho?",
+            "options": [
+              "Buksan ang file",
+              "Isara ang kompyuter",
+              "Burahin ang lahat",
+              "Magsimula ng bagong trabaho lamang"
+            ],
+            "correct_answer": "Buksan ang file"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tamang hakbang sa pag-save?",
+            "options": [
+              "I-click ang Save at bigyan ng pangalan ang file",
+              "Direktang patayin ang kompyuter",
+              "Kalimutan ang file",
+              "Isara agad ang programa"
+            ],
+            "correct_answer": "I-click ang Save at bigyan ng pangalan ang file"
+          },
+          {
+            "question": "Bakit itinuro ang pagsave at pagbukas ng file sa Grade 2?",
+            "options": [
+              "Batayang kasanayan ito sa paggamit ng kompyuter",
+              "Hindi ito kailangan matutunan",
+              "Ito ay para lamang sa matatanda",
+              "Walang gamit ito sa paaralan"
+            ],
+            "correct_answer": "Batayang kasanayan ito sa paggamit ng kompyuter"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🏠 GMRC — Mabuting Pagtanggap ng Pamilya sa Bisita\n\nGrade 2, Linggo 21! Pagpapahalaga: **Hospitality (Pagkamapagpatuloy)**. 🏠\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **kalinisan sa tahanan**.\n\n## 🏠 Ano ang Hospitality?\nAng **hospitality** o pagkamapagpatuloy ay ang pagiging mabait at magiliw sa mga bisitang dumadalaw sa ating tahanan.\n\n## 🤝 Paano Magpakita ng Hospitality\n- Batiin ang bisita nang may ngiti\n- Alukin sila ng inumin o pagkain kung mayroon\n- Ihatid sila sa tamang upuan\n- Makinig at makipag-usap nang magalang\n\n## 💡 Bakit Mahalaga Ito?\nAng pagtanggap sa bisita nang mabuti ay nagpapakita ng **pagmamahal at respeto** sa iba, at nagpapasaya sa kanilang pagbisita.\n\n**Mahahalagang salita:** hospitality, bisita, pagbati, magiliw",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Pagiging mabait at magiliw sa bisita",
+              "Pagiging bastos sa bisita",
+              "Pag-iwas sa bisita",
+              "Pagtulog habang may bisita"
+            ],
+            "correct_answer": "Pagiging mabait at magiliw sa bisita"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng hospitality?",
+            "options": [
+              "Batiin ang bisita nang may ngiti",
+              "Iwasan ang bisita",
+              "Sumigaw sa bisita",
+              "Tumakbo palayo"
+            ],
+            "correct_answer": "Batiin ang bisita nang may ngiti"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may bisita sa bahay?",
+            "options": [
+              "Alukin sila ng inumin o pagkain",
+              "Kalimutan sila",
+              "Isara ang pinto",
+              "Tumakbo palabas"
+            ],
+            "correct_answer": "Alukin sila ng inumin o pagkain"
+          },
+          {
+            "question": "Bakit mahalagang makinig nang magalang sa bisita?",
+            "options": [
+              "Nagpapakita ito ng respeto sa kanila",
+              "Hindi ito mahalaga",
+              "Dapat sila ang makinig sa iyo",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa kanila"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag dumating ang bisita?",
+            "options": [
+              "Batiin sila at ihatid sa tamang upuan",
+              "Iwasan silang makausap",
+              "Sumigaw sa kanila",
+              "Tumakbo palayo sa kanila"
+            ],
+            "correct_answer": "Batiin sila at ihatid sa tamang upuan"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtanggap nang mabuti sa bisita?",
+            "options": [
+              "Nagpapakita ito ng pagmamahal at respeto",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa matatanda",
+              "Hindi na kailangan ngayon"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamahal at respeto"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng pagpapakita ng hospitality?",
+            "options": [
+              "Pagiging bastos sa bisita",
+              "Pagbati nang may ngiti",
+              "Pag-alok ng inumin",
+              "Pakikinig nang magalang"
+            ],
+            "correct_answer": "Pagiging bastos sa bisita"
+          },
+          {
+            "question": "Ano ang naidudulot ng mabuting pagtanggap sa bisita?",
+            "options": [
+              "Kasiyahan sa bisita",
+              "Kalungkutan sa bisita",
+              "Galit ng bisita",
+              "Kawalan ng epekto"
+            ],
+            "correct_answer": "Kasiyahan sa bisita"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang hospitality sa GMRC?",
+            "options": [
+              "Nagpapakita ito ng mabuting pakikitungo sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng mabuting pakikitungo sa kapwa"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may bisitang gutom o uhaw?",
+            "options": [
+              "Alukin sila ng pagkain o inumin",
+              "Hayaan silang manatiling gutom",
+              "Sabihin sa kanila na umuwi na",
+              "Iwasan silang kausapin"
+            ],
+            "correct_answer": "Alukin sila ng pagkain o inumin"
+          },
+          {
+            "question": "Sino ang dapat magpakita ng hospitality sa tahanan?",
+            "options": [
+              "Lahat ng miyembro ng pamilya",
+              "Ang ina lamang",
+              "Ang ama lamang",
+              "Walang dapat gumawa nito"
+            ],
+            "correct_answer": "Lahat ng miyembro ng pamilya"
+          },
+          {
+            "question": "Paano nararamdaman ng isang bisita kapag mabuti ang pagtanggap sa kanya?",
+            "options": [
+              "Masaya at komportable",
+              "Malungkot at gutom",
+              "Galit",
+              "Wala siyang nararamdaman"
+            ],
+            "correct_answer": "Masaya at komportable"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ☀️ Friday Review — English (Grade 2)\n\n- Weather words and the two seasons\n\nGreat weather words! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'sunny' mean?",
+            "options": [
+              "Bright with lots of sun",
+              "Falling water from clouds",
+              "Strong moving air",
+              "Sky covered with clouds"
+            ],
+            "correct_answer": "Bright with lots of sun"
+          },
+          {
+            "question": "What does 'rainy' mean?",
+            "options": [
+              "Falling water from clouds",
+              "Bright and sunny",
+              "Strong moving air",
+              "A clear sky"
+            ],
+            "correct_answer": "Falling water from clouds"
+          },
+          {
+            "question": "What does 'windy' mean?",
+            "options": [
+              "Strong moving air",
+              "Falling water",
+              "A clear sky",
+              "Bright sunshine"
+            ],
+            "correct_answer": "Strong moving air"
+          },
+          {
+            "question": "What does 'cloudy' mean?",
+            "options": [
+              "Sky covered with clouds",
+              "Bright sunshine",
+              "Strong moving air",
+              "Falling snow"
+            ],
+            "correct_answer": "Sky covered with clouds"
+          },
+          {
+            "question": "How many seasons does the Philippines have?",
+            "options": [
+              "Two",
+              "Four",
+              "One",
+              "Six"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "What are the two Philippine seasons called?",
+            "options": [
+              "Dry season and rainy season",
+              "Spring and fall",
+              "Summer and winter",
+              "Morning and night"
+            ],
+            "correct_answer": "Dry season and rainy season"
+          },
+          {
+            "question": "'It is sunny today!' is what sentence type?",
+            "options": [
+              "Declarative",
+              "Interrogative",
+              "Imperative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Declarative"
+          },
+          {
+            "question": "'Bring an umbrella!' is what sentence type?",
+            "options": [
+              "Imperative",
+              "Declarative",
+              "Interrogative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Imperative"
+          },
+          {
+            "question": "Why bring an umbrella on a rainy day?",
+            "options": [
+              "To stay dry",
+              "To block the sun",
+              "To feel the wind",
+              "To see clouds better"
+            ],
+            "correct_answer": "To stay dry"
+          },
+          {
+            "question": "Which word describes a day with no clouds and lots of sun?",
+            "options": [
+              "Sunny",
+              "Rainy",
+              "Cloudy",
+              "Windy"
+            ],
+            "correct_answer": "Sunny"
+          },
+          {
+            "question": "'Is it rainy outside?' is what sentence type?",
+            "options": [
+              "Interrogative",
+              "Declarative",
+              "Imperative",
+              "Exclamatory"
+            ],
+            "correct_answer": "Interrogative"
+          },
+          {
+            "question": "'What a windy day!' is what sentence type?",
+            "options": [
+              "Exclamatory",
+              "Declarative",
+              "Interrogative",
+              "Imperative"
+            ],
+            "correct_answer": "Exclamatory"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ✖️ Friday Review — Mathematics (Grade 2)\n\n- Multiplying by 2 and 3\n\nGreat multiplication work! ⭐",
+        "quiz": [
+          {
+            "question": "What is 2 × 3?",
+            "options": [
+              "6",
+              "5",
+              "8",
+              "9"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 3 × 4?",
+            "options": [
+              "12",
+              "7",
+              "10",
+              "9"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is 2 × 5?",
+            "options": [
+              "10",
+              "7",
+              "12",
+              "8"
+            ],
+            "correct_answer": "10"
+          },
+          {
+            "question": "What is 3 × 3?",
+            "options": [
+              "9",
+              "6",
+              "12",
+              "3"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What does '2 groups of 3' mean?",
+            "options": [
+              "3 + 3",
+              "2 + 2 + 2",
+              "3 + 2",
+              "2 × 2"
+            ],
+            "correct_answer": "3 + 3"
+          },
+          {
+            "question": "Multiplying by 2 is the same as what?",
+            "options": [
+              "Doubling",
+              "Halving",
+              "Adding 10",
+              "Subtracting 2"
+            ],
+            "correct_answer": "Doubling"
+          },
+          {
+            "question": "What is 2 × 4?",
+            "options": [
+              "8",
+              "6",
+              "10",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 3 × 5?",
+            "options": [
+              "15",
+              "8",
+              "10",
+              "18"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "What is 3 × 2?",
+            "options": [
+              "6",
+              "5",
+              "9",
+              "3"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 2 × 2?",
+            "options": [
+              "4",
+              "2",
+              "6",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "3 baskets with 4 apples each: how many apples total?",
+            "options": [
+              "12",
+              "7",
+              "9",
+              "15"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What is the double of 5?",
+            "options": [
+              "10",
+              "7",
+              "15",
+              "8"
+            ],
+            "correct_answer": "10"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌦️ Friday Review — Filipino (Grade 2)\n\n- Panahon: maaraw, maulan, mahangin, maulap\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang 'maaraw'?",
+            "options": [
+              "Maraming sikat ng araw",
+              "May bumabagsak na tubig",
+              "May malakas na hangin",
+              "Natatakpan ng ulap"
+            ],
+            "correct_answer": "Maraming sikat ng araw"
+          },
+          {
+            "question": "Ano ang 'maulan'?",
+            "options": [
+              "May bumabagsak na tubig",
+              "Maraming sikat ng araw",
+              "May malakas na hangin",
+              "Malinaw ang langit"
+            ],
+            "correct_answer": "May bumabagsak na tubig"
+          },
+          {
+            "question": "Ano ang 'mahangin'?",
+            "options": [
+              "May malakas na hangin",
+              "May bumabagsak na tubig",
+              "Malinaw ang langit",
+              "Maraming sikat ng araw"
+            ],
+            "correct_answer": "May malakas na hangin"
+          },
+          {
+            "question": "Ano ang 'maulap'?",
+            "options": [
+              "Natatakpan ng ulap",
+              "Maraming sikat ng araw",
+              "May malakas na hangin",
+              "May niyebe"
+            ],
+            "correct_answer": "Natatakpan ng ulap"
+          },
+          {
+            "question": "Ilan ang panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mainit at tuyong panahon",
+              "Maulang panahon",
+              "Malamig na panahon",
+              "Panahon ng bulaklak"
+            ],
+            "correct_answer": "Mainit at tuyong panahon"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Maulang panahon",
+              "Mainit na panahon",
+              "Malamig na panahon",
+              "Panahon ng niyebe"
+            ],
+            "correct_answer": "Maulang panahon"
+          },
+          {
+            "question": "'Maaraw ngayong araw!' ay anong pangungusap?",
+            "options": [
+              "Paturol",
+              "Patanong",
+              "Pautos",
+              "Padamdam"
+            ],
+            "correct_answer": "Paturol"
+          },
+          {
+            "question": "'Maulan ba bukas?' ay anong pangungusap?",
+            "options": [
+              "Patanong",
+              "Paturol",
+              "Pautos",
+              "Padamdam"
+            ],
+            "correct_answer": "Patanong"
+          },
+          {
+            "question": "Bakit magdala ng payong kapag maulan?",
+            "options": [
+              "Para hindi mabasa",
+              "Para makita ang araw",
+              "Para maramdaman ang hangin",
+              "Para makita ang ulap"
+            ],
+            "correct_answer": "Para hindi mabasa"
+          },
+          {
+            "question": "Alin ang tumutukoy sa panahong walang ulap?",
+            "options": [
+              "Maaraw",
+              "Maulap",
+              "Mahangin",
+              "Maulan"
+            ],
+            "correct_answer": "Maaraw"
+          },
+          {
+            "question": "Anong salita gagamitin kung may lumilipad na dahon dahil sa hangin?",
+            "options": [
+              "Mahangin",
+              "Maaraw",
+              "Maulap",
+              "Maulan"
+            ],
+            "correct_answer": "Mahangin"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌤️ Friday Review — Science (Grade 2)\n\n- Weather tools: thermometer, rain gauge, wind vane\n\nGreat weather review! 🌟",
+        "quiz": [
+          {
+            "question": "What tool measures hot or cold?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Ruler"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "What tool measures how much rain fell?",
+            "options": [
+              "Rain gauge",
+              "Thermometer",
+              "Wind vane",
+              "Compass"
+            ],
+            "correct_answer": "Rain gauge"
+          },
+          {
+            "question": "What tool shows wind direction?",
+            "options": [
+              "Wind vane",
+              "Thermometer",
+              "Rain gauge",
+              "Clock"
+            ],
+            "correct_answer": "Wind vane"
+          },
+          {
+            "question": "What is a sunny day like?",
+            "options": [
+              "The sun is bright and visible",
+              "Water falls from clouds",
+              "Sky covered by clouds",
+              "There is snow"
+            ],
+            "correct_answer": "The sun is bright and visible"
+          },
+          {
+            "question": "What is a cloudy day like?",
+            "options": [
+              "Sky covered by clouds",
+              "Very bright sun",
+              "It never rains",
+              "Strong wind only"
+            ],
+            "correct_answer": "Sky covered by clouds"
+          },
+          {
+            "question": "How do we observe weather every day?",
+            "options": [
+              "Look outside and use senses or tools",
+              "Guess without looking",
+              "Only ask someone else",
+              "It can't be observed"
+            ],
+            "correct_answer": "Look outside and use senses or tools"
+          },
+          {
+            "question": "What is a windy day like?",
+            "options": [
+              "Strong moving air",
+              "No air moving",
+              "Falling rain",
+              "Bright sunshine only"
+            ],
+            "correct_answer": "Strong moving air"
+          },
+          {
+            "question": "Why use a thermometer?",
+            "options": [
+              "To know exactly how hot/cold it is",
+              "To measure rain",
+              "To see wind direction",
+              "To tell time"
+            ],
+            "correct_answer": "To know exactly how hot/cold it is"
+          },
+          {
+            "question": "Why use a rain gauge?",
+            "options": [
+              "To know exactly how much rain fell",
+              "To know temperature",
+              "To know wind direction",
+              "To tell time"
+            ],
+            "correct_answer": "To know exactly how much rain fell"
+          },
+          {
+            "question": "If the wind vane points north, what does that tell you?",
+            "options": [
+              "Wind is blowing from that direction",
+              "It will rain soon",
+              "It's cold",
+              "No wind at all"
+            ],
+            "correct_answer": "Wind is blowing from that direction"
+          },
+          {
+            "question": "What tool helps decide what to wear outside?",
+            "options": [
+              "Thermometer",
+              "A picture book",
+              "A toy car",
+              "A pencil"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Why use weather tools instead of guessing?",
+            "options": [
+              "Tools give more accurate information",
+              "Guessing is more accurate",
+              "Tools are decoration",
+              "Weather can't be measured"
+            ],
+            "correct_answer": "Tools give more accurate information"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 💼 Friday Review — Makabansa (Grade 2)\n\n- Konsepto ng kabuhayan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kabuhayan?",
+            "options": [
+              "Paraan ng pagkita ng pera para sa pangangailangan",
+              "Pangalan ng lugar",
+              "Kulay ng bahay",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Paraan ng pagkita ng pera para sa pangangailangan"
+          },
+          {
+            "question": "Ano ang ginagawa ng magsasaka?",
+            "options": [
+              "Nagtatanim ng palay o gulay",
+              "Nangingisda sa dagat",
+              "Nagtitinda",
+              "Nagtuturo"
+            ],
+            "correct_answer": "Nagtatanim ng palay o gulay"
+          },
+          {
+            "question": "Ano ang ginagawa ng mangingisda?",
+            "options": [
+              "Nangingisda sa dagat o ilog",
+              "Nagtatanim ng palay",
+              "Nagtuturo",
+              "Nagtitinda"
+            ],
+            "correct_answer": "Nangingisda sa dagat o ilog"
+          },
+          {
+            "question": "Ano ang ginagawa ng tindero/tindera?",
+            "options": [
+              "Nagtitinda ng paninda",
+              "Nagtuturo sa bata",
+              "Nangingisda",
+              "Nagtatanim"
+            ],
+            "correct_answer": "Nagtitinda ng paninda"
+          },
+          {
+            "question": "Ano ang ginagawa ng guro?",
+            "options": [
+              "Nagtuturo sa mga bata",
+              "Nagtatanim ng palay",
+              "Nangingisda",
+              "Nagtitinda"
+            ],
+            "correct_answer": "Nagtuturo sa mga bata"
+          },
+          {
+            "question": "Bakit mahalaga ang kabuhayan ng bawat tao?",
+            "options": [
+              "Nagbibigay serbisyo sa komunidad",
+              "Walang kahalagahan",
+              "Para lamang sa mayaman",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay serbisyo sa komunidad"
+          },
+          {
+            "question": "Halimbawa ng kabuhayan?",
+            "options": [
+              "Pagtitinda sa palengke",
+              "Pagtulog buong araw",
+              "Panonood ng TV",
+              "Paglalaro"
+            ],
+            "correct_answer": "Pagtitinda sa palengke"
+          },
+          {
+            "question": "Bakit iba-iba ang uri ng kabuhayan?",
+            "options": [
+              "Iba't ibang pangangailangan ang tinutugunan",
+              "Lahat dapat magsasaka",
+              "Lahat dapat guro",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan ang tinutugunan"
+          },
+          {
+            "question": "Ano ang natatanggap ng tao mula sa kabuhayan?",
+            "options": [
+              "Kita para sa pangangailangan ng pamilya",
+              "Walang natatanggap",
+              "Parusa",
+              "Walang gantimpala"
+            ],
+            "correct_answer": "Kita para sa pangangailangan ng pamilya"
+          },
+          {
+            "question": "Sino ang nagpapalaki ng gulay para sa komunidad?",
+            "options": [
+              "Magsasaka",
+              "Guro",
+              "Tindero",
+              "Mangingisda"
+            ],
+            "correct_answer": "Magsasaka"
+          },
+          {
+            "question": "Bakit mahalaga ang guro?",
+            "options": [
+              "Nagtuturo upang matuto ang bata",
+              "Wala siyang gagampanan",
+              "Tanging kabuhayan lamang",
+              "Walang saysay"
+            ],
+            "correct_answer": "Nagtuturo upang matuto ang bata"
+          },
+          {
+            "question": "Kaugnayan ng kabuhayan sa pangangailangan ng pamilya?",
+            "options": [
+              "Kita mula rito ay ginagamit sa pangangailangan",
+              "Walang kaugnayan",
+              "Hiwalay sa pamilya",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Kita mula rito ay ginagamit sa pangangailangan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💾 Friday Review — Computer (Grade 2)\n\n- Pag-save at pagbukas ng file\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pag-save?",
+            "options": [
+              "Pagtatago ng trabaho para hindi mawala",
+              "Pagtapon ng trabaho",
+              "Pagpapalit ng kompyuter",
+              "Pagpindot ng mouse"
+            ],
+            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+          },
+          {
+            "question": "Anong susi ang pindutin para mag-save?",
+            "options": [
+              "Ctrl+S",
+              "Enter lamang",
+              "Backspace",
+              "Shift lamang"
+            ],
+            "correct_answer": "Ctrl+S"
+          },
+          {
+            "question": "Ano ang dapat bigyan sa file bago i-save?",
+            "options": [
+              "Pangalan",
+              "Kulay lamang",
+              "Larawan lamang",
+              "Wala"
+            ],
+            "correct_answer": "Pangalan"
+          },
+          {
+            "question": "Ano ang folder?",
+            "options": [
+              "Lugar kung saan itinatago ang file",
+              "Uri ng laruan",
+              "Uri ng gunting",
+              "Uri ng libro"
+            ],
+            "correct_answer": "Lugar kung saan itinatago ang file"
+          },
+          {
+            "question": "Ano ang pagbukas ng file?",
+            "options": [
+              "Paghahanap at pag-click sa na-save na trabaho",
+              "Pagtapon ng file",
+              "Pagbabago ng pangalan",
+              "Pagpatay ng kompyuter"
+            ],
+            "correct_answer": "Paghahanap at pag-click sa na-save na trabaho"
+          },
+          {
+            "question": "Bakit i-save ang iyong trabaho?",
+            "options": [
+              "Para hindi mawala kahit patayin ang kompyuter",
+              "Para gawing kulay",
+              "Hindi mahalaga",
+              "Para awtomatikong matapos"
+            ],
+            "correct_answer": "Para hindi mawala kahit patayin ang kompyuter"
+          },
+          {
+            "question": "Sino kasama kapag nagse-save?",
+            "options": [
+              "Isang may sapat na gulang",
+              "Walang sinuman",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Isang may sapat na gulang"
+          },
+          {
+            "question": "Mangyayari kung hindi mo i-save?",
+            "options": [
+              "Maaaring mawala kapag pinatay ang kompyuter",
+              "Palaging naiipon",
+              "Awtomatikong nase-save",
+              "Wala"
+            ],
+            "correct_answer": "Maaaring mawala kapag pinatay ang kompyuter"
+          },
+          {
+            "question": "Bakit piliin ang folder kung saan itatago ang file?",
+            "options": [
+              "Para malaman kung saan mahahanap muli",
+              "Hindi kailangan piliin",
+              "Palaging iisa ang lugar",
+              "Walang gamit"
+            ],
+            "correct_answer": "Para malaman kung saan mahahanap muli"
+          },
+          {
+            "question": "Ano ang gagawin kapag gusto mong makita muli ang dating trabaho?",
+            "options": [
+              "Buksan ang file",
+              "Isara ang kompyuter",
+              "Burahin ang lahat",
+              "Magsimula ng bago"
+            ],
+            "correct_answer": "Buksan ang file"
+          },
+          {
+            "question": "Tamang hakbang sa pag-save?",
+            "options": [
+              "I-click ang Save at bigyan ng pangalan",
+              "Direktang patayin ang kompyuter",
+              "Kalimutan ang file",
+              "Isara agad"
+            ],
+            "correct_answer": "I-click ang Save at bigyan ng pangalan"
+          },
+          {
+            "question": "Bakit itinuro ang pag-save at pagbukas ng file?",
+            "options": [
+              "Batayang kasanayan sa kompyuter",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang gamit sa paaralan"
+            ],
+            "correct_answer": "Batayang kasanayan sa kompyuter"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🏠 Friday Review — GMRC (Grade 2)\n\n- Hospitality: pagtanggap sa bisita\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Pagiging mabait sa bisita",
+              "Pagiging bastos sa bisita",
+              "Pag-iwas sa bisita",
+              "Pagtulog habang may bisita"
+            ],
+            "correct_answer": "Pagiging mabait sa bisita"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng hospitality?",
+            "options": [
+              "Batiin ang bisita nang may ngiti",
+              "Iwasan ang bisita",
+              "Sumigaw sa bisita",
+              "Tumakbo palayo"
+            ],
+            "correct_answer": "Batiin ang bisita nang may ngiti"
+          },
+          {
+            "question": "Ano ang gawin kapag may bisita?",
+            "options": [
+              "Alukin sila ng inumin o pagkain",
+              "Kalimutan sila",
+              "Isara ang pinto",
+              "Tumakbo palabas"
+            ],
+            "correct_answer": "Alukin sila ng inumin o pagkain"
+          },
+          {
+            "question": "Bakit makinig nang magalang sa bisita?",
+            "options": [
+              "Nagpapakita ng respeto",
+              "Hindi mahalaga",
+              "Sila dapat makinig",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagpapakita ng respeto"
+          },
+          {
+            "question": "Ano ang mabuting gawin kapag dumating ang bisita?",
+            "options": [
+              "Batiin sila at ihatid sa upuan",
+              "Iwasan silang makausap",
+              "Sumigaw sa kanila",
+              "Tumakbo palayo"
+            ],
+            "correct_answer": "Batiin sila at ihatid sa upuan"
+          },
+          {
+            "question": "Bakit mahalaga ang mabuting pagtanggap?",
+            "options": [
+              "Nagpapakita ng pagmamahal at respeto",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamahal at respeto"
+          },
+          {
+            "question": "Alin ang HINDI hospitality?",
+            "options": [
+              "Pagiging bastos",
+              "Pagbati nang may ngiti",
+              "Pag-alok ng inumin",
+              "Pakikinig nang magalang"
+            ],
+            "correct_answer": "Pagiging bastos"
+          },
+          {
+            "question": "Naidudulot ng mabuting pagtanggap?",
+            "options": [
+              "Kasiyahan sa bisita",
+              "Kalungkutan",
+              "Galit",
+              "Walang epekto"
+            ],
+            "correct_answer": "Kasiyahan sa bisita"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang hospitality sa GMRC?",
+            "options": [
+              "Mabuting pakikitungo sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Mabuting pakikitungo sa kapwa"
+          },
+          {
+            "question": "Gawin kung may bisitang gutom o uhaw?",
+            "options": [
+              "Alukin ng pagkain o inumin",
+              "Hayaang manatiling gutom",
+              "Sabihing umuwi na",
+              "Iwasang kausapin"
+            ],
+            "correct_answer": "Alukin ng pagkain o inumin"
+          },
+          {
+            "question": "Sino dapat magpakita ng hospitality?",
+            "options": [
+              "Lahat ng miyembro ng pamilya",
+              "Ina lamang",
+              "Ama lamang",
+              "Walang dapat"
+            ],
+            "correct_answer": "Lahat ng miyembro ng pamilya"
+          },
+          {
+            "question": "Paano nararamdaman ng bisita kapag mabuti ang pagtanggap?",
+            "options": [
+              "Masaya at komportable",
+              "Malungkot at gutom",
+              "Galit",
+              "Wala siyang nararamdaman"
+            ],
+            "correct_answer": "Masaya at komportable"
+          }
+        ]
+      }
+    }
+  }
+}

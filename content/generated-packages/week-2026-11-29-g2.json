@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-11-29",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🐦 English — Plants and Animals in Our Environment\n\nGrade 2, Week 25! Let's learn words for the living things around us! 🐦\n\n## 🔄 Review\nWe learned about land and water forms.\n\n## 🌱 Plant Words\n- **Root** — grows underground, absorbs water\n- **Stem** — supports the plant\n- **Leaf** — makes food using sunlight\n\n## 🐦 Animal Words\n- **Habitat** — where an animal lives\n- **Mammal** — has fur, feeds milk to babies (dog, cat)\n- **Bird** — has feathers, most can fly\n\n## 📝 Using Synonyms\nA **synonym** is a word that means almost the same thing. \"Happy\" and \"glad\" are synonyms!\n\n**Key words:** root, stem, leaf, habitat, mammal, synonym",
+        "quiz": [
+          {
+            "question": "What does a root do?",
+            "options": [
+              "Grows underground and absorbs water",
+              "Makes food using sunlight",
+              "Supports the plant",
+              "Produces flowers only"
+            ],
+            "correct_answer": "Grows underground and absorbs water"
+          },
+          {
+            "question": "What does a stem do?",
+            "options": [
+              "Supports the plant",
+              "Absorbs water underground",
+              "Makes food using sunlight",
+              "Lives in water"
+            ],
+            "correct_answer": "Supports the plant"
+          },
+          {
+            "question": "What does a leaf do?",
+            "options": [
+              "Makes food using sunlight",
+              "Grows underground",
+              "Supports the whole plant",
+              "Lives in water"
+            ],
+            "correct_answer": "Makes food using sunlight"
+          },
+          {
+            "question": "What is a habitat?",
+            "options": [
+              "Where an animal lives",
+              "A type of plant",
+              "A body of water",
+              "A type of rock"
+            ],
+            "correct_answer": "Where an animal lives"
+          },
+          {
+            "question": "What is a mammal?",
+            "options": [
+              "An animal with fur that feeds milk to babies",
+              "An animal with feathers",
+              "A type of plant",
+              "A type of rock"
+            ],
+            "correct_answer": "An animal with fur that feeds milk to babies"
+          },
+          {
+            "question": "What is a bird?",
+            "options": [
+              "An animal with feathers that mostly can fly",
+              "An animal with fur",
+              "A type of plant",
+              "A type of fish only"
+            ],
+            "correct_answer": "An animal with feathers that mostly can fly"
+          },
+          {
+            "question": "What is a synonym?",
+            "options": [
+              "A word that means almost the same thing",
+              "A word that means the opposite",
+              "A type of animal",
+              "A type of plant"
+            ],
+            "correct_answer": "A word that means almost the same thing"
+          },
+          {
+            "question": "Which word is a synonym for 'happy'?",
+            "options": [
+              "Glad",
+              "Sad",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Glad"
+          },
+          {
+            "question": "Which is an example of a mammal?",
+            "options": [
+              "Dog",
+              "Bird",
+              "Fish",
+              "Insect"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Why do plants need roots?",
+            "options": [
+              "To absorb water from the ground",
+              "To fly in the sky",
+              "To make sounds",
+              "To swim in water"
+            ],
+            "correct_answer": "To absorb water from the ground"
+          },
+          {
+            "question": "Where would a fish's habitat most likely be?",
+            "options": [
+              "Water",
+              "A mountain top",
+              "The sky",
+              "A dry desert"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Which plant part uses sunlight to make food?",
+            "options": [
+              "Leaf",
+              "Root",
+              "Stem",
+              "None of these"
+            ],
+            "correct_answer": "Leaf"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍰 Mathematics — More Unit Fractions\n\nGrade 2, Week 25! Let's practice more with halves, thirds, and fourths! 🍰\n\n## 🔄 Review\nWe practiced multiplication and division word problems with money.\n\n## 🍰 Comparing Fractions\nThe MORE pieces you cut a whole into, the SMALLER each piece becomes!\n\n- 1/2 is BIGGER than 1/4 (fewer, bigger pieces)\n- 1/4 is SMALLER than 1/2 (more, smaller pieces)\n\n## 🖍️ Shading Fractions\nIf a shape has 4 equal parts and you shade 1, you shaded **1/4** of it.\n\n## 🔢 Reading and Writing Fractions\nWe write \"one-half\" as **1/2**, \"one-third\" as **1/3**, and \"one-fourth\" as **1/4**.\n\n**Key words:** compare, bigger, smaller, shade, one-half, one-third, one-fourth",
+        "quiz": [
+          {
+            "question": "Which is bigger: 1/2 or 1/4?",
+            "options": [
+              "1/2",
+              "1/4",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "The more pieces a whole is cut into, what happens to each piece?",
+            "options": [
+              "Each piece becomes smaller",
+              "Each piece becomes bigger",
+              "Nothing changes",
+              "The whole disappears"
+            ],
+            "correct_answer": "Each piece becomes smaller"
+          },
+          {
+            "question": "If a shape has 4 equal parts and you shade 1, what fraction is shaded?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/1"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "How do you write 'one-half' as a fraction?",
+            "options": [
+              "1/2",
+              "2/1",
+              "1/1",
+              "1/4"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "How do you write 'one-third' as a fraction?",
+            "options": [
+              "1/3",
+              "3/1",
+              "1/2",
+              "1/4"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "How do you write 'one-fourth' as a fraction?",
+            "options": [
+              "1/4",
+              "4/1",
+              "1/2",
+              "1/3"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "Which is smaller: 1/3 or 1/2?",
+            "options": [
+              "1/3",
+              "1/2",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "If a pizza is cut into 3 equal slices and you eat 1, what fraction did you eat?",
+            "options": [
+              "1/3",
+              "1/2",
+              "1/4",
+              "3/1"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Why does 1/4 represent a smaller piece than 1/2 of the same whole?",
+            "options": [
+              "Because the whole is divided into more parts",
+              "Because 4 is a smaller number than 2",
+              "Because fractions with 4 are always bigger",
+              "There is no real reason"
+            ],
+            "correct_answer": "Because the whole is divided into more parts"
+          },
+          {
+            "question": "If you shade 1 out of 2 equal parts of a circle, what fraction is shaded?",
+            "options": [
+              "1/2",
+              "1/4",
+              "1/3",
+              "2/1"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Which fraction shows the smallest piece: 1/2, 1/3, or 1/4?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "They are all the same"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "If you cut an apple into 4 equal pieces and share 1 piece with a friend, what fraction did you give?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/4"
+            ],
+            "correct_answer": "1/4"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🐦 Filipino — Mga Hayop at Tanim sa Ating Kapaligiran\n\nGrade 2, Linggo 25! Matuto tayo ng mga salita tungkol sa mga hayop at halaman. 🐦\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga anyong-lupa at anyong-tubig.\n\n## 🌱 Mga Bahagi ng Halaman\n- **Ugat** — sumisipsip ng tubig sa lupa\n- **Tangkay** — sumusuporta sa halaman\n- **Dahon** — gumagawa ng pagkain gamit ang sikat ng araw\n\n## 🐦 Mga Hayop\n- **Tirahan** — lugar kung saan naninirahan ang isang hayop\n- **Mammal** — may balahibo, nagpapasuso sa anak\n- **Ibon** — may balahibo (pluma) at karamihan ay lumilipad\n\n## 📝 Magkasingkahulugan\nAng mga **magkasingkahulugan** ay mga salitang magkatulad ang kahulugan, tulad ng \"masaya\" at \"magalak.\"\n\n**Mahahalagang salita:** ugat, tangkay, dahon, tirahan, magkasingkahulugan",
+        "quiz": [
+          {
+            "question": "Ano ang ginagawa ng ugat?",
+            "options": [
+              "Sumisipsip ng tubig sa lupa",
+              "Gumagawa ng pagkain",
+              "Sumusuporta sa halaman",
+              "Nagbibigay ng bulaklak lamang"
+            ],
+            "correct_answer": "Sumisipsip ng tubig sa lupa"
+          },
+          {
+            "question": "Ano ang ginagawa ng tangkay?",
+            "options": [
+              "Sumusuporta sa halaman",
+              "Sumisipsip ng tubig",
+              "Gumagawa ng pagkain gamit ang araw",
+              "Nabubuhay sa tubig"
+            ],
+            "correct_answer": "Sumusuporta sa halaman"
+          },
+          {
+            "question": "Ano ang ginagawa ng dahon?",
+            "options": [
+              "Gumagawa ng pagkain gamit ang sikat ng araw",
+              "Sumisipsip ng tubig sa lupa",
+              "Sumusuporta sa buong halaman",
+              "Nabubuhay sa tubig"
+            ],
+            "correct_answer": "Gumagawa ng pagkain gamit ang sikat ng araw"
+          },
+          {
+            "question": "Ano ang tirahan ng hayop?",
+            "options": [
+              "Lugar kung saan naninirahan ang hayop",
+              "Uri ng halaman",
+              "Anyong-tubig",
+              "Uri ng bato"
+            ],
+            "correct_answer": "Lugar kung saan naninirahan ang hayop"
+          },
+          {
+            "question": "Ano ang mammal?",
+            "options": [
+              "Hayop na may balahibo, nagpapasuso sa anak",
+              "Hayop na may pluma",
+              "Uri ng halaman",
+              "Uri ng bato"
+            ],
+            "correct_answer": "Hayop na may balahibo, nagpapasuso sa anak"
+          },
+          {
+            "question": "Ano ang ibon?",
+            "options": [
+              "Hayop na may pluma, karamihan ay lumilipad",
+              "Hayop na may balahibo lamang",
+              "Uri ng halaman",
+              "Uri ng isda lamang"
+            ],
+            "correct_answer": "Hayop na may pluma, karamihan ay lumilipad"
+          },
+          {
+            "question": "Ano ang magkasingkahulugan?",
+            "options": [
+              "Mga salitang magkatulad ang kahulugan",
+              "Mga salitang magkasalungat",
+              "Mga salitang walang kahulugan",
+              "Mga salitang tungkol sa hayop lamang"
+            ],
+            "correct_answer": "Mga salitang magkatulad ang kahulugan"
+          },
+          {
+            "question": "Alin ang magkasingkahulugan ng 'masaya'?",
+            "options": [
+              "Magalak",
+              "Malungkot",
+              "Galit",
+              "Takot"
+            ],
+            "correct_answer": "Magalak"
+          },
+          {
+            "question": "Alin ang halimbawa ng mammal?",
+            "options": [
+              "Aso",
+              "Ibon",
+              "Isda",
+              "Insekto"
+            ],
+            "correct_answer": "Aso"
+          },
+          {
+            "question": "Bakit kailangan ng ugat ang halaman?",
+            "options": [
+              "Para sumipsip ng tubig sa lupa",
+              "Para lumipad sa hangin",
+              "Para gumawa ng tunog",
+              "Para lumangoy sa tubig"
+            ],
+            "correct_answer": "Para sumipsip ng tubig sa lupa"
+          },
+          {
+            "question": "Saan malamang nakatira ang isda?",
+            "options": [
+              "Tubig",
+              "Ibabaw ng bundok",
+              "Kalangitan",
+              "Tuyong disyerto"
+            ],
+            "correct_answer": "Tubig"
+          },
+          {
+            "question": "Anong bahagi ng halaman ang gumagamit ng sikat ng araw para gumawa ng pagkain?",
+            "options": [
+              "Dahon",
+              "Ugat",
+              "Tangkay",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Dahon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🤸 Science — Push and Pull: Introduction to Forces\n\nGrade 2, Week 25! Let's learn about pushing and pulling things! 🤸\n\n## 🔄 Review\nWe learned about matter and its states: solid, liquid, gas.\n\n## 🤸 What Is a Push?\nA **push** moves an object away from you.\n\n**Example:** Pushing a toy car forward.\n\n## 🎣 What Is a Pull?\nA **pull** moves an object toward you.\n\n**Example:** Pulling a wagon behind you.\n\n## 💪 Push and Pull in Everyday Life\n- Opening a door: you **pull** it toward you\n- Closing a door: you **push** it away\n- Kicking a ball: you **push** it\n\nBoth pushing and pulling are types of **force** — they make things move!\n\n**Key words:** push, pull, force, move",
+        "quiz": [
+          {
+            "question": "What is a push?",
+            "options": [
+              "A force that moves an object away from you",
+              "A force that moves an object toward you",
+              "A type of liquid",
+              "A type of animal"
+            ],
+            "correct_answer": "A force that moves an object away from you"
+          },
+          {
+            "question": "What is a pull?",
+            "options": [
+              "A force that moves an object toward you",
+              "A force that moves an object away from you",
+              "A type of solid",
+              "A type of plant"
+            ],
+            "correct_answer": "A force that moves an object toward you"
+          },
+          {
+            "question": "What do you do to open a door?",
+            "options": [
+              "Pull it toward you",
+              "Push it away",
+              "Neither push nor pull",
+              "Throw it"
+            ],
+            "correct_answer": "Pull it toward you"
+          },
+          {
+            "question": "What do you do to close a door?",
+            "options": [
+              "Push it away",
+              "Pull it toward you",
+              "Neither push nor pull",
+              "Throw it"
+            ],
+            "correct_answer": "Push it away"
+          },
+          {
+            "question": "What happens when you kick a ball?",
+            "options": [
+              "You push it",
+              "You pull it",
+              "Nothing happens",
+              "It disappears"
+            ],
+            "correct_answer": "You push it"
+          },
+          {
+            "question": "What are push and pull examples of?",
+            "options": [
+              "Force",
+              "Weather",
+              "Living things",
+              "Matter states"
+            ],
+            "correct_answer": "Force"
+          },
+          {
+            "question": "Pushing a toy car forward is an example of what?",
+            "options": [
+              "A push",
+              "A pull",
+              "A solid",
+              "A liquid"
+            ],
+            "correct_answer": "A push"
+          },
+          {
+            "question": "Pulling a wagon behind you is an example of what?",
+            "options": [
+              "A pull",
+              "A push",
+              "A gas",
+              "A liquid"
+            ],
+            "correct_answer": "A pull"
+          },
+          {
+            "question": "What does force do to objects?",
+            "options": [
+              "Makes them move",
+              "Makes them disappear",
+              "Makes them heavier",
+              "Has no effect"
+            ],
+            "correct_answer": "Makes them move"
+          },
+          {
+            "question": "If you want to bring a box closer to you, would you push or pull it?",
+            "options": [
+              "Pull it",
+              "Push it",
+              "Neither",
+              "Both at the same time"
+            ],
+            "correct_answer": "Pull it"
+          },
+          {
+            "question": "If you want to move a box farther away from you, would you push or pull it?",
+            "options": [
+              "Push it",
+              "Pull it",
+              "Neither",
+              "Both at the same time"
+            ],
+            "correct_answer": "Push it"
+          },
+          {
+            "question": "Why are push and pull both important to understand?",
+            "options": [
+              "They explain how many everyday objects move",
+              "They have nothing to do with movement",
+              "Only pull is a real force",
+              "Only push is a real force"
+            ],
+            "correct_answer": "They explain how many everyday objects move"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 👍 Makabansa — Pagpapahalaga sa Pamumuhay at Serbisyo\n\nGrade 2, Linggo 25! Alamin natin kung paano ipakita ang pasasalamat sa mga naglilingkod sa atin. 👍\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga serbisyong pangkomunidad.\n\n## 👍 Bakit Dapat Pahalagahan ang mga Naglilingkod?\nAng mga tulad ng pulisya, bumbero, doktor, at guro ay nagbibigay ng kanilang oras at kakayahan para tumulong sa iba.\n\n## 🙏 Paano Ipakita ang Pagpapahalaga\n- Sabihing \"salamat po\" sa mga naglilingkod\n- Sundin ang mga tuntunin na itinatakda nila para sa kaligtasan\n- Igalang ang kanilang trabaho\n\n## 💡 Kahalagahan\nAng pagpapahalaga sa kanilang serbisyo ay nagpapakita ng **pagkilala** sa mahalagang papel nila sa komunidad.\n\n**Mahahalagang salita:** pagpapahalaga, naglilingkod, pagkilala, tuntunin",
+        "quiz": [
+          {
+            "question": "Bakit dapat pahalagahan ang mga naglilingkod sa komunidad?",
+            "options": [
+              "Nagbibigay sila ng oras at kakayahan para tumulong",
+              "Wala silang ginagawa",
+              "Sila lamang ang mahalaga",
+              "Hindi sila kailangan ng komunidad"
+            ],
+            "correct_answer": "Nagbibigay sila ng oras at kakayahan para tumulong"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng pagpapahalaga?",
+            "options": [
+              "Sabihing salamat po sa naglilingkod",
+              "Iwasan sila",
+              "Kutyain ang kanilang trabaho",
+              "Balewalain sila"
+            ],
+            "correct_answer": "Sabihing salamat po sa naglilingkod"
+          },
+          {
+            "question": "Bakit dapat sundin ang mga tuntunin ng pulisya o bumbero?",
+            "options": [
+              "Para sa ating kaligtasan",
+              "Hindi na kailangan sundin",
+              "Walang kahalagahan ito",
+              "Para lamang sila'y masaya"
+            ],
+            "correct_answer": "Para sa ating kaligtasan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paggalang sa trabaho ng iba?",
+            "options": [
+              "Pagkilala sa kanilang mahalagang papel",
+              "Kawalang pakialam sa kanila",
+              "Kawalan ng respeto",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Pagkilala sa kanilang mahalagang papel"
+          },
+          {
+            "question": "Sino ang mga halimbawa ng naglilingkod sa komunidad?",
+            "options": [
+              "Pulisya, bumbero, doktor, guro",
+              "Mga bata lamang",
+              "Mga turista",
+              "Mga estranghero"
+            ],
+            "correct_answer": "Pulisya, bumbero, doktor, guro"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasabing 'salamat po' sa mga naglilingkod?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pasasalamat",
+              "Wala itong epekto",
+              "Hindi ito kailangan",
+              "Ito ay hindi magalang"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pasasalamat"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsunod sa mga tuntunin ng kaligtasan?",
+            "options": [
+              "Iniiwasan ang panganib",
+              "Nagdudulot ng panganib",
+              "Walang epekto",
+              "Nagpapahirap lamang"
+            ],
+            "correct_answer": "Iniiwasan ang panganib"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang papel ng mga naglilingkod sa lipunan?",
+            "options": [
+              "Tumutulong sila sa kapakanan at kaligtasan ng lahat",
+              "Wala silang mahalagang papel",
+              "Sila lamang ang dapat pahalagahan",
+              "Hindi sila mahalaga sa lipunan"
+            ],
+            "correct_answer": "Tumutulong sila sa kapakanan at kaligtasan ng lahat"
+          },
+          {
+            "question": "Paano maipapakita ng isang bata ang pagpapahalaga sa kanyang guro?",
+            "options": [
+              "Sa pakikinig at paggalang sa kanya",
+              "Sa pagwawalang-bahala sa kanya",
+              "Sa pagiging bastos",
+              "Sa pag-iwas sa kanya"
+            ],
+            "correct_answer": "Sa pakikinig at paggalang sa kanya"
+          },
+          {
+            "question": "Bakit mahalaga ang mga tuntuning itinatakda ng mga naglilingkod?",
+            "options": [
+              "Nagpapanatili ito ng kaayusan at kaligtasan",
+              "Wala itong kabuluhan",
+              "Hindi ito kailangang sundin",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagpapanatili ito ng kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ano ang resulta kung walang gumagalang sa mga naglilingkod?",
+            "options": [
+              "Maaaring magkagulo o manganib ang komunidad",
+              "Wala itong epekto",
+              "Mas maayos ang lahat",
+              "Walang mangyayari"
+            ],
+            "correct_answer": "Maaaring magkagulo o manganib ang komunidad"
+          },
+          {
+            "question": "Bakit itinuturo ang pagpapahalaga sa serbisyo mula sa maagang edad?",
+            "options": [
+              "Upang maging mabuting mamamayan paglaki",
+              "Hindi na kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging mabuting mamamayan paglaki"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🚨 Computer — Kilalanin at Iulat ang Hindi Ligtas na Sitwasyon\n\nGrade 2, Week 25! Alamin natin kung paano kikilalanin at ano ang gagawin sa mga hindi ligtas na bagay online. 🚨\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagpapanatiling pribado ng impormasyon.\n\n## 🚨 Ano ang Hindi Ligtas na Sitwasyon?\nHalimbawa: may nagmumura sa iyo online, may humihingi ng personal na impormasyon, o may nakakatakot na larawan o mensahe.\n\n## 📢 Ano ang Dapat Gawin?\n1. Huwag sumagot sa mensahe\n2. **I-screenshot** kung maaari (kasama ang matanda)\n3. Sabihin agad sa isang **magulang o guro**\n\n## 💡 Bakit Mahalagang Mag-report?\nAng pagsasabi sa matanda ay tumutulong panatilihing ligtas ang lahat online, kabilang ang ibang mga bata.\n\n**Mahahalagang salita:** hindi ligtas, i-report, screenshot, sabihin agad",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng hindi ligtas na sitwasyon online?",
+            "options": [
+              "May nagmumura o humihingi ng personal na impormasyon",
+              "May nagbibigay ng aral",
+              "May nagpapakita ng larawan ng hayop",
+              "May naglalaro ng edukasyonal na laro"
+            ],
+            "correct_answer": "May nagmumura o humihingi ng personal na impormasyon"
+          },
+          {
+            "question": "Ano ang unang dapat gawin kung may hindi ligtas na mensahe?",
+            "options": [
+              "Huwag sumagot",
+              "Sumagot nang bastos",
+              "Ibahagi ang personal na impormasyon",
+              "Balewalain at ipagpatuloy ang pag-uusap"
+            ],
+            "correct_answer": "Huwag sumagot"
+          },
+          {
+            "question": "Sino ang dapat sabihan agad kung may nangyaring hindi ligtas online?",
+            "options": [
+              "Magulang o guro",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Ano ang maaaring gawin kasama ang matanda para maitala ang problema?",
+            "options": [
+              "Mag-screenshot",
+              "Burahin agad ang lahat",
+              "Ipagpatuloy ang usapan",
+              "Sumagot nang matalim"
+            ],
+            "correct_answer": "Mag-screenshot"
+          },
+          {
+            "question": "Bakit mahalagang mag-report ng hindi ligtas na sitwasyon?",
+            "options": [
+              "Tumutulong itong panatilihing ligtas ang lahat online",
+              "Wala itong kabuluhan",
+              "Nakakahiya itong gawin",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Tumutulong itong panatilihing ligtas ang lahat online"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may humihingi ng personal na impormasyon online?",
+            "options": [
+              "Huwag ibigay at sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay at sabihin sa matanda"
+          },
+          {
+            "question": "Bakit hindi dapat sumagot sa mensaheng nakakatakot?",
+            "options": [
+              "Maaaring lalong lumala ang sitwasyon",
+              "Palaging ligtas sumagot",
+              "Wala itong panganib",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Maaaring lalong lumala ang sitwasyon"
+          },
+          {
+            "question": "Ano ang gagamitin para maitala ang isang nakakatakot na mensahe?",
+            "options": [
+              "Screenshot",
+              "Pagsira sa kompyuter",
+              "Pagtapon ng kompyuter",
+              "Wala, hindi na kailangan itala"
+            ],
+            "correct_answer": "Screenshot"
+          },
+          {
+            "question": "Bakit mahalagang mayroong matandang katulong kapag may nangyaring hindi maganda online?",
+            "options": [
+              "Makakatulong sila lutasin ito nang ligtas",
+              "Hindi kailangan ng tulong",
+              "Ang bata na lamang ang dapat lumutas",
+              "Walang gamit ang matanda"
+            ],
+            "correct_answer": "Makakatulong sila lutasin ito nang ligtas"
+          },
+          {
+            "question": "Ano ang mabuting halimbawa ng pag-uulat?",
+            "options": [
+              "Sabihin sa magulang at ipakita ang mensahe",
+              "Itago ang lahat sa sarili",
+              "Balewalain ang problema",
+              "Idagdag pa ang problema"
+            ],
+            "correct_answer": "Sabihin sa magulang at ipakita ang mensahe"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa Grade 2?",
+            "options": [
+              "Upang malaman kung paano tumugon sa mapanganib na sitwasyon online",
+              "Hindi na kailangan ituro ito",
+              "Para hikayatin ang paggamit online nang mag-isa",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang malaman kung paano tumugon sa mapanganib na sitwasyon online"
+          },
+          {
+            "question": "Ano ang pinakamahalagang aral tungkol sa paggamit ng Internet?",
+            "options": [
+              "Palaging humingi ng tulong sa matanda kapag may hindi maganda ang nangyari",
+              "Hindi kailangan ng tulong ng matanda",
+              "Palaging ligtas ang lahat online",
+              "Hindi mahalaga ang pag-uulat"
+            ],
+            "correct_answer": "Palaging humingi ng tulong sa matanda kapag may hindi maganda ang nangyari"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🌳 GMRC — Pangangalaga sa Kapaligiran\n\nGrade 2, Linggo 25! Pagpapahalaga: **Compassion (Kahabagan)**. 🌳\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **paggalang** sa relihiyon ng iba.\n\n## 🌳 Bakit Alagaan ang Kapaligiran?\nAng ating kapaligiran ay nagbibigay ng hangin, tubig, at pagkaing kailangan natin para mabuhay.\n\n## ♻️ Paano Alagaan ang Kapaligiran Kasama ang Kapuwa-Bata\n- Itapon ang basura sa tamang lalagyan\n- Huwag putulin ang halaman nang walang dahilan\n- Tulungan ang kaibigan na maglinis sa paligid\n- Iimpok ang tubig at kuryente\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-aalaga sa kapaligiran nang sama-sama sa kapuwa-bata ay nagpapakita ng **kahabagan** at pananagutan sa kinabukasan ng lahat.\n\n**Mahahalagang salita:** kahabagan, kapaligiran, pananagutan, pag-iimpok",
+        "quiz": [
+          {
+            "question": "Bakit dapat alagaan ang kapaligiran?",
+            "options": [
+              "Nagbibigay ito ng hangin, tubig, at pagkaing kailangan natin",
+              "Walang kahalagahan ito",
+              "Para lamang ito maganda tingnan",
+              "Hindi ito nakakatulong sa atin"
+            ],
+            "correct_answer": "Nagbibigay ito ng hangin, tubig, at pagkaing kailangan natin"
+          },
+          {
+            "question": "Anong halimbawa ng pag-aalaga sa kapaligiran?",
+            "options": [
+              "Itapon ang basura sa tamang lalagyan",
+              "Magtapon ng basura kahit saan",
+              "Putulin ang halaman nang walang dahilan",
+              "Aksayahin ang tubig"
+            ],
+            "correct_answer": "Itapon ang basura sa tamang lalagyan"
+          },
+          {
+            "question": "Paano makakatulong ang mga bata sa pag-aalaga ng kapaligiran kasama ang kaibigan?",
+            "options": [
+              "Sa pagliligpit ng basura sa paligid",
+              "Sa pagtapon ng basura sa kalye",
+              "Sa pagputol ng puno nang walang dahilan",
+              "Sa pag-aksaya ng tubig"
+            ],
+            "correct_answer": "Sa pagliligpit ng basura sa paligid"
+          },
+          {
+            "question": "Bakit dapat iimpok ang tubig at kuryente?",
+            "options": [
+              "Para hindi maubos ang mga likas na yaman",
+              "Hindi na kailangan itong gawin",
+              "Walang kaugnayan sa kapaligiran",
+              "Para lamang makatipid ng pera"
+            ],
+            "correct_answer": "Para hindi maubos ang mga likas na yaman"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Compassion (Kahabagan)",
+              "Respect",
+              "Loving",
+              "Gratitude"
+            ],
+            "correct_answer": "Compassion (Kahabagan)"
+          },
+          {
+            "question": "Bakit mahalagang huwag putulin ang halaman nang walang dahilan?",
+            "options": [
+              "Ang halaman ay bahagi ng ating kapaligiran na dapat protektahan",
+              "Walang kahalagahan ang halaman",
+              "Ang halaman ay hindi kailangan protektahan",
+              "Puwedeng putulin lahat ng halaman"
+            ],
+            "correct_answer": "Ang halaman ay bahagi ng ating kapaligiran na dapat protektahan"
+          },
+          {
+            "question": "Sino ang dapat tumulong mag-alaga ng kapaligiran?",
+            "options": [
+              "Lahat ng tao, kabilang ang mga bata",
+              "Matatanda lamang",
+              "Guro lamang",
+              "Walang dapat tumulong"
+            ],
+            "correct_answer": "Lahat ng tao, kabilang ang mga bata"
+          },
+          {
+            "question": "Ano ang naidudulot ng sama-samang pag-aalaga sa kapaligiran?",
+            "options": [
+              "Nagpapakita ito ng kahabagan at pananagutan",
+              "Walang naidudulot",
+              "Nagdudulot lamang ng pagod",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagpapakita ito ng kahabagan at pananagutan"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang compassion sa kapaligiran sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng pananagutan sa kinabukasan ng lahat",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pananagutan sa kinabukasan ng lahat"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi natin aalagaan ang kapaligiran?",
+            "options": [
+              "Maaaring mauubos o masira ang likas na yaman",
+              "Walang mangyayari",
+              "Palaging magiging maganda ang kapaligiran",
+              "Awtomatiko itong maayos"
+            ],
+            "correct_answer": "Maaaring mauubos o masira ang likas na yaman"
+          },
+          {
+            "question": "Bakit itinuturing na kahabagan ang pag-aalaga sa kapaligiran?",
+            "options": [
+              "Ipinapakita nito ang pagmamalasakit sa ikabubuti ng lahat",
+              "Walang koneksyon sa kahabagan",
+              "Ito ay tungkol lamang sa hayop",
+              "Hindi ito tunay na pagpapahalaga"
+            ],
+            "correct_answer": "Ipinapakita nito ang pagmamalasakit sa ikabubuti ng lahat"
+          },
+          {
+            "question": "Bakit mahalagang simulan ang pag-aalaga sa kapaligiran mula pagkabata?",
+            "options": [
+              "Upang maging responsableng mamamayan paglaki",
+              "Hindi na kailangan ituro ito",
+              "Para lamang sa matatanda",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Upang maging responsableng mamamayan paglaki"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🐦 Friday Review — English (Grade 2)\n\n- Plants, animals, and synonyms\n\nGreat vocabulary! 🌟",
+        "quiz": [
+          {
+            "question": "What does a root do?",
+            "options": [
+              "Grows underground and absorbs water",
+              "Makes food using sunlight",
+              "Supports the plant",
+              "Produces flowers only"
+            ],
+            "correct_answer": "Grows underground and absorbs water"
+          },
+          {
+            "question": "What does a stem do?",
+            "options": [
+              "Supports the plant",
+              "Absorbs water underground",
+              "Makes food using sunlight",
+              "Lives in water"
+            ],
+            "correct_answer": "Supports the plant"
+          },
+          {
+            "question": "What does a leaf do?",
+            "options": [
+              "Makes food using sunlight",
+              "Grows underground",
+              "Supports the whole plant",
+              "Lives in water"
+            ],
+            "correct_answer": "Makes food using sunlight"
+          },
+          {
+            "question": "What is a habitat?",
+            "options": [
+              "Where an animal lives",
+              "A type of plant",
+              "A body of water",
+              "A type of rock"
+            ],
+            "correct_answer": "Where an animal lives"
+          },
+          {
+            "question": "What is a mammal?",
+            "options": [
+              "An animal with fur that feeds milk to babies",
+              "An animal with feathers",
+              "A type of plant",
+              "A type of rock"
+            ],
+            "correct_answer": "An animal with fur that feeds milk to babies"
+          },
+          {
+            "question": "What is a bird?",
+            "options": [
+              "An animal with feathers that mostly can fly",
+              "An animal with fur",
+              "A type of plant",
+              "A type of fish only"
+            ],
+            "correct_answer": "An animal with feathers that mostly can fly"
+          },
+          {
+            "question": "What is a synonym?",
+            "options": [
+              "A word that means almost the same thing",
+              "A word that means the opposite",
+              "A type of animal",
+              "A type of plant"
+            ],
+            "correct_answer": "A word that means almost the same thing"
+          },
+          {
+            "question": "Synonym for 'happy'?",
+            "options": [
+              "Glad",
+              "Sad",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Glad"
+          },
+          {
+            "question": "Example of a mammal?",
+            "options": [
+              "Dog",
+              "Bird",
+              "Fish",
+              "Insect"
+            ],
+            "correct_answer": "Dog"
+          },
+          {
+            "question": "Why do plants need roots?",
+            "options": [
+              "To absorb water",
+              "To fly in the sky",
+              "To make sounds",
+              "To swim"
+            ],
+            "correct_answer": "To absorb water"
+          },
+          {
+            "question": "Where would a fish's habitat be?",
+            "options": [
+              "Water",
+              "A mountain top",
+              "The sky",
+              "A dry desert"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Which plant part uses sunlight to make food?",
+            "options": [
+              "Leaf",
+              "Root",
+              "Stem",
+              "None of these"
+            ],
+            "correct_answer": "Leaf"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍰 Friday Review — Mathematics (Grade 2)\n\n- Comparing unit fractions\n\nGreat fraction comparison work! ⭐",
+        "quiz": [
+          {
+            "question": "Which is bigger: 1/2 or 1/4?",
+            "options": [
+              "1/2",
+              "1/4",
+              "Equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "More pieces a whole is cut into: each piece becomes?",
+            "options": [
+              "Smaller",
+              "Bigger",
+              "Same",
+              "The whole disappears"
+            ],
+            "correct_answer": "Smaller"
+          },
+          {
+            "question": "4 equal parts, shade 1: what fraction?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/1"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "How do you write 'one-half'?",
+            "options": [
+              "1/2",
+              "2/1",
+              "1/1",
+              "1/4"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "How do you write 'one-third'?",
+            "options": [
+              "1/3",
+              "3/1",
+              "1/2",
+              "1/4"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "How do you write 'one-fourth'?",
+            "options": [
+              "1/4",
+              "4/1",
+              "1/2",
+              "1/3"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "Which is smaller: 1/3 or 1/2?",
+            "options": [
+              "1/3",
+              "1/2",
+              "Equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Pizza cut into 3 slices, eat 1: what fraction?",
+            "options": [
+              "1/3",
+              "1/2",
+              "1/4",
+              "3/1"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Why is 1/4 smaller than 1/2 of the same whole?",
+            "options": [
+              "The whole is divided into more parts",
+              "4 is smaller than 2",
+              "Fractions with 4 are always bigger",
+              "No real reason"
+            ],
+            "correct_answer": "The whole is divided into more parts"
+          },
+          {
+            "question": "Shade 1 out of 2 equal parts of a circle: what fraction?",
+            "options": [
+              "1/2",
+              "1/4",
+              "1/3",
+              "2/1"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Smallest piece: 1/2, 1/3, or 1/4?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "All same"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "Cut an apple into 4 pieces, share 1: what fraction did you give?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/4"
+            ],
+            "correct_answer": "1/4"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🐦 Friday Review — Filipino (Grade 2)\n\n- Ugat, tangkay, dahon, tirahan\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang ginagawa ng ugat?",
+            "options": [
+              "Sumisipsip ng tubig",
+              "Gumagawa ng pagkain",
+              "Sumusuporta sa halaman",
+              "Nagbibigay ng bulaklak lamang"
+            ],
+            "correct_answer": "Sumisipsip ng tubig"
+          },
+          {
+            "question": "Ano ang ginagawa ng tangkay?",
+            "options": [
+              "Sumusuporta sa halaman",
+              "Sumisipsip ng tubig",
+              "Gumagawa ng pagkain",
+              "Nabubuhay sa tubig"
+            ],
+            "correct_answer": "Sumusuporta sa halaman"
+          },
+          {
+            "question": "Ano ang ginagawa ng dahon?",
+            "options": [
+              "Gumagawa ng pagkain gamit ang araw",
+              "Sumisipsip ng tubig",
+              "Sumusuporta sa halaman",
+              "Nabubuhay sa tubig"
+            ],
+            "correct_answer": "Gumagawa ng pagkain gamit ang araw"
+          },
+          {
+            "question": "Ano ang tirahan?",
+            "options": [
+              "Lugar kung saan naninirahan ang hayop",
+              "Uri ng halaman",
+              "Anyong-tubig",
+              "Uri ng bato"
+            ],
+            "correct_answer": "Lugar kung saan naninirahan ang hayop"
+          },
+          {
+            "question": "Ano ang mammal?",
+            "options": [
+              "May balahibo, nagpapasuso sa anak",
+              "May pluma",
+              "Uri ng halaman",
+              "Uri ng bato"
+            ],
+            "correct_answer": "May balahibo, nagpapasuso sa anak"
+          },
+          {
+            "question": "Ano ang ibon?",
+            "options": [
+              "May pluma, karamihan ay lumilipad",
+              "May balahibo lamang",
+              "Uri ng halaman",
+              "Uri ng isda"
+            ],
+            "correct_answer": "May pluma, karamihan ay lumilipad"
+          },
+          {
+            "question": "Ano ang magkasingkahulugan?",
+            "options": [
+              "Magkatulad ang kahulugan",
+              "Magkasalungat",
+              "Walang kahulugan",
+              "Tungkol sa hayop lamang"
+            ],
+            "correct_answer": "Magkatulad ang kahulugan"
+          },
+          {
+            "question": "Magkasingkahulugan ng 'masaya'?",
+            "options": [
+              "Magalak",
+              "Malungkot",
+              "Galit",
+              "Takot"
+            ],
+            "correct_answer": "Magalak"
+          },
+          {
+            "question": "Halimbawa ng mammal?",
+            "options": [
+              "Aso",
+              "Ibon",
+              "Isda",
+              "Insekto"
+            ],
+            "correct_answer": "Aso"
+          },
+          {
+            "question": "Bakit kailangan ng ugat ang halaman?",
+            "options": [
+              "Sumipsip ng tubig",
+              "Lumipad sa hangin",
+              "Gumawa ng tunog",
+              "Lumangoy"
+            ],
+            "correct_answer": "Sumipsip ng tubig"
+          },
+          {
+            "question": "Saan malamang nakatira ang isda?",
+            "options": [
+              "Tubig",
+              "Bundok",
+              "Kalangitan",
+              "Disyerto"
+            ],
+            "correct_answer": "Tubig"
+          },
+          {
+            "question": "Anong bahagi ng halaman gumagamit ng araw para gumawa ng pagkain?",
+            "options": [
+              "Dahon",
+              "Ugat",
+              "Tangkay",
+              "Wala"
+            ],
+            "correct_answer": "Dahon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🤸 Friday Review — Science (Grade 2)\n\n- Push and pull forces\n\nGreat force review! 🌟",
+        "quiz": [
+          {
+            "question": "What is a push?",
+            "options": [
+              "A force that moves an object away",
+              "A force that moves an object toward you",
+              "A liquid",
+              "An animal"
+            ],
+            "correct_answer": "A force that moves an object away"
+          },
+          {
+            "question": "What is a pull?",
+            "options": [
+              "A force that moves an object toward you",
+              "A force that moves an object away",
+              "A solid",
+              "A plant"
+            ],
+            "correct_answer": "A force that moves an object toward you"
+          },
+          {
+            "question": "What do you do to open a door?",
+            "options": [
+              "Pull it toward you",
+              "Push it away",
+              "Neither",
+              "Throw it"
+            ],
+            "correct_answer": "Pull it toward you"
+          },
+          {
+            "question": "What do you do to close a door?",
+            "options": [
+              "Push it away",
+              "Pull it toward you",
+              "Neither",
+              "Throw it"
+            ],
+            "correct_answer": "Push it away"
+          },
+          {
+            "question": "What happens when you kick a ball?",
+            "options": [
+              "You push it",
+              "You pull it",
+              "Nothing",
+              "It disappears"
+            ],
+            "correct_answer": "You push it"
+          },
+          {
+            "question": "Push and pull are examples of what?",
+            "options": [
+              "Force",
+              "Weather",
+              "Living things",
+              "Matter states"
+            ],
+            "correct_answer": "Force"
+          },
+          {
+            "question": "Pushing a toy car forward is an example of?",
+            "options": [
+              "A push",
+              "A pull",
+              "A solid",
+              "A liquid"
+            ],
+            "correct_answer": "A push"
+          },
+          {
+            "question": "Pulling a wagon behind you is an example of?",
+            "options": [
+              "A pull",
+              "A push",
+              "A gas",
+              "A liquid"
+            ],
+            "correct_answer": "A pull"
+          },
+          {
+            "question": "What does force do to objects?",
+            "options": [
+              "Makes them move",
+              "Makes them disappear",
+              "Makes them heavier",
+              "No effect"
+            ],
+            "correct_answer": "Makes them move"
+          },
+          {
+            "question": "To bring a box closer, would you push or pull?",
+            "options": [
+              "Pull it",
+              "Push it",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "Pull it"
+          },
+          {
+            "question": "To move a box farther away, would you push or pull?",
+            "options": [
+              "Push it",
+              "Pull it",
+              "Neither",
+              "Both"
+            ],
+            "correct_answer": "Push it"
+          },
+          {
+            "question": "Why understand push and pull?",
+            "options": [
+              "They explain how everyday objects move",
+              "Nothing to do with movement",
+              "Only pull is real",
+              "Only push is real"
+            ],
+            "correct_answer": "They explain how everyday objects move"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 👍 Friday Review — Makabansa (Grade 2)\n\n- Pagpapahalaga sa naglilingkod sa komunidad\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit pahalagahan ang mga naglilingkod?",
+            "options": [
+              "Nagbibigay sila ng oras at kakayahan para tumulong",
+              "Wala silang ginagawa",
+              "Sila lamang ang mahalaga",
+              "Hindi sila kailangan"
+            ],
+            "correct_answer": "Nagbibigay sila ng oras at kakayahan para tumulong"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng pagpapahalaga?",
+            "options": [
+              "Sabihing salamat po",
+              "Iwasan sila",
+              "Kutyain ang trabaho nila",
+              "Balewalain sila"
+            ],
+            "correct_answer": "Sabihing salamat po"
+          },
+          {
+            "question": "Bakit sundin ang tuntunin ng pulisya o bumbero?",
+            "options": [
+              "Para sa kaligtasan",
+              "Hindi kailangan sundin",
+              "Walang kahalagahan",
+              "Para masaya lamang sila"
+            ],
+            "correct_answer": "Para sa kaligtasan"
+          },
+          {
+            "question": "Ano ang ipinapakita ng paggalang sa trabaho ng iba?",
+            "options": [
+              "Pagkilala sa mahalagang papel nila",
+              "Kawalang pakialam",
+              "Kawalan ng respeto",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Pagkilala sa mahalagang papel nila"
+          },
+          {
+            "question": "Sino ang mga naglilingkod sa komunidad?",
+            "options": [
+              "Pulisya, bumbero, doktor, guro",
+              "Mga bata lamang",
+              "Mga turista",
+              "Mga estranghero"
+            ],
+            "correct_answer": "Pulisya, bumbero, doktor, guro"
+          },
+          {
+            "question": "Bakit mahalagang sabihing 'salamat po'?",
+            "options": [
+              "Nagpapakita ng paggalang at pasasalamat",
+              "Walang epekto",
+              "Hindi kailangan",
+              "Hindi magalang"
+            ],
+            "correct_answer": "Nagpapakita ng paggalang at pasasalamat"
+          },
+          {
+            "question": "Naidudulot ng pagsunod sa tuntunin ng kaligtasan?",
+            "options": [
+              "Iniiwasan ang panganib",
+              "Nagdudulot ng panganib",
+              "Walang epekto",
+              "Nagpapahirap lamang"
+            ],
+            "correct_answer": "Iniiwasan ang panganib"
+          },
+          {
+            "question": "Bakit mahalaga ang papel ng mga naglilingkod?",
+            "options": [
+              "Tumutulong sa kapakanan at kaligtasan",
+              "Walang mahalagang papel",
+              "Sila lamang dapat pahalagahan",
+              "Hindi mahalaga sa lipunan"
+            ],
+            "correct_answer": "Tumutulong sa kapakanan at kaligtasan"
+          },
+          {
+            "question": "Paano ipapakita ng bata ang pagpapahalaga sa guro?",
+            "options": [
+              "Sa pakikinig at paggalang",
+              "Sa pagwawalang-bahala",
+              "Sa pagiging bastos",
+              "Sa pag-iwas"
+            ],
+            "correct_answer": "Sa pakikinig at paggalang"
+          },
+          {
+            "question": "Bakit mahalaga ang tuntuning itinatakda ng naglilingkod?",
+            "options": [
+              "Nagpapanatili ng kaayusan at kaligtasan",
+              "Walang kabuluhan",
+              "Hindi kailangang sundin",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan at kaligtasan"
+          },
+          {
+            "question": "Resulta kung walang gumagalang sa naglilingkod?",
+            "options": [
+              "Maaaring magkagulo o manganib",
+              "Walang epekto",
+              "Mas maayos ang lahat",
+              "Walang mangyayari"
+            ],
+            "correct_answer": "Maaaring magkagulo o manganib"
+          },
+          {
+            "question": "Bakit ituro ang pagpapahalaga sa serbisyo mula pagkabata?",
+            "options": [
+              "Maging mabuting mamamayan paglaki",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mabuting mamamayan paglaki"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🚨 Friday Review — Computer (Grade 2)\n\n- Pagkilala at pag-uulat ng hindi ligtas na sitwasyon\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Halimbawa ng hindi ligtas na sitwasyon online?",
+            "options": [
+              "May nagmumura o humihingi ng personal na impormasyon",
+              "May nagbibigay ng aral",
+              "May larawan ng hayop",
+              "May edukasyonal na laro"
+            ],
+            "correct_answer": "May nagmumura o humihingi ng personal na impormasyon"
+          },
+          {
+            "question": "Unang gawin kung may hindi ligtas na mensahe?",
+            "options": [
+              "Huwag sumagot",
+              "Sumagot nang bastos",
+              "Ibahagi ang impormasyon",
+              "Balewalain at ipagpatuloy"
+            ],
+            "correct_answer": "Huwag sumagot"
+          },
+          {
+            "question": "Sino sabihan agad kung may hindi ligtas na nangyari?",
+            "options": [
+              "Magulang o guro",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Gawin kasama ang matanda para maitala ang problema?",
+            "options": [
+              "Mag-screenshot",
+              "Burahin agad",
+              "Ipagpatuloy ang usapan",
+              "Sumagot nang matalim"
+            ],
+            "correct_answer": "Mag-screenshot"
+          },
+          {
+            "question": "Bakit mag-report ng hindi ligtas na sitwasyon?",
+            "options": [
+              "Panatilihing ligtas ang lahat online",
+              "Walang kabuluhan",
+              "Nakakahiya gawin",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Panatilihing ligtas ang lahat online"
+          },
+          {
+            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Huwag ibigay, sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+          },
+          {
+            "question": "Bakit hindi sumagot sa mensaheng nakakatakot?",
+            "options": [
+              "Maaaring lumala ang sitwasyon",
+              "Palaging ligtas sumagot",
+              "Walang panganib",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Maaaring lumala ang sitwasyon"
+          },
+          {
+            "question": "Ano ang gamitin para maitala ang mensahe?",
+            "options": [
+              "Screenshot",
+              "Pagsira sa kompyuter",
+              "Pagtapon ng kompyuter",
+              "Wala"
+            ],
+            "correct_answer": "Screenshot"
+          },
+          {
+            "question": "Bakit mayroong matandang katulong kapag may problema online?",
+            "options": [
+              "Makakatulong lutasin nang ligtas",
+              "Hindi kailangan ng tulong",
+              "Bata na lamang dapat lumutas",
+              "Walang gamit"
+            ],
+            "correct_answer": "Makakatulong lutasin nang ligtas"
+          },
+          {
+            "question": "Mabuting halimbawa ng pag-uulat?",
+            "options": [
+              "Sabihin sa magulang at ipakita ang mensahe",
+              "Itago sa sarili",
+              "Balewalain ang problema",
+              "Idagdag pa ang problema"
+            ],
+            "correct_answer": "Sabihin sa magulang at ipakita ang mensahe"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito sa Grade 2?",
+            "options": [
+              "Malaman paano tumugon sa mapanganib na sitwasyon",
+              "Hindi kailangan ituro",
+              "Hikayatin paggamit online mag-isa",
+              "Walang layunin"
+            ],
+            "correct_answer": "Malaman paano tumugon sa mapanganib na sitwasyon"
+          },
+          {
+            "question": "Pinakamahalagang aral tungkol sa Internet?",
+            "options": [
+              "Humingi ng tulong sa matanda kapag may hindi maganda",
+              "Hindi kailangan ng tulong",
+              "Ligtas ang lahat online",
+              "Hindi mahalaga ang pag-uulat"
+            ],
+            "correct_answer": "Humingi ng tulong sa matanda kapag may hindi maganda"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌳 Friday Review — GMRC (Grade 2)\n\n- Compassion: pangangalaga sa kapaligiran\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Bakit alagaan ang kapaligiran?",
+            "options": [
+              "Nagbibigay ng hangin, tubig, at pagkain",
+              "Walang kahalagahan",
+              "Para lamang maganda tingnan",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay ng hangin, tubig, at pagkain"
+          },
+          {
+            "question": "Halimbawa ng pag-aalaga sa kapaligiran?",
+            "options": [
+              "Itapon ang basura sa tamang lalagyan",
+              "Magtapon kahit saan",
+              "Putulin ang halaman nang walang dahilan",
+              "Aksayahin ang tubig"
+            ],
+            "correct_answer": "Itapon ang basura sa tamang lalagyan"
+          },
+          {
+            "question": "Paano tumulong ang bata kasama ang kaibigan?",
+            "options": [
+              "Pagliligpit ng basura sa paligid",
+              "Pagtapon ng basura sa kalye",
+              "Pagputol ng puno",
+              "Pag-aksaya ng tubig"
+            ],
+            "correct_answer": "Pagliligpit ng basura sa paligid"
+          },
+          {
+            "question": "Bakit iimpok ang tubig at kuryente?",
+            "options": [
+              "Para hindi maubos ang likas na yaman",
+              "Hindi kailangan gawin",
+              "Walang kaugnayan sa kapaligiran",
+              "Para lamang makatipid"
+            ],
+            "correct_answer": "Para hindi maubos ang likas na yaman"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinalakay?",
+            "options": [
+              "Compassion",
+              "Respect",
+              "Loving",
+              "Gratitude"
+            ],
+            "correct_answer": "Compassion"
+          },
+          {
+            "question": "Bakit huwag putulin ang halaman nang walang dahilan?",
+            "options": [
+              "Bahagi ito ng kapaligirang dapat protektahan",
+              "Walang kahalagahan",
+              "Hindi kailangan protektahan",
+              "Puwedeng putulin lahat"
+            ],
+            "correct_answer": "Bahagi ito ng kapaligirang dapat protektahan"
+          },
+          {
+            "question": "Sino dapat tumulong mag-alaga ng kapaligiran?",
+            "options": [
+              "Lahat ng tao, kabilang ang mga bata",
+              "Matatanda lamang",
+              "Guro lamang",
+              "Walang dapat tumulong"
+            ],
+            "correct_answer": "Lahat ng tao, kabilang ang mga bata"
+          },
+          {
+            "question": "Naidudulot ng sama-samang pag-aalaga?",
+            "options": [
+              "Kahabagan at pananagutan",
+              "Wala",
+              "Pagod lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Kahabagan at pananagutan"
+          },
+          {
+            "question": "Bakit compassion ang pagpapahalaga sa kapaligiran sa GMRC?",
+            "options": [
+              "Nagtuturo ng pananagutan sa kinabukasan ng lahat",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng pananagutan sa kinabukasan ng lahat"
+          },
+          {
+            "question": "Mangyayari kung hindi natin aalagaan ang kapaligiran?",
+            "options": [
+              "Maaaring mauubos o masira ang likas na yaman",
+              "Walang mangyayari",
+              "Palaging magiging maganda",
+              "Awtomatiko itong maayos"
+            ],
+            "correct_answer": "Maaaring mauubos o masira ang likas na yaman"
+          },
+          {
+            "question": "Bakit kahabagan ang pag-aalaga sa kapaligiran?",
+            "options": [
+              "Ipinapakita ang pagmamalasakit sa ikabubuti ng lahat",
+              "Walang koneksyon sa kahabagan",
+              "Tungkol lamang sa hayop",
+              "Hindi tunay na pagpapahalaga"
+            ],
+            "correct_answer": "Ipinapakita ang pagmamalasakit sa ikabubuti ng lahat"
+          },
+          {
+            "question": "Bakit simulan ang pag-aalaga sa kapaligiran mula pagkabata?",
+            "options": [
+              "Maging responsableng mamamayan paglaki",
+              "Hindi na kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsableng mamamayan paglaki"
+          }
+        ]
+      }
+    }
+  }
+}

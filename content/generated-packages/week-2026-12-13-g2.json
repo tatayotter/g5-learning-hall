@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-12-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌟 English — Review: Environment Words and Reading Skills\n\nGrade 2, Week 27! Let's review everything before our break! 🌟\n\n## 🔄 Big Ideas from This Term\n- **Weather words:** sunny, rainy, windy, cloudy, dry season, rainy season\n- **Land and water forms:** mountain, hill, valley, river, lake, sea\n- **Plants and animals:** root, stem, leaf, habitat, mammal, bird\n- **Reading skill:** finding the main idea of a passage\n- **Vocabulary skill:** synonyms (words with almost the same meaning)\n\n## 🧠 Putting It All Together\nA good reader uses new vocabulary about our world AND finds the main idea to understand what a passage is really about.\n\n## 🎯 Ready for the Next Term!\nWe'll keep building these reading and vocabulary skills.\n\n**Key words:** weather, landforms, habitat, main idea, synonym",
+        "quiz": [
+          {
+            "question": "What does 'sunny' mean?",
+            "options": [
+              "Bright with lots of sun",
+              "Falling water from clouds",
+              "Strong moving air",
+              "Sky covered with clouds"
+            ],
+            "correct_answer": "Bright with lots of sun"
+          },
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "Very tall, rocky land",
+              "A body of water",
+              "A small flower",
+              "A type of animal"
+            ],
+            "correct_answer": "Very tall, rocky land"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "Flowing fresh water",
+              "A body of water surrounded by land",
+              "The tallest landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "Flowing fresh water"
+          },
+          {
+            "question": "What is a habitat?",
+            "options": [
+              "Where an animal lives",
+              "A type of plant",
+              "A body of water",
+              "A type of rock"
+            ],
+            "correct_answer": "Where an animal lives"
+          },
+          {
+            "question": "What is a synonym?",
+            "options": [
+              "A word that means almost the same thing",
+              "A word that means the opposite",
+              "A type of animal",
+              "A type of plant"
+            ],
+            "correct_answer": "A word that means almost the same thing"
+          },
+          {
+            "question": "What is the main idea of a passage?",
+            "options": [
+              "The most important point it is mostly about",
+              "The very last sentence always",
+              "A random detail",
+              "The title only"
+            ],
+            "correct_answer": "The most important point it is mostly about"
+          },
+          {
+            "question": "What does a root do for a plant?",
+            "options": [
+              "Absorbs water underground",
+              "Makes food using sunlight",
+              "Flies in the sky",
+              "Lives in water"
+            ],
+            "correct_answer": "Absorbs water underground"
+          },
+          {
+            "question": "What are the two Philippine seasons?",
+            "options": [
+              "Dry season and rainy season",
+              "Spring and fall",
+              "Summer and winter",
+              "Morning and night"
+            ],
+            "correct_answer": "Dry season and rainy season"
+          },
+          {
+            "question": "What is a mammal?",
+            "options": [
+              "An animal with fur that feeds milk to its babies",
+              "An animal with feathers",
+              "A type of plant",
+              "A type of rock"
+            ],
+            "correct_answer": "An animal with fur that feeds milk to its babies"
+          },
+          {
+            "question": "Why is finding the main idea a useful reading skill?",
+            "options": [
+              "It helps you understand what a passage is really about",
+              "It has no real use",
+              "It replaces the need to read",
+              "It only matters for spelling"
+            ],
+            "correct_answer": "It helps you understand what a passage is really about"
+          },
+          {
+            "question": "Synonym for 'happy'?",
+            "options": [
+              "Glad",
+              "Sad",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Glad"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "Water surrounded by land",
+              "Flowing fresh water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "Water surrounded by land"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Review: Multiplication, Division, Fractions, and Time\n\nGrade 2, Week 27! Let's review our math skills from this term! 🔢\n\n## 🔄 What We Learned\n- **Multiplication:** 2s and 3s tables\n- **Division:** sharing equally with 2, 5, and 10\n- **Fractions:** halves, thirds, fourths\n- **Time:** hour hand, minute hand, A.M./P.M.\n\n## 🧮 Practice Problems\n- 2 × 4 = **8**\n- 10 ÷ 2 = **5**\n- 1/2 of a pizza cut into 2 equal parts\n- 3:00 means the hour hand is on 3 and the minute hand is on 12\n\n## 🎯 Ready for More!\nWe'll keep building on multiplication, division, fractions, and time in the next term.\n\n**Key words:** multiply, divide, fraction, time, review",
+        "quiz": [
+          {
+            "question": "What is 2 × 4?",
+            "options": [
+              "8",
+              "6",
+              "10",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 10 ÷ 2?",
+            "options": [
+              "5",
+              "8",
+              "12",
+              "2"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a fraction?",
+            "options": [
+              "A part of a whole",
+              "A whole number only",
+              "A shape",
+              "A large number"
+            ],
+            "correct_answer": "A part of a whole"
+          },
+          {
+            "question": "What does 1/2 mean?",
+            "options": [
+              "One out of two equal parts",
+              "Two out of one part",
+              "One whole",
+              "Two wholes"
+            ],
+            "correct_answer": "One out of two equal parts"
+          },
+          {
+            "question": "What is the hour hand?",
+            "options": [
+              "The shorter hand pointing to the hour",
+              "The longer hand pointing to minutes",
+              "A hand that doesn't move",
+              "The date on the clock"
+            ],
+            "correct_answer": "The shorter hand pointing to the hour"
+          },
+          {
+            "question": "What is 3 × 3?",
+            "options": [
+              "9",
+              "6",
+              "12",
+              "3"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What is 20 ÷ 10?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "200"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What does A.M. mean?",
+            "options": [
+              "Midnight to before noon",
+              "Noon to before midnight",
+              "Only nighttime",
+              "Only weekends"
+            ],
+            "correct_answer": "Midnight to before noon"
+          },
+          {
+            "question": "If a candy costs ₱5, how much do 2 candies cost?",
+            "options": [
+              "₱10",
+              "₱5",
+              "₱15",
+              "₱7"
+            ],
+            "correct_answer": "₱10"
+          },
+          {
+            "question": "Which is bigger: 1/2 or 1/4?",
+            "options": [
+              "1/2",
+              "1/4",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "If ₱20 is shared equally among 4 friends, how much does each get?",
+            "options": [
+              "₱5",
+              "₱4",
+              "₱20",
+              "₱80"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "What time is it when both clock hands point to 12?",
+            "options": [
+              "12:00",
+              "6:00",
+              "3:00",
+              "9:00"
+            ],
+            "correct_answer": "12:00"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📝 Filipino — Pagbabalik-Aral: Bagong Talasalitaan at Gramatika\n\nGrade 2, Linggo 27! Balikan natin ang natutuhan ngayong term. 📝\n\n## 🔄 Mga Natutunan\n- **Panahon:** maaraw, maulan, mahangin, maulap, tag-init, tag-ulan\n- **Anyong-lupa at anyong-tubig:** bundok, burol, lambak, ilog, lawa, dagat\n- **Hayop at halaman:** ugat, tangkay, dahon, tirahan, mammal\n- **Gramatika:** simuno at panaguri\n\n## 🧠 Pagsasama-sama\nGinagamit natin ang bagong talasalitaan upang mas mahusay na maipahayag ang ating mga saloobin, at ang simuno-panaguri upang bumuo ng malinaw na pangungusap.\n\n## 🎯 Paghahanda\nGagamitin natin ang mga kasanayang ito sa mas kumplikadong pagbasa at pagsulat sa susunod na term.\n\n**Mahahalagang salita:** talasalitaan, simuno, panaguri, panahon",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mainit at bihirang umulan na panahon",
+              "Malamig na panahon",
+              "Panahon ng niyebe",
+              "Panahon ng bulaklak"
+            ],
+            "correct_answer": "Mainit at bihirang umulan na panahon"
+          },
+          {
+            "question": "Ano ang bundok?",
+            "options": [
+              "Napakataas na lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Uri ng halaman",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Napakataas na lupa"
+          },
+          {
+            "question": "Ano ang ilog?",
+            "options": [
+              "Umaagos na tubig-tabang",
+              "Tubig na napapaligiran ng lupa",
+              "Napakataas na lupa",
+              "Malawak na tubig-alat"
+            ],
+            "correct_answer": "Umaagos na tubig-tabang"
+          },
+          {
+            "question": "Ano ang ginagawa ng ugat?",
+            "options": [
+              "Sumisipsip ng tubig sa lupa",
+              "Gumagawa ng pagkain",
+              "Sumusuporta sa halaman",
+              "Nagbibigay ng bulaklak lamang"
+            ],
+            "correct_answer": "Sumisipsip ng tubig sa lupa"
+          },
+          {
+            "question": "Ano ang simuno?",
+            "options": [
+              "Bahaging nagsasabi kung sino o ano ang pinag-uusapan",
+              "Bahaging nagsasabi ng kilos",
+              "Katapusan ng pangungusap",
+              "Unang salita lamang"
+            ],
+            "correct_answer": "Bahaging nagsasabi kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Ano ang panaguri?",
+            "options": [
+              "Bahaging nagsasabi ng kilos o katangian",
+              "Bahaging nagsasabi ng simuno",
+              "Unang salita",
+              "Bantas sa pangungusap"
+            ],
+            "correct_answer": "Bahaging nagsasabi ng kilos o katangian"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang simuno?",
+            "options": [
+              "Ang aso",
+              "Tumatakbo",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang aso"
+          },
+          {
+            "question": "Ano ang mammal?",
+            "options": [
+              "Hayop na may balahibo, nagpapasuso sa anak",
+              "Hayop na may pluma",
+              "Uri ng halaman",
+              "Uri ng bato"
+            ],
+            "correct_answer": "Hayop na may balahibo, nagpapasuso sa anak"
+          },
+          {
+            "question": "Ilan ang panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang magkasingkahulugan?",
+            "options": [
+              "Mga salitang magkatulad ang kahulugan",
+              "Mga salitang magkasalungat",
+              "Mga salitang walang kahulugan",
+              "Mga salitang tungkol sa hayop lamang"
+            ],
+            "correct_answer": "Mga salitang magkatulad ang kahulugan"
+          },
+          {
+            "question": "Ano ang dagat?",
+            "options": [
+              "Malawak na tubig-alat",
+              "Munting batis",
+              "Napakataas na bundok",
+              "Patag na lupa"
+            ],
+            "correct_answer": "Malawak na tubig-alat"
+          },
+          {
+            "question": "Dalawang pangunahing bahagi ng pangungusap?",
+            "options": [
+              "Simuno at panaguri",
+              "Simuno at bantas",
+              "Panaguri at titik",
+              "Titik at pantig"
+            ],
+            "correct_answer": "Simuno at panaguri"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Review: Weather, Matter, and Forces\n\nGrade 2, Linggo 27! Balikan natin ang natutuhan sa Agham. 🔬\n\n## 🔄 Mga Natutunan\n- **Panahon:** kasangkapan sa panukat (thermometer, rain gauge, wind vane), dalawang panahon, epekto sa buhay\n- **Bagay (Matter):** solid, liquid, gas; melting, evaporation\n- **Puwersa:** push at pull; simple machines (lever, wheel-and-axle)\n\n## 🧠 Pagsasama-sama\nAng lahat ng ito ay bahagi ng ating **physical environment** — natutunan nating unawain ang panahon, ang mga bagay sa paligid natin, at kung paano gumagalaw ang mga bagay.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang tungkol sa langit at ang pag-aalaga sa kapaligiran.\n\n**Mahahalagang salita:** panahon, bagay, puwersa, simple machine",
+        "quiz": [
+          {
+            "question": "Anong tool ang sumusukat ng init?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Ruler"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Maraming ulan, mas mababang temperatura",
+              "Laging mainit",
+              "Walang ulan",
+              "May niyebe"
+            ],
+            "correct_answer": "Maraming ulan, mas mababang temperatura"
+          },
+          {
+            "question": "Ano ang solid?",
+            "options": [
+              "Bagay na may fixed shape",
+              "Bagay na kumukuha ng anyo ng lalagyan",
+              "Bagay na kumakalat sa espasyo",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Bagay na may fixed shape"
+          },
+          {
+            "question": "Ano ang melting?",
+            "options": [
+              "Solid na nagiging liquid",
+              "Liquid na nagiging gas",
+              "Gas na nagiging solid",
+              "Walang pagbabago"
+            ],
+            "correct_answer": "Solid na nagiging liquid"
+          },
+          {
+            "question": "Ano ang push?",
+            "options": [
+              "Puwersang gumagalaw palayo sa iyo",
+              "Puwersang gumagalaw papunta sa iyo",
+              "Uri ng likido",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Puwersang gumagalaw palayo sa iyo"
+          },
+          {
+            "question": "Ano ang lever?",
+            "options": [
+              "Bar na tumutulong mag-angat gamit ang fixed point",
+              "Bilog na gulong lamang",
+              "Uri ng likido",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Bar na tumutulong mag-angat gamit ang fixed point"
+          },
+          {
+            "question": "Ano ang tawag sa fixed point ng lever?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Wheel",
+              "Handle"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "Halimbawa ng gas?",
+            "options": [
+              "Hangin",
+              "Bato",
+              "Tubig",
+              "Mesa"
+            ],
+            "correct_answer": "Hangin"
+          },
+          {
+            "question": "Ano ang wheel-and-axle?",
+            "options": [
+              "Gulong na nakakabit sa rod, magkasamang umiikot",
+              "Bar na may fixed point",
+              "Uri ng likido",
+              "Patag na ibabaw"
+            ],
+            "correct_answer": "Gulong na nakakabit sa rod, magkasamang umiikot"
+          },
+          {
+            "question": "Bakit mahalagang unawain ang panahon?",
+            "options": [
+              "Tumutulong sa paghahanda at pagpapasya",
+              "Walang kabuluhan",
+              "Para lamang libangin",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa paghahanda at pagpapasya"
+          },
+          {
+            "question": "Ano ang evaporation?",
+            "options": [
+              "Liquid na nagiging gas",
+              "Solid na nagiging liquid",
+              "Gas na nagiging solid",
+              "Walang pagbabago"
+            ],
+            "correct_answer": "Liquid na nagiging gas"
+          },
+          {
+            "question": "Bakit gumagamit ng simple machine?",
+            "options": [
+              "Ginagawang mas madali ang trabaho",
+              "Ginagawang mas mahirap ang trabaho",
+              "Walang layunin",
+              "Para lang gawing maganda ang bahay"
+            ],
+            "correct_answer": "Ginagawang mas madali ang trabaho"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Pagbabalik-Aral: Kabuhayan at Serbisyo\n\nGrade 2, Linggo 27! Balikan natin ang natutuhan tungkol sa kabuhayan at pamumuhay. 🏘️\n\n## 🔄 Mga Natutunan\n- **Uri ng kabuhayan:** agrikultural, industriyal, pampinansyal, panserbisyo\n- **Serbisyong pangkomunidad:** pulisya, bumbero, ospital, paaralan\n- **Pagpapahalaga sa naglilingkod**\n- **Pakikipagkapuwa at pakikibahagi**\n\n## 🧠 Pagsasama-sama\nAng iba't ibang uri ng kabuhayan at serbisyo ay bumubuo ng isang **buo at umuunlad na komunidad**, at dapat nating pahalagahan ang mga tumutulong sa atin.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang tungkol sa mas malawak na pakikipag-ugnayan sa komunidad.\n\n**Mahahalagang salita:** kabuhayan, serbisyo, pagpapahalaga, komunidad",
+        "quiz": [
+          {
+            "question": "Ano ang agrikultural na kabuhayan?",
+            "options": [
+              "Pagsasaka o pagtatanim",
+              "Paggawa sa pabrika",
+              "Pagtitinda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Pagsasaka o pagtatanim"
+          },
+          {
+            "question": "Ano ang industriyal na kabuhayan?",
+            "options": [
+              "Paggawa o pagpapatakbo ng pabrika",
+              "Pagsasaka",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa o pagpapatakbo ng pabrika"
+          },
+          {
+            "question": "Ano ang pampinansyal na kabuhayan?",
+            "options": [
+              "May kinalaman sa pera, tulad ng sa bangko",
+              "Pagsasaka",
+              "Paggawa sa pabrika",
+              "Pangingisda"
+            ],
+            "correct_answer": "May kinalaman sa pera, tulad ng sa bangko"
+          },
+          {
+            "question": "Ano ang ginagawa ng pulisya?",
+            "options": [
+              "Nagpapanatili ng kaayusan at kaligtasan",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagtuturo sa mga bata"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ano ang ginagawa ng bumbero?",
+            "options": [
+              "Pumapatay ng sunog",
+              "Nagtuturo sa paaralan",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Pumapatay ng sunog"
+          },
+          {
+            "question": "Bakit dapat pahalagahan ang mga naglilingkod?",
+            "options": [
+              "Nagbibigay sila ng oras at kakayahan para tumulong",
+              "Wala silang ginagawa",
+              "Sila lamang ang mahalaga",
+              "Hindi sila kailangan"
+            ],
+            "correct_answer": "Nagbibigay sila ng oras at kakayahan para tumulong"
+          },
+          {
+            "question": "Ano ang pakikipagkapuwa?",
+            "options": [
+              "Pakikitungo nang mabuti at may pag-unawa sa ibang tao",
+              "Pag-iwas sa ibang tao",
+              "Pagiging bastos sa iba",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pakikitungo nang mabuti at may pag-unawa sa ibang tao"
+          },
+          {
+            "question": "Ano ang pakikibahagi?",
+            "options": [
+              "Pagiging bahagi ng gawain o pagdiriwang kasama ang iba",
+              "Pag-iwas sa mga gawain ng komunidad",
+              "Pagtanggi sa lahat ng aktibidad",
+              "Kawalang interes sa iba"
+            ],
+            "correct_answer": "Pagiging bahagi ng gawain o pagdiriwang kasama ang iba"
+          },
+          {
+            "question": "Ano ang ginagawa ng panserbisyo na kabuhayan?",
+            "options": [
+              "Pagbibigay ng tulong o serbisyo sa iba",
+              "Pagtatanim ng gulay",
+              "Paggawa ng damit sa pabrika",
+              "Pangingisda sa dagat"
+            ],
+            "correct_answer": "Pagbibigay ng tulong o serbisyo sa iba"
+          },
+          {
+            "question": "Bakit mahalaga ang bawat uri ng kabuhayan?",
+            "options": [
+              "Iba't ibang pangangailangan ang tinutugunan ng bawat isa",
+              "Isang uri lamang ang kailangan",
+              "Walang dahilan sa pagkakaiba",
+              "Hindi mahalaga ang kabuhayan"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan ang tinutugunan ng bawat isa"
+          },
+          {
+            "question": "Bakit mahalaga ang mga serbisyong pangkomunidad?",
+            "options": [
+              "Tumutulong ito upang maging maayos ang pamumuhay ng mga tao",
+              "Wala itong kahalagahan",
+              "Para lamang sa mayaman",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Tumutulong ito upang maging maayos ang pamumuhay ng mga tao"
+          },
+          {
+            "question": "Bakit bumubuo ng buong komunidad ang iba't ibang kabuhayan at serbisyo?",
+            "options": [
+              "Nagtutulungan sila para matugunan ang lahat ng pangangailangan",
+              "Isang uri lamang ang kailangan sa komunidad",
+              "Walang kaugnayan sa isa't isa",
+              "Hindi nakakatulong sa komunidad"
+            ],
+            "correct_answer": "Nagtutulungan sila para matugunan ang lahat ng pangangailangan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Pagbabalik-Aral: Buong Term sa Computer\n\nGrade 2, Week 27! Balikan natin ang lahat ng natutuhan sa Computer. 💻\n\n## 🔄 Mga Natutunan\n- **Keyboard at pag-type** ng simpleng pangungusap\n- **Pag-save at pagbukas** ng file\n- **Internet:** ano ito, kid-friendly na nilalaman\n- **Screen-time:** balanse at pahintulot ng matanda\n- **Online safety:** pribadong impormasyon, pag-uulat ng hindi ligtas na sitwasyon\n\n## 🧠 Pagsasama-sama\nGinamit natin ang lahat ng ito sa isang simpleng proyekto — pagpapakita kung gaano na tayo kahusay sa paggamit ng kompyuter nang ligtas at responsable.\n\n## 🎯 Paghahanda\nSa susunod na term, patuloy nating linangin ang ligtas at malikhaing paggamit ng teknolohiya.\n\n**Mahahalagang salita:** keyboard, file, Internet, screen-time, online safety",
+        "quiz": [
+          {
+            "question": "Ano ang ginagamit para i-type ang mga salita?",
+            "options": [
+              "Keyboard",
+              "Mouse lamang",
+              "Screen lamang",
+              "Speaker"
+            ],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "Ano ang pag-save?",
+            "options": [
+              "Pagtatago ng trabaho para hindi mawala",
+              "Pagtapon ng trabaho",
+              "Pagpapalit ng kompyuter",
+              "Pagpindot ng mouse"
+            ],
+            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+          },
+          {
+            "question": "Ano ang Internet?",
+            "options": [
+              "Network na nagkokonekta ng kompyuter sa buong mundo",
+              "Uri ng laruan",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+          },
+          {
+            "question": "Ano ang screen-time?",
+            "options": [
+              "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono",
+              "Oras ng pagtulog",
+              "Oras ng pagkain",
+              "Oras ng paglalaro sa labas"
+            ],
+            "correct_answer": "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono"
+          },
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Gawin kung may hindi ligtas na nangyari online?",
+            "options": [
+              "Sabihin agad sa isang matanda",
+              "Itago na lamang ito",
+              "Balewalain ito",
+              "Sabihin lamang sa kaibigan"
+            ],
+            "correct_answer": "Sabihin agad sa isang matanda"
+          },
+          {
+            "question": "Sino dapat kasama kapag nagse-save ng file?",
+            "options": [
+              "Isang may sapat na gulang na matanda",
+              "Walang sinuman",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Isang may sapat na gulang na matanda"
+          },
+          {
+            "question": "Bakit hindi lahat ng nasa Internet ay angkop para sa mga bata?",
+            "options": [
+              "May ilang nilalaman na para lamang sa matatanda o mapanganib",
+              "Lahat ay ligtas para sa bata",
+              "Walang mapanganib na nilalaman",
+              "Hindi totoo ito"
+            ],
+            "correct_answer": "May ilang nilalaman na para lamang sa matatanda o mapanganib"
+          },
+          {
+            "question": "Bakit kailangang limitahan ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at katawan",
+              "Walang dahilan",
+              "Palaging mabuti ang mahabang screen-time",
+              "Hindi na kailangan limitahan"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at katawan"
+          },
+          {
+            "question": "Ano ang unang gawin kung may hindi ligtas na mensahe?",
+            "options": [
+              "Huwag sumagot",
+              "Sumagot nang bastos",
+              "Ibahagi ang personal na impormasyon",
+              "Balewalain at ipagpatuloy ang pag-uusap"
+            ],
+            "correct_answer": "Huwag sumagot"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa Internet sa buong term?",
+            "options": [
+              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
+              "Gamitin nang mag-isa kahit kailan",
+              "Hindi na kailangan pag-ingatan",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+          },
+          {
+            "question": "Bakit itinuro ang lahat ng kasanayang ito sa Grade 2?",
+            "options": [
+              "Batayang kasanayan sa ligtas at responsableng paggamit ng kompyuter",
+              "Hindi kailangan matutunan ang mga ito",
+              "Para lamang sa matatanda",
+              "Walang gamit sa paaralan"
+            ],
+            "correct_answer": "Batayang kasanayan sa ligtas at responsableng paggamit ng kompyuter"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🌟 GMRC — Pagbabalik-Aral: Pakikitungo sa Kapuwa\n\nGrade 2, Linggo 27! Balikan natin ang mga pagpapahalagang natutunan ngayong term. 🌟\n\n## 🔄 Mga Natutunan\n- **Hospitality** (pagtanggap sa bisita)\n- **Loving** (paggawa ng kabutihan)\n- **Gratitude** (pagkilala sa kabutihan ng iba)\n- **Respect** (paggalang sa relihiyon ng iba)\n- **Compassion** (pangangalaga sa kapaligiran)\n- **Helpful** (bayanihan sa pamayanan)\n\n## 🧠 Pagsasama-sama\nAng lahat ng pagpapahalagang ito ay may iisang tema — **mabuting pakikitungo sa kapuwa**, kahit sa maliliit na paraan tulad ng pagsasabing salamat o pagtulong sa kapitbahay.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang mas malalim na pakikibahagi sa komunidad.\n\n**Mahahalagang salita:** hospitality, loving, gratitude, respect, compassion, helpful",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Pagiging mabait at magiliw sa bisita",
+              "Pagiging bastos sa bisita",
+              "Pag-iwas sa bisita",
+              "Pagtulog habang may bisita"
+            ],
+            "correct_answer": "Pagiging mabait at magiliw sa bisita"
+          },
+          {
+            "question": "Ano ang loving?",
+            "options": [
+              "Pagpapakita ng pagmamalasakit at kabaitan sa iba",
+              "Pagiging bastos sa iba",
+              "Pag-iwas sa kapwa",
+              "Pagsasarili nang walang tulong"
+            ],
+            "correct_answer": "Pagpapakita ng pagmamalasakit at kabaitan sa iba"
+          },
+          {
+            "question": "Ano ang gratitude?",
+            "options": [
+              "Pagsasabing salamat kapag may gumawa ng mabuti",
+              "Pagsasabing hindi na kailangan ng tulong",
+              "Pag-iwas sa taong tumulong",
+              "Pagkalimot sa tulong na natanggap"
+            ],
+            "correct_answer": "Pagsasabing salamat kapag may gumawa ng mabuti"
+          },
+          {
+            "question": "Ano ang respect sa relihiyon ng iba?",
+            "options": [
+              "Pagkilala sa karapatan ng bawat tao sa kanilang paniniwala",
+              "Pagkutya sa paniniwala ng iba",
+              "Pag-iwas sa lahat ng may ibang relihiyon",
+              "Kawalan ng pakialam"
+            ],
+            "correct_answer": "Pagkilala sa karapatan ng bawat tao sa kanilang paniniwala"
+          },
+          {
+            "question": "Ano ang compassion sa kapaligiran?",
+            "options": [
+              "Pangangalaga sa kapaligiran gamit ang pagmamalasakit",
+              "Pagsira sa kapaligiran",
+              "Kawalang pakialam sa kalikasan",
+              "Pag-aksaya ng likas na yaman"
+            ],
+            "correct_answer": "Pangangalaga sa kapaligiran gamit ang pagmamalasakit"
+          },
+          {
+            "question": "Ano ang helpful sa bayanihan?",
+            "options": [
+              "Pagtutulungan para sa kapakanan ng lahat",
+              "Pag-iwas sa pagtulong",
+              "Pagsasarili nang walang tulong",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan para sa kapakanan ng lahat"
+          },
+          {
+            "question": "Anong tema ang nag-uugnay sa lahat ng pagpapahalagang natutunan?",
+            "options": [
+              "Mabuting pakikitungo sa kapuwa",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Mabuting pakikitungo sa kapuwa"
+          },
+          {
+            "question": "Anong halimbawa ng maliit na kabutihan araw-araw?",
+            "options": [
+              "Pagsasabing salamat",
+              "Pagsigaw sa iba",
+              "Pagkutya sa kaklase",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Pagsasabing salamat"
+          },
+          {
+            "question": "Bakit mahalagang linangin ang mga pagpapahalagang ito?",
+            "options": [
+              "Upang maging mabuting mamamayan at kaibigan",
+              "Hindi na kailangan linangin",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging mabuting mamamayan at kaibigan"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagpapahalaga sa kapuwa sa isang komunidad?",
+            "options": [
+              "Mas mapayapa at magkakaisang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi na kailangan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapa at magkakaisang komunidad"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang pasasalamat sa mga tumulong sa atin?",
+            "options": [
+              "Nagpapatibay ito ng magandang ugnayan",
+              "Wala itong kahalagahan",
+              "Nakakahiya itong gawin",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Nagpapatibay ito ng magandang ugnayan"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral ng GMRC ngayong term?",
+            "options": [
+              "Ang pagmamalasakit sa iba ay ipinapakita sa maraming paraan",
+              "Walang aral na natutunan",
+              "Ang GMRC ay tungkol lamang sa agham",
+              "Ang GMRC ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Ang pagmamalasakit sa iba ay ipinapakita sa maraming paraan"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌟 Friday Review — English (Grade 2)\n\n- Term 2 wrap-up: weather, landforms, animals, main idea\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "What does 'sunny' mean?",
+            "options": [
+              "Bright with lots of sun",
+              "Falling water",
+              "Strong moving air",
+              "Sky covered with clouds"
+            ],
+            "correct_answer": "Bright with lots of sun"
+          },
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "Very tall, rocky land",
+              "A body of water",
+              "A small flower",
+              "A type of animal"
+            ],
+            "correct_answer": "Very tall, rocky land"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "Flowing fresh water",
+              "A body of water surrounded by land",
+              "The tallest landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "Flowing fresh water"
+          },
+          {
+            "question": "What is a habitat?",
+            "options": [
+              "Where an animal lives",
+              "A type of plant",
+              "A body of water",
+              "A type of rock"
+            ],
+            "correct_answer": "Where an animal lives"
+          },
+          {
+            "question": "What is a synonym?",
+            "options": [
+              "A word that means almost the same thing",
+              "A word that means the opposite",
+              "A type of animal",
+              "A type of plant"
+            ],
+            "correct_answer": "A word that means almost the same thing"
+          },
+          {
+            "question": "What is the main idea of a passage?",
+            "options": [
+              "The most important point it is mostly about",
+              "The very last sentence",
+              "A random detail",
+              "The title only"
+            ],
+            "correct_answer": "The most important point it is mostly about"
+          },
+          {
+            "question": "What does a root do?",
+            "options": [
+              "Absorbs water underground",
+              "Makes food using sunlight",
+              "Flies in the sky",
+              "Lives in water"
+            ],
+            "correct_answer": "Absorbs water underground"
+          },
+          {
+            "question": "Philippine seasons?",
+            "options": [
+              "Dry season and rainy season",
+              "Spring and fall",
+              "Summer and winter",
+              "Morning and night"
+            ],
+            "correct_answer": "Dry season and rainy season"
+          },
+          {
+            "question": "What is a mammal?",
+            "options": [
+              "An animal with fur that feeds milk to babies",
+              "An animal with feathers",
+              "A type of plant",
+              "A type of rock"
+            ],
+            "correct_answer": "An animal with fur that feeds milk to babies"
+          },
+          {
+            "question": "Why find the main idea?",
+            "options": [
+              "Helps understand what a passage is really about",
+              "No real use",
+              "Replaces reading",
+              "Only for spelling"
+            ],
+            "correct_answer": "Helps understand what a passage is really about"
+          },
+          {
+            "question": "Synonym for 'happy'?",
+            "options": [
+              "Glad",
+              "Sad",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Glad"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "Water surrounded by land",
+              "Flowing fresh water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "Water surrounded by land"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 2)\n\n- Term 2 wrap-up: multiplication, division, fractions, time\n\nGreat term of math! ⭐",
+        "quiz": [
+          {
+            "question": "What is 2 × 4?",
+            "options": [
+              "8",
+              "6",
+              "10",
+              "9"
+            ],
+            "correct_answer": "8"
+          },
+          {
+            "question": "What is 10 ÷ 2?",
+            "options": [
+              "5",
+              "8",
+              "12",
+              "2"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "What is a fraction?",
+            "options": [
+              "A part of a whole",
+              "A whole number only",
+              "A shape",
+              "A large number"
+            ],
+            "correct_answer": "A part of a whole"
+          },
+          {
+            "question": "What does 1/2 mean?",
+            "options": [
+              "One out of two equal parts",
+              "Two out of one part",
+              "One whole",
+              "Two wholes"
+            ],
+            "correct_answer": "One out of two equal parts"
+          },
+          {
+            "question": "What is the hour hand?",
+            "options": [
+              "The shorter hand pointing to the hour",
+              "The longer hand pointing to minutes",
+              "A hand that doesn't move",
+              "The date"
+            ],
+            "correct_answer": "The shorter hand pointing to the hour"
+          },
+          {
+            "question": "What is 3 × 3?",
+            "options": [
+              "9",
+              "6",
+              "12",
+              "3"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "What is 20 ÷ 10?",
+            "options": [
+              "2",
+              "10",
+              "20",
+              "200"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What does A.M. mean?",
+            "options": [
+              "Midnight to before noon",
+              "Noon to before midnight",
+              "Only nighttime",
+              "Only weekends"
+            ],
+            "correct_answer": "Midnight to before noon"
+          },
+          {
+            "question": "A candy costs ₱5. How much do 2 cost?",
+            "options": [
+              "₱10",
+              "₱5",
+              "₱15",
+              "₱7"
+            ],
+            "correct_answer": "₱10"
+          },
+          {
+            "question": "Which is bigger: 1/2 or 1/4?",
+            "options": [
+              "1/2",
+              "1/4",
+              "Equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "₱20 shared among 4 friends: how much each?",
+            "options": [
+              "₱5",
+              "₱4",
+              "₱20",
+              "₱80"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "Time when both hands point to 12?",
+            "options": [
+              "12:00",
+              "6:00",
+              "3:00",
+              "9:00"
+            ],
+            "correct_answer": "12:00"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📝 Friday Review — Filipino (Grade 2)\n\n- Term 2 wrap-up: talasalitaan at gramatika\n\nMagaling na term sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tag-init?",
+            "options": [
+              "Mainit at bihirang umulan",
+              "Malamig na panahon",
+              "Panahon ng niyebe",
+              "Panahon ng bulaklak"
+            ],
+            "correct_answer": "Mainit at bihirang umulan"
+          },
+          {
+            "question": "Ano ang bundok?",
+            "options": [
+              "Napakataas na lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Uri ng halaman",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Napakataas na lupa"
+          },
+          {
+            "question": "Ano ang ilog?",
+            "options": [
+              "Umaagos na tubig-tabang",
+              "Tubig na napapaligiran ng lupa",
+              "Napakataas na lupa",
+              "Malawak na tubig-alat"
+            ],
+            "correct_answer": "Umaagos na tubig-tabang"
+          },
+          {
+            "question": "Ano ang ginagawa ng ugat?",
+            "options": [
+              "Sumisipsip ng tubig sa lupa",
+              "Gumagawa ng pagkain",
+              "Sumusuporta sa halaman",
+              "Nagbibigay ng bulaklak"
+            ],
+            "correct_answer": "Sumisipsip ng tubig sa lupa"
+          },
+          {
+            "question": "Ano ang simuno?",
+            "options": [
+              "Bahaging nagsasabi kung sino o ano ang pinag-uusapan",
+              "Bahaging nagsasabi ng kilos",
+              "Katapusan ng pangungusap",
+              "Unang salita lamang"
+            ],
+            "correct_answer": "Bahaging nagsasabi kung sino o ano ang pinag-uusapan"
+          },
+          {
+            "question": "Ano ang panaguri?",
+            "options": [
+              "Bahaging nagsasabi ng kilos o katangian",
+              "Bahaging nagsasabi ng simuno",
+              "Unang salita",
+              "Bantas sa pangungusap"
+            ],
+            "correct_answer": "Bahaging nagsasabi ng kilos o katangian"
+          },
+          {
+            "question": "Sa 'Ang aso ay tumatakbo,' ano ang simuno?",
+            "options": [
+              "Ang aso",
+              "Tumatakbo",
+              "Ay",
+              "Wala"
+            ],
+            "correct_answer": "Ang aso"
+          },
+          {
+            "question": "Ano ang mammal?",
+            "options": [
+              "May balahibo, nagpapasuso sa anak",
+              "May pluma",
+              "Uri ng halaman",
+              "Uri ng bato"
+            ],
+            "correct_answer": "May balahibo, nagpapasuso sa anak"
+          },
+          {
+            "question": "Ilan ang panahon sa Pilipinas?",
+            "options": [
+              "Dalawa",
+              "Apat",
+              "Isa",
+              "Anim"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Ano ang magkasingkahulugan?",
+            "options": [
+              "Magkatulad ang kahulugan",
+              "Magkasalungat",
+              "Walang kahulugan",
+              "Tungkol sa hayop lamang"
+            ],
+            "correct_answer": "Magkatulad ang kahulugan"
+          },
+          {
+            "question": "Ano ang dagat?",
+            "options": [
+              "Malawak na tubig-alat",
+              "Munting batis",
+              "Napakataas na bundok",
+              "Patag na lupa"
+            ],
+            "correct_answer": "Malawak na tubig-alat"
+          },
+          {
+            "question": "Dalawang pangunahing bahagi ng pangungusap?",
+            "options": [
+              "Simuno at panaguri",
+              "Simuno at bantas",
+              "Panaguri at titik",
+              "Titik at pantig"
+            ],
+            "correct_answer": "Simuno at panaguri"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 2)\n\n- Term 2 wrap-up: weather, matter, forces\n\nGreat term of Science! 🌟",
+        "quiz": [
+          {
+            "question": "Anong tool sumusukat ng init?",
+            "options": [
+              "Thermometer",
+              "Rain gauge",
+              "Wind vane",
+              "Ruler"
+            ],
+            "correct_answer": "Thermometer"
+          },
+          {
+            "question": "Ano ang tag-ulan?",
+            "options": [
+              "Maraming ulan, mas mababang temperatura",
+              "Laging mainit",
+              "Walang ulan",
+              "May niyebe"
+            ],
+            "correct_answer": "Maraming ulan, mas mababang temperatura"
+          },
+          {
+            "question": "Ano ang solid?",
+            "options": [
+              "Bagay na may fixed shape",
+              "Bagay na kumukuha ng anyo ng lalagyan",
+              "Bagay na kumakalat sa espasyo",
+              "Wala"
+            ],
+            "correct_answer": "Bagay na may fixed shape"
+          },
+          {
+            "question": "Ano ang melting?",
+            "options": [
+              "Solid na nagiging liquid",
+              "Liquid na nagiging gas",
+              "Gas na nagiging solid",
+              "Walang pagbabago"
+            ],
+            "correct_answer": "Solid na nagiging liquid"
+          },
+          {
+            "question": "Ano ang push?",
+            "options": [
+              "Puwersang gumagalaw palayo sa iyo",
+              "Puwersang papunta sa iyo",
+              "Uri ng likido",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Puwersang gumagalaw palayo sa iyo"
+          },
+          {
+            "question": "Ano ang lever?",
+            "options": [
+              "Bar na tumutulong mag-angat gamit ang fixed point",
+              "Bilog na gulong lamang",
+              "Uri ng likido",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Bar na tumutulong mag-angat gamit ang fixed point"
+          },
+          {
+            "question": "Tawag sa fixed point ng lever?",
+            "options": [
+              "Fulcrum",
+              "Axle",
+              "Wheel",
+              "Handle"
+            ],
+            "correct_answer": "Fulcrum"
+          },
+          {
+            "question": "Halimbawa ng gas?",
+            "options": [
+              "Hangin",
+              "Bato",
+              "Tubig",
+              "Mesa"
+            ],
+            "correct_answer": "Hangin"
+          },
+          {
+            "question": "Ano ang wheel-and-axle?",
+            "options": [
+              "Gulong na nakakabit sa rod",
+              "Bar na may fixed point",
+              "Uri ng likido",
+              "Patag na ibabaw"
+            ],
+            "correct_answer": "Gulong na nakakabit sa rod"
+          },
+          {
+            "question": "Bakit mahalaga ang panahon?",
+            "options": [
+              "Tumutulong sa paghahanda",
+              "Walang kabuluhan",
+              "Para lamang libangin",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa paghahanda"
+          },
+          {
+            "question": "Ano ang evaporation?",
+            "options": [
+              "Liquid na nagiging gas",
+              "Solid na nagiging liquid",
+              "Gas na nagiging solid",
+              "Walang pagbabago"
+            ],
+            "correct_answer": "Liquid na nagiging gas"
+          },
+          {
+            "question": "Bakit gumagamit ng simple machine?",
+            "options": [
+              "Ginagawang mas madali ang trabaho",
+              "Mas mahirap ang trabaho",
+              "Walang layunin",
+              "Gawing maganda ang bahay"
+            ],
+            "correct_answer": "Ginagawang mas madali ang trabaho"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Friday Review — Makabansa (Grade 2)\n\n- Term 2 wrap-up: kabuhayan at serbisyo\n\nMagaling na term! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang agrikultural na kabuhayan?",
+            "options": [
+              "Pagsasaka o pagtatanim",
+              "Paggawa sa pabrika",
+              "Pagtitinda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Pagsasaka o pagtatanim"
+          },
+          {
+            "question": "Ano ang industriyal na kabuhayan?",
+            "options": [
+              "Paggawa o pagpapatakbo ng pabrika",
+              "Pagsasaka",
+              "Pangingisda",
+              "Pagtuturo"
+            ],
+            "correct_answer": "Paggawa o pagpapatakbo ng pabrika"
+          },
+          {
+            "question": "Ano ang pampinansyal na kabuhayan?",
+            "options": [
+              "May kinalaman sa pera",
+              "Pagsasaka",
+              "Paggawa sa pabrika",
+              "Pangingisda"
+            ],
+            "correct_answer": "May kinalaman sa pera"
+          },
+          {
+            "question": "Ginagawa ng pulisya?",
+            "options": [
+              "Nagpapanatili ng kaayusan",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagtuturo"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan"
+          },
+          {
+            "question": "Ginagawa ng bumbero?",
+            "options": [
+              "Pumapatay ng sunog",
+              "Nagtuturo",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Pumapatay ng sunog"
+          },
+          {
+            "question": "Bakit pahalagahan ang naglilingkod?",
+            "options": [
+              "Nagbibigay sila ng oras at kakayahan",
+              "Wala silang ginagawa",
+              "Sila lamang mahalaga",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagbibigay sila ng oras at kakayahan"
+          },
+          {
+            "question": "Ano ang pakikipagkapuwa?",
+            "options": [
+              "Pakikitungo nang mabuti sa iba",
+              "Pag-iwas sa iba",
+              "Pagiging bastos",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pakikitungo nang mabuti sa iba"
+          },
+          {
+            "question": "Ano ang pakikibahagi?",
+            "options": [
+              "Pagiging bahagi ng gawain o pagdiriwang",
+              "Pag-iwas sa gawain",
+              "Pagtanggi sa aktibidad",
+              "Kawalang interes"
+            ],
+            "correct_answer": "Pagiging bahagi ng gawain o pagdiriwang"
+          },
+          {
+            "question": "Ginagawa ng panserbisyo na kabuhayan?",
+            "options": [
+              "Pagbibigay ng tulong sa iba",
+              "Pagtatanim ng gulay",
+              "Paggawa ng damit",
+              "Pangingisda"
+            ],
+            "correct_answer": "Pagbibigay ng tulong sa iba"
+          },
+          {
+            "question": "Bakit mahalaga ang bawat uri ng kabuhayan?",
+            "options": [
+              "Iba't ibang pangangailangan tinutugunan",
+              "Isang uri lamang kailangan",
+              "Walang dahilan",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan tinutugunan"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong pangkomunidad?",
+            "options": [
+              "Tumutulong maging maayos ang pamumuhay",
+              "Walang kahalagahan",
+              "Para sa mayaman",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong maging maayos ang pamumuhay"
+          },
+          {
+            "question": "Bakit bumubuo ng buong komunidad ang kabuhayan at serbisyo?",
+            "options": [
+              "Nagtutulungan para sa pangangailangan ng lahat",
+              "Isang uri lamang kailangan",
+              "Walang kaugnayan",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagtutulungan para sa pangangailangan ng lahat"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 2)\n\n- Term 2 wrap-up: keyboard, file, Internet, online safety\n\nMagaling na term sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ginagamit para i-type ang salita?",
+            "options": [
+              "Keyboard",
+              "Mouse lamang",
+              "Screen lamang",
+              "Speaker"
+            ],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "Ano ang pag-save?",
+            "options": [
+              "Pagtatago ng trabaho para hindi mawala",
+              "Pagtapon ng trabaho",
+              "Pagpapalit ng kompyuter",
+              "Pagpindot ng mouse"
+            ],
+            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+          },
+          {
+            "question": "Ano ang Internet?",
+            "options": [
+              "Network na nagkokonekta ng kompyuter",
+              "Uri ng laruan",
+              "Uri ng libro",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Network na nagkokonekta ng kompyuter"
+          },
+          {
+            "question": "Ano ang screen-time?",
+            "options": [
+              "Oras sa harap ng kompyuter, tablet, telepono",
+              "Oras ng pagtulog",
+              "Oras ng pagkain",
+              "Oras ng paglalaro sa labas"
+            ],
+            "correct_answer": "Oras sa harap ng kompyuter, tablet, telepono"
+          },
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Gawin kung may hindi ligtas na nangyari online?",
+            "options": [
+              "Sabihin agad sa isang matanda",
+              "Itago na lamang",
+              "Balewalain",
+              "Sabihin sa kaibigan lamang"
+            ],
+            "correct_answer": "Sabihin agad sa isang matanda"
+          },
+          {
+            "question": "Sino kasama kapag nagse-save?",
+            "options": [
+              "Isang may sapat na gulang",
+              "Walang sinuman",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Isang may sapat na gulang"
+          },
+          {
+            "question": "Bakit hindi angkop lahat ng nasa Internet para sa bata?",
+            "options": [
+              "May nilalamang para sa matatanda o mapanganib",
+              "Lahat ay ligtas",
+              "Walang mapanganib",
+              "Hindi totoo"
+            ],
+            "correct_answer": "May nilalamang para sa matatanda o mapanganib"
+          },
+          {
+            "question": "Bakit limitahan ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at katawan",
+              "Walang dahilan",
+              "Palaging mabuti ang mahaba",
+              "Hindi kailangan limitahan"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at katawan"
+          },
+          {
+            "question": "Unang gawin kung may hindi ligtas na mensahe?",
+            "options": [
+              "Huwag sumagot",
+              "Sumagot nang bastos",
+              "Ibahagi ang impormasyon",
+              "Balewalain"
+            ],
+            "correct_answer": "Huwag sumagot"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa Internet?",
+            "options": [
+              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
+              "Gamitin nang mag-isa",
+              "Hindi kailangan mag-ingat",
+              "Walang panganib"
+            ],
+            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+          },
+          {
+            "question": "Bakit ituro ang mga kasanayang ito sa Grade 2?",
+            "options": [
+              "Batayang kasanayan sa ligtas na paggamit ng kompyuter",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang gamit sa paaralan"
+            ],
+            "correct_answer": "Batayang kasanayan sa ligtas na paggamit ng kompyuter"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🌟 Friday Review — GMRC (Grade 2)\n\n- Term 2 wrap-up: pakikitungo sa kapuwa\n\nMabuting bata ka, magaling na term! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang hospitality?",
+            "options": [
+              "Pagiging mabait sa bisita",
+              "Pagiging bastos sa bisita",
+              "Pag-iwas sa bisita",
+              "Pagtulog habang may bisita"
+            ],
+            "correct_answer": "Pagiging mabait sa bisita"
+          },
+          {
+            "question": "Ano ang loving?",
+            "options": [
+              "Pagpapakita ng pagmamalasakit sa iba",
+              "Pagiging bastos sa iba",
+              "Pag-iwas sa kapwa",
+              "Pagsasarili"
+            ],
+            "correct_answer": "Pagpapakita ng pagmamalasakit sa iba"
+          },
+          {
+            "question": "Ano ang gratitude?",
+            "options": [
+              "Pagsasabing salamat kapag may gumawa ng mabuti",
+              "Pagsasabing hindi kailangan",
+              "Pag-iwas sa taong tumulong",
+              "Pagkalimot sa tulong"
+            ],
+            "correct_answer": "Pagsasabing salamat kapag may gumawa ng mabuti"
+          },
+          {
+            "question": "Ano ang respect sa relihiyon ng iba?",
+            "options": [
+              "Pagkilala sa karapatan ng bawat tao sa paniniwala",
+              "Pagkutya sa paniniwala ng iba",
+              "Pag-iwas sa may ibang relihiyon",
+              "Kawalan ng pakialam"
+            ],
+            "correct_answer": "Pagkilala sa karapatan ng bawat tao sa paniniwala"
+          },
+          {
+            "question": "Ano ang compassion sa kapaligiran?",
+            "options": [
+              "Pangangalaga gamit ang pagmamalasakit",
+              "Pagsira sa kapaligiran",
+              "Kawalang pakialam sa kalikasan",
+              "Pag-aksaya ng likas na yaman"
+            ],
+            "correct_answer": "Pangangalaga gamit ang pagmamalasakit"
+          },
+          {
+            "question": "Ano ang helpful sa bayanihan?",
+            "options": [
+              "Pagtutulungan para sa kapakanan ng lahat",
+              "Pag-iwas sa pagtulong",
+              "Pagsasarili",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagtutulungan para sa kapakanan ng lahat"
+          },
+          {
+            "question": "Anong tema nag-uugnay sa lahat ng pagpapahalaga?",
+            "options": [
+              "Mabuting pakikitungo sa kapuwa",
+              "Pagiging mayaman",
+              "Pagiging pinakamalakas",
+              "Pagiging pinakamatalino"
+            ],
+            "correct_answer": "Mabuting pakikitungo sa kapuwa"
+          },
+          {
+            "question": "Halimbawa ng maliit na kabutihan araw-araw?",
+            "options": [
+              "Pagsasabing salamat",
+              "Pagsigaw sa iba",
+              "Pagkutya sa kaklase",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Pagsasabing salamat"
+          },
+          {
+            "question": "Bakit linangin ang mga pagpapahalagang ito?",
+            "options": [
+              "Maging mabuting mamamayan at kaibigan",
+              "Hindi kailangan linangin",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mabuting mamamayan at kaibigan"
+          },
+          {
+            "question": "Naidudulot ng pagpapahalaga sa kapuwa sa komunidad?",
+            "options": [
+              "Mas mapayapa at magkakaisang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi na kailangan pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapa at magkakaisang komunidad"
+          },
+          {
+            "question": "Bakit ipakita ang pasasalamat sa mga tumulong?",
+            "options": [
+              "Nagpapatibay ng magandang ugnayan",
+              "Wala itong kahalagahan",
+              "Nakakahiya gawin",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Nagpapatibay ng magandang ugnayan"
+          },
+          {
+            "question": "Pangkalahatang aral ng GMRC ngayong term?",
+            "options": [
+              "Pagmamalasakit sa iba ay ipinapakita sa maraming paraan",
+              "Walang aral",
+              "GMRC ay tungkol sa agham lamang",
+              "GMRC ay tungkol sa matematika lamang"
+            ],
+            "correct_answer": "Pagmamalasakit sa iba ay ipinapakita sa maraming paraan"
+          }
+        ]
+      }
+    }
+  }
+}

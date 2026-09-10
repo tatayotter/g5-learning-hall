@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-11-22",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎖️ English — Sequencing Events About a National Hero\n\nGrade 3, Week 24! Let's practice putting events in order using a hero's story. 🎖️\n\n## 🔄 Review\nWe practiced reading for details and drawing conclusions about national themes.\n\n## 🎖️ Sequencing Events\nWhen reading about a hero's life, we can list events in the order they happened using **time-order words**: first, then, next, after that, finally.\n\n**Example:** \"**First**, the hero studied hard. **Then**, he wrote about his ideas. **Finally**, he became known throughout the country.\"\n\n## 🔢 Why Sequencing Matters\nUnderstanding the correct order of events helps us see **cause and effect** — how one event leads to another.\n\n**Key words:** sequence, time-order words, first, then, finally",
+        "quiz": [
+          {
+            "question": "What are time-order words used for?",
+            "options": [
+              "Showing the order events happened",
+              "Describing colors",
+              "Naming characters",
+              "Asking questions"
+            ],
+            "correct_answer": "Showing the order events happened"
+          },
+          {
+            "question": "Which word usually comes first in a sequence?",
+            "options": [
+              "First",
+              "Finally",
+              "Then",
+              "After that"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "Which word usually comes last in a sequence?",
+            "options": [
+              "Finally",
+              "First",
+              "Then",
+              "Next"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "In 'First, he studied. Then, he wrote. Finally, he became known,' what happened first?",
+            "options": [
+              "He studied",
+              "He wrote",
+              "He became known",
+              "Nothing happened"
+            ],
+            "correct_answer": "He studied"
+          },
+          {
+            "question": "Why does sequencing help us understand a story?",
+            "options": [
+              "It shows how one event leads to another",
+              "It has no real use",
+              "It replaces the need for characters",
+              "It only matters for math"
+            ],
+            "correct_answer": "It shows how one event leads to another"
+          },
+          {
+            "question": "Which of these is a time-order word?",
+            "options": [
+              "Next",
+              "Happy",
+              "Mountain",
+              "Blue"
+            ],
+            "correct_answer": "Next"
+          },
+          {
+            "question": "What can happen if you mix up the order of events in a story?",
+            "options": [
+              "The story becomes confusing",
+              "The story always improves",
+              "Nothing changes",
+              "It becomes more accurate"
+            ],
+            "correct_answer": "The story becomes confusing"
+          },
+          {
+            "question": "Why might a biography use many time-order words?",
+            "options": [
+              "To clearly show the sequence of a person's life events",
+              "To confuse the reader",
+              "To remove all dates",
+              "To avoid describing events"
+            ],
+            "correct_answer": "To clearly show the sequence of a person's life events"
+          },
+          {
+            "question": "What does cause and effect mean in a sequence of events?",
+            "options": [
+              "One event leads to or causes another",
+              "Events have no connection",
+              "Only the first event matters",
+              "Events happen randomly with no link"
+            ],
+            "correct_answer": "One event leads to or causes another"
+          },
+          {
+            "question": "If a hero 'studied hard' and 'then became a great leader,' what is the connection?",
+            "options": [
+              "Studying may have helped him become a great leader",
+              "There is no connection",
+              "He became a leader by accident",
+              "Studying prevented him from leading"
+            ],
+            "correct_answer": "Studying may have helped him become a great leader"
+          },
+          {
+            "question": "Which sentence uses correct sequencing language?",
+            "options": [
+              "First, she planned; then, she acted; finally, she succeeded.",
+              "She succeeded she planned acted.",
+              "Acted succeeded planned she.",
+              "She, first succeeded planned."
+            ],
+            "correct_answer": "First, she planned; then, she acted; finally, she succeeded."
+          },
+          {
+            "question": "Why is it useful to practice sequencing with a hero's story?",
+            "options": [
+              "It helps understand how their achievements built up over time",
+              "It has no educational value",
+              "It only matters for spelling",
+              "It replaces reading comprehension"
+            ],
+            "correct_answer": "It helps understand how their achievements built up over time"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Mathematics — Division as the Inverse of Multiplication\n\nGrade 3, Week 24! Let's connect division to what we know about multiplication! ➗\n\n## 🔄 Review\nWe found missing terms in number patterns.\n\n## ➗ Division as Equal Jumps\nDividing means finding how many equal groups (jumps) fit into a number.\n\n**Example:** 24 ÷ 6 — how many jumps of 6 fit into 24? Answer: **4** (6, 12, 18, 24)\n\n## 🔄 Division and Multiplication Connection\nSince 6 × 4 = 24, we know 24 ÷ 6 = 4 and 24 ÷ 4 = 6.\n\n## 🔢 Dividing with 6, 7, 8, 9\n- 42 ÷ 7 = 6\n- 56 ÷ 8 = 7\n- 63 ÷ 9 = 7\n\n**Key words:** division, inverse, equal jumps, multiplication fact",
+        "quiz": [
+          {
+            "question": "What does division as 'equal jumps' mean?",
+            "options": [
+              "Finding how many equal groups fit into a number",
+              "Adding numbers together",
+              "Making a number bigger",
+              "Comparing two numbers"
+            ],
+            "correct_answer": "Finding how many equal groups fit into a number"
+          },
+          {
+            "question": "What is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "18",
+              "30"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "24",
+              "10"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 4?",
+            "options": [
+              "6",
+              "4",
+              "24",
+              "10"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 42 ÷ 7?",
+            "options": [
+              "6",
+              "7",
+              "35",
+              "49"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 56 ÷ 8?",
+            "options": [
+              "7",
+              "8",
+              "48",
+              "64"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "What is 63 ÷ 9?",
+            "options": [
+              "7",
+              "9",
+              "54",
+              "72"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "Why is division called the 'inverse' of multiplication?",
+            "options": [
+              "It undoes what multiplication does",
+              "It is exactly the same as multiplication",
+              "It has no relationship to multiplication",
+              "It only works with even numbers"
+            ],
+            "correct_answer": "It undoes what multiplication does"
+          },
+          {
+            "question": "What is 36 ÷ 6?",
+            "options": [
+              "6",
+              "5",
+              "30",
+              "42"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 49 ÷ 7?",
+            "options": [
+              "7",
+              "6",
+              "42",
+              "56"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "If you know 8 × 9 = 72, what is 72 ÷ 8?",
+            "options": [
+              "9",
+              "8",
+              "72",
+              "63"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "How many jumps of 8 fit into 64?",
+            "options": [
+              "8",
+              "7",
+              "9",
+              "56"
+            ],
+            "correct_answer": "8"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📰 Filipino — Pagsulat Gamit ang Denotasyon at Konotasyon\n\nGrade 3, Linggo 24! Isanib natin ang denotasyon at konotasyon sa pagsulat. 📰\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tambalang pangungusap batay sa pananda.\n\n## 📝 Paggamit sa Pagsulat\nKapag sumusulat, maaari tayong pumili ng salitang may **positibong konotasyon** para gawing mas kaakit-akit ang paglalarawan.\n\n**Halimbawa:** Sa halip na \"Ang bahay ay maliit,\" maaari nating sabihing \"Ang bahay ay **maaliwalas at kaaya-aya**.\"\n\n## ✍️ Pagsasanay\nSubukang muling isulat ang pangungusap na \"Ang bata ay payat\" gamit ang salitang may mas positibong konotasyon.\n\n**Sagot:** \"Ang bata ay **balingkinitan**.\"\n\n**Mahahalagang salita:** denotasyon, konotasyon, positibong salita, pagsulat",
+        "quiz": [
+          {
+            "question": "Bakit pumili ng salitang may positibong konotasyon sa pagsulat?",
+            "options": [
+              "Gawing mas kaakit-akit ang paglalarawan",
+              "Para lituhin ang mambabasa",
+              "Walang dahilan",
+              "Para gawing mas maikli ang teksto"
+            ],
+            "correct_answer": "Gawing mas kaakit-akit ang paglalarawan"
+          },
+          {
+            "question": "Alin ang mas positibong paraan ng pagsasabing 'maliit ang bahay'?",
+            "options": [
+              "Maaliwalas at kaaya-aya",
+              "Sira-sira",
+              "Maruming bahay",
+              "Malungkot na bahay"
+            ],
+            "correct_answer": "Maaliwalas at kaaya-aya"
+          },
+          {
+            "question": "Alin ang mas positibong salita para sa 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit mahalagang matuto pumili ng salita na may angkop na konotasyon?",
+            "options": [
+              "Nagbibigay ito ng tamang damdamin sa paglalarawan",
+              "Hindi mahalaga ito sa pagsulat",
+              "Wala itong epekto sa mambabasa",
+              "Palaging dapat gamitin ang negatibong salita"
+            ],
+            "correct_answer": "Nagbibigay ito ng tamang damdamin sa paglalarawan"
+          },
+          {
+            "question": "Ano ang denotasyon ng salitang 'payat'?",
+            "options": [
+              "Kulang sa timbang",
+              "Malusog",
+              "Malaki",
+              "Matipuno"
+            ],
+            "correct_answer": "Kulang sa timbang"
+          },
+          {
+            "question": "Ano ang konotasyon ng salitang 'balingkinitan'?",
+            "options": [
+              "Positibong paglalarawan ng payat",
+              "Negatibong paglalarawan ng payat",
+              "Wala itong kahulugan",
+              "Salitang tungkol sa hayop"
+            ],
+            "correct_answer": "Positibong paglalarawan ng payat"
+          },
+          {
+            "question": "Kailan mainam gumamit ng salitang may konotasyon sa halip na literal na salita lamang?",
+            "options": [
+              "Kapag gusto mong magdagdag ng damdamin sa paglalarawan",
+              "Palagi, kahit anong uri ng teksto",
+              "Hindi na dapat gamitin",
+              "Kapag sumusulat ng listahan lamang"
+            ],
+            "correct_answer": "Kapag gusto mong magdagdag ng damdamin sa paglalarawan"
+          },
+          {
+            "question": "Sa muling pagsulat ng 'Ang bata ay payat,' ano ang mas magandang salita?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit dapat mag-ingat sa pagpili ng salita kapag naglalarawan ng ibang tao?",
+            "options": [
+              "Ang salitang may negatibong konotasyon ay maaaring makasakit ng damdamin",
+              "Walang epekto ang mga salita",
+              "Palagi dapat gumamit ng negatibong salita",
+              "Hindi mahalaga ang pagpili ng salita"
+            ],
+            "correct_answer": "Ang salitang may negatibong konotasyon ay maaaring makasakit ng damdamin"
+          },
+          {
+            "question": "Ano ang layunin ng pagsasanib ng denotasyon at konotasyon sa pagsulat?",
+            "options": [
+              "Mailapat ang natutunang kahulugan ng salita sa tunay na pagsulat",
+              "Walang layunin ito",
+              "Para lamang sa pagsusulit",
+              "Hindi na kailangan ito"
+            ],
+            "correct_answer": "Mailapat ang natutunang kahulugan ng salita sa tunay na pagsulat"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang may pinaka-positibong konotasyon?",
+            "options": [
+              "Matipuno",
+              "Malaki",
+              "Mataba",
+              "Namumugto"
+            ],
+            "correct_answer": "Matipuno"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang epekto ng salita sa damdamin ng iba?",
+            "options": [
+              "Para makapagsulat nang may respeto at kabaitan",
+              "Walang kaugnayan sa pagsulat",
+              "Hindi kailangan isipin ito",
+              "Mas mabilis magsulat kung hindi ito iniisip"
+            ],
+            "correct_answer": "Para makapagsulat nang may respeto at kabaitan"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚠️ Science — Sound and Light Can Be Harmful\n\nGrade 3, Week 24! Let's learn about the dangers of loud sound and bright light. ⚠️\n\n## 🔄 Review\nWe learned how sound and light are made.\n\n## 🔊 Harmful Sound\nVery **loud sounds** (like fireworks or loud music) can damage our ears over time. Always cover your ears near loud sounds.\n\n## 💡 Harmful Light\nLooking directly at very **bright light** (like the Sun) can damage our eyes. Never look directly at the Sun.\n\n## 📡 Using Sound and Light to Send Information\n- **Sound:** sirens, bells, whistles\n- **Light:** traffic signals, flashlights for signaling in the dark\n\nThese are used to warn people or send important messages quickly.\n\n**Key words:** loud sound, bright light, damage, signal, warning",
+        "quiz": [
+          {
+            "question": "What can very loud sounds do to our ears over time?",
+            "options": [
+              "Damage them",
+              "Make them stronger",
+              "Have no effect",
+              "Improve hearing"
+            ],
+            "correct_answer": "Damage them"
+          },
+          {
+            "question": "What should you do near a very loud sound?",
+            "options": [
+              "Cover your ears",
+              "Get closer to it",
+              "Ignore the warning",
+              "Cover your eyes instead"
+            ],
+            "correct_answer": "Cover your ears"
+          },
+          {
+            "question": "What can looking directly at the Sun do to your eyes?",
+            "options": [
+              "Damage them",
+              "Improve your vision",
+              "Have no effect",
+              "Make them stronger"
+            ],
+            "correct_answer": "Damage them"
+          },
+          {
+            "question": "Should you ever look directly at the Sun?",
+            "options": [
+              "No, never",
+              "Yes, always",
+              "Only at noon",
+              "Only with sunglasses on"
+            ],
+            "correct_answer": "No, never"
+          },
+          {
+            "question": "Which is an example of sound used to send information?",
+            "options": [
+              "A siren",
+              "A picture",
+              "A book",
+              "A drawing"
+            ],
+            "correct_answer": "A siren"
+          },
+          {
+            "question": "Which is an example of light used to send information?",
+            "options": [
+              "A traffic signal",
+              "A drum",
+              "A whistle",
+              "A bell"
+            ],
+            "correct_answer": "A traffic signal"
+          },
+          {
+            "question": "Why do sirens use loud sound?",
+            "options": [
+              "To warn people quickly over a distance",
+              "To entertain people",
+              "To damage hearing on purpose",
+              "To replace traffic lights"
+            ],
+            "correct_answer": "To warn people quickly over a distance"
+          },
+          {
+            "question": "Why is a flashlight useful for signaling in the dark?",
+            "options": [
+              "Light can be seen from far away even at night",
+              "It makes no light at all",
+              "It only works during the day",
+              "It cannot be seen from far away"
+            ],
+            "correct_answer": "Light can be seen from far away even at night"
+          },
+          {
+            "question": "Which of these is a source of potentially harmful loud sound?",
+            "options": [
+              "Fireworks",
+              "A whisper",
+              "A soft breeze",
+              "A quiet room"
+            ],
+            "correct_answer": "Fireworks"
+          },
+          {
+            "question": "Why is it important to know that sound and light can be harmful?",
+            "options": [
+              "So we can protect our ears and eyes",
+              "It has no real importance",
+              "Sound and light are never harmful",
+              "Only adults need to know this"
+            ],
+            "correct_answer": "So we can protect our ears and eyes"
+          },
+          {
+            "question": "What is one way to protect your ears at a loud concert?",
+            "options": [
+              "Cover your ears or use earplugs",
+              "Get closer to the speakers",
+              "Remove all protection",
+              "Ignore the loud sound"
+            ],
+            "correct_answer": "Cover your ears or use earplugs"
+          },
+          {
+            "question": "Why do traffic lights use different colors of light to communicate?",
+            "options": [
+              "Each color sends a clear, different message to drivers",
+              "Colors have no meaning in traffic",
+              "It is just for decoration",
+              "All colors mean the same thing"
+            ],
+            "correct_answer": "Each color sends a clear, different message to drivers"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Makabansa — Papel ng Pagiging Aktibong Pilipino\n\nGrade 3, Linggo 24! Alamin natin kung paano maging aktibong Pilipino. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagpapahalaga sa pagkakakilanlan bilang Pilipino.\n\n## 🇵🇭 Ano ang Aktibong Pilipino?\nAng **aktibong Pilipino** ay isang mamamayan na hindi lamang nagsasalita kundi **kumikilos** para sa ikabubuti ng bansa.\n\n## 🌟 Mga Papel ng Aktibong Pilipino\n- Pagsunod sa batas at alituntunin\n- Pagtulong sa kapwa at komunidad\n- Pagsali sa mga gawaing pangkalusugan/pangkapaligiran\n- Pagbibigay ng opinyon nang may respeto\n\n## 💡 Bakit Mahalaga Ito?\nSa pagiging aktibo, ang bawat Pilipino — kahit bata — ay makakatulong lumikha ng **mas mabuting bansa**.\n\n**Mahahalagang salita:** aktibong Pilipino, tungkulin, batas, komunidad",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong Pilipino?",
+            "options": [
+              "Mamamayan na kumikilos para sa ikabubuti ng bansa",
+              "Mamamayan na walang pakialam sa bansa",
+              "Mamamayan na hindi sumusunod sa batas",
+              "Mamamayan na nasa ibang bansa lamang"
+            ],
+            "correct_answer": "Mamamayan na kumikilos para sa ikabubuti ng bansa"
+          },
+          {
+            "question": "Anong halimbawa ng papel ng aktibong Pilipino?",
+            "options": [
+              "Pagsunod sa batas at alituntunin",
+              "Pagtanggi sa lahat ng batas",
+              "Pag-iwas sa komunidad",
+              "Kawalang pakialam sa iba"
+            ],
+            "correct_answer": "Pagsunod sa batas at alituntunin"
+          },
+          {
+            "question": "Paano makakatulong ang isang bata bilang aktibong Pilipino?",
+            "options": [
+              "Pagtulong sa kapwa at komunidad",
+              "Pananatiling walang ginagawa",
+              "Pag-iwas sa lahat ng gawain",
+              "Kawalang interes sa bansa"
+            ],
+            "correct_answer": "Pagtulong sa kapwa at komunidad"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag nagbibigay ng opinyon?",
+            "options": [
+              "Gawin ito nang may respeto",
+              "Sigawan ang ibang tao",
+              "Ipagwalang-bahala ang ibang opinyon",
+              "Manlait ng iba"
+            ],
+            "correct_answer": "Gawin ito nang may respeto"
+          },
+          {
+            "question": "Bakit mahalaga ang pagiging aktibong Pilipino?",
+            "options": [
+              "Nakakatulong ito lumikha ng mas mabuting bansa",
+              "Wala itong kahalagahan",
+              "Nagdudulot lamang ito ng gulo",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Nakakatulong ito lumikha ng mas mabuting bansa"
+          },
+          {
+            "question": "Alin ang halimbawa ng pagsali sa gawaing pangkapaligiran?",
+            "options": [
+              "Paglilinis ng ilog kasama ang komunidad",
+              "Pagtatapon ng basura kahit saan",
+              "Pagputol ng puno nang walang dahilan",
+              "Pag-aksaya ng tubig"
+            ],
+            "correct_answer": "Paglilinis ng ilog kasama ang komunidad"
+          },
+          {
+            "question": "Bakit kailangang sumunod sa mga batas at alituntunin?",
+            "options": [
+              "Nagpapanatili ito ng kaayusan sa lipunan",
+              "Hindi na kailangan sundin ito",
+              "Walang kahalagahan ang batas",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nagpapanatili ito ng kaayusan sa lipunan"
+          },
+          {
+            "question": "Ano ang layunin ng pagiging aktibong mamamayan?",
+            "options": [
+              "Kumilos para sa ikabubuti ng lahat, hindi lamang magsalita",
+              "Manatiling tahimik lamang",
+              "Iwasan ang lahat ng responsibilidad",
+              "Kalimutan ang kapakanan ng iba"
+            ],
+            "correct_answer": "Kumilos para sa ikabubuti ng lahat, hindi lamang magsalita"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang aktibong pagiging Pilipino kahit sa mga bata?",
+            "options": [
+              "Upang matutong tumulong at kumilos mula pagkabata",
+              "Hindi na kailangan ituro ito sa bata",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Upang matutong tumulong at kumilos mula pagkabata"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI papel ng aktibong Pilipino?",
+            "options": [
+              "Kawalang pakialam sa komunidad",
+              "Pagsunod sa batas",
+              "Pagtulong sa kapwa",
+              "Pagbibigay ng opinyon nang may respeto"
+            ],
+            "correct_answer": "Kawalang pakialam sa komunidad"
+          },
+          {
+            "question": "Paano konektado ang aktibong pagiging Pilipino sa pagkakakilanlan bilang Pilipino?",
+            "options": [
+              "Ang aktibong pagkilos ay paraan ng pagpapahayag ng pagmamalaki bilang Pilipino",
+              "Walang koneksyon ang dalawa",
+              "Ang pagkakakilanlan ay hiwalay sa pagkilos",
+              "Hindi kailangang maging aktibo para maging Pilipino"
+            ],
+            "correct_answer": "Ang aktibong pagkilos ay paraan ng pagpapahayag ng pagmamalaki bilang Pilipino"
+          },
+          {
+            "question": "Ano ang naidudulot kapag maraming mamamayan ang aktibo sa kanilang komunidad?",
+            "options": [
+              "Mas malakas at umuunlad na bansa",
+              "Higit na kaguluhan",
+              "Walang naidudulot",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas at umuunlad na bansa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔒 Computer — Huwag Ibahagi ang Personal na Impormasyon\n\nGrade 3, Week 24! Alamin natin kung paano protektahan ang ating pribadong impormasyon. 🔒\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagkakaiba ng ligtas at hindi angkop na nilalaman.\n\n## 🔒 Ano ang Personal na Impormasyon?\nBuong pangalan, tirahan, numero ng telepono, pangalan ng paaralan, at password.\n\n## 🚫 Bakit Huwag Ibahagi Online?\nAng mga taong hindi natin kilala online ay maaaring gamitin ang impormasyong ito para sa **masamang layunin**.\n\n## 👨‍👩‍👧 Ano ang Dapat Gawin?\nKung may humihingi ng personal na impormasyon, **huwag ibigay** at **sabihin agad** sa isang may sapat na gulang na matanda.\n\n**Mahahalagang salita:** personal na impormasyon, pribado, masamang layunin, sabihin agad",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang personal na impormasyon online?",
+            "options": [
+              "Maaaring gamitin ito ng may masamang layunin",
+              "Ligtas itong gawin palagi",
+              "Kinakailangan itong gawin",
+              "Walang panganib dito"
+            ],
+            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Huwag ibigay at sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay at sabihin sa matanda"
+          },
+          {
+            "question": "Alin ang halimbawa ng password?",
+            "options": [
+              "Isang sikretong kumbinasyon ng titik at bilang",
+              "Iyong buong pangalan lamang",
+              "Iyong paboritong hayop",
+              "Iyong paaralan lamang"
+            ],
+            "correct_answer": "Isang sikretong kumbinasyon ng titik at bilang"
+          },
+          {
+            "question": "Bakit mapanganib ibigay ang tirahan sa estranghero online?",
+            "options": [
+              "Maaaring gamitin ito ng taong may masamang layunin",
+              "Walang panganib dito",
+              "Ligtas na palagi",
+              "Lahat ay may mabuting layunin"
+            ],
+            "correct_answer": "Maaaring gamitin ito ng taong may masamang layunin"
+          },
+          {
+            "question": "Sino ang dapat sabihan kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Isang may sapat na gulang na matanda",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang may sapat na gulang na matanda"
+          },
+          {
+            "question": "Ano ang isa pang halimbawa ng personal na impormasyon?",
+            "options": [
+              "Numero ng telepono",
+              "Paboritong kulay",
+              "Paboritong hayop",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Numero ng telepono"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "options": [
+              "Upang maging ligtas sa paggamit ng Internet",
+              "Hindi ito mahalaga",
+              "Upang hikayatin ang pagbabahagi",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Upang maging ligtas sa paggamit ng Internet"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang password sa kahit kanino?",
+            "options": [
+              "Maaaring magamit ito para makapasok sa iyong account",
+              "Ligtas itong ibahagi",
+              "Kinakailangan itong ibahagi sa kaibigan",
+              "Walang panganib dito"
+            ],
+            "correct_answer": "Maaaring magamit ito para makapasok sa iyong account"
+          },
+          {
+            "question": "Ano ang tamang gawin kung nakalimutan mo kung sino ang humihingi ng impormasyon?",
+            "options": [
+              "Huwag pa rin ibigay at magtanong sa matanda",
+              "Ibigay na lamang",
+              "Balewalain ang alalahanin",
+              "Ipagpatuloy ang pag-uusap"
+            ],
+            "correct_answer": "Huwag pa rin ibigay at magtanong sa matanda"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang panganib sa pagbabahagi ng impormasyon mula sa maagang edad?",
+            "options": [
+              "Upang maging responsable sa paggamit ng teknolohiya paglaki",
+              "Hindi na kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging responsable sa paggamit ng teknolohiya paglaki"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa personal na impormasyon?",
+            "options": [
+              "Panatilihin itong pribado at humingi ng gabay sa matanda",
+              "Ibahagi ito sa lahat",
+              "Hindi na kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Panatilihin itong pribado at humingi ng gabay sa matanda"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Panalangin Para sa Kapuwa\n\nGrade 3, Linggo 24! Pagpapahalaga: **Prayerful (Mapanalanginin)**. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **pagkilala sa mga PWD**.\n\n## 🙏 Ano ang Panalangin Para sa Kapuwa?\nAng **panalangin para sa kapuwa** ay ang pagdarasal hindi lamang para sa sarili, kundi para rin sa **kapakanan ng iba**.\n\n## 💝 Sino ang Maaaring Ipanalangin?\n- Mga may sakit\n- Mga nangangailangan\n- Mga nakikipaglaban sa mahihirap na sitwasyon\n- Mga tumutulong sa komunidad (doktor, guro, pulisya)\n\n## 💡 Bakit Mahalaga Ito?\nAng panalangin para sa iba ay nagpapakita ng **pagmamalasakit** at pananampalataya na hindi lamang nakasentro sa sarili.\n\n**Mahahalagang salita:** panalangin, kapuwa, pagmamalasakit, pananampalataya",
+        "quiz": [
+          {
+            "question": "Ano ang panalangin para sa kapuwa?",
+            "options": [
+              "Pagdarasal para sa kapakanan ng iba, hindi lamang sarili",
+              "Pagdarasal para sa sarili lamang",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa panalangin"
+            ],
+            "correct_answer": "Pagdarasal para sa kapakanan ng iba, hindi lamang sarili"
+          },
+          {
+            "question": "Sino ang maaaring ipanalangin?",
+            "options": [
+              "Mga may sakit at nangangailangan",
+              "Walang sinuman",
+              "Sarili lamang",
+              "Mga estranghero lamang"
+            ],
+            "correct_answer": "Mga may sakit at nangangailangan"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Prayerful (Mapanalanginin)",
+              "Compassion",
+              "Respect",
+              "Obedience"
+            ],
+            "correct_answer": "Prayerful (Mapanalanginin)"
+          },
+          {
+            "question": "Bakit mahalaga ang panalangin para sa iba?",
+            "options": [
+              "Nagpapakita ito ng pagmamalasakit at pananampalataya",
+              "Wala itong kahalagahan",
+              "Hindi ito totoong panalangin",
+              "Ito ay pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamalasakit at pananampalataya"
+          },
+          {
+            "question": "Sino ang halimbawa ng tumutulong sa komunidad na maaaring ipanalangin?",
+            "options": [
+              "Doktor, guro, pulisya",
+              "Estranghero lamang",
+              "Walang sinuman",
+              "Mga taong hindi kilala"
+            ],
+            "correct_answer": "Doktor, guro, pulisya"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pananalangin para sa mga nakikipaglaban sa mahihirap na sitwasyon?",
+            "options": [
+              "Pagmamalasakit at empatiya",
+              "Kawalang pakialam",
+              "Pagtanggi tumulong",
+              "Wala"
+            ],
+            "correct_answer": "Pagmamalasakit at empatiya"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang prayerful sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng pagmamalasakit sa iba sa pamamagitan ng panalangin",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng pagmamalasakit sa iba sa pamamagitan ng panalangin"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagdarasal para sa iba sa halip na sarili lamang?",
+            "options": [
+              "Pagpapalawak ng pagmamalasakit sa ibang tao",
+              "Kawalan ng pagmamalasakit",
+              "Hindi ito totoong panalangin",
+              "Walang naidudulot"
+            ],
+            "correct_answer": "Pagpapalawak ng pagmamalasakit sa ibang tao"
+          },
+          {
+            "question": "Kailan maaaring magdasal para sa iba?",
+            "options": [
+              "Anumang oras, hindi lamang tuwing may pangangailangan",
+              "Isang beses lamang sa isang taon",
+              "Kapag lamang may kapistahan",
+              "Hindi na kailangan magdasal"
+            ],
+            "correct_answer": "Anumang oras, hindi lamang tuwing may pangangailangan"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang panalangin para sa kapuwa sa mga bata?",
+            "options": [
+              "Upang matutong mag-alala at magmalasakit sa iba mula pagkabata",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang matutong mag-alala at magmalasakit sa iba mula pagkabata"
+          },
+          {
+            "question": "Ano ang kaibahan ng panalangin para sa kapuwa sa panalangin para sa sarili lamang?",
+            "options": [
+              "Ito ay nakasentro sa kapakanan ng iba, hindi lamang ng sarili",
+              "Walang pagkakaiba",
+              "Ang panalangin ay palaging tungkol sa sarili",
+              "Hindi dapat magdasal para sa iba"
+            ],
+            "correct_answer": "Ito ay nakasentro sa kapakanan ng iba, hindi lamang ng sarili"
+          },
+          {
+            "question": "Paano nauugnay ang pagpapahalagang ito sa pagkilala sa PWD noong nakaraang linggo?",
+            "options": [
+              "Pareho silang tumatalakay sa pagmamalasakit sa iba",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol lamang sa agham",
+              "Isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagmamalasakit sa iba"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎖️ Friday Review — English (Grade 3)\n\n- Sequencing events with time-order words\n\nGreat sequencing skills! 🌟",
+        "quiz": [
+          {
+            "question": "What are time-order words used for?",
+            "options": [
+              "Showing the order events happened",
+              "Describing colors",
+              "Naming characters",
+              "Asking questions"
+            ],
+            "correct_answer": "Showing the order events happened"
+          },
+          {
+            "question": "Which word usually comes first?",
+            "options": [
+              "First",
+              "Finally",
+              "Then",
+              "After that"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "Which word usually comes last?",
+            "options": [
+              "Finally",
+              "First",
+              "Then",
+              "Next"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "'First, he studied. Then, he wrote. Finally, he became known' - what happened first?",
+            "options": [
+              "He studied",
+              "He wrote",
+              "He became known",
+              "Nothing"
+            ],
+            "correct_answer": "He studied"
+          },
+          {
+            "question": "Why does sequencing help understand a story?",
+            "options": [
+              "Shows how one event leads to another",
+              "No real use",
+              "Replaces characters",
+              "Only for math"
+            ],
+            "correct_answer": "Shows how one event leads to another"
+          },
+          {
+            "question": "Which is a time-order word?",
+            "options": [
+              "Next",
+              "Happy",
+              "Mountain",
+              "Blue"
+            ],
+            "correct_answer": "Next"
+          },
+          {
+            "question": "What happens if you mix up the order of events?",
+            "options": [
+              "The story becomes confusing",
+              "Always improves",
+              "Nothing changes",
+              "Becomes more accurate"
+            ],
+            "correct_answer": "The story becomes confusing"
+          },
+          {
+            "question": "Why does a biography use many time-order words?",
+            "options": [
+              "Clearly show sequence of life events",
+              "Confuse the reader",
+              "Remove dates",
+              "Avoid describing events"
+            ],
+            "correct_answer": "Clearly show sequence of life events"
+          },
+          {
+            "question": "What does cause and effect mean here?",
+            "options": [
+              "One event leads to another",
+              "No connection",
+              "Only first event matters",
+              "Events happen randomly"
+            ],
+            "correct_answer": "One event leads to another"
+          },
+          {
+            "question": "Hero 'studied hard' then 'became a great leader' - connection?",
+            "options": [
+              "Studying may have helped him lead",
+              "No connection",
+              "Became leader by accident",
+              "Studying prevented leading"
+            ],
+            "correct_answer": "Studying may have helped him lead"
+          },
+          {
+            "question": "Which sentence uses correct sequencing?",
+            "options": [
+              "First, she planned; then, she acted; finally, she succeeded.",
+              "She succeeded she planned acted.",
+              "Acted succeeded planned she.",
+              "She, first succeeded planned."
+            ],
+            "correct_answer": "First, she planned; then, she acted; finally, she succeeded."
+          },
+          {
+            "question": "Why practice sequencing with a hero's story?",
+            "options": [
+              "Understand how achievements built over time",
+              "No educational value",
+              "Only for spelling",
+              "Replaces comprehension"
+            ],
+            "correct_answer": "Understand how achievements built over time"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ➗ Friday Review — Mathematics (Grade 3)\n\n- Division as the inverse of multiplication\n\nGreat division work! ⭐",
+        "quiz": [
+          {
+            "question": "What does division as 'equal jumps' mean?",
+            "options": [
+              "Finding how many equal groups fit into a number",
+              "Adding numbers",
+              "Making a number bigger",
+              "Comparing numbers"
+            ],
+            "correct_answer": "Finding how many equal groups fit into a number"
+          },
+          {
+            "question": "What is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "18",
+              "30"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 6?",
+            "options": [
+              "4",
+              "6",
+              "24",
+              "10"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "If 6 × 4 = 24, what is 24 ÷ 4?",
+            "options": [
+              "6",
+              "4",
+              "24",
+              "10"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 42 ÷ 7?",
+            "options": [
+              "6",
+              "7",
+              "35",
+              "49"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 56 ÷ 8?",
+            "options": [
+              "7",
+              "8",
+              "48",
+              "64"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "What is 63 ÷ 9?",
+            "options": [
+              "7",
+              "9",
+              "54",
+              "72"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "Why is division the 'inverse' of multiplication?",
+            "options": [
+              "It undoes multiplication",
+              "It's the same as multiplication",
+              "No relationship",
+              "Only works with even numbers"
+            ],
+            "correct_answer": "It undoes multiplication"
+          },
+          {
+            "question": "What is 36 ÷ 6?",
+            "options": [
+              "6",
+              "5",
+              "30",
+              "42"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What is 49 ÷ 7?",
+            "options": [
+              "7",
+              "6",
+              "42",
+              "56"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "If 8 × 9 = 72, what is 72 ÷ 8?",
+            "options": [
+              "9",
+              "8",
+              "72",
+              "63"
+            ],
+            "correct_answer": "9"
+          },
+          {
+            "question": "How many jumps of 8 fit into 64?",
+            "options": [
+              "8",
+              "7",
+              "9",
+              "56"
+            ],
+            "correct_answer": "8"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📰 Friday Review — Filipino (Grade 3)\n\n- Pagsulat gamit ang denotasyon at konotasyon\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit pumili ng positibong konotasyon?",
+            "options": [
+              "Gawing mas kaakit-akit ang paglalarawan",
+              "Lituhin ang mambabasa",
+              "Walang dahilan",
+              "Gawing mas maikli"
+            ],
+            "correct_answer": "Gawing mas kaakit-akit ang paglalarawan"
+          },
+          {
+            "question": "Mas positibong paraan ng 'maliit ang bahay'?",
+            "options": [
+              "Maaliwalas at kaaya-aya",
+              "Sira-sira",
+              "Maruming bahay",
+              "Malungkot na bahay"
+            ],
+            "correct_answer": "Maaliwalas at kaaya-aya"
+          },
+          {
+            "question": "Mas positibong salita para sa 'payat'?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit pumili ng angkop na konotasyon?",
+            "options": [
+              "Nagbibigay ng tamang damdamin",
+              "Hindi mahalaga",
+              "Walang epekto",
+              "Palaging negatibo dapat"
+            ],
+            "correct_answer": "Nagbibigay ng tamang damdamin"
+          },
+          {
+            "question": "Denotasyon ng 'payat'?",
+            "options": [
+              "Kulang sa timbang",
+              "Malusog",
+              "Malaki",
+              "Matipuno"
+            ],
+            "correct_answer": "Kulang sa timbang"
+          },
+          {
+            "question": "Konotasyon ng 'balingkinitan'?",
+            "options": [
+              "Positibong paglalarawan ng payat",
+              "Negatibong paglalarawan",
+              "Walang kahulugan",
+              "Tungkol sa hayop"
+            ],
+            "correct_answer": "Positibong paglalarawan ng payat"
+          },
+          {
+            "question": "Kailan gumamit ng salitang may konotasyon?",
+            "options": [
+              "Kapag gusto magdagdag ng damdamin",
+              "Palagi",
+              "Hindi na dapat gamitin",
+              "Sa listahan lamang"
+            ],
+            "correct_answer": "Kapag gusto magdagdag ng damdamin"
+          },
+          {
+            "question": "Muling isulat 'Ang bata ay payat' gamit ang mas magandang salita?",
+            "options": [
+              "Balingkinitan",
+              "Kulang sa timbang",
+              "Napakapayat",
+              "Payat na parang patpat"
+            ],
+            "correct_answer": "Balingkinitan"
+          },
+          {
+            "question": "Bakit mag-ingat sa pagpili ng salita?",
+            "options": [
+              "Negatibong konotasyon ay makasasakit ng damdamin",
+              "Walang epekto",
+              "Palagi gumamit ng negatibo",
+              "Hindi mahalaga ang pagpili"
+            ],
+            "correct_answer": "Negatibong konotasyon ay makasasakit ng damdamin"
+          },
+          {
+            "question": "Layunin ng pagsasanib ng denotasyon at konotasyon?",
+            "options": [
+              "Mailapat sa tunay na pagsulat",
+              "Walang layunin",
+              "Para sa pagsusulit lamang",
+              "Hindi kailangan"
+            ],
+            "correct_answer": "Mailapat sa tunay na pagsulat"
+          },
+          {
+            "question": "Pinaka-positibong konotasyon?",
+            "options": [
+              "Matipuno",
+              "Malaki",
+              "Mataba",
+              "Namumugto"
+            ],
+            "correct_answer": "Matipuno"
+          },
+          {
+            "question": "Bakit malaman ang epekto ng salita sa damdamin ng iba?",
+            "options": [
+              "Makapagsulat nang may respeto",
+              "Walang kaugnayan sa pagsulat",
+              "Hindi kailangan isipin",
+              "Mas mabilis kung hindi iniisip"
+            ],
+            "correct_answer": "Makapagsulat nang may respeto"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚠️ Friday Review — Science (Grade 3)\n\n- Sound and light can be harmful\n\nGreat safety review! 🌟",
+        "quiz": [
+          {
+            "question": "What can very loud sounds do to our ears?",
+            "options": [
+              "Damage them",
+              "Make them stronger",
+              "No effect",
+              "Improve hearing"
+            ],
+            "correct_answer": "Damage them"
+          },
+          {
+            "question": "What should you do near a loud sound?",
+            "options": [
+              "Cover your ears",
+              "Get closer",
+              "Ignore it",
+              "Cover your eyes instead"
+            ],
+            "correct_answer": "Cover your ears"
+          },
+          {
+            "question": "What can looking at the Sun do to your eyes?",
+            "options": [
+              "Damage them",
+              "Improve vision",
+              "No effect",
+              "Make them stronger"
+            ],
+            "correct_answer": "Damage them"
+          },
+          {
+            "question": "Should you ever look directly at the Sun?",
+            "options": [
+              "No, never",
+              "Yes, always",
+              "Only at noon",
+              "Only with sunglasses"
+            ],
+            "correct_answer": "No, never"
+          },
+          {
+            "question": "Example of sound used for information?",
+            "options": [
+              "A siren",
+              "A picture",
+              "A book",
+              "A drawing"
+            ],
+            "correct_answer": "A siren"
+          },
+          {
+            "question": "Example of light used for information?",
+            "options": [
+              "A traffic signal",
+              "A drum",
+              "A whistle",
+              "A bell"
+            ],
+            "correct_answer": "A traffic signal"
+          },
+          {
+            "question": "Why do sirens use loud sound?",
+            "options": [
+              "Warn people quickly over distance",
+              "Entertain people",
+              "Damage hearing on purpose",
+              "Replace traffic lights"
+            ],
+            "correct_answer": "Warn people quickly over distance"
+          },
+          {
+            "question": "Why is a flashlight useful for signaling at night?",
+            "options": [
+              "Light seen from far even at night",
+              "Makes no light",
+              "Only works in daytime",
+              "Cannot be seen far away"
+            ],
+            "correct_answer": "Light seen from far even at night"
+          },
+          {
+            "question": "Source of potentially harmful loud sound?",
+            "options": [
+              "Fireworks",
+              "A whisper",
+              "A soft breeze",
+              "A quiet room"
+            ],
+            "correct_answer": "Fireworks"
+          },
+          {
+            "question": "Why know sound/light can be harmful?",
+            "options": [
+              "Protect our ears and eyes",
+              "No importance",
+              "Never harmful",
+              "Only adults need to know"
+            ],
+            "correct_answer": "Protect our ears and eyes"
+          },
+          {
+            "question": "How to protect ears at a loud concert?",
+            "options": [
+              "Cover ears or use earplugs",
+              "Get closer to speakers",
+              "Remove protection",
+              "Ignore the sound"
+            ],
+            "correct_answer": "Cover ears or use earplugs"
+          },
+          {
+            "question": "Why do traffic lights use different colors?",
+            "options": [
+              "Each color sends a different clear message",
+              "Colors have no meaning",
+              "Just decoration",
+              "All colors mean the same"
+            ],
+            "correct_answer": "Each color sends a different clear message"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🇵🇭 Friday Review — Makabansa (Grade 3)\n\n- Papel ng pagiging aktibong Pilipino\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang aktibong Pilipino?",
+            "options": [
+              "Mamamayan na kumikilos para sa ikabubuti ng bansa",
+              "Mamamayan na walang pakialam",
+              "Mamamayan na hindi sumusunod sa batas",
+              "Mamamayan sa ibang bansa lamang"
+            ],
+            "correct_answer": "Mamamayan na kumikilos para sa ikabubuti ng bansa"
+          },
+          {
+            "question": "Halimbawa ng papel ng aktibong Pilipino?",
+            "options": [
+              "Pagsunod sa batas at alituntunin",
+              "Pagtanggi sa lahat ng batas",
+              "Pag-iwas sa komunidad",
+              "Kawalang pakialam"
+            ],
+            "correct_answer": "Pagsunod sa batas at alituntunin"
+          },
+          {
+            "question": "Paano tumulong ang bata bilang aktibong Pilipino?",
+            "options": [
+              "Pagtulong sa kapwa at komunidad",
+              "Pananatiling walang ginagawa",
+              "Pag-iwas sa gawain",
+              "Kawalang interes"
+            ],
+            "correct_answer": "Pagtulong sa kapwa at komunidad"
+          },
+          {
+            "question": "Gawin kapag nagbibigay ng opinyon?",
+            "options": [
+              "Gawin nang may respeto",
+              "Sigawan ang iba",
+              "Ipagwalang-bahala ang iba",
+              "Manlait"
+            ],
+            "correct_answer": "Gawin nang may respeto"
+          },
+          {
+            "question": "Bakit mahalaga ang aktibong Pilipino?",
+            "options": [
+              "Lumikha ng mas mabuting bansa",
+              "Walang kahalagahan",
+              "Nagdudulot ng gulo",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Lumikha ng mas mabuting bansa"
+          },
+          {
+            "question": "Halimbawa ng gawaing pangkapaligiran?",
+            "options": [
+              "Paglilinis ng ilog kasama ang komunidad",
+              "Pagtatapon ng basura kahit saan",
+              "Pagputol ng puno",
+              "Pag-aksaya ng tubig"
+            ],
+            "correct_answer": "Paglilinis ng ilog kasama ang komunidad"
+          },
+          {
+            "question": "Bakit sumunod sa batas?",
+            "options": [
+              "Nagpapanatili ng kaayusan",
+              "Hindi kailangan sundin",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan"
+          },
+          {
+            "question": "Layunin ng pagiging aktibong mamamayan?",
+            "options": [
+              "Kumilos para sa ikabubuti ng lahat",
+              "Manatiling tahimik",
+              "Iwasan ang responsibilidad",
+              "Kalimutan ang kapakanan ng iba"
+            ],
+            "correct_answer": "Kumilos para sa ikabubuti ng lahat"
+          },
+          {
+            "question": "Bakit ituro ang aktibong pagiging Pilipino sa bata?",
+            "options": [
+              "Matutong tumulong mula pagkabata",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Matutong tumulong mula pagkabata"
+          },
+          {
+            "question": "Alin ang HINDI papel ng aktibong Pilipino?",
+            "options": [
+              "Kawalang pakialam sa komunidad",
+              "Pagsunod sa batas",
+              "Pagtulong sa kapwa",
+              "Opinyon nang may respeto"
+            ],
+            "correct_answer": "Kawalang pakialam sa komunidad"
+          },
+          {
+            "question": "Koneksyon ng aktibong Pilipino sa pagkakakilanlan?",
+            "options": [
+              "Aktibong pagkilos ay pagpapahayag ng pagmamalaki",
+              "Walang koneksyon",
+              "Hiwalay ang dalawa",
+              "Hindi kailangang maging aktibo"
+            ],
+            "correct_answer": "Aktibong pagkilos ay pagpapahayag ng pagmamalaki"
+          },
+          {
+            "question": "Naidudulot ng maraming aktibong mamamayan?",
+            "options": [
+              "Mas malakas na bansa",
+              "Higit na kaguluhan",
+              "Wala",
+              "Kawalan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas malakas na bansa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔒 Friday Review — Computer (Grade 3)\n\n- Huwag ibahagi ang personal na impormasyon\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi ibahagi ang personal na impormasyon?",
+            "options": [
+              "Maaaring gamitin ng may masamang layunin",
+              "Ligtas palagi",
+              "Kinakailangan gawin",
+              "Walang panganib"
+            ],
+            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+          },
+          {
+            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "options": [
+              "Huwag ibigay, sabihin sa matanda",
+              "Ibigay agad",
+              "Sagutin nang tapat",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+          },
+          {
+            "question": "Halimbawa ng password?",
+            "options": [
+              "Sikretong kumbinasyon ng titik at bilang",
+              "Buong pangalan lamang",
+              "Paboritong hayop",
+              "Paaralan lamang"
+            ],
+            "correct_answer": "Sikretong kumbinasyon ng titik at bilang"
+          },
+          {
+            "question": "Bakit mapanganib ibigay ang tirahan sa estranghero?",
+            "options": [
+              "Maaaring gamitin ng may masamang layunin",
+              "Walang panganib",
+              "Ligtas palagi",
+              "Lahat mabuti ang layunin"
+            ],
+            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+          },
+          {
+            "question": "Sino sabihan kung may humihingi ng impormasyon?",
+            "options": [
+              "Isang may sapat na gulang",
+              "Walang dapat sabihan",
+              "Kaklase lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Isang may sapat na gulang"
+          },
+          {
+            "question": "Isa pang halimbawa ng personal na impormasyon?",
+            "options": [
+              "Numero ng telepono",
+              "Paboritong kulay",
+              "Paboritong hayop",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Numero ng telepono"
+          },
+          {
+            "question": "Bakit ituro ang paksang ito?",
+            "options": [
+              "Maging ligtas sa Internet",
+              "Hindi mahalaga",
+              "Hikayatin ang pagbabahagi",
+              "Walang layunin"
+            ],
+            "correct_answer": "Maging ligtas sa Internet"
+          },
+          {
+            "question": "Bakit hindi ibahagi ang password?",
+            "options": [
+              "Magagamit para makapasok sa account mo",
+              "Ligtas ibahagi",
+              "Kinakailangan ibahagi sa kaibigan",
+              "Walang panganib"
+            ],
+            "correct_answer": "Magagamit para makapasok sa account mo"
+          },
+          {
+            "question": "Gawin kung hindi tiyak kung sino ang humihingi ng impormasyon?",
+            "options": [
+              "Huwag pa rin ibigay, magtanong sa matanda",
+              "Ibigay na lamang",
+              "Balewalain",
+              "Ipagpatuloy ang usapan"
+            ],
+            "correct_answer": "Huwag pa rin ibigay, magtanong sa matanda"
+          },
+          {
+            "question": "Bakit maunawaan ang panganib mula sa maagang edad?",
+            "options": [
+              "Maging responsable sa teknolohiya paglaki",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging responsable sa teknolohiya paglaki"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa personal na impormasyon?",
+            "options": [
+              "Panatilihing pribado, humingi ng gabay sa matanda",
+              "Ibahagi sa lahat",
+              "Hindi kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Panatilihing pribado, humingi ng gabay sa matanda"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 3)\n\n- Prayerful: panalangin para sa kapuwa\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang panalangin para sa kapuwa?",
+            "options": [
+              "Pagdarasal para sa kapakanan ng iba",
+              "Pagdarasal para sa sarili lamang",
+              "Kawalang pakialam",
+              "Pag-iwas sa panalangin"
+            ],
+            "correct_answer": "Pagdarasal para sa kapakanan ng iba"
+          },
+          {
+            "question": "Sino maaaring ipanalangin?",
+            "options": [
+              "Mga may sakit at nangangailangan",
+              "Walang sinuman",
+              "Sarili lamang",
+              "Mga estranghero lamang"
+            ],
+            "correct_answer": "Mga may sakit at nangangailangan"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Prayerful (Mapanalanginin)",
+              "Compassion",
+              "Respect",
+              "Obedience"
+            ],
+            "correct_answer": "Prayerful (Mapanalanginin)"
+          },
+          {
+            "question": "Bakit mahalaga ang panalangin para sa iba?",
+            "options": [
+              "Nagpapakita ng pagmamalasakit at pananampalataya",
+              "Walang kahalagahan",
+              "Hindi totoong panalangin",
+              "Pag-aaksaya ng oras"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamalasakit at pananampalataya"
+          },
+          {
+            "question": "Halimbawa ng tumutulong sa komunidad?",
+            "options": [
+              "Doktor, guro, pulisya",
+              "Estranghero lamang",
+              "Walang sinuman",
+              "Mga taong hindi kilala"
+            ],
+            "correct_answer": "Doktor, guro, pulisya"
+          },
+          {
+            "question": "Ipinapakita ng pagdarasal para sa nakikipaglaban?",
+            "options": [
+              "Pagmamalasakit at empatiya",
+              "Kawalang pakialam",
+              "Pagtanggi tumulong",
+              "Wala"
+            ],
+            "correct_answer": "Pagmamalasakit at empatiya"
+          },
+          {
+            "question": "Bakit prayerful ay pagpapahalaga sa GMRC?",
+            "options": [
+              "Nagtuturo ng pagmamalasakit sa pamamagitan ng panalangin",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng pagmamalasakit sa pamamagitan ng panalangin"
+          },
+          {
+            "question": "Naidudulot ng pagdarasal para sa iba?",
+            "options": [
+              "Pagpapalawak ng pagmamalasakit",
+              "Kawalan ng pagmamalasakit",
+              "Hindi totoong panalangin",
+              "Wala"
+            ],
+            "correct_answer": "Pagpapalawak ng pagmamalasakit"
+          },
+          {
+            "question": "Kailan magdasal para sa iba?",
+            "options": [
+              "Anumang oras",
+              "Isang beses sa isang taon",
+              "Kapag may kapistahan lamang",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Anumang oras"
+          },
+          {
+            "question": "Bakit ituro ang panalangin para sa kapuwa sa bata?",
+            "options": [
+              "Matutong magmalasakit sa iba mula pagkabata",
+              "Hindi na kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Matutong magmalasakit sa iba mula pagkabata"
+          },
+          {
+            "question": "Kaibahan ng panalangin para sa kapuwa sa sarili lamang?",
+            "options": [
+              "Nakasentro sa kapakanan ng iba",
+              "Walang pagkakaiba",
+              "Palaging tungkol sa sarili",
+              "Hindi dapat magdasal para sa iba"
+            ],
+            "correct_answer": "Nakasentro sa kapakanan ng iba"
+          },
+          {
+            "question": "Koneksyon nito sa pagkilala sa PWD?",
+            "options": [
+              "Pareho tungkol sa pagmamalasakit sa iba",
+              "Walang kaugnayan",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho tungkol sa pagmamalasakit sa iba"
+          }
+        ]
+      }
+    }
+  }
+}

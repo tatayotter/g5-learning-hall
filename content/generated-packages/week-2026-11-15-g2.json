@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-11-15",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🌡️ English — How Weather Affects Our Day\n\nGrade 2, Week 23! Let's talk about how weather changes what we do. 🌡️\n\n## 🔄 Review\nWe learned about the dry season and rainy season.\n\n## 🌡️ Weather Changes Our Plans\n- On a **sunny** day, we might play outside or go swimming.\n- On a **rainy** day, we might stay inside and read a book.\n- On a **windy** day, kites fly high!\n- During a **typhoon**, schools may be closed for safety.\n\n## 📝 Talking About Weather Effects\n\"Because it is raining, we cannot play outside.\"\n\"Since it is sunny, let's go to the park!\"\n\n**Key words:** because, since, affect, activities",
+        "quiz": [
+          {
+            "question": "What might you do on a sunny day?",
+            "options": [
+              "Play outside or go swimming",
+              "Stay inside all day",
+              "Wear a heavy coat",
+              "Cancel school always"
+            ],
+            "correct_answer": "Play outside or go swimming"
+          },
+          {
+            "question": "What might you do on a rainy day?",
+            "options": [
+              "Stay inside and read a book",
+              "Go swimming at the beach",
+              "Fly a kite outside",
+              "Have a picnic outdoors"
+            ],
+            "correct_answer": "Stay inside and read a book"
+          },
+          {
+            "question": "What activity is fun on a windy day?",
+            "options": [
+              "Flying a kite",
+              "Swimming in the ocean",
+              "Sunbathing",
+              "None, windy days have no activities"
+            ],
+            "correct_answer": "Flying a kite"
+          },
+          {
+            "question": "Why might schools close during a typhoon?",
+            "options": [
+              "For the safety of students",
+              "Because it is too sunny",
+              "Because it is too hot",
+              "There is no real reason"
+            ],
+            "correct_answer": "For the safety of students"
+          },
+          {
+            "question": "'Because it is raining, we cannot play outside' uses what word to explain a reason?",
+            "options": [
+              "Because",
+              "And",
+              "But",
+              "Or"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "'Since it is sunny, let's go to the park!' uses what word to explain a reason?",
+            "options": [
+              "Since",
+              "But",
+              "Or",
+              "Not"
+            ],
+            "correct_answer": "Since"
+          },
+          {
+            "question": "Why does weather affect what activities we choose?",
+            "options": [
+              "Some activities are only safe or fun in certain weather",
+              "Weather has no effect on activities",
+              "We always do the same thing no matter the weather",
+              "Weather only affects adults"
+            ],
+            "correct_answer": "Some activities are only safe or fun in certain weather"
+          },
+          {
+            "question": "What should you do if it's raining and you want to play?",
+            "options": [
+              "Choose an indoor activity instead",
+              "Ignore the rain and play outside",
+              "Wait for a typhoon",
+              "Do nothing at all"
+            ],
+            "correct_answer": "Choose an indoor activity instead"
+          },
+          {
+            "question": "Which weather is best for going to the beach?",
+            "options": [
+              "Sunny weather",
+              "A typhoon",
+              "Heavy rain",
+              "Strong wind and rain"
+            ],
+            "correct_answer": "Sunny weather"
+          },
+          {
+            "question": "Why is it a good idea to check the weather before planning an outdoor activity?",
+            "options": [
+              "To know if it will be safe and enjoyable",
+              "Weather never matters for plans",
+              "It has no real use",
+              "Only adults need to check weather"
+            ],
+            "correct_answer": "To know if it will be safe and enjoyable"
+          },
+          {
+            "question": "What could happen if you play outside during a typhoon?",
+            "options": [
+              "It could be dangerous",
+              "Nothing would happen",
+              "It is always the safest time to play",
+              "Typhoons never affect outdoor safety"
+            ],
+            "correct_answer": "It could be dangerous"
+          },
+          {
+            "question": "Why might we say 'because' or 'since' when talking about weather?",
+            "options": [
+              "To explain the reason for our actions or plans",
+              "They have no real meaning",
+              "To make sentences shorter",
+              "To avoid talking about weather"
+            ],
+            "correct_answer": "To explain the reason for our actions or plans"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Mathematics — Introduction to Unit Fractions\n\nGrade 2, Week 23! Let's learn about sharing things into equal parts! 🍕\n\n## 🔄 Review\nWe practiced division with 2, 5, and 10.\n\n## 🍕 What Is a Fraction?\nA **fraction** shows a part of a whole. A **unit fraction** has a **1** on top (numerator).\n\n## ½ Halves\nIf you cut a pizza into **2 equal parts**, each part is **1/2** (one-half).\n\n## ⅓ Thirds\nIf you cut a cake into **3 equal parts**, each part is **1/3** (one-third).\n\n## ¼ Fourths\nIf you cut a sandwich into **4 equal parts**, each part is **1/4** (one-fourth).\n\n**Important:** The parts must be **equal** in size to be a fraction!\n\n**Key words:** fraction, numerator, denominator, equal parts, half, third, fourth",
+        "quiz": [
+          {
+            "question": "What is a fraction?",
+            "options": [
+              "A part of a whole",
+              "A whole number only",
+              "A type of shape",
+              "A large number"
+            ],
+            "correct_answer": "A part of a whole"
+          },
+          {
+            "question": "What does 1/2 mean?",
+            "options": [
+              "One out of two equal parts",
+              "Two out of one part",
+              "One whole",
+              "Two wholes"
+            ],
+            "correct_answer": "One out of two equal parts"
+          },
+          {
+            "question": "If you cut a pizza into 2 equal parts, what is each part called?",
+            "options": [
+              "1/2",
+              "1/3",
+              "1/4",
+              "2/2"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "If you cut a cake into 3 equal parts, what is each part called?",
+            "options": [
+              "1/3",
+              "1/2",
+              "1/4",
+              "3/1"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "If you cut a sandwich into 4 equal parts, what is each part called?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/1"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What must the parts of a fraction be?",
+            "options": [
+              "Equal in size",
+              "Different sizes",
+              "All the same color",
+              "Very tiny"
+            ],
+            "correct_answer": "Equal in size"
+          },
+          {
+            "question": "What is the top number of a fraction called?",
+            "options": [
+              "Numerator",
+              "Denominator",
+              "Whole number",
+              "Divisor"
+            ],
+            "correct_answer": "Numerator"
+          },
+          {
+            "question": "In a unit fraction, what number is always on top?",
+            "options": [
+              "1",
+              "0",
+              "2",
+              "10"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "Which fraction shows a whole cut into 4 equal parts?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "1/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "If a bar of chocolate is cut into 2 equal pieces and you eat one, how much did you eat?",
+            "options": [
+              "1/2",
+              "1/4",
+              "1/3",
+              "The whole bar"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Why must fraction parts be equal?",
+            "options": [
+              "So each part represents a fair, correct share",
+              "Equal parts are not actually required",
+              "It makes the shape prettier",
+              "It has no real reason"
+            ],
+            "correct_answer": "So each part represents a fair, correct share"
+          },
+          {
+            "question": "Which is bigger: 1/2 or 1/4 of the same whole?",
+            "options": [
+              "1/2",
+              "1/4",
+              "They are equal",
+              "Cannot be compared"
+            ],
+            "correct_answer": "1/2"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🌡️ Filipino — Epekto ng Panahon sa Araw-Araw na Buhay\n\nGrade 2, Linggo 23! Alamin natin kung paano nakaaapekto ang panahon sa gawain natin. 🌡️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tag-init at tag-ulan.\n\n## 🌡️ Nagbabago ang Gawain Ayon sa Panahon\n- Sa **maaraw** na araw, maaari tayong maglaro sa labas.\n- Sa **maulan** na araw, mas mabuting manatili sa loob at magbasa.\n- Sa **mahangin** na araw, maganda ang paglilipad ng saranggola.\n- Sa **bagyo**, isinasara ang klase para sa kaligtasan.\n\n## 📝 Halimbawang Pangungusap\n\"Dahil umuulan, hindi tayo puwedeng maglaro sa labas.\"\n\"Sapagkat maaraw, tara na tayo sa parke!\"\n\n**Mahahalagang salita:** dahil, sapagkat, epekto, gawain",
+        "quiz": [
+          {
+            "question": "Ano ang gagawin sa maaraw na araw?",
+            "options": [
+              "Maglaro sa labas",
+              "Manatili sa loob buong araw",
+              "Magsuot ng makapal na damit",
+              "Isara ang klase"
+            ],
+            "correct_answer": "Maglaro sa labas"
+          },
+          {
+            "question": "Ano ang gagawin sa maulan na araw?",
+            "options": [
+              "Manatili sa loob at magbasa",
+              "Lumangoy sa dagat",
+              "Maglipad ng saranggola",
+              "Mag-picnic sa labas"
+            ],
+            "correct_answer": "Manatili sa loob at magbasa"
+          },
+          {
+            "question": "Anong aktibidad ang bagay sa mahangin na araw?",
+            "options": [
+              "Paglilipad ng saranggola",
+              "Paglangoy sa dagat",
+              "Pagpapaaraw",
+              "Wala, walang aktibidad sa mahanging araw"
+            ],
+            "correct_answer": "Paglilipad ng saranggola"
+          },
+          {
+            "question": "Bakit isinasara ang klase kapag may bagyo?",
+            "options": [
+              "Para sa kaligtasan ng mga estudyante",
+              "Dahil masyadong maaraw",
+              "Dahil masyadong mainit",
+              "Walang tunay na dahilan"
+            ],
+            "correct_answer": "Para sa kaligtasan ng mga estudyante"
+          },
+          {
+            "question": "'Dahil umuulan, hindi tayo puwedeng maglaro sa labas' ginamit ang salitang...",
+            "options": [
+              "Dahil",
+              "At",
+              "Pero",
+              "O"
+            ],
+            "correct_answer": "Dahil"
+          },
+          {
+            "question": "'Sapagkat maaraw, tara na tayo sa parke!' ginamit ang salitang...",
+            "options": [
+              "Sapagkat",
+              "Pero",
+              "O",
+              "Hindi"
+            ],
+            "correct_answer": "Sapagkat"
+          },
+          {
+            "question": "Bakit nakaaapekto ang panahon sa mga gawain natin?",
+            "options": [
+              "May mga gawaing ligtas o masaya lamang sa tiyak na panahon",
+              "Walang epekto ang panahon",
+              "Palaging pareho ang ginagawa kahit anong panahon",
+              "Ang mga matatanda lamang ang naaapektuhan"
+            ],
+            "correct_answer": "May mga gawaing ligtas o masaya lamang sa tiyak na panahon"
+          },
+          {
+            "question": "Ano ang dapat gawin kung umuulan at gustong maglaro?",
+            "options": [
+              "Pumili ng gawain sa loob ng bahay",
+              "Balewalain ang ulan at maglaro sa labas",
+              "Maghintay ng bagyo",
+              "Wala nang gagawin"
+            ],
+            "correct_answer": "Pumili ng gawain sa loob ng bahay"
+          },
+          {
+            "question": "Anong panahon ang pinakabagay sa paglangoy sa dagat?",
+            "options": [
+              "Maaraw na panahon",
+              "Bagyo",
+              "Malakas na ulan",
+              "Malakas na hangin at ulan"
+            ],
+            "correct_answer": "Maaraw na panahon"
+          },
+          {
+            "question": "Bakit mahalagang tingnan ang panahon bago magplano ng gawain sa labas?",
+            "options": [
+              "Para malaman kung ligtas at masaya ito",
+              "Hindi mahalaga ang panahon sa plano",
+              "Walang gamit ito",
+              "Matatanda lamang ang kailangang tumingin"
+            ],
+            "correct_answer": "Para malaman kung ligtas at masaya ito"
+          },
+          {
+            "question": "Ano ang maaaring mangyari kung maglalaro ka sa labas habang bagyo?",
+            "options": [
+              "Maaaring mapanganib ito",
+              "Walang mangyayari",
+              "Ito ang pinakaligtas na oras",
+              "Walang epekto ang bagyo sa paglalaro"
+            ],
+            "correct_answer": "Maaaring mapanganib ito"
+          },
+          {
+            "question": "Bakit ginagamit ang 'dahil' o 'sapagkat' sa pag-uusap tungkol sa panahon?",
+            "options": [
+              "Para ipaliwanag ang dahilan ng ating gawain o plano",
+              "Wala silang kahulugan",
+              "Para gawing maikli ang pangungusap",
+              "Para iwasan ang pag-uusap tungkol sa panahon"
+            ],
+            "correct_answer": "Para ipaliwanag ang dahilan ng ating gawain o plano"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌦️ Science — Paano Nakaaapekto ang Panahon sa Pang-araw-araw na Buhay\n\nGrade 2, Linggo 23! Alamin natin ang buong koneksyon ng panahon sa ating buhay. 🌦️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dalawang panahon sa Pilipinas.\n\n## 🌤️ Epekto ng Panahon sa Kasuotan\nSa tag-init, magsuot ng manipis na damit. Sa tag-ulan, magsuot ng kapote at magdala ng payong.\n\n## 🏠 Epekto ng Panahon sa Aktibidad\nSa maaraw na araw, maaaring maglaro sa labas. Sa malakas na ulan o bagyo, kailangang manatili sa loob ng bahay para sa kaligtasan.\n\n## 🌾 Epekto ng Panahon sa Pagsasaka\nAng mga magsasaka ay nagtatanim ayon din sa panahon — ang ilang pananim ay mas mabuting itanim sa tag-ulan dahil sa sapat na tubig.\n\nAng pag-unawa sa panahon ay tumutulong sa atin na **maghanda at magpasya nang mas mabuti**.\n\n**Mahahalagang salita:** kasuotan, aktibidad, pagsasaka, paghahanda",
+        "quiz": [
+          {
+            "question": "Anong kasuotan ang bagay sa tag-init?",
+            "options": [
+              "Manipis na damit",
+              "Kapote",
+              "Makapal na kasuotan pantaglamig",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Manipis na damit"
+          },
+          {
+            "question": "Anong kasuotan ang bagay sa tag-ulan?",
+            "options": [
+              "Kapote at magdala ng payong",
+              "Damit pang-swimming lamang",
+              "Sunglasses lamang",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Kapote at magdala ng payong"
+          },
+          {
+            "question": "Ano ang dapat gawin sa panahon ng malakas na ulan o bagyo?",
+            "options": [
+              "Manatili sa loob ng bahay para sa kaligtasan",
+              "Maglaro sa labas",
+              "Lumangoy sa dagat",
+              "Maglipad ng saranggola"
+            ],
+            "correct_answer": "Manatili sa loob ng bahay para sa kaligtasan"
+          },
+          {
+            "question": "Kailan mas mabuting magtanim ang mga magsasaka ng ilang pananim?",
+            "options": [
+              "Sa tag-ulan dahil sa sapat na tubig",
+              "Sa tag-init lamang",
+              "Kahit anong panahon walang epekto",
+              "Hindi kailanman"
+            ],
+            "correct_answer": "Sa tag-ulan dahil sa sapat na tubig"
+          },
+          {
+            "question": "Bakit mahalagang maunawaan ang panahon?",
+            "options": [
+              "Tumutulong ito sa mas mabuting paghahanda at pagpapasya",
+              "Walang kabuluhan ito",
+              "Para lamang libangin ang sarili",
+              "Hindi ito nakakatulong sa buhay"
+            ],
+            "correct_answer": "Tumutulong ito sa mas mabuting paghahanda at pagpapasya"
+          },
+          {
+            "question": "Bakit magsuot ng makapal na damit sa panahon ng ulan?",
+            "options": [
+              "Para hindi magkasakit sa lamig at basa",
+              "Para mainitan",
+              "Para maglaro sa dagat",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para hindi magkasakit sa lamig at basa"
+          },
+          {
+            "question": "Ano ang epekto ng panahon sa pagsasaka?",
+            "options": [
+              "Nakakatulong ito magpasya kung kailan magtatanim",
+              "Walang epekto sa pagsasaka",
+              "Hindi kailanman pinag-iisipan ng magsasaka",
+              "Ang panahon ay walang kinalaman sa tanim"
+            ],
+            "correct_answer": "Nakakatulong ito magpasya kung kailan magtatanim"
+          },
+          {
+            "question": "Bakit kailangang magdala ng payong sa tag-ulan?",
+            "options": [
+              "Para hindi mabasa ang katawan",
+              "Para protektahan mula sa araw",
+              "Para makatulong maglipad ng saranggola",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para hindi mabasa ang katawan"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi naghahanda para sa bagyo?",
+            "options": [
+              "Maaaring manganib ang kaligtasan ng pamilya",
+              "Walang epekto ito",
+              "Palaging ligtas kahit walang paghahanda",
+              "Hindi mahalaga ang paghahanda"
+            ],
+            "correct_answer": "Maaaring manganib ang kaligtasan ng pamilya"
+          },
+          {
+            "question": "Bakit iba-iba ang gawain sa iba't ibang panahon?",
+            "options": [
+              "Naaapektuhan ng panahon ang kaligtasan at kaginhawaan ng gawain",
+              "Walang koneksyon ang panahon sa gawain",
+              "Palaging pareho ang gagawin kahit anong panahon",
+              "Hindi kailangang isaalang-alang ang panahon"
+            ],
+            "correct_answer": "Naaapektuhan ng panahon ang kaligtasan at kaginhawaan ng gawain"
+          },
+          {
+            "question": "Sino ang direktang nakakaramdam ng epekto ng panahon sa kabuhayan?",
+            "options": [
+              "Mga magsasaka",
+              "Mga guro lamang",
+              "Walang sinuman",
+              "Mga estudyante lamang"
+            ],
+            "correct_answer": "Mga magsasaka"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa panahon at pang-araw-araw na buhay?",
+            "options": [
+              "Ang panahon ay may malaking epekto sa ating kasuotan, aktibidad, at kabuhayan",
+              "Walang koneksyon ang panahon sa ating buhay",
+              "Ang panahon ay hindi importante sa desisyon natin",
+              "Ang panahon ay hindi nakakaapekto sa kahit sino"
+            ],
+            "correct_answer": "Ang panahon ay may malaking epekto sa ating kasuotan, aktibidad, at kabuhayan"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 💰 Makabansa — Mga Uri ng Kabuhayan: Pampinansyal at Panserbisyo\n\nGrade 2, Linggo 23! Alamin natin pa ang iba pang uri ng kabuhayan. 💰\n\n## 🔄 Balik-Aral\nNatutuhan natin ang agrikultural at industriyal na kabuhayan.\n\n## 💰 Kabuhayang Pampinansyal\nAng **pampinansyal** na kabuhayan ay may kinalaman sa pera, tulad ng pagtatrabaho sa **bangko** o pagpapahiram ng pera.\n\n## 🛠️ Kabuhayang Panserbisyo\nAng **panserbisyo** na kabuhayan ay ang pagbibigay ng tulong o serbisyo sa iba, tulad ng pagiging **manggagamot**, **barbero**, o **drayber**.\n\n## 🔍 Halimbawa\nSi Nanay Rosa ay nagtatrabaho sa bangko (pampinansyal). Si Kuya Ben ay drayber ng dyip (panserbisyo).\n\n**Mahahalagang salita:** pampinansyal, panserbisyo, bangko, drayber",
+        "quiz": [
+          {
+            "question": "Ano ang pampinansyal na kabuhayan?",
+            "options": [
+              "May kinalaman sa pera, tulad ng sa bangko",
+              "Pagsasaka",
+              "Paggawa sa pabrika",
+              "Pangingisda"
+            ],
+            "correct_answer": "May kinalaman sa pera, tulad ng sa bangko"
+          },
+          {
+            "question": "Ano ang panserbisyo na kabuhayan?",
+            "options": [
+              "Pagbibigay ng tulong o serbisyo sa iba",
+              "Pagtatanim ng gulay",
+              "Paggawa ng damit sa pabrika",
+              "Pangingisda sa dagat"
+            ],
+            "correct_answer": "Pagbibigay ng tulong o serbisyo sa iba"
+          },
+          {
+            "question": "Alin ang halimbawa ng pampinansyal na kabuhayan?",
+            "options": [
+              "Pagtatrabaho sa bangko",
+              "Pagiging drayber",
+              "Pagiging manggagamot",
+              "Pagiging barbero"
+            ],
+            "correct_answer": "Pagtatrabaho sa bangko"
+          },
+          {
+            "question": "Alin ang halimbawa ng panserbisyo na kabuhayan?",
+            "options": [
+              "Pagiging drayber",
+              "Pagtatrabaho sa bangko",
+              "Pagpapahiram ng pera",
+              "Pag-iimbak ng pera"
+            ],
+            "correct_answer": "Pagiging drayber"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang manggagamot?",
+            "options": [
+              "Tumutulong sa mga taong may sakit",
+              "Nagtatanim ng gulay",
+              "Nagtatrabaho sa bangko",
+              "Nangingisda"
+            ],
+            "correct_answer": "Tumutulong sa mga taong may sakit"
+          },
+          {
+            "question": "Ano ang ginagawa ng isang barbero?",
+            "options": [
+              "Nagpapagupit ng buhok",
+              "Nagtatanim ng palay",
+              "Nagtatrabaho sa bangko",
+              "Nangingisda sa ilog"
+            ],
+            "correct_answer": "Nagpapagupit ng buhok"
+          },
+          {
+            "question": "Sino ang nagtatrabaho sa bangko sa halimbawa?",
+            "options": [
+              "Nanay Rosa",
+              "Kuya Ben",
+              "Ang guro",
+              "Ang magsasaka"
+            ],
+            "correct_answer": "Nanay Rosa"
+          },
+          {
+            "question": "Sino ang drayber ng dyip sa halimbawa?",
+            "options": [
+              "Kuya Ben",
+              "Nanay Rosa",
+              "Ang guro",
+              "Ang magsasaka"
+            ],
+            "correct_answer": "Kuya Ben"
+          },
+          {
+            "question": "Bakit mahalaga ang kabuhayang panserbisyo?",
+            "options": [
+              "Tumutulong ito sa iba't ibang pangangailangan ng komunidad",
+              "Wala itong kahalagahan",
+              "Para lamang sa mayaman",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Tumutulong ito sa iba't ibang pangangailangan ng komunidad"
+          },
+          {
+            "question": "Bakit mahalaga ang kabuhayang pampinansyal?",
+            "options": [
+              "Tumutulong ito sa pag-iimbak at pagpapahiram ng pera",
+              "Wala itong kahalagahan",
+              "Para lamang ito sa mayaman",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Tumutulong ito sa pag-iimbak at pagpapahiram ng pera"
+          },
+          {
+            "question": "Paano naiiba ang pampinansyal sa panserbisyo?",
+            "options": [
+              "Ang pampinansyal ay tungkol sa pera, ang panserbisyo ay tumutulong sa iba",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Pareho silang tungkol sa pagsasaka"
+            ],
+            "correct_answer": "Ang pampinansyal ay tungkol sa pera, ang panserbisyo ay tumutulong sa iba"
+          },
+          {
+            "question": "Bakit iba-iba ang uri ng kabuhayan sa isang komunidad?",
+            "options": [
+              "Iba't ibang pangangailangan ang tinutugunan ng bawat isa",
+              "Isang uri lamang ang kailangan",
+              "Walang dahilan sa pagkakaiba",
+              "Hindi mahalaga ang kabuhayan"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan ang tinutugunan ng bawat isa"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⏰ Computer — Screen-Time at Pagtatanong sa Matanda\n\nGrade 2, Week 23! Alamin natin kung paano maging matalinong gumamit ng kompyuter. ⏰\n\n## 🔄 Balik-Aral\nNatutuhan natin kung ano ang Internet.\n\n## ⏰ Ano ang Screen-Time?\nAng **screen-time** ay ang oras na ginugugol sa harap ng kompyuter, tablet, o telepono.\n\n## ⚖️ Bakit Kailangang Limitahan Ito?\n- Masyadong mahabang screen-time ay maaaring makasama sa mata at katawan\n- Kailangan ding may oras para sa pagbabasa, paglalaro sa labas, at pagtulog\n\n## 👨‍👩‍👧 Palaging Magtanong Muna sa Matanda\nBago pumunta online o gumamit ng bagong programa, **magtanong muna sa magulang o guro** para sa pahintulot at gabay.\n\n**Mahahalagang salita:** screen-time, balanse, pahintulot, gabay",
+        "quiz": [
+          {
+            "question": "Ano ang screen-time?",
+            "options": [
+              "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono",
+              "Oras ng pagtulog",
+              "Oras ng pagkain",
+              "Oras ng paglalaro sa labas"
+            ],
+            "correct_answer": "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono"
+          },
+          {
+            "question": "Bakit kailangang limitahan ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at katawan kung sobra",
+              "Walang dahilan",
+              "Palaging mabuti ang mahabang screen-time",
+              "Hindi na kailangan limitahan"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at katawan kung sobra"
+          },
+          {
+            "question": "Ano pang dapat may oras para sa isang bata bukod sa screen-time?",
+            "options": [
+              "Pagbabasa, paglalaro sa labas, at pagtulog",
+              "Screen-time lamang buong araw",
+              "Walang ibang gagawin",
+              "Panonood lamang ng TV"
+            ],
+            "correct_answer": "Pagbabasa, paglalaro sa labas, at pagtulog"
+          },
+          {
+            "question": "Ano ang dapat gawin bago pumunta online?",
+            "options": [
+              "Magtanong muna sa magulang o guro",
+              "Direktang pumunta nang walang pahintulot",
+              "Hindi na kailangan magtanong",
+              "Gawin lamang kapag walang matanda"
+            ],
+            "correct_answer": "Magtanong muna sa magulang o guro"
+          },
+          {
+            "question": "Bakit mahalagang magtanong muna sa matanda?",
+            "options": [
+              "Para sa pahintulot at gabay sa paggamit ng kompyuter",
+              "Hindi na kailangan ng gabay",
+              "Palaging ligtas kahit walang tanong",
+              "Ang bata na lamang ang magpasya"
+            ],
+            "correct_answer": "Para sa pahintulot at gabay sa paggamit ng kompyuter"
+          },
+          {
+            "question": "Ano ang mangyayari kung sobra ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at kalusugan",
+              "Palaging mabuti ito",
+              "Walang epekto sa kalusugan",
+              "Nagpapalakas ito sa mata"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at kalusugan"
+          },
+          {
+            "question": "Bakit mahalagang balansehin ang screen-time sa iba pang gawain?",
+            "options": [
+              "Upang magkaroon ng malusog na katawan at pag-iisip",
+              "Hindi mahalaga ang balanse",
+              "Screen-time lamang ang mahalaga",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Upang magkaroon ng malusog na katawan at pag-iisip"
+          },
+          {
+            "question": "Sino dapat hingan ng pahintulot bago gumamit ng bagong programa online?",
+            "options": [
+              "Magulang o guro",
+              "Walang kailangan hingan",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa Grade 2?",
+            "options": [
+              "Para matutong balansehin ang paggamit ng kompyuter",
+              "Hindi ito mahalaga",
+              "Para hikayatin ang mas mahabang screen-time",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Para matutong balansehin ang paggamit ng kompyuter"
+          },
+          {
+            "question": "Alin sa mga ito ay HINDI dapat gawin habang gumagamit ng kompyuter nang matagal?",
+            "options": [
+              "Kalimutan ang oras ng pagtulog",
+              "Kumuha ng pahinga paminsan-minsan",
+              "Magtanong sa matanda",
+              "Ihinto kapag oras na"
+            ],
+            "correct_answer": "Kalimutan ang oras ng pagtulog"
+          },
+          {
+            "question": "Ano ang benepisyo ng may balanseng screen-time?",
+            "options": [
+              "Malusog na mata, katawan, at buhay",
+              "Walang benepisyo",
+              "Nagpapabilis ng pag-aaral",
+              "Nagpapataas lamang ng puntos"
+            ],
+            "correct_answer": "Malusog na mata, katawan, at buhay"
+          },
+          {
+            "question": "Bakit hindi dapat gamitin ang kompyuter nang walang pahintulot ng matanda?",
+            "options": [
+              "Para masiguro ang kaligtasan sa nilalaman at oras ng paggamit",
+              "Hindi na kailangan iyon",
+              "Ligtas na palagi kahit walang gabay",
+              "Bata na lamang ang dapat magpasya"
+            ],
+            "correct_answer": "Para masiguro ang kaligtasan sa nilalaman at oras ng paggamit"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Pagkilala sa Kabutihan ng Kapuwa\n\nGrade 2, Linggo 23! Pagpapahalaga: **Gratitude (Pasasalamat)**. 🙏\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **loving** at kabutihan sa kapuwa.\n\n## 🙏 Ano ang Pagkilala sa Kabutihan?\nAng **pagkilala sa kabutihan ng kapuwa** ay ang pagsasabing \"salamat\" o pagpapahalaga kapag may gumawa ng mabuti sa atin.\n\n## 💌 Paano Ipakita ang Pasasalamat\n- Sabihing \"salamat\" nang tapat\n- Sumulat ng maikling liham ng pasasalamat\n- Gumanti ng kabutihan sa iba\n- Alalahanin ang tulong na ibinigay ng iba\n\n## 💡 Bakit Mahalaga Ito?\nAng pagpapakita ng pasasalamat ay nagpapalakas ng **magandang ugnayan** sa kapuwa at nagpapasaya sa taong tumulong.\n\n**Mahahalagang salita:** gratitude, pasasalamat, kabutihan, ugnayan",
+        "quiz": [
+          {
+            "question": "Ano ang gratitude?",
+            "options": [
+              "Pagsasabing salamat kapag may gumawa ng mabuti",
+              "Pagsasabing hindi na kailangan ng tulong",
+              "Pag-iwas sa taong tumulong",
+              "Pagkalimot sa tulong na natanggap"
+            ],
+            "correct_answer": "Pagsasabing salamat kapag may gumawa ng mabuti"
+          },
+          {
+            "question": "Anong halimbawa ng pagpapakita ng pasasalamat?",
+            "options": [
+              "Sabihing salamat nang tapat",
+              "Iwasan ang taong tumulong",
+              "Sumigaw sa taong tumulong",
+              "Kalimutan ang tulong"
+            ],
+            "correct_answer": "Sabihing salamat nang tapat"
+          },
+          {
+            "question": "Ano ang isang paraan ng pagpapakita ng pasasalamat sa pamamagitan ng pagsulat?",
+            "options": [
+              "Sumulat ng maikling liham ng pasasalamat",
+              "Sumulat ng liham ng galit",
+              "Hindi na sumulat ng anuman",
+              "Sumulat ng balita"
+            ],
+            "correct_answer": "Sumulat ng maikling liham ng pasasalamat"
+          },
+          {
+            "question": "Bakit mahalagang gumanti ng kabutihan sa iba?",
+            "options": [
+              "Nagpapakita ito ng tunay na pasasalamat",
+              "Wala itong kahalagahan",
+              "Hindi na kailangan gawin ito",
+              "Ito ay nakakasama"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na pasasalamat"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsasabing salamat sa iba?",
+            "options": [
+              "Palakasin ang magandang ugnayan",
+              "Nagdudulot ng away",
+              "Walang epekto",
+              "Nagpapasama ng loob"
+            ],
+            "correct_answer": "Palakasin ang magandang ugnayan"
+          },
+          {
+            "question": "Bakit mahalagang alalahanin ang tulong na ibinigay sa atin?",
+            "options": [
+              "Para hindi natin makalimutan ang kabutihan ng iba",
+              "Hindi na kailangan alalahanin ito",
+              "Para makalimutan agad ang tulong",
+              "Walang gamit ito"
+            ],
+            "correct_answer": "Para hindi natin makalimutan ang kabutihan ng iba"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI paraan ng pagpapakita ng pasasalamat?",
+            "options": [
+              "Pagkalimot sa tulong na natanggap",
+              "Pagsasabing salamat",
+              "Pagsulat ng liham ng pasasalamat",
+              "Paggantihan ng kabutihan"
+            ],
+            "correct_answer": "Pagkalimot sa tulong na natanggap"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang gratitude sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng magandang pakikitungo sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng magandang pakikitungo sa kapwa"
+          },
+          {
+            "question": "Paano nararamdaman ang taong tumulong kapag ikaw ay nagpasalamat?",
+            "options": [
+              "Masaya at nagpapahalaga",
+              "Malungkot",
+              "Galit",
+              "Walang mararamdaman"
+            ],
+            "correct_answer": "Masaya at nagpapahalaga"
+          },
+          {
+            "question": "Kailan dapat magpasalamat sa iba?",
+            "options": [
+              "Anumang oras na may gumawa ng kabutihan sa atin",
+              "Isang beses lamang sa buong buhay",
+              "Kapag lamang may kapistahan",
+              "Hindi na kailangan magpasalamat"
+            ],
+            "correct_answer": "Anumang oras na may gumawa ng kabutihan sa atin"
+          },
+          {
+            "question": "Bakit mahalagang gawin nang tapat ang pagsasabing salamat?",
+            "options": [
+              "Nagpapakita ito ng tunay na paggalang at pagpapahalaga",
+              "Hindi na mahalaga kung tapat o hindi",
+              "Para lamang sundin ang alituntunin",
+              "Walang epekto ang katapatan"
+            ],
+            "correct_answer": "Nagpapakita ito ng tunay na paggalang at pagpapahalaga"
+          },
+          {
+            "question": "Anong konsepto ang pinaghalintulad natin ngayong linggo sa loving na natutunan noong nakaraan?",
+            "options": [
+              "Parehong tungkol sa pagpapahalaga sa kapuwa",
+              "Walang koneksyon ang dalawa",
+              "Ang isa ay tungkol sa matematika",
+              "Ang isa ay tungkol sa agham"
+            ],
+            "correct_answer": "Parehong tungkol sa pagpapahalaga sa kapuwa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🌡️ Friday Review — English (Grade 2)\n\n- How weather affects our activities\n\nGreat weather-effects knowledge! 🌟",
+        "quiz": [
+          {
+            "question": "What might you do on a sunny day?",
+            "options": [
+              "Play outside or swim",
+              "Stay inside all day",
+              "Wear a heavy coat",
+              "Cancel school always"
+            ],
+            "correct_answer": "Play outside or swim"
+          },
+          {
+            "question": "What might you do on a rainy day?",
+            "options": [
+              "Stay inside and read",
+              "Go swimming at the beach",
+              "Fly a kite",
+              "Have an outdoor picnic"
+            ],
+            "correct_answer": "Stay inside and read"
+          },
+          {
+            "question": "What activity is fun on a windy day?",
+            "options": [
+              "Flying a kite",
+              "Swimming",
+              "Sunbathing",
+              "No activities at all"
+            ],
+            "correct_answer": "Flying a kite"
+          },
+          {
+            "question": "Why might schools close during a typhoon?",
+            "options": [
+              "For student safety",
+              "Too sunny",
+              "Too hot",
+              "No real reason"
+            ],
+            "correct_answer": "For student safety"
+          },
+          {
+            "question": "'Because it is raining, we cannot play outside' uses what word?",
+            "options": [
+              "Because",
+              "And",
+              "But",
+              "Or"
+            ],
+            "correct_answer": "Because"
+          },
+          {
+            "question": "'Since it is sunny, let's go to the park!' uses what word?",
+            "options": [
+              "Since",
+              "But",
+              "Or",
+              "Not"
+            ],
+            "correct_answer": "Since"
+          },
+          {
+            "question": "Why does weather affect our activities?",
+            "options": [
+              "Some activities are only safe/fun in certain weather",
+              "No effect at all",
+              "We always do the same thing",
+              "Only adults are affected"
+            ],
+            "correct_answer": "Some activities are only safe/fun in certain weather"
+          },
+          {
+            "question": "What should you do if it's raining and you want to play?",
+            "options": [
+              "Choose an indoor activity",
+              "Ignore the rain",
+              "Wait for a typhoon",
+              "Do nothing"
+            ],
+            "correct_answer": "Choose an indoor activity"
+          },
+          {
+            "question": "Best weather for the beach?",
+            "options": [
+              "Sunny weather",
+              "A typhoon",
+              "Heavy rain",
+              "Strong wind and rain"
+            ],
+            "correct_answer": "Sunny weather"
+          },
+          {
+            "question": "Why check the weather before an outdoor activity?",
+            "options": [
+              "To know if it's safe and enjoyable",
+              "Weather never matters",
+              "No real use",
+              "Only adults need to check"
+            ],
+            "correct_answer": "To know if it's safe and enjoyable"
+          },
+          {
+            "question": "What could happen playing outside during a typhoon?",
+            "options": [
+              "It could be dangerous",
+              "Nothing happens",
+              "It's the safest time",
+              "No effect on outdoor safety"
+            ],
+            "correct_answer": "It could be dangerous"
+          },
+          {
+            "question": "Why use 'because' or 'since' when talking about weather?",
+            "options": [
+              "To explain the reason for our actions",
+              "No real meaning",
+              "To make sentences shorter",
+              "To avoid the topic"
+            ],
+            "correct_answer": "To explain the reason for our actions"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Friday Review — Mathematics (Grade 2)\n\n- Unit fractions: halves, thirds, fourths\n\nGreat fraction work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a fraction?",
+            "options": [
+              "A part of a whole",
+              "A whole number only",
+              "A shape",
+              "A large number"
+            ],
+            "correct_answer": "A part of a whole"
+          },
+          {
+            "question": "What does 1/2 mean?",
+            "options": [
+              "One out of two equal parts",
+              "Two out of one part",
+              "One whole",
+              "Two wholes"
+            ],
+            "correct_answer": "One out of two equal parts"
+          },
+          {
+            "question": "Cutting a pizza into 2 equal parts: each part is called?",
+            "options": [
+              "1/2",
+              "1/3",
+              "1/4",
+              "2/2"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Cutting a cake into 3 equal parts: each part is called?",
+            "options": [
+              "1/3",
+              "1/2",
+              "1/4",
+              "3/1"
+            ],
+            "correct_answer": "1/3"
+          },
+          {
+            "question": "Cutting a sandwich into 4 equal parts: each part is called?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "4/1"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What must fraction parts be?",
+            "options": [
+              "Equal in size",
+              "Different sizes",
+              "All the same color",
+              "Very tiny"
+            ],
+            "correct_answer": "Equal in size"
+          },
+          {
+            "question": "What is the top number of a fraction called?",
+            "options": [
+              "Numerator",
+              "Denominator",
+              "Whole number",
+              "Divisor"
+            ],
+            "correct_answer": "Numerator"
+          },
+          {
+            "question": "In a unit fraction, what number is always on top?",
+            "options": [
+              "1",
+              "0",
+              "2",
+              "10"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "Which fraction shows a whole cut into 4 equal parts?",
+            "options": [
+              "1/4",
+              "1/2",
+              "1/3",
+              "1/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "A chocolate bar cut into 2 equal pieces, you eat one: how much did you eat?",
+            "options": [
+              "1/2",
+              "1/4",
+              "1/3",
+              "The whole bar"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Why must fraction parts be equal?",
+            "options": [
+              "So each part is a fair share",
+              "Not required",
+              "For prettier shapes",
+              "No real reason"
+            ],
+            "correct_answer": "So each part is a fair share"
+          },
+          {
+            "question": "Which is bigger: 1/2 or 1/4 of the same whole?",
+            "options": [
+              "1/2",
+              "1/4",
+              "They're equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "1/2"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🌡️ Friday Review — Filipino (Grade 2)\n\n- Epekto ng panahon sa gawain\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Gagawin sa maaraw na araw?",
+            "options": [
+              "Maglaro sa labas",
+              "Manatili sa loob buong araw",
+              "Magsuot ng makapal na damit",
+              "Isara ang klase"
+            ],
+            "correct_answer": "Maglaro sa labas"
+          },
+          {
+            "question": "Gagawin sa maulan na araw?",
+            "options": [
+              "Manatili sa loob at magbasa",
+              "Lumangoy sa dagat",
+              "Maglipad ng saranggola",
+              "Mag-picnic sa labas"
+            ],
+            "correct_answer": "Manatili sa loob at magbasa"
+          },
+          {
+            "question": "Aktibidad na bagay sa mahangin na araw?",
+            "options": [
+              "Paglilipad ng saranggola",
+              "Paglangoy",
+              "Pagpapaaraw",
+              "Walang aktibidad"
+            ],
+            "correct_answer": "Paglilipad ng saranggola"
+          },
+          {
+            "question": "Bakit isinasara ang klase kapag may bagyo?",
+            "options": [
+              "Para sa kaligtasan ng estudyante",
+              "Masyadong maaraw",
+              "Masyadong mainit",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Para sa kaligtasan ng estudyante"
+          },
+          {
+            "question": "'Dahil umuulan, hindi tayo puwedeng maglaro' - anong salita ang ginamit?",
+            "options": [
+              "Dahil",
+              "At",
+              "Pero",
+              "O"
+            ],
+            "correct_answer": "Dahil"
+          },
+          {
+            "question": "'Sapagkat maaraw, tara sa parke!' - anong salita ang ginamit?",
+            "options": [
+              "Sapagkat",
+              "Pero",
+              "O",
+              "Hindi"
+            ],
+            "correct_answer": "Sapagkat"
+          },
+          {
+            "question": "Bakit nakaaapekto ang panahon sa gawain?",
+            "options": [
+              "May mga gawaing ligtas o masaya lamang sa tiyak na panahon",
+              "Walang epekto",
+              "Palaging pareho ang gawain",
+              "Matatanda lamang ang naaapektuhan"
+            ],
+            "correct_answer": "May mga gawaing ligtas o masaya lamang sa tiyak na panahon"
+          },
+          {
+            "question": "Ano ang gagawin kung umuulan at gustong maglaro?",
+            "options": [
+              "Pumili ng gawain sa loob",
+              "Balewalain ang ulan",
+              "Maghintay ng bagyo",
+              "Wala nang gagawin"
+            ],
+            "correct_answer": "Pumili ng gawain sa loob"
+          },
+          {
+            "question": "Panahong pinakabagay sa paglangoy sa dagat?",
+            "options": [
+              "Maaraw na panahon",
+              "Bagyo",
+              "Malakas na ulan",
+              "Hangin at ulan"
+            ],
+            "correct_answer": "Maaraw na panahon"
+          },
+          {
+            "question": "Bakit tingnan ang panahon bago magplano ng gawain?",
+            "options": [
+              "Malaman kung ligtas at masaya",
+              "Hindi mahalaga",
+              "Walang gamit",
+              "Matatanda lamang ang tumitingin"
+            ],
+            "correct_answer": "Malaman kung ligtas at masaya"
+          },
+          {
+            "question": "Mangyayari kung maglalaro sa labas habang bagyo?",
+            "options": [
+              "Maaaring mapanganib",
+              "Walang mangyayari",
+              "Pinakaligtas na oras",
+              "Walang epekto ang bagyo"
+            ],
+            "correct_answer": "Maaaring mapanganib"
+          },
+          {
+            "question": "Bakit ginagamit ang 'dahil' o 'sapagkat'?",
+            "options": [
+              "Ipaliwanag ang dahilan ng gawain",
+              "Walang kahulugan",
+              "Gawing maikli ang pangungusap",
+              "Iwasan ang pag-uusap"
+            ],
+            "correct_answer": "Ipaliwanag ang dahilan ng gawain"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- Epekto ng panahon sa kasuotan, aktibidad, at pagsasaka\n\nMagaling sa Agham term! 🌟",
+        "quiz": [
+          {
+            "question": "Kasuotan na bagay sa tag-init?",
+            "options": [
+              "Manipis na damit",
+              "Kapote",
+              "Makapal na kasuotan",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Manipis na damit"
+          },
+          {
+            "question": "Kasuotan na bagay sa tag-ulan?",
+            "options": [
+              "Kapote at payong",
+              "Damit pang-swimming",
+              "Sunglasses lamang",
+              "Bota para sa niyebe"
+            ],
+            "correct_answer": "Kapote at payong"
+          },
+          {
+            "question": "Gawin sa malakas na ulan o bagyo?",
+            "options": [
+              "Manatili sa loob ng bahay",
+              "Maglaro sa labas",
+              "Lumangoy sa dagat",
+              "Maglipad ng saranggola"
+            ],
+            "correct_answer": "Manatili sa loob ng bahay"
+          },
+          {
+            "question": "Kailan mas mabuting magtanim ng ilang pananim?",
+            "options": [
+              "Sa tag-ulan dahil sa sapat na tubig",
+              "Sa tag-init lamang",
+              "Kahit anong panahon",
+              "Hindi kailanman"
+            ],
+            "correct_answer": "Sa tag-ulan dahil sa sapat na tubig"
+          },
+          {
+            "question": "Bakit maunawaan ang panahon?",
+            "options": [
+              "Tumutulong sa paghahanda at pagpapasya",
+              "Walang kabuluhan",
+              "Para lamang libangin",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa paghahanda at pagpapasya"
+          },
+          {
+            "question": "Bakit magsuot ng makapal na damit sa ulan?",
+            "options": [
+              "Hindi magkasakit sa lamig at basa",
+              "Para mainitan",
+              "Para maglaro sa dagat",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Hindi magkasakit sa lamig at basa"
+          },
+          {
+            "question": "Epekto ng panahon sa pagsasaka?",
+            "options": [
+              "Nakakatulong magpasya kung kailan magtatanim",
+              "Walang epekto",
+              "Hindi pinag-iisipan",
+              "Walang kinalaman sa tanim"
+            ],
+            "correct_answer": "Nakakatulong magpasya kung kailan magtatanim"
+          },
+          {
+            "question": "Bakit magdala ng payong sa tag-ulan?",
+            "options": [
+              "Para hindi mabasa",
+              "Protektahan mula sa araw",
+              "Makatulong maglipad ng saranggola",
+              "Walang gamit"
+            ],
+            "correct_answer": "Para hindi mabasa"
+          },
+          {
+            "question": "Mangyayari kung hindi naghanda para sa bagyo?",
+            "options": [
+              "Maaaring manganib ang kaligtasan",
+              "Walang epekto",
+              "Palaging ligtas",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maaaring manganib ang kaligtasan"
+          },
+          {
+            "question": "Bakit iba-iba ang gawain sa iba't ibang panahon?",
+            "options": [
+              "Naaapektuhan ang kaligtasan at kaginhawaan",
+              "Walang koneksyon",
+              "Palaging pareho ang gagawin",
+              "Hindi kailangang isaalang-alang"
+            ],
+            "correct_answer": "Naaapektuhan ang kaligtasan at kaginhawaan"
+          },
+          {
+            "question": "Sino direktang nakakaramdam ng epekto ng panahon sa kabuhayan?",
+            "options": [
+              "Mga magsasaka",
+              "Mga guro lamang",
+              "Walang sinuman",
+              "Mga estudyante lamang"
+            ],
+            "correct_answer": "Mga magsasaka"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa panahon?",
+            "options": [
+              "May malaking epekto sa kasuotan, aktibidad, at kabuhayan",
+              "Walang koneksyon sa buhay",
+              "Hindi importante sa desisyon",
+              "Hindi nakakaapekto sa kahit sino"
+            ],
+            "correct_answer": "May malaking epekto sa kasuotan, aktibidad, at kabuhayan"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 💰 Friday Review — Makabansa (Grade 2)\n\n- Pampinansyal at panserbisyo na kabuhayan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang pampinansyal na kabuhayan?",
+            "options": [
+              "May kinalaman sa pera, tulad ng sa bangko",
+              "Pagsasaka",
+              "Paggawa sa pabrika",
+              "Pangingisda"
+            ],
+            "correct_answer": "May kinalaman sa pera, tulad ng sa bangko"
+          },
+          {
+            "question": "Ano ang panserbisyo na kabuhayan?",
+            "options": [
+              "Pagbibigay ng tulong o serbisyo sa iba",
+              "Pagtatanim ng gulay",
+              "Paggawa ng damit sa pabrika",
+              "Pangingisda sa dagat"
+            ],
+            "correct_answer": "Pagbibigay ng tulong o serbisyo sa iba"
+          },
+          {
+            "question": "Halimbawa ng pampinansyal?",
+            "options": [
+              "Pagtatrabaho sa bangko",
+              "Pagiging drayber",
+              "Pagiging manggagamot",
+              "Pagiging barbero"
+            ],
+            "correct_answer": "Pagtatrabaho sa bangko"
+          },
+          {
+            "question": "Halimbawa ng panserbisyo?",
+            "options": [
+              "Pagiging drayber",
+              "Pagtatrabaho sa bangko",
+              "Pagpapahiram ng pera",
+              "Pag-iimbak ng pera"
+            ],
+            "correct_answer": "Pagiging drayber"
+          },
+          {
+            "question": "Ginagawa ng manggagamot?",
+            "options": [
+              "Tumutulong sa may sakit",
+              "Nagtatanim ng gulay",
+              "Nagtatrabaho sa bangko",
+              "Nangingisda"
+            ],
+            "correct_answer": "Tumutulong sa may sakit"
+          },
+          {
+            "question": "Ginagawa ng barbero?",
+            "options": [
+              "Nagpapagupit ng buhok",
+              "Nagtatanim ng palay",
+              "Nagtatrabaho sa bangko",
+              "Nangingisda sa ilog"
+            ],
+            "correct_answer": "Nagpapagupit ng buhok"
+          },
+          {
+            "question": "Sino nagtatrabaho sa bangko sa halimbawa?",
+            "options": [
+              "Nanay Rosa",
+              "Kuya Ben",
+              "Ang guro",
+              "Ang magsasaka"
+            ],
+            "correct_answer": "Nanay Rosa"
+          },
+          {
+            "question": "Sino drayber ng dyip sa halimbawa?",
+            "options": [
+              "Kuya Ben",
+              "Nanay Rosa",
+              "Ang guro",
+              "Ang magsasaka"
+            ],
+            "correct_answer": "Kuya Ben"
+          },
+          {
+            "question": "Bakit mahalaga ang panserbisyo?",
+            "options": [
+              "Tumutulong sa pangangailangan ng komunidad",
+              "Walang kahalagahan",
+              "Para sa mayaman lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa pangangailangan ng komunidad"
+          },
+          {
+            "question": "Bakit mahalaga ang pampinansyal?",
+            "options": [
+              "Tumutulong sa pag-iimbak at pagpapahiram ng pera",
+              "Walang kahalagahan",
+              "Para sa mayaman lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong sa pag-iimbak at pagpapahiram ng pera"
+          },
+          {
+            "question": "Pagkakaiba ng pampinansyal sa panserbisyo?",
+            "options": [
+              "Pampinansyal tungkol sa pera, panserbisyo tumutulong sa iba",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Pareho tungkol sa pagsasaka"
+            ],
+            "correct_answer": "Pampinansyal tungkol sa pera, panserbisyo tumutulong sa iba"
+          },
+          {
+            "question": "Bakit iba-iba ang uri ng kabuhayan sa komunidad?",
+            "options": [
+              "Iba't ibang pangangailangan tinutugunan",
+              "Isang uri lamang kailangan",
+              "Walang dahilan",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Iba't ibang pangangailangan tinutugunan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⏰ Friday Review — Computer (Grade 2)\n\n- Screen-time at pagtatanong sa matanda\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang screen-time?",
+            "options": [
+              "Oras sa harap ng kompyuter, tablet, telepono",
+              "Oras ng pagtulog",
+              "Oras ng pagkain",
+              "Oras ng paglalaro sa labas"
+            ],
+            "correct_answer": "Oras sa harap ng kompyuter, tablet, telepono"
+          },
+          {
+            "question": "Bakit limitahan ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at katawan",
+              "Walang dahilan",
+              "Palaging mabuti ang mahaba",
+              "Hindi kailangan limitahan"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at katawan"
+          },
+          {
+            "question": "Ano pang dapat may oras bukod sa screen-time?",
+            "options": [
+              "Pagbabasa, paglalaro sa labas, pagtulog",
+              "Screen-time lamang",
+              "Wala nang ibang gagawin",
+              "Panonood lamang ng TV"
+            ],
+            "correct_answer": "Pagbabasa, paglalaro sa labas, pagtulog"
+          },
+          {
+            "question": "Gawin bago pumunta online?",
+            "options": [
+              "Magtanong sa magulang o guro",
+              "Direktang pumunta",
+              "Hindi na magtanong",
+              "Gawin kapag walang matanda"
+            ],
+            "correct_answer": "Magtanong sa magulang o guro"
+          },
+          {
+            "question": "Bakit magtanong muna sa matanda?",
+            "options": [
+              "Para sa pahintulot at gabay",
+              "Hindi kailangan ng gabay",
+              "Palaging ligtas",
+              "Bata na lamang magpasya"
+            ],
+            "correct_answer": "Para sa pahintulot at gabay"
+          },
+          {
+            "question": "Mangyayari kung sobra ang screen-time?",
+            "options": [
+              "Maaaring makasama sa mata at kalusugan",
+              "Palaging mabuti",
+              "Walang epekto",
+              "Nagpapalakas sa mata"
+            ],
+            "correct_answer": "Maaaring makasama sa mata at kalusugan"
+          },
+          {
+            "question": "Bakit balansehin ang screen-time?",
+            "options": [
+              "Malusog na katawan at pag-iisip",
+              "Hindi mahalaga ang balanse",
+              "Screen-time lamang mahalaga",
+              "Walang dahilan"
+            ],
+            "correct_answer": "Malusog na katawan at pag-iisip"
+          },
+          {
+            "question": "Sino hihingan ng pahintulot bago gumamit ng bagong programa?",
+            "options": [
+              "Magulang o guro",
+              "Walang kailangan hingan",
+              "Kaklase lamang",
+              "Kapatid na mas bata"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Bakit itinuro ang paksang ito?",
+            "options": [
+              "Matutong balansehin ang paggamit ng kompyuter",
+              "Hindi ito mahalaga",
+              "Hikayatin ang mahabang screen-time",
+              "Walang layunin"
+            ],
+            "correct_answer": "Matutong balansehin ang paggamit ng kompyuter"
+          },
+          {
+            "question": "Alin ang HINDI dapat gawin sa matagal na paggamit ng kompyuter?",
+            "options": [
+              "Kalimutan ang oras ng pagtulog",
+              "Kumuha ng pahinga",
+              "Magtanong sa matanda",
+              "Ihinto kapag oras na"
+            ],
+            "correct_answer": "Kalimutan ang oras ng pagtulog"
+          },
+          {
+            "question": "Benepisyo ng balanseng screen-time?",
+            "options": [
+              "Malusog na mata, katawan, buhay",
+              "Walang benepisyo",
+              "Nagpapabilis ng pag-aaral",
+              "Nagpapataas ng puntos"
+            ],
+            "correct_answer": "Malusog na mata, katawan, buhay"
+          },
+          {
+            "question": "Bakit hindi gamitin ang kompyuter nang walang pahintulot?",
+            "options": [
+              "Masiguro ang kaligtasan sa nilalaman",
+              "Hindi na kailangan iyon",
+              "Ligtas na palagi",
+              "Bata na lamang magpasya"
+            ],
+            "correct_answer": "Masiguro ang kaligtasan sa nilalaman"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Friday Review — GMRC (Grade 2)\n\n- Gratitude: pagkilala sa kabutihan ng kapuwa\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang gratitude?",
+            "options": [
+              "Pagsasabing salamat kapag may gumawa ng mabuti",
+              "Pagsasabing hindi na kailangan",
+              "Pag-iwas sa taong tumulong",
+              "Pagkalimot sa tulong"
+            ],
+            "correct_answer": "Pagsasabing salamat kapag may gumawa ng mabuti"
+          },
+          {
+            "question": "Halimbawa ng pagpapakita ng pasasalamat?",
+            "options": [
+              "Sabihing salamat nang tapat",
+              "Iwasan ang tumulong",
+              "Sumigaw sa tumulong",
+              "Kalimutan ang tulong"
+            ],
+            "correct_answer": "Sabihing salamat nang tapat"
+          },
+          {
+            "question": "Paraan ng pagpapakita ng pasasalamat sa pagsulat?",
+            "options": [
+              "Sumulat ng liham ng pasasalamat",
+              "Sumulat ng liham ng galit",
+              "Hindi na sumulat",
+              "Sumulat ng balita"
+            ],
+            "correct_answer": "Sumulat ng liham ng pasasalamat"
+          },
+          {
+            "question": "Bakit gumanti ng kabutihan sa iba?",
+            "options": [
+              "Nagpapakita ng tunay na pasasalamat",
+              "Walang kahalagahan",
+              "Hindi na kailangan",
+              "Nakakasama"
+            ],
+            "correct_answer": "Nagpapakita ng tunay na pasasalamat"
+          },
+          {
+            "question": "Naidudulot ng pagsasabing salamat?",
+            "options": [
+              "Palakasin ang magandang ugnayan",
+              "Nagdudulot ng away",
+              "Walang epekto",
+              "Nagpapasama ng loob"
+            ],
+            "correct_answer": "Palakasin ang magandang ugnayan"
+          },
+          {
+            "question": "Bakit alalahanin ang tulong ng iba?",
+            "options": [
+              "Para hindi makalimutan ang kabutihan ng iba",
+              "Hindi kailangan alalahanin",
+              "Para makalimutan agad",
+              "Walang gamit"
+            ],
+            "correct_answer": "Para hindi makalimutan ang kabutihan ng iba"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng pasasalamat?",
+            "options": [
+              "Pagkalimot sa tulong",
+              "Pagsasabing salamat",
+              "Pagsulat ng liham",
+              "Paggantihan ng kabutihan"
+            ],
+            "correct_answer": "Pagkalimot sa tulong"
+          },
+          {
+            "question": "Bakit gratitude ay pagpapahalaga sa GMRC?",
+            "options": [
+              "Nagtuturo ng magandang pakikitungo",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng magandang pakikitungo"
+          },
+          {
+            "question": "Nararamdaman ng tumulong kapag nagpasalamat ka?",
+            "options": [
+              "Masaya at nagpapahalaga",
+              "Malungkot",
+              "Galit",
+              "Wala"
+            ],
+            "correct_answer": "Masaya at nagpapahalaga"
+          },
+          {
+            "question": "Kailan dapat magpasalamat?",
+            "options": [
+              "Anumang oras na may gumawa ng kabutihan",
+              "Isang beses lamang",
+              "Kapag lamang may kapistahan",
+              "Hindi na kailangan"
+            ],
+            "correct_answer": "Anumang oras na may gumawa ng kabutihan"
+          },
+          {
+            "question": "Bakit gawing tapat ang pagsasabing salamat?",
+            "options": [
+              "Nagpapakita ng tunay na paggalang",
+              "Hindi mahalaga kung tapat o hindi",
+              "Sundin lang ang alituntunin",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagpapakita ng tunay na paggalang"
+          },
+          {
+            "question": "Konsepto na pinaghalintulad sa loving?",
+            "options": [
+              "Parehong tungkol sa pagpapahalaga sa kapuwa",
+              "Walang koneksyon",
+              "Isa ay matematika",
+              "Isa ay agham"
+            ],
+            "correct_answer": "Parehong tungkol sa pagpapahalaga sa kapuwa"
+          }
+        ]
+      }
+    }
+  }
+}

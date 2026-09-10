@@ -1,0 +1,1766 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-11-22",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# ⛰️ English — Land and Water Forms\n\nGrade 2, Week 24! Let's learn new words about our physical environment. ⛰️\n\n## 🔄 Review\nWe learned how weather affects our daily activities.\n\n## ⛰️ Land Forms\n- **Mountain** — very tall, rocky land\n- **Hill** — smaller, gentler rise of land\n- **Valley** — low land between mountains\n\n## 🌊 Water Forms\n- **River** — flowing fresh water\n- **Lake** — water surrounded by land\n- **Sea/Ocean** — very large body of salt water\n\n## 📝 Using New Vocabulary\n\"We climbed the **mountain** to see the view.\"\n\"The **river** flows down to the **sea**.\"\n\n**Key words:** mountain, hill, valley, river, lake, sea",
+        "quiz": [
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "Very tall, rocky land",
+              "A body of water",
+              "A small flower",
+              "A type of animal"
+            ],
+            "correct_answer": "Very tall, rocky land"
+          },
+          {
+            "question": "What is a hill?",
+            "options": [
+              "A smaller, gentler rise of land",
+              "A very large ocean",
+              "A tall building",
+              "A type of river"
+            ],
+            "correct_answer": "A smaller, gentler rise of land"
+          },
+          {
+            "question": "What is a valley?",
+            "options": [
+              "Low land between mountains",
+              "The tallest landform",
+              "A body of salt water",
+              "A type of tree"
+            ],
+            "correct_answer": "Low land between mountains"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "Flowing fresh water",
+              "A body of water surrounded by land",
+              "The tallest landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "Flowing fresh water"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "Water surrounded by land",
+              "Flowing fresh water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "Water surrounded by land"
+          },
+          {
+            "question": "What is the sea?",
+            "options": [
+              "A very large body of salt water",
+              "A small stream",
+              "A tall mountain",
+              "A flat plain"
+            ],
+            "correct_answer": "A very large body of salt water"
+          },
+          {
+            "question": "Which is a landform?",
+            "options": [
+              "Mountain",
+              "River",
+              "Lake",
+              "Sea"
+            ],
+            "correct_answer": "Mountain"
+          },
+          {
+            "question": "Which is a water form?",
+            "options": [
+              "River",
+              "Mountain",
+              "Hill",
+              "Valley"
+            ],
+            "correct_answer": "River"
+          },
+          {
+            "question": "In the sentence 'We climbed the mountain,' what does 'mountain' describe?",
+            "options": [
+              "A very tall, rocky landform",
+              "A body of water",
+              "A type of animal",
+              "A small flower"
+            ],
+            "correct_answer": "A very tall, rocky landform"
+          },
+          {
+            "question": "Which body of water is surrounded by land on all sides?",
+            "options": [
+              "Lake",
+              "Sea",
+              "Ocean",
+              "River"
+            ],
+            "correct_answer": "Lake"
+          },
+          {
+            "question": "Which landform is lower than a mountain but still rises above flat land?",
+            "options": [
+              "Hill",
+              "Valley",
+              "River",
+              "Sea"
+            ],
+            "correct_answer": "Hill"
+          },
+          {
+            "question": "'The river flows down to the sea' tells us that a river...",
+            "options": [
+              "Moves and eventually reaches the sea",
+              "Never moves at all",
+              "Is the same as a mountain",
+              "Is a type of land"
+            ],
+            "correct_answer": "Moves and eventually reaches the sea"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics — Multiplication and Division Word Problems with Money\n\nGrade 2, Week 24! Let's use multiplication and division to solve money problems! 💰\n\n## 🔄 Review\nWe learned about unit fractions: 1/2, 1/3, 1/4.\n\n## 💰 Multiplication with Money\nIf one candy costs ₱5, how much do 3 candies cost?\n5 × 3 = **₱15**\n\n## 💰 Division with Money\nIf ₱20 is shared equally among 4 friends, how much does each get?\n20 ÷ 4 = **₱5** each\n\n## 🧮 Steps to Solve\n1. Read the problem carefully\n2. Decide: multiply (grouping) or divide (sharing)?\n3. Solve and check your answer\n\n**Key words:** money word problem, multiply, divide, share equally",
+        "quiz": [
+          {
+            "question": "If one candy costs ₱5, how much do 3 candies cost?",
+            "options": [
+              "₱15",
+              "₱8",
+              "₱10",
+              "₱20"
+            ],
+            "correct_answer": "₱15"
+          },
+          {
+            "question": "If ₱20 is shared equally among 4 friends, how much does each get?",
+            "options": [
+              "₱5",
+              "₱4",
+              "₱20",
+              "₱80"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "If a pencil costs ₱10, how much do 2 pencils cost?",
+            "options": [
+              "₱20",
+              "₱12",
+              "₱5",
+              "₱15"
+            ],
+            "correct_answer": "₱20"
+          },
+          {
+            "question": "If ₱30 is shared equally among 5 friends, how much does each get?",
+            "options": [
+              "₱6",
+              "₱5",
+              "₱30",
+              "₱150"
+            ],
+            "correct_answer": "₱6"
+          },
+          {
+            "question": "What operation would you use to find the total cost of several identical items?",
+            "options": [
+              "Multiplication",
+              "Subtraction only",
+              "Division",
+              "None of these"
+            ],
+            "correct_answer": "Multiplication"
+          },
+          {
+            "question": "What operation would you use to share money equally among friends?",
+            "options": [
+              "Division",
+              "Multiplication only",
+              "Addition only",
+              "None of these"
+            ],
+            "correct_answer": "Division"
+          },
+          {
+            "question": "What is the first step in solving a word problem?",
+            "options": [
+              "Read the problem carefully",
+              "Guess the answer immediately",
+              "Skip reading and just multiply",
+              "Ignore the numbers"
+            ],
+            "correct_answer": "Read the problem carefully"
+          },
+          {
+            "question": "If an eraser costs ₱2, how much do 5 erasers cost?",
+            "options": [
+              "₱10",
+              "₱7",
+              "₱2",
+              "₱15"
+            ],
+            "correct_answer": "₱10"
+          },
+          {
+            "question": "If ₱50 is shared equally among 10 students, how much does each get?",
+            "options": [
+              "₱5",
+              "₱10",
+              "₱50",
+              "₱500"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "How can you check if your answer to a word problem is correct?",
+            "options": [
+              "Re-read the problem and see if the answer makes sense",
+              "Never check your work",
+              "Guess a different number",
+              "Ignore the question"
+            ],
+            "correct_answer": "Re-read the problem and see if the answer makes sense"
+          },
+          {
+            "question": "If a notebook costs ₱15, how much do 2 notebooks cost?",
+            "options": [
+              "₱30",
+              "₱17",
+              "₱13",
+              "₱7"
+            ],
+            "correct_answer": "₱30"
+          },
+          {
+            "question": "If 3 friends share ₱9 equally, how much does each friend get?",
+            "options": [
+              "₱3",
+              "₱9",
+              "₱6",
+              "₱27"
+            ],
+            "correct_answer": "₱3"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ⛰️ Filipino — Mga Anyong-Lupa at Anyong-Tubig\n\nGrade 2, Linggo 24! Matuto tayo ng mga salita tungkol sa lupa at tubig. ⛰️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang epekto ng panahon sa buhay.\n\n## ⛰️ Anyong-Lupa\n- **Bundok** — napakataas na lupa\n- **Burol** — mas mababa kaysa bundok\n- **Lambak** — mababang lupa sa pagitan ng bundok\n\n## 🌊 Anyong-Tubig\n- **Ilog** — umaagos na tubig-tabang\n- **Lawa** — tubig na napapaligiran ng lupa\n- **Dagat** — malawak na tubig-alat\n\n## 📝 Halimbawang Pangungusap\n\"Umakyat kami sa **bundok** upang tumanaw.\"\n\"Umaagos ang **ilog** patungo sa **dagat**.\"\n\n**Mahahalagang salita:** bundok, burol, lambak, ilog, lawa, dagat",
+        "quiz": [
+          {
+            "question": "Ano ang bundok?",
+            "options": [
+              "Napakataas na lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Isang uri ng halaman",
+              "Isang uri ng hayop"
+            ],
+            "correct_answer": "Napakataas na lupa"
+          },
+          {
+            "question": "Ano ang burol?",
+            "options": [
+              "Mas mababa kaysa bundok",
+              "Malawak na tubig-alat",
+              "Isang gusali",
+              "Isang uri ng ilog"
+            ],
+            "correct_answer": "Mas mababa kaysa bundok"
+          },
+          {
+            "question": "Ano ang lambak?",
+            "options": [
+              "Mababang lupa sa pagitan ng bundok",
+              "Ang pinakamataas na anyong-lupa",
+              "Tubig-alat",
+              "Isang uri ng puno"
+            ],
+            "correct_answer": "Mababang lupa sa pagitan ng bundok"
+          },
+          {
+            "question": "Ano ang ilog?",
+            "options": [
+              "Umaagos na tubig-tabang",
+              "Tubig na napapaligiran ng lupa",
+              "Napakataas na lupa",
+              "Malawak na tubig-alat"
+            ],
+            "correct_answer": "Umaagos na tubig-tabang"
+          },
+          {
+            "question": "Ano ang lawa?",
+            "options": [
+              "Tubig na napapaligiran ng lupa",
+              "Umaagos na tubig",
+              "Napakataas na bundok",
+              "Malawak na dagat"
+            ],
+            "correct_answer": "Tubig na napapaligiran ng lupa"
+          },
+          {
+            "question": "Ano ang dagat?",
+            "options": [
+              "Malawak na tubig-alat",
+              "Isang munting batis",
+              "Napakataas na bundok",
+              "Patag na lupa"
+            ],
+            "correct_answer": "Malawak na tubig-alat"
+          },
+          {
+            "question": "Alin ang halimbawa ng anyong-lupa?",
+            "options": [
+              "Bundok",
+              "Ilog",
+              "Lawa",
+              "Dagat"
+            ],
+            "correct_answer": "Bundok"
+          },
+          {
+            "question": "Alin ang halimbawa ng anyong-tubig?",
+            "options": [
+              "Ilog",
+              "Bundok",
+              "Burol",
+              "Lambak"
+            ],
+            "correct_answer": "Ilog"
+          },
+          {
+            "question": "Sa 'Umakyat kami sa bundok upang tumanaw,' ano ang inilalarawan ng 'bundok'?",
+            "options": [
+              "Napakataas na anyong-lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Isang uri ng hayop",
+              "Isang munting bulaklak"
+            ],
+            "correct_answer": "Napakataas na anyong-lupa"
+          },
+          {
+            "question": "Alin ang tubig na napapaligiran ng lupa sa magkabilang panig?",
+            "options": [
+              "Lawa",
+              "Dagat",
+              "Karagatan",
+              "Ilog"
+            ],
+            "correct_answer": "Lawa"
+          },
+          {
+            "question": "Alin ang anyong-lupa na mas mababa kaysa bundok ngunit mas mataas kaysa patag na lupa?",
+            "options": [
+              "Burol",
+              "Lambak",
+              "Ilog",
+              "Dagat"
+            ],
+            "correct_answer": "Burol"
+          },
+          {
+            "question": "'Umaagos ang ilog patungo sa dagat' ay nagsasabi sa atin na ang ilog ay...",
+            "options": [
+              "Gumagalaw at umaabot sa dagat",
+              "Hindi kailanman gumagalaw",
+              "Pareho ng bundok",
+              "Isang uri ng lupa"
+            ],
+            "correct_answer": "Gumagalaw at umaabot sa dagat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧊 Science — Matter and Its Properties\n\nGrade 2, Week 24! Let's discover what everything around us is made of! 🧊\n\n## 🔄 Review\nWe finished learning about weather and seasons.\n\n## 🧊 What Is Matter?\n**Matter** is anything that takes up space and has weight — like water, air, wood, and rocks.\n\n## 💧 Three States of Matter\n- **Solid** — has a fixed shape (rock, table, ice)\n- **Liquid** — takes the shape of its container (water, juice)\n- **Gas** — spreads to fill any space (air)\n\n## 🔄 Simple Changes\n- **Melting** — solid changes to liquid (ice → water)\n- **Evaporation** — liquid changes to gas (water → water vapor)\n\n**Key words:** matter, solid, liquid, gas, melting, evaporation",
+        "quiz": [
+          {
+            "question": "What is matter?",
+            "options": [
+              "Anything that takes up space and has weight",
+              "Only liquids",
+              "Only solids",
+              "Nothing at all"
+            ],
+            "correct_answer": "Anything that takes up space and has weight"
+          },
+          {
+            "question": "What is a solid?",
+            "options": [
+              "Matter with a fixed shape",
+              "Matter that fills any space",
+              "Matter that takes the shape of its container",
+              "Matter with no shape at all"
+            ],
+            "correct_answer": "Matter with a fixed shape"
+          },
+          {
+            "question": "What is a liquid?",
+            "options": [
+              "Matter that takes the shape of its container",
+              "Matter with a fixed shape",
+              "Matter that spreads to fill any space",
+              "Matter with no weight"
+            ],
+            "correct_answer": "Matter that takes the shape of its container"
+          },
+          {
+            "question": "What is a gas?",
+            "options": [
+              "Matter that spreads to fill any space",
+              "Matter with a fixed shape",
+              "Matter that takes the shape of a container only",
+              "A type of solid"
+            ],
+            "correct_answer": "Matter that spreads to fill any space"
+          },
+          {
+            "question": "Which is an example of a solid?",
+            "options": [
+              "A rock",
+              "Water",
+              "Air",
+              "Juice"
+            ],
+            "correct_answer": "A rock"
+          },
+          {
+            "question": "Which is an example of a liquid?",
+            "options": [
+              "Water",
+              "A rock",
+              "Air",
+              "A table"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Which is an example of a gas?",
+            "options": [
+              "Air",
+              "A rock",
+              "Water",
+              "A table"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "What is melting?",
+            "options": [
+              "A solid changing to a liquid",
+              "A liquid changing to a gas",
+              "A gas changing to a solid",
+              "Nothing changes"
+            ],
+            "correct_answer": "A solid changing to a liquid"
+          },
+          {
+            "question": "What is evaporation?",
+            "options": [
+              "A liquid changing to a gas",
+              "A solid changing to a liquid",
+              "A gas changing to a solid",
+              "Nothing changes"
+            ],
+            "correct_answer": "A liquid changing to a gas"
+          },
+          {
+            "question": "What happens to ice when it melts?",
+            "options": [
+              "It changes into water",
+              "It changes into air",
+              "It disappears completely",
+              "It becomes a rock"
+            ],
+            "correct_answer": "It changes into water"
+          },
+          {
+            "question": "What happens to water when it evaporates?",
+            "options": [
+              "It changes into water vapor (gas)",
+              "It changes into ice",
+              "It becomes a solid rock",
+              "Nothing happens"
+            ],
+            "correct_answer": "It changes into water vapor (gas)"
+          },
+          {
+            "question": "Why is air considered matter even though we cannot see it?",
+            "options": [
+              "It takes up space and has weight",
+              "It has no properties at all",
+              "It is not really matter",
+              "It only exists in liquids"
+            ],
+            "correct_answer": "It takes up space and has weight"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Pamumuhay at Serbisyo ng Komunidad\n\nGrade 2, Linggo 24! Alamin natin kung paano tumutulong ang mga serbisyo sa ating komunidad. 🏘️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga uri ng kabuhayan.\n\n## 🏘️ Ano ang Serbisyong Pangkomunidad?\nAng mga **serbisyong pangkomunidad** ay ang mga tulong na ibinibigay ng pamahalaan o organisasyon para sa kapakanan ng mga tao.\n\n## 🚒 Mga Halimbawa ng Serbisyo\n- **Pulisya** — nagpapanatili ng kaayusan at kaligtasan\n- **Bumbero** — pumapatay ng sunog\n- **Ospital** — nagbibigay ng lunas sa maysakit\n- **Paaralan** — nagbibigay ng edukasyon\n\n## 💡 Kahalagahan\nAng bawat serbisyo ay tumutulong upang maging maayos at maligtas ang pamumuhay ng mga tao sa komunidad.\n\n**Mahahalagang salita:** serbisyo, pulisya, bumbero, ospital",
+        "quiz": [
+          {
+            "question": "Ano ang serbisyong pangkomunidad?",
+            "options": [
+              "Tulong na ibinibigay para sa kapakanan ng mga tao",
+              "Isang uri ng laruan",
+              "Isang uri ng pagkain",
+              "Isang uri ng damit"
+            ],
+            "correct_answer": "Tulong na ibinibigay para sa kapakanan ng mga tao"
+          },
+          {
+            "question": "Ano ang ginagawa ng pulisya?",
+            "options": [
+              "Nagpapanatili ng kaayusan at kaligtasan",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagtuturo sa mga bata"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ano ang ginagawa ng bumbero?",
+            "options": [
+              "Pumapatay ng sunog",
+              "Nagtuturo sa paaralan",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Pumapatay ng sunog"
+          },
+          {
+            "question": "Ano ang ginagawa ng ospital?",
+            "options": [
+              "Nagbibigay ng lunas sa maysakit",
+              "Nagtuturo sa mga bata",
+              "Pumapatay ng sunog",
+              "Nagbebenta ng gamot lamang"
+            ],
+            "correct_answer": "Nagbibigay ng lunas sa maysakit"
+          },
+          {
+            "question": "Ano ang ginagawa ng paaralan?",
+            "options": [
+              "Nagbibigay ng edukasyon",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Nagbibigay ng edukasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang mga serbisyong pangkomunidad?",
+            "options": [
+              "Tumutulong ito upang maging maayos ang pamumuhay ng mga tao",
+              "Wala itong kahalagahan",
+              "Para lamang sa mayaman",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Tumutulong ito upang maging maayos ang pamumuhay ng mga tao"
+          },
+          {
+            "question": "Sino ang tatawagan kapag may sunog?",
+            "options": [
+              "Bumbero",
+              "Guro",
+              "Doktor lamang",
+              "Tindero"
+            ],
+            "correct_answer": "Bumbero"
+          },
+          {
+            "question": "Sino ang tatawagan kapag may krimen o panganib?",
+            "options": [
+              "Pulisya",
+              "Guro",
+              "Bumbero lamang",
+              "Tindero"
+            ],
+            "correct_answer": "Pulisya"
+          },
+          {
+            "question": "Bakit mahalaga ang paaralan bilang serbisyong pangkomunidad?",
+            "options": [
+              "Nagbibigay ito ng edukasyon sa mga bata",
+              "Wala itong papel sa komunidad",
+              "Ito ay para lamang sa matatanda",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay ito ng edukasyon sa mga bata"
+          },
+          {
+            "question": "Ano ang layunin ng mga serbisyong pangkomunidad?",
+            "options": [
+              "Kapakanan at kaligtasan ng mga tao",
+              "Kumita ng pera lamang",
+              "Libangin ang mga tao",
+              "Walang layunin"
+            ],
+            "correct_answer": "Kapakanan at kaligtasan ng mga tao"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng serbisyong pangkomunidad?",
+            "options": [
+              "Paglalaro sa labas",
+              "Pulisya",
+              "Bumbero",
+              "Ospital"
+            ],
+            "correct_answer": "Paglalaro sa labas"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga serbisyong nasa ating komunidad?",
+            "options": [
+              "Para malaman kung saan humingi ng tulong kapag kailangan",
+              "Hindi ito kailangang malaman",
+              "Walang gamit ito",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Para malaman kung saan humingi ng tulong kapag kailangan"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔒 Computer — Pagpapanatiling Pribado ang Personal na Impormasyon\n\nGrade 2, Week 24! Alamin natin kung paano protektahan ang ating impormasyon online. 🔒\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa screen-time.\n\n## 🔒 Ano ang Personal na Impormasyon?\nKabilang dito ang buong pangalan, tirahan, numero ng telepono, at pangalan ng paaralan.\n\n## 🚫 Bakit Hindi Ito Dapat Ibahagi Online?\nAng pagbabahagi ng personal na impormasyon sa mga taong hindi mo kilala online ay maaaring **mapanganib**.\n\n## 👨‍👩‍👧 Digital na Asal\n- Huwag magbigay ng personal na impormasyon nang walang pahintulot ng magulang\n- Maging magalang kapag nakikipag-usap online\n- Sabihin agad sa isang matanda kung may nakakatakot o hindi maayos na nangyari online\n\n**Mahahalagang salita:** personal na impormasyon, pribado, digital na asal, pag-uulat",
+        "quiz": [
+          {
+            "question": "Ano ang halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang personal na impormasyon online?",
+            "options": [
+              "Maaaring mapanganib ito",
+              "Ligtas itong gawin palagi",
+              "Wala itong panganib",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Maaaring mapanganib ito"
+          },
+          {
+            "question": "Ano ang dapat gawin bago magbigay ng personal na impormasyon online?",
+            "options": [
+              "Humingi ng pahintulot ng magulang",
+              "Direktang ibigay agad",
+              "Hindi na kailangan humingi ng pahintulot",
+              "Ibahagi sa lahat ng makikita online"
+            ],
+            "correct_answer": "Humingi ng pahintulot ng magulang"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may nakakatakot na nangyari online?",
+            "options": [
+              "Sabihin agad sa isang matanda",
+              "Itago na lamang ito",
+              "Balewalain ito",
+              "Sabihin lamang sa kaibigan"
+            ],
+            "correct_answer": "Sabihin agad sa isang matanda"
+          },
+          {
+            "question": "Bakit mahalagang maging magalang online?",
+            "options": [
+              "Nagpapakita ito ng mabuting digital na asal",
+              "Hindi mahalaga online",
+              "Puwedeng maging bastos online",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Nagpapakita ito ng mabuting digital na asal"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng personal na impormasyon?",
+            "options": [
+              "Numero ng telepono",
+              "Paboritong kulay",
+              "Paboritong hayop",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Numero ng telepono"
+          },
+          {
+            "question": "Bakit mapanganib ibigay ang tirahan sa taong hindi kilala online?",
+            "options": [
+              "Maaaring gamitin ito ng taong may masamang layunin",
+              "Walang panganib dito",
+              "Ligtas na palagi",
+              "Lahat ay may mabuting layunin online"
+            ],
+            "correct_answer": "Maaaring gamitin ito ng taong may masamang layunin"
+          },
+          {
+            "question": "Ano ang kabilang sa 'digital na asal'?",
+            "options": [
+              "Pagiging magalang kapag nakikipag-usap online",
+              "Pagiging bastos sa iba online",
+              "Pagbabahagi ng lahat ng impormasyon",
+              "Pag-iwas sa lahat ng tao"
+            ],
+            "correct_answer": "Pagiging magalang kapag nakikipag-usap online"
+          },
+          {
+            "question": "Bakit mahalagang sabihin sa matanda ang problema online?",
+            "options": [
+              "Makakatulong sila upang malutas ito nang ligtas",
+              "Hindi na kailangan sabihin",
+              "Ang bata na lamang ang dapat lumutas",
+              "Walang gamit ang pagsasabi"
+            ],
+            "correct_answer": "Makakatulong sila upang malutas ito nang ligtas"
+          },
+          {
+            "question": "Sino ang dapat kasangguni bago gumamit ng bagong app o website?",
+            "options": [
+              "Magulang o guro",
+              "Walang kailangan kasangguni",
+              "Kaibigan lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Bakit itinuturo ang paksang ito sa Grade 2?",
+            "options": [
+              "Para maging ligtas sa paggamit ng Internet simula pagkabata",
+              "Hindi ito mahalaga",
+              "Para hikayatin ang pagbabahagi ng impormasyon",
+              "Walang layunin ito"
+            ],
+            "correct_answer": "Para maging ligtas sa paggamit ng Internet simula pagkabata"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa pagiging ligtas online?",
+            "options": [
+              "Panatilihing pribado ang personal na impormasyon at humingi ng gabay sa matanda",
+              "Ibahagi ang lahat ng impormasyon",
+              "Hindi na kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Panatilihing pribado ang personal na impormasyon at humingi ng gabay sa matanda"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🕌 GMRC — Paggalang sa Iba't Ibang Relihiyon\n\nGrade 2, Linggo 24! Pagpapahalaga: **Respect (Paggalang)**. 🕌\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **gratitude** at kabutihan.\n\n## 🕌 Iba't Ibang Relihiyon sa Pilipinas\nMay iba't ibang relihiyon ang mga Pilipino — Katoliko, Islam, at marami pang iba.\n\n## 🤝 Paano Magpakita ng Paggalang\n- Huwag kutyain ang paraan ng pagsamba ng iba\n- Makinig nang tahimik kung sila ay nagdarasal\n- Maging kaibigan sa lahat, kahit iba ang relihiyon\n\n## 💡 Bakit Mahalaga Ito?\nAng bawat tao ay may karapatang sumamba ayon sa kanilang paniniwala, at ang paggalang dito ay nagpapakita ng **mabuting puso**.\n\n**Mahahalagang salita:** relihiyon, paggalang, paniniwala, kaibigan",
+        "quiz": [
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Respect (Paggalang)",
+              "Gratitude",
+              "Loving",
+              "Hospitality"
+            ],
+            "correct_answer": "Respect (Paggalang)"
+          },
+          {
+            "question": "Anong relihiyon matatagpuan sa Pilipinas?",
+            "options": [
+              "Katoliko, Islam, at iba pa",
+              "Isa lamang uri ng relihiyon",
+              "Wala",
+              "Relihiyon lamang mula sa ibang bansa"
+            ],
+            "correct_answer": "Katoliko, Islam, at iba pa"
+          },
+          {
+            "question": "Anong halimbawa ng paggalang sa relihiyon ng iba?",
+            "options": [
+              "Makinig nang tahimik kung sila ay nagdarasal",
+              "Kutyain ang kanilang paraan ng pagsamba",
+              "Iwasan silang lubusan",
+              "Tumawa sa kanila"
+            ],
+            "correct_answer": "Makinig nang tahimik kung sila ay nagdarasal"
+          },
+          {
+            "question": "Ano ang HINDI dapat gawin sa paniniwala ng ibang relihiyon?",
+            "options": [
+              "Kutyain ito",
+              "Igalang ito",
+              "Maging kaibigan sa kanila",
+              "Tanggapin ang pagkakaiba"
+            ],
+            "correct_answer": "Kutyain ito"
+          },
+          {
+            "question": "Bakit dapat magalang sa relihiyon ng iba?",
+            "options": [
+              "May karapatan ang bawat tao sa kanilang paniniwala",
+              "Dapat lamang igalang ang sariling relihiyon",
+              "Walang kailangang igalang",
+              "Palaging mali ang ibang relihiyon"
+            ],
+            "correct_answer": "May karapatan ang bawat tao sa kanilang paniniwala"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may kaklaseng may ibang relihiyon?",
+            "options": [
+              "Maging kaibigan sa kanya",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan siya bilang kaibigan"
+            ],
+            "correct_answer": "Maging kaibigan sa kanya"
+          },
+          {
+            "question": "Bakit itinuturing na mabuting puso ang paggalang sa relihiyon ng iba?",
+            "options": [
+              "Nagpapakita ito ng malasakit at pag-unawa sa kapwa",
+              "Walang kaugnayan sa mabuting puso",
+              "Ito ay para lamang sa matatanda",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ito ng malasakit at pag-unawa sa kapwa"
+          },
+          {
+            "question": "Bakit pagpapahalaga ang paggalang sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng magandang pakikitungo sa kapwa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng agham",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng magandang pakikitungo sa kapwa"
+          },
+          {
+            "question": "Ano ang mararamdaman ng taong iginagalang ang kanyang relihiyon?",
+            "options": [
+              "Masaya at komportable",
+              "Malungkot",
+              "Galit",
+              "Wala siyang mararamdaman"
+            ],
+            "correct_answer": "Masaya at komportable"
+          },
+          {
+            "question": "Bakit mahalagang magkaroon ng bukas na isipan tungkol sa iba't ibang relihiyon?",
+            "options": [
+              "Nagpapatibay ito ng pagkakaunawaan sa iba't ibang tao",
+              "Nagdudulot ito ng away",
+              "Walang kabuluhan ito",
+              "Ipinagbabawal ito"
+            ],
+            "correct_answer": "Nagpapatibay ito ng pagkakaunawaan sa iba't ibang tao"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag hindi mo alam ang kaugalian ng ibang relihiyon?",
+            "options": [
+              "Magtanong nang magalang o matuto tungkol dito",
+              "Kutyain ito agad",
+              "Iwasan itong pag-usapan magpakailanman",
+              "Sabihing mali ito"
+            ],
+            "correct_answer": "Magtanong nang magalang o matuto tungkol dito"
+          },
+          {
+            "question": "Bakit itinuturo ang paggalang sa relihiyon simula pagkabata?",
+            "options": [
+              "Upang maging mapagpasensya at magalang na tao paglaki",
+              "Hindi na kailangan ituro ito",
+              "Ito ay para lamang sa matatanda",
+              "Walang epekto ito sa pagpapalaki"
+            ],
+            "correct_answer": "Upang maging mapagpasensya at magalang na tao paglaki"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# ⛰️ Friday Review — English (Grade 2)\n\n- Land and water forms\n\nGreat vocabulary work! 🌟",
+        "quiz": [
+          {
+            "question": "What is a mountain?",
+            "options": [
+              "Very tall, rocky land",
+              "A body of water",
+              "A small flower",
+              "A type of animal"
+            ],
+            "correct_answer": "Very tall, rocky land"
+          },
+          {
+            "question": "What is a hill?",
+            "options": [
+              "A smaller, gentler rise of land",
+              "A very large ocean",
+              "A tall building",
+              "A type of river"
+            ],
+            "correct_answer": "A smaller, gentler rise of land"
+          },
+          {
+            "question": "What is a valley?",
+            "options": [
+              "Low land between mountains",
+              "The tallest landform",
+              "A body of salt water",
+              "A type of tree"
+            ],
+            "correct_answer": "Low land between mountains"
+          },
+          {
+            "question": "What is a river?",
+            "options": [
+              "Flowing fresh water",
+              "A body of water surrounded by land",
+              "The tallest landform",
+              "A large area of sea"
+            ],
+            "correct_answer": "Flowing fresh water"
+          },
+          {
+            "question": "What is a lake?",
+            "options": [
+              "Water surrounded by land",
+              "Flowing fresh water",
+              "A tall mountain",
+              "A large area of sea"
+            ],
+            "correct_answer": "Water surrounded by land"
+          },
+          {
+            "question": "What is the sea?",
+            "options": [
+              "A very large body of salt water",
+              "A small stream",
+              "A tall mountain",
+              "A flat plain"
+            ],
+            "correct_answer": "A very large body of salt water"
+          },
+          {
+            "question": "Which is a landform?",
+            "options": [
+              "Mountain",
+              "River",
+              "Lake",
+              "Sea"
+            ],
+            "correct_answer": "Mountain"
+          },
+          {
+            "question": "Which is a water form?",
+            "options": [
+              "River",
+              "Mountain",
+              "Hill",
+              "Valley"
+            ],
+            "correct_answer": "River"
+          },
+          {
+            "question": "'We climbed the mountain' describes what?",
+            "options": [
+              "A very tall, rocky landform",
+              "A body of water",
+              "A type of animal",
+              "A small flower"
+            ],
+            "correct_answer": "A very tall, rocky landform"
+          },
+          {
+            "question": "Which water body is surrounded by land?",
+            "options": [
+              "Lake",
+              "Sea",
+              "Ocean",
+              "River"
+            ],
+            "correct_answer": "Lake"
+          },
+          {
+            "question": "Which landform is lower than a mountain but higher than flat land?",
+            "options": [
+              "Hill",
+              "Valley",
+              "River",
+              "Sea"
+            ],
+            "correct_answer": "Hill"
+          },
+          {
+            "question": "'The river flows down to the sea' tells us a river...",
+            "options": [
+              "Moves and reaches the sea",
+              "Never moves",
+              "Is the same as a mountain",
+              "Is a type of land"
+            ],
+            "correct_answer": "Moves and reaches the sea"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Review — Mathematics (Grade 2)\n\n- Multiplication and division money word problems\n\nGreat problem-solving! ⭐",
+        "quiz": [
+          {
+            "question": "One candy costs ₱5. How much do 3 candies cost?",
+            "options": [
+              "₱15",
+              "₱8",
+              "₱10",
+              "₱20"
+            ],
+            "correct_answer": "₱15"
+          },
+          {
+            "question": "₱20 shared equally among 4 friends: how much each?",
+            "options": [
+              "₱5",
+              "₱4",
+              "₱20",
+              "₱80"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "A pencil costs ₱10. How much do 2 pencils cost?",
+            "options": [
+              "₱20",
+              "₱12",
+              "₱5",
+              "₱15"
+            ],
+            "correct_answer": "₱20"
+          },
+          {
+            "question": "₱30 shared equally among 5 friends: how much each?",
+            "options": [
+              "₱6",
+              "₱5",
+              "₱30",
+              "₱150"
+            ],
+            "correct_answer": "₱6"
+          },
+          {
+            "question": "What operation finds the total cost of several identical items?",
+            "options": [
+              "Multiplication",
+              "Subtraction only",
+              "Division",
+              "None"
+            ],
+            "correct_answer": "Multiplication"
+          },
+          {
+            "question": "What operation shares money equally among friends?",
+            "options": [
+              "Division",
+              "Multiplication only",
+              "Addition only",
+              "None"
+            ],
+            "correct_answer": "Division"
+          },
+          {
+            "question": "First step in solving a word problem?",
+            "options": [
+              "Read carefully",
+              "Guess immediately",
+              "Skip reading",
+              "Ignore numbers"
+            ],
+            "correct_answer": "Read carefully"
+          },
+          {
+            "question": "An eraser costs ₱2. How much do 5 erasers cost?",
+            "options": [
+              "₱10",
+              "₱7",
+              "₱2",
+              "₱15"
+            ],
+            "correct_answer": "₱10"
+          },
+          {
+            "question": "₱50 shared among 10 students: how much each?",
+            "options": [
+              "₱5",
+              "₱10",
+              "₱50",
+              "₱500"
+            ],
+            "correct_answer": "₱5"
+          },
+          {
+            "question": "How do you check your answer?",
+            "options": [
+              "Re-read the problem and see if it makes sense",
+              "Never check",
+              "Guess a different number",
+              "Ignore the question"
+            ],
+            "correct_answer": "Re-read the problem and see if it makes sense"
+          },
+          {
+            "question": "A notebook costs ₱15. How much do 2 notebooks cost?",
+            "options": [
+              "₱30",
+              "₱17",
+              "₱13",
+              "₱7"
+            ],
+            "correct_answer": "₱30"
+          },
+          {
+            "question": "3 friends share ₱9 equally: how much each?",
+            "options": [
+              "₱3",
+              "₱9",
+              "₱6",
+              "₱27"
+            ],
+            "correct_answer": "₱3"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# ⛰️ Friday Review — Filipino (Grade 2)\n\n- Anyong-lupa at anyong-tubig\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang bundok?",
+            "options": [
+              "Napakataas na lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Uri ng halaman",
+              "Uri ng hayop"
+            ],
+            "correct_answer": "Napakataas na lupa"
+          },
+          {
+            "question": "Ano ang burol?",
+            "options": [
+              "Mas mababa kaysa bundok",
+              "Malawak na tubig-alat",
+              "Isang gusali",
+              "Uri ng ilog"
+            ],
+            "correct_answer": "Mas mababa kaysa bundok"
+          },
+          {
+            "question": "Ano ang lambak?",
+            "options": [
+              "Mababang lupa sa pagitan ng bundok",
+              "Pinakamataas na anyong-lupa",
+              "Tubig-alat",
+              "Uri ng puno"
+            ],
+            "correct_answer": "Mababang lupa sa pagitan ng bundok"
+          },
+          {
+            "question": "Ano ang ilog?",
+            "options": [
+              "Umaagos na tubig-tabang",
+              "Tubig na napapaligiran ng lupa",
+              "Napakataas na lupa",
+              "Malawak na tubig-alat"
+            ],
+            "correct_answer": "Umaagos na tubig-tabang"
+          },
+          {
+            "question": "Ano ang lawa?",
+            "options": [
+              "Tubig na napapaligiran ng lupa",
+              "Umaagos na tubig",
+              "Napakataas na bundok",
+              "Malawak na dagat"
+            ],
+            "correct_answer": "Tubig na napapaligiran ng lupa"
+          },
+          {
+            "question": "Ano ang dagat?",
+            "options": [
+              "Malawak na tubig-alat",
+              "Munting batis",
+              "Napakataas na bundok",
+              "Patag na lupa"
+            ],
+            "correct_answer": "Malawak na tubig-alat"
+          },
+          {
+            "question": "Halimbawa ng anyong-lupa?",
+            "options": [
+              "Bundok",
+              "Ilog",
+              "Lawa",
+              "Dagat"
+            ],
+            "correct_answer": "Bundok"
+          },
+          {
+            "question": "Halimbawa ng anyong-tubig?",
+            "options": [
+              "Ilog",
+              "Bundok",
+              "Burol",
+              "Lambak"
+            ],
+            "correct_answer": "Ilog"
+          },
+          {
+            "question": "Sa 'Umakyat kami sa bundok,' ano ang inilalarawan ng 'bundok'?",
+            "options": [
+              "Napakataas na anyong-lupa",
+              "Tubig na napapaligiran ng lupa",
+              "Uri ng hayop",
+              "Munting bulaklak"
+            ],
+            "correct_answer": "Napakataas na anyong-lupa"
+          },
+          {
+            "question": "Tubig na napapaligiran ng lupa sa magkabilang panig?",
+            "options": [
+              "Lawa",
+              "Dagat",
+              "Karagatan",
+              "Ilog"
+            ],
+            "correct_answer": "Lawa"
+          },
+          {
+            "question": "Anyong-lupa na mas mababa kaysa bundok?",
+            "options": [
+              "Burol",
+              "Lambak",
+              "Ilog",
+              "Dagat"
+            ],
+            "correct_answer": "Burol"
+          },
+          {
+            "question": "'Umaagos ang ilog patungo sa dagat' - ang ilog ay...",
+            "options": [
+              "Gumagalaw at umaabot sa dagat",
+              "Hindi kailanman gumagalaw",
+              "Pareho ng bundok",
+              "Uri ng lupa"
+            ],
+            "correct_answer": "Gumagalaw at umaabot sa dagat"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧊 Friday Review — Science (Grade 2)\n\n- Matter: solid, liquid, gas\n\nGreat matter review! 🌟",
+        "quiz": [
+          {
+            "question": "What is matter?",
+            "options": [
+              "Anything that takes up space and has weight",
+              "Only liquids",
+              "Only solids",
+              "Nothing"
+            ],
+            "correct_answer": "Anything that takes up space and has weight"
+          },
+          {
+            "question": "What is a solid?",
+            "options": [
+              "Matter with a fixed shape",
+              "Matter that fills any space",
+              "Matter that takes container shape",
+              "Matter with no shape"
+            ],
+            "correct_answer": "Matter with a fixed shape"
+          },
+          {
+            "question": "What is a liquid?",
+            "options": [
+              "Matter that takes the shape of its container",
+              "Matter with a fixed shape",
+              "Matter that spreads to fill any space",
+              "Matter with no weight"
+            ],
+            "correct_answer": "Matter that takes the shape of its container"
+          },
+          {
+            "question": "What is a gas?",
+            "options": [
+              "Matter that spreads to fill any space",
+              "Matter with a fixed shape",
+              "Matter shaped like a container",
+              "A type of solid"
+            ],
+            "correct_answer": "Matter that spreads to fill any space"
+          },
+          {
+            "question": "Example of a solid?",
+            "options": [
+              "A rock",
+              "Water",
+              "Air",
+              "Juice"
+            ],
+            "correct_answer": "A rock"
+          },
+          {
+            "question": "Example of a liquid?",
+            "options": [
+              "Water",
+              "A rock",
+              "Air",
+              "A table"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Example of a gas?",
+            "options": [
+              "Air",
+              "A rock",
+              "Water",
+              "A table"
+            ],
+            "correct_answer": "Air"
+          },
+          {
+            "question": "What is melting?",
+            "options": [
+              "A solid changing to a liquid",
+              "A liquid changing to a gas",
+              "A gas changing to a solid",
+              "Nothing changes"
+            ],
+            "correct_answer": "A solid changing to a liquid"
+          },
+          {
+            "question": "What is evaporation?",
+            "options": [
+              "A liquid changing to a gas",
+              "A solid changing to a liquid",
+              "A gas changing to a solid",
+              "Nothing changes"
+            ],
+            "correct_answer": "A liquid changing to a gas"
+          },
+          {
+            "question": "What happens to ice when it melts?",
+            "options": [
+              "It changes into water",
+              "It changes into air",
+              "It disappears",
+              "It becomes a rock"
+            ],
+            "correct_answer": "It changes into water"
+          },
+          {
+            "question": "What happens to water when it evaporates?",
+            "options": [
+              "It changes into water vapor",
+              "It changes into ice",
+              "It becomes a solid rock",
+              "Nothing happens"
+            ],
+            "correct_answer": "It changes into water vapor"
+          },
+          {
+            "question": "Why is air considered matter?",
+            "options": [
+              "It takes up space and has weight",
+              "It has no properties",
+              "It is not matter",
+              "It only exists in liquids"
+            ],
+            "correct_answer": "It takes up space and has weight"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Friday Review — Makabansa (Grade 2)\n\n- Serbisyong pangkomunidad\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang serbisyong pangkomunidad?",
+            "options": [
+              "Tulong para sa kapakanan ng mga tao",
+              "Uri ng laruan",
+              "Uri ng pagkain",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Tulong para sa kapakanan ng mga tao"
+          },
+          {
+            "question": "Ginagawa ng pulisya?",
+            "options": [
+              "Nagpapanatili ng kaayusan at kaligtasan",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagtuturo sa bata"
+            ],
+            "correct_answer": "Nagpapanatili ng kaayusan at kaligtasan"
+          },
+          {
+            "question": "Ginagawa ng bumbero?",
+            "options": [
+              "Pumapatay ng sunog",
+              "Nagtuturo sa paaralan",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Pumapatay ng sunog"
+          },
+          {
+            "question": "Ginagawa ng ospital?",
+            "options": [
+              "Nagbibigay ng lunas sa maysakit",
+              "Nagtuturo sa bata",
+              "Pumapatay ng sunog",
+              "Nagbebenta ng gamot lamang"
+            ],
+            "correct_answer": "Nagbibigay ng lunas sa maysakit"
+          },
+          {
+            "question": "Ginagawa ng paaralan?",
+            "options": [
+              "Nagbibigay ng edukasyon",
+              "Pumapatay ng sunog",
+              "Nagbibigay ng lunas",
+              "Nagpapanatili ng kaayusan"
+            ],
+            "correct_answer": "Nagbibigay ng edukasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong pangkomunidad?",
+            "options": [
+              "Tumutulong maging maayos ang pamumuhay",
+              "Walang kahalagahan",
+              "Para sa mayaman lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Tumutulong maging maayos ang pamumuhay"
+          },
+          {
+            "question": "Sino tatawagan kapag may sunog?",
+            "options": [
+              "Bumbero",
+              "Guro",
+              "Doktor lamang",
+              "Tindero"
+            ],
+            "correct_answer": "Bumbero"
+          },
+          {
+            "question": "Sino tatawagan kapag may krimen?",
+            "options": [
+              "Pulisya",
+              "Guro",
+              "Bumbero lamang",
+              "Tindero"
+            ],
+            "correct_answer": "Pulisya"
+          },
+          {
+            "question": "Bakit mahalaga ang paaralan sa komunidad?",
+            "options": [
+              "Nagbibigay ng edukasyon sa mga bata",
+              "Walang papel",
+              "Para lamang sa matatanda",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay ng edukasyon sa mga bata"
+          },
+          {
+            "question": "Layunin ng serbisyong pangkomunidad?",
+            "options": [
+              "Kapakanan at kaligtasan",
+              "Kumita ng pera lamang",
+              "Libangin ang tao",
+              "Walang layunin"
+            ],
+            "correct_answer": "Kapakanan at kaligtasan"
+          },
+          {
+            "question": "Alin ang HINDI serbisyong pangkomunidad?",
+            "options": [
+              "Paglalaro sa labas",
+              "Pulisya",
+              "Bumbero",
+              "Ospital"
+            ],
+            "correct_answer": "Paglalaro sa labas"
+          },
+          {
+            "question": "Bakit malaman ang mga serbisyo sa komunidad?",
+            "options": [
+              "Malaman kung saan humingi ng tulong",
+              "Hindi kailangan malaman",
+              "Walang gamit",
+              "Para lamang sa matatanda"
+            ],
+            "correct_answer": "Malaman kung saan humingi ng tulong"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🔒 Friday Review — Computer (Grade 2)\n\n- Pagpapanatiling pribado ang personal na impormasyon\n\nMagaling sa Computer! 🌟",
+        "quiz": [
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Buong pangalan at tirahan",
+              "Paboritong kulay",
+              "Paboritong pagkain",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Buong pangalan at tirahan"
+          },
+          {
+            "question": "Bakit hindi ibahagi ang personal na impormasyon online?",
+            "options": [
+              "Maaaring mapanganib",
+              "Ligtas palagi",
+              "Walang panganib",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Maaaring mapanganib"
+          },
+          {
+            "question": "Gawin bago magbigay ng personal na impormasyon online?",
+            "options": [
+              "Humingi ng pahintulot ng magulang",
+              "Ibigay agad",
+              "Hindi na kailangan pahintulot",
+              "Ibahagi sa lahat"
+            ],
+            "correct_answer": "Humingi ng pahintulot ng magulang"
+          },
+          {
+            "question": "Gawin kung may nakakatakot na nangyari online?",
+            "options": [
+              "Sabihin sa isang matanda",
+              "Itago na lamang",
+              "Balewalain",
+              "Sabihin sa kaibigan lamang"
+            ],
+            "correct_answer": "Sabihin sa isang matanda"
+          },
+          {
+            "question": "Bakit maging magalang online?",
+            "options": [
+              "Mabuting digital na asal",
+              "Hindi mahalaga",
+              "Puwedeng bastos",
+              "Walang epekto"
+            ],
+            "correct_answer": "Mabuting digital na asal"
+          },
+          {
+            "question": "Halimbawa ng personal na impormasyon?",
+            "options": [
+              "Numero ng telepono",
+              "Paboritong kulay",
+              "Paboritong hayop",
+              "Paboritong laro"
+            ],
+            "correct_answer": "Numero ng telepono"
+          },
+          {
+            "question": "Bakit mapanganib ibigay ang tirahan sa estranghero online?",
+            "options": [
+              "Maaaring gamitin ng may masamang layunin",
+              "Walang panganib",
+              "Ligtas palagi",
+              "Lahat may mabuting layunin"
+            ],
+            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+          },
+          {
+            "question": "Kabilang sa 'digital na asal'?",
+            "options": [
+              "Pagiging magalang online",
+              "Pagiging bastos online",
+              "Pagbabahagi ng lahat",
+              "Pag-iwas sa lahat"
+            ],
+            "correct_answer": "Pagiging magalang online"
+          },
+          {
+            "question": "Bakit sabihin sa matanda ang problema online?",
+            "options": [
+              "Makakatulong sila lutasin ito",
+              "Hindi kailangan sabihin",
+              "Bata na lamang dapat lumutas",
+              "Walang gamit"
+            ],
+            "correct_answer": "Makakatulong sila lutasin ito"
+          },
+          {
+            "question": "Sino kasangguni bago gumamit ng bagong app?",
+            "options": [
+              "Magulang o guro",
+              "Walang kailangan",
+              "Kaibigan lamang",
+              "Estranghero online"
+            ],
+            "correct_answer": "Magulang o guro"
+          },
+          {
+            "question": "Bakit itinuro ang paksang ito?",
+            "options": [
+              "Maging ligtas sa Internet simula pagkabata",
+              "Hindi mahalaga",
+              "Hikayatin ang pagbabahagi",
+              "Walang layunin"
+            ],
+            "correct_answer": "Maging ligtas sa Internet simula pagkabata"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa pagiging ligtas online?",
+            "options": [
+              "Panatilihing pribado ang impormasyon at humingi ng gabay",
+              "Ibahagi ang lahat",
+              "Hindi kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Panatilihing pribado ang impormasyon at humingi ng gabay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🕌 Friday Review — GMRC (Grade 2)\n\n- Respect: paggalang sa relihiyon ng iba\n\nMabuting bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Anong pagpapahalaga ang tinalakay?",
+            "options": [
+              "Respect (Paggalang)",
+              "Gratitude",
+              "Loving",
+              "Hospitality"
+            ],
+            "correct_answer": "Respect (Paggalang)"
+          },
+          {
+            "question": "Relihiyon na matatagpuan sa Pilipinas?",
+            "options": [
+              "Katoliko, Islam, at iba pa",
+              "Isa lamang uri",
+              "Wala",
+              "Mula sa ibang bansa lamang"
+            ],
+            "correct_answer": "Katoliko, Islam, at iba pa"
+          },
+          {
+            "question": "Halimbawa ng paggalang sa relihiyon ng iba?",
+            "options": [
+              "Makinig nang tahimik kung nagdarasal sila",
+              "Kutyain ang kanilang pagsamba",
+              "Iwasan sila",
+              "Tumawa sa kanila"
+            ],
+            "correct_answer": "Makinig nang tahimik kung nagdarasal sila"
+          },
+          {
+            "question": "HINDI dapat gawin sa paniniwala ng iba?",
+            "options": [
+              "Kutyain ito",
+              "Igalang ito",
+              "Maging kaibigan sa kanila",
+              "Tanggapin ang pagkakaiba"
+            ],
+            "correct_answer": "Kutyain ito"
+          },
+          {
+            "question": "Bakit magalang sa relihiyon ng iba?",
+            "options": [
+              "May karapatan ang bawat tao sa paniniwala",
+              "Igalang lamang sarili",
+              "Walang kailangang igalang",
+              "Palaging mali ang iba"
+            ],
+            "correct_answer": "May karapatan ang bawat tao sa paniniwala"
+          },
+          {
+            "question": "Gawin kung may kaklaseng may ibang relihiyon?",
+            "options": [
+              "Maging kaibigan sa kanya",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan bilang kaibigan"
+            ],
+            "correct_answer": "Maging kaibigan sa kanya"
+          },
+          {
+            "question": "Bakit mabuting puso ang paggalang sa relihiyon ng iba?",
+            "options": [
+              "Nagpapakita ng malasakit sa kapwa",
+              "Walang kaugnayan",
+              "Para sa matatanda lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nagpapakita ng malasakit sa kapwa"
+          },
+          {
+            "question": "Bakit paggalang ay pagpapahalaga sa GMRC?",
+            "options": [
+              "Nagtuturo ng magandang pakikitungo",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagtuturo ng magandang pakikitungo"
+          },
+          {
+            "question": "Mararamdaman ng taong iginagalang ang relihiyon?",
+            "options": [
+              "Masaya at komportable",
+              "Malungkot",
+              "Galit",
+              "Wala"
+            ],
+            "correct_answer": "Masaya at komportable"
+          },
+          {
+            "question": "Bakit magkaroon ng bukas na isipan sa relihiyon ng iba?",
+            "options": [
+              "Nagpapatibay ng pagkakaunawaan",
+              "Nagdudulot ng away",
+              "Walang kabuluhan",
+              "Ipinagbabawal"
+            ],
+            "correct_answer": "Nagpapatibay ng pagkakaunawaan"
+          },
+          {
+            "question": "Gawin kapag hindi alam ang kaugalian ng ibang relihiyon?",
+            "options": [
+              "Magtanong nang magalang",
+              "Kutyain agad",
+              "Iwasan pag-usapan",
+              "Sabihing mali"
+            ],
+            "correct_answer": "Magtanong nang magalang"
+          },
+          {
+            "question": "Bakit ituro ang paggalang sa relihiyon simula pagkabata?",
+            "options": [
+              "Maging mapagpasensya at magalang paglaki",
+              "Hindi na kailangan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging mapagpasensya at magalang paglaki"
+          }
+        ]
+      }
+    }
+  }
+}

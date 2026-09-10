@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-11-08",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📝 English — Application Forms and Video Multimedia Elements\n\nGrade 5, Week 22! Let's learn a new form type and how videos deliver messages. 🎬\n\n## 🔄 Review\nLast week we learned about **deposit slips** and **directionality** in visuals.\n\n## 📝 The Application Form\nAn **application form** is filled out to formally request something — a library card, a school program, a job (for adults). Common fields: **Full Name**, **Address**, **Purpose of Application**, **Signature**, **Date**.\n\n## 🎬 Multimedia Elements in Videos\nVideos combine several elements to deliver a message:\n- **Visuals** — what you see (people, scenes, text on screen)\n- **Audio** — narration, music, sound effects\n- **Pacing** — how fast or slow scenes change, which affects mood\n- **Captions/Subtitles** — written text supporting the audio\n\nUnderstanding these elements helps you notice *how* a video persuades or informs you, not just *what* it shows.\n\n**Key words:** application form, multimedia, pacing, captions",
+        "quiz": [
+          {
+            "question": "What is an application form used for?",
+            "options": [
+              "Formally requesting something",
+              "Depositing money only",
+              "Writing a story",
+              "Drawing a picture"
+            ],
+            "correct_answer": "Formally requesting something"
+          },
+          {
+            "question": "Which field is commonly found on an application form?",
+            "options": [
+              "Purpose of Application",
+              "Favorite color",
+              "Shoe size",
+              "Pet's name"
+            ],
+            "correct_answer": "Purpose of Application"
+          },
+          {
+            "question": "What are the 'visuals' in a video?",
+            "options": [
+              "What you see on screen",
+              "The background music only",
+              "The captions only",
+              "The title only"
+            ],
+            "correct_answer": "What you see on screen"
+          },
+          {
+            "question": "What does 'pacing' affect in a video?",
+            "options": [
+              "The mood, based on how fast scenes change",
+              "The color of the captions",
+              "The size of the screen",
+              "The volume of the speaker's voice only"
+            ],
+            "correct_answer": "The mood, based on how fast scenes change"
+          },
+          {
+            "question": "What are captions in a video?",
+            "options": [
+              "Written text supporting the audio",
+              "Background music",
+              "The video's file size",
+              "The camera angle"
+            ],
+            "correct_answer": "Written text supporting the audio"
+          },
+          {
+            "question": "Why is it useful to understand multimedia elements in a video?",
+            "options": [
+              "It helps you notice how the video persuades or informs you",
+              "It has no real use",
+              "It only matters for making movies",
+              "It is only useful for musicians"
+            ],
+            "correct_answer": "It helps you notice how the video persuades or informs you"
+          },
+          {
+            "question": "A video uses fast cuts and upbeat music during an action scene. What element is being used to build excitement?",
+            "options": [
+              "Pacing and audio",
+              "Captions only",
+              "The application form",
+              "The deposit slip"
+            ],
+            "correct_answer": "Pacing and audio"
+          },
+          {
+            "question": "Why might a video include captions even when there is audio?",
+            "options": [
+              "To help viewers understand or follow along, including those who can't hear well",
+              "Captions are never useful",
+              "To replace the pictures",
+              "To make the video longer"
+            ],
+            "correct_answer": "To help viewers understand or follow along, including those who can't hear well"
+          },
+          {
+            "question": "You want to apply for a library card. What form would you fill out?",
+            "options": [
+              "An application form",
+              "A deposit slip",
+              "A permission slip only",
+              "A birthday card"
+            ],
+            "correct_answer": "An application form"
+          },
+          {
+            "question": "Which of these is an example of an audio element in a video?",
+            "options": [
+              "Background music",
+              "The text on screen",
+              "The color of the title",
+              "The screen size"
+            ],
+            "correct_answer": "Background music"
+          },
+          {
+            "question": "Why does an application form ask for 'Purpose of Application'?",
+            "options": [
+              "So the reader knows exactly what is being requested",
+              "To make the form longer",
+              "It is never actually asked",
+              "To test your handwriting"
+            ],
+            "correct_answer": "So the reader knows exactly what is being requested"
+          },
+          {
+            "question": "A calm nature documentary uses slow pacing and soft music. What mood does this likely create?",
+            "options": [
+              "A peaceful, relaxed mood",
+              "An exciting, fast mood",
+              "A scary mood",
+              "No mood at all"
+            ],
+            "correct_answer": "A peaceful, relaxed mood"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Mathematics — Estimating and Multiplying Decimals\n\nGrade 5, Week 22! Let's multiply decimals and use them with money. 💰\n\n## 🔄 Review\nLast week we studied **theoretical probability**.\n\n## 🔢 Estimating Decimal Products\nBefore multiplying decimals exactly, **estimate** first by rounding each number to the nearest whole number.\n\n**Example:** 3.8 × 2.1 ≈ 4 × 2 = 8 (estimate)\n\n## ✖️ Multiplying Decimals\n1. Multiply the numbers as if there were no decimal points.\n2. Count the total decimal places in both factors.\n3. Place the decimal point that many places from the right in the answer.\n\n**Example:** 2.5 × 1.4\n- 25 × 14 = 350\n- Total decimal places: 1 + 1 = 2\n- Answer: 3.50\n\n## 💵 Word Problems with Money\nIf 1 kilo of rice costs ₱52.50, how much do 3.5 kilos cost? Multiply: 52.50 × 3.5 = ₱183.75\n\n**Key words:** estimate, decimal multiplication, decimal places",
+        "quiz": [
+          {
+            "question": "What is the first step before multiplying decimals exactly?",
+            "options": [
+              "Estimate by rounding",
+              "Add the numbers",
+              "Divide the numbers",
+              "Subtract the numbers"
+            ],
+            "correct_answer": "Estimate by rounding"
+          },
+          {
+            "question": "What is 3.8 × 2.1 rounded and estimated?",
+            "options": [
+              "About 8 (4 × 2)",
+              "About 6",
+              "About 10",
+              "About 4"
+            ],
+            "correct_answer": "About 8 (4 × 2)"
+          },
+          {
+            "question": "When multiplying decimals, what do you count to place the decimal point?",
+            "options": [
+              "Total decimal places in both factors",
+              "The number of digits in the answer only",
+              "The number of zeros",
+              "Nothing needs to be counted"
+            ],
+            "correct_answer": "Total decimal places in both factors"
+          },
+          {
+            "question": "What is 2.5 × 1.4?",
+            "options": [
+              "3.50",
+              "35.0",
+              "0.35",
+              "350"
+            ],
+            "correct_answer": "3.50"
+          },
+          {
+            "question": "What is 0.6 × 0.3?",
+            "options": [
+              "0.18",
+              "1.8",
+              "18",
+              "0.018"
+            ],
+            "correct_answer": "0.18"
+          },
+          {
+            "question": "If rice costs ₱52.50 per kilo, how much do 2 kilos cost?",
+            "options": [
+              "₱105.00",
+              "₱52.50",
+              "₱26.25",
+              "₱150.00"
+            ],
+            "correct_answer": "₱105.00"
+          },
+          {
+            "question": "What is 4.2 × 3?",
+            "options": [
+              "12.6",
+              "1.26",
+              "126",
+              "7.2"
+            ],
+            "correct_answer": "12.6"
+          },
+          {
+            "question": "Why is estimating useful before multiplying decimals exactly?",
+            "options": [
+              "It helps check if your final answer is reasonable",
+              "It replaces the need to multiply",
+              "It always gives the exact answer",
+              "It only works with whole numbers"
+            ],
+            "correct_answer": "It helps check if your final answer is reasonable"
+          },
+          {
+            "question": "What is 1.5 × 1.5?",
+            "options": [
+              "2.25",
+              "3.0",
+              "22.5",
+              "0.225"
+            ],
+            "correct_answer": "2.25"
+          },
+          {
+            "question": "A ribbon costs ₱15.25 per meter. What is the cost of 4 meters?",
+            "options": [
+              "₱61.00",
+              "₱15.25",
+              "₱4.00",
+              "₱76.25"
+            ],
+            "correct_answer": "₱61.00"
+          },
+          {
+            "question": "In 2.5 × 1.4 = 3.50, how many total decimal places did the two factors have?",
+            "options": [
+              "2",
+              "1",
+              "3",
+              "0"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "A notebook costs ₱24.75. Estimate the total cost of 3 notebooks by rounding to the nearest peso first.",
+            "options": [
+              "About ₱75 (25 × 3)",
+              "About ₱24",
+              "About ₱100",
+              "About ₱50"
+            ],
+            "correct_answer": "About ₱75 (25 × 3)"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Panimulang Pagsulat ng Tulang Pambata\n\nGrade 5, Linggo 22! Simulan na natin ang pagsulat ng tula, paksa para sa Term 3. ✍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang paggamit ng **almanac** at **atlas**.\n\n## 🎨 Ano ang Tulang Pambata?\nAng **tulang pambata** ay isang uri ng tula na para sa mga bata, kadalasang may **tugma** (rhyme) at **sukat** (rhythm/meter), at simpleng wika.\n\n## 📝 Mga Sangkap ng Tula\n- **Saknong** — grupo ng mga taludtod\n- **Taludtod** — isang linya sa tula\n- **Tugma** — magkatunog na huling salita sa magkasunod na taludtod\n\n**Halimbawa ng tugma:**\n\"Ang aso ko ay maliksi,\nTumatakbo't naglalaksi.\"\n\nSa pagsulat ng sariling tula, piliin ang isang simpleng paksa (hal. pamilya, kalikasan) at subukang gumamit ng tugma.\n\n**Mahahalagang salita:** tulang pambata, saknong, taludtod, tugma",
+        "quiz": [
+          {
+            "question": "Ano ang tulang pambata?",
+            "options": [
+              "Tula na para sa mga bata na may tugma at simpleng wika",
+              "Aklat ng mapa",
+              "Anyo ng liham",
+              "Uri ng balita"
+            ],
+            "correct_answer": "Tula na para sa mga bata na may tugma at simpleng wika"
+          },
+          {
+            "question": "Ano ang saknong sa tula?",
+            "options": [
+              "Grupo ng mga taludtod",
+              "Isang salita lamang",
+              "Ang pamagat ng tula",
+              "Ang may-akda ng tula"
+            ],
+            "correct_answer": "Grupo ng mga taludtod"
+          },
+          {
+            "question": "Ano ang taludtod?",
+            "options": [
+              "Isang linya sa tula",
+              "Ang buong tula",
+              "Ang pamagat",
+              "Ang saknong"
+            ],
+            "correct_answer": "Isang linya sa tula"
+          },
+          {
+            "question": "Ano ang tugma?",
+            "options": [
+              "Magkatunog na huling salita sa magkasunod na taludtod",
+              "Ang bilang ng saknong",
+              "Ang haba ng tula",
+              "Ang pamagat ng tula"
+            ],
+            "correct_answer": "Magkatunog na huling salita sa magkasunod na taludtod"
+          },
+          {
+            "question": "Sa 'maliksi' at 'naglalaksi', ano ang ipinapakita nito?",
+            "options": [
+              "Tugma",
+              "Saknong",
+              "Pamagat",
+              "Taludtod lamang na walang tugma"
+            ],
+            "correct_answer": "Tugma"
+          },
+          {
+            "question": "Anong uri ng wika ang karaniwang ginagamit sa tulang pambata?",
+            "options": [
+              "Simpleng wika",
+              "Kumplikadong akademikong wika",
+              "Banyagang wika lamang",
+              "Teknikal na wika"
+            ],
+            "correct_answer": "Simpleng wika"
+          },
+          {
+            "question": "Anong paksa ang maaaring piliin sa pagsulat ng tulang pambata?",
+            "options": [
+              "Pamilya o kalikasan",
+              "Batas komersyo",
+              "Ekonomiya ng bansa",
+              "Pamamahala ng pamahalaan"
+            ],
+            "correct_answer": "Pamilya o kalikasan"
+          },
+          {
+            "question": "Bakit mahalaga ang sukat (rhythm) sa isang tula?",
+            "options": [
+              "Nagbibigay ito ng maayos na daloy kapag binabasa",
+              "Wala itong epekto sa tula",
+              "Ginagamit lamang ito sa balita",
+              "Pinapahaba lamang nito ang tula"
+            ],
+            "correct_answer": "Nagbibigay ito ng maayos na daloy kapag binabasa"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng dalawang taludtod na may tugma?",
+            "options": [
+              "'Ang pusa ko'y maliit, kumakain nang dahan-dahan'",
+              "'Ang pusa'—'Ang aso' (walang tugma o kaugnayan)",
+              "Isang pangungusap na walang saknong",
+              "Isang salita lamang"
+            ],
+            "correct_answer": "'Ang pusa ko'y maliit, kumakain nang dahan-dahan'"
+          },
+          {
+            "question": "Ilang taludtod ang bumubuo ng isang saknong?",
+            "options": [
+              "Higit sa isa (isang grupo ng taludtod)",
+              "Palaging isa lamang",
+              "Walang taludtod",
+              "Sampu lamang palagi"
+            ],
+            "correct_answer": "Higit sa isa (isang grupo ng taludtod)"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng tulang pambata?",
+            "options": [
+              "Aliwin at turuan ang mga bata sa payak na paraan",
+              "Ipaliwanag ang mga batas pang-ekonomiya",
+              "Isulat ang balita ng araw",
+              "Magbigay ng teknikal na impormasyon lamang"
+            ],
+            "correct_answer": "Aliwin at turuan ang mga bata sa payak na paraan"
+          },
+          {
+            "question": "Kung susulat ka ng tula tungkol sa iyong alagang hayop, ano ang dapat mong subukang gamitin?",
+            "options": [
+              "Tugma at simpleng salita",
+              "Mahabang salitang teknikal",
+              "Datos pang-estadistika",
+              "Talahanayan ng bilang"
+            ],
+            "correct_answer": "Tugma at simpleng salita"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Science — Static Electricity\n\nGrade 5, Week 22! Let's discover the electricity that builds up around us. ⚡\n\n## 🔄 Review\nWe learned about **simple machines** and how they make work easier.\n\n## ⚡ What Is Static Electricity?\n**Static electricity** is a buildup of electric charge on the surface of an object. It happens when objects rub against each other and transfer tiny particles called **electrons**.\n\n## 🎈 How It Happens\nWhen you rub a balloon on your hair, electrons move from your hair to the balloon. This makes the balloon **negatively charged** and your hair **positively charged** — and they attract each other!\n\n## ⚡ Static Electricity in Real Life\n- Hair standing up after removing a wool hat\n- A small \"shock\" when touching a doorknob\n- Clothes sticking together after the dryer\n\nUnlike **current electricity** (which flows continuously, like in wires), static electricity **builds up and discharges** suddenly.\n\n**Key words:** static electricity, electric charge, electrons, attract",
+        "quiz": [
+          {
+            "question": "What is static electricity?",
+            "options": [
+              "A buildup of electric charge on an object's surface",
+              "Electricity that flows continuously through wires",
+              "A type of magnet",
+              "A kind of sound wave"
+            ],
+            "correct_answer": "A buildup of electric charge on an object's surface"
+          },
+          {
+            "question": "What are electrons?",
+            "options": [
+              "Tiny particles that can transfer between objects",
+              "Large rocks",
+              "A type of plant cell",
+              "A unit of distance"
+            ],
+            "correct_answer": "Tiny particles that can transfer between objects"
+          },
+          {
+            "question": "What happens when you rub a balloon on your hair?",
+            "options": [
+              "Electrons move from your hair to the balloon",
+              "Nothing happens at all",
+              "The balloon becomes magnetic permanently",
+              "Your hair turns a different color"
+            ],
+            "correct_answer": "Electrons move from your hair to the balloon"
+          },
+          {
+            "question": "After rubbing a balloon on hair, what charge does the balloon get?",
+            "options": [
+              "Negative",
+              "Positive",
+              "No charge at all",
+              "Both positive and negative equally"
+            ],
+            "correct_answer": "Negative"
+          },
+          {
+            "question": "Why does hair sometimes stand up after removing a wool hat?",
+            "options": [
+              "Static electricity causes the strands to repel each other",
+              "The hair becomes wet",
+              "The hat makes hair heavier",
+              "It has nothing to do with electricity"
+            ],
+            "correct_answer": "Static electricity causes the strands to repel each other"
+          },
+          {
+            "question": "What causes the small 'shock' you sometimes feel touching a doorknob?",
+            "options": [
+              "A sudden discharge of built-up static electricity",
+              "The doorknob is always electrically charged from the factory",
+              "Magnetism in the door",
+              "Sound vibrations"
+            ],
+            "correct_answer": "A sudden discharge of built-up static electricity"
+          },
+          {
+            "question": "How is static electricity different from current electricity?",
+            "options": [
+              "Static builds up and discharges suddenly; current flows continuously",
+              "They are exactly the same thing",
+              "Static electricity only exists in wires",
+              "Current electricity never moves"
+            ],
+            "correct_answer": "Static builds up and discharges suddenly; current flows continuously"
+          },
+          {
+            "question": "Why do clothes sometimes stick together after the dryer?",
+            "options": [
+              "Static electricity builds up from clothes rubbing together",
+              "The dryer makes clothes wet",
+              "Clothes become magnetic",
+              "It is caused by sound waves"
+            ],
+            "correct_answer": "Static electricity builds up from clothes rubbing together"
+          },
+          {
+            "question": "If an object gains extra electrons, what charge does it have?",
+            "options": [
+              "Negative",
+              "Positive",
+              "No charge",
+              "It becomes magnetic"
+            ],
+            "correct_answer": "Negative"
+          },
+          {
+            "question": "If an object loses electrons, what charge does it have?",
+            "options": [
+              "Positive",
+              "Negative",
+              "No charge",
+              "It becomes a conductor"
+            ],
+            "correct_answer": "Positive"
+          },
+          {
+            "question": "Two objects with opposite charges will...",
+            "options": [
+              "Attract each other",
+              "Repel each other",
+              "Have no effect on each other",
+              "Become the same charge instantly"
+            ],
+            "correct_answer": "Attract each other"
+          },
+          {
+            "question": "Why is rubbing objects together important for creating static electricity?",
+            "options": [
+              "It transfers electrons from one object to another",
+              "It creates new electrons out of nothing",
+              "It removes all charge from both objects",
+              "It has no real effect"
+            ],
+            "correct_answer": "It transfers electrons from one object to another"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏔️ Araling Panlipunan — Pagpupunyagi at ang Malayang Cordillera\n\nGrade 5, Linggo 22! Alamin natin kung paano nanatiling malaya ang ilang bahagi ng Pilipinas. 🏔️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol kay **Gabriela Silang** at katayuan ng kababaihan.\n\n## 🏔️ Ang Malayang Cordillera\nSa kabila ng pananakop ng Espanya sa mababang lupain, hindi nasakop ng mga Espanyol ang **Cordillera** dahil sa matinding tereyn ng bundok at matatag na paglaban ng mga katutubo.\n\n## 🕌 Ang Sultanato ng Sulu at Maguindanao\nGayundin, ang mga **Sultanato ng Sulu at Maguindanao** sa Mindanao ay nanatiling malaya at hindi lubusang nasakop dahil sa organisadong pamahalaan at matatag na relihiyong Islam.\n\n## 💪 Kahalagahan\nIpinapakita ng mga pangyayaring ito na **hindi lahat ng Pilipinas ay nasakop nang lubusan** — patunay ito ng tibay ng loob at pagtatanggol sa sariling lupain ng mga katutubong Pilipino.\n\n**Mahahalagang salita:** Cordillera, Sultanato, pagpupunyagi, kalayaan",
+        "quiz": [
+          {
+            "question": "Bakit hindi nasakop ng mga Espanyol ang Cordillera?",
+            "options": [
+              "Dahil sa matinding tereyn ng bundok at matatag na paglaban",
+              "Dahil hindi interesado ang mga Espanyol doon",
+              "Dahil wala nang tao doon",
+              "Dahil ipinagbili ito sa ibang bansa"
+            ],
+            "correct_answer": "Dahil sa matinding tereyn ng bundok at matatag na paglaban"
+          },
+          {
+            "question": "Saan matatagpuan ang Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Mindanao",
+              "Luzon",
+              "Visayas",
+              "Palawan"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Bakit nanatiling malaya ang Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Dahil sa organisadong pamahalaan at matatag na relihiyong Islam",
+              "Dahil hindi alam ng mga Espanyol ang lokasyon nito",
+              "Dahil walang tao doon",
+              "Dahil sumuko agad ang mga Espanyol"
+            ],
+            "correct_answer": "Dahil sa organisadong pamahalaan at matatag na relihiyong Islam"
+          },
+          {
+            "question": "Ano ang ipinapakita ng hindi pagkasakop ng Cordillera at Sultanato?",
+            "options": [
+              "Hindi lahat ng Pilipinas ay lubusang nasakop",
+              "Nasakop ang buong Pilipinas nang walang tutol",
+              "Walang tao sa mga lugar na ito",
+              "Hindi mahalaga ang mga lugar na ito"
+            ],
+            "correct_answer": "Hindi lahat ng Pilipinas ay lubusang nasakop"
+          },
+          {
+            "question": "Anong relihiyon ang matatag sa Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Islam",
+              "Katolisismo",
+              "Budismo",
+              "Hinduismo"
+            ],
+            "correct_answer": "Islam"
+          },
+          {
+            "question": "Ano ang katangian ng tereyn ng Cordillera na nakatulong sa paglaban?",
+            "options": [
+              "Matarik at mabundok",
+              "Patag at madaling salakayin",
+              "Baybaying-dagat lamang",
+              "Disyerto"
+            ],
+            "correct_answer": "Matarik at mabundok"
+          },
+          {
+            "question": "Ano ang tawag sa pinuno ng isang Sultanato?",
+            "options": [
+              "Sultan",
+              "Datu",
+              "Hari ng Espanya",
+              "Gobernador-Heneral"
+            ],
+            "correct_answer": "Sultan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang kasaysayan ng Cordillera at Sultanato sa pag-aaral ng pagpupunyagi?",
+            "options": [
+              "Nagpapakita ito ng determinasyon ng mga Pilipino na ipagtanggol ang kanilang lupain",
+              "Wala itong kaugnayan sa kasaysayan ng Pilipinas",
+              "Ito ay kathang-isip lamang",
+              "Ito ay naganap sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapakita ito ng determinasyon ng mga Pilipino na ipagtanggol ang kanilang lupain"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI dahilan kung bakit nanatiling malaya ang Cordillera?",
+            "options": [
+              "Kawalan ng interes ng mga katutubo sa kalayaan",
+              "Matinding tereyn ng bundok",
+              "Matatag na paglaban ng mga katutubo",
+              "Kahirapan ng pagsalakay dahil sa lokasyon"
+            ],
+            "correct_answer": "Kawalan ng interes ng mga katutubo sa kalayaan"
+          },
+          {
+            "question": "Ano ang pagkakatulad ng Cordillera at Sultanato sa panahon ng kolonisasyon?",
+            "options": [
+              "Pareho silang nanatiling malaya sa pananakop ng Espanya",
+              "Pareho silang agad na nasakop",
+              "Pareho silang walang naninirahan",
+              "Pareho silang bahagi ng Luzon"
+            ],
+            "correct_answer": "Pareho silang nanatiling malaya sa pananakop ng Espanya"
+          },
+          {
+            "question": "Ano ang naging papel ng relihiyong Islam sa pananatiling malaya ng Sultanato?",
+            "options": [
+              "Nagbigay ito ng matatag na organisasyon at pagkakaisa",
+              "Wala itong papel",
+              "Pinahina nito ang pamahalaan",
+              "Ito ay pumigil sa pagkakaisa"
+            ],
+            "correct_answer": "Nagbigay ito ng matatag na organisasyon at pagkakaisa"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang mga bahagi ng Pilipinas na hindi lubusang nasakop?",
+            "options": [
+              "Para maunawaan ang iba't ibang karanasan ng mga Pilipino noong kolonyal na panahon",
+              "Sapagkat kailangan lamang isaulo",
+              "Walang kaugnayan ito sa kasalukuyan",
+              "Sapagkat ito lamang ang totoong kasaysayan"
+            ],
+            "correct_answer": "Para maunawaan ang iba't ibang karanasan ng mga Pilipino noong kolonyal na panahon"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📈 EPP (ICT) — Making a Simple Chart from Data\n\nGrade 5, Week 22! Let's turn spreadsheet data into a visual chart. 📈\n\n## 🔄 Review\nWe learned about **rows, columns, and cells** in a spreadsheet.\n\n## 📊 From Data to Chart\nOnce data is organized in a spreadsheet, most programs let you **select the data** and insert a **chart** (bar chart, line chart, pie chart) automatically.\n\n## 🪜 Basic Steps\n1. Type your data into rows and columns (e.g., days of the week and rainfall amounts)\n2. Select (highlight) the data\n3. Choose **Insert > Chart**\n4. Pick the chart type that fits your data (bar chart for comparing amounts, line chart for change over time)\n\nThis connects directly to what we learned in **Math** — double bar and line graphs can be made digitally, not just by hand!\n\n**Key words:** chart, insert, select data, bar chart, line chart",
+        "quiz": [
+          {
+            "question": "What must you do before inserting a chart from spreadsheet data?",
+            "options": [
+              "Select the data",
+              "Delete the data",
+              "Print the spreadsheet",
+              "Close the program"
+            ],
+            "correct_answer": "Select the data"
+          },
+          {
+            "question": "Which chart type is best for comparing amounts?",
+            "options": [
+              "Bar chart",
+              "Line chart only",
+              "Pie chart only",
+              "No chart works for this"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Which chart type is best for showing change over time?",
+            "options": [
+              "Line chart",
+              "Bar chart only",
+              "Pie chart only",
+              "No chart works for this"
+            ],
+            "correct_answer": "Line chart"
+          },
+          {
+            "question": "What is the first step in making a chart from data?",
+            "options": [
+              "Type your data into rows and columns",
+              "Insert the chart with no data",
+              "Delete all rows",
+              "Print the file"
+            ],
+            "correct_answer": "Type your data into rows and columns"
+          },
+          {
+            "question": "In most spreadsheet programs, what menu option is used to add a chart?",
+            "options": [
+              "Insert > Chart",
+              "File > Print",
+              "Edit > Delete",
+              "View > Zoom"
+            ],
+            "correct_answer": "Insert > Chart"
+          },
+          {
+            "question": "How does this ICT lesson connect to Math class?",
+            "options": [
+              "It shows how to make bar/line graphs digitally instead of by hand",
+              "It has no connection to Math",
+              "It replaces the need to learn Math",
+              "It is only about spelling"
+            ],
+            "correct_answer": "It shows how to make bar/line graphs digitally instead of by hand"
+          },
+          {
+            "question": "If you want to compare rainfall amounts across 5 days, which chart type fits best?",
+            "options": [
+              "Bar chart",
+              "No chart is needed",
+              "Only a pie chart works",
+              "A chart cannot show rainfall"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Why is it useful to make charts digitally instead of by hand?",
+            "options": [
+              "It can update automatically and looks neat",
+              "It is always slower than drawing by hand",
+              "It removes the need for data entirely",
+              "Digital charts cannot show numbers"
+            ],
+            "correct_answer": "It can update automatically and looks neat"
+          },
+          {
+            "question": "What happens if you select the wrong data before inserting a chart?",
+            "options": [
+              "The chart may show incorrect or incomplete information",
+              "Nothing changes at all",
+              "The computer will fix it automatically every time",
+              "Charts don't depend on selected data"
+            ],
+            "correct_answer": "The chart may show incorrect or incomplete information"
+          },
+          {
+            "question": "Which of these would most likely use a line chart?",
+            "options": [
+              "Tracking temperature changes over a week",
+              "Comparing favorite colors of 5 students",
+              "Listing student names",
+              "Showing a single number"
+            ],
+            "correct_answer": "Tracking temperature changes over a week"
+          },
+          {
+            "question": "What should you organize FIRST before making any chart?",
+            "options": [
+              "Your data in rows and columns",
+              "The chart's colors",
+              "The chart's title only",
+              "The printer settings"
+            ],
+            "correct_answer": "Your data in rows and columns"
+          },
+          {
+            "question": "A student has scores for 4 subjects and wants to compare them visually. What should they create?",
+            "options": [
+              "A bar chart comparing the four scores",
+              "A single cell with all data",
+              "A blank spreadsheet",
+              "A video instead of a chart"
+            ],
+            "correct_answer": "A bar chart comparing the four scores"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Social Dance Mixers\n\nGrade 5, Linggo 22! Galawin natin ang katawan sa mga simpleng sayaw! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **musical form**: verse at chorus.\n\n## 💃 Ano ang Social Dance Mixer?\nAng **social dance mixer** ay isang uri ng sayaw kung saan **nagpapalit-palit ng partner** ang mga mananayaw habang sumasabay sa musika sa **2/4 time**.\n\n## 🕺 Mga Hakbang\n1. Tumayo sa bilog o linya kasama ang partner\n2. Sumabay sa simpleng galaw (hakbang-hakbang, ikot)\n3. Sa senyales (hudyat), lumipat sa susunod na partner\n\n## 🎯 Layunin\nTinuturuan tayo nito ng **koordinasyon**, **timing** sa musika, at **kasiyahan sa pakikipag-ugnayan** habang gumagalaw.\n\n**Mahahalagang salita:** social dance mixer, 2/4 time, hudyat, koordinasyon",
+        "quiz": [
+          {
+            "question": "Ano ang social dance mixer?",
+            "options": [
+              "Sayaw kung saan nagpapalit-palit ng partner ang mga mananayaw",
+              "Isang uri ng awit",
+              "Isang laro sa PE na walang musika",
+              "Isang uri ng pagguhit"
+            ],
+            "correct_answer": "Sayaw kung saan nagpapalit-palit ng partner ang mga mananayaw"
+          },
+          {
+            "question": "Anong time signature ang ginagamit sa social dance mixer?",
+            "options": [
+              "2/4",
+              "6/8",
+              "9/4",
+              "Walang time signature"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "Ano ang ginagawa kapag may hudyat sa social dance mixer?",
+            "options": [
+              "Lumipat sa susunod na partner",
+              "Tumigil at umupo",
+              "Umalis sa silid",
+              "Magsimula ng ibang laro"
+            ],
+            "correct_answer": "Lumipat sa susunod na partner"
+          },
+          {
+            "question": "Anong kasanayan ang natututuhan sa social dance mixer?",
+            "options": [
+              "Koordinasyon at timing sa musika",
+              "Pagsulat ng tula",
+              "Pagkalkula ng probability",
+              "Pagbabasa ng mapa"
+            ],
+            "correct_answer": "Koordinasyon at timing sa musika"
+          },
+          {
+            "question": "Saan karaniwang tumatayo ang mga mananayaw bago magsimula?",
+            "options": [
+              "Sa bilog o linya kasama ang partner",
+              "Nakaupo sa sahig",
+              "Nakatago sa likod ng silid",
+              "Nakatalikod sa isa't isa"
+            ],
+            "correct_answer": "Sa bilog o linya kasama ang partner"
+          },
+          {
+            "question": "Bakit itinuturing na 'mixer' ang sayaw na ito?",
+            "options": [
+              "Sapagkat nagpapalit-palit ng kasayaw ang mga mananayaw",
+              "Sapagkat may halong pagkain dito",
+              "Sapagkat walang partner na ginagamit",
+              "Sapagkat isang tao lamang ang sumasayaw"
+            ],
+            "correct_answer": "Sapagkat nagpapalit-palit ng kasayaw ang mga mananayaw"
+          },
+          {
+            "question": "Anong halaga ang binibigyang-diin ng pakikipag-ugnayan sa social dance mixer?",
+            "options": [
+              "Kasiyahan sa pakikisalamuha sa iba't ibang kaklase",
+              "Pagiging mapag-isa",
+              "Pagkatalo sa laro",
+              "Kompetisyon lamang"
+            ],
+            "correct_answer": "Kasiyahan sa pakikisalamuha sa iba't ibang kaklase"
+          },
+          {
+            "question": "Paano nakakatulong ang musika sa social dance mixer?",
+            "options": [
+              "Nagbibigay ito ng tempo na susundan ng mga hakbang",
+              "Wala itong papel sa sayaw",
+              "Ito ay ginagamit lamang bilang ingay",
+              "Pinipigilan nito ang sayaw"
+            ],
+            "correct_answer": "Nagbibigay ito ng tempo na susundan ng mga hakbang"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng social dance mixer?",
+            "options": [
+              "Pananatili sa iisang partner buong oras",
+              "Pagpapalit ng partner",
+              "Musika sa 2/4 time",
+              "Simpleng hakbang"
+            ],
+            "correct_answer": "Pananatili sa iisang partner buong oras"
+          },
+          {
+            "question": "Bakit itinuturo ang mga sayaw na ito sa MAPEH?",
+            "options": [
+              "Para linangin ang pisikal na galaw at kasanayang panlipunan",
+              "Para lamang libangin ang guro",
+              "Walang layunin ito",
+              "Para tumigil sa pag-aaral ng ibang asignatura"
+            ],
+            "correct_answer": "Para linangin ang pisikal na galaw at kasanayang panlipunan"
+          },
+          {
+            "question": "Anong bahagi ng katawan ang pangunahing ginagamit sa sayaw?",
+            "options": [
+              "Buong katawan sa mga hakbang at galaw",
+              "Kamay lamang",
+              "Mata lamang",
+              "Wala, panonood lamang"
+            ],
+            "correct_answer": "Buong katawan sa mga hakbang at galaw"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi susunod ang mananayaw sa hudyat?",
+            "options": [
+              "Mahihirapan siyang makasabay sa pagpapalit ng partner",
+              "Wala itong epekto",
+              "Awtomatikong mananalo siya",
+              "Titigil ang buong musika"
+            ],
+            "correct_answer": "Mahihirapan siyang makasabay sa pagpapalit ng partner"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧶 EPP (AFA/FCS/IA) — Paggawa ng Crochet Stitches\n\nGrade 5, Linggo 22! Matuto tayo ng mga pangunahing crochet stitch. 🧶\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga kasangkapan sa **embroidery** at **crochet**.\n\n## 🧶 Mga Pangunahing Crochet Stitch\n- **Chain stitch (kadena)** — ang unang hilera, pundasyon ng lahat ng crochet\n- **Single crochet** — mababaw at siksik na tahi, madalas gamitin sa base\n- **Double crochet** — mas mataas na tahi, mas mabilis gawin\n\n## 📋 Pamamaraan\n1. Gumawa ng chain stitch bilang simula (foundation chain)\n2. Ipasok ang hook sa susunod na chain\n3. Ikawit ang sinulid at hilahin pabalik para makagawa ng tahi\n4. Ulitin hanggang matapos ang hilera\n\nPagsasanay lamang ang kailangan para maging maayos ang bilis at pagkakapareho ng bawat tahi.\n\n**Mahahalagang salita:** chain stitch, single crochet, double crochet, foundation chain",
+        "quiz": [
+          {
+            "question": "Ano ang chain stitch sa crochet?",
+            "options": [
+              "Ang unang hilera, pundasyon ng lahat ng crochet",
+              "Ang huling tahi ng proyekto",
+              "Isang uri ng embroidery",
+              "Isang uri ng makina"
+            ],
+            "correct_answer": "Ang unang hilera, pundasyon ng lahat ng crochet"
+          },
+          {
+            "question": "Ano ang single crochet?",
+            "options": [
+              "Mababaw at siksik na tahi",
+              "Ang pinakamataas na tahi",
+              "Isang uri ng sinulid",
+              "Isang uri ng karayom"
+            ],
+            "correct_answer": "Mababaw at siksik na tahi"
+          },
+          {
+            "question": "Ano ang double crochet?",
+            "options": [
+              "Mas mataas na tahi kaysa single crochet",
+              "Mas mababa kaysa single crochet",
+              "Isang uri ng embroidery hoop",
+              "Isang uri ng yarn lamang"
+            ],
+            "correct_answer": "Mas mataas na tahi kaysa single crochet"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paggawa ng crochet?",
+            "options": [
+              "Gumawa ng foundation chain",
+              "Direktang gumawa ng double crochet",
+              "Manahi gamit ang makina",
+              "Bumili ng bagong hook"
+            ],
+            "correct_answer": "Gumawa ng foundation chain"
+          },
+          {
+            "question": "Ano ang ginagawa pagkatapos ipasok ang hook sa chain?",
+            "options": [
+              "Ikawit ang sinulid at hilahin pabalik",
+              "Itapon ang sinulid",
+              "Kalimutan ang tahi",
+              "Gumamit ng ibang kasangkapan"
+            ],
+            "correct_answer": "Ikawit ang sinulid at hilahin pabalik"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasanay sa crochet?",
+            "options": [
+              "Para maging maayos ang bilis at pagkakapareho ng tahi",
+              "Hindi na kailangan ng pagsasanay",
+              "Para makalimutan ang mga stitch",
+              "Walang layunin ang pagsasanay"
+            ],
+            "correct_answer": "Para maging maayos ang bilis at pagkakapareho ng tahi"
+          },
+          {
+            "question": "Alin ang pinakasimpleng crochet stitch na pundasyon ng iba pang stitch?",
+            "options": [
+              "Chain stitch",
+              "Double crochet",
+              "Single crochet",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Chain stitch"
+          },
+          {
+            "question": "Paano naiiba ang single crochet sa double crochet sa taas?",
+            "options": [
+              "Mas mababa ang single crochet kaysa double crochet",
+              "Magkatulad lamang ang taas nila",
+              "Mas mataas ang single crochet",
+              "Walang kaugnayan sa taas"
+            ],
+            "correct_answer": "Mas mababa ang single crochet kaysa double crochet"
+          },
+          {
+            "question": "Anong kasangkapan ang pangunahing ginagamit sa crochet?",
+            "options": [
+              "Crochet hook",
+              "Embroidery hoop",
+              "Sewing machine",
+              "Gunting lamang"
+            ],
+            "correct_answer": "Crochet hook"
+          },
+          {
+            "question": "Bakit kailangan ng foundation chain bago simulan ang ibang stitch?",
+            "options": [
+              "Ito ang batayan kung saan itatayo ang ibang hilera ng tahi",
+              "Hindi ito kinakailangan",
+              "Ginagamit lamang ito para palamutihan",
+              "Ito ay huling hakbang"
+            ],
+            "correct_answer": "Ito ang batayan kung saan itatayo ang ibang hilera ng tahi"
+          },
+          {
+            "question": "Kung gusto mong gumawa ng mas mabilis na proyekto na may mas mataas na tahi, alin ang gagamitin mo?",
+            "options": [
+              "Double crochet",
+              "Chain stitch lamang",
+              "Single crochet",
+              "Embroidery hoop"
+            ],
+            "correct_answer": "Double crochet"
+          },
+          {
+            "question": "Ano ang kailangan mong gawin nang paulit-ulit para matapos ang isang hilera ng crochet?",
+            "options": [
+              "Ulitin ang hakbang ng pagkawit at paghila ng sinulid",
+              "Itapon ang sinulid pagkatapos ng isang tahi",
+              "Palitan ang hook bawat tahi",
+              "Tumigil kaagad pagkagawa ng isang tahi"
+            ],
+            "correct_answer": "Ulitin ang hakbang ng pagkawit at paghila ng sinulid"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 GMRC — Nasyonalismo: Pagsuporta sa Lokal na Produkto\n\nGrade 5, Linggo 22! Pagpapahalaga ngayong linggo: **Nasyonalismo**. 🇵🇭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **kalinisan sa tahanan**.\n\n## 🇵🇭 Ano ang Nasyonalismo?\nAng **nasyonalismo** ay ang pagmamahal at pagmamalaki sa sariling bansa. Isang paraan ng pagpapakita nito ay ang **pagsuporta sa mga produktong Pilipino**.\n\n## 🛍️ Bakit Suportahan ang Lokal na Produkto?\n- Tumutulong ito sa mga magsasaka, manggagawa, at negosyanteng Pilipino\n- Pinapalakas nito ang ekonomiya ng bansa\n- Nagpapakita ito ng pagmamalaki sa likas na yaman at galing ng mga Pilipino\n\n**Halimbawa:** Pagbili ng prutas mula sa palengke ng bayan sa halip na de-latang imported na produkto, o pagsuot ng damit na gawa ng mga lokal na manggagawa.\n\n**Mahahalagang salita:** nasyonalismo, lokal na produkto, ekonomiya, pagsuporta",
+        "quiz": [
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Pagmamahal at pagmamalaki sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa sariling kultura"
+            ],
+            "correct_answer": "Pagmamahal at pagmamalaki sa sariling bansa"
+          },
+          {
+            "question": "Ano ang isang paraan ng pagpapakita ng nasyonalismo?",
+            "options": [
+              "Pagsuporta sa mga produktong Pilipino",
+              "Pagbili lamang ng imported na produkto",
+              "Pag-iwas sa mga lokal na produkto",
+              "Kawalang pakialam sa ekonomiya"
+            ],
+            "correct_answer": "Pagsuporta sa mga produktong Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang suportahan ang lokal na produkto?",
+            "options": [
+              "Tumutulong ito sa mga magsasaka at negosyanteng Pilipino",
+              "Wala itong benepisyo",
+              "Nakakasama ito sa ekonomiya",
+              "Pinapahina nito ang bansa"
+            ],
+            "correct_answer": "Tumutulong ito sa mga magsasaka at negosyanteng Pilipino"
+          },
+          {
+            "question": "Anong halimbawa ng pagsuporta sa lokal na produkto?",
+            "options": [
+              "Pagbili ng prutas mula sa palengke ng bayan",
+              "Pagbili lamang ng imported na de-lata",
+              "Pag-iwas sa palengke",
+              "Pagtapon ng pera sa ibang bansa"
+            ],
+            "correct_answer": "Pagbili ng prutas mula sa palengke ng bayan"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagsuporta sa lokal na produkto sa ekonomiya?",
+            "options": [
+              "Pinapalakas nito ang ekonomiya ng bansa",
+              "Pinapahina nito ang ekonomiya",
+              "Walang epekto sa ekonomiya",
+              "Nagdudulot lamang ng kalituhan"
+            ],
+            "correct_answer": "Pinapalakas nito ang ekonomiya ng bansa"
+          },
+          {
+            "question": "Sino ang direktang nakikinabang kapag bumili ka ng produktong Pilipino?",
+            "options": [
+              "Mga magsasaka, manggagawa, at negosyanteng Pilipino",
+              "Mga dayuhang kumpanya lamang",
+              "Walang sinuman",
+              "Mga banyagang mamimili"
+            ],
+            "correct_answer": "Mga magsasaka, manggagawa, at negosyanteng Pilipino"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsuot ng damit na gawa ng lokal na manggagawa?",
+            "options": [
+              "Pagmamalaki sa galing ng mga Pilipino",
+              "Kawalan ng interes sa sariling bansa",
+              "Pag-aksaya lamang ng pera",
+              "Kawalan ng nasyonalismo"
+            ],
+            "correct_answer": "Pagmamalaki sa galing ng mga Pilipino"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang nasyonalismo sa GMRC?",
+            "options": [
+              "Nagpapakita ito ng pagmamahal at pananagutan sa sariling bansa",
+              "Walang kaugnayan ito sa moralidad",
+              "Ito ay bahagi lamang ng ekonomiya",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng pagmamahal at pananagutan sa sariling bansa"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI halimbawa ng nasyonalismo?",
+            "options": [
+              "Pagmamaliit sa mga likas na yaman ng Pilipinas",
+              "Pagbili ng lokal na produkto",
+              "Pagmamalaki sa kultura ng bansa",
+              "Pagsuporta sa mga Pilipinong negosyante"
+            ],
+            "correct_answer": "Pagmamaliit sa mga likas na yaman ng Pilipinas"
+          },
+          {
+            "question": "Paano nakakatulong ang mga bata sa pagpapakita ng nasyonalismo?",
+            "options": [
+              "Sa pagsuporta sa lokal na produkto kasama ang kanilang pamilya",
+              "Sa pagtanggi na matuto tungkol sa Pilipinas",
+              "Sa pag-iwas sa lahat ng gawaing pambansa",
+              "Wala silang magagawa dahil bata pa sila"
+            ],
+            "correct_answer": "Sa pagsuporta sa lokal na produkto kasama ang kanilang pamilya"
+          },
+          {
+            "question": "Ano ang kabuuang layunin ng pagpapahalaga sa nasyonalismo?",
+            "options": [
+              "Palakasin ang pagmamahal sa bansa at ang ekonomiya nito",
+              "Pahinain ang loob ng mga Pilipino",
+              "Itaguyod ang mga dayuhang produkto lamang",
+              "Walang kabuuang layunin"
+            ],
+            "correct_answer": "Palakasin ang pagmamahal sa bansa at ang ekonomiya nito"
+          },
+          {
+            "question": "Bakit hindi lamang mga matatanda ang dapat magsuporta sa lokal na produkto?",
+            "options": [
+              "Sapagkat ang bawat Pilipino, kahit bata, ay may papel sa pagpapalakas ng bansa",
+              "Sapagkat mga bata lamang ang dapat manguna",
+              "Sapagkat walang kinalaman ang mga bata sa ekonomiya",
+              "Sapagkat ito ay para lamang sa mayayaman"
+            ],
+            "correct_answer": "Sapagkat ang bawat Pilipino, kahit bata, ay may papel sa pagpapalakas ng bansa"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 5)\n\n- Application forms\n- Multimedia elements in videos\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is an application form used for?",
+            "options": [
+              "Formally requesting something",
+              "Depositing money",
+              "Drawing a picture",
+              "Writing a poem"
+            ],
+            "correct_answer": "Formally requesting something"
+          },
+          {
+            "question": "What are visuals in a video?",
+            "options": [
+              "What you see on screen",
+              "Background music only",
+              "Captions only",
+              "The title only"
+            ],
+            "correct_answer": "What you see on screen"
+          },
+          {
+            "question": "What does pacing affect?",
+            "options": [
+              "The mood of a video",
+              "The color of captions",
+              "The screen size",
+              "The volume only"
+            ],
+            "correct_answer": "The mood of a video"
+          },
+          {
+            "question": "What are captions?",
+            "options": [
+              "Written text supporting audio",
+              "Background music",
+              "A camera angle",
+              "A file size"
+            ],
+            "correct_answer": "Written text supporting audio"
+          },
+          {
+            "question": "Which field appears on an application form?",
+            "options": [
+              "Purpose of Application",
+              "Favorite food",
+              "Shoe size",
+              "Pet's name"
+            ],
+            "correct_answer": "Purpose of Application"
+          },
+          {
+            "question": "Why understand multimedia elements in videos?",
+            "options": [
+              "To notice how a video persuades or informs you",
+              "It has no purpose",
+              "Only filmmakers need this",
+              "Only musicians need this"
+            ],
+            "correct_answer": "To notice how a video persuades or informs you"
+          },
+          {
+            "question": "Fast cuts and upbeat music in an action scene create what?",
+            "options": [
+              "Excitement",
+              "Calmness",
+              "Confusion only",
+              "Silence"
+            ],
+            "correct_answer": "Excitement"
+          },
+          {
+            "question": "Why might captions be included even with audio present?",
+            "options": [
+              "To help viewers who can't hear well follow along",
+              "Captions are never useful",
+              "To replace pictures",
+              "To make videos longer"
+            ],
+            "correct_answer": "To help viewers who can't hear well follow along"
+          },
+          {
+            "question": "Which form would you use to apply for a library card?",
+            "options": [
+              "Application form",
+              "Deposit slip",
+              "Birthday card",
+              "Permission slip only"
+            ],
+            "correct_answer": "Application form"
+          },
+          {
+            "question": "Background music is an example of what element?",
+            "options": [
+              "Audio",
+              "Visual",
+              "Caption",
+              "Pacing"
+            ],
+            "correct_answer": "Audio"
+          },
+          {
+            "question": "Slow pacing and soft music in a documentary usually create what mood?",
+            "options": [
+              "Peaceful",
+              "Exciting",
+              "Scary",
+              "Chaotic"
+            ],
+            "correct_answer": "Peaceful"
+          },
+          {
+            "question": "Why does an application form ask for a clear purpose?",
+            "options": [
+              "So the reader knows exactly what is requested",
+              "To make it longer",
+              "It's never asked",
+              "To confuse applicants"
+            ],
+            "correct_answer": "So the reader knows exactly what is requested"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 💰 Friday Review — Mathematics (Grade 5)\n\n- Estimating and multiplying decimals\n- Money word problems\n\nGreat work with decimals! ⭐",
+        "quiz": [
+          {
+            "question": "What is the first step before multiplying decimals exactly?",
+            "options": [
+              "Estimate by rounding",
+              "Subtract the numbers",
+              "Add the numbers",
+              "Divide the numbers"
+            ],
+            "correct_answer": "Estimate by rounding"
+          },
+          {
+            "question": "What is 2.5 × 1.4?",
+            "options": [
+              "3.50",
+              "35.0",
+              "0.35",
+              "350"
+            ],
+            "correct_answer": "3.50"
+          },
+          {
+            "question": "What do you count to place the decimal point in a product?",
+            "options": [
+              "Total decimal places in both factors",
+              "Digits in the answer only",
+              "Zeros only",
+              "Nothing"
+            ],
+            "correct_answer": "Total decimal places in both factors"
+          },
+          {
+            "question": "What is 0.6 × 0.3?",
+            "options": [
+              "0.18",
+              "1.8",
+              "18",
+              "0.018"
+            ],
+            "correct_answer": "0.18"
+          },
+          {
+            "question": "If rice costs ₱52.50 per kilo, how much do 2 kilos cost?",
+            "options": [
+              "₱105.00",
+              "₱52.50",
+              "₱26.25",
+              "₱150.00"
+            ],
+            "correct_answer": "₱105.00"
+          },
+          {
+            "question": "What is 4.2 × 3?",
+            "options": [
+              "12.6",
+              "1.26",
+              "126",
+              "7.2"
+            ],
+            "correct_answer": "12.6"
+          },
+          {
+            "question": "Why estimate before multiplying decimals exactly?",
+            "options": [
+              "To check if the final answer is reasonable",
+              "It replaces multiplying",
+              "It always gives the exact answer",
+              "It only works with whole numbers"
+            ],
+            "correct_answer": "To check if the final answer is reasonable"
+          },
+          {
+            "question": "What is 1.5 × 1.5?",
+            "options": [
+              "2.25",
+              "3.0",
+              "22.5",
+              "0.225"
+            ],
+            "correct_answer": "2.25"
+          },
+          {
+            "question": "A ribbon costs ₱15.25 per meter. What is the cost of 4 meters?",
+            "options": [
+              "₱61.00",
+              "₱15.25",
+              "₱4.00",
+              "₱76.25"
+            ],
+            "correct_answer": "₱61.00"
+          },
+          {
+            "question": "What is 3.8 × 2.1 estimated by rounding?",
+            "options": [
+              "About 8",
+              "About 6",
+              "About 10",
+              "About 4"
+            ],
+            "correct_answer": "About 8"
+          },
+          {
+            "question": "A notebook costs ₱24.75. Estimate the cost of 3 by rounding first.",
+            "options": [
+              "About ₱75",
+              "About ₱24",
+              "About ₱100",
+              "About ₱50"
+            ],
+            "correct_answer": "About ₱75"
+          },
+          {
+            "question": "What is 2.5 × 1.4's total decimal places in the factors?",
+            "options": [
+              "2",
+              "1",
+              "3",
+              "0"
+            ],
+            "correct_answer": "2"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Friday Review — Filipino (Grade 5)\n\n- Tulang pambata: saknong, taludtod, tugma\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tulang pambata?",
+            "options": [
+              "Tula na para sa mga bata na may tugma at simpleng wika",
+              "Aklat ng mapa",
+              "Anyo ng liham",
+              "Uri ng balita"
+            ],
+            "correct_answer": "Tula na para sa mga bata na may tugma at simpleng wika"
+          },
+          {
+            "question": "Ano ang saknong?",
+            "options": [
+              "Grupo ng mga taludtod",
+              "Isang salita lamang",
+              "Ang pamagat ng tula",
+              "Ang may-akda"
+            ],
+            "correct_answer": "Grupo ng mga taludtod"
+          },
+          {
+            "question": "Ano ang taludtod?",
+            "options": [
+              "Isang linya sa tula",
+              "Ang buong tula",
+              "Ang pamagat",
+              "Ang saknong"
+            ],
+            "correct_answer": "Isang linya sa tula"
+          },
+          {
+            "question": "Ano ang tugma?",
+            "options": [
+              "Magkatunog na huling salita sa magkasunod na taludtod",
+              "Ang bilang ng saknong",
+              "Ang haba ng tula",
+              "Ang pamagat"
+            ],
+            "correct_answer": "Magkatunog na huling salita sa magkasunod na taludtod"
+          },
+          {
+            "question": "Anong uri ng wika ang ginagamit sa tulang pambata?",
+            "options": [
+              "Simpleng wika",
+              "Kumplikadong akademikong wika",
+              "Banyagang wika lamang",
+              "Teknikal na wika"
+            ],
+            "correct_answer": "Simpleng wika"
+          },
+          {
+            "question": "Anong paksa ang maaaring piliin sa pagsulat ng tulang pambata?",
+            "options": [
+              "Pamilya o kalikasan",
+              "Batas komersyo",
+              "Ekonomiya ng bansa",
+              "Pamamahala ng pamahalaan"
+            ],
+            "correct_answer": "Pamilya o kalikasan"
+          },
+          {
+            "question": "Bakit mahalaga ang sukat sa isang tula?",
+            "options": [
+              "Nagbibigay ito ng maayos na daloy kapag binabasa",
+              "Wala itong epekto",
+              "Ginagamit lamang sa balita",
+              "Pinapahaba lamang ang tula"
+            ],
+            "correct_answer": "Nagbibigay ito ng maayos na daloy kapag binabasa"
+          },
+          {
+            "question": "Ilang taludtod ang bumubuo ng isang saknong?",
+            "options": [
+              "Higit sa isa",
+              "Palaging isa lamang",
+              "Walang taludtod",
+              "Sampu lamang palagi"
+            ],
+            "correct_answer": "Higit sa isa"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng tulang pambata?",
+            "options": [
+              "Aliwin at turuan ang mga bata sa payak na paraan",
+              "Ipaliwanag ang batas pang-ekonomiya",
+              "Isulat ang balita",
+              "Magbigay ng teknikal na impormasyon"
+            ],
+            "correct_answer": "Aliwin at turuan ang mga bata sa payak na paraan"
+          },
+          {
+            "question": "Sa 'maliksi' at 'naglalaksi', ano ang ipinapakita?",
+            "options": [
+              "Tugma",
+              "Saknong",
+              "Pamagat",
+              "Walang tugma"
+            ],
+            "correct_answer": "Tugma"
+          },
+          {
+            "question": "Kung susulat ka ng tula tungkol sa iyong alagang hayop, ano ang dapat gamitin?",
+            "options": [
+              "Tugma at simpleng salita",
+              "Salitang teknikal",
+              "Datos pang-estadistika",
+              "Talahanayan ng bilang"
+            ],
+            "correct_answer": "Tugma at simpleng salita"
+          },
+          {
+            "question": "Ano ang tinatawag na isang linya sa loob ng saknong?",
+            "options": [
+              "Taludtod",
+              "Pangkat",
+              "Tunog",
+              "Titik"
+            ],
+            "correct_answer": "Taludtod"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ⚡ Friday Review — Science (Grade 5)\n\n- Static electricity: charge, electrons, attraction\n\nGreat review of static electricity! 🌟",
+        "quiz": [
+          {
+            "question": "What is static electricity?",
+            "options": [
+              "A buildup of electric charge on an object's surface",
+              "Electricity that flows continuously",
+              "A type of magnet",
+              "A sound wave"
+            ],
+            "correct_answer": "A buildup of electric charge on an object's surface"
+          },
+          {
+            "question": "What are electrons?",
+            "options": [
+              "Tiny particles that can transfer between objects",
+              "Large rocks",
+              "A plant cell",
+              "A unit of distance"
+            ],
+            "correct_answer": "Tiny particles that can transfer between objects"
+          },
+          {
+            "question": "When you rub a balloon on hair, what happens?",
+            "options": [
+              "Electrons move from hair to balloon",
+              "Nothing happens",
+              "The balloon becomes magnetic",
+              "Hair changes color"
+            ],
+            "correct_answer": "Electrons move from hair to balloon"
+          },
+          {
+            "question": "What charge does the balloon get after rubbing on hair?",
+            "options": [
+              "Negative",
+              "Positive",
+              "No charge",
+              "Both equally"
+            ],
+            "correct_answer": "Negative"
+          },
+          {
+            "question": "Why does hair stand up after removing a wool hat?",
+            "options": [
+              "Static electricity makes strands repel each other",
+              "Hair becomes wet",
+              "Hat makes hair heavier",
+              "Nothing to do with electricity"
+            ],
+            "correct_answer": "Static electricity makes strands repel each other"
+          },
+          {
+            "question": "What causes a small shock touching a doorknob?",
+            "options": [
+              "A sudden discharge of static electricity",
+              "The doorknob is always charged",
+              "Magnetism",
+              "Sound vibrations"
+            ],
+            "correct_answer": "A sudden discharge of static electricity"
+          },
+          {
+            "question": "How does static electricity differ from current electricity?",
+            "options": [
+              "Static builds up and discharges; current flows continuously",
+              "They are the same",
+              "Static only exists in wires",
+              "Current never moves"
+            ],
+            "correct_answer": "Static builds up and discharges; current flows continuously"
+          },
+          {
+            "question": "Why do clothes stick together after the dryer?",
+            "options": [
+              "Static electricity from clothes rubbing together",
+              "Clothes get wet",
+              "Clothes become magnetic",
+              "Sound waves"
+            ],
+            "correct_answer": "Static electricity from clothes rubbing together"
+          },
+          {
+            "question": "An object that gains electrons becomes...",
+            "options": [
+              "Negatively charged",
+              "Positively charged",
+              "Uncharged",
+              "Magnetic"
+            ],
+            "correct_answer": "Negatively charged"
+          },
+          {
+            "question": "An object that loses electrons becomes...",
+            "options": [
+              "Positively charged",
+              "Negatively charged",
+              "Uncharged",
+              "A conductor"
+            ],
+            "correct_answer": "Positively charged"
+          },
+          {
+            "question": "Objects with opposite charges will...",
+            "options": [
+              "Attract each other",
+              "Repel each other",
+              "Have no effect",
+              "Instantly become neutral"
+            ],
+            "correct_answer": "Attract each other"
+          },
+          {
+            "question": "Why does rubbing objects together create static electricity?",
+            "options": [
+              "It transfers electrons between objects",
+              "It creates new electrons",
+              "It removes all charge",
+              "It has no effect"
+            ],
+            "correct_answer": "It transfers electrons between objects"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏔️ Friday Review — Araling Panlipunan (Grade 5)\n\n- Malayang Cordillera at Sultanato ng Sulu/Maguindanao\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Bakit hindi nasakop ng mga Espanyol ang Cordillera?",
+            "options": [
+              "Dahil sa matinding tereyn ng bundok at matatag na paglaban",
+              "Dahil hindi interesado ang Espanyol doon",
+              "Dahil walang tao doon",
+              "Dahil ibinigay ito sa ibang bansa"
+            ],
+            "correct_answer": "Dahil sa matinding tereyn ng bundok at matatag na paglaban"
+          },
+          {
+            "question": "Saan matatagpuan ang Sultanato ng Sulu at Maguindanao?",
+            "options": [
+              "Mindanao",
+              "Luzon",
+              "Visayas",
+              "Palawan"
+            ],
+            "correct_answer": "Mindanao"
+          },
+          {
+            "question": "Bakit nanatiling malaya ang Sultanato?",
+            "options": [
+              "Dahil sa organisadong pamahalaan at matatag na relihiyong Islam",
+              "Dahil hindi alam ang lokasyon nito",
+              "Dahil walang tao doon",
+              "Dahil sumuko agad ang Espanyol"
+            ],
+            "correct_answer": "Dahil sa organisadong pamahalaan at matatag na relihiyong Islam"
+          },
+          {
+            "question": "Ano ang ipinapakita ng hindi pagkasakop ng Cordillera at Sultanato?",
+            "options": [
+              "Hindi lahat ng Pilipinas ay lubusang nasakop",
+              "Nasakop ang buong Pilipinas",
+              "Walang tao roon",
+              "Hindi mahalaga ang mga lugar na ito"
+            ],
+            "correct_answer": "Hindi lahat ng Pilipinas ay lubusang nasakop"
+          },
+          {
+            "question": "Anong relihiyon ang matatag sa Sultanato?",
+            "options": [
+              "Islam",
+              "Katolisismo",
+              "Budismo",
+              "Hinduismo"
+            ],
+            "correct_answer": "Islam"
+          },
+          {
+            "question": "Ano ang tawag sa pinuno ng Sultanato?",
+            "options": [
+              "Sultan",
+              "Datu",
+              "Hari ng Espanya",
+              "Gobernador-Heneral"
+            ],
+            "correct_answer": "Sultan"
+          },
+          {
+            "question": "Ano ang katangian ng tereyn ng Cordillera?",
+            "options": [
+              "Matarik at mabundok",
+              "Patag",
+              "Baybaying-dagat lamang",
+              "Disyerto"
+            ],
+            "correct_answer": "Matarik at mabundok"
+          },
+          {
+            "question": "Bakit mahalaga ang kasaysayan ng Cordillera at Sultanato?",
+            "options": [
+              "Nagpapakita ito ng determinasyon na ipagtanggol ang lupain",
+              "Walang kaugnayan sa kasaysayan",
+              "Kathang-isip lamang ito",
+              "Naganap sa ibang bansa"
+            ],
+            "correct_answer": "Nagpapakita ito ng determinasyon na ipagtanggol ang lupain"
+          },
+          {
+            "question": "Alin ang HINDI dahilan ng kalayaan ng Cordillera?",
+            "options": [
+              "Kawalan ng interes sa kalayaan",
+              "Matinding tereyn",
+              "Matatag na paglaban",
+              "Kahirapan ng pagsalakay"
+            ],
+            "correct_answer": "Kawalan ng interes sa kalayaan"
+          },
+          {
+            "question": "Ano ang pagkakatulad ng Cordillera at Sultanato?",
+            "options": [
+              "Pareho silang nanatiling malaya",
+              "Pareho silang agad na nasakop",
+              "Pareho silang walang naninirahan",
+              "Pareho silang bahagi ng Luzon"
+            ],
+            "correct_answer": "Pareho silang nanatiling malaya"
+          },
+          {
+            "question": "Ano ang papel ng Islam sa pananatiling malaya ng Sultanato?",
+            "options": [
+              "Nagbigay ito ng matatag na organisasyon at pagkakaisa",
+              "Wala itong papel",
+              "Pinahina nito ang pamahalaan",
+              "Pumigil ito sa pagkakaisa"
+            ],
+            "correct_answer": "Nagbigay ito ng matatag na organisasyon at pagkakaisa"
+          },
+          {
+            "question": "Bakit mahalagang alamin ang mga lugar na hindi lubusang nasakop?",
+            "options": [
+              "Para maunawaan ang iba't ibang karanasan ng mga Pilipino",
+              "Para isaulo lamang",
+              "Walang kaugnayan sa kasalukuyan",
+              "Sapagkat ito lamang ang totoong kasaysayan"
+            ],
+            "correct_answer": "Para maunawaan ang iba't ibang karanasan ng mga Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📈 Friday Review — EPP (ICT) (Grade 5)\n\n- Making charts from spreadsheet data\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What must you do before inserting a chart?",
+            "options": [
+              "Select the data",
+              "Delete the data",
+              "Print the spreadsheet",
+              "Close the program"
+            ],
+            "correct_answer": "Select the data"
+          },
+          {
+            "question": "Which chart type compares amounts?",
+            "options": [
+              "Bar chart",
+              "Line chart only",
+              "Pie chart only",
+              "No chart works"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Which chart type shows change over time?",
+            "options": [
+              "Line chart",
+              "Bar chart only",
+              "Pie chart only",
+              "No chart works"
+            ],
+            "correct_answer": "Line chart"
+          },
+          {
+            "question": "What is the first step in making a chart?",
+            "options": [
+              "Type data into rows and columns",
+              "Insert a chart with no data",
+              "Delete all rows",
+              "Print the file"
+            ],
+            "correct_answer": "Type data into rows and columns"
+          },
+          {
+            "question": "What menu option adds a chart in most spreadsheets?",
+            "options": [
+              "Insert > Chart",
+              "File > Print",
+              "Edit > Delete",
+              "View > Zoom"
+            ],
+            "correct_answer": "Insert > Chart"
+          },
+          {
+            "question": "How does this connect to Math class?",
+            "options": [
+              "Shows how to make bar/line graphs digitally",
+              "No connection to Math",
+              "Replaces the need to learn Math",
+              "Only about spelling"
+            ],
+            "correct_answer": "Shows how to make bar/line graphs digitally"
+          },
+          {
+            "question": "To compare rainfall across 5 days, which chart fits best?",
+            "options": [
+              "Bar chart",
+              "No chart is needed",
+              "Only pie chart works",
+              "Charts can't show rainfall"
+            ],
+            "correct_answer": "Bar chart"
+          },
+          {
+            "question": "Why make charts digitally instead of by hand?",
+            "options": [
+              "It can update automatically and looks neat",
+              "It's always slower",
+              "It removes the need for data",
+              "Digital charts can't show numbers"
+            ],
+            "correct_answer": "It can update automatically and looks neat"
+          },
+          {
+            "question": "What happens if wrong data is selected before a chart?",
+            "options": [
+              "The chart may show incorrect information",
+              "Nothing changes",
+              "The computer fixes it automatically",
+              "Charts don't depend on data"
+            ],
+            "correct_answer": "The chart may show incorrect information"
+          },
+          {
+            "question": "Which would most likely use a line chart?",
+            "options": [
+              "Tracking temperature over a week",
+              "Comparing favorite colors",
+              "Listing student names",
+              "Showing a single number"
+            ],
+            "correct_answer": "Tracking temperature over a week"
+          },
+          {
+            "question": "What should you organize first before any chart?",
+            "options": [
+              "Data in rows and columns",
+              "The chart's colors",
+              "The chart's title only",
+              "Printer settings"
+            ],
+            "correct_answer": "Data in rows and columns"
+          },
+          {
+            "question": "A student wants to compare 4 subject scores visually. What should they make?",
+            "options": [
+              "A bar chart",
+              "A single cell",
+              "A blank spreadsheet",
+              "A video"
+            ],
+            "correct_answer": "A bar chart"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Social dance mixers sa 2/4 time\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang social dance mixer?",
+            "options": [
+              "Sayaw kung saan nagpapalit-palit ng partner",
+              "Isang uri ng awit",
+              "Isang laro na walang musika",
+              "Isang uri ng pagguhit"
+            ],
+            "correct_answer": "Sayaw kung saan nagpapalit-palit ng partner"
+          },
+          {
+            "question": "Anong time signature ang ginagamit?",
+            "options": [
+              "2/4",
+              "6/8",
+              "9/4",
+              "Walang time signature"
+            ],
+            "correct_answer": "2/4"
+          },
+          {
+            "question": "Ano ang ginagawa kapag may hudyat?",
+            "options": [
+              "Lumipat sa susunod na partner",
+              "Tumigil at umupo",
+              "Umalis sa silid",
+              "Magsimula ng ibang laro"
+            ],
+            "correct_answer": "Lumipat sa susunod na partner"
+          },
+          {
+            "question": "Anong kasanayan ang natututuhan?",
+            "options": [
+              "Koordinasyon at timing sa musika",
+              "Pagsulat ng tula",
+              "Pagkalkula",
+              "Pagbabasa ng mapa"
+            ],
+            "correct_answer": "Koordinasyon at timing sa musika"
+          },
+          {
+            "question": "Saan karaniwang tumatayo ang mga mananayaw?",
+            "options": [
+              "Sa bilog o linya kasama ang partner",
+              "Nakaupo sa sahig",
+              "Nakatago sa likod",
+              "Nakatalikod sa isa't isa"
+            ],
+            "correct_answer": "Sa bilog o linya kasama ang partner"
+          },
+          {
+            "question": "Bakit tinatawag na 'mixer' ang sayaw?",
+            "options": [
+              "Sapagkat nagpapalit-palit ng kasayaw",
+              "May halong pagkain dito",
+              "Walang partner na ginagamit",
+              "Isang tao lamang sumasayaw"
+            ],
+            "correct_answer": "Sapagkat nagpapalit-palit ng kasayaw"
+          },
+          {
+            "question": "Anong halaga ang binibigyang-diin dito?",
+            "options": [
+              "Kasiyahan sa pakikisalamuha",
+              "Pagiging mapag-isa",
+              "Kompetisyon lamang",
+              "Pagkatalo"
+            ],
+            "correct_answer": "Kasiyahan sa pakikisalamuha"
+          },
+          {
+            "question": "Paano nakakatulong ang musika?",
+            "options": [
+              "Nagbibigay ito ng tempo na susundan",
+              "Walang papel sa sayaw",
+              "Ginagamit lamang bilang ingay",
+              "Pinipigilan nito ang sayaw"
+            ],
+            "correct_answer": "Nagbibigay ito ng tempo na susundan"
+          },
+          {
+            "question": "Alin ang HINDI bahagi ng social dance mixer?",
+            "options": [
+              "Pananatili sa iisang partner buong oras",
+              "Pagpapalit ng partner",
+              "Musika sa 2/4 time",
+              "Simpleng hakbang"
+            ],
+            "correct_answer": "Pananatili sa iisang partner buong oras"
+          },
+          {
+            "question": "Bakit itinuturo ang mga sayaw na ito?",
+            "options": [
+              "Para linangin ang pisikal na galaw at kasanayang panlipunan",
+              "Para libangin lamang ang guro",
+              "Walang layunin",
+              "Para tumigil sa pag-aaral"
+            ],
+            "correct_answer": "Para linangin ang pisikal na galaw at kasanayang panlipunan"
+          },
+          {
+            "question": "Anong bahagi ng katawan ang pangunahing ginagamit?",
+            "options": [
+              "Buong katawan",
+              "Kamay lamang",
+              "Mata lamang",
+              "Wala, panonood lamang"
+            ],
+            "correct_answer": "Buong katawan"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi susunod sa hudyat?",
+            "options": [
+              "Mahihirapan makasabay sa pagpapalit ng partner",
+              "Walang epekto",
+              "Awtomatikong mananalo",
+              "Titigil ang buong musika"
+            ],
+            "correct_answer": "Mahihirapan makasabay sa pagpapalit ng partner"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧶 Friday Review — EPP (Grade 5)\n\n- Crochet stitches: chain, single, double crochet\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang chain stitch?",
+            "options": [
+              "Ang unang hilera, pundasyon ng crochet",
+              "Ang huling tahi",
+              "Isang uri ng embroidery",
+              "Isang uri ng makina"
+            ],
+            "correct_answer": "Ang unang hilera, pundasyon ng crochet"
+          },
+          {
+            "question": "Ano ang single crochet?",
+            "options": [
+              "Mababaw at siksik na tahi",
+              "Ang pinakamataas na tahi",
+              "Isang uri ng sinulid",
+              "Isang uri ng karayom"
+            ],
+            "correct_answer": "Mababaw at siksik na tahi"
+          },
+          {
+            "question": "Ano ang double crochet?",
+            "options": [
+              "Mas mataas na tahi kaysa single crochet",
+              "Mas mababa kaysa single crochet",
+              "Isang uri ng hoop",
+              "Isang uri ng yarn"
+            ],
+            "correct_answer": "Mas mataas na tahi kaysa single crochet"
+          },
+          {
+            "question": "Ano ang unang hakbang sa crochet?",
+            "options": [
+              "Gumawa ng foundation chain",
+              "Gumawa ng double crochet",
+              "Manahi gamit ang makina",
+              "Bumili ng bagong hook"
+            ],
+            "correct_answer": "Gumawa ng foundation chain"
+          },
+          {
+            "question": "Ano ang ginagawa pagkatapos ipasok ang hook sa chain?",
+            "options": [
+              "Ikawit ang sinulid at hilahin pabalik",
+              "Itapon ang sinulid",
+              "Kalimutan ang tahi",
+              "Gumamit ng ibang kasangkapan"
+            ],
+            "correct_answer": "Ikawit ang sinulid at hilahin pabalik"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasanay sa crochet?",
+            "options": [
+              "Para maging maayos ang bilis at pagkakapareho",
+              "Hindi kailangan",
+              "Para makalimutan ang stitch",
+              "Walang layunin"
+            ],
+            "correct_answer": "Para maging maayos ang bilis at pagkakapareho"
+          },
+          {
+            "question": "Alin ang pundasyon ng iba pang crochet stitch?",
+            "options": [
+              "Chain stitch",
+              "Double crochet",
+              "Single crochet",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Chain stitch"
+          },
+          {
+            "question": "Paano naiiba ang single sa double crochet?",
+            "options": [
+              "Mas mababa ang single kaysa double",
+              "Magkatulad lamang",
+              "Mas mataas ang single",
+              "Walang kaugnayan sa taas"
+            ],
+            "correct_answer": "Mas mababa ang single kaysa double"
+          },
+          {
+            "question": "Anong kasangkapan ang pangunahing ginagamit sa crochet?",
+            "options": [
+              "Crochet hook",
+              "Embroidery hoop",
+              "Sewing machine",
+              "Gunting lamang"
+            ],
+            "correct_answer": "Crochet hook"
+          },
+          {
+            "question": "Bakit kailangan ng foundation chain?",
+            "options": [
+              "Batayan para sa ibang hilera ng tahi",
+              "Hindi kinakailangan",
+              "Para lang palamutihan",
+              "Huling hakbang ito"
+            ],
+            "correct_answer": "Batayan para sa ibang hilera ng tahi"
+          },
+          {
+            "question": "Para sa mas mabilis at mas mataas na tahi, alin ang gagamitin?",
+            "options": [
+              "Double crochet",
+              "Chain stitch lamang",
+              "Single crochet",
+              "Embroidery hoop"
+            ],
+            "correct_answer": "Double crochet"
+          },
+          {
+            "question": "Ano ang dapat ulitin para matapos ang isang hilera?",
+            "options": [
+              "Pagkawit at paghila ng sinulid",
+              "Pagtapon ng sinulid",
+              "Pagpapalit ng hook bawat tahi",
+              "Paghinto pagkagawa ng isang tahi"
+            ],
+            "correct_answer": "Pagkawit at paghila ng sinulid"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🇵🇭 Friday Review — GMRC (Grade 5)\n\n- Nasyonalismo: pagsuporta sa lokal na produkto\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang nasyonalismo?",
+            "options": [
+              "Pagmamahal at pagmamalaki sa sariling bansa",
+              "Pagmamahal sa ibang bansa lamang",
+              "Kawalang-interes sa bansa",
+              "Pagtanggi sa sariling kultura"
+            ],
+            "correct_answer": "Pagmamahal at pagmamalaki sa sariling bansa"
+          },
+          {
+            "question": "Ano ang isang paraan ng pagpapakita ng nasyonalismo?",
+            "options": [
+              "Pagsuporta sa mga produktong Pilipino",
+              "Pagbili lamang ng imported",
+              "Pag-iwas sa lokal na produkto",
+              "Kawalang pakialam sa ekonomiya"
+            ],
+            "correct_answer": "Pagsuporta sa mga produktong Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang suportahan ang lokal na produkto?",
+            "options": [
+              "Tumutulong ito sa mga Pilipinong magsasaka at negosyante",
+              "Wala itong benepisyo",
+              "Nakakasama ito sa ekonomiya",
+              "Pinapahina nito ang bansa"
+            ],
+            "correct_answer": "Tumutulong ito sa mga Pilipinong magsasaka at negosyante"
+          },
+          {
+            "question": "Anong halimbawa ng pagsuporta sa lokal na produkto?",
+            "options": [
+              "Pagbili ng prutas mula sa palengke ng bayan",
+              "Pagbili lamang ng imported",
+              "Pag-iwas sa palengke",
+              "Pagtapon ng pera sa ibang bansa"
+            ],
+            "correct_answer": "Pagbili ng prutas mula sa palengke ng bayan"
+          },
+          {
+            "question": "Ano ang naidudulot nito sa ekonomiya?",
+            "options": [
+              "Pinapalakas ang ekonomiya ng bansa",
+              "Pinapahina ang ekonomiya",
+              "Walang epekto",
+              "Nagdudulot ng kalituhan"
+            ],
+            "correct_answer": "Pinapalakas ang ekonomiya ng bansa"
+          },
+          {
+            "question": "Sino ang nakikinabang kapag bumili ka ng produktong Pilipino?",
+            "options": [
+              "Mga magsasaka, manggagawa, negosyanteng Pilipino",
+              "Mga dayuhang kumpanya",
+              "Walang sinuman",
+              "Mga banyagang mamimili"
+            ],
+            "correct_answer": "Mga magsasaka, manggagawa, negosyanteng Pilipino"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pagsuot ng damit na gawa ng lokal na manggagawa?",
+            "options": [
+              "Pagmamalaki sa galing ng Pilipino",
+              "Kawalan ng interes sa bansa",
+              "Pag-aksaya ng pera",
+              "Kawalan ng nasyonalismo"
+            ],
+            "correct_answer": "Pagmamalaki sa galing ng Pilipino"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang nasyonalismo?",
+            "options": [
+              "Nagpapakita ng pagmamahal at pananagutan sa bansa",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng ekonomiya",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ng pagmamahal at pananagutan sa bansa"
+          },
+          {
+            "question": "Alin ang HINDI halimbawa ng nasyonalismo?",
+            "options": [
+              "Pagmamaliit sa likas na yaman ng Pilipinas",
+              "Pagbili ng lokal na produkto",
+              "Pagmamalaki sa kultura",
+              "Pagsuporta sa Pilipinong negosyante"
+            ],
+            "correct_answer": "Pagmamaliit sa likas na yaman ng Pilipinas"
+          },
+          {
+            "question": "Paano nakakatulong ang mga bata sa pagpapakita ng nasyonalismo?",
+            "options": [
+              "Sa pagsuporta sa lokal na produkto kasama ang pamilya",
+              "Sa pagtanggi na matuto tungkol sa bansa",
+              "Sa pag-iwas sa lahat ng gawaing pambansa",
+              "Wala silang magagawa"
+            ],
+            "correct_answer": "Sa pagsuporta sa lokal na produkto kasama ang pamilya"
+          },
+          {
+            "question": "Ano ang kabuuang layunin ng pagpapahalaga sa nasyonalismo?",
+            "options": [
+              "Palakasin ang pagmamahal sa bansa at ang ekonomiya nito",
+              "Pahinain ang loob ng mga Pilipino",
+              "Itaguyod ang dayuhang produkto",
+              "Walang layunin"
+            ],
+            "correct_answer": "Palakasin ang pagmamahal sa bansa at ang ekonomiya nito"
+          },
+          {
+            "question": "Bakit hindi lamang matatanda ang dapat magsuporta sa lokal na produkto?",
+            "options": [
+              "Bawat Pilipino, kahit bata, may papel sa pagpapalakas ng bansa",
+              "Mga bata lamang ang dapat manguna",
+              "Walang kinalaman ang mga bata",
+              "Ito ay para lamang sa mayayaman"
+            ],
+            "correct_answer": "Bawat Pilipino, kahit bata, may papel sa pagpapalakas ng bansa"
+          }
+        ]
+      }
+    }
+  }
+}

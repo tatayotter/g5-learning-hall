@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-11-29",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🔍 English — Appositives as Context Clues\n\nGrade 5, Week 25! Let's learn a helpful clue hiding right inside a sentence. 🔍\n\n## 🔄 Review\nWe learned **metaphor, personification, and hyperbole**.\n\n## 🔍 What Is an Appositive?\nAn **appositive** is a phrase that renames or explains a noun, usually set off by commas.\n\n**Example:** \"Manila, *the capital of the Philippines*, is a busy city.\"\n\nThe phrase \"the capital of the Philippines\" is the appositive — it **explains** what Manila is.\n\n## 🧩 Appositives as Context Clues\nWhen you see an unfamiliar word, check if it has an appositive right after it — the appositive often gives you its meaning immediately!\n\n**Example:** \"The archipelago, *a group of many islands*, stretches across the sea.\" — the appositive tells you exactly what \"archipelago\" means.\n\n**Key words:** appositive, context clue, comma, rename",
+        "quiz": [
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase that renames or explains a noun",
+              "A type of verb",
+              "A punctuation mark",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "A phrase that renames or explains a noun"
+          },
+          {
+            "question": "How is an appositive usually set off in a sentence?",
+            "options": [
+              "By commas",
+              "By question marks",
+              "By exclamation points",
+              "By quotation marks only"
+            ],
+            "correct_answer": "By commas"
+          },
+          {
+            "question": "In 'Manila, the capital of the Philippines, is a busy city,' what is the appositive?",
+            "options": [
+              "The capital of the Philippines",
+              "Manila",
+              "Is a busy city",
+              "The Philippines"
+            ],
+            "correct_answer": "The capital of the Philippines"
+          },
+          {
+            "question": "How can an appositive help you understand a new word?",
+            "options": [
+              "It often explains the word's meaning right after it",
+              "It always makes the word harder to understand",
+              "It replaces the word entirely",
+              "It has no relationship to meaning"
+            ],
+            "correct_answer": "It often explains the word's meaning right after it"
+          },
+          {
+            "question": "In 'The archipelago, a group of many islands, stretches across the sea,' what does 'archipelago' mean?",
+            "options": [
+              "A group of many islands",
+              "A single island",
+              "A type of sea creature",
+              "A mountain range"
+            ],
+            "correct_answer": "A group of many islands"
+          },
+          {
+            "question": "Why are appositives useful as context clues?",
+            "options": [
+              "They directly explain a word without needing a dictionary",
+              "They confuse the reader on purpose",
+              "They always come at the very end of a paragraph",
+              "They replace punctuation entirely"
+            ],
+            "correct_answer": "They directly explain a word without needing a dictionary"
+          },
+          {
+            "question": "Which sentence contains an appositive?",
+            "options": [
+              "Rizal, our national hero, wrote two famous novels.",
+              "Rizal wrote two famous novels.",
+              "Did Rizal write novels?",
+              "Rizal! What a hero!"
+            ],
+            "correct_answer": "Rizal, our national hero, wrote two famous novels."
+          },
+          {
+            "question": "What comes right before and after most appositives?",
+            "options": [
+              "Commas",
+              "Periods",
+              "Semicolons",
+              "Question marks"
+            ],
+            "correct_answer": "Commas"
+          },
+          {
+            "question": "In 'The mango, a sweet tropical fruit, is popular in the Philippines,' what does the appositive explain?",
+            "options": [
+              "What a mango is",
+              "Where the Philippines is",
+              "How to grow fruit",
+              "The price of mangoes"
+            ],
+            "correct_answer": "What a mango is"
+          },
+          {
+            "question": "Why might a writer choose to use an appositive instead of a separate sentence?",
+            "options": [
+              "It gives extra information smoothly within the same sentence",
+              "It makes the sentence impossible to understand",
+              "It always shortens the sentence to one word",
+              "It removes the need for the main noun"
+            ],
+            "correct_answer": "It gives extra information smoothly within the same sentence"
+          },
+          {
+            "question": "If you don't know the word 'reptile' but read 'The iguana, a type of reptile, basked in the sun,' what can you infer?",
+            "options": [
+              "An iguana is a kind of reptile",
+              "An iguana is a kind of bird",
+              "A reptile is a place",
+              "Reptile means 'sun'"
+            ],
+            "correct_answer": "An iguana is a kind of reptile"
+          },
+          {
+            "question": "An appositive phrase functions similarly to what other context clue we've studied?",
+            "options": [
+              "A definition given directly in the sentence",
+              "A completely unrelated fact",
+              "A rhyme",
+              "A grammar rule with no meaning"
+            ],
+            "correct_answer": "A definition given directly in the sentence"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Mathematics — Solid Figures\n\nGrade 5, Week 25! Let's explore 3D shapes all around us. 🎲\n\n## 🔄 Review\nWe combined fractions and decimals using **GMDAS**.\n\n## 🎲 What Are Solid Figures?\n**Solid figures** are 3-dimensional (3D) shapes that have length, width, and height.\n\n## 📦 Common Solid Figures\n- **Cube** — 6 equal square faces (like a die)\n- **Rectangular Prism** — 6 rectangular faces (like a shoebox)\n- **Cylinder** — 2 circular faces connected by a curved surface (like a can)\n- **Cone** — 1 circular face and a curved surface meeting at a point\n- **Sphere** — a perfectly round 3D shape (like a ball)\n- **Pyramid** — a flat base with triangular faces meeting at a point\n\n## 🔍 Identifying Solid Figures in Real Life\nA soda can = cylinder. A party hat = cone. A basketball = sphere. A tissue box = rectangular prism.\n\n**Key words:** solid figure, cube, prism, cylinder, cone, sphere, pyramid",
+        "quiz": [
+          {
+            "question": "What are solid figures?",
+            "options": [
+              "3-dimensional shapes with length, width, and height",
+              "Flat 2D shapes only",
+              "Shapes with only one side",
+              "Lines and points only"
+            ],
+            "correct_answer": "3-dimensional shapes with length, width, and height"
+          },
+          {
+            "question": "How many faces does a cube have?",
+            "options": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What shape are a cube's faces?",
+            "options": [
+              "Squares",
+              "Circles",
+              "Triangles",
+              "Rectangles only, never squares"
+            ],
+            "correct_answer": "Squares"
+          },
+          {
+            "question": "What real-world object is an example of a cylinder?",
+            "options": [
+              "A soda can",
+              "A basketball",
+              "A party hat",
+              "A tissue box"
+            ],
+            "correct_answer": "A soda can"
+          },
+          {
+            "question": "What real-world object is an example of a sphere?",
+            "options": [
+              "A basketball",
+              "A soda can",
+              "A shoebox",
+              "A party hat"
+            ],
+            "correct_answer": "A basketball"
+          },
+          {
+            "question": "What real-world object is an example of a cone?",
+            "options": [
+              "A party hat",
+              "A basketball",
+              "A shoebox",
+              "A soda can"
+            ],
+            "correct_answer": "A party hat"
+          },
+          {
+            "question": "What shape are a rectangular prism's faces?",
+            "options": [
+              "Rectangles",
+              "Circles only",
+              "Triangles only",
+              "Points only"
+            ],
+            "correct_answer": "Rectangles"
+          },
+          {
+            "question": "What is a pyramid?",
+            "options": [
+              "A flat base with triangular faces meeting at a point",
+              "A shape with all circular faces",
+              "A shape with no faces",
+              "A perfectly round shape"
+            ],
+            "correct_answer": "A flat base with triangular faces meeting at a point"
+          },
+          {
+            "question": "How many circular faces does a cylinder have?",
+            "options": [
+              "2",
+              "1",
+              "0",
+              "3"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "How many circular faces does a cone have?",
+            "options": [
+              "1",
+              "2",
+              "0",
+              "3"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "A tissue box is an example of what solid figure?",
+            "options": [
+              "Rectangular prism",
+              "Sphere",
+              "Cone",
+              "Cylinder"
+            ],
+            "correct_answer": "Rectangular prism"
+          },
+          {
+            "question": "What makes a sphere different from a cylinder?",
+            "options": [
+              "A sphere is perfectly round with no flat faces at all",
+              "A sphere has 6 square faces",
+              "A sphere has a pointed top",
+              "A sphere has two circular faces"
+            ],
+            "correct_answer": "A sphere is perfectly round with no flat faces at all"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎭 Filipino — Panimula sa Dulang Pambata\n\nGrade 5, Linggo 25! Alamin natin ang isa pang anyo ng panitikan. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang balangkas ng **maikling kuwento**: simula, gitna, wakas.\n\n## 🎭 Ano ang Dulang Pambata?\nAng **dulang pambata** ay isang uri ng panitikang **isasadula** o iaarte sa entablado, na may mga **tauhan**, **dayalogo**, at **direksyon sa entablado**.\n\n## 📝 Mga Sangkap ng Dula\n- **Tauhan** — mga karakter sa dula\n- **Dayalogo** — ang mga salitang binibigkas ng tauhan\n- **Direksyon sa Entablado (Stage Direction)** — mga panuto kung paano gagalaw o kikilos ang tauhan, karaniwang nasa panaklong\n\n**Halimbawa:**\n> ANA: *(masayang tumatakbo)* Salamat, Nanay!\n\n## 🎬 Pagkakaiba sa Maikling Kuwento\nSa halip na paglalarawan ng manunulat, ang dula ay ipinapahayag sa pamamagitan ng **sinasabi at ginagawa** ng mga tauhan.\n\n**Mahahalagang salita:** dulang pambata, tauhan, dayalogo, direksyon sa entablado",
+        "quiz": [
+          {
+            "question": "Ano ang dulang pambata?",
+            "options": [
+              "Panitikang isasadula sa entablado",
+              "Isang uri ng tula lamang",
+              "Isang liham pangkaibigan",
+              "Isang balita"
+            ],
+            "correct_answer": "Panitikang isasadula sa entablado"
+          },
+          {
+            "question": "Ano ang dayalogo?",
+            "options": [
+              "Ang mga salitang binibigkas ng tauhan",
+              "Ang tagpuan ng dula",
+              "Ang pamagat ng dula",
+              "Ang may-akda ng dula"
+            ],
+            "correct_answer": "Ang mga salitang binibigkas ng tauhan"
+          },
+          {
+            "question": "Ano ang direksyon sa entablado (stage direction)?",
+            "options": [
+              "Panuto kung paano gagalaw ang tauhan",
+              "Ang salitang binibigkas ng tauhan",
+              "Ang pamagat ng dula",
+              "Ang katapusan ng dula"
+            ],
+            "correct_answer": "Panuto kung paano gagalaw ang tauhan"
+          },
+          {
+            "question": "Saan karaniwang nakasulat ang direksyon sa entablado?",
+            "options": [
+              "Sa loob ng panaklong",
+              "Sa unahan ng dula",
+              "Sa dulo ng aklat",
+              "Hindi ito isinusulat"
+            ],
+            "correct_answer": "Sa loob ng panaklong"
+          },
+          {
+            "question": "Paano naiiba ang dula sa maikling kuwento?",
+            "options": [
+              "Ipinapahayag ito sa pamamagitan ng sinasabi at ginagawa ng tauhan, hindi paglalarawan ng manunulat",
+              "Magkatulad lamang sila",
+              "Walang tauhan ang dula",
+              "Walang dayalogo sa dula"
+            ],
+            "correct_answer": "Ipinapahayag ito sa pamamagitan ng sinasabi at ginagawa ng tauhan, hindi paglalarawan ng manunulat"
+          },
+          {
+            "question": "Sa halimbawang 'ANA: (masayang tumatakbo) Salamat, Nanay!', ano ang dayalogo?",
+            "options": [
+              "Salamat, Nanay!",
+              "Masayang tumatakbo",
+              "Ana",
+              "Nanay"
+            ],
+            "correct_answer": "Salamat, Nanay!"
+          },
+          {
+            "question": "Sa parehong halimbawa, ano ang direksyon sa entablado?",
+            "options": [
+              "Masayang tumatakbo",
+              "Salamat, Nanay!",
+              "Ana",
+              "Nanay"
+            ],
+            "correct_answer": "Masayang tumatakbo"
+          },
+          {
+            "question": "Saan itinatanghal ang dulang pambata?",
+            "options": [
+              "Sa entablado",
+              "Sa aklatan lamang",
+              "Sa loob ng libro lamang",
+              "Hindi ito itinatanghal"
+            ],
+            "correct_answer": "Sa entablado"
+          },
+          {
+            "question": "Bakit mahalaga ang tauhan sa isang dula?",
+            "options": [
+              "Sila ang bumubuhay sa kuwento sa pamamagitan ng kanilang salita at galaw",
+              "Wala silang papel sa dula",
+              "Sila lamang ang manonood",
+              "Hindi sila kailangan sa dula"
+            ],
+            "correct_answer": "Sila ang bumubuhay sa kuwento sa pamamagitan ng kanilang salita at galaw"
+          },
+          {
+            "question": "Alin sa mga ito ang HINDI sangkap ng isang dula?",
+            "options": [
+              "Talababa (footnote)",
+              "Tauhan",
+              "Dayalogo",
+              "Direksyon sa entablado"
+            ],
+            "correct_answer": "Talababa (footnote)"
+          },
+          {
+            "question": "Bakit mas mahirap unawain ang damdamin ng tauhan sa dula kung walang direksyon sa entablado?",
+            "options": [
+              "Sapagkat ang direksyon ang naglalarawan ng paraan ng pagsasalita o kilos",
+              "Hindi kailangan ang direksyon",
+              "Ang direksyon ay hindi mahalaga",
+              "Ang dayalogo lamang ang mahalaga"
+            ],
+            "correct_answer": "Sapagkat ang direksyon ang naglalarawan ng paraan ng pagsasalita o kilos"
+          },
+          {
+            "question": "Kung isasadula ang isang maikling kuwento, ano ang gagawin sa mga salaysay ng manunulat?",
+            "options": [
+              "Babaguhin ito bilang dayalogo o direksyon sa entablado",
+              "Kakalimutan na lamang ito",
+              "Isasalin sa Ingles",
+              "Wala itong gagawin"
+            ],
+            "correct_answer": "Babaguhin ito bilang dayalogo o direksyon sa entablado"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧲 Science — Electromagnets\n\nGrade 5, Week 25! Let's build a magnet using electricity! 🧲\n\n## 🔄 Review\nWe learned how a **simple series circuit** works.\n\n## 🧲 What Is an Electromagnet?\nAn **electromagnet** is a temporary magnet created when electric current flows through a coiled wire, usually wrapped around an iron core.\n\n## 🔧 How It Works\n1. Wrap insulated wire tightly around an iron nail (the **core**)\n2. Connect both ends of the wire to a battery\n3. When current flows, the coil creates a **magnetic field**, turning the nail into a magnet!\n\n## ⚡ Key Feature: It Can Be Turned Off\nUnlike a regular (permanent) magnet, an electromagnet is only magnetic **while electric current flows**. Disconnect the battery, and the magnetism disappears.\n\n## 🏭 Real-World Uses\nElectromagnets are used in **electric bells**, **cranes** that lift scrap metal, and **speakers**.\n\n**Key words:** electromagnet, coil, core, magnetic field, current",
+        "quiz": [
+          {
+            "question": "What is an electromagnet?",
+            "options": [
+              "A temporary magnet created by electric current in a coiled wire",
+              "A permanent magnet found in nature",
+              "A type of insulator",
+              "A material that blocks electricity"
+            ],
+            "correct_answer": "A temporary magnet created by electric current in a coiled wire"
+          },
+          {
+            "question": "What is usually used as the core of an electromagnet?",
+            "options": [
+              "An iron nail",
+              "A plastic rod",
+              "A rubber band",
+              "A glass rod"
+            ],
+            "correct_answer": "An iron nail"
+          },
+          {
+            "question": "What creates the magnetic field in an electromagnet?",
+            "options": [
+              "Electric current flowing through the coiled wire",
+              "The color of the wire",
+              "The size of the battery only",
+              "Sunlight"
+            ],
+            "correct_answer": "Electric current flowing through the coiled wire"
+          },
+          {
+            "question": "What happens to an electromagnet when the battery is disconnected?",
+            "options": [
+              "The magnetism disappears",
+              "It becomes a permanent magnet",
+              "It explodes",
+              "Nothing changes"
+            ],
+            "correct_answer": "The magnetism disappears"
+          },
+          {
+            "question": "How is an electromagnet different from a regular permanent magnet?",
+            "options": [
+              "It is only magnetic while current flows",
+              "It is always magnetic, forever",
+              "It cannot be turned on or off",
+              "It has no magnetic field at all"
+            ],
+            "correct_answer": "It is only magnetic while current flows"
+          },
+          {
+            "question": "What is the wire wrapped around the core called?",
+            "options": [
+              "A coil",
+              "A conductor plate",
+              "An insulator sheet",
+              "A battery cell"
+            ],
+            "correct_answer": "A coil"
+          },
+          {
+            "question": "Which of these uses an electromagnet?",
+            "options": [
+              "A crane that lifts scrap metal",
+              "A wooden ruler",
+              "A glass window",
+              "A plastic cup"
+            ],
+            "correct_answer": "A crane that lifts scrap metal"
+          },
+          {
+            "question": "Why is an electromagnet useful in a crane for lifting scrap metal?",
+            "options": [
+              "It can be turned on to pick up metal and off to release it",
+              "It is always stuck to the metal permanently",
+              "It cannot lift anything",
+              "It works without any electricity"
+            ],
+            "correct_answer": "It can be turned on to pick up metal and off to release it"
+          },
+          {
+            "question": "What are the two main parts needed to make a simple electromagnet?",
+            "options": [
+              "A coiled wire and an iron core",
+              "Two magnets and a rubber band",
+              "A glass rod and water",
+              "A plastic sheet and paper"
+            ],
+            "correct_answer": "A coiled wire and an iron core"
+          },
+          {
+            "question": "Why must the wire be connected to a power source to create an electromagnet?",
+            "options": [
+              "Because current must flow to create the magnetic field",
+              "The wire is magnetic on its own without power",
+              "Power sources are not actually needed",
+              "The iron core creates power itself"
+            ],
+            "correct_answer": "Because current must flow to create the magnetic field"
+          },
+          {
+            "question": "Which of these is an everyday device that uses an electromagnet?",
+            "options": [
+              "An electric bell",
+              "A wooden spoon",
+              "A glass cup",
+              "A cotton shirt"
+            ],
+            "correct_answer": "An electric bell"
+          },
+          {
+            "question": "Why can electromagnets be more useful than permanent magnets in some machines?",
+            "options": [
+              "Their magnetism can be switched on and off as needed",
+              "They never require any electricity",
+              "They are always weaker than permanent magnets",
+              "They cannot lift any objects"
+            ],
+            "correct_answer": "Their magnetism can be switched on and off as needed"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Araling Panlipunan — Konstitusyon ng Cadiz at ang Suez Canal\n\nGrade 5, Linggo 25! Alamin natin ang dalawang mahalagang pangyayari sa Europa. 📜\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **kaisipang liberal mula sa French Revolution**.\n\n## 📜 Ang Konstitusyon ng Cadiz (1812)\nIsang liberal na **saligang-batas** na ipinasa sa Espanya na nagbigay ng ilang **karapatan** sa mga kolonya nito, kabilang ang Pilipinas — tulad ng representasyon sa Cortes (parlamento ng Espanya).\n\n## 🚢 Ang Suez Canal (1869)\nAng **Suez Canal** ay isang bantog na kanal sa Egypt na nagpaikli ng biyahe sa dagat sa pagitan ng Europa at Asya.\n\n## 🌍 Epekto sa Pilipinas\n- Ang Konstitusyon ng Cadiz ay nagbigay-diin sa **kahalagahan ng representasyon** — isang ideyang nag-udyok sa mga Pilipino na hilingin din ito\n- Ang Suez Canal ay **pinabilis ang paglalakbay at komunikasyon** sa pagitan ng Pilipinas at Europa, kaya mas mabilis na nakarating ang mga bagong ideya sa mga ilustrado\n\n**Mahahalagang salita:** Konstitusyon ng Cadiz, Suez Canal, representasyon, komunikasyon",
+        "quiz": [
+          {
+            "question": "Kailan ipinasa ang Konstitusyon ng Cadiz?",
+            "options": [
+              "1812",
+              "1869",
+              "1898",
+              "1521"
+            ],
+            "correct_answer": "1812"
+          },
+          {
+            "question": "Ano ang ibinigay ng Konstitusyon ng Cadiz sa mga kolonya ng Espanya?",
+            "options": [
+              "Ilang karapatan tulad ng representasyon sa Cortes",
+              "Ganap na kalayaan",
+              "Kawalan ng anumang karapatan",
+              "Bagong hari"
+            ],
+            "correct_answer": "Ilang karapatan tulad ng representasyon sa Cortes"
+          },
+          {
+            "question": "Ano ang Suez Canal?",
+            "options": [
+              "Isang kanal sa Egypt na nagpaikli ng biyahe sa dagat",
+              "Isang bulkan sa Pilipinas",
+              "Isang uri ng saligang-batas",
+              "Isang ilog sa Espanya"
+            ],
+            "correct_answer": "Isang kanal sa Egypt na nagpaikli ng biyahe sa dagat"
+          },
+          {
+            "question": "Kailan naitayo ang Suez Canal?",
+            "options": [
+              "1869",
+              "1812",
+              "1898",
+              "1600"
+            ],
+            "correct_answer": "1869"
+          },
+          {
+            "question": "Anong ideya ang idinidiin ng Konstitusyon ng Cadiz na nakaimpluwensya sa mga Pilipino?",
+            "options": [
+              "Kahalagahan ng representasyon",
+              "Kahalagahan ng kolonyalismo",
+              "Kahalagahan ng pananahimik",
+              "Kawalan ng anumang karapatan"
+            ],
+            "correct_answer": "Kahalagahan ng representasyon"
+          },
+          {
+            "question": "Ano ang naging epekto ng Suez Canal sa komunikasyon sa pagitan ng Pilipinas at Europa?",
+            "options": [
+              "Pinabilis nito ang paglalakbay at komunikasyon",
+              "Pinahirapan nito ang paglalakbay",
+              "Wala itong epekto",
+              "Ito ay ipinasarhan agad"
+            ],
+            "correct_answer": "Pinabilis nito ang paglalakbay at komunikasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang Cortes sa kasaysayan ng Espanya?",
+            "options": [
+              "Ito ang parlamento kung saan kinakatawan ang mga rehiyon",
+              "Ito ay isang uri ng barko",
+              "Ito ay isang bulkan sa Espanya",
+              "Ito ay isang uri ng damit"
+            ],
+            "correct_answer": "Ito ang parlamento kung saan kinakatawan ang mga rehiyon"
+          },
+          {
+            "question": "Paano naiugnay ang Suez Canal sa pagsibol ng nasyonalismong Pilipino?",
+            "options": [
+              "Nagbigay-daan ito sa mas mabilis na pagdating ng bagong ideya sa mga ilustrado",
+              "Wala itong kaugnayan sa nasyonalismo",
+              "Pinigilan nito ang lahat ng komunikasyon",
+              "Ito ay lokasyon lamang sa Pilipinas"
+            ],
+            "correct_answer": "Nagbigay-daan ito sa mas mabilis na pagdating ng bagong ideya sa mga ilustrado"
+          },
+          {
+            "question": "Saang bansa matatagpuan ang Suez Canal?",
+            "options": [
+              "Egypt",
+              "Espanya",
+              "Pilipinas",
+              "Pransya"
+            ],
+            "correct_answer": "Egypt"
+          },
+          {
+            "question": "Bakit itinuturing na liberal ang Konstitusyon ng Cadiz?",
+            "options": [
+              "Nagbigay ito ng ilang karapatan at representasyon sa mamamayan",
+              "Nagbawal ito ng lahat ng karapatan",
+              "Ito ay nagpalakas ng ganap na kapangyarihan ng hari",
+              "Wala itong nilalaman tungkol sa karapatan"
+            ],
+            "correct_answer": "Nagbigay ito ng ilang karapatan at representasyon sa mamamayan"
+          },
+          {
+            "question": "Ano ang koneksyon ng dalawang pangyayaring ito sa nasyonalismong Pilipino?",
+            "options": [
+              "Pareho silang nagdala ng bagong ideya at mas mabilis na komunikasyon",
+              "Walang koneksyon ang dalawa",
+              "Pinigilan nila ang lahat ng pagbabago",
+              "Sila ay naganap sa Pilipinas lamang"
+            ],
+            "correct_answer": "Pareho silang nagdala ng bagong ideya at mas mabilis na komunikasyon"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mga pangyayari sa Europa kaugnay ng kasaysayang Pilipino?",
+            "options": [
+              "Nakaimpluwensya ang mga ito sa pag-usbong ng nasyonalismong Pilipino",
+              "Walang kaugnayan sa Pilipinas",
+              "Ito ay hiwalay na kasaysayan lamang",
+              "Hindi ito mahalaga"
+            ],
+            "correct_answer": "Nakaimpluwensya ang mga ito sa pag-usbong ng nasyonalismong Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔐 EPP (ICT) — Online Safety Recap: Strong Passwords\n\nGrade 5, Week 25! Let's revisit how to keep our accounts safe. 🔐\n\n## 🔄 Review\nWe learned about **organizing files and folders**.\n\n## 🔐 What Makes a Password Strong?\nA **strong password**:\n- Has at least 8 characters\n- Mixes **uppercase**, **lowercase**, **numbers**, and **symbols**\n- Avoids obvious info like your name or birthday\n- Is different for each important account\n\n## ⚠️ Weak Password Examples\n\"123456\", \"password\", or your own name are **easy to guess** and unsafe.\n\n## 🤐 Keeping Passwords Private\n- Never share your password with friends, even close ones\n- Never type your password where others can see your screen\n- Tell a trusted adult if you think your account was accessed by someone else\n\n**Key words:** password, strong password, private, account safety",
+        "quiz": [
+          {
+            "question": "What makes a password strong?",
+            "options": [
+              "Mixing uppercase, lowercase, numbers, and symbols",
+              "Using your own name",
+              "Using '123456'",
+              "Using the same password everywhere"
+            ],
+            "correct_answer": "Mixing uppercase, lowercase, numbers, and symbols"
+          },
+          {
+            "question": "Why should you avoid using your name or birthday in a password?",
+            "options": [
+              "It is easy for others to guess",
+              "It makes the password harder to remember",
+              "It is not allowed by any website",
+              "It makes the password too short"
+            ],
+            "correct_answer": "It is easy for others to guess"
+          },
+          {
+            "question": "Which of these is an example of a weak password?",
+            "options": [
+              "123456",
+              "T!m3-Fr0g#92",
+              "8x$mK!q2vR",
+              "Pl@ygr0und_7Z"
+            ],
+            "correct_answer": "123456"
+          },
+          {
+            "question": "Why should you use a different password for each important account?",
+            "options": [
+              "So one stolen password doesn't unlock all your other accounts",
+              "It makes passwords easier to guess",
+              "It is required for every website",
+              "It has no real benefit"
+            ],
+            "correct_answer": "So one stolen password doesn't unlock all your other accounts"
+          },
+          {
+            "question": "Should you ever share your password with a close friend?",
+            "options": [
+              "No, never share your password with anyone",
+              "Yes, always share it with friends",
+              "Only if they ask nicely",
+              "Only with your best friend"
+            ],
+            "correct_answer": "No, never share your password with anyone"
+          },
+          {
+            "question": "What should you do if you think someone accessed your account without permission?",
+            "options": [
+              "Tell a trusted adult",
+              "Ignore it completely",
+              "Share your password again to check",
+              "Delete the account without telling anyone"
+            ],
+            "correct_answer": "Tell a trusted adult"
+          },
+          {
+            "question": "How many characters should a strong password have at minimum?",
+            "options": [
+              "At least 8",
+              "Exactly 3",
+              "At least 1",
+              "Exactly 4"
+            ],
+            "correct_answer": "At least 8"
+          },
+          {
+            "question": "Why is it risky to type your password while others can see your screen?",
+            "options": [
+              "They could see and remember your password",
+              "It has no risk at all",
+              "It makes the password stronger",
+              "It automatically changes your password"
+            ],
+            "correct_answer": "They could see and remember your password"
+          },
+          {
+            "question": "Which combination best describes a strong password?",
+            "options": [
+              "Letters, numbers, and symbols mixed together",
+              "Only lowercase letters",
+              "Only your birth year",
+              "The word 'password' itself"
+            ],
+            "correct_answer": "Letters, numbers, and symbols mixed together"
+          },
+          {
+            "question": "Why is 'password' considered a weak password?",
+            "options": [
+              "It is one of the most commonly guessed passwords",
+              "It has too many symbols",
+              "It is too long to remember",
+              "It contains too many numbers"
+            ],
+            "correct_answer": "It is one of the most commonly guessed passwords"
+          },
+          {
+            "question": "What is one reason online safety habits like strong passwords matter?",
+            "options": [
+              "They help protect your personal information from others",
+              "They make the internet slower",
+              "They are only important for adults",
+              "They have no real purpose"
+            ],
+            "correct_answer": "They help protect your personal information from others"
+          },
+          {
+            "question": "If a website asks you to create a password, what should you avoid including?",
+            "options": [
+              "Your own name or birthday",
+              "A mix of numbers and letters",
+              "A symbol like # or !",
+              "A password different from your other accounts"
+            ],
+            "correct_answer": "Your own name or birthday"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 💃 MAPEH — Culminating Dance Performance\n\nGrade 5, Linggo 25! Isagawa natin ang natutunang sayaw sa isang maliit na pagtatanghal! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **epekto ng gateway drugs**.\n\n## 💃 Paghahanda para sa Pagtatanghal\nGamit ang natutunang **social dance mixer** sa 2/4 time, magsanay ng maliit na grupo para magtanghal sa harap ng klase.\n\n## 📋 Mga Hakbang\n1. Piliin ang bilang ng miyembro sa grupo (4-6 katao)\n2. Ulit-ulitin ang mga hakbang na natutunan\n3. Magpraktis ng **timing** kasama ang musika\n4. Magtanghal nang may kumpiyansa at ngiti\n\n## 🌟 Layunin ng Culminating Activity\nIto ay pagkakataon para ipakita ang **koordinasyon**, **pakikipagtulungan sa grupo**, at kasiyahan sa paggalaw sa musika na tinalakay natin sa nakaraang mga linggo.\n\n**Mahahalagang salita:** culminating activity, pagtatanghal, pakikipagtulungan, kumpiyansa",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng culminating dance performance?",
+            "options": [
+              "Ipakita ang koordinasyon at pakikipagtulungan sa grupo",
+              "Talunin ang ibang grupo",
+              "Wala itong layunin",
+              "Para lang libangin ang guro"
+            ],
+            "correct_answer": "Ipakita ang koordinasyon at pakikipagtulungan sa grupo"
+          },
+          {
+            "question": "Anong sayaw ang gagamitin sa pagtatanghal?",
+            "options": [
+              "Social dance mixer sa 2/4 time",
+              "Isang bagong sayaw na hindi pa natutunan",
+              "Walang sayaw, kanta lamang",
+              "Isang sayaw sa ibang bansa"
+            ],
+            "correct_answer": "Social dance mixer sa 2/4 time"
+          },
+          {
+            "question": "Ilan ang inirerekomendang bilang ng miyembro sa grupo?",
+            "options": [
+              "4-6 katao",
+              "1 katao lamang",
+              "20 katao",
+              "Walang bilang na itinakda"
+            ],
+            "correct_answer": "4-6 katao"
+          },
+          {
+            "question": "Bakit kailangang magpraktis ng timing kasama ang musika?",
+            "options": [
+              "Para maging maayos at magkasabay ang mga galaw",
+              "Hindi na kailangan magpraktis",
+              "Para lang mapahaba ang oras",
+              "Walang kaugnayan ang timing sa sayaw"
+            ],
+            "correct_answer": "Para maging maayos at magkasabay ang mga galaw"
+          },
+          {
+            "question": "Ano ang dapat ipakita habang nagtatanghal?",
+            "options": [
+              "Kumpiyansa at ngiti",
+              "Takot at pag-aalinlangan",
+              "Galit sa kasama",
+              "Kawalan ng interes"
+            ],
+            "correct_answer": "Kumpiyansa at ngiti"
+          },
+          {
+            "question": "Anong kasanayan ang pinapatunayan ng pagtatanghal na ito?",
+            "options": [
+              "Koordinasyon at pakikipagtulungan",
+              "Kasanayan sa pagsulat",
+              "Kasanayan sa matematika",
+              "Kasanayan sa pagluluto"
+            ],
+            "correct_answer": "Koordinasyon at pakikipagtulungan"
+          },
+          {
+            "question": "Bakit mahalaga ang pag-uulit ng mga hakbang bago magtanghal?",
+            "options": [
+              "Para maging tuluy-tuloy at maayos ang pagganap",
+              "Hindi na kailangan ulitin",
+              "Para lang mapagod ang grupo",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Para maging tuluy-tuloy at maayos ang pagganap"
+          },
+          {
+            "question": "Ano ang tawag sa aktibidad na nagsasama ng mga natutunang kasanayan sa dulo ng yunit?",
+            "options": [
+              "Culminating activity",
+              "Panimulang aralin",
+              "Pagsusulit lamang",
+              "Balik-aral lamang"
+            ],
+            "correct_answer": "Culminating activity"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang pakikipagtulungan sa grupo sa aktibidad na ito?",
+            "options": [
+              "Kailangang magkasabay ang lahat ng kasapi ng grupo",
+              "Bawat isa ay gumagawa nang bukod-bukod",
+              "Walang kailangang pakikipagtulungan",
+              "Ang isang tao lamang ang sumasayaw"
+            ],
+            "correct_answer": "Kailangang magkasabay ang lahat ng kasapi ng grupo"
+          },
+          {
+            "question": "Ano ang benepisyo ng pagsasagawa ng culminating activity sa MAPEH?",
+            "options": [
+              "Pinagsasama nito ang mga natutunang kasanayan sa isang tagumpay na aktibidad",
+              "Wala itong benepisyo",
+              "Ito ay para lamang libangin",
+              "Hindi ito bahagi ng pag-aaral"
+            ],
+            "correct_answer": "Pinagsasama nito ang mga natutunang kasanayan sa isang tagumpay na aktibidad"
+          },
+          {
+            "question": "Ano ang unang hakbang sa paghahanda ng pagtatanghal?",
+            "options": [
+              "Piliin ang bilang ng miyembro sa grupo",
+              "Direktang magtanghal na walang praktis",
+              "Kalimutan ang mga hakbang",
+              "Umalis sa grupo"
+            ],
+            "correct_answer": "Piliin ang bilang ng miyembro sa grupo"
+          },
+          {
+            "question": "Bakit mahalagang bahagi ng MAPEH ang pisikal na aktibidad tulad ng sayaw?",
+            "options": [
+              "Nagpapalusog ito ng katawan at nagtuturo ng koordinasyon",
+              "Wala itong kabuluhan sa kalusugan",
+              "Ito ay hindi bahagi ng pisikal na edukasyon",
+              "Ginagawa lamang ito para libangin ang guro"
+            ],
+            "correct_answer": "Nagpapalusog ito ng katawan at nagtuturo ng koordinasyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎨 EPP (AFA/FCS/IA) — Pagpapaganda ng Produkto gamit ang Palamuti\n\nGrade 5, Linggo 25! Gamitin natin ang embroidery at crochet para gawing mas kaakit-akit ang produkto. 🎨\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **pagpaplano ng ikalawang produkto**.\n\n## 🎨 Bakit Magdagdag ng Palamuti?\nAng **palamuti (embellishment)** ay nagpapaganda sa hitsura ng produkto, na maaaring:\n- Magpataas ng halaga ng produkto\n- Magbigay ng natatanging disenyo (design)\n- Ipakita ang sariling estilo ng gumawa\n\n## 🧵 Mga Paraan ng Palamuti\n- **Embroidery** — magdagdag ng disenyo gamit ang tahi at makulay na floss\n- **Crochet trim** — magdagdag ng gilid o laylayan gamit ang crochet\n- **Applique** — pagdikit ng maliit na piraso ng tela bilang disenyo\n\n## 💡 Konsiderasyon\nHuwag kalimutang isama ang **karagdagang gastos ng materyales** sa pagkalkula ng puhunan kapag nagdagdag ng palamuti.\n\n**Mahahalagang salita:** palamuti, embellishment, applique, disenyo",
+        "quiz": [
+          {
+            "question": "Ano ang palamuti (embellishment)?",
+            "options": [
+              "Bagay na nagpapaganda sa hitsura ng produkto",
+              "Ang kabuuang gastos ng produkto",
+              "Ang presyo ng benta",
+              "Ang pangalan ng produkto"
+            ],
+            "correct_answer": "Bagay na nagpapaganda sa hitsura ng produkto"
+          },
+          {
+            "question": "Ano ang applique?",
+            "options": [
+              "Pagdikit ng maliit na piraso ng tela bilang disenyo",
+              "Isang uri ng crochet hook",
+              "Isang uri ng sewing machine",
+              "Isang uri ng gunting"
+            ],
+            "correct_answer": "Pagdikit ng maliit na piraso ng tela bilang disenyo"
+          },
+          {
+            "question": "Paano nakakatulong ang embroidery sa isang produkto?",
+            "options": [
+              "Nagdaragdag ito ng disenyo gamit ang tahi at makulay na floss",
+              "Wala itong epekto sa hitsura",
+              "Nagpapababa ito ng halaga ng produkto",
+              "Ginagawang mas simple lamang ang produkto"
+            ],
+            "correct_answer": "Nagdaragdag ito ng disenyo gamit ang tahi at makulay na floss"
+          },
+          {
+            "question": "Ano ang maaaring idulot ng pagdaragdag ng palamuti sa presyo ng produkto?",
+            "options": [
+              "Maaaring magpataas ng halaga ng produkto",
+              "Palaging pinapababa ang halaga",
+              "Walang kaugnayan sa presyo",
+              "Nagpapababa ito ng kalidad"
+            ],
+            "correct_answer": "Maaaring magpataas ng halaga ng produkto"
+          },
+          {
+            "question": "Bakit dapat isama ang karagdagang gastos ng palamuti sa puhunan?",
+            "options": [
+              "Para tumpak ang kabuuang kalkulasyon ng gastos",
+              "Hindi na kailangan itong isama",
+              "Walang gastos ang palamuti",
+              "Ang palamuti ay libre palagi"
+            ],
+            "correct_answer": "Para tumpak ang kabuuang kalkulasyon ng gastos"
+          },
+          {
+            "question": "Ano ang crochet trim?",
+            "options": [
+              "Gilid o laylayan gamit ang crochet",
+              "Uri ng sewing machine",
+              "Uri ng gunting",
+              "Uri ng puhunan"
+            ],
+            "correct_answer": "Gilid o laylayan gamit ang crochet"
+          },
+          {
+            "question": "Bakit maaaring maging natatangi ang isang produktong may palamuti?",
+            "options": [
+              "Ipinapakita nito ang sariling estilo ng gumawa",
+              "Palaging pareho ang lahat ng palamuti",
+              "Walang pagkakaiba ang bawat produkto",
+              "Hindi ito nagbibigay ng disenyo"
+            ],
+            "correct_answer": "Ipinapakita nito ang sariling estilo ng gumawa"
+          },
+          {
+            "question": "Alin sa mga sumusunod ay HINDI paraan ng palamuti na tinalakay?",
+            "options": [
+              "Pagpipinta gamit ang oleo paint",
+              "Embroidery",
+              "Crochet trim",
+              "Applique"
+            ],
+            "correct_answer": "Pagpipinta gamit ang oleo paint"
+          },
+          {
+            "question": "Bakit mahalagang pag-isipan nang mabuti ang disenyo ng palamuti?",
+            "options": [
+              "Para makabuo ng produktong kaakit-akit at may kalidad",
+              "Hindi ito mahalaga",
+              "Basta lang ilagay ang kahit anong palamuti",
+              "Walang epekto ito sa hitsura"
+            ],
+            "correct_answer": "Para makabuo ng produktong kaakit-akit at may kalidad"
+          },
+          {
+            "question": "Anong kasanayan mula sa nakaraang mga linggo ang magagamit sa palamuti?",
+            "options": [
+              "Embroidery at crochet",
+              "Pagluluto",
+              "Pagsulat ng tula",
+              "Pagkalkula ng probability"
+            ],
+            "correct_answer": "Embroidery at crochet"
+          },
+          {
+            "question": "Bakit dapat balansehin ang halaga ng palamuti sa presyo ng produkto?",
+            "options": [
+              "Para hindi maging masyadong mahal para sa mamimili",
+              "Hindi kailangan itong balansehin",
+              "Palaging dapat itong mataas",
+              "Walang kaugnayan sa presyo"
+            ],
+            "correct_answer": "Para hindi maging masyadong mahal para sa mamimili"
+          },
+          {
+            "question": "Anong benepisyo ang idudulot ng magandang palamuti sa isang produktong ipagbibili?",
+            "options": [
+              "Maaari itong maging mas kaakit-akit sa mamimili",
+              "Walang benepisyo",
+              "Nagpapataas lamang ng gastos nang walang kapakinabangan",
+              "Palaging nagpapababa ng interes ng mamimili"
+            ],
+            "correct_answer": "Maaari itong maging mas kaakit-akit sa mamimili"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🕌 GMRC — Paggalang sa Relihiyon ng Iba\n\nGrade 5, Linggo 25! Pagpapahalaga ngayong linggo: **Pananampalataya (Faith)**. 🕌\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **paggalang sa nakatatanda**.\n\n## 🕌 Pagkakaiba-iba ng Relihiyon sa Pilipinas\nAng Pilipinas ay tahanan ng iba't ibang relihiyon: **Katoliko**, **Islam**, **Iglesia ni Cristo**, **Born Again**, at marami pang iba.\n\n## 🤝 Paggalang sa Simbolo ng Ibang Relihiyon\nDapat igalang ang mga **simbolo, kaugalian, at paniniwala** ng ibang relihiyon kahit hindi ito ating pananampalataya:\n- Huwag manlait o kutyain ang paniniwala ng iba\n- Igalang ang kanilang mga panalangin at pagdiriwang\n- Maging bukas ang isipan tungkol sa pagkakaiba-iba\n\n**Halimbawa:** Kapag may kaklaseng nagdarasal nang naiiba, hintayin siyang matapos nang may respeto sa halip na hadlangan siya.\n\n**Mahahalagang salita:** relihiyon, simbolo, paggalang, pagkakaiba-iba",
+        "quiz": [
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Pananampalataya (Faith)",
+              "Pagtitimpi",
+              "Nasyonalismo",
+              "Kalinisan"
+            ],
+            "correct_answer": "Pananampalataya (Faith)"
+          },
+          {
+            "question": "Anong mga relihiyon ang matatagpuan sa Pilipinas?",
+            "options": [
+              "Katoliko, Islam, Iglesia ni Cristo, at iba pa",
+              "Isa lamang uri ng relihiyon",
+              "Walang relihiyon sa Pilipinas",
+              "Relihiyon lamang mula sa ibang bansa"
+            ],
+            "correct_answer": "Katoliko, Islam, Iglesia ni Cristo, at iba pa"
+          },
+          {
+            "question": "Bakit dapat igalang ang simbolo ng ibang relihiyon?",
+            "options": [
+              "Kahit hindi ito ating paniniwala, may karapatan ang lahat sa kanilang relihiyon",
+              "Dapat lamang igalang ang sariling relihiyon",
+              "Walang kailangang igalang",
+              "Ang ibang relihiyon ay palaging mali"
+            ],
+            "correct_answer": "Kahit hindi ito ating paniniwala, may karapatan ang lahat sa kanilang relihiyon"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may kaklaseng nagdarasal nang naiiba?",
+            "options": [
+              "Hintayin siyang matapos nang may respeto",
+              "Hadlangan siya",
+              "Kutyain ang kanyang paraan ng pagdarasal",
+              "Tawanan siya"
+            ],
+            "correct_answer": "Hintayin siyang matapos nang may respeto"
+          },
+          {
+            "question": "Ano ang HINDI dapat gawin sa paniniwala ng ibang relihiyon?",
+            "options": [
+              "Manlait o kutyain ito",
+              "Igalang ito",
+              "Maging bukas ang isipan tungkol dito",
+              "Tanggapin ang pagkakaiba-iba"
+            ],
+            "correct_answer": "Manlait o kutyain ito"
+          },
+          {
+            "question": "Bakit mahalaga ang pagiging bukas ang isipan tungkol sa relihiyon?",
+            "options": [
+              "Nagpapatibay ito ng pagkakaunawaan sa iba't ibang tao",
+              "Nagdudulot ito ng away",
+              "Wala itong kabuluhan",
+              "Ipinagbabawal ito"
+            ],
+            "correct_answer": "Nagpapatibay ito ng pagkakaunawaan sa iba't ibang tao"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'pagkakaiba-iba ng relihiyon' sa Pilipinas?",
+            "options": [
+              "Iba't ibang relihiyon na sinasampalatayanan ng mga Pilipino",
+              "Iisang relihiyon lamang na sinusunod ng lahat",
+              "Kawalan ng relihiyon sa bansa",
+              "Relihiyon mula sa ibang bansa lamang"
+            ],
+            "correct_answer": "Iba't ibang relihiyon na sinasampalatayanan ng mga Pilipino"
+          },
+          {
+            "question": "Bakit itinuturing na pagpapahalaga ang paggalang sa relihiyon ng iba sa GMRC?",
+            "options": [
+              "Nagtuturo ito ng respeto at pagkakaunawaan",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng kasaysayan",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ito ng respeto at pagkakaunawaan"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng paggalang sa ibang relihiyon?",
+            "options": [
+              "Pakikinig nang tahimik habang nagdarasal ang iba",
+              "Pagtawa sa kanilang seremonya",
+              "Pagpigil sa kanilang pagdiriwang",
+              "Pagsasabing mali ang kanilang paniniwala"
+            ],
+            "correct_answer": "Pakikinig nang tahimik habang nagdarasal ang iba"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa simbolo ng ibang relihiyon sa isang paaralang may iba't ibang kaklase?",
+            "options": [
+              "Nagbibigay ito ng maayos na kapaligiran para sa lahat",
+              "Hindi ito mahalaga",
+              "Dapat lamang may iisang relihiyon sa paaralan",
+              "Walang epekto ito sa kapaligiran"
+            ],
+            "correct_answer": "Nagbibigay ito ng maayos na kapaligiran para sa lahat"
+          },
+          {
+            "question": "Ano ang naidudulot ng respeto sa iba't ibang paniniwala sa isang komunidad?",
+            "options": [
+              "Mas mapayapa at magkakaunawaang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi na kailangan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapa at magkakaunawaang komunidad"
+          },
+          {
+            "question": "Paano nauugnay ang paggalang sa relihiyon sa paggalang sa nakatatanda na inaral noong nakaraang linggo?",
+            "options": [
+              "Pareho silang nagpapakita ng respeto sa pagkakaiba ng iba",
+              "Walang kaugnayan ang dalawa",
+              "Ang isa ay tungkol lamang sa agham",
+              "Ang isa ay tungkol lamang sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagpapakita ng respeto sa pagkakaiba ng iba"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🔍 Friday Review — English (Grade 5)\n\n- Appositives as context clues\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A phrase that renames or explains a noun",
+              "A type of verb",
+              "A punctuation mark",
+              "A rhyme scheme"
+            ],
+            "correct_answer": "A phrase that renames or explains a noun"
+          },
+          {
+            "question": "How is an appositive usually set off?",
+            "options": [
+              "By commas",
+              "By question marks",
+              "By exclamation points",
+              "By quotation marks"
+            ],
+            "correct_answer": "By commas"
+          },
+          {
+            "question": "In 'Manila, the capital of the Philippines, is busy,' what is the appositive?",
+            "options": [
+              "The capital of the Philippines",
+              "Manila",
+              "Is busy",
+              "The Philippines"
+            ],
+            "correct_answer": "The capital of the Philippines"
+          },
+          {
+            "question": "How can an appositive help you understand a new word?",
+            "options": [
+              "It explains the word's meaning right after it",
+              "It makes the word harder to understand",
+              "It replaces the word",
+              "It has no relation to meaning"
+            ],
+            "correct_answer": "It explains the word's meaning right after it"
+          },
+          {
+            "question": "In 'The archipelago, a group of many islands, stretches across the sea,' what does archipelago mean?",
+            "options": [
+              "A group of many islands",
+              "A single island",
+              "A sea creature",
+              "A mountain range"
+            ],
+            "correct_answer": "A group of many islands"
+          },
+          {
+            "question": "Why are appositives useful as context clues?",
+            "options": [
+              "They explain a word without a dictionary",
+              "They confuse readers",
+              "They always end a paragraph",
+              "They replace punctuation"
+            ],
+            "correct_answer": "They explain a word without a dictionary"
+          },
+          {
+            "question": "Which sentence contains an appositive?",
+            "options": [
+              "Rizal, our national hero, wrote two novels.",
+              "Rizal wrote two novels.",
+              "Did Rizal write novels?",
+              "Rizal! What a hero!"
+            ],
+            "correct_answer": "Rizal, our national hero, wrote two novels."
+          },
+          {
+            "question": "What comes before and after most appositives?",
+            "options": [
+              "Commas",
+              "Periods",
+              "Semicolons",
+              "Question marks"
+            ],
+            "correct_answer": "Commas"
+          },
+          {
+            "question": "In 'The mango, a sweet tropical fruit, is popular,' what does the appositive explain?",
+            "options": [
+              "What a mango is",
+              "Where the Philippines is",
+              "How to grow fruit",
+              "The price of mangoes"
+            ],
+            "correct_answer": "What a mango is"
+          },
+          {
+            "question": "Why might a writer use an appositive instead of a new sentence?",
+            "options": [
+              "It adds info smoothly in the same sentence",
+              "It makes the sentence impossible to read",
+              "It shortens the sentence to one word",
+              "It removes the main noun"
+            ],
+            "correct_answer": "It adds info smoothly in the same sentence"
+          },
+          {
+            "question": "'The iguana, a type of reptile, basked in the sun' tells you what?",
+            "options": [
+              "An iguana is a kind of reptile",
+              "An iguana is a kind of bird",
+              "A reptile is a place",
+              "Reptile means sun"
+            ],
+            "correct_answer": "An iguana is a kind of reptile"
+          },
+          {
+            "question": "An appositive functions like what other context clue?",
+            "options": [
+              "A definition given directly in the sentence",
+              "An unrelated fact",
+              "A rhyme",
+              "A grammar rule with no meaning"
+            ],
+            "correct_answer": "A definition given directly in the sentence"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🎲 Friday Review — Mathematics (Grade 5)\n\n- Solid figures: cube, prism, cylinder, cone, sphere, pyramid\n\nGreat 3D shape work! ⭐",
+        "quiz": [
+          {
+            "question": "What are solid figures?",
+            "options": [
+              "3D shapes with length, width, and height",
+              "Flat 2D shapes only",
+              "Shapes with one side",
+              "Lines and points only"
+            ],
+            "correct_answer": "3D shapes with length, width, and height"
+          },
+          {
+            "question": "How many faces does a cube have?",
+            "options": [
+              "6",
+              "4",
+              "8",
+              "2"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "What shape are a cube's faces?",
+            "options": [
+              "Squares",
+              "Circles",
+              "Triangles",
+              "Rectangles only"
+            ],
+            "correct_answer": "Squares"
+          },
+          {
+            "question": "A soda can is an example of what shape?",
+            "options": [
+              "Cylinder",
+              "Sphere",
+              "Cone",
+              "Cube"
+            ],
+            "correct_answer": "Cylinder"
+          },
+          {
+            "question": "A basketball is an example of what shape?",
+            "options": [
+              "Sphere",
+              "Cylinder",
+              "Prism",
+              "Cone"
+            ],
+            "correct_answer": "Sphere"
+          },
+          {
+            "question": "A party hat is an example of what shape?",
+            "options": [
+              "Cone",
+              "Sphere",
+              "Cube",
+              "Cylinder"
+            ],
+            "correct_answer": "Cone"
+          },
+          {
+            "question": "What shape are a rectangular prism's faces?",
+            "options": [
+              "Rectangles",
+              "Circles only",
+              "Triangles only",
+              "Points"
+            ],
+            "correct_answer": "Rectangles"
+          },
+          {
+            "question": "What is a pyramid?",
+            "options": [
+              "A flat base with triangular faces meeting at a point",
+              "A shape with all circular faces",
+              "A shape with no faces",
+              "A perfectly round shape"
+            ],
+            "correct_answer": "A flat base with triangular faces meeting at a point"
+          },
+          {
+            "question": "How many circular faces does a cylinder have?",
+            "options": [
+              "2",
+              "1",
+              "0",
+              "3"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "How many circular faces does a cone have?",
+            "options": [
+              "1",
+              "2",
+              "0",
+              "3"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "A tissue box is an example of what shape?",
+            "options": [
+              "Rectangular prism",
+              "Sphere",
+              "Cone",
+              "Cylinder"
+            ],
+            "correct_answer": "Rectangular prism"
+          },
+          {
+            "question": "What makes a sphere different from a cylinder?",
+            "options": [
+              "A sphere has no flat faces at all",
+              "A sphere has 6 square faces",
+              "A sphere has a pointed top",
+              "A sphere has two circular faces"
+            ],
+            "correct_answer": "A sphere has no flat faces at all"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎭 Friday Review — Filipino (Grade 5)\n\n- Dulang pambata: tauhan, dayalogo, direksyon sa entablado\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang dulang pambata?",
+            "options": [
+              "Panitikang isasadula sa entablado",
+              "Isang uri ng tula",
+              "Isang liham",
+              "Isang balita"
+            ],
+            "correct_answer": "Panitikang isasadula sa entablado"
+          },
+          {
+            "question": "Ano ang dayalogo?",
+            "options": [
+              "Salitang binibigkas ng tauhan",
+              "Tagpuan ng dula",
+              "Pamagat ng dula",
+              "May-akda ng dula"
+            ],
+            "correct_answer": "Salitang binibigkas ng tauhan"
+          },
+          {
+            "question": "Ano ang direksyon sa entablado?",
+            "options": [
+              "Panuto kung paano gagalaw ang tauhan",
+              "Salitang binibigkas ng tauhan",
+              "Pamagat ng dula",
+              "Katapusan ng dula"
+            ],
+            "correct_answer": "Panuto kung paano gagalaw ang tauhan"
+          },
+          {
+            "question": "Saan karaniwang nakasulat ang direksyon sa entablado?",
+            "options": [
+              "Sa loob ng panaklong",
+              "Sa unahan",
+              "Sa dulo ng aklat",
+              "Hindi isinusulat"
+            ],
+            "correct_answer": "Sa loob ng panaklong"
+          },
+          {
+            "question": "Paano naiiba ang dula sa maikling kuwento?",
+            "options": [
+              "Ipinapahayag sa sinasabi at ginagawa ng tauhan",
+              "Magkatulad lamang",
+              "Walang tauhan ang dula",
+              "Walang dayalogo"
+            ],
+            "correct_answer": "Ipinapahayag sa sinasabi at ginagawa ng tauhan"
+          },
+          {
+            "question": "Sa 'ANA: (masayang tumatakbo) Salamat, Nanay!', ano ang dayalogo?",
+            "options": [
+              "Salamat, Nanay!",
+              "Masayang tumatakbo",
+              "Ana",
+              "Nanay"
+            ],
+            "correct_answer": "Salamat, Nanay!"
+          },
+          {
+            "question": "Sa parehong halimbawa, ano ang direksyon sa entablado?",
+            "options": [
+              "Masayang tumatakbo",
+              "Salamat, Nanay!",
+              "Ana",
+              "Nanay"
+            ],
+            "correct_answer": "Masayang tumatakbo"
+          },
+          {
+            "question": "Saan itinatanghal ang dula?",
+            "options": [
+              "Sa entablado",
+              "Sa aklatan lamang",
+              "Sa loob ng libro",
+              "Hindi itinatanghal"
+            ],
+            "correct_answer": "Sa entablado"
+          },
+          {
+            "question": "Bakit mahalaga ang tauhan sa dula?",
+            "options": [
+              "Bumubuhay sila sa kuwento gamit ang salita at galaw",
+              "Wala silang papel",
+              "Sila lamang ang manonood",
+              "Hindi sila kailangan"
+            ],
+            "correct_answer": "Bumubuhay sila sa kuwento gamit ang salita at galaw"
+          },
+          {
+            "question": "Alin ang HINDI sangkap ng dula?",
+            "options": [
+              "Talababa",
+              "Tauhan",
+              "Dayalogo",
+              "Direksyon sa entablado"
+            ],
+            "correct_answer": "Talababa"
+          },
+          {
+            "question": "Bakit mahirap unawain ang damdamin ng tauhan kung walang direksyon?",
+            "options": [
+              "Ang direksyon ang naglalarawan ng paraan ng pagsasalita",
+              "Hindi kailangan ang direksyon",
+              "Hindi ito mahalaga",
+              "Dayalogo lamang ang mahalaga"
+            ],
+            "correct_answer": "Ang direksyon ang naglalarawan ng paraan ng pagsasalita"
+          },
+          {
+            "question": "Kung isasadula ang maikling kuwento, ano ang gagawin sa salaysay ng manunulat?",
+            "options": [
+              "Babaguhin bilang dayalogo o direksyon",
+              "Kakalimutan na lamang",
+              "Isasalin sa Ingles",
+              "Wala"
+            ],
+            "correct_answer": "Babaguhin bilang dayalogo o direksyon"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🧲 Friday Review — Science (Grade 5)\n\n- Electromagnets: coil, core, magnetic field\n\nGreat electromagnet review! 🌟",
+        "quiz": [
+          {
+            "question": "What is an electromagnet?",
+            "options": [
+              "A temporary magnet from electric current in a coiled wire",
+              "A permanent magnet in nature",
+              "A type of insulator",
+              "A material that blocks electricity"
+            ],
+            "correct_answer": "A temporary magnet from electric current in a coiled wire"
+          },
+          {
+            "question": "What is used as the core of an electromagnet?",
+            "options": [
+              "An iron nail",
+              "A plastic rod",
+              "A rubber band",
+              "A glass rod"
+            ],
+            "correct_answer": "An iron nail"
+          },
+          {
+            "question": "What creates the magnetic field?",
+            "options": [
+              "Electric current in the coiled wire",
+              "The wire's color",
+              "The battery size only",
+              "Sunlight"
+            ],
+            "correct_answer": "Electric current in the coiled wire"
+          },
+          {
+            "question": "What happens when the battery disconnects?",
+            "options": [
+              "The magnetism disappears",
+              "It becomes permanent",
+              "It explodes",
+              "Nothing changes"
+            ],
+            "correct_answer": "The magnetism disappears"
+          },
+          {
+            "question": "How does an electromagnet differ from a permanent magnet?",
+            "options": [
+              "Only magnetic while current flows",
+              "Always magnetic forever",
+              "Cannot be switched on/off",
+              "Has no magnetic field"
+            ],
+            "correct_answer": "Only magnetic while current flows"
+          },
+          {
+            "question": "What is the wire wrapped around the core called?",
+            "options": [
+              "A coil",
+              "A conductor plate",
+              "An insulator sheet",
+              "A battery cell"
+            ],
+            "correct_answer": "A coil"
+          },
+          {
+            "question": "Which device uses an electromagnet?",
+            "options": [
+              "A crane lifting scrap metal",
+              "A wooden ruler",
+              "A glass window",
+              "A plastic cup"
+            ],
+            "correct_answer": "A crane lifting scrap metal"
+          },
+          {
+            "question": "Why is an electromagnet useful in a scrap-metal crane?",
+            "options": [
+              "It can turn on to pick up metal and off to release it",
+              "It's always stuck to metal",
+              "It can't lift anything",
+              "It works without electricity"
+            ],
+            "correct_answer": "It can turn on to pick up metal and off to release it"
+          },
+          {
+            "question": "Two main parts of a simple electromagnet?",
+            "options": [
+              "A coiled wire and iron core",
+              "Two magnets and a rubber band",
+              "A glass rod and water",
+              "A plastic sheet and paper"
+            ],
+            "correct_answer": "A coiled wire and iron core"
+          },
+          {
+            "question": "Why must the wire connect to a power source?",
+            "options": [
+              "Current must flow to create the field",
+              "The wire is magnetic without power",
+              "Power sources aren't needed",
+              "The core creates power itself"
+            ],
+            "correct_answer": "Current must flow to create the field"
+          },
+          {
+            "question": "Which everyday device uses an electromagnet?",
+            "options": [
+              "An electric bell",
+              "A wooden spoon",
+              "A glass cup",
+              "A cotton shirt"
+            ],
+            "correct_answer": "An electric bell"
+          },
+          {
+            "question": "Why can electromagnets be more useful than permanent magnets?",
+            "options": [
+              "Magnetism can be switched on/off",
+              "They never need electricity",
+              "Always weaker than permanent magnets",
+              "Cannot lift objects"
+            ],
+            "correct_answer": "Magnetism can be switched on/off"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 📜 Friday Review — Araling Panlipunan (Grade 5)\n\n- Konstitusyon ng Cadiz at Suez Canal\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Kailan ipinasa ang Konstitusyon ng Cadiz?",
+            "options": [
+              "1812",
+              "1869",
+              "1898",
+              "1521"
+            ],
+            "correct_answer": "1812"
+          },
+          {
+            "question": "Ano ang ibinigay ng Konstitusyon ng Cadiz sa mga kolonya?",
+            "options": [
+              "Ilang karapatan tulad ng representasyon",
+              "Ganap na kalayaan",
+              "Kawalan ng karapatan",
+              "Bagong hari"
+            ],
+            "correct_answer": "Ilang karapatan tulad ng representasyon"
+          },
+          {
+            "question": "Ano ang Suez Canal?",
+            "options": [
+              "Kanal sa Egypt na nagpaikli ng biyahe sa dagat",
+              "Bulkan sa Pilipinas",
+              "Uri ng saligang-batas",
+              "Ilog sa Espanya"
+            ],
+            "correct_answer": "Kanal sa Egypt na nagpaikli ng biyahe sa dagat"
+          },
+          {
+            "question": "Kailan naitayo ang Suez Canal?",
+            "options": [
+              "1869",
+              "1812",
+              "1898",
+              "1600"
+            ],
+            "correct_answer": "1869"
+          },
+          {
+            "question": "Anong ideya ang idinidiin ng Konstitusyon ng Cadiz?",
+            "options": [
+              "Kahalagahan ng representasyon",
+              "Kahalagahan ng kolonyalismo",
+              "Kahalagahan ng pananahimik",
+              "Kawalan ng karapatan"
+            ],
+            "correct_answer": "Kahalagahan ng representasyon"
+          },
+          {
+            "question": "Epekto ng Suez Canal sa komunikasyon?",
+            "options": [
+              "Pinabilis nito ang paglalakbay at komunikasyon",
+              "Pinahirapan nito ang paglalakbay",
+              "Wala itong epekto",
+              "Ipinasarhan agad"
+            ],
+            "correct_answer": "Pinabilis nito ang paglalakbay at komunikasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang Cortes?",
+            "options": [
+              "Parlamento kung saan kinakatawan ang rehiyon",
+              "Uri ng barko",
+              "Bulkan sa Espanya",
+              "Uri ng damit"
+            ],
+            "correct_answer": "Parlamento kung saan kinakatawan ang rehiyon"
+          },
+          {
+            "question": "Koneksyon ng Suez Canal sa nasyonalismong Pilipino?",
+            "options": [
+              "Mas mabilis na pagdating ng bagong ideya sa ilustrado",
+              "Walang kaugnayan",
+              "Pinigilan ang lahat ng komunikasyon",
+              "Lokasyon lamang sa Pilipinas"
+            ],
+            "correct_answer": "Mas mabilis na pagdating ng bagong ideya sa ilustrado"
+          },
+          {
+            "question": "Saang bansa matatagpuan ang Suez Canal?",
+            "options": [
+              "Egypt",
+              "Espanya",
+              "Pilipinas",
+              "Pransya"
+            ],
+            "correct_answer": "Egypt"
+          },
+          {
+            "question": "Bakit liberal ang Konstitusyon ng Cadiz?",
+            "options": [
+              "Nagbigay ng karapatan at representasyon",
+              "Nagbawal ng karapatan",
+              "Nagpalakas ng ganap na kapangyarihan ng hari",
+              "Walang nilalaman tungkol sa karapatan"
+            ],
+            "correct_answer": "Nagbigay ng karapatan at representasyon"
+          },
+          {
+            "question": "Koneksyon ng dalawang pangyayari sa nasyonalismo?",
+            "options": [
+              "Pareho silang nagdala ng bagong ideya",
+              "Walang koneksyon",
+              "Pinigilan nila ang pagbabago",
+              "Naganap lamang sa Pilipinas"
+            ],
+            "correct_answer": "Pareho silang nagdala ng bagong ideya"
+          },
+          {
+            "question": "Bakit pag-aralan ang mga pangyayari sa Europa kaugnay ng Pilipinas?",
+            "options": [
+              "Nakaimpluwensya sila sa nasyonalismong Pilipino",
+              "Walang kaugnayan sa Pilipinas",
+              "Hiwalay na kasaysayan lamang",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Nakaimpluwensya sila sa nasyonalismong Pilipino"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔐 Friday Review — EPP (ICT) (Grade 5)\n\n- Strong passwords and online safety\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "What makes a password strong?",
+            "options": [
+              "Mixing uppercase, lowercase, numbers, symbols",
+              "Using your own name",
+              "Using '123456'",
+              "Using the same password everywhere"
+            ],
+            "correct_answer": "Mixing uppercase, lowercase, numbers, symbols"
+          },
+          {
+            "question": "Why avoid using your name or birthday in a password?",
+            "options": [
+              "Easy for others to guess",
+              "Harder to remember",
+              "Not allowed by websites",
+              "Makes the password too short"
+            ],
+            "correct_answer": "Easy for others to guess"
+          },
+          {
+            "question": "Which is a weak password?",
+            "options": [
+              "123456",
+              "T!m3-Fr0g#92",
+              "8x$mK!q2vR",
+              "Pl@ygr0und_7Z"
+            ],
+            "correct_answer": "123456"
+          },
+          {
+            "question": "Why use a different password for each account?",
+            "options": [
+              "One stolen password won't unlock all accounts",
+              "Makes passwords easier to guess",
+              "Required by every website",
+              "No real benefit"
+            ],
+            "correct_answer": "One stolen password won't unlock all accounts"
+          },
+          {
+            "question": "Should you share your password with a friend?",
+            "options": [
+              "No, never share it",
+              "Yes, always",
+              "Only if asked nicely",
+              "Only with your best friend"
+            ],
+            "correct_answer": "No, never share it"
+          },
+          {
+            "question": "What to do if someone accessed your account without permission?",
+            "options": [
+              "Tell a trusted adult",
+              "Ignore it",
+              "Share your password again",
+              "Delete without telling anyone"
+            ],
+            "correct_answer": "Tell a trusted adult"
+          },
+          {
+            "question": "Minimum characters for a strong password?",
+            "options": [
+              "At least 8",
+              "Exactly 3",
+              "At least 1",
+              "Exactly 4"
+            ],
+            "correct_answer": "At least 8"
+          },
+          {
+            "question": "Why is typing your password with others watching risky?",
+            "options": [
+              "They could see and remember it",
+              "No risk at all",
+              "Makes password stronger",
+              "Auto-changes the password"
+            ],
+            "correct_answer": "They could see and remember it"
+          },
+          {
+            "question": "What describes a strong password?",
+            "options": [
+              "Letters, numbers, symbols mixed",
+              "Only lowercase letters",
+              "Only your birth year",
+              "The word 'password'"
+            ],
+            "correct_answer": "Letters, numbers, symbols mixed"
+          },
+          {
+            "question": "Why is 'password' a weak password?",
+            "options": [
+              "One of the most commonly guessed",
+              "Too many symbols",
+              "Too long to remember",
+              "Too many numbers"
+            ],
+            "correct_answer": "One of the most commonly guessed"
+          },
+          {
+            "question": "Why do online safety habits like strong passwords matter?",
+            "options": [
+              "They protect your personal information",
+              "They slow the internet",
+              "Only important for adults",
+              "No real purpose"
+            ],
+            "correct_answer": "They protect your personal information"
+          },
+          {
+            "question": "What should you avoid including in a new password?",
+            "options": [
+              "Your own name or birthday",
+              "A mix of numbers and letters",
+              "A symbol like # or !",
+              "A unique password"
+            ],
+            "correct_answer": "Your own name or birthday"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Culminating dance performance\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Layunin ng culminating dance performance?",
+            "options": [
+              "Ipakita ang koordinasyon at pakikipagtulungan",
+              "Talunin ang ibang grupo",
+              "Wala itong layunin",
+              "Para lang libangin ang guro"
+            ],
+            "correct_answer": "Ipakita ang koordinasyon at pakikipagtulungan"
+          },
+          {
+            "question": "Anong sayaw ang ginamit?",
+            "options": [
+              "Social dance mixer sa 2/4 time",
+              "Bagong sayaw na hindi pa natutunan",
+              "Walang sayaw",
+              "Sayaw sa ibang bansa"
+            ],
+            "correct_answer": "Social dance mixer sa 2/4 time"
+          },
+          {
+            "question": "Ilan ang inirerekomendang bilang sa grupo?",
+            "options": [
+              "4-6 katao",
+              "1 katao lamang",
+              "20 katao",
+              "Walang itinakda"
+            ],
+            "correct_answer": "4-6 katao"
+          },
+          {
+            "question": "Bakit magpraktis ng timing sa musika?",
+            "options": [
+              "Para maging maayos ang mga galaw",
+              "Hindi kailangan",
+              "Para mapahaba ang oras",
+              "Walang kaugnayan"
+            ],
+            "correct_answer": "Para maging maayos ang mga galaw"
+          },
+          {
+            "question": "Ano ang dapat ipakita habang nagtatanghal?",
+            "options": [
+              "Kumpiyansa at ngiti",
+              "Takot at pag-aalinlangan",
+              "Galit sa kasama",
+              "Kawalan ng interes"
+            ],
+            "correct_answer": "Kumpiyansa at ngiti"
+          },
+          {
+            "question": "Anong kasanayan pinatutunayan ng pagtatanghal?",
+            "options": [
+              "Koordinasyon at pakikipagtulungan",
+              "Pagsulat",
+              "Matematika",
+              "Pagluluto"
+            ],
+            "correct_answer": "Koordinasyon at pakikipagtulungan"
+          },
+          {
+            "question": "Bakit uulitin ang mga hakbang bago magtanghal?",
+            "options": [
+              "Para maging maayos ang pagganap",
+              "Hindi kailangan",
+              "Para lang mapagod",
+              "Walang epekto"
+            ],
+            "correct_answer": "Para maging maayos ang pagganap"
+          },
+          {
+            "question": "Tawag sa aktibidad na sinasama ang natutunan sa dulo ng yunit?",
+            "options": [
+              "Culminating activity",
+              "Panimulang aralin",
+              "Pagsusulit lamang",
+              "Balik-aral lamang"
+            ],
+            "correct_answer": "Culminating activity"
+          },
+          {
+            "question": "Bakit mahalaga ang pakikipagtulungan sa grupo dito?",
+            "options": [
+              "Kailangang magkasabay ang lahat",
+              "Bawat isa gumagawa nang bukod",
+              "Walang kailangan",
+              "Isang tao lamang sumasayaw"
+            ],
+            "correct_answer": "Kailangang magkasabay ang lahat"
+          },
+          {
+            "question": "Benepisyo ng culminating activity sa MAPEH?",
+            "options": [
+              "Pinagsasama ang natutunang kasanayan sa isang tagumpay",
+              "Walang benepisyo",
+              "Para lang libangin",
+              "Hindi bahagi ng pag-aaral"
+            ],
+            "correct_answer": "Pinagsasama ang natutunang kasanayan sa isang tagumpay"
+          },
+          {
+            "question": "Unang hakbang sa paghahanda ng pagtatanghal?",
+            "options": [
+              "Piliin ang bilang ng miyembro",
+              "Direktang magtanghal",
+              "Kalimutan ang hakbang",
+              "Umalis sa grupo"
+            ],
+            "correct_answer": "Piliin ang bilang ng miyembro"
+          },
+          {
+            "question": "Bakit mahalaga ang pisikal na aktibidad sa MAPEH?",
+            "options": [
+              "Nagpapalusog ng katawan at nagtuturo ng koordinasyon",
+              "Walang kabuluhan sa kalusugan",
+              "Hindi bahagi ng PE",
+              "Para lang libangin ang guro"
+            ],
+            "correct_answer": "Nagpapalusog ng katawan at nagtuturo ng koordinasyon"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🎨 Friday Review — EPP (Grade 5)\n\n- Palamuti: embroidery, crochet trim, applique\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang palamuti (embellishment)?",
+            "options": [
+              "Bagay na nagpapaganda sa hitsura ng produkto",
+              "Kabuuang gastos ng produkto",
+              "Presyo ng benta",
+              "Pangalan ng produkto"
+            ],
+            "correct_answer": "Bagay na nagpapaganda sa hitsura ng produkto"
+          },
+          {
+            "question": "Ano ang applique?",
+            "options": [
+              "Pagdikit ng piraso ng tela bilang disenyo",
+              "Uri ng crochet hook",
+              "Uri ng sewing machine",
+              "Uri ng gunting"
+            ],
+            "correct_answer": "Pagdikit ng piraso ng tela bilang disenyo"
+          },
+          {
+            "question": "Paano nakakatulong ang embroidery?",
+            "options": [
+              "Nagdaragdag ng disenyo gamit ang tahi",
+              "Walang epekto sa hitsura",
+              "Nagpapababa ng halaga",
+              "Ginagawang mas simple lamang"
+            ],
+            "correct_answer": "Nagdaragdag ng disenyo gamit ang tahi"
+          },
+          {
+            "question": "Epekto ng palamuti sa presyo?",
+            "options": [
+              "Maaaring magpataas ng halaga",
+              "Palaging pinapababa",
+              "Walang kaugnayan sa presyo",
+              "Nagpapababa ng kalidad"
+            ],
+            "correct_answer": "Maaaring magpataas ng halaga"
+          },
+          {
+            "question": "Bakit isama ang gastos ng palamuti sa puhunan?",
+            "options": [
+              "Para tumpak ang kalkulasyon ng gastos",
+              "Hindi kailangan",
+              "Walang gastos ang palamuti",
+              "Libre palagi ang palamuti"
+            ],
+            "correct_answer": "Para tumpak ang kalkulasyon ng gastos"
+          },
+          {
+            "question": "Ano ang crochet trim?",
+            "options": [
+              "Gilid o laylayan gamit ang crochet",
+              "Uri ng sewing machine",
+              "Uri ng gunting",
+              "Uri ng puhunan"
+            ],
+            "correct_answer": "Gilid o laylayan gamit ang crochet"
+          },
+          {
+            "question": "Bakit natatangi ang produktong may palamuti?",
+            "options": [
+              "Ipinapakita ang sariling estilo ng gumawa",
+              "Palaging pareho ang palamuti",
+              "Walang pagkakaiba",
+              "Hindi nagbibigay ng disenyo"
+            ],
+            "correct_answer": "Ipinapakita ang sariling estilo ng gumawa"
+          },
+          {
+            "question": "Alin ang HINDI paraan ng palamuti na tinalakay?",
+            "options": [
+              "Pagpipinta gamit ang oleo paint",
+              "Embroidery",
+              "Crochet trim",
+              "Applique"
+            ],
+            "correct_answer": "Pagpipinta gamit ang oleo paint"
+          },
+          {
+            "question": "Bakit pag-isipan nang mabuti ang disenyo ng palamuti?",
+            "options": [
+              "Para makabuo ng kaakit-akit na produkto",
+              "Hindi mahalaga",
+              "Basta ilagay lang ang kahit ano",
+              "Walang epekto sa hitsura"
+            ],
+            "correct_answer": "Para makabuo ng kaakit-akit na produkto"
+          },
+          {
+            "question": "Anong kasanayan magagamit sa palamuti?",
+            "options": [
+              "Embroidery at crochet",
+              "Pagluluto",
+              "Pagsulat ng tula",
+              "Pagkalkula ng probability"
+            ],
+            "correct_answer": "Embroidery at crochet"
+          },
+          {
+            "question": "Bakit balansehin ang halaga ng palamuti sa presyo?",
+            "options": [
+              "Para hindi maging masyadong mahal",
+              "Hindi kailangan",
+              "Palaging mataas",
+              "Walang kaugnayan sa presyo"
+            ],
+            "correct_answer": "Para hindi maging masyadong mahal"
+          },
+          {
+            "question": "Benepisyo ng magandang palamuti sa produkto?",
+            "options": [
+              "Maaaring maging kaakit-akit sa mamimili",
+              "Walang benepisyo",
+              "Nagpapataas ng gastos nang walang kapakinabangan",
+              "Nagpapababa ng interes"
+            ],
+            "correct_answer": "Maaaring maging kaakit-akit sa mamimili"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🕌 Friday Review — GMRC (Grade 5)\n\n- Paggalang sa relihiyon ng iba\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Anong pagpapahalaga ang tinalakay?",
+            "options": [
+              "Pananampalataya (Faith)",
+              "Pagtitimpi",
+              "Nasyonalismo",
+              "Kalinisan"
+            ],
+            "correct_answer": "Pananampalataya (Faith)"
+          },
+          {
+            "question": "Anong relihiyon matatagpuan sa Pilipinas?",
+            "options": [
+              "Katoliko, Islam, Iglesia ni Cristo, at iba pa",
+              "Isa lamang uri",
+              "Wala",
+              "Mula sa ibang bansa lamang"
+            ],
+            "correct_answer": "Katoliko, Islam, Iglesia ni Cristo, at iba pa"
+          },
+          {
+            "question": "Bakit igalang ang simbolo ng ibang relihiyon?",
+            "options": [
+              "May karapatan ang lahat sa kanilang relihiyon",
+              "Dapat lamang sariling relihiyon",
+              "Walang kailangang igalang",
+              "Palaging mali ang iba"
+            ],
+            "correct_answer": "May karapatan ang lahat sa kanilang relihiyon"
+          },
+          {
+            "question": "Ano ang gagawin kapag may kaklaseng nagdarasal nang naiiba?",
+            "options": [
+              "Hintayin siyang matapos nang may respeto",
+              "Hadlangan siya",
+              "Kutyain siya",
+              "Tawanan siya"
+            ],
+            "correct_answer": "Hintayin siyang matapos nang may respeto"
+          },
+          {
+            "question": "Ano ang HINDI dapat gawin sa paniniwala ng iba?",
+            "options": [
+              "Manlait o kutyain",
+              "Igalang",
+              "Maging bukas ang isipan",
+              "Tanggapin ang pagkakaiba"
+            ],
+            "correct_answer": "Manlait o kutyain"
+          },
+          {
+            "question": "Bakit mahalaga ang bukas na isipan tungkol sa relihiyon?",
+            "options": [
+              "Nagpapatibay ng pagkakaunawaan",
+              "Nagdudulot ng away",
+              "Walang kabuluhan",
+              "Ipinagbabawal ito"
+            ],
+            "correct_answer": "Nagpapatibay ng pagkakaunawaan"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'pagkakaiba-iba ng relihiyon'?",
+            "options": [
+              "Iba't ibang relihiyon na sinasampalatayanan",
+              "Iisang relihiyon lamang",
+              "Kawalan ng relihiyon",
+              "Relihiyon mula sa ibang bansa lamang"
+            ],
+            "correct_answer": "Iba't ibang relihiyon na sinasampalatayanan"
+          },
+          {
+            "question": "Bakit pagpapahalaga sa GMRC ang paggalang sa relihiyon?",
+            "options": [
+              "Nagtuturo ng respeto at pagkakaunawaan",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ng kasaysayan",
+              "Hindi itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagtuturo ng respeto at pagkakaunawaan"
+          },
+          {
+            "question": "Alin ang halimbawa ng paggalang sa ibang relihiyon?",
+            "options": [
+              "Pakikinig nang tahimik habang nagdarasal ang iba",
+              "Pagtawa sa seremonya",
+              "Pagpigil sa pagdiriwang",
+              "Pagsasabing mali ang paniniwala"
+            ],
+            "correct_answer": "Pakikinig nang tahimik habang nagdarasal ang iba"
+          },
+          {
+            "question": "Bakit mahalaga ang paggalang sa relihiyon sa isang paaralang may iba't ibang kaklase?",
+            "options": [
+              "Nagbibigay ng maayos na kapaligiran",
+              "Hindi mahalaga",
+              "Dapat lamang iisang relihiyon",
+              "Walang epekto"
+            ],
+            "correct_answer": "Nagbibigay ng maayos na kapaligiran"
+          },
+          {
+            "question": "Ano ang naidudulot ng respeto sa iba't ibang paniniwala?",
+            "options": [
+              "Mas mapayapang komunidad",
+              "Mas maraming away",
+              "Walang epekto",
+              "Hindi na kailangan ng pagkakaisa"
+            ],
+            "correct_answer": "Mas mapayapang komunidad"
+          },
+          {
+            "question": "Koneksyon ng paggalang sa relihiyon sa paggalang sa nakatatanda?",
+            "options": [
+              "Pareho silang nagpapakita ng respeto sa pagkakaiba",
+              "Walang kaugnayan",
+              "Isa ay tungkol sa agham",
+              "Isa ay tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho silang nagpapakita ng respeto sa pagkakaiba"
+          }
+        ]
+      }
+    }
+  }
+}

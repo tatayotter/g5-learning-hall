@@ -1,0 +1,2266 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-11-15",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🎉 English — Recount: National Holidays\n\nGrade 4, Week 23! Let's write recounts connecting our family to national celebrations. 🎉\n\n## 🔄 Review\nWe wrote a letter of pakikiramay.\n\n## 🎉 Recounting a National Holiday\nA recount about a national holiday can tie a **personal or family experience** to the holiday's **historical significance**.\n\n**Example:** \"Every June 12, our family watches the flag ceremony together. This day reminds us of the bravery of those who fought for our independence.\"\n\n## 🔗 Cause and Effect Between History and Today\nHistorical events (like declaring independence) caused today's celebrations (like Independence Day parades).\n\n## ✍️ Structuring Your Recount\n1. Introduce the holiday and when it happens\n2. Describe what your family does\n3. Connect it to why the holiday matters historically\n\n**Key words:** national holiday, historical significance, personal experience, cause and effect",
+        "quiz": [
+          {
+            "question": "What can a recount about a national holiday connect?",
+            "options": [
+              "A personal experience to historical significance",
+              "Only random facts",
+              "Nothing meaningful",
+              "Only future predictions"
+            ],
+            "correct_answer": "A personal experience to historical significance"
+          },
+          {
+            "question": "What historical event might cause a holiday like Independence Day?",
+            "options": [
+              "Declaring independence from a colonizer",
+              "A random modern event",
+              "Nothing historical",
+              "A weather event only"
+            ],
+            "correct_answer": "Declaring independence from a colonizer"
+          },
+          {
+            "question": "What should you introduce first when recounting a holiday?",
+            "options": [
+              "The holiday and when it happens",
+              "Only the ending",
+              "A random topic",
+              "Nothing specific"
+            ],
+            "correct_answer": "The holiday and when it happens"
+          },
+          {
+            "question": "Why include what your family does on the holiday?",
+            "options": [
+              "It personalizes the recount with real experience",
+              "It has no purpose",
+              "It replaces the historical connection",
+              "It should be avoided"
+            ],
+            "correct_answer": "It personalizes the recount with real experience"
+          },
+          {
+            "question": "Why connect a holiday to its historical significance?",
+            "options": [
+              "It helps explain why the celebration matters",
+              "It has no real purpose",
+              "History has nothing to do with holidays",
+              "It only confuses the reader"
+            ],
+            "correct_answer": "It helps explain why the celebration matters"
+          },
+          {
+            "question": "'This day reminds us of the bravery of those who fought for our independence' shows what?",
+            "options": [
+              "A connection between personal experience and history",
+              "An unrelated fact",
+              "A procedural instruction",
+              "A random question"
+            ],
+            "correct_answer": "A connection between personal experience and history"
+          },
+          {
+            "question": "What is cause and effect in this context?",
+            "options": [
+              "A historical event caused today's celebration",
+              "Celebrations have no causes",
+              "History and celebrations are unrelated",
+              "Only effects exist, no causes"
+            ],
+            "correct_answer": "A historical event caused today's celebration"
+          },
+          {
+            "question": "Why might a family watch a flag ceremony on Independence Day?",
+            "options": [
+              "To honor and remember the historical struggle for freedom",
+              "It has no meaning",
+              "It's simply required by law",
+              "It is unrelated to history"
+            ],
+            "correct_answer": "To honor and remember the historical struggle for freedom"
+          },
+          {
+            "question": "What makes a national holiday recount different from a personal diary entry?",
+            "options": [
+              "It ties personal experience to a shared historical event",
+              "There is no difference",
+              "It never mentions family",
+              "It ignores personal experience entirely"
+            ],
+            "correct_answer": "It ties personal experience to a shared historical event"
+          },
+          {
+            "question": "Why is understanding cause and effect useful for recounting holidays?",
+            "options": [
+              "It helps explain why we celebrate them today",
+              "It has no connection to holidays",
+              "Effects never have causes",
+              "It replaces the need for facts"
+            ],
+            "correct_answer": "It helps explain why we celebrate them today"
+          },
+          {
+            "question": "Which detail fits a recount about a national holiday?",
+            "options": [
+              "What your family traditionally does that day",
+              "A random unrelated recipe",
+              "Instructions for a video game",
+              "An unrelated math problem"
+            ],
+            "correct_answer": "What your family traditionally does that day"
+          },
+          {
+            "question": "Why is it valuable to learn to write about national holidays?",
+            "options": [
+              "It connects personal life to the shared history of the country",
+              "It has no educational value",
+              "Only adults should write about holidays",
+              "It replaces learning history"
+            ],
+            "correct_answer": "It connects personal life to the shared history of the country"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Factors and Multiples\n\nGrade 4, Week 23! Let's discover factors and multiples of numbers! 🔢\n\n## 🔄 Review\nWe learned about equivalent fractions.\n\n## 🔢 What Is a Factor?\nA **factor** is a number that divides evenly into another number.\n\n**Example:** Factors of 12: 1, 2, 3, 4, 6, 12\n\n## 🔢 What Is a Multiple?\nA **multiple** is the result of multiplying a number by a whole number.\n\n**Example:** Multiples of 4: 4, 8, 12, 16, 20...\n\n## 🔍 Finding Common Factors\nCommon factors of 12 and 18: both are divisible by 1, 2, 3, and 6 — the **greatest common factor (GCF)** is **6**.\n\n**Key words:** factor, multiple, common factor, greatest common factor",
+        "quiz": [
+          {
+            "question": "What is a factor?",
+            "options": [
+              "A number that divides evenly into another number",
+              "A number multiplied by itself",
+              "The result of addition",
+              "A decimal number"
+            ],
+            "correct_answer": "A number that divides evenly into another number"
+          },
+          {
+            "question": "What is a multiple?",
+            "options": [
+              "The result of multiplying a number by a whole number",
+              "A number that divides another evenly",
+              "A fraction",
+              "A type of decimal"
+            ],
+            "correct_answer": "The result of multiplying a number by a whole number"
+          },
+          {
+            "question": "What are the factors of 12?",
+            "options": [
+              "1, 2, 3, 4, 6, 12",
+              "1, 2, 3 only",
+              "12 only",
+              "2, 4, 6, 8"
+            ],
+            "correct_answer": "1, 2, 3, 4, 6, 12"
+          },
+          {
+            "question": "What are the first four multiples of 4?",
+            "options": [
+              "4, 8, 12, 16",
+              "1, 2, 3, 4",
+              "4, 5, 6, 7",
+              "40, 80, 120, 160"
+            ],
+            "correct_answer": "4, 8, 12, 16"
+          },
+          {
+            "question": "What is the greatest common factor of 12 and 18?",
+            "options": [
+              "6",
+              "3",
+              "12",
+              "18"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "Is 5 a factor of 20?",
+            "options": [
+              "Yes, because 20 ÷ 5 = 4 evenly",
+              "No, 5 does not divide 20",
+              "Only sometimes",
+              "Cannot be determined"
+            ],
+            "correct_answer": "Yes, because 20 ÷ 5 = 4 evenly"
+          },
+          {
+            "question": "Is 15 a multiple of 5?",
+            "options": [
+              "Yes, because 5 × 3 = 15",
+              "No, 15 is not related to 5",
+              "Only sometimes",
+              "Cannot be determined"
+            ],
+            "correct_answer": "Yes, because 5 × 3 = 15"
+          },
+          {
+            "question": "What are the factors of 10?",
+            "options": [
+              "1, 2, 5, 10",
+              "1, 2, 3, 10",
+              "2, 4, 6, 10",
+              "5, 10 only"
+            ],
+            "correct_answer": "1, 2, 5, 10"
+          },
+          {
+            "question": "What is the greatest common factor of 8 and 12?",
+            "options": [
+              "4",
+              "2",
+              "8",
+              "12"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Why are common factors useful?",
+            "options": [
+              "They help simplify fractions and solve problems",
+              "They have no practical use",
+              "They only work with even numbers",
+              "They replace multiplication"
+            ],
+            "correct_answer": "They help simplify fractions and solve problems"
+          },
+          {
+            "question": "What are the first three multiples of 6?",
+            "options": [
+              "6, 12, 18",
+              "1, 2, 3",
+              "6, 7, 8",
+              "60, 120, 180"
+            ],
+            "correct_answer": "6, 12, 18"
+          },
+          {
+            "question": "How is a factor different from a multiple?",
+            "options": [
+              "A factor divides a number; a multiple is a product of a number",
+              "They are the same thing",
+              "A factor is always bigger",
+              "A multiple always divides evenly"
+            ],
+            "correct_answer": "A factor divides a number; a multiple is a product of a number"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📜 Filipino — Talambuhay: Mahalagang Pangyayari at Katangian ng Bayani\n\nGrade 4, Linggo 23! Alamin natin ang buhay ng isang bayani sa pamamagitan ng talambuhay. 📜\n\n## 🔄 Balik-Aral\nNatutuhan natin ang katangian ng epiko.\n\n## 📜 Ano ang Talambuhay?\nAng **talambuhay** ay isang salaysay tungkol sa **totoong buhay** ng isang tao, kadalasang isang bayani o taong may mahalagang naiambag sa lipunan.\n\n## 🌟 Mga Bahagi ng Talambuhay\n- **Kapanganakan at pamilya**\n- **Mahahalagang pangyayari** sa buhay\n- **Mga tagumpay at hamon**\n- **Ambag sa lipunan**\n\n## 🏆 Halimbawa: Jose Rizal\nSi Jose Rizal ay isinilang sa Calamba, Laguna. Naging manunulat siya na sumulat ng mga nobelang tumulong pukawin ang damdaming makabayan ng mga Pilipino.\n\n**Mahahalagang salita:** talambuhay, bayani, tagumpay, ambag",
+        "quiz": [
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Salaysay tungkol sa totoong buhay ng isang tao",
+              "Kathang-isip na kuwento",
+              "Isang tula",
+              "Isang liham pangkaibigan"
+            ],
+            "correct_answer": "Salaysay tungkol sa totoong buhay ng isang tao"
+          },
+          {
+            "question": "Anong bahagi ng talambuhay ang nagsasabi tungkol sa pinanggalingan?",
+            "options": [
+              "Kapanganakan at pamilya",
+              "Ambag sa lipunan lamang",
+              "Tagumpay lamang",
+              "Hamon lamang"
+            ],
+            "correct_answer": "Kapanganakan at pamilya"
+          },
+          {
+            "question": "Saan isinilang si Jose Rizal?",
+            "options": [
+              "Calamba, Laguna",
+              "Maynila",
+              "Cebu",
+              "Davao"
+            ],
+            "correct_answer": "Calamba, Laguna"
+          },
+          {
+            "question": "Ano ang naging propesyon ni Jose Rizal?",
+            "options": [
+              "Manunulat",
+              "Doktor lamang walang ibang gawain",
+              "Guro lamang",
+              "Mangangalakal"
+            ],
+            "correct_answer": "Manunulat"
+          },
+          {
+            "question": "Ano ang naitulong ng mga nobela ni Rizal?",
+            "options": [
+              "Pukawin ang damdaming makabayan ng mga Pilipino",
+              "Walang naitulong",
+              "Pabagalin ang nasyonalismo",
+              "Palakasin ang Espanya"
+            ],
+            "correct_answer": "Pukawin ang damdaming makabayan ng mga Pilipino"
+          },
+          {
+            "question": "Ano ang isang bahagi ng talambuhay na naglalarawan ng mga tagumpay at problema?",
+            "options": [
+              "Tagumpay at hamon",
+              "Kapanganakan lamang",
+              "Ambag lamang",
+              "Wala sa mga ito"
+            ],
+            "correct_answer": "Tagumpay at hamon"
+          },
+          {
+            "question": "Bakit mahalagang basahin ang talambuhay ng mga bayani?",
+            "options": [
+              "Nagbibigay ito ng inspirasyon at kaalaman sa kasaysayan",
+              "Walang kahalagahan ito",
+              "Ito ay hindi totoo",
+              "Hindi ito nauugnay sa kasalukuyan"
+            ],
+            "correct_answer": "Nagbibigay ito ng inspirasyon at kaalaman sa kasaysayan"
+          },
+          {
+            "question": "Ano ang ambag sa lipunan ni Jose Rizal?",
+            "options": [
+              "Sumulat ng mga nobelang nagpukaw ng makabayang damdamin",
+              "Nagtayo ng gusali",
+              "Naging mangangalakal",
+              "Naging sundalo ng Espanya"
+            ],
+            "correct_answer": "Sumulat ng mga nobelang nagpukaw ng makabayang damdamin"
+          },
+          {
+            "question": "Paano naiiba ang talambuhay sa epiko?",
+            "options": [
+              "Ang talambuhay ay tungkol sa totoong buhay, ang epiko ay kathang-isip",
+              "Magkatulad lamang sila",
+              "Walang pagkakaiba",
+              "Ang epiko ay tungkol sa totoong tao lamang"
+            ],
+            "correct_answer": "Ang talambuhay ay tungkol sa totoong buhay, ang epiko ay kathang-isip"
+          },
+          {
+            "question": "Bakit kasama ang mahahalagang pangyayari sa isang talambuhay?",
+            "options": [
+              "Ipinapakita nila ang mga sandaling humubog sa buhay ng bayani",
+              "Wala silang gamit",
+              "Isang random na detalye lamang",
+              "Hindi kailangan isama ang mga ito"
+            ],
+            "correct_answer": "Ipinapakita nila ang mga sandaling humubog sa buhay ng bayani"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HALIMBAWA ng talambuhay?",
+            "options": [
+              "Kuwento tungkol sa tunay na buhay ni Jose Rizal",
+              "Kathang-isip na kuwento ng aswang",
+              "Isang liham pangkaibigan",
+              "Isang balitang isport"
+            ],
+            "correct_answer": "Kuwento tungkol sa tunay na buhay ni Jose Rizal"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang bahagi ng kasaysayan ang talambuhay ng mga bayani?",
+            "options": [
+              "Ipinapakita nito kung paano naiambag ng mga indibidwal sa pag-unlad ng bansa",
+              "Walang kaugnayan sa kasaysayan",
+              "Ito ay kathang-isip lamang",
+              "Hindi mahalaga sa edukasyon"
+            ],
+            "correct_answer": "Ipinapakita nito kung paano naiambag ng mga indibidwal sa pag-unlad ng bansa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🤾 Science — Pushes and Pulls Changing Speed and Direction\n\nGrade 4, Week 23! Let's see how pushes and pulls change how things move! 🤾\n\n## 🔄 Review\nWe learned how to read distance-time graphs.\n\n## 🤾 How Forces Change Speed\nA **push or pull in the same direction** as motion makes an object go **faster**. A push or pull **opposite** to motion makes it **slower**.\n\n## 🔄 How Forces Change Direction\nA push or pull from the **side** can change the direction an object is moving.\n\n**Example:** Kicking a rolling ball from the side changes its path.\n\n## 🎯 Real-Life Examples\n- Pedaling harder on a bike (force in direction of motion) → speeds up\n- Braking a bike (force against motion) → slows down\n- Hitting a ball with a bat at an angle → changes its direction\n\n**Key words:** push, pull, speed up, slow down, change direction",
+        "quiz": [
+          {
+            "question": "What happens when a force pushes in the same direction as motion?",
+            "options": [
+              "The object speeds up",
+              "The object slows down",
+              "The object stops instantly",
+              "Nothing changes"
+            ],
+            "correct_answer": "The object speeds up"
+          },
+          {
+            "question": "What happens when a force pushes opposite to motion?",
+            "options": [
+              "The object slows down",
+              "The object speeds up",
+              "The object changes color",
+              "Nothing changes"
+            ],
+            "correct_answer": "The object slows down"
+          },
+          {
+            "question": "What can change the direction of a moving object?",
+            "options": [
+              "A push or pull from the side",
+              "Only gravity",
+              "Nothing can change direction",
+              "Only sound"
+            ],
+            "correct_answer": "A push or pull from the side"
+          },
+          {
+            "question": "Pedaling harder on a bike is an example of what?",
+            "options": [
+              "A force in the direction of motion, speeding it up",
+              "A force against motion",
+              "A force with no effect",
+              "A force changing color"
+            ],
+            "correct_answer": "A force in the direction of motion, speeding it up"
+          },
+          {
+            "question": "Braking a bike is an example of what?",
+            "options": [
+              "A force against motion, slowing it down",
+              "A force speeding it up",
+              "A force with no effect",
+              "A force changing the bike's color"
+            ],
+            "correct_answer": "A force against motion, slowing it down"
+          },
+          {
+            "question": "Hitting a rolling ball from the side changes what?",
+            "options": [
+              "Its direction",
+              "Its color",
+              "Its weight",
+              "Nothing at all"
+            ],
+            "correct_answer": "Its direction"
+          },
+          {
+            "question": "Why does kicking a ball from the side change its path?",
+            "options": [
+              "The force is applied at an angle to its motion",
+              "Kicking has no effect on a ball",
+              "The ball always goes straight regardless",
+              "Only pulling changes direction"
+            ],
+            "correct_answer": "The force is applied at an angle to its motion"
+          },
+          {
+            "question": "What force would slow down a moving skateboard?",
+            "options": [
+              "A push or pull opposite to its motion",
+              "A push in the same direction",
+              "No force at all",
+              "A force that changes its color"
+            ],
+            "correct_answer": "A push or pull opposite to its motion"
+          },
+          {
+            "question": "Why is understanding force direction important?",
+            "options": [
+              "It helps predict how an object's motion will change",
+              "It has no practical use",
+              "Force direction never matters",
+              "Only speed matters, not direction"
+            ],
+            "correct_answer": "It helps predict how an object's motion will change"
+          },
+          {
+            "question": "A soccer player kicks a ball straight ahead, then another player kicks it from the side. What happens?",
+            "options": [
+              "The ball's direction changes",
+              "The ball stops completely",
+              "Nothing happens to the ball",
+              "The ball speeds up in the same direction only"
+            ],
+            "correct_answer": "The ball's direction changes"
+          },
+          {
+            "question": "Why does hitting a ball with a bat at an angle change its direction?",
+            "options": [
+              "The force from the bat pushes the ball at that angle",
+              "Bats never affect direction",
+              "The ball changes on its own",
+              "Angles have no effect on force"
+            ],
+            "correct_answer": "The force from the bat pushes the ball at that angle"
+          },
+          {
+            "question": "If a car engine pushes the car forward while the brakes are also applied, what determines the car's speed change?",
+            "options": [
+              "Which force (forward push or braking) is stronger",
+              "The car's color",
+              "Neither force matters",
+              "The car always speeds up regardless"
+            ],
+            "correct_answer": "Which force (forward push or braking) is stronger"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏥 Araling Panlipunan — Mga Serbisyo ng Pamahalaan\n\nGrade 4, Linggo 23! Alamin natin ang mga serbisyong ibinibigay ng ating pamahalaan. 🏥\n\n## 🔄 Balik-Aral\nNatutuhan natin ang unitary presidential system.\n\n## 🏥 Mga Pangunahing Serbisyo ng Pamahalaan\n- **Edukasyon** — libreng pampublikong paaralan\n- **Kalusugan** — mga ospital at pasilidad pangkalusugan\n- **Imprastraktura** — kalsada, tulay, imbay ng tubig at kuryente\n\n## 💰 Batay sa Pambansang Badyet\nAng mga serbisyong ito ay pinondohan ng **pambansang badyet**, na nanggagaling sa buwis ng mga mamamayan.\n\n## 💡 Bakit Mahalaga Ito?\nAng mga serbisyong ito ay tumutulong sa **kagalingan ng lahat ng mamamayan**, lalo na sa mga nangangailangan.\n\n**Mahahalagang salita:** serbisyo, edukasyon, kalusugan, imprastraktura, badyet",
+        "quiz": [
+          {
+            "question": "Ano ang isang pangunahing serbisyo ng pamahalaan?",
+            "options": [
+              "Edukasyon",
+              "Paglalaro",
+              "Panonood ng TV",
+              "Pamimili"
+            ],
+            "correct_answer": "Edukasyon"
+          },
+          {
+            "question": "Anong halimbawa ng serbisyo pangkalusugan?",
+            "options": [
+              "Ospital at pasilidad pangkalusugan",
+              "Paaralan lamang",
+              "Kalsada lamang",
+              "Tulay lamang"
+            ],
+            "correct_answer": "Ospital at pasilidad pangkalusugan"
+          },
+          {
+            "question": "Anong halimbawa ng imprastraktura?",
+            "options": [
+              "Kalsada at tulay",
+              "Ospital lamang",
+              "Paaralan lamang",
+              "Simbahan lamang"
+            ],
+            "correct_answer": "Kalsada at tulay"
+          },
+          {
+            "question": "Saan galing ang pondo para sa mga serbisyong ito?",
+            "options": [
+              "Pambansang badyet mula sa buwis",
+              "Wala itong pinagmumulan",
+              "Mula sa ibang bansa lamang",
+              "Mula sa mga negosyante lamang"
+            ],
+            "correct_answer": "Pambansang badyet mula sa buwis"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong edukasyon?",
+            "options": [
+              "Nagbibigay ito ng access sa pag-aaral sa lahat ng mamamayan",
+              "Wala itong kahalagahan",
+              "Para lamang sa mayaman",
+              "Hindi ito nakakatulong"
+            ],
+            "correct_answer": "Nagbibigay ito ng access sa pag-aaral sa lahat ng mamamayan"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong pangkalusugan?",
+            "options": [
+              "Tumutulong ito panatilihin ang kalusugan ng mamamayan",
+              "Wala itong kahalagahan",
+              "Para lamang sa may sakit",
+              "Hindi ito totoong serbisyo"
+            ],
+            "correct_answer": "Tumutulong ito panatilihin ang kalusugan ng mamamayan"
+          },
+          {
+            "question": "Bakit mahalaga ang imprastraktura sa isang bansa?",
+            "options": [
+              "Nagpapadali ito ng transportasyon at komunikasyon",
+              "Wala itong kahalagahan",
+              "Para lamang sa lungsod",
+              "Hindi ito nakakatulong sa mamamayan"
+            ],
+            "correct_answer": "Nagpapadali ito ng transportasyon at komunikasyon"
+          },
+          {
+            "question": "Sino ang direktang nakikinabang sa mga serbisyo ng pamahalaan?",
+            "options": [
+              "Lahat ng mamamayan",
+              "Ang pamahalaan lamang",
+              "Mga dayuhan lamang",
+              "Walang nakikinabang"
+            ],
+            "correct_answer": "Lahat ng mamamayan"
+          },
+          {
+            "question": "Ano ang pambansang badyet?",
+            "options": [
+              "Pondo ng bansa mula sa buwis para sa mga serbisyo",
+              "Personal na pera ng Pangulo",
+              "Pera ng ibang bansa",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Pondo ng bansa mula sa buwis para sa mga serbisyo"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mga serbisyo ng pamahalaan?",
+            "options": [
+              "Para maunawaan kung paano tinutulungan ng pamahalaan ang mamamayan",
+              "Walang kaugnayan sa buhay natin",
+              "Hindi ito bahagi ng Araling Panlipunan",
+              "Hindi mahalaga ang paksang ito"
+            ],
+            "correct_answer": "Para maunawaan kung paano tinutulungan ng pamahalaan ang mamamayan"
+          },
+          {
+            "question": "Ano ang koneksyon ng buwis sa mga serbisyo ng pamahalaan?",
+            "options": [
+              "Ang buwis ang pinagmumulan ng pondo para sa mga serbisyo",
+              "Walang koneksyon ang buwis sa serbisyo",
+              "Ang buwis ay hindi ginagamit sa serbisyo",
+              "Ang serbisyo ay libre nang walang pinagmumulan"
+            ],
+            "correct_answer": "Ang buwis ang pinagmumulan ng pondo para sa mga serbisyo"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang tungkulin ng pamahalaan ang pagbibigay ng serbisyo?",
+            "options": [
+              "Tumutulong ito sa kagalingan ng lahat, lalo na ng mga nangangailangan",
+              "Walang tungkuling ganito ang pamahalaan",
+              "Hindi ito dapat pondohan",
+              "Para lamang ito sa mayaman"
+            ],
+            "correct_answer": "Tumutulong ito sa kagalingan ng lahat, lalo na ng mga nangangailangan"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔐 EPP (ICT) — Review: Online Security\n\nGrade 4, Week 23! Balikan natin ang mga alituntunin sa online security. 🔐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang algorithm at flowchart.\n\n## 🔐 Mga Alituntunin sa Online Security\n- Gumamit ng **malakas na password** (kumbinasyon ng titik, bilang, simbolo)\n- Huwag ibahagi ang password sa kahit kanino\n- Mag-log out kapag tapos na gamitin ang isang account\n- Iwasan ang pag-click sa **kahina-hinalang link**\n\n## 🚨 Pagkilala sa Phishing\nAng **phishing** ay ang pagtatangkang manloko upang makakuha ng iyong personal na impormasyon sa pamamagitan ng huwad na mensahe o website.\n\n**Mahahalagang salita:** online security, password, phishing, log out",
+        "quiz": [
+          {
+            "question": "Ano ang katangian ng malakas na password?",
+            "options": [
+              "Kumbinasyon ng titik, bilang, at simbolo",
+              "Pangalan lamang",
+              "Bilang lamang",
+              "Isang salita lamang"
+            ],
+            "correct_answer": "Kumbinasyon ng titik, bilang, at simbolo"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang password?",
+            "options": [
+              "Maaaring magamit ito upang makapasok sa iyong account",
+              "Ligtas itong ibahagi",
+              "Kinakailangan itong ibahagi sa kaibigan",
+              "Walang panganib dito"
+            ],
+            "correct_answer": "Maaaring magamit ito upang makapasok sa iyong account"
+          },
+          {
+            "question": "Bakit dapat mag-log out pagkatapos gumamit ng account?",
+            "options": [
+              "Para maiwasang ma-access ng iba ang iyong account",
+              "Hindi na kailangan gawin ito",
+              "Walang epekto ito",
+              "Ito ay nagpapabagal lamang"
+            ],
+            "correct_answer": "Para maiwasang ma-access ng iba ang iyong account"
+          },
+          {
+            "question": "Ano ang phishing?",
+            "options": [
+              "Pagtatangkang manloko upang makuha ang personal na impormasyon",
+              "Isang uri ng laro",
+              "Isang uri ng software",
+              "Isang uri ng email lamang na walang panganib"
+            ],
+            "correct_answer": "Pagtatangkang manloko upang makuha ang personal na impormasyon"
+          },
+          {
+            "question": "Ano ang dapat gawin kapag may kahina-hinalang link?",
+            "options": [
+              "Iwasang i-click ito",
+              "I-click agad",
+              "Ibahagi sa iba",
+              "Sumagot dito ng personal na impormasyon"
+            ],
+            "correct_answer": "Iwasang i-click ito"
+          },
+          {
+            "question": "Bakit mahalaga ang online security?",
+            "options": [
+              "Nakakatulong ito protektahan ang personal na impormasyon",
+              "Wala itong kahalagahan",
+              "Hindi ito totoong isyu",
+              "Ito ay para lamang sa matatanda"
+            ],
+            "correct_answer": "Nakakatulong ito protektahan ang personal na impormasyon"
+          },
+          {
+            "question": "Ano ang halimbawa ng huwad na mensahe sa phishing?",
+            "options": [
+              "Email na humihingi ng iyong password nang biglaan",
+              "Isang normal na balita",
+              "Isang liham mula sa guro",
+              "Isang alok ng libreng aklat"
+            ],
+            "correct_answer": "Email na humihingi ng iyong password nang biglaan"
+          },
+          {
+            "question": "Bakit itinuturo ang online security sa mga bata?",
+            "options": [
+              "Upang maprotektahan ang sarili sa mga panganib online",
+              "Walang layunin ito",
+              "Para hikayatin ang paggamit nang walang pag-iingat",
+              "Hindi ito bahagi ng ICT"
+            ],
+            "correct_answer": "Upang maprotektahan ang sarili sa mga panganib online"
+          },
+          {
+            "question": "Ano ang dapat gawin kung nakatanggap ka ng kahina-hinalang mensahe?",
+            "options": [
+              "Sabihin sa magulang o guro",
+              "Sagutin agad",
+              "Ibahagi sa lahat",
+              "Balewalain lamang"
+            ],
+            "correct_answer": "Sabihin sa magulang o guro"
+          },
+          {
+            "question": "Bakit hindi dapat gamitin ang parehong password sa lahat ng account?",
+            "options": [
+              "Kung na-hack ang isa, hindi maaapektuhan ang lahat",
+              "Mas madali kung parehong password",
+              "Walang epekto ito",
+              "Kinakailangan itong gawin"
+            ],
+            "correct_answer": "Kung na-hack ang isa, hindi maaapektuhan ang lahat"
+          },
+          {
+            "question": "Bakit mahalagang matutong kilalanin ang phishing?",
+            "options": [
+              "Upang maiwasang mabiktima ng panloloko online",
+              "Walang gamit ito",
+              "Phishing ay hindi totoong panganib",
+              "Hindi ito nauugnay sa online safety"
+            ],
+            "correct_answer": "Upang maiwasang mabiktima ng panloloko online"
+          },
+          {
+            "question": "Ano ang pangkalahatang aral tungkol sa online security?",
+            "options": [
+              "Maging maingat at protektahan ang personal na impormasyon",
+              "Ibahagi ang lahat ng impormasyon",
+              "Hindi kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Maging maingat at protektahan ang personal na impormasyon"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎭 MAPEH — Teatro at Sayaw ng Alamat; Karapatan sa Kalusugan\n\nGrade 4, Linggo 23! Alamin natin ang teatro na kaugnay ng alamat at ang ating karapatan sa kalusugan. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dance exercise at movement exploration.\n\n## 🎭 Teatro at Sayaw ng Alamat\nMaraming lokal na sayaw at teatro ang inspirado sa mga **alamat at kuwentong-bayan**, na nagpapakita ng kwento sa pamamagitan ng galaw at pananamit.\n\n## ⚖️ Karapatan sa Kalusugan ng Bata\nBilang bata, may karapatan kang:\n- Magkaroon ng access sa **malinis na pagkain at tubig**\n- Makatanggap ng **pangangalagang medikal**\n- Mabuhay sa **ligtas na kapaligiran**\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa ating karapatan sa kalusugan ay tumutulong maprotektahan ang ating kagalingan.\n\n**Mahahalagang salita:** teatro, alamat, karapatan sa kalusugan, kagalingan",
+        "quiz": [
+          {
+            "question": "Saan hango ang maraming lokal na sayaw at teatro?",
+            "options": [
+              "Alamat at kuwentong-bayan",
+              "Modernong teknolohiya",
+              "Batas komersyo",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Alamat at kuwentong-bayan"
+          },
+          {
+            "question": "Anong karapatan sa kalusugan mayroon ang isang bata?",
+            "options": [
+              "Access sa malinis na pagkain at tubig",
+              "Karapatang huwag pumasok sa paaralan",
+              "Karapatang huwag matulog",
+              "Walang karapatan"
+            ],
+            "correct_answer": "Access sa malinis na pagkain at tubig"
+          },
+          {
+            "question": "Ano pang karapatan sa kalusugan ng bata?",
+            "options": [
+              "Pangangalagang medikal",
+              "Walang karapatan sa kalusugan",
+              "Karapatang magtrabaho lamang",
+              "Karapatang huwag kumain"
+            ],
+            "correct_answer": "Pangangalagang medikal"
+          },
+          {
+            "question": "Ano ang ipinapakita ng teatro at sayaw na inspirado sa alamat?",
+            "options": [
+              "Kuwento sa pamamagitan ng galaw at pananamit",
+              "Walang kuwento",
+              "Modernong teknolohiya lamang",
+              "Batas komersyo"
+            ],
+            "correct_answer": "Kuwento sa pamamagitan ng galaw at pananamit"
+          },
+          {
+            "question": "Bakit mahalaga ang ligtas na kapaligiran para sa bata?",
+            "options": [
+              "Nakakatulong ito sa kanilang kaligtasan at kalusugan",
+              "Walang kahalagahan",
+              "Hindi na ito kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nakakatulong ito sa kanilang kaligtasan at kalusugan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ng bata ang kanilang karapatan sa kalusugan?",
+            "options": [
+              "Tumutulong itong protektahan ang kanilang kagalingan",
+              "Walang kahalagahan",
+              "Hindi na ito kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Tumutulong itong protektahan ang kanilang kagalingan"
+          },
+          {
+            "question": "Bakit itinuturo ang alamat sa pamamagitan ng sayaw at teatro?",
+            "options": [
+              "Nagpapanatili ito ng kuwento at kultura sa isang masining na paraan",
+              "Walang layunin ito",
+              "Hindi ito kaugnay ng kultura",
+              "Ito ay bagong likha lamang"
+            ],
+            "correct_answer": "Nagpapanatili ito ng kuwento at kultura sa isang masining na paraan"
+          },
+          {
+            "question": "Sino ang may pananagutang tiyakin ang karapatan sa kalusugan ng bata?",
+            "options": [
+              "Pamilya, komunidad, at pamahalaan",
+              "Walang sinuman",
+              "Ang bata na lamang",
+              "Estranghero lamang"
+            ],
+            "correct_answer": "Pamilya, komunidad, at pamahalaan"
+          },
+          {
+            "question": "Ano ang koneksyon ng sayaw ng alamat sa kulturang Pilipino?",
+            "options": [
+              "Ipinapakita nito ang mayamang tradisyon ng pagkukwento ng mga Pilipino",
+              "Walang koneksyon ito sa kultura",
+              "Ito ay galing sa ibang bansa",
+              "Hindi ito bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita nito ang mayamang tradisyon ng pagkukwento ng mga Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang matutong pahalagahan ang sariling karapatan?",
+            "options": [
+              "Upang malaman kung kailan kailangan humingi ng tulong",
+              "Hindi na kailangan malaman ito",
+              "Para sa matatanda lamang",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang malaman kung kailan kailangan humingi ng tulong"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi natutugunan ang karapatan sa kalusugan ng bata?",
+            "options": [
+              "Maaaring maapektuhan ang kanilang kagalingan at pag-unlad",
+              "Walang mangyayari",
+              "Palaging maayos ang lahat",
+              "Awtomatikong protektado sila"
+            ],
+            "correct_answer": "Maaaring maapektuhan ang kanilang kagalingan at pag-unlad"
+          },
+          {
+            "question": "Bakit isinasama ang mga alamat sa likhang-sining sa halip na basahin lamang bilang teksto?",
+            "options": [
+              "Nagbibigay ito ng ibang paraan ng pagpapahalaga sa kuwento",
+              "Walang dahilan",
+              "Hindi na kailangan basahin ang alamat",
+              "Mas mahirap intindihin sa pamamagitan ng sining"
+            ],
+            "correct_answer": "Nagbibigay ito ng ibang paraan ng pagpapahalaga sa kuwento"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧺 EPP (FCS) — Tungkuling Pantahanan: Paglilinis at Paglalaba\n\nGrade 4, Linggo 23! Matuto pa tayo ng mga gawaing pantahanan. 🧺\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagsasaing at paghuhugas.\n\n## 🧹 Tamang Paglilinis ng Tahanan\n1. Ligpitin ang mga kalat\n2. Magwalis at magpahid ng sahig\n3. Punasan ang mga kagamitan\n\n## 👕 Tamang Paglalaba\n1. Ihiwalay ang maputi sa makulay na damit\n2. Gumamit ng tamang dami ng sabon\n3. Banlawan nang mabuti\n4. Isampay upang matuyo\n\n## 🔥 Pamamalantsa\nGamit ang plantsa, tiyaking naka-set sa tamang temperatura ayon sa uri ng tela para hindi masunog ang damit.\n\n**Mahahalagang salita:** paglilinis, paglalaba, pamamalantsa, tungkuling pantahanan",
+        "quiz": [
+          {
+            "question": "Ano ang unang hakbang sa paglilinis ng tahanan?",
+            "options": [
+              "Ligpitin ang mga kalat",
+              "Direktang magwalis nang walang ligpit",
+              "Kalimutan ang paglilinis",
+              "Isara ang bintana"
+            ],
+            "correct_answer": "Ligpitin ang mga kalat"
+          },
+          {
+            "question": "Ano ang dapat unang gawin sa paglalaba?",
+            "options": [
+              "Ihiwalay ang maputi sa makulay na damit",
+              "Direktang labhan nang magkakahalo",
+              "Kalimutan ang paglalaba",
+              "Basta itapon lang sa makina"
+            ],
+            "correct_answer": "Ihiwalay ang maputi sa makulay na damit"
+          },
+          {
+            "question": "Bakit ihiwalay ang maputi sa makulay na damit?",
+            "options": [
+              "Para maiwasan ang pagtina ng kulay sa maputing damit",
+              "Walang dahilan",
+              "Para mabilis matuyo",
+              "Para gumamit ng mas kaunting sabon"
+            ],
+            "correct_answer": "Para maiwasan ang pagtina ng kulay sa maputing damit"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang temperatura ng plantsa?",
+            "options": [
+              "Para hindi masunog ang tela",
+              "Walang kaugnayan sa tela",
+              "Basta't mainit ay okay na",
+              "Hindi mahalaga ang temperatura"
+            ],
+            "correct_answer": "Para hindi masunog ang tela"
+          },
+          {
+            "question": "Ano ang gagawin pagkatapos labhan ang damit?",
+            "options": [
+              "Banlawan nang mabuti at isampay",
+              "Isuot agad na basa pa",
+              "Itapon ang damit",
+              "Kalimutan ang labada"
+            ],
+            "correct_answer": "Banlawan nang mabuti at isampay"
+          },
+          {
+            "question": "Bakit mahalaga ang paglilinis ng tahanan?",
+            "options": [
+              "Nagpapanatili ito ng malinis at malusog na kapaligiran",
+              "Walang kahalagahan",
+              "Hindi na kailangan gawin ito",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Nagpapanatili ito ng malinis at malusog na kapaligiran"
+          },
+          {
+            "question": "Ano ang gagamitin para punasan ang mga kagamitan?",
+            "options": [
+              "Basang tela o basahan",
+              "Gunting",
+              "Karayom",
+              "Sabon lamang nang walang tela"
+            ],
+            "correct_answer": "Basang tela o basahan"
+          },
+          {
+            "question": "Bakit mahalagang matutong maglaba nang tama?",
+            "options": [
+              "Nakakatulong itong maalagaan ang damit at makatulong sa pamilya",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi ito kailangang matutunan"
+            ],
+            "correct_answer": "Nakakatulong itong maalagaan ang damit at makatulong sa pamilya"
+          },
+          {
+            "question": "Ano ang mangyayari kung hindi banlawan nang mabuti ang labada?",
+            "options": [
+              "Maaaring may matirang sabon sa damit",
+              "Walang mangyayari",
+              "Mas malinis ang resulta",
+              "Mas mabilis matuyo"
+            ],
+            "correct_answer": "Maaaring may matirang sabon sa damit"
+          },
+          {
+            "question": "Bakit itinuturo ang mga gawaing pantahanan sa EPP?",
+            "options": [
+              "Upang matutong mag-alaga ng sariling tahanan at pamilya",
+              "Walang layunin ito",
+              "Para sa mga babae lamang",
+              "Hindi ito bahagi ng edukasyon"
+            ],
+            "correct_answer": "Upang matutong mag-alaga ng sariling tahanan at pamilya"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang bago magplantsa ng damit?",
+            "options": [
+              "Uri ng tela at tamang temperatura",
+              "Kulay ng plantsa lamang",
+              "Oras ng araw lamang",
+              "Walang dapat isaalang-alang"
+            ],
+            "correct_answer": "Uri ng tela at tamang temperatura"
+          },
+          {
+            "question": "Bakit mahalagang tumulong sa gawaing bahay simula sa murang edad?",
+            "options": [
+              "Nagtuturo ito ng pananagutan at kasanayan sa buhay",
+              "Hindi na kailangan matutunan ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito sa hinaharap"
+            ],
+            "correct_answer": "Nagtuturo ito ng pananagutan at kasanayan sa buhay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤗 GMRC — Pagkakapantay-pantay sa Kabila ng Pagkakaiba\n\nGrade 4, Linggo 23! Pagpapahalaga: **Magalang (Respectful)**. 🤗\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkulin ng pamilya sa kapuwa.\n\n## 🤗 Ano ang Pagkakapantay-pantay?\nAng **pagkakapantay-pantay** ay ang paniniwalang dapat igalang at tratuhin nang pantay-pantay ang bawat tao, **anuman ang pagkakaiba** nila sa relihiyon, kultura, o kakayahan.\n\n## 🌈 Paggalang sa Pagkakaiba\n- Igalang ang taong may ibang relihiyon\n- Igalang ang taong may kapansanan\n- Igalang ang taong galing sa ibang kultura o rehiyon\n\n## 💡 Bakit Mahalaga Ito?\nAng pagkilala sa pagkakapantay-pantay ay nagtataguyod ng **kapayapaan** at **pag-unawa** sa isang magkakaibang komunidad.\n\n**Mahahalagang salita:** pagkakapantay-pantay, magalang, pagkakaiba, pag-unawa",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakapantay-pantay?",
+            "options": [
+              "Paniniwalang dapat igalang ang bawat tao anuman ang pagkakaiba",
+              "Paniniwalang mas mataas ang isang uri ng tao",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa taong iba"
+            ],
+            "correct_answer": "Paniniwalang dapat igalang ang bawat tao anuman ang pagkakaiba"
+          },
+          {
+            "question": "Anong halimbawa ng paggalang sa pagkakaiba?",
+            "options": [
+              "Igalang ang taong may ibang relihiyon",
+              "Kutyain ang may ibang relihiyon",
+              "Iwasan ang taong may kapansanan",
+              "Manlait sa ibang kultura"
+            ],
+            "correct_answer": "Igalang ang taong may ibang relihiyon"
+          },
+          {
+            "question": "Anong pagpapahalaga ang tinatalakay ngayong linggo?",
+            "options": [
+              "Magalang (Respectful)",
+              "Matipid",
+              "Mapagmalasakit",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Magalang (Respectful)"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang taong may kapansanan?",
+            "options": [
+              "May pantay na karapatan at dignidad ang lahat",
+              "Wala silang karapatan",
+              "Mas mababa ang kanilang halaga",
+              "Hindi sila kailangang igalang"
+            ],
+            "correct_answer": "May pantay na karapatan at dignidad ang lahat"
+          },
+          {
+            "question": "Ano ang naidudulot ng pagkilala sa pagkakapantay-pantay?",
+            "options": [
+              "Kapayapaan at pag-unawa",
+              "Away at hindi pagkakaunawaan",
+              "Walang naidudulot",
+              "Higit na paghihiwalay"
+            ],
+            "correct_answer": "Kapayapaan at pag-unawa"
+          },
+          {
+            "question": "Bakit hindi dapat kutyain ang taong may ibang kultura?",
+            "options": [
+              "Ang bawat kultura ay may sariling halaga at dapat igalang",
+              "Ang ibang kultura ay palaging mali",
+              "Hindi kailangang igalang ang ibang kultura",
+              "Walang kaugnayan ang kultura sa paggalang"
+            ],
+            "correct_answer": "Ang bawat kultura ay may sariling halaga at dapat igalang"
+          },
+          {
+            "question": "Bakit itinuturing na magalang ang pagkilala sa pagkakapantay-pantay?",
+            "options": [
+              "Nagpapakita ito ng respeto sa bawat tao",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi lamang ito ng agham",
+              "Hindi ito itinuro sa paaralan"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa bawat tao"
+          },
+          {
+            "question": "Ano ang dapat gawin kung may kaklaseng ibang relihiyon o kultura?",
+            "options": [
+              "Igalang siya at maging kaibigan sa kanya",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan siyang makisama"
+            ],
+            "correct_answer": "Igalang siya at maging kaibigan sa kanya"
+          },
+          {
+            "question": "Bakit mahalagang ituro ang pagkakapantay-pantay sa mga bata mula ngayon?",
+            "options": [
+              "Upang maging magalang at bukas ang isipan sa pagkakaiba paglaki",
+              "Hindi na kailangan ituro ito",
+              "Para sa matatanda lamang ito",
+              "Walang epekto ito"
+            ],
+            "correct_answer": "Upang maging magalang at bukas ang isipan sa pagkakaiba paglaki"
+          },
+          {
+            "question": "Ano ang mangyayari kung walang paggalang sa pagkakaiba ng tao sa isang komunidad?",
+            "options": [
+              "Maaaring magkaroon ng away at hindi pagkakaunawaan",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Awtomatikong maayos"
+            ],
+            "correct_answer": "Maaaring magkaroon ng away at hindi pagkakaunawaan"
+          },
+          {
+            "question": "Paano nauugnay ang pagkakapantay-pantay sa tungkulin ng pamilya sa kapuwa na natutunan noong nakaraang linggo?",
+            "options": [
+              "Pareho silang tumatalakay sa pagpapahalaga sa iba",
+              "Walang kaugnayan ang dalawa",
+              "Isa ay tungkol sa agham",
+              "Isa ay tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho silang tumatalakay sa pagpapahalaga sa iba"
+          },
+          {
+            "question": "Bakit itinuturing na magalang ang paggalang sa taong may kapansanan?",
+            "options": [
+              "Nagpapakita ito ng respeto sa dignidad ng bawat tao",
+              "Wala itong kaugnayan sa respeto",
+              "Hindi kailangang igalang ang mga PWD",
+              "Nagpapakita ito ng kahinaan"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa dignidad ng bawat tao"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🎉 Friday Review — English (Grade 4)\n\n- Recounting national holidays: history and personal experience\n\nGreat historical recount writing! 🌟",
+        "quiz": [
+          {
+            "question": "What can a holiday recount connect?",
+            "options": [
+              "Personal experience to historical significance",
+              "Only random facts",
+              "Nothing meaningful",
+              "Only future predictions"
+            ],
+            "correct_answer": "Personal experience to historical significance"
+          },
+          {
+            "question": "What historical event might cause Independence Day?",
+            "options": [
+              "Declaring independence from a colonizer",
+              "A random modern event",
+              "Nothing historical",
+              "A weather event"
+            ],
+            "correct_answer": "Declaring independence from a colonizer"
+          },
+          {
+            "question": "What to introduce first in a holiday recount?",
+            "options": [
+              "The holiday and when it happens",
+              "Only the ending",
+              "A random topic",
+              "Nothing specific"
+            ],
+            "correct_answer": "The holiday and when it happens"
+          },
+          {
+            "question": "Why include what your family does?",
+            "options": [
+              "Personalizes the recount with real experience",
+              "No purpose",
+              "Replaces historical connection",
+              "Should be avoided"
+            ],
+            "correct_answer": "Personalizes the recount with real experience"
+          },
+          {
+            "question": "Why connect a holiday to history?",
+            "options": [
+              "Explains why the celebration matters",
+              "No real purpose",
+              "History unrelated to holidays",
+              "Only confuses"
+            ],
+            "correct_answer": "Explains why the celebration matters"
+          },
+          {
+            "question": "'This day reminds us of the bravery...' shows what?",
+            "options": [
+              "Connection between experience and history",
+              "Unrelated fact",
+              "Procedural instruction",
+              "Random question"
+            ],
+            "correct_answer": "Connection between experience and history"
+          },
+          {
+            "question": "What is cause and effect here?",
+            "options": [
+              "Historical event caused today's celebration",
+              "No causes exist",
+              "History and celebrations unrelated",
+              "Only effects exist"
+            ],
+            "correct_answer": "Historical event caused today's celebration"
+          },
+          {
+            "question": "Why watch a flag ceremony on Independence Day?",
+            "options": [
+              "Honor the historical struggle for freedom",
+              "No meaning",
+              "Simply required by law",
+              "Unrelated to history"
+            ],
+            "correct_answer": "Honor the historical struggle for freedom"
+          },
+          {
+            "question": "What makes a holiday recount different from a diary entry?",
+            "options": [
+              "Ties personal experience to shared history",
+              "No difference",
+              "Never mentions family",
+              "Ignores personal experience"
+            ],
+            "correct_answer": "Ties personal experience to shared history"
+          },
+          {
+            "question": "Why understand cause and effect for holidays?",
+            "options": [
+              "Explains why we celebrate today",
+              "No connection",
+              "Effects never have causes",
+              "Replaces facts"
+            ],
+            "correct_answer": "Explains why we celebrate today"
+          },
+          {
+            "question": "Which detail fits a holiday recount?",
+            "options": [
+              "What your family traditionally does",
+              "An unrelated recipe",
+              "Video game instructions",
+              "An unrelated math problem"
+            ],
+            "correct_answer": "What your family traditionally does"
+          },
+          {
+            "question": "Why is writing about holidays valuable?",
+            "options": [
+              "Connects personal life to shared national history",
+              "No educational value",
+              "Only adults should write about it",
+              "Replaces learning history"
+            ],
+            "correct_answer": "Connects personal life to shared national history"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 4)\n\n- Factors, multiples, and greatest common factor\n\nGreat number sense work! ⭐",
+        "quiz": [
+          {
+            "question": "What is a factor?",
+            "options": [
+              "A number that divides evenly into another number",
+              "A number multiplied by itself",
+              "Result of addition",
+              "A decimal"
+            ],
+            "correct_answer": "A number that divides evenly into another number"
+          },
+          {
+            "question": "What is a multiple?",
+            "options": [
+              "Result of multiplying by a whole number",
+              "A number that divides evenly",
+              "A fraction",
+              "A type of decimal"
+            ],
+            "correct_answer": "Result of multiplying by a whole number"
+          },
+          {
+            "question": "Factors of 12?",
+            "options": [
+              "1, 2, 3, 4, 6, 12",
+              "1, 2, 3 only",
+              "12 only",
+              "2, 4, 6, 8"
+            ],
+            "correct_answer": "1, 2, 3, 4, 6, 12"
+          },
+          {
+            "question": "First four multiples of 4?",
+            "options": [
+              "4, 8, 12, 16",
+              "1, 2, 3, 4",
+              "4, 5, 6, 7",
+              "40, 80, 120, 160"
+            ],
+            "correct_answer": "4, 8, 12, 16"
+          },
+          {
+            "question": "GCF of 12 and 18?",
+            "options": [
+              "6",
+              "3",
+              "12",
+              "18"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "Is 5 a factor of 20?",
+            "options": [
+              "Yes, 20 ÷ 5 = 4 evenly",
+              "No",
+              "Only sometimes",
+              "Cannot determine"
+            ],
+            "correct_answer": "Yes, 20 ÷ 5 = 4 evenly"
+          },
+          {
+            "question": "Is 15 a multiple of 5?",
+            "options": [
+              "Yes, 5 × 3 = 15",
+              "No",
+              "Only sometimes",
+              "Cannot determine"
+            ],
+            "correct_answer": "Yes, 5 × 3 = 15"
+          },
+          {
+            "question": "Factors of 10?",
+            "options": [
+              "1, 2, 5, 10",
+              "1, 2, 3, 10",
+              "2, 4, 6, 10",
+              "5, 10 only"
+            ],
+            "correct_answer": "1, 2, 5, 10"
+          },
+          {
+            "question": "GCF of 8 and 12?",
+            "options": [
+              "4",
+              "2",
+              "8",
+              "12"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Why are common factors useful?",
+            "options": [
+              "Simplify fractions and solve problems",
+              "No practical use",
+              "Only for even numbers",
+              "Replace multiplication"
+            ],
+            "correct_answer": "Simplify fractions and solve problems"
+          },
+          {
+            "question": "First three multiples of 6?",
+            "options": [
+              "6, 12, 18",
+              "1, 2, 3",
+              "6, 7, 8",
+              "60, 120, 180"
+            ],
+            "correct_answer": "6, 12, 18"
+          },
+          {
+            "question": "How is a factor different from a multiple?",
+            "options": [
+              "Factor divides a number; multiple is a product",
+              "Same thing",
+              "Factor always bigger",
+              "Multiple always divides evenly"
+            ],
+            "correct_answer": "Factor divides a number; multiple is a product"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📜 Friday Review — Filipino (Grade 4)\n\n- Talambuhay: mahalagang pangyayari, ambag ng bayani\n\nMagaling sa Filipino! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang talambuhay?",
+            "options": [
+              "Salaysay tungkol sa totoong buhay",
+              "Kathang-isip na kuwento",
+              "Isang tula",
+              "Liham pangkaibigan"
+            ],
+            "correct_answer": "Salaysay tungkol sa totoong buhay"
+          },
+          {
+            "question": "Bahagi ng talambuhay tungkol sa pinanggalingan?",
+            "options": [
+              "Kapanganakan at pamilya",
+              "Ambag lamang",
+              "Tagumpay lamang",
+              "Hamon lamang"
+            ],
+            "correct_answer": "Kapanganakan at pamilya"
+          },
+          {
+            "question": "Saan isinilang si Jose Rizal?",
+            "options": [
+              "Calamba, Laguna",
+              "Maynila",
+              "Cebu",
+              "Davao"
+            ],
+            "correct_answer": "Calamba, Laguna"
+          },
+          {
+            "question": "Propesyon ni Jose Rizal?",
+            "options": [
+              "Manunulat",
+              "Doktor lamang",
+              "Guro lamang",
+              "Mangangalakal"
+            ],
+            "correct_answer": "Manunulat"
+          },
+          {
+            "question": "Naitulong ng nobela ni Rizal?",
+            "options": [
+              "Pukawin ang damdaming makabayan",
+              "Wala",
+              "Pabagalin ang nasyonalismo",
+              "Palakasin ang Espanya"
+            ],
+            "correct_answer": "Pukawin ang damdaming makabayan"
+          },
+          {
+            "question": "Bahagi ng talambuhay na naglalarawan ng problema?",
+            "options": [
+              "Tagumpay at hamon",
+              "Kapanganakan lamang",
+              "Ambag lamang",
+              "Wala"
+            ],
+            "correct_answer": "Tagumpay at hamon"
+          },
+          {
+            "question": "Bakit basahin ang talambuhay ng bayani?",
+            "options": [
+              "Inspirasyon at kaalaman sa kasaysayan",
+              "Walang kahalagahan",
+              "Hindi totoo",
+              "Hindi nauugnay ngayon"
+            ],
+            "correct_answer": "Inspirasyon at kaalaman sa kasaysayan"
+          },
+          {
+            "question": "Ambag ni Jose Rizal?",
+            "options": [
+              "Nobelang nagpukaw ng makabayang damdamin",
+              "Nagtayo ng gusali",
+              "Naging mangangalakal",
+              "Naging sundalo ng Espanya"
+            ],
+            "correct_answer": "Nobelang nagpukaw ng makabayang damdamin"
+          },
+          {
+            "question": "Pagkakaiba ng talambuhay sa epiko?",
+            "options": [
+              "Talambuhay totoong buhay, epiko kathang-isip",
+              "Magkatulad lamang",
+              "Walang pagkakaiba",
+              "Epiko tungkol sa totoong tao"
+            ],
+            "correct_answer": "Talambuhay totoong buhay, epiko kathang-isip"
+          },
+          {
+            "question": "Bakit kasama ang mahahalagang pangyayari sa talambuhay?",
+            "options": [
+              "Ipinapakita ang sandaling humubog sa bayani",
+              "Wala silang gamit",
+              "Random na detalye lamang",
+              "Hindi kailangan isama"
+            ],
+            "correct_answer": "Ipinapakita ang sandaling humubog sa bayani"
+          },
+          {
+            "question": "Halimbawa ng talambuhay?",
+            "options": [
+              "Kuwento ng tunay na buhay ni Rizal",
+              "Kathang-isip na kuwento ng aswang",
+              "Liham pangkaibigan",
+              "Balitang isport"
+            ],
+            "correct_answer": "Kuwento ng tunay na buhay ni Rizal"
+          },
+          {
+            "question": "Bakit mahalaga ang talambuhay ng bayani sa kasaysayan?",
+            "options": [
+              "Ipinapakita ang ambag ng indibidwal sa pag-unlad ng bansa",
+              "Walang kaugnayan sa kasaysayan",
+              "Kathang-isip lamang",
+              "Hindi mahalaga sa edukasyon"
+            ],
+            "correct_answer": "Ipinapakita ang ambag ng indibidwal sa pag-unlad ng bansa"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🤾 Friday Review — Science (Grade 4)\n\n- Pushes and pulls: speed and direction\n\nGreat force review! 🌟",
+        "quiz": [
+          {
+            "question": "Force pushing in same direction as motion?",
+            "options": [
+              "Speeds it up",
+              "Slows it down",
+              "Stops it instantly",
+              "Nothing changes"
+            ],
+            "correct_answer": "Speeds it up"
+          },
+          {
+            "question": "Force pushing opposite to motion?",
+            "options": [
+              "Slows it down",
+              "Speeds it up",
+              "Changes color",
+              "Nothing changes"
+            ],
+            "correct_answer": "Slows it down"
+          },
+          {
+            "question": "What changes direction of a moving object?",
+            "options": [
+              "A push or pull from the side",
+              "Only gravity",
+              "Nothing",
+              "Only sound"
+            ],
+            "correct_answer": "A push or pull from the side"
+          },
+          {
+            "question": "Pedaling harder on a bike is an example of?",
+            "options": [
+              "Force in direction of motion, speeding up",
+              "Force against motion",
+              "Force with no effect",
+              "Force changing color"
+            ],
+            "correct_answer": "Force in direction of motion, speeding up"
+          },
+          {
+            "question": "Braking a bike is an example of?",
+            "options": [
+              "Force against motion, slowing down",
+              "Force speeding up",
+              "Force with no effect",
+              "Force changing color"
+            ],
+            "correct_answer": "Force against motion, slowing down"
+          },
+          {
+            "question": "Hitting a rolling ball from the side changes?",
+            "options": [
+              "Its direction",
+              "Its color",
+              "Its weight",
+              "Nothing"
+            ],
+            "correct_answer": "Its direction"
+          },
+          {
+            "question": "Why does kicking a ball from the side change its path?",
+            "options": [
+              "Force applied at an angle to motion",
+              "Kicking has no effect",
+              "Ball always goes straight",
+              "Only pulling changes direction"
+            ],
+            "correct_answer": "Force applied at an angle to motion"
+          },
+          {
+            "question": "What slows down a moving skateboard?",
+            "options": [
+              "Push/pull opposite to motion",
+              "Push in same direction",
+              "No force",
+              "Force changing color"
+            ],
+            "correct_answer": "Push/pull opposite to motion"
+          },
+          {
+            "question": "Why understand force direction?",
+            "options": [
+              "Predicts how motion will change",
+              "No practical use",
+              "Direction never matters",
+              "Only speed matters"
+            ],
+            "correct_answer": "Predicts how motion will change"
+          },
+          {
+            "question": "Ball kicked straight, then kicked from side: result?",
+            "options": [
+              "Direction changes",
+              "Ball stops completely",
+              "Nothing happens",
+              "Ball speeds up same direction"
+            ],
+            "correct_answer": "Direction changes"
+          },
+          {
+            "question": "Why does hitting a ball at an angle change direction?",
+            "options": [
+              "Force from bat pushes at that angle",
+              "Bats never affect direction",
+              "Ball changes on its own",
+              "Angles have no effect"
+            ],
+            "correct_answer": "Force from bat pushes at that angle"
+          },
+          {
+            "question": "Car pushed forward while braking: what determines speed change?",
+            "options": [
+              "Which force is stronger",
+              "The car's color",
+              "Neither force matters",
+              "Car always speeds up"
+            ],
+            "correct_answer": "Which force is stronger"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🏥 Friday Review — Araling Panlipunan (Grade 4)\n\n- Mga serbisyo ng pamahalaan: edukasyon, kalusugan, imprastraktura\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Isang pangunahing serbisyo ng pamahalaan?",
+            "options": [
+              "Edukasyon",
+              "Paglalaro",
+              "Panonood ng TV",
+              "Pamimili"
+            ],
+            "correct_answer": "Edukasyon"
+          },
+          {
+            "question": "Halimbawa ng serbisyo pangkalusugan?",
+            "options": [
+              "Ospital at pasilidad pangkalusugan",
+              "Paaralan lamang",
+              "Kalsada lamang",
+              "Tulay lamang"
+            ],
+            "correct_answer": "Ospital at pasilidad pangkalusugan"
+          },
+          {
+            "question": "Halimbawa ng imprastraktura?",
+            "options": [
+              "Kalsada at tulay",
+              "Ospital lamang",
+              "Paaralan lamang",
+              "Simbahan lamang"
+            ],
+            "correct_answer": "Kalsada at tulay"
+          },
+          {
+            "question": "Saan galing ang pondo?",
+            "options": [
+              "Pambansang badyet mula sa buwis",
+              "Walang pinagmumulan",
+              "Ibang bansa lamang",
+              "Negosyante lamang"
+            ],
+            "correct_answer": "Pambansang badyet mula sa buwis"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong edukasyon?",
+            "options": [
+              "Access sa pag-aaral sa lahat",
+              "Walang kahalagahan",
+              "Para sa mayaman lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Access sa pag-aaral sa lahat"
+          },
+          {
+            "question": "Bakit mahalaga ang serbisyong pangkalusugan?",
+            "options": [
+              "Panatilihin ang kalusugan ng mamamayan",
+              "Walang kahalagahan",
+              "Para sa may sakit lamang",
+              "Hindi totoong serbisyo"
+            ],
+            "correct_answer": "Panatilihin ang kalusugan ng mamamayan"
+          },
+          {
+            "question": "Bakit mahalaga ang imprastraktura?",
+            "options": [
+              "Nagpapadali ng transportasyon at komunikasyon",
+              "Walang kahalagahan",
+              "Para sa lungsod lamang",
+              "Hindi nakakatulong"
+            ],
+            "correct_answer": "Nagpapadali ng transportasyon at komunikasyon"
+          },
+          {
+            "question": "Sino nakikinabang sa serbisyo ng pamahalaan?",
+            "options": [
+              "Lahat ng mamamayan",
+              "Pamahalaan lamang",
+              "Mga dayuhan lamang",
+              "Walang nakikinabang"
+            ],
+            "correct_answer": "Lahat ng mamamayan"
+          },
+          {
+            "question": "Ano ang pambansang badyet?",
+            "options": [
+              "Pondo ng bansa mula sa buwis",
+              "Personal na pera ng Pangulo",
+              "Pera ng ibang bansa",
+              "Walang kahulugan"
+            ],
+            "correct_answer": "Pondo ng bansa mula sa buwis"
+          },
+          {
+            "question": "Bakit malaman ang serbisyo ng pamahalaan?",
+            "options": [
+              "Maunawaan kung paano tinutulungan ng pamahalaan",
+              "Walang kaugnayan sa buhay",
+              "Hindi bahagi ng AP",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Maunawaan kung paano tinutulungan ng pamahalaan"
+          },
+          {
+            "question": "Koneksyon ng buwis sa serbisyo?",
+            "options": [
+              "Buwis ang pinagmumulan ng pondo",
+              "Walang koneksyon",
+              "Hindi ginagamit sa serbisyo",
+              "Libre nang walang pinagmumulan"
+            ],
+            "correct_answer": "Buwis ang pinagmumulan ng pondo"
+          },
+          {
+            "question": "Bakit mahalagang tungkulin ng pamahalaan ang serbisyo?",
+            "options": [
+              "Tumutulong sa kagalingan ng lahat",
+              "Walang ganitong tungkulin",
+              "Hindi dapat pondohan",
+              "Para sa mayaman lamang"
+            ],
+            "correct_answer": "Tumutulong sa kagalingan ng lahat"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🔐 Friday Review — EPP (ICT) (Grade 4)\n\n- Online security at phishing\n\nMagaling sa ICT! 🌟",
+        "quiz": [
+          {
+            "question": "Katangian ng malakas na password?",
+            "options": [
+              "Kumbinasyon ng titik, bilang, simbolo",
+              "Pangalan lamang",
+              "Bilang lamang",
+              "Isang salita"
+            ],
+            "correct_answer": "Kumbinasyon ng titik, bilang, simbolo"
+          },
+          {
+            "question": "Bakit hindi ibahagi ang password?",
+            "options": [
+              "Magagamit para makapasok sa account",
+              "Ligtas ibahagi",
+              "Kinakailangan ibahagi",
+              "Walang panganib"
+            ],
+            "correct_answer": "Magagamit para makapasok sa account"
+          },
+          {
+            "question": "Bakit mag-log out pagkagamit?",
+            "options": [
+              "Iwasang ma-access ng iba",
+              "Hindi kailangan gawin",
+              "Walang epekto",
+              "Nagpapabagal lamang"
+            ],
+            "correct_answer": "Iwasang ma-access ng iba"
+          },
+          {
+            "question": "Ano ang phishing?",
+            "options": [
+              "Pagtatangkang manloko para makuha impormasyon",
+              "Uri ng laro",
+              "Uri ng software",
+              "Email na walang panganib"
+            ],
+            "correct_answer": "Pagtatangkang manloko para makuha impormasyon"
+          },
+          {
+            "question": "Gawin kung may kahina-hinalang link?",
+            "options": [
+              "Iwasang i-click",
+              "I-click agad",
+              "Ibahagi sa iba",
+              "Sumagot dito"
+            ],
+            "correct_answer": "Iwasang i-click"
+          },
+          {
+            "question": "Bakit mahalaga ang online security?",
+            "options": [
+              "Protektahan ang personal na impormasyon",
+              "Walang kahalagahan",
+              "Hindi totoong isyu",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Protektahan ang personal na impormasyon"
+          },
+          {
+            "question": "Halimbawa ng phishing message?",
+            "options": [
+              "Email na humihingi ng password biglaan",
+              "Normal na balita",
+              "Liham mula sa guro",
+              "Alok ng libreng aklat"
+            ],
+            "correct_answer": "Email na humihingi ng password biglaan"
+          },
+          {
+            "question": "Bakit ituro ang online security?",
+            "options": [
+              "Protektahan sa panganib online",
+              "Walang layunin",
+              "Hikayatin paggamit walang pag-iingat",
+              "Hindi bahagi ng ICT"
+            ],
+            "correct_answer": "Protektahan sa panganib online"
+          },
+          {
+            "question": "Gawin kung may kahina-hinalang mensahe?",
+            "options": [
+              "Sabihin sa magulang o guro",
+              "Sagutin agad",
+              "Ibahagi sa lahat",
+              "Balewalain"
+            ],
+            "correct_answer": "Sabihin sa magulang o guro"
+          },
+          {
+            "question": "Bakit hindi gamitin ang parehong password sa lahat?",
+            "options": [
+              "Iwasan pag-access sa lahat kung na-hack ang isa",
+              "Mas madali",
+              "Walang epekto",
+              "Kinakailangan gawin"
+            ],
+            "correct_answer": "Iwasan pag-access sa lahat kung na-hack ang isa"
+          },
+          {
+            "question": "Bakit matutong kilalanin ang phishing?",
+            "options": [
+              "Maiwasang mabiktima ng panloloko",
+              "Walang gamit",
+              "Hindi totoong panganib",
+              "Hindi nauugnay sa online safety"
+            ],
+            "correct_answer": "Maiwasang mabiktima ng panloloko"
+          },
+          {
+            "question": "Pangkalahatang aral tungkol sa online security?",
+            "options": [
+              "Maging maingat at protektahan ang impormasyon",
+              "Ibahagi lahat",
+              "Hindi kailangan mag-ingat",
+              "Walang panganib online"
+            ],
+            "correct_answer": "Maging maingat at protektahan ang impormasyon"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Teatro ng alamat at karapatan sa kalusugan\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Saan hango ang lokal na sayaw at teatro?",
+            "options": [
+              "Alamat at kuwentong-bayan",
+              "Modernong teknolohiya",
+              "Batas komersyo",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Alamat at kuwentong-bayan"
+          },
+          {
+            "question": "Karapatan sa kalusugan ng bata?",
+            "options": [
+              "Access sa malinis na pagkain at tubig",
+              "Karapatang huwag pumasok",
+              "Karapatang huwag matulog",
+              "Wala"
+            ],
+            "correct_answer": "Access sa malinis na pagkain at tubig"
+          },
+          {
+            "question": "Isa pang karapatan sa kalusugan?",
+            "options": [
+              "Pangangalagang medikal",
+              "Wala",
+              "Karapatang magtrabaho",
+              "Karapatang huwag kumain"
+            ],
+            "correct_answer": "Pangangalagang medikal"
+          },
+          {
+            "question": "Ipinapakita ng teatro at sayaw ng alamat?",
+            "options": [
+              "Kuwento sa galaw at pananamit",
+              "Walang kuwento",
+              "Modernong teknolohiya lamang",
+              "Batas komersyo"
+            ],
+            "correct_answer": "Kuwento sa galaw at pananamit"
+          },
+          {
+            "question": "Bakit mahalaga ang ligtas na kapaligiran?",
+            "options": [
+              "Kaligtasan at kalusugan",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Kaligtasan at kalusugan"
+          },
+          {
+            "question": "Bakit malaman ng bata ang karapatan sa kalusugan?",
+            "options": [
+              "Protektahan ang kagalingan",
+              "Walang kahalagahan",
+              "Hindi kailangan",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Protektahan ang kagalingan"
+          },
+          {
+            "question": "Bakit sayaw at teatro ginagamit para sa alamat?",
+            "options": [
+              "Panatilihin ang kuwento sa masining na paraan",
+              "Walang layunin",
+              "Hindi kaugnay ng kultura",
+              "Bagong likha lamang"
+            ],
+            "correct_answer": "Panatilihin ang kuwento sa masining na paraan"
+          },
+          {
+            "question": "Sino may pananagutan sa karapatan sa kalusugan ng bata?",
+            "options": [
+              "Pamilya, komunidad, pamahalaan",
+              "Walang sinuman",
+              "Bata na lamang",
+              "Estranghero lamang"
+            ],
+            "correct_answer": "Pamilya, komunidad, pamahalaan"
+          },
+          {
+            "question": "Koneksyon ng sayaw ng alamat sa kultura?",
+            "options": [
+              "Ipinapakita ang tradisyon ng pagkukwento",
+              "Walang koneksyon",
+              "Galing sa ibang bansa",
+              "Hindi bahagi ng kultura"
+            ],
+            "correct_answer": "Ipinapakita ang tradisyon ng pagkukwento"
+          },
+          {
+            "question": "Bakit matutong pahalagahan ang karapatan?",
+            "options": [
+              "Malaman kailan humingi ng tulong",
+              "Hindi kailangan malaman",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Malaman kailan humingi ng tulong"
+          },
+          {
+            "question": "Mangyayari kung hindi natutugunan ang karapatan sa kalusugan?",
+            "options": [
+              "Maaapektuhan ang kagalingan at pag-unlad",
+              "Walang mangyayari",
+              "Palaging maayos",
+              "Awtomatikong protektado"
+            ],
+            "correct_answer": "Maaapektuhan ang kagalingan at pag-unlad"
+          },
+          {
+            "question": "Bakit isinasama ang alamat sa likhang-sining?",
+            "options": [
+              "Ibang paraan ng pagpapahalaga sa kuwento",
+              "Walang dahilan",
+              "Hindi kailangan basahin",
+              "Mas mahirap intindihin"
+            ],
+            "correct_answer": "Ibang paraan ng pagpapahalaga sa kuwento"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧺 Friday Review — EPP (Grade 4)\n\n- Paglilinis at paglalaba\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Unang hakbang sa paglilinis ng tahanan?",
+            "options": [
+              "Ligpitin ang mga kalat",
+              "Direktang magwalis",
+              "Kalimutan ang paglilinis",
+              "Isara ang bintana"
+            ],
+            "correct_answer": "Ligpitin ang mga kalat"
+          },
+          {
+            "question": "Unang gawin sa paglalaba?",
+            "options": [
+              "Ihiwalay ang maputi sa makulay",
+              "Direktang labhan nang magkakahalo",
+              "Kalimutan ang paglalaba",
+              "Itapon sa makina"
+            ],
+            "correct_answer": "Ihiwalay ang maputi sa makulay"
+          },
+          {
+            "question": "Bakit ihiwalay ang maputi sa makulay?",
+            "options": [
+              "Iwasan pagtina ng kulay sa maputi",
+              "Walang dahilan",
+              "Mabilis matuyo",
+              "Gumamit ng kaunting sabon"
+            ],
+            "correct_answer": "Iwasan pagtina ng kulay sa maputi"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang temperatura ng plantsa?",
+            "options": [
+              "Hindi masunog ang tela",
+              "Walang kaugnayan sa tela",
+              "Basta mainit ay okay",
+              "Hindi mahalaga"
+            ],
+            "correct_answer": "Hindi masunog ang tela"
+          },
+          {
+            "question": "Gawin pagkatapos labhan ang damit?",
+            "options": [
+              "Banlawan at isampay",
+              "Isuot agad na basa",
+              "Itapon ang damit",
+              "Kalimutan ang labada"
+            ],
+            "correct_answer": "Banlawan at isampay"
+          },
+          {
+            "question": "Bakit mahalaga ang paglilinis ng tahanan?",
+            "options": [
+              "Malinis at malusog na kapaligiran",
+              "Walang kahalagahan",
+              "Hindi kailangan gawin",
+              "Para sa matatanda lamang"
+            ],
+            "correct_answer": "Malinis at malusog na kapaligiran"
+          },
+          {
+            "question": "Gamitin para punasan ang mga kagamitan?",
+            "options": [
+              "Basang tela o basahan",
+              "Gunting",
+              "Karayom",
+              "Sabon nang walang tela"
+            ],
+            "correct_answer": "Basang tela o basahan"
+          },
+          {
+            "question": "Bakit matutong maglaba nang tama?",
+            "options": [
+              "Maalagaan ang damit at makatulong sa pamilya",
+              "Walang kahalagahan",
+              "Para sa matatanda lamang",
+              "Hindi kailangan matutunan"
+            ],
+            "correct_answer": "Maalagaan ang damit at makatulong sa pamilya"
+          },
+          {
+            "question": "Mangyayari kung hindi banlawan nang mabuti?",
+            "options": [
+              "May matirang sabon sa damit",
+              "Walang mangyayari",
+              "Mas malinis ang resulta",
+              "Mas mabilis matuyo"
+            ],
+            "correct_answer": "May matirang sabon sa damit"
+          },
+          {
+            "question": "Bakit ituro ang gawaing pantahanan sa EPP?",
+            "options": [
+              "Matutong mag-alaga ng tahanan at pamilya",
+              "Walang layunin",
+              "Para sa babae lamang",
+              "Hindi bahagi ng edukasyon"
+            ],
+            "correct_answer": "Matutong mag-alaga ng tahanan at pamilya"
+          },
+          {
+            "question": "Isaalang-alang bago magplantsa?",
+            "options": [
+              "Uri ng tela at tamang temperatura",
+              "Kulay ng plantsa lamang",
+              "Oras ng araw lamang",
+              "Walang isaalang-alang"
+            ],
+            "correct_answer": "Uri ng tela at tamang temperatura"
+          },
+          {
+            "question": "Bakit tumulong sa gawaing bahay mula sa murang edad?",
+            "options": [
+              "Pananagutan at kasanayan sa buhay",
+              "Hindi kailangan matutunan",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Pananagutan at kasanayan sa buhay"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🤗 Friday Review — GMRC (Grade 4)\n\n- Magalang: pagkakapantay-pantay sa kabila ng pagkakaiba\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakapantay-pantay?",
+            "options": [
+              "Igalang ang bawat tao anuman ang pagkakaiba",
+              "Mas mataas ang isang uri ng tao",
+              "Kawalang pakialam sa iba",
+              "Pag-iwas sa taong iba"
+            ],
+            "correct_answer": "Igalang ang bawat tao anuman ang pagkakaiba"
+          },
+          {
+            "question": "Halimbawa ng paggalang sa pagkakaiba?",
+            "options": [
+              "Igalang ang may ibang relihiyon",
+              "Kutyain ang may ibang relihiyon",
+              "Iwasan ang may kapansanan",
+              "Manlait sa ibang kultura"
+            ],
+            "correct_answer": "Igalang ang may ibang relihiyon"
+          },
+          {
+            "question": "Pagpapahalaga na tinalakay?",
+            "options": [
+              "Magalang (Respectful)",
+              "Matipid",
+              "Mapagmalasakit",
+              "Mapagpakumbaba"
+            ],
+            "correct_answer": "Magalang (Respectful)"
+          },
+          {
+            "question": "Bakit igalang ang taong may kapansanan?",
+            "options": [
+              "Pantay na karapatan at dignidad",
+              "Wala silang karapatan",
+              "Mas mababa ang halaga",
+              "Hindi kailangang igalang"
+            ],
+            "correct_answer": "Pantay na karapatan at dignidad"
+          },
+          {
+            "question": "Naidudulot ng pagkilala sa pagkakapantay-pantay?",
+            "options": [
+              "Kapayapaan at pag-unawa",
+              "Away",
+              "Walang naidudulot",
+              "Higit na paghihiwalay"
+            ],
+            "correct_answer": "Kapayapaan at pag-unawa"
+          },
+          {
+            "question": "Bakit hindi kutyain ang ibang kultura?",
+            "options": [
+              "Bawat kultura may sariling halaga",
+              "Ibang kultura palaging mali",
+              "Hindi kailangang igalang",
+              "Walang kaugnayan sa paggalang"
+            ],
+            "correct_answer": "Bawat kultura may sariling halaga"
+          },
+          {
+            "question": "Bakit magalang ang pagkilala sa pagkakapantay-pantay?",
+            "options": [
+              "Nagpapakita ng respeto",
+              "Walang kaugnayan sa moralidad",
+              "Bahagi ng agham lamang",
+              "Hindi itinuro"
+            ],
+            "correct_answer": "Nagpapakita ng respeto"
+          },
+          {
+            "question": "Gawin kung may kaklaseng ibang relihiyon?",
+            "options": [
+              "Igalang at maging kaibigan",
+              "Iwasan siya",
+              "Kutyain siya",
+              "Tanggihan makisama"
+            ],
+            "correct_answer": "Igalang at maging kaibigan"
+          },
+          {
+            "question": "Bakit ituro ang pagkakapantay-pantay sa bata?",
+            "options": [
+              "Maging magalang at bukas sa pagkakaiba paglaki",
+              "Hindi kailangan ituro",
+              "Para sa matatanda lamang",
+              "Walang epekto"
+            ],
+            "correct_answer": "Maging magalang at bukas sa pagkakaiba paglaki"
+          },
+          {
+            "question": "Mangyayari kung walang paggalang sa pagkakaiba?",
+            "options": [
+              "Away at hindi pagkakaunawaan",
+              "Mas maayos ang lahat",
+              "Walang epekto",
+              "Awtomatikong maayos"
+            ],
+            "correct_answer": "Away at hindi pagkakaunawaan"
+          },
+          {
+            "question": "Koneksyon nito sa tungkulin ng pamilya sa kapuwa?",
+            "options": [
+              "Pareho tumatalakay sa pagpapahalaga sa iba",
+              "Walang kaugnayan",
+              "Isa tungkol sa agham",
+              "Isa tungkol sa matematika"
+            ],
+            "correct_answer": "Pareho tumatalakay sa pagpapahalaga sa iba"
+          },
+          {
+            "question": "Bakit itinuturing na magalang ang paggalang sa taong may kapansanan?",
+            "options": [
+              "Nagpapakita ito ng respeto sa dignidad ng bawat tao",
+              "Wala itong kaugnayan sa respeto",
+              "Hindi kailangang igalang ang mga PWD",
+              "Nagpapakita ito ng kahinaan"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa dignidad ng bawat tao"
+          }
+        ]
+      }
+    }
+  }
+}
