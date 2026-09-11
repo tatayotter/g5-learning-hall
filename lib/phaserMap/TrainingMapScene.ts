@@ -51,13 +51,21 @@
 // hooks/useContinuousMovement.ts), with no tween (direct position, since the
 // smoothness now comes from 60fps update frequency, not from tweening
 // between discrete tile-hops). Other players still move via the original
-// snap-on-presence-update + tween path — they're not driven by continuous
-// movement (see MapCanvas.tsx's header comment). That tween's duration
-// lives in constants.ts's OTHER_PLAYER_MOVE_TWEEN_MS (not a local
-// constant here) since MapCanvas.tsx's DOM overlay needs the exact same
-// number to interpolate name tags/badges/bubbles in lockstep with it.
+// snap-on-presence-update path (a new destination arrives only every few
+// seconds — see hooks/useMapPresence.ts's wander), but NOT via a Phaser
+// tween: updateSelfPosition's per-frame camera-follow loop already
+// repositions every other sprite every frame (needed regardless, to keep
+// them locked to the panning camera), so a separate tween on the same
+// sprite would just get overridden/cancelled by that loop every frame —
+// which used to be exactly the "blinks instead of walks" bug. Instead each
+// TrackedSprite tracks its own current leg (animFromX/animFromY/
+// animMoveStart, see the interface below) and that per-frame loop
+// interpolates from it directly. The duration/easing live in constants.ts
+// (OTHER_PLAYER_MOVE_TWEEN_MS/easeInOutSine, not local constants here)
+// since MapCanvas.tsx's DOM overlay needs the exact same numbers to
+// interpolate name tags/badges/bubbles in lockstep with the sprite.
 import Phaser from 'phaser';
-import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS } from './constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 
 export { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM };
 
@@ -107,6 +115,11 @@ export interface MapCanvasSyncState {
 interface TrackedSprite {
   image: Phaser.GameObjects.Sprite;
   shadow: Phaser.GameObjects.Ellipse;
+  // Current tile. For self this is wherever updateSelfPosition() last put
+  // it (updated every frame). For others it's the current DESTINATION —
+  // where they're headed, or already resting once a leg completes — see
+  // OtherTrackedSprite's animFromX/animFromY/animMoveStart for where
+  // they're actually drawn mid-leg.
   x: number;
   y: number;
   // The sprite's "resting" (post-setDisplaySize) scale — used as the base
@@ -124,16 +137,40 @@ interface TrackedSprite {
   srcKey: string;
 }
 
+// Other-player sprites are repositioned every animation frame (see
+// updateSelfPosition, called for the local player's camera-follow, which
+// also has to keep every OTHER sprite locked to the panning camera) — so
+// rather than a Phaser tween on the sprite itself (which that per-frame
+// reposition would instantly override, snapping the sprite straight to its
+// destination and defeating the tween — this used to be exactly the
+// "blinks instead of walks" bug), each leg's start tile/time is tracked
+// here and every frame recomputes the current interpolated tile from these
+// plus `x`/`y` (the destination) using
+// OTHER_PLAYER_MOVE_TWEEN_MS/easeInOutSine. None of this applies to self,
+// which moves via its own continuous per-frame position — hence a separate
+// type rather than more optional fields on TrackedSprite.
+interface OtherTrackedSprite extends TrackedSprite {
+  animFromX: number;
+  animFromY: number;
+  animMoveStart: number;
+  // Facing direction of the CURRENT leg (true = flipped/facing right) —
+  // persists across frames since it only changes when a new leg starts.
+  facingRight: boolean;
+  // Whether the walk-cycle animation is currently playing — lets
+  // updateOtherAnimation only call sprite.play()/stop() on an actual
+  // moving⇄idle transition instead of every frame.
+  wasMoving: boolean;
+}
+
 // Canvas-pixel camera transform — exported so MapCanvas.tsx can convert it to
 // overlay percentages without recomputing the clamp math itself.
 export interface Transform { tileW: number; tileH: number; offsetX: number; offsetY: number }
 
-// Avatar → walk-cycle spritesheet registry. Only the local player ever plays
-// the animation (see updateSelfPosition) — another player wearing this
-// avatar still renders the correct art, just always parked on frame 0
-// (idle), since other players don't get continuous-movement updates at all
-// (see this file's header + MapCanvas.tsx: "no real-time movement for other
-// players" is an explicit product decision, not a limitation to work around).
+// Avatar → walk-cycle spritesheet registry. Both the local player
+// (updateSelfAnimation) and other players (updateOtherAnimation) play this
+// while actually moving between tiles and rest on frame 0 (idle) otherwise
+// — another player wearing an avatar NOT in this registry still renders
+// correct static art, just never animates (no sheet to play).
 interface AnimatedAvatarDef {
   spriteSheet: string;
   frameWidth: number;
@@ -186,7 +223,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private tilemapLayers: Phaser.Tilemaps.TilemapLayer[] = [];
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
-  private others = new Map<string, TrackedSprite>();
+  private others = new Map<string, OtherTrackedSprite>();
   private renderedDustPuffIds = new Set<number>();
   private lastBumping = false;
   private lastStepping = false;
@@ -261,17 +298,44 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.self.x = xTile;
     this.self.y = yTile;
 
-    // The camera (transform offset) changes every frame as the player moves.
-    // Reposition every other-player sprite to keep them locked to their world
-    // tile — without this they stay at the pixel position `sync()` computed
-    // for them, which drifts relative to the scrolling tilemap.
+    // The camera (transform offset) changes every frame as the player moves,
+    // so every other-player sprite needs repositioning every frame too, camera
+    // pan or not — this is also where their own leg interpolation (toward
+    // `tracked.x`/`y` from `tracked.animFromX`/`animFromY`, started at
+    // `tracked.animMoveStart`) actually gets applied, since a plain Phaser
+    // tween on the sprite would just get overwritten by this same per-frame
+    // reposition (see the file header + TrackedSprite's comment).
+    const now = performance.now();
     for (const [, tracked] of this.others) {
-      const { px: opx, py: opy, h: oh } = this.tileToPixel(this.lastTransform, tracked.x, tracked.y);
+      const t = Math.min(1, (now - tracked.animMoveStart) / OTHER_PLAYER_MOVE_TWEEN_MS);
+      const eased = easeInOutSine(t);
+      const ix = tracked.animFromX + (tracked.x - tracked.animFromX) * eased;
+      const iy = tracked.animFromY + (tracked.y - tracked.animFromY) * eased;
+      const { px: opx, py: opy, h: oh } = this.tileToPixel(this.lastTransform, ix, iy);
       tracked.image.setPosition(opx, opy);
+      tracked.image.setFlipX(tracked.facingRight);
       tracked.shadow.setPosition(opx, opy + oh * 0.44);
+      this.updateOtherAnimation(tracked, t < 1);
     }
 
     this.updateSelfAnimation(isMoving);
+  }
+
+  private updateOtherAnimation(tracked: OtherTrackedSprite, isMoving: boolean) {
+    const sprite = tracked.image;
+    const key = sprite.texture.key;
+    if (key.startsWith('sheet:')) {
+      const def = ANIMATED_AVATARS[key.slice('sheet:'.length)];
+      if (def) {
+        if (isMoving && !tracked.wasMoving) {
+          sprite.play(def.animKey, true);
+        } else if (!isMoving && tracked.wasMoving) {
+          sprite.stop();
+          sprite.setFrame(0);
+        }
+      }
+    }
+    tracked.wasMoving = isMoving;
   }
 
   private updateSelfAnimation(isMoving: boolean) {
@@ -575,13 +639,13 @@ export default class TrainingMapScene extends Phaser.Scene {
   // Others-only (self has its own dedicated creation/update path — see
   // applySelf and updateSelfPosition — so it never fights the tween below).
   private spawnOrMoveSprite(
-    tracked: TrackedSprite | null,
+    tracked: OtherTrackedSprite | null,
     player: MapCanvasPlayer,
     t: Transform,
     depth: number,
     interactive: boolean,
     onClick?: (id: string) => void,
-  ): TrackedSprite {
+  ): OtherTrackedSprite {
     const { px, py, h } = this.tileToPixel(t, player.x, player.y);
     const key = textureKeyFor(player.spriteSrc);
 
@@ -602,7 +666,13 @@ export default class TrainingMapScene extends Phaser.Scene {
         image.on('pointerdown', () => onClick(player.id));
       }
       const shadow = this.makeShadow(px, py, h, depth);
-      const next: TrackedSprite = { image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY, srcKey: key };
+      const next: OtherTrackedSprite = {
+        image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY, srcKey: key,
+        // Spawns already "at rest" on its own tile — nothing to interpolate
+        // from, so from === to (see updateSelfPosition's per-frame loop).
+        animFromX: player.x, animFromY: player.y, animMoveStart: performance.now(),
+        facingRight: false, wasMoving: false,
+      };
       this.loadSpriteVisual(player.spriteSrc, h * 0.95, (texKey) => {
         // setTexture() swaps the frame but doesn't preserve the display size
         // set above (it was computed against the tiny placeholder frame) —
@@ -620,11 +690,25 @@ export default class TrainingMapScene extends Phaser.Scene {
       return next;
     }
 
-    // Moved and/or re-skinned — tween to the new tile position. Other
+    // Moved and/or re-skinned — start a new leg toward the new tile. Other
     // players don't move in real time (see file header) so this only fires
-    // on the infrequent wander-tick cadence, not every frame.
+    // on the infrequent wander-tick cadence, not every frame; the actual
+    // interpolation happens every frame in updateSelfPosition's per-frame
+    // loop, NOT via a Phaser tween here (see TrackedSprite's comment for why).
     if (tracked.x !== player.x || tracked.y !== player.y) {
-      this.tweens.add({ targets: tracked.image, x: px, y: py, duration: OTHER_PLAYER_MOVE_TWEEN_MS, ease: 'Sine.easeInOut' });
+      // Depart from wherever the PREVIOUS leg has them interpolated to right
+      // now (not necessarily their last full destination) — a wander step
+      // that lands mid-glide should continue smoothly, not jump backward to
+      // the old destination first.
+      const now = performance.now();
+      const prevT = Math.min(1, (now - tracked.animMoveStart) / OTHER_PLAYER_MOVE_TWEEN_MS);
+      const prevEased = easeInOutSine(prevT);
+      const curX = tracked.animFromX + (tracked.x - tracked.animFromX) * prevEased;
+      const curY = tracked.animFromY + (tracked.y - tracked.animFromY) * prevEased;
+      tracked.facingRight = player.x > tracked.x ? true : player.x < tracked.x ? false : tracked.facingRight;
+      tracked.animFromX = curX;
+      tracked.animFromY = curY;
+      tracked.animMoveStart = now;
       tracked.x = player.x;
       tracked.y = player.y;
     }
