@@ -18,7 +18,7 @@
 // collapsed by default beneath it, matching the battle log's pattern.
 import { useState, useEffect, ReactNode, createContext } from 'react';
 import { useStageScale } from '@/hooks/useStageScale';
-import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonDropShadow } from '@/components/GameButton';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 /** CSS-transform scale applied to the map canvas by MapStage.
@@ -112,19 +112,10 @@ export default function MapStage({
           >
             {drawerOpen && (
               <>
-                <Nail className="top-1.5 left-1.5" />
-                <Nail className="top-1.5 right-1.5" />
+                <Nail className="bottom-1.5 left-1.5" />
+                <Nail className="bottom-1.5 right-1.5" />
               </>
             )}
-            <div
-              className="flex items-center justify-between px-3 py-2 border-b border-[#3a2610]/70 flex-shrink-0"
-              style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 13 }}
-            >
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <span aria-hidden style={questTextShadowStyle}>{drawerLabel}</span>
-                <span style={questTextStyle}>{drawerLabel}</span>
-              </span>
-            </div>
             <div className="mstage-drawer-content px-3 py-2">
               {drawer}
             </div>
@@ -184,17 +175,8 @@ export default function MapStage({
                   className="relative pointer-events-auto w-full max-w-md mx-auto border-2 border-[#4a2f18] rounded-b-2xl overflow-hidden"
                   style={{ maxHeight: 340, boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
                 >
-                  <Nail className="top-1.5 left-1.5" />
-                  <Nail className="top-1.5 right-1.5" />
-                  <div
-                    className="flex items-center px-4 py-2.5 border-b border-[#3a2610]/70"
-                    style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 14 }}
-                  >
-                    <span style={{ position: 'relative', display: 'inline-block' }}>
-                      <span aria-hidden style={questTextShadowStyle}>{drawerLabel}</span>
-                      <span style={questTextStyle}>{drawerLabel}</span>
-                    </span>
-                  </div>
+                  <Nail className="bottom-1.5 left-1.5" />
+                  <Nail className="bottom-1.5 right-1.5" />
                   <div className="overflow-y-auto px-3 py-2.5" style={{ maxHeight: 290 }}>
                     {drawer}
                   </div>

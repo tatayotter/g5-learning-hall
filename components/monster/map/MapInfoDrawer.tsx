@@ -50,7 +50,7 @@ export default function MapInfoDrawer({
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-1 transition-colors ${
+            className={`flex-1 text-[13px] font-bold uppercase tracking-wide rounded px-1.5 py-1.5 transition-colors ${
               infoTab === tab.id
                 ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
                 : tab.id === 'friends' && friendData.incoming.length > 0
