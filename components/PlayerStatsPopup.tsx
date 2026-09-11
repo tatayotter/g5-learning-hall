@@ -115,7 +115,12 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
   // ungraduated egg-child). Layered on per-row below via getOwnedMonsterDisplay.
 
   return (
-    <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={onClose}>
+    // z-[95]: the training map renders fullscreen at z-[78] (see MapStage.tsx), with its own
+    // joystick/drawers layered up to z-[81] on top of that — a plain z-50 here (this app's
+    // default modal layer) sits BELOW all of that and would silently eat every click with no
+    // visible popup (map painted right over it). 95 clears the map's whole stack but still
+    // sits under a true full-screen takeover like BossCutscene/EventPanel (z-[100]).
+    <div className="fixed inset-0 bg-black/80 z-[95] flex items-center justify-center p-4" onClick={onClose}>
       <div
         className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 max-w-sm w-full"
         onClick={e => e.stopPropagation()}
