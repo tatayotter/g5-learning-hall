@@ -55,7 +55,7 @@ export default function MapInfoDrawer({
                 ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
                 : tab.id === 'friends' && friendData.incoming.length > 0
                 ? 'bg-pink-900/30 text-pink-400 border border-pink-800'
-                : 'bg-neutral-900 text-gray-500 border border-neutral-800 hover:text-gray-300'
+                : 'bg-[#0a0807]/70 text-gray-500 border border-[#3a2610] hover:text-gray-300'
             }`}
           >
             {tab.label}
@@ -80,7 +80,7 @@ export default function MapInfoDrawer({
                 return (
                   <div
                     key={monster.id}
-                    className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-neutral-800 bg-neutral-900'}`}
+                    className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-[#3a2610] bg-[#0a0807]/70'}`}
                   >
                     <div className="flex items-center gap-2">
                       <MonsterImage monster={def} className="w-9 h-9 flex-shrink-0" />
@@ -90,7 +90,7 @@ export default function MapInfoDrawer({
                           {isActive && <span className="ml-1.5 text-[9px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
                         </p>
                         <p className="text-[10px] text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
-                        <div className="w-full bg-neutral-800 rounded-full h-1 mt-1">
+                        <div className="w-full bg-[#1a120a] rounded-full h-1 mt-1">
                           <div className="h-1 rounded-full bg-amber-400" style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }} />
                         </div>
                       </div>
@@ -119,7 +119,7 @@ export default function MapInfoDrawer({
                 <button
                   key={p.userId}
                   onClick={() => onStatsTarget(p.userId)}
-                  className="w-full flex items-center gap-2 bg-neutral-900 border border-neutral-800 hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
+                  className="w-full flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
                   <span className="text-white text-xs font-medium truncate">
@@ -140,7 +140,7 @@ export default function MapInfoDrawer({
               <p className="text-[10px] text-pink-400 uppercase tracking-widest font-bold mb-1">Requests</p>
               <div className="space-y-1.5">
                 {friendData.incoming.map(r => (
-                  <div key={r.id} className="flex items-center gap-2 bg-neutral-900 border border-pink-900/60 rounded-lg px-2.5 py-1.5">
+                  <div key={r.id} className="flex items-center gap-2 bg-[#0a0807]/70 border border-pink-900/60 rounded-lg px-2.5 py-1.5">
                     <span className="text-white text-xs font-medium truncate flex-1">
                       {USERS[r.requester_id]?.name || r.requester_id}
                     </span>
@@ -152,7 +152,7 @@ export default function MapInfoDrawer({
                     </button>
                     <button
                       onClick={() => onDeclineFriendRequest(r.id)}
-                      className="text-[10px] font-bold text-gray-300 bg-neutral-800 hover:bg-neutral-700 rounded px-2 py-1 transition-colors"
+                      className="text-[10px] font-bold text-gray-300 bg-[#1a120a] hover:bg-[#2a1c0f] rounded px-2 py-1 transition-colors"
                     >
                       Decline
                     </button>
@@ -176,9 +176,9 @@ export default function MapInfoDrawer({
                   return (
                     <div
                       key={f.id}
-                      className="w-full flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-lg px-2.5 py-1.5"
+                      className="w-full flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-2.5 py-1.5"
                     >
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-400' : 'bg-neutral-700'}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-400' : 'bg-[#3a2610]'}`} />
                       <button
                         onClick={() => onStatsTarget(friendId)}
                         className="text-white text-xs font-medium truncate flex-1 text-left hover:text-amber-400 transition-colors"
@@ -205,14 +205,14 @@ export default function MapInfoDrawer({
               <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Sent</p>
               <div className="space-y-1.5">
                 {friendData.outgoing.map(r => (
-                  <div key={r.id} className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-lg px-2.5 py-1.5">
+                  <div key={r.id} className="flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-2.5 py-1.5">
                     <span className="text-gray-300 text-xs font-medium truncate flex-1">
                       {USERS[r.recipient_id]?.name || r.recipient_id}
                     </span>
                     <span className="text-[10px] text-gray-500">Pending…</span>
                     <button
                       onClick={() => onCancelFriendRequest(r.id)}
-                      className="text-[10px] font-bold text-gray-300 bg-neutral-800 hover:bg-neutral-700 rounded px-2 py-1 transition-colors"
+                      className="text-[10px] font-bold text-gray-300 bg-[#1a120a] hover:bg-[#2a1c0f] rounded px-2 py-1 transition-colors"
                     >
                       Cancel
                     </button>
@@ -234,7 +234,7 @@ export default function MapInfoDrawer({
               return (
                 <div
                   key={type}
-                  className="flex items-center gap-2 rounded-md border border-neutral-700 bg-neutral-800 px-2 py-1"
+                  className="flex items-center gap-2 rounded-md border border-[#3a2610] bg-[#1a120a] px-2 py-1"
                   title={`${def.bundleSize} pcs = 1g`}
                 >
                   <img
@@ -252,7 +252,7 @@ export default function MapInfoDrawer({
               );
             })}
             {/* 6th slot empty */}
-            <div className="rounded-md border border-neutral-800 bg-neutral-900/40 h-8" />
+            <div className="rounded-md border border-[#3a2610] bg-[#0a0807]/40 h-8" />
           </div>
 
           {respawnSecsLeft !== null && (

@@ -18,6 +18,8 @@
 // collapsed by default beneath it, matching the battle log's pattern.
 import { useState, useEffect, ReactNode, createContext } from 'react';
 import { useStageScale } from '@/hooks/useStageScale';
+import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 /** CSS-transform scale applied to the map canvas by MapStage.
  *  Consumed by MapCanvas to compute the actual visible canvas width and
@@ -98,20 +100,44 @@ export default function MapStage({
           so they aren't inside the scaled/cropped canvas. */}
       {drawer && !fullscreen && (
         <>
-          <div className={`mstage-drawer bg-[#0a0807]/95 ${drawerOpen ? 'open border-2 border-[#3d3225]' : ''}`}>
-            <div className="flex items-center justify-between px-3 py-1.5 border-b border-[#2a2119] text-[11px] font-bold uppercase tracking-wide text-[#a89c86] flex-shrink-0">
-              <span>{drawerLabel}</span>
+          {/* Same wood-plank + gold trim + corner-nail frame as the battle screen's
+              MonsterHpPanel / the map's PlayerStatsPopup, reusing the exported style
+              pieces instead of a flat one-off dark panel — see docs/STYLE_GUIDE.md's
+              "deliberately still dark" list (this drawer is map chrome, not a
+              parchment content panel). Frame is only applied while open — a border
+              on a height:0 element would otherwise paint as a stray line. */}
+          <div
+            className={`mstage-drawer relative ${drawerOpen ? 'open border-2 border-[#4a2f18]' : ''}`}
+            style={drawerOpen ? { boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle } : undefined}
+          >
+            {drawerOpen && (
+              <>
+                <Nail className="top-1.5 left-1.5" />
+                <Nail className="top-1.5 right-1.5" />
+              </>
+            )}
+            <div
+              className="flex items-center justify-between px-3 py-2 border-b border-[#3a2610]/70 flex-shrink-0"
+              style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 13 }}
+            >
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>{drawerLabel}</span>
+                <span style={questTextStyle}>{drawerLabel}</span>
+              </span>
             </div>
-            <div className="mstage-drawer-content px-2.5 py-1.5">
+            <div className="mstage-drawer-content px-3 py-2">
               {drawer}
             </div>
           </div>
-          <button
+          <GameButton
+            variant="quest"
+            color="#8a6a0e"
             onClick={() => setDrawerOpen(o => !o)}
-            className="mstage-show-drawer bg-[#2a2119] hover:bg-[#3d3225] text-gray-200 font-bold text-[11px]"
+            className="mstage-show-drawer"
+            style={{ fontSize: 11, padding: '0.3em 1em', borderRadius: '0.5em 0.5em 0 0' }}
           >
             {drawerOpen ? `Hide ${drawerLabel}` : `Show ${drawerLabel}`}
-          </button>
+          </GameButton>
         </>
       )}
     </div>
@@ -147,25 +173,42 @@ export default function MapStage({
               className="fixed left-0 right-0 z-[81] flex flex-col items-center pointer-events-none"
               style={{ top: hudBottom }}
             >
+              {/* Same wood-plank + gold trim + corner-nail frame as MonsterHpPanel /
+                  PlayerStatsPopup — map chrome, not a parchment panel (see
+                  docs/STYLE_GUIDE.md's "deliberately still dark" list). Bigger than
+                  the old flat panel (max-w-sm/220px) since it was reading cramped
+                  next to everything else in the game using this frame at a larger
+                  scale. */}
               {drawerOpen && (
                 <div
-                  className="pointer-events-auto w-full max-w-sm mx-auto bg-[#0a0807]/90 border border-[#3d3225] rounded-b-xl overflow-hidden"
-                  style={{ maxHeight: 220 }}
+                  className="relative pointer-events-auto w-full max-w-md mx-auto border-2 border-[#4a2f18] rounded-b-2xl overflow-hidden"
+                  style={{ maxHeight: 340, boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
                 >
-                  <div className="flex items-center px-3 py-1.5 border-b border-[#2a2119] text-[11px] font-bold uppercase tracking-wide text-[#a89c86]">
-                    <span>{drawerLabel}</span>
+                  <Nail className="top-1.5 left-1.5" />
+                  <Nail className="top-1.5 right-1.5" />
+                  <div
+                    className="flex items-center px-4 py-2.5 border-b border-[#3a2610]/70"
+                    style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 14 }}
+                  >
+                    <span style={{ position: 'relative', display: 'inline-block' }}>
+                      <span aria-hidden style={questTextShadowStyle}>{drawerLabel}</span>
+                      <span style={questTextStyle}>{drawerLabel}</span>
+                    </span>
                   </div>
-                  <div className="overflow-y-auto px-2.5 py-1.5" style={{ maxHeight: 180 }}>
+                  <div className="overflow-y-auto px-3 py-2.5" style={{ maxHeight: 290 }}>
                     {drawer}
                   </div>
                 </div>
               )}
-              <button
+              <GameButton
+                variant="quest"
+                color="#8a6a0e"
                 onClick={() => setDrawerOpen(o => !o)}
-                className="pointer-events-auto bg-[#0a0807]/80 hover:bg-[#0a0807]/95 text-gray-200 font-bold text-[11px] px-4 py-1 rounded-b-lg"
+                className="pointer-events-auto"
+                style={{ fontSize: 11, padding: '0.3em 1.1em', borderRadius: '0 0 0.5em 0.5em' }}
               >
                 {drawerOpen ? `Hide ${drawerLabel}` : `Show ${drawerLabel}`}
-              </button>
+              </GameButton>
             </div>
           )}
         </div>
