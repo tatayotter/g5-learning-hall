@@ -208,6 +208,26 @@ const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
     walkFirstFrame: 6,
     walkLastFrame: 30,
   },
+  // dynokid/purplegirl sheets are a 5x5 grid of 256x256 frames (row-major,
+  // trailing cells empty) with no dedicated idle row like ssb3/ssg3 above —
+  // the whole sequence is the walk loop, and frame 0 (first walk pose)
+  // doubles as the idle/stopped frame via the same setFrame(0) on stop.
+  '/userpics/userpics_premium/dynokid.png': {
+    spriteSheet: '/sprite/dynokid_walk.png',
+    frameWidth: 256,
+    frameHeight: 256,
+    animKey: 'dynokid-walk',
+    walkFirstFrame: 0,
+    walkLastFrame: 21,
+  },
+  '/userpics/userpics_premium/purplegirl.png': {
+    spriteSheet: '/sprite/purplegirl_walk.png',
+    frameWidth: 256,
+    frameHeight: 256,
+    animKey: 'purplegirl-walk',
+    walkFirstFrame: 0,
+    walkLastFrame: 20,
+  },
 };
 
 function textureKeyFor(spriteSrc: string): string {
