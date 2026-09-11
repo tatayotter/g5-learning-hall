@@ -30,6 +30,7 @@ import type { QualityTier } from '@/lib/curioQuality';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { TRASH_DEFS, RECYCLER_TILES } from '@/lib/trashConfig';
 import { BOT_IDS } from '@/lib/botProfiles';
+import { fetchMyFriendData, respondToFriendRequest, cancelFriendRequest, removeFriend, type FriendData } from '@/lib/friends';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
 // with an invisible logical grid overlaid for walkability + markers. The grid and
@@ -117,6 +118,7 @@ interface TrainingMapProps {
   activeCurio?: { id: number; monsterId: string; quality: QualityTier } | null;
   onEnterCurio?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
+  onTradePlayer?: (targetId: string, name: string) => void;
   /** Called when the player walks within 1 tile of a trainer NPC on the map. */
   onTrainerEncounter?: (trainer: NpcTrainer) => void;
   /** Called with gold earned when the player trades trash at the Recycler NPC. */
@@ -143,7 +145,7 @@ interface TrainingMapProps {
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
-  activeCurio, onEnterCurio, onChallengePlayer, onTrainerEncounter, onTrashTraded,
+  activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onTrainerEncounter, onTrashTraded,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
 }: TrainingMapProps) {
@@ -187,6 +189,33 @@ export default function TrainingMap({
   useEffect(() => () => positionWriteThrottleRef.current.flush(), []);
   const [statsTargetId, setStatsTargetId] = useState<string | null>(null);
   const [infoTab, setInfoTab] = useState<InfoTab>('team');
+  const [friendData, setFriendData] = useState<FriendData>({ friends: [], incoming: [], outgoing: [] });
+  const refreshFriendData = useCallback(() => {
+    fetchMyFriendData(userId).then(setFriendData);
+  }, [userId]);
+  // Initial load, plus a light poll so an incoming request shows up (and its
+  // badge count updates) without the player having to leave and reopen the
+  // drawer — friend_requests has no realtime channel of its own, unlike the
+  // live-battle invite inbox (see useLiveBattleInbox.ts), so this is the
+  // simplest way to keep it current while the map is open.
+  useEffect(() => {
+    refreshFriendData();
+    const interval = setInterval(refreshFriendData, 20000);
+    return () => clearInterval(interval);
+  }, [refreshFriendData]);
+
+  const handleRespondFriendRequest = async (requestId: string, accept: boolean) => {
+    await respondToFriendRequest(requestId, accept);
+    refreshFriendData();
+  };
+  const handleCancelFriendRequest = async (requestId: string) => {
+    await cancelFriendRequest(requestId);
+    refreshFriendData();
+  };
+  const handleRemoveFriend = async (friendId: string) => {
+    await removeFriend(friendId);
+    refreshFriendData();
+  };
   const [stepping, setStepping] = useState(false);
   const [bumping, setBumping] = useState(false);
   const [dustPuffs, setDustPuffs] = useState<{ id: number; x: number; y: number }[]>([]);
@@ -651,6 +680,7 @@ export default function TrainingMap({
   // Info drawer — Team/Online/Bag; see components/monster/map/MapInfoDrawer.tsx.
   const drawer = (
     <MapInfoDrawer
+      viewerId={userId}
       infoTab={infoTab}
       onTabChange={setInfoTab}
       userMonsters={userMonsters}
@@ -661,6 +691,11 @@ export default function TrainingMap({
       trashInventory={trashInventory}
       trashItemsOnMap={trashItems.length}
       respawnSecsLeft={respawnSecsLeft}
+      friendData={friendData}
+      onAcceptFriendRequest={id => handleRespondFriendRequest(id, true)}
+      onDeclineFriendRequest={id => handleRespondFriendRequest(id, false)}
+      onCancelFriendRequest={handleCancelFriendRequest}
+      onRemoveFriend={handleRemoveFriend}
     />
   );
 
@@ -736,10 +771,12 @@ export default function TrainingMap({
 
       {statsTargetId && (
         <PlayerStatsPopup
+          viewerId={userId}
           targetId={statsTargetId}
-          onClose={() => setStatsTargetId(null)}
+          onClose={() => { setStatsTargetId(null); refreshFriendData(); }}
           onWave={sendWave}
           onChallenge={onChallengePlayer}
+          onTrade={onTradePlayer}
           targetInBattle={liveBattleInbox?.playersInBattle.has(statsTargetId) ?? false}
         />
       )}

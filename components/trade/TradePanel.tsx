@@ -37,6 +37,12 @@ interface TradePanelProps {
   // pushes another delta itself. Fired only on a completed trade (declines/
   // cancels never touch gold, so there's nothing to resync for those).
   onGoldChanged?: () => void;
+  // Set when the player got here via "Trade" on a map-sprite's Trainer Card
+  // popup rather than the tab's own player search — jumps straight to the
+  // "New Trade" tab with that player pre-selected. Consumed once on mount;
+  // changing it after that has no effect (matches the "search once, then
+  // it's just a session" feel of the rest of NewTradeFlow).
+  presetTarget?: PlayerSearchResult | null;
 }
 
 // Curio-for-curio: 250 gold per curio moved, both sides counted, initiator
@@ -66,8 +72,8 @@ function monsterLabel(m: UserMonster): string {
 
 const currentSunday = () => format(startOfWeek(new Date()), 'yyyy-MM-dd');
 
-export default function TradePanel({ userId, userMonsters, onTradeCompleted, onTradeConfirmed, onGoldChanged }: TradePanelProps) {
-  const [tab, setTab] = useState<'pending' | 'new' | 'history'>('pending');
+export default function TradePanel({ userId, userMonsters, onTradeCompleted, onTradeConfirmed, onGoldChanged, presetTarget }: TradePanelProps) {
+  const [tab, setTab] = useState<'pending' | 'new' | 'history'>(presetTarget ? 'new' : 'pending');
   const [threads, setThreads] = useState<TradeThread[]>([]);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [counteringId, setCounteringId] = useState<string | null>(null);
@@ -159,6 +165,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
         <NewTradeFlow
           userId={userId}
           userMonsters={userMonsters}
+          initialTarget={presetTarget ?? null}
           onCreated={async () => { await loadThreads(); setTab('pending'); }}
         />
       )}
@@ -333,11 +340,12 @@ function CounterOfferFlow({
 }
 
 function NewTradeFlow({
-  userId, userMonsters, onCreated,
+  userId, userMonsters, onCreated, initialTarget,
 }: {
   userId: UserId;
   userMonsters: UserMonster[];
   onCreated: () => void;
+  initialTarget?: PlayerSearchResult | null;
 }) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<PlayerSearchResult[]>([]);
@@ -356,6 +364,14 @@ function NewTradeFlow({
     setQuery('');
     setTheirMonsters(await fetchTradeableMonsters(p.id));
   };
+
+  // Arriving here via a map sprite's "Trade" button (see PlayerStatsPopup) —
+  // skip straight past the player search. Intentionally runs once: this
+  // mirrors selectTarget, but only for the id the popup handed us.
+  useEffect(() => {
+    if (initialTarget) selectTarget(initialTarget);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialTarget?.id]);
 
   if (!target) {
     return (

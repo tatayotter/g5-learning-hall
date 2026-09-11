@@ -29,6 +29,7 @@ interface MapViewProps {
   onTrainerEncounter: (trainer: NpcTrainer) => void;
   onTrashTraded: (gold: number) => void;
   onChallengePlayer: (opponentId: UserId, opponentName: string) => void;
+  onTradePlayer: (opponentId: UserId, opponentName: string) => void;
   liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked: boolean;
@@ -55,6 +56,7 @@ export default function MapView({
   onTrainerEncounter,
   onTrashTraded,
   onChallengePlayer,
+  onTradePlayer,
   liveBattleInbox,
   mapPresence,
   movementLocked,
@@ -82,6 +84,7 @@ export default function MapView({
       onTrainerEncounter={onTrainerEncounter}
       onTrashTraded={onTrashTraded}
       onChallengePlayer={(targetId, name) => onChallengePlayer(targetId as UserId, name)}
+      onTradePlayer={(targetId, name) => onTradePlayer(targetId as UserId, name)}
       liveBattleInbox={liveBattleInbox}
       mapPresence={mapPresence}
       movementLocked={movementLocked}

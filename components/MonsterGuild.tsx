@@ -32,6 +32,7 @@ import {
 import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
 import TradePanel from '@/components/trade/TradePanel';
+import { PlayerSearchResult } from '@/lib/trades';
 import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
@@ -197,6 +198,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
   const [view, setView] = useState<GuildView>(initialView ?? 'map');
+  // Set by a map sprite's "Trade" button (handleTradePlayer below) so the
+  // Trade tab it switches to can skip its own player search — see
+  // TradePanel's presetTarget prop. Cleared on any manual nav-tab click.
+  const [tradeTarget, setTradeTarget] = useState<PlayerSearchResult | null>(null);
   // World Map — null shows the region picker; a region id enters that
   // region's Training Map. 'ledgers_heart' behaves exactly like the original
   // single Training Map (unfiltered encounters, DB-persisted position).
@@ -730,6 +735,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setPendingDuplicate(null);
   };
 
+  // "Trade" on a map sprite's Trainer Card popup — jump to the Trade tab
+  // with that player pre-selected, same idea as handleChallengePlayer below
+  // jumping straight into a battle. Bots never reach here: PlayerStatsPopup
+  // hides the Trade button for BOT_IDS targets since they have no real
+  // tradeable inventory (see lib/trades.ts).
+  const handleTradePlayer = (opponentId: UserId, opponentName: string) => {
+    setTradeTarget({ id: opponentId, display_name: opponentName, grade: '' });
+    setView('trade');
+  };
+
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
     // Bot players are not in Supabase — bypass the real invite flow and launch
     // a local bot battle directly, the same way the challenge toast does.
@@ -1113,7 +1128,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                         return (
                           <button
                             key={tab.id}
-                            onClick={() => { setView(tab.id); setArenaNavOpen(false); }}
+                            onClick={() => { setTradeTarget(null); setView(tab.id); setArenaNavOpen(false); }}
                             className="relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border transition-all duration-150 ease-out
                               hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95
                               border-transparent"
@@ -1154,6 +1169,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}
           onChallengePlayer={handleChallengePlayer}
+          onTradePlayer={handleTradePlayer}
           liveBattleInbox={liveBattleInbox}
           mapPresence={mergedMapPresence}
           movementLocked={!!wildEncounter || walkLocked}
@@ -1212,6 +1228,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onTradeCompleted={refreshMonsterLoadouts}
           onTradeConfirmed={onTradeConfirmed}
           onGoldChanged={onProgressSynced}
+          presetTarget={tradeTarget}
         />
       )}
 

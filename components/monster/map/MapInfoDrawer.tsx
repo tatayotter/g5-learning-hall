@@ -10,10 +10,12 @@ import { BATTLE_CONSTANTS, getScaledStats, type MonsterDef } from '@/lib/monster
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
+import { friendPartnerId, type FriendData } from '@/lib/friends';
 
-export type InfoTab = 'team' | 'online' | 'bag';
+export type InfoTab = 'team' | 'online' | 'bag' | 'friends';
 
 interface MapInfoDrawerProps {
+  viewerId: string;
   infoTab: InfoTab;
   onTabChange: (tab: InfoTab) => void;
   userMonsters: UserMonster[];
@@ -24,11 +26,17 @@ interface MapInfoDrawerProps {
   trashInventory: TrashInventory;
   trashItemsOnMap: number;
   respawnSecsLeft: number | null;
+  friendData: FriendData;
+  onAcceptFriendRequest: (requestId: string) => void;
+  onDeclineFriendRequest: (requestId: string) => void;
+  onCancelFriendRequest: (requestId: string) => void;
+  onRemoveFriend: (friendId: string) => void;
 }
 
 export default function MapInfoDrawer({
-  infoTab, onTabChange, userMonsters, activeMonsterSlot, monsterDisplay,
+  viewerId, infoTab, onTabChange, userMonsters, activeMonsterSlot, monsterDisplay,
   onlinePlayers, onStatsTarget, trashInventory, trashItemsOnMap, respawnSecsLeft,
+  friendData, onAcceptFriendRequest, onDeclineFriendRequest, onCancelFriendRequest, onRemoveFriend,
 }: MapInfoDrawerProps) {
   return (
     <div>
@@ -36,6 +44,7 @@ export default function MapInfoDrawer({
         {([
           { id: 'team' as const, label: 'Team' },
           { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
+          { id: 'friends' as const, label: `Friends${friendData.incoming.length > 0 ? ` (${friendData.incoming.length})` : ''}` },
           { id: 'bag' as const, label: '🎒 Bag' },
         ]).map(tab => (
           <button
@@ -44,6 +53,8 @@ export default function MapInfoDrawer({
             className={`flex-1 text-[10px] font-bold uppercase tracking-wide rounded px-1.5 py-1 transition-colors ${
               infoTab === tab.id
                 ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
+                : tab.id === 'friends' && friendData.incoming.length > 0
+                ? 'bg-pink-900/30 text-pink-400 border border-pink-800'
                 : 'bg-neutral-900 text-gray-500 border border-neutral-800 hover:text-gray-300'
             }`}
           >
@@ -120,6 +131,97 @@ export default function MapInfoDrawer({
               ))}
           </div>
         )
+      )}
+
+      {infoTab === 'friends' && (
+        <div className="space-y-3">
+          {friendData.incoming.length > 0 && (
+            <div>
+              <p className="text-[10px] text-pink-400 uppercase tracking-widest font-bold mb-1">Requests</p>
+              <div className="space-y-1.5">
+                {friendData.incoming.map(r => (
+                  <div key={r.id} className="flex items-center gap-2 bg-neutral-900 border border-pink-900/60 rounded-lg px-2.5 py-1.5">
+                    <span className="text-white text-xs font-medium truncate flex-1">
+                      {USERS[r.requester_id]?.name || r.requester_id}
+                    </span>
+                    <button
+                      onClick={() => onAcceptFriendRequest(r.id)}
+                      className="text-[10px] font-bold text-white bg-emerald-700 hover:bg-emerald-600 rounded px-2 py-1 transition-colors"
+                    >
+                      Accept
+                    </button>
+                    <button
+                      onClick={() => onDeclineFriendRequest(r.id)}
+                      className="text-[10px] font-bold text-gray-300 bg-neutral-800 hover:bg-neutral-700 rounded px-2 py-1 transition-colors"
+                    >
+                      Decline
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div>
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">
+              My Friends {friendData.friends.length > 0 && `(${friendData.friends.length})`}
+            </p>
+            {friendData.friends.length === 0 ? (
+              <p className="text-gray-600 text-xs">No friends yet — add one from their Trainer Card on the map.</p>
+            ) : (
+              <div className="space-y-1.5">
+                {friendData.friends.map(f => {
+                  const friendId = friendPartnerId(f, viewerId);
+                  const isOnline = !!onlinePlayers[friendId];
+                  return (
+                    <div
+                      key={f.id}
+                      className="w-full flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-lg px-2.5 py-1.5"
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-400' : 'bg-neutral-700'}`} />
+                      <button
+                        onClick={() => onStatsTarget(friendId)}
+                        className="text-white text-xs font-medium truncate flex-1 text-left hover:text-amber-400 transition-colors"
+                      >
+                        {USERS[friendId]?.name || friendId}
+                        {USERS[friendId]?.isFamily && <GMBadge />}
+                      </button>
+                      <button
+                        onClick={() => onRemoveFriend(friendId)}
+                        title="Remove friend"
+                        className="text-[10px] font-bold text-gray-500 hover:text-red-400 px-1 transition-colors"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {friendData.outgoing.length > 0 && (
+            <div>
+              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Sent</p>
+              <div className="space-y-1.5">
+                {friendData.outgoing.map(r => (
+                  <div key={r.id} className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-lg px-2.5 py-1.5">
+                    <span className="text-gray-300 text-xs font-medium truncate flex-1">
+                      {USERS[r.recipient_id]?.name || r.recipient_id}
+                    </span>
+                    <span className="text-[10px] text-gray-500">Pending…</span>
+                    <button
+                      onClick={() => onCancelFriendRequest(r.id)}
+                      className="text-[10px] font-bold text-gray-300 bg-neutral-800 hover:bg-neutral-700 rounded px-2 py-1 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       )}
 
       {infoTab === 'bag' && (
