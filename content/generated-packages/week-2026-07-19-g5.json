@@ -1,0 +1,1399 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-07-19",
+  "days": {
+    "Monday": {
+      "Math": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Concept of Area:** Area is the amount of flat space inside a two-dimensional shape, measured in **square units** (e.g., cm² or m²). Example: Calculating the number of tiles needed to cover a floor involves finding the area.\n* **Parallelograms:** The area is calculated using the formula **A = b × h** (Base times perpendicular Height). Example: A garden with a base of 9m and height of 5m has an area of 45m².\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Fraction Division:** We will transition from geometry back to numbers to explore how to **divide fractions** using models.",
+        "quiz": [
+          {
+            "question": "What is the standard unit for measuring area?",
+            "options": [
+              "Linear units",
+              "Square units",
+              "Cubic units"
+            ],
+            "correct_answer": "Square units"
+          },
+          {
+            "question": "What is the formula for the area of a parallelogram?",
+            "options": [
+              "A = b + h",
+              "A = b × h",
+              "A = (b × h) ÷ 2"
+            ],
+            "correct_answer": "A = b × h"
+          },
+          {
+            "question": "If a parallelogram has a base of 8cm and a height of 5cm, what is its area?",
+            "options": [
+              "13 cm²",
+              "40 cm²",
+              "20 cm²"
+            ],
+            "correct_answer": "40 cm²"
+          },
+          {
+            "question": "Which of the following describes area?",
+            "options": [
+              "Distance around a shape",
+              "Space inside a flat figure",
+              "The weight of an object"
+            ],
+            "correct_answer": "Space inside a flat figure"
+          },
+          {
+            "question": "What is the area of a square with a side of 5 units?",
+            "options": [
+              "10 sq. units",
+              "20 sq. units",
+              "25 sq. units"
+            ],
+            "correct_answer": "25 sq. units"
+          },
+          {
+            "question": "If Area = 48 cm² and base = 8cm, what is the height?",
+            "options": [
+              "6 cm",
+              "40 cm",
+              "56 cm"
+            ],
+            "correct_answer": "6 cm"
+          },
+          {
+            "question": "In a parallelogram, which line represents the height?",
+            "options": [
+              "The slanted side",
+              "The perpendicular line from base to top",
+              "The perimeter"
+            ],
+            "correct_answer": "The perpendicular line from base to top"
+          },
+          {
+            "question": "What happens to the area if you cut a parallelogram and rearrange it into a rectangle?",
+            "options": [
+              "It increases",
+              "It decreases",
+              "It stays the same"
+            ],
+            "correct_answer": "It stays the same"
+          }
+        ]
+      },
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Fact vs. Opinion:** A **fact** is a statement that can be proven (e.g., 'Water freezes at 0°C'). An **opinion** expresses a belief or feeling (e.g., 'Blue is the prettiest color').\n* **Summarizing:** This involves retelling the **main idea** and essential details in your own words while keeping it short and accurate.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Complex Sentences:** We will learn how to combine multiple ideas using **compound-complex sentence** structures.",
+        "quiz": [
+          {
+            "question": "Which of these is a fact?",
+            "options": [
+              "Summer is the best season.",
+              "Water freezes at 0°C.",
+              "Dogs are better than cats."
+            ],
+            "correct_answer": "Water freezes at 0°C."
+          },
+          {
+            "question": "Which of these is an opinion?",
+            "options": [
+              "Paris is the capital of France.",
+              "Reading is the most enjoyable hobby.",
+              "The sun gives light."
+            ],
+            "correct_answer": "Reading is the most enjoyable hobby."
+          },
+          {
+            "question": "What is the primary goal of summarizing?",
+            "options": [
+              "To make the text longer",
+              "To retell main ideas in a shorter form",
+              "To add personal feelings"
+            ],
+            "correct_answer": "To retell main ideas in a shorter form"
+          },
+          {
+            "question": "What should be excluded from a summary?",
+            "options": [
+              "Main idea",
+              "Important details",
+              "Personal opinions"
+            ],
+            "correct_answer": "Personal opinions"
+          },
+          {
+            "question": "Which clue word often signals an opinion?",
+            "options": [
+              "Proven",
+              "Recorded",
+              "Beautiful"
+            ],
+            "correct_answer": "Beautiful"
+          },
+          {
+            "question": "True or False: Informational texts only contain imaginary events.",
+            "options": [
+              "True",
+              "False"
+            ],
+            "correct_answer": "False"
+          },
+          {
+            "question": "Why is it important to verify information?",
+            "options": [
+              "To avoid false info",
+              "To make reading harder",
+              "To remove facts"
+            ],
+            "correct_answer": "To avoid false info"
+          },
+          {
+            "question": "A summary must be _____ to the original text.",
+            "options": [
+              "Longer",
+              "Accurate",
+              "Unrelated"
+            ],
+            "correct_answer": "Accurate"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "EPP/TLE": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Search Engine Mastery:** Tools like Google and Bing help us find information online. Using specific **keywords** leads to faster results.\n* **Netiquette:** Practice polite internet behavior, such as keeping **passwords private** to protect accounts.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Email Attachments:** We will learn how to safely attach files to emails and the difference between **CC and BCC**.",
+        "quiz": [
+          {
+            "question": "Saan tina-type ang URL sa isang web browser?",
+            "options": [
+              "Status Bar",
+              "Address Bar",
+              "Scroll Bar"
+            ],
+            "correct_answer": "Address Bar"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng tamang keywords sa paghahanap?",
+            "options": [
+              "Upang bumagal ang internet",
+              "Upang mabilis at tama ang resulta",
+              "Upang mabura ang files"
+            ],
+            "correct_answer": "Upang mabilis at tama ang resulta"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng netiquette?",
+            "options": [
+              "Pag-print ng files",
+              "Etiketa o tamang asal sa internet",
+              "Paggawa ng table"
+            ],
+            "correct_answer": "Etiketa o tamang asal sa internet"
+          },
+          {
+            "question": "Alin ang halimbawa ng web browser?",
+            "options": [
+              "Google Chrome",
+              "MS Word",
+              "Calculator"
+            ],
+            "correct_answer": "Google Chrome"
+          },
+          {
+            "question": "Ano ang dapat gawin bago maniwala sa impormasyong nahanap online?",
+            "options": [
+              "I-post agad",
+              "I-verify muna ito",
+              "Huwag basahin"
+            ],
+            "correct_answer": "I-verify muna ito"
+          },
+          {
+            "question": "Sino ang naghahanap at nagsusuri ng mga web page sa search engine?",
+            "options": [
+              "Keyboard",
+              "Crawler",
+              "Monitor"
+            ],
+            "correct_answer": "Crawler"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang password sa iba?",
+            "options": [
+              "Dahil bibilis ang computer",
+              "Dahil maaari nilang mapasok ang iyong account",
+              "Dahil mawawala ang mouse"
+            ],
+            "correct_answer": "Dahil maaari nilang mapasok ang iyong account"
+          },
+          {
+            "question": "Ano ang pangunahing gamit ng search engine?",
+            "options": [
+              "Mag-imbak ng pagkain",
+              "Maghanap ng impormasyon sa web",
+              "Mag-print ng larawan"
+            ],
+            "correct_answer": "Maghanap ng impormasyon sa web"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "## Planning Fair Investigations: Control vs. Variable\n\n- When planning an investigation, it helps to identify two things clearly before starting:\n  - The **variable** -- the one factor you purposely change to see its effect.\n  - The **control** -- the factors you deliberately keep the same, so the test is fair.\n- Keeping everything the same except the one variable being tested means any difference in results can be fairly linked to that one factor.\n- Example: for \"Does water temperature affect how fast sugar dissolves?\", the **variable** is the water temperature, while the **control** (kept the same) is the amount of sugar and the amount of water used each time.\n- Example: for \"Do gases have mass?\", the **variable** is whether the balloon is inflated or not, while the **control** is using the same balloon and the same weighing scale for both weighings.\n- A test is NOT fair if more than one factor changes at once -- for example, comparing ice melting in the sun (big cube) versus in the shade (small cube) mixes up two variables (location AND size), so you cannot tell which one caused any difference.\n\n| Investigation | Variable | Control (kept the same) |\n|---|---|---|\n| Sugar dissolving | Water temperature | Amount of sugar, amount of water |\n| Gases and mass | Balloon inflated or not | Same balloon, same scale |\n\n- Planning the variable and control BEFORE running a test helps a student design a fair procedure from the start, instead of discovering problems only after the results come in.",
+        "quiz": [
+          {
+            "question": "In an investigation, what is the \"variable\" that is being purposely changed to see its effect?",
+            "options": [
+              "The one factor the investigator changes on purpose",
+              "The materials list",
+              "The conclusion",
+              "The problem statement"
+            ],
+            "correct_answer": "The one factor the investigator changes on purpose"
+          },
+          {
+            "question": "In an investigation, what is a \"control\" or something \"kept the same\"?",
+            "options": [
+              "The factors that are kept unchanged so the test is fair",
+              "The final answer",
+              "The problem being asked",
+              "The temperature reading only"
+            ],
+            "correct_answer": "The factors that are kept unchanged so the test is fair"
+          },
+          {
+            "question": "Why must an investigation keep most factors the same except the one being tested?",
+            "options": [
+              "So that any difference in results can be fairly linked to the one factor that was changed",
+              "So the investigation takes less time",
+              "Because it is required by the materials list",
+              "It does not matter which factors are kept the same"
+            ],
+            "correct_answer": "So that any difference in results can be fairly linked to the one factor that was changed"
+          },
+          {
+            "question": "In the question \"Does water temperature affect how fast sugar dissolves?\", what is being changed on purpose (the variable)?",
+            "options": [
+              "The water temperature",
+              "The amount of sugar",
+              "The container used",
+              "The color of the water"
+            ],
+            "correct_answer": "The water temperature"
+          },
+          {
+            "question": "In the same investigation, \"Does water temperature affect how fast sugar dissolves?\", what should be kept the same (a control) for a fair test?",
+            "options": [
+              "The amount of sugar and the amount of water used each time",
+              "The temperature of the water",
+              "Nothing needs to be kept the same",
+              "The time of day only"
+            ],
+            "correct_answer": "The amount of sugar and the amount of water used each time"
+          },
+          {
+            "question": "A group plans to test \"Do gases have mass?\" by weighing a balloon before and after inflating it. What is the variable in this plan?",
+            "options": [
+              "Whether the balloon is inflated (has gas) or not",
+              "The color of the balloon",
+              "The brand of the weighing scale",
+              "The room temperature"
+            ],
+            "correct_answer": "Whether the balloon is inflated (has gas) or not"
+          },
+          {
+            "question": "For \"Do gases have mass?\", which should stay the SAME between the two weighings to make it a fair test?",
+            "options": [
+              "The same balloon and the same weighing scale",
+              "The size of the balloon should change each time",
+              "A different scale for each weighing",
+              "The room should change each time"
+            ],
+            "correct_answer": "The same balloon and the same weighing scale"
+          },
+          {
+            "question": "A group testing sugar dissolving plans to use warm water in one cup and cold water in another, both with the exact same amount of asukal (sugar) and the exact same size of cup. Is this a fair test?",
+            "options": [
+              "Yes, because only the water temperature differs while other factors are kept the same",
+              "No, because the cups are the same size",
+              "No, because sugar was used in both cups",
+              "Yes, but only because it uses two cups"
+            ],
+            "correct_answer": "Yes, because only the water temperature differs while other factors are kept the same"
+          },
+          {
+            "question": "A group planning an investigation about dissolving sugar decides to use warm water in a big glass and cold water in a small cup, with different amounts of sugar in each. What is wrong with this plan?",
+            "options": [
+              "Too many factors are different (container size and sugar amount), so it will not be clear which factor caused any difference",
+              "The plan is perfectly fair",
+              "The plan needs a hotter temperature",
+              "Nothing is wrong since it still uses water and sugar"
+            ],
+            "correct_answer": "Too many factors are different (container size and sugar amount), so it will not be clear which factor caused any difference"
+          },
+          {
+            "question": "When writing a procedure for testing \"Do gases have mass?\", which step should come first?",
+            "options": [
+              "Weigh the empty (deflated) balloon and record its mass",
+              "Compare the two results and write a conclusion",
+              "Inflate the balloon fully",
+              "Record the findings in a table"
+            ],
+            "correct_answer": "Weigh the empty (deflated) balloon and record its mass"
+          },
+          {
+            "question": "After testing, a group finds sugar dissolved in 20 seconds in warm water and 85 seconds in cold water, using the same amount of sugar and water both times. What conclusion is best supported by this finding?",
+            "options": [
+              "Warmer water makes sugar dissolve faster, based on the clear difference observed under otherwise identical conditions",
+              "The type of cup used determined the dissolving speed",
+              "Sugar dissolves at the same rate no matter the temperature",
+              "The results cannot be trusted because only one trial was done"
+            ],
+            "correct_answer": "Warmer water makes sugar dissolve faster, based on the clear difference observed under otherwise identical conditions"
+          },
+          {
+            "question": "Why is it important for a student to name the control and the variable BEFORE running an investigation, rather than deciding afterward?",
+            "options": [
+              "Planning this ahead of time helps the student design a fair procedure and know exactly what to keep the same, instead of realizing too late that other factors were also changing",
+              "It is not important, since conclusions can be written no matter how the test was run",
+              "Naming these afterward always gives the same accurate results",
+              "Only the conclusion needs to be planned in advance"
+            ],
+            "correct_answer": "Planning this ahead of time helps the student design a fair procedure and know exactly what to keep the same, instead of realizing too late that other factors were also changing"
+          },
+          {
+            "question": "A student designs a test comparing how fast paper towels absorb tubig (water) versus tissue paper, using the same amount of water, the same size of paper, and the same pouring method for both. What makes this a strong, fair investigation plan?",
+            "options": [
+              "Only one factor (the type of paper) is different, while everything else that could affect the result is kept the same",
+              "It uses two different types of paper, which is enough on its own",
+              "It does not need a written procedure since the materials are simple",
+              "It compares two liquids instead of two materials"
+            ],
+            "correct_answer": "Only one factor (the type of paper) is different, while everything else that could affect the result is kept the same"
+          },
+          {
+            "question": "A student proposes the testable question, \"Does the amount of asukal (sugar) affect how sweet a glass of calamansi juice tastes?\" What would be the variable, and what would need to be kept the same?",
+            "options": [
+              "The variable is the amount of sugar added; the amount of juice, water, and calamansi used should be kept the same",
+              "The variable is the type of glass used; nothing else matters",
+              "The variable is the temperature; the amount of sugar should change too",
+              "There is no variable in this question"
+            ],
+            "correct_answer": "The variable is the amount of sugar added; the amount of juice, water, and calamansi used should be kept the same"
+          },
+          {
+            "question": "A group wants to compare how fast ice melts in the sun versus in the shade. They use a big ice cube in the sun and a small ice cube in the shade. Why can't they trust their results to answer their original question fairly?",
+            "options": [
+              "Because the size of the ice cubes is different, so they cannot tell if the sun/shade or the size caused any difference in melting speed",
+              "Because ice always melts at the same speed everywhere",
+              "Because sun and shade are the same temperature",
+              "Because the investigation has too many materials"
+            ],
+            "correct_answer": "Because the size of the ice cubes is different, so they cannot tell if the sun/shade or the size caused any difference in melting speed"
+          }
+        ]
+      },
+      "Social Studies": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Kalinangang Bayan:** This refers to the collective culture of ancient Filipinos, including **material culture** (artifacts like the Manunggul Jar) and **di-materyal** (beliefs/language).\n* **Indigenous Beliefs:** Our ancestors practiced **Animismo** (belief in nature spirits) and **Politeismo** (belief in many gods like Bathala).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Spanish Colonization:** We will begin exploring why Spain was interested in colonizing the Philippines.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa paniniwalang ang mga bagay sa kalikasan ay may espiritu?",
+            "options": [
+              "Animismo",
+              "Monoteismo",
+              "Ateismo"
+            ],
+            "correct_answer": "Animismo"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng materyal na kultura?",
+            "options": [
+              "Artifact",
+              "Wika",
+              "Paniniwala"
+            ],
+            "correct_answer": "Artifact"
+          },
+          {
+            "question": "Sino ang pinakamakapangyarihang diyos sa sinaunang paniniwalang Tagalog?",
+            "options": [
+              "Lakapati",
+              "Bathala",
+              "Mayari"
+            ],
+            "correct_answer": "Bathala"
+          },
+          {
+            "question": "Anong artifact ang nagpapakita ng paglalakbay ng kaluluwa sa afterlife?",
+            "options": [
+              "Bulul",
+              "Manunggul Jar",
+              "Palayok"
+            ],
+            "correct_answer": "Manunggul Jar"
+          },
+          {
+            "question": "Ano ang tawag sa espirituwal na pinuno sa sinaunang lipunan?",
+            "options": [
+              "Datu",
+              "Babaylan",
+              "Panday"
+            ],
+            "correct_answer": "Babaylan"
+          },
+          {
+            "question": "Ang 'Bulul' ay isang ukit na gawa sa ano?",
+            "options": [
+              "Ginto",
+              "Kahoy",
+              "Bakal"
+            ],
+            "correct_answer": "Kahoy"
+          },
+          {
+            "question": "Sino ang nagdala ng Islam sa Pilipinas?",
+            "options": [
+              "Espanyol",
+              "Amerikano",
+              "Mga mangangalakal na Arabe"
+            ],
+            "correct_answer": "Mga mangangalakal na Arabe"
+          },
+          {
+            "question": "Ano ang tawag sa banal na aklat ng Islam?",
+            "options": [
+              "Bibliya",
+              "Qur'an",
+              "Vedas"
+            ],
+            "correct_answer": "Qur'an"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Science": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Compound Light Microscope:** Uses light and lenses to enlarge tiny objects. Always carry it with **two hands** (arm and base).\n* **Investigation Sequence:** A formal test follows: **Problem** (testable question), **Materials**, **Procedure**, and **Findings**.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Classifying Organisms:** We will move to grouping living things into **Plants, Animals, and Microorganisms**.",
+        "quiz": [
+          {
+            "question": "Which microscope part do you look through?",
+            "options": [
+              "Objective lens",
+              "Eyepiece",
+              "Stage"
+            ],
+            "correct_answer": "Eyepiece"
+          },
+          {
+            "question": "How should a microscope be carried?",
+            "options": [
+              "By the eyepiece",
+              "With one hand",
+              "With two hands (arm and base)"
+            ],
+            "correct_answer": "With two hands (arm and base)"
+          },
+          {
+            "question": "Which part adjusts the amount of light in a microscope?",
+            "options": [
+              "Diaphragm",
+              "Nosepiece",
+              "Arm"
+            ],
+            "correct_answer": "Diaphragm"
+          },
+          {
+            "question": "Which objective should you always start with?",
+            "options": [
+              "High power",
+              "Low power",
+              "Oil immersion"
+            ],
+            "correct_answer": "Low power"
+          },
+          {
+            "question": "What kind of data involves measurements like '12 cm'?",
+            "options": [
+              "Qualitative",
+              "Quantitative",
+              "Inference"
+            ],
+            "correct_answer": "Quantitative"
+          },
+          {
+            "question": "Which is a 'testable' scientific problem?",
+            "options": [
+              "Are plants nice?",
+              "How does light affect plant growth?",
+              "Is science fun?"
+            ],
+            "correct_answer": "How does light affect plant growth?"
+          },
+          {
+            "question": "What is the purpose of a 'control' in an experiment?",
+            "options": [
+              "Decoration",
+              "Fair comparison",
+              "To change all factors"
+            ],
+            "correct_answer": "Fair comparison"
+          },
+          {
+            "question": "What step lists specific actions taken in an investigation?",
+            "options": [
+              "Problem",
+              "Procedure",
+              "Conclusion"
+            ],
+            "correct_answer": "Procedure"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Pokus sa Tagaganap:** Kapag ang **simuno** (subject) ang siyang gumagawa ng kilos. Panlapi: **-um-, mag-, maka-**.\n* **Pormularyo:** Ang **Enrolment Form** ay nangangailangan ng tamang datos gaya ng LRN at petsa ng kapanganakan.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Tekstong Biswal:** Tatalakayin natin kung paano nagbibigay ng babala ang mga **road signs**.",
+        "quiz": [
+          {
+            "question": "Sino ang gumagawa ng kilos sa aktor-pokus na pandiwa?",
+            "options": [
+              "Simuno",
+              "Layon",
+              "Lugar"
+            ],
+            "correct_answer": "Simuno"
+          },
+          {
+            "question": "Alin ang pandiwa sa 'Nagluto si Inay'?",
+            "options": [
+              "Inay",
+              "Nagluto",
+              "Si"
+            ],
+            "correct_answer": "Nagluto"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng LRN?",
+            "options": [
+              "Learner Reference Number",
+              "Local Record Name",
+              "Learning Reading Note"
+            ],
+            "correct_answer": "Learner Reference Number"
+          },
+          {
+            "question": "Alin ang panlapi sa pandiwang 'tumawid'?",
+            "options": [
+              "mag-",
+              "-um-",
+              "maka-"
+            ],
+            "correct_answer": "-um-"
+          },
+          {
+            "question": "Ano ang pinakamalaking pamagat sa multimedia presentation?",
+            "options": [
+              "Headline",
+              "Subtitle",
+              "Caption"
+            ],
+            "correct_answer": "Headline"
+          },
+          {
+            "question": "Ano ang tawag sa maikling mensaheng madaling tandaan?",
+            "options": [
+              "Slogan",
+              "Liham",
+              "Talata"
+            ],
+            "correct_answer": "Slogan"
+          },
+          {
+            "question": "Ano ang dapat gawin bago ipasa ang form?",
+            "options": [
+              "Iwanang blangko",
+              "Suriin ang impormasyon",
+              "Kopyahin sa iba"
+            ],
+            "correct_answer": "Suriin ang impormasyon"
+          },
+          {
+            "question": "Sino ang tagaganap sa 'Tumulong ang bata'?",
+            "options": [
+              "Bata",
+              "Tumulong",
+              "Silid"
+            ],
+            "correct_answer": "Bata"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Early Philippine Arts:** Ancient Filipinos created art like **Pottery** and **Weaving** for identity and beliefs.\n* **Health:** Puberty involves physical and emotional changes; family support is vital during this transition.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Gateway Drugs:** In Health, we will move to understanding the negative effects of **tobacco and alcohol**.",
+        "quiz": [
+          {
+            "question": "Which art form involves making objects from clay?",
+            "options": [
+              "Weaving",
+              "Pottery",
+              "Tattooing"
+            ],
+            "correct_answer": "Pottery"
+          },
+          {
+            "question": "Which traditional Filipino game uses a can and slippers?",
+            "options": [
+              "Sipa",
+              "Tumbang Preso",
+              "Piko"
+            ],
+            "correct_answer": "Tumbang Preso"
+          },
+          {
+            "question": "What is the body's response to pressure?",
+            "options": [
+              "Stress",
+              "Agility",
+              "Dopamine"
+            ],
+            "correct_answer": "Stress"
+          },
+          {
+            "question": "Which behavior means standing up for rights while respecting others?",
+            "options": [
+              "Passive",
+              "Aggressive",
+              "Assertive"
+            ],
+            "correct_answer": "Assertive"
+          },
+          {
+            "question": "Why were gold ornaments worn by leaders anciently?",
+            "options": [
+              "To hide identity",
+              "To show status and importance",
+              "To replace clothes"
+            ],
+            "correct_answer": "To show status and importance"
+          },
+          {
+            "question": "How many minutes of physical activity is the daily goal?",
+            "options": [
+              "10",
+              "30",
+              "60"
+            ],
+            "correct_answer": "60"
+          },
+          {
+            "question": "Which art form is made by interlacing threads to create cloth?",
+            "options": [
+              "Sculpture",
+              "Weaving",
+              "Painting"
+            ],
+            "correct_answer": "Weaving"
+          },
+          {
+            "question": "Who plays a key role in helping a child during puberty?",
+            "options": [
+              "Family",
+              "Strangers",
+              "No one"
+            ],
+            "correct_answer": "Family"
+          }
+        ]
+      },
+      "Values Education": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Pagiging Masinop (Prudence):** Being masinop means using resources responsibly. It includes managing **E-waste** (sirang gadgets) correctly.\n* **Data Privacy:** Before disposing of gadgets, you must **erase personal data** with adult help.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Obedience:** Next week, we will learn about **Obedience** regarding traffic rules and community laws.",
+        "quiz": [
+          {
+            "question": "Ano ang e-waste?",
+            "options": [
+              "Pagkain",
+              "Patapong gamit-teknolohikal",
+              "Dahon"
+            ],
+            "correct_answer": "Patapong gamit-teknolohikal"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagiging masinop?",
+            "options": [
+              "Bili agad ng bago",
+              "Ingatan ang gadget hangga't maayos",
+              "Tapon baterya sa ilog"
+            ],
+            "correct_answer": "Ingatan ang gadget hangga't maayos"
+          },
+          {
+            "question": "Ano ang pinakamabisang step sa 3Rs?",
+            "options": [
+              "Recycle",
+              "Reuse",
+              "Reduce"
+            ],
+            "correct_answer": "Reduce"
+          },
+          {
+            "question": "Wastong gawin sa personal data bago itapon ang phone?",
+            "options": [
+              "Iwanan lang",
+              "Burahin sa tulong ng adulto",
+              "Ibahagi password"
+            ],
+            "correct_answer": "Burahin sa tulong ng adulto"
+          },
+          {
+            "question": "Saan dapat dalhin ang e-waste?",
+            "options": [
+              "Kanal",
+              "Authorized collection point",
+              "Likod-bahay"
+            ],
+            "correct_answer": "Authorized collection point"
+          },
+          {
+            "question": "Bakit hindi dapat kalasin ng bata ang gadget?",
+            "options": [
+              "Bawal maglaro",
+              "May mapanganib na bahagi",
+              "Mawawala ang kulay"
+            ],
+            "correct_answer": "May mapanganib na bahagi"
+          },
+          {
+            "question": "Ano ang waste segregation?",
+            "options": [
+              "Paghihiwalay ayon sa uri",
+              "Pagsusunog",
+              "Paghahalo"
+            ],
+            "correct_answer": "Paghihiwalay ayon sa uri"
+          },
+          {
+            "question": "Ano ang gagawin sa namamaga o umuusok na baterya?",
+            "options": [
+              "Tusukin",
+              "Lumayo at tumawag ng adulto",
+              "Ilagay sa tubig"
+            ],
+            "correct_answer": "Lumayo at tumawag ng adulto"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "Math": {
+        "summary_markdown": "### 📊 Weekly Review: Geometry\nWe reviewed **Area Formulas** for parallelograms ($A=bh$), triangles ($A=bh/2$), and trapezoids ($A=[(b1+b2)h]/2$). Area measures the **space inside** a flat shape in square units.",
+        "quiz": [
+          {
+            "question": "What is the area of a triangle with base 10 and height 6?",
+            "options": [
+              "60 sq. units",
+              "30 sq. units",
+              "16 sq. units"
+            ],
+            "correct_answer": "30 sq. units"
+          },
+          {
+            "question": "In a trapezoid area formula, what must you do first?",
+            "options": [
+              "Multiply height",
+              "Divide by 2",
+              "Add the parallel bases"
+            ],
+            "correct_answer": "Add the parallel bases"
+          },
+          {
+            "question": "What is the area of a parallelogram if base is 7 and height is 4?",
+            "options": [
+              "11 cm²",
+              "28 cm²",
+              "14 cm²"
+            ],
+            "correct_answer": "28 cm²"
+          },
+          {
+            "question": "Area is measured in _____ units.",
+            "options": [
+              "Linear",
+              "Square",
+              "Cubic"
+            ],
+            "correct_answer": "Square"
+          },
+          {
+            "question": "Which measures the distance around the boundary?",
+            "options": [
+              "Area",
+              "Perimeter",
+              "Volume"
+            ],
+            "correct_answer": "Perimeter"
+          },
+          {
+            "question": "Calculate the area of a square with side 6.",
+            "options": [
+              "12",
+              "24",
+              "36"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "If Area = 20 and base = 5, what is the height of the parallelogram?",
+            "options": [
+              "4",
+              "15",
+              "100"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "True or False: A rectangle 8 by 3 has an area of 24.",
+            "options": [
+              "True",
+              "False"
+            ],
+            "correct_answer": "True"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "### 🎨 Weekly Review: Arts and Health\nReviewed **Early Philippine Art** (Pottery, Weaving). In PE, we reviewed **Tumbang Preso**. In Health, we discussed supporting changes during **Puberty**.",
+        "quiz": [
+          {
+            "question": "Which early art is made from interlacing threads?",
+            "options": [
+              "Pottery",
+              "Weaving",
+              "Sculpture"
+            ],
+            "correct_answer": "Weaving"
+          },
+          {
+            "question": "The Manunggul Jar is an example of ancient _____.",
+            "options": [
+              "Pottery",
+              "Jewelry",
+              "Painting"
+            ],
+            "correct_answer": "Pottery"
+          },
+          {
+            "question": "What is the can used for in Tumbang Preso?",
+            "options": [
+              "Bat",
+              "Target",
+              "Scoreboard"
+            ],
+            "correct_answer": "Target"
+          },
+          {
+            "question": "Stress is the body's response to _____.",
+            "options": [
+              "Pressure",
+              "Sleep",
+              "Food"
+            ],
+            "correct_answer": "Pressure"
+          },
+          {
+            "question": "Which behavior prevents bullying?",
+            "options": [
+              "Aggressive",
+              "Assertive",
+              "Passive"
+            ],
+            "correct_answer": "Assertive"
+          },
+          {
+            "question": "What was the purpose of early jewelry?",
+            "options": [
+              "Hide identity",
+              "Show wealth/status",
+              "Survival only"
+            ],
+            "correct_answer": "Show wealth/status"
+          },
+          {
+            "question": "Physical activity goal is _____ minutes daily.",
+            "options": [
+              "10",
+              "30",
+              "60"
+            ],
+            "correct_answer": "60"
+          },
+          {
+            "question": "Who helps managing puberty changes?",
+            "options": [
+              "Family members",
+              "Hacker",
+              "No one"
+            ],
+            "correct_answer": "Family members"
+          }
+        ]
+      },
+      "EPP/TLE": {
+        "summary_markdown": "### 💻 Weekly Review: Digital Literacy\nLearners practiced being **Digital Detectives** by verifying online info. We reviewed **Netiquette** (polite internet use) and identifying **Browser Parts** like the address bar.",
+        "quiz": [
+          {
+            "question": "What tool helps you find specific websites using keywords?",
+            "options": [
+              "Keyboard",
+              "Search Engine",
+              "Printer"
+            ],
+            "correct_answer": "Search Engine"
+          },
+          {
+            "question": "Polite behavior on the internet is called _____.",
+            "options": [
+              "Internetting",
+              "Netiquette",
+              "Webbing"
+            ],
+            "correct_answer": "Netiquette"
+          },
+          {
+            "question": "Which browser part displays the web address?",
+            "options": [
+              "Status Bar",
+              "Address Bar",
+              "Tool Bar"
+            ],
+            "correct_answer": "Address Bar"
+          },
+          {
+            "question": "Should you share your password with friends?",
+            "options": [
+              "Yes",
+              "No",
+              "Only on weekends"
+            ],
+            "correct_answer": "No"
+          },
+          {
+            "question": "What is the purpose of keywords?",
+            "options": [
+              "To hide info",
+              "To find info faster",
+              "To lock browser"
+            ],
+            "correct_answer": "To find info faster"
+          },
+          {
+            "question": "Why verify information online?",
+            "options": [
+              "To make sure it's true",
+              "To delete it",
+              "To color it"
+            ],
+            "correct_answer": "To make sure it's true"
+          },
+          {
+            "question": "Is Google Chrome a search engine or browser?",
+            "options": [
+              "Search Engine",
+              "Web Browser"
+            ],
+            "correct_answer": "Web Browser"
+          },
+          {
+            "question": "What do we call the software that scans web pages?",
+            "options": [
+              "Mouse",
+              "Crawler",
+              "Screen"
+            ],
+            "correct_answer": "Crawler"
+          }
+        ]
+      },
+      "English": {
+        "summary_markdown": "### 📝 Weekly Review: Informational Texts\nWe focused on distinguishing **Facts** from **Opinions**, **Summarizing** using main ideas, and the accurate filling of **Personal Data Forms**. Colors also carry **symbolic meanings** in advocacy messages.",
+        "quiz": [
+          {
+            "question": "Is 'The sky is blue today' a fact or opinion?",
+            "options": [
+              "Fact",
+              "Opinion"
+            ],
+            "correct_answer": "Fact"
+          },
+          {
+            "question": "What should a summary NOT include?",
+            "options": [
+              "Main idea",
+              "Key details",
+              "Writer's personal opinions"
+            ],
+            "correct_answer": "Writer's personal opinions"
+          },
+          {
+            "question": "Where do suffixes like 'Jr.' go on a form?",
+            "options": [
+              "Middle Name",
+              "Suffix",
+              "Contact"
+            ],
+            "correct_answer": "Suffix"
+          },
+          {
+            "question": "What does the color Green usually represent?",
+            "options": [
+              "Danger",
+              "Nature and growth",
+              "Trust"
+            ],
+            "correct_answer": "Nature and growth"
+          },
+          {
+            "question": "What is the first step in summarizing?",
+            "options": [
+              "Write summary",
+              "Read carefully",
+              "Draw picture"
+            ],
+            "correct_answer": "Read carefully"
+          },
+          {
+            "question": "Which color signals 'Stop' or 'Danger'?",
+            "options": [
+              "Red",
+              "Green",
+              "White"
+            ],
+            "correct_answer": "Red"
+          },
+          {
+            "question": "What is advocacy?",
+            "options": [
+              "Fictional story",
+              "Effort to support a cause",
+              "Math rule"
+            ],
+            "correct_answer": "Effort to support a cause"
+          },
+          {
+            "question": "A fact is a statement that can be _____.",
+            "options": [
+              "Hidden",
+              "Proven",
+              "Ignored"
+            ],
+            "correct_answer": "Proven"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "### 🔬 Weekly Review: Investigation Tools\nWe focused on the **Microscope** (Parts: Magnifying, Illuminating, Mechanical) and the steps of a **Scientific Investigation**. We also differentiated **Qualitative** and **Quantitative** data.",
+        "quiz": [
+          {
+            "question": "Carry the microscope using the base and the _____.",
+            "options": [
+              "Eyepiece",
+              "Arm",
+              "Slide"
+            ],
+            "correct_answer": "Arm"
+          },
+          {
+            "question": "Which part holds the specimen slide?",
+            "options": [
+              "Objective",
+              "Stage",
+              "Eyepiece"
+            ],
+            "correct_answer": "Stage"
+          },
+          {
+            "question": "A question that can be tested is a testable _____.",
+            "options": [
+              "Conclusion",
+              "Problem",
+              "Finding"
+            ],
+            "correct_answer": "Problem"
+          },
+          {
+            "question": "Quantitative data uses _____.",
+            "options": [
+              "Smell",
+              "Colors",
+              "Numbers"
+            ],
+            "correct_answer": "Numbers"
+          },
+          {
+            "question": "Qualitative data uses _____.",
+            "options": [
+              "Descriptions/Senses",
+              "Rulers",
+              "Calculators"
+            ],
+            "correct_answer": "Descriptions/Senses"
+          },
+          {
+            "question": "Where do you record what actually happened?",
+            "options": [
+              "Materials",
+              "Findings",
+              "Problem"
+            ],
+            "correct_answer": "Findings"
+          },
+          {
+            "question": "Start observing using the _____ objective.",
+            "options": [
+              "High Power",
+              "Low Power",
+              "No"
+            ],
+            "correct_answer": "Low Power"
+          },
+          {
+            "question": "Which step answers the original problem?",
+            "options": [
+              "Conclusion",
+              "Materials",
+              "Procedure"
+            ],
+            "correct_answer": "Conclusion"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "### ✍️ Weekly Review: Pandiwa at Pormularyo\nNirepaso natin ang **Pokus sa Tagaganap** (simuno ang doer). Pinag-aralan din ang pagpuno ng **Enrolment Forms** at ang mga elemento ng **Multimedia** gaya ng headline.",
+        "quiz": [
+          {
+            "question": "Anong pokus ang 'Ang bata ay naglalaro'?",
+            "options": [
+              "Tagaganap",
+              "Layon",
+              "Gamit"
+            ],
+            "correct_answer": "Tagaganap"
+          },
+          {
+            "question": "Alin ang panlapi sa 'kumain'?",
+            "options": [
+              "-um-",
+              "mag-",
+              "ma-"
+            ],
+            "correct_answer": "-um-"
+          },
+          {
+            "question": "Dito isinusulat ang petsa ng kapanganakan sa form.",
+            "options": [
+              "Name field",
+              "Date of Birth field",
+              "LRN field"
+            ],
+            "correct_answer": "Date of Birth field"
+          },
+          {
+            "question": "Ano ang LRN?",
+            "options": [
+              "Learner Reference Number",
+              "Local Reading Note",
+              "Lesson Record Name"
+            ],
+            "correct_answer": "Learner Reference Number"
+          },
+          {
+            "question": "Ang headline ay dapat _____.",
+            "options": [
+              "Mahaba",
+              "Malinaw at kapansin-pansin",
+              "Nakatago"
+            ],
+            "correct_answer": "Malinaw at kapansin-pansin"
+          },
+          {
+            "question": "Ano ang gamit ng slogan?",
+            "options": [
+              "Magpaliwanag ng talata",
+              "Maikling mensaheng madaling tandaan",
+              "Listahan"
+            ],
+            "correct_answer": "Maikling mensaheng madaling tandaan"
+          },
+          {
+            "question": "Layunin ng tekstong proseso ang magbigay ng _____.",
+            "options": [
+              "Opinyon",
+              "Sunod-sunod na hakbang",
+              "Kuwento"
+            ],
+            "correct_answer": "Sunod-sunod na hakbang"
+          },
+          {
+            "question": "Ano ang pandiwa sa 'Tumakbo ang aso'?",
+            "options": [
+              "Aso",
+              "Tumakbo",
+              "Ang"
+            ],
+            "correct_answer": "Tumakbo"
+          }
+        ]
+      },
+      "Social Studies": {
+        "summary_markdown": "### 🌏 Weekly Review: Philippine Culture\nWe explored **Kalinangang Bayan**, distinguishing material artifacts from non-material habits. We also reviewed ancient beliefs in **Animismo** and the **Spread of Islam** via trade.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa paniniwala sa maraming diyos?",
+            "options": [
+              "Monoteismo",
+              "Politeismo",
+              "Ateismo"
+            ],
+            "correct_answer": "Politeismo"
+          },
+          {
+            "question": "Saan matatagpuan ang Manunggul Jar?",
+            "options": [
+              "Palawan",
+              "Ifugao",
+              "Manila"
+            ],
+            "correct_answer": "Palawan"
+          },
+          {
+            "question": "Ilan ang Haligi ng Islam?",
+            "options": [
+              "3",
+              "5",
+              "10"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "Ano ang 'di-materyal' na kultura?",
+            "options": [
+              "Ginto",
+              "Wika at gawi",
+              "Palayok"
+            ],
+            "correct_answer": "Wika at gawi"
+          },
+          {
+            "question": "Saan isinasagawa ang pagsamba ng mga Muslim?",
+            "options": [
+              "Simbahan",
+              "Moske",
+              "Bundok"
+            ],
+            "correct_answer": "Moske"
+          },
+          {
+            "question": "Ano ang tawag sa ukit na tagapangalaga ng palay?",
+            "options": [
+              "Bulul",
+              "Manunggul",
+              "Vedas"
+            ],
+            "correct_answer": "Bulul"
+          },
+          {
+            "question": "Ano ang layunin ng Manunggul Jar?",
+            "options": [
+              "Pagluluto",
+              "Pangalawang libingan",
+              "Palamuti"
+            ],
+            "correct_answer": "Pangalawang libingan"
+          },
+          {
+            "question": "Sino ang nagtuturo ng aral sa Islam?",
+            "options": [
+              "Babaylan",
+              "Propeta Muhammad",
+              "Panday"
+            ],
+            "correct_answer": "Propeta Muhammad"
+          }
+        ]
+      },
+      "Values Education": {
+        "summary_markdown": "### 🌱 Weekly Review: Pagiging Masinop\nNatutunan ang pagiging **Masinop** (Prudent) sa pamamagitan ng wastong pamamahala ng **E-waste**. Priority ang **Reduce** bago ang Reuse at Recycle.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa sirang charger o cellphone?",
+            "options": [
+              "E-waste",
+              "Organic waste",
+              "Compost"
+            ],
+            "correct_answer": "E-waste"
+          },
+          {
+            "question": "Ang pag-aalaga sa gamit ay tanda ng pagiging _____.",
+            "options": [
+              "Masinop",
+              "Tamad",
+              "Magulo"
+            ],
+            "correct_answer": "Masinop"
+          },
+          {
+            "question": "Ano ang gagawin sa personal info sa sirang gadget?",
+            "options": [
+              "Iwanan",
+              "Burahin",
+              "Ipost"
+            ],
+            "correct_answer": "Burahin"
+          },
+          {
+            "question": "Bakit bawal kalasin ang e-waste ng bata?",
+            "options": [
+              "Dahil laruan ito",
+              "Dahil sa panganib ng kemikal",
+              "Dahil bawal mag-ayos"
+            ],
+            "correct_answer": "Dahil sa panganib ng kemikal"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Reduce'?",
+            "options": [
+              "Bawasan ang hindi kailangang pagbili",
+              "Basagin ang gadget",
+              "Itapon lahat"
+            ],
+            "correct_answer": "Bawasan ang hindi kailangang pagbili"
+          },
+          {
+            "question": "Saan itatapon ang lumang baterya?",
+            "options": [
+              "Sa ilog",
+              "Sa basurahan ng pagkain",
+              "Sa hiwalay na safe container"
+            ],
+            "correct_answer": "Sa hiwalay na safe container"
+          },
+          {
+            "question": "Ano ang segregation?",
+            "options": [
+              "Paghahalo",
+              "Paghihiwalay ayon sa uri",
+              "Pagsusunog"
+            ],
+            "correct_answer": "Paghihiwalay ayon sa uri"
+          },
+          {
+            "question": "Sino ang dapat magdala ng e-waste sa collection point?",
+            "options": [
+              "Bata",
+              "Adulto",
+              "Alaga"
+            ],
+            "correct_answer": "Adulto"
+          }
+        ]
+      }
+    }
+  }
+}

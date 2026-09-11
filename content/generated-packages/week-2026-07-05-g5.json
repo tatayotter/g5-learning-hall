@@ -1,0 +1,178 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-07-05",
+  "days": {
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Changes of State: Melting, Freezing, Evaporation, and Condensation\n\n- Heating and cooling matter can cause it to **change state** -- the amount of matter stays the same, but whether it is solid, liquid, or gas can change.\n- **Melting**: heating turns a solid into a liquid (yelo/ice into water). The exact temperature this happens at is called the **melting point**.\n- **Freezing**: cooling turns a liquid into a solid (tubig/water into ice) -- the reverse of melting.\n- **Evaporation**: heating turns a liquid into a gas (damp clothes drying in the sun, water disappearing into the air).\n- **Condensation**: cooling turns a gas back into a liquid (water droplets forming on a cold glass of buko juice, or on the underside of a pot lid).\n- The temperature at which a liquid turns into a gas by boiling is called the **boiling point** -- water's boiling point is 100°C.\n\n| Process | From → To | Caused by |\n|---|---|---|\n| Melting | Solid → Liquid | Heating |\n| Freezing | Liquid → Solid | Cooling |\n| Evaporation | Liquid → Gas | Heating |\n| Condensation | Gas → Liquid | Cooling |\n\n- These changes can happen back and forth -- water can freeze into ice, then melt back into water again. A pot of boiling tubig (water) with a lid shows both evaporation (water becomes steam) and condensation (steam turns back to droplets on the cooler lid) happening together.\n- Different materials have different melting points -- butter melts at a lower temperature than wax, so under the same warm sunlight, the butter would likely melt first.",
+        "visual_aid": {
+          "type": "cycle",
+          "nodes": [
+            {
+              "label": "Solid (Ice)"
+            },
+            {
+              "label": "Liquid (Water)"
+            },
+            {
+              "label": "Gas (Water Vapor)"
+            }
+          ],
+          "title": "How Water Changes State"
+        },
+        "quiz": [
+          {
+            "question": "What is \"melting\"?",
+            "options": [
+              "The change from a solid to a liquid caused by heating",
+              "The change from a liquid to a gas",
+              "The change from a gas to a liquid",
+              "The change from a liquid to a solid"
+            ],
+            "correct_answer": "The change from a solid to a liquid caused by heating"
+          },
+          {
+            "question": "What is \"freezing\"?",
+            "options": [
+              "The change from a liquid to a solid caused by cooling",
+              "The change from a solid to a liquid",
+              "The change from a gas to a liquid",
+              "The change from a liquid to a gas"
+            ],
+            "correct_answer": "The change from a liquid to a solid caused by cooling"
+          },
+          {
+            "question": "What is \"evaporation\"?",
+            "options": [
+              "The change from a liquid to a gas caused by heating",
+              "The change from a gas to a liquid",
+              "The change from a solid to a gas",
+              "The change from a solid to a liquid"
+            ],
+            "correct_answer": "The change from a liquid to a gas caused by heating"
+          },
+          {
+            "question": "What is \"condensation\"?",
+            "options": [
+              "The change from a gas to a liquid caused by cooling",
+              "The change from a liquid to a solid",
+              "The change from a solid to a liquid",
+              "The change from a liquid to a gas"
+            ],
+            "correct_answer": "The change from a gas to a liquid caused by cooling"
+          },
+          {
+            "question": "What do we call the exact temperature at which a solid changes into a liquid?",
+            "options": [
+              "Melting point",
+              "Boiling point",
+              "Freezing point only",
+              "Condensation point"
+            ],
+            "correct_answer": "Melting point"
+          },
+          {
+            "question": "Water boils and turns to steam at 100°C. What do we call this temperature?",
+            "options": [
+              "The boiling point",
+              "The melting point",
+              "The freezing point",
+              "The condensation point"
+            ],
+            "correct_answer": "The boiling point"
+          },
+          {
+            "question": "A piece of yelo (ice) is left out on a table on a warm day and turns into water. What process is this?",
+            "options": [
+              "Melting",
+              "Freezing",
+              "Evaporation",
+              "Condensation"
+            ],
+            "correct_answer": "Melting"
+          },
+          {
+            "question": "Tubig (water) is placed in the freezer overnight and becomes solid ice. What process is this?",
+            "options": [
+              "Freezing",
+              "Melting",
+              "Evaporation",
+              "Condensation"
+            ],
+            "correct_answer": "Freezing"
+          },
+          {
+            "question": "Damp clothes hung outside dry up after a few hours in the sun. What process caused the water in the clothes to disappear into the air?",
+            "options": [
+              "Evaporation",
+              "Freezing",
+              "Melting",
+              "Condensation"
+            ],
+            "correct_answer": "Evaporation"
+          },
+          {
+            "question": "Water droplets form on the outside of a cold glass of buko juice on a hot day. What process caused these droplets to form?",
+            "options": [
+              "Condensation",
+              "Evaporation",
+              "Melting",
+              "Freezing"
+            ],
+            "correct_answer": "Condensation"
+          },
+          {
+            "question": "A tray of tubig (water) is placed in the freezer and becomes ice, then later the ice is left on the counter and turns back into water. What do these two events show about heating and cooling?",
+            "options": [
+              "Cooling can freeze a liquid into a solid, and heating can melt that same solid back into a liquid -- the changes can be reversed",
+              "Once water freezes, it can never become liquid again",
+              "Freezing and melting are exactly the same process",
+              "Only heating can cause a change of state"
+            ],
+            "correct_answer": "Cooling can freeze a liquid into a solid, and heating can melt that same solid back into a liquid -- the changes can be reversed"
+          },
+          {
+            "question": "A pot of tubig (water) is boiling on the stove with a lid on top. After a few minutes, the underside of the lid is covered with water droplets. Explain what happened using two processes from this week.",
+            "options": [
+              "Evaporation turned some boiling water into steam (a gas), and when that steam touched the cooler lid, condensation turned it back into liquid droplets",
+              "The lid absorbed water directly from the pot",
+              "Freezing caused the droplets to appear on the lid",
+              "The water on the lid came from outside the pot"
+            ],
+            "correct_answer": "Evaporation turned some boiling water into steam (a gas), and when that steam touched the cooler lid, condensation turned it back into liquid droplets"
+          },
+          {
+            "question": "If a sample of butter has a melting point lower than a sample of wax, what would you expect to observe if you leave both out under the same warm sunlight?",
+            "options": [
+              "The butter would likely melt into a liquid before the wax does",
+              "The wax would always melt first no matter the melting point",
+              "Both would melt at exactly the same time regardless of melting point",
+              "Neither would ever melt in sunlight"
+            ],
+            "correct_answer": "The butter would likely melt into a liquid before the wax does"
+          },
+          {
+            "question": "A student wants to find out if adding rock salt to ice changes how quickly the ice melts. What would need to stay the same (control) between the two ice samples for this to be a fair test?",
+            "options": [
+              "The amount of ice, the starting temperature, and the surrounding conditions -- only the presence of salt should differ",
+              "Nothing needs to stay the same as long as both are ice",
+              "The type of container used does not matter at all",
+              "Only the color of the ice matters"
+            ],
+            "correct_answer": "The amount of ice, the starting temperature, and the surrounding conditions -- only the presence of salt should differ"
+          },
+          {
+            "question": "Bagoong (fermented paste) sitting uncovered for many days loses some of its liquid and becomes thicker. Which process most likely explains this, and why does it usually happen faster on a hot day than a cold day?",
+            "options": [
+              "Evaporation -- heat gives the liquid's particles more energy to escape into the air, so warmer days speed it up",
+              "Condensation -- the paste is gaining water from the air",
+              "Freezing -- cold air makes the paste thicker",
+              "Melting -- the paste changes from solid to liquid"
+            ],
+            "correct_answer": "Evaporation -- heat gives the liquid's particles more energy to escape into the air, so warmer days speed it up"
+          }
+        ]
+      }
+    }
+  }
+}

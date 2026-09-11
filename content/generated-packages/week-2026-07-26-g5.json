@@ -1,0 +1,944 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-07-26",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## This Week in English: Nouns, Pronouns, and Building Better Sentences\n\n- **Concrete nouns** name things you can see, hear, touch, taste, or smell (e.g., *dog*, *rain*, *bell*). **Abstract nouns** name ideas or feelings you cannot touch (e.g., *courage*, *happiness*, *freedom*).\n- **Collective nouns** name a group acting as one unit — *a flock of birds*, *a team of players*.\n- **Demonstrative pronouns** — *this, that, these, those* — point to a specific noun. Example: \"**This** book is mine, but **those** belong to Anna.\"\n- **Adjectives** describe nouns, and English has a natural **order**: opinion → size → age → shape → color → origin → material → purpose. Example: \"a **beautiful small old round** wooden table.\"\n- **Adverbs** describe verbs, adjectives, or other adverbs, often answering *how, when, where,* or *to what extent* (e.g., \"She sang **beautifully**.\").\n- **Types of verbs** include action verbs (*run, write*) and linking verbs (*is, seems*). **Verb tenses** show when something happens — past, present, or future.\n- **Subject-verb agreement**: a singular subject needs a singular verb, and a plural subject needs a plural verb. Example: \"The **dog barks**\" vs. \"The **dogs bark**.\"\n- **Compound sentences** join two complete thoughts with a conjunction like *and, but,* or *so* (e.g., \"I studied hard, **and** I passed the quiz.\").\n- **Tone and mood** — tone is the writer's attitude; mood is the feeling the reader gets. A story can have a *hopeful* tone and a *tense* mood at the same time.",
+        "quiz": [
+          {
+            "question": "Which collective noun refers to a group of fish?",
+            "options": [
+              "a school of fish",
+              "a herd of fish",
+              "a flock of fish",
+              "a pack of fish"
+            ],
+            "correct_answer": "a school of fish"
+          },
+          {
+            "question": "An adjective may describe which of the following about a noun?",
+            "options": [
+              "Number, quality, size, color, and more",
+              "Only color",
+              "Only size",
+              "Only material"
+            ],
+            "correct_answer": "Number, quality, size, color, and more"
+          },
+          {
+            "question": "What is the correct definition of tone in a text?",
+            "options": [
+              "The author's attitude toward the subject or audience",
+              "The place where the story happens",
+              "The number of characters in the story",
+              "The title of the text"
+            ],
+            "correct_answer": "The author's attitude toward the subject or audience"
+          },
+          {
+            "question": "Which word is an abstract noun?",
+            "options": [
+              "courage",
+              "table",
+              "flower",
+              "bread"
+            ],
+            "correct_answer": "courage"
+          },
+          {
+            "question": "Which word is a concrete noun?",
+            "options": [
+              "dog",
+              "happiness",
+              "freedom",
+              "courage"
+            ],
+            "correct_answer": "dog"
+          },
+          {
+            "question": "Identify the helping verb in the sentence: \"They are reading now.\"",
+            "options": [
+              "are",
+              "now",
+              "reading",
+              "they"
+            ],
+            "correct_answer": "are"
+          },
+          {
+            "question": "A writer uses formal words, long sentences, and careful details to describe a serious event. What does this most likely create?",
+            "options": [
+              "A serious tone",
+              "A humorous tone",
+              "An angry tone",
+              "An excited tone"
+            ],
+            "correct_answer": "A serious tone"
+          },
+          {
+            "question": "Which sentence correctly combines these two ideas using a coordinating conjunction: \"He was tired.\" + \"He finished the work.\"?",
+            "options": [
+              "He was tired, but he finished the work.",
+              "He was tired he finished the work.",
+              "He was tired finished the work.",
+              "He tired finished work."
+            ],
+            "correct_answer": "He was tired, but he finished the work."
+          },
+          {
+            "question": "Which sentence correctly uses a collective noun?",
+            "options": [
+              "A flock of birds flew over the trees.",
+              "A herd of birds flew over the trees.",
+              "A pack of birds flew over the trees.",
+              "A team of birds flew over the trees."
+            ],
+            "correct_answer": "A flock of birds flew over the trees."
+          },
+          {
+            "question": "Complete the sentence: \"_____ is the flag I am holding.\" (one object, near the speaker)",
+            "options": [
+              "This",
+              "That",
+              "These",
+              "Those"
+            ],
+            "correct_answer": "This"
+          },
+          {
+            "question": "Examine the phrase \"two beautiful small old round red Filipino wooden toy boxes.\" Why might a writer avoid using this many adjectives in a single sentence?",
+            "options": [
+              "Because using too many adjectives, even in the correct order, can make a sentence hard to read",
+              "Because adjectives must always come after the noun",
+              "Because only three adjectives are allowed in English",
+              "Because adjectives cannot describe origin or material"
+            ],
+            "correct_answer": "Because using too many adjectives, even in the correct order, can make a sentence hard to read"
+          },
+          {
+            "question": "Compare \"She is happy\" and \"She bought a book.\" What is the key grammatical difference between the verbs \"is\" and \"bought\" in these sentences?",
+            "options": [
+              "\"Is\" links the subject to a description while \"bought\" shows an action done to an object",
+              "Both verbs show the same type of action",
+              "\"Bought\" is a linking verb while \"is\" is transitive",
+              "Neither verb has an object"
+            ],
+            "correct_answer": "\"Is\" links the subject to a description while \"bought\" shows an action done to an object"
+          },
+          {
+            "question": "A paragraph uses formal word choice, precise details, and complete sentences to discuss respect for national heroes. What tone does this most likely create, and why?",
+            "options": [
+              "A respectful tone, because formal word choice and careful details show seriousness and honor toward the subject",
+              "A humorous tone, because formal words are meant to be funny",
+              "An angry tone, because complete sentences show frustration",
+              "No tone, because tone requires informal language"
+            ],
+            "correct_answer": "A respectful tone, because formal word choice and careful details show seriousness and honor toward the subject"
+          },
+          {
+            "question": "Analyze: \"The class is proud, and the team is excited.\" What kind of sentence is this and why?",
+            "options": [
+              "A compound sentence, because it joins two independent clauses with a comma and coordinating conjunction",
+              "A simple sentence, because it has only one subject",
+              "A compound sentence, because it has two nouns",
+              "A simple sentence, because it uses one verb only"
+            ],
+            "correct_answer": "A compound sentence, because it joins two independent clauses with a comma and coordinating conjunction"
+          },
+          {
+            "question": "Compare the words \"freedom\" and \"monument.\" Why is one an abstract noun and the other a concrete noun?",
+            "options": [
+              "\"Freedom\" cannot be touched or seen directly while \"monument\" can be experienced through the senses",
+              "Both are abstract because they are important ideas",
+              "Both are concrete because they can be written down",
+              "\"Monument\" is abstract because it represents an idea"
+            ],
+            "correct_answer": "\"Freedom\" cannot be touched or seen directly while \"monument\" can be experienced through the senses"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## This Week in Math: Understanding Area\n\n- **Area** is the amount of flat space inside a two-dimensional shape, measured in square units (like cm² or m²).\n- Every shape's area formula uses its **base** and **height** — the base is the bottom side, and the height is the straight up-and-down distance from the base to the opposite side or point.\n- Key formulas:\n  - **Rectangle/Square**: Area = length × width\n  - **Triangle**: Area = ½ × base × height\n  - **Parallelogram**: Area = base × height\n- The **orientation** of a shape (rotated, flipped, or tilted) does not change its area — only its position changes, not its size.\n- Example: A triangle with a base of 10 cm and a height of 6 cm has an area of ½ × 10 × 6 = **30 cm²**.",
+        "quiz": [
+          {
+            "question": "What is the formula for the area of a triangle?",
+            "options": [
+              "A = (b × h) ÷ 2",
+              "A = b × h",
+              "A = b + h",
+              "A = ((b1+b2)×h)÷2"
+            ],
+            "correct_answer": "A = (b × h) ÷ 2"
+          },
+          {
+            "question": "What is the formula for the area of a parallelogram?",
+            "options": [
+              "A = b × h",
+              "A = b + h",
+              "A = (b × h) ÷ 2",
+              "A = ((b1+b2)×h)÷2"
+            ],
+            "correct_answer": "A = b × h"
+          },
+          {
+            "question": "Which of the following is a square unit?",
+            "options": [
+              "cm²",
+              "cm",
+              "m",
+              "km"
+            ],
+            "correct_answer": "cm²"
+          },
+          {
+            "question": "What does area measure?",
+            "options": [
+              "The amount of surface inside a figure",
+              "The distance around a figure",
+              "The number of corners",
+              "The length of one side"
+            ],
+            "correct_answer": "The amount of surface inside a figure"
+          },
+          {
+            "question": "Does the area of a triangle change when it is rotated?",
+            "options": [
+              "No, only its position changes",
+              "Yes, it becomes larger",
+              "Yes, it becomes smaller",
+              "Yes, its shape changes"
+            ],
+            "correct_answer": "No, only its position changes"
+          },
+          {
+            "question": "Why can a leg of a right triangle be used as its height?",
+            "options": [
+              "Because the two legs that form the right angle are perpendicular to each other",
+              "Because it is always the shortest side",
+              "Because it is the hypotenuse",
+              "Because it is always vertical"
+            ],
+            "correct_answer": "Because the two legs that form the right angle are perpendicular to each other"
+          },
+          {
+            "question": "A trapezoid has b1 = 10 cm, b2 = 6 cm, and h = 4 cm. What is its area?",
+            "options": [
+              "32 cm²",
+              "40 cm²",
+              "64 cm²",
+              "16 cm²"
+            ],
+            "correct_answer": "32 cm²"
+          },
+          {
+            "question": "Using the formula A = b × h, find the area of a parallelogram with base = 15 cm and height = 10 cm.",
+            "options": [
+              "150 cm²",
+              "25 cm²",
+              "5 cm²",
+              "100 cm²"
+            ],
+            "correct_answer": "150 cm²"
+          },
+          {
+            "question": "A parallelogram has a base of 5 units and a height of 3 units. What is its area?",
+            "options": [
+              "15 square units",
+              "8 square units",
+              "5 square units",
+              "3 square units"
+            ],
+            "correct_answer": "15 square units"
+          },
+          {
+            "question": "Using the Given-Formula-Solution-Answer method, what is the first step in solving an area problem?",
+            "options": [
+              "Write down the given measurements",
+              "Draw the final answer",
+              "Choose the formula",
+              "Multiply the numbers"
+            ],
+            "correct_answer": "Write down the given measurements"
+          },
+          {
+            "question": "A trapezoid has b1 = 12 m, b2 = 8 m, and h = 5 m. A parallelogram has b = 10 m and h = 5 m. Which figure has the larger area, and by how much?",
+            "options": [
+              "Neither, they are equal (both have an area of 50 m²)",
+              "The parallelogram, by 20 m²",
+              "The trapezoid, by 20 m²",
+              "The parallelogram, by 10 m²"
+            ],
+            "correct_answer": "Neither, they are equal (both have an area of 50 m²)"
+          },
+          {
+            "question": "Explain why \"length\" and \"area\" cannot be measured using the same type of unit.",
+            "options": [
+              "Because length uses linear units (like cm) while area uses square units (like cm²), since area covers two dimensions",
+              "Because they are actually the same measurement",
+              "Because area is always measured in kilograms",
+              "Because length can only be measured in meters"
+            ],
+            "correct_answer": "Because length uses linear units (like cm) while area uses square units (like cm²), since area covers two dimensions"
+          },
+          {
+            "question": "A rectangle-shaped garden and a triangular garden have the same base and height measurements. How do their areas compare, and why?",
+            "options": [
+              "The triangle's area is half of the rectangle's area, because the triangle formula divides by 2",
+              "Their areas are always equal",
+              "The triangle's area is always larger",
+              "There is no relationship between their areas"
+            ],
+            "correct_answer": "The triangle's area is half of the rectangle's area, because the triangle formula divides by 2"
+          },
+          {
+            "question": "A triangle is obtuse, and for a chosen base, the height falls outside the triangle. Why is this height still considered valid for computing area?",
+            "options": [
+              "Because the perpendicular distance from the base line to the opposite vertex is still accurate, regardless of where it falls",
+              "Because any line drawn near the triangle can be used as height",
+              "Because obtuse triangles do not need a real height",
+              "Because the area formula ignores the position of the height"
+            ],
+            "correct_answer": "Because the perpendicular distance from the base line to the opposite vertex is still accurate, regardless of where it falls"
+          },
+          {
+            "question": "Compare finding the area of a parallelogram versus a trapezoid. Why does the trapezoid formula need two base values (b1 and b2) while the parallelogram formula needs only one?",
+            "options": [
+              "Because a trapezoid has only one pair of parallel sides that are of different lengths, unlike a parallelogram whose opposite sides are equal",
+              "Because a trapezoid is always bigger than a parallelogram",
+              "Because trapezoids do not have a height",
+              "Because parallelograms have four different base lengths"
+            ],
+            "correct_answer": "Because a trapezoid has only one pair of parallel sides that are of different lengths, unlike a parallelogram whose opposite sides are equal"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Designing Your Own Investigation: A Full Example with Evaporation\n\n- A strong scientific investigation starts with a **testable question** -- one that can actually be answered by observing or measuring something, unlike an opinion question like \"which tastes best?\"\n- Example testable question: \"Does the type of liquid affect how fast it evaporates?\" -- comparing, say, tubig (water) and gatas (milk), or suka (vinegar) and alcohol.\n- For this kind of comparison, the **variable** is the type of liquid, while the **controls** (kept the same) should include the amount of liquid, the type and size of container, and the location/temperature where both are placed.\n- A fair setup uses **identical containers**, **equal amounts** of each liquid, placed in the **same location** at the **same time** -- changing only the type of liquid.\n- Watch out for hidden extra variables! If one cup sits in full sun and the other in shade, you cannot tell whether the liquid type or the sunlight caused any difference in evaporation -- the fix is to place both cups in the exact same location.\n\n| Part of the Investigation | Example (Water vs. Milk) |\n|---|---|\n| Testable question | Does the type of liquid affect evaporation rate? |\n| Variable | Type of liquid (water vs. milk) |\n| Controls | Amount of liquid, container type, location |\n| Conclusion | States which liquid evaporated faster, based on findings |\n\n- A good conclusion directly answers the tested question using the findings -- for example, \"Water evaporated faster than milk under the same conditions in this investigation\" -- rather than an opinion like \"water is better.\"\n- This same approach (clear question, one variable, several controls) can be extended to testing three or more liquids at once, as long as every container, amount, and location stays identical except for the liquid type.",
+        "quiz": [
+          {
+            "question": "Which of these is an example of a testable question?",
+            "options": [
+              "Does patis (fish sauce) evaporate faster than tubig (water) at the same temperature?",
+              "Which soft drink tastes the best?",
+              "Is summer the best season?",
+              "What color is prettiest?"
+            ],
+            "correct_answer": "Does patis (fish sauce) evaporate faster than tubig (water) at the same temperature?"
+          },
+          {
+            "question": "When comparing the evaporation rate of two different liquids, what is being changed on purpose?",
+            "options": [
+              "The type of liquid used",
+              "The room's shape",
+              "The color of the container",
+              "The name of the investigator"
+            ],
+            "correct_answer": "The type of liquid used"
+          },
+          {
+            "question": "What makes a question \"testable\" in a scientific investigation?",
+            "options": [
+              "It can be answered by observing or measuring something through an actual test",
+              "It can only be answered by asking an adult",
+              "It has no possible way to be measured",
+              "It is a question about feelings and opinions"
+            ],
+            "correct_answer": "It can be answered by observing or measuring something through an actual test"
+          },
+          {
+            "question": "When comparing evaporation rate across two liquids, which factor should be kept the same for a fair test?",
+            "options": [
+              "The amount of liquid, the container type, and the location/temperature",
+              "The type of liquid",
+              "Nothing needs to be kept the same",
+              "The final conclusion"
+            ],
+            "correct_answer": "The amount of liquid, the container type, and the location/temperature"
+          },
+          {
+            "question": "What should a student do right after finishing all trials and recording findings in a full investigation?",
+            "options": [
+              "Write a conclusion that answers the original testable question",
+              "Immediately start a new unrelated investigation",
+              "Erase the findings",
+              "Skip straight to listing materials"
+            ],
+            "correct_answer": "Write a conclusion that answers the original testable question"
+          },
+          {
+            "question": "A student designs the question, \"Does gatas (milk) evaporate at the same rate as tubig (water)?\" and pours 50 mL of each into identical open cups placed side by side. What is being kept the same (control) here?",
+            "options": [
+              "The amount of liquid, the type of cup, and the location",
+              "The type of liquid",
+              "The evaporation rate",
+              "The time of measurement only"
+            ],
+            "correct_answer": "The amount of liquid, the type of cup, and the location"
+          },
+          {
+            "question": "In the same milk vs. water evaporation test, what is the variable being tested?",
+            "options": [
+              "The type of liquid (milk vs. water)",
+              "The size of the cup",
+              "The room's lighting",
+              "The student's handwriting"
+            ],
+            "correct_answer": "The type of liquid (milk vs. water)"
+          },
+          {
+            "question": "A student wants to test which of two liquids, suka (vinegar) or tubig (water), evaporates faster, but pours 100 mL of vinegar into a wide bowl and only 50 mL of water into a narrow cup. What is the problem with this plan?",
+            "options": [
+              "Both the amount of liquid and the container shape are different, so it is not a fair comparison",
+              "There is no problem because both are liquids",
+              "The problem is that vinegar was used at all",
+              "The problem is that the student used two different liquids, which is not allowed"
+            ],
+            "correct_answer": "Both the amount of liquid and the container shape are different, so it is not a fair comparison"
+          },
+          {
+            "question": "A student's testable question is \"Does the type of liquid affect how fast it evaporates?\" Which materials list best matches this investigation?",
+            "options": [
+              "Two identical shallow containers, equal amounts of two different liquids, and a way to check them over time (like a ruler for liquid level)",
+              "One liquid, one container, and a thermometer only",
+              "A graduated cylinder and a bag of sugar",
+              "A weighing scale and a balloon"
+            ],
+            "correct_answer": "Two identical shallow containers, equal amounts of two different liquids, and a way to check them over time (like a ruler for liquid level)"
+          },
+          {
+            "question": "After 3 days, a student's open cup of tubig (water) is almost empty, while the same-sized, same-amount cup of gatas (milk) is only slightly reduced. What is the best conclusion?",
+            "options": [
+              "Water evaporated faster than milk under the same conditions in this investigation",
+              "Milk always evaporates faster than water everywhere",
+              "The cups must have been different sizes",
+              "No conclusion can be made from this data"
+            ],
+            "correct_answer": "Water evaporated faster than milk under the same conditions in this investigation"
+          },
+          {
+            "question": "Design a testable question comparing the evaporation rate of alcohol and tubig (water). Which of these best states both the control and the variable together?",
+            "options": [
+              "Variable: type of liquid (alcohol vs. water); Controls: equal amount of liquid, identical open containers, same location and temperature",
+              "Variable: container shape; Controls: type of liquid",
+              "Variable: amount of liquid; Controls: type of liquid only",
+              "There is no way to identify a control for this comparison"
+            ],
+            "correct_answer": "Variable: type of liquid (alcohol vs. water); Controls: equal amount of liquid, identical open containers, same location and temperature"
+          },
+          {
+            "question": "A student sets up their evaporation test with alcohol in an open cup in a sunny spot and water in an open cup in a shaded spot. After a few hours, the alcohol is gone but the water is not. Why can't the student conclude alcohol evaporates faster than water from this specific setup?",
+            "options": [
+              "The two cups were also exposed to different amounts of sunlight/heat, so the location itself -- not just the liquid type -- could explain the difference",
+              "Alcohol always evaporates faster no matter what, so the conclusion is fine",
+              "The cups were probably different sizes",
+              "There is no issue since both cups were open"
+            ],
+            "correct_answer": "The two cups were also exposed to different amounts of sunlight/heat, so the location itself -- not just the liquid type -- could explain the difference"
+          },
+          {
+            "question": "A student wants to redesign the alcohol vs. water evaporation test after noticing the sunlight problem. What is the best fix?",
+            "options": [
+              "Place both cups in the exact same location so they receive the same amount of sunlight and heat, changing only the liquid type",
+              "Use a bigger cup for the alcohol to make up for it",
+              "Test them on completely different days",
+              "Add more alcohol than water since alcohol evaporates faster"
+            ],
+            "correct_answer": "Place both cups in the exact same location so they receive the same amount of sunlight and heat, changing only the liquid type"
+          },
+          {
+            "question": "If a student wanted to test THREE liquids (water, vinegar, and alcohol) for evaporation rate instead of just two, what would need to be true of the setup for the results to still be trustworthy?",
+            "options": [
+              "All three containers must be identical, hold equal amounts of liquid, and sit in the same location and conditions -- only the liquid type should differ among them",
+              "Only the amount of liquid needs to be equal; everything else can differ",
+              "It is impossible to fairly test more than two liquids at once",
+              "Each liquid should be tested in a different location to save time"
+            ],
+            "correct_answer": "All three containers must be identical, hold equal amounts of liquid, and sit in the same location and conditions -- only the liquid type should differ among them"
+          },
+          {
+            "question": "After completing a full evaporation investigation with a clear question, fair procedure, and recorded findings, a student writes: \"Water is better than alcohol.\" Why is this NOT an appropriate scientific conclusion for this investigation?",
+            "options": [
+              "It expresses a personal opinion ('better') instead of directly answering the tested question about evaporation rate based on the findings",
+              "It uses the word 'water,' which is not allowed in conclusions",
+              "It is too short to be a conclusion",
+              "Conclusions should never mention the liquids tested"
+            ],
+            "correct_answer": "It expresses a personal opinion ('better') instead of directly answering the tested question about evaporation rate based on the findings"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "## Ngayong Linggo sa Filipino: Pag-unawa sa Kahulugan at Pakikitungo\n\n- **Kahulugan ng salita sa konteksto** — minsan, ang tunay na kahulugan ng isang salita ay nakabatay sa mga salitang nakapaligid dito sa pangungusap, hindi lamang sa diksyunaryo.\n- **Kuwentong kumustahan** — isang uri ng usapan o maikling kuwento na nagpapakita kung paano nagtatanong at nagmamalasakit ang mga tao sa isa't isa (halimbawa: \"Kumusta ka na? Ayos ka lang ba?\").\n- **Pagpapakita ng malasakit** — ang mga salita at kilos na nagpapahayag ng pag-aalala at pagmamahal sa kapwa, gaya ng pagtulong o pakikinig.\n- **Tekstong transaksiyonal** — mga tekstong ginagamit sa pang-araw-araw na komunikasyon tulad ng mensahe, liham, o maikling paalala, na may malinaw na layunin.",
+        "quiz": [
+          {
+            "question": "Ano ang ipinapakita ng pangungumusta sa isang kaibigan?",
+            "options": [
+              "Pagpapakita ng pag-aalala",
+              "Pagmamayabang",
+              "Pagwawalang-bahala",
+              "Pagbibiro lamang"
+            ],
+            "correct_answer": "Pagpapakita ng pag-aalala"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"malasakit\"?",
+            "options": [
+              "Pagpapakita ng pag-aalala sa iba",
+              "Kawalang-interes",
+              "Pagmamadali",
+              "Kasiyahan lamang"
+            ],
+            "correct_answer": "Pagpapakita ng pag-aalala sa iba"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tamang paglalarawan sa liham at email?",
+            "options": [
+              "Ginagamit para sa pormal o di-pormal na pakikipagtalastasan sa malalayong lugar",
+              "Ginagamit lamang sa paaralan",
+              "Ginagamit lamang sa negosyo",
+              "Hindi na ginagamit sa kasalukuyan"
+            ],
+            "correct_answer": "Ginagamit para sa pormal o di-pormal na pakikipagtalastasan sa malalayong lugar"
+          },
+          {
+            "question": "Ano ang pinakatiyak na paraan upang malaman ang tunay na kahulugan ng isang salita?",
+            "options": [
+              "Diksyunaryo",
+              "Palaisipan",
+              "Awit",
+              "Sayaw"
+            ],
+            "correct_answer": "Diksyunaryo"
+          },
+          {
+            "question": "Ano ang tawag sa paggamit ng mga salitang nakapaligid sa hindi pamilyar na salita upang malaman ang kahulugan nito?",
+            "options": [
+              "Konteksto",
+              "Diksyunaryo",
+              "Tugma",
+              "Pantig"
+            ],
+            "correct_answer": "Konteksto"
+          },
+          {
+            "question": "Kung ikaw si Jonel, anong paraan ng transaksiyonal na komunikasyon ang maaari mong gawin upang mapanatili ang ugnayan kay Endong?",
+            "options": [
+              "Pagsulat ng liham o email",
+              "Pagsulat ng tula tungkol sa kanya",
+              "Paggawa ng alamat",
+              "Pagbabasa ng kuwentong bayan"
+            ],
+            "correct_answer": "Pagsulat ng liham o email"
+          },
+          {
+            "question": "Sa pangungusap na \"Hindi mapuknat ang kaniyang pag-aalala para sa kaibigan,\" ano ang malamang na kahulugan ng \"mapuknat\" batay sa konteksto?",
+            "options": [
+              "Mawala o matigil",
+              "Mabilis",
+              "Maganda",
+              "Maingay"
+            ],
+            "correct_answer": "Mawala o matigil"
+          },
+          {
+            "question": "Kung susulat ka ng paanyaya para sa kaarawan ng iyong kaibigan, anong uri ng teksto ang iyong gagamitin?",
+            "options": [
+              "Tekstong transaksiyonal",
+              "Tulang pambata",
+              "Alamat",
+              "Maikling kuwento"
+            ],
+            "correct_answer": "Tekstong transaksiyonal"
+          },
+          {
+            "question": "Ano ang dapat isaalang-alang kapag nakikipag-usap sa ibang tao upang maging magalang?",
+            "options": [
+              "Edad at relasyon sa kausap",
+              "Kulay ng kanyang damit",
+              "Dami ng kanyang pera",
+              "Lugar kung saan siya nakatira"
+            ],
+            "correct_answer": "Edad at relasyon sa kausap"
+          },
+          {
+            "question": "Paano maipakikita ang pagiging sensitibo kapag nakikipag-usap sa iba?",
+            "options": [
+              "Pakinggan nang mabuti ang kanilang sagot",
+              "Pilitin silang magsalita kahit ayaw nila",
+              "Tawanan ang kanilang problema",
+              "Putulin ang kanilang pagsasalita"
+            ],
+            "correct_answer": "Pakinggan nang mabuti ang kanilang sagot"
+          },
+          {
+            "question": "Ihambing ang paggamit ng konteksto at diksyunaryo bilang paraan ng paghahanap ng kahulugan ng salita. Kailan mas mainam gamitin ang bawat isa?",
+            "options": [
+              "Ang konteksto ay mabilis na paraan habang nagbabasa, ngunit ang diksyunaryo ang pinakatiyak kapag kailangan ng eksaktong depinisyon",
+              "Palaging mas mainam ang diksyunaryo kaysa konteksto sa lahat ng pagkakataon",
+              "Ang konteksto lamang ang tamang paraan",
+              "Magkatulad lamang sila sa lahat ng aspeto"
+            ],
+            "correct_answer": "Ang konteksto ay mabilis na paraan habang nagbabasa, ngunit ang diksyunaryo ang pinakatiyak kapag kailangan ng eksaktong depinisyon"
+          },
+          {
+            "question": "Bakit mahalaga ang pagsasaalang-alang sa edad at relasyon sa kausap kapag gumagawa ng tekstong transaksiyonal tulad ng liham?",
+            "options": [
+              "Upang matiyak na angkop ang tono at antas ng paggalang sa mensahe",
+              "Dahil ito ang tanging bagay na dapat isaalang-alang",
+              "Dahil hindi mahalaga ang nilalaman ng mensahe",
+              "Upang mapahaba ang liham"
+            ],
+            "correct_answer": "Upang matiyak na angkop ang tono at antas ng paggalang sa mensahe"
+          },
+          {
+            "question": "Kung sasabihin ni Jonel na \"hindi mapuknat\" ang kanyang alala, at ito ay nangangahulugang \"hindi mawala,\" ano ang maipapahiwatig nito tungkol sa lalim ng kanyang pagmamalasakit kay Endong?",
+            "options": [
+              "Napakalalim at patuloy ng kanyang pag-aalala kahit magkalayo sila",
+              "Mababaw lamang ang kanyang pakikipagkaibigan",
+              "Hindi na siya nag-aalala tungkol kay Endong",
+              "Wala itong kaugnayan sa kanilang pagkakaibigan"
+            ],
+            "correct_answer": "Napakalalim at patuloy ng kanyang pag-aalala kahit magkalayo sila"
+          },
+          {
+            "question": "Paano nagsisilbing halimbawa ang kuwentong \"Kumustahan\" ng kahalagahan ng malasakit sa panahon ng pagbabago o paghihiwalay?",
+            "options": [
+              "Ipinapakita nito na maaaring manatiling matatag ang ugnayan kung patuloy na ipinararamdam ang pag-aalala sa isa't isa",
+              "Ipinapakita nito na kailangang kalimutan ang mga kaibigan kapag lumipat ng tirahan",
+              "Ipinapakita nito na hindi mahalaga ang pakikipag-ugnayan sa malayo",
+              "Ipinapakita nito na dapat iwasan ang pakikipagkaibigan"
+            ],
+            "correct_answer": "Ipinapakita nito na maaaring manatiling matatag ang ugnayan kung patuloy na ipinararamdam ang pag-aalala sa isa't isa"
+          },
+          {
+            "question": "Bakit hindi sapat ang isang simpleng \"Kumusta?\" nang hindi pinakikinggan ang sagot ng kausap upang masabing tunay na malasakit?",
+            "options": [
+              "Dahil ang tunay na malasakit ay nangangailangan ng aktibong pakikinig at pag-unawa, hindi lamang pagtatanong",
+              "Dahil ang salitang \"Kumusta\" ay walang kahulugan",
+              "Dahil hindi na kailangan pang magtanong",
+              "Dahil sapat na ang pagtatanong nang hindi pinakikinggan ang sagot"
+            ],
+            "correct_answer": "Dahil ang tunay na malasakit ay nangangailangan ng aktibong pakikinig at pag-unawa, hindi lamang pagtatanong"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "## Ngayong Linggo sa AP: Ang Kalinangan (Kultura)\n\n- **Konsepto ng kalinangan** — ang kalinangan o kultura ay ang buong paraan ng pamumuhay ng isang grupo ng tao, kasama ang kanilang mga paniniwala, kaugalian, at nilikha.\n- **Materyal na kalinangan** — mga bagay na nakikita at nahahawakan, tulad ng mga gusali, damit, at kagamitan.\n- **Di-materyal na kalinangan** — mga bagay na hindi nahahawakan gaya ng paniniwala, wika, at halagahin.\n- **Paniniwala at ritwal** — mga gawaing paulit-ulit na ginagawa base sa tradisyon o relihiyon, tulad ng mga pagdiriwang at seremonya.\n- **Pagsasalin ng kultura** — ang paraan kung paano itinuturo o ipinapasa ang kultura mula sa isang henerasyon patungo sa susunod, karaniwan sa tulong ng pamilya at paaralan.\n- **Kahalagahan at ugnayan ng kalinangan** — tinutulungan tayo ng kultura na maunawaan ang ating pagkakakilanlan at kung paano tayo nag-uugnayan bilang komunidad.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa kabuuang paraan ng pamumuhay ng isang pangkat ng tao?",
+            "options": [
+              "Kalinangan",
+              "Kasaysayan",
+              "Kolonyalismo",
+              "Kalakalan"
+            ],
+            "correct_answer": "Kalinangan"
+          },
+          {
+            "question": "Alin ang uri ng tansong gong na ginagamit sa mga ritwal at pagdiriwang?",
+            "options": [
+              "Gangsa",
+              "Palayok",
+              "Kris",
+              "Baybayin"
+            ],
+            "correct_answer": "Gangsa"
+          },
+          {
+            "question": "Sino ang karaniwang namumuno sa mga ritwal ng sinaunang Pilipino?",
+            "options": [
+              "Babaylan",
+              "Datu",
+              "Panday",
+              "Mangangalakal"
+            ],
+            "correct_answer": "Babaylan"
+          },
+          {
+            "question": "Ano ang tawag sa sinaunang sistema ng pagsulat ng mga Pilipino?",
+            "options": [
+              "Alibata (Baybayin)",
+              "Gangsa",
+              "Balangay",
+              "Katalonan"
+            ],
+            "correct_answer": "Alibata (Baybayin)"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng materyal na kalinangan?",
+            "options": [
+              "Bahay Kubo",
+              "Paniniwala sa anito",
+              "Harana",
+              "Baybayin"
+            ],
+            "correct_answer": "Bahay Kubo"
+          },
+          {
+            "question": "Kung ikukuwento ng lolo ang alamat ng kanilang barangay sa kanyang mga apo, anong paraan ng pagsasalin ng kultura ang ginagamit niya?",
+            "options": [
+              "Pagkukuwento ng Matatanda",
+              "Pagtuturo ng Magulang",
+              "Pagsasagawa ng Ritwal",
+              "Pagsulat ng Alibata"
+            ],
+            "correct_answer": "Pagkukuwento ng Matatanda"
+          },
+          {
+            "question": "Kung tinatawag ang mga tao sa isang barangay gamit ang tunog ng Gangsa para sa isang mahalagang pagtitipon, ano ang ipinapakitang gamit nito bukod sa musika?",
+            "options": [
+              "Panawagan o senyales sa komunidad",
+              "Kasangkapan sa pagluluto",
+              "Kagamitang pansaka",
+              "Kasuotan sa seremonya"
+            ],
+            "correct_answer": "Panawagan o senyales sa komunidad"
+          },
+          {
+            "question": "Paano nagkakaroon ng tunay na halaga ang isang materyal na bagay ayon sa aralin?",
+            "options": [
+              "Sa pamamagitan ng paniniwalang nakakabit dito",
+              "Sa pamamagitan lamang ng presyo nito",
+              "Kapag ito ay bago pa lamang",
+              "Kapag ito ay gawa sa ginto lamang"
+            ],
+            "correct_answer": "Sa pamamagitan ng paniniwalang nakakabit dito"
+          },
+          {
+            "question": "Bakit ginagamit ang Karakoa sa halip na ordinaryong bangka noong panahon ng digmaan?",
+            "options": [
+              "Ito ay mas malaki at ginawa para sa pakikidigma",
+              "Ito ay gawa sa ginto",
+              "Ginagamit lamang ito sa pangingisda",
+              "Ito ay hindi kayang lumutang"
+            ],
+            "correct_answer": "Ito ay mas malaki at ginawa para sa pakikidigma"
+          },
+          {
+            "question": "Isang mag-aaral ang nagsuot ng kasuotang may habing tela at gintong alahas noong sinaunang panahon. Ano ang ipinapakita nito?",
+            "options": [
+              "Antas niya sa lipunan",
+              "Kanyang trabaho bilang mangingisda",
+              "Kanyang relihiyon lamang",
+              "Kawalan ng kultura"
+            ],
+            "correct_answer": "Antas niya sa lipunan"
+          },
+          {
+            "question": "Ihambing ang Balangay at ang Karakoa batay sa kanilang gamit noong sinaunang panahon. Ano ang pangunahing pagkakaiba nila?",
+            "options": [
+              "Ang Balangay ay para sa kalakalan at paglalakbay habang ang Karakoa ay para sa digmaan",
+              "Pareho silang ginagamit lamang para sa pangingisda",
+              "Ang Karakoa ay mas maliit kaysa Balangay",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Ang Balangay ay para sa kalakalan at paglalakbay habang ang Karakoa ay para sa digmaan"
+          },
+          {
+            "question": "Kung mawawala ang lahat ng di-materyal na kalinangan ng isang pamayanan ngunit mananatili ang kanilang materyal na kagamitan, ano ang maaaring mangyari batay sa aralin?",
+            "options": [
+              "Mawawalan ng kahulugan ang mga materyal na bagay dahil wala nang paniniwalang nakakabit dito",
+              "Mananatiling buo ang kanilang kalinangan",
+              "Mas titibay ang kanilang tradisyon",
+              "Walang epekto ito sa kanilang pagkakakilanlan"
+            ],
+            "correct_answer": "Mawawalan ng kahulugan ang mga materyal na bagay dahil wala nang paniniwalang nakakabit dito"
+          },
+          {
+            "question": "Bakit maituturing na \"tulay\" ang tradisyon sa pagitan ng nakaraan at kasalukuyan?",
+            "options": [
+              "Dahil ipinapasa ito mula sa isang henerasyon patungo sa susunod, na nag-uugnay sa kanilang kasaysayan",
+              "Dahil ito ay literal na tulay na itinayo ng mga ninuno",
+              "Dahil hindi na ito ginagamit sa kasalukuyan",
+              "Dahil ipinagbabawal itong ituro sa mga bata"
+            ],
+            "correct_answer": "Dahil ipinapasa ito mula sa isang henerasyon patungo sa susunod, na nag-uugnay sa kanilang kasaysayan"
+          },
+          {
+            "question": "Isang komunidad ang tumangging turuan ang mga bata ng kanilang mga tradisyonal na sayaw at kuwento. Sa pangmatagalan, ano ang maaaring maging epekto nito sa kanilang di-materyal na kalinangan?",
+            "options": [
+              "Maaari itong mawala dahil hindi na naisasalin sa susunod na henerasyon",
+              "Hindi ito magkakaroon ng epekto",
+              "Ito ay lalong titibay",
+              "Mapapalitan ito ng batas"
+            ],
+            "correct_answer": "Maaari itong mawala dahil hindi na naisasalin sa susunod na henerasyon"
+          },
+          {
+            "question": "Bakit hindi maaaring paghiwalayin ang materyal at di-materyal na kalinangan sa tunay na buhay ng mga sinaunang Pilipino?",
+            "options": [
+              "Dahil palaging magkakabit ang dalawa at ang isa'y nagbibigay-kahulugan sa isa",
+              "Dahil pareho silang hindi mahalaga",
+              "Dahil ang materyal lamang ang mahalaga",
+              "Dahil magkaiba ang panahon ng paggamit ng mga ito"
+            ],
+            "correct_answer": "Dahil palaging magkakabit ang dalawa at ang isa'y nagbibigay-kahulugan sa isa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Ngayong Linggo sa GMRC: Kaligtasan sa Kalsada\n\n- **Kahulugan ng tungkulin** — ang tungkulin ay ang mga bagay na dapat gawin ng isang tao bilang bahagi ng kanyang papel sa lipunan, tulad ng pagsunod sa batas trapiko.\n- **Mga gumagamit ng kalsada** — kabilang dito ang mga pedestrian (naglalakad), sasakyan, at motorsiklo — lahat sila ay may pananagutan sa kaligtasan.\n- **Tungkulin ng pedestrian** — kabilang dito ang pagtawid sa tamang tawiran, pagtingin sa magkabilang gilid bago tumawid, at pagsunod sa ilaw-trapiko.\n- **Kahalagahan ng batas trapiko** — ang mga batas na ito ay ginawa upang protektahan ang lahat ng gumagamit ng kalsada mula sa aksidente.\n- **Paalala kumpara sa babala** — ang paalala ay palatandaan na nagbibigay ng impormasyon (hal. \"Bawal Umihi Dito\"), habang ang babala ay nagsasabi ng posibleng panganib (hal. \"Mag-ingat, Madulas\").",
+        "quiz": [
+          {
+            "question": "Bakit hindi dapat gumamit ng cellphone o earphones habang tumatawid ng kalsada?",
+            "options": [
+              "Upang marinig at makita ang mga sasakyan",
+              "Upang mabilis makarating sa paaralan",
+              "Upang hindi mahuli sa oras",
+              "Wala itong dahilan"
+            ],
+            "correct_answer": "Upang marinig at makita ang mga sasakyan"
+          },
+          {
+            "question": "Ano ang epekto ng ating mga kilos sa kalsada ayon sa aralin?",
+            "options": [
+              "May epekto ito sa kaligtasan ng ibang tao, hindi lamang sa ating sarili",
+              "Wala itong epekto sa iba",
+              "Nakakaapekto lamang ito sa mga sasakyan",
+              "Nakakaapekto lamang ito kapag gabi"
+            ],
+            "correct_answer": "May epekto ito sa kaligtasan ng ibang tao, hindi lamang sa ating sarili"
+          },
+          {
+            "question": "Sino ang dapat sundin ang kanilang utos at direksiyon sa kalsada?",
+            "options": [
+              "Traffic enforcer",
+              "Kaklase",
+              "Kapitbahay",
+              "Kaibigan"
+            ],
+            "correct_answer": "Traffic enforcer"
+          },
+          {
+            "question": "Ano ang dapat gawin bago tumawid ng kalsada?",
+            "options": [
+              "Tumingin sa kaliwa, kanan, at muli sa kaliwa",
+              "Tumakbo nang mabilis",
+              "Gumamit ng cellphone habang naglalakad",
+              "Huwag tumingin sa paligid"
+            ],
+            "correct_answer": "Tumingin sa kaliwa, kanan, at muli sa kaliwa"
+          },
+          {
+            "question": "Saan dapat tumawid ang isang pedestrian?",
+            "options": [
+              "Sa pedestrian lane o puting guhit",
+              "Kahit saan sa kalsada",
+              "Sa gitna ng highway",
+              "Sa likod ng mga sasakyan"
+            ],
+            "correct_answer": "Sa pedestrian lane o puting guhit"
+          },
+          {
+            "question": "Paano nagpapakita ng disiplina ang isang mag-aaral na sumusunod sa mga batas trapiko kahit walang nakatingin sa kanya?",
+            "options": [
+              "Ipinapakita nito na ginagawa niya ang tama dahil sa kusang-loob, hindi dahil sa takot lamang sa parusa",
+              "Ipinapakita nito na natatakot lamang siya sa guro",
+              "Ipinapakita nitong wala siyang pakialam sa kaligtasan",
+              "Ipinapakita nitong sumusunod lamang siya kung may nakatingin"
+            ],
+            "correct_answer": "Ipinapakita nito na ginagawa niya ang tama dahil sa kusang-loob, hindi dahil sa takot lamang sa parusa"
+          },
+          {
+            "question": "Bakit mahalagang hawakan ang kamay ng nakababatang kapatid o kasama kapag tumatawid ng kalsada?",
+            "options": [
+              "Upang masiguro ang kanilang kaligtasan habang tumatawid",
+              "Upang hindi sila makatakas",
+              "Upang mas mabilis makatawid",
+              "Wala itong dahilan"
+            ],
+            "correct_answer": "Upang masiguro ang kanilang kaligtasan habang tumatawid"
+          },
+          {
+            "question": "Kung nakakita ka ng \"Reminder\" sign at \"Warning\" sign sa daan, ano ang dapat mong tandaan tungkol sa layunin ng dalawa?",
+            "options": [
+              "Magkaiba man sila, iisa ang layunin nilang mapanatili ang kaayusan at kaligtasan",
+              "Walang kaugnayan sa isa't isa",
+              "Ang \"Reminder\" lamang ang mahalaga",
+              "Ang \"Warning\" lamang ang dapat sundin"
+            ],
+            "correct_answer": "Magkaiba man sila, iisa ang layunin nilang mapanatili ang kaayusan at kaligtasan"
+          },
+          {
+            "question": "Bakit itinuturing na bahagi ng \"solusyon sa trapiko\" ang taong gumagawa ng kanyang tungkulin sa kalsada, sa halip na \"bahagi ng suliranin\"?",
+            "options": [
+              "Dahil ang pagsunod sa mga alituntunin ay nakatutulong sa pangkalahatang kaayusan at kaligtasan",
+              "Dahil hindi na kailangan pa ng traffic enforcer",
+              "Dahil wala nang aksidente kailanman",
+              "Dahil hindi na kailangan pang gumamit ng pedestrian lane"
+            ],
+            "correct_answer": "Dahil ang pagsunod sa mga alituntunin ay nakatutulong sa pangkalahatang kaayusan at kaligtasan"
+          },
+          {
+            "question": "Nakita ni Miguel ang kanyang maliit na kapatid na nais tumakbo patawid ng kalsada dahil nakita niya ang kanilang tatay sa kabila. Ano ang dapat gawin ni Miguel?",
+            "options": [
+              "Pigilan ang kapatid at ituro ang tamang paraan patungo sa pedestrian lane",
+              "Hayaan siyang tumakbo para mabilis",
+              "Sabayan siyang tumakbo",
+              "Sigawan siya para lalo siyang mataranta"
+            ],
+            "correct_answer": "Pigilan ang kapatid at ituro ang tamang paraan patungo sa pedestrian lane"
+          },
+          {
+            "question": "Paano mailalapat ng isang mag-aaral ang aral tungkol sa tungkulin sa kalsada sa ibang aspeto ng kanyang buhay sa paaralan o tahanan?",
+            "options": [
+              "Sa pamamagitan ng pagpapakita ng disiplina at pananagutan kahit sa maliliit na gawain, hindi lamang sa kalsada",
+              "Sa pamamagitan ng pagsunod lamang kapag may nakatingin",
+              "Sa pamamagitan ng pag-iwas sa lahat ng responsibilidad",
+              "Sa pamamagitan ng paglimot dito pagkatapos ng klase"
+            ],
+            "correct_answer": "Sa pamamagitan ng pagpapakita ng disiplina at pananagutan kahit sa maliliit na gawain, hindi lamang sa kalsada"
+          },
+          {
+            "question": "Suriin ang sitwasyon: isang mag-aaral ang tumatawid sa pedestrian lane ngunit gamit ang cellphone habang naglalakad. Bakit maituturing itong hindi ganap na pagtupad sa tungkulin ng isang pedestrian?",
+            "options": [
+              "Dahil kahit tama ang lokasyon, kulang pa rin siya sa pagiging alerto na isa sa tatlong pangunahing tungkulin",
+              "Dahil bawal gumamit ng cellphone kahit saan",
+              "Dahil ganap niyang nagampanan ang lahat ng tungkulin",
+              "Dahil hindi mahalaga ang pagiging alerto"
+            ],
+            "correct_answer": "Dahil kahit tama ang lokasyon, kulang pa rin siya sa pagiging alerto na isa sa tatlong pangunahing tungkulin"
+          },
+          {
+            "question": "Ipaliwanag kung bakit sinasabing \"hindi lamang pansarili\" ang mga kilos ng isang tao sa kalsada.",
+            "options": [
+              "Dahil ang pagkakamali ng isang tao sa kalsada ay maaaring magdulot ng panganib sa buhay ng iba, hindi lamang sa kanyang sarili",
+              "Dahil ang bawat tao ay nag-iisa lamang sa kalsada",
+              "Dahil walang ibang tao ang naaapektuhan",
+              "Dahil personal na bagay lamang ang paglalakad"
+            ],
+            "correct_answer": "Dahil ang pagkakamali ng isang tao sa kalsada ay maaaring magdulot ng panganib sa buhay ng iba, hindi lamang sa kanyang sarili"
+          },
+          {
+            "question": "Ihambing ang epekto ng isang pedestrian na sumusunod sa lahat ng tungkulin at isa na hindi sumusunod. Paano nakakaapekto ang kanilang pagpili sa kabuuang kaayusan ng trapiko?",
+            "options": [
+              "Ang sumusunod ay nagiging bahagi ng solusyon, habang ang hindi sumusunod ay maaaring maging sanhi ng aksidente o gulo sa daan",
+              "Wala itong epekto sa kabuuang trapiko",
+              "Pareho lang silang walang epekto",
+              "Mas mabilis ang trapiko kung hindi susunod ang lahat"
+            ],
+            "correct_answer": "Ang sumusunod ay nagiging bahagi ng solusyon, habang ang hindi sumusunod ay maaaring maging sanhi ng aksidente o gulo sa daan"
+          },
+          {
+            "question": "Bakit maaaring masabing ang disiplina sa kalsada ay isang tanda ng \"paggalang\" at hindi lamang pagsunod dahil sa takot sa parusa?",
+            "options": [
+              "Dahil ang tunay na disiplina ay nagmumula sa pagmamalasakit sa kaligtasan ng iba, hindi sa takot lamang",
+              "Dahil ang lahat ng batas ay dapat sundin kahit hindi makatwiran",
+              "Dahil ang parusa lamang ang dahilan ng pagsunod",
+              "Dahil walang kaugnayan ang paggalang sa disiplina"
+            ],
+            "correct_answer": "Dahil ang tunay na disiplina ay nagmumula sa pagmamalasakit sa kaligtasan ng iba, hindi sa takot lamang"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1432 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-08-09",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## Reading Informational Text and Advanced Sentence Grammar\n\n- **Text structures** organize information in different ways: an **outline** groups ideas under headings and subheadings (like a recipe's \"Ingredients\" and \"Steps\"), while the **inverted pyramid** puts the most important information first, with details in decreasing importance after — this is how most news reports are built.\n- **News reports** state facts about a real, recent event using the 5 Ws (who, what, when, where, why), while **explanation texts** describe how or why something works or happens (like how photosynthesis occurs).\n- **Author's purpose** is the writer's main reason for writing: to **inform**, **persuade**, **entertain**, or **describe**. A tourism brochure about Banaue Rice Terraces that invites visitors is written mainly to persuade.\n- **Fact vs. opinion**: A fact can be proven true or false (e.g., \"The Philippines has 7,641 islands\"), while an opinion expresses a personal judgment (e.g., \"Manila is the most beautiful city\"). Watch for texts that blend the two — a sentence can start factual and slip into opinion.\n- **Subject-verb agreement** with collective nouns (like *class*, *team*, *family*) usually takes a singular verb when the group acts as one unit: \"The class **is** preparing for Buwan ng Wika.\" With abstract nouns (like *courage*, *wisdom*), agreement depends on how the noun is used in the sentence.\n- A **compound-complex sentence** has at least one dependent clause AND two or more independent clauses. Example: \"Because the typhoon was strong, classes were suspended, and many students stayed home.\"\n\n| Sentence Type | Independent Clauses | Dependent Clauses |\n|---|---|---|\n| Simple | 1 | 0 |\n| Compound | 2+ | 0 |\n| Complex | 1 | 1+ |\n| Compound-complex | 2+ | 1+ |\n\n- When reading news or ads, always ask: \"Is this a fact I can check, or someone's opinion?\" — this helps you evaluate bias, like a mall ad that only lists advantages.",
+        "quiz": [
+          {
+            "question": "What is the purpose of a text that uses the \"inverted pyramid\" structure?",
+            "options": [
+              "To present the most important information first, followed by details in decreasing importance",
+              "To organize ideas by listing them in outline form only",
+              "To tell a story in chronological order",
+              "To compare two things side by side"
+            ],
+            "correct_answer": "To present the most important information first, followed by details in decreasing importance"
+          },
+          {
+            "question": "Which text type mainly tells readers about a recent event that happened, following the 5 Ws?",
+            "options": [
+              "News report",
+              "Explanation text",
+              "Friendly letter",
+              "Personal narrative"
+            ],
+            "correct_answer": "News report"
+          },
+          {
+            "question": "If a writer's main goal is to convince readers to recycle, what is the author's purpose?",
+            "options": [
+              "To persuade",
+              "To entertain",
+              "To inform",
+              "To describe"
+            ],
+            "correct_answer": "To persuade"
+          },
+          {
+            "question": "Which sentence is a fact?",
+            "options": [
+              "The Philippines has 7,641 islands.",
+              "Manila is the most beautiful city in the country.",
+              "Adobo is the tastiest Filipino dish.",
+              "Summer is the best season in the Philippines."
+            ],
+            "correct_answer": "The Philippines has 7,641 islands."
+          },
+          {
+            "question": "Which sentence uses a collective noun with correct subject-verb agreement?",
+            "options": [
+              "The class is preparing for the Buwan ng Wika program.",
+              "The class are preparing for the Buwan ng Wika program.",
+              "The class were preparing for the Buwan ng Wika program.",
+              "The class have been preparing for the Buwan ng Wika program since Monday were."
+            ],
+            "correct_answer": "The class is preparing for the Buwan ng Wika program."
+          },
+          {
+            "question": "A recipe for turon is organized under headings like \"Ingredients\" and \"Steps.\" What text structure is being used?",
+            "options": [
+              "Outlining",
+              "Inverted pyramid",
+              "Chronological narrative",
+              "Cause and effect"
+            ],
+            "correct_answer": "Outlining"
+          },
+          {
+            "question": "Read this sentence: \"Photosynthesis is the process by which plants make their own food using sunlight.\" Which text type does this sentence most likely belong to?",
+            "options": [
+              "Explanation text",
+              "News report",
+              "Friendly letter",
+              "Poem"
+            ],
+            "correct_answer": "Explanation text"
+          },
+          {
+            "question": "A brochure describing the beautiful rice terraces of Banaue and inviting tourists to visit is written mainly to:",
+            "options": [
+              "Persuade readers to visit Banaue",
+              "Report a recent typhoon in Banaue",
+              "Explain how rice terraces are farmed",
+              "Entertain readers with a folk tale"
+            ],
+            "correct_answer": "Persuade readers to visit Banaue"
+          },
+          {
+            "question": "Which of these statements expresses an opinion about the Rizal Monument?",
+            "options": [
+              "The Rizal Monument is the most impressive landmark in Manila.",
+              "The Rizal Monument is located in Luneta Park.",
+              "The Rizal Monument honors Jose Rizal.",
+              "The Rizal Monument was inaugurated in 1913."
+            ],
+            "correct_answer": "The Rizal Monument is the most impressive landmark in Manila."
+          },
+          {
+            "question": "Which sentence is a compound-complex sentence?",
+            "options": [
+              "Because the typhoon was strong, classes were suspended, and many students stayed home.",
+              "The typhoon was strong.",
+              "Classes were suspended because the typhoon was strong.",
+              "The typhoon was strong, and classes were suspended."
+            ],
+            "correct_answer": "Because the typhoon was strong, classes were suspended, and many students stayed home."
+          },
+          {
+            "question": "A classmate writes: \"The team of scientists are studying honesty about abstract nouns like courage and wisdom, which is fascinating.\" She insists \"are\" is correct because \"scientists\" is plural. Why might her verb choice actually be debatable depending on what the sentence emphasizes?",
+            "options": [
+              "\"Team\" is a collective noun that can take a singular verb (\"is\") when acting as one unit, or a plural verb when members act individually — so agreement depends on the intended meaning, not just the nearest noun",
+              "\"Are\" is always correct because \"scientists\" is the true subject",
+              "\"Is\" is always correct no matter the context",
+              "Subject-verb agreement does not apply to collective nouns at all"
+            ],
+            "correct_answer": "\"Team\" is a collective noun that can take a singular verb (\"is\") when acting as one unit, or a plural verb when members act individually — so agreement depends on the intended meaning, not just the nearest noun"
+          },
+          {
+            "question": "A news article states: \"Typhoon Ondoy caused severe flooding in Marikina in 2009, and it was undoubtedly the worst disaster the city has ever faced.\" Which part of this sentence blends fact with opinion, and why?",
+            "options": [
+              "\"undoubtedly the worst disaster\" is an opinion because it cannot be proven and depends on personal judgment, while the flooding claim is a verifiable fact",
+              "The entire sentence is a fact because it mentions a real typhoon",
+              "The entire sentence is an opinion because it discusses a disaster",
+              "\"caused severe flooding in Marikina\" is an opinion because flooding is subjective"
+            ],
+            "correct_answer": "\"undoubtedly the worst disaster\" is an opinion because it cannot be proven and depends on personal judgment, while the flooding claim is a verifiable fact"
+          },
+          {
+            "question": "A student writes a news report about a school fire drill but organizes it by first describing minor details, then only mentioning at the very end that the drill was actually cancelled. What is the main structural weakness of this report?",
+            "options": [
+              "It fails to follow the inverted pyramid structure, which requires the most important information (the cancellation) to appear first",
+              "It uses too many facts and not enough opinions",
+              "It should have been written as a friendly letter instead",
+              "It is too short to be considered a news report"
+            ],
+            "correct_answer": "It fails to follow the inverted pyramid structure, which requires the most important information (the cancellation) to appear first"
+          },
+          {
+            "question": "An article about a new mall only lists its advantages and never mentions any drawbacks, ending with \"Visit today and see for yourself!\" What can you conclude about this text's purpose and possible bias?",
+            "options": [
+              "Its main purpose is to persuade, and the one-sided presentation suggests bias favoring the mall",
+              "Its main purpose is to inform objectively, since it lists many details",
+              "Its main purpose is to entertain through storytelling",
+              "It has no bias because it only states facts about the mall"
+            ],
+            "correct_answer": "Its main purpose is to persuade, and the one-sided presentation suggests bias favoring the mall"
+          },
+          {
+            "question": "In the sentence \"Although the rain continued all afternoon, the barangay volunteers kept distributing relief goods, and they finished before nightfall,\" which parts make it compound-complex rather than just compound or just complex?",
+            "options": [
+              "It has one dependent clause (\"Although the rain continued...\") plus two independent clauses joined by \"and\"",
+              "It has only two independent clauses joined by \"and\"",
+              "It has only one dependent clause and one independent clause",
+              "It has three dependent clauses and no independent clause"
+            ],
+            "correct_answer": "It has one dependent clause (\"Although the rain continued...\") plus two independent clauses joined by \"and\""
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## Dividing Fractions: Solving Multi-Step Word Problems\n\n- To **divide** by a fraction, multiply by its **reciprocal** (flip the numerator and denominator). Example: 3/4 ÷ 1/2 becomes 3/4 × 2/1.\n- A whole number can be divided by a fraction by first rewriting the whole number as a fraction over 1 (e.g., 6 = 6/1), then multiplying by the reciprocal of the divisor.\n- Worked example: Aling Nena has 4 cups of malagkit flour. Each batch of biko needs 2/3 cup. 4 ÷ 2/3 = 4 × 3/2 = 12/2 = **6 batches**.\n- For **multi-step problems**, first figure out how much is left or used before dividing — read carefully to see if there's a \"hidden\" subtraction or multiplication step before the division.\n- Worked multi-step example: Mang Jose has 10 m of rope. He first uses 4 m for a sack (10 − 4 = 6 m left). He then cuts the rest into 3/4-meter pieces: 6 ÷ 3/4 = 6 × 4/3 = **8 pieces**.\n\n| Step | What to do |\n|---|---|\n| 1. Read carefully | Find any amount used/removed BEFORE the division |\n| 2. Subtract/adjust | Get the amount that will actually be divided |\n| 3. Flip and multiply | Divide by multiplying by the reciprocal |\n\n- Always double-check: does your answer make sense with the story? If dividing gives more pieces than you started with, that's normal — fractions of a whole make more, smaller parts!",
+        "visual_aid": {
+          "type": "steps",
+          "steps": [
+            {
+              "label": "Read carefully",
+              "detail": "find any amount used before the division"
+            },
+            {
+              "label": "Subtract/adjust",
+              "detail": "get the amount that will actually be divided"
+            },
+            {
+              "label": "Flip and multiply",
+              "detail": "divide by multiplying by the reciprocal: 6 × 4/3"
+            },
+            {
+              "label": "Write the answer",
+              "detail": "8 pieces"
+            }
+          ],
+          "title": "Solving Multi-Step Fraction Division",
+          "expression": "6 m ÷ 3/4"
+        },
+        "quiz": [
+          {
+            "question": "What is the reciprocal of 2/5?",
+            "options": [
+              "5/2",
+              "2/5",
+              "5/5",
+              "2/2"
+            ],
+            "correct_answer": "5/2"
+          },
+          {
+            "question": "When you divide a fraction by another fraction, what do you do first?",
+            "options": [
+              "Multiply by the reciprocal of the second fraction",
+              "Add the two fractions",
+              "Subtract the denominators",
+              "Multiply the two fractions directly"
+            ],
+            "correct_answer": "Multiply by the reciprocal of the second fraction"
+          },
+          {
+            "question": "Which expression correctly shows how to divide 3/4 ÷ 1/2 using multiplication?",
+            "options": [
+              "3/4 × 2/1",
+              "3/4 × 1/2",
+              "4/3 × 1/2",
+              "3/4 + 2/1"
+            ],
+            "correct_answer": "3/4 × 2/1"
+          },
+          {
+            "question": "To divide a whole number by a fraction, you first rewrite the whole number as a fraction. What is 5 written as a fraction?",
+            "options": [
+              "5/1",
+              "1/5",
+              "5/5",
+              "0/5"
+            ],
+            "correct_answer": "5/1"
+          },
+          {
+            "question": "In the problem 2/3 ÷ 1/6, which fraction is the \"divisor\"?",
+            "options": [
+              "1/6",
+              "2/3",
+              "2/6",
+              "1/3"
+            ],
+            "correct_answer": "1/6"
+          },
+          {
+            "question": "Aling Nena has 4 cups of malagkit (glutinous rice) flour. Each batch of biko needs 2/3 cup of flour. How many batches can she make with 4 cups?",
+            "options": [
+              "6 batches",
+              "4 batches",
+              "8 batches",
+              "3 batches"
+            ],
+            "correct_answer": "6 batches"
+          },
+          {
+            "question": "A piece of ribbon is 3/4 meter long. If it is cut into pieces that are 1/8 meter each, how many pieces will there be?",
+            "options": [
+              "6 pieces",
+              "8 pieces",
+              "3 pieces",
+              "4 pieces"
+            ],
+            "correct_answer": "6 pieces"
+          },
+          {
+            "question": "Kuya Ramon has 5 liters of gasoline. His motorcycle uses 5/6 liter for every trip to the palengke. How many trips can he make?",
+            "options": [
+              "6 trips",
+              "5 trips",
+              "30 trips",
+              "1 trip"
+            ],
+            "correct_answer": "6 trips"
+          },
+          {
+            "question": "A vendor has 2/5 kilogram of dried fish (tuyo) left. She wants to divide it into small packs of 1/10 kilogram each for the sari-sari store. How many packs can she make?",
+            "options": [
+              "4 packs",
+              "2 packs",
+              "5 packs",
+              "10 packs"
+            ],
+            "correct_answer": "4 packs"
+          },
+          {
+            "question": "A carpenter has a board that is 6 meters long. He cuts it into pieces that are each 3/4 meter long for shelves. How many shelf pieces does he get?",
+            "options": [
+              "8 pieces",
+              "6 pieces",
+              "4 pieces",
+              "18 pieces"
+            ],
+            "correct_answer": "8 pieces"
+          },
+          {
+            "question": "Nanay Fely bought 6 kg of rice. She uses 2/3 kg for their family's meals each day. After 3 days of cooking at this rate, she wants to know how many more days the remaining rice will last at the same rate. How many more days will it last?",
+            "options": [
+              "6 more days",
+              "9 more days",
+              "4 more days",
+              "3 more days"
+            ],
+            "correct_answer": "6 more days"
+          },
+          {
+            "question": "A water container holds 8 liters. Every household member drinks 2/5 liter per day, and there are 4 members in the family. If the family fills the container once, for how many days will the water last?",
+            "options": [
+              "5 days",
+              "4 days",
+              "10 days",
+              "8 days"
+            ],
+            "correct_answer": "5 days"
+          },
+          {
+            "question": "Mang Jose has 10 meters of nylon rope. He first cuts away 4 meters to use for tying a sack. He wants to divide the remaining rope into pieces that are 3/4 meter each for fishing lines. How many fishing line pieces can he cut?",
+            "options": [
+              "8 pieces",
+              "10 pieces",
+              "6 pieces",
+              "13 pieces"
+            ],
+            "correct_answer": "8 pieces"
+          },
+          {
+            "question": "A bakery has 9 kg of flour. Pandesal uses 3/8 kg per batch, but the baker first sets aside 3 kg of flour for a special order. With the flour that remains, how many batches of pandesal can be made?",
+            "options": [
+              "16 batches",
+              "24 batches",
+              "8 batches",
+              "6 batches"
+            ],
+            "correct_answer": "16 batches"
+          },
+          {
+            "question": "A farmer harvested 12 kg of kamote (sweet potato). He gave away 1/3 of the total harvest to his neighbors. He wants to pack the remaining kamote into bags that hold 4/5 kg each. How many full bags can he pack?",
+            "options": [
+              "10 bags",
+              "8 bags",
+              "15 bags",
+              "4 bags"
+            ],
+            "correct_answer": "10 bags"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Specialized Plant Structures: Rhizomes, Tubers, Bulbs, Thorns, Aerial Roots, and Tendrils\n\n- Many plants have **specialized structures** that are not just ordinary stems, roots, or leaves -- each is shaped for a specific job: storage, protection, or support.\n- A **rhizome** is an underground stem that spreads sideways and sprouts new shoots along its length. Example: luya (ginger) and luyang dilaw (turmeric).\n- A **tuber** is a swollen underground stem that stores food, usually as a single rounded structure. Example: kamote (sweet potato).\n- A **bulb** is made of layered, fleshy leaf-like scales wrapped around a bud, storing food underground. Example: sibuyas (onion).\n- **Thorns** are sharp, pointed growths along a stem, used mainly for protection. Example: calamansi and bayabas (guava) branches.\n- **Aerial roots** are roots that hang or grow in open air instead of into soil, often absorbing moisture directly from the air and rain. Example: orchids or balete (banyan) growing on a tree trunk.\n- **Tendrils** are thin, curly, thread-like structures that help a climbing plant grip a support. Example: upo (bottle gourd) and ampalaya (bitter gourd) vines.\n\n| Structure | Example | Main Function |\n|---|---|---|\n| Rhizome | Ginger | Underground spreading stem, sprouts shoots |\n| Tuber | Sweet potato | Stores food underground |\n| Bulb | Onion | Stores food in layered scales |\n| Thorn | Calamansi | Protection from being eaten |\n| Aerial root | Orchid | Absorbs moisture from air |\n| Tendril | Bottle gourd vine | Climbing/support |\n\n- Telling these structures apart takes careful observation: a rhizome spreads with multiple shoot points, a tuber is a single solid swollen stem, and a bulb is made of wrapped layers around a bud. Not every climbing plant uses tendrils either -- some simply twine their whole stem around a support instead.",
+        "quiz": [
+          {
+            "question": "What is a \"rhizome\"?",
+            "options": [
+              "An underground stem that grows horizontally and can produce new shoots",
+              "A type of flower petal",
+              "A leaf that stores water",
+              "A type of fruit"
+            ],
+            "correct_answer": "An underground stem that grows horizontally and can produce new shoots"
+          },
+          {
+            "question": "What is a \"tuber\"?",
+            "options": [
+              "A swollen underground stem that stores food",
+              "A thorn used for protection",
+              "A climbing structure",
+              "A type of root that hangs in the air"
+            ],
+            "correct_answer": "A swollen underground stem that stores food"
+          },
+          {
+            "question": "What is the main purpose of thorns on a plant?",
+            "options": [
+              "Protection from animals that might eat the plant",
+              "Storing large amounts of water",
+              "Helping the plant climb",
+              "Absorbing sunlight"
+            ],
+            "correct_answer": "Protection from animals that might eat the plant"
+          },
+          {
+            "question": "What is a \"bulb\"?",
+            "options": [
+              "A rounded underground structure made of layered leaves that stores food",
+              "A thorn-covered stem",
+              "A root that grows above ground in the air",
+              "A thin structure used for climbing"
+            ],
+            "correct_answer": "A rounded underground structure made of layered leaves that stores food"
+          },
+          {
+            "question": "What are \"tendrils\" used for?",
+            "options": [
+              "Helping a plant climb or hold onto a support",
+              "Storing food underground",
+              "Protecting the plant from being eaten",
+              "Absorbing moisture from the air only"
+            ],
+            "correct_answer": "Helping a plant climb or hold onto a support"
+          },
+          {
+            "question": "Luya (ginger) and luyang dilaw (turmeric) grow from thick underground stems that spread sideways and sprout new shoots. What structure is this?",
+            "options": [
+              "Rhizome",
+              "Tuber",
+              "Bulb",
+              "Thorn"
+            ],
+            "correct_answer": "Rhizome"
+          },
+          {
+            "question": "Kamote (sweet potato) grows a swollen underground part that stores starch, which people dig up and eat. What structure is this?",
+            "options": [
+              "Tuber",
+              "Bulb",
+              "Aerial root",
+              "Tendril"
+            ],
+            "correct_answer": "Tuber"
+          },
+          {
+            "question": "Sibuyas (onion) is made of layered, fleshy leaf-like parts wrapped around each other underground. What structure is this?",
+            "options": [
+              "Bulb",
+              "Rhizome",
+              "Tuber",
+              "Thorn"
+            ],
+            "correct_answer": "Bulb"
+          },
+          {
+            "question": "A calamansi or bayabas (guava) branch has sharp, pointed growths along its stem that can prick anyone who touches it. What structure is this?",
+            "options": [
+              "Thorns",
+              "Tendrils",
+              "Aerial roots",
+              "Rhizomes"
+            ],
+            "correct_answer": "Thorns"
+          },
+          {
+            "question": "An upo (bottle gourd) or ampalaya (bitter gourd) vine has thin, curly, thread-like parts that wrap tightly around a trellis or fence to hold the plant up. What structure is this?",
+            "options": [
+              "Tendrils",
+              "Bulbs",
+              "Tubers",
+              "Thorns"
+            ],
+            "correct_answer": "Tendrils"
+          },
+          {
+            "question": "A balete (banyan) or orchid growing on a tree trunk has roots that hang down from branches into the open air instead of growing into the soil. What is this structure called, and what might it be for?",
+            "options": [
+              "Aerial roots -- they absorb moisture and nutrients directly from the air and rain, useful when the plant is not rooted in soil",
+              "Tendrils -- they are only used for climbing",
+              "Tubers -- they store starch underground",
+              "Thorns -- they protect the plant from animals"
+            ],
+            "correct_answer": "Aerial roots -- they absorb moisture and nutrients directly from the air and rain, useful when the plant is not rooted in soil"
+          },
+          {
+            "question": "A gardener finds two different underground plant parts: one is a long, spreading stem with nodes that sprout new shoots along its length (like ginger), and the other is a single swollen rounded part with no spreading stem attached (like a potato). How can you tell a rhizome apart from a tuber?",
+            "options": [
+              "A rhizome grows and spreads horizontally with multiple sprouting points, while a tuber is typically a single swollen storage structure without that spreading stem pattern",
+              "They are exactly the same structure with different names",
+              "A rhizome is always found above ground",
+              "A tuber always has thorns"
+            ],
+            "correct_answer": "A rhizome grows and spreads horizontally with multiple sprouting points, while a tuber is typically a single swollen storage structure without that spreading stem pattern"
+          },
+          {
+            "question": "Both bulbs and tubers are found underground and store food for the plant. Based on their structure, what is one key difference between them?",
+            "options": [
+              "A bulb is made of layered leaf-like scales wrapped around a bud, while a tuber is a solid swollen stem without those layers",
+              "A bulb has thorns and a tuber does not",
+              "A tuber always grows above ground while a bulb grows underwater",
+              "There is no difference between them at all"
+            ],
+            "correct_answer": "A bulb is made of layered leaf-like scales wrapped around a bud, while a tuber is a solid swollen stem without those layers"
+          },
+          {
+            "question": "A climbing plant has neither thorns nor tendrils, but its stem still manages to wind tightly around a fence post as it grows upward. Does the lack of tendrils mean this plant has no way to climb?",
+            "options": [
+              "No -- some plants use a twining stem itself to wrap around a support instead of using tendrils",
+              "Yes -- a plant absolutely needs tendrils to climb",
+              "Yes -- without tendrils or thorns, a plant cannot grow upward at all",
+              "No -- the plant must instead be using a bulb to climb"
+            ],
+            "correct_answer": "No -- some plants use a twining stem itself to wrap around a support instead of using tendrils"
+          },
+          {
+            "question": "A student is given an unlabeled underground plant sample and needs to decide if it is a rhizome, tuber, or bulb. What key features should the student look for to correctly classify it?",
+            "options": [
+              "Whether it spreads horizontally with multiple shoot points (rhizome), is a single solid swollen stem (tuber), or is made of layered fleshy scales around a bud (bulb)",
+              "Only the color of the structure",
+              "Whether it is above or below the leaves",
+              "Only whether animals have eaten part of it"
+            ],
+            "correct_answer": "Whether it spreads horizontally with multiple shoot points (rhizome), is a single solid swollen stem (tuber), or is made of layered fleshy scales around a bud (bulb)"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "## Gramatika, Retorika, at Pag-unawa sa Binasa\n\n- Ang **pandiwa** ay maaaring nasa iba't ibang **pokus**: sa **tagaganap na pokus (actor focus)**, ang tagaganap ng kilos ang binibigyang-diin (hal. Kumain si Ana); sa **tagatanggap na pokus (object focus)**, ang bagay na tumanggap ng kilos ang binibigyang-diin (hal. Kinain ni Ana ang mangga).\n- Ang **pang-uri** ay maaaring **palansak** (karaniwang paglalarawan, hal. matalino) o **pahambing** (naghahambing ng dalawa o higit pang bagay, hal. mas matalino kaysa kay Juan).\n- Ang **pang-abay** ay nagbibigay-diin sa pandiwa: ang **panang-ayon** ay nagpapahayag ng pagsang-ayon (hal. oo, sige), samantalang ang **panalungat** ay nagpapahayag ng pagtanggi (hal. hindi, ayaw).\n- Ang **hugnayang pangungusap** ay pangungusap na may dalawa o higit pang sugnay na magkaugnay sa isa't isa gamit ang mga pangatnig tulad ng habang, nang, dahil sa.\n- Sa pag-unawa naman sa binasa, mahalagang makilala ang **tayutay**:\n  - **Simili** — paghahambing gamit ang parang o tulad ng\n  - **Metapora** — direktang paghahambing nang walang parang\n  - **Personipikasyon** — pagbibigay ng katangiang pantao sa bagay o hayop\n- Ang **paghula ng kahulugan gamit ang konteksto** ay tumutulong sa mambabasa na maintindihan ang bagong salita sa pamamagitan ng pagsusuri sa mga salitang nakapalibot dito.\n\nHalimbawa: Sa pangungusap na Ang bituin ay ngumingiti sa gabi, ginamit ang **personipikasyon** dahil binigyan ng kakayahang ngumiti (katangiang pantao) ang bituin.\n\n| Tayutay | Kahulugan | Halimbawa |\n|---|---|---|\n| Simili | Gumagamit ng parang/tulad ng | Kasing-tamis ng pulot ang kanyang boses |\n| Metapora | Direktang paghahambing | Ang kanyang puso ay bato |\n| Personipikasyon | Bagay/hayop na may katangiang tao | Sumasayaw ang mga dahon sa hangin |\n\n- Ang pagsasanay sa mga kasanayang ito ay tumutulong upang lumakas ang kakayahan sa pagbasa at pagsulat sa Filipino.",
+        "quiz": [
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pandiwang nasa tagaganap na pokus (actor focus)?",
+            "options": [
+              "Kumain si Ana ng mangga",
+              "Kinain ni Ana ang mangga",
+              "Ibinigay ni Ana ang laruan",
+              "Binigyan ni Ana si Kuya ng regalo"
+            ],
+            "correct_answer": "Kumain si Ana ng mangga"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pandiwang nasa tagatanggap na pokus (object focus)?",
+            "options": [
+              "Kinain ni Ana ang mangga",
+              "Kumain si Ana ng mangga",
+              "Tumakbo si Pedro",
+              "Umawit si Maria"
+            ],
+            "correct_answer": "Kinain ni Ana ang mangga"
+          },
+          {
+            "question": "Anong uri ng pang-uri ang salitang matalino sa pangungusap na Matalino ang mag-aaral?",
+            "options": [
+              "Palansak",
+              "Pahambing",
+              "Pamilang",
+              "Pananong"
+            ],
+            "correct_answer": "Palansak"
+          },
+          {
+            "question": "Anong uri ng pang-abay ang salitang hindi sa pangungusap na Hindi siya sasama sa laro?",
+            "options": [
+              "Panalungat",
+              "Panang-ayon",
+              "Pamanahon",
+              "Panlunan"
+            ],
+            "correct_answer": "Panalungat"
+          },
+          {
+            "question": "Alin sa mga sumusunod na tayutay ang gumagamit ng parang o tulad ng sa paghahambing ng dalawang bagay?",
+            "options": [
+              "Simili",
+              "Metapora",
+              "Personipikasyon",
+              "Hiperbole"
+            ],
+            "correct_answer": "Simili"
+          },
+          {
+            "question": "Sa pangungusap na Ang puso ni Lola ay gintong-ginto, anong tayutay ang ipinakita?",
+            "options": [
+              "Metapora",
+              "Simili",
+              "Personipikasyon",
+              "Aliterasyon"
+            ],
+            "correct_answer": "Metapora"
+          },
+          {
+            "question": "Piliin ang pangungusap na naglalaman ng pang-uring pahambing.",
+            "options": [
+              "Mas mataas si Juan kaysa kay Pedro",
+              "Matangkad si Juan",
+              "Masipag si Juan sa pag-aaral",
+              "Mabait si Juan sa kapwa"
+            ],
+            "correct_answer": "Mas mataas si Juan kaysa kay Pedro"
+          },
+          {
+            "question": "Sa pangungusap na Ang gubat ay yumayakap sa mga ibon na naliligaw, anong tayutay ang ginamit?",
+            "options": [
+              "Personipikasyon",
+              "Simili",
+              "Metapora",
+              "Onomatopeya"
+            ],
+            "correct_answer": "Personipikasyon"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pangungusap na gumagamit ng pang-abay na panang-ayon?",
+            "options": [
+              "Oo, sasama ako sa piknik bukas",
+              "Hindi ako sasama sa piknik",
+              "Marahil sasama ako sa piknik",
+              "Bakit ako sasama sa piknik"
+            ],
+            "correct_answer": "Oo, sasama ako sa piknik bukas"
+          },
+          {
+            "question": "Sa pangungusap na Nang dumating ang bagyo, lumikas ang mga tao patungo sa evacuation center, anong uri ng pangungusap ito batay sa hugnayan?",
+            "options": [
+              "Hugnayang pangungusap",
+              "Payak na pangungusap",
+              "Tambalang pangungusap",
+              "Padamdam na pangungusap"
+            ],
+            "correct_answer": "Hugnayang pangungusap"
+          },
+          {
+            "question": "Sa pangungusap na Kahit unti-unting nanlalabo ang kanyang paningin, hindi siya tumigil sa pagbabasa, anong salita ang maaaring kahulugan ng nanlalabo batay sa konteksto ng pangungusap?",
+            "options": [
+              "Humihina o nagiging malabo ang paningin",
+              "Lumalakas ang paningin",
+              "Nagbago ang kulay ng mata",
+              "Natutulog ang tauhan"
+            ],
+            "correct_answer": "Humihina o nagiging malabo ang paningin"
+          },
+          {
+            "question": "Basahin: Sa gitna ng disyerto, ang kanyang pag-asa ay isang bulaklak na nagsimulang mamukadkad kahit walang tubig. Anong ipinapahiwatig ng metaporang ito tungkol sa damdamin ng tauhan?",
+            "options": [
+              "Nananatiling buhay at lumalago ang kanyang pag-asa kahit sa mahirap na sitwasyon",
+              "Ganap nang nawala ang kanyang pag-asa",
+              "Wala siyang anumang damdamin",
+              "Nais niyang umalis sa disyerto"
+            ],
+            "correct_answer": "Nananatiling buhay at lumalago ang kanyang pag-asa kahit sa mahirap na sitwasyon"
+          },
+          {
+            "question": "Sa pangungusap na Ang alon ay kumakanta habang humahampas sa buhangin, anong ibig sabihin ng paggamit ng personipikasyon dito?",
+            "options": [
+              "Binibigyan ng katangiang pantao ang alon upang mas maging buhay ang paglalarawan",
+              "Ang alon ay talagang may boses",
+              "Ito ay isang pangungusap na walang kahulugan",
+              "Nangangahulugan itong may tao sa dagat"
+            ],
+            "correct_answer": "Binibigyan ng katangiang pantao ang alon upang mas maging buhay ang paglalarawan"
+          },
+          {
+            "question": "Basahin: Ibinigay ng guro ang papuri sa masisipag na mag-aaral. Kung babaguhin ito upang maging tagaganap na pokus ang pandiwa, alin ang tamang pagbabago?",
+            "options": [
+              "Nagbigay ang guro ng papuri sa masisipag na mag-aaral",
+              "Binigyan ng guro ang mag-aaral ng papuri",
+              "Ibinigay ang papuri ng guro",
+              "Bibigyan ng guro ang mag-aaral"
+            ],
+            "correct_answer": "Nagbigay ang guro ng papuri sa masisipag na mag-aaral"
+          },
+          {
+            "question": "Sa pangungusap na Habang umuulan, nagbasa ako ng aklat sa aking silid, alin ang salitang nag-uugnay sa dalawang sugnay upang maging hugnayang pangungusap?",
+            "options": [
+              "Habang",
+              "Nagbasa",
+              "Aklat",
+              "Silid"
+            ],
+            "correct_answer": "Habang"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "summary_markdown": "## Email Etiquette: Being Polite and Professional Online\n\n- **Email etiquette** is the set of polite manners and unwritten rules for writing emails — it helps your message sound respectful and clear, especially to teachers, elders, or people you don't know well.\n- Every polite email usually has three parts: a **greeting** (e.g., \"Good day po, Ma'am/Sir,\"), the **message body** written in a calm and clear tone, and a **closing/signature** (e.g., \"Respectfully yours, Juan Dela Cruz, Grade 5\").\n- Using a **professional tone** means avoiding ALL CAPS (which can look like shouting), too many exclamation points, or slang — even when you're in a hurry or annoyed.\n- **Reply** sends your message only to the original sender, while **Reply All** sends it to everyone who received the email. Example: if your teacher emails the whole class and you only have a personal question, use **Reply**, not Reply All, so you don't bother 30 classmates with a message meant for one person.\n- Being **mindful of recipients** also means double-checking the To/Cc list before sending, so a private message (like a birthday invite) doesn't accidentally go to people it wasn't meant for.\n\n| Situation | Reply | Reply All |\n|---|---|---|\n| Personal question to teacher | Correct choice | Bothers everyone |\n| Group project update for the whole team | Sometimes too limited | Correct choice |\n\n- Good etiquette shows respect for the reader's time and feelings — a well-mannered email leaves a good impression, just like greeting someone politely in person.",
+        "quiz": [
+          {
+            "question": "Which of the following is an example of a polite greeting to open an email to a teacher?",
+            "options": [
+              "Good day, Ma'am/Sir,",
+              "Hoy!",
+              "Wag mo kong iignore ha",
+              "Yo dude,"
+            ],
+            "correct_answer": "Good day, Ma'am/Sir,"
+          },
+          {
+            "question": "What is \"email etiquette\"?",
+            "options": [
+              "A set of polite rules and manners for writing and sending emails",
+              "A tool for attaching files to an email",
+              "A password used to protect an email account",
+              "The technical name for an email server"
+            ],
+            "correct_answer": "A set of polite rules and manners for writing and sending emails"
+          },
+          {
+            "question": "What is usually placed at the end of an email to identify the sender and give contact details?",
+            "options": [
+              "A signature",
+              "A subject line",
+              "An attachment",
+              "A CC field"
+            ],
+            "correct_answer": "A signature"
+          },
+          {
+            "question": "What does \"Reply All\" do when you click it on an email?",
+            "options": [
+              "Sends your response to everyone who received the original email",
+              "Sends your response only to the original sender",
+              "Deletes the email for everyone",
+              "Forwards the email to a new person"
+            ],
+            "correct_answer": "Sends your response to everyone who received the original email"
+          },
+          {
+            "question": "Using a calm, respectful, and clear way of writing in an email is called using a ____.",
+            "options": [
+              "professional/appropriate tone",
+              "phishing link",
+              "spam filter",
+              "email attachment"
+            ],
+            "correct_answer": "professional/appropriate tone"
+          },
+          {
+            "question": "Which closing line is most appropriate for an email to your school principal?",
+            "options": [
+              "Respectfully yours, Juan Dela Cruz, Grade 5",
+              "later na lang",
+              "bye bye po ingat po sana wag mo galitin",
+              "k thanks"
+            ],
+            "correct_answer": "Respectfully yours, Juan Dela Cruz, Grade 5"
+          },
+          {
+            "question": "A classmate sent a group email asking for volunteers for a Buwan ng Wika program. Which response shows good email etiquette?",
+            "options": [
+              "'Good day! I would like to volunteer for the poster-making part. Thank you!'",
+              "'wla akong pake sa buwan ng wika'",
+              "Replying all with just 'k'",
+              "Not reading the email at all"
+            ],
+            "correct_answer": "'Good day! I would like to volunteer for the poster-making part. Thank you!'"
+          },
+          {
+            "question": "Your teacher emailed the whole class about a project. You only have a question for the teacher, not the whole class. What should you do?",
+            "options": [
+              "Click Reply (not Reply All) and send your question only to the teacher",
+              "Click Reply All so everyone can see your question",
+              "Ignore the email completely",
+              "Forward the email to your barkada"
+            ],
+            "correct_answer": "Click Reply (not Reply All) and send your question only to the teacher"
+          },
+          {
+            "question": "Your titser sent an important announcement to the whole class mailing list. Which is the MOST mindful way to thank her?",
+            "options": [
+              "Reply only to the teacher with a short thank-you message",
+              "Reply All with a long personal story",
+              "Send a separate email to every classmate individually",
+              "Forward it to relatives who are not part of the class"
+            ],
+            "correct_answer": "Reply only to the teacher with a short thank-you message"
+          },
+          {
+            "question": "Which greeting-and-closing pair best fits a formal email to your school's guidance counselor?",
+            "options": [
+              "'Magandang araw po, Ma'am' ... 'Lubos na gumagalang'",
+              "'Uy!' ... 'Sige, tara na'",
+              "no greeting ... no closing",
+              "'Yo!' ... 'Peace out'"
+            ],
+            "correct_answer": "'Magandang araw po, Ma'am' ... 'Lubos na gumagalang'"
+          },
+          {
+            "question": "Ten students received an email from their adviser asking who wants extra Math tutorials. One student clicks Reply All and writes \"Ako po!\" What problem does this cause, and what should the student have done instead?",
+            "options": [
+              "It sends an unnecessary message to all 10 people; the student should have replied only to the adviser",
+              "There is no problem, Reply All is always correct",
+              "It automatically deletes the adviser's email",
+              "It sends the message as spam to the whole school"
+            ],
+            "correct_answer": "It sends an unnecessary message to all 10 people; the student should have replied only to the adviser"
+          },
+          {
+            "question": "Read two email replies to a teacher's request for permission slip forms: Reply A: \"Good afternoon Ma'am, attached po is my permission slip. Thank you!\" Reply B: \"here\". Why is Reply A better email etiquette?",
+            "options": [
+              "It uses a polite greeting, clear message, and courteous closing appropriate for a teacher",
+              "It is shorter, so it saves time",
+              "It uses more exclamation points",
+              "Reply B is actually better because it is faster"
+            ],
+            "correct_answer": "It uses a polite greeting, clear message, and courteous closing appropriate for a teacher"
+          },
+          {
+            "question": "A student wants to invite only 3 close friends to a birthday party, but accidentally sends the invite to the entire class mailing list. What is the BEST way to fix this mistake going forward?",
+            "options": [
+              "Double-check the recipient list (To/Cc) before sending an email meant for specific people",
+              "Just Reply All apologizing but keep doing it the same way next time",
+              "Delete the school email account",
+              "Ignore it since email cannot be helped"
+            ],
+            "correct_answer": "Double-check the recipient list (To/Cc) before sending an email meant for specific people"
+          },
+          {
+            "question": "Your groupmate emails you in all capital letters and with many exclamation marks: \"WHERE IS YOUR PART OF THE PROJECT!!! REPLY NOW!!!\" Why does this break good email etiquette, and how could it be rewritten more appropriately?",
+            "options": [
+              "All caps and exclamation marks can sound like shouting/anger; it should be rewritten calmly, e.g. 'Hi, just checking, do you have an update on your part? Thank you!'",
+              "It is fine because using caps makes the message clearer",
+              "It breaks etiquette because it is too short",
+              "There is nothing wrong with the message"
+            ],
+            "correct_answer": "All caps and exclamation marks can sound like shouting/anger; it should be rewritten calmly, e.g. 'Hi, just checking, do you have an update on your part? Thank you!'"
+          },
+          {
+            "question": "A teacher emails the class: \"Please email me your project topics by Friday.\" Which student response best follows email etiquette from greeting to closing?",
+            "options": [
+              "'Good day po Ma'am, my project topic is about recycling. Thank you po. - Maria, Grade 5'",
+              "'topic ko recycling'",
+              "Replying All with just the topic and no greeting",
+              "Not replying because the deadline is still far"
+            ],
+            "correct_answer": "'Good day po Ma'am, my project topic is about recycling. Thank you po. - Maria, Grade 5'"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "## Pagdating ng Islam sa Mindanao at Sulu\n\n- Ang **Islam** ay unang lumaganap sa Katimugang Pilipinas sa pamamagitan ng mga misyonero at mangangalakal na Muslim, hindi sa pamamagitan ng digmaan.\n- Si **Sharif Karim ul-Makhdum**, isang misyonerong Arabo, ay itinuturing na unang nagpakilala ng Islam sa **Simunul, Sulu**.\n- Sinundan siya ni **Rajah Baguinda**, na tumulong magpatatag ng saligan ng relihiyon at pamumuno sa Sulu.\n- Dahil dito, naitatag ang **Sultanato ng Sulu** at, sa ibang bahagi ng Mindanao, ang **Sultanato ng Maguindanao**.\n- Sa ilalim ng **sultanato**, ang **Sultan** ang pangunahing pinuno — may kapangyarihang pampolitika AT panrelihiyon. Tinutulungan siya ng mga **Datu** (lokal na pinuno) at ng **Ruma Bichara**, isang kapulungan ng mga tagapayo.\n- Ang Islam ay nakaimpluwensya rin sa kalakalan — dumami ang mangangalakal na Muslim mula sa Arabia, Malaysia, at Indya na nagdala rin ng kanilang paniniwala, kaugalian, at estilo ng pamumuhay.\n\nHalimbawa: Bago dumating ang Islam, ang bawat baranggay sa Sulu ay may sarili-sariling datu. Nang itatag ang Sultanato ng Sulu, ang mga datu ay nanatiling pinuno ng kanilang pamayanan ngunit kinikilala nila ang Sultan bilang pinakamataas na awtoridad — katulad ng isang malaking pamilya na may punong-tagapamuno.\n\n| Aspekto | Bago ang Sultanato | Sa Ilalim ng Sultanato |\n|---|---|---|\n| Pinuno | Datu ng bawat baranggay | Sultan bilang pangkalahatang pinuno |\n| Batas | Ugaling-bayan | Batas na batay sa Islam (sharia) |\n| Kalakalan | Lokal lamang | Lumawak dahil sa ugnayan ng mga Muslim na mangangalakal |\n\n- Ang pagkakatatag ng mga sultanato ay isa sa mga tanda na may sariling maunlad na kabihasnan na ang katimugang Pilipinas bago pa man dumating ang mga Kastila.",
+        "quiz": [
+          {
+            "question": "Sino ang misyonerong Arabo na kilala bilang unang nagpalaganap ng Islam sa Sulu, partikular sa Simunul?",
+            "options": [
+              "Sharif Karim ul-Makhdum",
+              "Rajah Baguinda",
+              "Sharif Kabungsuwan",
+              "Sultan Kudarat"
+            ],
+            "correct_answer": "Sharif Karim ul-Makhdum"
+          },
+          {
+            "question": "Sino ang pinunong dumating mula Sumatra na tumulong magtatag ng saligan ng Sultanato ng Sulu?",
+            "options": [
+              "Rajah Baguinda",
+              "Sharif Karim ul-Makhdum",
+              "Rajah Humabon",
+              "Lapu-Lapu"
+            ],
+            "correct_answer": "Rajah Baguinda"
+          },
+          {
+            "question": "Sino ang kilalang nagtatag ng Sultanato ng Maguindanao?",
+            "options": [
+              "Sharif Kabungsuwan",
+              "Sharif Karim ul-Makhdum",
+              "Rajah Baguinda",
+              "Datu Puti"
+            ],
+            "correct_answer": "Sharif Kabungsuwan"
+          },
+          {
+            "question": "Ano ang tawag sa pinuno ng isang sultanato na may kapangyarihang pampolitika at panrelihiyon?",
+            "options": [
+              "Sultan",
+              "Datu",
+              "Hari",
+              "Punong-guro"
+            ],
+            "correct_answer": "Sultan"
+          },
+          {
+            "question": "Ano ang tawag sa kapulungan ng mga pinuno at tagapayo na tumutulong sa Sultan sa pamamahala?",
+            "options": [
+              "Ruma Bichara",
+              "Barangay",
+              "Sanggunian",
+              "Katipunan"
+            ],
+            "correct_answer": "Ruma Bichara"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang lungsod-daungan ang Sulu bago pa man dumating ang Islam?",
+            "options": [
+              "Dahil ito ay naging sentro ng kalakalan ng mga mangangalakal mula sa iba't ibang bansa",
+              "Dahil ito ang kabisera ng Pilipinas noon",
+              "Dahil doon isinilang si Sharif Kabungsuwan",
+              "Dahil ito lamang ang lugar na may ginto"
+            ],
+            "correct_answer": "Dahil ito ay naging sentro ng kalakalan ng mga mangangalakal mula sa iba't ibang bansa"
+          },
+          {
+            "question": "Paano nakatulong ang kalakalan sa mabilis na paglaganap ng Islam sa Katimugang Pilipinas?",
+            "options": [
+              "Kasabay ng pangangalakal, naidala rin ng mga mangangalakal na Muslim ang kanilang paniniwala at kaugalian",
+              "Ipinatupad ito sa pamamagitan ng digmaan laban sa mga katutubo",
+              "Ipinilit ito ng mga Espanyol sa mga mamamayan",
+              "Naging bahagi ito ng kasunduang pangkalakalan sa Tsina"
+            ],
+            "correct_answer": "Kasabay ng pangangalakal, naidala rin ng mga mangangalakal na Muslim ang kanilang paniniwala at kaugalian"
+          },
+          {
+            "question": "Sa anong paraan naipakita ang epekto ng Islam sa pamumuhay ng mga tao sa Sulu at Mindanao?",
+            "options": [
+              "Sa pagbabago ng paniniwala, kasuotan, at batas na sinusunod ayon sa relihiyong Islam",
+              "Sa pagpapatayo ng mga simbahang Katoliko",
+              "Sa paggamit ng Baybayin bilang opisyal na sistema ng pagsulat",
+              "Sa pagsunod sa mga batas ng Kastila"
+            ],
+            "correct_answer": "Sa pagbabago ng paniniwala, kasuotan, at batas na sinusunod ayon sa relihiyong Islam"
+          },
+          {
+            "question": "Ano ang naging papel ng mga Datu sa ilalim ng sistema ng Sultanato?",
+            "options": [
+              "Namuno sila sa kanilang sariling pamayanan habang kinikilala ang awtoridad ng Sultan",
+              "Sila ang naging Sultan sa halip ng orihinal na pinuno",
+              "Wala silang kapangyarihan sa ilalim ng Sultanato",
+              "Sila lamang ang pumipili ng relihiyon ng mga tao"
+            ],
+            "correct_answer": "Namuno sila sa kanilang sariling pamayanan habang kinikilala ang awtoridad ng Sultan"
+          },
+          {
+            "question": "Bakit mas naging matatag at organisado ang pamahalaan sa Sulu at Maguindanao matapos itatag ang mga sultanato?",
+            "options": [
+              "Dahil may malinaw na sistema ng pamumuno, batas, at kapulungan ng mga tagapayo",
+              "Dahil sinakop sila ng mga Kastila",
+              "Dahil wala nang digmaan sa buong Mindanao",
+              "Dahil nawala ang tradisyon ng mga katutubo"
+            ],
+            "correct_answer": "Dahil may malinaw na sistema ng pamumuno, batas, at kapulungan ng mga tagapayo"
+          },
+          {
+            "question": "Kung ikukumpara ang katayuan ng isang barangay bago dumating ang Islam sa katayuan nito sa ilalim ng isang sultanato, ano ang pangunahing pagkakaiba?",
+            "options": [
+              "Ang barangay ay naging bahagi ng mas malaking kaayusang pampolitika na pinamumunuan ng Sultan sa halip na nag-iisa nang datu",
+              "Nawala ang lahat ng datu sa lipunan",
+              "Naging kolonya ito ng Tsina",
+              "Wala itong naging pagbabago"
+            ],
+            "correct_answer": "Ang barangay ay naging bahagi ng mas malaking kaayusang pampolitika na pinamumunuan ng Sultan sa halip na nag-iisa nang datu"
+          },
+          {
+            "question": "Bakit maituturing na magkaugnay ang kalakalan at relihiyon sa kasaysayan ng pagpasok ng Islam sa Pilipinas?",
+            "options": [
+              "Dahil ang mga mangangalakal na Muslim ang siya ring naging daan sa pagpapakilala ng relihiyong Islam sa mga lokal na pamayanan",
+              "Dahil pinagbawalan ng mga sultan ang kalakalan",
+              "Dahil ang relihiyon lamang ang dahilan ng pagbagsak ng kalakalan",
+              "Dahil hiwalay na pangyayari ang kalakalan at relihiyon"
+            ],
+            "correct_answer": "Dahil ang mga mangangalakal na Muslim ang siya ring naging daan sa pagpapakilala ng relihiyong Islam sa mga lokal na pamayanan"
+          },
+          {
+            "question": "Kung ikaw ay mamamayan noon sa Sulu na kararating lamang ng Islam, ano ang malamang na unang mapapansin mong pagbabago sa iyong pamayanan?",
+            "options": [
+              "Ang pagbabago sa mga paniniwala, kaugalian, at pamumuno sanhi ng impluwensya ng mga Muslim na mangangalakal at misyonero",
+              "Ang biglaang pagdating ng mga Espanyol",
+              "Ang pagtayo ng mga bagong paaralang pambansa",
+              "Ang paggamit ng papel na pera"
+            ],
+            "correct_answer": "Ang pagbabago sa mga paniniwala, kaugalian, at pamumuno sanhi ng impluwensya ng mga Muslim na mangangalakal at misyonero"
+          },
+          {
+            "question": "Paano nagkaroon ng malaking papel ang dalawang sultanato (Sulu at Maguindanao) sa pagpapaunlad ng katimugang Pilipinas?",
+            "options": [
+              "Naging sentro sila ng malakas na kalakalan at organisadong pamamahala na humubog sa kultura ng rehiyon",
+              "Sila ang nagpakilala ng Kristiyanismo sa rehiyon",
+              "Sila ang unang nagtayo ng mga paaralang pambayan",
+              "Nawalan sila ng ugnayan sa ibang bansa"
+            ],
+            "correct_answer": "Naging sentro sila ng malakas na kalakalan at organisadong pamamahala na humubog sa kultura ng rehiyon"
+          },
+          {
+            "question": "Sa pagsusuri ng kasaysayan, bakit mahalagang pag-aralan ang pagkakatatag ng Sultanato ng Sulu at Maguindanao sa pag-unawa sa pagkakaiba-iba ng kultura sa Pilipinas?",
+            "options": [
+              "Dahil ipinapakita nito na may iba't ibang landas ng pag-unlad ang kulturang Pilipino bago pa man dumating ang mga Kastila",
+              "Dahil ito lamang ang nag-iisang bahagi ng kasaysayan ng Pilipinas",
+              "Dahil pareho lang ito sa kasaysayan ng Luzon",
+              "Dahil hindi ito naging bahagi ng kasaysayang Pilipino"
+            ],
+            "correct_answer": "Dahil ipinapakita nito na may iba't ibang landas ng pag-unlad ang kulturang Pilipino bago pa man dumating ang mga Kastila"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Term 1 Review: Respect for Life, Valuing Oneself, Promptness, and Faith\n\nThis week is a **review and synthesis** of the values covered in the first half of the term.\n\n- **Respect for Life** means caring for people, animals, and plants because every living thing has value. Example: feeding a hungry stray animal instead of ignoring it.\n- **Valuing Oneself** includes accepting the physical and emotional changes that happen during **puberty** (like growth spurts and voice changes) with confidence, and understanding that these changes are a normal part of growing up.\n- **Promptness**, in this context, is shown through **saving and budgeting** — setting aside part of one's allowance wisely instead of spending it all right away.\n- **Faith** is practiced through daily habits like **prayer** and **reading scripture**, which help build patience, discipline, and good character.\n\nExample: Miguel starts noticing changes in his body. Instead of feeling embarrassed, he remembers that this is normal, values himself, and calmly talks to a trusted adult about his questions.\n\n| Value | Key Practice | Example |\n|---|---|---|\n| Respect for Life | Caring for all living things | Feeding a stray cat |\n| Valuing Oneself | Accepting change with confidence | Understanding puberty |\n| Promptness | Saving and budgeting | Setting aside allowance |\n| Faith | Prayer and scripture reading | Family prayer time |\n\n- Notice how these values connect: a person who values themselves and respects life is more likely to be disciplined (promptness) and grounded in faith — together, they build good character.",
+        "quiz": [
+          {
+            "question": "Which of the following best shows respect for life?",
+            "options": [
+              "Caring for plants, animals, and people around you",
+              "Ignoring someone who is hurt",
+              "Wasting food and resources",
+              "Making fun of someone who is different"
+            ],
+            "correct_answer": "Caring for plants, animals, and people around you"
+          },
+          {
+            "question": "What is one common physical change that happens during puberty?",
+            "options": [
+              "Growth spurt and voice changes",
+              "Losing the ability to walk",
+              "Becoming shorter",
+              "Losing all baby teeth"
+            ],
+            "correct_answer": "Growth spurt and voice changes"
+          },
+          {
+            "question": "What does it mean to practice promptness when it comes to money?",
+            "options": [
+              "Saving and budgeting money wisely and on time",
+              "Spending all your allowance right away",
+              "Borrowing money from classmates",
+              "Hiding money from your parents"
+            ],
+            "correct_answer": "Saving and budgeting money wisely and on time"
+          },
+          {
+            "question": "Which of the following is an example of practicing faith?",
+            "options": [
+              "Praying and reading scripture regularly",
+              "Skipping family prayer time",
+              "Refusing to attend religious activities",
+              "Making fun of other people's beliefs"
+            ],
+            "correct_answer": "Praying and reading scripture regularly"
+          },
+          {
+            "question": "Valuing oneself means recognizing your own worth and treating yourself with respect. Which of the following shows this value?",
+            "options": [
+              "Accepting the changes in your body during puberty with confidence",
+              "Comparing yourself negatively to others all the time",
+              "Hiding your feelings from everyone",
+              "Believing you are not important"
+            ],
+            "correct_answer": "Accepting the changes in your body during puberty with confidence"
+          },
+          {
+            "question": "Ana sees a stray cat that looks hungry near her house. What would be the best way for her to show respect for life?",
+            "options": [
+              "Give the cat some food and water safely",
+              "Ignore the cat completely",
+              "Chase the cat away",
+              "Throw things at the cat"
+            ],
+            "correct_answer": "Give the cat some food and water safely"
+          },
+          {
+            "question": "Miguel is starting to notice changes in his body as he grows older. What is the healthiest way for him to respond?",
+            "options": [
+              "Understand that these changes are normal and talk to a trusted adult about his questions",
+              "Feel embarrassed and hide from everyone",
+              "Make fun of himself for changing",
+              "Ignore the changes and pretend nothing is happening"
+            ],
+            "correct_answer": "Understand that these changes are normal and talk to a trusted adult about his questions"
+          },
+          {
+            "question": "Liza receives her weekly allowance of 100 pesos. Which action best shows promptness through saving and budgeting?",
+            "options": [
+              "She sets aside part of it for savings and plans how to spend the rest wisely",
+              "She spends all of it on snacks the same day",
+              "She lends all of it to a classmate without a plan",
+              "She loses track of how much she has spent"
+            ],
+            "correct_answer": "She sets aside part of it for savings and plans how to spend the rest wisely"
+          },
+          {
+            "question": "Every night before bed, Carlo's family prays together and reads a short passage from scripture. What value does this family practice show?",
+            "options": [
+              "Faith",
+              "Promptness",
+              "Prudence",
+              "Obedience"
+            ],
+            "correct_answer": "Faith"
+          },
+          {
+            "question": "Why is it important to show respect for life not just to people, but also to animals and plants?",
+            "options": [
+              "Because all living things deserve care and have value in the world",
+              "Because only humans matter in the world",
+              "Because animals and plants cannot feel anything",
+              "Because it is only required by law"
+            ],
+            "correct_answer": "Because all living things deserve care and have value in the world"
+          },
+          {
+            "question": "Jomar wants to buy a new toy that costs 500 pesos, but he only has 200 pesos in savings. Which choice best reflects promptness and good budgeting?",
+            "options": [
+              "Save part of his allowance regularly until he reaches 500 pesos",
+              "Ask his parents to buy it immediately without saving",
+              "Borrow money from a friend and not plan how to repay it",
+              "Spend his 200 pesos on something else instead of saving further"
+            ],
+            "correct_answer": "Save part of his allowance regularly until he reaches 500 pesos"
+          },
+          {
+            "question": "How are respect for life and valuing oneself connected as values?",
+            "options": [
+              "Both remind us that every person, including ourselves, has worth and deserves care and respect",
+              "They are unrelated values with no connection",
+              "Valuing oneself means disrespecting others",
+              "Respect for life only applies to animals, not people"
+            ],
+            "correct_answer": "Both remind us that every person, including ourselves, has worth and deserves care and respect"
+          },
+          {
+            "question": "A classmate teases Nica about the changes happening in her body during puberty. What would be the wisest response that reflects both valuing oneself and respect for life?",
+            "options": [
+              "Stay confident in herself and calmly ask the classmate to be kind, since these changes are a normal part of growing up",
+              "Tease the classmate back to get even",
+              "Feel ashamed and stop attending school",
+              "Pretend the changes are not happening at all"
+            ],
+            "correct_answer": "Stay confident in herself and calmly ask the classmate to be kind, since these changes are a normal part of growing up"
+          },
+          {
+            "question": "Why might praying and reading scripture help a person also become better at practicing promptness, such as saving money wisely?",
+            "options": [
+              "Because faith can build patience, discipline, and good values that guide wise daily decisions",
+              "Because prayer directly gives a person more money",
+              "Because reading scripture has no connection to daily choices",
+              "Because faith replaces the need to plan or budget"
+            ],
+            "correct_answer": "Because faith can build patience, discipline, and good values that guide wise daily decisions"
+          },
+          {
+            "question": "Looking back at the values of respect for life, valuing oneself, promptness, and faith, what do they have in common?",
+            "options": [
+              "They all guide a person to live with care, discipline, and respect for self and others",
+              "They are only important for adults, not children",
+              "They only apply inside a church or home",
+              "They have nothing to do with daily behavior"
+            ],
+            "correct_answer": "They all guide a person to live with care, discipline, and respect for self and others"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "## Pre-Colonial Visual Arts and Growing Up: Body and Community\n\n- Grade 5 MAPEH explores Philippine music, dance, theater, and visual arts through the theme of the **Pre-Colonial Period** — the time before Spanish colonization, when early Filipino communities created art based on their own beliefs and daily life.\n- In **Visual Arts**, pre-colonial works often reflect **subjects and themes** like nature, community life, and spiritual beliefs. Artists used **local mediums** — natural materials such as bamboo, clay, leaves, and natural dyes — instead of modern paints or plastics.\n- **Symbolism** matters in pre-colonial art: patterns are rarely just decoration. Example: a spiral shape might symbolize the flow of water or the cycle of life, while a zigzag pattern could represent mountains.\n- The art-making process follows **observe → perceive → create**: first look closely at real pre-colonial designs or artifacts, think about their possible meaning, then create or role-play an original work inspired by those conventions using local materials.\n- In **Health**, Grade 5 pupils learn that **puberty** brings physical and emotional changes as the body grows — this is normal for everyone. **Family roles and support** are important: parents and older family members can give accurate information, reassurance, and a safe space to ask questions.\n\n| Element | Example in Pre-Colonial Art |\n|---|---|\n| Medium | Bamboo, clay, natural dyes |\n| Theme | Community life, nature, beliefs |\n| Symbolism | Spiral = water/life cycle, zigzag = mountains |\n\n- Just as pre-colonial artists observed their world before creating, understanding and talking openly about body changes with trusted family helps pupils navigate growing up with confidence.",
+        "quiz": [
+          {
+            "question": "What time period does Grade 5 MAPEH Term 1 focus on when studying Philippine music, arts, dance, and theater forms?",
+            "options": [
+              "The Pre-Colonial Period",
+              "The Spanish Colonial Period",
+              "The American Period",
+              "The Post-War Period"
+            ],
+            "correct_answer": "The Pre-Colonial Period"
+          },
+          {
+            "question": "In Visual Arts, what are the \"subjects\" and \"themes\" of pre-colonial art usually inspired by?",
+            "options": [
+              "Nature, community life, and beliefs of early Filipino communities",
+              "Modern technology and gadgets",
+              "Foreign cartoon characters",
+              "City skyscrapers"
+            ],
+            "correct_answer": "Nature, community life, and beliefs of early Filipino communities"
+          },
+          {
+            "question": "What are \"local materials\" in the context of creating pre-colonial-inspired art?",
+            "options": [
+              "Natural materials found in the community, such as leaves, bamboo, clay, or natural dyes",
+              "Only plastic and synthetic materials",
+              "Imported paint from other countries",
+              "Digital drawing tools only"
+            ],
+            "correct_answer": "Natural materials found in the community, such as leaves, bamboo, clay, or natural dyes"
+          },
+          {
+            "question": "During puberty, what physical changes might a Grade 5 pupil begin to notice in their body?",
+            "options": [
+              "Growth spurts and other body changes as they develop",
+              "Losing all baby teeth only",
+              "Becoming shorter",
+              "No changes happen during puberty"
+            ],
+            "correct_answer": "Growth spurts and other body changes as they develop"
+          },
+          {
+            "question": "Who can provide support and guidance to a child experiencing changes during puberty?",
+            "options": [
+              "Family members such as parents or older siblings",
+              "Strangers online",
+              "No one, it should be handled alone",
+              "Only classmates"
+            ],
+            "correct_answer": "Family members such as parents or older siblings"
+          },
+          {
+            "question": "A student wants to create an artwork inspired by pre-colonial Filipino community life using materials found in their barangay. Which material choice best fits this?",
+            "options": [
+              "Dried leaves, bamboo strips, and natural clay",
+              "Only imported acrylic paint tubes",
+              "Plastic action figures",
+              "Printed photographs from magazines"
+            ],
+            "correct_answer": "Dried leaves, bamboo strips, and natural clay"
+          },
+          {
+            "question": "A student is evaluating a classmate's artwork inspired by pre-colonial designs. Which comment focuses on \"symbolism,\" one of the elements to consider?",
+            "options": [
+              "'The spiral pattern here might represent the flow of water, common in early designs.'",
+              "'I like the color red.'",
+              "'This took a long time to make.'",
+              "'The paper used is thick.'"
+            ],
+            "correct_answer": "'The spiral pattern here might represent the flow of water, common in early designs.'"
+          },
+          {
+            "question": "A Grade 5 girl is starting to notice physical changes and feels confused. What is the healthiest way for her to handle this?",
+            "options": [
+              "Talk to a trusted family member or guardian about what she is experiencing",
+              "Keep it a secret and worry alone",
+              "Search for answers only from unknown people online",
+              "Ignore it and pretend nothing is happening"
+            ],
+            "correct_answer": "Talk to a trusted family member or guardian about what she is experiencing"
+          },
+          {
+            "question": "A student is asked to role-play how early Filipinos may have used body movement in a pre-colonial ritual dance to represent planting rice. Which action best demonstrates this?",
+            "options": [
+              "Miming the motion of scattering seeds and bending down as if planting",
+              "Standing still without any movement",
+              "Jumping randomly with no connection to the theme",
+              "Reading a script instead of moving"
+            ],
+            "correct_answer": "Miming the motion of scattering seeds and bending down as if planting"
+          },
+          {
+            "question": "A family notices their child going through body changes typical of puberty. What is an example of a supportive family role during this time?",
+            "options": [
+              "Providing accurate information and reassurance about the changes",
+              "Making fun of the changes in front of others",
+              "Ignoring the child's questions",
+              "Telling the child it is not normal"
+            ],
+            "correct_answer": "Providing accurate information and reassurance about the changes"
+          },
+          {
+            "question": "A student creates a visual artwork using bamboo, natural dyes, and geometric patterns inspired by pre-colonial designs, then explains that the zigzag pattern represents mountains in their community. Which two elements of evaluating pre-colonial-inspired art does this explanation demonstrate?",
+            "options": [
+              "Use of local mediums (materials) and symbolism (meaning behind the pattern)",
+              "Only the price of materials used",
+              "Only the size of the artwork",
+              "Only the time it took to finish"
+            ],
+            "correct_answer": "Use of local mediums (materials) and symbolism (meaning behind the pattern)"
+          },
+          {
+            "question": "Two classmates make artworks inspired by the pre-colonial period. Artwork A uses local materials and includes a clear community-based theme with symbolic patterns. Artwork B uses random modern stickers with no connection to pre-colonial themes. Which artwork better fulfills the goal of the lesson, and why?",
+            "options": [
+              "Artwork A, because it reflects the subjects, themes, mediums, and symbolisms of pre-colonial art as required",
+              "Artwork B, because stickers are more colorful",
+              "Both are equal since art has no right or wrong",
+              "Artwork B, because it took less time to make"
+            ],
+            "correct_answer": "Artwork A, because it reflects the subjects, themes, mediums, and symbolisms of pre-colonial art as required"
+          },
+          {
+            "question": "A Grade 5 pupil feels embarrassed about the physical changes happening to their body and starts avoiding family conversations about it. What is the best multi-step approach to help them cope?",
+            "options": [
+              "Reassure them that these changes are a normal part of growing up, encourage open conversation with trusted family members, and provide correct information",
+              "Tell them to stop growing",
+              "Avoid talking about it at all so it goes away",
+              "Compare them negatively to other classmates"
+            ],
+            "correct_answer": "Reassure them that these changes are a normal part of growing up, encourage open conversation with trusted family members, and provide correct information"
+          },
+          {
+            "question": "An art teacher asks students to first observe a local pre-colonial artifact, then perceive its possible meaning, and finally create their own artwork inspired by it. Why is this \"observe, perceive, then create\" process important?",
+            "options": [
+              "It ensures the created artwork is genuinely grounded in real observation and understanding of pre-colonial style, rather than pure guesswork",
+              "It is not important; students can skip straight to creating without observing",
+              "It only matters for grading purposes, not for the quality of learning",
+              "Observation and perception have no connection to the final artwork"
+            ],
+            "correct_answer": "It ensures the created artwork is genuinely grounded in real observation and understanding of pre-colonial style, rather than pure guesswork"
+          },
+          {
+            "question": "During a family discussion about the physical and emotional changes of puberty, a younger sibling asks why their older sibling suddenly acts differently. What is the most supportive and accurate explanation a family member could give?",
+            "options": [
+              "Puberty causes both physical and emotional changes as the body grows and develops, and it is a normal stage everyone goes through",
+              "Their sibling is simply being difficult on purpose",
+              "Nothing is changing; it is all imagined",
+              "Only physical changes happen, never emotional ones"
+            ],
+            "correct_answer": "Puberty causes both physical and emotional changes as the body grows and develops, and it is a normal stage everyone goes through"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "## Pag-iimbak at Pangangalaga ng mga Inaning Tanim\n\n- Ang tamang **pag-iimbak** (storage) at **pangangalaga** (care) sa mga inaning tanim ay mahalaga upang mapanatili ang kanilang **sariwa** at **kalidad** bago ito maibenta o magamit.\n- Ang mga gulay at prutas ay dapat itago sa **malamig, tuyo, at maayos na bentilasyon** na lugar — tulad ng refrigerator para sa mga madaling masirang gulay gaya ng repolyo at kamatis. Halimbawa: inilalagay ni Mang Jose ang kanyang kamatis sa bentilasyon at lilim bago ito dalhin sa palengke, kaya nananatiling sariwa ito kumpara sa kamatis na iniwan sa init ng araw.\n- Ang bigas o palay ay dapat munang **patuyuin nang mabuti** bago itabi sa bodega upang maiwasan ang pagkakaroon ng amag o kulisap.\n- Kapag naglalagay ng mga prutas tulad ng saging sa isang basket o sisidlan, iwasan ang labis na pagkakapatong-patong dahil ito ay maaaring **magdurog** sa mga produktong nasa ilalim.\n- Mahalagang **ihiwalay** ang mga sirang bahagi ng ani mula sa mga sariwa upang hindi kumalat ang pagkabulok.\n\n| Kondisyon ng Imbakan | Epekto sa Ani |\n|---|---|\n| Malamig, tuyo, may bentilasyon | Mananatiling sariwa nang mas matagal |\n| Mainit, basa, walang bentilasyon | Mabilis mabubulok o mamumuhi |\n\n- Ang wastong pag-iimbak ay hindi lamang nakatutulong sa kalidad ng produkto — nakatutulong din ito upang hindi masayang ang pinaghirapang ani ng magsasaka.",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng wastong pag-iimbak (storage) ng mga inaning tanim?",
+            "options": [
+              "Upang mapanatili ang sariwa at kalidad ng ani",
+              "Upang mabilis itong mabulok",
+              "Upang tumaas ang presyo kahit sira na",
+              "Upang hindi na kailangang ibenta"
+            ],
+            "correct_answer": "Upang mapanatili ang sariwa at kalidad ng ani"
+          },
+          {
+            "question": "Alin sa sumusunod ang isang halimbawa ng paraan ng pag-iimbak ng gulay tulad ng talong o kamatis?",
+            "options": [
+              "Paglalagay sa malamig at tuyong lugar o refrigerator",
+              "Paghahagis sa init ng araw nang walang takip",
+              "Paglalagay sa basang lupa nang direkta",
+              "Pagbabaon sa ilalim ng putik habang basa"
+            ],
+            "correct_answer": "Paglalagay sa malamig at tuyong lugar o refrigerator"
+          },
+          {
+            "question": "Bakit mahalaga ang pangangalaga sa inaning produkto bago ito ibenta?",
+            "options": [
+              "Upang hindi ito mabulok o masira bago maibenta",
+              "Upang lumaki pa ito nang husto",
+              "Upang magbago ang kulay nito",
+              "Upang mas mahirap itong dalhin sa merkado"
+            ],
+            "correct_answer": "Upang hindi ito mabulok o masira bago maibenta"
+          },
+          {
+            "question": "Ano ang maaaring mangyari kung hindi wastong itinabi ang mga inaning prutas at gulay?",
+            "options": [
+              "Mabilis itong mabubulok o masisira ang kalidad",
+              "Tataas agad ang presyo nito",
+              "Magiging mas matamis ito",
+              "Hindi ito magbabago kahit ilang buwan"
+            ],
+            "correct_answer": "Mabilis itong mabubulok o masisira ang kalidad"
+          },
+          {
+            "question": "Alin sa sumusunod ang tamang kondisyon para sa pag-iimbak upang mapanatili ang sariwa ng gulay?",
+            "options": [
+              "Malamig, tuyo, at may sapat na bentilasyon",
+              "Mainit, basa, at walang bentilasyon",
+              "Direktang sikat ng araw sa loob ng maghapon",
+              "Saradong lalagyan na walang laman ng hangin"
+            ],
+            "correct_answer": "Malamig, tuyo, at may sapat na bentilasyon"
+          },
+          {
+            "question": "May-ari ka ng sakahan at kaka-ani mo lang ng kamatis. Ano ang dapat mong gawin upang mapanatili ang sariwa nito bago dalhin sa palengke?",
+            "options": [
+              "Ilagay sa malinis at maayos na basket o lalagyan, sa lilim, hindi nakapatong sa isa't isa nang labis",
+              "Itapon nang basta-basta sa loob ng sako nang magkakapatong",
+              "Iwanan sa sikat ng araw nang buong araw",
+              "Basain ito ng tubig-alat"
+            ],
+            "correct_answer": "Ilagay sa malinis at maayos na basket o lalagyan, sa lilim, hindi nakapatong sa isa't isa nang labis"
+          },
+          {
+            "question": "Nag-ani ka ng palay. Alin sa mga sumusunod ang tamang hakbang bago ito itabi sa bodega?",
+            "options": [
+              "Patuyuin muna nang mabuti upang hindi ito mamuho",
+              "Itabi agad kahit basa pa",
+              "Ihalo sa basang lupa",
+              "Ibaon sa ilalim ng tubig"
+            ],
+            "correct_answer": "Patuyuin muna nang mabuti upang hindi ito mamuho"
+          },
+          {
+            "question": "Nakapag-ani ka ng mga saging. Alin ang pinakamahusay na paraan upang hindi ito mabilis mahinog o masira?",
+            "options": [
+              "Ilagay sa lugar na may tamang bentilasyon at hindi direktang tama ng init ng araw",
+              "Ilagay sa loob ng saradong plastik nang walang butas",
+              "Ibabad sa tubig nang mahabang oras",
+              "Ilagay malapit sa apoy upang mapabilis ang pagluto"
+            ],
+            "correct_answer": "Ilagay sa lugar na may tamang bentilasyon at hindi direktang tama ng init ng araw"
+          },
+          {
+            "question": "Napansin mong may mga sirang gulay na magkahalo sa sariwang ani sa iyong basket. Ano ang dapat mong gawin?",
+            "options": [
+              "Ihiwalay agad ang sirang gulay upang hindi maapektuhan ang iba pang sariwang ani",
+              "Iwanan na lang silang magkahalo",
+              "Itapon ang lahat kahit sariwa pa",
+              "Ibenta muna ang mga sira bago ang sariwa"
+            ],
+            "correct_answer": "Ihiwalay agad ang sirang gulay upang hindi maapektuhan ang iba pang sariwang ani"
+          },
+          {
+            "question": "Bakit mas mainam gamitin ang malamig na imbakan (cold storage) para sa mga inaning gulay na madaling masira gaya ng repolyo?",
+            "options": [
+              "Dahil nagpapabagal ito ng pagkabulok at nagpapanatili ng sariwa nang mas matagal",
+              "Dahil ginagawa nitong mas matamis ang lasa",
+              "Dahil pinapataas nito ang bigat ng ani",
+              "Dahil pinapabago nito ang kulay ng gulay"
+            ],
+            "correct_answer": "Dahil nagpapabagal ito ng pagkabulok at nagpapanatili ng sariwa nang mas matagal"
+          },
+          {
+            "question": "Dalawang magsasaka ang nag-ani ng kamatis. Inilagay ni Mang Jose ang kanyang ani sa malamig at tuyong lugar na may bentilasyon, habang inilagay naman ni Aling Nena ang kanya sa maiinit at saradong sako. Sino sa palagay mo ang magkakaroon ng mas mataas na kalidad na ani kapag ibinenta, at bakit?",
+            "options": [
+              "Si Mang Jose, dahil ang tamang imbakan ay nagpapanatili ng sariwa at kalidad ng ani",
+              "Si Aling Nena, dahil mas mainit ang lugar niya",
+              "Magkapareho lang sila dahil hindi mahalaga ang paraan ng imbakan",
+              "Si Aling Nena, dahil saradong lalagyan ang ginamit niya"
+            ],
+            "correct_answer": "Si Mang Jose, dahil ang tamang imbakan ay nagpapanatili ng sariwa at kalidad ng ani"
+          },
+          {
+            "question": "Nagtitinda ka ng mga saging sa palengke. Napansin mong ang mga nasa ilalim ng bunton ay mabilis na nasira. Ano ang maaaring dahilan nito, at ano ang dapat gawin sa susunod?",
+            "options": [
+              "Ang bigat ng mga nasa ibabaw ay nagdudurog sa mga nasa ilalim; dapat ayusin nang maayos at hindi masyadong magkapatong-patong",
+              "Walang dahilan ito, natural lang na mangyari sa lahat ng saging",
+              "Dahil sa init ng ilaw sa palengke lamang",
+              "Dahil masyadong maraming customer ang dumaan"
+            ],
+            "correct_answer": "Ang bigat ng mga nasa ibabaw ay nagdudurog sa mga nasa ilalim; dapat ayusin nang maayos at hindi masyadong magkapatong-patong"
+          },
+          {
+            "question": "Isang pamilya ang nag-imbak ng bigas sa sako sa loob ng basang bodega nang walang bentilasyon. Pagkalipas ng ilang linggo, may amoy amag at kulisap na lumabas. Ano ang naging maling desisyon nila, at anong dalawang bagay ang dapat nilang isaalang-alang sa hinaharap?",
+            "options": [
+              "Ang pag-iimbak sa basa at walang bentilasyong lugar; dapat isaalang-alang ang tamang antas ng tuyo at maayos na bentilasyon",
+              "Walang maling nagawa, normal lamang ang amag sa bigas",
+              "Ang problema ay masyadong maraming bigas lang ang inimbak",
+              "Ang problema ay hindi sapat ang dami ng bigas na inimbak"
+            ],
+            "correct_answer": "Ang pag-iimbak sa basa at walang bentilasyong lugar; dapat isaalang-alang ang tamang antas ng tuyo at maayos na bentilasyon"
+          },
+          {
+            "question": "Kung ikaw ay magsasaka na gustong magtagal ang kalidad ng iyong inaning mangga bago ito ibenta sa malayong bayan, anong mga hakbang ang dapat mong isaalang-alang upang mapanatili ang sariwa nito sa mahabang biyahe?",
+            "options": [
+              "Piliin ang mga hindi pa sobrang hinog, ilagay sa maayos at may bentilasyong lalagyan, at iwasan ang direktang init",
+              "Piliin ang pinakahinog at ilagay lang sa saradong sako",
+              "Hayaan itong mainitan sa buong biyahe upang mabilis mahinog",
+              "Ibabad muna sa tubig bago isakay sa sasakyan"
+            ],
+            "correct_answer": "Piliin ang mga hindi pa sobrang hinog, ilagay sa maayos at may bentilasyong lalagyan, at iwasan ang direktang init"
+          },
+          {
+            "question": "Paano nauugnay ang wastong pag-iimbak at pangangalaga ng inaning tanim sa kita ng isang magsasaka?",
+            "options": [
+              "Ang mas mataas na kalidad ng ani dahil sa wastong imbakan ay maaaring magresulta sa mas mataas na presyo at mas kaunting nasasayang na produkto",
+              "Walang kaugnayan ang imbakan sa kita ng magsasaka",
+              "Ang maling imbakan ay laging nagreresulta sa mas mataas na kita",
+              "Ang pag-iimbak ay hindi nakakaapekto sa dami ng maibebentang produkto"
+            ],
+            "correct_answer": "Ang mas mataas na kalidad ng ani dahil sa wastong imbakan ay maaaring magresulta sa mas mataas na presyo at mas kaunting nasasayang na produkto"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-08-30",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📝 English — Paragraphs, Verbs, and Fables\n\nGrade 3, Week 11! Let's review paragraph writing and important word skills. 📝\n\n## 🖊️ The Topic Sentence\nThe **topic sentence** states the main idea of a paragraph — every other sentence should support it.\n\n## 🔤 Word Skills\n- A **synonym** means almost the same thing → *happy* and **joyful**\n- The prefix **\"un-\"** means \"not\" → *unhappy* = not happy\n- A **compound sentence** joins two complete ideas → *\"She sings and he dances.\"*\n\n## 📖 Verb Tense\n- **Present tense** tells what is happening now → *\"She sings a song.\"*\n- **Past tense** tells what already happened → *\"The children were playing when it rained.\"*\n\n## 🐢 Fables\nA **fable** is a story that teaches a lesson or moral, often using animal characters.\n\n**Key words:** topic sentence, synonym, prefix, compound sentence, tense, fable",
+        "quiz": [
+          {
+            "question": "What is the TOPIC SENTENCE of a paragraph?",
+            "options": [
+              "The last sentence",
+              "The middle sentence",
+              "The sentence that states the main idea",
+              "A question in the paragraph"
+            ],
+            "correct_answer": "The sentence that states the main idea"
+          },
+          {
+            "question": "Which word means almost the same as 'happy'?",
+            "options": [
+              "Sad",
+              "Joyful",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "'The cat ___ on the mat.' Choose the correct verb form.",
+            "options": [
+              "sit",
+              "sat",
+              "sitting",
+              "sits"
+            ],
+            "correct_answer": "sits"
+          },
+          {
+            "question": "Which sentence is a COMPOUND SENTENCE?",
+            "options": [
+              "She sings.",
+              "She sings and he dances.",
+              "Because she sings.",
+              "Singing loudly."
+            ],
+            "correct_answer": "She sings and he dances."
+          },
+          {
+            "question": "What does the prefix 'un-' mean in 'unhappy'?",
+            "options": [
+              "Very",
+              "More",
+              "Not",
+              "Again"
+            ],
+            "correct_answer": "Not"
+          },
+          {
+            "question": "'Maria reads books every day.' The verb 'reads' tells the ___ of the subject.",
+            "options": [
+              "name",
+              "place",
+              "action",
+              "feeling"
+            ],
+            "correct_answer": "action"
+          },
+          {
+            "question": "Which is a DESCRIBING word (adjective)?",
+            "options": [
+              "Run",
+              "Beautiful",
+              "She",
+              "Quickly"
+            ],
+            "correct_answer": "Beautiful"
+          },
+          {
+            "question": "A story that teaches a lesson or moral is called a ___.",
+            "options": [
+              "poem",
+              "fable",
+              "diary",
+              "recipe"
+            ],
+            "correct_answer": "fable"
+          },
+          {
+            "question": "Which sentence is in the PRESENT TENSE?",
+            "options": [
+              "She sang a song.",
+              "She will sing a song.",
+              "She sings a song.",
+              "She has sung a song."
+            ],
+            "correct_answer": "She sings a song."
+          },
+          {
+            "question": "What is a SYNONYM for 'big'?",
+            "options": [
+              "Small",
+              "Large",
+              "Quick",
+              "Bright"
+            ],
+            "correct_answer": "Large"
+          },
+          {
+            "question": "Which word completes: 'The children ___ playing outside when it rained.'?",
+            "options": [
+              "were",
+              "are",
+              "is",
+              "be"
+            ],
+            "correct_answer": "were"
+          },
+          {
+            "question": "When retelling a story, what should you include FIRST?",
+            "options": [
+              "The ending",
+              "The middle events",
+              "The characters and setting",
+              "The lesson"
+            ],
+            "correct_answer": "The characters and setting"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Mathematics — Measuring Mass\n\nGrade 3, Week 11! Let's learn how to measure how heavy something is. ⚖️\n\n## ⚖️ Kilograms and Grams\n- We use **kilograms (kg)** for heavier things, like a bag of rice.\n- We use **grams (g)** for lighter things, like a grain of rice.\n- **1 kilogram = 1000 grams**\n\n## 🧰 Tools for Measuring Mass\nA **weighing scale** (or balance scale) is used to measure and compare mass.\n\n## ➕ Working with Mass\n**Example:** A chicken weighs 1500 g. That's the same as **1 kg 500 g**.\n\n**Example:** Mia has 2 kg of flour and uses 750 g. She has 2000 g − 750 g = **1250 g** left.\n\n**Key words:** kilogram, gram, mass, weighing scale, estimate",
+        "quiz": [
+          {
+            "question": "What unit do we use to measure the mass of a watermelon?",
+            "options": [
+              "Centimeters",
+              "Meters",
+              "Grams",
+              "Kilograms"
+            ],
+            "correct_answer": "Kilograms"
+          },
+          {
+            "question": "What unit do we use to measure the mass of a grain of rice?",
+            "options": [
+              "Kilogram",
+              "Gram",
+              "Meter",
+              "Liter"
+            ],
+            "correct_answer": "Gram"
+          },
+          {
+            "question": "1 kilogram = ___ grams.",
+            "options": [
+              "10",
+              "100",
+              "1000",
+              "10000"
+            ],
+            "correct_answer": "1000"
+          },
+          {
+            "question": "A bag of rice weighs 5 kg. How many grams is that?",
+            "options": [
+              "500 g",
+              "5000 g",
+              "50 g",
+              "5 g"
+            ],
+            "correct_answer": "5000 g"
+          },
+          {
+            "question": "Which tool is used to measure mass?",
+            "options": [
+              "Ruler",
+              "Measuring tape",
+              "Weighing scale",
+              "Thermometer"
+            ],
+            "correct_answer": "Weighing scale"
+          },
+          {
+            "question": "Anna's bag weighs 3 kg. Ben's bag weighs 2500 g. Whose bag is heavier?",
+            "options": [
+              "Anna's",
+              "Ben's",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Anna's"
+          },
+          {
+            "question": "Estimate: which object has a mass of about 1 gram?",
+            "options": [
+              "A watermelon",
+              "A grain of sugar",
+              "A bag of potatoes",
+              "A large book"
+            ],
+            "correct_answer": "A grain of sugar"
+          },
+          {
+            "question": "A balance scale is used to ___.",
+            "options": [
+              "measure temperature",
+              "compare and measure mass",
+              "measure length",
+              "measure volume"
+            ],
+            "correct_answer": "compare and measure mass"
+          },
+          {
+            "question": "A chicken weighs 1500 g. How many kilograms and grams is that?",
+            "options": [
+              "1 kg 500 g",
+              "15 kg 0 g",
+              "150 kg 0 g",
+              "0 kg 1500 g"
+            ],
+            "correct_answer": "1 kg 500 g"
+          },
+          {
+            "question": "Which is the heaviest?",
+            "options": [
+              "A feather (about 1 g)",
+              "A pencil (about 10 g)",
+              "A brick (about 3 kg)",
+              "A coin (about 5 g)"
+            ],
+            "correct_answer": "A brick (about 3 kg)"
+          },
+          {
+            "question": "Mia has 2 kg of flour. She uses 750 g. How much flour is left?",
+            "options": [
+              "1250 g",
+              "1750 g",
+              "750 g",
+              "2750 g"
+            ],
+            "correct_answer": "1250 g"
+          },
+          {
+            "question": "What does 'estimate' mean?",
+            "options": [
+              "Measure exactly",
+              "Make a careful guess",
+              "Weigh on a scale",
+              "Count one by one"
+            ],
+            "correct_answer": "Make a careful guess"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Mga Kasanayan sa Agham\n\nGrade 3, Week 11! Let's review the skills scientists use every day. 🔬\n\n## 👀 Observing, Predicting, and Measuring\n- **Observing** means using your senses to study something carefully.\n- **Predicting** means making a smart guess → *\"I think it will rain because the clouds are dark.\"*\n- **Measuring** uses a tool, like a ruler or thermometer, to find exact amounts.\n\n## 🐾 Living Things\nLiving things share characteristics like **reproducing** — making more of their own kind. Being green is NOT a requirement to be alive!\n\n## 🗂️ Classifying\n**Classifying** means grouping objects according to their properties, based on careful observation.\n\n**Key words:** observing, predicting, measuring, classifying, living things",
+        "quiz": [
+          {
+            "question": "Which science skill involves using your senses to study something carefully?",
+            "options": [
+              "Predicting",
+              "Observing",
+              "Measuring",
+              "Classifying"
+            ],
+            "correct_answer": "Observing"
+          },
+          {
+            "question": "When you say 'I think it will rain today because the clouds are dark,' you are ___.",
+            "options": [
+              "observing",
+              "predicting",
+              "measuring",
+              "classifying"
+            ],
+            "correct_answer": "predicting"
+          },
+          {
+            "question": "A scientist uses a ruler to find the length of a leaf. This is an example of ___.",
+            "options": [
+              "predicting",
+              "observing",
+              "measuring",
+              "inferring"
+            ],
+            "correct_answer": "measuring"
+          },
+          {
+            "question": "Which of these is a LIVING thing?",
+            "options": [
+              "Rock",
+              "Water",
+              "Plant",
+              "Cloud"
+            ],
+            "correct_answer": "Plant"
+          },
+          {
+            "question": "Which of these is NOT a characteristic of living things?",
+            "options": [
+              "They grow",
+              "They respond to their surroundings",
+              "They reproduce",
+              "They are always green"
+            ],
+            "correct_answer": "They are always green"
+          },
+          {
+            "question": "'I predict that the plant placed in the dark will die.' This is a ___.",
+            "options": [
+              "fact",
+              "observation",
+              "measurement",
+              "prediction"
+            ],
+            "correct_answer": "prediction"
+          },
+          {
+            "question": "A thermometer is used to ___.",
+            "options": [
+              "measure length",
+              "measure mass",
+              "measure temperature",
+              "measure volume"
+            ],
+            "correct_answer": "measure temperature"
+          },
+          {
+            "question": "Which senses does a scientist use when OBSERVING?",
+            "options": [
+              "Only sight",
+              "Only hearing",
+              "Sight, hearing, smell, touch, and taste (when safe)",
+              "Only touch"
+            ],
+            "correct_answer": "Sight, hearing, smell, touch, and taste (when safe)"
+          },
+          {
+            "question": "Classifying means ___.",
+            "options": [
+              "counting objects",
+              "measuring objects",
+              "grouping objects according to their properties",
+              "predicting what will happen"
+            ],
+            "correct_answer": "grouping objects according to their properties"
+          },
+          {
+            "question": "A good scientific observation is ___.",
+            "options": [
+              "a guess about what might happen",
+              "a measurement in centimeters",
+              "a careful description of what you actually see",
+              "an explanation of why something happens"
+            ],
+            "correct_answer": "a careful description of what you actually see"
+          },
+          {
+            "question": "Living things REPRODUCE, which means they ___.",
+            "options": [
+              "eat food",
+              "make more of their own kind",
+              "breathe air",
+              "grow bigger"
+            ],
+            "correct_answer": "make more of their own kind"
+          },
+          {
+            "question": "Which tool is best for measuring the MASS of a small stone?",
+            "options": [
+              "Ruler",
+              "Thermometer",
+              "Weighing scale",
+              "Measuring cup"
+            ],
+            "correct_answer": "Weighing scale"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🐢 Filipino — Pabula at Bahagi ng Pananalita\n\nGrade 3, Linggo 11! Alamin natin ang pabula at ilang bahagi ng pananalita. 🐢\n\n## 🐢 Ano ang Pabula?\nAng **pabula** ay isang maikling kwento na ang mga tauhan ay mga hayop na nagsasalita, at may itinuturong aral.\n\n## 📌 Pang-uri at Pandiwa\n- Ang **pang-uri** ay naglalarawan sa isang pangngalan → *\"Malaki\"*\n- Ang **pandiwa** ay nagsasaad ng kilos → *\"Sumayaw\"*\n\n## 🔤 Kasalungat\nAng kabaligtaran ng *masaya* ay **malungkot** — mahalagang malaman ang mga kasalungat na salita upang mas maunawaan ang kahulugan.\n\n**Halimbawa:** Sa pabula ng \"Pagong at Matsing,\" ang aral ay: ang katapatan at tiyaga ay mas mahalaga kaysa talento.\n\n**Mahahalagang salita:** pabula, pang-uri, pandiwa, kasalungat, aral",
+        "quiz": [
+          {
+            "question": "Alin ang tamang gamit ng 'mula'?",
+            "options": [
+              "Lumabas mula sa kwarto.",
+              "Pumunta mula ang parke.",
+              "Mula ang bata.",
+              "Umuwi ng mula sa bahay."
+            ],
+            "correct_answer": "Lumabas mula sa kwarto."
+          },
+          {
+            "question": "Ang kuwento na may aral ay tinatawag na ___.",
+            "options": [
+              "tula",
+              "pabula",
+              "salawikain",
+              "talata"
+            ],
+            "correct_answer": "pabula"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'matiyaga'?",
+            "options": [
+              "Mabilis",
+              "Masipag at hindi nagbibigay up",
+              "Tamad",
+              "Magulo"
+            ],
+            "correct_answer": "Masipag at hindi nagbibigay up"
+          },
+          {
+            "question": "'Si Pedro ay matalino.' Ano ang katangian ni Pedro?",
+            "options": [
+              "Masaya",
+              "Matalino",
+              "Maliksi",
+              "Matapang"
+            ],
+            "correct_answer": "Matalino"
+          },
+          {
+            "question": "Alin ang PANG-URI?",
+            "options": [
+              "Kumain",
+              "Malaki",
+              "Bahay",
+              "Siya"
+            ],
+            "correct_answer": "Malaki"
+          },
+          {
+            "question": "'Ang guro ay nagturo ng wika.' Ano ang ginawa ng guro?",
+            "options": [
+              "Kumain",
+              "Nagturo",
+              "Pumunta",
+              "Natulog"
+            ],
+            "correct_answer": "Nagturo"
+          },
+          {
+            "question": "Piliin ang tamang salita: 'Pumunta ___ sa tindahan ang bata.'",
+            "options": [
+              "si",
+              "ng",
+              "sa",
+              "ay"
+            ],
+            "correct_answer": "sa"
+          },
+          {
+            "question": "Ang salitang 'magalang' ay nagpapakita ng ___.",
+            "options": [
+              "masamang gawi",
+              "magandang asal",
+              "kasamaan",
+              "katamaran"
+            ],
+            "correct_answer": "magandang asal"
+          },
+          {
+            "question": "Alin ang PANDIWA?",
+            "options": [
+              "Malungkot",
+              "Paaralan",
+              "Sumayaw",
+              "Maganda"
+            ],
+            "correct_answer": "Sumayaw"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng 'masaya'?",
+            "options": [
+              "Maingay",
+              "Tahimik",
+              "Malungkot",
+              "Masipag"
+            ],
+            "correct_answer": "Malungkot"
+          },
+          {
+            "question": "'Nagbasa si Ana ng libro tuwing hapon.' Kailan nagbabasa si Ana?",
+            "options": [
+              "Umaga",
+              "Tanghali",
+              "Hapon",
+              "Gabi"
+            ],
+            "correct_answer": "Hapon"
+          },
+          {
+            "question": "Ang tula ay may ___.",
+            "options": [
+              "kuwento lamang",
+              "aralin at tauhan",
+              "tugma at sukat",
+              "tanong at sagot"
+            ],
+            "correct_answer": "tugma at sukat"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Computer": {
+        "summary_markdown": "# 💻 Computer — Mga Tool sa Word Processing\n\nGrade 3, Week 11! Let's learn how to format text in a word-processing program. 💻\n\n## ✍️ Formatting Text\n- **Bold (B)** makes text darker and thicker.\n- **Underline (U)** adds a line under text.\n- **Font size** changes how big or small text appears.\n- **Font Color** changes the color of the text.\n\n## 💾 Saving Your Work\nWhen you finish typing a document, always press **Save (Ctrl+S)** so your work is not lost.\n\n## 🖱️ Other Tools\nBasic drawing tools let you **draw shapes and color them**, and Backspace removes a wrongly typed letter.\n\n**Key words:** bold, underline, font size, font color, save",
+        "quiz": [
+          {
+            "question": "What do you click to OPEN a word-processing program from the desktop?",
+            "options": [
+              "The taskbar",
+              "The document icon/shortcut",
+              "The power button",
+              "The printer"
+            ],
+            "correct_answer": "The document icon/shortcut"
+          },
+          {
+            "question": "Which toolbar button makes text appear DARKER and thicker?",
+            "options": [
+              "Italic (I)",
+              "Underline (U)",
+              "Bold (B)",
+              "Font size"
+            ],
+            "correct_answer": "Bold (B)"
+          },
+          {
+            "question": "To make text appear with a LINE UNDER IT, you click ___.",
+            "options": [
+              "Bold (B)",
+              "Italic (I)",
+              "Underline (U)",
+              "Strikethrough"
+            ],
+            "correct_answer": "Underline (U)"
+          },
+          {
+            "question": "Which button lets you change the SIZE of text?",
+            "options": [
+              "Bold",
+              "Color",
+              "Font size",
+              "Underline"
+            ],
+            "correct_answer": "Font size"
+          },
+          {
+            "question": "If you type 'Hy' instead of 'Hi', which key removes the wrong letter?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Spacebar",
+              "Backspace"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "In a word-processing program, what does 'Font Color' let you do?",
+            "options": [
+              "Change the size of text",
+              "Change the style of letters",
+              "Change the color of text",
+              "Delete text"
+            ],
+            "correct_answer": "Change the color of text"
+          },
+          {
+            "question": "Which is a common word-processing program?",
+            "options": [
+              "Paint",
+              "Microsoft Word",
+              "Calculator",
+              "Media Player"
+            ],
+            "correct_answer": "Microsoft Word"
+          },
+          {
+            "question": "To type a capital letter in a word-processing program, you press ___.",
+            "options": [
+              "Backspace + the letter",
+              "Enter + the letter",
+              "Shift + the letter",
+              "Spacebar + the letter"
+            ],
+            "correct_answer": "Shift + the letter"
+          },
+          {
+            "question": "When you finish typing a document, what should you do to save your work?",
+            "options": [
+              "Close the program without saving",
+              "Press Save (Ctrl+S or the Save button)",
+              "Restart the computer",
+              "Delete the file"
+            ],
+            "correct_answer": "Press Save (Ctrl+S or the Save button)"
+          },
+          {
+            "question": "You can make text BIGGER by ___.",
+            "options": [
+              "increasing the font size",
+              "pressing Enter",
+              "pressing Backspace",
+              "changing the font color"
+            ],
+            "correct_answer": "increasing the font size"
+          },
+          {
+            "question": "In a word-processing program, to go to a new line, you press ___.",
+            "options": [
+              "Spacebar",
+              "Backspace",
+              "Shift",
+              "Enter"
+            ],
+            "correct_answer": "Enter"
+          },
+          {
+            "question": "Which of these can you do with basic drawing tools in a computer program?",
+            "options": [
+              "Send emails",
+              "Type a letter",
+              "Draw shapes and color them",
+              "Print a photo"
+            ],
+            "correct_answer": "Draw shapes and color them"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🌴 Makabansa — Kapaligiran at Kultura\n\nGrade 3, Week 11! Let's see how the environment shapes a community's culture. 🌴\n\n## 🌊 Kapaligiran ay Humuhubog sa Kultura\nAng **kapaligiran** ay humuhubog sa pagkain, kabuhayan, at kaugalian ng mga tao sa isang lugar.\n\n## 🏔️ Mga Halimbawa\n- Ang mga naninirahan malapit sa **dagat** ay may kulturang kinabibilangan ng pangingisda at pagkaing dagat.\n- Ang mga taga-**Cordillera** ay kilala sa rice terraces — patunay kung paano hinubog ng bundok ang kanilang kultura.\n- Ang **malong** na suot sa Mindanao ay isang halimbawa ng damit na hinugis ng kultura.\n\n## 🤝 Bakit Mahalaga Ito?\nAng paghahambing ng kultura ng iba't ibang komunidad ay nagtuturo sa atin na **igalang at pahalagahan ang pagkakaiba-iba**.\n\n**Mahahalagang salita:** kapaligiran, kultura, kabuhayan, paggalang",
+        "quiz": [
+          {
+            "question": "How does the ENVIRONMENT affect the CULTURE of people in a place?",
+            "options": [
+              "It has no effect on culture",
+              "It shapes the food, livelihood, and customs of the people",
+              "It only affects the language",
+              "It only affects clothing"
+            ],
+            "correct_answer": "It shapes the food, livelihood, and customs of the people"
+          },
+          {
+            "question": "People who live near the SEA often have a culture that includes ___.",
+            "options": [
+              "farming rice",
+              "fishing and seafood dishes",
+              "mountain hiking",
+              "herding animals"
+            ],
+            "correct_answer": "fishing and seafood dishes"
+          },
+          {
+            "question": "What is the relationship between the environment and culture of a community?",
+            "options": [
+              "They are completely separate",
+              "The environment influences the way of life and culture",
+              "Culture has no connection to the land",
+              "Only climate affects culture"
+            ],
+            "correct_answer": "The environment influences the way of life and culture"
+          },
+          {
+            "question": "The Cordillera people of the mountains are known for their rice TERRACES. This shows how ___ influenced their culture.",
+            "options": [
+              "the ocean",
+              "the mountains and land",
+              "the desert",
+              "the lowlands"
+            ],
+            "correct_answer": "the mountains and land"
+          },
+          {
+            "question": "Which BEST explains why coastal communities eat a lot of fish?",
+            "options": [
+              "Because they do not like vegetables",
+              "Because fish is cheap everywhere",
+              "Because their environment (sea) provides fish as a natural resource",
+              "Because their culture forbids other food"
+            ],
+            "correct_answer": "Because their environment (sea) provides fish as a natural resource"
+          },
+          {
+            "question": "Comparing cultures of different communities teaches us to ___.",
+            "options": [
+              "think one culture is better",
+              "respect and appreciate differences",
+              "ignore other cultures",
+              "copy only one culture"
+            ],
+            "correct_answer": "respect and appreciate differences"
+          },
+          {
+            "question": "A community's KULTURA includes its ___.",
+            "options": [
+              "only its food",
+              "only its language",
+              "way of life, beliefs, and customs shaped partly by its environment",
+              "only its geography"
+            ],
+            "correct_answer": "way of life, beliefs, and customs shaped partly by its environment"
+          },
+          {
+            "question": "Why do different regions of the Philippines have different cultures?",
+            "options": [
+              "They all have the same environment",
+              "They have different environments, histories, and peoples",
+              "Culture never changes",
+              "All Filipinos are the same"
+            ],
+            "correct_answer": "They have different environments, histories, and peoples"
+          },
+          {
+            "question": "The MALONG worn by people in Mindanao is an example of a ___ shaped by their culture.",
+            "options": [
+              "natural resource",
+              "traditional garment",
+              "school subject",
+              "farming tool"
+            ],
+            "correct_answer": "traditional garment"
+          },
+          {
+            "question": "People in flat lowlands often build their livelihood around ___.",
+            "options": [
+              "fishing only",
+              "mountaineering",
+              "rice farming and agriculture",
+              "hunting in forests"
+            ],
+            "correct_answer": "rice farming and agriculture"
+          },
+          {
+            "question": "Learning about the culture of other communities helps us ___.",
+            "options": [
+              "feel superior to others",
+              "become more understanding and respectful",
+              "ignore our own culture",
+              "forget our traditions"
+            ],
+            "correct_answer": "become more understanding and respectful"
+          },
+          {
+            "question": "What does 'kultura' mean in Filipino?",
+            "options": [
+              "Weather",
+              "Way of life, beliefs, and customs of a group of people",
+              "Language only",
+              "Food only"
+            ],
+            "correct_answer": "Way of life, beliefs, and customs of a group of people"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Mabubuting Pasya at Pagpipigil sa Sarili\n\nGrade 3, Week 11! Let's learn about making good choices and self-discipline. 🤝\n\n## 🤔 Making Good Choices\nMaking good choices means thinking about **the effects on yourself and others**. When you're free to choose your actions, you also have **responsibility** for the results.\n\n## 💪 Self-Discipline\n**Self-discipline** means controlling your actions and choosing what is right — like finishing homework before playing.\n\n## ❤️ Character and Kindness\n- Recognizing your own strengths helps you use them **to do good and improve**.\n- Helping a struggling classmate shows **kindness and caring for others**.\n- If a friend invites you to cheat, the right thing to do is **refuse and explain it is wrong**.\n\n**Key words:** self-discipline, responsibility, honesty, kindness",
+        "quiz": [
+          {
+            "question": "Making good choices means thinking about ___.",
+            "options": [
+              "only what you want",
+              "the effects on yourself and others",
+              "what is the most fun",
+              "what is easiest"
+            ],
+            "correct_answer": "the effects on yourself and others"
+          },
+          {
+            "question": "When you have the freedom to choose your actions, you also have the ___ for the results.",
+            "options": [
+              "praise",
+              "responsibility",
+              "reward",
+              "excuse"
+            ],
+            "correct_answer": "responsibility"
+          },
+          {
+            "question": "Maria chose to study instead of playing games. This shows ___.",
+            "options": [
+              "laziness",
+              "good self-discipline",
+              "bad choices",
+              "irresponsibility"
+            ],
+            "correct_answer": "good self-discipline"
+          },
+          {
+            "question": "Recognizing your own strengths helps you ___.",
+            "options": [
+              "brag to others",
+              "use those strengths to do good and improve",
+              "be selfish",
+              "ignore your weaknesses"
+            ],
+            "correct_answer": "use those strengths to do good and improve"
+          },
+          {
+            "question": "When we make a mistake, the RIGHT thing to do is ___.",
+            "options": [
+              "blame someone else",
+              "hide the mistake",
+              "admit it and try to do better",
+              "pretend it did not happen"
+            ],
+            "correct_answer": "admit it and try to do better"
+          },
+          {
+            "question": "Self-discipline means ___.",
+            "options": [
+              "doing whatever you feel like",
+              "controlling your actions and choosing what is right",
+              "always following others",
+              "avoiding responsibilities"
+            ],
+            "correct_answer": "controlling your actions and choosing what is right"
+          },
+          {
+            "question": "A pupil who finishes homework before playing shows ___.",
+            "options": [
+              "poor time management",
+              "good self-discipline and responsibility",
+              "laziness",
+              "disregard for learning"
+            ],
+            "correct_answer": "good self-discipline and responsibility"
+          },
+          {
+            "question": "Which of these is a POSITIVE character trait?",
+            "options": [
+              "Cheating",
+              "Honesty",
+              "Lying",
+              "Selfishness"
+            ],
+            "correct_answer": "Honesty"
+          },
+          {
+            "question": "Understanding your own feelings helps you ___.",
+            "options": [
+              "ignore others",
+              "react wisely and treat others with kindness",
+              "always be right",
+              "win every argument"
+            ],
+            "correct_answer": "react wisely and treat others with kindness"
+          },
+          {
+            "question": "If a friend invites you to cheat on a test, what should you do?",
+            "options": [
+              "Cheat because your friend asked",
+              "Refuse and explain it is wrong",
+              "Do nothing",
+              "Agree to cheat next time"
+            ],
+            "correct_answer": "Refuse and explain it is wrong"
+          },
+          {
+            "question": "Helping a classmate who is struggling shows the value of ___.",
+            "options": [
+              "selfishness",
+              "competition",
+              "kindness and caring for others",
+              "superiority"
+            ],
+            "correct_answer": "kindness and caring for others"
+          },
+          {
+            "question": "What is the BEST way to handle a disagreement with a classmate?",
+            "options": [
+              "Shout and argue",
+              "Ignore each other forever",
+              "Talk calmly and find a fair solution",
+              "Ask other classmates to take sides"
+            ],
+            "correct_answer": "Talk calmly and find a fair solution"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 3)\n\n- Good choices come with responsibility\n- Self-discipline: choosing what is right\n- Kindness and honesty in disagreements\n\nGreat job! 🌟",
+        "quiz": [
+          {
+            "question": "Making good choices means thinking about ___.",
+            "options": [
+              "only what you want",
+              "the effects on yourself and others",
+              "what is the most fun",
+              "what is easiest"
+            ],
+            "correct_answer": "the effects on yourself and others"
+          },
+          {
+            "question": "When you have the freedom to choose your actions, you also have the ___ for the results.",
+            "options": [
+              "praise",
+              "responsibility",
+              "reward",
+              "excuse"
+            ],
+            "correct_answer": "responsibility"
+          },
+          {
+            "question": "Maria chose to study instead of playing games. This shows ___.",
+            "options": [
+              "laziness",
+              "good self-discipline",
+              "bad choices",
+              "irresponsibility"
+            ],
+            "correct_answer": "good self-discipline"
+          },
+          {
+            "question": "Recognizing your own strengths helps you ___.",
+            "options": [
+              "brag to others",
+              "use those strengths to do good and improve",
+              "be selfish",
+              "ignore your weaknesses"
+            ],
+            "correct_answer": "use those strengths to do good and improve"
+          },
+          {
+            "question": "When we make a mistake, the RIGHT thing to do is ___.",
+            "options": [
+              "blame someone else",
+              "hide the mistake",
+              "admit it and try to do better",
+              "pretend it did not happen"
+            ],
+            "correct_answer": "admit it and try to do better"
+          },
+          {
+            "question": "Self-discipline means ___.",
+            "options": [
+              "doing whatever you feel like",
+              "controlling your actions and choosing what is right",
+              "always following others",
+              "avoiding responsibilities"
+            ],
+            "correct_answer": "controlling your actions and choosing what is right"
+          },
+          {
+            "question": "A pupil who finishes homework before playing shows ___.",
+            "options": [
+              "poor time management",
+              "good self-discipline and responsibility",
+              "laziness",
+              "disregard for learning"
+            ],
+            "correct_answer": "good self-discipline and responsibility"
+          },
+          {
+            "question": "Which of these is a POSITIVE character trait?",
+            "options": [
+              "Cheating",
+              "Honesty",
+              "Lying",
+              "Selfishness"
+            ],
+            "correct_answer": "Honesty"
+          },
+          {
+            "question": "Understanding your own feelings helps you ___.",
+            "options": [
+              "ignore others",
+              "react wisely and treat others with kindness",
+              "always be right",
+              "win every argument"
+            ],
+            "correct_answer": "react wisely and treat others with kindness"
+          },
+          {
+            "question": "If a friend invites you to cheat on a test, what should you do?",
+            "options": [
+              "Cheat because your friend asked",
+              "Refuse and explain it is wrong",
+              "Do nothing",
+              "Agree to cheat next time"
+            ],
+            "correct_answer": "Refuse and explain it is wrong"
+          },
+          {
+            "question": "Helping a classmate who is struggling shows the value of ___.",
+            "options": [
+              "selfishness",
+              "competition",
+              "kindness and caring for others",
+              "superiority"
+            ],
+            "correct_answer": "kindness and caring for others"
+          },
+          {
+            "question": "What is the BEST way to handle a disagreement with a classmate?",
+            "options": [
+              "Shout and argue",
+              "Ignore each other forever",
+              "Talk calmly and find a fair solution",
+              "Ask other classmates to take sides"
+            ],
+            "correct_answer": "Talk calmly and find a fair solution"
+          }
+        ]
+      },
+      "English": {
+        "summary_markdown": "# 📝 Friday Review — English (Grade 3)\n\n- Topic sentences and compound sentences\n- Synonyms, prefixes, and verb tense\n- Fables teach a lesson\n\nGreat work! 🌟",
+        "quiz": [
+          {
+            "question": "What is the TOPIC SENTENCE of a paragraph?",
+            "options": [
+              "The last sentence",
+              "The middle sentence",
+              "The sentence that states the main idea",
+              "A question in the paragraph"
+            ],
+            "correct_answer": "The sentence that states the main idea"
+          },
+          {
+            "question": "Which word means almost the same as 'happy'?",
+            "options": [
+              "Sad",
+              "Joyful",
+              "Angry",
+              "Tired"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "'The cat ___ on the mat.' Choose the correct verb form.",
+            "options": [
+              "sit",
+              "sat",
+              "sitting",
+              "sits"
+            ],
+            "correct_answer": "sits"
+          },
+          {
+            "question": "Which sentence is a COMPOUND SENTENCE?",
+            "options": [
+              "She sings.",
+              "She sings and he dances.",
+              "Because she sings.",
+              "Singing loudly."
+            ],
+            "correct_answer": "She sings and he dances."
+          },
+          {
+            "question": "What does the prefix 'un-' mean in 'unhappy'?",
+            "options": [
+              "Very",
+              "More",
+              "Not",
+              "Again"
+            ],
+            "correct_answer": "Not"
+          },
+          {
+            "question": "'Maria reads books every day.' The verb 'reads' tells the ___ of the subject.",
+            "options": [
+              "name",
+              "place",
+              "action",
+              "feeling"
+            ],
+            "correct_answer": "action"
+          },
+          {
+            "question": "Which is a DESCRIBING word (adjective)?",
+            "options": [
+              "Run",
+              "Beautiful",
+              "She",
+              "Quickly"
+            ],
+            "correct_answer": "Beautiful"
+          },
+          {
+            "question": "A story that teaches a lesson or moral is called a ___.",
+            "options": [
+              "poem",
+              "fable",
+              "diary",
+              "recipe"
+            ],
+            "correct_answer": "fable"
+          },
+          {
+            "question": "Which sentence is in the PRESENT TENSE?",
+            "options": [
+              "She sang a song.",
+              "She will sing a song.",
+              "She sings a song.",
+              "She has sung a song."
+            ],
+            "correct_answer": "She sings a song."
+          },
+          {
+            "question": "What is a SYNONYM for 'big'?",
+            "options": [
+              "Small",
+              "Large",
+              "Quick",
+              "Bright"
+            ],
+            "correct_answer": "Large"
+          },
+          {
+            "question": "Which word completes: 'The children ___ playing outside when it rained.'?",
+            "options": [
+              "were",
+              "are",
+              "is",
+              "be"
+            ],
+            "correct_answer": "were"
+          },
+          {
+            "question": "When retelling a story, what should you include FIRST?",
+            "options": [
+              "The ending",
+              "The middle events",
+              "The characters and setting",
+              "The lesson"
+            ],
+            "correct_answer": "The characters and setting"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- Observing, predicting, measuring, classifying\n- Characteristics of living things\n\nGreat work, scientist! ⭐",
+        "quiz": [
+          {
+            "question": "Which science skill involves using your senses to study something carefully?",
+            "options": [
+              "Predicting",
+              "Observing",
+              "Measuring",
+              "Classifying"
+            ],
+            "correct_answer": "Observing"
+          },
+          {
+            "question": "When you say 'I think it will rain today because the clouds are dark,' you are ___.",
+            "options": [
+              "observing",
+              "predicting",
+              "measuring",
+              "classifying"
+            ],
+            "correct_answer": "predicting"
+          },
+          {
+            "question": "A scientist uses a ruler to find the length of a leaf. This is an example of ___.",
+            "options": [
+              "predicting",
+              "observing",
+              "measuring",
+              "inferring"
+            ],
+            "correct_answer": "measuring"
+          },
+          {
+            "question": "Which of these is a LIVING thing?",
+            "options": [
+              "Rock",
+              "Water",
+              "Plant",
+              "Cloud"
+            ],
+            "correct_answer": "Plant"
+          },
+          {
+            "question": "Which of these is NOT a characteristic of living things?",
+            "options": [
+              "They grow",
+              "They respond to their surroundings",
+              "They reproduce",
+              "They are always green"
+            ],
+            "correct_answer": "They are always green"
+          },
+          {
+            "question": "'I predict that the plant placed in the dark will die.' This is a ___.",
+            "options": [
+              "fact",
+              "observation",
+              "measurement",
+              "prediction"
+            ],
+            "correct_answer": "prediction"
+          },
+          {
+            "question": "A thermometer is used to ___.",
+            "options": [
+              "measure length",
+              "measure mass",
+              "measure temperature",
+              "measure volume"
+            ],
+            "correct_answer": "measure temperature"
+          },
+          {
+            "question": "Which senses does a scientist use when OBSERVING?",
+            "options": [
+              "Only sight",
+              "Only hearing",
+              "Sight, hearing, smell, touch, and taste (when safe)",
+              "Only touch"
+            ],
+            "correct_answer": "Sight, hearing, smell, touch, and taste (when safe)"
+          },
+          {
+            "question": "Classifying means ___.",
+            "options": [
+              "counting objects",
+              "measuring objects",
+              "grouping objects according to their properties",
+              "predicting what will happen"
+            ],
+            "correct_answer": "grouping objects according to their properties"
+          },
+          {
+            "question": "A good scientific observation is ___.",
+            "options": [
+              "a guess about what might happen",
+              "a measurement in centimeters",
+              "a careful description of what you actually see",
+              "an explanation of why something happens"
+            ],
+            "correct_answer": "a careful description of what you actually see"
+          },
+          {
+            "question": "Living things REPRODUCE, which means they ___.",
+            "options": [
+              "eat food",
+              "make more of their own kind",
+              "breathe air",
+              "grow bigger"
+            ],
+            "correct_answer": "make more of their own kind"
+          },
+          {
+            "question": "Which tool is best for measuring the MASS of a small stone?",
+            "options": [
+              "Ruler",
+              "Thermometer",
+              "Weighing scale",
+              "Measuring cup"
+            ],
+            "correct_answer": "Weighing scale"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Bold, Underline, Font size, Font color\n- Always Save your work (Ctrl+S)\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What do you click to OPEN a word-processing program from the desktop?",
+            "options": [
+              "The taskbar",
+              "The document icon/shortcut",
+              "The power button",
+              "The printer"
+            ],
+            "correct_answer": "The document icon/shortcut"
+          },
+          {
+            "question": "Which toolbar button makes text appear DARKER and thicker?",
+            "options": [
+              "Italic (I)",
+              "Underline (U)",
+              "Bold (B)",
+              "Font size"
+            ],
+            "correct_answer": "Bold (B)"
+          },
+          {
+            "question": "To make text appear with a LINE UNDER IT, you click ___.",
+            "options": [
+              "Bold (B)",
+              "Italic (I)",
+              "Underline (U)",
+              "Strikethrough"
+            ],
+            "correct_answer": "Underline (U)"
+          },
+          {
+            "question": "Which button lets you change the SIZE of text?",
+            "options": [
+              "Bold",
+              "Color",
+              "Font size",
+              "Underline"
+            ],
+            "correct_answer": "Font size"
+          },
+          {
+            "question": "If you type 'Hy' instead of 'Hi', which key removes the wrong letter?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Spacebar",
+              "Backspace"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "In a word-processing program, what does 'Font Color' let you do?",
+            "options": [
+              "Change the size of text",
+              "Change the style of letters",
+              "Change the color of text",
+              "Delete text"
+            ],
+            "correct_answer": "Change the color of text"
+          },
+          {
+            "question": "Which is a common word-processing program?",
+            "options": [
+              "Paint",
+              "Microsoft Word",
+              "Calculator",
+              "Media Player"
+            ],
+            "correct_answer": "Microsoft Word"
+          },
+          {
+            "question": "To type a capital letter in a word-processing program, you press ___.",
+            "options": [
+              "Backspace + the letter",
+              "Enter + the letter",
+              "Shift + the letter",
+              "Spacebar + the letter"
+            ],
+            "correct_answer": "Shift + the letter"
+          },
+          {
+            "question": "When you finish typing a document, what should you do to save your work?",
+            "options": [
+              "Close the program without saving",
+              "Press Save (Ctrl+S or the Save button)",
+              "Restart the computer",
+              "Delete the file"
+            ],
+            "correct_answer": "Press Save (Ctrl+S or the Save button)"
+          },
+          {
+            "question": "You can make text BIGGER by ___.",
+            "options": [
+              "increasing the font size",
+              "pressing Enter",
+              "pressing Backspace",
+              "changing the font color"
+            ],
+            "correct_answer": "increasing the font size"
+          },
+          {
+            "question": "In a word-processing program, to go to a new line, you press ___.",
+            "options": [
+              "Spacebar",
+              "Backspace",
+              "Shift",
+              "Enter"
+            ],
+            "correct_answer": "Enter"
+          },
+          {
+            "question": "Which of these can you do with basic drawing tools in a computer program?",
+            "options": [
+              "Send emails",
+              "Type a letter",
+              "Draw shapes and color them",
+              "Print a photo"
+            ],
+            "correct_answer": "Draw shapes and color them"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🐢 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- Pabula: kwentong may aral, may hayop na tauhan\n- Pang-uri, pandiwa, at kasalungat na salita\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang tamang gamit ng 'mula'?",
+            "options": [
+              "Lumabas mula sa kwarto.",
+              "Pumunta mula ang parke.",
+              "Mula ang bata.",
+              "Umuwi ng mula sa bahay."
+            ],
+            "correct_answer": "Lumabas mula sa kwarto."
+          },
+          {
+            "question": "Ang kuwento na may aral ay tinatawag na ___.",
+            "options": [
+              "tula",
+              "pabula",
+              "salawikain",
+              "talata"
+            ],
+            "correct_answer": "pabula"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'matiyaga'?",
+            "options": [
+              "Mabilis",
+              "Masipag at hindi nagbibigay up",
+              "Tamad",
+              "Magulo"
+            ],
+            "correct_answer": "Masipag at hindi nagbibigay up"
+          },
+          {
+            "question": "'Si Pedro ay matalino.' Ano ang katangian ni Pedro?",
+            "options": [
+              "Masaya",
+              "Matalino",
+              "Maliksi",
+              "Matapang"
+            ],
+            "correct_answer": "Matalino"
+          },
+          {
+            "question": "Alin ang PANG-URI?",
+            "options": [
+              "Kumain",
+              "Malaki",
+              "Bahay",
+              "Siya"
+            ],
+            "correct_answer": "Malaki"
+          },
+          {
+            "question": "'Ang guro ay nagturo ng wika.' Ano ang ginawa ng guro?",
+            "options": [
+              "Kumain",
+              "Nagturo",
+              "Pumunta",
+              "Natulog"
+            ],
+            "correct_answer": "Nagturo"
+          },
+          {
+            "question": "Piliin ang tamang salita: 'Pumunta ___ sa tindahan ang bata.'",
+            "options": [
+              "si",
+              "ng",
+              "sa",
+              "ay"
+            ],
+            "correct_answer": "sa"
+          },
+          {
+            "question": "Ang salitang 'magalang' ay nagpapakita ng ___.",
+            "options": [
+              "masamang gawi",
+              "magandang asal",
+              "kasamaan",
+              "katamaran"
+            ],
+            "correct_answer": "magandang asal"
+          },
+          {
+            "question": "Alin ang PANDIWA?",
+            "options": [
+              "Malungkot",
+              "Paaralan",
+              "Sumayaw",
+              "Maganda"
+            ],
+            "correct_answer": "Sumayaw"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng 'masaya'?",
+            "options": [
+              "Maingay",
+              "Tahimik",
+              "Malungkot",
+              "Masipag"
+            ],
+            "correct_answer": "Malungkot"
+          },
+          {
+            "question": "'Nagbasa si Ana ng libro tuwing hapon.' Kailan nagbabasa si Ana?",
+            "options": [
+              "Umaga",
+              "Tanghali",
+              "Hapon",
+              "Gabi"
+            ],
+            "correct_answer": "Hapon"
+          },
+          {
+            "question": "Ang tula ay may ___.",
+            "options": [
+              "kuwento lamang",
+              "aralin at tauhan",
+              "tugma at sukat",
+              "tanong at sagot"
+            ],
+            "correct_answer": "tugma at sukat"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🌴 Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- Kapaligiran ay humuhubog sa kultura\n- Halimbawa: pangingisda, rice terraces, malong\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "How does the ENVIRONMENT affect the CULTURE of people in a place?",
+            "options": [
+              "It has no effect on culture",
+              "It shapes the food, livelihood, and customs of the people",
+              "It only affects the language",
+              "It only affects clothing"
+            ],
+            "correct_answer": "It shapes the food, livelihood, and customs of the people"
+          },
+          {
+            "question": "People who live near the SEA often have a culture that includes ___.",
+            "options": [
+              "farming rice",
+              "fishing and seafood dishes",
+              "mountain hiking",
+              "herding animals"
+            ],
+            "correct_answer": "fishing and seafood dishes"
+          },
+          {
+            "question": "What is the relationship between the environment and culture of a community?",
+            "options": [
+              "They are completely separate",
+              "The environment influences the way of life and culture",
+              "Culture has no connection to the land",
+              "Only climate affects culture"
+            ],
+            "correct_answer": "The environment influences the way of life and culture"
+          },
+          {
+            "question": "The Cordillera people of the mountains are known for their rice TERRACES. This shows how ___ influenced their culture.",
+            "options": [
+              "the ocean",
+              "the mountains and land",
+              "the desert",
+              "the lowlands"
+            ],
+            "correct_answer": "the mountains and land"
+          },
+          {
+            "question": "Which BEST explains why coastal communities eat a lot of fish?",
+            "options": [
+              "Because they do not like vegetables",
+              "Because fish is cheap everywhere",
+              "Because their environment (sea) provides fish as a natural resource",
+              "Because their culture forbids other food"
+            ],
+            "correct_answer": "Because their environment (sea) provides fish as a natural resource"
+          },
+          {
+            "question": "Comparing cultures of different communities teaches us to ___.",
+            "options": [
+              "think one culture is better",
+              "respect and appreciate differences",
+              "ignore other cultures",
+              "copy only one culture"
+            ],
+            "correct_answer": "respect and appreciate differences"
+          },
+          {
+            "question": "A community's KULTURA includes its ___.",
+            "options": [
+              "only its food",
+              "only its language",
+              "way of life, beliefs, and customs shaped partly by its environment",
+              "only its geography"
+            ],
+            "correct_answer": "way of life, beliefs, and customs shaped partly by its environment"
+          },
+          {
+            "question": "Why do different regions of the Philippines have different cultures?",
+            "options": [
+              "They all have the same environment",
+              "They have different environments, histories, and peoples",
+              "Culture never changes",
+              "All Filipinos are the same"
+            ],
+            "correct_answer": "They have different environments, histories, and peoples"
+          },
+          {
+            "question": "The MALONG worn by people in Mindanao is an example of a ___ shaped by their culture.",
+            "options": [
+              "natural resource",
+              "traditional garment",
+              "school subject",
+              "farming tool"
+            ],
+            "correct_answer": "traditional garment"
+          },
+          {
+            "question": "People in flat lowlands often build their livelihood around ___.",
+            "options": [
+              "fishing only",
+              "mountaineering",
+              "rice farming and agriculture",
+              "hunting in forests"
+            ],
+            "correct_answer": "rice farming and agriculture"
+          },
+          {
+            "question": "Learning about the culture of other communities helps us ___.",
+            "options": [
+              "feel superior to others",
+              "become more understanding and respectful",
+              "ignore our own culture",
+              "forget our traditions"
+            ],
+            "correct_answer": "become more understanding and respectful"
+          },
+          {
+            "question": "What does 'kultura' mean in Filipino?",
+            "options": [
+              "Weather",
+              "Way of life, beliefs, and customs of a group of people",
+              "Language only",
+              "Food only"
+            ],
+            "correct_answer": "Way of life, beliefs, and customs of a group of people"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Friday Review — Mathematics (Grade 3)\n\n- 1 kilogram = 1000 grams\n- Weighing scales measure mass\n- Comparing and subtracting mass\n\nGreat job! ⭐",
+        "quiz": [
+          {
+            "question": "What unit do we use to measure the mass of a watermelon?",
+            "options": [
+              "Centimeters",
+              "Meters",
+              "Grams",
+              "Kilograms"
+            ],
+            "correct_answer": "Kilograms"
+          },
+          {
+            "question": "What unit do we use to measure the mass of a grain of rice?",
+            "options": [
+              "Kilogram",
+              "Gram",
+              "Meter",
+              "Liter"
+            ],
+            "correct_answer": "Gram"
+          },
+          {
+            "question": "1 kilogram = ___ grams.",
+            "options": [
+              "10",
+              "100",
+              "1000",
+              "10000"
+            ],
+            "correct_answer": "1000"
+          },
+          {
+            "question": "A bag of rice weighs 5 kg. How many grams is that?",
+            "options": [
+              "500 g",
+              "5000 g",
+              "50 g",
+              "5 g"
+            ],
+            "correct_answer": "5000 g"
+          },
+          {
+            "question": "Which tool is used to measure mass?",
+            "options": [
+              "Ruler",
+              "Measuring tape",
+              "Weighing scale",
+              "Thermometer"
+            ],
+            "correct_answer": "Weighing scale"
+          },
+          {
+            "question": "Anna's bag weighs 3 kg. Ben's bag weighs 2500 g. Whose bag is heavier?",
+            "options": [
+              "Anna's",
+              "Ben's",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Anna's"
+          },
+          {
+            "question": "Estimate: which object has a mass of about 1 gram?",
+            "options": [
+              "A watermelon",
+              "A grain of sugar",
+              "A bag of potatoes",
+              "A large book"
+            ],
+            "correct_answer": "A grain of sugar"
+          },
+          {
+            "question": "A balance scale is used to ___.",
+            "options": [
+              "measure temperature",
+              "compare and measure mass",
+              "measure length",
+              "measure volume"
+            ],
+            "correct_answer": "compare and measure mass"
+          },
+          {
+            "question": "A chicken weighs 1500 g. How many kilograms and grams is that?",
+            "options": [
+              "1 kg 500 g",
+              "15 kg 0 g",
+              "150 kg 0 g",
+              "0 kg 1500 g"
+            ],
+            "correct_answer": "1 kg 500 g"
+          },
+          {
+            "question": "Which is the heaviest?",
+            "options": [
+              "A feather (about 1 g)",
+              "A pencil (about 10 g)",
+              "A brick (about 3 kg)",
+              "A coin (about 5 g)"
+            ],
+            "correct_answer": "A brick (about 3 kg)"
+          },
+          {
+            "question": "Mia has 2 kg of flour. She uses 750 g. How much flour is left?",
+            "options": [
+              "1250 g",
+              "1750 g",
+              "750 g",
+              "2750 g"
+            ],
+            "correct_answer": "1250 g"
+          },
+          {
+            "question": "What does 'estimate' mean?",
+            "options": [
+              "Measure exactly",
+              "Make a careful guess",
+              "Weigh on a scale",
+              "Count one by one"
+            ],
+            "correct_answer": "Make a careful guess"
+          }
+        ]
+      }
+    }
+  }
+}

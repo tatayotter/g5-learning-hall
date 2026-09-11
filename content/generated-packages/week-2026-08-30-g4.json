@@ -1,0 +1,2016 @@
+{
+  "grade": 4,
+  "week_starting_date": "2026-08-30",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Enumeration-Description Texts\n\nGrade 4, Week 11! Let's learn how writers list and describe things. 📖\n\n## 📋 What Is Enumeration-Description?\nAn **enumeration-description text** lists and describes many things and their details. Signal words like *\"first, second, third, and finally\"* show the **order** of items.\n\n## 🖊️ Describing with Adjectives\n**Example:** \"The adobo is salty, savory, and aromatic.\" This sentence describes the adobo using **adjectives**.\n\n## 🔤 Prefixes and Suffixes\n- A **prefix** is added to the beginning of a word → *unhappy*\n- A **suffix** is added to the **end** of a word.\n- A word with an added prefix or suffix is called an **affixed word** → *joyful*\n\n## ✅ Subject-Verb Agreement\nMake sure your subject and verb match → *\"The children run fast.\"*\n\n**Key words:** enumeration, description, sequence, prefix, suffix, affixed word",
+        "quiz": [
+          {
+            "question": "An ENUMERATION-DESCRIPTION text lists and describes ___.",
+            "options": [
+              "only one thing",
+              "many things and their details",
+              "a sequence of steps",
+              "a story with characters"
+            ],
+            "correct_answer": "many things and their details"
+          },
+          {
+            "question": "'First, second, third, and finally' are words that show ___.",
+            "options": [
+              "description",
+              "sequence/order",
+              "comparison",
+              "cause and effect"
+            ],
+            "correct_answer": "sequence/order"
+          },
+          {
+            "question": "Which word is a MULTISYLLABIC word with a prefix?",
+            "options": [
+              "Run",
+              "Book",
+              "Unhappy",
+              "Cat"
+            ],
+            "correct_answer": "Unhappy"
+          },
+          {
+            "question": "What is the TOPIC of a text about 'the different foods eaten at Filipino birthdays'?",
+            "options": [
+              "How to cook food",
+              "Filipino birthday foods",
+              "The history of birthdays",
+              "Why people celebrate"
+            ],
+            "correct_answer": "Filipino birthday foods"
+          },
+          {
+            "question": "Choose the sentence with CORRECT subject-verb agreement:",
+            "options": [
+              "The children runs fast.",
+              "The child run fast.",
+              "The children run fast.",
+              "The children running fast."
+            ],
+            "correct_answer": "The children run fast."
+          },
+          {
+            "question": "'The adobo is salty, savory, and aromatic.' This sentence DESCRIBES the adobo using ___.",
+            "options": [
+              "numbers",
+              "describing words (adjectives)",
+              "action words",
+              "pronouns"
+            ],
+            "correct_answer": "describing words (adjectives)"
+          },
+          {
+            "question": "What does ENUMERATE mean in an enumeration-description text?",
+            "options": [
+              "Tell a story",
+              "List items one by one",
+              "Give opinions",
+              "Ask questions"
+            ],
+            "correct_answer": "List items one by one"
+          },
+          {
+            "question": "Which word BEST completes: 'The ___ celebration included singing, dancing, and eating.'?",
+            "options": [
+              "birthday",
+              "sad",
+              "quiet",
+              "boring"
+            ],
+            "correct_answer": "birthday"
+          },
+          {
+            "question": "A SUFFIX is added to the ___ of a word.",
+            "options": [
+              "beginning",
+              "middle",
+              "end",
+              "between two words"
+            ],
+            "correct_answer": "end"
+          },
+          {
+            "question": "What is the PURPOSE of a description in a text?",
+            "options": [
+              "To tell what happened first",
+              "To give detailed information about a topic",
+              "To ask a question",
+              "To give an opinion"
+            ],
+            "correct_answer": "To give detailed information about a topic"
+          },
+          {
+            "question": "Which is an AFFIXED word?",
+            "options": [
+              "Book",
+              "Run",
+              "Joyful",
+              "Sky"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "In the text: 'There are many dishes at a Filipino feast. First, there is lechon...' — which signal word shows enumeration?",
+            "options": [
+              "There are",
+              "Many",
+              "First",
+              "Feast"
+            ],
+            "correct_answer": "First"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Mathematics — Understanding Fractions\n\nGrade 4, Week 11! Let's explore proper, improper, and mixed fractions. 🍕\n\n## 🔢 Types of Fractions\n- A **proper fraction** has a numerator smaller than its denominator → *1/2*\n- An **improper fraction** has a numerator equal to or larger than the denominator → *9/4*\n- A **mixed number** combines a whole number and a fraction → *7/4 = 1 3/4*\n\n## ⚖️ Equivalent Fractions and Lowest Terms\n- **Equivalent fractions** name the same amount → *1/2 = 4/8*\n- A fraction is in **lowest terms** when the GCF of the numerator and denominator is 1 → *6/8 reduces to 3/4*\n\n## 📊 What the Denominator Tells Us\nThe **denominator** tells us how many equal parts the whole is divided into.\n\n**Key words:** proper fraction, improper fraction, mixed number, equivalent, lowest terms",
+        "quiz": [
+          {
+            "question": "Which fraction has a NUMERATOR smaller than its denominator?",
+            "options": [
+              "Improper fraction",
+              "Mixed number",
+              "Proper fraction",
+              "Whole number"
+            ],
+            "correct_answer": "Proper fraction"
+          },
+          {
+            "question": "What is 7/4 written as a MIXED NUMBER?",
+            "options": [
+              "1 1/4",
+              "1 3/4",
+              "2 1/4",
+              "1 2/4"
+            ],
+            "correct_answer": "1 3/4"
+          },
+          {
+            "question": "What is 2 1/3 written as an IMPROPER FRACTION?",
+            "options": [
+              "5/3",
+              "7/3",
+              "6/3",
+              "4/3"
+            ],
+            "correct_answer": "7/3"
+          },
+          {
+            "question": "Which fraction is EQUIVALENT to 1/2?",
+            "options": [
+              "2/3",
+              "3/4",
+              "4/8",
+              "5/6"
+            ],
+            "correct_answer": "4/8"
+          },
+          {
+            "question": "A fraction in LOWEST TERMS has a GCF of the numerator and denominator equal to ___.",
+            "options": [
+              "0",
+              "1",
+              "2",
+              "5"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "Which fraction shows the LARGEST part of a whole?",
+            "options": [
+              "1/8",
+              "1/4",
+              "1/2",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Reduce 6/8 to lowest terms.",
+            "options": [
+              "3/4",
+              "2/3",
+              "6/8",
+              "1/2"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Which pair of fractions is EQUIVALENT?",
+            "options": [
+              "1/2 and 2/5",
+              "3/4 and 6/8",
+              "2/3 and 4/5",
+              "1/3 and 2/5"
+            ],
+            "correct_answer": "3/4 and 6/8"
+          },
+          {
+            "question": "What does the DENOMINATOR of a fraction tell us?",
+            "options": [
+              "How many parts are taken",
+              "How many equal parts the whole is divided into",
+              "The value of the fraction",
+              "The size of each part only"
+            ],
+            "correct_answer": "How many equal parts the whole is divided into"
+          },
+          {
+            "question": "2/5 compared to 4/10: which is GREATER?",
+            "options": [
+              "2/5",
+              "4/10",
+              "They are equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "They are equal"
+          },
+          {
+            "question": "What fraction represents 3 out of 8 equal parts?",
+            "options": [
+              "8/3",
+              "3/5",
+              "3/8",
+              "5/8"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "Which is an IMPROPER FRACTION?",
+            "options": [
+              "3/4",
+              "1/2",
+              "9/4",
+              "2/6"
+            ],
+            "correct_answer": "9/4"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "# 🫀 Science — Digestive, Respiratory, and Circulatory Systems\n\nGrade 4, Week 11! Let's learn how three body systems work together. 🫀\n\n## 🍽️ Digestive System\nThe **digestive system** breaks down food so the body can use it. Food enters through the **mouth**, and the **stomach** mixes it with gastric acid. The **small intestine** absorbs most nutrients into the bloodstream.\n\n## 🫁 Respiratory System\nThe **respiratory system** (lungs and airways) takes in oxygen and releases carbon dioxide. The **lungs** are protected by the rib cage.\n\n## ❤️ Circulatory System\nThe **heart** pumps blood through the body, carrying **oxygen and nutrients** to all body parts.\n\n## 🤝 Working Together\nThese three systems work **together** to provide nutrients and oxygen to every cell in the body.\n\n**Key words:** digestive system, respiratory system, circulatory system, heart",
+        "quiz": [
+          {
+            "question": "Which organ system breaks down food so the body can use it?",
+            "options": [
+              "Respiratory system",
+              "Circulatory system",
+              "Digestive system",
+              "Nervous system"
+            ],
+            "correct_answer": "Digestive system"
+          },
+          {
+            "question": "The HEART is the main organ of which system?",
+            "options": [
+              "Digestive system",
+              "Respiratory system",
+              "Circulatory system",
+              "Skeletal system"
+            ],
+            "correct_answer": "Circulatory system"
+          },
+          {
+            "question": "Which organs are part of the RESPIRATORY SYSTEM?",
+            "options": [
+              "Stomach and intestines",
+              "Lungs and airways",
+              "Heart and blood vessels",
+              "Brain and nerves"
+            ],
+            "correct_answer": "Lungs and airways"
+          },
+          {
+            "question": "What does the RESPIRATORY SYSTEM do?",
+            "options": [
+              "Pumps blood to the body",
+              "Breaks down food",
+              "Takes in oxygen and releases carbon dioxide",
+              "Sends nerve signals"
+            ],
+            "correct_answer": "Takes in oxygen and releases carbon dioxide"
+          },
+          {
+            "question": "Blood carries oxygen and nutrients to all body parts through the ___ system.",
+            "options": [
+              "digestive",
+              "respiratory",
+              "nervous",
+              "circulatory"
+            ],
+            "correct_answer": "circulatory"
+          },
+          {
+            "question": "What is the FIRST part of the digestive system where food enters?",
+            "options": [
+              "Stomach",
+              "Small intestine",
+              "Esophagus",
+              "Mouth"
+            ],
+            "correct_answer": "Mouth"
+          },
+          {
+            "question": "The LUNGS are protected by the ___.",
+            "options": [
+              "backbone",
+              "skull",
+              "rib cage",
+              "pelvis"
+            ],
+            "correct_answer": "rib cage"
+          },
+          {
+            "question": "Which organ pumps blood through the body?",
+            "options": [
+              "Liver",
+              "Lungs",
+              "Stomach",
+              "Heart"
+            ],
+            "correct_answer": "Heart"
+          },
+          {
+            "question": "What happens to food in the STOMACH?",
+            "options": [
+              "It is absorbed into the blood",
+              "It is mixed with gastric acid and broken down further",
+              "It is pumped to the lungs",
+              "It is released from the body"
+            ],
+            "correct_answer": "It is mixed with gastric acid and broken down further"
+          },
+          {
+            "question": "The three body systems — digestive, respiratory, and circulatory — work TOGETHER to ___.",
+            "options": [
+              "keep us asleep",
+              "provide nutrients and oxygen to all body cells",
+              "produce bones",
+              "control breathing only"
+            ],
+            "correct_answer": "provide nutrients and oxygen to all body cells"
+          },
+          {
+            "question": "Which organ absorbs most nutrients into the bloodstream?",
+            "options": [
+              "Stomach",
+              "Large intestine",
+              "Small intestine",
+              "Esophagus"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What does the CIRCULATORY system carry to all body parts?",
+            "options": [
+              "Only water",
+              "Only food",
+              "Oxygen and nutrients (via blood)",
+              "Only waste"
+            ],
+            "correct_answer": "Oxygen and nutrients (via blood)"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Alamat, Pabula, at Parabula\n\nGrade 4, Linggo 11! Alamin natin ang iba't ibang uri ng maikling kwento. 📚\n\n## 📖 Alamat, Pabula, at Parabula\n- Ang **alamat** ay nagpapaliwanag ng pinagmulan ng isang bagay o kababalaghan.\n- Ang **pabula** ay isang maikling kwento na ang mga tauhan ay mga hayop na nagsasalita.\n- Ang layunin ng **parabula** ay magbigay ng aral sa pamamagitan ng halimbawa.\n- Ang **anekdota** ay isang maikling kwentong nagtatanghal ng katangian ng isang tao.\n\n## ✍️ Talatang Deskriptibo\nAng talatang deskriptibo ay nagbibigay ng detalyadong paglalarawan. Ang unang hakbang sa pagsulat nito ay **tukuyin ang paksa o bagay na ilalarawan**.\n\n## 🔤 Panlapi\nSa pagbabago ng salita gamit ang panlapi: *\"basa\" + \"-in\" = \"basain\"*.\n\n**Mahahalagang salita:** alamat, pabula, parabula, anekdota, panlapi",
+        "quiz": [
+          {
+            "question": "Ang ALAMAT ay isang uri ng kuwento na nagpapaliwanag ng ___.",
+            "options": [
+              "mga aral sa buhay",
+              "pinagmulan ng isang bagay o kababalaghan",
+              "tunay na pangyayari sa kasaysayan",
+              "mga tuntunin sa paaralan"
+            ],
+            "correct_answer": "pinagmulan ng isang bagay o kababalaghan"
+          },
+          {
+            "question": "Ang PABULA ay isang maikling kuwento na ang mga tauhan ay ___.",
+            "options": [
+              "mga tao lamang",
+              "mga hayop na nagsasalita",
+              "mga diwata",
+              "mga bayani"
+            ],
+            "correct_answer": "mga hayop na nagsasalita"
+          },
+          {
+            "question": "Ano ang layunin ng PARABULA?",
+            "options": [
+              "Magbigay ng impormasyon",
+              "Magbigay ng aral sa pamamagitan ng halimbawa",
+              "Magsalaysay ng kasaysayan",
+              "Maglaro ng salita"
+            ],
+            "correct_answer": "Magbigay ng aral sa pamamagitan ng halimbawa"
+          },
+          {
+            "question": "Sa pabula ng 'Pagong at Matsing,' ano ang aral?",
+            "options": [
+              "Mabilis ang palaging nananalo",
+              "Ang katapatan at tiyaga ay mas mahalaga kaysa talento",
+              "Ang matalino ay laging panalo",
+              "Huwag magtiwala sa sinuman"
+            ],
+            "correct_answer": "Ang katapatan at tiyaga ay mas mahalaga kaysa talento"
+          },
+          {
+            "question": "Ang ANEKDOTA ay isang maikling ___.",
+            "options": [
+              "tulang may tugma",
+              "kwentong nagtatanghal ng katangian ng isang tao",
+              "kabanata ng nobela",
+              "paliwanag ng agham"
+            ],
+            "correct_answer": "kwentong nagtatanghal ng katangian ng isang tao"
+          },
+          {
+            "question": "Ang 'deskriptibong talata' ay nagbibigay ng detalyadong ___ ng isang tao, lugar, o bagay.",
+            "options": [
+              "kasaysayan",
+              "paglalarawan",
+              "talaan",
+              "tanong"
+            ],
+            "correct_answer": "paglalarawan"
+          },
+          {
+            "question": "Alin ang PANG-URI sa pangungusap: 'Ang malakas na ulan ay bumaha sa lansangan.'?",
+            "options": [
+              "ulan",
+              "bumaha",
+              "lansangan",
+              "malakas"
+            ],
+            "correct_answer": "malakas"
+          },
+          {
+            "question": "Paano mo malalaman kung ang pahayag ay katotohanan o opinyon?",
+            "options": [
+              "Kung ito ay may makulay na salita",
+              "Ang katotohanan ay maaaring patunayan; ang opinyon ay saloobin",
+              "Kung ito ay mahabang pangungusap",
+              "Kung may salitang 'at' ito"
+            ],
+            "correct_answer": "Ang katotohanan ay maaaring patunayan; ang opinyon ay saloobin"
+          },
+          {
+            "question": "Sa pagbabago ng salita gamit ang panlapi: 'basa' + '-in' = ___?",
+            "options": [
+              "basain",
+              "ibasa",
+              "nabasa",
+              "magbasa"
+            ],
+            "correct_answer": "basain"
+          },
+          {
+            "question": "Ang 'pagpapahayag ng sariling saloobin' ay isang kasanayang ___.",
+            "options": [
+              "pakikinig",
+              "pagsasalita",
+              "pagbasa",
+              "panonood"
+            ],
+            "correct_answer": "pagsasalita"
+          },
+          {
+            "question": "Sa pagsulat ng talatang deskriptibo, ang UNANG hakbang ay ___.",
+            "options": [
+              "isulat ang konklusyon",
+              "tukuyin ang paksa o bagay na ilalarawan",
+              "ilagay ang mga ebidensya",
+              "lagyan ng pamagat"
+            ],
+            "correct_answer": "tukuyin ang paksa o bagay na ilalarawan"
+          },
+          {
+            "question": "Ang salitang 'nagdadala' ay naglalaman ng panlaping ___.",
+            "options": [
+              "-in",
+              "-an",
+              "nag-",
+              "um-"
+            ],
+            "correct_answer": "nag-"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ EPP (ICT) — Parts of a Computer\n\nGrade 4, Week 11! Let's learn about the parts inside and around a computer. 🖥️\n\n## 🧠 The CPU\nThe **CPU (Central Processing Unit)** is the \"brain\" of the computer.\n\n## 🔌 Input and Output Devices\n- **Input** is data that goes INTO the computer → a **keyboard** is an input device.\n- **Output** is what the computer produces → a **printer** is an output device, and the **monitor** displays information.\n- The **mouse** lets you move the cursor on the screen.\n\n## 💾 Hardware and Software\n- **Hardware** is the physical parts of the computer you can touch.\n- **Software** is the programs and applications that run on the computer.\n\n## ⌨️ Good Habits\n- **Touch typing** keeps your fingers resting on the home row keys.\n- Hold the mouse with a **relaxed grip** to prevent strain.\n- **Booting** means starting the computer so it loads the operating system.\n\n**Key words:** CPU, input, output, hardware, software, booting",
+        "quiz": [
+          {
+            "question": "What is the BRAIN of the computer called?",
+            "options": [
+              "Monitor",
+              "CPU (Central Processing Unit)",
+              "Keyboard",
+              "Printer"
+            ],
+            "correct_answer": "CPU (Central Processing Unit)"
+          },
+          {
+            "question": "The MONITOR is used to ___.",
+            "options": [
+              "type text",
+              "display information",
+              "print documents",
+              "store data"
+            ],
+            "correct_answer": "display information"
+          },
+          {
+            "question": "Which device lets you move the cursor on the screen?",
+            "options": [
+              "Keyboard",
+              "Printer",
+              "Mouse",
+              "Monitor"
+            ],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "To SHUTDOWN a computer correctly, you should ___.",
+            "options": [
+              "just press the power button while working",
+              "use the Start/Apple menu and choose Shut Down",
+              "unplug the power cable",
+              "close all windows and then wait"
+            ],
+            "correct_answer": "use the Start/Apple menu and choose Shut Down"
+          },
+          {
+            "question": "What does INPUT mean in computing?",
+            "options": [
+              "Data that comes OUT of the computer",
+              "Data that goes INTO the computer",
+              "The screen display",
+              "The storage of the computer"
+            ],
+            "correct_answer": "Data that goes INTO the computer"
+          },
+          {
+            "question": "Which of these is an INPUT DEVICE?",
+            "options": [
+              "Monitor",
+              "Printer",
+              "Speaker",
+              "Keyboard"
+            ],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "Which of these is an OUTPUT DEVICE?",
+            "options": [
+              "Keyboard",
+              "Mouse",
+              "Scanner",
+              "Printer"
+            ],
+            "correct_answer": "Printer"
+          },
+          {
+            "question": "'Booting' a computer means ___.",
+            "options": [
+              "turning it off",
+              "starting/turning it on so it loads the operating system",
+              "saving a file",
+              "connecting to the internet"
+            ],
+            "correct_answer": "starting/turning it on so it loads the operating system"
+          },
+          {
+            "question": "What is HARDWARE?",
+            "options": [
+              "Software programs installed on the computer",
+              "Physical parts of the computer you can touch",
+              "The files saved on the computer",
+              "The internet connection"
+            ],
+            "correct_answer": "Physical parts of the computer you can touch"
+          },
+          {
+            "question": "What is SOFTWARE?",
+            "options": [
+              "The physical parts of a computer",
+              "Programs and applications that run on the computer",
+              "The power supply of a computer",
+              "The keyboard and mouse"
+            ],
+            "correct_answer": "Programs and applications that run on the computer"
+          },
+          {
+            "question": "Which keyboarding technique keeps the fingers resting on the HOME ROW keys?",
+            "options": [
+              "Hunt and peck",
+              "Touch typing",
+              "One-finger typing",
+              "Speed typing"
+            ],
+            "correct_answer": "Touch typing"
+          },
+          {
+            "question": "Why is it important to hold the mouse with a RELAXED GRIP?",
+            "options": [
+              "To type faster",
+              "To prevent strain and control the cursor more accurately",
+              "To make the computer faster",
+              "To charge the battery"
+            ],
+            "correct_answer": "To prevent strain and control the cursor more accurately"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Heograpiya ng Pilipinas\n\nGrade 4, Week 11! Alamin natin ang heograpiya ng ating bansa. 🗺️\n\n## 🌏 Lokasyon ng Pilipinas\nAng Pilipinas ay matatagpuan sa **Timog-Silangang Asya**, sa pagitan ng 4° at 21° Hilaga, 116° at 127° Silangan. Ito ay isang **kapuluan** — isang grupo ng humigit-kumulang **7,641 pulo**.\n\n## ⛰️ Pisikal na Katangian\n- Ang pisikal na heograpiya ay tumutukoy sa likas na katangian ng lugar tulad ng bundok at ilog.\n- Ang **Bundok Apo** ang pinakamataas na bundok sa Pilipinas.\n- Ang **Ilog Cagayan** ang pinakamahabang ilog.\n\n## 🌊 Mga Karagatan sa Paligid\n- Ang **Dagat Pasipiko** ay nasa Silangan.\n- Ang **Dagat Timog Tsina** ay nasa Kanluran.\n\n## 🏝️ Tatlong Pangkat ng Kapuluan\nAng Pilipinas ay binubuo ng tatlong pangunahing pangkat: **Luzon, Visayas, at Mindanao**.\n\n**Mahahalagang salita:** kapuluan, lokasyon, heograpiya, Luzon, Visayas, Mindanao",
+        "quiz": [
+          {
+            "question": "Ang Pilipinas ay matatagpuan sa ___ bahagi ng Asya.",
+            "options": [
+              "Hilaga",
+              "Timog",
+              "Silangan",
+              "Timog-Silangan"
+            ],
+            "correct_answer": "Timog-Silangan"
+          },
+          {
+            "question": "Ang Pilipinas ay binubuo ng halos ___ pulo.",
+            "options": [
+              "700",
+              "1000",
+              "7,641",
+              "10,000"
+            ],
+            "correct_answer": "7,641"
+          },
+          {
+            "question": "Ang pinakamataas na bundok sa Pilipinas ay ___.",
+            "options": [
+              "Mayon",
+              "Apo",
+              "Pulag",
+              "Kanlaon"
+            ],
+            "correct_answer": "Apo"
+          },
+          {
+            "question": "Ang Dagat Pasipiko ay nasa ___ ng Pilipinas.",
+            "options": [
+              "Kanluran",
+              "Silangan",
+              "Hilaga",
+              "Timog"
+            ],
+            "correct_answer": "Silangan"
+          },
+          {
+            "question": "Ang Dagat Timog Tsina ay nasa ___ ng Pilipinas.",
+            "options": [
+              "Silangan",
+              "Hilaga",
+              "Kanluran",
+              "Timog"
+            ],
+            "correct_answer": "Kanluran"
+          },
+          {
+            "question": "Ang KAPULUAN ay isang grupo ng ___.",
+            "options": [
+              "kabundukan",
+              "mga lawa",
+              "mga pulo",
+              "mga ilog"
+            ],
+            "correct_answer": "mga pulo"
+          },
+          {
+            "question": "Ang pisikal na heograpiya ay tumutukoy sa ___.",
+            "options": [
+              "mga tao at lipunan",
+              "likas na katangian ng lugar tulad ng bundok at ilog",
+              "mga lungsod at bayan",
+              "kasaysayan ng isang lugar"
+            ],
+            "correct_answer": "likas na katangian ng lugar tulad ng bundok at ilog"
+          },
+          {
+            "question": "Alin ang PINAKAMAHABANG ilog sa Pilipinas?",
+            "options": [
+              "Pasig",
+              "Pampanga",
+              "Cagayan",
+              "Marikina"
+            ],
+            "correct_answer": "Cagayan"
+          },
+          {
+            "question": "Ang LOKASYON ng Pilipinas sa mapa ay matatagpuan sa pagitan ng ___.",
+            "options": [
+              "0° at 10° Hilaga, 110° at 120° Silangan",
+              "4° at 21° Hilaga, 116° at 127° Silangan",
+              "10° at 30° Hilaga, 100° at 130° Silangan",
+              "20° at 40° Hilaga, 120° at 140° Silangan"
+            ],
+            "correct_answer": "4° at 21° Hilaga, 116° at 127° Silangan"
+          },
+          {
+            "question": "Ang RELATIBONG LOKASYON ay nagpapaliwanag kung saan ang isang lugar ___.",
+            "options": [
+              "gamit ang longitude at latitude",
+              "kaugnay ng ibang kilalang lugar",
+              "batay sa sukat ng mapa",
+              "ayon sa kasaysayan"
+            ],
+            "correct_answer": "kaugnay ng ibang kilalang lugar"
+          },
+          {
+            "question": "Ang Pilipinas ay may ___ pangunahing pangkat ng kapuluan.",
+            "options": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "Ang tatlong pangunahing pangkat ng kapuluan ng Pilipinas ay ___.",
+            "options": [
+              "Luzon, Cebu, Davao",
+              "Luzon, Visayas, Mindanao",
+              "Luzon, Palawan, Mindanao",
+              "Visayas, Palawan, Davao"
+            ],
+            "correct_answer": "Luzon, Visayas, Mindanao"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 🎯 GMRC — Self-Discipline and Responsibility\n\nGrade 4, Week 11! Let's learn how self-discipline helps us reach our goals. 🎯\n\n## 💪 Self-Discipline\n**Self-discipline** means controlling your impulses and choosing what is right — like studying first before playing, or following a study schedule every day.\n\n## ✅ Responsibility and Accountability\n- Taking **responsibility** for your actions means accepting the results of your choices.\n- An **accountable** person takes ownership of their actions and admits mistakes with **integrity and courage**.\n\n## ⏰ Managing Time and Goals\nManaging your time well lets you finish tasks without rushing and still have time for leisure. Setting **goals** helps you stay focused on what's important — while procrastinating shows poor self-discipline.\n\n**Key words:** self-discipline, responsibility, accountability, goals",
+        "quiz": [
+          {
+            "question": "SELF-DISCIPLINE means ___.",
+            "options": [
+              "doing only what is fun",
+              "controlling your impulses and choosing what is right",
+              "always following friends",
+              "letting others decide for you"
+            ],
+            "correct_answer": "controlling your impulses and choosing what is right"
+          },
+          {
+            "question": "Ana set a study schedule and follows it every day. She shows good ___.",
+            "options": [
+              "irresponsibility",
+              "self-discipline",
+              "boasting",
+              "selfishness"
+            ],
+            "correct_answer": "self-discipline"
+          },
+          {
+            "question": "Knowing your OWN STRENGTHS helps you ___.",
+            "options": [
+              "compare yourself to others",
+              "ignore your weaknesses",
+              "use your abilities to help others and grow",
+              "boast about yourself"
+            ],
+            "correct_answer": "use your abilities to help others and grow"
+          },
+          {
+            "question": "Taking RESPONSIBILITY for your actions means ___.",
+            "options": [
+              "blaming others when things go wrong",
+              "accepting the results of your choices",
+              "always waiting for others to decide",
+              "doing nothing"
+            ],
+            "correct_answer": "accepting the results of your choices"
+          },
+          {
+            "question": "When you MANAGE YOUR TIME well, you can ___.",
+            "options": [
+              "do everything last minute",
+              "finish tasks without rushing and have time for leisure",
+              "skip important duties",
+              "always depend on others"
+            ],
+            "correct_answer": "finish tasks without rushing and have time for leisure"
+          },
+          {
+            "question": "A student who saves part of their allowance shows good ___.",
+            "options": [
+              "spending habits",
+              "self-discipline in managing money",
+              "greediness",
+              "laziness"
+            ],
+            "correct_answer": "self-discipline in managing money"
+          },
+          {
+            "question": "Which is an example of being RESPONSIBLE with school materials?",
+            "options": [
+              "Leaving your bag anywhere",
+              "Taking care of your books and supplies",
+              "Lending all your materials without care",
+              "Losing your pencils often"
+            ],
+            "correct_answer": "Taking care of your books and supplies"
+          },
+          {
+            "question": "Admitting a mistake shows ___.",
+            "options": [
+              "weakness",
+              "cowardice",
+              "integrity and courage",
+              "laziness"
+            ],
+            "correct_answer": "integrity and courage"
+          },
+          {
+            "question": "Which of these shows POOR SELF-DISCIPLINE?",
+            "options": [
+              "Finishing homework before playing",
+              "Studying for a quiz",
+              "Procrastinating on assignments",
+              "Following a schedule"
+            ],
+            "correct_answer": "Procrastinating on assignments"
+          },
+          {
+            "question": "'I will study first before I play.' This statement shows ___.",
+            "options": [
+              "poor decision making",
+              "self-discipline and setting priorities",
+              "disobedience",
+              "irresponsibility"
+            ],
+            "correct_answer": "self-discipline and setting priorities"
+          },
+          {
+            "question": "Setting GOALS helps you ___.",
+            "options": [
+              "waste time",
+              "stay focused and work toward what is important",
+              "be lazy",
+              "ignore your duties"
+            ],
+            "correct_answer": "stay focused and work toward what is important"
+          },
+          {
+            "question": "Which best describes an ACCOUNTABLE person?",
+            "options": [
+              "One who blames others",
+              "One who takes ownership of their actions",
+              "One who never admits mistakes",
+              "One who avoids responsibilities"
+            ],
+            "correct_answer": "One who takes ownership of their actions"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Music Dynamics and Healthy Living\n\nGrade 4, Week 11! Let's explore music volume and staying healthy. 🎵\n\n## 🔊 Dynamics and Timbre\n- **Dynamics** refers to the volume (loudness or softness) of music. **Piano (p)** means soft, **Forte (f)** means loud.\n- **Timbre** is the unique quality or \"color\" of a sound that identifies it.\n- The **harana** (Philippine serenade) is a local musical performance style.\n\n## 🏃 Physical Education\n- **Target games** involve throwing or hitting an object at a target.\n- Good sportsmanship means **respecting opponents and accepting results gracefully**.\n- **Jogging** develops cardiovascular fitness.\n\n## 🌙 Personal Health\nPersonal health includes hygiene, proper nutrition, rest, and exercise. Getting enough **sleep** helps the body grow, repair, and stay healthy.\n\n**Key words:** dynamics, timbre, sportsmanship, personal health",
+        "quiz": [
+          {
+            "question": "TIMBRE in music refers to ___.",
+            "options": [
+              "how loud or soft a sound is",
+              "the unique quality or 'color' of a sound that identifies it",
+              "how fast music is played",
+              "the rhythm of a song"
+            ],
+            "correct_answer": "the unique quality or 'color' of a sound that identifies it"
+          },
+          {
+            "question": "DYNAMICS in music refers to ___.",
+            "options": [
+              "the speed of music",
+              "the pitch of notes",
+              "the volume (loudness or softness) of music",
+              "the rhythm pattern"
+            ],
+            "correct_answer": "the volume (loudness or softness) of music"
+          },
+          {
+            "question": "What is the musical symbol for PIANO (p)?",
+            "options": [
+              "Very loud",
+              "Loud",
+              "Soft",
+              "Very soft"
+            ],
+            "correct_answer": "Soft"
+          },
+          {
+            "question": "Forte (f) in music means ___.",
+            "options": [
+              "very soft",
+              "soft",
+              "loud",
+              "very loud"
+            ],
+            "correct_answer": "loud"
+          },
+          {
+            "question": "Which of these is a LOCAL MUSICAL PERFORMANCE style?",
+            "options": [
+              "Opera",
+              "Harana (Philippine serenade)",
+              "Jazz",
+              "Orchestra"
+            ],
+            "correct_answer": "Harana (Philippine serenade)"
+          },
+          {
+            "question": "In Physical Education, TARGET GAMES involve ___.",
+            "options": [
+              "running as fast as possible",
+              "throwing or hitting an object at a target",
+              "swimming laps",
+              "dancing in groups"
+            ],
+            "correct_answer": "throwing or hitting an object at a target"
+          },
+          {
+            "question": "PERSONAL HEALTH includes ___.",
+            "options": [
+              "only brushing teeth",
+              "hygiene, proper nutrition, rest, and exercise",
+              "only exercise",
+              "only eating well"
+            ],
+            "correct_answer": "hygiene, proper nutrition, rest, and exercise"
+          },
+          {
+            "question": "What is a key rule of GOOD SPORTSMANSHIP in PE?",
+            "options": [
+              "Winning at all costs",
+              "Respecting opponents and accepting results gracefully",
+              "Cheating to win",
+              "Refusing to play fair"
+            ],
+            "correct_answer": "Respecting opponents and accepting results gracefully"
+          },
+          {
+            "question": "The ARTS of a culture often reflect its ___.",
+            "options": [
+              "technology",
+              "history and way of life",
+              "only its religion",
+              "only its economy"
+            ],
+            "correct_answer": "history and way of life"
+          },
+          {
+            "question": "Which is an example of VISUAL ART from the Philippines?",
+            "options": [
+              "Rondalla",
+              "Parol (lantern)",
+              "Harana",
+              "Kundiman"
+            ],
+            "correct_answer": "Parol (lantern)"
+          },
+          {
+            "question": "Getting enough SLEEP helps the body ___.",
+            "options": [
+              "stay weak",
+              "grow, repair, and stay healthy",
+              "become less active",
+              "forget information"
+            ],
+            "correct_answer": "grow, repair, and stay healthy"
+          },
+          {
+            "question": "Which exercise develops CARDIOVASCULAR fitness?",
+            "options": [
+              "Jogging",
+              "Sitting",
+              "Reading",
+              "Sleeping"
+            ],
+            "correct_answer": "Jogging"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "GMRC": {
+        "summary_markdown": "# 🎯 Friday Review — GMRC (Grade 4)\n\n- Self-discipline: choosing what is right\n- Responsibility and accountability\n- Setting goals and managing time\n\nGreat job! 🌟",
+        "quiz": [
+          {
+            "question": "SELF-DISCIPLINE means ___.",
+            "options": [
+              "doing only what is fun",
+              "controlling your impulses and choosing what is right",
+              "always following friends",
+              "letting others decide for you"
+            ],
+            "correct_answer": "controlling your impulses and choosing what is right"
+          },
+          {
+            "question": "Ana set a study schedule and follows it every day. She shows good ___.",
+            "options": [
+              "irresponsibility",
+              "self-discipline",
+              "boasting",
+              "selfishness"
+            ],
+            "correct_answer": "self-discipline"
+          },
+          {
+            "question": "Knowing your OWN STRENGTHS helps you ___.",
+            "options": [
+              "compare yourself to others",
+              "ignore your weaknesses",
+              "use your abilities to help others and grow",
+              "boast about yourself"
+            ],
+            "correct_answer": "use your abilities to help others and grow"
+          },
+          {
+            "question": "Taking RESPONSIBILITY for your actions means ___.",
+            "options": [
+              "blaming others when things go wrong",
+              "accepting the results of your choices",
+              "always waiting for others to decide",
+              "doing nothing"
+            ],
+            "correct_answer": "accepting the results of your choices"
+          },
+          {
+            "question": "When you MANAGE YOUR TIME well, you can ___.",
+            "options": [
+              "do everything last minute",
+              "finish tasks without rushing and have time for leisure",
+              "skip important duties",
+              "always depend on others"
+            ],
+            "correct_answer": "finish tasks without rushing and have time for leisure"
+          },
+          {
+            "question": "A student who saves part of their allowance shows good ___.",
+            "options": [
+              "spending habits",
+              "self-discipline in managing money",
+              "greediness",
+              "laziness"
+            ],
+            "correct_answer": "self-discipline in managing money"
+          },
+          {
+            "question": "Which is an example of being RESPONSIBLE with school materials?",
+            "options": [
+              "Leaving your bag anywhere",
+              "Taking care of your books and supplies",
+              "Lending all your materials without care",
+              "Losing your pencils often"
+            ],
+            "correct_answer": "Taking care of your books and supplies"
+          },
+          {
+            "question": "Admitting a mistake shows ___.",
+            "options": [
+              "weakness",
+              "cowardice",
+              "integrity and courage",
+              "laziness"
+            ],
+            "correct_answer": "integrity and courage"
+          },
+          {
+            "question": "Which of these shows POOR SELF-DISCIPLINE?",
+            "options": [
+              "Finishing homework before playing",
+              "Studying for a quiz",
+              "Procrastinating on assignments",
+              "Following a schedule"
+            ],
+            "correct_answer": "Procrastinating on assignments"
+          },
+          {
+            "question": "'I will study first before I play.' This statement shows ___.",
+            "options": [
+              "poor decision making",
+              "self-discipline and setting priorities",
+              "disobedience",
+              "irresponsibility"
+            ],
+            "correct_answer": "self-discipline and setting priorities"
+          },
+          {
+            "question": "Setting GOALS helps you ___.",
+            "options": [
+              "waste time",
+              "stay focused and work toward what is important",
+              "be lazy",
+              "ignore your duties"
+            ],
+            "correct_answer": "stay focused and work toward what is important"
+          },
+          {
+            "question": "Which best describes an ACCOUNTABLE person?",
+            "options": [
+              "One who blames others",
+              "One who takes ownership of their actions",
+              "One who never admits mistakes",
+              "One who avoids responsibilities"
+            ],
+            "correct_answer": "One who takes ownership of their actions"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 4)\n\n- Dynamics (piano/forte) and timbre in music\n- Sportsmanship and personal health\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "TIMBRE in music refers to ___.",
+            "options": [
+              "how loud or soft a sound is",
+              "the unique quality or 'color' of a sound that identifies it",
+              "how fast music is played",
+              "the rhythm of a song"
+            ],
+            "correct_answer": "the unique quality or 'color' of a sound that identifies it"
+          },
+          {
+            "question": "DYNAMICS in music refers to ___.",
+            "options": [
+              "the speed of music",
+              "the pitch of notes",
+              "the volume (loudness or softness) of music",
+              "the rhythm pattern"
+            ],
+            "correct_answer": "the volume (loudness or softness) of music"
+          },
+          {
+            "question": "What is the musical symbol for PIANO (p)?",
+            "options": [
+              "Very loud",
+              "Loud",
+              "Soft",
+              "Very soft"
+            ],
+            "correct_answer": "Soft"
+          },
+          {
+            "question": "Forte (f) in music means ___.",
+            "options": [
+              "very soft",
+              "soft",
+              "loud",
+              "very loud"
+            ],
+            "correct_answer": "loud"
+          },
+          {
+            "question": "Which of these is a LOCAL MUSICAL PERFORMANCE style?",
+            "options": [
+              "Opera",
+              "Harana (Philippine serenade)",
+              "Jazz",
+              "Orchestra"
+            ],
+            "correct_answer": "Harana (Philippine serenade)"
+          },
+          {
+            "question": "In Physical Education, TARGET GAMES involve ___.",
+            "options": [
+              "running as fast as possible",
+              "throwing or hitting an object at a target",
+              "swimming laps",
+              "dancing in groups"
+            ],
+            "correct_answer": "throwing or hitting an object at a target"
+          },
+          {
+            "question": "PERSONAL HEALTH includes ___.",
+            "options": [
+              "only brushing teeth",
+              "hygiene, proper nutrition, rest, and exercise",
+              "only exercise",
+              "only eating well"
+            ],
+            "correct_answer": "hygiene, proper nutrition, rest, and exercise"
+          },
+          {
+            "question": "What is a key rule of GOOD SPORTSMANSHIP in PE?",
+            "options": [
+              "Winning at all costs",
+              "Respecting opponents and accepting results gracefully",
+              "Cheating to win",
+              "Refusing to play fair"
+            ],
+            "correct_answer": "Respecting opponents and accepting results gracefully"
+          },
+          {
+            "question": "The ARTS of a culture often reflect its ___.",
+            "options": [
+              "technology",
+              "history and way of life",
+              "only its religion",
+              "only its economy"
+            ],
+            "correct_answer": "history and way of life"
+          },
+          {
+            "question": "Which is an example of VISUAL ART from the Philippines?",
+            "options": [
+              "Rondalla",
+              "Parol (lantern)",
+              "Harana",
+              "Kundiman"
+            ],
+            "correct_answer": "Parol (lantern)"
+          },
+          {
+            "question": "Getting enough SLEEP helps the body ___.",
+            "options": [
+              "stay weak",
+              "grow, repair, and stay healthy",
+              "become less active",
+              "forget information"
+            ],
+            "correct_answer": "grow, repair, and stay healthy"
+          },
+          {
+            "question": "Which exercise develops CARDIOVASCULAR fitness?",
+            "options": [
+              "Jogging",
+              "Sitting",
+              "Reading",
+              "Sleeping"
+            ],
+            "correct_answer": "Jogging"
+          }
+        ]
+      },
+      "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 4)\n\n- Enumeration-description texts list and describe\n- Signal words show sequence\n- Prefixes and suffixes are added to words\n\nGreat job! 🌟",
+        "quiz": [
+          {
+            "question": "An ENUMERATION-DESCRIPTION text lists and describes ___.",
+            "options": [
+              "only one thing",
+              "many things and their details",
+              "a sequence of steps",
+              "a story with characters"
+            ],
+            "correct_answer": "many things and their details"
+          },
+          {
+            "question": "'First, second, third, and finally' are words that show ___.",
+            "options": [
+              "description",
+              "sequence/order",
+              "comparison",
+              "cause and effect"
+            ],
+            "correct_answer": "sequence/order"
+          },
+          {
+            "question": "Which word is a MULTISYLLABIC word with a prefix?",
+            "options": [
+              "Run",
+              "Book",
+              "Unhappy",
+              "Cat"
+            ],
+            "correct_answer": "Unhappy"
+          },
+          {
+            "question": "What is the TOPIC of a text about 'the different foods eaten at Filipino birthdays'?",
+            "options": [
+              "How to cook food",
+              "Filipino birthday foods",
+              "The history of birthdays",
+              "Why people celebrate"
+            ],
+            "correct_answer": "Filipino birthday foods"
+          },
+          {
+            "question": "Choose the sentence with CORRECT subject-verb agreement:",
+            "options": [
+              "The children runs fast.",
+              "The child run fast.",
+              "The children run fast.",
+              "The children running fast."
+            ],
+            "correct_answer": "The children run fast."
+          },
+          {
+            "question": "'The adobo is salty, savory, and aromatic.' This sentence DESCRIBES the adobo using ___.",
+            "options": [
+              "numbers",
+              "describing words (adjectives)",
+              "action words",
+              "pronouns"
+            ],
+            "correct_answer": "describing words (adjectives)"
+          },
+          {
+            "question": "What does ENUMERATE mean in an enumeration-description text?",
+            "options": [
+              "Tell a story",
+              "List items one by one",
+              "Give opinions",
+              "Ask questions"
+            ],
+            "correct_answer": "List items one by one"
+          },
+          {
+            "question": "Which word BEST completes: 'The ___ celebration included singing, dancing, and eating.'?",
+            "options": [
+              "birthday",
+              "sad",
+              "quiet",
+              "boring"
+            ],
+            "correct_answer": "birthday"
+          },
+          {
+            "question": "A SUFFIX is added to the ___ of a word.",
+            "options": [
+              "beginning",
+              "middle",
+              "end",
+              "between two words"
+            ],
+            "correct_answer": "end"
+          },
+          {
+            "question": "What is the PURPOSE of a description in a text?",
+            "options": [
+              "To tell what happened first",
+              "To give detailed information about a topic",
+              "To ask a question",
+              "To give an opinion"
+            ],
+            "correct_answer": "To give detailed information about a topic"
+          },
+          {
+            "question": "Which is an AFFIXED word?",
+            "options": [
+              "Book",
+              "Run",
+              "Joyful",
+              "Sky"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "In the text: 'There are many dishes at a Filipino feast. First, there is lechon...' — which signal word shows enumeration?",
+            "options": [
+              "There are",
+              "Many",
+              "First",
+              "Feast"
+            ],
+            "correct_answer": "First"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🫀 Friday Review — Science (Grade 4)\n\n- Digestive, respiratory, and circulatory systems\n- The heart pumps blood carrying oxygen and nutrients\n\nGreat work! 🌟",
+        "quiz": [
+          {
+            "question": "Which organ system breaks down food so the body can use it?",
+            "options": [
+              "Respiratory system",
+              "Circulatory system",
+              "Digestive system",
+              "Nervous system"
+            ],
+            "correct_answer": "Digestive system"
+          },
+          {
+            "question": "The HEART is the main organ of which system?",
+            "options": [
+              "Digestive system",
+              "Respiratory system",
+              "Circulatory system",
+              "Skeletal system"
+            ],
+            "correct_answer": "Circulatory system"
+          },
+          {
+            "question": "Which organs are part of the RESPIRATORY SYSTEM?",
+            "options": [
+              "Stomach and intestines",
+              "Lungs and airways",
+              "Heart and blood vessels",
+              "Brain and nerves"
+            ],
+            "correct_answer": "Lungs and airways"
+          },
+          {
+            "question": "What does the RESPIRATORY SYSTEM do?",
+            "options": [
+              "Pumps blood to the body",
+              "Breaks down food",
+              "Takes in oxygen and releases carbon dioxide",
+              "Sends nerve signals"
+            ],
+            "correct_answer": "Takes in oxygen and releases carbon dioxide"
+          },
+          {
+            "question": "Blood carries oxygen and nutrients to all body parts through the ___ system.",
+            "options": [
+              "digestive",
+              "respiratory",
+              "nervous",
+              "circulatory"
+            ],
+            "correct_answer": "circulatory"
+          },
+          {
+            "question": "What is the FIRST part of the digestive system where food enters?",
+            "options": [
+              "Stomach",
+              "Small intestine",
+              "Esophagus",
+              "Mouth"
+            ],
+            "correct_answer": "Mouth"
+          },
+          {
+            "question": "The LUNGS are protected by the ___.",
+            "options": [
+              "backbone",
+              "skull",
+              "rib cage",
+              "pelvis"
+            ],
+            "correct_answer": "rib cage"
+          },
+          {
+            "question": "Which organ pumps blood through the body?",
+            "options": [
+              "Liver",
+              "Lungs",
+              "Stomach",
+              "Heart"
+            ],
+            "correct_answer": "Heart"
+          },
+          {
+            "question": "What happens to food in the STOMACH?",
+            "options": [
+              "It is absorbed into the blood",
+              "It is mixed with gastric acid and broken down further",
+              "It is pumped to the lungs",
+              "It is released from the body"
+            ],
+            "correct_answer": "It is mixed with gastric acid and broken down further"
+          },
+          {
+            "question": "The three body systems — digestive, respiratory, and circulatory — work TOGETHER to ___.",
+            "options": [
+              "keep us asleep",
+              "provide nutrients and oxygen to all body cells",
+              "produce bones",
+              "control breathing only"
+            ],
+            "correct_answer": "provide nutrients and oxygen to all body cells"
+          },
+          {
+            "question": "Which organ absorbs most nutrients into the bloodstream?",
+            "options": [
+              "Stomach",
+              "Large intestine",
+              "Small intestine",
+              "Esophagus"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What does the CIRCULATORY system carry to all body parts?",
+            "options": [
+              "Only water",
+              "Only food",
+              "Oxygen and nutrients (via blood)",
+              "Only waste"
+            ],
+            "correct_answer": "Oxygen and nutrients (via blood)"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📚 Biyernes na Balik-Aral — Filipino (Grade 4)\n\n- Alamat, pabula, parabula, anekdota\n- Talatang deskriptibo at panlapi\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ang ALAMAT ay isang uri ng kuwento na nagpapaliwanag ng ___.",
+            "options": [
+              "mga aral sa buhay",
+              "pinagmulan ng isang bagay o kababalaghan",
+              "tunay na pangyayari sa kasaysayan",
+              "mga tuntunin sa paaralan"
+            ],
+            "correct_answer": "pinagmulan ng isang bagay o kababalaghan"
+          },
+          {
+            "question": "Ang PABULA ay isang maikling kuwento na ang mga tauhan ay ___.",
+            "options": [
+              "mga tao lamang",
+              "mga hayop na nagsasalita",
+              "mga diwata",
+              "mga bayani"
+            ],
+            "correct_answer": "mga hayop na nagsasalita"
+          },
+          {
+            "question": "Ano ang layunin ng PARABULA?",
+            "options": [
+              "Magbigay ng impormasyon",
+              "Magbigay ng aral sa pamamagitan ng halimbawa",
+              "Magsalaysay ng kasaysayan",
+              "Maglaro ng salita"
+            ],
+            "correct_answer": "Magbigay ng aral sa pamamagitan ng halimbawa"
+          },
+          {
+            "question": "Sa pabula ng 'Pagong at Matsing,' ano ang aral?",
+            "options": [
+              "Mabilis ang palaging nananalo",
+              "Ang katapatan at tiyaga ay mas mahalaga kaysa talento",
+              "Ang matalino ay laging panalo",
+              "Huwag magtiwala sa sinuman"
+            ],
+            "correct_answer": "Ang katapatan at tiyaga ay mas mahalaga kaysa talento"
+          },
+          {
+            "question": "Ang ANEKDOTA ay isang maikling ___.",
+            "options": [
+              "tulang may tugma",
+              "kwentong nagtatanghal ng katangian ng isang tao",
+              "kabanata ng nobela",
+              "paliwanag ng agham"
+            ],
+            "correct_answer": "kwentong nagtatanghal ng katangian ng isang tao"
+          },
+          {
+            "question": "Ang 'deskriptibong talata' ay nagbibigay ng detalyadong ___ ng isang tao, lugar, o bagay.",
+            "options": [
+              "kasaysayan",
+              "paglalarawan",
+              "talaan",
+              "tanong"
+            ],
+            "correct_answer": "paglalarawan"
+          },
+          {
+            "question": "Alin ang PANG-URI sa pangungusap: 'Ang malakas na ulan ay bumaha sa lansangan.'?",
+            "options": [
+              "ulan",
+              "bumaha",
+              "lansangan",
+              "malakas"
+            ],
+            "correct_answer": "malakas"
+          },
+          {
+            "question": "Paano mo malalaman kung ang pahayag ay katotohanan o opinyon?",
+            "options": [
+              "Kung ito ay may makulay na salita",
+              "Ang katotohanan ay maaaring patunayan; ang opinyon ay saloobin",
+              "Kung ito ay mahabang pangungusap",
+              "Kung may salitang 'at' ito"
+            ],
+            "correct_answer": "Ang katotohanan ay maaaring patunayan; ang opinyon ay saloobin"
+          },
+          {
+            "question": "Sa pagbabago ng salita gamit ang panlapi: 'basa' + '-in' = ___?",
+            "options": [
+              "basain",
+              "ibasa",
+              "nabasa",
+              "magbasa"
+            ],
+            "correct_answer": "basain"
+          },
+          {
+            "question": "Ang 'pagpapahayag ng sariling saloobin' ay isang kasanayang ___.",
+            "options": [
+              "pakikinig",
+              "pagsasalita",
+              "pagbasa",
+              "panonood"
+            ],
+            "correct_answer": "pagsasalita"
+          },
+          {
+            "question": "Sa pagsulat ng talatang deskriptibo, ang UNANG hakbang ay ___.",
+            "options": [
+              "isulat ang konklusyon",
+              "tukuyin ang paksa o bagay na ilalarawan",
+              "ilagay ang mga ebidensya",
+              "lagyan ng pamagat"
+            ],
+            "correct_answer": "tukuyin ang paksa o bagay na ilalarawan"
+          },
+          {
+            "question": "Ang salitang 'nagdadala' ay naglalaman ng panlaping ___.",
+            "options": [
+              "-in",
+              "-an",
+              "nag-",
+              "um-"
+            ],
+            "correct_answer": "nag-"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ Friday Review — EPP ICT (Grade 4)\n\n- CPU is the brain of the computer\n- Input devices vs. output devices\n- Hardware vs. software\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "What is the BRAIN of the computer called?",
+            "options": [
+              "Monitor",
+              "CPU (Central Processing Unit)",
+              "Keyboard",
+              "Printer"
+            ],
+            "correct_answer": "CPU (Central Processing Unit)"
+          },
+          {
+            "question": "The MONITOR is used to ___.",
+            "options": [
+              "type text",
+              "display information",
+              "print documents",
+              "store data"
+            ],
+            "correct_answer": "display information"
+          },
+          {
+            "question": "Which device lets you move the cursor on the screen?",
+            "options": [
+              "Keyboard",
+              "Printer",
+              "Mouse",
+              "Monitor"
+            ],
+            "correct_answer": "Mouse"
+          },
+          {
+            "question": "To SHUTDOWN a computer correctly, you should ___.",
+            "options": [
+              "just press the power button while working",
+              "use the Start/Apple menu and choose Shut Down",
+              "unplug the power cable",
+              "close all windows and then wait"
+            ],
+            "correct_answer": "use the Start/Apple menu and choose Shut Down"
+          },
+          {
+            "question": "What does INPUT mean in computing?",
+            "options": [
+              "Data that comes OUT of the computer",
+              "Data that goes INTO the computer",
+              "The screen display",
+              "The storage of the computer"
+            ],
+            "correct_answer": "Data that goes INTO the computer"
+          },
+          {
+            "question": "Which of these is an INPUT DEVICE?",
+            "options": [
+              "Monitor",
+              "Printer",
+              "Speaker",
+              "Keyboard"
+            ],
+            "correct_answer": "Keyboard"
+          },
+          {
+            "question": "Which of these is an OUTPUT DEVICE?",
+            "options": [
+              "Keyboard",
+              "Mouse",
+              "Scanner",
+              "Printer"
+            ],
+            "correct_answer": "Printer"
+          },
+          {
+            "question": "'Booting' a computer means ___.",
+            "options": [
+              "turning it off",
+              "starting/turning it on so it loads the operating system",
+              "saving a file",
+              "connecting to the internet"
+            ],
+            "correct_answer": "starting/turning it on so it loads the operating system"
+          },
+          {
+            "question": "What is HARDWARE?",
+            "options": [
+              "Software programs installed on the computer",
+              "Physical parts of the computer you can touch",
+              "The files saved on the computer",
+              "The internet connection"
+            ],
+            "correct_answer": "Physical parts of the computer you can touch"
+          },
+          {
+            "question": "What is SOFTWARE?",
+            "options": [
+              "The physical parts of a computer",
+              "Programs and applications that run on the computer",
+              "The power supply of a computer",
+              "The keyboard and mouse"
+            ],
+            "correct_answer": "Programs and applications that run on the computer"
+          },
+          {
+            "question": "Which keyboarding technique keeps the fingers resting on the HOME ROW keys?",
+            "options": [
+              "Hunt and peck",
+              "Touch typing",
+              "One-finger typing",
+              "Speed typing"
+            ],
+            "correct_answer": "Touch typing"
+          },
+          {
+            "question": "Why is it important to hold the mouse with a RELAXED GRIP?",
+            "options": [
+              "To type faster",
+              "To prevent strain and control the cursor more accurately",
+              "To make the computer faster",
+              "To charge the battery"
+            ],
+            "correct_answer": "To prevent strain and control the cursor more accurately"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🍕 Friday Review — Mathematics (Grade 4)\n\n- Proper, improper, and mixed fractions\n- Equivalent fractions and lowest terms\n\nGreat job! ⭐",
+        "quiz": [
+          {
+            "question": "Which fraction has a NUMERATOR smaller than its denominator?",
+            "options": [
+              "Improper fraction",
+              "Mixed number",
+              "Proper fraction",
+              "Whole number"
+            ],
+            "correct_answer": "Proper fraction"
+          },
+          {
+            "question": "What is 7/4 written as a MIXED NUMBER?",
+            "options": [
+              "1 1/4",
+              "1 3/4",
+              "2 1/4",
+              "1 2/4"
+            ],
+            "correct_answer": "1 3/4"
+          },
+          {
+            "question": "What is 2 1/3 written as an IMPROPER FRACTION?",
+            "options": [
+              "5/3",
+              "7/3",
+              "6/3",
+              "4/3"
+            ],
+            "correct_answer": "7/3"
+          },
+          {
+            "question": "Which fraction is EQUIVALENT to 1/2?",
+            "options": [
+              "2/3",
+              "3/4",
+              "4/8",
+              "5/6"
+            ],
+            "correct_answer": "4/8"
+          },
+          {
+            "question": "A fraction in LOWEST TERMS has a GCF of the numerator and denominator equal to ___.",
+            "options": [
+              "0",
+              "1",
+              "2",
+              "5"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "Which fraction shows the LARGEST part of a whole?",
+            "options": [
+              "1/8",
+              "1/4",
+              "1/2",
+              "1/3"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "Reduce 6/8 to lowest terms.",
+            "options": [
+              "3/4",
+              "2/3",
+              "6/8",
+              "1/2"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Which pair of fractions is EQUIVALENT?",
+            "options": [
+              "1/2 and 2/5",
+              "3/4 and 6/8",
+              "2/3 and 4/5",
+              "1/3 and 2/5"
+            ],
+            "correct_answer": "3/4 and 6/8"
+          },
+          {
+            "question": "What does the DENOMINATOR of a fraction tell us?",
+            "options": [
+              "How many parts are taken",
+              "How many equal parts the whole is divided into",
+              "The value of the fraction",
+              "The size of each part only"
+            ],
+            "correct_answer": "How many equal parts the whole is divided into"
+          },
+          {
+            "question": "2/5 compared to 4/10: which is GREATER?",
+            "options": [
+              "2/5",
+              "4/10",
+              "They are equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "They are equal"
+          },
+          {
+            "question": "What fraction represents 3 out of 8 equal parts?",
+            "options": [
+              "8/3",
+              "3/5",
+              "3/8",
+              "5/8"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "Which is an IMPROPER FRACTION?",
+            "options": [
+              "3/4",
+              "1/2",
+              "9/4",
+              "2/6"
+            ],
+            "correct_answer": "9/4"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 4)\n\n- Lokasyon ng Pilipinas sa Timog-Silangang Asya\n- Luzon, Visayas, Mindanao\n\nMagaling! 🌟",
+        "quiz": [
+          {
+            "question": "Ang Pilipinas ay matatagpuan sa ___ bahagi ng Asya.",
+            "options": [
+              "Hilaga",
+              "Timog",
+              "Silangan",
+              "Timog-Silangan"
+            ],
+            "correct_answer": "Timog-Silangan"
+          },
+          {
+            "question": "Ang Pilipinas ay binubuo ng halos ___ pulo.",
+            "options": [
+              "700",
+              "1000",
+              "7,641",
+              "10,000"
+            ],
+            "correct_answer": "7,641"
+          },
+          {
+            "question": "Ang pinakamataas na bundok sa Pilipinas ay ___.",
+            "options": [
+              "Mayon",
+              "Apo",
+              "Pulag",
+              "Kanlaon"
+            ],
+            "correct_answer": "Apo"
+          },
+          {
+            "question": "Ang Dagat Pasipiko ay nasa ___ ng Pilipinas.",
+            "options": [
+              "Kanluran",
+              "Silangan",
+              "Hilaga",
+              "Timog"
+            ],
+            "correct_answer": "Silangan"
+          },
+          {
+            "question": "Ang Dagat Timog Tsina ay nasa ___ ng Pilipinas.",
+            "options": [
+              "Silangan",
+              "Hilaga",
+              "Kanluran",
+              "Timog"
+            ],
+            "correct_answer": "Kanluran"
+          },
+          {
+            "question": "Ang KAPULUAN ay isang grupo ng ___.",
+            "options": [
+              "kabundukan",
+              "mga lawa",
+              "mga pulo",
+              "mga ilog"
+            ],
+            "correct_answer": "mga pulo"
+          },
+          {
+            "question": "Ang pisikal na heograpiya ay tumutukoy sa ___.",
+            "options": [
+              "mga tao at lipunan",
+              "likas na katangian ng lugar tulad ng bundok at ilog",
+              "mga lungsod at bayan",
+              "kasaysayan ng isang lugar"
+            ],
+            "correct_answer": "likas na katangian ng lugar tulad ng bundok at ilog"
+          },
+          {
+            "question": "Alin ang PINAKAMAHABANG ilog sa Pilipinas?",
+            "options": [
+              "Pasig",
+              "Pampanga",
+              "Cagayan",
+              "Marikina"
+            ],
+            "correct_answer": "Cagayan"
+          },
+          {
+            "question": "Ang LOKASYON ng Pilipinas sa mapa ay matatagpuan sa pagitan ng ___.",
+            "options": [
+              "0° at 10° Hilaga, 110° at 120° Silangan",
+              "4° at 21° Hilaga, 116° at 127° Silangan",
+              "10° at 30° Hilaga, 100° at 130° Silangan",
+              "20° at 40° Hilaga, 120° at 140° Silangan"
+            ],
+            "correct_answer": "4° at 21° Hilaga, 116° at 127° Silangan"
+          },
+          {
+            "question": "Ang RELATIBONG LOKASYON ay nagpapaliwanag kung saan ang isang lugar ___.",
+            "options": [
+              "gamit ang longitude at latitude",
+              "kaugnay ng ibang kilalang lugar",
+              "batay sa sukat ng mapa",
+              "ayon sa kasaysayan"
+            ],
+            "correct_answer": "kaugnay ng ibang kilalang lugar"
+          },
+          {
+            "question": "Ang Pilipinas ay may ___ pangunahing pangkat ng kapuluan.",
+            "options": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "Ang tatlong pangunahing pangkat ng kapuluan ng Pilipinas ay ___.",
+            "options": [
+              "Luzon, Cebu, Davao",
+              "Luzon, Visayas, Mindanao",
+              "Luzon, Palawan, Mindanao",
+              "Visayas, Palawan, Davao"
+            ],
+            "correct_answer": "Luzon, Visayas, Mindanao"
+          }
+        ]
+      }
+    }
+  }
+}

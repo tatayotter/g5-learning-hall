@@ -1,0 +1,1409 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-08-02",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## Nonverbal Cues, Visual Elements, and Audio Elements\n\n- **Nonverbal cues** are signals or behaviors that give meaning without words — facial expressions, gestures, posture, eye contact, and tone of voice. Example: crossed arms and no eye contact can signal that someone feels uncomfortable or unsure.\n- **Visual elements** (images, text, colors, shapes, lines, space, graphics) are the building blocks of design. **Layout** is how these elements are arranged on a page. Good layout uses **alignment** (lining things up), **proximity** (grouping related ideas together), and **contrast** (making important parts stand out) to guide the reader's eye.\n- **Cultural appropriateness** means using visual elements from a culture with respect — understanding their real meaning before using them, instead of copying or joking about sacred symbols.\n- **Audio elements** in multimedia include background music, sound effects (like footsteps or rain), voiceover (recorded narration), and dialogue (recorded conversations). They help set the mood and deliver information.\n- Example: a video about a Philippine festival that uses traditional music as background sound and explains rituals respectfully is combining audio and cultural appropriateness effectively.\n- Good design combines all of these thoughtfully — a message is clearest when nonverbal cues, layout, culture, and sound all work together.",
+        "quiz": [
+          {
+            "question": "What are nonverbal cues?",
+            "options": [
+              "Signals or behaviors that give meaning without words",
+              "Long written speeches",
+              "Printed paragraphs in a book",
+              "A list of vocabulary words"
+            ],
+            "correct_answer": "Signals or behaviors that give meaning without words"
+          },
+          {
+            "question": "Which of these is an example of a facial expression?",
+            "options": [
+              "A smile",
+              "A table",
+              "A page",
+              "A pencil"
+            ],
+            "correct_answer": "A smile"
+          },
+          {
+            "question": "What is layout?",
+            "options": [
+              "How visual elements are arranged on a page",
+              "A type of background music",
+              "A spoken conversation",
+              "A facial expression"
+            ],
+            "correct_answer": "How visual elements are arranged on a page"
+          },
+          {
+            "question": "Which of these is an audio element used in multimedia?",
+            "options": [
+              "Background music",
+              "A title font",
+              "A page border",
+              "A photo caption"
+            ],
+            "correct_answer": "Background music"
+          },
+          {
+            "question": "What does cultural appropriateness mean in design?",
+            "options": [
+              "Using cultural symbols and ideas with respect and understanding",
+              "Copying any symbol without asking questions",
+              "Removing all colors from a design",
+              "Using only black and white images"
+            ],
+            "correct_answer": "Using cultural symbols and ideas with respect and understanding"
+          },
+          {
+            "question": "A classmate crosses their arms, frowns, and avoids eye contact while you are talking. What is this classmate most likely feeling?",
+            "options": [
+              "Upset or uncomfortable",
+              "Excited and happy",
+              "Confused about math",
+              "Very sleepy"
+            ],
+            "correct_answer": "Upset or uncomfortable"
+          },
+          {
+            "question": "Which layout principle means placing related items close together on a page?",
+            "options": [
+              "Proximity",
+              "Contrast",
+              "Balance",
+              "Repetition"
+            ],
+            "correct_answer": "Proximity"
+          },
+          {
+            "question": "Why do designers use contrast in a layout?",
+            "options": [
+              "To make important parts stand out",
+              "To hide the main message",
+              "To remove all images",
+              "To make the page harder to read"
+            ],
+            "correct_answer": "To make important parts stand out"
+          },
+          {
+            "question": "Before using a traditional cultural symbol in a school project, what should a student do first?",
+            "options": [
+              "Learn and understand its true meaning",
+              "Copy it exactly from the internet",
+              "Turn it into a joke",
+              "Ignore where it came from"
+            ],
+            "correct_answer": "Learn and understand its true meaning"
+          },
+          {
+            "question": "Which audio element refers to a recorded conversation between characters in a video?",
+            "options": [
+              "Dialogue",
+              "Background music",
+              "Sound effects",
+              "Voiceover"
+            ],
+            "correct_answer": "Dialogue"
+          },
+          {
+            "question": "A magazine page has cluttered text, no clear title, and mismatched colors. Based on layout principles, what should be improved first?",
+            "options": [
+              "Align the text and enlarge the title for clearer organization",
+              "Add more clutter to fill empty space",
+              "Remove the title completely",
+              "Use as many colors as possible"
+            ],
+            "correct_answer": "Align the text and enlarge the title for clearer organization"
+          },
+          {
+            "question": "A video about a Filipino festival uses traditional music as background sound and respectfully explains certain rituals. Why is this a good example of using audio and cultural elements together?",
+            "options": [
+              "It sets the right mood while showing understanding and respect for the culture portrayed",
+              "It makes the video longer without any real purpose",
+              "It confuses the viewer about the festival",
+              "It removes the need for any narration"
+            ],
+            "correct_answer": "It sets the right mood while showing understanding and respect for the culture portrayed"
+          },
+          {
+            "question": "During a class presentation, a student crosses their arms, avoids eye contact, and speaks in a flat tone. What message is likely being sent, even without words?",
+            "options": [
+              "The student may feel unsure, closed-off, or uninterested",
+              "The student is extremely confident",
+              "The student is very cheerful",
+              "The student wants to ask more questions"
+            ],
+            "correct_answer": "The student may feel unsure, closed-off, or uninterested"
+          },
+          {
+            "question": "Two students design posters with the same information. One groups related ideas together and aligns all text, while the other scatters items randomly. Which principle explains why the first poster communicates more clearly?",
+            "options": [
+              "Proximity and alignment guide the reader's eye and organize the message",
+              "Random placement always looks more creative",
+              "Alignment has no effect on how a page is read",
+              "Grouping ideas together makes a page confusing"
+            ],
+            "correct_answer": "Proximity and alignment guide the reader's eye and organize the message"
+          },
+          {
+            "question": "Why must designers consider culture, layout, and audio together when creating a multimedia project?",
+            "options": [
+              "Because each element affects how clearly and respectfully the message is understood by the audience",
+              "Because only audio matters in multimedia",
+              "Because layout has no effect on understanding",
+              "Because culture should never influence design choices"
+            ],
+            "correct_answer": "Because each element affects how clearly and respectfully the message is understood by the audience"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## Division of Fractions Using Models\n\n- **Division** means equal sharing — it tells us how many equal groups there are. For fractions, we ask: \"How many of this small part fit inside the given amount?\"\n- Important terms: the **dividend** is the amount being divided (e.g., 2/3), the **divisor** is the size of each group (e.g., 1/3), and the **quotient** is the number of groups (e.g., 2).\n- **Fraction bars** and number lines are useful models for seeing the quotient clearly. Example: 2/3 ÷ 1/3 = 2, because there are exactly 2 equal pieces of size 1/3 inside 2/3.\n- When both fractions have the **same denominator**, division is simple — just count how many of the smaller pieces fit into the larger amount. Example: 4/8 ÷ 1/8 = 4.\n- **Equivalent fractions** name the same amount in different ways (e.g., 1/2 = 2/4, and 3/4 = 6/8). Using a common denominator makes it easier to count equal-sized pieces when dividing.\n- Real-life example: if a ribbon that is 4/5 meter long is cut into pieces that are each 1/5 meter, there will be 4 pieces — the same idea as 4/5 ÷ 1/5 = 4.",
+        "quiz": [
+          {
+            "question": "What does division mean?",
+            "options": [
+              "Equal sharing",
+              "Guessing only",
+              "Adding colors",
+              "Drawing shapes"
+            ],
+            "correct_answer": "Equal sharing"
+          },
+          {
+            "question": "What is the answer in a division problem called?",
+            "options": [
+              "Quotient",
+              "Dividend",
+              "Divisor",
+              "Model"
+            ],
+            "correct_answer": "Quotient"
+          },
+          {
+            "question": "In the problem 2/3 divided by 1/3, what do we call the 2/3?",
+            "options": [
+              "Dividend",
+              "Divisor",
+              "Quotient",
+              "Denominator"
+            ],
+            "correct_answer": "Dividend"
+          },
+          {
+            "question": "Which model can be used to show fraction division?",
+            "options": [
+              "Fraction bar",
+              "Calendar",
+              "Compass",
+              "Clock only"
+            ],
+            "correct_answer": "Fraction bar"
+          },
+          {
+            "question": "What do equivalent fractions represent?",
+            "options": [
+              "The same amount named in different ways",
+              "Always a smaller amount",
+              "Two completely different amounts",
+              "Only whole numbers"
+            ],
+            "correct_answer": "The same amount named in different ways"
+          },
+          {
+            "question": "How many 1/3 pieces are in 2/3?",
+            "options": [
+              "2",
+              "1",
+              "3",
+              "4"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is 4/8 divided by 1/8?",
+            "options": [
+              "4",
+              "8",
+              "2",
+              "1"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "3/4 is equal to how many eighths?",
+            "options": [
+              "6/8",
+              "3/8",
+              "4/8",
+              "8/8"
+            ],
+            "correct_answer": "6/8"
+          },
+          {
+            "question": "Why do we use a common denominator when dividing fractions using models?",
+            "options": [
+              "So we can count equal-sized pieces easily",
+              "So the fractions become whole numbers",
+              "So we can avoid using models",
+              "So the answer is always 1"
+            ],
+            "correct_answer": "So we can count equal-sized pieces easily"
+          },
+          {
+            "question": "A ribbon that is 4/5 meter long is cut into pieces that are each 1/5 meter. How many pieces will there be?",
+            "options": [
+              "4",
+              "5",
+              "1",
+              "9"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Explain why 2/3 ÷ 1/3 = 2 makes sense using a fraction bar model.",
+            "options": [
+              "Because there are exactly 2 equal pieces of size 1/3 that fit inside 2/3",
+              "Because 2/3 is smaller than 1/3",
+              "Because dividing fractions always doubles the number",
+              "Because the fraction bar shows 3 equal pieces only"
+            ],
+            "correct_answer": "Because there are exactly 2 equal pieces of size 1/3 that fit inside 2/3"
+          },
+          {
+            "question": "A recipe needs 6/8 cup of flour, measured in scoops of 1/8 cup each. If you already used 2 scoops, how many more scoops are needed to complete the recipe?",
+            "options": [
+              "4",
+              "6",
+              "2",
+              "8"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Why is it easier to divide 4/8 by 1/8 using a model than to divide 3/4 by 1/3 directly?",
+            "options": [
+              "Because same denominators let us count equal-sized pieces right away",
+              "Because different denominators always give the same answer",
+              "Because whole numbers are needed to divide fractions",
+              "Because a model cannot show fractions with different denominators"
+            ],
+            "correct_answer": "Because same denominators let us count equal-sized pieces right away"
+          },
+          {
+            "question": "A gardener has 5/6 liter of fertilizer and pours it into containers that hold 1/6 liter each. If 2 of the filled containers are used right away on the garden, how many filled containers are left?",
+            "options": [
+              "3",
+              "5",
+              "2",
+              "1"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "A classmate says 'dividing fractions always makes the answer smaller.' Using what you learned about dividing fractions with models, explain why this is not always true.",
+            "options": [
+              "Because dividing a fraction by a smaller fraction can give a whole number bigger than the original amount, like 2/3 ÷ 1/3 = 2",
+              "Because fractions can never be divided",
+              "Because the quotient is always smaller than the dividend",
+              "Because models only work with whole numbers"
+            ],
+            "correct_answer": "Because dividing a fraction by a smaller fraction can give a whole number bigger than the original amount, like 2/3 ÷ 1/3 = 2"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Classification of Living Things: Plants — Angiosperms and Gymnosperms\n\n- Scientists **classify** plants by grouping them according to similar, **observable** characteristics — not guesses.\n- **Angiosperms** are flowering plants: they produce flowers, and their seeds are **enclosed inside fruit**. Philippine examples: mango tree (flowers and fleshy fruit with seeds, pollinated by bees and butterflies) and banaba tree (broad leaves, traditional local uses).\n- **Gymnosperms** do not produce flowers or fruit — their seeds are **naked/exposed**, often in cones, and their leaves are usually needle-like or scale-like. Examples: pine (cones, needle-like leaves), spruce (cone-bearing tree), and cycad (exposed seeds).\n- A simple classification table compares four traits side by side:\n\n| Trait | Angiosperm | Gymnosperm |\n|---|---|---|\n| Flowers | present | absent |\n| Fruits | present | absent |\n| Seeds | enclosed | naked/exposed |\n| Leaves | often broad | needle/scale-like |\n\n- Using **multiple traits together** (not just one) helps avoid mistakes — for example, a plant's overall look can be misleading, but checking flowers, fruits, seeds, and leaves together gives a clearer answer.",
+        "quiz": [
+          {
+            "question": "Which group of plants includes flowering plants?",
+            "options": [
+              "Angiosperms",
+              "Gymnosperms",
+              "Mosses only",
+              "Algae only"
+            ],
+            "correct_answer": "Angiosperms"
+          },
+          {
+            "question": "What is one clue that a plant is an angiosperm?",
+            "options": [
+              "It has flowers or fruits",
+              "It has no cells",
+              "It never has seeds",
+              "It is always underwater"
+            ],
+            "correct_answer": "It has flowers or fruits"
+          },
+          {
+            "question": "What does classification mean?",
+            "options": [
+              "Grouping things by their traits",
+              "Planting seeds",
+              "Watering plants",
+              "Cutting leaves"
+            ],
+            "correct_answer": "Grouping things by their traits"
+          },
+          {
+            "question": "In angiosperms, where are the seeds usually found?",
+            "options": [
+              "Enclosed inside fruit",
+              "Exposed on top of a cone",
+              "Floating freely in water",
+              "Inside the roots"
+            ],
+            "correct_answer": "Enclosed inside fruit"
+          },
+          {
+            "question": "Which of these is an example of a gymnosperm?",
+            "options": [
+              "Pine tree",
+              "Mango tree",
+              "Hibiscus",
+              "Sunflower"
+            ],
+            "correct_answer": "Pine tree"
+          },
+          {
+            "question": "A plant has naked, exposed seeds and no flowers. Based on a classification table, what group does it most likely belong to?",
+            "options": [
+              "Gymnosperm",
+              "Angiosperm",
+              "Fungi",
+              "Algae"
+            ],
+            "correct_answer": "Gymnosperm"
+          },
+          {
+            "question": "The mango tree is classified as an angiosperm mainly because it produces which of these?",
+            "options": [
+              "Flowers and fleshy fruits containing seeds",
+              "Cones with exposed seeds",
+              "Needle-shaped leaves only",
+              "No seeds at all"
+            ],
+            "correct_answer": "Flowers and fleshy fruits containing seeds"
+          },
+          {
+            "question": "Why should classification of plants be based on observable traits rather than guesses?",
+            "options": [
+              "Because a good classification depends on real evidence, not assumptions",
+              "Because guesses are always more accurate",
+              "Because observable traits cannot be seen",
+              "Because classification does not need any evidence"
+            ],
+            "correct_answer": "Because a good classification depends on real evidence, not assumptions"
+          },
+          {
+            "question": "A student finds a plant with cone-like structures, exposed seeds, and needle-shaped leaves. Using the classification table (flowers, fruits, seeds, leaves), how should this plant be classified, and why?",
+            "options": [
+              "As a gymnosperm, because it lacks flowers/fruits and has exposed seeds with needle-like leaves",
+              "As an angiosperm, because all plants with leaves are angiosperms",
+              "As a gymnosperm, because it has fleshy fruit",
+              "As an angiosperm, because it has cones"
+            ],
+            "correct_answer": "As a gymnosperm, because it lacks flowers/fruits and has exposed seeds with needle-like leaves"
+          },
+          {
+            "question": "Explain why the presence of enclosed seeds inside a fruit is a stronger clue for angiosperm classification than leaf shape alone.",
+            "options": [
+              "Because some angiosperms can have narrow leaves, but enclosed seeds in fruit are a defining trait of angiosperms",
+              "Because leaf shape is always more reliable than seed structure",
+              "Because fruit is found in every gymnosperm as well",
+              "Because seeds are never found in angiosperms"
+            ],
+            "correct_answer": "Because some angiosperms can have narrow leaves, but enclosed seeds in fruit are a defining trait of angiosperms"
+          },
+          {
+            "question": "A cycad has exposed seeds but grows in a way that looks similar to some flowering plants. Why is it still classified as a gymnosperm?",
+            "options": [
+              "Because classification depends on traits like exposed seeds and absence of flowers, not overall appearance",
+              "Because it produces fruit like a mango tree",
+              "Because it has broad leaves like an angiosperm",
+              "Because all plants that look similar belong to the same group"
+            ],
+            "correct_answer": "Because classification depends on traits like exposed seeds and absence of flowers, not overall appearance"
+          },
+          {
+            "question": "Explain how a classification table (comparing flowers, fruits, seeds, and leaves) helps scientists avoid mistakes when identifying whether a Philippine plant is an angiosperm or gymnosperm.",
+            "options": [
+              "It provides multiple observable traits to check together, instead of relying on just one feature that could be misleading",
+              "It removes the need to observe the plant directly",
+              "It only works for animals, not plants",
+              "It guarantees plants never change classification"
+            ],
+            "correct_answer": "It provides multiple observable traits to check together, instead of relying on just one feature that could be misleading"
+          },
+          {
+            "question": "Using what you know about angiosperms and gymnosperms, explain why the banaba tree (with broad leaves and traditional local uses) is classified differently from a pine tree.",
+            "options": [
+              "The banaba tree produces flowers and fruit with enclosed seeds, while the pine tree has cones with exposed seeds and needle-like leaves",
+              "Both trees belong to the same group because they are both plants",
+              "The pine tree produces fruit like the banaba tree",
+              "Classification depends only on where the tree grows, not its traits"
+            ],
+            "correct_answer": "The banaba tree produces flowers and fruit with enclosed seeds, while the pine tree has cones with exposed seeds and needle-like leaves"
+          },
+          {
+            "question": "Why do scientists classify plants?",
+            "options": [
+              "To group them by similar traits",
+              "To make plants disappear",
+              "To change their color",
+              "To stop them from growing"
+            ],
+            "correct_answer": "To group them by similar traits"
+          },
+          {
+            "question": "How do the leaves of gymnosperms usually differ from the leaves of angiosperms?",
+            "options": [
+              "Gymnosperm leaves are often needle-like or scale-like, while angiosperm leaves are often broad",
+              "Gymnosperm leaves are always brightly colored",
+              "Angiosperms never have leaves",
+              "Gymnosperms only grow underwater"
+            ],
+            "correct_answer": "Gymnosperm leaves are often needle-like or scale-like, while angiosperm leaves are often broad"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "## Aralin 8: Pagbuo ng Diskursong Impormatibo sa Pagkaing Pinoy\n\n- Ang **tekstong impormatibo** ay naglalahad ng katotohanan at tamang proseso — hindi ito gawa-gawa o pantasya.\n- Ang **Tatlong Mahalagang Pokus** sa pagbuo ng diskurso: **Layon at Kahulugan** (ang tunay na mensahe), **Tagapakinig at Konteksto** (iangkop ang pananalita sa kausap), at **Tono at Damdamin** (gamitin ang tamang emosyon para maging epektibo).\n- Mahalaga ang **angkop na diksiyon** o kaangkupan ng salita upang malinaw na maipahayag ang impormasyon, at ang mga **pandiwa** upang maipakita ang mga hakbang o proseso.\n- Ginagamitan ng mga **panandang pang-ugnay** (tulad ng \"una,\" \"pagkatapos,\" \"sa wakas\") ang isang proseso upang malinaw na masundan ang pagkakasunod-sunod ng mga hakbang.\n- Halimbawa ng pagkaing Pinoy na tinalakay: **Bicol Express/Ginataang Aba** (malapot na gata, maanghang dahil sa sili), **Pastilyas** (gawa sa gatas at asukal), at **Balot** (itlog na may sorpresa sa loob, kinakain sa gabi).\n- Mahalagang matutunan ang paghahanda ng pagkaing Pinoy dahil ito ay bahagi ng ating **pambansang identidad** — nagpapakita ito ng natatanging kultura at kasanayan ng mga Pilipino.",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng tekstong impormatibo?",
+            "options": [
+              "Maglahad ng katotohanan at tamang proseso",
+              "Magpatawa sa mambabasa",
+              "Magkwento ng gawa-gawang pangyayari",
+              "Manghikayat lamang ng damdamin"
+            ],
+            "correct_answer": "Maglahad ng katotohanan at tamang proseso"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'angkop na diksiyon' sa pagsulat?",
+            "options": [
+              "Ang tamang pagpili ng salita ayon sa layunin at konteksto",
+              "Ang bilang ng pahina ng isang teksto",
+              "Ang uri ng papel na gagamitin",
+              "Ang kulay ng gagamiting panulat"
+            ],
+            "correct_answer": "Ang tamang pagpili ng salita ayon sa layunin at konteksto"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang bahagi ng 'Tatlong Mahalagang Pokus' sa diskurso?",
+            "options": [
+              "Layon at Kahulugan",
+              "Kulay ng Damit",
+              "Presyo ng Produkto",
+              "Petsa ng Kapanganakan"
+            ],
+            "correct_answer": "Layon at Kahulugan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pagkaing Pinoy na binanggit sa aralin?",
+            "options": [
+              "Bicol Express",
+              "Spaghetti",
+              "Sushi",
+              "Pizza"
+            ],
+            "correct_answer": "Bicol Express"
+          },
+          {
+            "question": "Anong bahagi ng pananalita ang karaniwang ginagamit sa paglalahad ng mga hakbang o proseso?",
+            "options": [
+              "Pandiwa",
+              "Pang-uri",
+              "Pangngalan",
+              "Panghalip"
+            ],
+            "correct_answer": "Pandiwa"
+          },
+          {
+            "question": "Bakit mahalagang gamitin ang tamang tono at damdamin kapag naglalahad ng impormasyon?",
+            "options": [
+              "Upang maging mas epektibo at malinaw ang mensahe",
+              "Upang mahaba ang sulat",
+              "Upang mahirap unawain ng mambabasa",
+              "Upang maiwasan ang paggamit ng mga larawan"
+            ],
+            "correct_answer": "Upang maging mas epektibo at malinaw ang mensahe"
+          },
+          {
+            "question": "Kapag sumusulat ka ng resipi para sa mga bata, ano ang dapat mong isaalang-alang?",
+            "options": [
+              "Ang pagiging simple at malinaw ng mga salitang gagamitin",
+              "Ang paggamit ng mahihirap na terminong siyentipiko",
+              "Ang haba ng pangungusap kahit hindi maintindihan",
+              "Ang pagsulat sa ibang wika"
+            ],
+            "correct_answer": "Ang pagiging simple at malinaw ng mga salitang gagamitin"
+          },
+          {
+            "question": "Bakit ginagamitan ng mga pananda (tulad ng 'una', 'pagkatapos', 'sa wakas') ang isang tekstong naglalahad ng proseso?",
+            "options": [
+              "Upang maipakita ang tamang pagkakasunod-sunod ng mga hakbang",
+              "Upang gawing mas mahaba ang teksto",
+              "Upang maging mas komplikado ang pagbasa",
+              "Upang maiwasan ang paggamit ng pandiwa"
+            ],
+            "correct_answer": "Upang maipakita ang tamang pagkakasunod-sunod ng mga hakbang"
+          },
+          {
+            "question": "Bakit kailangang matutunan ng mga Pilipino ang paghahanda ng sariling pagkain?",
+            "options": [
+              "Upang mapanatili ang bahagi ng pambansang identidad",
+              "Upang makalimutan ang lutuing Pilipino",
+              "Upang laging bumili na lamang sa labas",
+              "Dahil ipinagbabawal ang lutuing banyaga"
+            ],
+            "correct_answer": "Upang mapanatili ang bahagi ng pambansang identidad"
+          },
+          {
+            "question": "Ano ang natatanging katangian ng Balot bilang pagkaing Pinoy?",
+            "options": [
+              "Isang lutong itlog na may sorpresa sa loob, karaniwang kinakain sa gabi",
+              "Isang matamis na minatamis na prutas",
+              "Isang inuming gawa sa gatas",
+              "Isang klase ng kanin"
+            ],
+            "correct_answer": "Isang lutong itlog na may sorpresa sa loob, karaniwang kinakain sa gabi"
+          },
+          {
+            "question": "Paano makakatulong ang malinaw na panuto sa isang resipi upang maging matagumpay ang komunikasyon?",
+            "options": [
+              "Naiiwasan ang pagkalito at nasusundan nang tama ang mga hakbang",
+              "Nagiging mas mahaba ang oras ng pagluluto",
+              "Naiiwasan ang paggamit ng mga sangkap",
+              "Nagiging mas magastos ang lutuin"
+            ],
+            "correct_answer": "Naiiwasan ang pagkalito at nasusundan nang tama ang mga hakbang"
+          },
+          {
+            "question": "Kung sasabihin mo sa isang kaibigan kung paano magluto ng isang ulam, aling paraan ng pagsasaayos ang pinakamainam?",
+            "options": [
+              "Ilahad ang mga hakbang ayon sa tamang pagkakasunod-sunod gamit ang mga pananda",
+              "Ihalo-halo ang mga hakbang nang walang ayos",
+              "Ilagay lamang ang listahan ng sangkap nang walang paliwanag",
+              "Gamitin ang pormal na wikang siyentipiko sa bawat hakbang"
+            ],
+            "correct_answer": "Ilahad ang mga hakbang ayon sa tamang pagkakasunod-sunod gamit ang mga pananda"
+          },
+          {
+            "question": "Paano nakakaapekto ang angkop na diksiyon sa pag-unawa ng mambabasa sa isang tekstong impormatibo?",
+            "options": [
+              "Nagiging mas malinaw at madaling maintindihan ang inilalahad na impormasyon",
+              "Nagiging mas mahirap unawain ang teksto",
+              "Wala itong epekto sa pag-unawa",
+              "Nagiging mas maikli ang teksto kahit hindi malinaw"
+            ],
+            "correct_answer": "Nagiging mas malinaw at madaling maintindihan ang inilalahad na impormasyon"
+          },
+          {
+            "question": "Bakit maituturing na mahalagang bahagi ng pambansang identidad ang pagkaing Pinoy tulad ng Pastilyas at Balot?",
+            "options": [
+              "Dahil ipinapakita nila ang natatanging kultura at kasanayan ng mga Pilipino sa pagluluto",
+              "Dahil mas mura ang mga ito kaysa sa ibang pagkain",
+              "Dahil hindi na sila ginagawa sa kasalukuyan",
+              "Dahil ito lamang ang pagkaing kilala sa buong mundo"
+            ],
+            "correct_answer": "Dahil ipinapakita nila ang natatanging kultura at kasanayan ng mga Pilipino sa pagluluto"
+          },
+          {
+            "question": "Ihambing ang layunin ng isang tekstong impormatibo tungkol sa pagkain sa layunin ng isang kuwentong pantasya.",
+            "options": [
+              "Ang impormatibo ay naglalahad ng totoong proseso at katotohanan, habang ang pantasya ay gumagamit ng imahinasyon",
+              "Pareho silang gumagamit lamang ng gawa-gawang pangyayari",
+              "Ang impormatibo ay para lamang aliwin ang bata",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Ang impormatibo ay naglalahad ng totoong proseso at katotohanan, habang ang pantasya ay gumagamit ng imahinasyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "summary_markdown": "## Sending Safe and Responsible Email Messages\n\n- An **email** is used to send messages and files electronically over the internet. Key parts include the **subject line** (tells the reader what the message is about), the body message, and **attachments** (files like photos or documents sent along with the email).\n- Before sending an email, always check: the correct **recipient**, correct **spelling and grammar**, and a clear **subject line**.\n- Use **polite language and a respectful tone** — this matters even more when emailing a teacher or adult, since email is more formal than texting a friend.\n- Safety practices: never share your password through email, be cautious with attachments (especially from unknown senders), and never reply to or click links in suspicious emails asking for personal information — tell a trusted adult instead.\n- Avoid forwarding chain emails or unchecked messages, since they may spread false information or unsafe links.\n- Example: before emailing homework to a teacher, include a polite greeting, a clear message, and the correct attachment — this shows both responsibility and respect.",
+        "quiz": [
+          {
+            "question": "What is an email mainly used for?",
+            "options": [
+              "Sending messages and files to someone electronically over the internet",
+              "Printing documents on paper",
+              "Making phone calls",
+              "Watching videos offline"
+            ],
+            "correct_answer": "Sending messages and files to someone electronically over the internet"
+          },
+          {
+            "question": "Which part of an email tells the reader what the message is about?",
+            "options": [
+              "Subject line",
+              "Attachment",
+              "Signature",
+              "Time stamp"
+            ],
+            "correct_answer": "Subject line"
+          },
+          {
+            "question": "What is an email attachment?",
+            "options": [
+              "A file, like a photo or document, sent along with an email",
+              "The password used to open an email",
+              "The color of the email background",
+              "The time the email was sent"
+            ],
+            "correct_answer": "A file, like a photo or document, sent along with an email"
+          },
+          {
+            "question": "Why should you use polite language when writing an email?",
+            "options": [
+              "To show respect to the person reading it",
+              "Because polite words make the email load faster",
+              "Because it is required by every email app",
+              "Because it makes the email shorter"
+            ],
+            "correct_answer": "To show respect to the person reading it"
+          },
+          {
+            "question": "Before sending an important email, what should you always check first?",
+            "options": [
+              "The spelling, grammar, and correct recipient",
+              "The color of the font only",
+              "How many emojis are used",
+              "The size of the email icon"
+            ],
+            "correct_answer": "The spelling, grammar, and correct recipient"
+          },
+          {
+            "question": "You receive an email from an unknown sender asking for your password. What should you do?",
+            "options": [
+              "Do not reply or click any links, and tell a trusted adult",
+              "Reply right away with your password",
+              "Forward it to all your friends",
+              "Click every link to see what happens"
+            ],
+            "correct_answer": "Do not reply or click any links, and tell a trusted adult"
+          },
+          {
+            "question": "Why is it important to write a clear subject line before sending an email?",
+            "options": [
+              "It helps the reader understand the message's purpose quickly",
+              "It makes the email load slower",
+              "It is only needed for very long emails",
+              "It changes the email's font color"
+            ],
+            "correct_answer": "It helps the reader understand the message's purpose quickly"
+          },
+          {
+            "question": "Your teacher asks you to email your homework. What should you include to make the email clear and complete?",
+            "options": [
+              "A polite greeting, a clear message, and the homework attached",
+              "Only the attachment, with no message",
+              "A long list of unrelated jokes",
+              "Just your name and nothing else"
+            ],
+            "correct_answer": "A polite greeting, a clear message, and the homework attached"
+          },
+          {
+            "question": "Why should you avoid forwarding chain emails or messages without checking if they are true?",
+            "options": [
+              "Because they may spread false information or unsafe links",
+              "Because forwarding emails is always illegal",
+              "Because it uses too much internet data",
+              "Because email apps do not allow forwarding"
+            ],
+            "correct_answer": "Because they may spread false information or unsafe links"
+          },
+          {
+            "question": "Explain why checking the recipient's email address carefully before clicking 'send' is an important safety habit.",
+            "options": [
+              "Because sending it to the wrong person could accidentally share private information",
+              "Because the email app will crash if the address is wrong",
+              "Because it makes the email arrive faster",
+              "Because it changes the email's subject line automatically"
+            ],
+            "correct_answer": "Because sending it to the wrong person could accidentally share private information"
+          },
+          {
+            "question": "A classmate wants to email a funny meme with personal jokes about another student to the whole class mailing list. Why could this be a problem, based on responsible email use?",
+            "options": [
+              "It could embarrass or hurt the other student, since the whole class would see it",
+              "It is always allowed since it is just a joke",
+              "Email cannot be sent to more than one person",
+              "Memes are not allowed in any email"
+            ],
+            "correct_answer": "It could embarrass or hurt the other student, since the whole class would see it"
+          },
+          {
+            "question": "Compare the safety risks of opening an email attachment from a known classmate versus one from an unknown sender.",
+            "options": [
+              "An unknown sender's attachment is riskier, since it could contain harmful files, while a known classmate's is generally safer but still worth checking",
+              "Both are equally dangerous no matter who sent them",
+              "A known classmate's attachment is always more dangerous",
+              "Attachments are never risky regardless of the sender"
+            ],
+            "correct_answer": "An unknown sender's attachment is riskier, since it could contain harmful files, while a known classmate's is generally safer but still worth checking"
+          },
+          {
+            "question": "Why is it important to use correct grammar and a respectful tone when emailing a teacher, even if you would use casual language when texting a friend?",
+            "options": [
+              "Because emails to teachers are more formal and should show respect and clarity",
+              "Because teachers cannot understand casual language at all",
+              "Because grammar rules only apply to emails, never to texting",
+              "Because emails must always be written in all capital letters"
+            ],
+            "correct_answer": "Because emails to teachers are more formal and should show respect and clarity"
+          },
+          {
+            "question": "Explain how following safe and responsible email practices can help protect both your own information and other people's.",
+            "options": [
+              "By avoiding sharing passwords, checking recipients, and being careful with attachments, everyone's information stays safer from mistakes or misuse",
+              "By using the same password for every email account",
+              "By replying to every email that asks for personal information",
+              "By forwarding every email you receive to as many people as possible"
+            ],
+            "correct_answer": "By avoiding sharing passwords, checking recipients, and being careful with attachments, everyone's information stays safer from mistakes or misuse"
+          },
+          {
+            "question": "Which of these is a safe email practice?",
+            "options": [
+              "Checking that you are sending the email to the correct person",
+              "Sharing your password through email",
+              "Opening every attachment without checking the sender",
+              "Sending the same email to strangers repeatedly"
+            ],
+            "correct_answer": "Checking that you are sending the email to the correct person"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "## Kalinangang Bayan: Ang Ating Sinaunang Sining at Pagkakakilanlan\n\n- Ang **Kalinangan** ay tumutukoy sa kabuuang paraan ng pamumuhay ng isang pangkat ng tao — kasama na ang kanilang sining, paniniwala, at tradisyon.\n- Ang **Pintados** ay ang tawag ng mga Kastila sa mga sinaunang Bisaya dahil sa kanilang mga katawang puno ng tato.\n- May malalim na kahulugan ang tato: para sa mga **lalaki**, ito ay simbolo ng tapang at karanasan sa pakikidigma; para sa mga **babae**, ito ay tanda ng kagandahan.\n- Ang **Tatlong Haligi ng Sinaunang Sining** ay binubuo ng: **Pananamit** (kanggan, bahag, saya na may iba't ibang kulay depende sa antas), **Pagtatato** (sining ng pag-uukit sa balat), at **Pagpapalamuti** (paggamit ng gintong alahas).\n- Halimbawa: kapag nakita ng sinaunang tao ang isang taong may pulang putong o maraming tato, agad silang nagbibigay-galang — dahil ipinapakita ng pananamit at tato ang katayuan at karangalan ng isang tao sa lipunan.\n- Ang **Boxer Codex** (1595) ay isang mahalagang aklat ng mga larawan na tumutulong sa atin ngayon upang makita ang buhay at kultura ng ating mga ninuno.\n- Mahalagang pag-aralan at ipagmalaki ang sinaunang kalinangan dahil pinapatunayan nito na mayaman na ang kultura ng mga Pilipino bago pa man dumating ang mga dayuhan.",
+        "quiz": [
+          {
+            "question": "Ano ang Boxer Codex?",
+            "options": [
+              "Isang aklat ng mga larawan tungkol sa mga Pilipino noong 1595",
+              "Isang kasunduang pangkalakalan",
+              "Isang batas laban sa pagtatato",
+              "Isang mapa ng Pilipinas"
+            ],
+            "correct_answer": "Isang aklat ng mga larawan tungkol sa mga Pilipino noong 1595"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HINDI kabilang sa 'Tatlong Haligi ng Sinaunang Sining'?",
+            "options": [
+              "Pananamit",
+              "Pagtatato",
+              "Pagpapalamuti",
+              "Pagsulat"
+            ],
+            "correct_answer": "Pagsulat"
+          },
+          {
+            "question": "Ano ang karaniwang ginagamit sa paggawa ng tato ng mga sinaunang Pilipino?",
+            "options": [
+              "Matutulis na tinik o bakal na isinasawsaw sa uling",
+              "Pintura at brush",
+              "Metal na karayom mula sa ibang bansa",
+              "Makinang panahi"
+            ],
+            "correct_answer": "Matutulis na tinik o bakal na isinasawsaw sa uling"
+          },
+          {
+            "question": "Bakit itinuturing na mahalaga ang gintong alahas para sa mga sinaunang Pilipino?",
+            "options": [
+              "Bahagi ito ng pagpapalamuti at senyales ng mataas na katayuan",
+              "Ginagamit lamang ito sa pagluluto",
+              "Wala itong kaugnayan sa kanilang kultura",
+              "Ipinagbabawal itong isuot"
+            ],
+            "correct_answer": "Bahagi ito ng pagpapalamuti at senyales ng mataas na katayuan"
+          },
+          {
+            "question": "Paano nakaaapekto ang pananamit sa paggalang na ibinibigay sa isang tao noong sinaunang panahon?",
+            "options": [
+              "Nagpapakita ito ng dignidad at kapangyarihan ng tao",
+              "Wala itong epekto sa paggalang",
+              "Nagpapababa ito ng katayuan",
+              "Ginagamit lamang ito tuwing kasal"
+            ],
+            "correct_answer": "Nagpapakita ito ng dignidad at kapangyarihan ng tao"
+          },
+          {
+            "question": "Ano ang matututunan natin sa pag-aaral ng Boxer Codex?",
+            "options": [
+              "Ang pananamit, gawi, at kultura ng mga sinaunang Pilipino",
+              "Ang modernong teknolohiya ng Pilipinas",
+              "Ang mga batas trapiko noong Kastila",
+              "Ang sistema ng pananalapi ngayon"
+            ],
+            "correct_answer": "Ang pananamit, gawi, at kultura ng mga sinaunang Pilipino"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ng mga mag-aaral ang kalinangan ng kanilang mga ninuno?",
+            "options": [
+              "Upang makilala nila ang kanilang sariling pagkatao at pinagmulan",
+              "Upang makalimutan nila ang kasaysayan",
+              "Upang hindi na sila mag-aral pa ng ibang bansa",
+              "Dahil ito lamang ang itinuturo sa paaralan"
+            ],
+            "correct_answer": "Upang makilala nila ang kanilang sariling pagkatao at pinagmulan"
+          },
+          {
+            "question": "Paano magkaiba ang kahulugan ng tato para sa kalalakihan at kababaihan noong sinaunang Pilipinas?",
+            "options": [
+              "Simbolo ito ng tapang at karanasan sa digmaan para sa lalaki, at simbolo ng kagandahan para sa babae",
+              "Pareho itong walang kahulugan para sa dalawa",
+              "Ipinagbabawal ito sa kababaihan",
+              "Ginagamit lamang ito ng mga pinuno"
+            ],
+            "correct_answer": "Simbolo ito ng tapang at karanasan sa digmaan para sa lalaki, at simbolo ng kagandahan para sa babae"
+          },
+          {
+            "question": "Bakit masasabing ang sining ng mga Pintados ay 'hindi lamang palamuti kundi kasaysayan din'?",
+            "options": [
+              "Dahil bawat guhit sa katawan ay may kuwento ng tagumpay o karanasan ng tao",
+              "Dahil random lamang ang mga guhit na ginagamit",
+              "Dahil ipinagbabawal ang sining noong panahong iyon",
+              "Dahil kopya lamang ito ng ibang kultura"
+            ],
+            "correct_answer": "Dahil bawat guhit sa katawan ay may kuwento ng tagumpay o karanasan ng tao"
+          },
+          {
+            "question": "Paano nagsisilbing 'gabay panlipunan' ang pananamit at tato noong unang panahon?",
+            "options": [
+              "Nagpapakita ang mga ito ng katayuan kaya't agad na nagbibigay-galang ang ibang tao",
+              "Wala silang kinalaman sa pakikitungo ng mga tao",
+              "Ginagamit lamang ang mga ito sa seremonya",
+              "Ipinagbabawal ang paggamit ng mga ito sa publiko"
+            ],
+            "correct_answer": "Nagpapakita ang mga ito ng katayuan kaya't agad na nagbibigay-galang ang ibang tao"
+          },
+          {
+            "question": "Bakit mahalagang ipagmalaki ng mga Pilipino ang kanilang sinaunang kalinangan sa kasalukuyang panahon?",
+            "options": [
+              "Dahil pinapatunayan nitong mayaman na ang kultura ng Pilipinas bago pa man dumating ang mga dayuhan",
+              "Dahil wala nang halaga ang lumang kultura ngayon",
+              "Dahil kailangan itong itago sa ibang bansa",
+              "Dahil ito lamang ang paraan para maging mayaman"
+            ],
+            "correct_answer": "Dahil pinapatunayan nitong mayaman na ang kultura ng Pilipinas bago pa man dumating ang mga dayuhan"
+          },
+          {
+            "question": "Paghambingin ang layunin ng pagtatato sa kalalakihan at ang paggamit ng gintong alahas sa kababaihan noong sinaunang panahon.",
+            "options": [
+              "Pareho silang tanda ng katayuan at karangalan kahit magkaibang uri ng palamuti",
+              "Wala silang pagkakatulad",
+              "Ang tato ay para sa babae at ang alahas ay para sa lalaki",
+              "Pareho silang ipinagbabawal noong panahong iyon"
+            ],
+            "correct_answer": "Pareho silang tanda ng katayuan at karangalan kahit magkaibang uri ng palamuti"
+          },
+          {
+            "question": "Ano ang tawag sa kabuuang paraan ng pamumuhay ng isang pangkat ng tao, kasama ang kanilang sining at tradisyon?",
+            "options": [
+              "Kalinangan",
+              "Kasaysayan",
+              "Ekonomiya",
+              "Pamahalaan"
+            ],
+            "correct_answer": "Kalinangan"
+          },
+          {
+            "question": "Ano ang tawag ng mga Kastila sa mga sinaunang Bisaya na may tato sa buong katawan?",
+            "options": [
+              "Pintados",
+              "Datu",
+              "Babaylan",
+              "Katalonan"
+            ],
+            "correct_answer": "Pintados"
+          },
+          {
+            "question": "Kapag nakita mo sa isang lumang larawan ang isang lalaking may maraming tato sa buong katawan, ano ang maipapahiwatig nito tungkol sa kanya noong sinaunang panahon?",
+            "options": [
+              "Siya ay isang matapang na mandirigma",
+              "Siya ay isang mangangalakal lamang",
+              "Siya ay bagong panganak",
+              "Siya ay isang dayuhan"
+            ],
+            "correct_answer": "Siya ay isang matapang na mandirigma"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Pananampalataya: Ang Matatag na Pundasyon ng Pamilyang Pilipino\n\n- Ang bawat relihiyon ay may sariling **Banal na Aklat** na naglalaman ng mga salita ng Diyos — ito ang nagsisilbing gabay sa buhay at moralidad. Sa Judaismo, ito ay tinatawag na **Tanakh**.\n- Ang pananampalataya ay gumaganap bilang: **Gabay** (nagtatama ng ating mga desisyon), **Ilaw** (nagbibigay-pag-asa sa mga oras ng problema), at **Pagkakaisa** (nagpapalakas ng tiwala sa loob ng tahanan).\n- Tanyag na kasabihan: *\"Ang pamilyang nagdarasal nang sama-sama ay namumuhay nang payapa at masaya.\"*\n- May mga **hamon** sa pananampalatayang Pilipino sa kasalukuyan: ang **Globalisasyon** (pagsasama-sama ng mga ekonomiya/kultura sa buong mundo), **Modernisasyon** (pag-unlad ng teknolohiya), at **Migrasyon** (paglipat ng mga magulang sa ibang bansa para magtrabaho) — lahat ng ito ay maaaring magpahina ng ugnayang pangrelihiyon ng pamilya kung hindi mag-iingat.\n- Mahalagang igalang din natin ang iba't ibang Banal na Aklat ng ibang relihiyon upang lumago ang paggalang sa iba't ibang paniniwala.\n- Sa kabila ng mga hamon, ang pananampalataya ay nananatiling matatag na pundasyon dahil ito ang nagbibigay-gabay at nagpapatibay sa bawat pamilyang Pilipino.",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng Banal na Aklat sa bawat relihiyon?",
+            "options": [
+              "Naglalaman ito ng mga salita ng Diyos na gumagabay sa buhay at moralidad",
+              "Isa lamang itong kasaysayan ng bansa",
+              "Ginagamit lamang ito sa paaralan",
+              "Isa itong aklat pang-agham"
+            ],
+            "correct_answer": "Naglalaman ito ng mga salita ng Diyos na gumagabay sa buhay at moralidad"
+          },
+          {
+            "question": "Bakit itinuturing na hamon ang modernisasyon at teknolohiya sa pananampalatayang Pilipino?",
+            "options": [
+              "Minsan ay nagdadala ito ng ideyang salungat sa tradisyonal na paniniwala",
+              "Palagi itong tumutulong sa pananampalataya",
+              "Wala itong kaugnayan sa relihiyon",
+              "Ipinagbabawal ang teknolohiya sa lahat ng relihiyon"
+            ],
+            "correct_answer": "Minsan ay nagdadala ito ng ideyang salungat sa tradisyonal na paniniwala"
+          },
+          {
+            "question": "Ayon sa aralin, ano ang ginagampanan ng pananampalataya bilang 'Gabay'?",
+            "options": [
+              "Itinatama nito ang ating mga desisyon at itinuturo ang mabuti sa masama",
+              "Nagbibigay lamang ito ng aliw",
+              "Wala itong kinalaman sa pang-araw-araw na buhay",
+              "Ginagamit lamang tuwing may pagdiriwang"
+            ],
+            "correct_answer": "Itinatama nito ang ating mga desisyon at itinuturo ang mabuti sa masama"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Migrasyon'?",
+            "options": [
+              "Ang paglipat ng mga tao mula sa isang lugar patungo sa isa pa, madalas para sa trabaho",
+              "Ang pagsasama-sama ng mga ekonomiya sa buong mundo",
+              "Ang pag-unlad ng bansa sa teknolohiya",
+              "Ang pagdiriwang ng kaarawan"
+            ],
+            "correct_answer": "Ang paglipat ng mga tao mula sa isang lugar patungo sa isa pa, madalas para sa trabaho"
+          },
+          {
+            "question": "Kumpletuhin ang kasabihan: 'Ang pamilyang nagdarasal nang sama-sama ay namumuhay nang ___.'",
+            "options": [
+              "Payapa at masaya",
+              "Malungkot at nag-iisa",
+              "Mayaman at tanyag",
+              "Abala at pagod"
+            ],
+            "correct_answer": "Payapa at masaya"
+          },
+          {
+            "question": "Ano ang tawag sa banal na kasulatan sa relihiyong Judaismo?",
+            "options": [
+              "Tanakh",
+              "Quran",
+              "Vedas",
+              "Tipitaka"
+            ],
+            "correct_answer": "Tanakh"
+          },
+          {
+            "question": "Paano nakaaapekto ang migrasyon ng mga magulang sa pananampalataya ng pamilya?",
+            "options": [
+              "Maaaring magdulot ito ng paghina ng gabay pangrelihiyon sa mga anak",
+              "Palagi itong nagpapalakas ng pananampalataya",
+              "Wala itong anumang epekto",
+              "Ito ang tanging paraan upang lumago ang pananampalataya"
+            ],
+            "correct_answer": "Maaaring magdulot ito ng paghina ng gabay pangrelihiyon sa mga anak"
+          },
+          {
+            "question": "Paano pinalalakas ng pananampalataya ang pagkakaisa sa loob ng tahanan?",
+            "options": [
+              "Pinapalakas nito ang tiwala ng bawat miyembro sa isa't isa",
+              "Pinapahina nito ang ugnayan ng pamilya",
+              "Wala itong epekto sa pamilya",
+              "Nagdudulot lamang ito ng alitan"
+            ],
+            "correct_answer": "Pinapalakas nito ang tiwala ng bawat miyembro sa isa't isa"
+          },
+          {
+            "question": "Bakit mahalagang kilalanin ang iba't ibang Banal na Aklat ng ibang relihiyon?",
+            "options": [
+              "Upang magkaroon tayo ng paggalang sa paniniwala ng iba",
+              "Upang mapalitan natin ang sarili nating paniniwala",
+              "Upang ipilit ang sariling relihiyon sa iba",
+              "Dahil hindi na kailangan ang sariling Banal na Aklat"
+            ],
+            "correct_answer": "Upang magkaroon tayo ng paggalang sa paniniwala ng iba"
+          },
+          {
+            "question": "Paano nakaaapekto ang urbanisasyon sa buhay-pananampalataya ng isang pamilya?",
+            "options": [
+              "Ang mabilis na takbo ng buhay dulot nito ay maaaring maging sanhi ng pagkaligta sa panalangin",
+              "Palagi nitong pinapalakas ang debosyon ng pamilya",
+              "Wala itong kaugnayan sa oras ng pamilya",
+              "Nagdudulot lamang ito ng karagdagang pananampalataya"
+            ],
+            "correct_answer": "Ang mabilis na takbo ng buhay dulot nito ay maaaring maging sanhi ng pagkaligta sa panalangin"
+          },
+          {
+            "question": "Ipaliwanag kung paano nagsisilbing 'Ilaw' ang pananampalataya sa oras ng problema.",
+            "options": [
+              "Nagbibigay ito ng pag-asa at lakas ng loob sa mga sandali ng kadiliman o kahirapan",
+              "Nagdadala lamang ito ng karagdagang alalahanin",
+              "Wala itong silbi kapag may problema",
+              "Nagiging sanhi ito ng higit na kalungkutan"
+            ],
+            "correct_answer": "Nagbibigay ito ng pag-asa at lakas ng loob sa mga sandali ng kadiliman o kahirapan"
+          },
+          {
+            "question": "Bilang isang mag-aaral, paano mo mapapanatili ang matatag na pananampalataya sa gitna ng globalisasyon at modernisasyon?",
+            "options": [
+              "Sa pamamagitan ng pagpapahalaga sa mga tradisyonal na gawain habang bukas sa pag-unlad nang may pag-iingat",
+              "Sa pamamagitan ng lubusang pagtalikod sa mga tradisyon",
+              "Sa pamamagitan ng pagbabalewala sa anumang pagbabago",
+              "Sa pamamagitan ng pag-iwas sa lahat ng teknolohiya"
+            ],
+            "correct_answer": "Sa pamamagitan ng pagpapahalaga sa mga tradisyonal na gawain habang bukas sa pag-unlad nang may pag-iingat"
+          },
+          {
+            "question": "Bakit masasabing ang pananampalataya ay 'matatag na pundasyon' ng pamilyang Pilipino?",
+            "options": [
+              "Dahil ito ang nagbibigay-gabay, pag-asa, at nagpapatibay ng pagkakaisa ng bawat miyembro",
+              "Dahil ito lamang ang tanging gawain ng pamilya",
+              "Dahil hindi na ito kailangan sa modernong panahon",
+              "Dahil ito ay ipinipilit lamang ng mga magulang"
+            ],
+            "correct_answer": "Dahil ito ang nagbibigay-gabay, pag-asa, at nagpapatibay ng pagkakaisa ng bawat miyembro"
+          },
+          {
+            "question": "Bakit mahalagang ipakita ang wastong pag-iingat sa paggamit ng Banal na Aklat ng ating relihiyon?",
+            "options": [
+              "Dahil ito ay itinuturing na banal at nagsisilbing patnubay sa ating buhay",
+              "Dahil ito ay isang ordinaryong aklat lamang",
+              "Dahil hindi na ito ginagamit sa kasalukuyan",
+              "Dahil ipinagbabawal itong basahin"
+            ],
+            "correct_answer": "Dahil ito ay itinuturing na banal at nagsisilbing patnubay sa ating buhay"
+          },
+          {
+            "question": "Ihambing ang epekto ng migrasyon at urbanisasyon sa pananampalatayang Pilipino.",
+            "options": [
+              "Pareho silang maaaring magpahina ng gawaing pangrelihiyon dahil sa pagbabago ng istruktura at ritmo ng pamilya",
+              "Pareho silang walang epekto sa pananampalataya",
+              "Ang migrasyon lamang ang may epekto, hindi ang urbanisasyon",
+              "Palagi nilang pinapalakas ang pananampalataya ng pamilya"
+            ],
+            "correct_answer": "Pareho silang maaaring magpahina ng gawaing pangrelihiyon dahil sa pagbabago ng istruktura at ritmo ng pamilya"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "## Evaluating Creative Works Based on Identified Conventions\n\n- A **creative work** is an artwork or performance made using ideas, skills, and effort — every creative work carries a message.\n- Three key vocabulary words: **Concept** (the thought or meaning behind the work), **Process** (the steps used to create it), and **Practices** (the traditional ways of doing something in that art form).\n- **Conventions** are accepted ways of doing something in an art form. In early Philippine performing and visual arts, this includes things like textile weaving patterns and traditional dance movements.\n- To **evaluate** means to look carefully and make a judgment using clear standards and evidence — not just personal opinion.\n- A **performance observation checklist** helps evaluators record what was \"observed\" or \"not observed,\" covering both the **Application of Conventions** (concept, process, practices) and the **Integration of Art Forms** (music, dance, theater, visual arts).\n- **Creativity** means showing imagination and thoughtful choices; **originality** means the work reflects a personal idea rather than a copy. Being creative and respecting tradition can go together — an artist can add original ideas while still honoring the true meaning of early Philippine conventions.\n- Example: a weaver who explains her textile's meaning (concept), describes her weaving steps (process), and follows patterns passed down from elders (practices) demonstrates all three parts clearly, making her work easier to evaluate fairly.",
+        "quiz": [
+          {
+            "question": "What is a creative work?",
+            "options": [
+              "An artwork or performance made using ideas, skills, and effort",
+              "A math worksheet",
+              "A list of school rules",
+              "A weather report"
+            ],
+            "correct_answer": "An artwork or performance made using ideas, skills, and effort"
+          },
+          {
+            "question": "Why is a performance observation checklist useful when evaluating a creative work?",
+            "options": [
+              "It helps us record what was observed and not observed, making evaluation clearer",
+              "It replaces the need to watch the performance",
+              "It only works for music, not dance",
+              "It removes the need for any standards"
+            ],
+            "correct_answer": "It helps us record what was observed and not observed, making evaluation clearer"
+          },
+          {
+            "question": "Which word means the thought or meaning behind an artwork?",
+            "options": [
+              "Concept",
+              "Process",
+              "Practice",
+              "Audience"
+            ],
+            "correct_answer": "Concept"
+          },
+          {
+            "question": "Which word means the steps used to create a work?",
+            "options": [
+              "Process",
+              "Costume",
+              "Concept",
+              "Score"
+            ],
+            "correct_answer": "Process"
+          },
+          {
+            "question": "Which of these is an early Philippine visual art?",
+            "options": [
+              "Textile weaving",
+              "Long division",
+              "Silent reading",
+              "Running race"
+            ],
+            "correct_answer": "Textile weaving"
+          },
+          {
+            "question": "What are conventions in an art form?",
+            "options": [
+              "Accepted ways of doing something in that art form",
+              "Random choices with no meaning",
+              "Rules only for music, never for visual art",
+              "Mistakes artists should avoid discussing"
+            ],
+            "correct_answer": "Accepted ways of doing something in that art form"
+          },
+          {
+            "question": "What does it mean to evaluate a creative work?",
+            "options": [
+              "To look carefully and make a judgment using clear standards",
+              "To copy the work exactly",
+              "To ignore how it was made",
+              "To only look at its price"
+            ],
+            "correct_answer": "To look carefully and make a judgment using clear standards"
+          },
+          {
+            "question": "What does originality mean when evaluating a creative work?",
+            "options": [
+              "The work shows a fresh, personal idea rather than a copy of another's work",
+              "The work is exactly the same as another artist's work",
+              "The work uses only traditional colors",
+              "The work has no clear message"
+            ],
+            "correct_answer": "The work shows a fresh, personal idea rather than a copy of another's work"
+          },
+          {
+            "question": "Which group of art forms can be integrated in a single early Philippine performance?",
+            "options": [
+              "Music, dance, theater, and visual arts",
+              "Only mathematics and science",
+              "Only spoken language",
+              "Only sports activities"
+            ],
+            "correct_answer": "Music, dance, theater, and visual arts"
+          },
+          {
+            "question": "A dancer uses traditional hand movements passed down from early Philippine culture. Which part of 'Application of Conventions' does this best show?",
+            "options": [
+              "Practices",
+              "Concept only",
+              "Process only",
+              "Audience reaction"
+            ],
+            "correct_answer": "Practices"
+          },
+          {
+            "question": "Why should evaluation of a creative work be based on evidence rather than personal preference alone?",
+            "options": [
+              "Because evidence-based evaluation is fairer and more accurate in judging how conventions were applied",
+              "Because personal preference is always more accurate",
+              "Because evidence makes evaluation take longer with no benefit",
+              "Because conventions do not need to be considered at all"
+            ],
+            "correct_answer": "Because evidence-based evaluation is fairer and more accurate in judging how conventions were applied"
+          },
+          {
+            "question": "Two students perform a dance inspired by early Philippine traditions. One clearly follows traditional movements and explains their meaning; the other performs random movements with no connection to tradition. Which performance better applies identified conventions, and why?",
+            "options": [
+              "The first, because it uses recognized practices and shows understanding of their meaning",
+              "The second, because random movements show more creativity",
+              "Both equally, since conventions do not matter in dance",
+              "Neither, because conventions only apply to visual arts"
+            ],
+            "correct_answer": "The first, because it uses recognized practices and shows understanding of their meaning"
+          },
+          {
+            "question": "A weaver explains that her textile represents her community's identity (concept), describes the steps of dyeing and weaving thread (process), and follows patterns passed down from elders (practices). Why is it useful to separate these three parts when evaluating her work?",
+            "options": [
+              "It helps evaluators clearly judge each aspect of the work instead of forming one vague opinion",
+              "It makes the artwork more expensive",
+              "It removes the need to observe the artwork at all",
+              "It shows that only the process matters in weaving"
+            ],
+            "correct_answer": "It helps evaluators clearly judge each aspect of the work instead of forming one vague opinion"
+          },
+          {
+            "question": "How can an artist be both creative and respectful of early Philippine conventions at the same time?",
+            "options": [
+              "By adding thoughtful, original ideas while still honoring the meaning and practices of the tradition",
+              "By ignoring all traditional conventions completely",
+              "By copying an existing work exactly without changes",
+              "By avoiding any connection to Philippine culture"
+            ],
+            "correct_answer": "By adding thoughtful, original ideas while still honoring the meaning and practices of the tradition"
+          },
+          {
+            "question": "When using a checklist to evaluate a performance that integrates music, dance, and visual arts, what should an evaluator do if one art form was not observed at all?",
+            "options": [
+              "Mark it as not observed, since a fair evaluation reports only what was actually seen or heard",
+              "Assume it was performed well without evidence",
+              "Skip evaluating the entire performance",
+              "Give the highest score regardless of evidence"
+            ],
+            "correct_answer": "Mark it as not observed, since a fair evaluation reports only what was actually seen or heard"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "## Mga Paraan ng Pag-aani\n\n- Ang **pag-aani** ay ang pagtitipon o pagkuha ng mga inihandang produkto mula sa taniman kapag ito ay hinog na.\n- May iba't ibang **paraan ng pag-aani** depende sa uri ng pananim: **pagpitas** (para sa mga prutas tulad ng mangga), **pagbunot** (para sa mga ugat na gulay tulad ng labanos), at **paggapas** gamit ang **karit** (para sa palay at ibang butil).\n- Mahalaga ang pagkilala sa mga **palatandaan ng pag-aani** upang matiyak na hinog na ang ani bago ito anihin — kung maaga o huli masyado ang pag-aani, maaaring hindi pa hinog o sobrang hinog na ang produkto.\n- Kailangan ng maingat na paghawak at tamang kasangkapan sa pag-aani upang maiwasan ang pagkasira o pagkabugbog ng ani.\n- Ang tamang pamamaraan ng pag-aani ay nakatutulong sa kabuhayan ng magsasaka dahil napapanatili nito ang kalidad ng ani, na nagreresulta sa mas mataas na kita.",
+        "quiz": [
+          {
+            "question": "Alin sa mga sumusunod ang isang paraan ng pag-aani?",
+            "options": [
+              "Pagpitas",
+              "Pagdidilig",
+              "Pag-aararo",
+              "Pagtatanim ng binhi"
+            ],
+            "correct_answer": "Pagpitas"
+          },
+          {
+            "question": "Anong kasangkapan ang karaniwang ginagamit sa pag-aani ng palay?",
+            "options": [
+              "Karit",
+              "Pala",
+              "Asarol",
+              "Punla"
+            ],
+            "correct_answer": "Karit"
+          },
+          {
+            "question": "Ano ang tawag sa paraan ng pag-aani kung saan hinihila o binubunot ang pananim mula sa lupa?",
+            "options": [
+              "Pagbunot",
+              "Paggapas",
+              "Pagpitas",
+              "Pagtabas"
+            ],
+            "correct_answer": "Pagbunot"
+          },
+          {
+            "question": "Bakit mahalaga ang tamang panahon ng pag-aani?",
+            "options": [
+              "Upang matiyak na hinog na ang ani at hindi masisira",
+              "Upang mas mabilis lumaki ang halaman",
+              "Upang hindi na kailangang magdilig pa",
+              "Upang maiwasan ang pagtatanim ng bagong binhi"
+            ],
+            "correct_answer": "Upang matiyak na hinog na ang ani at hindi masisira"
+          },
+          {
+            "question": "Aling paraan ng pag-aani ang pinakaangkop para sa mga prutas tulad ng mangga?",
+            "options": [
+              "Pagpitas",
+              "Pagbunot",
+              "Pag-aararo",
+              "Pagdidilig"
+            ],
+            "correct_answer": "Pagpitas"
+          },
+          {
+            "question": "Bakit mas ginagamit ang pagbunot bilang paraan ng pag-aani sa mga gulay tulad ng labanos?",
+            "options": [
+              "Dahil ang bahaging kinakain ng halaman ay nasa ilalim ng lupa",
+              "Dahil mas mabilis itong lumaki kaysa sa iba",
+              "Dahil hindi na kailangan pang tanawin ang halaman",
+              "Dahil ito lamang ang paraang alam ng mga magsasaka"
+            ],
+            "correct_answer": "Dahil ang bahaging kinakain ng halaman ay nasa ilalim ng lupa"
+          },
+          {
+            "question": "Paano nakaaapekto ang maling panahon ng pag-aani sa kalidad ng ani?",
+            "options": [
+              "Maaaring hindi pa hinog o sobrang hinog na ang mga ito",
+              "Palaging nagiging mas masarap ang ani",
+              "Wala itong anumang epekto sa kalidad",
+              "Nagiging mas mura lamang ang presyo nito"
+            ],
+            "correct_answer": "Maaaring hindi pa hinog o sobrang hinog na ang mga ito"
+          },
+          {
+            "question": "Bakit kailangang mag-ingat sa paghawak ng ani habang ito ay inaani?",
+            "options": [
+              "Upang maiwasan ang pagkasira o pagkabugbog ng produkto",
+              "Dahil mas mabagal ang pag-aani kung mag-iingat",
+              "Dahil hindi na kailangan pang linisin ang ani",
+              "Upang hindi na kailangan pang timbangin ito"
+            ],
+            "correct_answer": "Upang maiwasan ang pagkasira o pagkabugbog ng produkto"
+          },
+          {
+            "question": "Paano nakatutulong ang tamang paraan ng pag-aani sa kabuhayan ng isang magsasaka?",
+            "options": [
+              "Napapanatili nito ang kalidad ng ani na nagreresulta sa mas mataas na kita",
+              "Nagdudulot lamang ito ng dagdag na gastos",
+              "Wala itong epekto sa kita ng magsasaka",
+              "Nagpapababa ito ng dami ng ani"
+            ],
+            "correct_answer": "Napapanatili nito ang kalidad ng ani na nagreresulta sa mas mataas na kita"
+          },
+          {
+            "question": "Ipaliwanag kung bakit magkaiba ang paraan ng pag-aani depende sa uri ng pananim.",
+            "options": [
+              "Iba't ibang bahagi ng halaman ang inaani (bunga, ugat, o dahon), kaya kailangan ng magkaibang paraan tulad ng pagpitas, pagbunot, o paggapas",
+              "Magkapareho lamang ang lahat ng paraan ng pag-aani",
+              "Isa lamang ang tamang paraan ng pag-aani sa lahat ng pananim",
+              "Hindi mahalaga ang uri ng pananim sa pagpili ng paraan ng pag-aani"
+            ],
+            "correct_answer": "Iba't ibang bahagi ng halaman ang inaani (bunga, ugat, o dahon), kaya kailangan ng magkaibang paraan tulad ng pagpitas, pagbunot, o paggapas"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagkilala sa mga palatandaan ng pag-aani bago simulan ang pag-aani?",
+            "options": [
+              "Upang malaman kung kailan talaga hinog na ang ani at handa nang anihin nang hindi nasasayang",
+              "Dahil hindi na kailangan pang alamin ang tamang panahon ng pag-aani",
+              "Dahil pareho lamang ang hitsura ng lahat ng pananim kapag hinog",
+              "Upang mabawasan ang bilang ng mga taniman"
+            ],
+            "correct_answer": "Upang malaman kung kailan talaga hinog na ang ani at handa nang anihin nang hindi nasasayang"
+          },
+          {
+            "question": "Paano makakatulong ang wastong pamamaraan ng pag-aani sa pagbabawas ng nasisirang produkto pagkatapos anihin?",
+            "options": [
+              "Sa pamamagitan ng maingat na paghawak at paggamit ng tamang kasangkapan, mababawasan ang pinsala sa ani",
+              "Sa pamamagitan ng pag-aani nang mabilis kahit hindi maingat",
+              "Sa pamamagitan ng pagtambak ng mga inaning produkto nang walang ayos",
+              "Wala itong kinalaman sa kalidad ng produkto"
+            ],
+            "correct_answer": "Sa pamamagitan ng maingat na paghawak at paggamit ng tamang kasangkapan, mababawasan ang pinsala sa ani"
+          },
+          {
+            "question": "Bakit mahalagang matutunan ng mga mag-aaral ang iba't ibang paraan ng pag-aani kahit hindi sila lumaking nagsasaka?",
+            "options": [
+              "Upang maunawaan nila ang proseso ng produksyon ng pagkain mula sa taniman hanggang sa hapag-kainan",
+              "Dahil ito lamang ang itinuturo sa paaralan",
+              "Dahil kailangan nilang maging magsasaka balang araw",
+              "Dahil hindi na ito itinuturo sa mataas na baitang"
+            ],
+            "correct_answer": "Upang maunawaan nila ang proseso ng produksyon ng pagkain mula sa taniman hanggang sa hapag-kainan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'pag-aani'?",
+            "options": [
+              "Ang pagtitipon o pagkuha ng mga inihandang produkto mula sa taniman",
+              "Ang paghahanda ng lupa bago magtanim",
+              "Ang pagdidilig ng mga halaman",
+              "Ang paglilinis ng bukid matapos mag-ani"
+            ],
+            "correct_answer": "Ang pagtitipon o pagkuha ng mga inihandang produkto mula sa taniman"
+          },
+          {
+            "question": "Ihambing ang epekto ng maagang pag-aani at huling pag-aani sa kalidad ng produkto.",
+            "options": [
+              "Ang maagang pag-aani ay maaaring magbunga ng hindi pa lubos na hinog na ani, samantalang ang huling pag-aani ay maaaring magdulot ng sobrang hinog o sirang produkto",
+              "Pareho silang walang epekto sa kalidad ng ani",
+              "Ang maagang pag-aani lamang ang nagdudulot ng problema",
+              "Ang huling pag-aani ay palaging nagbubunga ng mas magandang ani"
+            ],
+            "correct_answer": "Ang maagang pag-aani ay maaaring magbunga ng hindi pa lubos na hinog na ani, samantalang ang huling pag-aani ay maaaring magdulot ng sobrang hinog o sirang produkto"
+          }
+        ]
+      }
+    }
+  }
+}
