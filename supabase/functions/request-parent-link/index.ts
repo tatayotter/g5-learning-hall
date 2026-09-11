@@ -101,7 +101,7 @@ Deno.serve(async (req: Request) => {
         Confirming this link lets you see their progress, set up parental tools, and unlocks
         leaderboards/PvP for their account.</p>
         <p><a href="${linkUrl}">Confirm you're ${childFirstName}'s parent</a></p>
-        <p>This link expires in 30 minutes and can only be used once. If you weren't expecting
+        <p>This link expires in 24 hours and can only be used once. If you weren't expecting
         this, you can safely ignore this email.</p>
       `,
     }),

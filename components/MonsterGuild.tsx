@@ -31,6 +31,8 @@ import {
 } from '@/lib/guildEngine';
 import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
+import LinkParentGate from '@/components/LinkParentGate';
+import { useLinkedStatus } from '@/hooks/useLinkedStatus';
 import TradePanel from '@/components/trade/TradePanel';
 import { PlayerSearchResult } from '@/lib/trades';
 import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
@@ -198,6 +200,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
   const [view, setView] = useState<GuildView>(initialView ?? 'map');
+  // Gates the Leaderboard tab and PvP challenges for self-registered,
+  // unlinked children — see docs/parent-child-linking-design.md and
+  // components/LinkParentGate.tsx. `false` = unclaimed child (gate on);
+  // `true`/`null`/`undefined` (linked / not a child account / still
+  // loading) = don't gate.
+  const linked = useLinkedStatus();
+  const isGatedUnlinked = linked === false;
   // Set by a map sprite's "Trade" button (handleTradePlayer below) so the
   // Trade tab it switches to can skip its own player search — see
   // TradePanel's presetTarget prop. Cleared on any manual nav-tab click.
@@ -761,6 +770,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setView('live_battle');
       return;
     }
+    // Real PvP (not bots — see BOT_IDS.has above) requires a linked parent.
+    // This client check just gives a clear message; trg_pvp_requires_linked_parent
+    // on live_battles is the actual enforcement, since createInvite below
+    // hits the DB directly.
+    if (isGatedUnlinked) {
+      showNotification('Link a parent to challenge other players — tap "Link a Parent" in the corner to start.');
+      return;
+    }
     if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
       showNotification(`${opponentName} isn't online right now.`);
       return;
@@ -1232,7 +1249,11 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         />
       )}
 
-      {view === 'leaderboard' && <LeaderboardPanel userId={userId} />}
+      {view === 'leaderboard' && (
+        isGatedUnlinked
+          ? <LinkParentGate feature="the leaderboard" />
+          : <LeaderboardPanel userId={userId} />
+      )}
 
       {/* Trainers view */}
       {view === 'trainers' && battleState && (

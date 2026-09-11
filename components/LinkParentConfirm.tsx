@@ -120,7 +120,7 @@ export default function LinkParentConfirm() {
       <div className="text-center space-y-2">
         <p className="text-red-500 font-semibold text-lg">This link is invalid or has expired.</p>
         <p className="text-stone-500 text-base">
-          Invite links only last 30 minutes and can only be used once. Ask your child to send a new one
+          Invite links last 24 hours and can only be used once. Ask your child to resend the invite
           from inside the game.
         </p>
       </div>
