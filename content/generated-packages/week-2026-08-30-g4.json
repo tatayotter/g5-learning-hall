@@ -4,6 +4,7 @@
   "days": {
     "Monday": {
       "English": {
+        "summary_markdown": "# 📖 English — Enumeration-Description Texts\n\nGrade 4, Week 11! Let's learn how writers list and describe things. 📖\n\n## 📋 What Is Enumeration-Description?\nAn **enumeration-description text** lists and describes many things and their details. Signal words like *\"first, second, third, and finally\"* show the **order** of items.\n\n## 🖊️ Describing with Adjectives\n**Example:** \"The adobo is salty, savory, and aromatic.\" This sentence describes the adobo using **adjectives**.\n\n## 🔤 Prefixes and Suffixes\n- A **prefix** is added to the beginning of a word → *unhappy*\n- A **suffix** is added to the **end** of a word.\n- A word with an added prefix or suffix is called an **affixed word** → *joyful*\n\n## ✅ Subject-Verb Agreement\nMake sure your subject and verb match → *\"The children run fast.\"*\n\n**Key words:** enumeration, description, sequence, prefix, suffix, affixed word",
         "quiz": [
           {
             "question": "An ENUMERATION-DESCRIPTION text lists and describes ___.",
@@ -128,6 +129,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🍕 Mathematics — Understanding Fractions\n\nGrade 4, Week 11! Let's explore proper, improper, and mixed fractions. 🍕\n\n## 🔢 Types of Fractions\n- A **proper fraction** has a numerator smaller than its denominator → *1/2*\n- An **improper fraction** has a numerator equal to or larger than the denominator → *9/4*\n- A **mixed number** combines a whole number and a fraction → *7/4 = 1 3/4*\n\n## ⚖️ Equivalent Fractions and Lowest Terms\n- **Equivalent fractions** name the same amount → *1/2 = 4/8*\n- A fraction is in **lowest terms** when the GCF of the numerator and denominator is 1 → *6/8 reduces to 3/4*\n\n## 📊 What the Denominator Tells Us\nThe **denominator** tells us how many equal parts the whole is divided into.\n\n**Key words:** proper fraction, improper fraction, mixed number, equivalent, lowest terms",
         "quiz": [
           {
             "question": "Which fraction has a NUMERATOR smaller than its denominator?",
@@ -254,6 +256,7 @@
     },
     "Tuesday": {
       "Science": {
+        "summary_markdown": "# 🫀 Science — Digestive, Respiratory, and Circulatory Systems\n\nGrade 4, Week 11! Let's learn how three body systems work together. 🫀\n\n## 🍽️ Digestive System\nThe **digestive system** breaks down food so the body can use it. Food enters through the **mouth**, and the **stomach** mixes it with gastric acid. The **small intestine** absorbs most nutrients into the bloodstream.\n\n## 🫁 Respiratory System\nThe **respiratory system** (lungs and airways) takes in oxygen and releases carbon dioxide. The **lungs** are protected by the rib cage.\n\n## ❤️ Circulatory System\nThe **heart** pumps blood through the body, carrying **oxygen and nutrients** to all body parts.\n\n## 🤝 Working Together\nThese three systems work **together** to provide nutrients and oxygen to every cell in the body.\n\n**Key words:** digestive system, respiratory system, circulatory system, heart",
         "quiz": [
           {
             "question": "Which organ system breaks down food so the body can use it?",
@@ -378,6 +381,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 📚 Filipino — Alamat, Pabula, at Parabula\n\nGrade 4, Linggo 11! Alamin natin ang iba't ibang uri ng maikling kwento. 📚\n\n## 📖 Alamat, Pabula, at Parabula\n- Ang **alamat** ay nagpapaliwanag ng pinagmulan ng isang bagay o kababalaghan.\n- Ang **pabula** ay isang maikling kwento na ang mga tauhan ay mga hayop na nagsasalita.\n- Ang layunin ng **parabula** ay magbigay ng aral sa pamamagitan ng halimbawa.\n- Ang **anekdota** ay isang maikling kwentong nagtatanghal ng katangian ng isang tao.\n\n## ✍️ Talatang Deskriptibo\nAng talatang deskriptibo ay nagbibigay ng detalyadong paglalarawan. Ang unang hakbang sa pagsulat nito ay **tukuyin ang paksa o bagay na ilalarawan**.\n\n## 🔤 Panlapi\nSa pagbabago ng salita gamit ang panlapi: *\"basa\" + \"-in\" = \"basain\"*.\n\n**Mahahalagang salita:** alamat, pabula, parabula, anekdota, panlapi",
         "quiz": [
           {
             "question": "Ang ALAMAT ay isang uri ng kuwento na nagpapaliwanag ng ___.",
@@ -504,6 +508,7 @@
     },
     "Wednesday": {
       "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ EPP (ICT) — Parts of a Computer\n\nGrade 4, Week 11! Let's learn about the parts inside and around a computer. 🖥️\n\n## 🧠 The CPU\nThe **CPU (Central Processing Unit)** is the \"brain\" of the computer.\n\n## 🔌 Input and Output Devices\n- **Input** is data that goes INTO the computer → a **keyboard** is an input device.\n- **Output** is what the computer produces → a **printer** is an output device, and the **monitor** displays information.\n- The **mouse** lets you move the cursor on the screen.\n\n## 💾 Hardware and Software\n- **Hardware** is the physical parts of the computer you can touch.\n- **Software** is the programs and applications that run on the computer.\n\n## ⌨️ Good Habits\n- **Touch typing** keeps your fingers resting on the home row keys.\n- Hold the mouse with a **relaxed grip** to prevent strain.\n- **Booting** means starting the computer so it loads the operating system.\n\n**Key words:** CPU, input, output, hardware, software, booting",
         "quiz": [
           {
             "question": "What is the BRAIN of the computer called?",
@@ -628,6 +633,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Araling Panlipunan — Heograpiya ng Pilipinas\n\nGrade 4, Week 11! Alamin natin ang heograpiya ng ating bansa. 🗺️\n\n## 🌏 Lokasyon ng Pilipinas\nAng Pilipinas ay matatagpuan sa **Timog-Silangang Asya**, sa pagitan ng 4° at 21° Hilaga, 116° at 127° Silangan. Ito ay isang **kapuluan** — isang grupo ng humigit-kumulang **7,641 pulo**.\n\n## ⛰️ Pisikal na Katangian\n- Ang pisikal na heograpiya ay tumutukoy sa likas na katangian ng lugar tulad ng bundok at ilog.\n- Ang **Bundok Apo** ang pinakamataas na bundok sa Pilipinas.\n- Ang **Ilog Cagayan** ang pinakamahabang ilog.\n\n## 🌊 Mga Karagatan sa Paligid\n- Ang **Dagat Pasipiko** ay nasa Silangan.\n- Ang **Dagat Timog Tsina** ay nasa Kanluran.\n\n## 🏝️ Tatlong Pangkat ng Kapuluan\nAng Pilipinas ay binubuo ng tatlong pangunahing pangkat: **Luzon, Visayas, at Mindanao**.\n\n**Mahahalagang salita:** kapuluan, lokasyon, heograpiya, Luzon, Visayas, Mindanao",
         "quiz": [
           {
             "question": "Ang Pilipinas ay matatagpuan sa ___ bahagi ng Asya.",
@@ -754,6 +760,7 @@
     },
     "Thursday": {
       "GMRC": {
+        "summary_markdown": "# 🎯 GMRC — Self-Discipline and Responsibility\n\nGrade 4, Week 11! Let's learn how self-discipline helps us reach our goals. 🎯\n\n## 💪 Self-Discipline\n**Self-discipline** means controlling your impulses and choosing what is right — like studying first before playing, or following a study schedule every day.\n\n## ✅ Responsibility and Accountability\n- Taking **responsibility** for your actions means accepting the results of your choices.\n- An **accountable** person takes ownership of their actions and admits mistakes with **integrity and courage**.\n\n## ⏰ Managing Time and Goals\nManaging your time well lets you finish tasks without rushing and still have time for leisure. Setting **goals** helps you stay focused on what's important — while procrastinating shows poor self-discipline.\n\n**Key words:** self-discipline, responsibility, accountability, goals",
         "quiz": [
           {
             "question": "SELF-DISCIPLINE means ___.",
@@ -878,6 +885,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎵 MAPEH — Music Dynamics and Healthy Living\n\nGrade 4, Week 11! Let's explore music volume and staying healthy. 🎵\n\n## 🔊 Dynamics and Timbre\n- **Dynamics** refers to the volume (loudness or softness) of music. **Piano (p)** means soft, **Forte (f)** means loud.\n- **Timbre** is the unique quality or \"color\" of a sound that identifies it.\n- The **harana** (Philippine serenade) is a local musical performance style.\n\n## 🏃 Physical Education\n- **Target games** involve throwing or hitting an object at a target.\n- Good sportsmanship means **respecting opponents and accepting results gracefully**.\n- **Jogging** develops cardiovascular fitness.\n\n## 🌙 Personal Health\nPersonal health includes hygiene, proper nutrition, rest, and exercise. Getting enough **sleep** helps the body grow, repair, and stay healthy.\n\n**Key words:** dynamics, timbre, sportsmanship, personal health",
         "quiz": [
           {
             "question": "TIMBRE in music refers to ___.",
@@ -1004,6 +1012,7 @@
     },
     "Friday": {
       "GMRC": {
+        "summary_markdown": "# 🎯 Friday Review — GMRC (Grade 4)\n\n- Self-discipline: choosing what is right\n- Responsibility and accountability\n- Setting goals and managing time\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "SELF-DISCIPLINE means ___.",
@@ -1128,6 +1137,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 4)\n\n- Dynamics (piano/forte) and timbre in music\n- Sportsmanship and personal health\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "TIMBRE in music refers to ___.",
@@ -1252,6 +1262,7 @@
         ]
       },
       "English": {
+        "summary_markdown": "# 📖 Friday Review — English (Grade 4)\n\n- Enumeration-description texts list and describe\n- Signal words show sequence\n- Prefixes and suffixes are added to words\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "An ENUMERATION-DESCRIPTION text lists and describes ___.",
@@ -1376,6 +1387,7 @@
         ]
       },
       "Science": {
+        "summary_markdown": "# 🫀 Friday Review — Science (Grade 4)\n\n- Digestive, respiratory, and circulatory systems\n- The heart pumps blood carrying oxygen and nutrients\n\nGreat work! 🌟",
         "quiz": [
           {
             "question": "Which organ system breaks down food so the body can use it?",
@@ -1500,6 +1512,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 📚 Biyernes na Balik-Aral — Filipino (Grade 4)\n\n- Alamat, pabula, parabula, anekdota\n- Talatang deskriptibo at panlapi\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Ang ALAMAT ay isang uri ng kuwento na nagpapaliwanag ng ___.",
@@ -1624,6 +1637,7 @@
         ]
       },
       "EPP (ICT)": {
+        "summary_markdown": "# 🖥️ Friday Review — EPP ICT (Grade 4)\n\n- CPU is the brain of the computer\n- Input devices vs. output devices\n- Hardware vs. software\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "What is the BRAIN of the computer called?",
@@ -1748,6 +1762,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🍕 Friday Review — Mathematics (Grade 4)\n\n- Proper, improper, and mixed fractions\n- Equivalent fractions and lowest terms\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "Which fraction has a NUMERATOR smaller than its denominator?",
@@ -1872,6 +1887,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# 🗺️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 4)\n\n- Lokasyon ng Pilipinas sa Timog-Silangang Asya\n- Luzon, Visayas, Mindanao\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Ang Pilipinas ay matatagpuan sa ___ bahagi ng Asya.",

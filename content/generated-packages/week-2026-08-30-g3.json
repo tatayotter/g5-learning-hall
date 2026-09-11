@@ -4,6 +4,7 @@
   "days": {
     "Monday": {
       "English": {
+        "summary_markdown": "# 📝 English — Paragraphs, Verbs, and Fables\n\nGrade 3, Week 11! Let's review paragraph writing and important word skills. 📝\n\n## 🖊️ The Topic Sentence\nThe **topic sentence** states the main idea of a paragraph — every other sentence should support it.\n\n## 🔤 Word Skills\n- A **synonym** means almost the same thing → *happy* and **joyful**\n- The prefix **\"un-\"** means \"not\" → *unhappy* = not happy\n- A **compound sentence** joins two complete ideas → *\"She sings and he dances.\"*\n\n## 📖 Verb Tense\n- **Present tense** tells what is happening now → *\"She sings a song.\"*\n- **Past tense** tells what already happened → *\"The children were playing when it rained.\"*\n\n## 🐢 Fables\nA **fable** is a story that teaches a lesson or moral, often using animal characters.\n\n**Key words:** topic sentence, synonym, prefix, compound sentence, tense, fable",
         "quiz": [
           {
             "question": "What is the TOPIC SENTENCE of a paragraph?",
@@ -128,6 +129,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# ⚖️ Mathematics — Measuring Mass\n\nGrade 3, Week 11! Let's learn how to measure how heavy something is. ⚖️\n\n## ⚖️ Kilograms and Grams\n- We use **kilograms (kg)** for heavier things, like a bag of rice.\n- We use **grams (g)** for lighter things, like a grain of rice.\n- **1 kilogram = 1000 grams**\n\n## 🧰 Tools for Measuring Mass\nA **weighing scale** (or balance scale) is used to measure and compare mass.\n\n## ➕ Working with Mass\n**Example:** A chicken weighs 1500 g. That's the same as **1 kg 500 g**.\n\n**Example:** Mia has 2 kg of flour and uses 750 g. She has 2000 g − 750 g = **1250 g** left.\n\n**Key words:** kilogram, gram, mass, weighing scale, estimate",
         "quiz": [
           {
             "question": "What unit do we use to measure the mass of a watermelon?",
@@ -254,6 +256,7 @@
     },
     "Tuesday": {
       "Science": {
+        "summary_markdown": "# 🔬 Science — Mga Kasanayan sa Agham\n\nGrade 3, Week 11! Let's review the skills scientists use every day. 🔬\n\n## 👀 Observing, Predicting, and Measuring\n- **Observing** means using your senses to study something carefully.\n- **Predicting** means making a smart guess → *\"I think it will rain because the clouds are dark.\"*\n- **Measuring** uses a tool, like a ruler or thermometer, to find exact amounts.\n\n## 🐾 Living Things\nLiving things share characteristics like **reproducing** — making more of their own kind. Being green is NOT a requirement to be alive!\n\n## 🗂️ Classifying\n**Classifying** means grouping objects according to their properties, based on careful observation.\n\n**Key words:** observing, predicting, measuring, classifying, living things",
         "quiz": [
           {
             "question": "Which science skill involves using your senses to study something carefully?",
@@ -378,6 +381,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 🐢 Filipino — Pabula at Bahagi ng Pananalita\n\nGrade 3, Linggo 11! Alamin natin ang pabula at ilang bahagi ng pananalita. 🐢\n\n## 🐢 Ano ang Pabula?\nAng **pabula** ay isang maikling kwento na ang mga tauhan ay mga hayop na nagsasalita, at may itinuturong aral.\n\n## 📌 Pang-uri at Pandiwa\n- Ang **pang-uri** ay naglalarawan sa isang pangngalan → *\"Malaki\"*\n- Ang **pandiwa** ay nagsasaad ng kilos → *\"Sumayaw\"*\n\n## 🔤 Kasalungat\nAng kabaligtaran ng *masaya* ay **malungkot** — mahalagang malaman ang mga kasalungat na salita upang mas maunawaan ang kahulugan.\n\n**Halimbawa:** Sa pabula ng \"Pagong at Matsing,\" ang aral ay: ang katapatan at tiyaga ay mas mahalaga kaysa talento.\n\n**Mahahalagang salita:** pabula, pang-uri, pandiwa, kasalungat, aral",
         "quiz": [
           {
             "question": "Alin ang tamang gamit ng 'mula'?",
@@ -504,6 +508,7 @@
     },
     "Wednesday": {
       "Computer": {
+        "summary_markdown": "# 💻 Computer — Mga Tool sa Word Processing\n\nGrade 3, Week 11! Let's learn how to format text in a word-processing program. 💻\n\n## ✍️ Formatting Text\n- **Bold (B)** makes text darker and thicker.\n- **Underline (U)** adds a line under text.\n- **Font size** changes how big or small text appears.\n- **Font Color** changes the color of the text.\n\n## 💾 Saving Your Work\nWhen you finish typing a document, always press **Save (Ctrl+S)** so your work is not lost.\n\n## 🖱️ Other Tools\nBasic drawing tools let you **draw shapes and color them**, and Backspace removes a wrongly typed letter.\n\n**Key words:** bold, underline, font size, font color, save",
         "quiz": [
           {
             "question": "What do you click to OPEN a word-processing program from the desktop?",
@@ -628,6 +633,7 @@
         ]
       },
       "Makabansa": {
+        "summary_markdown": "# 🌴 Makabansa — Kapaligiran at Kultura\n\nGrade 3, Week 11! Let's see how the environment shapes a community's culture. 🌴\n\n## 🌊 Kapaligiran ay Humuhubog sa Kultura\nAng **kapaligiran** ay humuhubog sa pagkain, kabuhayan, at kaugalian ng mga tao sa isang lugar.\n\n## 🏔️ Mga Halimbawa\n- Ang mga naninirahan malapit sa **dagat** ay may kulturang kinabibilangan ng pangingisda at pagkaing dagat.\n- Ang mga taga-**Cordillera** ay kilala sa rice terraces — patunay kung paano hinubog ng bundok ang kanilang kultura.\n- Ang **malong** na suot sa Mindanao ay isang halimbawa ng damit na hinugis ng kultura.\n\n## 🤝 Bakit Mahalaga Ito?\nAng paghahambing ng kultura ng iba't ibang komunidad ay nagtuturo sa atin na **igalang at pahalagahan ang pagkakaiba-iba**.\n\n**Mahahalagang salita:** kapaligiran, kultura, kabuhayan, paggalang",
         "quiz": [
           {
             "question": "How does the ENVIRONMENT affect the CULTURE of people in a place?",
@@ -754,6 +760,7 @@
     },
     "Thursday": {
       "GMRC": {
+        "summary_markdown": "# 🤝 GMRC — Mabubuting Pasya at Pagpipigil sa Sarili\n\nGrade 3, Week 11! Let's learn about making good choices and self-discipline. 🤝\n\n## 🤔 Making Good Choices\nMaking good choices means thinking about **the effects on yourself and others**. When you're free to choose your actions, you also have **responsibility** for the results.\n\n## 💪 Self-Discipline\n**Self-discipline** means controlling your actions and choosing what is right — like finishing homework before playing.\n\n## ❤️ Character and Kindness\n- Recognizing your own strengths helps you use them **to do good and improve**.\n- Helping a struggling classmate shows **kindness and caring for others**.\n- If a friend invites you to cheat, the right thing to do is **refuse and explain it is wrong**.\n\n**Key words:** self-discipline, responsibility, honesty, kindness",
         "quiz": [
           {
             "question": "Making good choices means thinking about ___.",
@@ -880,6 +887,7 @@
     },
     "Friday": {
       "GMRC": {
+        "summary_markdown": "# 🤝 Friday Review — GMRC (Grade 3)\n\n- Good choices come with responsibility\n- Self-discipline: choosing what is right\n- Kindness and honesty in disagreements\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "Making good choices means thinking about ___.",
@@ -1004,6 +1012,7 @@
         ]
       },
       "English": {
+        "summary_markdown": "# 📝 Friday Review — English (Grade 3)\n\n- Topic sentences and compound sentences\n- Synonyms, prefixes, and verb tense\n- Fables teach a lesson\n\nGreat work! 🌟",
         "quiz": [
           {
             "question": "What is the TOPIC SENTENCE of a paragraph?",
@@ -1128,6 +1137,7 @@
         ]
       },
       "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- Observing, predicting, measuring, classifying\n- Characteristics of living things\n\nGreat work, scientist! ⭐",
         "quiz": [
           {
             "question": "Which science skill involves using your senses to study something carefully?",
@@ -1252,6 +1262,7 @@
         ]
       },
       "Computer": {
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Bold, Underline, Font size, Font color\n- Always Save your work (Ctrl+S)\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "What do you click to OPEN a word-processing program from the desktop?",
@@ -1376,6 +1387,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 🐢 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- Pabula: kwentong may aral, may hayop na tauhan\n- Pang-uri, pandiwa, at kasalungat na salita\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Alin ang tamang gamit ng 'mula'?",
@@ -1500,6 +1512,7 @@
         ]
       },
       "Makabansa": {
+        "summary_markdown": "# 🌴 Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- Kapaligiran ay humuhubog sa kultura\n- Halimbawa: pangingisda, rice terraces, malong\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "How does the ENVIRONMENT affect the CULTURE of people in a place?",
@@ -1624,6 +1637,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# ⚖️ Friday Review — Mathematics (Grade 3)\n\n- 1 kilogram = 1000 grams\n- Weighing scales measure mass\n- Comparing and subtracting mass\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "What unit do we use to measure the mass of a watermelon?",

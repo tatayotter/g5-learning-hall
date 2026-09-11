@@ -4,6 +4,7 @@
   "days": {
     "Monday": {
       "English": {
+        "summary_markdown": "# 📝 English — Text Types and Meaning\n\nGrade 6, Week 11! Let's explore different kinds of texts and how meaning is conveyed. 📝\n\n## 🔍 Literal vs. Implied Meaning\n- **Literal meaning** is the exact, dictionary meaning of words.\n- **Implied meaning** is the meaning suggested but not directly stated.\n\n## 📚 Types of Texts\n- A **narrative** text tells a story (real or imagined).\n- An **expository** text gives information and explains a topic.\n- A **persuasive** text aims to convince the reader to agree with an opinion or take action.\n\n## 🗣️ Tone and Structure\n- **Tone** is the author's attitude toward the subject and reader.\n- A **thesis statement** states the main argument or central idea of a composition.\n- Signal words like **\"however\"** show contrast.\n\n**Key words:** literal, implied, narrative, expository, persuasive, tone, thesis",
         "quiz": [
           {
             "question": "LITERAL meaning refers to ___.",
@@ -128,6 +129,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🔷 Mathematics — Tessellations and Transformations\n\nGrade 6, Week 11! Let's explore shapes that tile a surface, and how shapes move. 🔷\n\n## 🧩 Tessellation\n**Tessellation** means filling a surface with a shape with no gaps or overlaps. Triangles, squares, and regular hexagons can **always** tessellate on their own.\n\n## 🔄 Transformations\n- A **translation** (slide) moves a shape without turning or flipping it.\n- A **reflection** (flip) produces a mirror image — the shape stays the same size but flipped.\n- A **rotation** (turn) moves a shape around a fixed point (center of rotation).\n\n## 🔢 Decimal Practice\n**Example:** 4.567 + 3.21 = **7.777**\n**Example:** 10.5 − 3.25 = **7.25**\n**Mental math:** 3.6 × 10 = 36, and 4.5 ÷ 0.1 = 45\n\n**Key words:** tessellation, translation, reflection, rotation",
         "quiz": [
           {
             "question": "TESSELLATION means filling a surface with a shape ___.",
@@ -254,6 +256,7 @@
     },
     "Tuesday": {
       "Science": {
+        "summary_markdown": "# 🧪 Science — Changes in States of Matter and Mixtures\n\nGrade 6, Week 11! Let's explore how matter changes and how mixtures are separated. 🧪\n\n## 🔄 Changes of State\n- **Evaporation**: liquid → gas\n- **Condensation**: gas → liquid\n- **Melting**: solid → liquid\n- **Freezing**: liquid → solid\n\nThese are **physical changes** and are **reversible** — like melting ice. A **chemical change**, like rusting iron, is **irreversible**.\n\n## 🥤 Mixtures\n- A **solution** is a uniform (homogeneous) mixture.\n- A **suspension** is a non-uniform (heterogeneous) mixture.\n- Air is a mixture containing oxygen, nitrogen, carbon dioxide, and water vapor.\n\n## 🌾 Separating Mixtures\n- **Filtering** uses a filter to separate a solid from a liquid.\n- **Winnowing** separates grain from chaff using wind.\n- **Decantation** separates mixtures by carefully pouring off the liquid, leaving the solid behind.\n\n**Key words:** evaporation, condensation, solution, suspension, filtering, decantation",
         "quiz": [
           {
             "question": "EVAPORATION is the process where a liquid changes to a ___.",
@@ -378,6 +381,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# ✍️ Filipino — Ang Sanaysay\n\nGrade 6, Linggo 11! Alamin natin ang bahagi ng isang sanaysay. ✍️\n\n## 📄 Ano ang Sanaysay?\nAng **sanaysay** ay isang malikhaing komposisyong nagpapahayag ng pananaw ng may-akda sa isang paksa. Ang layunin ng **persuasibong sanaysay** ay hikayatin ang mambabasa na sumang-ayon sa pananaw ng may-akda.\n\n## 🧱 Mga Bahagi\n- Ang **katibayan o ebidensya** ay ginagamit upang palakasin ang argumento ng may-akda.\n- Ang **konklusyon** ay nagbubuod ng mga pangunahing punto at nagbibigay ng pangwakas na pahayag.\n- Ang salitang **\"subalit\"** ay nagpapahayag ng kabaligtaran o kontrasto.\n\n## 🎯 Pokus at Tono\n- Ang **pokus** ng pangungusap ay ang salitang ginawang paksa nito.\n- Ang **tono** ng isang akda ay nagpapakita ng saloobin ng may-akda sa paksa at sa mambabasa.\n\n**Mahahalagang salita:** sanaysay, persuasibo, katibayan, konklusyon, pokus, tono",
         "quiz": [
           {
             "question": "Ang SANAYSAY ay isang ___.",
@@ -504,6 +508,7 @@
     },
     "Wednesday": {
       "EPP (ICT)": {
+        "summary_markdown": "# 💻 EPP (ICT) — Introduction to Coding\n\nGrade 6, Week 11! Let's learn the basics of giving instructions to a computer. 💻\n\n## 🧩 What Is an Algorithm?\nAn **algorithm** is a step-by-step set of instructions for solving a problem. A **flowchart** is a diagram that shows the step-by-step flow of a program.\n\n## 🔁 Sequence, Loops, and Conditions\n- A **sequence** executes instructions in order, one after another.\n- A **loop** repeats a set of instructions a number of times or until a condition is met.\n- An **if-then** statement is a conditional/decision structure.\n- A **variable** is a storage location that holds a value which can change.\n\n## 🐞 Debugging and Multimedia\n**\"Debug\"** means to find and fix errors in a program. **Scratch** is a simple coding platform used in Philippine elementary schools. Multimedia editing combines video, audio, images, and text.\n\n**Key words:** algorithm, sequence, loop, if-then, variable, debug",
         "quiz": [
           {
             "question": "MULTIMEDIA EDITING involves working with ___.",
@@ -628,6 +633,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# 🔥 Araling Panlipunan — Ang Katipunan at Himagsikang Pilipino\n\nGrade 6, Week 11! Alamin natin ang simula ng Himagsikang Pilipino. 🔥\n\n## 🗝️ Ang Katipunan\nItinatag ni **Andres Bonifacio** ang Katipunan noong **1892**, isang lihim na samahan na naglunsad ng armadong rebolusyon laban sa pananakop ng Espanya, upang **makamit ang kalayaan ng Pilipinas**.\n\n## ⚔️ Simula ng Himagsikan\nAng **Himagsikang Pilipino** ay nagsimula noong **1896**. Ang **\"Sigaw sa Pugadlawin\"** ay nagpapahayag ng simula ng armadong pakikipaglaban. Si **Jose Rizal**, isang martir, ay bayaning namatay para sa kapakanan ng bayan.\n\n## 🤝 Mga Mahalagang Pangyayari\n- Ang **Kasunduan sa Biak-na-Bato** (1897) ay nagresulta sa pansamantalang tigilan ng labanan.\n- Ang **Kumbensiyon ng Tejeros** (1897) ay humantong sa pagpapalitan ng pamumuno mula kay Bonifacio patungong Aguinaldo.\n- Ang **Deklarasyon ng Kasarinlan** ay ipinahayag noong **Hunyo 12, 1898**.\n\n**Mahahalagang salita:** Katipunan, Himagsikan, Bonifacio, Biak-na-Bato, Kasarinlan",
         "quiz": [
           {
             "question": "Ang KATIPUNAN ay itinatag noong ___.",
@@ -754,6 +760,7 @@
     },
     "Thursday": {
       "GMRC": {
+        "summary_markdown": "# 💎 GMRC — Human Dignity and Self-Concept\n\nGrade 6, Week 11! Let's learn about the value of every person, including yourself. 💎\n\n## 💎 Human Dignity\n**Human dignity** means the inherent worth and value of every person as a unique creation. Recognizing your own dignity is the **foundation of a positive self-concept**.\n\n## 🪞 Self-Concept and Self-Respect\n- A **positive self-concept** means having a realistic and healthy view of your own strengths and areas for growth.\n- **Self-respect** means taking care of yourself and treating yourself with dignity.\n- **Self-awareness** means understanding your own feelings, strengths, and areas for growth.\n\n## 🌟 Virtues\n**Virtues** are good character traits developed through practice. **Integrity** means doing what is right even when no one is watching, and **compassion** means understanding and wanting to help those who are suffering.\n\n**Key words:** human dignity, self-concept, self-respect, integrity, compassion",
         "quiz": [
           {
             "question": "HUMAN DIGNITY means ___.",
@@ -878,6 +885,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Philippine Art of the Revolutionary Period\n\nGrade 6, Week 11! Let's explore Philippine art and fitness. 🎨\n\n## 🖼️ Revolutionary Period Art (1801-1898)\nPhilippine art during the revolutionary period reflected **national awakening and the desire for freedom**. **Juan Luna** and **Felix Resurrecion Hidalgo** are famous Filipino artists of this era — Juan Luna painted **\"Spolarium.\"**\n\n## 🎵 Music\nThe **kundiman** is a type of Filipino romantic song. Filipino folk dances reflect the culture, history, and way of life of Filipino communities.\n\n## 🏃 PE and Wellness\n- **Badminton** is an example of a net/wall game.\n- **Fair play** means following rules, respecting opponents, and accepting outcomes gracefully.\n- **BMI (Body Mass Index)** assesses if a person's weight is healthy relative to height. **Holistic wellness** covers physical, mental, emotional, and social health.\n\n**Key words:** Juan Luna, Spolarium, kundiman, fair play, holistic wellness",
         "quiz": [
           {
             "question": "The REVOLUTIONARY PERIOD in Philippine arts (1801-1898) was characterized by ___.",
@@ -1004,6 +1012,7 @@
     },
     "Friday": {
       "GMRC": {
+        "summary_markdown": "# 💎 Friday Review — GMRC (Grade 6)\n\n- Human dignity is the foundation of self-concept\n- Self-respect, integrity, and compassion\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "HUMAN DIGNITY means ___.",
@@ -1128,6 +1137,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 6)\n\n- Juan Luna's \"Spolarium,\" revolutionary period art\n- Fair play and holistic wellness in PE\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "The REVOLUTIONARY PERIOD in Philippine arts (1801-1898) was characterized by ___.",
@@ -1252,6 +1262,7 @@
         ]
       },
       "English": {
+        "summary_markdown": "# 📝 Friday Review — English (Grade 6)\n\n- Literal vs. implied meaning\n- Narrative, expository, and persuasive texts\n- Tone and thesis statement\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "LITERAL meaning refers to ___.",
@@ -1376,6 +1387,7 @@
         ]
       },
       "Science": {
+        "summary_markdown": "# 🧪 Friday Review — Science (Grade 6)\n\n- Evaporation, condensation, melting, freezing\n- Solutions, suspensions, and separating mixtures\n\nGreat work! 🌟",
         "quiz": [
           {
             "question": "EVAPORATION is the process where a liquid changes to a ___.",
@@ -1500,6 +1512,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# ✍️ Biyernes na Balik-Aral — Filipino (Grade 6)\n\n- Sanaysay: persuasibo, katibayan, konklusyon\n- Pokus at tono ng pangungusap\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Ang SANAYSAY ay isang ___.",
@@ -1624,6 +1637,7 @@
         ]
       },
       "EPP (ICT)": {
+        "summary_markdown": "# 💻 Friday Review — EPP ICT (Grade 6)\n\n- Algorithms and flowcharts\n- Sequence, loops, and if-then statements\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "MULTIMEDIA EDITING involves working with ___.",
@@ -1748,6 +1762,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🔷 Friday Review — Mathematics (Grade 6)\n\n- Tessellation: no gaps or overlaps\n- Translation, reflection, rotation\n- Decimal addition and subtraction\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "TESSELLATION means filling a surface with a shape ___.",
@@ -1872,6 +1887,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# 🔥 Friday Review — Araling Panlipunan (Grade 6)\n\n- Katipunan (1892) ni Andres Bonifacio\n- Himagsikang Pilipino (1896), Deklarasyon ng Kasarinlan (1898)\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Ang KATIPUNAN ay itinatag noong ___.",

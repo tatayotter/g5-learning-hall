@@ -4,6 +4,7 @@
   "days": {
     "Monday": {
       "English": {
+        "summary_markdown": "# 🎨 English — Figurative Language\n\nGrade 5, Week 11! Let's explore how writers make language vivid and colorful. 🎨\n\n## 🌬️ Simile, Metaphor, and Personification\n- A **simile** compares two things using \"like\" or \"as\" → *\"She ran like the wind.\"*\n- A **metaphor** compares two things without \"like\" or \"as\" → *\"The night sky was a black velvet blanket.\"*\n- **Personification** gives human qualities to non-human things.\n\n## 🔊 Alliteration and Onomatopoeia\n- **Alliteration** repeats beginning sounds → *\"Pretty purple pansies\"*\n- **Onomatopoeia** is a word that sounds like the thing it describes.\n\n## 🎯 Reading for Meaning\n- The **theme** of a story is its central message or lesson.\n- A **conflict** is the problem that needs to be solved.\n- To **infer** a character's feelings, look at their actions, words, and reactions.\n\n**Key words:** simile, metaphor, personification, alliteration, theme, infer",
         "quiz": [
           {
             "question": "The THEME of a story is ___.",
@@ -128,6 +129,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Decimals and Fractions\n\nGrade 5, Week 11! Let's convert between decimals and fractions, and compare them. 🔢\n\n## 🔄 Converting Decimals to Fractions\n**Example:** 0.75 = 75/100 = **3/4** in lowest terms.\n**Example:** 0.5 = 5/10 = **1/2**\n\n## ⚖️ Comparing Decimals\n**Example:** Which is larger, 0.7 or 0.35? Since 0.70 > 0.35, **0.7 is larger**.\n\nTrailing zeros don't change value: **0.3 = 0.30 = 0.300** — they're all equal!\n\n## 🔟 Place Value in Decimals\nIn the decimal **3.45**, the digit **5** is in the **hundredths** place.\n\n**Key words:** decimal, fraction, lowest terms, place value, compare",
         "quiz": [
           {
             "question": "Convert the decimal 0.75 to a fraction in LOWEST TERMS.",
@@ -254,6 +256,7 @@
     },
     "Tuesday": {
       "Science": {
+        "summary_markdown": "# 🐸 Science — Animal Body Systems\n\nGrade 5, Week 11! Let's trace how food and air move through an animal's body. 🐸\n\n## 🍽️ Digestive System\nFood travels: **mouth → esophagus → stomach → small intestine**. The stomach mixes food with gastric acid, and the **small intestine** absorbs most nutrients into the bloodstream. The **large intestine** absorbs water and prepares waste for removal.\n\n## 🌬️ Respiratory System\nAir travels: **nose/mouth → trachea (windpipe) → lungs**. The respiratory system takes in oxygen from the air.\n\n## 👶 Reproductive System\nThe **reproductive system's** main function is producing offspring — for growth and continuation of the species.\n\nLearning about animal body systems helps us understand **how living things function and stay healthy**.\n\n**Key words:** esophagus, small intestine, trachea, reproductive system",
         "quiz": [
           {
             "question": "Trace the path of FOOD through the digestive system: mouth → ___ → stomach → ___.",
@@ -378,6 +381,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 📜 Filipino — Mito, Epiko, at Matalinghagang Pananalita\n\nGrade 5, Linggo 11! Alamin natin ang mga uri ng kwento at matalinghagang wika. 📜\n\n## 📖 Mito at Epiko\n- Ang **mito** ay isang kwentong nagpapaliwanag ng pinagmulan ng natural na bagay o kababalaghan.\n- Ang **epiko** ay isang mahabang salaysay tungkol sa mga gawa ng isang bayani.\n\n## 🌟 Simili, Metapora, at Personipikasyon\n- Ang **simili** ay naghahambing gamit ang *\"tulad ng\"* o *\"para ng\"* (tinatawag ding pagwawangis).\n- Ang **metapora** ay naghahambing nang walang paggamit ng tulad ng → *\"Ang kanyang ngiti ay araw.\"*\n- Ang **personipikasyon** ay nagbibigay ng katangiang pang-tao sa mga bagay na hindi tao → *\"Ang bundok ay bumubulong ng mga lihim.\"*\n\n## 🎯 Tema\nMalalaman ang **tema** ng isang kwento sa pamamagitan ng pag-unawa sa mensahe o aral na itinuturo nito.\n\n**Mahahalagang salita:** mito, epiko, simili, metapora, personipikasyon, tema",
         "quiz": [
           {
             "question": "Ang MITO ay isang kwentong nagpapaliwanag ng ___.",
@@ -504,6 +508,7 @@
     },
     "Wednesday": {
       "EPP (ICT)": {
+        "summary_markdown": "# 📄 EPP (ICT) — Working with MS Word\n\nGrade 5, Week 11! Let's make our documents look great with MS Word tools. 📄\n\n## 🖼️ Inserting Pictures and Shapes\n- **Insert → Picture** adds a picture from your computer.\n- **Insert → Shapes** adds pre-made geometric shapes and lines.\n- To resize an image, drag its **corner handles**.\n\n## 🗺️ SmartArt and Tables\n- **SmartArt** creates diagrams and visual lists — the **Process** layout is best for showing a step-by-step process.\n- **Insert → Table** organizes information into rows and columns. A **column** is a vertical group of cells.\n\n## 🎨 Formatting\n- **Bullets** and **Numbering** organize text into lists.\n- **Design → Page Color** adds a background color to a page.\n\n**Key words:** SmartArt, table, bullets, insert picture, page color",
         "quiz": [
           {
             "question": "In MS Word, which INSERT option lets you add a picture from your computer?",
@@ -628,6 +633,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Araling Panlipunan — Dahilan ng Pananakop ng Espanya\n\nGrade 5, Week 11! Alamin natin kung bakit sinakop ng Espanya ang Pilipinas. ⚔️\n\n## 🌍 Colonization at Imperialism\n**Colonization** means one nation taking control and settling in another territory. **Imperialism** refers to the policy of extending a nation's power through colonization or military force.\n\n## ✝️💰👑 God, Gold, Glory\nTatlong dahilan ng pananakop ng Espanya:\n- **God** — pagpapalaganap ng Kristiyanismo\n- **Gold** — paghahanap ng kayamanan at likas na yaman\n- **Glory** — paghahangad ng kapangyarihan at prestihiyo\n\n## ⛵ Mga Ekspedisyon\n- Si **Ferdinand Magellan** ang pumangunahan ng unang ekspedisyon noong 1521 — ang Unang Misa ay isinagawa sa **Limasawa**. Siya ay pinaslang ni **Lapu-Lapu**.\n- Si **Miguel Lopez de Legazpi** ang nagtatag ng permanenteng pamahalaang Espanyol noong 1565.\n- Ang **Kasunduan ng Tordesillas** (1494) ay naghati ng mundo sa pagitan ng Espanya at Portugal.\n\n**Mahahalagang salita:** kolonisasyon, imperyalismo, God-Gold-Glory, Magellan, Legazpi",
         "quiz": [
           {
             "question": "What are the THREE reasons Spain colonized the Philippines?",
@@ -754,6 +760,7 @@
     },
     "Thursday": {
       "GMRC": {
+        "summary_markdown": "# 🏡 GMRC — Pagtanggap sa mga Bisita\n\nGrade 5, Week 11! Let's learn about Filipino hospitality when welcoming visitors. 🏡\n\n## 🤝 Hospitality and Respect\nWelcoming visitors into your home shows **hospitality and respect**. This means greeting them warmly, offering a seat, and making them feel comfortable.\n\n## 🙏 Filipino Values\n- **\"Mano po\"** is a Filipino gesture of respect and love for elders.\n- Welcoming guests warmly reflects **pakikipagkapwa** (hospitality).\n- **\"Pakikitungo\"** refers to the way one interacts politely and respectfully with others.\n\n## 💛 Why This Matters\nHospitality strengthens family bonds and reflects care for others. Staying in your room without greeting a visiting relative shows **disrespect** — the opposite of what we want to practice.\n\n**Key words:** hospitality, respect, mano po, pakikipagkapwa",
         "quiz": [
           {
             "question": "When you WELCOME visitors into your home, the value being shown is ___.",
@@ -878,6 +885,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎶 MAPEH — Pre-Colonial Philippine Arts\n\nGrade 5, Week 11! Let's discover Philippine arts before colonization. 🎶\n\n## 🥁 Music and Instruments\n- Pre-colonial arts were tied to **everyday life and community rituals**, marking events like birth, harvest, and ceremonies.\n- The **Hornbostel-Sachs system** classifies musical instruments.\n- Filipino folk instruments like the **kudyapi** and **kulintang** show our rich indigenous musical heritage.\n\n## 🔊 Dynamics\n- **Dynamics** means the volume of music. **Forte (f)** = loudly, **Mezzo forte (mf)** = moderately loud.\n- **Timbre** is the unique sound quality of an instrument or voice.\n\n## 🎨 Visual Arts and PE\nPre-colonial visual arts were often made from **local natural materials** like bamboo, clay, and weaving fibers. Playing sports develops physical fitness, teamwork, discipline, and sportsmanship.\n\n**Key words:** pre-colonial arts, Hornbostel-Sachs, dynamics, timbre",
         "quiz": [
           {
             "question": "PRE-COLONIAL Philippine arts were tied to ___.",
@@ -1004,6 +1012,7 @@
     },
     "Friday": {
       "GMRC": {
+        "summary_markdown": "# 🏡 Friday Review — GMRC (Grade 5)\n\n- Hospitality and respect for visitors\n- Mano po, pakikipagkapwa, pakikitungo\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "When you WELCOME visitors into your home, the value being shown is ___.",
@@ -1128,6 +1137,7 @@
         ]
       },
       "MAPEH": {
+        "summary_markdown": "# 🎶 Friday Review — MAPEH (Grade 5)\n\n- Pre-colonial Philippine arts and instruments\n- Dynamics and timbre in music\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "PRE-COLONIAL Philippine arts were tied to ___.",
@@ -1252,6 +1262,7 @@
         ]
       },
       "English": {
+        "summary_markdown": "# 🎨 Friday Review — English (Grade 5)\n\n- Simile, metaphor, personification\n- Alliteration and onomatopoeia\n- Theme, conflict, and inference\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "The THEME of a story is ___.",
@@ -1376,6 +1387,7 @@
         ]
       },
       "Science": {
+        "summary_markdown": "# 🐸 Friday Review — Science (Grade 5)\n\n- Digestive system: mouth → esophagus → stomach → small intestine\n- Respiratory system: nose → trachea → lungs\n\nGreat work! 🌟",
         "quiz": [
           {
             "question": "Trace the path of FOOD through the digestive system: mouth → ___ → stomach → ___.",
@@ -1500,6 +1512,7 @@
         ]
       },
       "Filipino": {
+        "summary_markdown": "# 📜 Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- Mito at epiko\n- Simili, metapora, personipikasyon\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "Ang MITO ay isang kwentong nagpapaliwanag ng ___.",
@@ -1624,6 +1637,7 @@
         ]
       },
       "EPP (ICT)": {
+        "summary_markdown": "# 📄 Friday Review — EPP ICT (Grade 5)\n\n- Inserting pictures, shapes, and SmartArt\n- Tables, bullets, and page color\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "In MS Word, which INSERT option lets you add a picture from your computer?",
@@ -1748,6 +1762,7 @@
         ]
       },
       "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- Converting decimals to fractions\n- Comparing decimals and place value\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "Convert the decimal 0.75 to a fraction in LOWEST TERMS.",
@@ -1872,6 +1887,7 @@
         ]
       },
       "Araling Panlipunan": {
+        "summary_markdown": "# ⚔️ Friday Review — Araling Panlipunan (Grade 5)\n\n- God, Gold, Glory: dahilan ng pananakop ng Espanya\n- Magellan (1521) at Legazpi (1565)\n\nMagaling! 🌟",
         "quiz": [
           {
             "question": "What are the THREE reasons Spain colonized the Philippines?",
