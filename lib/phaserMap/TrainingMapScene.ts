@@ -681,8 +681,20 @@ export default class TrainingMapScene extends Phaser.Scene {
         if (next.image.active) {
           // Kill any in-flight stepping tween — it was aimed at the placeholder
           // baseScaleY (h/32 ≈ 1.9×) and would fight fitSprite's correction.
+          // This ALSO kills the spawn-in alpha fade added just above, and
+          // when the avatar's texture is already cached (ensureTexture/
+          // ensureSpritesheet call onReady() synchronously in that case —
+          // e.g. another online player already wearing this exact avatar, or
+          // self already loaded it) this callback runs in the very same tick
+          // the fade tween was added, before Phaser's tween manager has
+          // advanced it even one frame — killing it while alpha is still 0
+          // and leaving the sprite permanently invisible, since nothing else
+          // ever sets it back. Explicitly restoring it below is a no-op on
+          // the (much more common) async path where the fade already
+          // finished normally.
           this.tweens.killTweensOf(next.image);
           next.image.setTexture(texKey, 0);
+          next.image.setAlpha(1);
           this.fitSprite(next.image, h * 0.95);
           next.baseScaleY = next.image.scaleY;
         }
