@@ -51,10 +51,13 @@
 // hooks/useContinuousMovement.ts), with no tween (direct position, since the
 // smoothness now comes from 60fps update frequency, not from tweening
 // between discrete tile-hops). Other players still move via the original
-// snap-on-presence-update + 200ms tween path — they're not driven by
-// continuous movement (see MapCanvas.tsx's header comment).
+// snap-on-presence-update + tween path — they're not driven by continuous
+// movement (see MapCanvas.tsx's header comment). That tween's duration
+// lives in constants.ts's OTHER_PLAYER_MOVE_TWEEN_MS (not a local
+// constant here) since MapCanvas.tsx's DOM overlay needs the exact same
+// number to interpolate name tags/badges/bubbles in lockstep with it.
 import Phaser from 'phaser';
-import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from './constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS } from './constants';
 
 export { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM };
 
@@ -619,9 +622,9 @@ export default class TrainingMapScene extends Phaser.Scene {
 
     // Moved and/or re-skinned — tween to the new tile position. Other
     // players don't move in real time (see file header) so this only fires
-    // on the infrequent presence-update cadence, not every frame.
+    // on the infrequent wander-tick cadence, not every frame.
     if (tracked.x !== player.x || tracked.y !== player.y) {
-      this.tweens.add({ targets: tracked.image, x: px, y: py, duration: 200, ease: 'Cubic.easeOut' });
+      this.tweens.add({ targets: tracked.image, x: px, y: py, duration: OTHER_PLAYER_MOVE_TWEEN_MS, ease: 'Sine.easeInOut' });
       tracked.x = player.x;
       tracked.y = player.y;
     }

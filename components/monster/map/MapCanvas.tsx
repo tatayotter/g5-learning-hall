@@ -16,7 +16,7 @@ import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
 import { REGIONS } from '@/lib/regions';
 import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality';
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
-import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM } from '@/lib/phaserMap/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
 import type { TrashItem } from '@/hooks/useTrashItems';
@@ -137,13 +137,43 @@ export default function MapCanvas({
   // positions in refs so the rAF loop can reposition them every frame, just
   // like selfWrapRef and markerElsRef below.
   const otherPlayerElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
-  // Mutated every render so the rAF loop always reads the latest tile position
-  // without needing to re-subscribe to `onlinePlayers` as a dep.
-  const otherPlayerPosRef = useRef<Map<string, { x: number; y: number }>>(new Map());
-  // Update positions synchronously during render — ref writes are safe here.
-  otherPlayerPosRef.current = new Map(
-    Object.values(onlinePlayers).map(p => [p.userId, { x: p.x, y: p.y }]),
-  );
+  // Mutated every render so the rAF loop always reads the latest interpolated
+  // position without needing to re-subscribe to `onlinePlayers` as a dep.
+  // Interpolated (not just the raw latest tile) so this overlay tracks the
+  // Phaser sprite's own OTHER_PLAYER_MOVE_TWEEN_MS tween in lockstep —
+  // otherwise the name tag/badge above a wandering player would jump
+  // straight to their new tile the instant `onlinePlayers` updates, while
+  // the sprite underneath is still gliding there, which reads as the whole
+  // player blinking rather than walking.
+  const otherPlayerAnimRef = useRef<Map<string, { fromX: number; fromY: number; toX: number; toY: number; start: number }>>(new Map());
+  // Reconcile anim targets whenever `onlinePlayers` changes — in an effect
+  // (not inline during render) so the impure performance.now() read and the
+  // ref mutations stay off the render path. Any player whose tile hasn't
+  // changed since last time is a no-op; a mover starts a fresh leg FROM
+  // wherever they're currently interpolated to be (not their last settled
+  // tile), so a new wander step that arrives mid-glide doesn't jump
+  // backward before continuing on.
+  useEffect(() => {
+    const now = performance.now();
+    const seenIds = new Set<string>();
+    Object.values(onlinePlayers).forEach(p => {
+      seenIds.add(p.userId);
+      const prev = otherPlayerAnimRef.current.get(p.userId);
+      if (!prev) {
+        otherPlayerAnimRef.current.set(p.userId, { fromX: p.x, fromY: p.y, toX: p.x, toY: p.y, start: now });
+        return;
+      }
+      if (prev.toX === p.x && prev.toY === p.y) return;
+      const t = Math.min(1, (now - prev.start) / OTHER_PLAYER_MOVE_TWEEN_MS);
+      const eased = easeInOutSine(t);
+      const curX = prev.fromX + (prev.toX - prev.fromX) * eased;
+      const curY = prev.fromY + (prev.toY - prev.fromY) * eased;
+      otherPlayerAnimRef.current.set(p.userId, { fromX: curX, fromY: curY, toX: p.x, toY: p.y, start: now });
+    });
+    otherPlayerAnimRef.current.forEach((_, id) => {
+      if (!seenIds.has(id)) otherPlayerAnimRef.current.delete(id);
+    });
+  }, [onlinePlayers]);
   // Every OTHER stationary-tile marker (town, portals, scrolls, curio) also
   // needs its left/top repositioned every frame the camera pans — earlier
   // these only used the once-per-tile posX/posY-derived leftPct/topPct
@@ -266,12 +296,20 @@ export default function MapCanvas({
           el.style.top = `${tp(my)}%`;
         });
         // Other-player overlays use the same per-frame camera transform so
-        // they track the world correctly even while the camera is panning.
+        // they track the world correctly even while the camera is panning,
+        // and interpolate along the same tween the Phaser sprite is using
+        // (see otherPlayerAnimRef above) rather than snapping to the target
+        // tile immediately.
+        const nowTick = performance.now();
         otherPlayerElsRef.current.forEach((el, uid) => {
-          const pos = otherPlayerPosRef.current.get(uid);
-          if (!pos) return;
-          el.style.left = `${lp(pos.x)}%`;
-          el.style.top = `${tp(pos.y)}%`;
+          const anim = otherPlayerAnimRef.current.get(uid);
+          if (!anim) return;
+          const t = Math.min(1, (nowTick - anim.start) / OTHER_PLAYER_MOVE_TWEEN_MS);
+          const eased = easeInOutSine(t);
+          const px = anim.fromX + (anim.toX - anim.fromX) * eased;
+          const py = anim.fromY + (anim.toY - anim.fromY) * eased;
+          el.style.left = `${lp(px)}%`;
+          el.style.top = `${tp(py)}%`;
         });
       }
     };
