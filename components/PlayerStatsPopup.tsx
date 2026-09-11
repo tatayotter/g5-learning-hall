@@ -6,6 +6,8 @@ import { ALL_MONSTERS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getOw
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { GMBadge } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
+import { BOT_IDS } from '@/lib/botProfiles';
+import { fetchFriendRelation, sendFriendRequest, respondToFriendRequest, FriendRequestRow } from '@/lib/friends';
 
 interface TeamMonster {
   slot: number;
@@ -16,14 +18,26 @@ interface TeamMonster {
 }
 
 interface PlayerStatsPopupProps {
+  // The viewer's own id — needed to look up (and act on) the friend
+  // relationship between viewer and targetId. Every real call site has this
+  // on hand already (it's the map's own userId).
+  viewerId: string;
   targetId: string;
   onClose: () => void;
   onWave: (targetId: string) => void;
   onChallenge?: (targetId: string, name: string) => void;
+  onTrade?: (targetId: string, name: string) => void;
   targetInBattle?: boolean;
 }
 
-export default function PlayerStatsPopup({ targetId, onClose, onWave, onChallenge, targetInBattle = false }: PlayerStatsPopupProps) {
+export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, onChallenge, onTrade, targetInBattle = false }: PlayerStatsPopupProps) {
+  // Bots aren't real Supabase accounts — they have no tradeable inventory
+  // the trade RPCs can see and no friend_requests row could ever reference
+  // them meaningfully, so Trade and Add Friend both stay hidden for them
+  // the same way Challenge disables for a target already mid-battle below.
+  const isBot = BOT_IDS.has(targetId);
+  const [friendRelation, setFriendRelation] = useState<FriendRequestRow | null>(null);
+  const [friendBusy, setFriendBusy] = useState(false);
   const [loading, setLoading] = useState(true);
   const [level, setLevel] = useState<number | null>(null);
   const [team, setTeam] = useState<TeamMonster[]>([]);
@@ -58,6 +72,31 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
     load();
     return () => { cancelled = true; };
   }, [targetId]);
+
+  // Separate effect (and separate loading flag — friend status shouldn't
+  // block the stats above from appearing) since it's keyed on the pair, not
+  // just targetId, and bots skip it entirely (see isBot above).
+  useEffect(() => {
+    if (isBot) return;
+    let cancelled = false;
+    fetchFriendRelation(viewerId, targetId).then(row => { if (!cancelled) setFriendRelation(row); });
+    return () => { cancelled = true; };
+  }, [viewerId, targetId, isBot]);
+
+  const handleAddFriend = async () => {
+    setFriendBusy(true);
+    const { id, error } = await sendFriendRequest(targetId);
+    if (!error && id) setFriendRelation(await fetchFriendRelation(viewerId, targetId));
+    setFriendBusy(false);
+  };
+
+  const handleAcceptFriend = async () => {
+    if (!friendRelation) return;
+    setFriendBusy(true);
+    const ok = await respondToFriendRequest(friendRelation.id, true);
+    if (ok) setFriendRelation(await fetchFriendRelation(viewerId, targetId));
+    setFriendBusy(false);
+  };
 
   // ALL_MONSTERS, but guild companions show the name/emoji their owner's
   // (targetId's) guild level currently unlocks — see MonsterGuild.tsx for the
@@ -152,18 +191,59 @@ export default function PlayerStatsPopup({ targetId, onClose, onWave, onChalleng
           <p className="text-xs text-amber-400 text-center mb-3">⚔️ {profile?.name || targetId} is in a battle — you can't challenge them right now.</p>
         )}
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => { onWave(targetId); onClose(); }}
-            className="flex-1 bg-amber-700 hover:bg-amber-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+            className="flex-1 min-w-[5rem] bg-amber-700 hover:bg-amber-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
           >
             👋 Wave
           </button>
+          {onTrade && !isBot && (
+            <button
+              onClick={() => { onTrade(targetId, profile?.name || targetId); onClose(); }}
+              className="flex-1 min-w-[5rem] bg-emerald-700 hover:bg-emerald-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+            >
+              🔁 Trade
+            </button>
+          )}
+          {!isBot && (
+            friendRelation?.status === 'accepted' ? (
+              <button
+                disabled
+                className="flex-1 min-w-[5rem] bg-neutral-800 text-emerald-400 text-sm font-bold px-4 py-2 rounded-lg opacity-80 cursor-default"
+              >
+                ✅ Friends
+              </button>
+            ) : friendRelation?.status === 'pending' && friendRelation.requester_id === targetId ? (
+              <button
+                onClick={handleAcceptFriend}
+                disabled={friendBusy}
+                className="flex-1 min-w-[5rem] bg-teal-700 hover:bg-teal-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40"
+              >
+                ✔️ Accept Friend
+              </button>
+            ) : friendRelation?.status === 'pending' && friendRelation.requester_id === viewerId ? (
+              <button
+                disabled
+                className="flex-1 min-w-[5rem] bg-neutral-800 text-gray-400 text-sm font-bold px-4 py-2 rounded-lg opacity-70 cursor-default"
+              >
+                ⏳ Request Sent
+              </button>
+            ) : (
+              <button
+                onClick={handleAddFriend}
+                disabled={friendBusy}
+                className="flex-1 min-w-[5rem] bg-pink-700 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40"
+              >
+                ➕ Add Friend
+              </button>
+            )
+          )}
           {onChallenge && (
             <button
               onClick={() => { onChallenge(targetId, profile?.name || targetId); onClose(); }}
               disabled={targetInBattle}
-              className="flex-1 bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex-1 min-w-[5rem] bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               ⚔️ Challenge
             </button>
