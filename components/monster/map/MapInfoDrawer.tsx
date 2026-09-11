@@ -52,10 +52,10 @@ export default function MapInfoDrawer({
             onClick={() => onTabChange(tab.id)}
             className={`flex-1 text-[13px] font-bold uppercase tracking-wide rounded px-1.5 py-1.5 transition-colors ${
               infoTab === tab.id
-                ? 'bg-amber-900/30 text-amber-400 border border-amber-800'
+                ? 'bg-[#c9781a]/20 text-[#c9781a] border border-[#c9781a]'
                 : tab.id === 'friends' && friendData.incoming.length > 0
-                ? 'bg-pink-900/30 text-pink-400 border border-pink-800'
-                : 'bg-[#0a0807]/70 text-gray-500 border border-[#3a2610] hover:text-gray-300'
+                ? 'bg-pink-100 text-pink-600 border border-pink-400'
+                : 'bg-white text-[#6b4820] border border-[#c9a87a] hover:border-[#c9781a]'
             }`}
           >
             {tab.label}
@@ -63,9 +63,14 @@ export default function MapInfoDrawer({
         ))}
       </div>
 
+      {/* Content chips are solid white/opaque — same "readable as crisp" idea as
+          MonsterHpPanel's status pills (STATUS_PILL_COLORS): light, opaque fills
+          for content sitting ON a dark wood-framed card, even though the frame
+          itself stays dark on purpose (see docs/STYLE_GUIDE.md's "deliberately
+          still dark" list — that's about the frame, not what floats on it). */}
       {infoTab === 'team' && (
         userMonsters.filter(m => m.slot !== null).length === 0 ? (
-          <p className="text-gray-500 text-xs">No curios on your team</p>
+          <p className="text-[#e8d0a0] text-xs">No curios on your team</p>
         ) : (
           <div className="space-y-2">
             {userMonsters
@@ -80,27 +85,27 @@ export default function MapInfoDrawer({
                 return (
                   <div
                     key={monster.id}
-                    className={`rounded-lg p-2 ${isActive ? 'border border-amber-700 bg-amber-900/10' : 'border border-[#3a2610] bg-[#0a0807]/70'}`}
+                    className={`rounded-lg p-2 bg-white ${isActive ? 'border-2 border-amber-500' : 'border border-[#c9a87a]'}`}
                   >
                     <div className="flex items-center gap-2">
                       <MonsterImage monster={def} className="w-9 h-9 flex-shrink-0" />
                       <div className="flex-1 min-w-0">
-                        <p className="font-bold text-white text-xs truncate">
+                        <p className="font-bold text-[#2a1505] text-xs truncate">
                           {def?.name}
-                          {isActive && <span className="ml-1.5 text-[9px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
+                          {isActive && <span className="ml-1.5 text-[9px] text-amber-600 font-bold uppercase tracking-wide">Active</span>}
                         </p>
-                        <p className="text-[10px] text-gray-400 capitalize">Lv.{monster.monster_level} · {def?.element}</p>
-                        <div className="w-full bg-[#1a120a] rounded-full h-1 mt-1">
-                          <div className="h-1 rounded-full bg-amber-400" style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }} />
+                        <p className="text-[10px] text-[#6b4820] capitalize">Lv.{monster.monster_level} · {def?.element}</p>
+                        <div className="w-full bg-[#e8d0a0] rounded-full h-1 mt-1">
+                          <div className="h-1 rounded-full bg-amber-500" style={{ width: `${(expIntoLevel / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }} />
                         </div>
                       </div>
-                      <div className="text-[9px] text-gray-400 space-y-0.5 flex-shrink-0">
+                      <div className="text-[9px] text-[#6b4820] space-y-0.5 flex-shrink-0">
                         <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.hp}</p>
                         <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.attack}</p>
                         <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-2.5 h-2.5 object-contain" /> {scaled.speed}</p>
                       </div>
                     </div>
-                    <p className="text-[9px] text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
+                    <p className="text-[9px] text-[#8b5e2a] mt-0.5">{expToNext} EXP to next level</p>
                   </div>
                 );
               })}
@@ -110,7 +115,7 @@ export default function MapInfoDrawer({
 
       {infoTab === 'online' && (
         Object.keys(onlinePlayers).length === 0 ? (
-          <p className="text-gray-600 text-xs">No one else is on the map right now.</p>
+          <p className="text-[#e8d0a0] text-xs">No one else is on the map right now.</p>
         ) : (
           <div className="space-y-1.5">
             {Object.values(onlinePlayers)
@@ -119,14 +124,14 @@ export default function MapInfoDrawer({
                 <button
                   key={p.userId}
                   onClick={() => onStatsTarget(p.userId)}
-                  className="w-full flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
+                  className="w-full flex items-center gap-2 bg-white border border-[#c9a87a] hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" />
-                  <span className="text-white text-xs font-medium truncate">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                  <span className="text-[#2a1505] text-xs font-medium truncate">
                     {USERS[p.userId]?.name || p.name}
                   </span>
                   {USERS[p.userId]?.isFamily && <GMBadge />}
-                  <span className="text-[10px] text-gray-500 ml-auto">{USERS[p.userId]?.grade}</span>
+                  <span className="text-[10px] text-[#6b4820] ml-auto">{USERS[p.userId]?.grade}</span>
                 </button>
               ))}
           </div>
@@ -137,22 +142,22 @@ export default function MapInfoDrawer({
         <div className="space-y-3">
           {friendData.incoming.length > 0 && (
             <div>
-              <p className="text-[10px] text-pink-400 uppercase tracking-widest font-bold mb-1">Requests</p>
+              <p className="text-[10px] text-[#f0ddb8] uppercase tracking-widest font-bold mb-1">Requests</p>
               <div className="space-y-1.5">
                 {friendData.incoming.map(r => (
-                  <div key={r.id} className="flex items-center gap-2 bg-[#0a0807]/70 border border-pink-900/60 rounded-lg px-2.5 py-1.5">
-                    <span className="text-white text-xs font-medium truncate flex-1">
+                  <div key={r.id} className="flex items-center gap-2 bg-white border border-pink-400 rounded-lg px-2.5 py-1.5">
+                    <span className="text-[#2a1505] text-xs font-medium truncate flex-1">
                       {USERS[r.requester_id]?.name || r.requester_id}
                     </span>
                     <button
                       onClick={() => onAcceptFriendRequest(r.id)}
-                      className="text-[10px] font-bold text-white bg-emerald-700 hover:bg-emerald-600 rounded px-2 py-1 transition-colors"
+                      className="text-[10px] font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded px-2 py-1 transition-colors"
                     >
                       Accept
                     </button>
                     <button
                       onClick={() => onDeclineFriendRequest(r.id)}
-                      className="text-[10px] font-bold text-gray-300 bg-[#1a120a] hover:bg-[#2a1c0f] rounded px-2 py-1 transition-colors"
+                      className="text-[10px] font-bold text-[#6b4820] bg-[#f0ddb8] hover:bg-[#e8c88a] rounded px-2 py-1 transition-colors"
                     >
                       Decline
                     </button>
@@ -163,11 +168,11 @@ export default function MapInfoDrawer({
           )}
 
           <div>
-            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">
+            <p className="text-[10px] text-[#f0ddb8] uppercase tracking-widest font-bold mb-1">
               My Friends {friendData.friends.length > 0 && `(${friendData.friends.length})`}
             </p>
             {friendData.friends.length === 0 ? (
-              <p className="text-gray-600 text-xs">No friends yet — add one from their Trainer Card on the map.</p>
+              <p className="text-[#e8d0a0] text-xs">No friends yet — add one from their Trainer Card on the map.</p>
             ) : (
               <div className="space-y-1.5">
                 {friendData.friends.map(f => {
@@ -176,12 +181,12 @@ export default function MapInfoDrawer({
                   return (
                     <div
                       key={f.id}
-                      className="w-full flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-2.5 py-1.5"
+                      className="w-full flex items-center gap-2 bg-white border border-[#c9a87a] rounded-lg px-2.5 py-1.5"
                     >
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-400' : 'bg-[#3a2610]'}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-500' : 'bg-[#c9a87a]'}`} />
                       <button
                         onClick={() => onStatsTarget(friendId)}
-                        className="text-white text-xs font-medium truncate flex-1 text-left hover:text-amber-400 transition-colors"
+                        className="text-[#2a1505] text-xs font-medium truncate flex-1 text-left hover:text-[#c9781a] transition-colors"
                       >
                         {USERS[friendId]?.name || friendId}
                         {USERS[friendId]?.isFamily && <GMBadge />}
@@ -189,7 +194,7 @@ export default function MapInfoDrawer({
                       <button
                         onClick={() => onRemoveFriend(friendId)}
                         title="Remove friend"
-                        className="text-[10px] font-bold text-gray-500 hover:text-red-400 px-1 transition-colors"
+                        className="text-[10px] font-bold text-[#8b5e2a] hover:text-red-600 px-1 transition-colors"
                       >
                         ✕
                       </button>
@@ -202,17 +207,17 @@ export default function MapInfoDrawer({
 
           {friendData.outgoing.length > 0 && (
             <div>
-              <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1">Sent</p>
+              <p className="text-[10px] text-[#f0ddb8] uppercase tracking-widest font-bold mb-1">Sent</p>
               <div className="space-y-1.5">
                 {friendData.outgoing.map(r => (
-                  <div key={r.id} className="flex items-center gap-2 bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-2.5 py-1.5">
-                    <span className="text-gray-300 text-xs font-medium truncate flex-1">
+                  <div key={r.id} className="flex items-center gap-2 bg-white border border-[#c9a87a] rounded-lg px-2.5 py-1.5">
+                    <span className="text-[#3a2610] text-xs font-medium truncate flex-1">
                       {USERS[r.recipient_id]?.name || r.recipient_id}
                     </span>
-                    <span className="text-[10px] text-gray-500">Pending…</span>
+                    <span className="text-[10px] text-[#6b4820]">Pending…</span>
                     <button
                       onClick={() => onCancelFriendRequest(r.id)}
-                      className="text-[10px] font-bold text-gray-300 bg-[#1a120a] hover:bg-[#2a1c0f] rounded px-2 py-1 transition-colors"
+                      className="text-[10px] font-bold text-[#6b4820] bg-[#f0ddb8] hover:bg-[#e8c88a] rounded px-2 py-1 transition-colors"
                     >
                       Cancel
                     </button>
@@ -234,7 +239,7 @@ export default function MapInfoDrawer({
               return (
                 <div
                   key={type}
-                  className="flex items-center gap-2 rounded-md border border-[#3a2610] bg-[#1a120a] px-2 py-1"
+                  className="flex items-center gap-2 rounded-md border border-[#c9a87a] bg-white px-2 py-1"
                   title={`${def.bundleSize} pcs = 1g`}
                 >
                   <img
@@ -243,25 +248,25 @@ export default function MapInfoDrawer({
                     className="w-6 h-6 object-contain flex-shrink-0"
                     style={{ imageRendering: 'auto' }}
                   />
-                  <span className="flex-1 text-[10px] text-gray-300 leading-none">{def.label}</span>
-                  <span className="text-[10px] text-gray-500 leading-none">{def.bundleSize}=1g</span>
-                  <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-white' : 'text-neutral-600'}`}>
+                  <span className="flex-1 text-[10px] text-[#3a2610] leading-none">{def.label}</span>
+                  <span className="text-[10px] text-[#6b4820] leading-none">{def.bundleSize}=1g</span>
+                  <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-[#2a1505]' : 'text-[#c9a87a]'}`}>
                     {count}
                   </span>
                 </div>
               );
             })}
             {/* 6th slot empty */}
-            <div className="rounded-md border border-[#3a2610] bg-[#0a0807]/40 h-8" />
+            <div className="rounded-md border border-[#c9a87a] bg-white/40 h-8" />
           </div>
 
           {respawnSecsLeft !== null && (
-            <p className="text-[10px] text-amber-500 text-center font-medium">
+            <p className="text-[10px] text-amber-300 text-center font-medium">
               Trash respawns in {Math.floor(respawnSecsLeft / 60)}:{String(respawnSecsLeft % 60).padStart(2, '0')}…
             </p>
           )}
           {respawnSecsLeft === null && (
-            <p className="text-[10px] text-gray-500 text-center">
+            <p className="text-[10px] text-[#e8d0a0] text-center">
               {trashItemsOnMap} trash items on the map
             </p>
           )}
