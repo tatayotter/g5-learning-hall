@@ -8,6 +8,8 @@ import { GMBadge } from '@/components/battle/shared';
 import { MonsterImage } from '@/components/battle/shared';
 import { BOT_IDS } from '@/lib/botProfiles';
 import { fetchFriendRelation, sendFriendRequest, respondToFriendRequest, FriendRequestRow } from '@/lib/friends';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface TeamMonster {
   slot: number;
@@ -46,6 +48,7 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
 
   const profile = USERS[targetId];
+  const displayName = profile?.fullName || targetId;
 
   useEffect(() => {
     let cancelled = false;
@@ -121,42 +124,59 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
     // visible popup (map painted right over it). 95 clears the map's whole stack but still
     // sits under a true full-screen takeover like BossCutscene/EventPanel (z-[100]).
     <div className="fixed inset-0 bg-black/80 z-[95] flex items-center justify-center p-4" onClick={onClose}>
+      {/* Same wood-plank + gold trim + corner-nail frame as the battle screen's
+          MonsterHpPanel/PostBattleSummary — this is a map-native "trainer card," the same
+          category of floating game-art overlay as the HP panel, not a parchment quest panel
+          (see docs/STYLE_GUIDE.md's "deliberately still dark" list). Reuses the exported style
+          pieces rather than re-deriving them. */}
       <div
-        className="bg-neutral-900 border border-neutral-700 rounded-2xl p-6 max-w-sm w-full"
+        className="relative border-2 border-[#4a2f18] rounded-2xl p-6 max-w-sm w-full"
+        style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
         onClick={e => e.stopPropagation()}
       >
+        <Nail className="top-2 left-2" />
+        <Nail className="top-2 right-2" />
+        <Nail className="bottom-2 left-2" />
+        <Nail className="bottom-2 right-2" />
+
         <div className="flex items-center gap-3 mb-4">
           {profile?.avatar && !avatarFailed ? (
             <img
               src={profile.avatar}
               alt=""
               onError={() => setAvatarFailed(true)}
-              className="w-10 h-10 rounded-full object-contain bg-neutral-950 border-2 border-neutral-700"
+              className="w-10 h-10 rounded-full object-contain bg-[#0a0807] border-2 border-[#d4a017]"
             />
           ) : (
             <span className="text-3xl">{profile?.isFamily ? '⚔️' : '🎮'}</span>
           )}
           <div>
-            <p className="text-white font-bold flex items-center gap-1.5">
-              {profile?.fullName || targetId}
+            <p
+              className="flex items-center gap-1.5 leading-tight"
+              style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 16 }}
+            >
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>{displayName}</span>
+                <span style={questTextStyle}>{displayName}</span>
+              </span>
               {profile?.isFamily && <GMBadge />}
             </p>
-            <p className="text-xs text-gray-500">{profile?.grade}{profile && !profile.isFamily && ' · Classmate'}</p>
+            <p className="text-xs text-[#e8d0a0]">{profile?.grade}{profile && !profile.isFamily && ' · Classmate'}</p>
           </div>
         </div>
 
         {loading ? (
-          <p className="text-gray-500 text-sm animate-pulse">Loading stats...</p>
+          <p className="text-[#e8d0a0] text-sm animate-pulse">Loading stats...</p>
         ) : (
           <>
-            <div className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 mb-3">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-1">Level</p>
+            <div className="bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-4 py-3 mb-3">
+              <p className="text-xs text-[#c9a87a] uppercase tracking-widest mb-1">Level</p>
               <p className="text-white font-bold">{level ?? '?'}</p>
             </div>
 
             {team.length > 0 && (
-              <div className="bg-neutral-950 border border-neutral-800 rounded-lg px-4 py-3 mb-4">
-                <p className="text-xs text-gray-500 uppercase tracking-widest mb-2">Team</p>
+              <div className="bg-[#0a0807]/70 border border-[#3a2610] rounded-lg px-4 py-3 mb-4">
+                <p className="text-xs text-[#c9a87a] uppercase tracking-widest mb-2">Team</p>
                 <div className="space-y-2">
                   {team.map(m => {
                     const def = getOwnedMonsterDisplay(displayMonsters[m.monster_id], m.graduation_tier) as MonsterDef;
@@ -165,7 +185,7 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
                     return (
                       <div
                         key={m.slot}
-                        className={`flex items-center gap-2 rounded-lg p-1.5 ${isActive ? 'border border-amber-700 bg-amber-900/10' : ''}`}
+                        className={`flex items-center gap-2 rounded-lg p-1.5 ${isActive ? 'border border-amber-600 bg-amber-900/20' : ''}`}
                       >
                         <div className="w-8 h-8 flex-shrink-0">
                           <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-2xl" />
@@ -175,9 +195,9 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
                             {m.nickname || def?.name}
                             {isActive && <span className="ml-1.5 text-[10px] text-amber-400 font-bold uppercase tracking-wide">Active</span>}
                           </p>
-                          <p className="text-xs text-gray-500">Lv{m.monster_level} · {def?.element}</p>
+                          <p className="text-xs text-[#c9a87a]">Lv{m.monster_level} · {def?.element}</p>
                         </div>
-                        <div className="text-[10px] text-gray-400 space-y-0.5 flex-shrink-0">
+                        <div className="text-[10px] text-[#e8d0a0] space-y-0.5 flex-shrink-0">
                           <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.hp}</p>
                           <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.attack}</p>
                           <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3 h-3 object-contain" /> {scaled.defense}</p>
@@ -196,69 +216,77 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
           <p className="text-xs text-amber-400 text-center mb-3">⚔️ {profile?.name || targetId} is in a battle — you can't challenge them right now.</p>
         )}
 
+        {/* Same GameButton `quest` variant used for every other primary CTA in the
+            game (battle actions, quest starts, post-battle Continue) rather than a
+            one-off flat button style — see components/GameButton.tsx. */}
         <div className="flex flex-wrap gap-2">
-          <button
+          <GameButton
+            variant="quest"
             onClick={() => { onWave(targetId); onClose(); }}
-            className="flex-1 min-w-[5rem] bg-amber-700 hover:bg-amber-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+            className="flex-1 min-w-[5rem]"
+            style={{ fontSize: 13 }}
           >
             👋 Wave
-          </button>
+          </GameButton>
           {onTrade && !isBot && (
-            <button
+            <GameButton
+              variant="quest"
+              color="#16a34a"
               onClick={() => { onTrade(targetId, profile?.name || targetId); onClose(); }}
-              className="flex-1 min-w-[5rem] bg-emerald-700 hover:bg-emerald-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
+              className="flex-1 min-w-[5rem]"
+              style={{ fontSize: 13 }}
             >
               🔁 Trade
-            </button>
+            </GameButton>
           )}
           {!isBot && (
             friendRelation?.status === 'accepted' ? (
-              <button
-                disabled
-                className="flex-1 min-w-[5rem] bg-neutral-800 text-emerald-400 text-sm font-bold px-4 py-2 rounded-lg opacity-80 cursor-default"
-              >
+              <GameButton variant="quest" color="#16a34a" disabled className="flex-1 min-w-[5rem]" style={{ fontSize: 13 }}>
                 ✅ Friends
-              </button>
+              </GameButton>
             ) : friendRelation?.status === 'pending' && friendRelation.requester_id === targetId ? (
-              <button
+              <GameButton
+                variant="quest"
+                color="#0e7490"
                 onClick={handleAcceptFriend}
                 disabled={friendBusy}
-                className="flex-1 min-w-[5rem] bg-teal-700 hover:bg-teal-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40"
+                className="flex-1 min-w-[5rem]"
+                style={{ fontSize: 13 }}
               >
-                ✔️ Accept Friend
-              </button>
+                ✔️ Accept
+              </GameButton>
             ) : friendRelation?.status === 'pending' && friendRelation.requester_id === viewerId ? (
-              <button
-                disabled
-                className="flex-1 min-w-[5rem] bg-neutral-800 text-gray-400 text-sm font-bold px-4 py-2 rounded-lg opacity-70 cursor-default"
-              >
-                ⏳ Request Sent
-              </button>
+              <GameButton variant="quest" color="#57534e" disabled className="flex-1 min-w-[5rem]" style={{ fontSize: 13 }}>
+                ⏳ Sent
+              </GameButton>
             ) : (
-              <button
+              <GameButton
+                variant="quest"
+                color="#db2777"
                 onClick={handleAddFriend}
                 disabled={friendBusy}
-                className="flex-1 min-w-[5rem] bg-pink-700 hover:bg-pink-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40"
+                className="flex-1 min-w-[5rem]"
+                style={{ fontSize: 13 }}
               >
                 ➕ Add Friend
-              </button>
+              </GameButton>
             )
           )}
           {onChallenge && (
-            <button
+            <GameButton
+              variant="quest"
+              color="#2563eb"
               onClick={() => { onChallenge(targetId, profile?.name || targetId); onClose(); }}
               disabled={targetInBattle}
-              className="flex-1 min-w-[5rem] bg-indigo-700 hover:bg-indigo-600 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex-1 min-w-[5rem]"
+              style={{ fontSize: 13 }}
             >
               ⚔️ Challenge
-            </button>
+            </GameButton>
           )}
-          <button
-            onClick={onClose}
-            className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors"
-          >
+          <GameButton variant="quest" color="#57534e" onClick={onClose} style={{ fontSize: 13 }}>
             Close
-          </button>
+          </GameButton>
         </div>
       </div>
     </div>
