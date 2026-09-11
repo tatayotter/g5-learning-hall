@@ -1,0 +1,801 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-07-12",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Common Nouns** are general names for people, places, or things (e.g., dog, city, teacher).\n* **Proper Nouns** are special names for specific people, places, or things — they always start with a **Capital Letter** (e.g., Tala, Cebu, Jollibee).\n* **Gender of Nouns:** Some nouns tell us if someone is male (masculine) or female (feminine). Example: king → queen, brother → sister, rooster → hen.\n* **Neuter nouns** have no gender (e.g., table, chair, book).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Salitang Naglalarawan (Adjectives):** We will learn words that describe people, places, and things in Filipino!",
+        "quiz": [
+          {
+            "question": "Which word is a PROPER noun?",
+            "options": [
+              "dog",
+              "Tala",
+              "school",
+              "flower"
+            ],
+            "correct_answer": "Tala"
+          },
+          {
+            "question": "Which word is a COMMON noun?",
+            "options": [
+              "Manila",
+              "Jollibee",
+              "teacher",
+              "Maria"
+            ],
+            "correct_answer": "teacher"
+          },
+          {
+            "question": "Proper nouns always start with a ___.",
+            "options": [
+              "small letter",
+              "number",
+              "capital letter",
+              "symbol"
+            ],
+            "correct_answer": "capital letter"
+          },
+          {
+            "question": "Which is a proper noun?",
+            "options": [
+              "city",
+              "Cebu",
+              "river",
+              "mountain"
+            ],
+            "correct_answer": "Cebu"
+          },
+          {
+            "question": "What is the feminine form of 'king'?",
+            "options": [
+              "queen",
+              "prince",
+              "knight",
+              "lord"
+            ],
+            "correct_answer": "queen"
+          },
+          {
+            "question": "What is the masculine form of 'mother'?",
+            "options": [
+              "sister",
+              "aunt",
+              "father",
+              "grandmother"
+            ],
+            "correct_answer": "father"
+          },
+          {
+            "question": "Which noun is FEMININE?",
+            "options": [
+              "uncle",
+              "brother",
+              "grandfather",
+              "aunt"
+            ],
+            "correct_answer": "aunt"
+          },
+          {
+            "question": "Which noun has NO gender (neuter)?",
+            "options": [
+              "boy",
+              "girl",
+              "table",
+              "woman"
+            ],
+            "correct_answer": "table"
+          }
+        ]
+      },
+      "MAKABANSA": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Komunidad** — isang lugar kung saan naninirahan at nagtutulungan ang mga tao.\n* **Lokasyon** — nagsasabi kung *saan* matatagpuan ang komunidad (hal. malapit sa bundok, dagat, o ilog).\n* **Lawak o Sukat** — nagsasabi kung gaano *kalaki* ang komunidad.\n* **Palatandaang Heograpikal** — mga natural na tanda sa kalikasan tulad ng bundok, ilog, dagat, at lawa na nagpapakilala sa isang lugar.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Mga Bumubuo ng Komunidad:** Alamin natin kung sino-sino ang mga taong nagbibigay buhay sa ating komunidad!",
+        "quiz": [
+          {
+            "question": "Ang komunidad ay isang lugar kung saan ang mga tao ay ___ at nagtutulungan.",
+            "options": [
+              "nag-aaway",
+              "nagsasama-sama",
+              "nagtatago",
+              "nagkalat"
+            ],
+            "correct_answer": "nagsasama-sama"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'lokasyon' ng komunidad?",
+            "options": [
+              "Laki ng komunidad",
+              "Kung saan matatagpuan ang komunidad",
+              "Bilang ng tao",
+              "Mga hayop sa komunidad"
+            ],
+            "correct_answer": "Kung saan matatagpuan ang komunidad"
+          },
+          {
+            "question": "Alin sa mga ito ay halimbawa ng palatandaang heograpikal?",
+            "options": [
+              "Palengke",
+              "Simbahan",
+              "Ilog o bundok",
+              "Paaralan"
+            ],
+            "correct_answer": "Ilog o bundok"
+          },
+          {
+            "question": "Ang 'lawak' ng komunidad ay tumutukoy sa:",
+            "options": [
+              "Kulay ng komunidad",
+              "Laki o sukat ng komunidad",
+              "Pangalan ng komunidad",
+              "Kasaysayan ng komunidad"
+            ],
+            "correct_answer": "Laki o sukat ng komunidad"
+          },
+          {
+            "question": "Ang barangay ay isang halimbawa ng:",
+            "options": [
+              "bansa",
+              "komunidad",
+              "rehiyon",
+              "lalawigan"
+            ],
+            "correct_answer": "komunidad"
+          },
+          {
+            "question": "Kung nakatira ka malapit sa dagat, ang dagat ay isang halimbawa ng:",
+            "options": [
+              "palatandaang heograpikal",
+              "tindahan",
+              "paaralan",
+              "ospital"
+            ],
+            "correct_answer": "palatandaang heograpikal"
+          },
+          {
+            "question": "Ang Pilipinas ay isang ___.",
+            "options": [
+              "lungsod",
+              "bansa",
+              "barangay",
+              "lalawigan"
+            ],
+            "correct_answer": "bansa"
+          },
+          {
+            "question": "Alin ang HINDI palatandaang heograpikal?",
+            "options": [
+              "bundok",
+              "ilog",
+              "paaralan",
+              "lawa"
+            ],
+            "correct_answer": "paaralan"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "GMRC": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Sariling Damdamin** — Mayroon tayong iba't ibang damdamin: *saya, lungkot, takot, galit, gulat, at pagmamahal*.\n* **Pagiging Totoo (Sincerity)** — Mahalaga ang pagiging totoo sa ating nararamdaman. Hindi natin dapat itago ang ating damdamin.\n* **Tamang Pagpapahayag:** Kapag galit tayo, hindi tayo dapat sumigaw o manuntok. Magsalita nang maayos at tahimik.\n* **Bakit ito mahalaga?** Kapag sinabi natin ang ating nararamdaman, mas madaling tulungan tayo ng ating pamilya at mga kaibigan.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Numbers to 1000:** Matututunan natin bukas kung paano kumatawan ng mga bilang gamit ang hundreds, tens, at ones!",
+        "quiz": [
+          {
+            "question": "Kung nasasaktan ka, ano ang tamang gawin?",
+            "options": [
+              "Itago ang nararamdaman",
+              "Sabihin nang maayos ang nararamdaman",
+              "Sumigaw nang sumigaw",
+              "Umalis nang walang salita"
+            ],
+            "correct_answer": "Sabihin nang maayos ang nararamdaman"
+          },
+          {
+            "question": "Ang pagiging totoo sa ating damdamin ay tinatawag na:",
+            "options": [
+              "katamaran",
+              "sinseridad o katapatan",
+              "kalungkutan",
+              "katatagan"
+            ],
+            "correct_answer": "sinseridad o katapatan"
+          },
+          {
+            "question": "Ano ang mararamdaman mo kung nasira ang iyong paboritong laruan?",
+            "options": [
+              "masaya",
+              "malungkot",
+              "walang pakialam",
+              "excited"
+            ],
+            "correct_answer": "malungkot"
+          },
+          {
+            "question": "Ano ang tamang gawin kung galit ka?",
+            "options": [
+              "Sumigaw sa lahat",
+              "Manuntok",
+              "Sabihin nang maayos kung bakit galit",
+              "Tumakbo palayo"
+            ],
+            "correct_answer": "Sabihin nang maayos kung bakit galit"
+          },
+          {
+            "question": "Aling damdamin ang nararamdaman kapag may nagbigay ng regalo?",
+            "options": [
+              "lungkot",
+              "takot",
+              "saya at pasasalamat",
+              "galit"
+            ],
+            "correct_answer": "saya at pasasalamat"
+          },
+          {
+            "question": "Bakit mahalaga ang pagpapahayag ng ating damdamin?",
+            "options": [
+              "Para manalo sa laro",
+              "Para malaman ng iba kung paano tayo tulungan",
+              "Para makakuha ng gusto",
+              "Para hindi mag-aral"
+            ],
+            "correct_answer": "Para malaman ng iba kung paano tayo tulungan"
+          },
+          {
+            "question": "Alin sa mga ito ang nagpapakita ng PAGIGING TOTOO?",
+            "options": [
+              "Nagsisinungaling para hindi mapagalitan",
+              "Nagsasabi ng totoo kahit mahirap",
+              "Nagtatago ng ginawa",
+              "Nagpapanggap na masaya kahit malungkot"
+            ],
+            "correct_answer": "Nagsasabi ng totoo kahit mahirap"
+          },
+          {
+            "question": "Kung masaya ka, ano ang maaari mong gawin para ipahayag ito?",
+            "options": [
+              "Umiyak",
+              "Sumayaw at kumanta",
+              "Magtampo",
+              "Matulog"
+            ],
+            "correct_answer": "Sumayaw at kumanta"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Salitang Naglalarawan** (Adjectives) — mga salitang nagsasabi ng katangian ng tao, bagay, hayop, o lugar. Halimbawa: *maganda, malaki, masaya, mabait*.\n* **Salitang Kilos** (Verbs) — mga salitang nagpapakita ng kilos o gawain. Halimbawa: *tumakbo, kumain, umawit, naglaro*.\n* **Salitang Pangkayarian** — mga salitang ginagamit bago ang pangngalan:\n  * **Ang / Ang mga** — para sa mga bagay, hayop, lugar (hal. *Ang bata*, *Ang mga bata*)\n  * **Si / Sina** — para sa pangalan ng tao (hal. *Si Tala*, *Sina Maria at Ana*)\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Numbers to 1000:** Bukas, matututunan nating basahin at isulat ang mga bilang hanggang 1000!",
+        "quiz": [
+          {
+            "question": "Alin ang salitang naglalarawan?",
+            "options": [
+              "tumakbo",
+              "maganda",
+              "bahay",
+              "kumain"
+            ],
+            "correct_answer": "maganda"
+          },
+          {
+            "question": "Ang 'mabait' ay halimbawa ng:",
+            "options": [
+              "salitang kilos",
+              "salitang naglalarawan",
+              "pangngalan",
+              "panghalip"
+            ],
+            "correct_answer": "salitang naglalarawan"
+          },
+          {
+            "question": "Alin ang HINDI salitang naglalarawan?",
+            "options": [
+              "malaki",
+              "mabilis",
+              "kumanta",
+              "masaya"
+            ],
+            "correct_answer": "kumanta"
+          },
+          {
+            "question": "Alin ang salitang kilos?",
+            "options": [
+              "malaki",
+              "bahay",
+              "tumakbo",
+              "maganda"
+            ],
+            "correct_answer": "tumakbo"
+          },
+          {
+            "question": "Gamitin ang tamang salitang pangkayarian: '___ bata ay naglaro.'",
+            "options": [
+              "Si",
+              "Sina",
+              "Ang",
+              "Ang mga"
+            ],
+            "correct_answer": "Ang"
+          },
+          {
+            "question": "Gamitin ang tamang salitang pangkayarian: '___ Maria ay umawit.'",
+            "options": [
+              "Ang",
+              "Si",
+              "Sina",
+              "Ang mga"
+            ],
+            "correct_answer": "Si"
+          },
+          {
+            "question": "Ang 'si' at 'sina' ay ginagamit para sa mga ___.",
+            "options": [
+              "bagay",
+              "lugar",
+              "pangalan ng tao",
+              "hayop"
+            ],
+            "correct_answer": "pangalan ng tao"
+          },
+          {
+            "question": "Alin ang salitang kilos sa pangungusap: 'Ang bata ay kumain ng mangga.'",
+            "options": [
+              "bata",
+              "mangga",
+              "kumain",
+              "ang"
+            ],
+            "correct_answer": "kumain"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Review: Common vs Proper Nouns** — Practice identifying which nouns are common (general) and which are proper (specific, capitalized).\n* **Gender Practice:** Match masculine and feminine noun pairs:\n  * king ↔ queen | brother ↔ sister | rooster ↔ hen | uncle ↔ aunt\n* **Writing Rule:** Always capitalize proper nouns in a sentence — even in the middle!\n  * ✅ 'I live in **Cagayan de Oro**.'\n  * ❌ 'I live in cagayan de oro.'\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Ordinal Numbers in English:** First, second, third... let's practice using these in sentences!",
+        "quiz": [
+          {
+            "question": "Which sentence is written CORRECTLY?",
+            "options": [
+              "my name is tala.",
+              "My name is Tala.",
+              "My Name Is Tala.",
+              "my Name is tala."
+            ],
+            "correct_answer": "My name is Tala."
+          },
+          {
+            "question": "What is the feminine form of 'brother'?",
+            "options": [
+              "mother",
+              "aunt",
+              "sister",
+              "cousin"
+            ],
+            "correct_answer": "sister"
+          },
+          {
+            "question": "What is the masculine form of 'queen'?",
+            "options": [
+              "prince",
+              "king",
+              "lord",
+              "duke"
+            ],
+            "correct_answer": "king"
+          },
+          {
+            "question": "'Happy', 'tall', and 'small' are examples of ___.",
+            "options": [
+              "nouns",
+              "verbs",
+              "adjectives",
+              "pronouns"
+            ],
+            "correct_answer": "adjectives"
+          },
+          {
+            "question": "Which word is a verb (action word)?",
+            "options": [
+              "apple",
+              "run",
+              "big",
+              "chair"
+            ],
+            "correct_answer": "run"
+          },
+          {
+            "question": "Which is a COMMON noun?",
+            "options": [
+              "Tala",
+              "Manila",
+              "dog",
+              "Jollibee"
+            ],
+            "correct_answer": "dog"
+          },
+          {
+            "question": "A noun is a word that names a ___.",
+            "options": [
+              "action",
+              "person, place, or thing",
+              "color",
+              "feeling"
+            ],
+            "correct_answer": "person, place, or thing"
+          },
+          {
+            "question": "Which is NOT a proper noun?",
+            "options": [
+              "Cebu",
+              "Maria",
+              "school",
+              "Philippines"
+            ],
+            "correct_answer": "school"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Numbers up to 1000** have three place values: **Hundreds, Tens, and Ones**.\n  * Example: 325 = 3 hundreds + 2 tens + 5 ones\n* **Expanded Form:** Writing a number by showing the value of each digit (e.g., 463 = 400 + 60 + 3).\n* **Counting Patterns:** We can count by **2s, 5s, 10s, and 100s** up to 1000.\n* **Comparing Numbers:** Look at the hundreds digit first. If equal, look at the tens, then the ones.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Ordinal Numbers:** Matututunan natin kung paano gamitin ang 1st, 2nd, 3rd hanggang 20th para ilarawan ang posisyon!",
+        "quiz": [
+          {
+            "question": "What number is shown: 3 hundreds, 2 tens, 5 ones?",
+            "options": [
+              "235",
+              "325",
+              "352",
+              "523"
+            ],
+            "correct_answer": "325"
+          },
+          {
+            "question": "How many hundreds are in the number 742?",
+            "options": [
+              "2",
+              "4",
+              "7",
+              "1"
+            ],
+            "correct_answer": "7"
+          },
+          {
+            "question": "What is the value of the digit 5 in 583?",
+            "options": [
+              "5",
+              "50",
+              "500",
+              "5000"
+            ],
+            "correct_answer": "500"
+          },
+          {
+            "question": "What is 400 + 60 + 3?",
+            "options": [
+              "436",
+              "463",
+              "364",
+              "346"
+            ],
+            "correct_answer": "463"
+          },
+          {
+            "question": "Which number comes AFTER 599?",
+            "options": [
+              "598",
+              "600",
+              "590",
+              "699"
+            ],
+            "correct_answer": "600"
+          },
+          {
+            "question": "Which number is GREATEST?",
+            "options": [
+              "456",
+              "654",
+              "546",
+              "465"
+            ],
+            "correct_answer": "654"
+          },
+          {
+            "question": "Count by 10s: 970, 980, 990, ___",
+            "options": [
+              "991",
+              "995",
+              "1000",
+              "999"
+            ],
+            "correct_answer": "1000"
+          },
+          {
+            "question": "What number is 10 MORE than 890?",
+            "options": [
+              "880",
+              "891",
+              "900",
+              "910"
+            ],
+            "correct_answer": "900"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Review: Salitang Naglalarawan at Kilos** — Pagsamahin natin ang ating mga natutunan!\n  * Salitang naglalarawan: *maganda, malaki, masaya, mabait, mabilis*\n  * Salitang kilos: *tumakbo, kumain, umawit, naglaro, natulog*\n* **Pagsasanay sa Pangkayarian:** Piliin ang tamang salita bago ang pangalan.\n  * 'Si' at 'Sina' = para sa pangalan ng tao\n  * 'Ang' at 'Ang mga' = para sa pangngalan (bagay, hayop, lugar)\n* **Pagbuo ng Pangungusap:** Subukang bumuo ng sariling pangungusap gamit ang mga natutunan!\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Week 5 Champion Challenge:** Lahat ng paksa — handa na ba ang ating Prinsesa?",
+        "quiz": [
+          {
+            "question": "Piliin ang salitang naglalarawan: 'Ang ___ na bulaklak ay amoy nang mabuti.'",
+            "options": [
+              "tumakbo",
+              "maganda",
+              "kumain",
+              "bahay"
+            ],
+            "correct_answer": "maganda"
+          },
+          {
+            "question": "Piliin ang salitang kilos: 'Ang bata ay ___ sa labas.'",
+            "options": [
+              "masaya",
+              "malaki",
+              "naglaro",
+              "maganda"
+            ],
+            "correct_answer": "naglaro"
+          },
+          {
+            "question": "Gamitin ang tamang salita: '___ Tala at Maria ay nag-aral.'",
+            "options": [
+              "Ang",
+              "Si",
+              "Sina",
+              "Ang mga"
+            ],
+            "correct_answer": "Sina"
+          },
+          {
+            "question": "Gamitin ang tamang salita: '___ mga bata ay masasaya.'",
+            "options": [
+              "Si",
+              "Sina",
+              "Ang",
+              "Ang mga"
+            ],
+            "correct_answer": "Ang mga"
+          },
+          {
+            "question": "Alin ang salitang naglalarawan sa pangungusap na: 'Ang mataas na puno ay gumalaw.'",
+            "options": [
+              "puno",
+              "gumalaw",
+              "mataas",
+              "ang"
+            ],
+            "correct_answer": "mataas"
+          },
+          {
+            "question": "Alin ang salitang kilos sa pangungusap na: 'Si Nanay ay nagluto ng adobo.'",
+            "options": [
+              "Nanay",
+              "adobo",
+              "nagluto",
+              "Si"
+            ],
+            "correct_answer": "nagluto"
+          },
+          {
+            "question": "Alin ang tamang pangungusap?",
+            "options": [
+              "Si mga bata ay naglaro.",
+              "Ang Maria ay kumanta.",
+              "Sina bahay ay malaki.",
+              "Ang si bata ay masaya."
+            ],
+            "correct_answer": "Ang Maria ay kumanta."
+          },
+          {
+            "question": "Alin ang salitang pangkayarian para sa higit sa isang tao?",
+            "options": [
+              "Si",
+              "Ang",
+              "Sina",
+              "Ang mga bagay"
+            ],
+            "correct_answer": "Sina"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Ordinal Numbers up to 20th** describe the *position* of something in a line or order.\n  * 1st = first, 2nd = second, 3rd = third, 4th = fourth... 20th = twentieth\n* **Place Value Review:** The digit in the **hundreds** place has the most value in a 3-digit number.\n* **Counting by 5s and 100s:** Practice skip counting all the way to 1000.\n  * By 100s: 100, 200, 300... 1000\n  * By 5s: 995, 990, 985...\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Week 5 Champion Challenge:** Handa ka na ba? Sagutan ang iyong huling quiz para sa linggong ito!",
+        "quiz": [
+          {
+            "question": "If you are 5th in line, how many people are ahead of you?",
+            "options": [
+              "5",
+              "4",
+              "6",
+              "3"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Which ordinal number comes after 9th?",
+            "options": [
+              "11th",
+              "8th",
+              "10th",
+              "12th"
+            ],
+            "correct_answer": "10th"
+          },
+          {
+            "question": "Count by 5s: 985, 990, 995, ___",
+            "options": [
+              "996",
+              "1000",
+              "997",
+              "998"
+            ],
+            "correct_answer": "1000"
+          },
+          {
+            "question": "What is the place value of 4 in 847?",
+            "options": [
+              "ones",
+              "tens",
+              "hundreds",
+              "thousands"
+            ],
+            "correct_answer": "tens"
+          },
+          {
+            "question": "Which number is the SMALLEST?",
+            "options": [
+              "312",
+              "132",
+              "231",
+              "213"
+            ],
+            "correct_answer": "132"
+          },
+          {
+            "question": "What is 100 + 100 + 100?",
+            "options": [
+              "200",
+              "300",
+              "400",
+              "1000"
+            ],
+            "correct_answer": "300"
+          },
+          {
+            "question": "Which number has 9 hundreds, 0 tens, 1 one?",
+            "options": [
+              "910",
+              "901",
+              "109",
+              "190"
+            ],
+            "correct_answer": "901"
+          },
+          {
+            "question": "Arrange from smallest to largest: 312, 132, 231. Which is in the MIDDLE?",
+            "options": [
+              "312",
+              "132",
+              "231",
+              "213"
+            ],
+            "correct_answer": "231"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "Weekly Review": {
+        "summary_markdown": "### ⭐ Week 5 Champion Challenge!\nIkaw ay isang **Prinsesa ng Karunungan!** Ipakita ang lahat ng iyong natutunan ngayong linggo:\n\n* 📖 **English:** Common & Proper Nouns, Gender of Nouns\n* 🇵🇭 **Filipino:** Salitang Naglalarawan, Salitang Kilos, Salitang Pangkayarian\n* 🔢 **Mathematics:** Numbers to 1000, Place Value, Ordinal Numbers\n* ❤️ **GMRC:** Sariling Damdamin, Pagiging Totoo\n* 🗺️ **MAKABANSA:** Lokasyon, Lawak, at Palatandaang Heograpikal ng Komunidad\n\n---\n\n### 🌟 Great job finishing Week 5, Tala! Rest up for Week 6!",
+        "quiz": [
+          {
+            "question": "Which word is a PROPER noun?",
+            "options": [
+              "book",
+              "Tala",
+              "pencil",
+              "school"
+            ],
+            "correct_answer": "Tala"
+          },
+          {
+            "question": "What is the value of the digit 6 in 762?",
+            "options": [
+              "6",
+              "60",
+              "600",
+              "6000"
+            ],
+            "correct_answer": "60"
+          },
+          {
+            "question": "Alin ang salitang naglalarawan?",
+            "options": [
+              "kumain",
+              "bata",
+              "mabait",
+              "paaralan"
+            ],
+            "correct_answer": "mabait"
+          },
+          {
+            "question": "Kung nasasaktan ka, ano ang tamang gawin?",
+            "options": [
+              "Itago ang nararamdaman",
+              "Sabihin nang maayos ang nararamdaman",
+              "Sumigaw nang sumigaw",
+              "Umalis"
+            ],
+            "correct_answer": "Sabihin nang maayos ang nararamdaman"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'lokasyon' ng komunidad?",
+            "options": [
+              "Laki ng komunidad",
+              "Kung saan matatagpuan ang komunidad",
+              "Bilang ng tao",
+              "Mga hayop"
+            ],
+            "correct_answer": "Kung saan matatagpuan ang komunidad"
+          },
+          {
+            "question": "What is the feminine form of 'brother'?",
+            "options": [
+              "mother",
+              "aunt",
+              "sister",
+              "cousin"
+            ],
+            "correct_answer": "sister"
+          },
+          {
+            "question": "Alin ang tamang salitang pangkayarian para sa pangalan ng tao?",
+            "options": [
+              "Ang",
+              "Ang mga",
+              "Si",
+              "Mga"
+            ],
+            "correct_answer": "Si"
+          },
+          {
+            "question": "Count by 100s: 600, 700, 800, ___",
+            "options": [
+              "810",
+              "900",
+              "850",
+              "890"
+            ],
+            "correct_answer": "900"
+          },
+          {
+            "question": "Alin sa mga ito ang nagpapakita ng PAGIGING TOTOO?",
+            "options": [
+              "Nagsisinungaling",
+              "Nagsasabi ng totoo kahit mahirap",
+              "Nagtatago ng ginawa",
+              "Nagpapanggap"
+            ],
+            "correct_answer": "Nagsasabi ng totoo kahit mahirap"
+          },
+          {
+            "question": "Alin ang halimbawa ng palatandaang heograpikal?",
+            "options": [
+              "Palengke",
+              "Paaralan",
+              "Ilog o bundok",
+              "Simbahan"
+            ],
+            "correct_answer": "Ilog o bundok"
+          }
+        ]
+      }
+    }
+  }
+}

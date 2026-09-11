@@ -1,0 +1,757 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-07-19",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Sight Words and Phonics** — We practiced recognizing high-frequency words quickly, such as WHAT, THE, IS, and A. We explored **CVC patterns with the medial /o/ sound**, learning to identify the short vowel in words like *box, dot, hot, pot, fox, log,* and *jog*.\n* **Onset and Rime Segmentation** — Every CVC word can be broken into an **onset** (the beginning consonant sound) and a **rime** (the vowel and final consonant). For example, /p/ + /ot/ = *pot*.\n* **Sentences vs. Non-Sentences** — A **complete sentence** expresses a full thought (e.g., 'The fox is fast'), while a **non-sentence** fragment does not (e.g., 'A red box'). Complete sentences are essential for our friends to understand us clearly.",
+        "quiz": [
+          {
+            "question": "What is the onset of the word 'pot'?",
+            "options": [
+              "/p/",
+              "/ot/",
+              "/t/",
+              "/o/"
+            ],
+            "correct_answer": "/p/"
+          },
+          {
+            "question": "What is the rime of the word 'pot'?",
+            "options": [
+              "/ot/",
+              "/p/",
+              "/t/",
+              "/po/"
+            ],
+            "correct_answer": "/ot/"
+          },
+          {
+            "question": "Which of these words has the medial /o/ sound?",
+            "options": [
+              "dot",
+              "bug",
+              "sun",
+              "cup"
+            ],
+            "correct_answer": "dot"
+          },
+          {
+            "question": "Which of the following is a complete sentence?",
+            "options": [
+              "The fox is fast.",
+              "A red box",
+              "The hot",
+              "A small"
+            ],
+            "correct_answer": "The fox is fast."
+          },
+          {
+            "question": "Is the phrase 'A red box' a complete sentence?",
+            "options": [
+              "No",
+              "Yes",
+              "Always",
+              "Sometimes"
+            ],
+            "correct_answer": "No"
+          },
+          {
+            "question": "Which of these words also features a medial /o/ sound?",
+            "options": [
+              "box",
+              "sun",
+              "cup",
+              "rug"
+            ],
+            "correct_answer": "box"
+          },
+          {
+            "question": "Which of these is a non-sentence because it is an incomplete thought?",
+            "options": [
+              "The hot",
+              "The box is red.",
+              "A red box.",
+              "A small idea."
+            ],
+            "correct_answer": "The hot"
+          },
+          {
+            "question": "Which sight word is often used to start a question about an object?",
+            "options": [
+              "WHAT",
+              "THE",
+              "IS",
+              "A"
+            ],
+            "correct_answer": "WHAT"
+          }
+        ]
+      },
+      "MAKABANSA": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Ang Aking Komunidad** — Ang komunidad ay isang lugar kung saan ang mga tao ay naninirahan, nag-aaral, nagtatrabaho, at higit sa lahat, **nagtutulungan**. Binubuo ito ng iba't ibang institusyon gaya ng paaralan, palengke, simbahan, at health center.\n* **Mga Tagapaglingkod (Community Helpers)** — Kinilala natin ang mga taong nagbibigay-serbisyo sa atin: ang **guro** (nagtuturo), **doktor at nars** (nanggagamot), **pulis** (nagpapanatili ng kaayusan), at **bumbero** (tumutulong sa sunog).\n* **Mga Kagamitan at Serbisyo** — Ang bawat tagapaglingkod ay may kaukulang gamit: **aklat** para sa guro, **stethoscope** para sa doktor, **asarol** para sa magsasaka, at **lambat** para sa mangingisda.",
+        "quiz": [
+          {
+            "question": "Sino ang taong bumubuo sa komunidad na nagtuturo sa mga bata?",
+            "options": [
+              "Guro",
+              "Pulis",
+              "Tindera",
+              "Mangingisda"
+            ],
+            "correct_answer": "Guro"
+          },
+          {
+            "question": "Ano ang kagamitang karaniwang ginagamit ng isang magsasaka?",
+            "options": [
+              "Asarol",
+              "Stethoscope",
+              "Hose",
+              "Aklat"
+            ],
+            "correct_answer": "Asarol"
+          },
+          {
+            "question": "Saan karaniwang matatagpuan ang isang nars o doktor?",
+            "options": [
+              "Health center",
+              "Palayan",
+              "Palengke",
+              "Dagat"
+            ],
+            "correct_answer": "Health center"
+          },
+          {
+            "question": "Sino ang lingkod-komunidad na tumutulong sa ating kaligtasan mula sa mga masasamang tao?",
+            "options": [
+              "Pulis",
+              "Tindera",
+              "Mag-aaral",
+              "Mangingisda"
+            ],
+            "correct_answer": "Pulis"
+          },
+          {
+            "question": "Ang isang tindera ba ay itinuturing na bahagi ng komunidad?",
+            "options": [
+              "Oo",
+              "Hindi",
+              "Minsan lang",
+              "Hindi alam"
+            ],
+            "correct_answer": "Oo"
+          },
+          {
+            "question": "Ano ang pangunahing kahulugan ng isang komunidad?",
+            "options": [
+              "Lugar ng pagtutulungan",
+              "Laruan",
+              "Pagkain",
+              "Hayop"
+            ],
+            "correct_answer": "Lugar ng pagtutulungan"
+          },
+          {
+            "question": "Sino ang tinatawag natin kapag may sunog sa ating komunidad?",
+            "options": [
+              "Bumbero",
+              "Guro",
+              "Magsasaka",
+              "Nars"
+            ],
+            "correct_answer": "Bumbero"
+          },
+          {
+            "question": "Sino ang may gampaning gumamot sa mga taong may sakit?",
+            "options": [
+              "Doktor",
+              "Magsasaka",
+              "Mangingisda",
+              "Tindera"
+            ],
+            "correct_answer": "Doktor"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "GMRC": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Pagkilala sa Sariling Damdamin** — Inalam natin ang iba't ibang emosyon gaya ng **saya, lungkot, gulat, takot, at galit**. Ang mga ito ay makikita sa ekspresyon ng mukha tulad ng ngiti (masaya), luha (malungkot), o kunot-noo (galit).\n* **Emosyon vs. Kilos** — Hindi natin laging kontrolado ang ating nararamdaman, ngunit maaari nating **piliin ang ating kilos**. Ang tamang pagpili ay humahantong sa mabuting kilos, gaya ng paghinga nang malalim kapag galit o paghingi ng tulong kapag natatakot.\n* **Disiplina sa Sarili** — Ang disiplina ay ang kakayahang kumalma sa pamamagitan ng apat na hakbang: **Huminto, Huminga, Mag-isip, at Magsalita nang maayos**. Ang disiplinadong bata ay hindi nananakit o naninigaw.",
+        "quiz": [
+          {
+            "question": "Nakatanggap ka ng bagong laruan. Ano ang iyong mararamdamang damdamin?",
+            "options": [
+              "Saya",
+              "Takot",
+              "Lungkot"
+            ],
+            "correct_answer": "Saya"
+          },
+          {
+            "question": "Nawala ang iyong paboritong lapis. Ano ang iyong mararamdamaman?",
+            "options": [
+              "Lungkot",
+              "Saya",
+              "Gulat"
+            ],
+            "correct_answer": "Lungkot"
+          },
+          {
+            "question": "Biglang tumalon ang isang palaka sa harap mo. Ano ang iyong magiging damdamin?",
+            "options": [
+              "Gulat",
+              "Saya",
+              "Antok"
+            ],
+            "correct_answer": "Gulat"
+          },
+          {
+            "question": "Mag-isa ka sa isang madilim na kuwarto. Ano ang iyong mararamdaman?",
+            "options": [
+              "Takot",
+              "Tuwa",
+              "Gana"
+            ],
+            "correct_answer": "Takot"
+          },
+          {
+            "question": "Ano ang tamang kilos na dapat gawin kapag ikaw ay galit upang kumalma?",
+            "options": [
+              "Huminga nang malalim",
+              "Manakit",
+              "Sumigaw"
+            ],
+            "correct_answer": "Huminga nang malalim"
+          },
+          {
+            "question": "Ano ang tamang kilos kapag nakatanggap ka ng regalo mula sa iyong kaibigan?",
+            "options": [
+              "Ngumiti at magpasalamat",
+              "Itapon",
+              "Manigaw"
+            ],
+            "correct_answer": "Ngumiti at magpasalamat"
+          },
+          {
+            "question": "May nagawang mali o pagkakamali. Ano ang dapat mong gawin?",
+            "options": [
+              "Sabihin ang totoo",
+              "Magsinungaling",
+              "Magtago"
+            ],
+            "correct_answer": "Sabihin ang totoo"
+          },
+          {
+            "question": "Ang batang marunong kumalma kahit may matinding damdamin ay nagpapakita ng ____.",
+            "options": [
+              "Disiplina",
+              "Katamaran",
+              "Pagkamakasarili"
+            ],
+            "correct_answer": "Disiplina"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Elemento ng Pabula** — Pinag-aralan natin ang kwentong \"Si Mimi ang Munting Kuting\". Natutunan nating tukuyin ang **tauhan** (gumaganap), **tagpuan** (lugar at panahon), **suliranin** (problema), at **aral** (mabuting mensahe). Ang mahalagang aral ni Mimi ay ang **pagiging matipid**.\n* **Pangungusap na Pananong** — Ito ay mga pangungusap na nagtatanong at nagtatapos sa **tandang pananong (?)**. Gumagamit tayo ng mga salitang *Saan, Ano, Sino, at Bakit*.\n* **Magalang na Pagtatanong at Pagsulat** — Binigyang-diin ang paggamit ng **magalang na tono** sa pagtatanong. Nagsanay din tayo sa **kabit-kabit na pagsulat** ng titik **Ww** para sa mga salitang tulad ng *walis, walo, at watawat*.",
+        "quiz": [
+          {
+            "question": "Sino ang pangunahing tauhan sa pabulang 'Si Mimi ang Munting Kuting'?",
+            "options": [
+              "Mimi",
+              "Rosa",
+              "Maya",
+              "Ana"
+            ],
+            "correct_answer": "Mimi"
+          },
+          {
+            "question": "Anong elemento ng kuwento ang tumutukoy sa lugar at panahon ng mga pangyayari?",
+            "options": [
+              "Tagpuan",
+              "Tauhan",
+              "Suliranin",
+              "Pamagat"
+            ],
+            "correct_answer": "Tagpuan"
+          },
+          {
+            "question": "Ano ang tawag sa problema o hamon na kinakaharap ng mga tauhan sa kuwento?",
+            "options": [
+              "Suliranin",
+              "Wakas",
+              "Larawan",
+              "Salita"
+            ],
+            "correct_answer": "Suliranin"
+          },
+          {
+            "question": "Ano ang mahalagang aral na natutunan ni Mimi sa kuwento?",
+            "options": [
+              "Maging matipid",
+              "Magsayang",
+              "Magalit lagi",
+              "Huwag makinig"
+            ],
+            "correct_answer": "Maging matipid"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang 'sight word' na madalas nating makita sa mga pangungusap?",
+            "options": [
+              "ng",
+              "Mimi",
+              "tinapay",
+              "kuting"
+            ],
+            "correct_answer": "ng"
+          },
+          {
+            "question": "Anong bantas ang dapat ilagay sa dulo ng isang pangungusap na pananong?",
+            "options": [
+              "?",
+              ".",
+              "!",
+              ","
+            ],
+            "correct_answer": "?"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pangungusap na pananong?",
+            "options": [
+              "Saan nakatira si Mimi?",
+              "Mabait si Mimi.",
+              "Kumain si Mimi.",
+              "Si Mimi ay kuting."
+            ],
+            "correct_answer": "Saan nakatira si Mimi?"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang nagpapakita ng magalang na pagtatanong?",
+            "options": [
+              "Maaari po bang magtanong?",
+              "Sagutin mo ako!",
+              "Bilisan mo!",
+              "Ano ba iyan?"
+            ],
+            "correct_answer": "Maaari po bang magtanong?"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Medial /u/ Sound** — We focused on the short /u/ sound in CVC words such as *bug, cup, sun, rug, mug, bus, run, and hut*. We practiced identifying their onset and rime, such as /b/ + /ug/ = *bug*.\n* **Structure of a Telling Sentence** — A **telling sentence** (declarative) has two main parts: the **Who/What** (the subject, like 'Luigi' or 'The bug') and the **Doing** part (what they are doing).\n* **Mechanics of Writing and Sequencing** — We reinforced that sentences must begin with a **capital letter** and end with a **period**. We also introduced **Time-Order Signal Words** (First, Next, Then, Finally) to help us arrange events in the correct order.",
+        "quiz": [
+          {
+            "question": "What is the onset of the word 'sun'?",
+            "options": [
+              "/s/",
+              "/un/",
+              "/n/",
+              "/su/"
+            ],
+            "correct_answer": "/s/"
+          },
+          {
+            "question": "What is the rime of the word 'cup'?",
+            "options": [
+              "/up/",
+              "/c/",
+              "/p/",
+              "/cu/"
+            ],
+            "correct_answer": "/up/"
+          },
+          {
+            "question": "Which of these words has the medial /u/ sound?",
+            "options": [
+              "cup",
+              "log",
+              "hot",
+              "fox"
+            ],
+            "correct_answer": "cup"
+          },
+          {
+            "question": "In the sentence 'The bug crawls,' who or what is the subject (Who/What)?",
+            "options": [
+              "The bug",
+              "Crawls",
+              "The",
+              "Fast"
+            ],
+            "correct_answer": "The bug"
+          },
+          {
+            "question": "Which of these sentences is written correctly with a capital letter and a period?",
+            "options": [
+              "The sun is hot.",
+              "the sun is hot",
+              "The sun is hot",
+              "the Sun is hot."
+            ],
+            "correct_answer": "The sun is hot."
+          },
+          {
+            "question": "Which time-order signal word tells us what happens at the very beginning of a sequence?",
+            "options": [
+              "First",
+              "Finally",
+              "Then",
+              "Last"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "Which time-order signal word tells us what happens at the end of a sequence?",
+            "options": [
+              "Finally",
+              "First",
+              "Next",
+              "Before"
+            ],
+            "correct_answer": "Finally"
+          },
+          {
+            "question": "Which signal word usually comes right after 'First' in a sequence of steps?",
+            "options": [
+              "Next",
+              "Finally",
+              "Yesterday",
+              "Never"
+            ],
+            "correct_answer": "Next"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Place Value of 3-Digit Numbers** — Every digit in a 3-digit number has a specific \"home\": **Ones** (1st from right), **Tens** (2nd from right), and **Hundreds** (3rd from right or left-most).\n* **Place Value vs. Value** — **Place value** tells us the *position* of the digit, while **Value** tells us *how much* it is worth. For example, in 658, the 6 is in the hundreds place, so its value is 600.\n* **Position Power** — We learned that moving a digit changes the whole number's identity (e.g., 160 is different from 016). To build the **largest number**, we must put the biggest digit in the highest place value.",
+        "quiz": [
+          {
+            "question": "In the number 245, what is the place value of the digit 2?",
+            "options": [
+              "Hundreds",
+              "Tens",
+              "Ones"
+            ],
+            "correct_answer": "Hundreds"
+          },
+          {
+            "question": "In the number 381, what is the place value of the digit 8?",
+            "options": [
+              "Tens",
+              "Hundreds",
+              "Ones"
+            ],
+            "correct_answer": "Tens"
+          },
+          {
+            "question": "In the number 509, what is the place value of the digit 9?",
+            "options": [
+              "Ones",
+              "Tens",
+              "Hundreds"
+            ],
+            "correct_answer": "Ones"
+          },
+          {
+            "question": "In the number 116, what is the place value of the first digit 1 (on the left)?",
+            "options": [
+              "Hundreds",
+              "Tens",
+              "Ones"
+            ],
+            "correct_answer": "Hundreds"
+          },
+          {
+            "question": "In the number 632, what is the value (how much it is worth) of the digit 6?",
+            "options": [
+              "600",
+              "60",
+              "6"
+            ],
+            "correct_answer": "600"
+          },
+          {
+            "question": "In the number 451, what is the value of the digit 5?",
+            "options": [
+              "50",
+              "500",
+              "5"
+            ],
+            "correct_answer": "50"
+          },
+          {
+            "question": "In the number 890, what is the value of the digit 9?",
+            "options": [
+              "90",
+              "9",
+              "900"
+            ],
+            "correct_answer": "90"
+          },
+          {
+            "question": "In the number 127, what is the value of the digit 1?",
+            "options": [
+              "100",
+              "10",
+              "1"
+            ],
+            "correct_answer": "100"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Pangungusap na Pasalaysay (Paturol)** — Ito ay mga pangungusap na nagsasabi ng ideya, karanasan, o pangyayari at nagtatapos sa **tuldok (.)**. Halimbawa: \"Ako ay si Ana\".\n* **Tekstong Impormatibo at Tuntunin** — Ang tekstong impormatibo ay nagbibigay ng kaalaman. Tinalakay natin ang mga **tuntunin sa tahanan** (rules) gaya ng paghuhugas ng kamay, pagliligpit ng laruan, at pakikinig sa magulang para sa ating kaayusan at kaligtasan.\n* **Kabit-kabit na Pagsulat** — Nagsanay tayo sa maayos at pantay na pagsulat ng mga titik **Cc** (para sa *Cat, candy*) at **Ff** (para sa *Filipino, pamilya*).",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng isang pangungusap na pasalaysay o paturol?",
+            "options": [
+              "Pangungusap na nagsasabi",
+              "Pangungusap na nagtatanong",
+              "Walang kahulugan",
+              "Isang larawan"
+            ],
+            "correct_answer": "Pangungusap na nagsasabi"
+          },
+          {
+            "question": "Anong bantas ang ginagamit sa dulo ng isang pangungusap na pasalaysay?",
+            "options": [
+              "Tuldok",
+              "Tandang pananong",
+              "Kuwit",
+              "Gitling"
+            ],
+            "correct_answer": "Tuldok"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pangungusap na pasalaysay?",
+            "options": [
+              "Mabait si Mimi.",
+              "Saan si Mimi?",
+              "Sino ka?",
+              "Bakit siya umalis?"
+            ],
+            "correct_answer": "Mabait si Mimi."
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tamang paraan ng pagpapakilala sa sarili?",
+            "options": [
+              "Ako ay si Ana.",
+              "Sino ako?",
+              "Alis na!",
+              "Bilisan mo!"
+            ],
+            "correct_answer": "Ako ay si Ana."
+          },
+          {
+            "question": "Aling salita ang nagsisimula sa titik Cc na ating pinag-aralang isulat nang kabit-kabit?",
+            "options": [
+              "candy",
+              "walis",
+              "Mimi",
+              "bahay"
+            ],
+            "correct_answer": "candy"
+          },
+          {
+            "question": "Ano ang pangunahing layunin ng isang tekstong impormatibo?",
+            "options": [
+              "Nagbibigay ng impormasyon",
+              "Walang kahulugan",
+              "Puro larawan",
+              "Hindi binabasa"
+            ],
+            "correct_answer": "Nagbibigay ng impormasyon"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang tamang tuntunin o paalala sa loob ng tahanan?",
+            "options": [
+              "Maghugas bago kumain.",
+              "Magkalat ng laruan.",
+              "Sumigaw sa magulang.",
+              "Huwag makinig."
+            ],
+            "correct_answer": "Maghugas bago kumain."
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tamang paggamit ng salitang 'ako' sa isang pangungusap na pasalaysay?",
+            "options": [
+              "Ako ay tumutulong.",
+              "Saan ang bahay?",
+              "Sino si Mimi?",
+              "Ang pusa?"
+            ],
+            "correct_answer": "Ako ay tumutulong."
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Finding Digits in a Place** — Sometimes we are asked to find which specific digit occupies a certain place value (e.g., in 542, the digit 4 is in the tens place).\n* **Expanded Form** — This is writing a number as the **sum of the values** of its digits. For example, 315 is 300 + 10 + 5. It helps us visualize the structure of the number.\n* **Standard Form and Zeros** — When a place has a zero (like 601), we can skip it in expanded form: 600 + 1. Adding these values back together always gives us the original **standard form**.",
+        "quiz": [
+          {
+            "question": "Sa bilang na 542, anong digit ang nasa 'tens place'?",
+            "options": [
+              "4",
+              "5",
+              "2"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Sa bilang na 801, anong digit ang nasa 'ones place'?",
+            "options": [
+              "1",
+              "8",
+              "0"
+            ],
+            "correct_answer": "1"
+          },
+          {
+            "question": "Sa bilang na 369, anong digit ang nasa 'hundreds place'?",
+            "options": [
+              "3",
+              "6",
+              "9"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "Sa bilang na 363, ano ang halaga o 'value' ng digit na 6?",
+            "options": [
+              "60",
+              "600",
+              "6"
+            ],
+            "correct_answer": "60"
+          },
+          {
+            "question": "Sa bilang na 759, ano ang halaga o 'value' ng digit na 7?",
+            "options": [
+              "700",
+              "70",
+              "7"
+            ],
+            "correct_answer": "700"
+          },
+          {
+            "question": "Ano ang 'expanded form' ng bilang na 315?",
+            "options": [
+              "300 + 10 + 5",
+              "30 + 10 + 5",
+              "300 + 1 + 5"
+            ],
+            "correct_answer": "300 + 10 + 5"
+          },
+          {
+            "question": "Ano ang tamang 'expanded form' ng 601 kung saan ang 'tens place' ay zero?",
+            "options": [
+              "600 + 1",
+              "60 + 1",
+              "600 + 10 + 1"
+            ],
+            "correct_answer": "600 + 1"
+          },
+          {
+            "question": "Kung pagsasamahin ang 900 + 10 + 2, ano ang mabubuong bilang sa 'standard form'?",
+            "options": [
+              "912",
+              "921",
+              "902"
+            ],
+            "correct_answer": "912"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "Weekly Review": {
+        "summary_markdown": "### ⭐ Week 6 Champion Challenge!\n\nShow what you've learned this week:\n\n* 📖 **English Mastery:** We mastered CVC words with medial /o/ and /u/, identified complete sentences, and used **time-order words** (*First, Next, Then, Finally*) to sequence daily tasks.\n* 🇵🇭 **Filipino Skills:** We identified story elements of a fable, built *pananong* and *pasalaysay* sentences, and practiced cursive writing for Ww, Cc, and Ff.\n* 🔢 **Math Genius:** We practiced identifying the **place value and value** of 3-digit numbers and writing them in **expanded form**.\n* ❤️ **GMRC Values:** We learned to recognize emotions (saya, lungkot, galit) and the importance of **sincerity** and **discipline** in our actions.\n* 🗺️ **Makabansa Insights:** We identified community helpers and their roles, and used a **Venn Diagram** to compare their similarities and differences.\n\n--- \n\n### 🌟 Excellent work finishing Week 6! You have shown great growth in all your subjects!",
+        "quiz": [
+          {
+            "question": "Which of these words has the medial /o/ sound, like in the word 'fox'?",
+            "options": [
+              "box",
+              "sun",
+              "cup",
+              "rug"
+            ],
+            "correct_answer": "box"
+          },
+          {
+            "question": "Which of these words has the medial /u/ sound, like in the word 'cup'?",
+            "options": [
+              "bug",
+              "fox",
+              "dot",
+              "log"
+            ],
+            "correct_answer": "bug"
+          },
+          {
+            "question": "Which of these options is a complete sentence expressing a full thought?",
+            "options": [
+              "The dog runs.",
+              "A small dog",
+              "The red",
+              "Runs fast"
+            ],
+            "correct_answer": "The dog runs."
+          },
+          {
+            "question": "Ano ang ginagamit natin upang ipakita ang pagkakatulad at pagkakaiba ng dalawang community helpers?",
+            "options": [
+              "Venn Diagram",
+              "Lobo",
+              "Plato",
+              "Sapatos"
+            ],
+            "correct_answer": "Venn Diagram"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pagiging totoo o 'sincerity' sa ating damdamin?",
+            "options": [
+              "Pagsasabi ng katotohanan",
+              "Pananakit",
+              "Pagtawa sa iba",
+              "Pagtatago"
+            ],
+            "correct_answer": "Pagsasabi ng katotohanan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang pangungusap na pasalaysay (nagsasabi ng ideya)?",
+            "options": [
+              "Mabait si Mimi.",
+              "Saan si Mimi?",
+              "Sino ka?",
+              "Bakit siya?"
+            ],
+            "correct_answer": "Mabait si Mimi."
+          },
+          {
+            "question": "In Mathematics, what is the value of the digit 9 in the number 890?",
+            "options": [
+              "90",
+              "9",
+              "900",
+              "0"
+            ],
+            "correct_answer": "90"
+          },
+          {
+            "question": "What is the correct expanded form of the number 275?",
+            "options": [
+              "200 + 70 + 5",
+              "20 + 70 + 5",
+              "200 + 7 + 5",
+              "2 + 7 + 5"
+            ],
+            "correct_answer": "200 + 70 + 5"
+          }
+        ]
+      }
+    }
+  }
+}

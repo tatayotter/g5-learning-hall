@@ -1,0 +1,2000 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-08-30",
+  "days": {
+    "Monday": {
+      "English": {
+        "quiz": [
+          {
+            "question": "LITERAL meaning refers to ___.",
+            "options": [
+              "the hidden message in a text",
+              "the figurative or symbolic meaning",
+              "the exact, dictionary meaning of words",
+              "the author's personal opinion"
+            ],
+            "correct_answer": "the exact, dictionary meaning of words"
+          },
+          {
+            "question": "IMPLIED meaning refers to ___.",
+            "options": [
+              "the exact words used",
+              "the meaning suggested but not directly stated",
+              "a dictionary definition",
+              "a numbered list"
+            ],
+            "correct_answer": "the meaning suggested but not directly stated"
+          },
+          {
+            "question": "A PERSUASIVE text aims to ___.",
+            "options": [
+              "entertain with a story",
+              "explain how to do something",
+              "convince the reader to agree with an opinion or take action",
+              "describe a place in detail"
+            ],
+            "correct_answer": "convince the reader to agree with an opinion or take action"
+          },
+          {
+            "question": "A NARRATIVE text ___.",
+            "options": [
+              "lists facts about a topic",
+              "tells a story (real or imagined)",
+              "instructs the reader step by step",
+              "argues for a position"
+            ],
+            "correct_answer": "tells a story (real or imagined)"
+          },
+          {
+            "question": "An EXPOSITORY text ___.",
+            "options": [
+              "tells a fictional story",
+              "gives information and explains a topic",
+              "convinces the reader",
+              "describes feelings only"
+            ],
+            "correct_answer": "gives information and explains a topic"
+          },
+          {
+            "question": "Which word shows CONTRAST in a sentence?",
+            "options": [
+              "Furthermore",
+              "Therefore",
+              "However",
+              "Additionally"
+            ],
+            "correct_answer": "However"
+          },
+          {
+            "question": "TONE in a text refers to ___.",
+            "options": [
+              "the length of the text",
+              "the author's attitude toward the subject and reader",
+              "the number of paragraphs",
+              "the font size"
+            ],
+            "correct_answer": "the author's attitude toward the subject and reader"
+          },
+          {
+            "question": "Which is an example of a COMPLEX SENTENCE?",
+            "options": [
+              "She sings and dances.",
+              "She sings.",
+              "Because she loves music, she sings daily.",
+              "She sings, she dances."
+            ],
+            "correct_answer": "Because she loves music, she sings daily."
+          },
+          {
+            "question": "A SURVEY FORM is used to ___.",
+            "options": [
+              "write a story",
+              "collect information and opinions from people",
+              "describe a place",
+              "argue a point"
+            ],
+            "correct_answer": "collect information and opinions from people"
+          },
+          {
+            "question": "REFERENCE MATERIALS include ___.",
+            "options": [
+              "only novels",
+              "dictionaries, encyclopedias, almanacs, and atlases",
+              "only newspapers",
+              "only social media posts"
+            ],
+            "correct_answer": "dictionaries, encyclopedias, almanacs, and atlases"
+          },
+          {
+            "question": "A THESIS STATEMENT in a composition ___.",
+            "options": [
+              "summarizes all the body paragraphs",
+              "is always the last sentence",
+              "states the main argument or central idea of the text",
+              "provides all the evidence"
+            ],
+            "correct_answer": "states the main argument or central idea of the text"
+          },
+          {
+            "question": "NON-VERBAL cues in communication include ___.",
+            "options": [
+              "spoken words",
+              "written text",
+              "facial expressions, gestures, and posture",
+              "vocabulary choices"
+            ],
+            "correct_answer": "facial expressions, gestures, and posture"
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "TESSELLATION means filling a surface with a shape ___.",
+            "options": [
+              "with gaps between shapes",
+              "that overlaps other shapes",
+              "with no gaps or overlaps",
+              "using only circles"
+            ],
+            "correct_answer": "with no gaps or overlaps"
+          },
+          {
+            "question": "Which shape can TESSELLATE on its own?",
+            "options": [
+              "Circle",
+              "Regular hexagon",
+              "Regular pentagon",
+              "Oval"
+            ],
+            "correct_answer": "Regular hexagon"
+          },
+          {
+            "question": "A TRANSLATION (slide) moves a shape ___.",
+            "options": [
+              "around a fixed point",
+              "to a mirror image",
+              "without turning or flipping it",
+              "along only one axis"
+            ],
+            "correct_answer": "without turning or flipping it"
+          },
+          {
+            "question": "A REFLECTION (flip) produces a ___.",
+            "options": [
+              "rotated image",
+              "mirror image",
+              "enlarged image",
+              "translated image"
+            ],
+            "correct_answer": "mirror image"
+          },
+          {
+            "question": "A ROTATION (turn) moves a shape ___.",
+            "options": [
+              "in a straight line",
+              "around a fixed point (center of rotation)",
+              "to a mirror position",
+              "to a larger size"
+            ],
+            "correct_answer": "around a fixed point (center of rotation)"
+          },
+          {
+            "question": "Add: 4.567 + 3.21 = ___.",
+            "options": [
+              "7.677",
+              "7.777",
+              "7.877",
+              "7.867"
+            ],
+            "correct_answer": "7.777"
+          },
+          {
+            "question": "Subtract: 10.5 - 3.25 = ___.",
+            "options": [
+              "7.75",
+              "7.25",
+              "6.75",
+              "7.50"
+            ],
+            "correct_answer": "7.25"
+          },
+          {
+            "question": "Mentally multiply 3.6 x 10 = ___.",
+            "options": [
+              "0.36",
+              "3.60",
+              "36",
+              "360"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "Mentally divide 4.5 / 0.1 = ___.",
+            "options": [
+              "0.45",
+              "4.5",
+              "45",
+              "450"
+            ],
+            "correct_answer": "45"
+          },
+          {
+            "question": "Solve: Ana spent P125.50 and P87.75. How much did she spend in all?",
+            "options": [
+              "P213.25",
+              "P212.25",
+              "P213.75",
+              "P212.75"
+            ],
+            "correct_answer": "P213.25"
+          },
+          {
+            "question": "Which shapes can ALWAYS tessellate?",
+            "options": [
+              "Circles and ovals",
+              "Triangles, squares, and regular hexagons",
+              "All regular polygons",
+              "Pentagons and heptagons"
+            ],
+            "correct_answer": "Triangles, squares, and regular hexagons"
+          },
+          {
+            "question": "A shape after REFLECTION is always ___.",
+            "options": [
+              "the same size and orientation",
+              "the same size but flipped",
+              "smaller",
+              "larger"
+            ],
+            "correct_answer": "the same size but flipped"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "quiz": [
+          {
+            "question": "EVAPORATION is the process where a liquid changes to a ___.",
+            "options": [
+              "solid",
+              "gas",
+              "plasma",
+              "liquid of different color"
+            ],
+            "correct_answer": "gas"
+          },
+          {
+            "question": "CONDENSATION is the process where a gas changes to a ___.",
+            "options": [
+              "solid",
+              "another gas",
+              "liquid",
+              "plasma"
+            ],
+            "correct_answer": "liquid"
+          },
+          {
+            "question": "MELTING changes a ___ to a liquid.",
+            "options": [
+              "gas",
+              "solid",
+              "plasma",
+              "solution"
+            ],
+            "correct_answer": "solid"
+          },
+          {
+            "question": "FREEZING changes a liquid to a ___.",
+            "options": [
+              "gas",
+              "solid",
+              "plasma",
+              "mixture"
+            ],
+            "correct_answer": "solid"
+          },
+          {
+            "question": "Physical changes are REVERSIBLE. Which is an example?",
+            "options": [
+              "Burning wood",
+              "Rusting iron",
+              "Melting ice",
+              "Baking a cake"
+            ],
+            "correct_answer": "Melting ice"
+          },
+          {
+            "question": "Chemical changes are IRREVERSIBLE. Which is an example?",
+            "options": [
+              "Melting butter",
+              "Dissolving sugar in water",
+              "Rusting of iron",
+              "Boiling water"
+            ],
+            "correct_answer": "Rusting of iron"
+          },
+          {
+            "question": "A SOLUTION is a ___ mixture.",
+            "options": [
+              "non-uniform",
+              "uniform (homogeneous)",
+              "visible",
+              "layered"
+            ],
+            "correct_answer": "uniform (homogeneous)"
+          },
+          {
+            "question": "A SUSPENSION is a ___ mixture.",
+            "options": [
+              "uniform",
+              "transparent",
+              "non-uniform (heterogeneous)",
+              "permanent"
+            ],
+            "correct_answer": "non-uniform (heterogeneous)"
+          },
+          {
+            "question": "What separation technique uses a FILTER to separate a solid from a liquid?",
+            "options": [
+              "Evaporation",
+              "Decantation",
+              "Filtering",
+              "Winnowing"
+            ],
+            "correct_answer": "Filtering"
+          },
+          {
+            "question": "WINNOWING separates grain from chaff by using ___.",
+            "options": [
+              "water",
+              "heat",
+              "wind (air)",
+              "magnets"
+            ],
+            "correct_answer": "wind (air)"
+          },
+          {
+            "question": "Air is described as a MIXTURE containing ___.",
+            "options": [
+              "only oxygen",
+              "only carbon dioxide",
+              "oxygen, nitrogen, carbon dioxide, and water vapor",
+              "only nitrogen"
+            ],
+            "correct_answer": "oxygen, nitrogen, carbon dioxide, and water vapor"
+          },
+          {
+            "question": "DECANTATION separates mixtures by ___.",
+            "options": [
+              "filtering through paper",
+              "carefully pouring off the liquid, leaving the solid behind",
+              "using a magnet",
+              "using heat"
+            ],
+            "correct_answer": "carefully pouring off the liquid, leaving the solid behind"
+          }
+        ]
+      },
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang SANAYSAY ay isang ___.",
+            "options": [
+              "maikling kwentong may tagapalad",
+              "malikhaing komposisyong nagpapahayag ng pananaw ng may-akda sa isang paksa",
+              "talaarawan ng mga pangyayari sa kasaysayan",
+              "paglalahad ng mga batas"
+            ],
+            "correct_answer": "malikhaing komposisyong nagpapahayag ng pananaw ng may-akda sa isang paksa"
+          },
+          {
+            "question": "Ang LAYUNIN ng isang PERSUASIBONG sanaysay ay ___.",
+            "options": [
+              "magbigay ng impormasyon lamang",
+              "hikayatin ang mambabasa na sumang-ayon sa pananaw ng may-akda",
+              "magsalaysay ng kwento",
+              "ilarawan ang isang lugar"
+            ],
+            "correct_answer": "hikayatin ang mambabasa na sumang-ayon sa pananaw ng may-akda"
+          },
+          {
+            "question": "Ang KATIBAYAN o EBIDENSYA sa sanaysay ay ginagamit upang ___.",
+            "options": [
+              "palakasin ang argumento ng may-akda",
+              "gawing mas mahaba ang akda",
+              "palugod ang mambabasa",
+              "lagyan ng dekorasyon ang pahayag"
+            ],
+            "correct_answer": "palakasin ang argumento ng may-akda"
+          },
+          {
+            "question": "Ang KONKLUSYON ng isang sanaysay ay ___.",
+            "options": [
+              "nagpapakilala ng paksa",
+              "nagbubuod ng mga pangunahing punto at nagbibigay ng pangwakas na pahayag",
+              "nagbibigay ng mga katibayan",
+              "nagsasalaysay ng kwento"
+            ],
+            "correct_answer": "nagbubuod ng mga pangunahing punto at nagbibigay ng pangwakas na pahayag"
+          },
+          {
+            "question": "Ang salitang 'subalit' ay ginagamit upang ipahayag ang ___.",
+            "options": [
+              "sanhi",
+              "bunga",
+              "kabaligtaran o kontrasto",
+              "pagdaragdag"
+            ],
+            "correct_answer": "kabaligtaran o kontrasto"
+          },
+          {
+            "question": "Ang POKUS ng pangungusap ay ang ___.",
+            "options": [
+              "pinakamahabang salita",
+              "salitang ginawang paksa ng pangungusap",
+              "kahulugan ng pangungusap",
+              "bilang ng mga salita"
+            ],
+            "correct_answer": "salitang ginawang paksa ng pangungusap"
+          },
+          {
+            "question": "'Tiningnan ng bata ang laruan.' Ano ang pokus ng pangungusap?",
+            "options": [
+              "laruan",
+              "tiningnan",
+              "ng bata",
+              "ng bata tiningnan ang laruan"
+            ],
+            "correct_answer": "laruan"
+          },
+          {
+            "question": "Ang MULTIMEDIA ay gumagamit ng ___.",
+            "options": [
+              "teksto lamang",
+              "kumbinasyon ng teksto, imahe, tunog, at video",
+              "pelikula lamang",
+              "radyo lamang"
+            ],
+            "correct_answer": "kumbinasyon ng teksto, imahe, tunog, at video"
+          },
+          {
+            "question": "Ang TONO ng isang akda ay nagpapakita ng ___.",
+            "options": [
+              "haba ng kwento",
+              "saloobin ng may-akda sa paksa at sa mambabasa",
+              "bilang ng tauhan",
+              "uri ng mga tayutay"
+            ],
+            "correct_answer": "saloobin ng may-akda sa paksa at sa mambabasa"
+          },
+          {
+            "question": "Alin ang PANGUNAHING LAYUNIN ng IMPORMASYONG teksto?",
+            "options": [
+              "Magbigay ng impormasyon at kaalaman",
+              "Magkuwento",
+              "Magbigay ng aliw",
+              "Manghikayat sa isang gawi"
+            ],
+            "correct_answer": "Magbigay ng impormasyon at kaalaman"
+          },
+          {
+            "question": "Ang PAKSA ng isang talata ay ___.",
+            "options": [
+              "ang pinakamahalagang detalye",
+              "ang pangunahing ideya na pinag-uusapan ng talata",
+              "ang huling pangungusap",
+              "ang pinakamaiklinging pangungusap"
+            ],
+            "correct_answer": "ang pangunahing ideya na pinag-uusapan ng talata"
+          },
+          {
+            "question": "'Dahil maaga syang gumising, naabutan niya ang bus.' Ano ang dahilan?",
+            "options": [
+              "Naabutan niya ang bus",
+              "Maaga syang gumising",
+              "Ang bus ay naabutan",
+              "Ang pagsakay sa bus"
+            ],
+            "correct_answer": "Maaga syang gumising"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "quiz": [
+          {
+            "question": "MULTIMEDIA EDITING involves working with ___.",
+            "options": [
+              "only text documents",
+              "a combination of video, audio, images, and text",
+              "only spreadsheets",
+              "only databases"
+            ],
+            "correct_answer": "a combination of video, audio, images, and text"
+          },
+          {
+            "question": "BASIC CODING teaches you to ___.",
+            "options": [
+              "only type fast",
+              "give instructions to a computer to perform tasks",
+              "draw digital art",
+              "edit videos only"
+            ],
+            "correct_answer": "give instructions to a computer to perform tasks"
+          },
+          {
+            "question": "What is an ALGORITHM?",
+            "options": [
+              "A type of computer virus",
+              "A step-by-step set of instructions for solving a problem",
+              "A keyboard shortcut",
+              "A type of social media"
+            ],
+            "correct_answer": "A step-by-step set of instructions for solving a problem"
+          },
+          {
+            "question": "A SEQUENCE in coding means ___.",
+            "options": [
+              "running instructions in a random order",
+              "repeating an instruction many times",
+              "executing instructions in a specific order, one after another",
+              "choosing between two options"
+            ],
+            "correct_answer": "executing instructions in a specific order, one after another"
+          },
+          {
+            "question": "A LOOP in coding is used to ___.",
+            "options": [
+              "stop the program",
+              "repeat a set of instructions a number of times or until a condition is met",
+              "skip an instruction",
+              "name a variable"
+            ],
+            "correct_answer": "repeat a set of instructions a number of times or until a condition is met"
+          },
+          {
+            "question": "An IF-THEN statement in coding is a ___.",
+            "options": [
+              "loop",
+              "variable",
+              "sequence",
+              "conditional/decision structure"
+            ],
+            "correct_answer": "conditional/decision structure"
+          },
+          {
+            "question": "What is a VARIABLE in coding?",
+            "options": [
+              "A type of loop",
+              "A storage location that holds a value which can change",
+              "An output device",
+              "A type of program error"
+            ],
+            "correct_answer": "A storage location that holds a value which can change"
+          },
+          {
+            "question": "VIDEO EDITING software is used to ___.",
+            "options": [
+              "create spreadsheets",
+              "cut, combine, and add effects to video clips",
+              "write code",
+              "design databases"
+            ],
+            "correct_answer": "cut, combine, and add effects to video clips"
+          },
+          {
+            "question": "AUDIO EDITING involves ___.",
+            "options": [
+              "only changing file names",
+              "recording, cutting, and adjusting sound files",
+              "designing websites",
+              "writing text documents"
+            ],
+            "correct_answer": "recording, cutting, and adjusting sound files"
+          },
+          {
+            "question": "Which is a simple coding platform used in Philippine elementary schools?",
+            "options": [
+              "Excel",
+              "Scratch",
+              "AutoCAD",
+              "Adobe Premiere"
+            ],
+            "correct_answer": "Scratch"
+          },
+          {
+            "question": "'DEBUG' in coding means to ___.",
+            "options": [
+              "add more code",
+              "find and fix errors in a program",
+              "delete the program",
+              "rename a file"
+            ],
+            "correct_answer": "find and fix errors in a program"
+          },
+          {
+            "question": "A FLOWCHART is a diagram that shows ___.",
+            "options": [
+              "only the final output",
+              "the step-by-step flow of a program or process",
+              "only variables",
+              "only loops"
+            ],
+            "correct_answer": "the step-by-step flow of a program or process"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "quiz": [
+          {
+            "question": "Ang KATIPUNAN ay itinatag noong ___.",
+            "options": [
+              "1890",
+              "1892",
+              "1896",
+              "1898"
+            ],
+            "correct_answer": "1892"
+          },
+          {
+            "question": "Sino ang nagtatag ng Katipunan?",
+            "options": [
+              "Jose Rizal",
+              "Emilio Aguinaldo",
+              "Andres Bonifacio",
+              "Apolinario Mabini"
+            ],
+            "correct_answer": "Andres Bonifacio"
+          },
+          {
+            "question": "Ang layunin ng KATIPUNAN ay ___.",
+            "options": [
+              "makipagtulungan sa Espanya",
+              "makamit ang kalayaan ng Pilipinas sa pamamagitan ng armadong pakikipaglaban",
+              "magtatag ng bagong relihiyon",
+              "magtayo ng bagong bansa sa labas ng Asya"
+            ],
+            "correct_answer": "makamit ang kalayaan ng Pilipinas sa pamamagitan ng armadong pakikipaglaban"
+          },
+          {
+            "question": "Ang HIMAGSIKANG PILIPINO ay nagsimula noong ___.",
+            "options": [
+              "1872",
+              "1892",
+              "1896",
+              "1898"
+            ],
+            "correct_answer": "1896"
+          },
+          {
+            "question": "Ang 'SIGAW SA PUGADLAWIN' ay nagpapahayag ng ___.",
+            "options": [
+              "pagsuko ng mga Pilipino",
+              "simula ng armadong pakikipaglaban laban sa Espanya",
+              "pagkakaisa sa Espanya",
+              "pagpapalabas ng bagong batas"
+            ],
+            "correct_answer": "simula ng armadong pakikipaglaban laban sa Espanya"
+          },
+          {
+            "question": "Si Jose Rizal ay naging martir. Ano ang ibig sabihin ng MARTIR?",
+            "options": [
+              "Bayani na namatay para sa kapakanan ng bayan",
+              "Lider ng sandatahang lakas",
+              "Guro ng mga Pilipino",
+              "Pinuno ng simbahan"
+            ],
+            "correct_answer": "Bayani na namatay para sa kapakanan ng bayan"
+          },
+          {
+            "question": "Ang KASUNDUAN SA BIAK-NA-BATO (1897) ay nagresulta sa ___.",
+            "options": [
+              "pagpapalaya ng lahat ng bilanggo",
+              "pansamantalang tigilan ng labanan at pagpapatapon ni Aguinaldo",
+              "kalayaan ng Pilipinas",
+              "pagkatalo ng mga Kastila"
+            ],
+            "correct_answer": "pansamantalang tigilan ng labanan at pagpapatapon ni Aguinaldo"
+          },
+          {
+            "question": "Ang KUMBENSIYON NG TEJEROS (1897) ay humantong sa ___.",
+            "options": [
+              "pagtatayo ng bagong pamahalaan",
+              "pagpapalitan ng pamumuno mula kay Bonifacio patungong Aguinaldo",
+              "pagkakaisa ng lahat ng rebelde",
+              "pagkatalo ng Katipunan"
+            ],
+            "correct_answer": "pagpapalitan ng pamumuno mula kay Bonifacio patungong Aguinaldo"
+          },
+          {
+            "question": "Ang DEKLARASYON NG KASARINLAN ng Pilipinas ay ipinahayag noong Hunyo 12, 1898. Ano ang kahulugan?",
+            "options": [
+              "Ang Pilipinas ay sumuko sa Espanya",
+              "Idineklara ng Pilipinas ang sarili nitong kalayaan",
+              "Ang Pilipinas ay naging kolonya ng Amerika",
+              "Sumama ang Pilipinas sa Espanya"
+            ],
+            "correct_answer": "Idineklara ng Pilipinas ang sarili nitong kalayaan"
+          },
+          {
+            "question": "Sino ang pinaslang kasama si Andres Bonifacio matapos ang Kumbensiyon ng Tejeros?",
+            "options": [
+              "Jose Rizal",
+              "Emilio Aguinaldo",
+              "Procopio Bonifacio (kapatid niya)",
+              "Apolinario Mabini"
+            ],
+            "correct_answer": "Procopio Bonifacio (kapatid niya)"
+          },
+          {
+            "question": "Ang KATIPUNAN ay isang lihim na samahan na naglunsad ng ___ laban sa pananakop ng Espanya.",
+            "options": [
+              "marahas na protesta sa simbahan",
+              "armadong rebolusyon",
+              "mapayapang negosasyon",
+              "komersyal na boykot"
+            ],
+            "correct_answer": "armadong rebolusyon"
+          },
+          {
+            "question": "Ang HIMAGSIKANG PILIPINO ay mahalaga dahil ___.",
+            "options": [
+              "nagpakita ito ng pagkabigo ng Pilipino",
+              "nagpakita ito ng tapang at pagmamahal ng mga Pilipino sa kalayaan",
+              "nagpakita ito ng lakas ng Espanya",
+              "nagpakita ito ng kapangyarihan ng Amerika"
+            ],
+            "correct_answer": "nagpakita ito ng tapang at pagmamahal ng mga Pilipino sa kalayaan"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "HUMAN DIGNITY means ___.",
+            "options": [
+              "being better than others",
+              "the inherent worth and value of every person as a unique creation",
+              "having more possessions",
+              "being the most talented"
+            ],
+            "correct_answer": "the inherent worth and value of every person as a unique creation"
+          },
+          {
+            "question": "A POSITIVE SELF-CONCEPT means ___.",
+            "options": [
+              "thinking you are perfect",
+              "having a realistic and healthy view of your own strengths and areas for growth",
+              "ignoring your weaknesses",
+              "comparing yourself to others constantly"
+            ],
+            "correct_answer": "having a realistic and healthy view of your own strengths and areas for growth"
+          },
+          {
+            "question": "SELF-RESPECT means ___.",
+            "options": [
+              "looking down on others",
+              "taking care of yourself and treating yourself with dignity",
+              "always getting what you want",
+              "ignoring other people's feelings"
+            ],
+            "correct_answer": "taking care of yourself and treating yourself with dignity"
+          },
+          {
+            "question": "Recognizing that you are unique helps you ___.",
+            "options": [
+              "feel superior to others",
+              "appreciate your own value and respect the uniqueness of others",
+              "ignore others",
+              "become selfish"
+            ],
+            "correct_answer": "appreciate your own value and respect the uniqueness of others"
+          },
+          {
+            "question": "VIRTUES are ___.",
+            "options": [
+              "bad habits",
+              "good character traits developed through practice",
+              "rules imposed by others",
+              "inherited traits only"
+            ],
+            "correct_answer": "good character traits developed through practice"
+          },
+          {
+            "question": "INTEGRITY means ___.",
+            "options": [
+              "doing what is right only when others are watching",
+              "doing what is right even when no one is watching",
+              "always following the crowd",
+              "only being honest sometimes"
+            ],
+            "correct_answer": "doing what is right even when no one is watching"
+          },
+          {
+            "question": "A person with a POSITIVE SELF-CONCEPT will ___.",
+            "options": [
+              "give up easily when things are difficult",
+              "keep trying and believe in their ability to improve",
+              "blame others for failures",
+              "avoid challenges"
+            ],
+            "correct_answer": "keep trying and believe in their ability to improve"
+          },
+          {
+            "question": "SELF-AWARENESS means ___.",
+            "options": [
+              "knowing only your strengths",
+              "understanding your own feelings, strengths, and areas for growth",
+              "ignoring your emotions",
+              "knowing what others think of you"
+            ],
+            "correct_answer": "understanding your own feelings, strengths, and areas for growth"
+          },
+          {
+            "question": "Which BEST describes a person who respects their own dignity?",
+            "options": [
+              "They bully others to feel powerful",
+              "They take care of their health, relationships, and character",
+              "They always depend on others",
+              "They ignore rules and responsibilities"
+            ],
+            "correct_answer": "They take care of their health, relationships, and character"
+          },
+          {
+            "question": "COMPASSION means ___.",
+            "options": [
+              "feeling sad for yourself",
+              "understanding and wanting to help those who are suffering",
+              "ignoring the problems of others",
+              "showing off your good deeds"
+            ],
+            "correct_answer": "understanding and wanting to help those who are suffering"
+          },
+          {
+            "question": "Developing GOOD HABITS is important because ___.",
+            "options": [
+              "habits are easy to break",
+              "good habits shape your character and lead to a better life",
+              "only adults need good habits",
+              "habits do not matter in the long run"
+            ],
+            "correct_answer": "good habits shape your character and lead to a better life"
+          },
+          {
+            "question": "Which is the FOUNDATION of a positive self-concept?",
+            "options": [
+              "Wealth and possessions",
+              "Popularity",
+              "Recognizing your inherent dignity as a human being",
+              "Academic grades only"
+            ],
+            "correct_answer": "Recognizing your inherent dignity as a human being"
+          }
+        ]
+      },
+      "MAPEH": {
+        "quiz": [
+          {
+            "question": "The REVOLUTIONARY PERIOD in Philippine arts (1801-1898) was characterized by ___.",
+            "options": [
+              "purely religious themes",
+              "arts that reflected national awakening and the desire for freedom",
+              "purely foreign influences",
+              "the absence of visual arts"
+            ],
+            "correct_answer": "arts that reflected national awakening and the desire for freedom"
+          },
+          {
+            "question": "JUAN LUNA and FELIX RESURRECION HIDALGO are famous Filipino artists of the ___.",
+            "options": [
+              "pre-colonial period",
+              "American period",
+              "Revolutionary/19th century period",
+              "contemporary period"
+            ],
+            "correct_answer": "Revolutionary/19th century period"
+          },
+          {
+            "question": "'SPOLARIUM' was painted by ___.",
+            "options": [
+              "Felix Resurreccion Hidalgo",
+              "Jose Rizal",
+              "Juan Luna",
+              "Francisco Balagtas"
+            ],
+            "correct_answer": "Juan Luna"
+          },
+          {
+            "question": "HOLISTIC WELLNESS means ___.",
+            "options": [
+              "only physical fitness",
+              "only mental health",
+              "overall well-being covering physical, mental, emotional, and social health",
+              "only spiritual health"
+            ],
+            "correct_answer": "overall well-being covering physical, mental, emotional, and social health"
+          },
+          {
+            "question": "TARGET GAMES in PE require skill in ___.",
+            "options": [
+              "running speed only",
+              "swimming distance",
+              "aiming at a specific target",
+              "jumping height"
+            ],
+            "correct_answer": "aiming at a specific target"
+          },
+          {
+            "question": "BADMINTON is an example of a ___.",
+            "options": [
+              "target game",
+              "invasion game",
+              "net/wall game",
+              "striking/fielding game"
+            ],
+            "correct_answer": "net/wall game"
+          },
+          {
+            "question": "The KUNDIMAN is a type of Filipino ___.",
+            "options": [
+              "folk dance",
+              "painting style",
+              "romantic song",
+              "weaving pattern"
+            ],
+            "correct_answer": "romantic song"
+          },
+          {
+            "question": "Regular PHYSICAL ACTIVITY is important because it ___.",
+            "options": [
+              "makes you tired and weak",
+              "improves cardiovascular fitness, strength, and mental health",
+              "is only for athletes",
+              "replaces the need for sleep"
+            ],
+            "correct_answer": "improves cardiovascular fitness, strength, and mental health"
+          },
+          {
+            "question": "Philippine art during the revolutionary period often expressed ___.",
+            "options": [
+              "surrender to colonial powers",
+              "patriotism and longing for freedom",
+              "happiness with Spanish rule",
+              "only religious devotion"
+            ],
+            "correct_answer": "patriotism and longing for freedom"
+          },
+          {
+            "question": "BMI (Body Mass Index) is used to ___.",
+            "options": [
+              "measure how fast you run",
+              "assess if a person's weight is healthy relative to height",
+              "measure how strong your muscles are",
+              "count calories burned"
+            ],
+            "correct_answer": "assess if a person's weight is healthy relative to height"
+          },
+          {
+            "question": "Philippine FOLK DANCES reflect ___.",
+            "options": [
+              "western culture only",
+              "the culture, history, and way of life of Filipino communities",
+              "modern entertainment only",
+              "American influence"
+            ],
+            "correct_answer": "the culture, history, and way of life of Filipino communities"
+          },
+          {
+            "question": "In PE, FAIR PLAY means ___.",
+            "options": [
+              "winning at all costs",
+              "following rules, respecting opponents, and accepting outcomes gracefully",
+              "cheating only when not caught",
+              "playing only when you can win"
+            ],
+            "correct_answer": "following rules, respecting opponents, and accepting outcomes gracefully"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "HUMAN DIGNITY means ___.",
+            "options": [
+              "being better than others",
+              "the inherent worth and value of every person as a unique creation",
+              "having more possessions",
+              "being the most talented"
+            ],
+            "correct_answer": "the inherent worth and value of every person as a unique creation"
+          },
+          {
+            "question": "A POSITIVE SELF-CONCEPT means ___.",
+            "options": [
+              "thinking you are perfect",
+              "having a realistic and healthy view of your own strengths and areas for growth",
+              "ignoring your weaknesses",
+              "comparing yourself to others constantly"
+            ],
+            "correct_answer": "having a realistic and healthy view of your own strengths and areas for growth"
+          },
+          {
+            "question": "SELF-RESPECT means ___.",
+            "options": [
+              "looking down on others",
+              "taking care of yourself and treating yourself with dignity",
+              "always getting what you want",
+              "ignoring other people's feelings"
+            ],
+            "correct_answer": "taking care of yourself and treating yourself with dignity"
+          },
+          {
+            "question": "Recognizing that you are unique helps you ___.",
+            "options": [
+              "feel superior to others",
+              "appreciate your own value and respect the uniqueness of others",
+              "ignore others",
+              "become selfish"
+            ],
+            "correct_answer": "appreciate your own value and respect the uniqueness of others"
+          },
+          {
+            "question": "VIRTUES are ___.",
+            "options": [
+              "bad habits",
+              "good character traits developed through practice",
+              "rules imposed by others",
+              "inherited traits only"
+            ],
+            "correct_answer": "good character traits developed through practice"
+          },
+          {
+            "question": "INTEGRITY means ___.",
+            "options": [
+              "doing what is right only when others are watching",
+              "doing what is right even when no one is watching",
+              "always following the crowd",
+              "only being honest sometimes"
+            ],
+            "correct_answer": "doing what is right even when no one is watching"
+          },
+          {
+            "question": "A person with a POSITIVE SELF-CONCEPT will ___.",
+            "options": [
+              "give up easily when things are difficult",
+              "keep trying and believe in their ability to improve",
+              "blame others for failures",
+              "avoid challenges"
+            ],
+            "correct_answer": "keep trying and believe in their ability to improve"
+          },
+          {
+            "question": "SELF-AWARENESS means ___.",
+            "options": [
+              "knowing only your strengths",
+              "understanding your own feelings, strengths, and areas for growth",
+              "ignoring your emotions",
+              "knowing what others think of you"
+            ],
+            "correct_answer": "understanding your own feelings, strengths, and areas for growth"
+          },
+          {
+            "question": "Which BEST describes a person who respects their own dignity?",
+            "options": [
+              "They bully others to feel powerful",
+              "They take care of their health, relationships, and character",
+              "They always depend on others",
+              "They ignore rules and responsibilities"
+            ],
+            "correct_answer": "They take care of their health, relationships, and character"
+          },
+          {
+            "question": "COMPASSION means ___.",
+            "options": [
+              "feeling sad for yourself",
+              "understanding and wanting to help those who are suffering",
+              "ignoring the problems of others",
+              "showing off your good deeds"
+            ],
+            "correct_answer": "understanding and wanting to help those who are suffering"
+          },
+          {
+            "question": "Developing GOOD HABITS is important because ___.",
+            "options": [
+              "habits are easy to break",
+              "good habits shape your character and lead to a better life",
+              "only adults need good habits",
+              "habits do not matter in the long run"
+            ],
+            "correct_answer": "good habits shape your character and lead to a better life"
+          },
+          {
+            "question": "Which is the FOUNDATION of a positive self-concept?",
+            "options": [
+              "Wealth and possessions",
+              "Popularity",
+              "Recognizing your inherent dignity as a human being",
+              "Academic grades only"
+            ],
+            "correct_answer": "Recognizing your inherent dignity as a human being"
+          }
+        ]
+      },
+      "MAPEH": {
+        "quiz": [
+          {
+            "question": "The REVOLUTIONARY PERIOD in Philippine arts (1801-1898) was characterized by ___.",
+            "options": [
+              "purely religious themes",
+              "arts that reflected national awakening and the desire for freedom",
+              "purely foreign influences",
+              "the absence of visual arts"
+            ],
+            "correct_answer": "arts that reflected national awakening and the desire for freedom"
+          },
+          {
+            "question": "JUAN LUNA and FELIX RESURRECION HIDALGO are famous Filipino artists of the ___.",
+            "options": [
+              "pre-colonial period",
+              "American period",
+              "Revolutionary/19th century period",
+              "contemporary period"
+            ],
+            "correct_answer": "Revolutionary/19th century period"
+          },
+          {
+            "question": "'SPOLARIUM' was painted by ___.",
+            "options": [
+              "Felix Resurreccion Hidalgo",
+              "Jose Rizal",
+              "Juan Luna",
+              "Francisco Balagtas"
+            ],
+            "correct_answer": "Juan Luna"
+          },
+          {
+            "question": "HOLISTIC WELLNESS means ___.",
+            "options": [
+              "only physical fitness",
+              "only mental health",
+              "overall well-being covering physical, mental, emotional, and social health",
+              "only spiritual health"
+            ],
+            "correct_answer": "overall well-being covering physical, mental, emotional, and social health"
+          },
+          {
+            "question": "TARGET GAMES in PE require skill in ___.",
+            "options": [
+              "running speed only",
+              "swimming distance",
+              "aiming at a specific target",
+              "jumping height"
+            ],
+            "correct_answer": "aiming at a specific target"
+          },
+          {
+            "question": "BADMINTON is an example of a ___.",
+            "options": [
+              "target game",
+              "invasion game",
+              "net/wall game",
+              "striking/fielding game"
+            ],
+            "correct_answer": "net/wall game"
+          },
+          {
+            "question": "The KUNDIMAN is a type of Filipino ___.",
+            "options": [
+              "folk dance",
+              "painting style",
+              "romantic song",
+              "weaving pattern"
+            ],
+            "correct_answer": "romantic song"
+          },
+          {
+            "question": "Regular PHYSICAL ACTIVITY is important because it ___.",
+            "options": [
+              "makes you tired and weak",
+              "improves cardiovascular fitness, strength, and mental health",
+              "is only for athletes",
+              "replaces the need for sleep"
+            ],
+            "correct_answer": "improves cardiovascular fitness, strength, and mental health"
+          },
+          {
+            "question": "Philippine art during the revolutionary period often expressed ___.",
+            "options": [
+              "surrender to colonial powers",
+              "patriotism and longing for freedom",
+              "happiness with Spanish rule",
+              "only religious devotion"
+            ],
+            "correct_answer": "patriotism and longing for freedom"
+          },
+          {
+            "question": "BMI (Body Mass Index) is used to ___.",
+            "options": [
+              "measure how fast you run",
+              "assess if a person's weight is healthy relative to height",
+              "measure how strong your muscles are",
+              "count calories burned"
+            ],
+            "correct_answer": "assess if a person's weight is healthy relative to height"
+          },
+          {
+            "question": "Philippine FOLK DANCES reflect ___.",
+            "options": [
+              "western culture only",
+              "the culture, history, and way of life of Filipino communities",
+              "modern entertainment only",
+              "American influence"
+            ],
+            "correct_answer": "the culture, history, and way of life of Filipino communities"
+          },
+          {
+            "question": "In PE, FAIR PLAY means ___.",
+            "options": [
+              "winning at all costs",
+              "following rules, respecting opponents, and accepting outcomes gracefully",
+              "cheating only when not caught",
+              "playing only when you can win"
+            ],
+            "correct_answer": "following rules, respecting opponents, and accepting outcomes gracefully"
+          }
+        ]
+      },
+      "English": {
+        "quiz": [
+          {
+            "question": "LITERAL meaning refers to ___.",
+            "options": [
+              "the hidden message in a text",
+              "the figurative or symbolic meaning",
+              "the exact, dictionary meaning of words",
+              "the author's personal opinion"
+            ],
+            "correct_answer": "the exact, dictionary meaning of words"
+          },
+          {
+            "question": "IMPLIED meaning refers to ___.",
+            "options": [
+              "the exact words used",
+              "the meaning suggested but not directly stated",
+              "a dictionary definition",
+              "a numbered list"
+            ],
+            "correct_answer": "the meaning suggested but not directly stated"
+          },
+          {
+            "question": "A PERSUASIVE text aims to ___.",
+            "options": [
+              "entertain with a story",
+              "explain how to do something",
+              "convince the reader to agree with an opinion or take action",
+              "describe a place in detail"
+            ],
+            "correct_answer": "convince the reader to agree with an opinion or take action"
+          },
+          {
+            "question": "A NARRATIVE text ___.",
+            "options": [
+              "lists facts about a topic",
+              "tells a story (real or imagined)",
+              "instructs the reader step by step",
+              "argues for a position"
+            ],
+            "correct_answer": "tells a story (real or imagined)"
+          },
+          {
+            "question": "An EXPOSITORY text ___.",
+            "options": [
+              "tells a fictional story",
+              "gives information and explains a topic",
+              "convinces the reader",
+              "describes feelings only"
+            ],
+            "correct_answer": "gives information and explains a topic"
+          },
+          {
+            "question": "Which word shows CONTRAST in a sentence?",
+            "options": [
+              "Furthermore",
+              "Therefore",
+              "However",
+              "Additionally"
+            ],
+            "correct_answer": "However"
+          },
+          {
+            "question": "TONE in a text refers to ___.",
+            "options": [
+              "the length of the text",
+              "the author's attitude toward the subject and reader",
+              "the number of paragraphs",
+              "the font size"
+            ],
+            "correct_answer": "the author's attitude toward the subject and reader"
+          },
+          {
+            "question": "Which is an example of a COMPLEX SENTENCE?",
+            "options": [
+              "She sings and dances.",
+              "She sings.",
+              "Because she loves music, she sings daily.",
+              "She sings, she dances."
+            ],
+            "correct_answer": "Because she loves music, she sings daily."
+          },
+          {
+            "question": "A SURVEY FORM is used to ___.",
+            "options": [
+              "write a story",
+              "collect information and opinions from people",
+              "describe a place",
+              "argue a point"
+            ],
+            "correct_answer": "collect information and opinions from people"
+          },
+          {
+            "question": "REFERENCE MATERIALS include ___.",
+            "options": [
+              "only novels",
+              "dictionaries, encyclopedias, almanacs, and atlases",
+              "only newspapers",
+              "only social media posts"
+            ],
+            "correct_answer": "dictionaries, encyclopedias, almanacs, and atlases"
+          },
+          {
+            "question": "A THESIS STATEMENT in a composition ___.",
+            "options": [
+              "summarizes all the body paragraphs",
+              "is always the last sentence",
+              "states the main argument or central idea of the text",
+              "provides all the evidence"
+            ],
+            "correct_answer": "states the main argument or central idea of the text"
+          },
+          {
+            "question": "NON-VERBAL cues in communication include ___.",
+            "options": [
+              "spoken words",
+              "written text",
+              "facial expressions, gestures, and posture",
+              "vocabulary choices"
+            ],
+            "correct_answer": "facial expressions, gestures, and posture"
+          }
+        ]
+      },
+      "Science": {
+        "quiz": [
+          {
+            "question": "EVAPORATION is the process where a liquid changes to a ___.",
+            "options": [
+              "solid",
+              "gas",
+              "plasma",
+              "liquid of different color"
+            ],
+            "correct_answer": "gas"
+          },
+          {
+            "question": "CONDENSATION is the process where a gas changes to a ___.",
+            "options": [
+              "solid",
+              "another gas",
+              "liquid",
+              "plasma"
+            ],
+            "correct_answer": "liquid"
+          },
+          {
+            "question": "MELTING changes a ___ to a liquid.",
+            "options": [
+              "gas",
+              "solid",
+              "plasma",
+              "solution"
+            ],
+            "correct_answer": "solid"
+          },
+          {
+            "question": "FREEZING changes a liquid to a ___.",
+            "options": [
+              "gas",
+              "solid",
+              "plasma",
+              "mixture"
+            ],
+            "correct_answer": "solid"
+          },
+          {
+            "question": "Physical changes are REVERSIBLE. Which is an example?",
+            "options": [
+              "Burning wood",
+              "Rusting iron",
+              "Melting ice",
+              "Baking a cake"
+            ],
+            "correct_answer": "Melting ice"
+          },
+          {
+            "question": "Chemical changes are IRREVERSIBLE. Which is an example?",
+            "options": [
+              "Melting butter",
+              "Dissolving sugar in water",
+              "Rusting of iron",
+              "Boiling water"
+            ],
+            "correct_answer": "Rusting of iron"
+          },
+          {
+            "question": "A SOLUTION is a ___ mixture.",
+            "options": [
+              "non-uniform",
+              "uniform (homogeneous)",
+              "visible",
+              "layered"
+            ],
+            "correct_answer": "uniform (homogeneous)"
+          },
+          {
+            "question": "A SUSPENSION is a ___ mixture.",
+            "options": [
+              "uniform",
+              "transparent",
+              "non-uniform (heterogeneous)",
+              "permanent"
+            ],
+            "correct_answer": "non-uniform (heterogeneous)"
+          },
+          {
+            "question": "What separation technique uses a FILTER to separate a solid from a liquid?",
+            "options": [
+              "Evaporation",
+              "Decantation",
+              "Filtering",
+              "Winnowing"
+            ],
+            "correct_answer": "Filtering"
+          },
+          {
+            "question": "WINNOWING separates grain from chaff by using ___.",
+            "options": [
+              "water",
+              "heat",
+              "wind (air)",
+              "magnets"
+            ],
+            "correct_answer": "wind (air)"
+          },
+          {
+            "question": "Air is described as a MIXTURE containing ___.",
+            "options": [
+              "only oxygen",
+              "only carbon dioxide",
+              "oxygen, nitrogen, carbon dioxide, and water vapor",
+              "only nitrogen"
+            ],
+            "correct_answer": "oxygen, nitrogen, carbon dioxide, and water vapor"
+          },
+          {
+            "question": "DECANTATION separates mixtures by ___.",
+            "options": [
+              "filtering through paper",
+              "carefully pouring off the liquid, leaving the solid behind",
+              "using a magnet",
+              "using heat"
+            ],
+            "correct_answer": "carefully pouring off the liquid, leaving the solid behind"
+          }
+        ]
+      },
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang SANAYSAY ay isang ___.",
+            "options": [
+              "maikling kwentong may tagapalad",
+              "malikhaing komposisyong nagpapahayag ng pananaw ng may-akda sa isang paksa",
+              "talaarawan ng mga pangyayari sa kasaysayan",
+              "paglalahad ng mga batas"
+            ],
+            "correct_answer": "malikhaing komposisyong nagpapahayag ng pananaw ng may-akda sa isang paksa"
+          },
+          {
+            "question": "Ang LAYUNIN ng isang PERSUASIBONG sanaysay ay ___.",
+            "options": [
+              "magbigay ng impormasyon lamang",
+              "hikayatin ang mambabasa na sumang-ayon sa pananaw ng may-akda",
+              "magsalaysay ng kwento",
+              "ilarawan ang isang lugar"
+            ],
+            "correct_answer": "hikayatin ang mambabasa na sumang-ayon sa pananaw ng may-akda"
+          },
+          {
+            "question": "Ang KATIBAYAN o EBIDENSYA sa sanaysay ay ginagamit upang ___.",
+            "options": [
+              "palakasin ang argumento ng may-akda",
+              "gawing mas mahaba ang akda",
+              "palugod ang mambabasa",
+              "lagyan ng dekorasyon ang pahayag"
+            ],
+            "correct_answer": "palakasin ang argumento ng may-akda"
+          },
+          {
+            "question": "Ang KONKLUSYON ng isang sanaysay ay ___.",
+            "options": [
+              "nagpapakilala ng paksa",
+              "nagbubuod ng mga pangunahing punto at nagbibigay ng pangwakas na pahayag",
+              "nagbibigay ng mga katibayan",
+              "nagsasalaysay ng kwento"
+            ],
+            "correct_answer": "nagbubuod ng mga pangunahing punto at nagbibigay ng pangwakas na pahayag"
+          },
+          {
+            "question": "Ang salitang 'subalit' ay ginagamit upang ipahayag ang ___.",
+            "options": [
+              "sanhi",
+              "bunga",
+              "kabaligtaran o kontrasto",
+              "pagdaragdag"
+            ],
+            "correct_answer": "kabaligtaran o kontrasto"
+          },
+          {
+            "question": "Ang POKUS ng pangungusap ay ang ___.",
+            "options": [
+              "pinakamahabang salita",
+              "salitang ginawang paksa ng pangungusap",
+              "kahulugan ng pangungusap",
+              "bilang ng mga salita"
+            ],
+            "correct_answer": "salitang ginawang paksa ng pangungusap"
+          },
+          {
+            "question": "'Tiningnan ng bata ang laruan.' Ano ang pokus ng pangungusap?",
+            "options": [
+              "laruan",
+              "tiningnan",
+              "ng bata",
+              "ng bata tiningnan ang laruan"
+            ],
+            "correct_answer": "laruan"
+          },
+          {
+            "question": "Ang MULTIMEDIA ay gumagamit ng ___.",
+            "options": [
+              "teksto lamang",
+              "kumbinasyon ng teksto, imahe, tunog, at video",
+              "pelikula lamang",
+              "radyo lamang"
+            ],
+            "correct_answer": "kumbinasyon ng teksto, imahe, tunog, at video"
+          },
+          {
+            "question": "Ang TONO ng isang akda ay nagpapakita ng ___.",
+            "options": [
+              "haba ng kwento",
+              "saloobin ng may-akda sa paksa at sa mambabasa",
+              "bilang ng tauhan",
+              "uri ng mga tayutay"
+            ],
+            "correct_answer": "saloobin ng may-akda sa paksa at sa mambabasa"
+          },
+          {
+            "question": "Alin ang PANGUNAHING LAYUNIN ng IMPORMASYONG teksto?",
+            "options": [
+              "Magbigay ng impormasyon at kaalaman",
+              "Magkuwento",
+              "Magbigay ng aliw",
+              "Manghikayat sa isang gawi"
+            ],
+            "correct_answer": "Magbigay ng impormasyon at kaalaman"
+          },
+          {
+            "question": "Ang PAKSA ng isang talata ay ___.",
+            "options": [
+              "ang pinakamahalagang detalye",
+              "ang pangunahing ideya na pinag-uusapan ng talata",
+              "ang huling pangungusap",
+              "ang pinakamaiklinging pangungusap"
+            ],
+            "correct_answer": "ang pangunahing ideya na pinag-uusapan ng talata"
+          },
+          {
+            "question": "'Dahil maaga syang gumising, naabutan niya ang bus.' Ano ang dahilan?",
+            "options": [
+              "Naabutan niya ang bus",
+              "Maaga syang gumising",
+              "Ang bus ay naabutan",
+              "Ang pagsakay sa bus"
+            ],
+            "correct_answer": "Maaga syang gumising"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "quiz": [
+          {
+            "question": "MULTIMEDIA EDITING involves working with ___.",
+            "options": [
+              "only text documents",
+              "a combination of video, audio, images, and text",
+              "only spreadsheets",
+              "only databases"
+            ],
+            "correct_answer": "a combination of video, audio, images, and text"
+          },
+          {
+            "question": "BASIC CODING teaches you to ___.",
+            "options": [
+              "only type fast",
+              "give instructions to a computer to perform tasks",
+              "draw digital art",
+              "edit videos only"
+            ],
+            "correct_answer": "give instructions to a computer to perform tasks"
+          },
+          {
+            "question": "What is an ALGORITHM?",
+            "options": [
+              "A type of computer virus",
+              "A step-by-step set of instructions for solving a problem",
+              "A keyboard shortcut",
+              "A type of social media"
+            ],
+            "correct_answer": "A step-by-step set of instructions for solving a problem"
+          },
+          {
+            "question": "A SEQUENCE in coding means ___.",
+            "options": [
+              "running instructions in a random order",
+              "repeating an instruction many times",
+              "executing instructions in a specific order, one after another",
+              "choosing between two options"
+            ],
+            "correct_answer": "executing instructions in a specific order, one after another"
+          },
+          {
+            "question": "A LOOP in coding is used to ___.",
+            "options": [
+              "stop the program",
+              "repeat a set of instructions a number of times or until a condition is met",
+              "skip an instruction",
+              "name a variable"
+            ],
+            "correct_answer": "repeat a set of instructions a number of times or until a condition is met"
+          },
+          {
+            "question": "An IF-THEN statement in coding is a ___.",
+            "options": [
+              "loop",
+              "variable",
+              "sequence",
+              "conditional/decision structure"
+            ],
+            "correct_answer": "conditional/decision structure"
+          },
+          {
+            "question": "What is a VARIABLE in coding?",
+            "options": [
+              "A type of loop",
+              "A storage location that holds a value which can change",
+              "An output device",
+              "A type of program error"
+            ],
+            "correct_answer": "A storage location that holds a value which can change"
+          },
+          {
+            "question": "VIDEO EDITING software is used to ___.",
+            "options": [
+              "create spreadsheets",
+              "cut, combine, and add effects to video clips",
+              "write code",
+              "design databases"
+            ],
+            "correct_answer": "cut, combine, and add effects to video clips"
+          },
+          {
+            "question": "AUDIO EDITING involves ___.",
+            "options": [
+              "only changing file names",
+              "recording, cutting, and adjusting sound files",
+              "designing websites",
+              "writing text documents"
+            ],
+            "correct_answer": "recording, cutting, and adjusting sound files"
+          },
+          {
+            "question": "Which is a simple coding platform used in Philippine elementary schools?",
+            "options": [
+              "Excel",
+              "Scratch",
+              "AutoCAD",
+              "Adobe Premiere"
+            ],
+            "correct_answer": "Scratch"
+          },
+          {
+            "question": "'DEBUG' in coding means to ___.",
+            "options": [
+              "add more code",
+              "find and fix errors in a program",
+              "delete the program",
+              "rename a file"
+            ],
+            "correct_answer": "find and fix errors in a program"
+          },
+          {
+            "question": "A FLOWCHART is a diagram that shows ___.",
+            "options": [
+              "only the final output",
+              "the step-by-step flow of a program or process",
+              "only variables",
+              "only loops"
+            ],
+            "correct_answer": "the step-by-step flow of a program or process"
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "TESSELLATION means filling a surface with a shape ___.",
+            "options": [
+              "with gaps between shapes",
+              "that overlaps other shapes",
+              "with no gaps or overlaps",
+              "using only circles"
+            ],
+            "correct_answer": "with no gaps or overlaps"
+          },
+          {
+            "question": "Which shape can TESSELLATE on its own?",
+            "options": [
+              "Circle",
+              "Regular hexagon",
+              "Regular pentagon",
+              "Oval"
+            ],
+            "correct_answer": "Regular hexagon"
+          },
+          {
+            "question": "A TRANSLATION (slide) moves a shape ___.",
+            "options": [
+              "around a fixed point",
+              "to a mirror image",
+              "without turning or flipping it",
+              "along only one axis"
+            ],
+            "correct_answer": "without turning or flipping it"
+          },
+          {
+            "question": "A REFLECTION (flip) produces a ___.",
+            "options": [
+              "rotated image",
+              "mirror image",
+              "enlarged image",
+              "translated image"
+            ],
+            "correct_answer": "mirror image"
+          },
+          {
+            "question": "A ROTATION (turn) moves a shape ___.",
+            "options": [
+              "in a straight line",
+              "around a fixed point (center of rotation)",
+              "to a mirror position",
+              "to a larger size"
+            ],
+            "correct_answer": "around a fixed point (center of rotation)"
+          },
+          {
+            "question": "Add: 4.567 + 3.21 = ___.",
+            "options": [
+              "7.677",
+              "7.777",
+              "7.877",
+              "7.867"
+            ],
+            "correct_answer": "7.777"
+          },
+          {
+            "question": "Subtract: 10.5 - 3.25 = ___.",
+            "options": [
+              "7.75",
+              "7.25",
+              "6.75",
+              "7.50"
+            ],
+            "correct_answer": "7.25"
+          },
+          {
+            "question": "Mentally multiply 3.6 x 10 = ___.",
+            "options": [
+              "0.36",
+              "3.60",
+              "36",
+              "360"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "Mentally divide 4.5 / 0.1 = ___.",
+            "options": [
+              "0.45",
+              "4.5",
+              "45",
+              "450"
+            ],
+            "correct_answer": "45"
+          },
+          {
+            "question": "Solve: Ana spent P125.50 and P87.75. How much did she spend in all?",
+            "options": [
+              "P213.25",
+              "P212.25",
+              "P213.75",
+              "P212.75"
+            ],
+            "correct_answer": "P213.25"
+          },
+          {
+            "question": "Which shapes can ALWAYS tessellate?",
+            "options": [
+              "Circles and ovals",
+              "Triangles, squares, and regular hexagons",
+              "All regular polygons",
+              "Pentagons and heptagons"
+            ],
+            "correct_answer": "Triangles, squares, and regular hexagons"
+          },
+          {
+            "question": "A shape after REFLECTION is always ___.",
+            "options": [
+              "the same size and orientation",
+              "the same size but flipped",
+              "smaller",
+              "larger"
+            ],
+            "correct_answer": "the same size but flipped"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "quiz": [
+          {
+            "question": "Ang KATIPUNAN ay itinatag noong ___.",
+            "options": [
+              "1890",
+              "1892",
+              "1896",
+              "1898"
+            ],
+            "correct_answer": "1892"
+          },
+          {
+            "question": "Sino ang nagtatag ng Katipunan?",
+            "options": [
+              "Jose Rizal",
+              "Emilio Aguinaldo",
+              "Andres Bonifacio",
+              "Apolinario Mabini"
+            ],
+            "correct_answer": "Andres Bonifacio"
+          },
+          {
+            "question": "Ang layunin ng KATIPUNAN ay ___.",
+            "options": [
+              "makipagtulungan sa Espanya",
+              "makamit ang kalayaan ng Pilipinas sa pamamagitan ng armadong pakikipaglaban",
+              "magtatag ng bagong relihiyon",
+              "magtayo ng bagong bansa sa labas ng Asya"
+            ],
+            "correct_answer": "makamit ang kalayaan ng Pilipinas sa pamamagitan ng armadong pakikipaglaban"
+          },
+          {
+            "question": "Ang HIMAGSIKANG PILIPINO ay nagsimula noong ___.",
+            "options": [
+              "1872",
+              "1892",
+              "1896",
+              "1898"
+            ],
+            "correct_answer": "1896"
+          },
+          {
+            "question": "Ang 'SIGAW SA PUGADLAWIN' ay nagpapahayag ng ___.",
+            "options": [
+              "pagsuko ng mga Pilipino",
+              "simula ng armadong pakikipaglaban laban sa Espanya",
+              "pagkakaisa sa Espanya",
+              "pagpapalabas ng bagong batas"
+            ],
+            "correct_answer": "simula ng armadong pakikipaglaban laban sa Espanya"
+          },
+          {
+            "question": "Si Jose Rizal ay naging martir. Ano ang ibig sabihin ng MARTIR?",
+            "options": [
+              "Bayani na namatay para sa kapakanan ng bayan",
+              "Lider ng sandatahang lakas",
+              "Guro ng mga Pilipino",
+              "Pinuno ng simbahan"
+            ],
+            "correct_answer": "Bayani na namatay para sa kapakanan ng bayan"
+          },
+          {
+            "question": "Ang KASUNDUAN SA BIAK-NA-BATO (1897) ay nagresulta sa ___.",
+            "options": [
+              "pagpapalaya ng lahat ng bilanggo",
+              "pansamantalang tigilan ng labanan at pagpapatapon ni Aguinaldo",
+              "kalayaan ng Pilipinas",
+              "pagkatalo ng mga Kastila"
+            ],
+            "correct_answer": "pansamantalang tigilan ng labanan at pagpapatapon ni Aguinaldo"
+          },
+          {
+            "question": "Ang KUMBENSIYON NG TEJEROS (1897) ay humantong sa ___.",
+            "options": [
+              "pagtatayo ng bagong pamahalaan",
+              "pagpapalitan ng pamumuno mula kay Bonifacio patungong Aguinaldo",
+              "pagkakaisa ng lahat ng rebelde",
+              "pagkatalo ng Katipunan"
+            ],
+            "correct_answer": "pagpapalitan ng pamumuno mula kay Bonifacio patungong Aguinaldo"
+          },
+          {
+            "question": "Ang DEKLARASYON NG KASARINLAN ng Pilipinas ay ipinahayag noong Hunyo 12, 1898. Ano ang kahulugan?",
+            "options": [
+              "Ang Pilipinas ay sumuko sa Espanya",
+              "Idineklara ng Pilipinas ang sarili nitong kalayaan",
+              "Ang Pilipinas ay naging kolonya ng Amerika",
+              "Sumama ang Pilipinas sa Espanya"
+            ],
+            "correct_answer": "Idineklara ng Pilipinas ang sarili nitong kalayaan"
+          },
+          {
+            "question": "Sino ang pinaslang kasama si Andres Bonifacio matapos ang Kumbensiyon ng Tejeros?",
+            "options": [
+              "Jose Rizal",
+              "Emilio Aguinaldo",
+              "Procopio Bonifacio (kapatid niya)",
+              "Apolinario Mabini"
+            ],
+            "correct_answer": "Procopio Bonifacio (kapatid niya)"
+          },
+          {
+            "question": "Ang KATIPUNAN ay isang lihim na samahan na naglunsad ng ___ laban sa pananakop ng Espanya.",
+            "options": [
+              "marahas na protesta sa simbahan",
+              "armadong rebolusyon",
+              "mapayapang negosasyon",
+              "komersyal na boykot"
+            ],
+            "correct_answer": "armadong rebolusyon"
+          },
+          {
+            "question": "Ang HIMAGSIKANG PILIPINO ay mahalaga dahil ___.",
+            "options": [
+              "nagpakita ito ng pagkabigo ng Pilipino",
+              "nagpakita ito ng tapang at pagmamahal ng mga Pilipino sa kalayaan",
+              "nagpakita ito ng lakas ng Espanya",
+              "nagpakita ito ng kapangyarihan ng Amerika"
+            ],
+            "correct_answer": "nagpakita ito ng tapang at pagmamahal ng mga Pilipino sa kalayaan"
+          }
+        ]
+      }
+    }
+  }
+}

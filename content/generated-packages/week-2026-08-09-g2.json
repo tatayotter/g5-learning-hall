@@ -1,0 +1,1099 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-08-09",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## Words, Sentences, and Stories About Me and My Family\n\n- **Nouns** name people, places, animals, or things (e.g., *mother*, *dog*, *school*). **Verbs** show action (e.g., *jump*, *run*). **Personal pronouns** take the place of names (e.g., *she*, *he*, *they*).\n- A **declarative sentence** tells something and ends with a period (.). An **interrogative sentence** asks something and ends with a question mark (?).\n- Every sentence has parts: **who/what** it is about, and **what they are doing**.\n- Always start a sentence with a **capital letter** and end it with the correct punctuation mark.\n- When we read a story, we look for its **elements**: the *characters* (who), the *setting* (where/when), and the *events* (what happens) — in order, using words like *first*, *next*, *then*.\n- Stories often have a **problem** and a **solution** — something goes wrong, then it gets fixed.\n\n| Sentence Type | Ends With | Example |\n|---|---|---|\n| Declarative | Period (.) | I have a pet dog. |\n| Interrogative | Question mark (?) | What is your name? |\n\n- Being polite matters too — saying \"Good morning\" and \"Thank you\" shows good manners with family and friends.",
+        "quiz": [
+          {
+            "question": "Which word is a CVC (consonant-vowel-consonant) word?",
+            "options": [
+              "mat",
+              "apple",
+              "tree",
+              "school"
+            ],
+            "correct_answer": "mat"
+          },
+          {
+            "question": "Which word is a noun (a naming word)?",
+            "options": [
+              "dog",
+              "run",
+              "happy",
+              "quickly"
+            ],
+            "correct_answer": "dog"
+          },
+          {
+            "question": "Which word is a verb (an action word)?",
+            "options": [
+              "jump",
+              "table",
+              "red",
+              "slow"
+            ],
+            "correct_answer": "jump"
+          },
+          {
+            "question": "Which word is a personal pronoun?",
+            "options": [
+              "she",
+              "dog",
+              "jump",
+              "red"
+            ],
+            "correct_answer": "she"
+          },
+          {
+            "question": "Which word names a family member?",
+            "options": [
+              "mother",
+              "chair",
+              "book",
+              "ball"
+            ],
+            "correct_answer": "mother"
+          },
+          {
+            "question": "Which sentence is declarative (a telling sentence)?",
+            "options": [
+              "I have a pet dog.",
+              "Do you have a pet?",
+              "Wow, what a cute dog!",
+              "Close the door."
+            ],
+            "correct_answer": "I have a pet dog."
+          },
+          {
+            "question": "Which sentence is interrogative (an asking sentence)?",
+            "options": [
+              "What is your name?",
+              "My name is Ana.",
+              "Sit down please.",
+              "I am happy."
+            ],
+            "correct_answer": "What is your name?"
+          },
+          {
+            "question": "In the sentence 'Tom plays with his sister,' who is the sentence about?",
+            "options": [
+              "Tom",
+              "his sister",
+              "plays",
+              "with"
+            ],
+            "correct_answer": "Tom"
+          },
+          {
+            "question": "Which end punctuation should be used for the sentence 'What is your favorite color'?",
+            "options": [
+              "Question mark (?)",
+              "Period (.)",
+              "Exclamation point (!)",
+              "Comma (,)"
+            ],
+            "correct_answer": "Question mark (?)"
+          },
+          {
+            "question": "Which sentence uses correct capitalization?",
+            "options": [
+              "My name is Liza.",
+              "my name is liza.",
+              "My Name Is Liza.",
+              "MY NAME IS LIZA"
+            ],
+            "correct_answer": "My name is Liza."
+          },
+          {
+            "question": "In a story, who the story is about is called the ___.",
+            "options": [
+              "character",
+              "setting",
+              "problem",
+              "ending"
+            ],
+            "correct_answer": "character"
+          },
+          {
+            "question": "Which word helps show the order of events in a story?",
+            "options": [
+              "First",
+              "Happy",
+              "Big",
+              "Red"
+            ],
+            "correct_answer": "First"
+          },
+          {
+            "question": "In a story about a lost puppy that is found by its owner, what is the solution?",
+            "options": [
+              "The puppy is found by its owner",
+              "The puppy gets lost",
+              "The puppy is sad",
+              "The story has no ending"
+            ],
+            "correct_answer": "The puppy is found by its owner"
+          },
+          {
+            "question": "If a character is smiling and laughing, how does the character probably feel?",
+            "options": [
+              "Happy",
+              "Sad",
+              "Angry",
+              "Scared"
+            ],
+            "correct_answer": "Happy"
+          },
+          {
+            "question": "Which is a polite expression to say when someone helps you?",
+            "options": [
+              "Thank you",
+              "Go away",
+              "I don't care",
+              "Never mind"
+            ],
+            "correct_answer": "Thank you"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## Philippine Money: Coins and Bills up to ₱1000\n\n- We use **money** to buy things we need and want. Philippine money comes in two forms: **coins** (metal) and **bills** (paper).\n- Common coins: **₱1**, **₱5**, **₱10**, and **₱20** coins.\n- Common bills: **₱20**, **₱50**, **₱100**, **₱200**, **₱500**, and **₱1000** bills.\n- To find the **total value** of a set of bills and coins, add up the value of each piece one by one. It helps to start with the biggest bill or coin first, then add the smaller ones.\n\n| Bill/Coin | Value |\n|---|---|\n| ₱1000 bill | One thousand pesos |\n| ₱500 bill | Five hundred pesos |\n| ₱200 bill | Two hundred pesos |\n| ₱100 bill | One hundred pesos |\n| ₱50 bill | Fifty pesos |\n| ₱20 bill/coin | Twenty pesos |\n| ₱10 coin | Ten pesos |\n| ₱5 coin | Five pesos |\n| ₱1 coin | One peso |\n\n- Example: 2 twenty-peso bills + 1 ten-peso coin = ₱20 + ₱20 + ₱10 = **₱50**.\n- Practice counting money often — it is a skill we use every day, like buying snacks or giving change.",
+        "quiz": [
+          {
+            "question": "How many centavos make one peso?",
+            "options": [
+              "100 centavos",
+              "10 centavos",
+              "1000 centavos",
+              "50 centavos"
+            ],
+            "correct_answer": "100 centavos"
+          },
+          {
+            "question": "Which of these is a Philippine coin?",
+            "options": [
+              "₱5 coin",
+              "₱500 bill",
+              "₱1000 bill",
+              "₱200 bill"
+            ],
+            "correct_answer": "₱5 coin"
+          },
+          {
+            "question": "Which of these is a Philippine bill (paper money)?",
+            "options": [
+              "₱100 bill",
+              "₱1 coin",
+              "₱5 coin",
+              "₱10 coin"
+            ],
+            "correct_answer": "₱100 bill"
+          },
+          {
+            "question": "If you have 3 ten-peso coins, how much money do you have?",
+            "options": [
+              "₱30",
+              "₱13",
+              "₱3",
+              "₱300"
+            ],
+            "correct_answer": "₱30"
+          },
+          {
+            "question": "Which is worth more?",
+            "options": [
+              "₱20 bill",
+              "₱5 coin",
+              "₱1 coin",
+              "₱10 coin"
+            ],
+            "correct_answer": "₱20 bill"
+          },
+          {
+            "question": "Ana has 2 twenty-peso bills and 1 ten-peso bill. How much money does she have in all?",
+            "options": [
+              "₱50",
+              "₱40",
+              "₱30",
+              "₱60"
+            ],
+            "correct_answer": "₱50"
+          },
+          {
+            "question": "Ben has 1 fifty-peso bill and 3 five-peso coins. How much does he have?",
+            "options": [
+              "₱65",
+              "₱55",
+              "₱53",
+              "₱60"
+            ],
+            "correct_answer": "₱65"
+          },
+          {
+            "question": "Which combination makes exactly ₱100?",
+            "options": [
+              "2 fifty-peso bills",
+              "1 twenty-peso bill and 1 ten-peso coin",
+              "4 twenty-peso bills",
+              "1 fifty-peso bill and 1 ten-peso coin"
+            ],
+            "correct_answer": "2 fifty-peso bills"
+          },
+          {
+            "question": "Mia has ₱500 in one bill. Which bill does she have?",
+            "options": [
+              "₱500 bill",
+              "₱200 bill",
+              "₱1000 bill",
+              "₱100 bill"
+            ],
+            "correct_answer": "₱500 bill"
+          },
+          {
+            "question": "Which set of coins equals ₱15?",
+            "options": [
+              "1 ten-peso coin and 1 five-peso coin",
+              "1 ten-peso coin and 1 one-peso coin",
+              "3 one-peso coins",
+              "1 five-peso coin only"
+            ],
+            "correct_answer": "1 ten-peso coin and 1 five-peso coin"
+          },
+          {
+            "question": "Lily has 3 twenty-peso bills, 2 ten-peso coins, and 1 five-peso coin. How much money does she have in all?",
+            "options": [
+              "₱85",
+              "₱75",
+              "₱90",
+              "₱65"
+            ],
+            "correct_answer": "₱85"
+          },
+          {
+            "question": "Which amount uses the fewest bills and coins to make exactly ₱1000?",
+            "options": [
+              "1 one-thousand-peso bill",
+              "2 five-hundred-peso bills",
+              "5 two-hundred-peso bills",
+              "10 one-hundred-peso bills"
+            ],
+            "correct_answer": "1 one-thousand-peso bill"
+          },
+          {
+            "question": "Dad gave Tomas 1 five-hundred-peso bill and 1 two-hundred-peso bill. How much did Tomas receive?",
+            "options": [
+              "₱700",
+              "₱600",
+              "₱750",
+              "₱500"
+            ],
+            "correct_answer": "₱700"
+          },
+          {
+            "question": "Which is the same value as 1 one-hundred-peso bill?",
+            "options": [
+              "5 twenty-peso bills",
+              "3 twenty-peso bills and 1 ten-peso coin",
+              "2 fifty-peso bills and 1 ten-peso coin",
+              "4 twenty-peso bills"
+            ],
+            "correct_answer": "5 twenty-peso bills"
+          },
+          {
+            "question": "What is the value of 1 two-hundred-peso bill and 3 one-hundred-peso bills together?",
+            "options": [
+              "₱500",
+              "₱600",
+              "₱400",
+              "₱300"
+            ],
+            "correct_answer": "₱500"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Staying Safe: Protecting Our Body and Senses\n\n- Our body and senses help us explore the world, but some everyday things can hurt us if we are not careful.\n- **Hot objects** (stoves, pans, irons) can burn our skin — always stay away from them and let an adult handle cooking or hot items.\n- **Sharp tools** (scissors, knives) can cut us — use them carefully, and always hand them over with the sharp side pointed away from others.\n- Never **stare directly at the sun** — its light is too strong and can damage our eyes.\n- **Chemicals and cleaning products** (like bleach or detergent) can be dangerous — never touch, smell, or taste them without an adult's permission.\n- If you ever get hurt, **tell a trusted adult right away** so you can get help quickly.\n\n| Danger | Safety Rule |\n|---|---|\n| Hot pots/pans | Stay away, let an adult handle it |\n| Scissors/knives | Handle carefully, ask an adult |\n| Sunlight | Never stare directly at it |\n| Cleaning liquids | Ask an adult before touching |\n| Any injury | Tell a trusted adult right away |\n\n- Following these safety rules protects our body and our five senses so we can stay healthy and keep exploring safely.",
+        "quiz": [
+          {
+            "question": "Which of these is a sharp tool we should be careful with?",
+            "options": [
+              "Scissors",
+              "Pillow",
+              "Ball",
+              "Spoon"
+            ],
+            "correct_answer": "Scissors"
+          },
+          {
+            "question": "What should you do if you see a hot pot on the stove?",
+            "options": [
+              "Stay away and do not touch it",
+              "Touch it to check if it is hot",
+              "Pour water on it right away",
+              "Play with it"
+            ],
+            "correct_answer": "Stay away and do not touch it"
+          },
+          {
+            "question": "Why should we never stare directly at the sun?",
+            "options": [
+              "It can hurt or damage our eyes",
+              "It makes us sleepy",
+              "It makes our skin itchy",
+              "It has no effect on us"
+            ],
+            "correct_answer": "It can hurt or damage our eyes"
+          },
+          {
+            "question": "What should you do before touching a bottle of cleaning liquid at home?",
+            "options": [
+              "Ask an adult first",
+              "Open and smell it right away",
+              "Drink a little to check what it is",
+              "Pour it on your hands"
+            ],
+            "correct_answer": "Ask an adult first"
+          },
+          {
+            "question": "What should you do if you get hurt at home or school?",
+            "options": [
+              "Tell a trusted adult right away",
+              "Hide it so no one worries",
+              "Ignore it and keep playing",
+              "Tell only your friend"
+            ],
+            "correct_answer": "Tell a trusted adult right away"
+          },
+          {
+            "question": "Mika sees her mother cooking with hot oil in the kitchen. What is the safest thing for Mika to do?",
+            "options": [
+              "Stay a safe distance away and watch quietly",
+              "Stand right next to the stove",
+              "Touch the pan to see if it's hot",
+              "Reach for the pan"
+            ],
+            "correct_answer": "Stay a safe distance away and watch quietly"
+          },
+          {
+            "question": "Which is the safest way to hand scissors to a classmate?",
+            "options": [
+              "Hold the closed blades and offer the handle first",
+              "Throw the scissors to your classmate",
+              "Point the sharp tip at your classmate",
+              "Hide the scissors behind your back"
+            ],
+            "correct_answer": "Hold the closed blades and offer the handle first"
+          },
+          {
+            "question": "Why do many cleaning products have warning labels or pictures?",
+            "options": [
+              "To warn people that they can be dangerous if not used properly",
+              "To make the bottle look colorful",
+              "To show the price",
+              "To show it tastes good"
+            ],
+            "correct_answer": "To warn people that they can be dangerous if not used properly"
+          },
+          {
+            "question": "Which is a safe way to look at a very bright light like the sun?",
+            "options": [
+              "Never look at it directly; look away or use proper protection",
+              "Stare at it for a few seconds",
+              "Look at it through a plain window",
+              "Use a mirror to look at it longer"
+            ],
+            "correct_answer": "Never look at it directly; look away or use proper protection"
+          },
+          {
+            "question": "Paolo accidentally cuts his finger while at school. What should he do first?",
+            "options": [
+              "Tell his teacher immediately",
+              "Wash it himself and say nothing",
+              "Wrap it with anything nearby and continue playing",
+              "Wait until he gets home to tell anyone"
+            ],
+            "correct_answer": "Tell his teacher immediately"
+          },
+          {
+            "question": "Why do we need to follow safety rules about hot objects, sharp tools, and chemicals?",
+            "options": [
+              "To protect our body and senses from harm",
+              "Because adults like giving rules",
+              "To make chores harder",
+              "Because they are fun to follow"
+            ],
+            "correct_answer": "To protect our body and senses from harm"
+          },
+          {
+            "question": "Which child is following safety practices correctly?",
+            "options": [
+              "Ana asks her father before opening a bottle of cleaning liquid",
+              "Ben touches a hot pan to see if it's cooked",
+              "Cathy stares at the sun during recess",
+              "Dodong plays with scissors while running"
+            ],
+            "correct_answer": "Ana asks her father before opening a bottle of cleaning liquid"
+          },
+          {
+            "question": "Why is it important to tell a trusted adult right away when you are injured?",
+            "options": [
+              "So the injury can be treated properly and quickly",
+              "So you can avoid going to school",
+              "So other people will feel sorry for you",
+              "It is not really necessary"
+            ],
+            "correct_answer": "So the injury can be treated properly and quickly"
+          },
+          {
+            "question": "Which action best prevents an accident with sharp tools at home?",
+            "options": [
+              "Keeping sharp tools stored safely and asking an adult to use them",
+              "Leaving scissors and knives on the floor",
+              "Playing catch with a pair of scissors",
+              "Letting young children use knives alone"
+            ],
+            "correct_answer": "Keeping sharp tools stored safely and asking an adult to use them"
+          },
+          {
+            "question": "Which situation shows the best safety practice for protecting our senses and body?",
+            "options": [
+              "Wearing sunglasses and not staring directly at the sun",
+              "Looking straight at bright lights for a long time",
+              "Touching a hot iron to check its temperature",
+              "Playing with cleaning chemicals as toys"
+            ],
+            "correct_answer": "Wearing sunglasses and not staring directly at the sun"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "## Mga Salita, Pangungusap, at Kuwento Tungkol sa Sarili at Pamilya\n\n- Ang **pangngalan** ay pangalan ng tao, bagay, hayop, o lugar (hal. *ina*, *bahay*). Ang **pandiwa** ay kilos na salita (hal. *kumain*, *tumakbo*). Ang **panghalip panao** ay humahalili sa pangalan (hal. *siya*, *sila*).\n- Ang **pangungusap na paturol** ay nagsasabi ng impormasyon at nagtatapos sa tuldok (.). Ang **pangungusap na patanong** ay nagtatanong at nagtatapos sa tandang pananong (?).\n- Laging magsimula ng pangungusap sa **malaking titik** at wastong bantas sa dulo.\n- Sa isang kuwento, may **tauhan** (sino), **tagpuan** (saan/kailan), at **pangyayari** (ano ang nangyari) — sinusunod ang tamang pagkakasunod-sunod gamit ang mga salitang gaya ng *una*, *pagkatapos*, *sa wakas*.\n- Karamihan sa mga kuwento ay may **suliranin** at **solusyon** — may nangyaring problema, at pagkatapos ay naaayos ito.\n\n| Uri ng Pangungusap | Bantas sa Dulo | Halimbawa |\n|---|---|---|\n| Paturol | Tuldok (.) | May aso ako. |\n| Patanong | Tandang pananong (?) | Ilang taon ka na? |\n\n- Mahalaga rin ang magalang na pananalita — ang pagsasabi ng \"salamat\" at \"paumanhin\" ay nagpapakita ng magandang asal sa pamilya at kaibigan.",
+        "quiz": [
+          {
+            "question": "Ilang pantig mayroon ang salitang 'ba-ha-y'?",
+            "options": [
+              "3",
+              "1",
+              "2",
+              "4"
+            ],
+            "correct_answer": "3"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tumutugma sa salitang 'bata'?",
+            "options": [
+              "mata",
+              "bahay",
+              "puno",
+              "aso"
+            ],
+            "correct_answer": "mata"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang salitang paningin (sight word)?",
+            "options": [
+              "ang",
+              "puno",
+              "payong",
+              "tsart"
+            ],
+            "correct_answer": "ang"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tumutukoy sa isang miyembro ng pamilya?",
+            "options": [
+              "ina",
+              "mesa",
+              "libro",
+              "bola"
+            ],
+            "correct_answer": "ina"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pangngalan?",
+            "options": [
+              "bahay",
+              "tumatakbo",
+              "maganda",
+              "mabilis"
+            ],
+            "correct_answer": "bahay"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pandiwa (kilos na salita)?",
+            "options": [
+              "kumain",
+              "pula",
+              "masaya",
+              "mabait"
+            ],
+            "correct_answer": "kumain"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang panghalip panao?",
+            "options": [
+              "siya",
+              "mesa",
+              "tumatawa",
+              "bahay"
+            ],
+            "correct_answer": "siya"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pangungusap na paturol (nagsasabi ng impormasyon)?",
+            "options": [
+              "May aso ako.",
+              "Anong pangalan mo?",
+              "Sarado ang pinto!",
+              "Umupo ka."
+            ],
+            "correct_answer": "May aso ako."
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pangungusap na patanong?",
+            "options": [
+              "Ilang taon ka na?",
+              "Ako si Ana.",
+              "Masaya ako.",
+              "Sarado ang bintana."
+            ],
+            "correct_answer": "Ilang taon ka na?"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang wastong pagsulat ng pangungusap?",
+            "options": [
+              "Si Maria ay masipag.",
+              "si maria ay masipag.",
+              "SI MARIA AY MASIPAG",
+              "Si Maria Ay Masipag."
+            ],
+            "correct_answer": "Si Maria ay masipag."
+          },
+          {
+            "question": "Sa isang kuwento, sino ang tinatawag na 'tauhan'?",
+            "options": [
+              "Ang taong kinaroroonan ng kuwento",
+              "Ang lugar ng pangyayari",
+              "Ang suliranin sa kuwento",
+              "Ang wakas ng kuwento"
+            ],
+            "correct_answer": "Ang taong kinaroroonan ng kuwento"
+          },
+          {
+            "question": "Ang 'tagpuan' sa isang kuwento ay tumutukoy sa ___.",
+            "options": [
+              "lugar at panahon ng pangyayari",
+              "pangalan ng may-akda",
+              "bilang ng pahina",
+              "uri ng libro"
+            ],
+            "correct_answer": "lugar at panahon ng pangyayari"
+          },
+          {
+            "question": "Kung umulan nang malakas kaya't binaha ang lansangan, ano ang bunga?",
+            "options": [
+              "Ang pagbaha sa lansangan",
+              "Ang pag-ulan",
+              "Ang pagsikat ng araw",
+              "Ang paglipad ng ibon"
+            ],
+            "correct_answer": "Ang pagbaha sa lansangan"
+          },
+          {
+            "question": "Kung ang isang tauhan ay ngumingiti at tumatawa, ano kaya ang nararamdaman niya?",
+            "options": [
+              "Masaya",
+              "Malungkot",
+              "Galit",
+              "Takot"
+            ],
+            "correct_answer": "Masaya"
+          },
+          {
+            "question": "Sa isang kuwento tungkol sa nawawalang aso na natagpuan muli ng may-ari nito, ano ang solusyon?",
+            "options": [
+              "Natagpuan muli ang aso ng may-ari",
+              "Nawala ang aso",
+              "Malungkot ang may-ari",
+              "Walang wakas ang kuwento"
+            ],
+            "correct_answer": "Natagpuan muli ang aso ng may-ari"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Computer": {
+        "summary_markdown": "## Using the Mouse: Scrolling, Selecting, and Opening\n\n- **Scrolling** lets us move up or down (or sometimes left or right) on a screen to see content that does not fit all at once — like reading a long page.\n- We usually scroll using the **scroll wheel** on the mouse, or by dragging a scroll bar on the screen.\n- To **select** something on the screen (like an icon or a word), we point the mouse at it and **click**.\n- To **open** a program, we point at its **icon** — a small picture that represents the program — and click on it.\n- Practicing these mouse skills together (scrolling, selecting, and opening) helps us use the computer more confidently.\n\n| Mouse Skill | What It Does |\n|---|---|\n| Scroll | Move up/down a page to see more |\n| Click (select) | Choose something on the screen |\n| Click (open) | Open a program or icon |\n\n- The more we practice, the more comfortable we become at finding what we need on a computer screen.",
+        "quiz": [
+          {
+            "question": "Which part of the mouse do we usually use to scroll?",
+            "options": [
+              "Scroll wheel",
+              "Left button",
+              "Right button",
+              "USB cable"
+            ],
+            "correct_answer": "Scroll wheel"
+          },
+          {
+            "question": "What does 'scrolling' on a computer let you do?",
+            "options": [
+              "Move up or down a page to see more content",
+              "Turn off the computer",
+              "Print a document",
+              "Type letters"
+            ],
+            "correct_answer": "Move up or down a page to see more content"
+          },
+          {
+            "question": "What do you usually do to open a program or icon on the screen?",
+            "options": [
+              "Click on it",
+              "Shake the mouse",
+              "Unplug the computer",
+              "Shout at the screen"
+            ],
+            "correct_answer": "Click on it"
+          },
+          {
+            "question": "What is a small picture on the screen that represents a program called?",
+            "options": [
+              "An icon",
+              "A keyboard",
+              "A monitor",
+              "A cable"
+            ],
+            "correct_answer": "An icon"
+          },
+          {
+            "question": "Which mouse action do we use to select something on the screen?",
+            "options": [
+              "Clicking on it",
+              "Blowing on it",
+              "Shaking it",
+              "Unplugging it"
+            ],
+            "correct_answer": "Clicking on it"
+          },
+          {
+            "question": "If you want to see content below what is currently shown, which way should you scroll?",
+            "options": [
+              "Scroll down",
+              "Scroll up",
+              "Scroll left",
+              "Scroll right"
+            ],
+            "correct_answer": "Scroll down"
+          },
+          {
+            "question": "Which is the correct order of steps to open a program using the mouse?",
+            "options": [
+              "Point the mouse at the icon, then click on it",
+              "Click first, then find the icon",
+              "Type the name, then click",
+              "Turn off the computer first"
+            ],
+            "correct_answer": "Point the mouse at the icon, then click on it"
+          },
+          {
+            "question": "Which of these is a good use of the mouse's scroll wheel?",
+            "options": [
+              "Reading a long page by scrolling down slowly",
+              "Spinning it as fast as possible for fun",
+              "Using it to type letters",
+              "Using it to turn off the computer"
+            ],
+            "correct_answer": "Reading a long page by scrolling down slowly"
+          },
+          {
+            "question": "Which of these best describes an icon on a computer screen?",
+            "options": [
+              "A small picture that helps us find and open a program",
+              "A wire that connects the mouse",
+              "A button on the keyboard",
+              "A part of the printer"
+            ],
+            "correct_answer": "A small picture that helps us find and open a program"
+          },
+          {
+            "question": "Which combination of skills would help you open a drawing program and scroll through a long picture list?",
+            "options": [
+              "Clicking to open, then scrolling to see more",
+              "Only typing on the keyboard",
+              "Only using the printer",
+              "Turning off the monitor"
+            ],
+            "correct_answer": "Clicking to open, then scrolling to see more"
+          },
+          {
+            "question": "Ben wants to find a game icon that is below what he currently sees on the screen. What should he do first?",
+            "options": [
+              "Scroll down to see more icons",
+              "Turn off the computer",
+              "Unplug the mouse",
+              "Press the power button"
+            ],
+            "correct_answer": "Scroll down to see more icons"
+          },
+          {
+            "question": "Which action correctly opens a chosen icon on the screen?",
+            "options": [
+              "Clicking on the icon",
+              "Pulling out the mouse cable",
+              "Turning the monitor off",
+              "Pressing random keyboard keys"
+            ],
+            "correct_answer": "Clicking on the icon"
+          },
+          {
+            "question": "Why is it useful to know how to scroll on a computer?",
+            "options": [
+              "So we can see content that does not fit on the screen at once",
+              "So the computer turns off faster",
+              "So the mouse becomes heavier",
+              "So we do not need a keyboard anymore"
+            ],
+            "correct_answer": "So we can see content that does not fit on the screen at once"
+          },
+          {
+            "question": "What is the correct order: move the mouse to the icon, then ___, to open a program?",
+            "options": [
+              "click on it",
+              "unplug it",
+              "scroll far away",
+              "turn off the monitor"
+            ],
+            "correct_answer": "click on it"
+          },
+          {
+            "question": "Which best describes what we practiced this week with the mouse?",
+            "options": [
+              "Scrolling through pages and selecting/opening icons",
+              "Only typing words",
+              "Only printing documents",
+              "Only turning the computer off"
+            ],
+            "correct_answer": "Scrolling through pages and selecting/opening icons"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "## Pagpapahalaga sa mga Naglilingkod sa Ating Komunidad\n\n- Maraming tao ang naglilingkod sa ating komunidad upang tumulong maging maayos ang buhay ng lahat: **guro** (nagtuturo), **doktor/nars** (tumutulong sa may sakit), **pulis** (nagpapanatili ng kaligtasan), **bumbero** (pumapatay ng sunog), at marami pang iba.\n- May mga **institusyon** din na tumutulong sa atin: paaralan, health center o ospital, at himpilan ng pulisya.\n- Ipinapakita natin ang **paggalang** sa mga naglilingkod sa pamamagitan ng pagbati, pakikinig, at pagsunod sa kanilang mga tuntunin.\n- Ipinapakita natin ang **pasasalamat** sa kanila dahil sa tulong na ibinibigay nila sa ating komunidad araw-araw.\n\n| Naglilingkod | Tungkulin |\n|---|---|\n| Guro | Nagtuturo sa mga mag-aaral |\n| Doktor/Nars | Tumutulong sa mga may sakit |\n| Pulis | Nagpapanatiling ligtas ang komunidad |\n| Bumbero | Pumapatay ng sunog, tumutulong sa emergency |\n\n- Bawat naglilingkod ay may mahalagang papel — dapat lang nating igalang at pasalamatan sila sa kanilang ginagawa para sa atin.",
+        "quiz": [
+          {
+            "question": "Sino sa mga sumusunod ang naglilingkod sa komunidad?",
+            "options": [
+              "Pulis",
+              "Manika",
+              "Laruan",
+              "Bola"
+            ],
+            "correct_answer": "Pulis"
+          },
+          {
+            "question": "Ano ang tungkulin ng guro sa komunidad?",
+            "options": [
+              "Nagtuturo sa mga mag-aaral",
+              "Nag-aalaga ng mga halaman lamang",
+              "Nagtitinda sa palengke",
+              "Nagmamaneho ng dyip"
+            ],
+            "correct_answer": "Nagtuturo sa mga mag-aaral"
+          },
+          {
+            "question": "Sino ang tumutulong sa mga taong may sakit sa komunidad?",
+            "options": [
+              "Doktor",
+              "Guro",
+              "Tindera",
+              "Drayber"
+            ],
+            "correct_answer": "Doktor"
+          },
+          {
+            "question": "Paano natin ipinapakita ang paggalang sa mga naglilingkod sa komunidad?",
+            "options": [
+              "Pagbati at pakikinig sa kanila",
+              "Pagwawalang-bahala sa kanila",
+              "Pagtawa sa kanila",
+              "Pagsuway sa mga tuntunin nila"
+            ],
+            "correct_answer": "Pagbati at pakikinig sa kanila"
+          },
+          {
+            "question": "Bakit dapat tayong magpasalamat sa mga naglilingkod sa komunidad?",
+            "options": [
+              "Dahil tumutulong sila upang maging maayos ang buhay ng lahat",
+              "Dahil obligado silang tumulong",
+              "Dahil wala silang ginagawa",
+              "Dahil hindi ito mahalaga"
+            ],
+            "correct_answer": "Dahil tumutulong sila upang maging maayos ang buhay ng lahat"
+          },
+          {
+            "question": "Ano ang pangunahing tungkulin ng pulis sa komunidad?",
+            "options": [
+              "Panatilihing ligtas ang komunidad",
+              "Magturo sa paaralan",
+              "Mamahagi ng gamot",
+              "Magtanim ng palay"
+            ],
+            "correct_answer": "Panatilihing ligtas ang komunidad"
+          },
+          {
+            "question": "Ano ang ginagawa ng bumbero para sa komunidad?",
+            "options": [
+              "Pinapatay ang sunog at tumutulong sa mga emergency",
+              "Nagluluto ng pagkain",
+              "Nagbebenta ng gulay",
+              "Nagtuturo ng Matematika"
+            ],
+            "correct_answer": "Pinapatay ang sunog at tumutulong sa mga emergency"
+          },
+          {
+            "question": "Nakita ni Kim ang kanilang barangay tanod. Ano ang dapat niyang gawin?",
+            "options": [
+              "Batiin at igalang ito",
+              "Balewalain ito",
+              "Takutan ito",
+              "Iwasan ito"
+            ],
+            "correct_answer": "Batiin at igalang ito"
+          },
+          {
+            "question": "Bakit mahalagang sundin ang mga tuntunin na itinatakda ng mga naglilingkod sa komunidad tulad ng pulis?",
+            "options": [
+              "Upang manatiling ligtas at maayos ang lahat",
+              "Dahil wala itong dahilan",
+              "Upang mapahirapan ang mga tao",
+              "Dahil ito ay opsyonal lamang"
+            ],
+            "correct_answer": "Upang manatiling ligtas at maayos ang lahat"
+          },
+          {
+            "question": "Saan karaniwang pumupunta ang mga tao kapag may sakit?",
+            "options": [
+              "Health center o ospital",
+              "Palengke",
+              "Simbahan",
+              "Paaralan"
+            ],
+            "correct_answer": "Health center o ospital"
+          },
+          {
+            "question": "Ano ang ibig sabihin kung sinasabing 'magkakaugnay ang tungkulin ng bawat miyembro ng komunidad'?",
+            "options": [
+              "Nakadepende ang isa't isa sa mga tungkuling ginagampanan nila para sa ikabubuti ng lahat",
+              "Hindi nagkakaugnay ang kanilang mga gawain",
+              "Iisa lamang ang miyembro ang mahalaga",
+              "Walang kaugnayan ang kanilang tungkulin sa isa't isa"
+            ],
+            "correct_answer": "Nakadepende ang isa't isa sa mga tungkuling ginagampanan nila para sa ikabubuti ng lahat"
+          },
+          {
+            "question": "Bakit mahalagang pahalagahan ang kontribusyon ng bawat miyembro ng komunidad, kahit maliit man ang ginagawa nila?",
+            "options": [
+              "Dahil bawat isa ay may mahalagang papel sa ikabubuti ng lahat",
+              "Dahil ilan lamang sa kanila ang mahalaga",
+              "Dahil hindi ito nakakaapekto sa komunidad",
+              "Dahil hindi kailangan pahalagahan ang lahat"
+            ],
+            "correct_answer": "Dahil bawat isa ay may mahalagang papel sa ikabubuti ng lahat"
+          },
+          {
+            "question": "Paano magkaiba ang tungkulin ng doktor at ng magsasaka sa komunidad, ngunit pareho silang mahalaga?",
+            "options": [
+              "Ang doktor ay nag-aalaga ng kalusugan habang ang magsasaka ay nagbibigay ng pagkain — magkaiba ngunit pareho silang kailangan",
+              "Pareho lang sila ng tungkulin",
+              "Isa lamang sa kanila ang mahalaga",
+              "Wala silang kaugnayan sa komunidad"
+            ],
+            "correct_answer": "Ang doktor ay nag-aalaga ng kalusugan habang ang magsasaka ay nagbibigay ng pagkain — magkaiba ngunit pareho silang kailangan"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang nagpapakita ng paggalang sa isang guro?",
+            "options": [
+              "Pakikinig nang mabuti at pagsunod sa kanyang mga tagubilin",
+              "Pagsagot nang pabastos",
+              "Paglalaro habang nagtuturo ang guro",
+              "Pagwawalang-bahala sa mga tagubilin"
+            ],
+            "correct_answer": "Pakikinig nang mabuti at pagsunod sa kanyang mga tagubilin"
+          },
+          {
+            "question": "Ano ang pinakamahalagang aral tungkol sa mga naglilingkod sa komunidad?",
+            "options": [
+              "Dapat nating igalang at pasalamatan sila dahil mahalaga ang kanilang tulong",
+              "Hindi na kailangang pahalagahan ang mga naglilingkod",
+              "Ang mga naglilingkod lamang ang may tungkulin sa komunidad",
+              "Walang epekto ang kanilang trabaho sa atin"
+            ],
+            "correct_answer": "Dapat nating igalang at pasalamatan sila dahil mahalaga ang kanilang tulong"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Pagtitipid: Wastong Paggamit ng Ating mga Yaman\n\n- Ang **pagtitipid** ay ang wastong paggamit ng mga bagay upang ito ay hindi mabilis maubos — halimbawa ay ang tubig, kuryente, pagkain, at papel.\n- Ang katangiang ito ay tinatawag na **prudensya** — ang pag-iisip nang mabuti bago gumamit o gumastos ng ating mga yaman.\n- Ilang paraan ng pagtitipid: pagsasara ng gripo kapag hindi na ginagamit, pagpatay ng ilaw kapag walang tao sa kwarto, pagkain ng sapat na dami lamang, at muling paggamit ng papel bago ito itapon.\n- Ang pag-iimpok, tulad ng paglalagay ng barya sa alkansya, ay isa ring magandang halimbawa ng pagtitipid.\n- Kapag palagi nating inaaksaya ang ating mga yaman, maaari itong maubos o tumaas ang bayarin nito.\n\n| Yaman | Paraan ng Pagtitipid |\n|---|---|\n| Tubig | Isara ang gripo kapag hindi ginagamit |\n| Kuryente | Patayin ang ilaw/gamit kapag walang tao |\n| Pagkain | Kumuha lamang ng sapat na dami |\n| Papel | Gamitin muli bago itapon |\n\n- Ang pagtitipid ay hindi lamang tungkol sa pera — ito rin ay pag-aalaga sa kalikasan upang may sapat pa rin para sa lahat.",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'pagtitipid'?",
+            "options": [
+              "Wastong paggamit ng mga bagay upang hindi maubos agad",
+              "Paggamit ng lahat ng gamit nang sabay-sabay",
+              "Pag-aaksaya ng pagkain at tubig",
+              "Hindi pag-iisip bago gumastos"
+            ],
+            "correct_answer": "Wastong paggamit ng mga bagay upang hindi maubos agad"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang nagpapakita ng pagtitipid ng tubig?",
+            "options": [
+              "Pagsasara ng gripo habang nagsisipilyo",
+              "Pagpapatakbo ng gripo nang walang ginagawa",
+              "Paglalaro gamit ang tubig",
+              "Pag-iwan ng gripo nang bukas"
+            ],
+            "correct_answer": "Pagsasara ng gripo habang nagsisipilyo"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang nagpapakita ng pagtitipid ng kuryente?",
+            "options": [
+              "Pagpatay ng ilaw kapag walang tao sa kwarto",
+              "Pagbukas ng lahat ng ilaw kahit maaraw",
+              "Pag-iwan ng TV nang bukas habang tulog",
+              "Pagpapatakbo ng bentilador kahit walang tao"
+            ],
+            "correct_answer": "Pagpatay ng ilaw kapag walang tao sa kwarto"
+          },
+          {
+            "question": "Ang pag-iisip bago gumamit o gumastos ng mga bagay ay tinatawag na ___.",
+            "options": [
+              "prudensya",
+              "katapangan",
+              "kabutihang-loob",
+              "pagmamalasakit"
+            ],
+            "correct_answer": "prudensya"
+          },
+          {
+            "question": "Alin ang nagpapakita ng pagtitipid ng papel?",
+            "options": [
+              "Muling paggamit ng papel bago itapon",
+              "Pagsira ng papel kahit hindi pa nagagamit",
+              "Pagputol-putol ng maraming papel nang walang dahilan",
+              "Pagtatapon ng papel na hindi pa nagagamit"
+            ],
+            "correct_answer": "Muling paggamit ng papel bago itapon"
+          },
+          {
+            "question": "Si Ana ay naglalagay ng barya sa alkansya buwan-buwan. Ano ang ipinapakita niya?",
+            "options": [
+              "Pag-iimpok o pag-iipon",
+              "Pag-aaksaya",
+              "Pagkalimot",
+              "Kabastusan"
+            ],
+            "correct_answer": "Pag-iimpok o pag-iipon"
+          },
+          {
+            "question": "Alin ang nagpapakita ng wastong paggamit ng pagkain?",
+            "options": [
+              "Pagkain ng sapat na dami at hindi nagsasayang",
+              "Pagtatapon ng pagkaing hindi naubos",
+              "Paglalaro gamit ang pagkain",
+              "Pagkuha ng sobrang dami kaysa sa kailangan"
+            ],
+            "correct_answer": "Pagkain ng sapat na dami at hindi nagsasayang"
+          },
+          {
+            "question": "Bakit mahalaga ang pagtitipid ng mga yaman tulad ng tubig at kuryente?",
+            "options": [
+              "Upang sapat ang mga ito para sa lahat at hindi maubos",
+              "Upang mas mabilis maubos ang mga ito",
+              "Dahil walang epekto sa kalikasan",
+              "Dahil hindi ito mahalaga"
+            ],
+            "correct_answer": "Upang sapat ang mga ito para sa lahat at hindi maubos"
+          },
+          {
+            "question": "Sino sa mga sumusunod ang nagpapakita ng prudensya?",
+            "options": [
+              "Si Ben na nagsasara ng gripo pagkatapos gamitin",
+              "Si Carlo na iniiwan ang ilaw na bukas buong araw",
+              "Si Dina na nagsasayang ng pagkain",
+              "Si Elmo na sumisira ng gamit nang sadya"
+            ],
+            "correct_answer": "Si Ben na nagsasara ng gripo pagkatapos gamitin"
+          },
+          {
+            "question": "Ano ang maaaring mangyari kung palagi nating inaaksaya ang tubig at kuryente?",
+            "options": [
+              "Maaaring maubos ang mga ito o tumaas ang bayarin",
+              "Wala itong epekto",
+              "Mas marami itong magiging supply",
+              "Mas mura ang magiging bayarin"
+            ],
+            "correct_answer": "Maaaring maubos ang mga ito o tumaas ang bayarin"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang katangian ang prudensya para sa isang bata?",
+            "options": [
+              "Tinuturuan tayong mag-isip bago gumamit ng ating mga yaman",
+              "Nagbibigay-daan itong gastusin ang lahat kaagad",
+              "Wala itong kinalaman sa pag-aalaga ng kalikasan",
+              "Ito ay hindi kailangan sa pang-araw-araw na buhay"
+            ],
+            "correct_answer": "Tinuturuan tayong mag-isip bago gumamit ng ating mga yaman"
+          },
+          {
+            "question": "Alin sa mga sumusunod na sitwasyon ang nagpapakita ng pinakamahusay na pagtitipid?",
+            "options": [
+              "Pagsasara ng gripo, pagpatay ng ilaw, at pag-iimpok ng barya",
+              "Pag-iwan ng gripo na bukas, ilaw na sindi, walang ipon",
+              "Pag-aaksaya ng pagkain at papel araw-araw",
+              "Paggamit ng lahat ng de-koryenteng gamit nang sabay-sabay"
+            ],
+            "correct_answer": "Pagsasara ng gripo, pagpatay ng ilaw, at pag-iimpok ng barya"
+          },
+          {
+            "question": "Paano natin naipapakita ang pagpapahalaga sa likas na yaman tulad ng tubig?",
+            "options": [
+              "Sa pamamagitan ng wastong at maingat na paggamit nito",
+              "Sa pamamagitan ng pag-aaksaya nito araw-araw",
+              "Sa pamamagitan ng hindi pagpansin dito",
+              "Sa pamamagitan ng paggamit nito nang walang limitasyon"
+            ],
+            "correct_answer": "Sa pamamagitan ng wastong at maingat na paggamit nito"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang pinakamainam na gawing pang-araw-araw upang matipid ang kuryente sa bahay?",
+            "options": [
+              "Pagpatay ng mga gamit na de-kuryente kapag hindi ginagamit",
+              "Pag-iwan ng lahat ng gamit na de-kuryente na nakabukas",
+              "Pagdaragdag ng mga bagong gamit na de-kuryente araw-araw",
+              "Paggamit ng mas maraming ilaw kahit maaraw"
+            ],
+            "correct_answer": "Pagpatay ng mga gamit na de-kuryente kapag hindi ginagamit"
+          },
+          {
+            "question": "Ano ang pinakamahusay na dahilan kung bakit dapat tayong magtipid?",
+            "options": [
+              "Upang magamit pa ito ng iba at hindi maubos ang ating mga yaman",
+              "Upang tayo lamang ang makinabang dito",
+              "Dahil ito ay uso lamang ngayon",
+              "Dahil wala itong kabuluhan"
+            ],
+            "correct_answer": "Upang magamit pa ito ng iba at hindi maubos ang ating mga yaman"
+          }
+        ]
+      }
+    }
+  }
+}

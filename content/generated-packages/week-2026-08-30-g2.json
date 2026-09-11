@@ -1,0 +1,1504 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-08-30",
+  "days": {
+    "Monday": {
+      "English": {
+        "quiz": [
+          {
+            "question": "Which word BEST describes the feeling in the story when the family reunites?",
+            "options": [
+              "Joyful",
+              "Frightened",
+              "Lonely",
+              "Bored"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "A story's ___ is where and when the events happen.",
+            "options": [
+              "setting",
+              "plot",
+              "character",
+              "theme"
+            ],
+            "correct_answer": "setting"
+          },
+          {
+            "question": "Which word is a NOUN?",
+            "options": [
+              "Book",
+              "Run",
+              "Happy",
+              "Quickly"
+            ],
+            "correct_answer": "Book"
+          },
+          {
+            "question": "Which sentence uses a PERIOD correctly?",
+            "options": [
+              "She runs fast.",
+              "She runs fast?",
+              "She runs fast!",
+              "she runs fast."
+            ],
+            "correct_answer": "She runs fast."
+          },
+          {
+            "question": "What is the MAIN IDEA of a story about a boy who plants and waters a seed until it grows?",
+            "options": [
+              "Plants need care to grow.",
+              "Boys like to dig.",
+              "Seeds are tiny.",
+              "Water is wet."
+            ],
+            "correct_answer": "Plants need care to grow."
+          },
+          {
+            "question": "Which two words RHYME?",
+            "options": [
+              "cat / cut",
+              "sun / fun",
+              "dog / dig",
+              "bag / bug"
+            ],
+            "correct_answer": "sun / fun"
+          },
+          {
+            "question": "In the sentence 'The dog is big,' which word is an ADJECTIVE?",
+            "options": [
+              "The",
+              "dog",
+              "is",
+              "big"
+            ],
+            "correct_answer": "big"
+          },
+          {
+            "question": "Which punctuation mark ends a QUESTION?",
+            "options": [
+              "Period (.)",
+              "Question mark (?)",
+              "Comma (,)",
+              "Exclamation mark (!)"
+            ],
+            "correct_answer": "Question mark (?)"
+          },
+          {
+            "question": "'She eats an apple every day.' The word 'eats' tells the ___.",
+            "options": [
+              "action",
+              "place",
+              "thing",
+              "feeling"
+            ],
+            "correct_answer": "action"
+          },
+          {
+            "question": "Which word BEGINS with a vowel sound?",
+            "options": [
+              "Sun",
+              "Apple",
+              "Ball",
+              "Cat"
+            ],
+            "correct_answer": "Apple"
+          },
+          {
+            "question": "'My mother cooks delicious food.' Which word is an ADJECTIVE?",
+            "options": [
+              "My",
+              "mother",
+              "cooks",
+              "delicious"
+            ],
+            "correct_answer": "delicious"
+          },
+          {
+            "question": "Choose the CORRECT sentence.",
+            "options": [
+              "The boy play outside.",
+              "The boys plays outside.",
+              "The boy plays outside.",
+              "The boy playing outside."
+            ],
+            "correct_answer": "The boy plays outside."
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "What unit do we use to measure the length of a classroom?",
+            "options": [
+              "Centimeters (cm)",
+              "Meters (m)",
+              "Kilograms (kg)",
+              "Liters (L)"
+            ],
+            "correct_answer": "Meters (m)"
+          },
+          {
+            "question": "A pencil is 14 ___ long.",
+            "options": [
+              "meters",
+              "centimeters",
+              "kilograms",
+              "liters"
+            ],
+            "correct_answer": "centimeters"
+          },
+          {
+            "question": "Which tool is best for measuring the length of a room?",
+            "options": [
+              "Ruler",
+              "Meter stick",
+              "Weighing scale",
+              "Measuring cup"
+            ],
+            "correct_answer": "Meter stick"
+          },
+          {
+            "question": "Anna's ribbon is 50 cm. Ben's ribbon is 80 cm. Whose ribbon is longer?",
+            "options": [
+              "Anna's",
+              "Ben's",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Ben's"
+          },
+          {
+            "question": "1 meter = ___ centimeters.",
+            "options": [
+              "10",
+              "100",
+              "1000",
+              "1"
+            ],
+            "correct_answer": "100"
+          },
+          {
+            "question": "About how long is a door? Choose the best estimate.",
+            "options": [
+              "2 meters",
+              "2 centimeters",
+              "20 meters",
+              "20 centimeters"
+            ],
+            "correct_answer": "2 meters"
+          },
+          {
+            "question": "A garden path is 5 meters long. How many centimeters is that?",
+            "options": [
+              "50 cm",
+              "500 cm",
+              "5 cm",
+              "5000 cm"
+            ],
+            "correct_answer": "500 cm"
+          },
+          {
+            "question": "Which is the SHORTEST?",
+            "options": [
+              "A bus (about 10 m)",
+              "A pencil (about 15 cm)",
+              "A door (about 2 m)",
+              "A table (about 80 cm)"
+            ],
+            "correct_answer": "A pencil (about 15 cm)"
+          },
+          {
+            "question": "Measure and compare: Rope A = 3 m, Rope B = 250 cm. Which is longer?",
+            "options": [
+              "Rope A",
+              "Rope B",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Rope B"
+          },
+          {
+            "question": "A book is 25 cm wide. Estimate: about how many books can fit in 1 meter side by side?",
+            "options": [
+              "2",
+              "4",
+              "10",
+              "20"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Maria walked 300 cm. Jose walked 4 meters. Who walked farther?",
+            "options": [
+              "Maria",
+              "Jose",
+              "They walked the same",
+              "Cannot tell"
+            ],
+            "correct_answer": "Jose"
+          },
+          {
+            "question": "Which is a reasonable length for a Grade 2 pupil's height?",
+            "options": [
+              "1 cm",
+              "100 cm",
+              "10 m",
+              "10 cm"
+            ],
+            "correct_answer": "100 cm"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang salitang 'maganda' ay isang ___.",
+            "options": [
+              "pangngalan",
+              "pang-uri",
+              "pandiwa",
+              "pang-abay"
+            ],
+            "correct_answer": "pang-uri"
+          },
+          {
+            "question": "Alin ang tamang pagkakasunod-sunod ng pangungusap?",
+            "options": [
+              "Ako ay mag-aaral ng mabuti.",
+              "Mag-aaral mabuti ng ako ay.",
+              "Ng mabuti mag-aaral ako.",
+              "Mabuti ako ng mag-aaral ay."
+            ],
+            "correct_answer": "Ako ay mag-aaral ng mabuti."
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'tahimik'?",
+            "options": [
+              "Maingay",
+              "Walang ingay",
+              "Masaya",
+              "Malungkot"
+            ],
+            "correct_answer": "Walang ingay"
+          },
+          {
+            "question": "'Ang pusa ay umaakyat ng puno.' Sino ang gumaganap ng kilos?",
+            "options": [
+              "puno",
+              "umaakyat",
+              "pusa",
+              "ng"
+            ],
+            "correct_answer": "pusa"
+          },
+          {
+            "question": "Alin ang PANGNGALAN?",
+            "options": [
+              "Tumakbo",
+              "Maganda",
+              "Bahay",
+              "Mabilis"
+            ],
+            "correct_answer": "Bahay"
+          },
+          {
+            "question": "Piliin ang tamang pantuwid sa puwang: 'Kumain ___ ng mansanas ang bata.'",
+            "options": [
+              "si",
+              "ng",
+              "sa",
+              "ang"
+            ],
+            "correct_answer": "ng"
+          },
+          {
+            "question": "'Masaya ang mga bata sa paaralan.' Ilang salita ang nasa pangungusap na ito?",
+            "options": [
+              "4",
+              "5",
+              "6",
+              "7"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "Alin ang PANDIWA?",
+            "options": [
+              "Bata",
+              "Maganda",
+              "Tumawa",
+              "Paaralan"
+            ],
+            "correct_answer": "Tumawa"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng 'mainit'?",
+            "options": [
+              "Malamig",
+              "Malinis",
+              "Matamis",
+              "Malakas"
+            ],
+            "correct_answer": "Malamig"
+          },
+          {
+            "question": "Piliin ang tamang pangungusap:",
+            "options": [
+              "Kumakain ng tinapay ang nanay.",
+              "Ang nanay kumakain tinapay.",
+              "Tinapay kumakain ang nanay ng.",
+              "Kumakain ang ng tinapay nanay."
+            ],
+            "correct_answer": "Kumakain ng tinapay ang nanay."
+          },
+          {
+            "question": "Ang salitang 'mabilis' ay isang ___.",
+            "options": [
+              "pangngalan",
+              "pang-uri",
+              "pandiwa",
+              "pang-abay"
+            ],
+            "correct_answer": "pang-abay"
+          },
+          {
+            "question": "'Sumulat ng liham ang guro.' Ano ang ginawa ng guro?",
+            "options": [
+              "Nagbasa",
+              "Sumulat",
+              "Nagturo",
+              "Tumakbo"
+            ],
+            "correct_answer": "Sumulat"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Computer": {
+        "quiz": [
+          {
+            "question": "Which key do you press to start a new line when typing?",
+            "options": [
+              "Shift",
+              "Enter/Return",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Enter/Return"
+          },
+          {
+            "question": "Where are the letters A, B, and C found on the keyboard?",
+            "options": [
+              "Number row",
+              "Letter row",
+              "Function row",
+              "Arrow keys"
+            ],
+            "correct_answer": "Letter row"
+          },
+          {
+            "question": "What does the SPACEBAR do?",
+            "options": [
+              "Makes capital letters",
+              "Adds a space between words",
+              "Deletes a letter",
+              "Moves to a new line"
+            ],
+            "correct_answer": "Adds a space between words"
+          },
+          {
+            "question": "Which key makes a small letter into a CAPITAL letter?",
+            "options": [
+              "Enter",
+              "Backspace",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which key removes a letter you typed by mistake?",
+            "options": [
+              "Enter",
+              "Spacebar",
+              "Shift",
+              "Backspace"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "On a keyboard, the numbers 0-9 are found in the ___.",
+            "options": [
+              "letter row",
+              "number row",
+              "bottom row",
+              "arrow keys"
+            ],
+            "correct_answer": "number row"
+          },
+          {
+            "question": "When you type your name, which key do you use between your first and last name?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Spacebar",
+              "Backspace"
+            ],
+            "correct_answer": "Spacebar"
+          },
+          {
+            "question": "To type a capital 'A', you press ___ and then the 'A' key.",
+            "options": [
+              "Enter",
+              "Backspace",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which part of the keyboard is the LONGEST key?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Spacebar"
+          },
+          {
+            "question": "What should you do BEFORE touching the keyboard?",
+            "options": [
+              "Eat a snack",
+              "Wash your hands",
+              "Drink water",
+              "Sleep first"
+            ],
+            "correct_answer": "Wash your hands"
+          },
+          {
+            "question": "On a keyboard, where is the letter 'A' usually found?",
+            "options": [
+              "Top row",
+              "Middle row (home row)",
+              "Bottom row",
+              "Number row"
+            ],
+            "correct_answer": "Middle row (home row)"
+          },
+          {
+            "question": "If you press Backspace many times, what will happen?",
+            "options": [
+              "More letters appear",
+              "Letters are deleted one by one",
+              "The screen turns off",
+              "A new line is made"
+            ],
+            "correct_answer": "Letters are deleted one by one"
+          }
+        ]
+      },
+      "Makabansa": {
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'kultura'?",
+            "options": [
+              "Uri ng damit lamang",
+              "Paraan ng pamumuhay, paniniwala, at kaugalian ng isang grupo",
+              "Pangalan ng isang bansa",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian ng isang grupo"
+          },
+          {
+            "question": "Ang kultura ay ipinapasa mula sa ___.",
+            "options": [
+              "mga bata patungong matatanda",
+              "mga matatanda patungong mga bata",
+              "mga guro patungong mga mag-aaral",
+              "mga tindero patungong mga mamimili"
+            ],
+            "correct_answer": "mga matatanda patungong mga bata"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng kultura?",
+            "options": [
+              "Motorsiklo",
+              "Kaugalian ng pagbabati ng kamay",
+              "Sasakyan",
+              "Eroplano"
+            ],
+            "correct_answer": "Kaugalian ng pagbabati ng kamay"
+          },
+          {
+            "question": "Bakit mahalaga ang kultura sa isang komunidad?",
+            "options": [
+              "Nagbibigay ito ng pagkakakilanlan sa isang grupo",
+              "Hindi ito mahalaga",
+              "Para lang sa mga matatanda",
+              "Para sa mga dayuhan lamang"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkakakilanlan sa isang grupo"
+          },
+          {
+            "question": "Ang pagkain ng suman at kakanin ay halimbawa ng ___.",
+            "options": [
+              "materyal na kultura",
+              "di-materyal na kultura",
+              "tradisyon",
+              "laruan"
+            ],
+            "correct_answer": "materyal na kultura"
+          },
+          {
+            "question": "Ang kanta at sayaw ng isang tribu ay halimbawa ng ___.",
+            "options": [
+              "materyal na kultura",
+              "di-materyal na kultura",
+              "kalakal",
+              "industriya"
+            ],
+            "correct_answer": "di-materyal na kultura"
+          },
+          {
+            "question": "Ang kulturang Pilipino ay ___ sa iba't ibang komunidad.",
+            "options": [
+              "magkapareho",
+              "magkakaiba-iba",
+              "hindi mahalaga",
+              "para lamang sa Manila"
+            ],
+            "correct_answer": "magkakaiba-iba"
+          },
+          {
+            "question": "Alin ang HINDI kasama sa kultura?",
+            "options": [
+              "Kaugalian",
+              "Paniniwala",
+              "Paraan ng pamumuhay",
+              "Temperatura ng hangin"
+            ],
+            "correct_answer": "Temperatura ng hangin"
+          },
+          {
+            "question": "Ang kultura ay ___ mula henerasyon hanggang henerasyon.",
+            "options": [
+              "naubos",
+              "naipapalit",
+              "naipapalipat",
+              "nasisira"
+            ],
+            "correct_answer": "naipapalipat"
+          },
+          {
+            "question": "Ang pagbibigay ng mano sa matatanda ay halimbawa ng ___ na kultura.",
+            "options": [
+              "materyal",
+              "pisikal",
+              "di-materyal",
+              "modernong"
+            ],
+            "correct_answer": "di-materyal"
+          },
+          {
+            "question": "Ang iba't ibang lugar sa Pilipinas ay may ___ kultura.",
+            "options": [
+              "iisang",
+              "magkakatulad",
+              "kanya-kanyang",
+              "walang"
+            ],
+            "correct_answer": "kanya-kanyang"
+          },
+          {
+            "question": "Ang kultura ay ginagawang ___ ng isang komunidad.",
+            "options": [
+              "walang pagkakaisa",
+              "magkaka-iba ang lahat",
+              "may pagkakakilanlan at nagkakaisa",
+              "palaging nagbabago nang walang patakaran"
+            ],
+            "correct_answer": "may pagkakakilanlan at nagkakaisa"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "A good citizen follows community ___ to help everyone live peacefully.",
+            "options": [
+              "rules",
+              "games",
+              "parties",
+              "trips"
+            ],
+            "correct_answer": "rules"
+          },
+          {
+            "question": "Why should children follow the barangay curfew?",
+            "options": [
+              "For their safety and to follow community rules",
+              "Because it is fun",
+              "To avoid doing homework",
+              "Because adults do not like children outside"
+            ],
+            "correct_answer": "For their safety and to follow community rules"
+          },
+          {
+            "question": "What is OBEDIENCE?",
+            "options": [
+              "Doing what you want all the time",
+              "Following the rules and instructions of those in authority",
+              "Playing games all day",
+              "Ignoring your parents"
+            ],
+            "correct_answer": "Following the rules and instructions of those in authority"
+          },
+          {
+            "question": "Maria always throws trash in the trash bin. She is showing ___.",
+            "options": [
+              "disobedience",
+              "responsibility to community rules",
+              "laziness",
+              "selfishness"
+            ],
+            "correct_answer": "responsibility to community rules"
+          },
+          {
+            "question": "As a child, it is your DUTY at school to ___.",
+            "options": [
+              "play all day",
+              "listen to your teacher and study well",
+              "eat during class",
+              "sleep in class"
+            ],
+            "correct_answer": "listen to your teacher and study well"
+          },
+          {
+            "question": "Ben helps clean the street in his barangay. He is fulfilling his ___ as a community member.",
+            "options": [
+              "right",
+              "duty/responsibility",
+              "wish",
+              "desire"
+            ],
+            "correct_answer": "duty/responsibility"
+          },
+          {
+            "question": "Which action shows OBEDIENCE to parents?",
+            "options": [
+              "Ignoring what they say",
+              "Coming home on time",
+              "Arguing about rules",
+              "Sneaking out without permission"
+            ],
+            "correct_answer": "Coming home on time"
+          },
+          {
+            "question": "Why is it important for children to follow rules at home?",
+            "options": [
+              "To make their parents angry",
+              "To keep the family safe and orderly",
+              "Because rules are always unfair",
+              "To avoid helping with chores"
+            ],
+            "correct_answer": "To keep the family safe and orderly"
+          },
+          {
+            "question": "Ana puts her toys away after playing. She is showing ___.",
+            "options": [
+              "disobedience",
+              "irresponsibility",
+              "obedience and responsibility",
+              "laziness"
+            ],
+            "correct_answer": "obedience and responsibility"
+          },
+          {
+            "question": "What should you do when the garbage collection comes to your barangay?",
+            "options": [
+              "Ignore it",
+              "Throw garbage on the street",
+              "Bring out your properly sorted trash",
+              "Wait until next week"
+            ],
+            "correct_answer": "Bring out your properly sorted trash"
+          },
+          {
+            "question": "A child who is obedient at school will likely ___.",
+            "options": [
+              "get in trouble often",
+              "learn more and be respected",
+              "be ignored by teachers",
+              "play more than study"
+            ],
+            "correct_answer": "learn more and be respected"
+          },
+          {
+            "question": "Who among these is showing the BEST example of community duty?",
+            "options": [
+              "A boy who litters in the park",
+              "A girl who joins barangay clean-up day",
+              "A child who runs away from community activities",
+              "A student who skips flag ceremony"
+            ],
+            "correct_answer": "A girl who joins barangay clean-up day"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "A good citizen follows community ___ to help everyone live peacefully.",
+            "options": [
+              "rules",
+              "games",
+              "parties",
+              "trips"
+            ],
+            "correct_answer": "rules"
+          },
+          {
+            "question": "Why should children follow the barangay curfew?",
+            "options": [
+              "For their safety and to follow community rules",
+              "Because it is fun",
+              "To avoid doing homework",
+              "Because adults do not like children outside"
+            ],
+            "correct_answer": "For their safety and to follow community rules"
+          },
+          {
+            "question": "What is OBEDIENCE?",
+            "options": [
+              "Doing what you want all the time",
+              "Following the rules and instructions of those in authority",
+              "Playing games all day",
+              "Ignoring your parents"
+            ],
+            "correct_answer": "Following the rules and instructions of those in authority"
+          },
+          {
+            "question": "Maria always throws trash in the trash bin. She is showing ___.",
+            "options": [
+              "disobedience",
+              "responsibility to community rules",
+              "laziness",
+              "selfishness"
+            ],
+            "correct_answer": "responsibility to community rules"
+          },
+          {
+            "question": "As a child, it is your DUTY at school to ___.",
+            "options": [
+              "play all day",
+              "listen to your teacher and study well",
+              "eat during class",
+              "sleep in class"
+            ],
+            "correct_answer": "listen to your teacher and study well"
+          },
+          {
+            "question": "Ben helps clean the street in his barangay. He is fulfilling his ___ as a community member.",
+            "options": [
+              "right",
+              "duty/responsibility",
+              "wish",
+              "desire"
+            ],
+            "correct_answer": "duty/responsibility"
+          },
+          {
+            "question": "Which action shows OBEDIENCE to parents?",
+            "options": [
+              "Ignoring what they say",
+              "Coming home on time",
+              "Arguing about rules",
+              "Sneaking out without permission"
+            ],
+            "correct_answer": "Coming home on time"
+          },
+          {
+            "question": "Why is it important for children to follow rules at home?",
+            "options": [
+              "To make their parents angry",
+              "To keep the family safe and orderly",
+              "Because rules are always unfair",
+              "To avoid helping with chores"
+            ],
+            "correct_answer": "To keep the family safe and orderly"
+          },
+          {
+            "question": "Ana puts her toys away after playing. She is showing ___.",
+            "options": [
+              "disobedience",
+              "irresponsibility",
+              "obedience and responsibility",
+              "laziness"
+            ],
+            "correct_answer": "obedience and responsibility"
+          },
+          {
+            "question": "What should you do when the garbage collection comes to your barangay?",
+            "options": [
+              "Ignore it",
+              "Throw garbage on the street",
+              "Bring out your properly sorted trash",
+              "Wait until next week"
+            ],
+            "correct_answer": "Bring out your properly sorted trash"
+          },
+          {
+            "question": "A child who is obedient at school will likely ___.",
+            "options": [
+              "get in trouble often",
+              "learn more and be respected",
+              "be ignored by teachers",
+              "play more than study"
+            ],
+            "correct_answer": "learn more and be respected"
+          },
+          {
+            "question": "Who among these is showing the BEST example of community duty?",
+            "options": [
+              "A boy who litters in the park",
+              "A girl who joins barangay clean-up day",
+              "A child who runs away from community activities",
+              "A student who skips flag ceremony"
+            ],
+            "correct_answer": "A girl who joins barangay clean-up day"
+          }
+        ]
+      },
+      "English": {
+        "quiz": [
+          {
+            "question": "Which word BEST describes the feeling in the story when the family reunites?",
+            "options": [
+              "Joyful",
+              "Frightened",
+              "Lonely",
+              "Bored"
+            ],
+            "correct_answer": "Joyful"
+          },
+          {
+            "question": "A story's ___ is where and when the events happen.",
+            "options": [
+              "setting",
+              "plot",
+              "character",
+              "theme"
+            ],
+            "correct_answer": "setting"
+          },
+          {
+            "question": "Which word is a NOUN?",
+            "options": [
+              "Book",
+              "Run",
+              "Happy",
+              "Quickly"
+            ],
+            "correct_answer": "Book"
+          },
+          {
+            "question": "Which sentence uses a PERIOD correctly?",
+            "options": [
+              "She runs fast.",
+              "She runs fast?",
+              "She runs fast!",
+              "she runs fast."
+            ],
+            "correct_answer": "She runs fast."
+          },
+          {
+            "question": "What is the MAIN IDEA of a story about a boy who plants and waters a seed until it grows?",
+            "options": [
+              "Plants need care to grow.",
+              "Boys like to dig.",
+              "Seeds are tiny.",
+              "Water is wet."
+            ],
+            "correct_answer": "Plants need care to grow."
+          },
+          {
+            "question": "Which two words RHYME?",
+            "options": [
+              "cat / cut",
+              "sun / fun",
+              "dog / dig",
+              "bag / bug"
+            ],
+            "correct_answer": "sun / fun"
+          },
+          {
+            "question": "In the sentence 'The dog is big,' which word is an ADJECTIVE?",
+            "options": [
+              "The",
+              "dog",
+              "is",
+              "big"
+            ],
+            "correct_answer": "big"
+          },
+          {
+            "question": "Which punctuation mark ends a QUESTION?",
+            "options": [
+              "Period (.)",
+              "Question mark (?)",
+              "Comma (,)",
+              "Exclamation mark (!)"
+            ],
+            "correct_answer": "Question mark (?)"
+          },
+          {
+            "question": "'She eats an apple every day.' The word 'eats' tells the ___.",
+            "options": [
+              "action",
+              "place",
+              "thing",
+              "feeling"
+            ],
+            "correct_answer": "action"
+          },
+          {
+            "question": "Which word BEGINS with a vowel sound?",
+            "options": [
+              "Sun",
+              "Apple",
+              "Ball",
+              "Cat"
+            ],
+            "correct_answer": "Apple"
+          },
+          {
+            "question": "'My mother cooks delicious food.' Which word is an ADJECTIVE?",
+            "options": [
+              "My",
+              "mother",
+              "cooks",
+              "delicious"
+            ],
+            "correct_answer": "delicious"
+          },
+          {
+            "question": "Choose the CORRECT sentence.",
+            "options": [
+              "The boy play outside.",
+              "The boys plays outside.",
+              "The boy plays outside.",
+              "The boy playing outside."
+            ],
+            "correct_answer": "The boy plays outside."
+          }
+        ]
+      },
+      "Computer": {
+        "quiz": [
+          {
+            "question": "Which key do you press to start a new line when typing?",
+            "options": [
+              "Shift",
+              "Enter/Return",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Enter/Return"
+          },
+          {
+            "question": "Where are the letters A, B, and C found on the keyboard?",
+            "options": [
+              "Number row",
+              "Letter row",
+              "Function row",
+              "Arrow keys"
+            ],
+            "correct_answer": "Letter row"
+          },
+          {
+            "question": "What does the SPACEBAR do?",
+            "options": [
+              "Makes capital letters",
+              "Adds a space between words",
+              "Deletes a letter",
+              "Moves to a new line"
+            ],
+            "correct_answer": "Adds a space between words"
+          },
+          {
+            "question": "Which key makes a small letter into a CAPITAL letter?",
+            "options": [
+              "Enter",
+              "Backspace",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which key removes a letter you typed by mistake?",
+            "options": [
+              "Enter",
+              "Spacebar",
+              "Shift",
+              "Backspace"
+            ],
+            "correct_answer": "Backspace"
+          },
+          {
+            "question": "On a keyboard, the numbers 0-9 are found in the ___.",
+            "options": [
+              "letter row",
+              "number row",
+              "bottom row",
+              "arrow keys"
+            ],
+            "correct_answer": "number row"
+          },
+          {
+            "question": "When you type your name, which key do you use between your first and last name?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Spacebar",
+              "Backspace"
+            ],
+            "correct_answer": "Spacebar"
+          },
+          {
+            "question": "To type a capital 'A', you press ___ and then the 'A' key.",
+            "options": [
+              "Enter",
+              "Backspace",
+              "Shift",
+              "Spacebar"
+            ],
+            "correct_answer": "Shift"
+          },
+          {
+            "question": "Which part of the keyboard is the LONGEST key?",
+            "options": [
+              "Enter",
+              "Shift",
+              "Backspace",
+              "Spacebar"
+            ],
+            "correct_answer": "Spacebar"
+          },
+          {
+            "question": "What should you do BEFORE touching the keyboard?",
+            "options": [
+              "Eat a snack",
+              "Wash your hands",
+              "Drink water",
+              "Sleep first"
+            ],
+            "correct_answer": "Wash your hands"
+          },
+          {
+            "question": "On a keyboard, where is the letter 'A' usually found?",
+            "options": [
+              "Top row",
+              "Middle row (home row)",
+              "Bottom row",
+              "Number row"
+            ],
+            "correct_answer": "Middle row (home row)"
+          },
+          {
+            "question": "If you press Backspace many times, what will happen?",
+            "options": [
+              "More letters appear",
+              "Letters are deleted one by one",
+              "The screen turns off",
+              "A new line is made"
+            ],
+            "correct_answer": "Letters are deleted one by one"
+          }
+        ]
+      },
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang salitang 'maganda' ay isang ___.",
+            "options": [
+              "pangngalan",
+              "pang-uri",
+              "pandiwa",
+              "pang-abay"
+            ],
+            "correct_answer": "pang-uri"
+          },
+          {
+            "question": "Alin ang tamang pagkakasunod-sunod ng pangungusap?",
+            "options": [
+              "Ako ay mag-aaral ng mabuti.",
+              "Mag-aaral mabuti ng ako ay.",
+              "Ng mabuti mag-aaral ako.",
+              "Mabuti ako ng mag-aaral ay."
+            ],
+            "correct_answer": "Ako ay mag-aaral ng mabuti."
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'tahimik'?",
+            "options": [
+              "Maingay",
+              "Walang ingay",
+              "Masaya",
+              "Malungkot"
+            ],
+            "correct_answer": "Walang ingay"
+          },
+          {
+            "question": "'Ang pusa ay umaakyat ng puno.' Sino ang gumaganap ng kilos?",
+            "options": [
+              "puno",
+              "umaakyat",
+              "pusa",
+              "ng"
+            ],
+            "correct_answer": "pusa"
+          },
+          {
+            "question": "Alin ang PANGNGALAN?",
+            "options": [
+              "Tumakbo",
+              "Maganda",
+              "Bahay",
+              "Mabilis"
+            ],
+            "correct_answer": "Bahay"
+          },
+          {
+            "question": "Piliin ang tamang pantuwid sa puwang: 'Kumain ___ ng mansanas ang bata.'",
+            "options": [
+              "si",
+              "ng",
+              "sa",
+              "ang"
+            ],
+            "correct_answer": "ng"
+          },
+          {
+            "question": "'Masaya ang mga bata sa paaralan.' Ilang salita ang nasa pangungusap na ito?",
+            "options": [
+              "4",
+              "5",
+              "6",
+              "7"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "Alin ang PANDIWA?",
+            "options": [
+              "Bata",
+              "Maganda",
+              "Tumawa",
+              "Paaralan"
+            ],
+            "correct_answer": "Tumawa"
+          },
+          {
+            "question": "Ano ang kabaligtaran ng 'mainit'?",
+            "options": [
+              "Malamig",
+              "Malinis",
+              "Matamis",
+              "Malakas"
+            ],
+            "correct_answer": "Malamig"
+          },
+          {
+            "question": "Piliin ang tamang pangungusap:",
+            "options": [
+              "Kumakain ng tinapay ang nanay.",
+              "Ang nanay kumakain tinapay.",
+              "Tinapay kumakain ang nanay ng.",
+              "Kumakain ang ng tinapay nanay."
+            ],
+            "correct_answer": "Kumakain ng tinapay ang nanay."
+          },
+          {
+            "question": "Ang salitang 'mabilis' ay isang ___.",
+            "options": [
+              "pangngalan",
+              "pang-uri",
+              "pandiwa",
+              "pang-abay"
+            ],
+            "correct_answer": "pang-abay"
+          },
+          {
+            "question": "'Sumulat ng liham ang guro.' Ano ang ginawa ng guro?",
+            "options": [
+              "Nagbasa",
+              "Sumulat",
+              "Nagturo",
+              "Tumakbo"
+            ],
+            "correct_answer": "Sumulat"
+          }
+        ]
+      },
+      "Makabansa": {
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng 'kultura'?",
+            "options": [
+              "Uri ng damit lamang",
+              "Paraan ng pamumuhay, paniniwala, at kaugalian ng isang grupo",
+              "Pangalan ng isang bansa",
+              "Uri ng pagkain"
+            ],
+            "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian ng isang grupo"
+          },
+          {
+            "question": "Ang kultura ay ipinapasa mula sa ___.",
+            "options": [
+              "mga bata patungong matatanda",
+              "mga matatanda patungong mga bata",
+              "mga guro patungong mga mag-aaral",
+              "mga tindero patungong mga mamimili"
+            ],
+            "correct_answer": "mga matatanda patungong mga bata"
+          },
+          {
+            "question": "Alin ang HALIMBAWA ng kultura?",
+            "options": [
+              "Motorsiklo",
+              "Kaugalian ng pagbabati ng kamay",
+              "Sasakyan",
+              "Eroplano"
+            ],
+            "correct_answer": "Kaugalian ng pagbabati ng kamay"
+          },
+          {
+            "question": "Bakit mahalaga ang kultura sa isang komunidad?",
+            "options": [
+              "Nagbibigay ito ng pagkakakilanlan sa isang grupo",
+              "Hindi ito mahalaga",
+              "Para lang sa mga matatanda",
+              "Para sa mga dayuhan lamang"
+            ],
+            "correct_answer": "Nagbibigay ito ng pagkakakilanlan sa isang grupo"
+          },
+          {
+            "question": "Ang pagkain ng suman at kakanin ay halimbawa ng ___.",
+            "options": [
+              "materyal na kultura",
+              "di-materyal na kultura",
+              "tradisyon",
+              "laruan"
+            ],
+            "correct_answer": "materyal na kultura"
+          },
+          {
+            "question": "Ang kanta at sayaw ng isang tribu ay halimbawa ng ___.",
+            "options": [
+              "materyal na kultura",
+              "di-materyal na kultura",
+              "kalakal",
+              "industriya"
+            ],
+            "correct_answer": "di-materyal na kultura"
+          },
+          {
+            "question": "Ang kulturang Pilipino ay ___ sa iba't ibang komunidad.",
+            "options": [
+              "magkapareho",
+              "magkakaiba-iba",
+              "hindi mahalaga",
+              "para lamang sa Manila"
+            ],
+            "correct_answer": "magkakaiba-iba"
+          },
+          {
+            "question": "Alin ang HINDI kasama sa kultura?",
+            "options": [
+              "Kaugalian",
+              "Paniniwala",
+              "Paraan ng pamumuhay",
+              "Temperatura ng hangin"
+            ],
+            "correct_answer": "Temperatura ng hangin"
+          },
+          {
+            "question": "Ang kultura ay ___ mula henerasyon hanggang henerasyon.",
+            "options": [
+              "naubos",
+              "naipapalit",
+              "naipapalipat",
+              "nasisira"
+            ],
+            "correct_answer": "naipapalipat"
+          },
+          {
+            "question": "Ang pagbibigay ng mano sa matatanda ay halimbawa ng ___ na kultura.",
+            "options": [
+              "materyal",
+              "pisikal",
+              "di-materyal",
+              "modernong"
+            ],
+            "correct_answer": "di-materyal"
+          },
+          {
+            "question": "Ang iba't ibang lugar sa Pilipinas ay may ___ kultura.",
+            "options": [
+              "iisang",
+              "magkakatulad",
+              "kanya-kanyang",
+              "walang"
+            ],
+            "correct_answer": "kanya-kanyang"
+          },
+          {
+            "question": "Ang kultura ay ginagawang ___ ng isang komunidad.",
+            "options": [
+              "walang pagkakaisa",
+              "magkaka-iba ang lahat",
+              "may pagkakakilanlan at nagkakaisa",
+              "palaging nagbabago nang walang patakaran"
+            ],
+            "correct_answer": "may pagkakakilanlan at nagkakaisa"
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "What unit do we use to measure the length of a classroom?",
+            "options": [
+              "Centimeters (cm)",
+              "Meters (m)",
+              "Kilograms (kg)",
+              "Liters (L)"
+            ],
+            "correct_answer": "Meters (m)"
+          },
+          {
+            "question": "A pencil is 14 ___ long.",
+            "options": [
+              "meters",
+              "centimeters",
+              "kilograms",
+              "liters"
+            ],
+            "correct_answer": "centimeters"
+          },
+          {
+            "question": "Which tool is best for measuring the length of a room?",
+            "options": [
+              "Ruler",
+              "Meter stick",
+              "Weighing scale",
+              "Measuring cup"
+            ],
+            "correct_answer": "Meter stick"
+          },
+          {
+            "question": "Anna's ribbon is 50 cm. Ben's ribbon is 80 cm. Whose ribbon is longer?",
+            "options": [
+              "Anna's",
+              "Ben's",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Ben's"
+          },
+          {
+            "question": "1 meter = ___ centimeters.",
+            "options": [
+              "10",
+              "100",
+              "1000",
+              "1"
+            ],
+            "correct_answer": "100"
+          },
+          {
+            "question": "About how long is a door? Choose the best estimate.",
+            "options": [
+              "2 meters",
+              "2 centimeters",
+              "20 meters",
+              "20 centimeters"
+            ],
+            "correct_answer": "2 meters"
+          },
+          {
+            "question": "A garden path is 5 meters long. How many centimeters is that?",
+            "options": [
+              "50 cm",
+              "500 cm",
+              "5 cm",
+              "5000 cm"
+            ],
+            "correct_answer": "500 cm"
+          },
+          {
+            "question": "Which is the SHORTEST?",
+            "options": [
+              "A bus (about 10 m)",
+              "A pencil (about 15 cm)",
+              "A door (about 2 m)",
+              "A table (about 80 cm)"
+            ],
+            "correct_answer": "A pencil (about 15 cm)"
+          },
+          {
+            "question": "Measure and compare: Rope A = 3 m, Rope B = 250 cm. Which is longer?",
+            "options": [
+              "Rope A",
+              "Rope B",
+              "They are equal",
+              "Cannot tell"
+            ],
+            "correct_answer": "Rope B"
+          },
+          {
+            "question": "A book is 25 cm wide. Estimate: about how many books can fit in 1 meter side by side?",
+            "options": [
+              "2",
+              "4",
+              "10",
+              "20"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Maria walked 300 cm. Jose walked 4 meters. Who walked farther?",
+            "options": [
+              "Maria",
+              "Jose",
+              "They walked the same",
+              "Cannot tell"
+            ],
+            "correct_answer": "Jose"
+          },
+          {
+            "question": "Which is a reasonable length for a Grade 2 pupil's height?",
+            "options": [
+              "1 cm",
+              "100 cm",
+              "10 m",
+              "10 cm"
+            ],
+            "correct_answer": "100 cm"
+          }
+        ]
+      }
+    }
+  }
+}

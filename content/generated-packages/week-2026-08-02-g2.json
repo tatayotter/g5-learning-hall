@@ -1,0 +1,789 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-08-02",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## Informational Texts, Sentence Structures, and Content-Specific Vocabulary\n\n- An **informational text** gives facts, explanations, or instructions about a topic — like directions, recipes, or school rules. A **procedural text** is a special kind that explains how to do or make something, with a title, materials, steps in order, signal words, and a final result. Example: \"How to Sharpen a Pencil\" — the steps must be followed in order!\n- A **telling sentence** gives information. It begins with a **capital letter** and ends with a **period**. Example: \"Liam plays with cars.\"\n- Content-specific vocabulary for Math: **Addend** (a number being added), **Sum** (the answer in addition), and **Number Sentence** (like 5 + 2 = 7, or addend + addend = sum).\n- An **asking sentence** requests information. It begins with a capital letter, often uses a question word (**What, Who, Where, Do/Is**), and ends with a **question mark**. Example: \"Where does Tim play?\"\n- Compare: \"Tim plays outside.\" (tells, ends with a period) vs. \"Where does Tim play?\" (asks, ends with a question mark) — the punctuation changes the sentence's purpose!",
+        "quiz": [
+          {
+            "question": "What is an informational text?",
+            "options": [
+              "A text that gives facts, explanations, or instructions about a topic",
+              "A text with characters, a setting, and events",
+              "A song with rhyming words",
+              "A drawing with no words"
+            ],
+            "correct_answer": "A text that gives facts, explanations, or instructions about a topic"
+          },
+          {
+            "question": "Which of these is an example of a procedural text?",
+            "options": [
+              "Steps for washing your hands",
+              "A story about a magic forest",
+              "A poem about the rain",
+              "A song about friendship"
+            ],
+            "correct_answer": "Steps for washing your hands"
+          },
+          {
+            "question": "Which mark ends a telling sentence?",
+            "options": [
+              "Period",
+              "Question mark",
+              "Exclamation point",
+              "Comma"
+            ],
+            "correct_answer": "Period"
+          },
+          {
+            "question": "In the number sentence 5 + 2 = 7, what is 7 called?",
+            "options": [
+              "Sum",
+              "Addend",
+              "Divisor",
+              "Product"
+            ],
+            "correct_answer": "Sum"
+          },
+          {
+            "question": "Which question word asks about a place?",
+            "options": [
+              "Where",
+              "What",
+              "Who",
+              "Do"
+            ],
+            "correct_answer": "Where"
+          },
+          {
+            "question": "Which sentence begins correctly?",
+            "options": [
+              "Liam plays with cars.",
+              "liam plays with cars.",
+              "liam Plays with cars.",
+              "LIAM plays with Cars"
+            ],
+            "correct_answer": "Liam plays with cars."
+          },
+          {
+            "question": "Which of these is a telling sentence?",
+            "options": [
+              "My family eats dinner.",
+              "What does your family eat?",
+              "Do you eat dinner?",
+              "Where do you eat?"
+            ],
+            "correct_answer": "My family eats dinner."
+          },
+          {
+            "question": "In the number sentence 5 + 2 = 7, what are 5 and 2 called?",
+            "options": [
+              "Addends",
+              "Sums",
+              "Quotients",
+              "Products"
+            ],
+            "correct_answer": "Addends"
+          },
+          {
+            "question": "A recipe lists the ingredients first, then gives numbered steps in order. Which part of a procedural text does this show?",
+            "options": [
+              "Materials needed and steps in order",
+              "Only the title",
+              "Only the final result",
+              "A story's setting"
+            ],
+            "correct_answer": "Materials needed and steps in order"
+          },
+          {
+            "question": "Which sentence correctly asks for information?",
+            "options": [
+              "What is your favorite toy?",
+              "What is your favorite toy.",
+              "what is your favorite toy?",
+              "What is your favorite toy"
+            ],
+            "correct_answer": "What is your favorite toy?"
+          },
+          {
+            "question": "Explain why the steps in a procedural text, like sharpening a pencil, must be followed in order.",
+            "options": [
+              "Because skipping or reordering steps could make the task fail or turn out wrong",
+              "Because the order of steps never matters",
+              "Because only the last step is important",
+              "Because procedural texts do not need steps"
+            ],
+            "correct_answer": "Because skipping or reordering steps could make the task fail or turn out wrong"
+          },
+          {
+            "question": "Compare a telling sentence and an asking sentence in terms of punctuation and purpose.",
+            "options": [
+              "A telling sentence gives information and ends with a period, while an asking sentence requests information and ends with a question mark",
+              "Both always end with the same punctuation mark",
+              "A telling sentence always asks a question",
+              "An asking sentence never needs a question mark"
+            ],
+            "correct_answer": "A telling sentence gives information and ends with a period, while an asking sentence requests information and ends with a question mark"
+          },
+          {
+            "question": "A student writes: \"liam has a toy car\" What needs to be fixed, and why?",
+            "options": [
+              "The first letter should be capitalized and a period should be added at the end, since it is a telling sentence about a name",
+              "Nothing needs to be fixed",
+              "It should end with a question mark instead",
+              "The word 'toy' should be capitalized instead of 'liam'"
+            ],
+            "correct_answer": "The first letter should be capitalized and a period should be added at the end, since it is a telling sentence about a name"
+          },
+          {
+            "question": "Why is content-specific vocabulary, like \"addend\" and \"sum,\" important when reading a Math text in English?",
+            "options": [
+              "It helps readers understand exactly what numbers and steps a Math problem is describing",
+              "It makes the text sound more like a story",
+              "It replaces the need to know any numbers",
+              "It is only used in English class, never in Math"
+            ],
+            "correct_answer": "It helps readers understand exactly what numbers and steps a Math problem is describing"
+          },
+          {
+            "question": "How would you turn the telling sentence \"Tim plays outside.\" into an asking sentence, and why does the punctuation change?",
+            "options": [
+              "Rearrange it to ask for information, like 'Where does Tim play?', and end it with a question mark instead of a period",
+              "Just add an exclamation point at the end",
+              "Keep it exactly the same since punctuation never changes",
+              "Remove the capital letter at the beginning"
+            ],
+            "correct_answer": "Rearrange it to ask for information, like 'Where does Tim play?', and end it with a question mark instead of a period"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## Addition of Numbers up to 1,000 and Properties of Addition\n\n- **Place value** tells us what a digit is worth based on its position: **ones**, **tens** (10 ones = 1 ten), and **hundreds** (10 tens = 1 hundred). Example: 157 = 1 hundred, 5 tens, and 7 ones (100 + 50 + 7).\n- **Regrouping** means exchanging 10 smaller units for 1 larger unit. Example: 6 ones + 9 ones = 15 ones = 1 ten and 5 ones — write 5 in the ones place and carry 1 ten.\n- The **short method** (vertical addition) always starts adding from the **ones place**, regrouping when a sum is 10 or more, and carrying the regrouped digit to the next column. Example: 535 + 65 (written as 065 to line up columns) = 600.\n- Worked examples: 245 + 57 = 302; 368 + 74 = 442; 159 + 63 = 222.\n- Always **check your answer** using expanded form or estimation, to make sure no regrouping step was missed.",
+        "quiz": [
+          {
+            "question": "In the short method of addition, which place value do we always start adding from?",
+            "options": [
+              "Ones place",
+              "Tens place",
+              "Hundreds place",
+              "Thousands place"
+            ],
+            "correct_answer": "Ones place"
+          },
+          {
+            "question": "What is 26 written in expanded form?",
+            "options": [
+              "20 + 6",
+              "2 + 6",
+              "200 + 6",
+              "26 + 0"
+            ],
+            "correct_answer": "20 + 6"
+          },
+          {
+            "question": "What is 6 + 9?",
+            "options": [
+              "15",
+              "14",
+              "16",
+              "19"
+            ],
+            "correct_answer": "15"
+          },
+          {
+            "question": "In 245 + 57, which place value should be added and regrouped first?",
+            "options": [
+              "The ones",
+              "The tens",
+              "The hundreds",
+              "The whole number at once"
+            ],
+            "correct_answer": "The ones"
+          },
+          {
+            "question": "What does the digit 5 in 157 represent, in terms of place value?",
+            "options": [
+              "5 tens",
+              "5 ones",
+              "5 hundreds",
+              "5 thousands"
+            ],
+            "correct_answer": "5 tens"
+          },
+          {
+            "question": "How many ones make one ten?",
+            "options": [
+              "10 ones",
+              "5 ones",
+              "1 one",
+              "100 ones"
+            ],
+            "correct_answer": "10 ones"
+          },
+          {
+            "question": "What do we call exchanging 10 ones for 1 ten?",
+            "options": [
+              "Regrouping",
+              "Subtracting",
+              "Multiplying",
+              "Estimating"
+            ],
+            "correct_answer": "Regrouping"
+          },
+          {
+            "question": "When adding 535 + 65 using the short method, why is 65 written as 065?",
+            "options": [
+              "To keep the digits lined up in the correct place-value columns",
+              "Because 65 is not a real number without the zero",
+              "To make the sum bigger",
+              "Because zeros must always come before any number"
+            ],
+            "correct_answer": "To keep the digits lined up in the correct place-value columns"
+          },
+          {
+            "question": "What is 368 + 74?",
+            "options": [
+              "442",
+              "432",
+              "452",
+              "438"
+            ],
+            "correct_answer": "442"
+          },
+          {
+            "question": "Why must a carried digit be added in the next column during addition?",
+            "options": [
+              "Because it represents a regrouped ten or hundred that is still part of the total",
+              "Because it can be ignored safely",
+              "Because it changes the ones digit only",
+              "Because carried digits are not part of the actual sum"
+            ],
+            "correct_answer": "Because it represents a regrouped ten or hundred that is still part of the total"
+          },
+          {
+            "question": "Explain why \"ones first, always\" is an important rule when using the short method of addition.",
+            "options": [
+              "Because regrouping depends on knowing the ones sum first, which affects the tens and hundreds columns",
+              "Because the ones place is not important in addition",
+              "Because starting with hundreds always gives the same answer",
+              "Because ones are added only after the final answer is found"
+            ],
+            "correct_answer": "Because regrouping depends on knowing the ones sum first, which affects the tens and hundreds columns"
+          },
+          {
+            "question": "A student adds 535 + 65 and gets 590 instead of 600. What mistake was most likely made?",
+            "options": [
+              "The student forgot to carry the regrouped ten or hundred into the next column",
+              "The student added the hundreds place first",
+              "The student used base-ten blocks instead of the short method",
+              "The student wrote 65 as 650 instead of 065"
+            ],
+            "correct_answer": "The student forgot to carry the regrouped ten or hundred into the next column"
+          },
+          {
+            "question": "Explain how base-ten blocks can help show why 15 ones become 1 ten and 5 ones.",
+            "options": [
+              "The blocks let you physically group 10 single unit blocks into one ten-rod, leaving 5 extra ones visible",
+              "Base-ten blocks can only represent hundreds, not ones or tens",
+              "Base-ten blocks always show the answer without any grouping",
+              "Base-ten blocks replace the need to add numbers at all"
+            ],
+            "correct_answer": "The blocks let you physically group 10 single unit blocks into one ten-rod, leaving 5 extra ones visible"
+          },
+          {
+            "question": "Compare solving 159 + 63 using base-ten blocks versus using the short (vertical) method.",
+            "options": [
+              "Base-ten blocks show the regrouping physically and slowly, while the short method reaches the same answer more quickly using place-value columns",
+              "Base-ten blocks and the short method always give different answers",
+              "The short method cannot be used for numbers with regrouping",
+              "Base-ten blocks are only used for subtraction, not addition"
+            ],
+            "correct_answer": "Base-ten blocks show the regrouping physically and slowly, while the short method reaches the same answer more quickly using place-value columns"
+          },
+          {
+            "question": "Why is it important to check your addition answer using expanded form or estimation, even after using the short method?",
+            "options": [
+              "It helps confirm that no regrouping step was missed and the final sum is correct",
+              "Because the short method is always wrong without checking",
+              "Because expanded form gives a completely different answer",
+              "Because checking removes the need to regroup at all"
+            ],
+            "correct_answer": "It helps confirm that no regrouping step was missed and the final sum is correct"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "## Pag-unawa sa Tekstong Impormatibo at Wastong Pangangalaga sa Sarili at Kapaligiran\n\n- Ang **tekstong impormatibo** ay nagbibigay ng totoong impormasyon tungkol sa isang paksa — halimbawa, ang paraan ng paghuhugas ng kamay o plato.\n- Dapat maghugas ng kamay: **bago kumain**, pagkatapos gumamit ng palikuran, pagkatapos maglaro, at pagkatapos umubo o bumahing.\n- Kapag naglalarawan ng proseso, gumagamit tayo ng mga **pananda** tulad ng **Una, Ikalawa, Ikatlo, Pang-apat, Panghuli** upang malinaw na maipakita ang tamang pagkakasunod-sunod ng mga hakbang.\n- Ang pagsunod sa tamang pagkakasunod-sunod ay mahalaga: nagreresulta ito sa malinis at ligtas na gawain, samantalang ang magulong pagkakasunod-sunod ay maaaring magdulot ng dumi o aksaya.\n- Mahahalagang salita: **Suliranin** (problemang kailangang lutasin), **Epekto** (bunga o resulta), at **Solusyon** (paraan upang malutas ang suliranin). Halimbawa: ang basurang nakakalat ay isang suliranin na may masamang epekto sa tao at kalikasan — ang solusyon ay ang wastong pagtatapon at paghihiwalay ng basura.\n- Ang pagtulong sa bahay, tulad ng paghuhugas ng plato, ay nagpapakita ng pagkukusa at pagmamahal sa pamilya.",
+        "quiz": [
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng tekstong impormatibo?",
+            "options": [
+              "Paraan ng paghuhugas ng kamay",
+              "Kuwento ng prinsesa",
+              "Awit tungkol sa pag-ibig",
+              "Tula tungkol sa bulaklak"
+            ],
+            "correct_answer": "Paraan ng paghuhugas ng kamay"
+          },
+          {
+            "question": "Kailan dapat maghugas ng kamay?",
+            "options": [
+              "Bago kumain",
+              "Habang natutulog",
+              "Bago maligo",
+              "Habang naglalaro sa loob ng bahay"
+            ],
+            "correct_answer": "Bago kumain"
+          },
+          {
+            "question": "Alin ang pananda na ginagamit sa unang hakbang ng isang proseso?",
+            "options": [
+              "Una",
+              "Panghuli",
+              "Ikatlo",
+              "Pang-apat"
+            ],
+            "correct_answer": "Una"
+          },
+          {
+            "question": "Ano ang tawag sa problemang kailangang lutasin?",
+            "options": [
+              "Suliranin",
+              "Solusyon",
+              "Epekto",
+              "Kasagutan"
+            ],
+            "correct_answer": "Suliranin"
+          },
+          {
+            "question": "Bakit mahalagang sumunod sa tamang pagkakasunod-sunod ng mga hakbang sa paghuhugas ng plato?",
+            "options": [
+              "Upang maging malinis ang plato at maiwasan ang pagkasira ng gamit",
+              "Upang mas matagal matapos ang gawain",
+              "Upang masayang ang tubig at sabon",
+              "Upang maging mas magulo ang paghuhugas"
+            ],
+            "correct_answer": "Upang maging malinis ang plato at maiwasan ang pagkasira ng gamit"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng pananda tulad ng 'una,' 'ikalawa,' at 'panghuli' kapag naglalarawan ng proseso?",
+            "options": [
+              "Upang maipakita ang tamang pagkakasunod-sunod ng mga hakbang at maiwasan ang pagkalito",
+              "Upang gawing mas mahaba ang pangungusap kahit hindi malinaw",
+              "Upang maiwasan ang paggamit ng malaking letra",
+              "Dahil hindi mahalaga ang pagkakasunod-sunod ng mga hakbang"
+            ],
+            "correct_answer": "Upang maipakita ang tamang pagkakasunod-sunod ng mga hakbang at maiwasan ang pagkalito"
+          },
+          {
+            "question": "Ihambing ang maaaring mangyari kapag tama at kapag magulo ang pagkakasunod-sunod ng paghuhugas ng plato.",
+            "options": [
+              "Kapag tama, nagiging malinis at ligtas ang gawain; kapag magulo, maaaring manatiling marumi ang plato at masayang ang tubig",
+              "Pareho lamang ang resulta kahit anong pagkakasunod-sunod",
+              "Mas mabilis matapos kapag magulo ang pagkakasunod-sunod",
+              "Walang epekto ang pagkakasunod-sunod sa resulta"
+            ],
+            "correct_answer": "Kapag tama, nagiging malinis at ligtas ang gawain; kapag magulo, maaaring manatiling marumi ang plato at masayang ang tubig"
+          },
+          {
+            "question": "Bakit kailangang unawain muna ang paksa at mensahe ng isang tekstong impormatibo bago sundin ang mga hakbang nito?",
+            "options": [
+              "Upang maunawaan nang tama ang layunin ng teksto at magawa nang wasto ang gawain",
+              "Dahil hindi na kailangang basahin ang buong teksto",
+              "Dahil ang paksa ay hindi mahalaga sa pagsunod ng hakbang",
+              "Upang mas mahirap unawain ang teksto"
+            ],
+            "correct_answer": "Upang maunawaan nang tama ang layunin ng teksto at magawa nang wasto ang gawain"
+          },
+          {
+            "question": "Ano ang tekstong impormatibo?",
+            "options": [
+              "Tekstong nagbibigay ng totoong impormasyon tungkol sa isang paksa",
+              "Isang kuwentong may gawa-gawang tauhan",
+              "Isang tula tungkol sa kalikasan",
+              "Isang awiting pambata"
+            ],
+            "correct_answer": "Tekstong nagbibigay ng totoong impormasyon tungkol sa isang paksa"
+          },
+          {
+            "question": "Anong pananda ang dapat gamitin pagkatapos ng \"Una, inalis ko ang tira-tirang pagkain\"?",
+            "options": [
+              "Ikalawa",
+              "Panghuli",
+              "Una",
+              "Ikatlo"
+            ],
+            "correct_answer": "Ikalawa"
+          },
+          {
+            "question": "Ano ang epekto kapag itinapon ang basura kung saan-saan?",
+            "options": [
+              "Nagdudulot ito ng masamang epekto sa tao at kalikasan",
+              "Nagiging mas malinis ang kapaligiran",
+              "Wala itong anumang epekto",
+              "Tumutulong ito sa mga halaman"
+            ],
+            "correct_answer": "Nagdudulot ito ng masamang epekto sa tao at kalikasan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang mahahalagang detalye ng isang tekstong impormatibo?",
+            "options": [
+              "Upang matutunan natin ang tamang paraan ng paggawa ng isang bagay",
+              "Upang makalimutan natin ang paksa nito",
+              "Upang maging mas mahirap unawain ang teksto",
+              "Dahil hindi na kailangang basahin pa ito"
+            ],
+            "correct_answer": "Upang matutunan natin ang tamang paraan ng paggawa ng isang bagay"
+          },
+          {
+            "question": "Ano ang maaaring maging solusyon sa suliraning basurang nakakalat?",
+            "options": [
+              "Ang wastong pagtatapon at paghihiwalay ng basura",
+              "Ang pagtambak lamang ng basura sa kalye",
+              "Ang hindi paglilinis ng paligid",
+              "Ang pagsusunog ng basura kahit saan"
+            ],
+            "correct_answer": "Ang wastong pagtatapon at paghihiwalay ng basura"
+          },
+          {
+            "question": "Ipaliwanag kung bakit itinuturing na 'matulungin' ang isang batang naghuhugas ng plato sa bahay.",
+            "options": [
+              "Dahil ipinapakita nito ang pagkukusa, pagmamahal sa pamilya, at pagiging responsable",
+              "Dahil ito ay ipinipilit lamang ng mga magulang",
+              "Dahil wala itong kabuluhan sa pamilya",
+              "Dahil hindi ito bahagi ng pagtulong sa bahay"
+            ],
+            "correct_answer": "Dahil ipinapakita nito ang pagkukusa, pagmamahal sa pamilya, at pagiging responsable"
+          },
+          {
+            "question": "Ipaliwanag ang kaugnayan ng suliranin, epekto, at solusyon gamit ang halimbawa ng basurang nakakalat.",
+            "options": [
+              "Ang basurang nakakalat ay ang suliranin, ang masamang kalagayan ng kapaligiran ay ang epekto, at ang wastong pagtatapon ay ang solusyon",
+              "Wala silang kaugnayan sa isa't isa",
+              "Ang solusyon ang siyang suliranin mismo",
+              "Ang epekto ang nagdudulot ng basura"
+            ],
+            "correct_answer": "Ang basurang nakakalat ay ang suliranin, ang masamang kalagayan ng kapaligiran ay ang epekto, at ang wastong pagtatapon ay ang solusyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "## Ang Aking Komunidad: Pagkilala sa mga Gusali at Estruktura\n\n- Ang komunidad ay may iba't ibang **estrukturang panlipunan** na tumutugon sa mga pangangailangan ng mga tao: ang **paaralan** (pinag-aaralan ng mga bata), ang **ospital** (pinagpapagamutan ng mga may sakit), ang **simbahan** (pinagdarasalan ng mga tao), ang **Barangay Hall** (pinamumunuan ang barangay), at ang **pamilihan o palengke** (pinagbibilhan ng mga pangangailangan).\n- Ang **Health Center** ay mas maliit kaysa sa ospital at nagbibigay ng libreng bakuna at batayang serbisyong pangkalusugan.\n- Mahalagang malaman kung alin sa mga gusaling ito ang pinakamalapit sa iyong tahanan, upang mabilis mong mahanap ang kailangan mong tulong o serbisyo.\n- Halimbawa: kung nawawala ang isang bata sa komunidad, makatutulong ang pagkilala sa mga kilalang gusali tulad ng Barangay Hall upang humingi ng tulong.\n- Ang bawat gusali sa komunidad ay may sariling layunin — pag-aaral, kalusugan, o pagsamba — at mahalagang malaman ito upang mapunta agad sa tamang lugar kapag may pangangailangan.",
+        "quiz": [
+          {
+            "question": "Saan bumibili ang mga magulang ng sariwang pagkain?",
+            "options": [
+              "Pamilihan o palengke",
+              "Simbahan",
+              "Barangay Hall",
+              "Paaralan"
+            ],
+            "correct_answer": "Pamilihan o palengke"
+          },
+          {
+            "question": "Bakit mahalaga ang Health Center sa isang komunidad?",
+            "options": [
+              "Nagbibigay ito ng libreng bakuna at serbisyong pangkalusugan",
+              "Dito nagtitinda ng gulay ang mga magsasaka",
+              "Dito nag-aaral ang mga bata",
+              "Dito ginaganap ang laro ng mga bata"
+            ],
+            "correct_answer": "Nagbibigay ito ng libreng bakuna at serbisyong pangkalusugan"
+          },
+          {
+            "question": "Bakit mahalagang malaman kung alin sa mga gusali ang pinakamalapit sa iyong bahay?",
+            "options": [
+              "Upang mabilis nating mahanap ang kailangan nating tulong o serbisyo",
+              "Dahil hindi na kailangan pang pumunta sa ibang gusali",
+              "Dahil ito lamang ang gusaling maaaring puntahan",
+              "Upang hindi na makilala pa ang ibang gusali"
+            ],
+            "correct_answer": "Upang mabilis nating mahanap ang kailangan nating tulong o serbisyo"
+          },
+          {
+            "question": "Ano ang layunin ng pamilihan sa komunidad?",
+            "options": [
+              "Upang makabili ang mga tao ng mga bagay na kanilang pangangailangan",
+              "Upang magsimba ang mga tao",
+              "Upang mag-aral ang mga bata",
+              "Upang magpagamot ang mga may sakit"
+            ],
+            "correct_answer": "Upang makabili ang mga tao ng mga bagay na kanilang pangangailangan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gusali sa komunidad ang paaralan?",
+            "options": [
+              "Dahil dito natututo ang mga bata",
+              "Dahil dito bumibili ng pagkain ang mga tao",
+              "Dahil dito nagpapagamot ang mga may sakit",
+              "Dahil dito pinamumunuan ang barangay"
+            ],
+            "correct_answer": "Dahil dito natututo ang mga bata"
+          },
+          {
+            "question": "Paano nakatutulong ang pagkilala sa iba't ibang estruktura ng komunidad?",
+            "options": [
+              "Nakatutulong ito upang malaman natin kung saan makakakuha ng tulong o serbisyo",
+              "Wala itong kabuluhan sa pang-araw-araw na buhay",
+              "Nagpapahirap lamang ito sa mga bata",
+              "Hindi na kailangan pang pag-aralan ito"
+            ],
+            "correct_answer": "Nakatutulong ito upang malaman natin kung saan makakakuha ng tulong o serbisyo"
+          },
+          {
+            "question": "Ihambing ang gawain ng ospital at ng Health Center sa isang komunidad.",
+            "options": [
+              "Ang ospital ay mas malaki at may mas malawak na serbisyo, samantalang ang Health Center ay mas maliit at nagbibigay ng libreng bakuna at batayang serbisyong pangkalusugan",
+              "Pareho silang eksaktong parehong laki at serbisyo",
+              "Ang Health Center ay mas malaki kaysa sa ospital",
+              "Wala silang kaugnayan sa kalusugan ng komunidad"
+            ],
+            "correct_answer": "Ang ospital ay mas malaki at may mas malawak na serbisyo, samantalang ang Health Center ay mas maliit at nagbibigay ng libreng bakuna at batayang serbisyong pangkalusugan"
+          },
+          {
+            "question": "Bakit mahalagang malaman ng isang bata ang mga gusaling nasa paligid ng kanilang tahanan?",
+            "options": [
+              "Upang mas madali niyang makilala ang kanyang komunidad at malaman kung saan humingi ng tulong kung kinakailangan",
+              "Dahil hindi na niya kailangan pang umalis sa bahay",
+              "Dahil ang mga gusali ay hindi mahalaga sa isang bata",
+              "Upang makalimutan niya ang kanyang tahanan"
+            ],
+            "correct_answer": "Upang mas madali niyang makilala ang kanyang komunidad at malaman kung saan humingi ng tulong kung kinakailangan"
+          },
+          {
+            "question": "Ano ang tawag sa gusaling pinag-aaralan ng mga bata?",
+            "options": [
+              "Paaralan",
+              "Ospital",
+              "Simbahan",
+              "Pamilihan"
+            ],
+            "correct_answer": "Paaralan"
+          },
+          {
+            "question": "Ipaliwanag kung paano nakatutulong ang mga estrukturang panlipunan (paaralan, ospital, simbahan) sa pang-araw-araw na buhay ng mga tao sa komunidad.",
+            "options": [
+              "Ang bawat estruktura ay tumutugon sa isang partikular na pangangailangan ng tao — edukasyon, kalusugan, o espirituwal na buhay",
+              "Wala silang epekto sa buhay ng mga tao",
+              "Iisa lamang ang gamit ng lahat ng estruktura",
+              "Ang mga estrukturang ito ay para lamang sa mga matatanda"
+            ],
+            "correct_answer": "Ang bawat estruktura ay tumutugon sa isang partikular na pangangailangan ng tao — edukasyon, kalusugan, o espirituwal na buhay"
+          },
+          {
+            "question": "Kung nawawala ang isang bata sa kanilang komunidad, paano makakatulong ang pagkilala sa mga kilalang gusali para makahanap sila ng tulong?",
+            "options": [
+              "Makikita nila ang kilalang gusali tulad ng Barangay Hall o paaralan at maaaring humingi doon ng tulong mula sa mga nakatatanda",
+              "Dapat silang magtago at huwag lumapit kaninuman",
+              "Walang silbi ang pagkilala sa mga gusali sa ganitong sitwasyon",
+              "Dapat silang pumunta sa pinakamalayong gusali"
+            ],
+            "correct_answer": "Makikita nila ang kilalang gusali tulad ng Barangay Hall o paaralan at maaaring humingi doon ng tulong mula sa mga nakatatanda"
+          },
+          {
+            "question": "Bakit mahalagang malaman ang tamang layunin ng bawat gusali sa komunidad bago ito puntahan?",
+            "options": [
+              "Upang hindi masayang ang oras at makapunta agad sa tamang lugar para sa kanilang pangangailangan",
+              "Dahil pareho lamang ang layunin ng lahat ng gusali",
+              "Dahil hindi na kailangang pumunta sa anumang gusali",
+              "Upang malito ang mga tao kung saan pupunta"
+            ],
+            "correct_answer": "Upang hindi masayang ang oras at makapunta agad sa tamang lugar para sa kanilang pangangailangan"
+          },
+          {
+            "question": "Saan pumupunta ang mga taong may sakit para magpagamot?",
+            "options": [
+              "Ospital",
+              "Paaralan",
+              "Barangay Hall",
+              "Simbahan"
+            ],
+            "correct_answer": "Ospital"
+          },
+          {
+            "question": "Ano ang tawag sa gusaling pinagdarasalan ng mga tao?",
+            "options": [
+              "Simbahan",
+              "Ospital",
+              "Pamilihan",
+              "Paaralan"
+            ],
+            "correct_answer": "Simbahan"
+          },
+          {
+            "question": "Saan pinamumunuan ang isang barangay?",
+            "options": [
+              "Barangay Hall",
+              "Ospital",
+              "Simbahan",
+              "Health Center"
+            ],
+            "correct_answer": "Barangay Hall"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Pansariling Panalangin: Ang Aking Pakikipag-ugnayan sa Diyos\n\n- Ang **panalangin** ay isang paraan ng pakikipag-ugnayan sa Diyos na nagbibigay ng **kapayapaan** sa ating puso, kahit may mga pinagdadaanang hirap.\n- Nakatutulong ang panalangin sa ating **damdamin**: nagbibigay ito ng **lakas ng loob** upang harapin ang mga takot o pagsubok, at **pag-asa** na ang lahat ay magiging maayos.\n- May epekto rin ang panalangin sa ating **katawan**: ang kapayapaan ng isip ay nakatutulong sa mabuting kalusugan at mahimbing na pagtulog.\n- Ang panalangin ay hindi lamang para sa sarili — kasama rin dito ang ating **kapwa at pamilya**. Kapag isinasama natin sila sa ating mga hiling, nagkakaroon tayo ng malasakit sa iba, at pinagbubuklod tayo sa pagmamahalan at pagpapatawad.\n- Halimbawa: bago ang isang mahirap na pagsusulit, maaaring magbigay ang panalangin ng lakas ng loob at kalmadong isipan.\n- Mahalagang manalangin araw-araw upang mapanatili ang kapayapaan sa ating kalooban, kahit sa gitna ng ingay ng mundo.",
+        "quiz": [
+          {
+            "question": "Ano ang panalangin?",
+            "options": [
+              "Isang paraan ng pakikipag-ugnayan sa Diyos",
+              "Isang uri ng laro",
+              "Isang gawaing pang-eskwela lamang",
+              "Isang kanta tungkol sa kaarawan"
+            ],
+            "correct_answer": "Isang paraan ng pakikipag-ugnayan sa Diyos"
+          },
+          {
+            "question": "Ano ang nadarama natin kapag tayo ay nananalangin, ayon sa aralin?",
+            "options": [
+              "Kapayapaan",
+              "Inis",
+              "Takot",
+              "Pagkainip"
+            ],
+            "correct_answer": "Kapayapaan"
+          },
+          {
+            "question": "Ayon sa aralin, ano ang naidudulot ng panalangin sa ating puso?",
+            "options": [
+              "Kapayapaan kahit may pinagdadaanang hirap",
+              "Higit na kalungkutan",
+              "Galit sa kapwa",
+              "Pagkainip sa buhay"
+            ],
+            "correct_answer": "Kapayapaan kahit may pinagdadaanang hirap"
+          },
+          {
+            "question": "Bukod sa sarili, sino pa ang maaari nating idalangin?",
+            "options": [
+              "Ang ating kapwa at pamilya",
+              "Walang iba maliban sa sarili",
+              "Mga taong hindi natin kilala lamang",
+              "Mga bagay na wala sa totoong buhay"
+            ],
+            "correct_answer": "Ang ating kapwa at pamilya"
+          },
+          {
+            "question": "Ano ang isa sa mabuting dulot ng panalangin ayon sa aralin?",
+            "options": [
+              "Lakas ng loob",
+              "Kawalan ng pag-asa",
+              "Higit na pagkainip",
+              "Kalungkutan"
+            ],
+            "correct_answer": "Lakas ng loob"
+          },
+          {
+            "question": "Bakit nagbibigay ng magandang epekto sa katawan ang panalangin?",
+            "options": [
+              "Dahil ang kapayapaan ng isip ay nakatutulong sa mabuting kalusugan at pagtulog",
+              "Dahil pinapawi nito ang gutom",
+              "Dahil pinapalitan nito ang pangangailangan sa tulog",
+              "Dahil hindi na kailangang kumain pa"
+            ],
+            "correct_answer": "Dahil ang kapayapaan ng isip ay nakatutulong sa mabuting kalusugan at pagtulog"
+          },
+          {
+            "question": "Paano nakatutulong ang panalangin sa pakikipagkapwa?",
+            "options": [
+              "Nagkakaroon tayo ng malasakit sa iba kapag isinasama natin sila sa ating mga hiling",
+              "Nagiging makasarili tayo",
+              "Wala itong kinalaman sa ibang tao",
+              "Nagiging mag-isa tayo sa ating mga hiling"
+            ],
+            "correct_answer": "Nagkakaroon tayo ng malasakit sa iba kapag isinasama natin sila sa ating mga hiling"
+          },
+          {
+            "question": "Bakit mahalagang idalangin din ang ating pamilya, hindi lamang ang sarili?",
+            "options": [
+              "Dahil pinagbubuklod ng panalangin ang mga tao sa pagmamahalan at pagpapatawad",
+              "Dahil hindi dapat idalangin ang pamilya",
+              "Dahil ang pamilya ay hindi nangangailangan ng panalangin",
+              "Dahil mas mabilis ang panalanging pansarili lamang"
+            ],
+            "correct_answer": "Dahil pinagbubuklod ng panalangin ang mga tao sa pagmamahalan at pagpapatawad"
+          },
+          {
+            "question": "Paano nakatutulong ang panalangin kapag may takot o pagsubok tayo sa paaralan o bahay?",
+            "options": [
+              "Nagbibigay ito ng lakas ng loob upang harapin ang mga ito",
+              "Nagpapalaki lamang ito ng takot",
+              "Wala itong maitutulong sa ganitong sitwasyon",
+              "Nagiging dahilan ito ng higit na alalahanin"
+            ],
+            "correct_answer": "Nagbibigay ito ng lakas ng loob upang harapin ang mga ito"
+          },
+          {
+            "question": "Bakit mahalagang manalangin kahit sa gitna ng ingay ng mundo?",
+            "options": [
+              "Upang mapanatili ang kapayapaan sa ating kalooban",
+              "Dahil hindi na epektibo ang panalangin kapag maingay",
+              "Dahil dapat lamang manalangin kapag tahimik",
+              "Dahil hindi na kailangan pang manalangin kapag maraming gawain"
+            ],
+            "correct_answer": "Upang mapanatili ang kapayapaan sa ating kalooban"
+          },
+          {
+            "question": "Ipaliwanag kung paano konektado ang kapayapaan ng isip sa mabuting kalusugan ng katawan ayon sa aralin.",
+            "options": [
+              "Ang kapayapaan ng isip mula sa panalangin ay nagdudulot ng mabuting kalusugan at nakatutulong sa mahimbing na pagtulog",
+              "Wala itong koneksyon sa kalusugan ng katawan",
+              "Ang kapayapaan ng isip ay nakasasama sa kalusugan",
+              "Ang panalangin ay nakapagpapahina lamang ng katawan"
+            ],
+            "correct_answer": "Ang kapayapaan ng isip mula sa panalangin ay nagdudulot ng mabuting kalusugan at nakatutulong sa mahimbing na pagtulog"
+          },
+          {
+            "question": "Bakit masasabing ang panalangin ay hindi lamang para sa sarili kundi para rin sa kapwa?",
+            "options": [
+              "Dahil isinasama natin ang ating kapwa at pamilya sa ating mga hiling, na nagpapalakas ng malasakit at pagkakaisa",
+              "Dahil ipinagbabawal manalangin para sa iba",
+              "Dahil hindi dapat isipin ang kapwa kapag nananalangin",
+              "Dahil ang panalangin ay para lamang sa mga pari"
+            ],
+            "correct_answer": "Dahil isinasama natin ang ating kapwa at pamilya sa ating mga hiling, na nagpapalakas ng malasakit at pagkakaisa"
+          },
+          {
+            "question": "Paano makatutulong ang pananalangin sa isang batang nakakaramdam ng takot bago ang isang pagsusulit?",
+            "options": [
+              "Maaari itong magbigay ng lakas ng loob at kapayapaan ng isip upang harapin ang takot nang mas kalmado",
+              "Wala itong maitutulong sa ganitong sitwasyon",
+              "Palalakasin lamang nito ang takot ng bata",
+              "Dapat na lamang balewalain ang nararamdamang takot"
+            ],
+            "correct_answer": "Maaari itong magbigay ng lakas ng loob at kapayapaan ng isip upang harapin ang takot nang mas kalmado"
+          },
+          {
+            "question": "Ihambing ang naidudulot ng panalangin sa damdamin at ang naidudulot nito sa katawan.",
+            "options": [
+              "Sa damdamin, nagbibigay ito ng kapayapaan at pag-asa; sa katawan, nakatutulong ito sa mahimbing na tulog at mabuting kalusugan",
+              "Pareho lamang silang walang naidudulot",
+              "Ang panalangin ay may epekto lamang sa katawan, hindi sa damdamin",
+              "Ang panalangin ay may epekto lamang sa damdamin, hindi sa katawan"
+            ],
+            "correct_answer": "Sa damdamin, nagbibigay ito ng kapayapaan at pag-asa; sa katawan, nakatutulong ito sa mahimbing na tulog at mabuting kalusugan"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang gawi ang pananalangin kahit sa mga simpleng pagkakataon ng buhay?",
+            "options": [
+              "Dahil ito ay patuloy na nagbibigay ng kapayapaan, pag-asa, at pagkakaisa sa araw-araw na buhay",
+              "Dahil kailangan lamang ito sa malalaking okasyon",
+              "Dahil ito ay ginagawa lamang kapag may problema",
+              "Dahil ito ay hindi na kailangan sa modernong buhay"
+            ],
+            "correct_answer": "Dahil ito ay patuloy na nagbibigay ng kapayapaan, pag-asa, at pagkakaisa sa araw-araw na buhay"
+          }
+        ]
+      }
+    }
+  }
+}

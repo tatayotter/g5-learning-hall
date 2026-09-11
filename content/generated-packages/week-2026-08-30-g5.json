@@ -1,0 +1,2000 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-08-30",
+  "days": {
+    "Monday": {
+      "English": {
+        "quiz": [
+          {
+            "question": "The THEME of a story is ___.",
+            "options": [
+              "the main character's name",
+              "the setting where the story happens",
+              "the central message or lesson of the story",
+              "the problem the character faces"
+            ],
+            "correct_answer": "the central message or lesson of the story"
+          },
+          {
+            "question": "Which sentence contains a SIMILE?",
+            "options": [
+              "The wind howled loudly.",
+              "Her smile was sunshine.",
+              "She ran like the wind.",
+              "The mountain stood firm."
+            ],
+            "correct_answer": "She ran like the wind."
+          },
+          {
+            "question": "PERSONIFICATION gives ___ to non-human things.",
+            "options": [
+              "names",
+              "human qualities",
+              "animal traits",
+              "magical powers"
+            ],
+            "correct_answer": "human qualities"
+          },
+          {
+            "question": "Which word contains ALLITERATION?",
+            "options": [
+              "Pretty purple pansies",
+              "Quick brown fox",
+              "Lazy dog runs",
+              "Big cats sleep"
+            ],
+            "correct_answer": "Pretty purple pansies"
+          },
+          {
+            "question": "Making a PREDICTION before reading helps you ___.",
+            "options": [
+              "memorize the text",
+              "read faster",
+              "think about what might happen and stay engaged",
+              "write better"
+            ],
+            "correct_answer": "think about what might happen and stay engaged"
+          },
+          {
+            "question": "Which is the MAIN IDEA of a paragraph about the importance of washing hands?",
+            "options": [
+              "People have two hands",
+              "Soap is made from chemicals",
+              "Washing hands prevents the spread of germs",
+              "Water is wet"
+            ],
+            "correct_answer": "Washing hands prevents the spread of germs"
+          },
+          {
+            "question": "ONOMATOPOEIA is a word that ___.",
+            "options": [
+              "means the opposite of another word",
+              "sounds like the thing it describes",
+              "has more than one meaning",
+              "comes from another language"
+            ],
+            "correct_answer": "sounds like the thing it describes"
+          },
+          {
+            "question": "'The night sky was a black velvet blanket.' This is an example of ___.",
+            "options": [
+              "simile",
+              "personification",
+              "metaphor",
+              "alliteration"
+            ],
+            "correct_answer": "metaphor"
+          },
+          {
+            "question": "To INFER a character's feelings, you look at their ___.",
+            "options": [
+              "name and age",
+              "actions, words, and reactions",
+              "the story's title",
+              "the number of paragraphs"
+            ],
+            "correct_answer": "actions, words, and reactions"
+          },
+          {
+            "question": "Which word contains a PREFIX meaning 'before'?",
+            "options": [
+              "Unhappy",
+              "Preview",
+              "Joyful",
+              "Careful"
+            ],
+            "correct_answer": "Preview"
+          },
+          {
+            "question": "SEQUENCE in a story refers to ___.",
+            "options": [
+              "the lesson learned",
+              "the characters",
+              "the order in which events happen",
+              "the setting description"
+            ],
+            "correct_answer": "the order in which events happen"
+          },
+          {
+            "question": "A CONFLICT in a story is ___.",
+            "options": [
+              "the happy ending",
+              "the theme of the story",
+              "the problem that needs to be solved",
+              "the setting of the story"
+            ],
+            "correct_answer": "the problem that needs to be solved"
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "Convert the decimal 0.75 to a fraction in LOWEST TERMS.",
+            "options": [
+              "75/100",
+              "3/4",
+              "7/5",
+              "15/20"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Convert 0.5 to a fraction.",
+            "options": [
+              "5/10 = 1/2",
+              "1/5",
+              "5/1",
+              "5/100"
+            ],
+            "correct_answer": "5/10 = 1/2"
+          },
+          {
+            "question": "Which decimal is LARGER: 0.7 or 0.35?",
+            "options": [
+              "0.35",
+              "0.7",
+              "They are equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "0.7"
+          },
+          {
+            "question": "Order from SMALLEST to LARGEST: 0.9, 0.09, 0.19",
+            "options": [
+              "0.9, 0.19, 0.09",
+              "0.09, 0.19, 0.9",
+              "0.19, 0.09, 0.9",
+              "0.09, 0.9, 0.19"
+            ],
+            "correct_answer": "0.09, 0.19, 0.9"
+          },
+          {
+            "question": "Convert 3/4 to a decimal.",
+            "options": [
+              "0.34",
+              "0.75",
+              "0.43",
+              "0.7"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Which decimal has the GREATEST value: 0.3, 0.30, 0.300?",
+            "options": [
+              "0.3",
+              "0.30",
+              "0.300",
+              "They are all equal"
+            ],
+            "correct_answer": "They are all equal"
+          },
+          {
+            "question": "Convert 0.25 to a fraction in lowest terms.",
+            "options": [
+              "25/100",
+              "1/4",
+              "2/5",
+              "1/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "Compare: 0.6 and 0.60. Which is true?",
+            "options": [
+              "0.6 < 0.60",
+              "0.6 > 0.60",
+              "0.6 = 0.60",
+              "Cannot compare"
+            ],
+            "correct_answer": "0.6 = 0.60"
+          },
+          {
+            "question": "Which of these is a TERMINATING DECIMAL?",
+            "options": [
+              "1/3",
+              "2/7",
+              "1/4",
+              "1/6"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "In the decimal 3.45, which digit is in the HUNDREDTHS place?",
+            "options": [
+              "3",
+              "4",
+              "5",
+              "45"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "Convert 0.8 to a fraction in lowest terms.",
+            "options": [
+              "8/10 = 4/5",
+              "8/100",
+              "0.8/1",
+              "4/10"
+            ],
+            "correct_answer": "8/10 = 4/5"
+          },
+          {
+            "question": "Order from GREATEST to SMALLEST: 1.5, 1.05, 1.50",
+            "options": [
+              "1.05, 1.50, 1.5",
+              "1.5, 1.50, 1.05",
+              "1.5 = 1.50 > 1.05",
+              "1.05, 1.5, 1.50"
+            ],
+            "correct_answer": "1.5 = 1.50 > 1.05"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "quiz": [
+          {
+            "question": "Trace the path of FOOD through the digestive system: mouth → ___ → stomach → ___.",
+            "options": [
+              "lungs → intestines",
+              "esophagus → small intestine",
+              "trachea → large intestine",
+              "esophagus → lungs"
+            ],
+            "correct_answer": "esophagus → small intestine"
+          },
+          {
+            "question": "What is the function of the SMALL INTESTINE in digestion?",
+            "options": [
+              "It stores waste",
+              "It pumps blood",
+              "It absorbs most nutrients into the bloodstream",
+              "It breaks down food with acid"
+            ],
+            "correct_answer": "It absorbs most nutrients into the bloodstream"
+          },
+          {
+            "question": "Which ANIMAL BODY SYSTEM takes in oxygen from the air?",
+            "options": [
+              "Digestive system",
+              "Reproductive system",
+              "Respiratory system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "In the respiratory system, the path of AIR is: nose → ___ → lungs.",
+            "options": [
+              "esophagus",
+              "trachea (windpipe)",
+              "stomach",
+              "mouth only"
+            ],
+            "correct_answer": "trachea (windpipe)"
+          },
+          {
+            "question": "The REPRODUCTIVE SYSTEM's main function is ___.",
+            "options": [
+              "breathing",
+              "digesting food",
+              "producing offspring (growth and development)",
+              "pumping blood"
+            ],
+            "correct_answer": "producing offspring (growth and development)"
+          },
+          {
+            "question": "A diagram showing the digestive organs of a frog with labels is an example of a ___.",
+            "options": [
+              "bar graph",
+              "labeled model/diagram",
+              "scatter plot",
+              "pie chart"
+            ],
+            "correct_answer": "labeled model/diagram"
+          },
+          {
+            "question": "What does the STOMACH do to food?",
+            "options": [
+              "Absorbs it directly into the blood",
+              "Mixes it with gastric acid and churns it",
+              "Removes oxygen from it",
+              "Stores it permanently"
+            ],
+            "correct_answer": "Mixes it with gastric acid and churns it"
+          },
+          {
+            "question": "Air enters the body through the ___.",
+            "options": [
+              "stomach",
+              "esophagus",
+              "nose and mouth",
+              "intestines"
+            ],
+            "correct_answer": "nose and mouth"
+          },
+          {
+            "question": "Which is part of the RESPIRATORY system?",
+            "options": [
+              "Stomach",
+              "Esophagus",
+              "Lungs",
+              "Liver"
+            ],
+            "correct_answer": "Lungs"
+          },
+          {
+            "question": "The LARGE INTESTINE's main job is to ___.",
+            "options": [
+              "absorb nutrients",
+              "absorb water and prepare waste for removal",
+              "digest proteins",
+              "produce bile"
+            ],
+            "correct_answer": "absorb water and prepare waste for removal"
+          },
+          {
+            "question": "In animals, the ESOPHAGUS/GULLET connects the mouth to the ___.",
+            "options": [
+              "lungs",
+              "large intestine",
+              "stomach",
+              "liver"
+            ],
+            "correct_answer": "stomach"
+          },
+          {
+            "question": "Why is learning about animal body systems important?",
+            "options": [
+              "It is not useful",
+              "It helps us understand how living things function and stay healthy",
+              "It is only for scientists",
+              "It only applies to humans"
+            ],
+            "correct_answer": "It helps us understand how living things function and stay healthy"
+          }
+        ]
+      },
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang MITO ay isang kwentong nagpapaliwanag ng ___.",
+            "options": [
+              "gawi ng mga hayop",
+              "pinagmulan ng natural na bagay o kababalaghan",
+              "talambuhay ng bayani",
+              "mga patakaran ng paaralan"
+            ],
+            "correct_answer": "pinagmulan ng natural na bagay o kababalaghan"
+          },
+          {
+            "question": "Ang EPIKO ay isang mahabang ___.",
+            "options": [
+              "tula na may aral",
+              "salaysay tungkol sa mga gawa ng isang bayani",
+              "ulat ng balita",
+              "liham sa kaibigan"
+            ],
+            "correct_answer": "salaysay tungkol sa mga gawa ng isang bayani"
+          },
+          {
+            "question": "Ang SIMILI ay naghahambing ng dalawang bagay gamit ang ___.",
+            "options": [
+              "'at' at 'o'",
+              "'na' at 'ang'",
+              "'tulad ng' o 'para ng'",
+              "'pero' at 'dahil'"
+            ],
+            "correct_answer": "'tulad ng' o 'para ng'"
+          },
+          {
+            "question": "Ang METAPORA ay naghahambing ng dalawang bagay nang ___.",
+            "options": [
+              "may paggamit ng 'tulad ng'",
+              "walang paggamit ng tulad ng o para ng",
+              "may tanong",
+              "may ebidensya"
+            ],
+            "correct_answer": "walang paggamit ng tulad ng o para ng"
+          },
+          {
+            "question": "'Ang kanyang ngiti ay araw.' Ito ay halimbawa ng ___.",
+            "options": [
+              "simili",
+              "metapora",
+              "personipikasyon",
+              "talinghaga"
+            ],
+            "correct_answer": "metapora"
+          },
+          {
+            "question": "Ang PERSONIPIKASYON ay nagbibigay ng ___ sa mga bagay na hindi tao.",
+            "options": [
+              "pangalan",
+              "katangiang pang-tao",
+              "hayop na katangian",
+              "kulay"
+            ],
+            "correct_answer": "katangiang pang-tao"
+          },
+          {
+            "question": "Ang PAGKAKASUNOD-SUNOD ng mga pangyayari sa isang kwento ay tinatawag na ___.",
+            "options": [
+              "tema",
+              "sukat",
+              "balangkas ng plot",
+              "tauhan"
+            ],
+            "correct_answer": "balangkas ng plot"
+          },
+          {
+            "question": "Ang 'kababalaghan' ay ibig sabihing ___.",
+            "options": [
+              "pangkaraniwan",
+              "kahanga-hangang pangyayari na di-kapani-paniwala",
+              "kasaysayan",
+              "katotohanan"
+            ],
+            "correct_answer": "kahanga-hangang pangyayari na di-kapani-paniwala"
+          },
+          {
+            "question": "Paano malalaman ang TEMA ng isang kwento?",
+            "options": [
+              "Tingnan ang pamagat lamang",
+              "Tingnan ang haba ng kwento",
+              "Unawain ang mensahe o aral na itinuturo ng kwento",
+              "Bilangin ang mga tauhan"
+            ],
+            "correct_answer": "Unawain ang mensahe o aral na itinuturo ng kwento"
+          },
+          {
+            "question": "Ang 'PAGWAWANGIS' ay katumbas ng ___.",
+            "options": [
+              "metapora",
+              "simili",
+              "personipikasyon",
+              "talinghaga"
+            ],
+            "correct_answer": "simili"
+          },
+          {
+            "question": "'Ang bundok ay bumubulong ng mga lihim.' Ito ay halimbawa ng ___.",
+            "options": [
+              "simili",
+              "metapora",
+              "personipikasyon",
+              "tayutay"
+            ],
+            "correct_answer": "personipikasyon"
+          },
+          {
+            "question": "Sa pagbuo ng SANAYSAY, ang PANIMULA ay dapat ___.",
+            "options": [
+              "ibigay ang konklusyon",
+              "ipakita ang mga ebidensya",
+              "itakda ang paksa at makuha ang atensyon ng mambabasa",
+              "ibuod ang lahat ng ideya"
+            ],
+            "correct_answer": "itakda ang paksa at makuha ang atensyon ng mambabasa"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "quiz": [
+          {
+            "question": "In MS Word, which INSERT option lets you add a picture from your computer?",
+            "options": [
+              "Table",
+              "Picture",
+              "Shapes",
+              "SmartArt"
+            ],
+            "correct_answer": "Picture"
+          },
+          {
+            "question": "What is SMARTART used for in a Word document?",
+            "options": [
+              "Adding a background color",
+              "Creating diagrams and visual lists",
+              "Inserting a table of data",
+              "Changing font size"
+            ],
+            "correct_answer": "Creating diagrams and visual lists"
+          },
+          {
+            "question": "Which formatting feature organizes text into a numbered sequence?",
+            "options": [
+              "Bullets",
+              "Numbering",
+              "Shapes",
+              "Page Border"
+            ],
+            "correct_answer": "Numbering"
+          },
+          {
+            "question": "BULLET POINTS are used to ___.",
+            "options": [
+              "list items without a specific order",
+              "show a numbered sequence",
+              "insert images",
+              "change the font"
+            ],
+            "correct_answer": "list items without a specific order"
+          },
+          {
+            "question": "How do you INSERT A TABLE in MS Word?",
+            "options": [
+              "Edit - Table",
+              "Insert - Table",
+              "Format - Table",
+              "View - Table"
+            ],
+            "correct_answer": "Insert - Table"
+          },
+          {
+            "question": "A TABLE in a Word document is useful for ___.",
+            "options": [
+              "playing music",
+              "organizing information into rows and columns",
+              "drawing pictures",
+              "printing quickly"
+            ],
+            "correct_answer": "organizing information into rows and columns"
+          },
+          {
+            "question": "To add a BACKGROUND COLOR to a page in MS Word, you use ___.",
+            "options": [
+              "Insert - Table",
+              "Design - Page Color",
+              "Format - Font",
+              "View - Outline"
+            ],
+            "correct_answer": "Design - Page Color"
+          },
+          {
+            "question": "Which SmartArt layout is best for showing a STEP-BY-STEP PROCESS?",
+            "options": [
+              "Cycle",
+              "Hierarchy",
+              "Process",
+              "Matrix"
+            ],
+            "correct_answer": "Process"
+          },
+          {
+            "question": "To RESIZE an inserted image in MS Word, you ___.",
+            "options": [
+              "right-click and delete",
+              "drag the corner handles of the image",
+              "change the font size",
+              "insert a table"
+            ],
+            "correct_answer": "drag the corner handles of the image"
+          },
+          {
+            "question": "'Insert - Shapes' allows you to add ___.",
+            "options": [
+              "photographs",
+              "pre-made geometric shapes and lines",
+              "tables",
+              "SmartArt diagrams"
+            ],
+            "correct_answer": "pre-made geometric shapes and lines"
+          },
+          {
+            "question": "What does a COLUMN in a table represent?",
+            "options": [
+              "A horizontal group of cells",
+              "A vertical group of cells",
+              "The border of the table",
+              "The header of the document"
+            ],
+            "correct_answer": "A vertical group of cells"
+          },
+          {
+            "question": "To make text appear as a LIST WITH BULLETS, you use ___.",
+            "options": [
+              "Numbering",
+              "Bold",
+              "Bullets",
+              "Underline"
+            ],
+            "correct_answer": "Bullets"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "quiz": [
+          {
+            "question": "What are the THREE reasons Spain colonized the Philippines?",
+            "options": [
+              "Religion, Riches, Reputation",
+              "Education, Economy, Entertainment",
+              "Trade, Travel, Tourism",
+              "Land, Language, Labor"
+            ],
+            "correct_answer": "Religion, Riches, Reputation"
+          },
+          {
+            "question": "Who led the FIRST SPANISH EXPEDITION to the Philippines in 1521?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Andres de Urdaneta",
+              "Ferdinand Magellan",
+              "Juan de Salcedo"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Who led the expedition that ESTABLISHED PERMANENT SPANISH RULE in the Philippines in 1565?",
+            "options": [
+              "Ferdinand Magellan",
+              "Vasco da Gama",
+              "Miguel Lopez de Legazpi",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "The FIRST MASS in the Philippines was celebrated in ___.",
+            "options": [
+              "Manila",
+              "Cebu",
+              "Limasawa",
+              "Mactan"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "COLONIZATION means ___.",
+            "options": [
+              "trading peacefully with other nations",
+              "one nation taking control and settling in another territory",
+              "two nations forming an alliance",
+              "building schools in another country"
+            ],
+            "correct_answer": "one nation taking control and settling in another territory"
+          },
+          {
+            "question": "The Spaniards were searching for the SPICE ISLANDS (Moluccas). What valuable spice did they want?",
+            "options": [
+              "Sugar and coffee",
+              "Pepper and cloves",
+              "Tobacco and rubber",
+              "Rice and corn"
+            ],
+            "correct_answer": "Pepper and cloves"
+          },
+          {
+            "question": "The Treaty of Tordesillas (1494) divided the world between ___.",
+            "options": [
+              "Spain and Portugal",
+              "Spain and England",
+              "Portugal and France",
+              "England and France"
+            ],
+            "correct_answer": "Spain and Portugal"
+          },
+          {
+            "question": "IMPERIALISM refers to ___.",
+            "options": [
+              "the policy of extending a nation's power through colonization or military force",
+              "building more schools in poor countries",
+              "helping other nations trade freely",
+              "sharing resources equally"
+            ],
+            "correct_answer": "the policy of extending a nation's power through colonization or military force"
+          },
+          {
+            "question": "'GOD' as a reason for Spanish colonization means they wanted to ___.",
+            "options": [
+              "find gold mines",
+              "establish trade routes",
+              "spread Christianity",
+              "gain military power"
+            ],
+            "correct_answer": "spread Christianity"
+          },
+          {
+            "question": "'GOLD' as a reason for Spanish colonization refers to ___.",
+            "options": [
+              "spreading religion",
+              "seeking wealth and natural resources",
+              "exploring new routes",
+              "gaining military glory"
+            ],
+            "correct_answer": "seeking wealth and natural resources"
+          },
+          {
+            "question": "Magellan's expedition (1521) was the FIRST to ___.",
+            "options": [
+              "discover the Philippines",
+              "sail around the world (circumnavigate the globe)",
+              "trade with China",
+              "build a fort in Asia"
+            ],
+            "correct_answer": "sail around the world (circumnavigate the globe)"
+          },
+          {
+            "question": "Who KILLED Ferdinand Magellan in the Philippines?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Rajah Humabon",
+              "Lapu-Lapu",
+              "Juan Sebastian Elcano"
+            ],
+            "correct_answer": "Lapu-Lapu"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "When you WELCOME visitors into your home, the value being shown is ___.",
+            "options": [
+              "competition",
+              "disrespect",
+              "hospitality and respect",
+              "selfishness"
+            ],
+            "correct_answer": "hospitality and respect"
+          },
+          {
+            "question": "Proper HOSPITALITY when welcoming family members includes ___.",
+            "options": [
+              "ignoring them",
+              "greeting them warmly and making them feel comfortable",
+              "arguing with them",
+              "telling them to leave quickly"
+            ],
+            "correct_answer": "greeting them warmly and making them feel comfortable"
+          },
+          {
+            "question": "RESPECT for visitors means ___.",
+            "options": [
+              "giving them all your possessions",
+              "treating them with courtesy and making them feel valued",
+              "ignoring their needs",
+              "doing whatever they say"
+            ],
+            "correct_answer": "treating them with courtesy and making them feel valued"
+          },
+          {
+            "question": "Which action shows the BEST hospitality when a relative visits?",
+            "options": [
+              "Ignoring them and continuing to watch TV",
+              "Greeting them, offering a seat, and asking if they need anything",
+              "Hiding your food so they cannot eat",
+              "Telling them the visit is inconvenient"
+            ],
+            "correct_answer": "Greeting them, offering a seat, and asking if they need anything"
+          },
+          {
+            "question": "'Mano po' is a Filipino gesture of ___.",
+            "options": [
+              "disrespect toward elders",
+              "respect and love for elders",
+              "greeting only friends",
+              "competition between family members"
+            ],
+            "correct_answer": "respect and love for elders"
+          },
+          {
+            "question": "Welcoming guests warmly reflects the Filipino value of ___.",
+            "options": [
+              "Utang na loob",
+              "Individualism",
+              "Pakikipagkapwa (hospitality)",
+              "Competition"
+            ],
+            "correct_answer": "Pakikipagkapwa (hospitality)"
+          },
+          {
+            "question": "When a visitor arrives at your house, the FIRST thing you should do is ___.",
+            "options": [
+              "go to your room",
+              "greet them politely and invite them in",
+              "ask them to wait outside",
+              "call your parents only"
+            ],
+            "correct_answer": "greet them politely and invite them in"
+          },
+          {
+            "question": "The value of RESPECT is shown when you ___.",
+            "options": [
+              "ignore older relatives",
+              "speak rudely to guests",
+              "listen and show courtesy to family and visitors",
+              "only greet friends"
+            ],
+            "correct_answer": "listen and show courtesy to family and visitors"
+          },
+          {
+            "question": "Why is HOSPITALITY important in Filipino culture?",
+            "options": [
+              "It wastes time and resources",
+              "It strengthens family bonds and reflects care for others",
+              "It is only important for rich families",
+              "It is not important"
+            ],
+            "correct_answer": "It strengthens family bonds and reflects care for others"
+          },
+          {
+            "question": "Which behavior shows DISRESPECT to a visiting relative?",
+            "options": [
+              "Offering them food and a seat",
+              "Listening to their stories",
+              "Remaining in your room without greeting them",
+              "Saying 'Mano po'"
+            ],
+            "correct_answer": "Remaining in your room without greeting them"
+          },
+          {
+            "question": "Showing hospitality to visitors teaches children the value of ___.",
+            "options": [
+              "selfishness",
+              "caring for others and building relationships",
+              "ignoring others",
+              "competition"
+            ],
+            "correct_answer": "caring for others and building relationships"
+          },
+          {
+            "question": "The Filipino concept of 'pakikitungo' refers to ___.",
+            "options": [
+              "only family relationships",
+              "the way one interacts politely and respectfully with others",
+              "avoiding strangers",
+              "being competitive"
+            ],
+            "correct_answer": "the way one interacts politely and respectfully with others"
+          }
+        ]
+      },
+      "MAPEH": {
+        "quiz": [
+          {
+            "question": "PRE-COLONIAL Philippine arts were tied to ___.",
+            "options": [
+              "modern entertainment",
+              "everyday life and community rituals",
+              "foreign influences only",
+              "school curriculum"
+            ],
+            "correct_answer": "everyday life and community rituals"
+          },
+          {
+            "question": "The HORNBOSTEL-SACHS system classifies ___.",
+            "options": [
+              "paintings",
+              "musical instruments",
+              "dance styles",
+              "visual art forms"
+            ],
+            "correct_answer": "musical instruments"
+          },
+          {
+            "question": "DYNAMICS in music means ___.",
+            "options": [
+              "the speed of the music",
+              "the volume (loudness and softness) of music",
+              "the rhythm of the music",
+              "the melody of the music"
+            ],
+            "correct_answer": "the volume (loudness and softness) of music"
+          },
+          {
+            "question": "What is TIMBRE?",
+            "options": [
+              "The speed of music",
+              "The pitch of a note",
+              "The unique sound quality of an instrument or voice",
+              "The rhythm pattern"
+            ],
+            "correct_answer": "The unique sound quality of an instrument or voice"
+          },
+          {
+            "question": "Philippine pre-colonial VISUAL ARTS were often made from ___.",
+            "options": [
+              "plastic and steel",
+              "locally available natural materials like bamboo, clay, and weaving fibers",
+              "imported materials",
+              "synthetic dyes"
+            ],
+            "correct_answer": "locally available natural materials like bamboo, clay, and weaving fibers"
+          },
+          {
+            "question": "'Mezzo forte' (mf) means ___.",
+            "options": [
+              "very loud",
+              "moderately loud",
+              "very soft",
+              "moderately soft"
+            ],
+            "correct_answer": "moderately loud"
+          },
+          {
+            "question": "In PE, regular EXERCISE helps maintain ___.",
+            "options": [
+              "only muscle strength",
+              "overall physical fitness and health",
+              "only flexibility",
+              "only balance"
+            ],
+            "correct_answer": "overall physical fitness and health"
+          },
+          {
+            "question": "PRE-COLONIAL Philippine performing arts served to ___.",
+            "options": [
+              "entertain only wealthy people",
+              "mark life events like birth, harvest, and ceremonies",
+              "import foreign ideas",
+              "only decorate temples"
+            ],
+            "correct_answer": "mark life events like birth, harvest, and ceremonies"
+          },
+          {
+            "question": "Which is a form of HEALTH that PE addresses?",
+            "options": [
+              "Only mental health",
+              "Only physical health",
+              "Physical, mental, and social well-being",
+              "Only social health"
+            ],
+            "correct_answer": "Physical, mental, and social well-being"
+          },
+          {
+            "question": "A 'forte' (f) marking in music means to play ___.",
+            "options": [
+              "softly",
+              "very softly",
+              "loudly",
+              "very loudly"
+            ],
+            "correct_answer": "loudly"
+          },
+          {
+            "question": "Philippine FOLK INSTRUMENTS (like kudyapi, kulintang) show the ___.",
+            "options": [
+              "western influence only",
+              "rich indigenous musical heritage of the Philippines",
+              "lack of musical culture",
+              "modern era of Filipino music"
+            ],
+            "correct_answer": "rich indigenous musical heritage of the Philippines"
+          },
+          {
+            "question": "Playing SPORTS develops ___.",
+            "options": [
+              "only physical strength",
+              "only teamwork",
+              "physical fitness, teamwork, discipline, and sportsmanship",
+              "only competition skills"
+            ],
+            "correct_answer": "physical fitness, teamwork, discipline, and sportsmanship"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "GMRC": {
+        "quiz": [
+          {
+            "question": "When you WELCOME visitors into your home, the value being shown is ___.",
+            "options": [
+              "competition",
+              "disrespect",
+              "hospitality and respect",
+              "selfishness"
+            ],
+            "correct_answer": "hospitality and respect"
+          },
+          {
+            "question": "Proper HOSPITALITY when welcoming family members includes ___.",
+            "options": [
+              "ignoring them",
+              "greeting them warmly and making them feel comfortable",
+              "arguing with them",
+              "telling them to leave quickly"
+            ],
+            "correct_answer": "greeting them warmly and making them feel comfortable"
+          },
+          {
+            "question": "RESPECT for visitors means ___.",
+            "options": [
+              "giving them all your possessions",
+              "treating them with courtesy and making them feel valued",
+              "ignoring their needs",
+              "doing whatever they say"
+            ],
+            "correct_answer": "treating them with courtesy and making them feel valued"
+          },
+          {
+            "question": "Which action shows the BEST hospitality when a relative visits?",
+            "options": [
+              "Ignoring them and continuing to watch TV",
+              "Greeting them, offering a seat, and asking if they need anything",
+              "Hiding your food so they cannot eat",
+              "Telling them the visit is inconvenient"
+            ],
+            "correct_answer": "Greeting them, offering a seat, and asking if they need anything"
+          },
+          {
+            "question": "'Mano po' is a Filipino gesture of ___.",
+            "options": [
+              "disrespect toward elders",
+              "respect and love for elders",
+              "greeting only friends",
+              "competition between family members"
+            ],
+            "correct_answer": "respect and love for elders"
+          },
+          {
+            "question": "Welcoming guests warmly reflects the Filipino value of ___.",
+            "options": [
+              "Utang na loob",
+              "Individualism",
+              "Pakikipagkapwa (hospitality)",
+              "Competition"
+            ],
+            "correct_answer": "Pakikipagkapwa (hospitality)"
+          },
+          {
+            "question": "When a visitor arrives at your house, the FIRST thing you should do is ___.",
+            "options": [
+              "go to your room",
+              "greet them politely and invite them in",
+              "ask them to wait outside",
+              "call your parents only"
+            ],
+            "correct_answer": "greet them politely and invite them in"
+          },
+          {
+            "question": "The value of RESPECT is shown when you ___.",
+            "options": [
+              "ignore older relatives",
+              "speak rudely to guests",
+              "listen and show courtesy to family and visitors",
+              "only greet friends"
+            ],
+            "correct_answer": "listen and show courtesy to family and visitors"
+          },
+          {
+            "question": "Why is HOSPITALITY important in Filipino culture?",
+            "options": [
+              "It wastes time and resources",
+              "It strengthens family bonds and reflects care for others",
+              "It is only important for rich families",
+              "It is not important"
+            ],
+            "correct_answer": "It strengthens family bonds and reflects care for others"
+          },
+          {
+            "question": "Which behavior shows DISRESPECT to a visiting relative?",
+            "options": [
+              "Offering them food and a seat",
+              "Listening to their stories",
+              "Remaining in your room without greeting them",
+              "Saying 'Mano po'"
+            ],
+            "correct_answer": "Remaining in your room without greeting them"
+          },
+          {
+            "question": "Showing hospitality to visitors teaches children the value of ___.",
+            "options": [
+              "selfishness",
+              "caring for others and building relationships",
+              "ignoring others",
+              "competition"
+            ],
+            "correct_answer": "caring for others and building relationships"
+          },
+          {
+            "question": "The Filipino concept of 'pakikitungo' refers to ___.",
+            "options": [
+              "only family relationships",
+              "the way one interacts politely and respectfully with others",
+              "avoiding strangers",
+              "being competitive"
+            ],
+            "correct_answer": "the way one interacts politely and respectfully with others"
+          }
+        ]
+      },
+      "MAPEH": {
+        "quiz": [
+          {
+            "question": "PRE-COLONIAL Philippine arts were tied to ___.",
+            "options": [
+              "modern entertainment",
+              "everyday life and community rituals",
+              "foreign influences only",
+              "school curriculum"
+            ],
+            "correct_answer": "everyday life and community rituals"
+          },
+          {
+            "question": "The HORNBOSTEL-SACHS system classifies ___.",
+            "options": [
+              "paintings",
+              "musical instruments",
+              "dance styles",
+              "visual art forms"
+            ],
+            "correct_answer": "musical instruments"
+          },
+          {
+            "question": "DYNAMICS in music means ___.",
+            "options": [
+              "the speed of the music",
+              "the volume (loudness and softness) of music",
+              "the rhythm of the music",
+              "the melody of the music"
+            ],
+            "correct_answer": "the volume (loudness and softness) of music"
+          },
+          {
+            "question": "What is TIMBRE?",
+            "options": [
+              "The speed of music",
+              "The pitch of a note",
+              "The unique sound quality of an instrument or voice",
+              "The rhythm pattern"
+            ],
+            "correct_answer": "The unique sound quality of an instrument or voice"
+          },
+          {
+            "question": "Philippine pre-colonial VISUAL ARTS were often made from ___.",
+            "options": [
+              "plastic and steel",
+              "locally available natural materials like bamboo, clay, and weaving fibers",
+              "imported materials",
+              "synthetic dyes"
+            ],
+            "correct_answer": "locally available natural materials like bamboo, clay, and weaving fibers"
+          },
+          {
+            "question": "'Mezzo forte' (mf) means ___.",
+            "options": [
+              "very loud",
+              "moderately loud",
+              "very soft",
+              "moderately soft"
+            ],
+            "correct_answer": "moderately loud"
+          },
+          {
+            "question": "In PE, regular EXERCISE helps maintain ___.",
+            "options": [
+              "only muscle strength",
+              "overall physical fitness and health",
+              "only flexibility",
+              "only balance"
+            ],
+            "correct_answer": "overall physical fitness and health"
+          },
+          {
+            "question": "PRE-COLONIAL Philippine performing arts served to ___.",
+            "options": [
+              "entertain only wealthy people",
+              "mark life events like birth, harvest, and ceremonies",
+              "import foreign ideas",
+              "only decorate temples"
+            ],
+            "correct_answer": "mark life events like birth, harvest, and ceremonies"
+          },
+          {
+            "question": "Which is a form of HEALTH that PE addresses?",
+            "options": [
+              "Only mental health",
+              "Only physical health",
+              "Physical, mental, and social well-being",
+              "Only social health"
+            ],
+            "correct_answer": "Physical, mental, and social well-being"
+          },
+          {
+            "question": "A 'forte' (f) marking in music means to play ___.",
+            "options": [
+              "softly",
+              "very softly",
+              "loudly",
+              "very loudly"
+            ],
+            "correct_answer": "loudly"
+          },
+          {
+            "question": "Philippine FOLK INSTRUMENTS (like kudyapi, kulintang) show the ___.",
+            "options": [
+              "western influence only",
+              "rich indigenous musical heritage of the Philippines",
+              "lack of musical culture",
+              "modern era of Filipino music"
+            ],
+            "correct_answer": "rich indigenous musical heritage of the Philippines"
+          },
+          {
+            "question": "Playing SPORTS develops ___.",
+            "options": [
+              "only physical strength",
+              "only teamwork",
+              "physical fitness, teamwork, discipline, and sportsmanship",
+              "only competition skills"
+            ],
+            "correct_answer": "physical fitness, teamwork, discipline, and sportsmanship"
+          }
+        ]
+      },
+      "English": {
+        "quiz": [
+          {
+            "question": "The THEME of a story is ___.",
+            "options": [
+              "the main character's name",
+              "the setting where the story happens",
+              "the central message or lesson of the story",
+              "the problem the character faces"
+            ],
+            "correct_answer": "the central message or lesson of the story"
+          },
+          {
+            "question": "Which sentence contains a SIMILE?",
+            "options": [
+              "The wind howled loudly.",
+              "Her smile was sunshine.",
+              "She ran like the wind.",
+              "The mountain stood firm."
+            ],
+            "correct_answer": "She ran like the wind."
+          },
+          {
+            "question": "PERSONIFICATION gives ___ to non-human things.",
+            "options": [
+              "names",
+              "human qualities",
+              "animal traits",
+              "magical powers"
+            ],
+            "correct_answer": "human qualities"
+          },
+          {
+            "question": "Which word contains ALLITERATION?",
+            "options": [
+              "Pretty purple pansies",
+              "Quick brown fox",
+              "Lazy dog runs",
+              "Big cats sleep"
+            ],
+            "correct_answer": "Pretty purple pansies"
+          },
+          {
+            "question": "Making a PREDICTION before reading helps you ___.",
+            "options": [
+              "memorize the text",
+              "read faster",
+              "think about what might happen and stay engaged",
+              "write better"
+            ],
+            "correct_answer": "think about what might happen and stay engaged"
+          },
+          {
+            "question": "Which is the MAIN IDEA of a paragraph about the importance of washing hands?",
+            "options": [
+              "People have two hands",
+              "Soap is made from chemicals",
+              "Washing hands prevents the spread of germs",
+              "Water is wet"
+            ],
+            "correct_answer": "Washing hands prevents the spread of germs"
+          },
+          {
+            "question": "ONOMATOPOEIA is a word that ___.",
+            "options": [
+              "means the opposite of another word",
+              "sounds like the thing it describes",
+              "has more than one meaning",
+              "comes from another language"
+            ],
+            "correct_answer": "sounds like the thing it describes"
+          },
+          {
+            "question": "'The night sky was a black velvet blanket.' This is an example of ___.",
+            "options": [
+              "simile",
+              "personification",
+              "metaphor",
+              "alliteration"
+            ],
+            "correct_answer": "metaphor"
+          },
+          {
+            "question": "To INFER a character's feelings, you look at their ___.",
+            "options": [
+              "name and age",
+              "actions, words, and reactions",
+              "the story's title",
+              "the number of paragraphs"
+            ],
+            "correct_answer": "actions, words, and reactions"
+          },
+          {
+            "question": "Which word contains a PREFIX meaning 'before'?",
+            "options": [
+              "Unhappy",
+              "Preview",
+              "Joyful",
+              "Careful"
+            ],
+            "correct_answer": "Preview"
+          },
+          {
+            "question": "SEQUENCE in a story refers to ___.",
+            "options": [
+              "the lesson learned",
+              "the characters",
+              "the order in which events happen",
+              "the setting description"
+            ],
+            "correct_answer": "the order in which events happen"
+          },
+          {
+            "question": "A CONFLICT in a story is ___.",
+            "options": [
+              "the happy ending",
+              "the theme of the story",
+              "the problem that needs to be solved",
+              "the setting of the story"
+            ],
+            "correct_answer": "the problem that needs to be solved"
+          }
+        ]
+      },
+      "Science": {
+        "quiz": [
+          {
+            "question": "Trace the path of FOOD through the digestive system: mouth → ___ → stomach → ___.",
+            "options": [
+              "lungs → intestines",
+              "esophagus → small intestine",
+              "trachea → large intestine",
+              "esophagus → lungs"
+            ],
+            "correct_answer": "esophagus → small intestine"
+          },
+          {
+            "question": "What is the function of the SMALL INTESTINE in digestion?",
+            "options": [
+              "It stores waste",
+              "It pumps blood",
+              "It absorbs most nutrients into the bloodstream",
+              "It breaks down food with acid"
+            ],
+            "correct_answer": "It absorbs most nutrients into the bloodstream"
+          },
+          {
+            "question": "Which ANIMAL BODY SYSTEM takes in oxygen from the air?",
+            "options": [
+              "Digestive system",
+              "Reproductive system",
+              "Respiratory system",
+              "Circulatory system"
+            ],
+            "correct_answer": "Respiratory system"
+          },
+          {
+            "question": "In the respiratory system, the path of AIR is: nose → ___ → lungs.",
+            "options": [
+              "esophagus",
+              "trachea (windpipe)",
+              "stomach",
+              "mouth only"
+            ],
+            "correct_answer": "trachea (windpipe)"
+          },
+          {
+            "question": "The REPRODUCTIVE SYSTEM's main function is ___.",
+            "options": [
+              "breathing",
+              "digesting food",
+              "producing offspring (growth and development)",
+              "pumping blood"
+            ],
+            "correct_answer": "producing offspring (growth and development)"
+          },
+          {
+            "question": "A diagram showing the digestive organs of a frog with labels is an example of a ___.",
+            "options": [
+              "bar graph",
+              "labeled model/diagram",
+              "scatter plot",
+              "pie chart"
+            ],
+            "correct_answer": "labeled model/diagram"
+          },
+          {
+            "question": "What does the STOMACH do to food?",
+            "options": [
+              "Absorbs it directly into the blood",
+              "Mixes it with gastric acid and churns it",
+              "Removes oxygen from it",
+              "Stores it permanently"
+            ],
+            "correct_answer": "Mixes it with gastric acid and churns it"
+          },
+          {
+            "question": "Air enters the body through the ___.",
+            "options": [
+              "stomach",
+              "esophagus",
+              "nose and mouth",
+              "intestines"
+            ],
+            "correct_answer": "nose and mouth"
+          },
+          {
+            "question": "Which is part of the RESPIRATORY system?",
+            "options": [
+              "Stomach",
+              "Esophagus",
+              "Lungs",
+              "Liver"
+            ],
+            "correct_answer": "Lungs"
+          },
+          {
+            "question": "The LARGE INTESTINE's main job is to ___.",
+            "options": [
+              "absorb nutrients",
+              "absorb water and prepare waste for removal",
+              "digest proteins",
+              "produce bile"
+            ],
+            "correct_answer": "absorb water and prepare waste for removal"
+          },
+          {
+            "question": "In animals, the ESOPHAGUS/GULLET connects the mouth to the ___.",
+            "options": [
+              "lungs",
+              "large intestine",
+              "stomach",
+              "liver"
+            ],
+            "correct_answer": "stomach"
+          },
+          {
+            "question": "Why is learning about animal body systems important?",
+            "options": [
+              "It is not useful",
+              "It helps us understand how living things function and stay healthy",
+              "It is only for scientists",
+              "It only applies to humans"
+            ],
+            "correct_answer": "It helps us understand how living things function and stay healthy"
+          }
+        ]
+      },
+      "Filipino": {
+        "quiz": [
+          {
+            "question": "Ang MITO ay isang kwentong nagpapaliwanag ng ___.",
+            "options": [
+              "gawi ng mga hayop",
+              "pinagmulan ng natural na bagay o kababalaghan",
+              "talambuhay ng bayani",
+              "mga patakaran ng paaralan"
+            ],
+            "correct_answer": "pinagmulan ng natural na bagay o kababalaghan"
+          },
+          {
+            "question": "Ang EPIKO ay isang mahabang ___.",
+            "options": [
+              "tula na may aral",
+              "salaysay tungkol sa mga gawa ng isang bayani",
+              "ulat ng balita",
+              "liham sa kaibigan"
+            ],
+            "correct_answer": "salaysay tungkol sa mga gawa ng isang bayani"
+          },
+          {
+            "question": "Ang SIMILI ay naghahambing ng dalawang bagay gamit ang ___.",
+            "options": [
+              "'at' at 'o'",
+              "'na' at 'ang'",
+              "'tulad ng' o 'para ng'",
+              "'pero' at 'dahil'"
+            ],
+            "correct_answer": "'tulad ng' o 'para ng'"
+          },
+          {
+            "question": "Ang METAPORA ay naghahambing ng dalawang bagay nang ___.",
+            "options": [
+              "may paggamit ng 'tulad ng'",
+              "walang paggamit ng tulad ng o para ng",
+              "may tanong",
+              "may ebidensya"
+            ],
+            "correct_answer": "walang paggamit ng tulad ng o para ng"
+          },
+          {
+            "question": "'Ang kanyang ngiti ay araw.' Ito ay halimbawa ng ___.",
+            "options": [
+              "simili",
+              "metapora",
+              "personipikasyon",
+              "talinghaga"
+            ],
+            "correct_answer": "metapora"
+          },
+          {
+            "question": "Ang PERSONIPIKASYON ay nagbibigay ng ___ sa mga bagay na hindi tao.",
+            "options": [
+              "pangalan",
+              "katangiang pang-tao",
+              "hayop na katangian",
+              "kulay"
+            ],
+            "correct_answer": "katangiang pang-tao"
+          },
+          {
+            "question": "Ang PAGKAKASUNOD-SUNOD ng mga pangyayari sa isang kwento ay tinatawag na ___.",
+            "options": [
+              "tema",
+              "sukat",
+              "balangkas ng plot",
+              "tauhan"
+            ],
+            "correct_answer": "balangkas ng plot"
+          },
+          {
+            "question": "Ang 'kababalaghan' ay ibig sabihing ___.",
+            "options": [
+              "pangkaraniwan",
+              "kahanga-hangang pangyayari na di-kapani-paniwala",
+              "kasaysayan",
+              "katotohanan"
+            ],
+            "correct_answer": "kahanga-hangang pangyayari na di-kapani-paniwala"
+          },
+          {
+            "question": "Paano malalaman ang TEMA ng isang kwento?",
+            "options": [
+              "Tingnan ang pamagat lamang",
+              "Tingnan ang haba ng kwento",
+              "Unawain ang mensahe o aral na itinuturo ng kwento",
+              "Bilangin ang mga tauhan"
+            ],
+            "correct_answer": "Unawain ang mensahe o aral na itinuturo ng kwento"
+          },
+          {
+            "question": "Ang 'PAGWAWANGIS' ay katumbas ng ___.",
+            "options": [
+              "metapora",
+              "simili",
+              "personipikasyon",
+              "talinghaga"
+            ],
+            "correct_answer": "simili"
+          },
+          {
+            "question": "'Ang bundok ay bumubulong ng mga lihim.' Ito ay halimbawa ng ___.",
+            "options": [
+              "simili",
+              "metapora",
+              "personipikasyon",
+              "tayutay"
+            ],
+            "correct_answer": "personipikasyon"
+          },
+          {
+            "question": "Sa pagbuo ng SANAYSAY, ang PANIMULA ay dapat ___.",
+            "options": [
+              "ibigay ang konklusyon",
+              "ipakita ang mga ebidensya",
+              "itakda ang paksa at makuha ang atensyon ng mambabasa",
+              "ibuod ang lahat ng ideya"
+            ],
+            "correct_answer": "itakda ang paksa at makuha ang atensyon ng mambabasa"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "quiz": [
+          {
+            "question": "In MS Word, which INSERT option lets you add a picture from your computer?",
+            "options": [
+              "Table",
+              "Picture",
+              "Shapes",
+              "SmartArt"
+            ],
+            "correct_answer": "Picture"
+          },
+          {
+            "question": "What is SMARTART used for in a Word document?",
+            "options": [
+              "Adding a background color",
+              "Creating diagrams and visual lists",
+              "Inserting a table of data",
+              "Changing font size"
+            ],
+            "correct_answer": "Creating diagrams and visual lists"
+          },
+          {
+            "question": "Which formatting feature organizes text into a numbered sequence?",
+            "options": [
+              "Bullets",
+              "Numbering",
+              "Shapes",
+              "Page Border"
+            ],
+            "correct_answer": "Numbering"
+          },
+          {
+            "question": "BULLET POINTS are used to ___.",
+            "options": [
+              "list items without a specific order",
+              "show a numbered sequence",
+              "insert images",
+              "change the font"
+            ],
+            "correct_answer": "list items without a specific order"
+          },
+          {
+            "question": "How do you INSERT A TABLE in MS Word?",
+            "options": [
+              "Edit - Table",
+              "Insert - Table",
+              "Format - Table",
+              "View - Table"
+            ],
+            "correct_answer": "Insert - Table"
+          },
+          {
+            "question": "A TABLE in a Word document is useful for ___.",
+            "options": [
+              "playing music",
+              "organizing information into rows and columns",
+              "drawing pictures",
+              "printing quickly"
+            ],
+            "correct_answer": "organizing information into rows and columns"
+          },
+          {
+            "question": "To add a BACKGROUND COLOR to a page in MS Word, you use ___.",
+            "options": [
+              "Insert - Table",
+              "Design - Page Color",
+              "Format - Font",
+              "View - Outline"
+            ],
+            "correct_answer": "Design - Page Color"
+          },
+          {
+            "question": "Which SmartArt layout is best for showing a STEP-BY-STEP PROCESS?",
+            "options": [
+              "Cycle",
+              "Hierarchy",
+              "Process",
+              "Matrix"
+            ],
+            "correct_answer": "Process"
+          },
+          {
+            "question": "To RESIZE an inserted image in MS Word, you ___.",
+            "options": [
+              "right-click and delete",
+              "drag the corner handles of the image",
+              "change the font size",
+              "insert a table"
+            ],
+            "correct_answer": "drag the corner handles of the image"
+          },
+          {
+            "question": "'Insert - Shapes' allows you to add ___.",
+            "options": [
+              "photographs",
+              "pre-made geometric shapes and lines",
+              "tables",
+              "SmartArt diagrams"
+            ],
+            "correct_answer": "pre-made geometric shapes and lines"
+          },
+          {
+            "question": "What does a COLUMN in a table represent?",
+            "options": [
+              "A horizontal group of cells",
+              "A vertical group of cells",
+              "The border of the table",
+              "The header of the document"
+            ],
+            "correct_answer": "A vertical group of cells"
+          },
+          {
+            "question": "To make text appear as a LIST WITH BULLETS, you use ___.",
+            "options": [
+              "Numbering",
+              "Bold",
+              "Bullets",
+              "Underline"
+            ],
+            "correct_answer": "Bullets"
+          }
+        ]
+      },
+      "Mathematics": {
+        "quiz": [
+          {
+            "question": "Convert the decimal 0.75 to a fraction in LOWEST TERMS.",
+            "options": [
+              "75/100",
+              "3/4",
+              "7/5",
+              "15/20"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Convert 0.5 to a fraction.",
+            "options": [
+              "5/10 = 1/2",
+              "1/5",
+              "5/1",
+              "5/100"
+            ],
+            "correct_answer": "5/10 = 1/2"
+          },
+          {
+            "question": "Which decimal is LARGER: 0.7 or 0.35?",
+            "options": [
+              "0.35",
+              "0.7",
+              "They are equal",
+              "Cannot compare"
+            ],
+            "correct_answer": "0.7"
+          },
+          {
+            "question": "Order from SMALLEST to LARGEST: 0.9, 0.09, 0.19",
+            "options": [
+              "0.9, 0.19, 0.09",
+              "0.09, 0.19, 0.9",
+              "0.19, 0.09, 0.9",
+              "0.09, 0.9, 0.19"
+            ],
+            "correct_answer": "0.09, 0.19, 0.9"
+          },
+          {
+            "question": "Convert 3/4 to a decimal.",
+            "options": [
+              "0.34",
+              "0.75",
+              "0.43",
+              "0.7"
+            ],
+            "correct_answer": "0.75"
+          },
+          {
+            "question": "Which decimal has the GREATEST value: 0.3, 0.30, 0.300?",
+            "options": [
+              "0.3",
+              "0.30",
+              "0.300",
+              "They are all equal"
+            ],
+            "correct_answer": "They are all equal"
+          },
+          {
+            "question": "Convert 0.25 to a fraction in lowest terms.",
+            "options": [
+              "25/100",
+              "1/4",
+              "2/5",
+              "1/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "Compare: 0.6 and 0.60. Which is true?",
+            "options": [
+              "0.6 < 0.60",
+              "0.6 > 0.60",
+              "0.6 = 0.60",
+              "Cannot compare"
+            ],
+            "correct_answer": "0.6 = 0.60"
+          },
+          {
+            "question": "Which of these is a TERMINATING DECIMAL?",
+            "options": [
+              "1/3",
+              "2/7",
+              "1/4",
+              "1/6"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "In the decimal 3.45, which digit is in the HUNDREDTHS place?",
+            "options": [
+              "3",
+              "4",
+              "5",
+              "45"
+            ],
+            "correct_answer": "5"
+          },
+          {
+            "question": "Convert 0.8 to a fraction in lowest terms.",
+            "options": [
+              "8/10 = 4/5",
+              "8/100",
+              "0.8/1",
+              "4/10"
+            ],
+            "correct_answer": "8/10 = 4/5"
+          },
+          {
+            "question": "Order from GREATEST to SMALLEST: 1.5, 1.05, 1.50",
+            "options": [
+              "1.05, 1.50, 1.5",
+              "1.5, 1.50, 1.05",
+              "1.5 = 1.50 > 1.05",
+              "1.05, 1.5, 1.50"
+            ],
+            "correct_answer": "1.5 = 1.50 > 1.05"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "quiz": [
+          {
+            "question": "What are the THREE reasons Spain colonized the Philippines?",
+            "options": [
+              "Religion, Riches, Reputation",
+              "Education, Economy, Entertainment",
+              "Trade, Travel, Tourism",
+              "Land, Language, Labor"
+            ],
+            "correct_answer": "Religion, Riches, Reputation"
+          },
+          {
+            "question": "Who led the FIRST SPANISH EXPEDITION to the Philippines in 1521?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Andres de Urdaneta",
+              "Ferdinand Magellan",
+              "Juan de Salcedo"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Who led the expedition that ESTABLISHED PERMANENT SPANISH RULE in the Philippines in 1565?",
+            "options": [
+              "Ferdinand Magellan",
+              "Vasco da Gama",
+              "Miguel Lopez de Legazpi",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "The FIRST MASS in the Philippines was celebrated in ___.",
+            "options": [
+              "Manila",
+              "Cebu",
+              "Limasawa",
+              "Mactan"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "COLONIZATION means ___.",
+            "options": [
+              "trading peacefully with other nations",
+              "one nation taking control and settling in another territory",
+              "two nations forming an alliance",
+              "building schools in another country"
+            ],
+            "correct_answer": "one nation taking control and settling in another territory"
+          },
+          {
+            "question": "The Spaniards were searching for the SPICE ISLANDS (Moluccas). What valuable spice did they want?",
+            "options": [
+              "Sugar and coffee",
+              "Pepper and cloves",
+              "Tobacco and rubber",
+              "Rice and corn"
+            ],
+            "correct_answer": "Pepper and cloves"
+          },
+          {
+            "question": "The Treaty of Tordesillas (1494) divided the world between ___.",
+            "options": [
+              "Spain and Portugal",
+              "Spain and England",
+              "Portugal and France",
+              "England and France"
+            ],
+            "correct_answer": "Spain and Portugal"
+          },
+          {
+            "question": "IMPERIALISM refers to ___.",
+            "options": [
+              "the policy of extending a nation's power through colonization or military force",
+              "building more schools in poor countries",
+              "helping other nations trade freely",
+              "sharing resources equally"
+            ],
+            "correct_answer": "the policy of extending a nation's power through colonization or military force"
+          },
+          {
+            "question": "'GOD' as a reason for Spanish colonization means they wanted to ___.",
+            "options": [
+              "find gold mines",
+              "establish trade routes",
+              "spread Christianity",
+              "gain military power"
+            ],
+            "correct_answer": "spread Christianity"
+          },
+          {
+            "question": "'GOLD' as a reason for Spanish colonization refers to ___.",
+            "options": [
+              "spreading religion",
+              "seeking wealth and natural resources",
+              "exploring new routes",
+              "gaining military glory"
+            ],
+            "correct_answer": "seeking wealth and natural resources"
+          },
+          {
+            "question": "Magellan's expedition (1521) was the FIRST to ___.",
+            "options": [
+              "discover the Philippines",
+              "sail around the world (circumnavigate the globe)",
+              "trade with China",
+              "build a fort in Asia"
+            ],
+            "correct_answer": "sail around the world (circumnavigate the globe)"
+          },
+          {
+            "question": "Who KILLED Ferdinand Magellan in the Philippines?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Rajah Humabon",
+              "Lapu-Lapu",
+              "Juan Sebastian Elcano"
+            ],
+            "correct_answer": "Lapu-Lapu"
+          }
+        ]
+      }
+    }
+  }
+}

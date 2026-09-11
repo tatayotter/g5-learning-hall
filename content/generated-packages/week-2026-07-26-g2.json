@@ -1,0 +1,789 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-07-26",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## This Week's English Adventure!\n\n- **High-frequency words** are words we see A LOT when we read, like *the, and, said, was*. Knowing them by sight helps us read faster!\n- **Interrogative sentences** are **asking sentences**. They end with a question mark (?). Example: \"**Where** is my pencil?\"\n- **Time-order texts** tell us things in the order they happen, using **time markers** like *first, next, then,* and *finally*.\n  - Example: \"**First**, wash your hands. **Then**, eat your snack.\"\n- **Signal words** are clue words that help us understand what kind of text we are reading (like *because* for reasons, or *but* for a problem).\n- **Problem and solution** — many stories have a **problem** (something goes wrong) and a **solution** (how it gets fixed). Example: \"Tala lost her toy (**problem**), so she asked her mom for help finding it (**solution**).\"\n- **Procedural texts** are step-by-step instructions, like a recipe or a how-to-make-something guide.",
+        "quiz": [
+          {
+            "question": "Which of the following is a time-order marker?",
+            "options": [
+              "One morning",
+              "Under the chair",
+              "Very beautiful",
+              "The red ball"
+            ],
+            "correct_answer": "One morning"
+          },
+          {
+            "question": "What mark ends an asking sentence?",
+            "options": [
+              "Question mark",
+              "Period",
+              "Comma",
+              "Exclamation point"
+            ],
+            "correct_answer": "Question mark"
+          },
+          {
+            "question": "What is a solution in a story?",
+            "options": [
+              "The action taken to solve the problem",
+              "The beginning of the story",
+              "The setting of the story",
+              "The title of the book"
+            ],
+            "correct_answer": "The action taken to solve the problem"
+          },
+          {
+            "question": "What is a problem in a story?",
+            "options": [
+              "Something difficult that happens",
+              "A happy ending",
+              "A character's name",
+              "The title of the story"
+            ],
+            "correct_answer": "Something difficult that happens"
+          },
+          {
+            "question": "In \"How to Wash Your Hands,\" what should you do first?",
+            "options": [
+              "Wet your hands with clean water",
+              "Dry your hands with a towel",
+              "Rinse your hands",
+              "Put soap on your hands"
+            ],
+            "correct_answer": "Wet your hands with clean water"
+          },
+          {
+            "question": "What did the boys share later that day in \"A Day of Adding\"?",
+            "options": [
+              "Corn cobs",
+              "Mangoes",
+              "Bread",
+              "Rice"
+            ],
+            "correct_answer": "Corn cobs"
+          },
+          {
+            "question": "Which of these is a polite asking sentence?",
+            "options": [
+              "Excuse me, where is the library?",
+              "Tell me where the library is now!",
+              "You should show me the library.",
+              "Library, where!"
+            ],
+            "correct_answer": "Excuse me, where is the library?"
+          },
+          {
+            "question": "Which sentence is written correctly as an asking sentence?",
+            "options": [
+              "Where is your bag?",
+              "where is your bag.",
+              "Your bag where is?",
+              "Where is your bag."
+            ],
+            "correct_answer": "Where is your bag?"
+          },
+          {
+            "question": "Read: \"First, get a clean glass. Next, pour water into the glass. Finally, drink the water.\" What happens right after getting a clean glass?",
+            "options": [
+              "Pour water into the glass",
+              "Drink the water",
+              "Wash the glass",
+              "Put the glass away"
+            ],
+            "correct_answer": "Pour water into the glass"
+          },
+          {
+            "question": "What did Jigs do to solve his problem?",
+            "options": [
+              "He looked carefully and asked his friend",
+              "He cried and gave up",
+              "He bought a new toy",
+              "He went home immediately"
+            ],
+            "correct_answer": "He looked carefully and asked his friend"
+          },
+          {
+            "question": "If a procedural text is missing the \"Materials\" section, what problem might a reader have?",
+            "options": [
+              "They might not know what things they need before starting the steps",
+              "They will not be able to read the title",
+              "They will not know the result",
+              "There would be no problem at all"
+            ],
+            "correct_answer": "They might not know what things they need before starting the steps"
+          },
+          {
+            "question": "Compare a procedural text and a story with time-order events. How are signal words like \"First\" and \"Next\" used similarly in both?",
+            "options": [
+              "Both use signal words to show the order in which things happen",
+              "Signal words are only used in procedural texts",
+              "Signal words are only used in stories",
+              "They are used differently and cannot be compared"
+            ],
+            "correct_answer": "Both use signal words to show the order in which things happen"
+          },
+          {
+            "question": "In \"The Missing Toy Car,\" why was it important for Jigs to \"look carefully\" before giving up?",
+            "options": [
+              "Because looking carefully helped him find where he had actually left his toy",
+              "Because looking carefully made the toy disappear",
+              "Because looking carefully was not helpful at all",
+              "Because he did not need to look for it"
+            ],
+            "correct_answer": "Because looking carefully helped him find where he had actually left his toy"
+          },
+          {
+            "question": "Why do writers use words like \"Excuse me\" before asking a question, such as \"Excuse me, where is the library?\"",
+            "options": [
+              "To show politeness when asking someone for information",
+              "To make the sentence longer",
+              "To confuse the listener",
+              "Because it is required before every sentence"
+            ],
+            "correct_answer": "To show politeness when asking someone for information"
+          },
+          {
+            "question": "In \"A Day of Adding,\" why is it important to notice words like \"one morning,\" \"next,\" and \"later that day\" when reading the story?",
+            "options": [
+              "They help the reader understand the correct order of events in the story",
+              "They tell us the names of the characters",
+              "They tell us where the story takes place",
+              "They are not important to the story"
+            ],
+            "correct_answer": "They help the reader understand the correct order of events in the story"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## This Week's Math Adventure: Adding Big Numbers!\n\n- **Place value** tells us what each digit in a number is worth — ones, tens, and hundreds. In **352**, the 3 is in the **hundreds** place, the 5 is in the **tens** place, and the 2 is in the **ones** place.\n- **Addition basics** — when we add, we combine two or more numbers to get a bigger number (a sum).\n- **Vertical addition** means stacking numbers on top of each other, lining up the ones, tens, and hundreds columns before adding.\n- **Regrouping** (sometimes called \"carrying\") happens when a column adds up to 10 or more — we move 1 group over to the next column!\n  - Example: 47 + 15 → 7 + 5 = 12, so we write down 2 and **regroup** 1 ten to the tens column.\n- **Number line addition** — we can also add by hopping forward on a number line, one jump for every number we add!",
+        "quiz": [
+          {
+            "question": "What is the sum in 7 + 5 = 12?",
+            "options": [
+              "12",
+              "7",
+              "5",
+              "17"
+            ],
+            "correct_answer": "12"
+          },
+          {
+            "question": "What sign means \"add\" or \"put together\"?",
+            "options": [
+              "+",
+              "-",
+              "=",
+              "x"
+            ],
+            "correct_answer": "+"
+          },
+          {
+            "question": "On a number line, which direction do we move when adding?",
+            "options": [
+              "To the right",
+              "To the left",
+              "Upward",
+              "Downward"
+            ],
+            "correct_answer": "To the right"
+          },
+          {
+            "question": "What is the expanded form of 450?",
+            "options": [
+              "400 + 50 + 0",
+              "4 + 5 + 0",
+              "45 + 0",
+              "400 + 5"
+            ],
+            "correct_answer": "400 + 50 + 0"
+          },
+          {
+            "question": "In vertical addition, where should the ones digit be placed?",
+            "options": [
+              "Under the ones column",
+              "Under the tens column",
+              "Under the hundreds column",
+              "Anywhere on the page"
+            ],
+            "correct_answer": "Under the ones column"
+          },
+          {
+            "question": "Solve: 735 + 7 = ____",
+            "options": [
+              "742",
+              "741",
+              "743",
+              "740"
+            ],
+            "correct_answer": "742"
+          },
+          {
+            "question": "Solve: 28 + 6 using regrouping.",
+            "options": [
+              "34",
+              "33",
+              "24",
+              "35"
+            ],
+            "correct_answer": "34"
+          },
+          {
+            "question": "Solve: 34 + 8 using regrouping.",
+            "options": [
+              "42",
+              "41",
+              "32",
+              "43"
+            ],
+            "correct_answer": "42"
+          },
+          {
+            "question": "Solve: 642 + 43 using vertical addition without regrouping.",
+            "options": [
+              "685",
+              "684",
+              "675",
+              "686"
+            ],
+            "correct_answer": "685"
+          },
+          {
+            "question": "When adding 25 + 3 on a number line, why do we start at 25 instead of 3?",
+            "options": [
+              "Because it is faster to start at the larger addend",
+              "Because 3 is always the starting number",
+              "Because starting at 3 gives a different answer",
+              "It does not matter which number we start at"
+            ],
+            "correct_answer": "Because it is faster to start at the larger addend"
+          },
+          {
+            "question": "Explain why 34 + 8 requires regrouping but 623 + 5 does not.",
+            "options": [
+              "Because in 34 + 8, the ones digits (4 and 8) add up to 10 or more, while in 623 + 5, the ones digits (3 and 5) add up to less than 10",
+              "Because 34 + 8 has larger numbers overall",
+              "Because regrouping is only used with 2-digit numbers",
+              "Because 623 + 5 is a wrong addition problem"
+            ],
+            "correct_answer": "Because in 34 + 8, the ones digits (4 and 8) add up to 10 or more, while in 623 + 5, the ones digits (3 and 5) add up to less than 10"
+          },
+          {
+            "question": "Compare adding 25 + 3 and 3 + 25 on a number line. Why does starting at 25 take fewer jumps than starting at 3?",
+            "options": [
+              "Because starting at the larger number requires counting up only by the smaller addend",
+              "Because the two additions give different answers",
+              "Because starting at 3 is mathematically incorrect",
+              "Because jumps only work with even numbers"
+            ],
+            "correct_answer": "Because starting at the larger number requires counting up only by the smaller addend"
+          },
+          {
+            "question": "Why do we always begin adding from the ones column instead of the hundreds column in vertical addition?",
+            "options": [
+              "Because regrouping in the ones place can affect the tens place, so we must know the ones total first",
+              "Because the ones column is always the largest",
+              "Because it is just a random rule with no reason",
+              "Because the hundreds column is always added last regardless of method"
+            ],
+            "correct_answer": "Because regrouping in the ones place can affect the tens place, so we must know the ones total first"
+          },
+          {
+            "question": "Compare the expanded forms of 450 and 405. Why are they different even though they use the same digits?",
+            "options": [
+              "Because the position of each digit changes its place value, so 450 = 400+50+0 while 405 = 400+0+5",
+              "Because they are actually the same number",
+              "Because expanded form does not depend on digit position",
+              "Because only the first digit matters in expanded form"
+            ],
+            "correct_answer": "Because the position of each digit changes its place value, so 450 = 400+50+0 while 405 = 400+0+5"
+          },
+          {
+            "question": "Solve step by step: 57 + 8 using regrouping, and explain what happens to the carried ten.",
+            "options": [
+              "7 + 8 = 15, so we write 5 in the ones and carry 1 ten to make 5 tens + 1 ten = 6 tens, giving 65",
+              "7 + 8 = 15, so the answer is just 15",
+              "We ignore the extra ten and the answer is 55",
+              "We carry the ten into the hundreds place instead"
+            ],
+            "correct_answer": "7 + 8 = 15, so we write 5 in the ones and carry 1 ten to make 5 tens + 1 ten = 6 tens, giving 65"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "## Ngayong Linggo sa Filipino: Pagbasa nang may Pag-unawa!\n\n- **Kabit-kabit na pagsulat** — kapag sinusulat natin ang mga salita, dapat tama ang paghihiwalay ng bawat salita upang madaling basahin.\n- **Paksa at pangunahing kaisipan** — ang **paksa** ay ang tungkol saan ang buong kuwento, at ang **pangunahing kaisipan** ay ang pinakamahalagang mensahe nito.\n- **Suliranin at solusyon** — halos lahat ng kuwento ay may **suliranin** (problema) at **solusyon** (paraan ng paglutas nito).\n- **Tekstong impormatibo** — mga tekstong nagbibigay ng kaalaman o impormasyon tungkol sa isang paksa, tulad ng tungkol sa hayop o lugar.\n- **Reaksiyon** — ito ang ating nararamdaman o naiisip pagkatapos basahin o marinig ang isang kuwento.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa hayop na maaaring magdala ng sakit, tulad ng nabanggit sa teksto?",
+            "options": [
+              "Peste",
+              "Kaibigan",
+              "Alagang hayop",
+              "Ibon"
+            ],
+            "correct_answer": "Peste"
+          },
+          {
+            "question": "Ano ang kahulugan ng \"pagbaha\"?",
+            "options": [
+              "Pag-apaw ng tubig sa isang lugar",
+              "Pag-ulan ng bato",
+              "Paglaki ng puno",
+              "Pagliit ng ilog"
+            ],
+            "correct_answer": "Pag-apaw ng tubig sa isang lugar"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang isang detalyeng sumusuporta tungkol sa kahalagahan ng puno?",
+            "options": [
+              "Nagbibigay ng lilim",
+              "Kumakain ng karne",
+              "Lumilipad sa himpapawid",
+              "Naninirahan sa dagat"
+            ],
+            "correct_answer": "Nagbibigay ng lilim"
+          },
+          {
+            "question": "Sa binasang teksto tungkol sa puno, ano ang paksa?",
+            "options": [
+              "Mga puno",
+              "Mga hayop",
+              "Mga bulaklak",
+              "Mga isda"
+            ],
+            "correct_answer": "Mga puno"
+          },
+          {
+            "question": "Ano ang pangunahing kaisipan ng isang teksto?",
+            "options": [
+              "Ang pinakamahalagang mensahe o ideya tungkol sa paksa",
+              "Ang unang salita ng teksto",
+              "Ang bilang ng mga pangungusap",
+              "Ang pamagat lamang"
+            ],
+            "correct_answer": "Ang pinakamahalagang mensahe o ideya tungkol sa paksa"
+          },
+          {
+            "question": "Ano ang unang hakbang sa pagsulat ng malaking Q sa paraang kabit-kabit?",
+            "options": [
+              "Magsimula sa itaas at gumawa ng malaking bilog na paikot",
+              "Magsimula sa ibaba",
+              "Gumawa muna ng tuwid na guhit",
+              "Isulat agad ang susunod na letra"
+            ],
+            "correct_answer": "Magsimula sa itaas at gumawa ng malaking bilog na paikot"
+          },
+          {
+            "question": "Ano ang layunin ng tekstong impormatibo?",
+            "options": [
+              "Magbigay ng totoong impormasyon at mahahalagang detalye tungkol sa isang paksa",
+              "Magpatawa sa mambabasa",
+              "Magkuwento ng gawa-gawang pangyayari",
+              "Umawit ng kanta"
+            ],
+            "correct_answer": "Magbigay ng totoong impormasyon at mahahalagang detalye tungkol sa isang paksa"
+          },
+          {
+            "question": "Kung maraming basura ang nagkalat sa isang lugar, ano ang maaaring maging bunga nito?",
+            "options": [
+              "Maaaring maging pamahayan ng peste tulad ng langaw at lamok",
+              "Ang lugar ay magiging mas malinis",
+              "Wala itong epekto",
+              "Titigil ang pag-ulan"
+            ],
+            "correct_answer": "Maaaring maging pamahayan ng peste tulad ng langaw at lamok"
+          },
+          {
+            "question": "Basahin: \"Kailangan ng halaman ang tubig at sikat ng araw.\" Ito ba ay paksa, pangunahing kaisipan, o detalye?",
+            "options": [
+              "Pangunahing kaisipan",
+              "Paksa",
+              "Detalye",
+              "Suliranin"
+            ],
+            "correct_answer": "Pangunahing kaisipan"
+          },
+          {
+            "question": "Basahin: \"Diligan ang halaman araw-araw.\" Ito ba ay isang paksa, pangunahing kaisipan, o detalye?",
+            "options": [
+              "Detalye",
+              "Paksa",
+              "Pangunahing kaisipan",
+              "Suliranin"
+            ],
+            "correct_answer": "Detalye"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang kasanayan ang pagtukoy ng suliranin, solusyon, paksa, at pangunahing kaisipan kapag nagbabasa ng anumang teksto?",
+            "options": [
+              "Dahil nakatutulong ito upang lubos nating maunawaan at masuri ang binabasang teksto",
+              "Dahil ito lamang ang gawain sa Filipino",
+              "Dahil hindi na kailangan pang basahin ang buong teksto",
+              "Dahil ito ay para lamang sa pagsusulit"
+            ],
+            "correct_answer": "Dahil nakatutulong ito upang lubos nating maunawaan at masuri ang binabasang teksto"
+          },
+          {
+            "question": "Paano mailalapat ng isang mag-aaral ang kasanayan sa pagsulat nang maayos at ang kasanayan sa pag-unawa ng suliranin-solusyon nang magkasabay sa totoong buhay?",
+            "options": [
+              "Sa pamamagitan ng pagsusulat ng malinaw na mungkahi o liham tungkol sa isang suliranin na nais niyang malutas sa kanyang komunidad",
+              "Sa pamamagitan ng pagsulat nang hindi maayos",
+              "Sa pamamagitan ng paglimot sa mga kasanayang natutunan",
+              "Sa pamamagitan ng pag-iwas sa pagsulat"
+            ],
+            "correct_answer": "Sa pamamagitan ng pagsusulat ng malinaw na mungkahi o liham tungkol sa isang suliranin na nais niyang malutas sa kanyang komunidad"
+          },
+          {
+            "question": "Ihambing ang \"paksa\" at \"pangunahing kaisipan.\" Ano ang pangunahing pagkakaiba nila?",
+            "options": [
+              "Ang paksa ay maikli at pangkalahatan, habang ang pangunahing kaisipan ay buong pangungusap na nagsasabi ng pinakamahalagang ideya",
+              "Magkatulad lamang sila",
+              "Ang paksa ay mas mahaba kaysa pangunahing kaisipan",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Ang paksa ay maikli at pangkalahatan, habang ang pangunahing kaisipan ay buong pangungusap na nagsasabi ng pinakamahalagang ideya"
+          },
+          {
+            "question": "Suriin ang tsart: Suliranin → Bunga → Solusyon. Bakit mahalagang unawain din ang \"bunga\" bago pumili ng solusyon?",
+            "options": [
+              "Upang maunawaan natin kung gaano kalaki ang epekto ng suliranin bago tayo kumilos",
+              "Dahil hindi na kailangan ang solusyon kung alam na ang bunga",
+              "Dahil ang bunga ang siyang solusyon mismo",
+              "Walang kaugnayan ang bunga sa solusyon"
+            ],
+            "correct_answer": "Upang maunawaan natin kung gaano kalaki ang epekto ng suliranin bago tayo kumilos"
+          },
+          {
+            "question": "Bakit hindi sapat ang sagot na \"Ayoko at wala akong pakialam\" bilang reaksiyon sa isang isyu?",
+            "options": [
+              "Dahil hindi ito malinaw at magalang na paraan ng pagpapahayag ng opinyon",
+              "Dahil ito ang pinakamahusay na sagot",
+              "Dahil ito ay palaging tama",
+              "Dahil kailangan lagi itong sagot"
+            ],
+            "correct_answer": "Dahil hindi ito malinaw at magalang na paraan ng pagpapahayag ng opinyon"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "## Ngayong Linggo sa Makabansa: Ang Ating Komunidad!\n\n- **Ano ang komunidad?** Ang komunidad ay grupo ng mga taong sama-samang naninirahan sa isang lugar at tumutulong sa isa't isa.\n- **Kahulugan ng institusyon** — ang institusyon ay isang organisasyon o pangkat na may partikular na gawain sa komunidad, tulad ng paaralan o ospital.\n- **Gampanin ng paaralan** — tinuturuan tayo ng paaralan at tinutulungan kaming maging mabubuting mamamayan.\n- **Serbisyo para sa kalusugan** — mga lugar tulad ng ospital at health center ang tumutulong upang manatiling malusog ang mga tao sa komunidad.\n- **Ang pamahalaan sa barangay** — ang barangay ay pinamumunuan ng mga opisyal na tumutulong mag-ayos ng mga bagay-bagay sa ating lugar.\n- **Ugnayan ng mga institusyon** — nagtutulungan ang paaralan, ospital, at barangay upang maging maayos ang buhay ng lahat sa komunidad.",
+        "quiz": [
+          {
+            "question": "Ano ang isa sa mga ibinibigay na dokumento ng barangay hall?",
+            "options": [
+              "Barangay clearance",
+              "Report card",
+              "Resibo sa palengke",
+              "Aklat sa paaralan"
+            ],
+            "correct_answer": "Barangay clearance"
+          },
+          {
+            "question": "Saan bumibili ang mga tao ng gulay, isda, at karne?",
+            "options": [
+              "Palengke",
+              "Paaralan",
+              "Barangay hall",
+              "Health center"
+            ],
+            "correct_answer": "Palengke"
+          },
+          {
+            "question": "Sino ang matatagpuan sa barangay hall na tumutulong sa mga mamamayan?",
+            "options": [
+              "Punong Barangay",
+              "Doktor",
+              "Guro",
+              "Tindera"
+            ],
+            "correct_answer": "Punong Barangay"
+          },
+          {
+            "question": "Ano ang komunidad?",
+            "options": [
+              "Lugar kung saan sama-samang naninirahan at nagtutulungan ang mga tao",
+              "Isang uri ng laro",
+              "Isang uri ng pagkain",
+              "Isang libro lamang"
+            ],
+            "correct_answer": "Lugar kung saan sama-samang naninirahan at nagtutulungan ang mga tao"
+          },
+          {
+            "question": "Ano ang institusyon?",
+            "options": [
+              "Organisadong lugar o pangkat na nagbibigay ng mahalagang serbisyo sa mga tao",
+              "Isang uri ng hayop",
+              "Isang laruan ng bata",
+              "Isang uri ng puno"
+            ],
+            "correct_answer": "Organisadong lugar o pangkat na nagbibigay ng mahalagang serbisyo sa mga tao"
+          },
+          {
+            "question": "Bakit mahalaga ang pagbabakuna sa mga bata?",
+            "options": [
+              "Upang maiwasan ang sakit",
+              "Upang tumaas sila nang mabilis",
+              "Upang maging mas matalino",
+              "Upang makatulog nang mahimbing"
+            ],
+            "correct_answer": "Upang maiwasan ang sakit"
+          },
+          {
+            "question": "Sa programa sa kalinisan, sino ang nagplano at sino ang nakilahok ayon sa halimbawa?",
+            "options": [
+              "Nagplano ang barangay hall at nakilahok ang paaralan",
+              "Nagplano ang palengke at nakilahok ang ospital",
+              "Nagplano ang ospital at walang ibang kalahok",
+              "Walang institusyong nakilahok"
+            ],
+            "correct_answer": "Nagplano ang barangay hall at nakilahok ang paaralan"
+          },
+          {
+            "question": "Kung kailangan ng isang pamilya ng barangay clearance, saang institusyon sila dapat pumunta?",
+            "options": [
+              "Barangay hall",
+              "Palengke",
+              "Paaralan",
+              "Simbahan"
+            ],
+            "correct_answer": "Barangay hall"
+          },
+          {
+            "question": "Nakita ng guro na masama ang pakiramdam ng isang bata sa paaralan. Ano ang unang ginawa niya ayon sa aralin?",
+            "options": [
+              "Dinala niya ang bata sa school clinic",
+              "Hinayaan niya lamang ang bata",
+              "Pinauwi agad nang mag-isa ang bata",
+              "Kinalimutan ang sitwasyon"
+            ],
+            "correct_answer": "Dinala niya ang bata sa school clinic"
+          },
+          {
+            "question": "Sa paghahanda sa sakuna, ano ang ginawa ng paaralan?",
+            "options": [
+              "Nagsanay ng evacuation drill",
+              "Nagbigay ng bakuna",
+              "Nagbenta ng gulay",
+              "Namahagi ng clearance"
+            ],
+            "correct_answer": "Nagsanay ng evacuation drill"
+          },
+          {
+            "question": "Bakit itinuturing na \"sentro ng pamamahala at serbisyo\" ang barangay hall sa isang komunidad?",
+            "options": [
+              "Dahil dito nagmumula ang mga desisyon at serbisyong nakakaapekto sa kaligtasan, kalusugan, at kapakanan ng lahat ng mamamayan",
+              "Dahil ito lamang ang lugar na maaaring puntahan ng mga tao",
+              "Dahil walang ginagawang serbisyo ang barangay hall",
+              "Dahil hindi ito bahagi ng komunidad"
+            ],
+            "correct_answer": "Dahil dito nagmumula ang mga desisyon at serbisyong nakakaapekto sa kaligtasan, kalusugan, at kapakanan ng lahat ng mamamayan"
+          },
+          {
+            "question": "Bakit mahalagang alam ng isang bata ang tamang hakbang tulad ng \"magsabi agad sa nakatatanda\" kapag masama ang pakiramdam, sa halip na uminom ng gamot nang mag-isa?",
+            "options": [
+              "Dahil ang nakatatanda ang makatutulong sa tamang pangangalaga at maiiwasan ang panganib sa maling paggamot",
+              "Dahil hindi mahalaga ang kalusugan ng bata",
+              "Dahil ang bata mismo ang nakakaalam ng tamang gamot",
+              "Dahil walang epekto ang pag-inom ng gamot nang mag-isa"
+            ],
+            "correct_answer": "Dahil ang nakatatanda ang makatutulong sa tamang pangangalaga at maiiwasan ang panganib sa maling paggamot"
+          },
+          {
+            "question": "Paano nagsisilbing patunay ang mga institusyon tulad ng paaralan, ospital, at barangay hall na \"hindi kayang tumayo nang mag-isa\" ang isang komunidad?",
+            "options": [
+              "Dahil bawat institusyon ay may tiyak na tungkuling nagtutugma upang tugunan ang iba't ibang pangangailangan ng mga tao",
+              "Dahil isang institusyon lamang ang talagang kailangan",
+              "Dahil pareho lamang ang serbisyo ng lahat ng institusyon",
+              "Dahil ang mga institusyon ay hindi kailanman nagtutulungan"
+            ],
+            "correct_answer": "Dahil bawat institusyon ay may tiyak na tungkuling nagtutugma upang tugunan ang iba't ibang pangangailangan ng mga tao"
+          },
+          {
+            "question": "Bakit hindi sapat na basta pumasok lamang sa paaralan ang isang mag-aaral, kundi kailangan ding tuparin ang mga tungkulin tulad ng paggalang sa kaklase at pag-aalaga ng gamit?",
+            "options": [
+              "Dahil ang mga tungkuling ito ang nagpapanatili ng maayos at ligtas na kapaligiran ng pagkatuto para sa lahat",
+              "Dahil hindi mahalaga ang presensya sa paaralan",
+              "Dahil sapat na ang pagpasok nang walang ibang gagawin",
+              "Dahil ang mga tungkuling ito ay hindi bahagi ng aralin"
+            ],
+            "correct_answer": "Dahil ang mga tungkuling ito ang nagpapanatili ng maayos at ligtas na kapaligiran ng pagkatuto para sa lahat"
+          },
+          {
+            "question": "Kung mawawala ang isa sa mga institusyon sa isang komunidad, tulad ng health center, ano ang maaaring maging epekto nito sa mga mamamayan?",
+            "options": [
+              "Maaaring mahirapan silang makakuha ng agarang pangangalagang pangkalusugan at bakuna",
+              "Wala itong anumang epekto sa komunidad",
+              "Mas magiging maayos ang komunidad",
+              "Hindi na kailangan pang magpagamot ang mga tao"
+            ],
+            "correct_answer": "Maaaring mahirapan silang makakuha ng agarang pangangalagang pangkalusugan at bakuna"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Ngayong Linggo sa GMRC: Ang Panalangin!\n\n- **Kahulugan ng panalangin** — ang panalangin ay ang paraan natin ng pakikipag-usap sa Diyos, na maaaring gawin anumang oras.\n- **Pansariling panalangin** — ito ay ang panalangin na ginagawa natin nang mag-isa, mula sa ating puso.\n- **Mabubuting dulot ng pananalangin** — nagbibigay ito ng kapayapaan sa puso at nagpapalakas ng loob lalo na kapag tayo ay nag-aalala.\n- **Pakikipag-ugnayan sa Diyos** — ang panalangin ay isang paraan upang mas lumapit at makilala natin ang Diyos.\n- **Pagkilala sa damdamin** — mahalagang malaman natin ang ating nararamdaman (masaya, malungkot, natatakot) upang tama ang ating pagpapahayag nito, kahit sa ating mga panalangin.",
+        "quiz": [
+          {
+            "question": "Sino ang maaaring lapitan bukod sa Diyos kapag mabigat ang nararamdaman?",
+            "options": [
+              "Magulang, guro, o guidance counselor",
+              "Walang sinuman",
+              "Kaibigan lamang na hindi kilala",
+              "Estranghero sa lansangan"
+            ],
+            "correct_answer": "Magulang, guro, o guidance counselor"
+          },
+          {
+            "question": "Bukod sa pagsasalita, ano pa ang maaari nating gawin sa panalangin?",
+            "options": [
+              "Tumahimik at magnilay",
+              "Sumigaw nang malakas",
+              "Tumakbo palayo",
+              "Matulog agad"
+            ],
+            "correct_answer": "Tumahimik at magnilay"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"pag-asa\"?",
+            "options": [
+              "Paniniwalang may mabuting maaaring mangyari",
+              "Kawalan ng pag-iisip",
+              "Pagkatakot sa kinabukasan",
+              "Pagwawalang-bahala"
+            ],
+            "correct_answer": "Paniniwalang may mabuting maaaring mangyari"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"pagkilala\" batay sa aralin?",
+            "options": [
+              "Pag-alala at pagpapahalaga sa kabutihang natatanggap",
+              "Pagtakbo nang mabilis",
+              "Pagtulog nang mahimbing",
+              "Paglalaro nang masaya"
+            ],
+            "correct_answer": "Pag-alala at pagpapahalaga sa kabutihang natatanggap"
+          },
+          {
+            "question": "Kailan maaaring magpasalamat sa pagkain?",
+            "options": [
+              "Bago kumain",
+              "Habang natutulog",
+              "Habang naglalaro",
+              "Sa gitna ng klase"
+            ],
+            "correct_answer": "Bago kumain"
+          },
+          {
+            "question": "Bakit itinuturing na \"tapat at magalang\" ang isang mabuting pansariling panalangin, kahit ito ay maikli lamang?",
+            "options": [
+              "Dahil ang kahalagahan ng panalangin ay nasa taos-pusong damdamin, hindi sa haba nito",
+              "Dahil kailangan itong maging mahaba upang maging tapat",
+              "Dahil hindi kailanman magalang ang maikling panalangin",
+              "Dahil hindi mahalaga ang taos-pusong damdamin"
+            ],
+            "correct_answer": "Dahil ang kahalagahan ng panalangin ay nasa taos-pusong damdamin, hindi sa haba nito"
+          },
+          {
+            "question": "Nag-away ang dalawang magkaibigan. Ano ang dapat manalanging hilingin ng isa sa kanila ayon sa halimbawa?",
+            "options": [
+              "Tulong upang maging mahinahon, humingi ng tawad, at makipag-usap nang maayos",
+              "Tulong upang lalong magalit",
+              "Tulong upang iwasan magpakailanman ang kaibigan",
+              "Tulong upang manalo sa away"
+            ],
+            "correct_answer": "Tulong upang maging mahinahon, humingi ng tawad, at makipag-usap nang maayos"
+          },
+          {
+            "question": "Pagkatapos manalangin humingi ng gabay, ano pa ang dapat gawin ayon sa aralin?",
+            "options": [
+              "Dapat ding kumilos nang tama tulad ng humingi ng tawad at makinig",
+              "Sapat na ang panalangin lamang, walang ibang gagawin",
+              "Dapat kalimutan na lamang ang problema",
+              "Dapat umiwas na lamang sa kaibigan"
+            ],
+            "correct_answer": "Dapat ding kumilos nang tama tulad ng humingi ng tawad at makinig"
+          },
+          {
+            "question": "Kung malungkot o natatakot ang isang bata, ano ang maaari niyang gawin ayon sa aralin?",
+            "options": [
+              "Ipahayag ang nararamdaman sa Diyos at lumapit din sa isang mapagkakatiwalaang tao",
+              "Itago na lamang ang lahat ng damdamin",
+              "Iwasan ang lahat ng tao",
+              "Huwag nang pumasok sa paaralan"
+            ],
+            "correct_answer": "Ipahayag ang nararamdaman sa Diyos at lumapit din sa isang mapagkakatiwalaang tao"
+          },
+          {
+            "question": "Bakit hindi sapat na sarilinin lamang ang mabigat na damdamin ayon sa aralin?",
+            "options": [
+              "Dahil mahalagang lumapit din sa mapagkakatiwalaang tao tulad ng magulang o guro",
+              "Dahil bawal ang manalangin nang mag-isa",
+              "Dahil hindi mahalaga ang damdamin ng bata",
+              "Dahil dapat itago na lamang ito magpakailanman"
+            ],
+            "correct_answer": "Dahil mahalagang lumapit din sa mapagkakatiwalaang tao tulad ng magulang o guro"
+          },
+          {
+            "question": "Sa halimbawa ng dalawang magkaibigang nag-away, bakit itinuturing na tamang hakbang ang \"manalangin, humingi ng tawad, at makipag-usap nang maayos\" kaysa sa manatiling galit lamang?",
+            "options": [
+              "Dahil ipinapakita nito ang pagsasama ng panalangin at kilos upang maayos ang relasyon",
+              "Dahil mas mabilis ang manatiling galit",
+              "Dahil hindi na kailangang makipag-usap muli",
+              "Dahil sapat na ang manalangin nang mag-isa"
+            ],
+            "correct_answer": "Dahil ipinapakita nito ang pagsasama ng panalangin at kilos upang maayos ang relasyon"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang aral para sa isang batang Grade 2 ang matutong magpahayag ng damdamin sa panalangin at sa mga mapagkakatiwalaang tao?",
+            "options": [
+              "Dahil tinuturuan nito ang bata na hindi niya kailangang harapin nang mag-isa ang mabibigat na damdamin",
+              "Dahil hindi mahalaga ang damdamin ng bata",
+              "Dahil dapat isarili na lamang ang lahat ng problema",
+              "Dahil dapat na matakot ang bata sa pagpapahayag ng damdamin"
+            ],
+            "correct_answer": "Dahil tinuturuan nito ang bata na hindi niya kailangang harapin nang mag-isa ang mabibigat na damdamin"
+          },
+          {
+            "question": "Ihambing ang pananalangin sa oras ng kalungkutan at ang pananalangin bilang inspirasyon. Ano ang pagkakatulad ng dalawa sa kanilang layunin?",
+            "options": [
+              "Pareho silang nagbibigay-lakas sa tao upang harapin ang isang hamon o damdamin",
+              "Wala silang pagkakatulad",
+              "Ang isa ay mas mahalaga kaysa sa isa",
+              "Pareho silang walang kaugnayan sa damdamin"
+            ],
+            "correct_answer": "Pareho silang nagbibigay-lakas sa tao upang harapin ang isang hamon o damdamin"
+          },
+          {
+            "question": "Bakit itinuturing na hindi sapat ang \"panalangin lamang\" kung walang kasamang kilos, gaya ng ipinakita sa kuwento ni Nilo?",
+            "options": [
+              "Dahil ang panalangin ay nagbibigay-inspirasyon ngunit kailangan pa ring gumawa ng tunay na hakbang upang magtagumpay",
+              "Dahil ang panalangin ay walang silbi",
+              "Dahil hindi na kailangan ng pagsisikap kapag may panalangin",
+              "Dahil ang pagkilos lamang ang mahalaga, hindi ang panalangin"
+            ],
+            "correct_answer": "Dahil ang panalangin ay nagbibigay-inspirasyon ngunit kailangan pa ring gumawa ng tunay na hakbang upang magtagumpay"
+          },
+          {
+            "question": "Paano naiiba ang paghingi ng gabay sa panalangin sa \"pagsasarili\" ng damdamin nang hindi humihingi ng tulong sa iba?",
+            "options": [
+              "Ang paghingi ng gabay ay nagsasama ng panalangin at pagkilos tulad ng paghingi ng tulong sa nakatatanda, hindi lamang pananahimik nang mag-isa",
+              "Magkatulad lamang sila",
+              "Ang pagsasarili ng damdamin ay mas mabuti",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Ang paghingi ng gabay ay nagsasama ng panalangin at pagkilos tulad ng paghingi ng tulong sa nakatatanda, hindi lamang pananahimik nang mag-isa"
+          }
+        ]
+      }
+    }
+  }
+}

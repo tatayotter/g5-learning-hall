@@ -1,0 +1,163 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-06-28",
+  "days": {
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Measuring Volume and Temperature\n\n- To measure the **volume** of a liquid, scientists use a **graduated container** (graduated cylinder), marked with units like **milliliters (mL)** and **liters (L)**. Remember: 1 L = 1000 mL.\n- To read a graduated container correctly, look at the liquid's curved surface (called the **meniscus**) at **eye level**, and read the measurement at the **bottom of the curve** -- looking from above or below can give an inaccurate reading.\n- To measure **temperature**, scientists use a **thermometer**, and in the Philippines we record readings in **degrees Celsius (°C)**.\n- A measurement is only useful if it includes its **unit**. Writing \"28\" with no unit could mean 28°C, 28 mL, or something else entirely -- always write the unit!\n\n| Tool | Measures | Common Units |\n|---|---|---|\n| Graduated container | Volume | mL, L |\n| Thermometer | Temperature | °C |\n\n- Example: Aling Nena measuring gatas (milk) for a recipe would use a graduated container marked in mL or L, while checking if a bowl of sinigang is cool enough for a baby to eat would call for a thermometer reading in °C.\n- Using the same unit consistently (always mL, for example, instead of switching to an unmarked cup) is important so measurements can be fairly compared by anyone reading them.",
+        "quiz": [
+          {
+            "question": "What tool is used to measure the volume of a liquid?",
+            "options": [
+              "A graduated container (graduated cylinder)",
+              "A thermometer",
+              "A ruler",
+              "A weighing scale"
+            ],
+            "correct_answer": "A graduated container (graduated cylinder)"
+          },
+          {
+            "question": "Which units are commonly used to measure the volume of a liquid?",
+            "options": [
+              "Milliliters (mL) and liters (L)",
+              "Grams (g) and kilograms (kg)",
+              "Degrees Celsius (°C)",
+              "Meters (m) and centimeters (cm)"
+            ],
+            "correct_answer": "Milliliters (mL) and liters (L)"
+          },
+          {
+            "question": "What tool is used to measure temperature?",
+            "options": [
+              "A thermometer",
+              "A graduated cylinder",
+              "A weighing scale",
+              "A ruler"
+            ],
+            "correct_answer": "A thermometer"
+          },
+          {
+            "question": "What unit is used to record temperature readings in the Philippines' science classes?",
+            "options": [
+              "Degrees Celsius (°C)",
+              "Milliliters (mL)",
+              "Kilograms (kg)",
+              "Meters (m)"
+            ],
+            "correct_answer": "Degrees Celsius (°C)"
+          },
+          {
+            "question": "When reading the liquid level in a graduated cylinder, what part of the curved surface (meniscus) should you read?",
+            "options": [
+              "The bottom of the curve at eye level",
+              "The very top edge of the liquid",
+              "Any part, it does not matter",
+              "The color of the liquid"
+            ],
+            "correct_answer": "The bottom of the curve at eye level"
+          },
+          {
+            "question": "Aling Nena wants to measure exactly how much gatas (milk) is left in a jug for a recipe. Which tool and unit should she use?",
+            "options": [
+              "A graduated container, measured in mL or L",
+              "A thermometer, measured in °C",
+              "A ruler, measured in cm",
+              "A weighing scale, measured in kg"
+            ],
+            "correct_answer": "A graduated container, measured in mL or L"
+          },
+          {
+            "question": "A graduated cylinder shows a tubig (water) level exactly at the 350 mark, with mL printed on the cylinder. How much water is there?",
+            "options": [
+              "350 mL",
+              "350 L",
+              "350 °C",
+              "350 g"
+            ],
+            "correct_answer": "350 mL"
+          },
+          {
+            "question": "To find out how hot a cup of sinigang soup is before serving it to a baby, what should you use?",
+            "options": [
+              "A thermometer, reading in °C",
+              "A graduated cylinder, reading in mL",
+              "A ruler, reading in cm",
+              "Your hand only, since tools are not needed"
+            ],
+            "correct_answer": "A thermometer, reading in °C"
+          },
+          {
+            "question": "A student reads a thermometer placed in a glass of iced calamansi juice and records 10. What is missing from this measurement?",
+            "options": [
+              "The unit, °C",
+              "The liquid's color",
+              "The container's shape",
+              "The student's name"
+            ],
+            "correct_answer": "The unit, °C"
+          },
+          {
+            "question": "While measuring 200 mL of suka (vinegar) in a graduated cylinder, a student looks at the liquid from above instead of at eye level. What problem could this cause?",
+            "options": [
+              "The reading could be inaccurate because of the way the curved liquid surface looks from that angle",
+              "There is no problem at all",
+              "The vinegar will evaporate faster",
+              "The cylinder will break"
+            ],
+            "correct_answer": "The reading could be inaccurate because of the way the curved liquid surface looks from that angle"
+          },
+          {
+            "question": "Two students measure the same glass of water. One reads the meniscus at eye level and gets 120 mL. The other looks down at an angle from above and gets 128 mL. Which reading is more likely correct, and why?",
+            "options": [
+              "120 mL, because reading at eye level avoids the distortion caused by viewing the curved liquid surface at an angle",
+              "128 mL, because a higher number is always more accurate",
+              "Both are equally correct",
+              "Neither is correct because water cannot be measured in mL"
+            ],
+            "correct_answer": "120 mL, because reading at eye level avoids the distortion caused by viewing the curved liquid surface at an angle"
+          },
+          {
+            "question": "A recipe needs exactly 1 liter of gatas (milk), but the only container available is marked in mL. How can a student figure out how many mL to pour?",
+            "options": [
+              "Pour milk until the graduated container reads 1000 mL, since 1 L equals 1000 mL",
+              "Pour milk until it reads 1 mL",
+              "Use a thermometer instead of a graduated container",
+              "It is impossible to convert between L and mL"
+            ],
+            "correct_answer": "Pour milk until the graduated container reads 1000 mL, since 1 L equals 1000 mL"
+          },
+          {
+            "question": "A student wants to compare the temperature of two cups of a hot drink -- one just poured and one that sat for 10 minutes -- to see which cooled down more. Which single tool and unit will let them make a fair comparison?",
+            "options": [
+              "A thermometer, reading both in °C",
+              "A graduated cylinder, reading both in mL",
+              "A ruler, reading both in cm",
+              "Just touching both cups with a hand"
+            ],
+            "correct_answer": "A thermometer, reading both in °C"
+          },
+          {
+            "question": "Why is it important to use the SAME unit (for example, always mL, not sometimes mL and sometimes an unmarked cup) when recording volume measurements during an investigation?",
+            "options": [
+              "So the measurements can be fairly compared and are understandable to anyone reading the results",
+              "Because mL is the only real unit that exists",
+              "Because using different units makes an investigation more scientific",
+              "It is not important as long as numbers are written down"
+            ],
+            "correct_answer": "So the measurements can be fairly compared and are understandable to anyone reading the results"
+          },
+          {
+            "question": "A student records the temperature of tap water as \"28\" with no unit, and later cannot remember if it meant °C or something else. What lesson about measurement does this mistake teach?",
+            "options": [
+              "Every measurement must include its unit, or the number becomes meaningless or confusing later",
+              "Numbers are always understood without units",
+              "Only volume measurements need units, not temperature",
+              "This mistake does not matter for science"
+            ],
+            "correct_answer": "Every measurement must include its unit, or the number becomes meaningless or confusing later"
+          }
+        ]
+      }
+    }
+  }
+}

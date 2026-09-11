@@ -1,0 +1,163 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-06-21",
+  "days": {
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Comparing States of Matter: Shape AND Volume\n\n- Last week we sorted matter by shape alone. This week we look more closely using **two separate properties**: **shape** and **volume**.\n- A **definite (fixed) shape** means the matter keeps its own shape no matter what container it is in.\n- A **definite (fixed) volume** means the amount of space the matter takes up stays the same, even if it is moved to a different container.\n- **Solids** (like a wooden bangko) have BOTH a definite shape and a definite volume.\n- **Liquids** (like gatas/milk) have a definite volume but an **indefinite shape** -- pour milk from a tall glass into a wide bowl, and it looks different, but it is still the same amount (say, 250 mL).\n- **Gases** (like hangin/air in a basketball) have **neither** a definite shape nor a definite volume -- they spread out to completely fill whatever space contains them.\n\n| State | Shape | Volume |\n|---|---|---|\n| Solid | Definite | Definite |\n| Liquid | Indefinite | Definite |\n| Gas | Indefinite | Indefinite |\n\n- A tricky example: pouring bigas (rice grains) into a pile makes the pile's overall shape change, but each individual grain is still a solid with its own fixed shape -- only the whole pile's outline changes.\n- Using two properties instead of one gives scientists a clearer, more accurate way to describe and compare matter.",
+        "quiz": [
+          {
+            "question": "Which state of matter has BOTH a definite shape and a definite volume?",
+            "options": [
+              "Solid",
+              "Liquid",
+              "Gas",
+              "Liquid and gas"
+            ],
+            "correct_answer": "Solid"
+          },
+          {
+            "question": "Which state of matter has a definite volume but NOT a definite shape?",
+            "options": [
+              "Liquid",
+              "Solid",
+              "Gas",
+              "None of them"
+            ],
+            "correct_answer": "Liquid"
+          },
+          {
+            "question": "Which state of matter has neither a definite shape nor a definite volume?",
+            "options": [
+              "Gas",
+              "Solid",
+              "Liquid",
+              "Solid and liquid"
+            ],
+            "correct_answer": "Gas"
+          },
+          {
+            "question": "What does \"definite shape\" mean?",
+            "options": [
+              "The matter keeps its own shape no matter what container it is in",
+              "The matter always looks the same color",
+              "The matter can only be a solid",
+              "The matter has no mass"
+            ],
+            "correct_answer": "The matter keeps its own shape no matter what container it is in"
+          },
+          {
+            "question": "What does \"definite volume\" mean?",
+            "options": [
+              "The amount of space the matter takes up stays the same, even if the container changes",
+              "The matter has a fixed color",
+              "The matter is always heavy",
+              "The matter cannot be poured"
+            ],
+            "correct_answer": "The amount of space the matter takes up stays the same, even if the container changes"
+          },
+          {
+            "question": "A basketball is inflated with air. The air spreads out to completely fill the inside of the ball. Which property of gases does this show?",
+            "options": [
+              "Gases have an indefinite shape and indefinite volume -- they fill their container",
+              "Gases have a definite shape",
+              "Gases have a definite volume",
+              "Gases are heavier than solids"
+            ],
+            "correct_answer": "Gases have an indefinite shape and indefinite volume -- they fill their container"
+          },
+          {
+            "question": "Gatas (milk) is poured from a tall glass into a wide, shallow bowl. It looks different but the same amount is still there. Which property of liquids does this show?",
+            "options": [
+              "Liquids have a definite volume but an indefinite (changing) shape",
+              "Liquids have a definite shape",
+              "Liquids have no volume",
+              "Milk is a solid"
+            ],
+            "correct_answer": "Liquids have a definite volume but an indefinite (changing) shape"
+          },
+          {
+            "question": "A wooden bangko (bench) keeps the exact same shape and size whether it sits in the classroom or outside. This shows the bangko is a solid because it has:",
+            "options": [
+              "A definite shape and a definite volume",
+              "A definite shape but indefinite volume",
+              "An indefinite shape but definite volume",
+              "Neither shape nor volume"
+            ],
+            "correct_answer": "A definite shape and a definite volume"
+          },
+          {
+            "question": "You have 250 mL of suka (vinegar) in a bottle. You pour it into a wider jar. Which statement is TRUE?",
+            "options": [
+              "The suka still has 250 mL of volume, but now looks like a different shape",
+              "The suka now has more volume",
+              "The suka becomes a gas",
+              "The suka's shape stays the same as the bottle"
+            ],
+            "correct_answer": "The suka still has 250 mL of volume, but now looks like a different shape"
+          },
+          {
+            "question": "Which pair correctly matches the state of matter to BOTH of its properties?",
+            "options": [
+              "Gas -- indefinite shape, indefinite volume",
+              "Solid -- indefinite shape, definite volume",
+              "Liquid -- definite shape, indefinite volume",
+              "Gas -- definite shape, definite volume"
+            ],
+            "correct_answer": "Gas -- indefinite shape, indefinite volume"
+          },
+          {
+            "question": "A sealed sack of bigas (rice grains) is poured onto a table. The rice pile spreads out and does not keep the sack's shape. Does this mean rice grains behave like a liquid? Why or why not?",
+            "options": [
+              "No -- each individual rice grain is still a solid with its own fixed shape; only the whole pile's outer shape changes because it is made of many separate solid grains",
+              "Yes -- because the pile takes the shape of the table",
+              "Yes -- because rice grains have no mass",
+              "No -- because rice is a gas"
+            ],
+            "correct_answer": "No -- each individual rice grain is still a solid with its own fixed shape; only the whole pile's outer shape changes because it is made of many separate solid grains"
+          },
+          {
+            "question": "Two clear containers, one tall and thin and one short and wide, each hold 500 mL of tubig (water). A classmate says the tall one has \"more water\" because the water level looks higher. What is wrong with this reasoning?",
+            "options": [
+              "Volume is the actual amount of space taken up, not how tall the water looks -- both containers have the same 500 mL",
+              "The tall container really does have more water",
+              "Water does not have volume",
+              "Shape determines volume for liquids"
+            ],
+            "correct_answer": "Volume is the actual amount of space taken up, not how tall the water looks -- both containers have the same 500 mL"
+          },
+          {
+            "question": "If you could seal hangin (air) inside a small balloon and then inside a very large empty room, what would happen to its shape and volume?",
+            "options": [
+              "It would spread out to take the shape and volume of whichever space contains it",
+              "It would always stay the same size no matter what",
+              "It would turn into a liquid in the larger room",
+              "It would disappear"
+            ],
+            "correct_answer": "It would spread out to take the shape and volume of whichever space contains it"
+          },
+          {
+            "question": "A scientist finds an unknown sample that keeps a fixed volume when moved between containers, but changes shape to match each container. Based only on this clue, which state is it, and what additional test could confirm it is NOT a gas?",
+            "options": [
+              "It is likely a liquid; checking if it fills the entire container completely on its own (which only gases do) would help confirm this",
+              "It is a solid; no further test is needed",
+              "It is a gas; checking its color would confirm this",
+              "It cannot be identified using shape or volume"
+            ],
+            "correct_answer": "It is likely a liquid; checking if it fills the entire container completely on its own (which only gases do) would help confirm this"
+          },
+          {
+            "question": "Why is it more accurate for a scientist to describe matter using TWO separate properties (shape and volume) instead of just one property called \"form\"?",
+            "options": [
+              "Because shape and volume can behave differently -- for example, a liquid changes shape but keeps the same volume -- so combining them into one property would hide that difference",
+              "Because scientists prefer complicated methods",
+              "Because volume and shape are always exactly the same as each other",
+              "Because only solids have shape or volume"
+            ],
+            "correct_answer": "Because shape and volume can behave differently -- for example, a liquid changes shape but keeps the same volume -- so combining them into one property would hide that difference"
+          }
+        ]
+      }
+    }
+  }
+}

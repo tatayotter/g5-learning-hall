@@ -1,0 +1,890 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-07-12",
+  "days": {
+    "Monday": {
+      "Math": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Multi-Step Fraction Problems:** Solve word problems requiring multiple steps using the **4-Step Model**: **Understand** (facts and goals), **Plan** (strategy), **Solve** (computation), and **Look Back** (checking reasonableness).\n* **Keyword Signal:** The word **'of'** in fraction problems usually signals the **multiplication** operation (e.g., finding 1/2 of 3/4).\n* **Budgeting Example:** If Rita earns ₱18,000 and spends 1/6 on rent and 1/3 on food, you multiply each fraction by 18,000 first (₱3,000 and ₱6,000) then add them to find total expenses (₱9,000).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Geometry Foundations:** We will begin identifying the **height and area** of parallelograms and triangles using grid models.",
+        "quiz": [
+          {
+            "question": "What is the first step in the 4-step word problem-solving model?",
+            "options": [
+              "Plan",
+              "Understand",
+              "Solve"
+            ],
+            "correct_answer": "Understand"
+          },
+          {
+            "question": "In the phrase '1/3 of the class,' what operation does 'of' represent?",
+            "options": [
+              "Addition",
+              "Subtraction",
+              "Multiplication"
+            ],
+            "correct_answer": "Multiplication"
+          },
+          {
+            "question": "Calculate 1/6 of ₱18,000.",
+            "options": [
+              "₱3,000",
+              "₱6,000",
+              "₱9,000"
+            ],
+            "correct_answer": "₱3,000"
+          },
+          {
+            "question": "Calculate 1/3 of ₱18,000.",
+            "options": [
+              "₱3,000",
+              "₱6,000",
+              "₱9,000"
+            ],
+            "correct_answer": "₱6,000"
+          },
+          {
+            "question": "If a pizza is 3/4 full and you eat 1/2 of it, what is the result?",
+            "options": [
+              "3/8",
+              "1/4",
+              "1/2"
+            ],
+            "correct_answer": "3/8"
+          },
+          {
+            "question": "John has 48 burgers. If 1/4 are left, how many were eaten?",
+            "options": [
+              "12",
+              "36",
+              "24"
+            ],
+            "correct_answer": "36"
+          },
+          {
+            "question": "What is 1/2 of 1/4?",
+            "options": [
+              "1/8",
+              "1/6",
+              "1/4"
+            ],
+            "correct_answer": "1/8"
+          },
+          {
+            "question": "Which step involves checking if your answer makes sense?",
+            "options": [
+              "Understand",
+              "Solve",
+              "Look Back"
+            ],
+            "correct_answer": "Look Back"
+          }
+        ]
+      },
+      "English": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Explanatory Texts:** These informational texts explain **how or why** processes happen, such as how a volcano erupts or how the water cycle works.\n* **Glossaries:** Use a **glossary** at the end of a text to find definitions for specialized or difficult terms like 'ancestral' or 'picturesque'.\n* **Linking Words:** Sequence connectors like **'Firstly,' 'Next,' 'Then,'** and **'Finally'** help organize the steps of a process clearly.\n* **Writing Structure:** A clear explanation includes an **Introduction** (topic), **Body** (details/steps), and **Conclusion** (summary).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Sentence Complexity:** We will explore how to combine ideas into **compound-complex sentences** for more detailed writing.",
+        "quiz": [
+          {
+            "question": "What is the main purpose of an explanatory text?",
+            "options": [
+              "To tell jokes",
+              "To explain how or why something happens",
+              "To list character names"
+            ],
+            "correct_answer": "To explain how or why something happens"
+          },
+          {
+            "question": "Where is a glossary usually found?",
+            "options": [
+              "At the end of the text",
+              "On the front cover",
+              "In the table of contents"
+            ],
+            "correct_answer": "At the end of the text"
+          },
+          {
+            "question": "Which linking word is used to start a process?",
+            "options": [
+              "Finally",
+              "Next",
+              "Firstly"
+            ],
+            "correct_answer": "Firstly"
+          },
+          {
+            "question": "What are the three main parts of an explanatory text?",
+            "options": [
+              "Title, Body, End",
+              "Introduction, Body, Conclusion",
+              "Characters, Setting, Plot"
+            ],
+            "correct_answer": "Introduction, Body, Conclusion"
+          },
+          {
+            "question": "In a glossary, what would 'ancestral' most likely mean?",
+            "options": [
+              "Modern",
+              "Related to family history",
+              "Empty"
+            ],
+            "correct_answer": "Related to family history"
+          },
+          {
+            "question": "Why is an introduction necessary in an explanation?",
+            "options": [
+              "It tells what the text is about",
+              "It ends the text",
+              "It hides the topic"
+            ],
+            "correct_answer": "It tells what the text is about"
+          },
+          {
+            "question": "Which part of the text gives specific facts and examples?",
+            "options": [
+              "Introduction",
+              "Body",
+              "Conclusion"
+            ],
+            "correct_answer": "Body"
+          },
+          {
+            "question": "Which linking word is best to conclude a process?",
+            "options": [
+              "Firstly",
+              "Furthermore",
+              "Finally"
+            ],
+            "correct_answer": "Finally"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "EPP/TLE": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Netiquette:** Ang etiketa o tamang asal sa internet, tulad ng paggamit ng **magalang na salita** at pagprotekta sa **privacy** (huwag ibahagi ang password).\n* **Web Browser:** Programang ginagamit upang makapasok sa internet; ang URL ay tina-type sa **Address Bar**.\n* **Search Engines:** Nakakatulong sa paghahanap ng impormasyon; gumamit ng mga angkop na **keywords** para sa mas mabilis at tamang resulta.\n* **Information Verification:** Bago maniwala, dapat **i-verify** muna ang katotohanan ng impormasyong nahanap online.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Safe E-mailing:** Pag-aaralan natin ang tamang pagpapadala ng **attachments** at ang gamit ng **CC at BCC**.",
+        "quiz": [
+          {
+            "question": "Ano ang ibig sabihin ng netiquette?",
+            "options": [
+              "Paggawa ng dokumento",
+              "Etiketa sa internet",
+              "Pag-print ng files"
+            ],
+            "correct_answer": "Etiketa sa internet"
+          },
+          {
+            "question": "Saan karaniwang tina-type ang URL sa isang browser?",
+            "options": [
+              "Address Bar",
+              "Status Bar",
+              "Scroll Bar"
+            ],
+            "correct_answer": "Address Bar"
+          },
+          {
+            "question": "Alin sa mga ito ang halimbawa ng web browser?",
+            "options": [
+              "Microsoft Word",
+              "Google Chrome",
+              "Calculator"
+            ],
+            "correct_answer": "Google Chrome"
+          },
+          {
+            "question": "Bakit hindi dapat ibahagi ang password sa iba?",
+            "options": [
+              "Upang hindi mapasok ang account",
+              "Upang hindi masira ang mouse",
+              "Upang bumilis ang internet"
+            ],
+            "correct_answer": "Upang hindi mapasok ang account"
+          },
+          {
+            "question": "Ano ang pangunahing gamit ng search engine?",
+            "options": [
+              "Mag-imbak ng pagkain",
+              "Maghanap ng impormasyon sa web",
+              "Mag-print ng larawan"
+            ],
+            "correct_answer": "Maghanap ng impormasyon sa web"
+          },
+          {
+            "question": "Bakit mahalagang gumamit ng angkop na keywords sa paghahanap?",
+            "options": [
+              "Upang mas mabilis ang resulta",
+              "Upang mawala ang signal",
+              "Upang hindi gumana ang search"
+            ],
+            "correct_answer": "Upang mas mabilis ang resulta"
+          },
+          {
+            "question": "Ano ang dapat gawin bago magbahagi ng impormasyong nahanap online?",
+            "options": [
+              "I-post agad",
+              "I-verify muna",
+              "Huwag basahin"
+            ],
+            "correct_answer": "I-verify muna"
+          },
+          {
+            "question": "Sino o ano ang gumagawa ng pagsusuri sa mga web page sa search engine?",
+            "options": [
+              "Crawler",
+              "Keyboard",
+              "Monitor"
+            ],
+            "correct_answer": "Crawler"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "## The Steps of a Simple Scientific Investigation\n\n- A scientific investigation follows clear steps so that anyone can understand and even repeat what was done:\n  1. **State the problem or question** (what do you want to find out?)\n  2. **List the materials** needed\n  3. **Describe the procedure** -- the exact steps, in order\n  4. **Record the findings** -- what was actually observed or measured\n  5. **Write a conclusion** that answers the original question based on the findings\n- Good measurements need the right **units**. For **mass**, we use **milligrams (mg)**, **grams (g)**, and **kilograms (kg)** -- choosing a unit that fits the size of what is being measured (mg for very light items, kg for heavy ones). For **temperature**, we use **degrees Celsius (°C)**.\n- Example: for the question \"Do gases have mass?\", the materials would include a weighing scale and a balloon; the procedure would describe weighing the balloon deflated, then inflated; the findings would record both masses; and the conclusion would state whether gases have mass based on the difference observed.\n\n| Step | Purpose |\n|---|---|\n| Problem/Question | What you want to find out |\n| Materials | What you need |\n| Procedure | How you will do it, step by step |\n| Findings | What you observed or measured |\n| Conclusion | The answer to your question, based on findings |\n\n- Skipping a written procedure is risky -- without it, no one (not even the same student later) can repeat the exact same steps to check the results.\n- A fair investigation, like testing \"Does water temperature affect how fast sugar dissolves?\", should compare at least two different conditions (like warm and cold water) while keeping the amount of sugar and water the same each time.",
+        "visual_aid": {
+          "type": "steps",
+          "steps": [
+            {
+              "label": "Problem/Question",
+              "detail": "What do you want to find out?"
+            },
+            {
+              "label": "Materials",
+              "detail": "What you need"
+            },
+            {
+              "label": "Procedure",
+              "detail": "How you will do it, step by step"
+            },
+            {
+              "label": "Findings",
+              "detail": "What you observed or measured"
+            },
+            {
+              "label": "Conclusion",
+              "detail": "The answer, based on your findings"
+            }
+          ],
+          "title": "Steps of a Scientific Investigation"
+        },
+        "quiz": [
+          {
+            "question": "What is the FIRST step of a simple scientific investigation?",
+            "options": [
+              "Stating the problem or question",
+              "Recording the conclusion",
+              "Listing the materials",
+              "Writing the findings"
+            ],
+            "correct_answer": "Stating the problem or question"
+          },
+          {
+            "question": "What should a list of materials in an investigation include?",
+            "options": [
+              "All the items and tools needed to carry out the investigation",
+              "Only the final results",
+              "Only the problem statement",
+              "The name of the scientist only"
+            ],
+            "correct_answer": "All the items and tools needed to carry out the investigation"
+          },
+          {
+            "question": "What is a \"procedure\" in an investigation?",
+            "options": [
+              "The step-by-step description of how the investigation will be carried out",
+              "The final answer to the problem",
+              "A list of materials only",
+              "A guess with no testing"
+            ],
+            "correct_answer": "The step-by-step description of how the investigation will be carried out"
+          },
+          {
+            "question": "What comes after recording findings in an investigation?",
+            "options": [
+              "Writing a conclusion based on the findings",
+              "Stating the problem",
+              "Listing materials",
+              "Starting the procedure"
+            ],
+            "correct_answer": "Writing a conclusion based on the findings"
+          },
+          {
+            "question": "Which units are appropriate for measuring mass?",
+            "options": [
+              "Milligrams (mg), grams (g), and kilograms (kg)",
+              "Milliliters (mL) and liters (L)",
+              "Degrees Celsius (°C)",
+              "Meters (m) and centimeters (cm)"
+            ],
+            "correct_answer": "Milligrams (mg), grams (g), and kilograms (kg)"
+          },
+          {
+            "question": "A student wants to investigate, \"Does water temperature affect how fast sugar dissolves?\" What should the student write FIRST?",
+            "options": [
+              "The problem/question itself, clearly stated",
+              "The conclusion",
+              "The findings table",
+              "The materials list, before deciding on a question"
+            ],
+            "correct_answer": "The problem/question itself, clearly stated"
+          },
+          {
+            "question": "For the investigation \"Do gases have mass?\", which of these belongs in the materials list?",
+            "options": [
+              "A weighing scale and a balloon",
+              "The final conclusion sentence",
+              "A summary of what was found",
+              "The student's opinion before testing"
+            ],
+            "correct_answer": "A weighing scale and a balloon"
+          },
+          {
+            "question": "A group records that sugar fully dissolved in 30 seconds in warm water but took 90 seconds in cold water. Which part of the investigation is this?",
+            "options": [
+              "Findings",
+              "Problem/question",
+              "Materials",
+              "Procedure"
+            ],
+            "correct_answer": "Findings"
+          },
+          {
+            "question": "An investigation needs to record the mass of a small bag of asukal (sugar), likely just a few grams. Which unit is most appropriate to use?",
+            "options": [
+              "Grams (g)",
+              "Kilograms (kg) only",
+              "Liters (L)",
+              "Degrees Celsius (°C)"
+            ],
+            "correct_answer": "Grams (g)"
+          },
+          {
+            "question": "After finding that sugar dissolves faster in warm water than in cold water, what should a student write as the conclusion?",
+            "options": [
+              "A statement that answers the original question based on what was found, such as 'warmer water makes sugar dissolve faster'",
+              "A new, unrelated question",
+              "Only the materials used",
+              "The exact time in seconds with no explanation"
+            ],
+            "correct_answer": "A statement that answers the original question based on what was found, such as 'warmer water makes sugar dissolve faster'"
+          },
+          {
+            "question": "A student skips writing down the procedure and just remembers the steps mentally while doing the investigation. Why could this cause a problem later?",
+            "options": [
+              "Another person (or the student later) could not repeat the exact same steps to check the results, since nothing was written down",
+              "Procedures are not an important part of an investigation",
+              "Skipping the procedure makes the results more accurate",
+              "The findings would automatically be wrong"
+            ],
+            "correct_answer": "Another person (or the student later) could not repeat the exact same steps to check the results, since nothing was written down"
+          },
+          {
+            "question": "For the question \"Do gases have mass?\", a student plans to weigh a balloon before and after inflating it. What should the student make sure stays the SAME in both weighings for a fair comparison?",
+            "options": [
+              "The same balloon, the same scale, and the same conditions -- only whether it is inflated should differ",
+              "Nothing needs to stay the same",
+              "A different balloon should be used each time",
+              "The scale should be changed between weighings"
+            ],
+            "correct_answer": "The same balloon, the same scale, and the same conditions -- only whether it is inflated should differ"
+          },
+          {
+            "question": "A group's findings show the deflated balloon weighed 15 g and the inflated balloon weighed 15.3 g. What conclusion best matches this finding?",
+            "options": [
+              "Gases have mass, because the balloon weighed more once filled with air",
+              "Gases have no mass, since the difference is very small",
+              "The scale must be broken",
+              "Air makes objects lighter"
+            ],
+            "correct_answer": "Gases have mass, because the balloon weighed more once filled with air"
+          },
+          {
+            "question": "Why might a scientist prefer to measure the mass of a small object in milligrams (mg) instead of kilograms (kg)?",
+            "options": [
+              "Because mg gives a more precise and readable number for very light objects, instead of an awkward tiny decimal in kg",
+              "Because mg is always the only correct unit for anything",
+              "Because kg cannot be used for small objects at all",
+              "Because milligrams measure temperature, not mass"
+            ],
+            "correct_answer": "Because mg gives a more precise and readable number for very light objects, instead of an awkward tiny decimal in kg"
+          },
+          {
+            "question": "A student wants to investigate \"Does water temperature affect how fast sugar dissolves?\" but only tests ONE temperature of water. What is the problem with this plan, and how could the enriched investigation steps fix it?",
+            "options": [
+              "Testing only one temperature cannot show an effect of temperature; the student needs to compare at least two different temperatures while keeping the amount of sugar and water the same",
+              "There is no problem, one test is always enough",
+              "The student should skip the conclusion step instead",
+              "The student should change the amount of sugar instead of the temperature"
+            ],
+            "correct_answer": "Testing only one temperature cannot show an effect of temperature; the student needs to compare at least two different temperatures while keeping the amount of sugar and water the same"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Sinaunang Kabuhayan:** Ang mga ninuno ay umaasa sa kalikasan para sa **pagsasaka** (pagkakaingin at paglilinang), **pangingisda**, at **pagmimina**.\n* **Sistemang Barter:** Dahil walang pera, nakikipagpalitan sila ng produkto sa kapwa produkto (hal. palay kapalit ng isda).\n* **Papel ng Kababaihan:** Mataas ang katayuan ng babae; maaari silang mag-ari ng lupa, maging pinuno, o maging **Babaylan/Katalonan** (espirituwal na lider).\n* **Dote:** Bago ang kasal, nagbibigay ang lalaki ng **dote** (handog) sa pamilya ng babae bilang tanda ng pagpapahalaga.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Sinaunang Paniniwala:** Susuriin natin ang mga **ritwal at tradisyon** na isinasagawa ng mga ninuno bago dumating ang ibang relihiyon.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa sistema ng pagsasaka sa pamamagitan ng pagsunog ng puno?",
+            "options": [
+              "Paglilinang",
+              "Pagkakaingin",
+              "Barter"
+            ],
+            "correct_answer": "Pagkakaingin"
+          },
+          {
+            "question": "Ano ang tawag sa pakikipagpalitan ng produkto nang hindi gumagamit ng pera?",
+            "options": [
+              "Pagmimina",
+              "Barter",
+              "Paglilinang"
+            ],
+            "correct_answer": "Barter"
+          },
+          {
+            "question": "Sino ang espirituwal na pinuno at tagapamagitan sa tao at espiritu?",
+            "options": [
+              "Datu",
+              "Babaylan o Katalonan",
+              "Panday"
+            ],
+            "correct_answer": "Babaylan o Katalonan"
+          },
+          {
+            "question": "Saan karaniwang isinasagawa ang placer mining?",
+            "options": [
+              "Sa bundok",
+              "Sa ilog o sapa",
+              "Sa kalsada"
+            ],
+            "correct_answer": "Sa ilog o sapa"
+          },
+          {
+            "question": "Alin ang karapatan ng kababaihan sa sinaunang lipunan?",
+            "options": [
+              "Mag-ari ng lupa",
+              "Bawal magsalita",
+              "Maging alipin lamang"
+            ],
+            "correct_answer": "Mag-ari ng lupa"
+          },
+          {
+            "question": "Ano ang handog na ibinibigay ng lalaki sa pamilya ng babae bago ikasal?",
+            "options": [
+              "Barter",
+              "Dote",
+              "Panday"
+            ],
+            "correct_answer": "Dote"
+          },
+          {
+            "question": "Alin sa mga ito ang kagamitan sa pangingisda noon?",
+            "options": [
+              "Lambat",
+              "Ginto",
+              "Porselana"
+            ],
+            "correct_answer": "Lambat"
+          },
+          {
+            "question": "Sino ang mga dayuhang nakipagkalakalan sa mga sinaunang Pilipino?",
+            "options": [
+              "Tsino at Arabe",
+              "Espanyol lamang",
+              "Amerikano lamang"
+            ],
+            "correct_answer": "Tsino at Arabe"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Science": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Mass:** Measurement of the amount of **matter** in an object using a **weighing scale**. Units: **milligrams (mg)** for tiny items, **grams (g)** for everyday items, and **kilograms (kg)** for heavy items.\n* **Temperature:** Measures how hot or cold something is using a **thermometer**; the unit is **degrees Celsius (°C)**.\n* **Key Conversions:** Remember that **1 kg = 1,000 g** and **1 g = 1,000 mg**.\n* **Precision:** Scientific accuracy requires recording both the **number and the correct unit** (e.g., '5 grams' instead of just '5').\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Scientific Inquiry:** We will learn the **formal steps** to start an investigation, beginning with identifying a clear **problem**.",
+        "quiz": [
+          {
+            "question": "Which tool is used to measure mass?",
+            "options": [
+              "Thermometer",
+              "Weighing scale",
+              "Ruler"
+            ],
+            "correct_answer": "Weighing scale"
+          },
+          {
+            "question": "What is the standard unit for temperature in science class?",
+            "options": [
+              "Kilograms",
+              "Milliliters",
+              "Degrees Celsius"
+            ],
+            "correct_answer": "Degrees Celsius"
+          },
+          {
+            "question": "How many grams are in 1 kilogram?",
+            "options": [
+              "100 g",
+              "1,000 g",
+              "10,000 g"
+            ],
+            "correct_answer": "1,000 g"
+          },
+          {
+            "question": "Which unit is best for weighing a large sack of rice?",
+            "options": [
+              "mg",
+              "g",
+              "kg"
+            ],
+            "correct_answer": "kg"
+          },
+          {
+            "question": "What is the boiling point of water in Celsius?",
+            "options": [
+              "0°C",
+              "50°C",
+              "100°C"
+            ],
+            "correct_answer": "100°C"
+          },
+          {
+            "question": "What does the prefix 'milli-' mean?",
+            "options": [
+              "One hundred",
+              "One thousand",
+              "One-thousandth"
+            ],
+            "correct_answer": "One-thousandth"
+          },
+          {
+            "question": "Why must scientists always record the unit after a number?",
+            "options": [
+              "To avoid confusion",
+              "To make numbers bigger",
+              "To change the result"
+            ],
+            "correct_answer": "To avoid confusion"
+          },
+          {
+            "question": "What is the first step when using a weighing scale?",
+            "options": [
+              "Add water",
+              "Make sure it reads zero",
+              "Shake it"
+            ],
+            "correct_answer": "Make sure it reads zero"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Panuto:** Mga gabay na salita na nagsasabi kung ano ang dapat gawin upang makaiwas sa pagkakamali at panganib.\n* **Pandiwa (Salitang-Kilos):** Mga salitang nagsasaad ng kilos tulad ng **tumawid**, **kumain**, o **maglinis**.\n* **Pokus ng Pandiwa:** Ang **Pokus sa Tagaganap o Aktor** ay nagpapakita na ang **simuno** ang siyang gumagawa ng kilos.\n* **Panlapi:** Ginagamit ang mga panlaping like **-um-**, **mag-**, at **maka-** upang mabuo ang pandiwang nasa pokus ng tagaganap.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Tekstong Biswal:** Tatalakayin natin ang kahulugan ng iba't ibang **simbolo at road signs** sa komunidad.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa gabay kung ano ang dapat gawin?",
+            "options": [
+              "Simuno",
+              "Panuto",
+              "Pang-abay"
+            ],
+            "correct_answer": "Panuto"
+          },
+          {
+            "question": "Alin ang pandiwa sa: 'Ang pulis ay tumutulong sa trapiko'?",
+            "options": [
+              "tumutulong",
+              "pulis",
+              "trapiko"
+            ],
+            "correct_answer": "tumutulong"
+          },
+          {
+            "question": "Anong pokus ng pandiwa ang ipinapakita kapag ang simuno ang gumagawa ng kilos?",
+            "options": [
+              "Pokus sa Tagaganap",
+              "Pokus sa Layon",
+              "Pokus sa Ganapan"
+            ],
+            "correct_answer": "Pokus sa Tagaganap"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng berdeng ilaw-trapiko?",
+            "options": [
+              "Huminto",
+              "Maghanda",
+              "Maaari nang tumawid"
+            ],
+            "correct_answer": "Maaari nang tumawid"
+          },
+          {
+            "question": "Anong panlapi ang ginamit sa salitang 'kumain'?",
+            "options": [
+              "mag-",
+              "-um-",
+              "maka-"
+            ],
+            "correct_answer": "-um-"
+          },
+          {
+            "question": "Sino ang tagaganap sa: 'Si Ana ay magwawalis ng silid'?",
+            "options": [
+              "Si Ana",
+              "magwawalis",
+              "silid"
+            ],
+            "correct_answer": "Si Ana"
+          },
+          {
+            "question": "Ano ang kailangang gawin bago sumunod sa panuto?",
+            "options": [
+              "Makinig at unawain",
+              "Tumakbo agad",
+              "Huwag pansinin"
+            ],
+            "correct_answer": "Makinig at unawain"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng panuto?",
+            "options": [
+              "Pumila nang maayos.",
+              "Masaya ang bata.",
+              "Malamig ang tubig."
+            ],
+            "correct_answer": "Pumila nang maayos."
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Early Philippine Art:** Ancient Filipinos created arts like **Pottery** (clay storage), **Weaving** (cloth-making), and **Jewelry** to reflect their beliefs and daily life.\n* **Functions of Art:** Early arts were not just decorative; they showed **identity**, met survival needs, and served spiritual purposes.\n* **Managing Stress:** Stress is the body's response to pressure. Healthy activities like **active games** or riding a bike help reduce stress.\n* **Social Behavior:** Stand up for your rights while respecting others through **assertive behavior** to prevent bullying.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Growth and Family:** We will begin discussing the physical changes during **puberty** and the roles of family in managing them.",
+        "quiz": [
+          {
+            "question": "Which art form involves making objects from clay for storage?",
+            "options": [
+              "Weaving",
+              "Pottery",
+              "Sculpture"
+            ],
+            "correct_answer": "Pottery"
+          },
+          {
+            "question": "Which art form is made by interlacing yarns to create cloth?",
+            "options": [
+              "Weaving",
+              "Tattooing",
+              "Goldwork"
+            ],
+            "correct_answer": "Weaving"
+          },
+          {
+            "question": "What is the body's response to pressure called?",
+            "options": [
+              "Muscles",
+              "Stress",
+              "Dopamine"
+            ],
+            "correct_answer": "Stress"
+          },
+          {
+            "question": "What do we call events or situations that cause stress?",
+            "options": [
+              "Stressor",
+              "Exercise",
+              "Game"
+            ],
+            "correct_answer": "Stressor"
+          },
+          {
+            "question": "Which behavior means standing up for rights while respecting others?",
+            "options": [
+              "Passive",
+              "Aggressive",
+              "Assertive"
+            ],
+            "correct_answer": "Assertive"
+          },
+          {
+            "question": "Which early Philippine art was used for spiritual purposes?",
+            "options": [
+              "Bulul figure",
+              "Digital poster",
+              "Online avatar"
+            ],
+            "correct_answer": "Bulul figure"
+          },
+          {
+            "question": "Which activity is better for reducing stress?",
+            "options": [
+              "Skipping sleep",
+              "Active games",
+              "Arguing"
+            ],
+            "correct_answer": "Active games"
+          },
+          {
+            "question": "Which game uses a can and slippers?",
+            "options": [
+              "Silent Ball",
+              "Tumbang Preso",
+              "Chess"
+            ],
+            "correct_answer": "Tumbang Preso"
+          }
+        ]
+      },
+      "Values Education": {
+        "summary_markdown": "### 🎯 Today's Focus\n* **Pananampalataya:** Ito ay ang malalim na **tiwala at pananalig sa Diyos** na nagsisilbing gabay sa wastong asal.\n* **Banal na Aklat:** Mga sagradong kasulatan na naglalaman ng aral at gabay; halimbawa: **Bibliya** (Kristiyanismo), **Quran** (Islam), **Vedas** (Hinduismo), **Tripitaka** (Budismo), at **Torah** (Judaismo).\n* **Paggalang:** Mahalagang igalang ang Banal na Aklat ng iba bilang tanda ng mabuting pagkatao at pagkilala sa kanilang karapatan.\n* **Paghubog ng Karakter:** Ang pananampalataya ay nagbibigay ng lakas at pag-asa sa oras ng pagsubok.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Masinop na Pamumuhay:** Pag-uusapan natin ang pagiging **masinop** (prudent) sa pamamagitan ng tamang pagreresiklo ng technological waste.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa malalim na tiwala at pananalig sa Diyos?",
+            "options": [
+              "Relihiyon",
+              "Pananampalataya",
+              "Misyon"
+            ],
+            "correct_answer": "Pananampalataya"
+          },
+          {
+            "question": "Ano ang Banal na Aklat ng mga Muslim?",
+            "options": [
+              "Bibliya",
+              "Quran",
+              "Vedas"
+            ],
+            "correct_answer": "Quran"
+          },
+          {
+            "question": "Aling Banal na Aklat ang binubuo ng Luma at Bagong Tipan?",
+            "options": [
+              "Vedas",
+              "Bibliya",
+              "Torah"
+            ],
+            "correct_answer": "Bibliya"
+          },
+          {
+            "question": "Bakit itinuturing na 'gabay' sa buhay ang relihiyon?",
+            "options": [
+              "Dahil itinuturo nito ang mabuti at masama",
+              "Dahil ito ay batas lamang",
+              "Dahil para lamang ito sa matatanda"
+            ],
+            "correct_answer": "Dahil itinuturo nito ang mabuti at masama"
+          },
+          {
+            "question": "Saan dapat ilagay ang Banal na Aklat?",
+            "options": [
+              "Sa sahig",
+              "Sa malinis at ligtas na lugar",
+              "Sa basurahan"
+            ],
+            "correct_answer": "Sa malinis at ligtas na lugar"
+          },
+          {
+            "question": "Aling relihiyon ang gumagamit ng Tripitaka?",
+            "options": [
+              "Budismo",
+              "Islam",
+              "Hinduismo"
+            ],
+            "correct_answer": "Budismo"
+          },
+          {
+            "question": "Ano ang Banal na Aklat ng Judaismo?",
+            "options": [
+              "Torah",
+              "Vedas",
+              "Quran"
+            ],
+            "correct_answer": "Torah"
+          },
+          {
+            "question": "Ang regular na pagbabasa ay isang paraan ng paggalang sa Banal na Aklat.",
+            "options": [
+              "Tama",
+              "Mali",
+              "Hindi sigurado"
+            ],
+            "correct_answer": "Tama"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "Weekly Review": {
+        "summary_markdown": "### 🎓 Weekly Review Summary\n\nThis week, we covered key concepts across all our subjects. Here is a quick recap of our learning journey:\n\n* **Math:** Solved multi-step fraction word problems using the **4-Step Model** (Understand, Plan, Solve, Look Back) and used multiplication for 'of' problems.\n* **English:** Explored **explanatory texts** (how/why processes happen), utilizing **glossaries** for tough terms, and organizing steps with sequential **linking words**.\n* **Araling Panlipunan:** Studied **Sinaunang Kabuhayan** (pagsasaka, pangingisda, pagmimina), the **Barter system** of trade, the high status of **kababaihan** (Babaylan), and the traditional wedding **dote**.\n* **EPP/TLE:** Emphasized **Netiquette** (internet safety and courtesy), utilizing web browsers and **keywords** in search engines, and the critical step of **verifying online information**.\n* **Science:** Focused on measuring **Mass** (mg, g, kg) using a weighing scale and **Temperature** (°C) with a thermometer, including conversions (1 kg = 1000 g).\n* **Filipino:** Tinalakay ang pagsunod sa **panuto**, pagtukoy sa **pandiwa** (salitang-kilos), at ang **Pokus sa Tagaganap** gamit ang mga panlaping tulad ng *-um-*, *mag-*, at *maka-*.\n* **Values Education:** Discussed **pananampalataya** (trust in God) and studied different **Banal na Aklat** (Bibliya, Quran, Vedas, Tripitaka, Torah).\n* **MAPEH:** Explored **early Philippine art** (pottery, weaving), managing stress through physical activities like active games, and practicing **assertive behavior**.",
+        "quiz": [
+          {
+            "question": "What is the first step in the 4-step word problem-solving model in Math?",
+            "options": [
+              "Plan",
+              "Understand",
+              "Solve"
+            ],
+            "correct_answer": "Understand"
+          },
+          {
+            "question": "What is the main purpose of an explanatory text in English?",
+            "options": [
+              "To tell jokes",
+              "To explain how or why something happens",
+              "To list character names"
+            ],
+            "correct_answer": "To explain how or why something happens"
+          },
+          {
+            "question": "Ano ang tawag sa pakikipagpalitan ng produkto nang hindi gumagamit ng pera?",
+            "options": [
+              "Pagmimina",
+              "Barter",
+              "Paglilinang"
+            ],
+            "correct_answer": "Barter"
+          },
+          {
+            "question": "Ano ang dapat gawin bago magbahagi ng impormasyong nahanap online?",
+            "options": [
+              "I-post agad",
+              "I-verify muna",
+              "Huwag basahin"
+            ],
+            "correct_answer": "I-verify muna"
+          },
+          {
+            "question": "How many grams are in 1 kilogram?",
+            "options": [
+              "100 g",
+              "1,000 g",
+              "10,000 g"
+            ],
+            "correct_answer": "1,000 g"
+          },
+          {
+            "question": "Anong pokus ng pandiwa ang ipinapakita kapag ang simuno ang gumagawa ng kilos?",
+            "options": [
+              "Pokus sa Tagaganap",
+              "Pokus sa Layon",
+              "Pokus sa Ganapan"
+            ],
+            "correct_answer": "Pokus sa Tagaganap"
+          },
+          {
+            "question": "Ano ang Banal na Aklat ng mga Muslim?",
+            "options": [
+              "Bibliya",
+              "Quran",
+              "Vedas"
+            ],
+            "correct_answer": "Quran"
+          },
+          {
+            "question": "Which behavior means standing up for rights while respecting others?",
+            "options": [
+              "Passive",
+              "Aggressive",
+              "Assertive"
+            ],
+            "correct_answer": "Assertive"
+          }
+        ]
+      }
+    }
+  }
+}

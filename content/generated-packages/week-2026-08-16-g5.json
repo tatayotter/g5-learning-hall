@@ -1,0 +1,1409 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-08-16",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "## Composing Texts, Filling Out Forms, and Viewing Media Critically\n\n- A **friendly letter** has a greeting (e.g., \"Dear Lola,\"), a body, a closing, and a signature — its tone is warm and personal, unlike formal writing.\n- A **news report** opens with the most important facts (who, what, when, where) right away, staying objective. Example: \"Marikina Elementary School celebrated Buwan ng Wika last Friday with a poster-making contest and cultural dance performances.\" An **explanation text**, in contrast, teaches how or why something happens, not what just occurred.\n- **Personal and school forms** (like enrollment or health forms) must be filled out completely and clearly — leaving a field blank (like \"Allergies\") can cause confusion; write \"None\" if it truly does not apply.\n- **Viewing** skills help us understand messages beyond words: **visual layout** (bold headlines, arrows, numbered steps) guides the reader's attention and shows the order of ideas, while colors and fonts set the **tone and mood** — bright, playful designs feel cheerful; plain black-and-white layouts feel formal or serious.\n- **Media stereotypes** unfairly link a trait (like wearing glasses, or being a father) to a fixed personality or ability without real evidence — for example, a commercial always showing fathers cooking badly. Recognizing these patterns helps us view media more critically.\n- **Audio elements** (music, tone of voice) shape how an audience feels — a disaster-preparedness video may use suspenseful music for danger, then upbeat music for hope and safety.\n\n| Text Type | Main Purpose | Typical Structure |\n|---|---|---|\n| Friendly Letter | Personal connection | Greeting, body, closing |\n| News Report | Inform about an event | Inverted pyramid (most important first) |\n| Explanation Text | Teach how/why | Step-by-step process |\n\n- Before submitting a composition or form, ask: \"Does this match the purpose and tone the text type requires?\"",
+        "quiz": [
+          {
+            "question": "Which part of a friendly letter comes right after the greeting/salutation?",
+            "options": [
+              "The body",
+              "The heading",
+              "The closing",
+              "The signature"
+            ],
+            "correct_answer": "The body"
+          },
+          {
+            "question": "Which text type is mainly written to teach the reader how or why something happens, like how rain forms?",
+            "options": [
+              "Explanation text",
+              "News report",
+              "Friendly letter",
+              "Personal form"
+            ],
+            "correct_answer": "Explanation text"
+          },
+          {
+            "question": "What kind of information is typically required in a school enrollment form?",
+            "options": [
+              "Name, birthdate, and address",
+              "A summary of a story",
+              "A persuasive argument",
+              "A rhyming poem"
+            ],
+            "correct_answer": "Name, birthdate, and address"
+          },
+          {
+            "question": "In a poster, what is the purpose of using a large, bold headline?",
+            "options": [
+              "To catch the reader's attention and highlight the main message",
+              "To make the poster harder to read",
+              "To fill up empty space",
+              "To list minor details"
+            ],
+            "correct_answer": "To catch the reader's attention and highlight the main message"
+          },
+          {
+            "question": "If a story uses words like \"gloomy,\" \"silent,\" and \"gray skies,\" what mood is most likely being created?",
+            "options": [
+              "A sad or somber mood",
+              "A cheerful mood",
+              "An exciting mood",
+              "A funny mood"
+            ],
+            "correct_answer": "A sad or somber mood"
+          },
+          {
+            "question": "Which greeting is most appropriate for a friendly letter to your Lola (grandmother)?",
+            "options": [
+              "Dear Lola,",
+              "To Whom It May Concern,",
+              "Dear Sir/Madam,",
+              "Respectfully yours,"
+            ],
+            "correct_answer": "Dear Lola,"
+          },
+          {
+            "question": "You are writing a news report about your school's Buwan ng Wika program. Which sentence best fits the opening (lead) of a news report?",
+            "options": [
+              "Marikina Elementary School celebrated Buwan ng Wika last Friday with a poster-making contest and cultural dance performances.",
+              "Once upon a time, there was a school that loved Filipino culture.",
+              "I think Buwan ng Wika is the best celebration ever.",
+              "The weather was sunny that day."
+            ],
+            "correct_answer": "Marikina Elementary School celebrated Buwan ng Wika last Friday with a poster-making contest and cultural dance performances."
+          },
+          {
+            "question": "On a school library card application form, which entry correctly matches the label \"Contact Number\"?",
+            "options": [
+              "0917-123-4567",
+              "Grade 5 - Sampaguita",
+              "Juan Dela Cruz",
+              "Quezon City"
+            ],
+            "correct_answer": "0917-123-4567"
+          },
+          {
+            "question": "A brochure about a barangay clean-up drive uses arrows and numbered steps in its layout. What is the most likely purpose of this design choice?",
+            "options": [
+              "To guide readers through the steps of the clean-up drive in order",
+              "To make the brochure look colorful only",
+              "To hide important information",
+              "To confuse the reader"
+            ],
+            "correct_answer": "To guide readers through the steps of the clean-up drive in order"
+          },
+          {
+            "question": "A TV commercial always shows fathers cooking badly and mothers as the only ones who can cook well. What is this an example of?",
+            "options": [
+              "A media stereotype",
+              "An objective fact",
+              "A news report",
+              "A friendly letter"
+            ],
+            "correct_answer": "A media stereotype"
+          },
+          {
+            "question": "A student wrote a \"news report\" about a school fun run, but the piece begins with \"I felt so excited when I saw everyone lining up!\" and includes personal feelings throughout. Why might this composition better fit the \"personal narrative\" text type instead of a news report?",
+            "options": [
+              "A news report should stay objective and focus on facts like the 5 Ws, while this piece centers on the writer's personal feelings and experience",
+              "News reports are always written in the first person, so this is correct as is",
+              "Personal narratives cannot include feelings, so this must be a news report",
+              "There is no real difference between a news report and a personal narrative"
+            ],
+            "correct_answer": "A news report should stay objective and focus on facts like the 5 Ws, while this piece centers on the writer's personal feelings and experience"
+          },
+          {
+            "question": "In a children's show, all the characters who wear glasses are portrayed as unfriendly and overly serious, while characters without glasses are shown as more likeable. What is the most accurate way to describe this pattern, and why is it a concern?",
+            "options": [
+              "It is a harmful stereotype because it unfairly links a physical trait (wearing glasses) to negative personality traits, without factual basis",
+              "It is simply a fact about people who wear glasses",
+              "It is not a stereotype since it only appears in one show",
+              "It is a form of factual reporting because it is consistent across episodes"
+            ],
+            "correct_answer": "It is a harmful stereotype because it unfairly links a physical trait (wearing glasses) to negative personality traits, without factual basis"
+          },
+          {
+            "question": "A friendly letter uses cheerful, colorful stationery with drawings of balloons and bright fonts, while a school incident report form uses plain black text on white paper with formal spacing. What can you conclude about how visual layout choices relate to tone?",
+            "options": [
+              "Visual design choices (colors, fonts, decorations) reflect and reinforce the tone of a text — festive for a friendly letter, formal and serious for an official form",
+              "Visual layout has no connection to a text's tone or purpose",
+              "All texts should use bright colors regardless of purpose",
+              "Only the words in a text can create tone, never the visuals"
+            ],
+            "correct_answer": "Visual design choices (colors, fonts, decorations) reflect and reinforce the tone of a text — festive for a friendly letter, formal and serious for an official form"
+          },
+          {
+            "question": "A public service announcement about disaster preparedness uses suspenseful music and a serious narrator's voice during scenes about typhoons, then switches to upbeat music when showing a family's evacuation kit ready and safe. What is the most likely reason for this choice of audio elements?",
+            "options": [
+              "To use sound and tone shifts to emphasize danger first, then relief and hope, guiding the audience's emotional response",
+              "Because background music is required in every video regardless of content",
+              "To confuse the viewers about the message",
+              "Because upbeat music always signals danger in media"
+            ],
+            "correct_answer": "To use sound and tone shifts to emphasize danger first, then relief and hope, guiding the audience's emotional response"
+          },
+          {
+            "question": "On a school health form, a student is asked to state any allergies. The student leaves it blank instead of writing \"None.\" Why is this a problem, and what should the student have done?",
+            "options": [
+              "Leaving it blank makes it unclear whether the question was overlooked or the student truly has no allergies; the student should write \"None\" to give clear, complete information",
+              "It is not a problem because blank spaces are always understood as \"None\"",
+              "The student should have written a long story about their health instead",
+              "Forms do not require every field to be filled out, so leaving it blank is always acceptable"
+            ],
+            "correct_answer": "Leaving it blank makes it unclear whether the question was overlooked or the student truly has no allergies; the student should write \"None\" to give clear, complete information"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "## Decimal Place Value Through Thousandths\n\n- Decimal place values continue past the decimal point: **tenths**, **hundredths**, and **thousandths** — each place is 10 times smaller than the one before it.\n- To read a decimal, say the digits as a whole number, then name the smallest place value. Example: 0.325 is read as \"three hundred twenty-five **thousandths**.\"\n- **Expanded form** breaks a decimal into the value of each digit. Example: 0.482 = 0.4 + 0.08 + 0.002.\n- Worked example: A tindera records a sale of \"one and fifty-two thousandths\" pesos in her notebook. In standard form, this is written as **1.052**.\n- When **comparing decimals**, line up the decimal points and compare digit by digit from left to right — do NOT just count how many digits a number has! 0.5 is actually **greater** than 0.250, even though 0.250 \"looks longer,\" because 0.5 = 0.500, and 500 thousandths is more than 250 thousandths.\n\n| Number | Tenths | Hundredths | Thousandths |\n|---|---|---|---|\n| 0.405 | 4 | 0 | 5 |\n| 0.45 | 4 | 5 | 0 |\n| 0.5 | 5 | 0 | 0 |\n\n- Ordering least to greatest for the table above: 0.405, 0.45, 0.5 — because comparing the tenths digit first (4, 4, 5) breaks most ties, then move to the next place if needed.",
+        "quiz": [
+          {
+            "question": "In the number 0.456, what digit is in the thousandths place?",
+            "options": [
+              "6",
+              "4",
+              "5",
+              "0"
+            ],
+            "correct_answer": "6"
+          },
+          {
+            "question": "Which place comes immediately after the hundredths place in a decimal number?",
+            "options": [
+              "Thousandths",
+              "Tenths",
+              "Ones",
+              "Ten-thousandths"
+            ],
+            "correct_answer": "Thousandths"
+          },
+          {
+            "question": "How do you read the decimal 0.7 in words?",
+            "options": [
+              "seven tenths",
+              "seven hundredths",
+              "seven thousandths",
+              "seven ones"
+            ],
+            "correct_answer": "seven tenths"
+          },
+          {
+            "question": "How do you read the decimal 0.09 in words?",
+            "options": [
+              "nine hundredths",
+              "nine tenths",
+              "nine thousandths",
+              "ninety hundredths"
+            ],
+            "correct_answer": "nine hundredths"
+          },
+          {
+            "question": "In the number 3.208, what digit is in the tenths place?",
+            "options": [
+              "2",
+              "0",
+              "8",
+              "3"
+            ],
+            "correct_answer": "2"
+          },
+          {
+            "question": "What is the expanded form of 0.482?",
+            "options": [
+              "0.4 + 0.08 + 0.002",
+              "0.4 + 0.8 + 0.2",
+              "4 + 0.8 + 0.02",
+              "0.04 + 0.008 + 0.002"
+            ],
+            "correct_answer": "0.4 + 0.08 + 0.002"
+          },
+          {
+            "question": "Which decimal is represented by 0.7 + 0.03 + 0.006?",
+            "options": [
+              "0.736",
+              "0.763",
+              "7.36",
+              "0.0736"
+            ],
+            "correct_answer": "0.736"
+          },
+          {
+            "question": "A tindera (store vendor) records a sale as \"one and fifty-two thousandths\" pesos in her practice notebook. How is this written in standard (decimal) form?",
+            "options": [
+              "1.052",
+              "1.52",
+              "1.0052",
+              "1.502"
+            ],
+            "correct_answer": "1.052"
+          },
+          {
+            "question": "Which is the correct word form of 0.325?",
+            "options": [
+              "three hundred twenty-five thousandths",
+              "three hundred twenty-five hundredths",
+              "thirty-two point five",
+              "three point two five"
+            ],
+            "correct_answer": "three hundred twenty-five thousandths"
+          },
+          {
+            "question": "\"Four hundred six thousandths\" is written in standard form as:",
+            "options": [
+              "0.406",
+              "0.46",
+              "4.06",
+              "0.046"
+            ],
+            "correct_answer": "0.406"
+          },
+          {
+            "question": "Three barangay health workers measured a child's temperature increase (in °C) over an hour: Worker A recorded 0.45, Worker B recorded 0.405, and Worker C recorded 0.5. Which lists the readings from least to greatest?",
+            "options": [
+              "0.405, 0.45, 0.5",
+              "0.45, 0.405, 0.5",
+              "0.5, 0.45, 0.405",
+              "0.405, 0.5, 0.45"
+            ],
+            "correct_answer": "0.405, 0.45, 0.5"
+          },
+          {
+            "question": "Ana says 0.5 is smaller than 0.250 because 5 is a single digit while 250 has three digits. Why is Ana's reasoning incorrect?",
+            "options": [
+              "She compared the number of digits instead of the actual place values, so 0.5 (five tenths) is really greater than 0.250 (two hundred fifty thousandths)",
+              "She forgot to add a decimal point",
+              "She should have multiplied both numbers by 10",
+              "Her reasoning is actually correct"
+            ],
+            "correct_answer": "She compared the number of digits instead of the actual place values, so 0.5 (five tenths) is really greater than 0.250 (two hundred fifty thousandths)"
+          },
+          {
+            "question": "A palengke vendor weighs three sacks of rice as 25.6 kg, 25.06 kg, and 25.605 kg. Which sack is the heaviest?",
+            "options": [
+              "25.605 kg",
+              "25.6 kg",
+              "25.06 kg",
+              "They are all equal"
+            ],
+            "correct_answer": "25.605 kg"
+          },
+          {
+            "question": "Four students measured the length of a leaf for a Science project: 4.375 cm, 4.37 cm, 4.3 cm, and 4.4 cm. Which measurement is closest to 4.4 cm without going over it?",
+            "options": [
+              "4.375 cm",
+              "4.37 cm",
+              "4.3 cm",
+              "4.4 cm is the smallest so none qualify"
+            ],
+            "correct_answer": "4.375 cm"
+          },
+          {
+            "question": "A jeepney driver has three coin amounts left over after a day's fare collection, recorded as fractions of a peso in his logbook: 0.8, 0.08, and 0.088. He wants to identify the value that is closest to zero. Which one is it?",
+            "options": [
+              "0.08",
+              "0.8",
+              "0.088",
+              "They are all the same distance from zero"
+            ],
+            "correct_answer": "0.08"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## How Plant Structures Help Plants Survive\n\n- Plants often face **unfavorable conditions** such as **drought** (long dry spells), **strong wind**, or **being eaten** by animals -- and their specialized structures help them survive these challenges.\n- **Storage structures** like tubers and bulbs (kamote/sweet potato, sibuyas/onion) store food -- and sometimes moisture -- underground. During a drought, or after a typhoon destroys the leaves, the plant can survive on these reserves and regrow later, even if the parts above ground wither or are damaged.\n- **Rhizomes** (like the underground stems of gabi/taro) work the same way: after a typhoon strips away the leaves, the rhizome's stored food lets new shoots emerge weeks later.\n- **Thorns** (like on calamansi branches) physically discourage grazing animals, reducing how much of the plant gets eaten compared to a thornless plant nearby.\n- **Tendrils** (like on an upo/bottle gourd vine) grip a trellis or fence tightly, helping the plant stay anchored and resist being blown down during a strong bagyo (typhoon).\n- **Aerial roots** (like on an orchid growing on a tree trunk) let a plant absorb moisture from rain and humid air when it has no access to soil at all.\n\n| Structure | Threat it Helps Against |\n|---|---|\n| Tuber / Bulb / Rhizome | Drought, being cut down (regrowth) |\n| Thorn | Being eaten |\n| Tendril | Strong wind |\n| Aerial root | Lack of soil/moisture access |\n\n- Each structure is matched to a specific kind of threat -- this is why a plant growing where droughts, strong winds, AND grazing animals are all common would benefit from having **several different structures together**, rather than relying on just one, since no single structure protects against every possible danger.",
+        "quiz": [
+          {
+            "question": "How do tubers and bulbs generally help a plant survive difficult conditions like drought?",
+            "options": [
+              "They store food (and sometimes water) underground that the plant can use to survive and regrow later",
+              "They make the plant taller so it can escape unfavorable weather",
+              "They attract animals to eat the plant",
+              "They have no role in survival"
+            ],
+            "correct_answer": "They store food (and sometimes water) underground that the plant can use to survive and regrow later"
+          },
+          {
+            "question": "How do thorns help a plant survive?",
+            "options": [
+              "They discourage animals from eating the plant",
+              "They store extra water for the plant",
+              "They help the plant climb higher",
+              "They absorb sunlight more efficiently"
+            ],
+            "correct_answer": "They discourage animals from eating the plant"
+          },
+          {
+            "question": "How can tendrils help a climbing plant survive?",
+            "options": [
+              "They let the plant hold onto a support and grow upward toward sunlight instead of being knocked down",
+              "They store large amounts of underground food",
+              "They protect the plant from being eaten by animals",
+              "They allow the plant to grow without any soil at all"
+            ],
+            "correct_answer": "They let the plant hold onto a support and grow upward toward sunlight instead of being knocked down"
+          },
+          {
+            "question": "How can aerial roots help a plant that grows on another tree or in humid air survive?",
+            "options": [
+              "They absorb moisture and nutrients directly from the air and rain when the plant is not rooted in soil",
+              "They protect the plant from strong wind only",
+              "They store large amounts of starch",
+              "They allow the plant to move to a new location"
+            ],
+            "correct_answer": "They absorb moisture and nutrients directly from the air and rain when the plant is not rooted in soil"
+          },
+          {
+            "question": "Which unfavorable conditions were highlighted this week as challenges that plant structures help a plant survive?",
+            "options": [
+              "Drought, strong wind, and being eaten by animals",
+              "Too much sunlight only",
+              "Cold weather only",
+              "Being planted in a pot"
+            ],
+            "correct_answer": "Drought, strong wind, and being eaten by animals"
+          },
+          {
+            "question": "During a long dry season (tag-init), a kamote (sweet potato) plant's leaves wither, but its underground tubers survive and later sprout new leaves when rain returns. How did the tuber help the plant survive the drought?",
+            "options": [
+              "The tuber stored food (and some moisture) that let the plant survive underground even when the leaves above dried out",
+              "The tuber attracted more rain to the plant",
+              "The tuber made the plant grow taller during the drought",
+              "The tuber had no effect on survival"
+            ],
+            "correct_answer": "The tuber stored food (and some moisture) that let the plant survive underground even when the leaves above dried out"
+          },
+          {
+            "question": "A kalamansi (calamansi) bush with thorny branches is less likely to be fully eaten by grazing animals compared to a thornless bush nearby. What survival advantage do the thorns provide?",
+            "options": [
+              "They physically discourage or injure animals that try to eat the plant, reducing how much gets eaten",
+              "They make the fruit taste better to animals",
+              "They absorb more sunlight than a thornless plant",
+              "They allow the plant to survive without roots"
+            ],
+            "correct_answer": "They physically discourage or injure animals that try to eat the plant, reducing how much gets eaten"
+          },
+          {
+            "question": "During a strong bagyo (typhoon) with heavy wind, an upo (bottle gourd) vine with tendrils gripping a trellis stays attached, while a similar vine without any climbing structure gets blown down. What does this show about tendrils?",
+            "options": [
+              "Tendrils help anchor the plant to a support, helping it withstand strong wind",
+              "Tendrils make the plant immune to all wind damage",
+              "Tendrils have no effect during a typhoon",
+              "Tendrils only work during droughts, not wind"
+            ],
+            "correct_answer": "Tendrils help anchor the plant to a support, helping it withstand strong wind"
+          },
+          {
+            "question": "An orchid growing high on a mango tree trunk, with no soil around its roots, still survives and grows using its aerial roots. What unfavorable condition do aerial roots mainly help it overcome?",
+            "options": [
+              "The lack of direct access to soil and stored groundwater -- the aerial roots absorb moisture from rain and humid air instead",
+              "Strong wind only",
+              "Being eaten by animals",
+              "Too much shade"
+            ],
+            "correct_answer": "The lack of direct access to soil and stored groundwater -- the aerial roots absorb moisture from rain and humid air instead"
+          },
+          {
+            "question": "A gabi (taro) plant with underground rhizomes has its leaves cut down by a strong typhoon, but a few weeks later new shoots emerge from the rhizome. What does this show about the rhizome's role in survival?",
+            "options": [
+              "The rhizome stored enough food underground to let the plant regrow after the above-ground parts were destroyed",
+              "The rhizome caused the typhoon to happen",
+              "The rhizome made the leaves resistant to wind damage",
+              "The rhizome has no connection to the plant's ability to regrow"
+            ],
+            "correct_answer": "The rhizome stored enough food underground to let the plant regrow after the above-ground parts were destroyed"
+          },
+          {
+            "question": "A farmer notices that his sibuyas (onion) crop, grown from bulbs, survives short dry spells better than a leafy vegetable planted nearby with no storage structures. Using what you know about bulbs, explain why.",
+            "options": [
+              "The bulb's stored food and layered structure let the plant draw on reserves during the dry spell, while the leafy vegetable has no such reserve to fall back on",
+              "Onions do not need water at all, unlike other vegetables",
+              "The bulb makes rain fall more often near the onion crop",
+              "There is no real difference between the two plants during a dry spell"
+            ],
+            "correct_answer": "The bulb's stored food and layered structure let the plant draw on reserves during the dry spell, while the leafy vegetable has no such reserve to fall back on"
+          },
+          {
+            "question": "A plant has BOTH thorns and tendrils. During a season with many grazing goats and frequent strong winds, which survival advantage would matter more for each threat, and why?",
+            "options": [
+              "The thorns would help against being eaten by goats, while the tendrils gripping a support would help it resist being blown down by wind -- each structure matches a different threat",
+              "Thorns and tendrils do the exact same job, so only one is really needed",
+              "Tendrils protect against goats, and thorns protect against wind",
+              "Neither structure would help with either threat"
+            ],
+            "correct_answer": "The thorns would help against being eaten by goats, while the tendrils gripping a support would help it resist being blown down by wind -- each structure matches a different threat"
+          },
+          {
+            "question": "If you wanted to test whether thorns actually reduce how much a plant gets eaten by goats, what would be a fair way to compare a thorny plant and a thornless plant of the same species?",
+            "options": [
+              "Expose both types of plants to the same goats, in the same area, for the same amount of time, then compare how much of each was eaten",
+              "Only expose the thorny plant to goats and assume the thornless one would be the same",
+              "Compare a thorny plant to a completely different kind of plant",
+              "There is no way to fairly test this idea"
+            ],
+            "correct_answer": "Expose both types of plants to the same goats, in the same area, for the same amount of time, then compare how much of each was eaten"
+          },
+          {
+            "question": "A gabi (taro) plant's rhizome survives after a typhoon destroys its leaves, but a similar leafy plant WITHOUT a rhizome dies completely after the same storm. What does comparing these two outcomes suggest about the rhizome's survival value?",
+            "options": [
+              "Having an underground food-storage structure like a rhizome gives a plant a way to recover after losing its above-ground parts, which a plant without one lacks",
+              "The rhizome caused the other plant to die",
+              "Both plants would have survived equally without the rhizome",
+              "The typhoon only affects plants with rhizomes"
+            ],
+            "correct_answer": "Having an underground food-storage structure like a rhizome gives a plant a way to recover after losing its above-ground parts, which a plant without one lacks"
+          },
+          {
+            "question": "Considering everything learned this week, why might a plant that grows in a place with frequent droughts, strong winds, AND many grazing animals benefit from having several different specialized structures (like a tuber AND thorns) rather than just one?",
+            "options": [
+              "Different structures protect against different specific threats, so having more than one type of structure helps the plant survive a wider range of unfavorable conditions",
+              "Having multiple structures always slows down a plant's growth with no benefit",
+              "One structure is always enough to handle every possible threat",
+              "Plants with more structures cannot survive as well as simpler plants"
+            ],
+            "correct_answer": "Different structures protect against different specific threats, so having more than one type of structure helps the plant survive a wider range of unfavorable conditions"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "## Pagsulat ng Liham Pangkaibigan, Enrolment Form, at Paggamit ng mga Sanggunian\n\n- Ang **liham pangkaibigan** ay may limang bahagi:\n  1. **Petsa** — araw, buwan, at taon\n  2. **Pambating panimula** — hal. Mahal kong Kaibigan,\n  3. **Katawan** — ang pangunahing mensahe\n  4. **Pambating pangwakas** — hal. Ang iyong kaibigan,\n  5. **Lagda** — pangalan ng sumulat\n- Kapag sumasagot ng **enrolment form**, mahalagang isulat nang tama at kumpleto ang mga detalye tulad ng buong pangalan, petsa ng kapanganakan, at pangalan ng magulang/tagapag-alaga, dahil ginagamit ito bilang opisyal na tala.\n- Ang **diksiyonaryo** ay tumutulong sa paghahanap ng kahulugan ng salita — nakaayos ito sa **alpabetikong ayos** at may **guhit-bigkas** na gabay sa tamang bigkas.\n- Ang **ensayklopidya** ay naglalaman ng malalim na impormasyon tungkol sa iba't ibang paksa gaya ng kasaysayan at agham, kadalasang may mga larawan.\n- Ang **direktoryo** ay ginagamit kapag naghahanap ng numero ng telepono o address.\n- Sa **panonood** ng multimedia (video, larawan, graph), mahalagang suriin nang sabay ang mga salita at biswal na elemento upang lubos na maunawaan ang mensahe.\n\nHalimbawa: Kung susulat ka ng liham kay Lola na malayo, magsisimula ka sa petsa (Agosto 16, 2026), susundan ng Mahal kong Lola, pagkatapos ay ang balita mo (katawan), tapos Ang nagmamahal mong apo, at ang iyong pangalan.\n\n| Sanggunian | Gamit |\n|---|---|\n| Diksiyonaryo | Kahulugan at bigkas ng salita |\n| Ensayklopidya | Malalim na impormasyon sa isang paksa |\n| Direktoryo | Numero ng telepono o address |\n\n- Ang mahusay na pagsulat at matalinong paggamit ng sanggunian ay mahalagang kasanayan tungo sa epektibong komunikasyon.",
+        "quiz": [
+          {
+            "question": "Anong bahagi ng liham ang nagpapakita ng pangalan ng sumulat, karaniwang matatagpuan sa dulo ng liham?",
+            "options": [
+              "Lagda",
+              "Petsa",
+              "Pambating panimula",
+              "Katawan"
+            ],
+            "correct_answer": "Lagda"
+          },
+          {
+            "question": "Sa diksiyonaryo, anong ayos ang ginagamit sa paglalagay ng mga salita?",
+            "options": [
+              "Alpabetikong ayos",
+              "Ayos ayon sa haba",
+              "Ayos ayon sa kahulugan",
+              "Random na ayos"
+            ],
+            "correct_answer": "Alpabetikong ayos"
+          },
+          {
+            "question": "Anong bahagi ng liham pangkaibigan ang naglalaman ng pangunahing mensahe o balita?",
+            "options": [
+              "Katawan",
+              "Petsa",
+              "Pambating pangwakas",
+              "Lagda"
+            ],
+            "correct_answer": "Katawan"
+          },
+          {
+            "question": "Ano ang tawag sa aklat na naglalaman ng malawak na kaalaman tungkol sa iba't ibang paksa gaya ng agham, kasaysayan, at heograpiya, na karaniwang inaayos ayon sa alpabeto o paksa?",
+            "options": [
+              "Ensayklopidya",
+              "Diksiyonaryo",
+              "Direktoryo",
+              "Nobela"
+            ],
+            "correct_answer": "Ensayklopidya"
+          },
+          {
+            "question": "Ano ang unang bahagi ng liham pangkaibigan na naglalaman ng araw, buwan, at taon?",
+            "options": [
+              "Petsa",
+              "Pambating panimula",
+              "Katawan",
+              "Lagda"
+            ],
+            "correct_answer": "Petsa"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang tamang halimbawa ng pambating panimula sa liham pangkaibigan?",
+            "options": [
+              "Mahal kong Lola",
+              "Lubos na gumagalang",
+              "Ako po ay",
+              "Petsa ngayong Agosto"
+            ],
+            "correct_answer": "Mahal kong Lola"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang halimbawa ng pambating pangwakas sa isang liham pangkaibigan?",
+            "options": [
+              "Ang mahal mong kaibigan",
+              "Mahal kong Kaibigan",
+              "Petsa ngayon",
+              "Buod ng balita"
+            ],
+            "correct_answer": "Ang mahal mong kaibigan"
+          },
+          {
+            "question": "Kapag nagsasagawa ng enrolment form, aling impormasyon ang karaniwang hindi kailangang isulat?",
+            "options": [
+              "Paboritong palabas sa telebisyon",
+              "Buong pangalan ng mag-aaral",
+              "Petsa ng kapanganakan",
+              "Pangalan ng magulang o tagapag-alaga"
+            ],
+            "correct_answer": "Paboritong palabas sa telebisyon"
+          },
+          {
+            "question": "Sa diksiyonaryo, ano ang layunin ng guhit-bigkas o gabay sa bigkas sa tabi ng bawat salita?",
+            "options": [
+              "Upang ipakita kung paano bibigkasin nang tama ang salita",
+              "Upang ipakita ang bilang ng titik sa salita",
+              "Upang ipakita ang kahulugan ng salita",
+              "Upang ipakita ang kasingkahulugan ng salita"
+            ],
+            "correct_answer": "Upang ipakita kung paano bibigkasin nang tama ang salita"
+          },
+          {
+            "question": "Kailan mo pinakamainam gamitin ang isang direktoryo?",
+            "options": [
+              "Kapag naghahanap ng numero ng telepono o address ng isang tao o opisina",
+              "Kapag naghahanap ng kahulugan ng salita",
+              "Kapag gustong malaman ang tamang bigkas ng salita",
+              "Kapag naghahanap ng kasaysayan ng isang bansa"
+            ],
+            "correct_answer": "Kapag naghahanap ng numero ng telepono o address ng isang tao o opisina"
+          },
+          {
+            "question": "Susulat ka ng liham sa iyong kaibigang lumipat ng lungsod. Alin sa mga sumusunod ang wastong ayos ng mga bahagi ng liham mula una hanggang huli?",
+            "options": [
+              "Petsa, Pambating panimula, Katawan, Pambating pangwakas, Lagda",
+              "Katawan, Petsa, Lagda, Pambating panimula",
+              "Lagda, Katawan, Petsa, Pambating pangwakas",
+              "Pambating panimula, Petsa, Lagda, Katawan"
+            ],
+            "correct_answer": "Petsa, Pambating panimula, Katawan, Pambating pangwakas, Lagda"
+          },
+          {
+            "question": "Nais mong hanapin ang kahulugan ng salitang masigasig pati na rin ang wastong bigkas nito. Aling sanggunian ang pinakaangkop gamitin?",
+            "options": [
+              "Diksiyonaryo",
+              "Direktoryo",
+              "Aklat-aralin sa Matematika",
+              "Peryodiko"
+            ],
+            "correct_answer": "Diksiyonaryo"
+          },
+          {
+            "question": "Kailangan mong gumawa ng malalim na pag-aaral tungkol sa kasaysayan ng Pilipinas kasama ang mga larawan at datos. Aling uri ng sanggunian ang pinaka-angkop gamitin?",
+            "options": [
+              "Ensayklopidya",
+              "Direktoryo",
+              "Diksiyonaryo ng Kasingkahulugan",
+              "Aklat ng Kuwentong Bayan"
+            ],
+            "correct_answer": "Ensayklopidya"
+          },
+          {
+            "question": "Nanonood ka ng isang video tungkol sa kalikasan na may mga graph at larawan. Ano ang dapat mong gawin upang lubos na maunawaan ang impormasyong ipinapakita?",
+            "options": [
+              "Suriing mabuti ang parehong salita at biswal (larawan/graph) na ipinapakita upang mahango ang buong mensahe",
+              "Basahin lamang ang mga salitang lumalabas sa video",
+              "Tignan lamang ang mga larawan at balewalain ang naririnig",
+              "Isantabi ang biswal dahil hindi ito mahalaga"
+            ],
+            "correct_answer": "Suriing mabuti ang parehong salita at biswal (larawan/graph) na ipinapakita upang mahango ang buong mensahe"
+          },
+          {
+            "question": "Sa pagsagot ng enrolment form, bakit mahalagang tama at kumpleto ang mga detalyeng isinusulat gaya ng buong pangalan at petsa ng kapanganakan?",
+            "options": [
+              "Dahil ginagamit ito sa opisyal na tala ng paaralan at maaaring makaapekto sa mga dokumento ng mag-aaral kung mali",
+              "Dahil kailangan lang ito upang mapuno ang papel",
+              "Dahil ito ang tanging bahagi ng form na binabasa ng guro",
+              "Dahil hindi ito talaga mahalaga sa proseso ng enrolment"
+            ],
+            "correct_answer": "Dahil ginagamit ito sa opisyal na tala ng paaralan at maaaring makaapekto sa mga dokumento ng mag-aaral kung mali"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "EPP (ICT)": {
+        "summary_markdown": "## Email Safety: Spotting Phishing and Protecting Your Information\n\n- **Phishing** is a trick where scammers send fake emails pretending to be trustworthy (like a store, school, or bank) in order to steal your personal information, passwords, or money.\n- Common **red flags** of a phishing email include: urgent demands (\"Act now or lose your account!\"), messages from unknown or strange-looking senders (e.g., \"admin@deped-secure-verify123.xyz\"), spelling errors, and requests for private details like passwords or bank information.\n- **Personal information** — your full name, home address, birthdate, and passwords — should never be given out through a suspicious email link or reply, even if the message promises a prize.\n- Be extra careful with **suspicious links and attachments**: hovering over a link may reveal a fake web address, and unexpected attachments (like \"FREE_GAME.exe\" from a stranger) can carry viruses.\n- If you ever receive a suspicious email, the safest steps are: **do not click**, **do not reply with information**, and **tell a trusted adult** right away.\n\n| Real/Safe Email | Phishing Email |\n|---|---|\n| From a known school address, no urgent threats | Urgent, threatening deadline (\"within 1 hour!\") |\n| Never asks for your password by email | Asks you to \"confirm\" your password or bank details |\n| Links match the real website | Links lead to strange or misspelled addresses |\n\n- Staying alert and double-checking before clicking is the best way to keep your account and your family's information safe.",
+        "quiz": [
+          {
+            "question": "What is \"phishing\"?",
+            "options": [
+              "A trick where scammers send fake emails to steal personal information",
+              "A way to attach files to an email",
+              "A polite way to greet someone in an email",
+              "A setting that organizes your inbox by date"
+            ],
+            "correct_answer": "A trick where scammers send fake emails to steal personal information"
+          },
+          {
+            "question": "Which of these is a common red flag of a phishing email?",
+            "options": [
+              "An urgent message demanding you click a link immediately or your account will be closed",
+              "A greeting that says 'Good morning'",
+              "An email from a classmate about homework",
+              "A message with your teacher's real name and signature"
+            ],
+            "correct_answer": "An urgent message demanding you click a link immediately or your account will be closed"
+          },
+          {
+            "question": "What kind of information is considered \"personal information\" that should be protected online?",
+            "options": [
+              "Full name, home address, passwords, and birthdate",
+              "The name of your favorite cartoon",
+              "The subject of your school project",
+              "The color of your school uniform"
+            ],
+            "correct_answer": "Full name, home address, passwords, and birthdate"
+          },
+          {
+            "question": "Why should you be careful about attachments or links from unknown senders?",
+            "options": [
+              "They may contain viruses or lead to fake websites that steal information",
+              "They always contain funny pictures",
+              "They make your email account faster",
+              "They are required to open every email"
+            ],
+            "correct_answer": "They may contain viruses or lead to fake websites that steal information"
+          },
+          {
+            "question": "What should you do if you receive a suspicious email asking for your password?",
+            "options": [
+              "Do not click any links and tell a trusted adult",
+              "Reply immediately with your password",
+              "Forward it to all your classmates",
+              "Click the link to see what happens"
+            ],
+            "correct_answer": "Do not click any links and tell a trusted adult"
+          },
+          {
+            "question": "You get an email saying \"You won a free tablet! Click here now and enter your home address and parent's bank details to claim it.\" What should you do?",
+            "options": [
+              "Do not click the link; this is likely a phishing scam",
+              "Click the link right away to get the free tablet",
+              "Reply with your parent's bank account number",
+              "Forward it to your whole class so they can also claim a prize"
+            ],
+            "correct_answer": "Do not click the link; this is likely a phishing scam"
+          },
+          {
+            "question": "Which sender address looks suspicious and possibly fake?",
+            "options": [
+              "'admin@deped-secure-verify123.xyz'",
+              "'juan.delacruz@deped.gov.ph'",
+              "'ma.santos@gmail.com' (your actual classmate's email)",
+              "'principal@yourschool.edu.ph'"
+            ],
+            "correct_answer": "'admin@deped-secure-verify123.xyz'"
+          },
+          {
+            "question": "An email asks you to reply with your full name, home address, and your parents' phone number \"to verify your prize.\" What is the safest action?",
+            "options": [
+              "Do not share personal information; this is a red flag for phishing",
+              "Share only your name but not your address",
+              "Share everything since it mentions a prize",
+              "Ask a friend to reply for you instead"
+            ],
+            "correct_answer": "Do not share personal information; this is a red flag for phishing"
+          },
+          {
+            "question": "You receive an email from an unknown sender with an attachment named \"FREE_GAME.exe\". What is the safest action?",
+            "options": [
+              "Do not open the attachment and delete or report the email",
+              "Open it immediately because it says free game",
+              "Forward it to friends so they can try it too",
+              "Reply asking for more free games"
+            ],
+            "correct_answer": "Do not open the attachment and delete or report the email"
+          },
+          {
+            "question": "Which of these emails is LEAST likely to be a phishing attempt?",
+            "options": [
+              "An email from your teacher's known school email reminding you about a quiz next week",
+              "An email urgently demanding you 'verify your account in 10 minutes or lose it forever'",
+              "An email asking you to send your password to 'confirm your identity'",
+              "An email with a link to 'claim your surprise cash prize now'"
+            ],
+            "correct_answer": "An email from your teacher's known school email reminding you about a quiz next week"
+          },
+          {
+            "question": "An email claims to be from \"DepEd Central Office,\" has several spelling errors, urges you to \"act now within 1 hour,\" and asks for your parents' bank details. What TWO red flags should make you suspicious?",
+            "options": [
+              "The urgency/time pressure and the request for sensitive bank details",
+              "The polite greeting and correct spelling",
+              "The long paragraph and formal signature",
+              "The use of the school's real logo only"
+            ],
+            "correct_answer": "The urgency/time pressure and the request for sensitive bank details"
+          },
+          {
+            "question": "Compare two emails: Email A says \"Hi po, reminder na bukas ang deadline ng project. - Teacher Rose\" from a known school email. Email B says \"URGENT!!! Your account will be DELETED unless you click this link and enter your password NOW!\" Which is more likely phishing, and why?",
+            "options": [
+              "Email B, because it uses urgency, threats, and asks for a password",
+              "Email A, because it mentions a deadline",
+              "Both are phishing because they are both emails",
+              "Neither is phishing since both use exclamation marks"
+            ],
+            "correct_answer": "Email B, because it uses urgency, threats, and asks for a password"
+          },
+          {
+            "question": "Your classmate says, \"I got an email asking for my home address and my mom's phone number to 'confirm a school raffle prize,' so I just replied with the info to be safe.\" What mistake did your classmate make, and what should they do next?",
+            "options": [
+              "They should not have shared personal information; they should tell a trusted adult and avoid replying further",
+              "No mistake was made since it was about a school raffle",
+              "They should have replied with even more details to be extra safe",
+              "They should forward the email to more classmates so everyone can join"
+            ],
+            "correct_answer": "They should not have shared personal information; they should tell a trusted adult and avoid replying further"
+          },
+          {
+            "question": "An email looks like it's from a well-known online store, congratulating you on a prize, but the link when you hover over it shows a strange address like \"www.stor3-free-gift.ru\" instead of the real store's website. What does this MOST likely indicate, and what should you do?",
+            "options": [
+              "The link is likely fake/phishing; do not click it and report or delete the email",
+              "The link is safe because it mentions a real store's name",
+              "You should click it quickly before the offer expires",
+              "You should reply asking why the link looks different"
+            ],
+            "correct_answer": "The link is likely fake/phishing; do not click it and report or delete the email"
+          },
+          {
+            "question": "A scammer sends different emails to trick people: one demands urgent action, another asks for personal/banking details, another has a suspicious link disguised as a real website. What is the common goal behind all these tricks, and what is the best overall defense?",
+            "options": [
+              "The goal is to steal personal information or money; the best defense is staying alert, verifying senders, and never sharing sensitive details through email links",
+              "The goal is to make emails load faster; the defense is deleting your email account",
+              "The goal is to organize your inbox; the defense is ignoring all emails",
+              "The goal is to test your typing speed; the defense is replying quickly"
+            ],
+            "correct_answer": "The goal is to steal personal information or money; the best defense is staying alert, verifying senders, and never sharing sensitive details through email links"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "## Ugnayang Pangkalakalan at Kultural ng Sinaunang Pilipinas sa Asya\n\n- Bago pa man dumating ang mga Kastila, ang sinaunang Pilipino ay aktibo nang nakikipagkalakalan sa iba't ibang bansa sa Asya.\n- Sa **Tsina**, ginamit ang tinatawag na **tribute trade** — nagbibigay muna ng handog o pagpugay ang mga Pilipino sa Emperador ng Tsina bilang tanda ng paggalang bago sila makapagpalitan ng mga kalakal. Ito rin ay isang uri ng **barter trade** dahil walang ginagamit na salapi.\n  - Mula sa Tsina: **seda/sutla** at **porselana**\n  - Mula sa Pilipinas: **ginto** at **perlas**\n- Ang kalakalan sa **Indya** ay nagdulot ng impluwensya sa relihiyon (paniniwalang Hindu-Budismo) at sa ilang salita sa ating wika.\n- Ang kalakalan sa **Arabia** ay naging daan din upang makarating sa Pilipinas ang relihiyong **Islam** kasabay ng mga kalakal.\n- Nagkaroon din ng ugnayan ang Pilipinas sa mga kaharian sa **Timog Silangang Asya**:\n  - **Borneo** — pinagmulan ng ilang datu na lumipat sa Pilipinas\n  - **Champa** (Vietnam) — kilala sa palayok at seramika\n  - **Srivijaya** — makapangyarihang kaharian sa Sumatra\n  - **Majapahit** — malaking kaharian sa Java na may ugnayan din sa ilang bahagi ng Pilipinas\n\nHalimbawa: Isipin ang isang mangangalakal na Pilipino noong sinaunang panahon na naglalakbay papuntang Tsina dala-dala ang ginto at perlas. Pagbalik niya, may dala siyang magagandang seda at porselana — patunay na malawak na ang ugnayang pangkalakalan ng Pilipinas kahit wala pang makabagong barko o teknolohiya.\n\n| Bansa/Kaharian | Kalakal/Impluwensyang Ibinigay | Natanggap ng Pilipinas |\n|---|---|---|\n| Tsina | Seda, porselana | Ginto, perlas |\n| Indya | Relihiyon, wika | — |\n| Arabia | Islam, kalakal | — |\n| Borneo/Srivijaya/Majapahit/Champa | Datu, kultura, kalakal | Kaugnayang pangkalakalan |\n\n- Ipinapakita ng mga ebidensiyang ito na ang Pilipinas ay bahagi na noon pa ng isang malawak na daan-dagat ng kalakalan sa Asya.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa sistema ng pangangalakal na walang ginagamit na salapi kundi pagpapalitan lamang ng mga produkto?",
+            "options": [
+              "Barter trade",
+              "Tribute trade",
+              "Sistemang pyudal",
+              "Ensomyenda"
+            ],
+            "correct_answer": "Barter trade"
+          },
+          {
+            "question": "Sa tribute trade sa Tsina, ano ang unang ginagawa ng mga sinaunang Pilipino bago sila makatanggap ng mga kalakal mula sa Tsina?",
+            "options": [
+              "Nagbibigay sila ng handog o pagpugay sa Emperador ng Tsina",
+              "Nagbabayad sila ng buwis sa Espanya",
+              "Nakikipaglaban sila sa mga Tsino",
+              "Nagpapadala sila ng sundalo sa Tsina"
+            ],
+            "correct_answer": "Nagbibigay sila ng handog o pagpugay sa Emperador ng Tsina"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang kalakal na dala ng mga Tsino papunta sa Pilipinas?",
+            "options": [
+              "Seda at porselana",
+              "Ginto at perlas",
+              "Abaka at balahibo ng ibon",
+              "Pagong at hipon"
+            ],
+            "correct_answer": "Seda at porselana"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang kalakal na ipinagpalit ng mga sinaunang Pilipino sa mga dayuhang mangangalakal?",
+            "options": [
+              "Ginto at perlas",
+              "Seda at sutla",
+              "Porselana at alahas",
+              "Pagkaing de-lata"
+            ],
+            "correct_answer": "Ginto at perlas"
+          },
+          {
+            "question": "Alin sa mga sumusunod na sinaunang kaharian sa Timog Silangang Asya ang kilala bilang makapangyarihang kaharian sa Sumatra?",
+            "options": [
+              "Srivijaya",
+              "Majapahit",
+              "Champa",
+              "Borneo"
+            ],
+            "correct_answer": "Srivijaya"
+          },
+          {
+            "question": "Bakit itinuturing na tribute trade ang ugnayang pangkalakalan ng sinaunang Pilipino sa Tsina?",
+            "options": [
+              "Dahil kailangang magbigay muna ng handog bago makapagkalakal bilang tanda ng paggalang sa Emperador",
+              "Dahil libre ang lahat ng kalakal mula sa Tsina",
+              "Dahil ipinagbabawal ang kalakalan sa Tsina",
+              "Dahil ang mga Pilipino ang siyang nangongolekta ng buwis mula sa Tsina"
+            ],
+            "correct_answer": "Dahil kailangang magbigay muna ng handog bago makapagkalakal bilang tanda ng paggalang sa Emperador"
+          },
+          {
+            "question": "Paano nakaapekto ang kalakalan sa pagitan ng Pilipinas at Indya sa kultura ng mga sinaunang Pilipino?",
+            "options": [
+              "Nagdulot ito ng impluwensya sa relihiyon, paniniwala, at ilang salita sa wika",
+              "Ganap na nawala ang paniniwala ng mga katutubo",
+              "Nagsimula ang paggamit ng alpabetong Romano",
+              "Naging opisyal na wika ang Sanskrit sa Pilipinas"
+            ],
+            "correct_answer": "Nagdulot ito ng impluwensya sa relihiyon, paniniwala, at ilang salita sa wika"
+          },
+          {
+            "question": "Bakit mahalaga ang kalakalan ng Pilipinas sa Arabia noong sinaunang panahon?",
+            "options": [
+              "Naging daan ito upang makarating ang kaalaman, kalakal, at relihiyong Islam sa Pilipinas",
+              "Naging sanhi ito ng digmaan sa pagitan ng Pilipinas at Arabia",
+              "Naghangad lamang ito ng ginto mula sa Pilipinas",
+              "Naging dahilan ito upang tuluyang mawala ang kalakalan sa Tsina"
+            ],
+            "correct_answer": "Naging daan ito upang makarating ang kaalaman, kalakal, at relihiyong Islam sa Pilipinas"
+          },
+          {
+            "question": "Ayon sa mga alamat at kasaysayan, paano nagkaroon ng ugnayan ang sinaunang Pilipinas at Borneo?",
+            "options": [
+              "Sa pamamagitan ng paglipat ng mga datu at pamayanan mula Borneo patungong Pilipinas para sa kalakalan at panirahan",
+              "Sa pamamagitan ng digmaang pandagat laban sa Espanya",
+              "Sa pamamagitan ng relihiyong Kristiyano",
+              "Sa pamamagitan ng kasunduang pangkalakalan sa Amerika"
+            ],
+            "correct_answer": "Sa pamamagitan ng paglipat ng mga datu at pamayanan mula Borneo patungong Pilipinas para sa kalakalan at panirahan"
+          },
+          {
+            "question": "Paano naipapakita ng mga kalakal tulad ng porselana at seda na malawak ang saklaw ng ugnayang pangkalakalan ng sinaunang Pilipinas?",
+            "options": [
+              "Nagpapatunay ito na may matagal at aktibong ugnayan ang Pilipinas sa mga dayuhang bansa tulad ng Tsina",
+              "Nangangahulugan ito na ang Pilipinas ang gumawa ng mga kalakal na ito",
+              "Nagpapatunay ito na walang kalakalan noon sa Pilipinas",
+              "Nagpapakita ito na ang mga kalakal ay galing lamang sa Timog Silangang Asya"
+            ],
+            "correct_answer": "Nagpapatunay ito na may matagal at aktibong ugnayan ang Pilipinas sa mga dayuhang bansa tulad ng Tsina"
+          },
+          {
+            "question": "Kung ihahambing ang ugnayan ng Pilipinas sa Tsina at sa mga kaharian ng Timog Silangang Asya (Borneo, Champa, Srivijaya, Majapahit), ano ang pinakamalaking pagkakaiba?",
+            "options": [
+              "Ang kalakalan sa Tsina ay may anyong tribute trade samantalang sa Timog Silangang Asya ay mas direktang barter trade at paglipat ng mga tao",
+              "Magkatulad lamang ang dalawa sa lahat ng aspeto",
+              "Walang naitalang ugnayan sa Timog Silangang Asya",
+              "Puro digmaan lamang ang ugnayan sa magkabilang panig"
+            ],
+            "correct_answer": "Ang kalakalan sa Tsina ay may anyong tribute trade samantalang sa Timog Silangang Asya ay mas direktang barter trade at paglipat ng mga tao"
+          },
+          {
+            "question": "Batay sa mga kalakal na ipinagpapalitan (seda, porselana mula Tsina; ginto, perlas mula Pilipinas), ano ang maaaring ikonklusyon tungkol sa yamang taglay ng sinaunang Pilipinas?",
+            "options": [
+              "Mayaman ang Pilipinas sa likas na yaman tulad ng ginto at perlas na hinahanap ng ibang bansa",
+              "Walang anumang yaman ang Pilipinas noon",
+              "Ang Pilipinas lamang ang gumagawa ng porselana",
+              "Umaasa lamang ang Pilipinas sa tulong ng Tsina"
+            ],
+            "correct_answer": "Mayaman ang Pilipinas sa likas na yaman tulad ng ginto at perlas na hinahanap ng ibang bansa"
+          },
+          {
+            "question": "Paano magkakaugnay ang impluwensyang Indyan, Arabo, at ang mga kahariang Srivijaya at Majapahit sa pagbuo ng kulturang Pilipino bago dumating ang mga Kastila?",
+            "options": [
+              "Nagdulot ang bawat isa ng iba't ibang impluwensya (relihiyon, wika, kalakal) na sama-samang humubog sa magkakaibang kultura ng mga sinaunang Pilipino",
+              "Walang epekto ang mga ito sa kulturang Pilipino",
+              "Iisa lamang ang pinagmulan ng lahat ng impluwensyang ito",
+              "Kastila ang nagdala ng lahat ng impluwensyang ito"
+            ],
+            "correct_answer": "Nagdulot ang bawat isa ng iba't ibang impluwensya (relihiyon, wika, kalakal) na sama-samang humubog sa magkakaibang kultura ng mga sinaunang Pilipino"
+          },
+          {
+            "question": "Kung mawawala ang ebidensiya ng kalakalan sa Tsina, Indya, at Arabia, paano maaapektuhan ang ating pag-unawa sa sinaunang kasaysayan ng Pilipinas?",
+            "options": [
+              "Mahihirapan tayong maunawaan kung paano naging bahagi ng malawak na network ng kalakalan sa Asya ang Pilipinas bago pa man dumating ang mga Kastila",
+              "Wala itong idudulot na epekto sa pag-unawa sa kasaysayan",
+              "Mas madaling maiintindihan ang kasaysayan kung wala ang ebidensiyang ito",
+              "Mas magiging tumpak ang kasaysayan kung wala ito"
+            ],
+            "correct_answer": "Mahihirapan tayong maunawaan kung paano naging bahagi ng malawak na network ng kalakalan sa Asya ang Pilipinas bago pa man dumating ang mga Kastila"
+          },
+          {
+            "question": "Bakit maituturing na malawak at magkakaugnay ang mundo ng sinaunang Pilipino kahit pa wala pang modernong teknolohiya sa transportasyon at komunikasyon?",
+            "options": [
+              "Dahil nagkaroon na sila ng aktibong kalakalan at ugnayang kultural sa Tsina, Indya, Arabia, at mga kaharian sa Timog Silangang Asya",
+              "Dahil hindi na sila umalis pa sa kanilang pamayanan",
+              "Dahil iisa lamang bansa ang kanilang kinalakalan",
+              "Dahil naghintay lamang sila sa pagdating ng mga Kastila"
+            ],
+            "correct_answer": "Dahil nagkaroon na sila ng aktibong kalakalan at ugnayang kultural sa Tsina, Indya, Arabia, at mga kaharian sa Timog Silangang Asya"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "## Term 1 Review: Faith, Prudence, Obedience, and Gratitude\n\nThis week continues the **review and synthesis** of Term 1 values, focusing on the second half of the term.\n\n- **Faith**, continued from the previous topic, is also shown by trusting in God's guidance during difficult times — not just through prayer and scripture, but in daily decision-making.\n- **Prudence** is shown through the proper disposal of **e-waste** — old batteries, cellphones, and gadgets should go to a proper e-waste collection or recycling center, not the regular trash, because they can harm the environment.\n- **Obedience** is practiced by following **traffic rules**, such as crossing only at the pedestrian lane and waiting for the correct signal, which keeps everyone safe.\n- **Gratitude** means appreciating parents or guardians for their love and sacrifices — for example, writing them a thank-you letter or simply following their guidance out of appreciation, not just fear.\n\nExample: Rico's family has an old, broken television. Instead of throwing it on the street, they bring it to a proper recycling center — showing **prudence** — and Rico thanks his parents for teaching him this responsible habit, showing **gratitude**.\n\n| Value | Key Practice | Example |\n|---|---|---|\n| Faith | Trusting God's guidance | Praying during hard times |\n| Prudence | Proper e-waste disposal | Recycling old gadgets |\n| Obedience | Following traffic rules | Using the pedestrian lane |\n| Gratitude | Appreciating parents/guardians | Thanking them for their sacrifices |\n\n- These four values work together: gratitude for parents can motivate obedience to their guidance, while faith can inspire the discipline needed to practice prudence in daily life.",
+        "quiz": [
+          {
+            "question": "What is prudence as shown through the proper disposal of e-waste (like old batteries and gadgets)?",
+            "options": [
+              "Being careful and wise in disposing of electronic waste to protect the environment",
+              "Throwing all electronics in the regular trash",
+              "Keeping broken gadgets forever without disposing of them",
+              "Burning old electronics at home"
+            ],
+            "correct_answer": "Being careful and wise in disposing of electronic waste to protect the environment"
+          },
+          {
+            "question": "Which of the following is an example of obedience to traffic rules?",
+            "options": [
+              "Crossing the street only at the pedestrian lane or crosswalk",
+              "Crossing anywhere on the road",
+              "Ignoring traffic lights",
+              "Running across a busy street"
+            ],
+            "correct_answer": "Crossing the street only at the pedestrian lane or crosswalk"
+          },
+          {
+            "question": "What does it mean to show gratitude to your parents or guardians?",
+            "options": [
+              "Appreciating and thanking them for their love and sacrifices",
+              "Ignoring the things they do for you",
+              "Complaining about their rules all the time",
+              "Taking their help for granted"
+            ],
+            "correct_answer": "Appreciating and thanking them for their love and sacrifices"
+          },
+          {
+            "question": "Which of the following continues to show the value of faith, similar to praying and reading scripture?",
+            "options": [
+              "Trusting in God's guidance during difficult times",
+              "Refusing to believe in anything",
+              "Doubting family traditions",
+              "Ignoring spiritual practices"
+            ],
+            "correct_answer": "Trusting in God's guidance during difficult times"
+          },
+          {
+            "question": "Why should old cellphone batteries not be thrown in regular garbage bins?",
+            "options": [
+              "Because they can harm the environment and need proper e-waste disposal",
+              "Because they are too heavy for the trash bin",
+              "Because they can be reused as food",
+              "Because they have no effect on the environment"
+            ],
+            "correct_answer": "Because they can harm the environment and need proper e-waste disposal"
+          },
+          {
+            "question": "While walking home from school, Ben sees a pedestrian signal that says Do Not Cross. What should he do to show obedience?",
+            "options": [
+              "Wait for the correct signal before crossing the street",
+              "Cross immediately because he is in a hurry",
+              "Cross through a different unsafe area",
+              "Ignore the signal and run across"
+            ],
+            "correct_answer": "Wait for the correct signal before crossing the street"
+          },
+          {
+            "question": "Rico's family is replacing their old television. What is the wisest and most prudent way to get rid of the old one?",
+            "options": [
+              "Bring it to a proper e-waste collection or recycling center",
+              "Leave it outside on the street",
+              "Throw it into a river",
+              "Burn it in the backyard"
+            ],
+            "correct_answer": "Bring it to a proper e-waste collection or recycling center"
+          },
+          {
+            "question": "Every year on Mother's Day, Kim writes a letter thanking her mother for her hard work and sacrifices. What value is Kim showing?",
+            "options": [
+              "Gratitude",
+              "Obedience",
+              "Prudence",
+              "Promptness"
+            ],
+            "correct_answer": "Gratitude"
+          },
+          {
+            "question": "Why do traffic rules, such as stopping at a red light, exist?",
+            "options": [
+              "To keep drivers and pedestrians safe from accidents",
+              "To make traveling slower for no reason",
+              "To only benefit car owners",
+              "To punish people who walk"
+            ],
+            "correct_answer": "To keep drivers and pedestrians safe from accidents"
+          },
+          {
+            "question": "How can reading scripture and praying continue to help a person make prudent decisions, such as properly disposing of e-waste?",
+            "options": [
+              "Faith can inspire care and responsibility toward God's creation, including the environment",
+              "Faith has nothing to do with caring for the environment",
+              "Prayer replaces the need to recycle properly",
+              "Reading scripture only concerns personal matters, not the environment"
+            ],
+            "correct_answer": "Faith can inspire care and responsibility toward God's creation, including the environment"
+          },
+          {
+            "question": "A family has old gadgets scattered around the house. The parents remind the children to bring these to a recycling center instead of throwing them away. How does this reflect both prudence and gratitude?",
+            "options": [
+              "It shows prudence in caring for the environment, and gratitude can be shown by respecting and following the parents' wise guidance",
+              "It shows only obedience and nothing else",
+              "It has no connection to gratitude at all",
+              "It shows that gadgets have no value once broken"
+            ],
+            "correct_answer": "It shows prudence in caring for the environment, and gratitude can be shown by respecting and following the parents' wise guidance"
+          },
+          {
+            "question": "Two friends are about to cross a busy street. One says there is no time to wait for the pedestrian lane and suggests running across instead. What is the best response that reflects obedience to traffic rules?",
+            "options": [
+              "Insist on using the pedestrian lane and waiting for the correct signal, even if it takes longer",
+              "Agree and run across quickly",
+              "Push the friend to cross first",
+              "Cross from a different unsafe spot instead"
+            ],
+            "correct_answer": "Insist on using the pedestrian lane and waiting for the correct signal, even if it takes longer"
+          },
+          {
+            "question": "How might showing gratitude to parents also encourage a child to practice obedience, such as following traffic rules and household guidelines?",
+            "options": [
+              "Appreciating parents' care can motivate a child to follow their guidance and rules meant to keep them safe",
+              "Gratitude and obedience are completely unrelated",
+              "Being thankful means a child no longer needs to follow rules",
+              "Obedience only comes from fear, not gratitude"
+            ],
+            "correct_answer": "Appreciating parents' care can motivate a child to follow their guidance and rules meant to keep them safe"
+          },
+          {
+            "question": "Reflecting on faith, prudence, obedience, and gratitude together, how do these values help a person become a responsible member of the family and community?",
+            "options": [
+              "They guide a person to trust in God, make wise choices, follow helpful rules, and appreciate others, forming the foundation of good character",
+              "They are only useful in church settings",
+              "They apply only to adults and not children",
+              "They have no real connection to daily life"
+            ],
+            "correct_answer": "They guide a person to trust in God, make wise choices, follow helpful rules, and appreciate others, forming the foundation of good character"
+          },
+          {
+            "question": "Why is it important to review and continue practicing values like faith, prudence, obedience, and gratitude even after they were first introduced in earlier lessons?",
+            "options": [
+              "Because good values need to be practiced consistently in daily life to truly become part of a person's character",
+              "Because these values are only needed for a single week",
+              "Because once learned, values no longer need to be practiced",
+              "Because values are only important for a test"
+            ],
+            "correct_answer": "Because good values need to be practiced consistently in daily life to truly become part of a person's character"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "## Game Strategies in PE and Coping with Stress and Bullying\n\n- Grade 5 PE introduces two types of games: **Striking/Fielding Games** like **kickball** and **syato** (where players strike an object and run or field it), and **Net/Wall Games** like **pickleball**, **wall ball**, and **ringo** (where players send an object over a net or against a wall).\n- Three key **game concepts** apply across these games: **positioning** (standing in the right spot to help your team), **scoring** (earning points by following the game's rules, such as running bases in kickball or winning rallies in pickleball), and **defending** (preventing the other team or player from scoring).\n- Example: in a wall ball game, spreading players out instead of clustering together improves **positioning**, which makes **defending** the wall easier and helps avoid losing points.\n- In **Health**, pupils learn healthy ways to handle **stress** — such as deep breathing, talking to someone they trust, or staying physically active — instead of bottling up feelings or reacting with anger.\n- **Assertive behavior** means calmly and confidently standing up for yourself (or a friend) when facing bullying, harassment, discrimination, or violence, and knowing when to **seek help** from a teacher or trusted adult rather than staying silent or fighting back.\n\n| Game Type | Examples | Key Concept in Action |\n|---|---|---|\n| Striking/Fielding | Kickball, Syato | Scoring by striking and running |\n| Net/Wall | Pickleball, Wall ball, Ringo | Positioning and defending over a net/wall |\n\n- Just like a team needs good positioning and calm defending to succeed, a pupil needs healthy stress-coping and assertive skills to handle pressure and unfair treatment with confidence.",
+        "quiz": [
+          {
+            "question": "Which of these is an example of a striking/fielding game mentioned in the Grade 5 curriculum?",
+            "options": [
+              "Kickball",
+              "Pickleball",
+              "Wall ball",
+              "Ringo"
+            ],
+            "correct_answer": "Kickball"
+          },
+          {
+            "question": "Which of these is an example of a net/wall game?",
+            "options": [
+              "Pickleball",
+              "Syato",
+              "Kickball",
+              "Baseball"
+            ],
+            "correct_answer": "Pickleball"
+          },
+          {
+            "question": "In game concepts like positioning, scoring, and defending, what does \"positioning\" mean?",
+            "options": [
+              "Placing yourself in the right spot on the playing area to help your team",
+              "Refusing to move during the game",
+              "Only standing near the scoreboard",
+              "Sitting on the bench the whole game"
+            ],
+            "correct_answer": "Placing yourself in the right spot on the playing area to help your team"
+          },
+          {
+            "question": "What is a healthy way to cope with stress, according to the Health strand?",
+            "options": [
+              "Using healthy strategies such as deep breathing, talking to someone, or physical activity",
+              "Keeping all feelings bottled up forever",
+              "Yelling at classmates when stressed",
+              "Avoiding sleep completely"
+            ],
+            "correct_answer": "Using healthy strategies such as deep breathing, talking to someone, or physical activity"
+          },
+          {
+            "question": "What does it mean to respond \"assertively\" when facing bullying or harassment?",
+            "options": [
+              "Calmly and confidently standing up for yourself while respecting others, and seeking help when needed",
+              "Staying silent and doing nothing",
+              "Reacting with physical violence immediately",
+              "Ignoring the situation and pretending it is fine forever"
+            ],
+            "correct_answer": "Calmly and confidently standing up for yourself while respecting others, and seeking help when needed"
+          },
+          {
+            "question": "In a game of syato, a player is deciding where to stand to best block the opposing team's next move. This decision relates to which game concept?",
+            "options": [
+              "Positioning",
+              "Ignoring the rules",
+              "Sitting out",
+              "Changing the game entirely"
+            ],
+            "correct_answer": "Positioning"
+          },
+          {
+            "question": "During a pickleball match, a player uses footwork and paddle control to return the ball over the net and prevent the opponent from scoring. Which game concept is being applied?",
+            "options": [
+              "Defending",
+              "Sleeping",
+              "Skipping turns",
+              "Ignoring the ball"
+            ],
+            "correct_answer": "Defending"
+          },
+          {
+            "question": "A student feels nervous before a big exam. Which of the following is the healthiest coping strategy?",
+            "options": [
+              "Taking slow deep breaths and reviewing notes calmly ahead of time",
+              "Refusing to study and panicking the night before",
+              "Yelling at family members out of frustration",
+              "Completely avoiding the exam"
+            ],
+            "correct_answer": "Taking slow deep breaths and reviewing notes calmly ahead of time"
+          },
+          {
+            "question": "A classmate is being teased repeatedly by another student. Using assertive behavior, what is the BEST response for the student being teased?",
+            "options": [
+              "Calmly tell the classmate to stop and, if it continues, report it to a teacher or trusted adult",
+              "Tease them back even more harshly",
+              "Say nothing and let it continue",
+              "Skip school to avoid the classmate"
+            ],
+            "correct_answer": "Calmly tell the classmate to stop and, if it continues, report it to a teacher or trusted adult"
+          },
+          {
+            "question": "In a kickball game, players spread out across the field before the ball is kicked. What game concept does this best demonstrate?",
+            "options": [
+              "Positioning",
+              "Scoring",
+              "Resting",
+              "Substituting"
+            ],
+            "correct_answer": "Positioning"
+          },
+          {
+            "question": "In a wall ball game, a team is losing points because players are clustered in one area instead of spread out to cover the space. What game concept should they improve, and how would fixing it help their defense?",
+            "options": [
+              "Positioning; spreading out properly would let them cover more area and react faster to the ball, improving their defending",
+              "Scoring; they should just try to score more without changing anything else",
+              "Nothing needs to change since positioning does not affect defense",
+              "They should stop playing defense entirely"
+            ],
+            "correct_answer": "Positioning; spreading out properly would let them cover more area and react faster to the ball, improving their defending"
+          },
+          {
+            "question": "A student is stressed about an upcoming ringo tournament and also feels anxious about being teased by an opposing player. What combination of skills from the Health strand would help them handle BOTH situations well?",
+            "options": [
+              "Healthy stress-coping strategies (like deep breathing) for the anxiety, and assertive behavior to calmly address the teasing or seek help",
+              "Ignoring both problems until they go away on their own",
+              "Quitting the tournament to avoid all stress",
+              "Responding to the teasing with aggression and refusing to manage stress at all"
+            ],
+            "correct_answer": "Healthy stress-coping strategies (like deep breathing) for the anxiety, and assertive behavior to calmly address the teasing or seek help"
+          },
+          {
+            "question": "Compare kickball (a striking/fielding game) and pickleball (a net/wall game) in terms of how \"scoring\" typically works. What is a key difference?",
+            "options": [
+              "In kickball, scoring often involves running to bases/home after striking the ball, while in pickleball, scoring happens by winning rallies over a net",
+              "Both games score in exactly the same way with no differences",
+              "Neither game involves any scoring at all",
+              "Pickleball scores by running bases like kickball"
+            ],
+            "correct_answer": "In kickball, scoring often involves running to bases/home after striking the ball, while in pickleball, scoring happens by winning rallies over a net"
+          },
+          {
+            "question": "A student witnesses a friend being bullied but feels scared to say anything. Using the concept of assertive behavior and help-seeking, what is the best multi-step approach?",
+            "options": [
+              "Calmly support the friend if safe to do so, then report the bullying to a teacher or trusted adult rather than staying silent or reacting violently",
+              "Join in with the bullying to avoid becoming a target",
+              "Do nothing because it is not their problem",
+              "Confront the bully violently without telling any adult"
+            ],
+            "correct_answer": "Calmly support the friend if safe to do so, then report the bullying to a teacher or trusted adult rather than staying silent or reacting violently"
+          },
+          {
+            "question": "During PE class, a team keeps losing in a net/wall game because they panic and rush their shots whenever the score gets close. Which combination of PE and Health concepts could help them improve?",
+            "options": [
+              "Applying calm positioning and defending strategies while also using stress-coping techniques like deep breathing to stay composed under pressure",
+              "Ignoring the score completely and refusing to try",
+              "Giving up on strategy and only relying on luck",
+              "Avoiding the sport altogether to prevent stress"
+            ],
+            "correct_answer": "Applying calm positioning and defending strategies while also using stress-coping techniques like deep breathing to stay composed under pressure"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "## Pagbebenta ng Ani at Pagtutuos ng Kita\n\n- Maraming paraan upang ibenta ang inaning produkto: **pakyawan** (ibinebenta ang buong bunton nang sabay-sabay, karaniwang mas mababa ang presyo bawat piraso), **tingian** (isa-isang piraso), **por kilo** (batay sa timbang), **tali** (nakabigkis, gaya ng gulay na nakatali), at **naka-paso** (nakabunton na may nakatakdang presyo).\n- Maaari ring ibenta ang mga produkto sa paraang **online** (halimbawa, sa social media marketplace, na maaaring umabot sa mas maraming mamimili kahit malayo) o sa **tradisyunal** na paraan tulad ng pagtitinda sa palengke.\n- Ang **kabuuang benta** ay ang kabuuang halagang natanggap mula sa lahat ng naibentang produkto. Halimbawa: kung nagbenta si Aling Rosa ng 50 piraso ng kalamansi nang ₱10 bawat isa, ang kanyang kabuuang benta ay **₱500**.\n- Ang **tubo o kita** ay ang natitirang halaga pagkatapos ibawas ang **gastos** (tulad ng binhi, abono, pamasahe) mula sa kabuuang benta.\n- Maaaring gamitin ang **manwal na pagkukwenta** (papel at kalkulator) o isang **electronic spreadsheet tool** upang mas madali at mas tumpak na masubaybayan ang benta, gastos, at kita.\n\n| Halaga | Halimbawa (Aling Fe) |\n|---|---|\n| Kabuuang Benta | ₱2,500 |\n| Kabuuang Gastos | ₱1,400 (binhi + abono + pamasahe) |\n| Tubo/Kita | ₱1,100 (₱2,500 − ₱1,400) |\n\n- Ang tumpak na pagtutuos ng benta, gastos, at tubo ay tumutulong sa magsasaka o tindero na malaman kung talagang kumikita ang kanyang negosyo at makagawa ng mas mahusay na desisyon.",
+        "quiz": [
+          {
+            "question": "Ano ang tawag sa paraan ng pagbebenta kung saan ibinebenta ang buong bunton o dami nang sabay-sabay sa mas mababang presyo bawat piraso?",
+            "options": [
+              "Pakyawan",
+              "Tingian",
+              "Por kilo",
+              "Naka-paso"
+            ],
+            "correct_answer": "Pakyawan"
+          },
+          {
+            "question": "Ano ang tawag sa pagbebenta ng isa-isang piraso ng produkto sa customer?",
+            "options": [
+              "Tingian",
+              "Pakyawan",
+              "Tali",
+              "Bulto"
+            ],
+            "correct_answer": "Tingian"
+          },
+          {
+            "question": "Paano tinitimbang o binibilang ang produkto kapag ito ay ibinebenta \"por kilo\"?",
+            "options": [
+              "Base sa bigat nito gamit ang timbangan",
+              "Base sa dami ng piraso lamang",
+              "Base sa haba ng tanim",
+              "Base sa kulay ng produkto"
+            ],
+            "correct_answer": "Base sa bigat nito gamit ang timbangan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng \"kabuuang benta\"?",
+            "options": [
+              "Ang kabuuang halagang natanggap mula sa lahat ng naibentang produkto",
+              "Ang gastos lamang sa pagtatanim",
+              "Ang bilang ng mga hindi pa naibebentang produkto",
+              "Ang presyo ng isang produkto lamang"
+            ],
+            "correct_answer": "Ang kabuuang halagang natanggap mula sa lahat ng naibentang produkto"
+          },
+          {
+            "question": "Ano ang tubo o kita?",
+            "options": [
+              "Ang natitirang pera pagkatapos ibawas ang gastos sa kabuuang benta",
+              "Ang kabuuang gastos sa pagtatanim",
+              "Ang bilang ng mga natirang produkto",
+              "Ang presyo bago ito ibenta"
+            ],
+            "correct_answer": "Ang natitirang pera pagkatapos ibawas ang gastos sa kabuuang benta"
+          },
+          {
+            "question": "Nagbenta si Aling Rosa ng 50 piraso ng kalamansi nang tigsasampung piso bawat isa. Magkano ang kanyang kabuuang benta?",
+            "options": [
+              "₱500",
+              "₱50",
+              "₱5",
+              "₱5,000"
+            ],
+            "correct_answer": "₱500"
+          },
+          {
+            "question": "Kumita si Mang Ador ng ₱3,000 sa pagbebenta ng gulay, ngunit ginastos niya ang ₱1,200 sa binhi at abono. Magkano ang kanyang tubo?",
+            "options": [
+              "₱1,800",
+              "₱4,200",
+              "₱1,200",
+              "₱3,000"
+            ],
+            "correct_answer": "₱1,800"
+          },
+          {
+            "question": "Nagbebenta ka ng talong sa palengke nang tigsasampung piso kada piraso sa mga customer na bibili lamang ng ilan. Anong paraan ng pagbebenta ito?",
+            "options": [
+              "Tingian",
+              "Pakyawan",
+              "Naka-paso",
+              "Bulto lang na walang bayad"
+            ],
+            "correct_answer": "Tingian"
+          },
+          {
+            "question": "Isang tindero ang naglagay ng kanyang mga produkto sa isang electronic spreadsheet upang mas madaling makita ang kita at gastos. Ano ang bentahe nito kumpara sa manual na pagkukwenta?",
+            "options": [
+              "Mas mabilis at mas maayos ang pagtutuos ng dami ng benta, gastos, at tubo",
+              "Wala itong pagkakaiba sa manual na pagkukwenta",
+              "Mas mabagal ito kumpara sa manual",
+              "Hindi ito magagamit para sa pagtitinda"
+            ],
+            "correct_answer": "Mas mabilis at mas maayos ang pagtutuos ng dami ng benta, gastos, at tubo"
+          },
+          {
+            "question": "Nagbebenta ang isang magsasaka ng gulay online sa social media marketplace kumpara sa tradisyunal na pagtitinda sa palengke. Ano ang isang pagkakaiba ng dalawang paraan?",
+            "options": [
+              "Sa online, maaaring umabot sa mas maraming customer kahit malayo, samantalang sa palengke ay karaniwang lokal na mamimili lamang",
+              "Walang pagkakaiba ang dalawa",
+              "Sa palengke lamang posible ang pagbebenta ng gulay",
+              "Sa online, hindi na kailangan ng anumang produkto para ibenta"
+            ],
+            "correct_answer": "Sa online, maaaring umabot sa mas maraming customer kahit malayo, samantalang sa palengke ay karaniwang lokal na mamimili lamang"
+          },
+          {
+            "question": "Nagbenta si Aling Fe ng mga sitaw sa halagang ₱2,500 sa isang linggo. Ginastos niya ang ₱800 para sa binhi, ₱400 para sa abono, at ₱200 para sa pamasahe patungo sa palengke. Magkano ang kanyang kabuuang tubo, at paano ito nakuha?",
+            "options": [
+              "₱1,100; sa pamamagitan ng pagbawas ng kabuuang gastos (₱1,400) mula sa kabuuang benta (₱2,500)",
+              "₱2,500; hindi na dapat ibawas ang gastos",
+              "₱1,400; ito na mismo ang gastos",
+              "₱3,900; idinagdag ang gastos sa benta"
+            ],
+            "correct_answer": "₱1,100; sa pamamagitan ng pagbawas ng kabuuang gastos (₱1,400) mula sa kabuuang benta (₱2,500)"
+          },
+          {
+            "question": "Dalawang paraan ang isinasaalang-alang ni Mang Tomas sa pagbebenta ng kanyang mangga: pakyawan sa isang mamimili nang mas mababang presyo bawat piraso, o tingian sa palengke nang mas mataas na presyo bawat piraso pero mas matagal maubos. Anong bagay ang dapat niyang timbangin (weigh) sa pagpili ng paraan?",
+            "options": [
+              "Ang bilis ng pagbenta kumpara sa mas mataas na kita bawat piraso, at kung kaya niyang maghintay na maubos ang lahat sa tingian",
+              "Wala siyang dapat isipin dahil pareho lang talaga ang kita sa dalawang paraan",
+              "Dapat piliin lagi ang pakyawan kahit mababa ang presyo",
+              "Dapat piliin lagi ang tingian kahit matagal maubos"
+            ],
+            "correct_answer": "Ang bilis ng pagbenta kumpara sa mas mataas na kita bawat piraso, at kung kaya niyang maghintay na maubos ang lahat sa tingian"
+          },
+          {
+            "question": "Gumamit si Aling Baby ng electronic spreadsheet upang itala ang kanyang benta at gastos linggo-linggo. Napansin niya sa kanyang datos na palaging mas mababa ang kita tuwing Lunes kumpara sa ibang araw. Paano makakatulong ang ganitong uri ng pagtatala sa kanyang negosyo?",
+            "options": [
+              "Makakatulong itong tukuyin ang pattern (hal. mababang benta tuwing Lunes) upang makagawa siya ng mas mahusay na desisyon sa negosyo",
+              "Walang silbi ang datos dahil hindi ito nagbabago",
+              "Dapat niya na lang itigil ang pagtitinda tuwing Lunes nang walang pagsusuri",
+              "Hindi makakatulong ang spreadsheet sa anumang desisyon"
+            ],
+            "correct_answer": "Makakatulong itong tukuyin ang pattern (hal. mababang benta tuwing Lunes) upang makagawa siya ng mas mahusay na desisyon sa negosyo"
+          },
+          {
+            "question": "Nagbenta si Mang Rudy ng mga sibuyas sa dalawang paraan: naka-paso (bunton na may nakatakdang presyo) at por kilo. Sa naka-paso, nagbenta siya ng 20 paso nang ₱15 bawat paso. Sa por kilo, nagbenta siya ng 10 kilo nang ₱60 bawat kilo. Alin sa dalawa ang nagbigay sa kanya ng mas mataas na kabuuang benta, at magkano ang pagkakaiba?",
+            "options": [
+              "Por kilo (₱600) ang mas mataas kaysa sa naka-paso (₱300); ₱300 ang pagkakaiba",
+              "Naka-paso (₱300) ang mas mataas; walang pagkakaiba",
+              "Pareho lang sila ng kabuuang benta",
+              "Por kilo lamang ang may kabuuang benta"
+            ],
+            "correct_answer": "Por kilo (₱600) ang mas mataas kaysa sa naka-paso (₱300); ₱300 ang pagkakaiba"
+          },
+          {
+            "question": "Bakit mahalaga para sa isang magsasaka o tindero na tumpak (accurate) na tuusin ang kabuuang benta, gastos, at tubo, sa halip na tantiyahin (estimate) lamang ito?",
+            "options": [
+              "Upang malaman nang tumpak kung kumikita talaga ang negosyo at makagawa ng tamang desisyon para sa hinaharap",
+              "Dahil hindi na kailangan ng tumpak na kwenta kung maayos naman ang tingin sa negosyo",
+              "Dahil ang pagtatantiya lang ay palaging mas tumpak",
+              "Dahil hindi nakakaapekto ang tumpak na pagtutuos sa desisyon ng negosyante"
+            ],
+            "correct_answer": "Upang malaman nang tumpak kung kumikita talaga ang negosyo at makagawa ng tamang desisyon para sa hinaharap"
+          }
+        ]
+      }
+    }
+  }
+}

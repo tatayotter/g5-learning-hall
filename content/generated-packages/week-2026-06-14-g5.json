@@ -1,0 +1,163 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-06-14",
+  "days": {
+    "Tuesday": {
+      "Science": {
+        "summary_markdown": "## Matter, Mass, and Volume: Meet the Three States of Matter\n\n- **Matter** is anything that has **mass** (the amount of \"stuff\" it is made of) and **volume** (the amount of space it takes up). If something is not matter, it has neither.\n- Scientists sort matter into three basic **states**: **solid**, **liquid**, and **gas**.\n- A **solid**, like a bato (stone) or a bangko (bench), keeps its own shape no matter what container or space it is placed in.\n- A **liquid**, like tubig (water) or patis (fish sauce), does not keep its own shape -- it takes the shape of whatever container holds it.\n- A **gas**, like hangin (air), also has no fixed shape, and it can even fill an entire balloon or room because it spreads out to fill available space.\n- One useful first clue for sorting an object into a state of matter is simply: does it keep its own shape, or not?\n\n| State | Example | Keeps its own shape? |\n|---|---|---|\n| Solid | Bato (stone) | Yes |\n| Liquid | Tubig (water) | No |\n| Gas | Hangin (air) | No |\n\n- Even gases are matter -- blowing up a balloon shows that air takes up space (volume), and matter like air also has mass, even though it may be too light to feel with your hands alone.",
+        "quiz": [
+          {
+            "question": "What is \"matter\"?",
+            "options": [
+              "Anything that has mass and takes up space",
+              "Only things you can see with your eyes",
+              "Only liquids and gases",
+              "Anything that is alive"
+            ],
+            "correct_answer": "Anything that has mass and takes up space"
+          },
+          {
+            "question": "What is \"mass\"?",
+            "options": [
+              "The amount of matter in an object",
+              "The color of an object",
+              "The temperature of an object",
+              "The shape of an object"
+            ],
+            "correct_answer": "The amount of matter in an object"
+          },
+          {
+            "question": "What is \"volume\"?",
+            "options": [
+              "The amount of space matter takes up",
+              "The weight of an object in kilograms",
+              "The speed an object moves",
+              "The number of parts an object has"
+            ],
+            "correct_answer": "The amount of space matter takes up"
+          },
+          {
+            "question": "What are the three states of matter studied this week?",
+            "options": [
+              "Solid, liquid, gas",
+              "Hot, warm, cold",
+              "Big, medium, small",
+              "Rock, water, fire"
+            ],
+            "correct_answer": "Solid, liquid, gas"
+          },
+          {
+            "question": "Which state of matter has a fixed (definite) shape of its own?",
+            "options": [
+              "Solid",
+              "Liquid",
+              "Gas",
+              "All three have a fixed shape"
+            ],
+            "correct_answer": "Solid"
+          },
+          {
+            "question": "Bato (stone), tubig (water), and hangin (air) are examples of matter. Which one is a solid?",
+            "options": [
+              "Bato (stone)",
+              "Tubig (water)",
+              "Hangin (air)",
+              "None of them"
+            ],
+            "correct_answer": "Bato (stone)"
+          },
+          {
+            "question": "You pour patis (fish sauce) from a bottle into a small saucer. What state of matter is the patis?",
+            "options": [
+              "Liquid",
+              "Solid",
+              "Gas",
+              "It has no state"
+            ],
+            "correct_answer": "Liquid"
+          },
+          {
+            "question": "When you blow air into a balloon, what state of matter fills the balloon?",
+            "options": [
+              "Gas",
+              "Liquid",
+              "Solid",
+              "Neither matter nor gas"
+            ],
+            "correct_answer": "Gas"
+          },
+          {
+            "question": "Which group correctly names one solid, one liquid, and one gas, in that order?",
+            "options": [
+              "Bato, tubig, hangin",
+              "Tubig, hangin, bato",
+              "Hangin, bato, tubig",
+              "Bato, bato, tubig"
+            ],
+            "correct_answer": "Bato, tubig, hangin"
+          },
+          {
+            "question": "A piece of ice cube is left on a plate. While it is still fully frozen, what state of matter is it?",
+            "options": [
+              "Solid",
+              "Liquid",
+              "Gas",
+              "It is not matter"
+            ],
+            "correct_answer": "Solid"
+          },
+          {
+            "question": "Blowing up a balloon makes it grow bigger and firmer. What does this prove about air, a gas?",
+            "options": [
+              "Air takes up space",
+              "Air has color",
+              "Air is a liquid",
+              "Air has a fixed shape"
+            ],
+            "correct_answer": "Air takes up space"
+          },
+          {
+            "question": "Why does a bato (stone) keep the same shape no matter what container or bag you place it in, while tubig (water) does not?",
+            "options": [
+              "Because a solid has its own fixed shape, but a liquid takes the shape of its container",
+              "Because stones are heavier than water",
+              "Because water has no mass",
+              "Because stones cannot be moved"
+            ],
+            "correct_answer": "Because a solid has its own fixed shape, but a liquid takes the shape of its container"
+          },
+          {
+            "question": "An unlabeled classroom object does not have its own fixed shape -- it always spreads out to fill whatever container holds it, but you cannot easily tell if it is a liquid or gas just from that clue alone. What else could help you decide?",
+            "options": [
+              "Check if it has a fixed volume (liquid) or spreads to fill all available space (gas)",
+              "Check its color only",
+              "Check if it is heavy",
+              "There is no way to tell them apart"
+            ],
+            "correct_answer": "Check if it has a fixed volume (liquid) or spreads to fill all available space (gas)"
+          },
+          {
+            "question": "Bibingka batter is runny and takes the shape of its pan before baking. After baking, it holds its own shape even outside the pan. What changed?",
+            "options": [
+              "It changed from behaving like a liquid to behaving like a solid",
+              "It changed from a gas to a liquid",
+              "It lost all of its mass",
+              "It stopped being matter"
+            ],
+            "correct_answer": "It changed from behaving like a liquid to behaving like a solid"
+          },
+          {
+            "question": "A classmate says, \"Air has no mass because I cannot feel it.\" Which idea from this week best shows this claim needs testing rather than being accepted right away?",
+            "options": [
+              "Since air is matter, it should have mass, even if it is too small to feel by hand alone",
+              "Air is not matter, so the claim is automatically true",
+              "Only solids have mass, so the claim is true",
+              "Mass only applies to things you can see moving"
+            ],
+            "correct_answer": "Since air is matter, it should have mass, even if it is too small to feel by hand alone"
+          }
+        ]
+      }
+    }
+  }
+}
