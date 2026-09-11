@@ -168,10 +168,12 @@ export default function TrainingMap({
   const [collectingTrashIds, setCollectingTrashIds] = useState<Set<string>>(new Set());
   const scrollIdRef = useRef(0);
   // Ledger's Heart persists map_x/map_y on every tile crossed — was firing an
-  // unthrottled DB write per step. Collapsed to at most one every 200ms
-  // (matches useMapPresence's PRESENCE_TRACK_THROTTLE_MS) while still
-  // guaranteeing the latest tile is always eventually persisted. Recreated
-  // naturally on remount (component remounts on regionId change, see below).
+  // unthrottled DB write per step. Collapsed to at most one every 200ms (a
+  // plain Postgres write, unrelated to Realtime presence — see
+  // useMapPresence.ts's header for why that one no longer syncs live
+  // position at all) while still guaranteeing the latest tile is always
+  // eventually persisted.
+  // Recreated naturally on remount (component remounts on regionId change, see below).
   const positionWriteThrottleRef = useRef(
     createTrailingThrottle((newX: number, newY: number) => {
       supabase.from('user_battle_state')

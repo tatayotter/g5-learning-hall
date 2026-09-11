@@ -9,39 +9,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { BOT_PROFILES } from '@/lib/botProfiles';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
+import { wanderStep, TICK_MS_MIN, TICK_MS_MAX, STAGGER_MS_MAX } from '@/lib/wander';
 
-const WANDER_RADIUS  = 3;    // max tile drift from home before bias pulls back
-const TICK_MS_MIN    = 3000; // per-bot minimum move interval
-const TICK_MS_MAX    = 7000; // per-bot maximum move interval
-// Each bot's first tick is further staggered by up to this many ms so they
-// don't all move at t=0 when the hook first mounts.
-const STAGGER_MS_MAX = 4000;
-const BOTS_ONLINE    = 5;
+const BOTS_ONLINE = 5;
 
 /** Pick BOTS_ONLINE unique indices into BOT_PROFILES, once per session. */
 function pickSessionBots(): typeof BOT_PROFILES {
   const shuffled = [...BOT_PROFILES].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, BOTS_ONLINE);
-}
-
-/** Compute the next position for one bot given its current position. */
-function wanderStep(
-  x: number,
-  y: number,
-  homeX: number,
-  homeY: number,
-): { x: number; y: number } {
-  // Bias back toward home when drifted too far
-  const dxBias = Math.abs(x - homeX) >= WANDER_RADIUS ? Math.sign(homeX - x) : 0;
-  const dyBias = Math.abs(y - homeY) >= WANDER_RADIUS ? Math.sign(homeY - y) : 0;
-  const dx = dxBias !== 0 ? dxBias : (Math.random() < 0.5 ? 1 : -1);
-  const dy = dyBias !== 0 ? dyBias : (Math.random() < 0.5 ? 1 : -1);
-  // 70% chance to actually step on each axis — sometimes the bot just stands
-  // still for a tick, adding further variety.
-  return {
-    x: Math.max(1, x + (Math.random() < 0.7 ? dx : 0)),
-    y: Math.max(1, y + (Math.random() < 0.7 ? dy : 0)),
-  };
 }
 
 export function useBotPresence(): Record<string, OnlinePlayer> {
