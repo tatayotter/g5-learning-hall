@@ -11,6 +11,7 @@ import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import { friendPartnerId, type FriendData } from '@/lib/friends';
+import GameButton from '@/components/GameButton';
 
 export type InfoTab = 'team' | 'online' | 'bag' | 'friends';
 
@@ -40,26 +41,33 @@ export default function MapInfoDrawer({
 }: MapInfoDrawerProps) {
   return (
     <div>
-      <div className="flex gap-1 mb-2">
+      {/* Same GameButton `quest` variant as every other primary control in the
+          game (see components/GameButton.tsx) instead of a flat one-off tab
+          pill — active tab gets the default gold, an incoming friend request
+          flags the Friends tab pink, everything else sits in a muted gray. */}
+      <div className="flex gap-1.5 mb-2">
         {([
           { id: 'team' as const, label: 'Team' },
           { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
           { id: 'friends' as const, label: `Friends${friendData.incoming.length > 0 ? ` (${friendData.incoming.length})` : ''}` },
           { id: 'bag' as const, label: '🎒 Bag' },
         ]).map(tab => (
-          <button
+          <GameButton
             key={tab.id}
-            onClick={() => onTabChange(tab.id)}
-            className={`flex-1 text-[15px] font-bold uppercase tracking-wide rounded px-1.5 py-1.5 transition-colors ${
+            variant="quest"
+            color={
               infoTab === tab.id
-                ? 'bg-[#c9781a]/20 text-[#c9781a] border border-[#c9781a]'
+                ? undefined // default quest gold
                 : tab.id === 'friends' && friendData.incoming.length > 0
-                ? 'bg-pink-100 text-pink-600 border border-pink-400'
-                : 'bg-white text-[#6b4820] border border-[#c9a87a] hover:border-[#c9781a]'
-            }`}
+                ? '#db2777'
+                : '#57534e'
+            }
+            onClick={() => onTabChange(tab.id)}
+            className="flex-1"
+            style={{ fontSize: 11, padding: '0.35em 0.4em' }}
           >
             {tab.label}
-          </button>
+          </GameButton>
         ))}
       </div>
 
