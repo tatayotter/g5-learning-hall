@@ -34,12 +34,12 @@ export const USERPIC_CATALOG: UserpicItem[] = [
   { key: 'userpic_shaggyboy',   file: 'shaggyboy.png',   name: 'Shaggy Boy',   cost: 600 },
   { key: 'userpic_spikyboy',    file: 'spikyboy.png',    name: 'Spiky Boy',    cost: 600 },
   { key: 'userpic_vestboy',     file: 'vestboy.png',     name: 'Vest Boy',     cost: 600 },
-  { key: 'userpic_orig_1',    file: 'Untitled-1_0000_Layer-6.png',       name: 'Original I',       cost: 600 },
-  { key: 'userpic_orig_2',    file: 'Untitled-1_0001_Layer-5.png',       name: 'Original II',      cost: 600 },
-  { key: 'userpic_orig_3',    file: 'Untitled-1_0002_Layer-4.png',       name: 'Original III',     cost: 600 },
-  { key: 'userpic_orig_4',    file: 'Untitled-1_0003_Layer-3.png',       name: 'Original IV',      cost: 600 },
-  { key: 'userpic_orig_5',    file: 'Untitled-1_0004_Layer-2.png',       name: 'Original V',       cost: 600 },
-  { key: 'userpic_orig_6',    file: 'Untitled-1_0005_Layer-1.png',       name: 'Original VI',      cost: 600 },
+  { key: 'userpic_orig_1',    file: 'orig_1.png',       name: 'Original I',       cost: 600 },
+  { key: 'userpic_orig_2',    file: 'orig_2.png',       name: 'Original II',      cost: 600 },
+  { key: 'userpic_orig_3',    file: 'orig_3.png',       name: 'Original III',     cost: 600 },
+  { key: 'userpic_orig_4',    file: 'orig_4.png',       name: 'Original IV',      cost: 600 },
+  { key: 'userpic_orig_5',    file: 'orig_5.png',       name: 'Original V',       cost: 600 },
+  { key: 'userpic_orig_6',    file: 'orig_6.png',       name: 'Original VI',      cost: 600 },
 ];
 
 export function userpicPath(file: string): string {

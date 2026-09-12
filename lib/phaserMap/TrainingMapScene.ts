@@ -190,6 +190,13 @@ interface AnimatedAvatarDef {
   // setFrame) for the true idle/stopped pose, just never part of the loop.
   walkFirstFrame: number;
   walkLastFrame: number;
+  // Every sheet in this registry is drawn facing left by default, so
+  // setFlipX(facingRight) below mirrors it to face right when moving right —
+  // EXCEPT dynokid_walk.png, whose source frames face right by default,
+  // which made it walk backwards-looking (facing left while moving right and
+  // vice versa) once the shared left-default flip logic was applied to it.
+  // Set true to invert the flip for a sheet whose native art faces right.
+  facesRightByDefault?: boolean;
 }
 const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
   '/userpics/userpics_premium/ssb3.png': {
@@ -212,13 +219,22 @@ const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
   // trailing cells empty) with no dedicated idle row like ssb3/ssg3 above —
   // the whole sequence is the walk loop, and frame 0 (first walk pose)
   // doubles as the idle/stopped frame via the same setFrame(0) on stop.
+  // Re-trimmed 2026-09-12: the original 256x256 frames had ~24-28% of their
+  // height as unused transparent padding (top+bottom margins ~31-35px each)
+  // vs. near-zero padding on sheets like ssb3/ssg3 above. Since every avatar
+  // is rendered at the same setDisplaySize(h*0.95, h*0.95) box regardless of
+  // its native frame size, that padding made dynokid's actual character art
+  // render visibly smaller than every other avatar on the map. Frame size
+  // below is the tightest common bounding box across all 22 used frames
+  // (never clips any frame's content) plus a 6px safety margin.
   '/userpics/userpics_premium/dynokid.png': {
     spriteSheet: '/sprite/dynokid_walk.png',
-    frameWidth: 256,
-    frameHeight: 256,
+    frameWidth: 112,
+    frameHeight: 205,
     animKey: 'dynokid-walk',
     walkFirstFrame: 0,
     walkLastFrame: 21,
+    facesRightByDefault: true,
   },
   '/userpics/userpics_premium/purplegirl.png': {
     spriteSheet: '/sprite/purplegirl_walk.png',
@@ -232,6 +248,19 @@ const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
 
 function textureKeyFor(spriteSrc: string): string {
   return ANIMATED_AVATARS[spriteSrc] ? `sheet:${spriteSrc}` : `sprite:${spriteSrc}`;
+}
+
+// setFlipX's meaning depends on which way the sprite's native art already
+// faces — see AnimatedAvatarDef.facesRightByDefault. `textureKey` is the
+// Phaser texture key as stored on the GameObject (the `sheet:`/`sprite:`
+// prefixed form from textureKeyFor), so this can be called directly from a
+// live sprite via `.texture.key` without the caller re-deriving it.
+function resolveFlipX(textureKey: string, facingRight: boolean): boolean {
+  if (textureKey.startsWith('sheet:')) {
+    const def = ANIMATED_AVATARS[textureKey.slice('sheet:'.length)];
+    if (def?.facesRightByDefault) return !facingRight;
+  }
+  return facingRight;
 }
 
 export default class TrainingMapScene extends Phaser.Scene {
@@ -313,7 +342,7 @@ export default class TrainingMapScene extends Phaser.Scene {
 
     const { px, py, h } = this.tileToPixel(this.lastTransform, xTile, yTile);
     this.self.image.setPosition(px, py);
-    this.self.image.setFlipX(facingRight);
+    this.self.image.setFlipX(resolveFlipX(this.self.image.texture.key, facingRight));
     if (this.self.shadow) this.self.shadow.setPosition(px, py + h * 0.44);
     this.self.x = xTile;
     this.self.y = yTile;
@@ -333,7 +362,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const iy = tracked.animFromY + (tracked.y - tracked.animFromY) * eased;
       const { px: opx, py: opy, h: oh } = this.tileToPixel(this.lastTransform, ix, iy);
       tracked.image.setPosition(opx, opy);
-      tracked.image.setFlipX(tracked.facingRight);
+      tracked.image.setFlipX(resolveFlipX(tracked.image.texture.key, tracked.facingRight));
       tracked.shadow.setPosition(opx, opy + oh * 0.44);
       this.updateOtherAnimation(tracked, t < 1);
     }
