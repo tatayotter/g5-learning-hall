@@ -1,0 +1,2266 @@
+{
+  "grade": 5,
+  "week_starting_date": "2026-09-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🕰️ English — Flashback & Using Appositives as Context Clues\n\nWelcome to **Term 2**, Grade 5! We pick up right where Term 1 left off — new reading and vocabulary tools. 📖\n\n## ⏪ What Is a Flashback?\nA **flashback** interrupts the story's present action to show something that happened **earlier**. The writer does this on purpose — usually to explain **why** a character acts a certain way now.\n\n**Signal phrases that often introduce a flashback:**\n- \"She remembered when...\"\n- \"Years before, ...\"\n- \"Back when he was younger...\"\n- \"It all started that rainy afternoon...\"\n\n**Flashback vs. Sequential Plot**\n\n| Sequential plot | Flashback |\n|---|---|\n| Events told in the order they happened | Story jumps **backward** in time, then returns |\n| Easy to follow, one direction | Reader must track **two timelines** |\n| Common in simple narratives | Common when a character's **past** explains the **present** |\n\n## 🧠 Worked Example 1 — Spotting a Flashback\n*Passage:* \"Marco stared at the trophy, hands shaking. **He remembered the day** three years ago when he first picked up a basketball, clumsy and afraid of the ball hitting his face.\"\n- Step 1: Present action = Marco staring at the trophy.\n- Step 2: Signal phrase \"**He remembered the day**\" pulls us backward.\n- Step 3: The flashback (three years ago) explains **why** the trophy matters so much now. ✅\n\n## 🔤 Appositives as a Context Clue\nAn **appositive** is a noun or noun phrase placed right next to another noun to **rename or explain** it. It is usually set off by **commas**.\n\n**Pattern:** *Noun, appositive phrase, rest of sentence.*\n\nBecause an appositive explains the noun before it, it can also reveal the meaning of a **hard word** in that noun phrase.\n\n## 🧠 Worked Example 2 — Using an Appositive to Find Meaning\n*Sentence:* \"The **archipelago**, a group of many islands close together, stretches for thousands of kilometers.\"\n- Step 1: Find the hard word — **archipelago**.\n- Step 2: Find the comma-set-off phrase right after it — \"a group of many islands close together.\"\n- Step 3: That phrase **is** the definition. **Archipelago = a group of many islands.** ✅\n\n## ✍️ Practice Pattern\n- \"The **entomologist**, a scientist who studies insects, showed us a beetle collection.\"\n- \"**Frugal**, careful not to waste money, my lola saves every centavo.\"\n\n## ⚠️ Common Mistake\nNot every comma phrase is an appositive — some are just extra description (adjectives), not a **renaming** of the noun. Ask: *\"Does this phrase mean the SAME THING as the noun, just in different words?\"* If yes, it's an appositive.\n\n## 🧠 Putting It Together\nWhen a story flashes back, watch for **new vocabulary** describing that earlier time — an appositive right after a tricky word often hands you the meaning for free!\n\nWelcome back — let's make Term 2 great! 🌟",
+        "quiz": [
+          {
+            "question": "What is a flashback in a story?",
+            "options": [
+              "A scene that shows something that happened earlier",
+              "A summary placed at the very end",
+              "A list of characters in order",
+              "A description of the setting only"
+            ],
+            "correct_answer": "A scene that shows something that happened earlier"
+          },
+          {
+            "question": "Which phrase most likely signals the start of a flashback?",
+            "options": [
+              "She remembered the day",
+              "Then, the next morning",
+              "Finally, at last",
+              "After that moment"
+            ],
+            "correct_answer": "She remembered the day"
+          },
+          {
+            "question": "How is a sequential plot different from a flashback?",
+            "options": [
+              "Sequential events stay in the order they happened",
+              "Sequential plots always have two timelines",
+              "Flashbacks never explain the present",
+              "Flashbacks only happen at story endings"
+            ],
+            "correct_answer": "Sequential events stay in the order they happened"
+          },
+          {
+            "question": "In the Marco basketball passage, what is the PRESENT action?",
+            "options": [
+              "Marco staring at the trophy",
+              "Marco first picking up a ball",
+              "Marco being three years old",
+              "Marco being afraid of the ball"
+            ],
+            "correct_answer": "Marco staring at the trophy"
+          },
+          {
+            "question": "What is an appositive?",
+            "options": [
+              "A noun phrase that renames or explains another noun",
+              "A word that shows action in a sentence",
+              "A word that joins two sentences together",
+              "A phrase that describes a verb's timing"
+            ],
+            "correct_answer": "A noun phrase that renames or explains another noun"
+          },
+          {
+            "question": "Appositives are usually set off from the rest of the sentence by:",
+            "options": [
+              "commas",
+              "quotation marks",
+              "question marks",
+              "parentheses only"
+            ],
+            "correct_answer": "commas"
+          },
+          {
+            "question": "In 'The entomologist, a scientist who studies insects, spoke to us,' what does the appositive tell you?",
+            "options": [
+              "The meaning of entomologist",
+              "The name of the insect studied",
+              "The location of the talk",
+              "The age of the entomologist"
+            ],
+            "correct_answer": "The meaning of entomologist"
+          },
+          {
+            "question": "Which sentence correctly uses an appositive?",
+            "options": [
+              "The archipelago, a group of many islands, is beautiful.",
+              "The archipelago a group of many islands is beautiful.",
+              "The, archipelago a group of many islands, is beautiful.",
+              "The archipelago a, group of many islands is, beautiful."
+            ],
+            "correct_answer": "The archipelago, a group of many islands, is beautiful."
+          },
+          {
+            "question": "A character flashes back to a childhood memory right before making a hard decision. Why did the author MOST LIKELY include it?",
+            "options": [
+              "To show what is shaping the character's choice now",
+              "To confuse the reader on purpose",
+              "To end the story earlier than planned",
+              "To introduce a completely new character"
+            ],
+            "correct_answer": "To show what is shaping the character's choice now"
+          },
+          {
+            "question": "Read: 'The frugal old man, careful never to waste a single centavo, refused to buy new shoes.' What does frugal mean?",
+            "options": [
+              "Careful not to waste money",
+              "Angry about small things",
+              "Unable to walk very far",
+              "Fond of buying new items"
+            ],
+            "correct_answer": "Careful not to waste money"
+          },
+          {
+            "question": "A student says a comma phrase after a noun is ALWAYS an appositive. What is the flaw in this thinking?",
+            "options": [
+              "Some comma phrases only add description, not a renaming",
+              "Commas are never used after nouns",
+              "Appositives never use commas at all",
+              "Only verbs can have comma phrases"
+            ],
+            "correct_answer": "Some comma phrases only add description, not a renaming"
+          },
+          {
+            "question": "A reader gets lost because a story suddenly jumps ten years into the past. Which reading skill helps MOST here?",
+            "options": [
+              "Noticing signal phrases that mark a flashback",
+              "Skipping the confusing paragraph entirely",
+              "Reading only the story's last page",
+              "Counting how many characters appear"
+            ],
+            "correct_answer": "Noticing signal phrases that mark a flashback"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Decimals: Fraction Conversion & Comparing\n\nTerm 2 begins! We move from fractions into their close cousin: **decimals**. 💪\n\n## 🔄 Decimals ↔ Fractions\nA **terminating decimal** is one that ends — it doesn't go on forever (like 0.5 or 0.75).\n\n**Decimal to fraction rule:** the digits after the decimal point become the numerator; the number of decimal places tells you the denominator (10, 100, 1000...).\n\n| Decimal | Read as | Fraction | Lowest terms |\n|---|---|---|---|\n| 0.5 | five tenths | 5/10 | **1/2** |\n| 0.25 | twenty-five hundredths | 25/100 | **1/4** |\n| 0.125 | one hundred twenty-five thousandths | 125/1000 | **1/8** |\n\n## 🧠 Worked Example 1 — Decimal to Fraction\n*Convert 0.75 to a fraction in lowest terms.*\n- Step 1: 0.75 = \"seventy-five **hundredths**\" → 75/100\n- Step 2: Find the GCF of 75 and 100 → **25**\n- Step 3: Divide both: 75÷25 = 3, 100÷25 = 4 → **3/4** ✅\n- **Check:** 3/4 = 0.75 ✅\n\n## 🧠 Worked Example 2 — Fraction to Decimal\n*Convert 7/20 to a decimal.*\n- Step 1: Make an equivalent fraction with denominator 100: 7/20 = 35/100 (multiply top and bottom by 5)\n- Step 2: 35/100 = **0.35** ✅\n- **Check:** 0.35 × 20 = 7 ✅\n\n## 📏 Comparing and Ordering Decimals Using Place Value\nTo compare decimals, line up the **decimal points**, then compare digit by digit, starting from the **left** (the largest place value).\n\n**Place value chart:**\n| Ones | . | Tenths | Hundredths | Thousandths |\n|---|---|---|---|---|\n| 4 | . | 3 | 0 | 5 |\n\n**Trick:** 0.5 and 0.50 and 0.500 are all EQUAL — extra zeros at the end don't change value. But 0.5 and 0.05 are very different!\n\n## 🧠 Worked Example 3 — Ordering Decimals\n*Order from least to greatest: 0.6, 0.45, 0.605, 0.5*\n- Step 1: Line up decimal places by adding trailing zeros: 0.600, 0.450, 0.605, 0.500\n- Step 2: Compare tenths digit first: 4 (0.450) < 5 (0.500) < 6 (0.600 and 0.605)\n- Step 3: Between 0.600 and 0.605, compare thousandths: 0 < 5, so 0.600 < 0.605\n- **Answer:** 0.45, 0.5, 0.6, 0.605 ✅\n\n## ⚠️ Common Mistake\nDo NOT compare decimals like whole numbers by counting digits! `0.9` is **bigger** than `0.85`, even though \"85\" looks like a bigger number than \"9\" — because 0.9 = 0.90, and 90 > 85 in hundredths.\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "What is 0.5 written as a fraction in lowest terms?",
+            "options": [
+              "1/2",
+              "5/10",
+              "1/5",
+              "5/100"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 0.25 written as a fraction in lowest terms?",
+            "options": [
+              "1/4",
+              "25/10",
+              "1/25",
+              "2/5"
+            ],
+            "correct_answer": "1/4"
+          },
+          {
+            "question": "What is 7/20 written as a decimal?",
+            "options": [
+              "0.35",
+              "0.7",
+              "0.20",
+              "0.207"
+            ],
+            "correct_answer": "0.35"
+          },
+          {
+            "question": "A terminating decimal is one that:",
+            "options": [
+              "ends and does not go on forever",
+              "repeats the same digit forever",
+              "always has more than 3 digits",
+              "can never be turned into a fraction"
+            ],
+            "correct_answer": "ends and does not go on forever"
+          },
+          {
+            "question": "When comparing decimals, which digit should you compare FIRST?",
+            "options": [
+              "The digit farthest to the left",
+              "The digit farthest to the right",
+              "The digit in the ones place only",
+              "The total number of digits"
+            ],
+            "correct_answer": "The digit farthest to the left"
+          },
+          {
+            "question": "Which decimal is the SAME value as 0.5?",
+            "options": [
+              "0.50",
+              "0.05",
+              "0.005",
+              "5.0"
+            ],
+            "correct_answer": "0.50"
+          },
+          {
+            "question": "Order from least to greatest: 0.6, 0.45, 0.5",
+            "options": [
+              "0.45, 0.5, 0.6",
+              "0.6, 0.5, 0.45",
+              "0.5, 0.45, 0.6",
+              "0.45, 0.6, 0.5"
+            ],
+            "correct_answer": "0.45, 0.5, 0.6"
+          },
+          {
+            "question": "What is 0.125 as a fraction in lowest terms?",
+            "options": [
+              "1/8",
+              "125/10",
+              "1/125",
+              "5/8"
+            ],
+            "correct_answer": "1/8"
+          },
+          {
+            "question": "Why is 0.9 greater than 0.85, even though 85 looks like the bigger number?",
+            "options": [
+              "0.9 equals 0.90, and 90 hundredths beats 85 hundredths",
+              "Decimals with fewer digits are always smaller",
+              "0.85 is actually a whole number in disguise",
+              "The comma rule makes 0.9 automatically win"
+            ],
+            "correct_answer": "0.9 equals 0.90, and 90 hundredths beats 85 hundredths"
+          },
+          {
+            "question": "A student converts 0.75 to 75/1000 instead of 75/100. What mistake did they make?",
+            "options": [
+              "They used the wrong number of zeros for the place value",
+              "They forgot to simplify the fraction at the end",
+              "They flipped the numerator and denominator",
+              "They rounded the decimal before converting"
+            ],
+            "correct_answer": "They used the wrong number of zeros for the place value"
+          },
+          {
+            "question": "Which set of decimals is arranged from GREATEST to least?",
+            "options": [
+              "0.605, 0.6, 0.5, 0.45",
+              "0.45, 0.5, 0.6, 0.605",
+              "0.6, 0.605, 0.45, 0.5",
+              "0.5, 0.45, 0.605, 0.6"
+            ],
+            "correct_answer": "0.605, 0.6, 0.5, 0.45"
+          },
+          {
+            "question": "A recipe uses 3/8 cup of oil. Which decimal is closest in value to 3/8?",
+            "options": [
+              "0.375",
+              "0.38",
+              "0.83",
+              "0.3"
+            ],
+            "correct_answer": "0.375"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🎭 Filipino — Ang Kabalintunaan (Ironiya)\n\nSimula ng Termino 2! Bagong tayutay ang ating aaralin: ang **kabalintunaan**. 🎬\n\n## 🔄 Ano ang Kabalintunaan (Ironiya)?\nAng **kabalintunaan** ay isang tayutay kung saan ang **nangyari** ay **kabaligtaran** ng inaasahan o ng sinabi.\n\n**Tatlong uri ng kabalintunaan:**\n\n| Uri | Paglalarawan | Halimbawa |\n|---|---|---|\n| **Verbal irony** | Sinasabi ang kabaligtaran ng ibig sabihin | Sinabi ni Ana, \"Ang ganda naman ng panahon!\" habang bumubuhos ang ulan |\n| **Situational irony** | Ang nangyari ay kabaligtaran ng inaasahan | Isang mananayaw ang natisod sa entablado sa kanyang sariling recital |\n| **Dramatic irony** | Alam ng mambabasa ang isang bagay na hindi alam ng tauhan | Alam ng mambabasa na tuso ang bagong kaibigan, pero hindi alam ito ng pangunahing tauhan |\n\n## 🧠 Halimbawa 1 — Verbal Irony\n*\"Napakalinis naman ng silid mo!\"* — sinabi ng ina habang nakakalat ang mga damit sa sahig ng kwarto ng anak.\n- Hakbang 1: Ano ang literal na sinabi? \"Napakalinis.\"\n- Hakbang 2: Ano ang totoong nakikita? Magulo at marumi.\n- Hakbang 3: Kabaligtaran ng sinabi ang totoong nangyayari → **verbal irony**. ✅\n\n## 🧠 Halimbawa 2 — Situational Irony\n*Isang guro ng Wastong Pagsulat ang laging may maling baybay sa kanyang mga sulat sa pisara.*\n- Hakbang 1: Inaasahan — dapat tama palagi ang baybay ng gurong ito.\n- Hakbang 2: Ang totoo — palaging mali.\n- Hakbang 3: Kabaligtaran ng inaasahan → **situational irony**. ✅\n\n## 📰 Pagsusuri ng Balita Gamit ang 5W1H\nSa pag-unawa ng balita, gamitin ang **5W1H**:\n- **Who** (Sino) — sino ang kasangkot?\n- **What** (Ano) — ano ang nangyari?\n- **When** (Kailan) — kailan naganap?\n- **Where** (Saan) — saan ito naganap?\n- **Why** (Bakit) — bakit ito nangyari?\n- **How** (Paano) — paano ito naganap?\n\n## 👁️ Punto de Bista ng Manunulat\nAng **punto de bista** ay ang paraan ng pagtingin ng manunulat sa isang paksa. Maaari itong **suportado**, **kontra**, o **neutral**.\n\n**Paano matukoy:** Basahin ang mga salitang ginamit — positibo ba o negatibo? May mga puna ba na nagpapakita ng pananaw?\n\n## ⚠️ Mag-ingat\nHuwag ipagkamali ang kabalintunaan sa **panlilinlang** o **kasinungalingan** — ang kabalintunaan ay isang **sadyang estilo sa pagsulat**, ginagamit upang magbigay-diin o pagpapatawa.\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kabalintunaan bilang tayutay?",
+            "options": [
+              "Kabaligtaran ng inaasahan o sinabi",
+              "Pagmamalabis sa isang bagay",
+              "Paghahalintulad ng dalawang bagay",
+              "Pagbibigay ng katangiang tao sa hayop"
+            ],
+            "correct_answer": "Kabaligtaran ng inaasahan o sinabi"
+          },
+          {
+            "question": "Aling uri ng kabalintunaan ang nangyayari kapag ang sinabi ay kabaligtaran ng ibig sabihin?",
+            "options": [
+              "Verbal irony",
+              "Situational irony",
+              "Dramatic irony",
+              "Metapora"
+            ],
+            "correct_answer": "Verbal irony"
+          },
+          {
+            "question": "Ano ang situational irony?",
+            "options": [
+              "Ang nangyari ay kabaligtaran ng inaasahan",
+              "Alam ng mambabasa ang lihim ng tauhan",
+              "Pagsasabi ng kabaligtaran ng totoo",
+              "Pag-uulit ng parehong tunog"
+            ],
+            "correct_answer": "Ang nangyari ay kabaligtaran ng inaasahan"
+          },
+          {
+            "question": "Sa dramatic irony, sino ang alam ang lihim na hindi alam ng tauhan?",
+            "options": [
+              "Ang mambabasa",
+              "Ang guro",
+              "Ang ibang tauhan lamang",
+              "Walang nakakaalam nito"
+            ],
+            "correct_answer": "Ang mambabasa"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'Who' sa 5W1H?",
+            "options": [
+              "Sino ang kasangkot",
+              "Ano ang nangyari",
+              "Saan ito naganap",
+              "Bakit ito nangyari"
+            ],
+            "correct_answer": "Sino ang kasangkot"
+          },
+          {
+            "question": "Ano ang punto de bista ng manunulat?",
+            "options": [
+              "Ang kaniyang pananaw sa isang paksa",
+              "Ang bilang ng pahina ng akda",
+              "Ang petsa ng paglalathala nito",
+              "Ang wikang ginamit sa pagsulat"
+            ],
+            "correct_answer": "Ang kaniyang pananaw sa isang paksa"
+          },
+          {
+            "question": "Isang guro ng Wastong Pagsulat ang laging maling baybay sa pisara. Anong uri ng kabalintunaan ito?",
+            "options": [
+              "Situational irony",
+              "Verbal irony",
+              "Dramatic irony",
+              "Hyperbole"
+            ],
+            "correct_answer": "Situational irony"
+          },
+          {
+            "question": "'Napakalinis naman ng silid mo!' — sabi ng ina habang magulo ang kwarto. Anong uri ito?",
+            "options": [
+              "Verbal irony",
+              "Situational irony",
+              "Dramatic irony",
+              "Simili"
+            ],
+            "correct_answer": "Verbal irony"
+          },
+          {
+            "question": "Bakit hindi dapat ipagkamali ang kabalintunaan sa kasinungalingan?",
+            "options": [
+              "Sadyang estilo ito sa pagsulat, hindi panlilinlang",
+              "Parehas lang silang ibig sabihin",
+              "Palaging masama ang kabalintunaan",
+              "Ginagamit lang ito sa balita"
+            ],
+            "correct_answer": "Sadyang estilo ito sa pagsulat, hindi panlilinlang"
+          },
+          {
+            "question": "Alam ng mambabasa na tuso ang bagong kaibigan sa kuwento, pero hindi ito alam ng pangunahing tauhan. Anong uri ng kabalintunaan ito?",
+            "options": [
+              "Dramatic irony",
+              "Verbal irony",
+              "Situational irony",
+              "Personipikasyon"
+            ],
+            "correct_answer": "Dramatic irony"
+          },
+          {
+            "question": "Sa pagsusuri ng balita tungkol sa bagyo, alin ang sumasagot sa 'Bakit'?",
+            "options": [
+              "Ang dahilan ng pagbaha sa lugar",
+              "Ang petsa ng pagbisita ng bagyo",
+              "Ang pangalan ng mga apektadong bayan",
+              "Ang bilang ng mga naapektuhang pamilya"
+            ],
+            "correct_answer": "Ang dahilan ng pagbaha sa lugar"
+          },
+          {
+            "question": "Isang sanaysay ang gumamit ng mga salitang 'mapanganib', 'kailangang pigilan', at 'hindi makatarungan' tungkol sa isang batas. Ano ang MALAMANG na punto de bista ng manunulat?",
+            "options": [
+              "Kontra sa batas",
+              "Suportado ang batas",
+              "Ganap na neutral",
+              "Walang anumang opinyon"
+            ],
+            "correct_answer": "Kontra sa batas"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍽️ Science — The Digestive System\n\nTerm 2 kicks off with a journey through your body! Today: how food travels. 🔬\n\n## 🗺️ The Path of Food — The Digestive System\nThe **digestive system** breaks down food into nutrients your body can use for energy and growth.\n\n**The path food takes, in order:**\n\n| Organ | What happens here |\n|---|---|\n| **Mouth** | Teeth chew food; saliva starts breaking down starches |\n| **Esophagus (gullet)** | A muscular tube that squeezes food down toward the stomach |\n| **Stomach** | Strong muscles churn food; acid and juices break it down further |\n| **Small intestine** | Most **nutrients** are absorbed into the blood here |\n| **Large intestine** | Absorbs remaining **water**; forms waste for elimination |\n\n## 🧠 Worked Example 1 — Tracing the Path\n*Question: Trace the path of a piece of rice from the mouth to the large intestine.*\n- Step 1: **Mouth** — chewed and mixed with saliva\n- Step 2: **Esophagus** — squeezed downward by muscle contractions\n- Step 3: **Stomach** — churned and broken down by acid\n- Step 4: **Small intestine** — nutrients absorbed into the bloodstream\n- Step 5: **Large intestine** — remaining water absorbed, waste is formed ✅\n\n## 🧠 Worked Example 2 — Why Order Matters\n*Question: What would happen if food skipped the stomach and went straight to the small intestine?*\n- Step 1: The stomach's job is to churn food and break it down with acid.\n- Step 2: Without this step, food arrives to the small intestine only partly broken down.\n- Step 3: The small intestine would struggle to absorb nutrients from large, undigested chunks. ✅\n\n## 🔑 Key Vocabulary\n- **Esophagus (gullet):** the tube connecting mouth to stomach\n- **Nutrients:** the useful substances from food that the body absorbs\n- **Digestion:** the whole process of breaking down food\n\n## 🌬️ A Preview: The Respiratory System\nLater this week, we'll trace a similar path — but for **air**, not food: **nose → trachea (windpipe) → lungs**. Notice both systems use tube-shaped organs to move something into the body!\n\n## 🧩 Comparing Systems\n| System | What travels | Main organs in order |\n|---|---|---|\n| Digestive | Food | Mouth → esophagus → stomach → small intestine → large intestine |\n| Respiratory | Air | Nose → trachea → lungs |\n\nGreat start to Term 2 science! 🔎",
+        "quiz": [
+          {
+            "question": "What is the job of the digestive system?",
+            "options": [
+              "To break down food into usable nutrients",
+              "To pump blood around the body",
+              "To move air into and out of the lungs",
+              "To control the body's movement"
+            ],
+            "correct_answer": "To break down food into usable nutrients"
+          },
+          {
+            "question": "Which organ does food pass through FIRST?",
+            "options": [
+              "Mouth",
+              "Stomach",
+              "Esophagus",
+              "Small intestine"
+            ],
+            "correct_answer": "Mouth"
+          },
+          {
+            "question": "What is the esophagus also called?",
+            "options": [
+              "The gullet",
+              "The windpipe",
+              "The trachea",
+              "The bloodstream"
+            ],
+            "correct_answer": "The gullet"
+          },
+          {
+            "question": "Where does most nutrient absorption into the blood happen?",
+            "options": [
+              "Small intestine",
+              "Mouth",
+              "Esophagus",
+              "Large intestine"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What does the large intestine mainly absorb?",
+            "options": [
+              "Remaining water",
+              "Sugar only",
+              "Saliva",
+              "Air"
+            ],
+            "correct_answer": "Remaining water"
+          },
+          {
+            "question": "What breaks down starches while food is still in the mouth?",
+            "options": [
+              "Saliva",
+              "Stomach acid",
+              "Blood",
+              "Air"
+            ],
+            "correct_answer": "Saliva"
+          },
+          {
+            "question": "Which correctly lists the digestive path in order?",
+            "options": [
+              "Mouth, esophagus, stomach, small intestine, large intestine",
+              "Mouth, stomach, esophagus, large intestine, small intestine",
+              "Esophagus, mouth, stomach, large intestine, small intestine",
+              "Stomach, mouth, esophagus, small intestine, large intestine"
+            ],
+            "correct_answer": "Mouth, esophagus, stomach, small intestine, large intestine"
+          },
+          {
+            "question": "What is the main job of the stomach?",
+            "options": [
+              "To churn food and break it down with acid",
+              "To absorb all the nutrients from food",
+              "To store waste before it leaves the body",
+              "To move air toward the lungs"
+            ],
+            "correct_answer": "To churn food and break it down with acid"
+          },
+          {
+            "question": "If food skipped the stomach entirely, what problem would MOST LIKELY occur?",
+            "options": [
+              "The small intestine would receive poorly broken-down food",
+              "The mouth would need to chew twice as long",
+              "The large intestine would absorb too much water",
+              "Digestion would happen much faster than normal"
+            ],
+            "correct_answer": "The small intestine would receive poorly broken-down food"
+          },
+          {
+            "question": "How is the respiratory system's path similar to the digestive system's path?",
+            "options": [
+              "Both move something through a series of tube-shaped organs",
+              "Both absorb water as their main function",
+              "Both begin and end in the stomach",
+              "Both only work while a person is sleeping"
+            ],
+            "correct_answer": "Both move something through a series of tube-shaped organs"
+          },
+          {
+            "question": "A classmate says the stomach is where most nutrients enter the blood. What is wrong with this claim?",
+            "options": [
+              "That absorption mostly happens in the small intestine",
+              "The stomach cannot hold any food at all",
+              "Nutrients never enter the blood at all",
+              "The claim is correct as stated"
+            ],
+            "correct_answer": "That absorption mostly happens in the small intestine"
+          },
+          {
+            "question": "Why must digestive organs work in a specific ORDER rather than any order?",
+            "options": [
+              "Each step prepares the food for the next stage",
+              "The order does not actually matter",
+              "Only the mouth does any real work",
+              "The stomach can replace every other organ"
+            ],
+            "correct_answer": "Each step prepares the food for the next stage"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚓ Araling Panlipunan — Simula ng Kolonisasyon: Gold, God, Glory\n\nBagong yugto ng ating kasaysayan — ang **pananakop ng Espanya**. 🇪🇸\n\n## 🌍 Ano ang Kolonisasyon/Imperyalismo?\nAng **kolonisasyon** ay ang pagsakop ng isang bansa sa ibang lupain upang pamahalaan at pakinabangan ito. Ang **imperyalismo** ay ang mas malawak na patakaran ng isang bansa na palawakin ang kapangyarihan nito sa ibang teritoryo.\n\n## 🏆 Tatlong Dahilan ng Pananakop ng Espanya: \"God, Gold, Glory\"\n\n| Dahilan | Paliwanag |\n|---|---|\n| **God** | Pagpapalaganap ng **Kristiyanismo** sa mga bagong lupain |\n| **Gold** | Pagkuha ng **kayamanan** — espesya, ginto, at yamang-likas |\n| **Glory** | Paghahangad ng **kapangyarihan** at **prestihiyo** para sa bansa at hari |\n\n**Layunin talaga:** abutin ang **Moluccas (Spice Islands)** — pinagkukunan ng mamahaling **espesya** (paminta, kanela, clove) na mataas ang halaga sa Europa.\n\n## 🚢 Ang Ekspedisyon ni Ferdinand Magellan (1521)\n- Naglayag si Magellan para sa **Espanya**, hangad na maabot ang Moluccas sa **kanlurang** ruta (patawid ng Atlantiko at Pasipiko), dahil ang silangang ruta ay nasa kontrol ng Portugal.\n- Dumaong siya sa **Homonhon**, pagkatapos sa **Limasawa**, kung saan naganap ang **Unang Misa** noong Marso 31, 1521.\n- Namatay si Magellan sa **Labanan sa Mactan** laban kay Lapu-Lapu.\n\n## 📜 Ang Kasunduan ng Tordesillas\nIsang kasunduan (1494) sa pagitan ng **Espanya** at **Portugal** na naghati sa mundo sa dalawang bahagi — isang linya ang naghihiwalay kung aling bansa ang may karapatang mananakop sa bawat panig.\n\n## 🧠 Halimbawa 1 — Pag-uugnay ng Dahilan sa Kilos\n*Bakit gustong makarating ng mga Espanyol sa Moluccas kahit napakalayo nito?*\n- Hakbang 1: Ang Moluccas ay may **espesya** na napakamahal sa Europa.\n- Hakbang 2: Kung makokontrol nila ang kalakalan ng espesya, kikita nang malaki ang Espanya.\n- Hakbang 3: Ito ang halimbawa ng **\"Gold\"** — kayamanan bilang dahilan ng paglalayag. ✅\n\n## 🧠 Halimbawa 2 — Miguel Lopez de Legazpi (1565)\n- Dumating si Legazpi 44 taon matapos si Magellan, at siya ang **matagumpay na nagtatag** ng unang permanenteng kolonya ng Espanya sa Pilipinas (sa Cebu, pagkatapos ay Maynila).\n- Bakit matagumpay siya kumpara kay Magellan? Dahil dumating siya na may sapat na **hukbo at kasunduan** sa mga lokal na pinuno, hindi lamang pananakop sa dahas.\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya?",
+            "options": [
+              "God, Gold, Glory",
+              "Trade, Travel, Treaty",
+              "Faith, Family, Fortune",
+              "Power, Peace, Progress"
+            ],
+            "correct_answer": "God, Gold, Glory"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'Gold' sa tatlong dahilan ng pananakop?",
+            "options": [
+              "Pagkuha ng kayamanan at espesya",
+              "Pagpapalaganap ng relihiyon",
+              "Paghahangad ng kapangyarihan",
+              "Pagtatayo ng paaralan"
+            ],
+            "correct_answer": "Pagkuha ng kayamanan at espesya"
+          },
+          {
+            "question": "Saang lugar naganap ang Unang Misa?",
+            "options": [
+              "Limasawa",
+              "Maynila",
+              "Cebu",
+              "Mactan"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "Sino ang namatay sa Labanan sa Mactan?",
+            "options": [
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Lapu-Lapu",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Ano ang Kasunduan ng Tordesillas?",
+            "options": [
+              "Paghahati ng mundo sa Espanya at Portugal",
+              "Kasunduan sa kalayaan ng Pilipinas",
+              "Batas tungkol sa polo y servicio",
+              "Kasunduan sa pagitan ng mga datu"
+            ],
+            "correct_answer": "Paghahati ng mundo sa Espanya at Portugal"
+          },
+          {
+            "question": "Bakit gustong maabot ng mga Espanyol ang Moluccas?",
+            "options": [
+              "Mayaman ito sa mamahaling espesya",
+              "Doon nakatira ang kanilang hari",
+              "Doon nagmula ang kanilang wika",
+              "Doon ipinanganak si Magellan"
+            ],
+            "correct_answer": "Mayaman ito sa mamahaling espesya"
+          },
+          {
+            "question": "Sino ang nagtatag ng unang permanenteng kolonya ng Espanya sa Pilipinas?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Ferdinand Magellan",
+              "Lapu-Lapu",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Glory' bilang dahilan ng pananakop?",
+            "options": [
+              "Paghahangad ng kapangyarihan at prestihiyo",
+              "Pagkuha ng ginto at pilak",
+              "Pagtuturo ng bagong wika",
+              "Pagtatayo ng simbahan"
+            ],
+            "correct_answer": "Paghahangad ng kapangyarihan at prestihiyo"
+          },
+          {
+            "question": "Bakit pinili ni Magellan ang kanlurang ruta patungo sa Moluccas?",
+            "options": [
+              "Kontrolado ng Portugal ang silangang ruta",
+              "Mas malapit ang kanlurang ruta",
+              "Iyon lang ang ruta na alam niya",
+              "Ipinag-utos ito ng Papa"
+            ],
+            "correct_answer": "Kontrolado ng Portugal ang silangang ruta"
+          },
+          {
+            "question": "Kung susumahin ang 'God, Gold, Glory,' ano ang ipinapakita nito tungkol sa layunin ng Espanya?",
+            "options": [
+              "Magkakasamang relihiyoso, pangkabuhayan, at pampulitikang layunin",
+              "Isang layunin lamang na relihiyoso",
+              "Walang tunay na layunin bukod sa paglalakbay",
+              "Layunin lamang na pang-agham"
+            ],
+            "correct_answer": "Magkakasamang relihiyoso, pangkabuhayan, at pampulitikang layunin"
+          },
+          {
+            "question": "Bakit mas matagumpay si Legazpi kaysa kay Magellan sa pagtatatag ng kolonya?",
+            "options": [
+              "Dumating siya may sapat na hukbo at kasunduan sa lokal na pinuno",
+              "Mas mabilis siyang naglakbay kaysa kay Magellan",
+              "Wala siyang nakaengkuwentrong lokal na pinuno",
+              "Hindi na niya kinailangang dumaan sa dagat"
+            ],
+            "correct_answer": "Dumating siya may sapat na hukbo at kasunduan sa lokal na pinuno"
+          },
+          {
+            "question": "Paano nakaugnay ang Kasunduan ng Tordesillas sa paglalakbay ni Magellan?",
+            "options": [
+              "Itinakda nito kung aling ruta ang maaaring gamitin ng Espanya",
+              "Nagbigay ito ng pera para sa ekspedisyon",
+              "Nagbawal ito sa lahat ng paglalayag",
+              "Wala itong kaugnayan sa ekspedisyon"
+            ],
+            "correct_answer": "Itinakda nito kung aling ruta ang maaaring gamitin ng Espanya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📄 EPP (ICT) — Creating Word Documents: Illustrations\n\nTerm 2 in ICT: we move from browsing the internet to **creating** documents! 💻\n\n## 🖼️ Why Add Illustrations to a Document?\nA well-placed **illustration** — an image, shape, or diagram — makes a document easier to understand and more engaging than plain text alone.\n\n## 🧩 Types of Illustrations in a Word Document\n\n| Type | What it is | Best used for |\n|---|---|---|\n| **Images/Pictures** | Photos or graphics inserted from a file | Showing real examples, photos of an event |\n| **Shapes** | Basic drawn shapes (circles, arrows, boxes) | Diagrams, pointing out parts, simple drawings |\n| **SmartArt** | Ready-made diagrams (lists, cycles, hierarchies) | Showing steps, relationships, or organization charts |\n\n## 🧠 Worked Example 1 — Inserting a Picture\n*Task: Add a photo of a plant to a Science report.*\n1. Click **Insert** tab\n2. Click **Pictures** → choose **This Device**\n3. Select the photo file → click **Insert**\n4. Click and **drag a corner handle** to resize proportionally\n5. Use **text wrapping** (e.g., \"Square\") so text flows neatly around it ✅\n\n## 🧠 Worked Example 2 — Building a Process with SmartArt\n*Task: Show the 3 steps of handwashing using SmartArt.*\n1. Click **Insert** → **SmartArt**\n2. Choose a **Process** layout (shows steps in order)\n3. Type \"Wet hands\" → \"Apply soap\" → \"Rinse and dry\" into each box\n4. Adjust colors from the **SmartArt Design** tab ✅\n\n**Why SmartArt over plain shapes here?** SmartArt automatically arranges and connects the boxes — no need to manually draw arrows between shapes.\n\n## 🎨 Formatting Illustrations\n- **Resize**: drag a **corner** handle (not a side handle) to keep the image proportional\n- **Text wrapping**: controls how text flows around the image (In Line, Square, Behind Text, In Front of Text)\n- **Alt text**: a short description added for accessibility\n\n## ⚠️ Common Mistake\nDragging a **side** handle (not a corner) **stretches or squishes** the image, distorting it. Always use a **corner handle** to resize proportionally.\n\n## 🧠 Choosing the Right Tool\n| Need | Best choice |\n|---|---|\n| Real photo of an event | Image/Picture |\n| Simple arrow pointing to a label | Shape |\n| Steps of a process, in order | SmartArt |\n\nWelcome to document creation — Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What is SmartArt best used for?",
+            "options": [
+              "Showing steps, cycles, or relationships in a diagram",
+              "Taking a photo with the computer camera",
+              "Correcting spelling mistakes in text",
+              "Changing the page size of a document"
+            ],
+            "correct_answer": "Showing steps, cycles, or relationships in a diagram"
+          },
+          {
+            "question": "Which illustration type is a real photo inserted from a file?",
+            "options": [
+              "Image/Picture",
+              "Shape",
+              "SmartArt",
+              "Chart"
+            ],
+            "correct_answer": "Image/Picture"
+          },
+          {
+            "question": "Where do you go to insert a picture in a Word document?",
+            "options": [
+              "The Insert tab",
+              "The Review tab",
+              "The View tab",
+              "The File Explorer only"
+            ],
+            "correct_answer": "The Insert tab"
+          },
+          {
+            "question": "Which handle should you drag to resize an image WITHOUT distorting it?",
+            "options": [
+              "A corner handle",
+              "A side handle",
+              "The center of the image",
+              "The document's edge"
+            ],
+            "correct_answer": "A corner handle"
+          },
+          {
+            "question": "What happens if you drag a SIDE handle of an image instead of a corner?",
+            "options": [
+              "The image gets stretched or squished",
+              "The image becomes sharper",
+              "The image automatically deletes",
+              "Nothing changes at all"
+            ],
+            "correct_answer": "The image gets stretched or squished"
+          },
+          {
+            "question": "What does text wrapping control?",
+            "options": [
+              "How text flows around an inserted image",
+              "How fast the document saves",
+              "How many pages the document has",
+              "How the file gets named"
+            ],
+            "correct_answer": "How text flows around an inserted image"
+          },
+          {
+            "question": "Which is the best choice for showing 3 ordered steps of a process?",
+            "options": [
+              "SmartArt with a Process layout",
+              "A single picture only",
+              "A random shape with no text",
+              "A plain paragraph with no visuals"
+            ],
+            "correct_answer": "SmartArt with a Process layout"
+          },
+          {
+            "question": "What is alt text used for?",
+            "options": [
+              "A short description for accessibility",
+              "The title of the whole document",
+              "The file size of an image",
+              "The color used in a shape"
+            ],
+            "correct_answer": "A short description for accessibility"
+          },
+          {
+            "question": "Why is SmartArt often better than drawing separate shapes for a process diagram?",
+            "options": [
+              "It automatically arranges and connects the steps",
+              "It removes the need for any text at all",
+              "It only works with photographs",
+              "It cannot be resized after inserting"
+            ],
+            "correct_answer": "It automatically arranges and connects the steps"
+          },
+          {
+            "question": "A student wants to add a diagram showing 'who reports to whom' in a school club. Which tool fits BEST?",
+            "options": [
+              "SmartArt hierarchy layout",
+              "A single inserted photo",
+              "A plain colored rectangle",
+              "A text-only bullet list"
+            ],
+            "correct_answer": "SmartArt hierarchy layout"
+          },
+          {
+            "question": "After inserting an image, a student notices the picture looks stretched sideways. What likely caused this?",
+            "options": [
+              "They dragged a side handle instead of a corner handle",
+              "They used the wrong text wrapping setting",
+              "They added alt text to the image",
+              "They inserted a SmartArt instead of a picture"
+            ],
+            "correct_answer": "They dragged a side handle instead of a corner handle"
+          },
+          {
+            "question": "For a report that needs a real photograph of a school event, which illustration type should be used?",
+            "options": [
+              "Image/Picture",
+              "SmartArt",
+              "A drawn shape",
+              "A chart only"
+            ],
+            "correct_answer": "Image/Picture"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🎨 MAPEH — Early Spanish Colonial Arts + Preventing Substance Misuse\n\nTerm 2 begins with a new historical lens for the arts, plus an important health topic. 🌟\n\n---\n\n# PART 1 — MUSIC/ARTS: Early Spanish Colonial Period (1521–1600)\n\n## 🎼 A New Historical Lens\nTerm 1 explored **Pre-Colonial** Philippine arts. Now we compare them with the **Early Spanish Colonial Period**, when new styles arrived through the Church and Spanish settlers.\n\n## 🎵 Melody: A New Focus in Music\n- **Systems of writing melody** — Spanish missionaries introduced **written musical notation** (notes on a staff), different from the oral, memorized music of pre-colonial times.\n- **Melodic direction** — whether a melody moves **upward**, **downward**, or stays **level** (steady).\n\n## 🎭 Theater and Dance of the Period\n- **Theater:** religious rituals and performances tied to the new Catholic faith — subjects/themes now often depicted **saints, miracles, and biblical stories**.\n- **Dance:** movement vocabulary began blending indigenous steps with **Spanish court dance** influences.\n\n## 🖌️ Visual Arts of the Period\n- **Subjects/themes:** shifted toward **religious imagery** — saints, the Cross, church scenes\n- **Mediums:** painting, printing, and engraving became more common (introduced with Spanish materials), alongside continuing local materials\n\n## 🧠 Worked Example — Comparing Periods\n*Question: How did the THEME of Philippine visual art change between the Pre-Colonial and Early Spanish Colonial periods?*\n- Step 1: Pre-Colonial art themes centered on **daily life, birth-to-death, and nature**.\n- Step 2: Early Spanish Colonial themes centered on **religious subjects** brought by the Church.\n- Step 3: The change reflects the **new dominant influence** — Catholicism — shaping what artists depicted. ✅\n\n---\n\n# PART 2 — HEALTH: Prevention of Substance Use\n\n## 💊 Proper Use vs. Misuse of Medicine\n- **Proper use:** taking medicine **only as prescribed**, in the **right amount**, at the **right time**, for the **right reason**\n- **Misuse:** taking medicine **without a doctor's advice**, in the **wrong amount**, or for a purpose it wasn't meant for\n\n**Golden rule:** Never take medicine that wasn't given to **you** by a trusted adult or doctor.\n\n## 🚪 What Are \"Gateway Drugs\"?\nA **gateway drug** is a substance (like cigarettes, vape, or alcohol) that, when used at a young age, can increase the risk of trying more harmful substances later.\n\n**Negative effects include:**\n- Damage to a still-developing **brain and body**\n- Poor performance in **school and sports**\n- Increased risk of **addiction**\n- Strain on **family and friendships**\n\n## 🧠 Worked Example — Recognizing Misuse\n*Question: A classmate takes extra vitamins \"just in case\" without asking an adult. Is this proper use or misuse?*\n- Step 1: Proper use requires following the **correct, advised amount**.\n- Step 2: Taking \"extra, just in case\" ignores the recommended dose.\n- Step 3: This is **misuse**, even though vitamins seem harmless. ✅\n\n## 🛡️ Saying No\nIf offered a gateway substance, an **assertive** response works best: *\"No, thank you — I don't want that.\"* Then walk away and tell a trusted adult.\n\nGreat start to Term 2! 💪",
+        "quiz": [
+          {
+            "question": "Which period's arts are compared to Pre-Colonial arts this term?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "American Colonial Period",
+              "Middle Spanish Colonial Period",
+              "Contemporary Period"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "What new element became a focus in music during the Early Spanish Colonial period?",
+            "options": [
+              "Melody and written notation",
+              "Harmony between two singers",
+              "Loudness of drums only",
+              "The number of dancers"
+            ],
+            "correct_answer": "Melody and written notation"
+          },
+          {
+            "question": "What became the common THEME of visual art in the Early Spanish Colonial period?",
+            "options": [
+              "Religious imagery",
+              "Daily farm life only",
+              "Ocean animals",
+              "Modern technology"
+            ],
+            "correct_answer": "Religious imagery"
+          },
+          {
+            "question": "What is proper use of medicine?",
+            "options": [
+              "Taking it as prescribed, in the right amount and time",
+              "Taking any medicine you find at home",
+              "Sharing your prescription with a friend",
+              "Taking more if you feel worse quickly"
+            ],
+            "correct_answer": "Taking it as prescribed, in the right amount and time"
+          },
+          {
+            "question": "What is a gateway drug?",
+            "options": [
+              "A substance that raises the risk of trying more harmful ones later",
+              "A vitamin that boosts your immune system",
+              "A medicine only doctors are allowed to take",
+              "A drink that always cures sickness"
+            ],
+            "correct_answer": "A substance that raises the risk of trying more harmful ones later"
+          },
+          {
+            "question": "Which is a negative effect of gateway drug use at a young age?",
+            "options": [
+              "Damage to a still-developing brain and body",
+              "Improved performance in school",
+              "Stronger friendships with family",
+              "Better sleep and more energy"
+            ],
+            "correct_answer": "Damage to a still-developing brain and body"
+          },
+          {
+            "question": "What is the BEST response if offered a gateway substance?",
+            "options": [
+              "Say no assertively and tell a trusted adult",
+              "Try just a small amount first",
+              "Accept quietly to avoid conflict",
+              "Ask a friend what they think first"
+            ],
+            "correct_answer": "Say no assertively and tell a trusted adult"
+          },
+          {
+            "question": "Mediums like painting, printing, and engraving became more common during which period?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "Pre-Colonial Period",
+              "Middle Spanish Colonial Period",
+              "American Period"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "A classmate takes extra vitamins 'just in case' without asking an adult. What is this an example of?",
+            "options": [
+              "Misuse of medicine",
+              "Proper use of medicine",
+              "A healthy habit",
+              "A doctor's advice"
+            ],
+            "correct_answer": "Misuse of medicine"
+          },
+          {
+            "question": "How did dance during the Early Spanish Colonial period change from Pre-Colonial dance?",
+            "options": [
+              "It began blending indigenous steps with Spanish court influences",
+              "It completely disappeared during this era",
+              "It became identical to modern hip-hop",
+              "It was banned by local datus"
+            ],
+            "correct_answer": "It began blending indigenous steps with Spanish court influences"
+          },
+          {
+            "question": "Why does comparing art themes across periods help us understand history?",
+            "options": [
+              "Themes reveal which influences were shaping society at the time",
+              "Themes never actually change across time",
+              "Only the colors used in art matter historically",
+              "Art has no connection to historical events"
+            ],
+            "correct_answer": "Themes reveal which influences were shaping society at the time"
+          },
+          {
+            "question": "A friend says medicine misuse only means taking illegal drugs. What is wrong with this idea?",
+            "options": [
+              "Misuse also includes taking legal medicine incorrectly",
+              "Misuse only applies to adults, not children",
+              "Medicine can never actually be misused",
+              "Illegal drugs are never considered misuse"
+            ],
+            "correct_answer": "Misuse also includes taking legal medicine incorrectly"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💗 GMRC — Compassion: Caring for the Sick, Elderly, and PWD\n\nTerm 2 begins with a value close to every Filipino family: **compassion**. 💛\n\n## 💗 Ano ang Compassion (Habag)?\nAng **compassion** ay ang pagkilala sa paghihirap ng iba at ang **kusang pagkilos** upang tumulong. Higit pa ito sa pagkakaroon lamang ng awa — ito ay **pagmamalasakit na inilalagay sa aksyon**.\n\n## 🧓 Pangangalaga sa May Sakit\n- **Makinig** nang mabuti sa kanilang nararamdaman\n- Tulungan silang **uminom ng gamot** sa tamang oras (sa gabay ng magulang)\n- **Bawasan ang ingay** at bigyan sila ng kapahingahan\n- Magpakita ng **pasensya** — maaaring mabagal o iritable sila dahil sa sakit\n\n## 👵 Pangangalaga sa Nakatatanda (Elderly)\n- **Igalang** ang kanilang karanasan at payo\n- Tulungan sa mga **pisikal na gawain** — pagbuhat ng bagay, paglalakad sa hagdan\n- Maglaan ng **oras** para makasama sila — kausapin, makinig sa kanilang kuwento\n- Ipaalala nang mahinahon kung may nakakalimutan sila — **huwag pagalitan**\n\n## ♿ Pangangalaga sa mga Persons with Disability (PWD)\n- **Tanungin muna** kung anong tulong ang kailangan — huwag ipagpalagay\n- Igalang ang kanilang **kakayahang** gumawa ng bagay nang mag-isa kung kaya nila\n- Gumamit ng **magalang na wika** — huwag gumamit ng nakakasakit na katawagan\n- Tiyaking **naa-access** nila ang mga lugar (hal. ramp para sa wheelchair)\n\n## 🧠 Halimbawa 1\n*Ang lolo mo ay mabagal maglakad papunta sa simbahan.*\n- Hakbang 1: Kilalanin ang kaniyang pangangailangan — mabagal siyang lumakad.\n- Hakbang 2: Alukin siya ng braso bilang suporta, at maglakad sa kaniyang bilis.\n- Hakbang 3: Ito ay **compassion in action** — hindi lang pag-unawa, kundi pagkilos. ✅\n\n## 🧠 Halimbawa 2\n*Ang iyong kapatid na may kapansanan sa paningin ay nahihirapang maghanap ng bagay sa mesa.*\n- Hakbang 1: Huwag agad kunin ang bagay para sa kaniya.\n- Hakbang 2: Itanong muna: *\"Gusto mo bang tulungan kita?\"*\n- Hakbang 3: Kung oo, gabayan siya sa boses, hindi lang basta gawin ito para sa kaniya — iginagalang mo ang kaniyang kakayahan. ✅\n\n## 💡 Ang Malalim na Aral\nAng **compassion** ay hindi awa na nagpapababa sa dignidad ng tao — ito ay **pagkilala sa dignidad nila** habang tumutulong.\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang compassion?",
+            "options": [
+              "Pagkilos upang tumulong sa nahihirapan",
+              "Pagtingin lamang sa taong nahihirapan",
+              "Pag-iwas sa problema ng iba",
+              "Pagkukumpara ng sariling buhay sa iba"
+            ],
+            "correct_answer": "Pagkilos upang tumulong sa nahihirapan"
+          },
+          {
+            "question": "Alin ang tamang gawin sa isang miyembro ng pamilyang may sakit?",
+            "options": [
+              "Bawasan ang ingay at bigyan ng kapahingahan",
+              "Iwanan siya nang mag-isa buong araw",
+              "Sabihan siyang huwag magpahinga",
+              "Pagalitan siya kapag mabagal kumilos"
+            ],
+            "correct_answer": "Bawasan ang ingay at bigyan ng kapahingahan"
+          },
+          {
+            "question": "Ano ang mainam na paraan ng pakikitungo sa nakatatanda?",
+            "options": [
+              "Igalang ang kanilang karanasan at payo",
+              "Iwasan silang kausapin araw-araw",
+              "Pabayaan silang gawin lahat mag-isa",
+              "Ituring silang parang bata palagi"
+            ],
+            "correct_answer": "Igalang ang kanilang karanasan at payo"
+          },
+          {
+            "question": "Ano ang unang dapat gawin bago tumulong sa isang PWD?",
+            "options": [
+              "Tanungin kung anong tulong ang kailangan",
+              "Agad na gawin ang lahat para sa kanila",
+              "Iwasan silang lapitan",
+              "Sabihin sa kanila na huwag mag-alala"
+            ],
+            "correct_answer": "Tanungin kung anong tulong ang kailangan"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang kakayahan ng isang PWD na gumawa ng bagay mag-isa?",
+            "options": [
+              "Pinapanatili nito ang kanilang dignidad",
+              "Mas mabilis itong matatapos",
+              "Iniiwasan nito ang pagkapagod",
+              "Nakakatipid ito ng oras"
+            ],
+            "correct_answer": "Pinapanatili nito ang kanilang dignidad"
+          },
+          {
+            "question": "Ang lolo mo ay mabagal maglakad. Ano ang pagpapakita ng compassion?",
+            "options": [
+              "Alukin siya ng braso at maglakad sa kaniyang bilis",
+              "Iwanan siya at magpauna sa simbahan",
+              "Sabihan siyang magmadali",
+              "Huwag na siyang isama"
+            ],
+            "correct_answer": "Alukin siya ng braso at maglakad sa kaniyang bilis"
+          },
+          {
+            "question": "Bakit hindi dapat basta kunin ang bagay para sa kapatid na may kapansanan sa paningin?",
+            "options": [
+              "Dapat munang itanong kung gusto niyang tulungan",
+              "Wala talagang paraan upang tumulong sa kaniya",
+              "Hindi niya kailangan ng anumang tulong",
+              "Mas mabilis kung gagawin ito ng iba"
+            ],
+            "correct_answer": "Dapat munang itanong kung gusto niyang tulungan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng magalang na wika sa pakikitungo sa PWD?",
+            "options": [
+              "Iwasan ang nakakasakit na katawagan",
+              "Gumamit ng mabilis na pananalita",
+              "Magsalita nang mahina lamang",
+              "Umiwas sa pakikipag-usap"
+            ],
+            "correct_answer": "Iwasan ang nakakasakit na katawagan"
+          },
+          {
+            "question": "Bakit maituturing na compassion in action ang pagtulong sa isang matanda papuntang simbahan?",
+            "options": [
+              "Kinilala ang pangangailangan at kumilos upang tumulong",
+              "Ipinakita lamang ang awa nang walang kilos",
+              "Ginawa ito upang mapuri ng iba",
+              "Sinabi lamang na kaawa-awa siya"
+            ],
+            "correct_answer": "Kinilala ang pangangailangan at kumilos upang tumulong"
+          },
+          {
+            "question": "Paano naiiba ang compassion sa awa na nakakabawas ng dignidad?",
+            "options": [
+              "Kinikilala ng compassion ang dignidad habang tumutulong",
+              "Pareho lang sila palagi",
+              "Ang awa ay palaging mas mabuti",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Kinikilala ng compassion ang dignidad habang tumutulong"
+          },
+          {
+            "question": "Isang kaklase mong may kapansanan ang nag-aalinlangan tumanggap ng tulong. Ano ang mabuting gawin?",
+            "options": [
+              "Igalang ang kaniyang desisyon habang nananatiling bukas tumulong",
+              "Ipilit ang tulong kahit ayaw niya",
+              "Pabayaan siya at huwag nang pansinin",
+              "Sabihin sa iba na tulungan na lang siya"
+            ],
+            "correct_answer": "Igalang ang kaniyang desisyon habang nananatiling bukas tumulong"
+          },
+          {
+            "question": "Ang lola mo ay paulit-ulit na nagtatanong dahil nakalimutan niya ang sagot. Ano ang tamang tugon?",
+            "options": [
+              "Sagutin siya nang mahinahon at may pasensya",
+              "Pagalitan siya sa bawat pagkakataon",
+              "Iwasan na siyang sagutin",
+              "Pagtawanan ang kaniyang pagkalimot"
+            ],
+            "correct_answer": "Sagutin siya nang mahinahon at may pasensya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 EPP (AFA/FCS/IA) — Kahalagahan ng Pananahi\n\nBagong sangay ng EPP para sa Termino 2 — mula sa poultry, papunta tayo sa **pananahi**! 🪡\n\n## 🪡 Bakit Mahalaga ang Pananahi?\nAng **pananahi** ay isang **praktikal na kasanayan** na kapaki-pakinabang sa pang-araw-araw na buhay.\n\n**Mga Benepisyo:**\n- **Nakatitipid** — hindi na kailangang bumili ng bago kung masisira lang ang damit\n- **Kapaki-pakinabang** — kayang gumawa ng sariling simpleng kagamitan (bag, unan, banig)\n- **Nagtuturo ng disiplina** — kailangan ng pasensya at pag-iingat\n- **Kasanayan pang-hanapbuhay** — maaaring maging kabuhayan balang-araw\n\n## 🧰 Mga Kagamitan sa Pananahi at ang Kanilang Gamit\n\n| Kagamitan | Gamit |\n|---|---|\n| **Karayom (needle)** | Pandaan ng sinulid sa tela |\n| **Sinulid (thread)** | Sumasala sa mga tahi |\n| **Gunting (scissors)** | Panggupit ng tela |\n| **Metro/Tape measure** | Pagsukat ng haba at lapad ng tela |\n| **Tsok pantahi (tailor's chalk)** | Pagmamarka sa tela bago gupitin o tahiin |\n| **Pin/aspili** | Pansamantalang paghawak ng tela habang tinatahi |\n| **Thimble (dedal)** | Proteksyon sa daliri kapag itinutulak ang karayom |\n\n## 🧠 Halimbawa 1 — Pagpili ng Tamang Kagamitan\n*Gagawa ka ng simpleng unan. Ano ang unang kagamitang gagamitin mo?*\n- Hakbang 1: Kailangan mo munang sukatin ang tela.\n- Hakbang 2: Gamitin ang **tape measure** upang malaman ang tamang laki.\n- Hakbang 3: Markahan gamit ang **tsok pantahi** bago gupitin. ✅\n\n## 🧠 Halimbawa 2 — Bakit Kailangan ang Pin?\n*Bago tahiin ang dalawang tela nang magkadikit, bakit kailangang gamitin muna ang pin?*\n- Hakbang 1: Kung direktang tatahiin ang tela nang walang pin, maaaring **gumalaw** ang mga ito.\n- Hakbang 2: Ang pin ay **panandaliang nagdidikit** sa mga tela sa tamang posisyon.\n- Hakbang 3: Nagreresulta ito sa **mas tuwid at maayos na tahi**. ✅\n\n## 🛡️ Ligtas na Paggamit ng Kagamitan\n- Iwasan ang paglalaro ng karayom, aspili, o gunting\n- Itago ang mga matutulis na bagay sa **lalagyan** matapos gamitin\n- Palaging humingi ng **tulong ng nakatatanda** kapag gagamit ng gunting na matalim\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang benepisyo ng pagkakaroon ng kasanayan sa pananahi?",
+            "options": [
+              "Nakatitipid dahil hindi na kailangang bumili ng bago",
+              "Ginagawang mas mahal ang lahat ng damit",
+              "Nagpapabilis ng paglaki ng bata",
+              "Nagdaragdag ng dami ng gamit sa bahay"
+            ],
+            "correct_answer": "Nakatitipid dahil hindi na kailangang bumili ng bago"
+          },
+          {
+            "question": "Ano ang gamit ng tsok pantahi (tailor's chalk)?",
+            "options": [
+              "Pagmamarka sa tela bago gupitin",
+              "Panggupit ng tela",
+              "Pandaan ng sinulid sa karayom",
+              "Pagsukat ng haba ng tela"
+            ],
+            "correct_answer": "Pagmamarka sa tela bago gupitin"
+          },
+          {
+            "question": "Ano ang gamit ng tape measure sa pananahi?",
+            "options": [
+              "Pagsukat ng haba at lapad ng tela",
+              "Panggupit ng sinulid",
+              "Pandikit ng dalawang tela",
+              "Pantahi ng butones"
+            ],
+            "correct_answer": "Pagsukat ng haba at lapad ng tela"
+          },
+          {
+            "question": "Bakit ginagamit ang thimble (dedal)?",
+            "options": [
+              "Nagpoprotekta ito sa daliri kapag itinutulak ang karayom",
+              "Ginagamit ito bilang panukat ng tela",
+              "Pinagsasama nito ang dalawang kulay ng sinulid",
+              "Pinapalitan nito ang gunting"
+            ],
+            "correct_answer": "Nagpoprotekta ito sa daliri kapag itinutulak ang karayom"
+          },
+          {
+            "question": "Bakit kailangang gamitin ang pin bago tahiin ang dalawang tela?",
+            "options": [
+              "Pansamantala nitong pinananatili sa tamang posisyon ang tela",
+              "Pinapabilis nito ang paggupit ng tela",
+              "Ginagamit ito bilang panghalili sa karayom",
+              "Nagpapalambot ito sa tela"
+            ],
+            "correct_answer": "Pansamantala nitong pinananatili sa tamang posisyon ang tela"
+          },
+          {
+            "question": "Ano ang unang hakbang bago gupitin ang tela para sa isang proyekto?",
+            "options": [
+              "Sukatin muna gamit ang tape measure",
+              "Tahiin agad ang gilid ng tela",
+              "Palitan ang kulay ng tela",
+              "Ilagay agad sa makina"
+            ],
+            "correct_answer": "Sukatin muna gamit ang tape measure"
+          },
+          {
+            "question": "Ano ang dapat gawin sa mga matutulis na kagamitan matapos gamitin?",
+            "options": [
+              "Itago sa tamang lalagyan",
+              "Iwan sa ibabaw ng mesa",
+              "Ibigay sa isang kaklase",
+              "Itapon kaagad"
+            ],
+            "correct_answer": "Itago sa tamang lalagyan"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananahing praktikal para sa tahanan?",
+            "options": [
+              "Paggawa ng sariling unan o banig",
+              "Pagluluto ng ulam",
+              "Pag-aalaga ng poultry",
+              "Paggawa ng gamit elektroniko"
+            ],
+            "correct_answer": "Paggawa ng sariling unan o banig"
+          },
+          {
+            "question": "Bakit itinuturing na kasanayan pang-hanapbuhay ang pananahi?",
+            "options": [
+              "Maaari itong maging paraan ng pagkakakita ng kita balang-araw",
+              "Ito ay pinag-aaralan lamang sa paaralan",
+              "Wala itong gamit sa totoong buhay",
+              "Ginagawa lamang ito ng mga propesyonal"
+            ],
+            "correct_answer": "Maaari itong maging paraan ng pagkakakita ng kita balang-araw"
+          },
+          {
+            "question": "Sa paggawa ng simpleng unan, bakit dapat unahin ang pagsukat bago ang paggupit?",
+            "options": [
+              "Upang matiyak ang tamang laki bago mapunit ang tela",
+              "Upang mabawasan ang bilang ng sinulid",
+              "Upang mas mabilis matapos ang proyekto",
+              "Upang hindi na kailangang tahiin pa"
+            ],
+            "correct_answer": "Upang matiyak ang tamang laki bago mapunit ang tela"
+          },
+          {
+            "question": "Ano ang panganib kung gagamitin ang gunting nang walang pag-iingat?",
+            "options": [
+              "Maaaring makasakit ito sa gumagamit",
+              "Mabibilis ang paggupit ng tela",
+              "Mapapabuti ang kalidad ng tahi",
+              "Matitipid ang oras sa proyekto"
+            ],
+            "correct_answer": "Maaaring makasakit ito sa gumagamit"
+          },
+          {
+            "question": "Bakit mahalagang humingi ng tulong sa nakatatanda kapag gagamit ng matalim na gunting?",
+            "options": [
+              "Upang matiyak ang kaligtasan sa paggamit nito",
+              "Upang mas magmadali sa proyekto",
+              "Upang hindi na kailangang tahiin pa",
+              "Upang hindi na kailangang sumukat"
+            ],
+            "correct_answer": "Upang matiyak ang kaligtasan sa paggamit nito"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🕰️ Friday Review — English (Grade 5)\n\n- **Flashback** = story jumps backward in time; signal phrases like \"she remembered when...\"\n- **Sequential plot** stays in order; flashback needs tracking **two timelines**\n- **Appositive** = noun phrase, set off by **commas**, that renames/explains a noun right before it\n- Appositives can reveal the **meaning of a hard word** — the phrase after the comma IS the definition\n- Not every comma phrase is an appositive — check if it **renames** the noun, not just describes it\n\nWelcome to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "What does a flashback do in a story?",
+            "options": [
+              "Shows an earlier event during the present action",
+              "Ends the story immediately",
+              "Lists all the characters",
+              "Describes only the setting"
+            ],
+            "correct_answer": "Shows an earlier event during the present action"
+          },
+          {
+            "question": "Which is a common flashback signal phrase?",
+            "options": [
+              "Years before, ...",
+              "Meanwhile, right now...",
+              "Suddenly, today...",
+              "At this very moment..."
+            ],
+            "correct_answer": "Years before, ..."
+          },
+          {
+            "question": "An appositive renames or explains a noun using a phrase set off by:",
+            "options": [
+              "commas",
+              "exclamation points",
+              "question marks",
+              "parentheses only"
+            ],
+            "correct_answer": "commas"
+          },
+          {
+            "question": "In 'The archipelago, a group of many islands, is huge,' what is the appositive?",
+            "options": [
+              "a group of many islands",
+              "The archipelago",
+              "is huge",
+              "many islands is"
+            ],
+            "correct_answer": "a group of many islands"
+          },
+          {
+            "question": "What makes an appositive useful for vocabulary?",
+            "options": [
+              "It often gives the meaning of a hard word right after it",
+              "It always comes at the very end of a paragraph",
+              "It replaces the need for a dictionary forever",
+              "It only appears in poems"
+            ],
+            "correct_answer": "It often gives the meaning of a hard word right after it"
+          },
+          {
+            "question": "How does a sequential plot differ from a flashback plot?",
+            "options": [
+              "It stays in the order events actually happened",
+              "It always uses appositives",
+              "It never has a beginning or end",
+              "It only appears in nonfiction"
+            ],
+            "correct_answer": "It stays in the order events actually happened"
+          },
+          {
+            "question": "A student assumes every comma phrase is an appositive. What is the flaw?",
+            "options": [
+              "Some comma phrases just add description, not a renaming",
+              "Commas are never allowed after nouns",
+              "Only verbs can have comma phrases",
+              "Appositives never use commas"
+            ],
+            "correct_answer": "Some comma phrases just add description, not a renaming"
+          },
+          {
+            "question": "Why might an author use a flashback instead of telling events in order?",
+            "options": [
+              "To show what is shaping a character's present choice",
+              "To make the story shorter overall",
+              "To avoid describing the setting",
+              "To remove the main character entirely"
+            ],
+            "correct_answer": "To show what is shaping a character's present choice"
+          },
+          {
+            "question": "Read: 'The frugal man, careful never to waste money, saved every peso.' What does frugal mean?",
+            "options": [
+              "Careful not to waste money",
+              "Angry most of the time",
+              "Unable to save anything",
+              "Fond of spending quickly"
+            ],
+            "correct_answer": "Careful not to waste money"
+          },
+          {
+            "question": "A reader gets confused when a story suddenly jumps ten years into the past. What skill helps most?",
+            "options": [
+              "Noticing flashback signal phrases",
+              "Skipping that whole page",
+              "Reading only the last paragraph",
+              "Counting the characters mentioned"
+            ],
+            "correct_answer": "Noticing flashback signal phrases"
+          },
+          {
+            "question": "Which sentence correctly punctuates an appositive?",
+            "options": [
+              "The entomologist, a scientist who studies insects, spoke to us.",
+              "The entomologist a scientist who studies insects spoke to us.",
+              "The, entomologist a scientist who studies insects, spoke to us.",
+              "The entomologist a, scientist who studies insects spoke, to us."
+            ],
+            "correct_answer": "The entomologist, a scientist who studies insects, spoke to us."
+          },
+          {
+            "question": "A story explains a character's fear of water through a childhood memory. What is this technique called?",
+            "options": [
+              "Flashback",
+              "Appositive",
+              "Sequential order",
+              "Dialogue tag"
+            ],
+            "correct_answer": "Flashback"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 5)\n\n- **Decimal to fraction:** digits after the point = numerator; place value = denominator (10, 100, 1000...)\n- 0.75 = 75/100 = **3/4** in lowest terms\n- **Comparing decimals:** line up decimal points, compare **left to right**, largest place value first\n- 0.5 = 0.50 = 0.500 (trailing zeros don't change value) — but 0.5 ≠ 0.05!\n- 0.9 > 0.85 because 0.9 = 0.90, and 90 hundredths beats 85 hundredths\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "What is 0.5 as a fraction in lowest terms?",
+            "options": [
+              "1/2",
+              "5/10",
+              "1/5",
+              "5/100"
+            ],
+            "correct_answer": "1/2"
+          },
+          {
+            "question": "What is 0.75 as a fraction in lowest terms?",
+            "options": [
+              "3/4",
+              "75/10",
+              "3/40",
+              "7/5"
+            ],
+            "correct_answer": "3/4"
+          },
+          {
+            "question": "Which decimal equals 0.5?",
+            "options": [
+              "0.50",
+              "0.05",
+              "0.005",
+              "5.5"
+            ],
+            "correct_answer": "0.50"
+          },
+          {
+            "question": "When comparing decimals, which digit matters most?",
+            "options": [
+              "The one farthest to the left",
+              "The one farthest to the right",
+              "The total count of digits",
+              "The digit in the thousandths place always"
+            ],
+            "correct_answer": "The one farthest to the left"
+          },
+          {
+            "question": "What is 0.125 as a fraction in lowest terms?",
+            "options": [
+              "1/8",
+              "125/10",
+              "1/125",
+              "5/8"
+            ],
+            "correct_answer": "1/8"
+          },
+          {
+            "question": "Order from least to greatest: 0.6, 0.45, 0.5",
+            "options": [
+              "0.45, 0.5, 0.6",
+              "0.6, 0.5, 0.45",
+              "0.5, 0.6, 0.45",
+              "0.45, 0.6, 0.5"
+            ],
+            "correct_answer": "0.45, 0.5, 0.6"
+          },
+          {
+            "question": "What is 7/20 as a decimal?",
+            "options": [
+              "0.35",
+              "0.207",
+              "0.7",
+              "0.72"
+            ],
+            "correct_answer": "0.35"
+          },
+          {
+            "question": "Why is 0.9 greater than 0.85?",
+            "options": [
+              "0.9 equals 0.90, and 90 beats 85 in hundredths",
+              "Fewer digits always means a bigger number",
+              "0.85 is secretly a whole number",
+              "Longer decimals are always smaller"
+            ],
+            "correct_answer": "0.9 equals 0.90, and 90 beats 85 in hundredths"
+          },
+          {
+            "question": "A student writes 0.75 as 75/1000. What mistake did they make?",
+            "options": [
+              "They used the wrong number of zeros for the place value",
+              "They forgot to add the whole number part",
+              "They flipped numerator and denominator",
+              "They rounded before converting"
+            ],
+            "correct_answer": "They used the wrong number of zeros for the place value"
+          },
+          {
+            "question": "Which decimals are arranged from GREATEST to least?",
+            "options": [
+              "0.605, 0.6, 0.5, 0.45",
+              "0.45, 0.5, 0.6, 0.605",
+              "0.5, 0.45, 0.605, 0.6",
+              "0.6, 0.605, 0.45, 0.5"
+            ],
+            "correct_answer": "0.605, 0.6, 0.5, 0.45"
+          },
+          {
+            "question": "Which decimal is closest in value to 3/8?",
+            "options": [
+              "0.375",
+              "0.38",
+              "0.83",
+              "0.3"
+            ],
+            "correct_answer": "0.375"
+          },
+          {
+            "question": "A terminating decimal is one that:",
+            "options": [
+              "ends and does not repeat forever",
+              "always repeats the same digit",
+              "can never become a fraction",
+              "must have more than 4 digits"
+            ],
+            "correct_answer": "ends and does not repeat forever"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — Filipino (Grade 5)\n\n- **Kabalintunaan (ironiya)** = kabaligtaran ng inaasahan o sinabi\n- **Verbal irony** = sinasabi ang kabaligtaran ng ibig sabihin\n- **Situational irony** = ang nangyari ay kabaligtaran ng inaasahan\n- **Dramatic irony** = alam ng mambabasa ang lihim na hindi alam ng tauhan\n- **5W1H** sa balita: Who, What, When, Where, Why, How\n- **Punto de bista** = pananaw ng manunulat — matutukoy sa mga salitang ginamit\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang kabalintunaan?",
+            "options": [
+              "Kabaligtaran ng inaasahan o sinabi",
+              "Pagmamalabis sa isang bagay",
+              "Paghahalintulad ng dalawang bagay",
+              "Pagbibigay ng katangiang tao sa hayop"
+            ],
+            "correct_answer": "Kabaligtaran ng inaasahan o sinabi"
+          },
+          {
+            "question": "Aling uri ng kabalintunaan ang sinasabi ang kabaligtaran ng ibig sabihin?",
+            "options": [
+              "Verbal irony",
+              "Situational irony",
+              "Dramatic irony",
+              "Metapora"
+            ],
+            "correct_answer": "Verbal irony"
+          },
+          {
+            "question": "Ano ang situational irony?",
+            "options": [
+              "Ang nangyari ay kabaligtaran ng inaasahan",
+              "Alam ng mambabasa ang lihim ng tauhan",
+              "Pagsasabi ng totoo palagi",
+              "Pag-uulit ng parehong tunog"
+            ],
+            "correct_answer": "Ang nangyari ay kabaligtaran ng inaasahan"
+          },
+          {
+            "question": "Sa dramatic irony, sino ang may alam sa lihim na hindi alam ng tauhan?",
+            "options": [
+              "Ang mambabasa",
+              "Ang guro",
+              "Walang nakakaalam",
+              "Ang ibang tauhan lamang"
+            ],
+            "correct_answer": "Ang mambabasa"
+          },
+          {
+            "question": "Ano ang tinutukoy ng 'Where' sa 5W1H?",
+            "options": [
+              "Saan naganap ang pangyayari",
+              "Sino ang kasangkot",
+              "Bakit ito nangyari",
+              "Paano ito naganap"
+            ],
+            "correct_answer": "Saan naganap ang pangyayari"
+          },
+          {
+            "question": "Ano ang punto de bista ng manunulat?",
+            "options": [
+              "Ang kaniyang pananaw sa isang paksa",
+              "Ang bilang ng pahina ng akda",
+              "Ang petsa ng paglalathala",
+              "Ang wikang ginamit"
+            ],
+            "correct_answer": "Ang kaniyang pananaw sa isang paksa"
+          },
+          {
+            "question": "'Napakalinis naman ng silid mo!' sabi ng ina habang magulo ito. Anong uri ng kabalintunaan?",
+            "options": [
+              "Verbal irony",
+              "Situational irony",
+              "Dramatic irony",
+              "Simili"
+            ],
+            "correct_answer": "Verbal irony"
+          },
+          {
+            "question": "Isang guro ng Wastong Pagsulat ang laging maling baybay. Anong uri ng kabalintunaan ito?",
+            "options": [
+              "Situational irony",
+              "Verbal irony",
+              "Dramatic irony",
+              "Hyperbole"
+            ],
+            "correct_answer": "Situational irony"
+          },
+          {
+            "question": "Bakit hindi dapat ipagkamali ang kabalintunaan sa kasinungalingan?",
+            "options": [
+              "Sadyang estilo ito sa pagsulat, hindi panlilinlang",
+              "Pareho lang sila ng ibig sabihin",
+              "Palaging masama ang kabalintunaan",
+              "Ginagamit lamang ito sa balita"
+            ],
+            "correct_answer": "Sadyang estilo ito sa pagsulat, hindi panlilinlang"
+          },
+          {
+            "question": "Isang sanaysay ang gumamit ng mga salitang 'mapanganib' at 'hindi makatarungan' tungkol sa isang batas. Ano ang MALAMANG na punto de bista?",
+            "options": [
+              "Kontra sa batas",
+              "Suportado ang batas",
+              "Ganap na neutral",
+              "Walang opinyon"
+            ],
+            "correct_answer": "Kontra sa batas"
+          },
+          {
+            "question": "Alam ng mambabasa na tuso ang bagong kaibigan sa kuwento, pero hindi ito alam ng pangunahing tauhan. Anong uri ito?",
+            "options": [
+              "Dramatic irony",
+              "Verbal irony",
+              "Situational irony",
+              "Personipikasyon"
+            ],
+            "correct_answer": "Dramatic irony"
+          },
+          {
+            "question": "Sa balitang tungkol sa sunog, alin ang sumasagot sa 'Bakit'?",
+            "options": [
+              "Ang dahilan ng pagsiklab ng apoy",
+              "Ang pangalan ng lugar",
+              "Ang oras ng pangyayari",
+              "Ang bilang ng bumbero"
+            ],
+            "correct_answer": "Ang dahilan ng pagsiklab ng apoy"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🍽️ Friday Review — Science (Grade 5)\n\n**Digestive path:** Mouth → esophagus (gullet) → stomach → small intestine → large intestine\n\n| Organ | Job |\n|---|---|\n| Mouth | Chewing; saliva starts breakdown |\n| Esophagus | Squeezes food toward stomach |\n| Stomach | Churns and breaks down food with acid |\n| Small intestine | Absorbs most nutrients |\n| Large intestine | Absorbs remaining water; forms waste |\n\n**Order matters:** each organ prepares food for the next step. Respiratory path (nose → trachea → lungs) works the same way, but for air.\n\nGreat review this Term 2 week! 🔎",
+        "quiz": [
+          {
+            "question": "What is the job of the digestive system?",
+            "options": [
+              "To break down food into usable nutrients",
+              "To pump blood around the body",
+              "To move air into the lungs",
+              "To control body movement"
+            ],
+            "correct_answer": "To break down food into usable nutrients"
+          },
+          {
+            "question": "Which organ does food enter FIRST?",
+            "options": [
+              "Mouth",
+              "Stomach",
+              "Esophagus",
+              "Small intestine"
+            ],
+            "correct_answer": "Mouth"
+          },
+          {
+            "question": "What is another name for the esophagus?",
+            "options": [
+              "The gullet",
+              "The windpipe",
+              "The trachea",
+              "The bloodstream"
+            ],
+            "correct_answer": "The gullet"
+          },
+          {
+            "question": "Where does most nutrient absorption occur?",
+            "options": [
+              "Small intestine",
+              "Mouth",
+              "Esophagus",
+              "Large intestine"
+            ],
+            "correct_answer": "Small intestine"
+          },
+          {
+            "question": "What does the large intestine mainly absorb?",
+            "options": [
+              "Remaining water",
+              "Sugar only",
+              "Saliva",
+              "Air"
+            ],
+            "correct_answer": "Remaining water"
+          },
+          {
+            "question": "What breaks down starches in the mouth?",
+            "options": [
+              "Saliva",
+              "Stomach acid",
+              "Blood",
+              "Air"
+            ],
+            "correct_answer": "Saliva"
+          },
+          {
+            "question": "Which is the correct order of the digestive path?",
+            "options": [
+              "Mouth, esophagus, stomach, small intestine, large intestine",
+              "Mouth, stomach, esophagus, large intestine, small intestine",
+              "Esophagus, mouth, stomach, large intestine, small intestine",
+              "Stomach, mouth, esophagus, small intestine, large intestine"
+            ],
+            "correct_answer": "Mouth, esophagus, stomach, small intestine, large intestine"
+          },
+          {
+            "question": "What is the stomach's main job?",
+            "options": [
+              "Churning food and breaking it down with acid",
+              "Absorbing all nutrients from food",
+              "Storing waste before elimination",
+              "Moving air toward the lungs"
+            ],
+            "correct_answer": "Churning food and breaking it down with acid"
+          },
+          {
+            "question": "If food skipped the stomach, what would MOST LIKELY happen?",
+            "options": [
+              "The small intestine would get poorly broken-down food",
+              "The mouth would need to chew twice as long",
+              "Too much water would be absorbed",
+              "Digestion would happen much faster"
+            ],
+            "correct_answer": "The small intestine would get poorly broken-down food"
+          },
+          {
+            "question": "How is the respiratory path similar to the digestive path?",
+            "options": [
+              "Both move something through connected tube-shaped organs",
+              "Both absorb water as their main job",
+              "Both start and end in the stomach",
+              "Both only work while sleeping"
+            ],
+            "correct_answer": "Both move something through connected tube-shaped organs"
+          },
+          {
+            "question": "A classmate says most nutrients enter the blood in the stomach. What is wrong?",
+            "options": [
+              "Most absorption actually happens in the small intestine",
+              "The stomach cannot hold food at all",
+              "Nutrients never enter the blood",
+              "The claim is correct as stated"
+            ],
+            "correct_answer": "Most absorption actually happens in the small intestine"
+          },
+          {
+            "question": "Why must digestive organs work in a specific order?",
+            "options": [
+              "Each step prepares food for the next stage",
+              "The order does not matter at all",
+              "Only the mouth does real work",
+              "The stomach replaces every other organ"
+            ],
+            "correct_answer": "Each step prepares food for the next stage"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# ⚓ Biyernes na Balik-Aral — Araling Panlipunan (Grade 5)\n\n- **God, Gold, Glory** = tatlong dahilan ng pananakop ng Espanya\n- **God** = Kristiyanismo | **Gold** = kayamanan/espesya | **Glory** = kapangyarihan at prestihiyo\n- **Magellan (1521)** — dumaong sa Homonhon, Unang Misa sa **Limasawa**, namatay sa Labanan sa Mactan\n- **Legazpi (1565)** — nagtatag ng unang permanenteng kolonya\n- **Kasunduan ng Tordesillas** — naghati sa mundo sa pagitan ng Espanya at Portugal\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tatlong dahilan ng pananakop ng Espanya?",
+            "options": [
+              "God, Gold, Glory",
+              "Trade, Travel, Treaty",
+              "Faith, Family, Fortune",
+              "Power, Peace, Progress"
+            ],
+            "correct_answer": "God, Gold, Glory"
+          },
+          {
+            "question": "Saan naganap ang Unang Misa?",
+            "options": [
+              "Limasawa",
+              "Maynila",
+              "Cebu",
+              "Mactan"
+            ],
+            "correct_answer": "Limasawa"
+          },
+          {
+            "question": "Sino ang namatay sa Labanan sa Mactan?",
+            "options": [
+              "Ferdinand Magellan",
+              "Miguel Lopez de Legazpi",
+              "Lapu-Lapu",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Ferdinand Magellan"
+          },
+          {
+            "question": "Ano ang Kasunduan ng Tordesillas?",
+            "options": [
+              "Paghahati ng mundo sa Espanya at Portugal",
+              "Kasunduan sa kalayaan ng Pilipinas",
+              "Batas tungkol sa polo y servicio",
+              "Kasunduan sa pagitan ng mga datu"
+            ],
+            "correct_answer": "Paghahati ng mundo sa Espanya at Portugal"
+          },
+          {
+            "question": "Bakit gustong maabot ng mga Espanyol ang Moluccas?",
+            "options": [
+              "Mayaman ito sa mamahaling espesya",
+              "Doon nakatira ang kanilang hari",
+              "Doon nagmula ang kanilang wika",
+              "Doon ipinanganak si Magellan"
+            ],
+            "correct_answer": "Mayaman ito sa mamahaling espesya"
+          },
+          {
+            "question": "Sino ang nagtatag ng unang permanenteng kolonya ng Espanya sa Pilipinas?",
+            "options": [
+              "Miguel Lopez de Legazpi",
+              "Ferdinand Magellan",
+              "Lapu-Lapu",
+              "Antonio Pigafetta"
+            ],
+            "correct_answer": "Miguel Lopez de Legazpi"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Gold' bilang dahilan ng pananakop?",
+            "options": [
+              "Pagkuha ng kayamanan at espesya",
+              "Pagpapalaganap ng relihiyon",
+              "Paghahangad ng kapangyarihan",
+              "Pagtatayo ng paaralan"
+            ],
+            "correct_answer": "Pagkuha ng kayamanan at espesya"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng 'Glory' bilang dahilan ng pananakop?",
+            "options": [
+              "Paghahangad ng kapangyarihan at prestihiyo",
+              "Pagkuha ng ginto at pilak",
+              "Pagtuturo ng bagong wika",
+              "Pagtatayo ng simbahan"
+            ],
+            "correct_answer": "Paghahangad ng kapangyarihan at prestihiyo"
+          },
+          {
+            "question": "Bakit pinili ni Magellan ang kanlurang ruta patungo sa Moluccas?",
+            "options": [
+              "Kontrolado ng Portugal ang silangang ruta",
+              "Mas malapit ang kanlurang ruta",
+              "Iyon lang ang ruta na alam niya",
+              "Ipinag-utos ito ng Papa"
+            ],
+            "correct_answer": "Kontrolado ng Portugal ang silangang ruta"
+          },
+          {
+            "question": "Ano ang ipinapakita ng 'God, Gold, Glory' tungkol sa layunin ng Espanya?",
+            "options": [
+              "Magkakasamang relihiyoso, pangkabuhayan, at pampulitikang layunin",
+              "Isang layunin lamang na relihiyoso",
+              "Walang tunay na layunin bukod sa paglalakbay",
+              "Layunin lamang na pang-agham"
+            ],
+            "correct_answer": "Magkakasamang relihiyoso, pangkabuhayan, at pampulitikang layunin"
+          },
+          {
+            "question": "Bakit mas matagumpay si Legazpi kaysa kay Magellan sa pagtatatag ng kolonya?",
+            "options": [
+              "Dumating siya may sapat na hukbo at kasunduan sa lokal na pinuno",
+              "Mas mabilis siyang naglakbay",
+              "Wala siyang nakaengkuwentrong lokal na pinuno",
+              "Hindi na niya kinailangang dumaan sa dagat"
+            ],
+            "correct_answer": "Dumating siya may sapat na hukbo at kasunduan sa lokal na pinuno"
+          },
+          {
+            "question": "Paano nakaugnay ang Kasunduan ng Tordesillas sa paglalakbay ni Magellan?",
+            "options": [
+              "Itinakda nito kung aling ruta ang maaaring gamitin ng Espanya",
+              "Nagbigay ito ng pera para sa ekspedisyon",
+              "Nagbawal ito sa lahat ng paglalayag",
+              "Wala itong kaugnayan sa ekspedisyon"
+            ],
+            "correct_answer": "Itinakda nito kung aling ruta ang maaaring gamitin ng Espanya"
+          }
+        ]
+      },
+      "EPP (ICT)": {
+        "summary_markdown": "# 📄 Friday Review — EPP (ICT) (Grade 5)\n\n- **Image/Picture** = real photo | **Shape** = simple drawn figure | **SmartArt** = ready-made diagram for steps/relationships\n- Insert via the **Insert** tab\n- Resize using a **corner handle** (side handle distorts the image)\n- **Text wrapping** controls how text flows around an image\n- **Alt text** = short description for accessibility\n\nGreat work this Term 2 week! 💻",
+        "quiz": [
+          {
+            "question": "What is SmartArt best used for?",
+            "options": [
+              "Showing steps, cycles, or relationships in a diagram",
+              "Taking a photo with the computer camera",
+              "Correcting spelling mistakes",
+              "Changing the page size"
+            ],
+            "correct_answer": "Showing steps, cycles, or relationships in a diagram"
+          },
+          {
+            "question": "Which illustration type is a real photo from a file?",
+            "options": [
+              "Image/Picture",
+              "Shape",
+              "SmartArt",
+              "Chart"
+            ],
+            "correct_answer": "Image/Picture"
+          },
+          {
+            "question": "Where do you insert a picture in Word?",
+            "options": [
+              "The Insert tab",
+              "The Review tab",
+              "The View tab",
+              "File Explorer only"
+            ],
+            "correct_answer": "The Insert tab"
+          },
+          {
+            "question": "Which handle keeps an image proportional while resizing?",
+            "options": [
+              "A corner handle",
+              "A side handle",
+              "The center of the image",
+              "The document edge"
+            ],
+            "correct_answer": "A corner handle"
+          },
+          {
+            "question": "What happens when you drag a side handle instead of a corner?",
+            "options": [
+              "The image gets stretched or squished",
+              "The image becomes sharper",
+              "The image deletes automatically",
+              "Nothing changes"
+            ],
+            "correct_answer": "The image gets stretched or squished"
+          },
+          {
+            "question": "What does text wrapping control?",
+            "options": [
+              "How text flows around an image",
+              "How fast a file saves",
+              "How many pages exist",
+              "How a file is named"
+            ],
+            "correct_answer": "How text flows around an image"
+          },
+          {
+            "question": "Best choice for showing 3 ordered steps of a process?",
+            "options": [
+              "SmartArt with a Process layout",
+              "A single picture only",
+              "A random shape",
+              "A plain paragraph"
+            ],
+            "correct_answer": "SmartArt with a Process layout"
+          },
+          {
+            "question": "What is alt text for?",
+            "options": [
+              "A short description for accessibility",
+              "The document's title",
+              "The image's file size",
+              "The color of a shape"
+            ],
+            "correct_answer": "A short description for accessibility"
+          },
+          {
+            "question": "Why is SmartArt often better than separate shapes for a process diagram?",
+            "options": [
+              "It automatically arranges and connects the steps",
+              "It removes the need for text",
+              "It only works with photos",
+              "It cannot be resized"
+            ],
+            "correct_answer": "It automatically arranges and connects the steps"
+          },
+          {
+            "question": "Best tool for a 'who reports to whom' diagram in a club?",
+            "options": [
+              "SmartArt hierarchy layout",
+              "A single inserted photo",
+              "A plain rectangle",
+              "A bullet list only"
+            ],
+            "correct_answer": "SmartArt hierarchy layout"
+          },
+          {
+            "question": "A picture looks stretched sideways after resizing. What likely happened?",
+            "options": [
+              "A side handle was dragged instead of a corner handle",
+              "The wrong text wrapping was chosen",
+              "Alt text was added",
+              "SmartArt was used instead"
+            ],
+            "correct_answer": "A side handle was dragged instead of a corner handle"
+          },
+          {
+            "question": "For a real photograph of a school event, which type fits best?",
+            "options": [
+              "Image/Picture",
+              "SmartArt",
+              "A drawn shape",
+              "A chart only"
+            ],
+            "correct_answer": "Image/Picture"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🎨 Biyernes na Balik-Aral — MAPEH (Grade 5)\n\n**Music/Arts:** Early Spanish Colonial Period — **melody & written notation**, religious themes in visual art and theater, dance blending indigenous and Spanish court steps\n\n**Health:** Proper use of medicine (as prescribed, right amount/time) vs. **misuse**; **gateway drugs** raise risk of trying harsher substances; say **no assertively** and tell a trusted adult\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Which period's arts are studied alongside Pre-Colonial arts this term?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "American Colonial Period",
+              "Middle Spanish Colonial Period",
+              "Contemporary Period"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "What new music element became a focus in this period?",
+            "options": [
+              "Melody and written notation",
+              "Harmony between two singers",
+              "Loudness of drums only",
+              "The number of dancers"
+            ],
+            "correct_answer": "Melody and written notation"
+          },
+          {
+            "question": "What became the common THEME of visual art in this period?",
+            "options": [
+              "Religious imagery",
+              "Daily farm life only",
+              "Ocean animals",
+              "Modern technology"
+            ],
+            "correct_answer": "Religious imagery"
+          },
+          {
+            "question": "What is proper use of medicine?",
+            "options": [
+              "Taking it as prescribed, in the right amount and time",
+              "Taking any medicine found at home",
+              "Sharing your prescription with a friend",
+              "Taking more if you feel worse"
+            ],
+            "correct_answer": "Taking it as prescribed, in the right amount and time"
+          },
+          {
+            "question": "What is a gateway drug?",
+            "options": [
+              "A substance that raises risk of trying harsher ones later",
+              "A vitamin that boosts immunity",
+              "A medicine only doctors can take",
+              "A drink that cures sickness"
+            ],
+            "correct_answer": "A substance that raises risk of trying harsher ones later"
+          },
+          {
+            "question": "Which is a negative effect of early gateway drug use?",
+            "options": [
+              "Damage to a still-developing brain and body",
+              "Improved school performance",
+              "Stronger family bonds",
+              "Better sleep and energy"
+            ],
+            "correct_answer": "Damage to a still-developing brain and body"
+          },
+          {
+            "question": "Best response if offered a gateway substance?",
+            "options": [
+              "Say no assertively and tell a trusted adult",
+              "Try a small amount first",
+              "Accept quietly to avoid conflict",
+              "Ask a friend what they think"
+            ],
+            "correct_answer": "Say no assertively and tell a trusted adult"
+          },
+          {
+            "question": "Mediums like painting and engraving became more common during which period?",
+            "options": [
+              "Early Spanish Colonial Period",
+              "Pre-Colonial Period",
+              "Middle Spanish Colonial Period",
+              "American Period"
+            ],
+            "correct_answer": "Early Spanish Colonial Period"
+          },
+          {
+            "question": "A classmate takes extra vitamins without asking an adult. What is this?",
+            "options": [
+              "Misuse of medicine",
+              "Proper use of medicine",
+              "A healthy habit",
+              "A doctor's advice"
+            ],
+            "correct_answer": "Misuse of medicine"
+          },
+          {
+            "question": "How did dance change from the Pre-Colonial to Early Spanish Colonial period?",
+            "options": [
+              "It blended indigenous steps with Spanish court influences",
+              "It completely disappeared",
+              "It became identical to modern hip-hop",
+              "It was banned entirely"
+            ],
+            "correct_answer": "It blended indigenous steps with Spanish court influences"
+          },
+          {
+            "question": "Why does comparing art themes across periods help us understand history?",
+            "options": [
+              "Themes reveal which influences shaped society at the time",
+              "Themes never actually change",
+              "Only colors used in art matter",
+              "Art has no link to history"
+            ],
+            "correct_answer": "Themes reveal which influences shaped society at the time"
+          },
+          {
+            "question": "What is wrong with saying medicine misuse only means illegal drugs?",
+            "options": [
+              "Misuse also includes taking legal medicine incorrectly",
+              "Misuse only applies to adults",
+              "Medicine can never be misused",
+              "Illegal drugs are never misuse"
+            ],
+            "correct_answer": "Misuse also includes taking legal medicine incorrectly"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💗 Biyernes na Balik-Aral — GMRC (Grade 5)\n\n- **Compassion** = pagkilala sa paghihirap ng iba + kusang **pagkilos** upang tumulong\n- **May sakit:** bawasan ang ingay, tulungan sa gamot, magpakita ng pasensya\n- **Nakatatanda:** igalang ang karanasan, tumulong sa pisikal na gawain, huwag pagalitan sa pagkalimot\n- **PWD:** **itanong muna** kung anong tulong kailangan, igalang ang kakayahan, gumamit ng magalang na wika\n- Compassion ≠ awa na nakakabawas ng dignidad — **kinikilala nito ang dignidad** habang tumutulong\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang compassion?",
+            "options": [
+              "Pagkilos upang tumulong sa nahihirapan",
+              "Pagtingin lamang sa taong nahihirapan",
+              "Pag-iwas sa problema ng iba",
+              "Pagkukumpara ng buhay sa iba"
+            ],
+            "correct_answer": "Pagkilos upang tumulong sa nahihirapan"
+          },
+          {
+            "question": "Alin ang tamang gawin sa may sakit na miyembro ng pamilya?",
+            "options": [
+              "Bawasan ang ingay at bigyan ng kapahingahan",
+              "Iwanan siya mag-isa buong araw",
+              "Sabihan siyang huwag magpahinga",
+              "Pagalitan siya kapag mabagal kumilos"
+            ],
+            "correct_answer": "Bawasan ang ingay at bigyan ng kapahingahan"
+          },
+          {
+            "question": "Ano ang mainam na pakikitungo sa nakatatanda?",
+            "options": [
+              "Igalang ang kanilang karanasan at payo",
+              "Iwasan silang kausapin",
+              "Pabayaan silang mag-isa",
+              "Ituring silang parang bata palagi"
+            ],
+            "correct_answer": "Igalang ang kanilang karanasan at payo"
+          },
+          {
+            "question": "Ano ang unang dapat gawin bago tumulong sa isang PWD?",
+            "options": [
+              "Tanungin kung anong tulong ang kailangan",
+              "Agad gawin ang lahat para sa kanila",
+              "Iwasan silang lapitan",
+              "Sabihin na huwag mag-alala"
+            ],
+            "correct_answer": "Tanungin kung anong tulong ang kailangan"
+          },
+          {
+            "question": "Bakit mahalagang igalang ang kakayahan ng PWD na gumawa ng bagay mag-isa?",
+            "options": [
+              "Pinapanatili nito ang kanilang dignidad",
+              "Mas mabilis itong matatapos",
+              "Iniiwasan ang pagkapagod",
+              "Nakakatipid ito ng oras"
+            ],
+            "correct_answer": "Pinapanatili nito ang kanilang dignidad"
+          },
+          {
+            "question": "Ang lolo mo ay mabagal maglakad. Ano ang pagpapakita ng compassion?",
+            "options": [
+              "Alukin siya ng braso at maglakad sa kaniyang bilis",
+              "Iwanan siya at magpauna",
+              "Sabihan siyang magmadali",
+              "Huwag na siyang isama"
+            ],
+            "correct_answer": "Alukin siya ng braso at maglakad sa kaniyang bilis"
+          },
+          {
+            "question": "Bakit hindi dapat basta kunin ang bagay para sa kapatid na may kapansanan sa paningin?",
+            "options": [
+              "Dapat munang itanong kung gusto niyang tulungan",
+              "Wala talagang paraan tumulong sa kaniya",
+              "Hindi niya kailangan ng tulong",
+              "Mas mabilis kung ibang tao ang gagawa"
+            ],
+            "correct_answer": "Dapat munang itanong kung gusto niyang tulungan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng magalang na wika sa pakikitungo sa PWD?",
+            "options": [
+              "Iwasan ang nakakasakit na katawagan",
+              "Gumamit ng mabilis na pananalita",
+              "Magsalita nang mahina lamang",
+              "Umiwas sa pakikipag-usap"
+            ],
+            "correct_answer": "Iwasan ang nakakasakit na katawagan"
+          },
+          {
+            "question": "Bakit ito compassion in action ang pagtulong sa matanda papuntang simbahan?",
+            "options": [
+              "Kinilala ang pangangailangan at kumilos upang tumulong",
+              "Ipinakita lamang ang awa nang walang kilos",
+              "Ginawa upang mapuri ng iba",
+              "Sinabi lamang na kaawa-awa siya"
+            ],
+            "correct_answer": "Kinilala ang pangangailangan at kumilos upang tumulong"
+          },
+          {
+            "question": "Paano naiiba ang compassion sa awa na nakakabawas ng dignidad?",
+            "options": [
+              "Kinikilala ng compassion ang dignidad habang tumutulong",
+              "Pareho lang sila palagi",
+              "Ang awa ay palaging mas mabuti",
+              "Walang pagkakaiba ang dalawa"
+            ],
+            "correct_answer": "Kinikilala ng compassion ang dignidad habang tumutulong"
+          },
+          {
+            "question": "Isang kaklase mong may kapansanan ang nag-aalinlangan tumanggap ng tulong. Ano ang mabuting gawin?",
+            "options": [
+              "Igalang ang kaniyang desisyon habang nananatiling bukas tumulong",
+              "Ipilit ang tulong kahit ayaw niya",
+              "Pabayaan siya at huwag pansinin",
+              "Sabihin sa iba na tulungan na lang siya"
+            ],
+            "correct_answer": "Igalang ang kaniyang desisyon habang nananatiling bukas tumulong"
+          },
+          {
+            "question": "Ang lola mo ay paulit-ulit na nagtatanong dahil nakalimutan niya ang sagot. Ano ang tamang tugon?",
+            "options": [
+              "Sagutin siya nang mahinahon at may pasensya",
+              "Pagalitan siya sa bawat pagkakataon",
+              "Iwasan na siyang sagutin",
+              "Pagtawanan ang kaniyang pagkalimot"
+            ],
+            "correct_answer": "Sagutin siya nang mahinahon at may pasensya"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🧵 Biyernes na Balik-Aral — EPP (AFA/FCS/IA) (Grade 5)\n\n- **Pananahi** = nakatitipid, kapaki-pakinabang, nagtuturo ng disiplina, maaaring maging kabuhayan\n- Kagamitan: **karayom, sinulid, gunting, tape measure, tsok pantahi, pin, thimble**\n- **Pin** = pansamantalang nagdidikit sa tela habang tinatahi para sa tuwid na tahi\n- **Thimble** = proteksyon sa daliri\n- Palaging ligtas sa paggamit ng matutulis na kagamitan — humingi ng tulong ng nakatatanda\n\nMagandang simula ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang isang benepisyo ng kasanayan sa pananahi?",
+            "options": [
+              "Nakatitipid dahil hindi na kailangang bumili ng bago",
+              "Ginagawang mas mahal ang lahat ng damit",
+              "Nagpapabilis ng paglaki ng bata",
+              "Nagdaragdag ng gamit sa bahay"
+            ],
+            "correct_answer": "Nakatitipid dahil hindi na kailangang bumili ng bago"
+          },
+          {
+            "question": "Ano ang gamit ng tsok pantahi?",
+            "options": [
+              "Pagmamarka sa tela bago gupitin",
+              "Panggupit ng tela",
+              "Pandaan ng sinulid sa karayom",
+              "Pagsukat ng haba ng tela"
+            ],
+            "correct_answer": "Pagmamarka sa tela bago gupitin"
+          },
+          {
+            "question": "Ano ang gamit ng tape measure sa pananahi?",
+            "options": [
+              "Pagsukat ng haba at lapad ng tela",
+              "Panggupit ng sinulid",
+              "Pandikit ng dalawang tela",
+              "Pantahi ng butones"
+            ],
+            "correct_answer": "Pagsukat ng haba at lapad ng tela"
+          },
+          {
+            "question": "Bakit ginagamit ang thimble?",
+            "options": [
+              "Nagpoprotekta ito sa daliri kapag itinutulak ang karayom",
+              "Ginagamit bilang panukat ng tela",
+              "Pinagsasama nito ang sinulid",
+              "Pinapalitan nito ang gunting"
+            ],
+            "correct_answer": "Nagpoprotekta ito sa daliri kapag itinutulak ang karayom"
+          },
+          {
+            "question": "Bakit kailangan ang pin bago tahiin ang dalawang tela?",
+            "options": [
+              "Pansamantala nitong pinananatili sa tamang posisyon ang tela",
+              "Pinapabilis nito ang paggupit",
+              "Ginagamit bilang panghalili sa karayom",
+              "Nagpapalambot ito sa tela"
+            ],
+            "correct_answer": "Pansamantala nitong pinananatili sa tamang posisyon ang tela"
+          },
+          {
+            "question": "Ano ang unang hakbang bago gupitin ang tela?",
+            "options": [
+              "Sukatin muna gamit ang tape measure",
+              "Tahiin agad ang gilid",
+              "Palitan ang kulay ng tela",
+              "Ilagay agad sa makina"
+            ],
+            "correct_answer": "Sukatin muna gamit ang tape measure"
+          },
+          {
+            "question": "Ano ang dapat gawin sa matutulis na kagamitan matapos gamitin?",
+            "options": [
+              "Itago sa tamang lalagyan",
+              "Iwan sa ibabaw ng mesa",
+              "Ibigay sa kaklase",
+              "Itapon kaagad"
+            ],
+            "correct_answer": "Itago sa tamang lalagyan"
+          },
+          {
+            "question": "Alin ang halimbawa ng pananahing praktikal sa tahanan?",
+            "options": [
+              "Paggawa ng sariling unan o banig",
+              "Pagluluto ng ulam",
+              "Pag-aalaga ng poultry",
+              "Paggawa ng gamit elektroniko"
+            ],
+            "correct_answer": "Paggawa ng sariling unan o banig"
+          },
+          {
+            "question": "Bakit itinuturing na kasanayan pang-hanapbuhay ang pananahi?",
+            "options": [
+              "Maaari itong maging paraan ng pagkakakita ng kita",
+              "Ito ay pinag-aaralan lamang sa paaralan",
+              "Wala itong gamit sa totoong buhay",
+              "Ginagawa lamang ng mga propesyonal"
+            ],
+            "correct_answer": "Maaari itong maging paraan ng pagkakakita ng kita"
+          },
+          {
+            "question": "Bakit dapat unahin ang pagsukat bago ang paggupit sa paggawa ng unan?",
+            "options": [
+              "Upang matiyak ang tamang laki bago mapunit ang tela",
+              "Upang mabawasan ang bilang ng sinulid",
+              "Upang mas mabilis matapos",
+              "Upang hindi na kailangang tahiin pa"
+            ],
+            "correct_answer": "Upang matiyak ang tamang laki bago mapunit ang tela"
+          },
+          {
+            "question": "Ano ang panganib ng paggamit ng gunting nang walang pag-iingat?",
+            "options": [
+              "Maaaring makasakit ito sa gumagamit",
+              "Mabibilis ang paggupit ng tela",
+              "Mapapabuti ang kalidad ng tahi",
+              "Matitipid ang oras"
+            ],
+            "correct_answer": "Maaaring makasakit ito sa gumagamit"
+          },
+          {
+            "question": "Bakit mahalagang humingi ng tulong sa nakatatanda kapag gumagamit ng matalim na gunting?",
+            "options": [
+              "Upang matiyak ang kaligtasan sa paggamit nito",
+              "Upang mas magmadali sa proyekto",
+              "Upang hindi na kailangang tahiin pa",
+              "Upang hindi na kailangang sumukat"
+            ],
+            "correct_answer": "Upang matiyak ang kaligtasan sa paggamit nito"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { schoolWeekFromDate, weekToTermInfo } from '@/lib/promptBuilder';
 
 // ─── School calendar helpers ──────────────────────────────────────────────────
 
-const BREAK_WEEKS = new Set(['2026-09-14', '2026-12-21', '2026-12-28']);
+const BREAK_WEEKS = new Set(['2026-12-21', '2026-12-28']);
 const GRADES = [2, 3, 4, 5, 6] as const;
 
 /**

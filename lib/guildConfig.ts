@@ -1,7 +1,7 @@
 // lib/guildConfig.ts
 
 // Bump this manually each school term (Term 1 / 2 / 3)
-export const CURRENT_TERM = 1;
+export const CURRENT_TERM = 2;
 
 export const TIME_ATTACK_DURATION = 60; // seconds
 export const PREFETCH_BATCH_SIZE = 35; // 30-40 range per spec

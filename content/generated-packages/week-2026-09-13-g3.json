@@ -1,0 +1,1766 @@
+{
+  "grade": 3,
+  "week_starting_date": "2026-09-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Compound Sentences\n\nWelcome to **Term 2**, Grade 3! This week we learn a brand-new kind of sentence: the **compound sentence**. 🌟\n\n## 🧩 What Is a Compound Sentence?\nA **compound sentence** joins **two independent clauses** (two complete ideas that can stand alone) using a **joining word**, also called a **coordinating conjunction**.\n\nCommon joining words: **and, but, or, so**\n\n## 🔍 Parts of a Compound Sentence\nEvery compound sentence has:\n1. **Independent clause 1** — a complete idea with its own **doer** and **action**\n2. **Joining word** — connects the two ideas\n3. **Independent clause 2** — another complete idea with its own **doer** and **action**\n\n## 🧠 Worked Example 1\n*\"Ana cooked rice, and Ben washed the dishes.\"*\n- Step 1: Find clause 1 → **Ana cooked rice** (doer: Ana, action: cooked)\n- Step 2: Find the joining word → **and**\n- Step 3: Find clause 2 → **Ben washed the dishes** (doer: Ben, action: washed)\n- Step 4: Notice the **comma** before the joining word.\n\n## 🧠 Worked Example 2\n*\"It started to rain, so we went inside.\"*\n- Step 1: Clause 1 → **It started to rain** (doer: it, action: started)\n- Step 2: Joining word → **so**\n- Step 3: Clause 2 → **we went inside** (doer: we, action: went)\n- Step 4: This shows a **result** — the rain caused us to go inside.\n\n## ✍️ Capitalization and Punctuation\n- Capitalize only the **first word** of the whole sentence\n- Put a **comma** before the joining word\n- End with the correct punctuation (period, question mark, etc.)\n\n**Example:** *The sun was hot, but the children kept playing.* ✅\n**Not:** *The sun was hot but The children kept playing.* ❌ (wrong capital letter)\n\n## 💡 Quick Check\nA **simple sentence** has only **one** independent clause:\n> *The dog barked.*\n\nA **compound sentence** has **two**:\n> *The dog barked, and the cat ran away.*\n\nGreat start to Term 2! Keep practicing spotting the two clauses and the joining word. 🌈",
+        "quiz": [
+          {
+            "question": "A compound sentence joins two independent clauses using a:",
+            "options": [
+              "joining word",
+              "capital letter",
+              "question mark",
+              "silent letter"
+            ],
+            "correct_answer": "joining word"
+          },
+          {
+            "question": "Which word is a coordinating conjunction (joining word)?",
+            "options": [
+              "but",
+              "run",
+              "happy",
+              "quickly"
+            ],
+            "correct_answer": "but"
+          },
+          {
+            "question": "In \"Ana cooked rice, and Ben washed the dishes,\" what is the joining word?",
+            "options": [
+              "and",
+              "rice",
+              "Ben",
+              "dishes"
+            ],
+            "correct_answer": "and"
+          },
+          {
+            "question": "Where does the comma usually go in a compound sentence?",
+            "options": [
+              "Before the joining word",
+              "After the last word",
+              "Before the first word",
+              "In the middle of a clause"
+            ],
+            "correct_answer": "Before the joining word"
+          },
+          {
+            "question": "Which sentence is a COMPOUND sentence?",
+            "options": [
+              "The dog barked, and the cat ran away.",
+              "The dog barked loudly.",
+              "The small dog barked.",
+              "A dog barked once."
+            ],
+            "correct_answer": "The dog barked, and the cat ran away."
+          },
+          {
+            "question": "How many independent clauses does a compound sentence have?",
+            "options": [
+              "Two",
+              "One",
+              "Three",
+              "Zero"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "In \"It started to rain, so we went inside,\" what does the clause \"we went inside\" show?",
+            "options": [
+              "A result",
+              "A question",
+              "A doer only",
+              "A joining word"
+            ],
+            "correct_answer": "A result"
+          },
+          {
+            "question": "Which word should be capitalized in \"the sun was hot, but the children kept playing\"?",
+            "options": [
+              "The",
+              "Sun",
+              "But",
+              "Children"
+            ],
+            "correct_answer": "The"
+          },
+          {
+            "question": "What is the doer in the clause \"Ben washed the dishes\"?",
+            "options": [
+              "Ben",
+              "washed",
+              "dishes",
+              "the"
+            ],
+            "correct_answer": "Ben"
+          },
+          {
+            "question": "A sentence with only ONE independent clause is called a:",
+            "options": [
+              "simple sentence",
+              "compound sentence",
+              "joining word",
+              "coordinating clause"
+            ],
+            "correct_answer": "simple sentence"
+          },
+          {
+            "question": "Read: \"Mika finished her homework, but she was still tired.\" Which is clause 2?",
+            "options": [
+              "she was still tired",
+              "Mika finished her homework",
+              "but she was",
+              "still tired homework"
+            ],
+            "correct_answer": "she was still tired"
+          },
+          {
+            "question": "Why do we use compound sentences when we write?",
+            "options": [
+              "To connect two related ideas smoothly",
+              "To make the sentence shorter",
+              "To avoid using capital letters",
+              "To remove the doer of the action"
+            ],
+            "correct_answer": "To connect two related ideas smoothly"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Mathematics — Measuring Mass\n\nWelcome to Term 2 Math, Grade 3! This week we explore **mass** — how heavy something is. 💪\n\n## 📏 Units of Mass\n| Unit | Symbol | Used for |\n|---|---|---|\n| **Milligram** | mg | very tiny things (a grain of salt) |\n| **Gram** | g | small things (a spoon, an egg) |\n| **Kilogram** | kg | heavier things (a bag of rice, a child) |\n\n**Key idea:** 1 kilogram = 1,000 grams\n\n## ⚖️ Tools for Measuring Mass\n- **Balance scale** — compares two objects; the side that goes **down** is heavier\n- **Bathroom scale** — measures a person's mass in kilograms\n- **Kitchen/digital scale** — measures ingredients in grams\n\n## 🧠 Worked Example 1\n*You put an apple on one side of a balance scale and a book on the other. The book's side goes down. Which is heavier?*\n- Step 1: The side that goes **down** has **more mass**.\n- Step 2: The book's side went down.\n- Step 3: So the **book is heavier** than the apple. ✅\n\n## 🧠 Worked Example 2\n*A bag of sugar has a mass of 2 kilograms. How many grams is that?*\n- Step 1: Remember, 1 kg = 1,000 g.\n- Step 2: Multiply: 2 × 1,000 = 2,000.\n- Step 3: So 2 kilograms = **2,000 grams**. ✅\n\n## 🤔 Estimating Mass\nBefore measuring, we can **estimate** — make a smart guess.\n- A pencil probably has a mass of about **10 grams**.\n- A watermelon probably has a mass of about **3 kilograms**.\n\n## 🔎 Comparing Masses\nWhen comparing two objects, ask: *\"Which one feels heavier when I hold it?\"* Then check with a **balance scale** to be sure.\n\nYou're doing great in Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit is used to measure very tiny masses, like a grain of salt?",
+            "options": [
+              "Milligram",
+              "Kilogram",
+              "Liter",
+              "Meter"
+            ],
+            "correct_answer": "Milligram"
+          },
+          {
+            "question": "Which unit would you use to measure the mass of a bag of rice?",
+            "options": [
+              "Kilogram",
+              "Milligram",
+              "Centimeter",
+              "Milliliter"
+            ],
+            "correct_answer": "Kilogram"
+          },
+          {
+            "question": "How many grams are in 1 kilogram?",
+            "options": [
+              "1,000 grams",
+              "100 grams",
+              "10 grams",
+              "10,000 grams"
+            ],
+            "correct_answer": "1,000 grams"
+          },
+          {
+            "question": "On a balance scale, the side that goes DOWN is:",
+            "options": [
+              "heavier",
+              "lighter",
+              "empty",
+              "the same"
+            ],
+            "correct_answer": "heavier"
+          },
+          {
+            "question": "A bag of sugar has a mass of 2 kilograms. How many grams is that?",
+            "options": [
+              "2,000 grams",
+              "200 grams",
+              "20 grams",
+              "2 grams"
+            ],
+            "correct_answer": "2,000 grams"
+          },
+          {
+            "question": "Which tool compares the mass of two objects side by side?",
+            "options": [
+              "Balance scale",
+              "Ruler",
+              "Measuring cup",
+              "Thermometer"
+            ],
+            "correct_answer": "Balance scale"
+          },
+          {
+            "question": "Which object most likely has a mass measured in grams, not kilograms?",
+            "options": [
+              "A spoon",
+              "A sack of rice",
+              "A grown pig",
+              "A refrigerator"
+            ],
+            "correct_answer": "A spoon"
+          },
+          {
+            "question": "What does it mean to 'estimate' a mass?",
+            "options": [
+              "Make a smart guess before measuring",
+              "Measure it three times exactly",
+              "Ignore the object completely",
+              "Only use a ruler"
+            ],
+            "correct_answer": "Make a smart guess before measuring"
+          },
+          {
+            "question": "An apple and a book are placed on a balance scale. The book's side goes down. What can you conclude?",
+            "options": [
+              "The book has more mass than the apple",
+              "The apple has more mass than the book",
+              "They have the exact same mass",
+              "The scale is broken"
+            ],
+            "correct_answer": "The book has more mass than the apple"
+          },
+          {
+            "question": "Which is the BEST estimate for the mass of a watermelon?",
+            "options": [
+              "3 kilograms",
+              "3 grams",
+              "3 milligrams",
+              "3 meters"
+            ],
+            "correct_answer": "3 kilograms"
+          },
+          {
+            "question": "Which tool would you use to find your own body mass?",
+            "options": [
+              "Bathroom scale",
+              "Measuring cup",
+              "Ruler",
+              "Thermometer"
+            ],
+            "correct_answer": "Bathroom scale"
+          },
+          {
+            "question": "A recipe needs 500 grams of flour, but you only measured 3 kilograms so far. What should you do?",
+            "options": [
+              "Use a scale to measure exactly 500 grams",
+              "Just guess without measuring",
+              "Use all 3 kilograms anyway",
+              "Skip the flour completely"
+            ],
+            "correct_answer": "Use a scale to measure exactly 500 grams"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Ang Sugnay sa Tambalang Pangungusap\n\nMaligayang pagdating sa Termino 2, Grade 3! Ngayong linggo, pag-aaralan natin ang **sugnay na nakapag-iisa**. 🌟\n\n## 🧩 Ano ang Sugnay na Nakapag-iisa?\nAng **sugnay na nakapag-iisa** ay isang bahagi ng pangungusap na may sariling **simuno** (doer) at **panaguri** (action), at maaaring tumayo nang mag-isa bilang buong pangungusap.\n\n## 🔗 Pananda sa Tambalang Pangungusap\nAng **tambalang pangungusap** ay binubuo ng **dalawang sugnay na nakapag-iisa** na pinagdudugtong ng isang **pananda** tulad ng **at, ngunit, o, kaya**.\n\n## 🧠 Halimbawa 1\n*\"Nag-aral si Maria, at nakapasa siya sa pagsusulit.\"*\n- Hakbang 1: Sugnay 1 → **Nag-aral si Maria** (simuno: Maria, panaguri: nag-aral)\n- Hakbang 2: Pananda → **at**\n- Hakbang 3: Sugnay 2 → **nakapasa siya sa pagsusulit** (simuno: siya, panaguri: nakapasa)\n\n## 🧠 Halimbawa 2\n*\"Umulan nang malakas, ngunit nagpatuloy pa rin ang laro.\"*\n- Hakbang 1: Sugnay 1 → **Umulan nang malakas**\n- Hakbang 2: Pananda → **ngunit**\n- Hakbang 3: Sugnay 2 → **nagpatuloy pa rin ang laro**\n- Tandaan: ang **ngunit** ay nagpapakita ng **kaibahan** ng dalawang pangyayari.\n\n## ✍️ Wastong Gamit ng Malaking Titik at Bantas\n- Gamitin lamang ang **malaking titik** sa unang salita ng buong pangungusap.\n- Lagyan ng **kuwit** bago ang pananda.\n\n**Halimbawa:** *Masipag si Ben, kaya nakatapos siya nang maaga.* ✅\n\n## 💡 Pagsusuri\nAng **payak na pangungusap** ay may **isang** lang sugnay:\n> *Kumakain si Ana.*\n\nAng **tambalang pangungusap** ay may **dalawang** sugnay:\n> *Kumakain si Ana, at umiinom siya ng gatas.*\n\nMagaling sa unang linggo ng Termino 2! 🌈",
+        "quiz": [
+          {
+            "question": "Ano ang sugnay na nakapag-iisa?",
+            "options": [
+              "Bahagi na may sariling simuno at panaguri",
+              "Salitang walang kahulugan",
+              "Bantas na ginagamit sa dulo",
+              "Larawan sa aklat"
+            ],
+            "correct_answer": "Bahagi na may sariling simuno at panaguri"
+          },
+          {
+            "question": "Ilang sugnay na nakapag-iisa ang mayroon ang tambalang pangungusap?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Alin ang pananda na nagdurugtong ng dalawang sugnay?",
+            "options": [
+              "ngunit",
+              "maganda",
+              "mabilis",
+              "kagabi"
+            ],
+            "correct_answer": "ngunit"
+          },
+          {
+            "question": "Sa \"Nag-aral si Maria, at nakapasa siya,\" ano ang pananda?",
+            "options": [
+              "at",
+              "Maria",
+              "nag-aral",
+              "nakapasa"
+            ],
+            "correct_answer": "at"
+          },
+          {
+            "question": "Saan karaniwang inilalagay ang kuwit sa tambalang pangungusap?",
+            "options": [
+              "Bago ang pananda",
+              "Pagkatapos ng huling salita",
+              "Bago ang unang salita",
+              "Sa gitna ng isang sugnay"
+            ],
+            "correct_answer": "Bago ang pananda"
+          },
+          {
+            "question": "Ano ang ipinapakita ng pananda na 'ngunit'?",
+            "options": [
+              "Kaibahan ng dalawang pangyayari",
+              "Pagdaragdag lamang",
+              "Katapusan ng kuwento",
+              "Pagtatanong"
+            ],
+            "correct_answer": "Kaibahan ng dalawang pangyayari"
+          },
+          {
+            "question": "Alin ang tambalang pangungusap?",
+            "options": [
+              "Umulan nang malakas, ngunit nagpatuloy ang laro.",
+              "Umulan nang malakas kagabi.",
+              "Malakas ang ulan ngayon.",
+              "Umuulan sa labas."
+            ],
+            "correct_answer": "Umulan nang malakas, ngunit nagpatuloy ang laro."
+          },
+          {
+            "question": "Sino ang simuno sa sugnay na 'nakapasa siya sa pagsusulit'?",
+            "options": [
+              "siya",
+              "pagsusulit",
+              "nakapasa",
+              "sa"
+            ],
+            "correct_answer": "siya"
+          },
+          {
+            "question": "Ang payak na pangungusap ay may:",
+            "options": [
+              "isang sugnay lamang",
+              "dalawang sugnay",
+              "tatlong sugnay",
+              "walang sugnay"
+            ],
+            "correct_answer": "isang sugnay lamang"
+          },
+          {
+            "question": "Basahin: \"Masipag si Ben, kaya nakatapos siya nang maaga.\" Alin ang unang sugnay?",
+            "options": [
+              "Masipag si Ben",
+              "kaya nakatapos siya",
+              "nang maaga",
+              "si Ben nang maaga"
+            ],
+            "correct_answer": "Masipag si Ben"
+          },
+          {
+            "question": "Alin ang WASTONG gamit ng malaking titik sa tambalang pangungusap?",
+            "options": [
+              "Malaking titik lamang sa unang salita ng buong pangungusap",
+              "Malaking titik sa bawat salita",
+              "Malaking titik sa huling salita lamang",
+              "Walang malaking titik kailanman"
+            ],
+            "correct_answer": "Malaking titik lamang sa unang salita ng buong pangungusap"
+          },
+          {
+            "question": "Bakit ginagamit natin ang tambalang pangungusap sa pagsulat?",
+            "options": [
+              "Upang maipahayag nang maayos ang dalawang magkaugnay na ideya",
+              "Upang paikliin ang pangungusap",
+              "Upang alisin ang simuno",
+              "Upang iwasan ang bantas"
+            ],
+            "correct_answer": "Upang maipahayag nang maayos ang dalawang magkaugnay na ideya"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Science — Living and Non-Living Things\n\nWelcome to Term 2 Science, Grade 3! This week we discover what makes something **alive**. 🌱\n\n## 🌿 Living vs Non-Living\n| Living Things | Non-Living Things |\n|---|---|\n| plants, animals, people | rocks, water, chairs |\n| need food, air, water | do not need food |\n| can grow and change | do not grow on their own |\n\n## ✨ Three Big Characteristics of Living Things\nLiving things:\n1. **Grow** — they become bigger over time\n2. **Respond** — they react to things around them (a plant leans toward light)\n3. **Reproduce** — they can make new living things like themselves\n\n## 🧠 Worked Example 1\n*Is a rock a living thing? Let's check.*\n- Step 1: Does it grow on its own? **No.**\n- Step 2: Does it respond to touch or light? **No.**\n- Step 3: Can it reproduce? **No.**\n- Step 4: A rock does not show any of the three characteristics, so it is a **non-living thing**. ✅\n\n## 🧠 Worked Example 2\n*Is a mango tree a living thing? Let's check.*\n- Step 1: Does it grow? **Yes**, it gets taller every year.\n- Step 2: Does it respond? **Yes**, its leaves turn toward sunlight.\n- Step 3: Can it reproduce? **Yes**, it makes seeds that grow into new trees.\n- Step 4: The mango tree shows all three characteristics, so it is a **living thing**. ✅\n\n## 🔍 Using Observing, Predicting, and Measuring\nScientists use these skills to study living and non-living things:\n- **Observe** — look closely with your eyes or a hand lens\n- **Predict** — make a smart guess about what will happen\n- **Measure** — use tools like a ruler to find size or length\n\n## 🌎 Why This Matters\nKnowing the difference helps us **care for living things properly** — giving plants water and animals food — while understanding that non-living things like rocks and water need to be **used wisely** too.\n\nGreat scientific thinking this week! 🔎",
+        "quiz": [
+          {
+            "question": "Which of these is a living thing?",
+            "options": [
+              "A mango tree",
+              "A rock",
+              "A chair",
+              "A spoon"
+            ],
+            "correct_answer": "A mango tree"
+          },
+          {
+            "question": "Which of these is a non-living thing?",
+            "options": [
+              "Water",
+              "A dog",
+              "A butterfly",
+              "A child"
+            ],
+            "correct_answer": "Water"
+          },
+          {
+            "question": "Which is one of the three big characteristics of living things?",
+            "options": [
+              "They grow",
+              "They stay the same size forever",
+              "They never respond",
+              "They cannot reproduce"
+            ],
+            "correct_answer": "They grow"
+          },
+          {
+            "question": "A plant leaning toward the sunlight shows that it can:",
+            "options": [
+              "respond",
+              "reproduce only",
+              "grow only",
+              "measure"
+            ],
+            "correct_answer": "respond"
+          },
+          {
+            "question": "Making new living things like itself is called:",
+            "options": [
+              "reproducing",
+              "responding",
+              "measuring",
+              "observing"
+            ],
+            "correct_answer": "reproducing"
+          },
+          {
+            "question": "Why is a rock considered non-living?",
+            "options": [
+              "It does not grow, respond, or reproduce",
+              "It is too heavy to move",
+              "It is found underground",
+              "It has no color"
+            ],
+            "correct_answer": "It does not grow, respond, or reproduce"
+          },
+          {
+            "question": "Which science skill means looking closely with your eyes or a hand lens?",
+            "options": [
+              "Observing",
+              "Reproducing",
+              "Growing",
+              "Responding"
+            ],
+            "correct_answer": "Observing"
+          },
+          {
+            "question": "Which science skill means making a smart guess about what will happen?",
+            "options": [
+              "Predicting",
+              "Reproducing",
+              "Growing",
+              "Responding"
+            ],
+            "correct_answer": "Predicting"
+          },
+          {
+            "question": "Which tool would help you measure the length of a leaf?",
+            "options": [
+              "A ruler",
+              "A hand lens",
+              "A balance scale",
+              "A calendar"
+            ],
+            "correct_answer": "A ruler"
+          },
+          {
+            "question": "A mango tree grows taller, makes seeds, and turns its leaves toward light. What is it?",
+            "options": [
+              "A living thing",
+              "A non-living thing",
+              "A rock",
+              "A tool"
+            ],
+            "correct_answer": "A living thing"
+          },
+          {
+            "question": "Which basic need do ALL living things share?",
+            "options": [
+              "Air, food, and water",
+              "Electricity and wifi",
+              "Paint and glue",
+              "Books and pencils"
+            ],
+            "correct_answer": "Air, food, and water"
+          },
+          {
+            "question": "You find an object that does not grow, move, or make new copies of itself. What is it MOST LIKELY?",
+            "options": [
+              "A non-living thing",
+              "A living animal",
+              "A growing plant",
+              "A baby bird"
+            ],
+            "correct_answer": "A non-living thing"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Makabansa — Pagkakakilanlan at Sagisag ng Komunidad\n\nMaligayang pagdating sa Termino 2, Grade 3! Ngayong linggo, alamin natin ang mga **sagisag** ng ating komunidad. 🎌\n\n## 🏛️ Ano ang Pagkakakilanlan?\nAng **pagkakakilanlan** ng isang komunidad ay ang mga bagay na nagpapakilala kung sino sila — ang kanilang **kasaysayan, kultura, at mga natatanging simbolo**.\n\n## 🎖️ Mga Sagisag ng Komunidad\n| Sagisag | Kahulugan |\n|---|---|\n| **Himno** | awit na kumakatawan sa bayan, lungsod, o rehiyon |\n| **Coat of Arms** | opisyal na larawang simbolo ng pamahalaan |\n| **Bayaning Lokal** | taong iginagalang dahil sa kanyang naiambag sa komunidad |\n\n## 🧠 Halimbawa 1\nAng **himno ng bayan** ay inaawit tuwing may **importanteng okasyon**, tulad ng pista o seremonya, upang **ipagmalaki** ang komunidad.\n\n## 🧠 Halimbawa 2\nAng **coat of arms** ng isang lungsod ay maaaring magpakita ng **produkto** nito (hal. palay) o **likas na yaman** (hal. ilog) — ito ay nagpapakita ng **kakanyahan** ng lugar.\n\n## 💛 Bakit Mahalaga ang mga Sagisag na Ito?\n- Tumutulong itong **bumuo ng pagkakakilanlan** ng bayan, lungsod, lalawigan, o rehiyon\n- Nagpapaalala sa atin ng ating **kasaysayan at kultura**\n- Pinagbubuklod tayo sa pamamagitan ng **karaniwang pagmamalaki**\n\n## 🌟 Paggalang sa mga Sagisag\nDapat nating **igalang** ang himno at coat of arms sa pamamagitan ng:\n- Pagtayo nang tahimik habang inaawit ang himno\n- Hindi paglalapat ng anumang bagay sa opisyal na simbolo\n- Pag-aaral tungkol sa kahulugan nito\n\nMagaling! Ipagpatuloy natin ang pag-aaral tungkol sa ating komunidad. 🌈",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakakilanlan ng isang komunidad?",
+            "options": [
+              "Ang mga bagay na nagpapakilala kung sino sila",
+              "Ang bilang ng tao rito",
+              "Ang lawak ng lupain nito",
+              "Ang presyo ng bilihin"
+            ],
+            "correct_answer": "Ang mga bagay na nagpapakilala kung sino sila"
+          },
+          {
+            "question": "Ang awit na kumakatawan sa isang bayan o rehiyon ay tinatawag na:",
+            "options": [
+              "himno",
+              "kuwento",
+              "tula",
+              "bugtong"
+            ],
+            "correct_answer": "himno"
+          },
+          {
+            "question": "Ano ang coat of arms?",
+            "options": [
+              "Opisyal na larawang simbolo ng pamahalaan",
+              "Uri ng damit na suot ng mga sundalo",
+              "Pambatang laro sa palaruan",
+              "Kasangkapan sa kusina"
+            ],
+            "correct_answer": "Opisyal na larawang simbolo ng pamahalaan"
+          },
+          {
+            "question": "Sino ang tinatawag na bayaning lokal?",
+            "options": [
+              "Taong iginagalang dahil sa kanyang naiambag",
+              "Sinumang naninirahan sa bayan",
+              "Bisitang dumadalaw lamang",
+              "Taong hindi kilala"
+            ],
+            "correct_answer": "Taong iginagalang dahil sa kanyang naiambag"
+          },
+          {
+            "question": "Kailan karaniwang inaawit ang himno ng bayan?",
+            "options": [
+              "Tuwing may importanteng okasyon",
+              "Kapag natutulog",
+              "Kapag kumakain",
+              "Kapag naglalaro"
+            ],
+            "correct_answer": "Tuwing may importanteng okasyon"
+          },
+          {
+            "question": "Ano ang maaaring ipakita ng coat of arms ng isang lungsod?",
+            "options": [
+              "Ang produkto o likas na yaman nito",
+              "Ang bilang ng estudyante",
+              "Ang oras ng klase",
+              "Ang presyo ng gamit"
+            ],
+            "correct_answer": "Ang produkto o likas na yaman nito"
+          },
+          {
+            "question": "Bakit mahalaga ang mga sagisag ng komunidad?",
+            "options": [
+              "Tumutulong bumuo ng pagkakakilanlan ng bayan",
+              "Pambili lamang ng damit",
+              "Gamit sa palaruan",
+              "Walang kabuluhan"
+            ],
+            "correct_answer": "Tumutulong bumuo ng pagkakakilanlan ng bayan"
+          },
+          {
+            "question": "Paano dapat kumilos ang isang bata habang inaawit ang himno?",
+            "options": [
+              "Tumayo nang tahimik",
+              "Magsalita nang malakas",
+              "Tumakbo sa paligid",
+              "Umupo at kumain"
+            ],
+            "correct_answer": "Tumayo nang tahimik"
+          },
+          {
+            "question": "Alin ang HINDI paggalang sa coat of arms ng bayan?",
+            "options": [
+              "Paglalapat ng dumi rito",
+              "Pag-aaral ng kahulugan nito",
+              "Pagtingin dito nang may respeto",
+              "Pagsasabi ng kahalagahan nito"
+            ],
+            "correct_answer": "Paglalapat ng dumi rito"
+          },
+          {
+            "question": "Ang himno at coat of arms ay tumutulong upang:",
+            "options": [
+              "magkabuklod ang mga tao sa pagmamalaki",
+              "magparami ng gastos ng bayan",
+              "magpahaba ng klase",
+              "magbawas ng populasyon"
+            ],
+            "correct_answer": "magkabuklod ang mga tao sa pagmamalaki"
+          },
+          {
+            "question": "Napansin mong may bagong coat of arms ang inyong lungsod na may larawan ng ilog. Ano ang ibig sabihin nito?",
+            "options": [
+              "Mahalaga ang ilog sa pagkakakilanlan ng lungsod",
+              "Walang tubig sa lungsod",
+              "Ipinagbabawal ang paliligo sa ilog",
+              "Ang ilog ay hindi na umiiral"
+            ],
+            "correct_answer": "Mahalaga ang ilog sa pagkakakilanlan ng lungsod"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mga sagisag ng ating rehiyon?",
+            "options": [
+              "Upang maunawaan natin ang ating kasaysayan at kultura",
+              "Upang makalimutan ang nakaraan",
+              "Upang iwasan ang paaralan",
+              "Upang bumili ng bagong damit"
+            ],
+            "correct_answer": "Upang maunawaan natin ang ating kasaysayan at kultura"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Computer — Drawing and Simple Formatting\n\nWelcome to Term 2 Computer, Grade 3! Time to get creative with a **drawing program**! 🖌️\n\n## 🖌️ Basic Drawing Tools\n| Tool | What it does |\n|---|---|\n| **Pencil/Brush** | draws freehand lines |\n| **Shapes** | makes circles, squares, triangles |\n| **Fill Color** | fills a closed shape with color |\n| **Eraser** | removes parts of your drawing |\n\n## 🖼️ Making a Labeled Picture\nA **labeled picture** has a drawing PLUS **words** that name its parts.\n\n**Example:** A drawing of a family with the labels \"Nanay,\" \"Tatay,\" and \"Ako\" written next to each person.\n\n## 🧠 Worked Example 1\n*You want to draw your favorite animal with a caption. What steps do you follow?*\n- Step 1: Open the drawing program.\n- Step 2: Use the **shapes tool** to make the basic body (circle for the head, oval for the body).\n- Step 3: Use the **fill color** tool to color each shape.\n- Step 4: Use the **pencil/brush** to add small details (eyes, whiskers).\n- Step 5: Use the **text tool** to type a short caption, like \"My Favorite Animal: Cat.\" ✅\n\n## 🧠 Worked Example 2\n*You made a mistake while drawing a line. What should you do?*\n- Step 1: Select the **eraser tool**.\n- Step 2: Carefully erase only the mistake, not the whole drawing.\n- Step 3: Use the **pencil/brush** again to fix the line correctly. ✅\n\n## 📝 Adding a Caption or Title\nA **caption** is a short line of text that explains a picture.\n- Click the **text tool**\n- Click where you want the words to appear\n- Type your caption, like *\"My Family\"*\n\n## 🌈 Tips for a Great Drawing\n- Plan your picture before you start\n- Use different colors to make parts stand out\n- Keep your caption **short and clear**\n\nHave fun creating your masterpiece! 🎨",
+        "quiz": [
+          {
+            "question": "Which tool draws freehand lines?",
+            "options": [
+              "Pencil/Brush",
+              "Fill Color",
+              "Eraser",
+              "Text tool"
+            ],
+            "correct_answer": "Pencil/Brush"
+          },
+          {
+            "question": "Which tool fills a closed shape with color?",
+            "options": [
+              "Fill Color",
+              "Eraser",
+              "Pencil/Brush",
+              "Shapes"
+            ],
+            "correct_answer": "Fill Color"
+          },
+          {
+            "question": "What does the eraser tool do?",
+            "options": [
+              "Removes parts of your drawing",
+              "Adds new colors",
+              "Types a caption",
+              "Saves your file"
+            ],
+            "correct_answer": "Removes parts of your drawing"
+          },
+          {
+            "question": "A labeled picture has a drawing plus:",
+            "options": [
+              "words that name its parts",
+              "only bright colors",
+              "no captions at all",
+              "a photograph"
+            ],
+            "correct_answer": "words that name its parts"
+          },
+          {
+            "question": "Which tool would you use to make a circle for an animal's head?",
+            "options": [
+              "Shapes tool",
+              "Eraser",
+              "Fill Color",
+              "Text tool"
+            ],
+            "correct_answer": "Shapes tool"
+          },
+          {
+            "question": "What is a caption?",
+            "options": [
+              "A short line of text that explains a picture",
+              "A type of eraser",
+              "A big colorful shape",
+              "A saved file name"
+            ],
+            "correct_answer": "A short line of text that explains a picture"
+          },
+          {
+            "question": "You made a mistake on one line of your drawing. What is the BEST thing to do?",
+            "options": [
+              "Erase only the mistake and fix it",
+              "Erase the whole drawing",
+              "Close the program without saving",
+              "Ignore the mistake completely"
+            ],
+            "correct_answer": "Erase only the mistake and fix it"
+          },
+          {
+            "question": "Which step comes FIRST when making a labeled drawing?",
+            "options": [
+              "Open the drawing program",
+              "Type the caption",
+              "Fill in the colors",
+              "Add small details"
+            ],
+            "correct_answer": "Open the drawing program"
+          },
+          {
+            "question": "What should you do before typing a caption?",
+            "options": [
+              "Click the text tool",
+              "Turn off the computer",
+              "Close the program",
+              "Unplug the mouse"
+            ],
+            "correct_answer": "Click the text tool"
+          },
+          {
+            "question": "Why should a caption be short and clear?",
+            "options": [
+              "So it is easy for others to read and understand",
+              "So it takes up the whole page",
+              "So it uses every color available",
+              "So it hides the drawing"
+            ],
+            "correct_answer": "So it is easy for others to read and understand"
+          },
+          {
+            "question": "You want your drawing to look neat and colorful. What should you do FIRST?",
+            "options": [
+              "Plan your picture before starting",
+              "Add the caption immediately",
+              "Erase the blank page",
+              "Turn off the monitor"
+            ],
+            "correct_answer": "Plan your picture before starting"
+          },
+          {
+            "question": "Which combination of tools would BEST create a labeled drawing of a cat with a title?",
+            "options": [
+              "Shapes, Fill Color, Pencil/Brush, and Text tool",
+              "Only the Eraser tool",
+              "Only the Fill Color tool",
+              "Only the Text tool"
+            ],
+            "correct_answer": "Shapes, Fill Color, Pencil/Brush, and Text tool"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Ugnayan ng Sarili sa Kapuwa\n\nMaligayang pagdating sa Termino 2, Grade 3! Ngayong linggo, pag-usapan natin ang ating **ugnayan sa kapuwa**. 🌟\n\n## 🤝 Ano ang Ugnayan?\nAng **ugnayan** ay ang paraan kung paano tayo nakikitungo sa **ibang tao** — kaibigan, kapatid, guro, at kapitbahay.\n\n## 🌸 Kasanayang Interpersonal\nAng **kasanayang interpersonal** ay ang kakayahang **makisama nang mabuti** sa iba. Kabilang dito ang:\n- **Pakikinig** nang mabuti kapag nagsasalita ang iba\n- **Pagsasabi** ng saloobin nang magalang\n- **Pasensiya** kapag hindi agad natutupad ang gusto\n\n## 💛 Ang Bisa ng Pasensiya\nAng **pasensiya** ay ang kakayahang **manatiling kalmado** kahit mahirap ang sitwasyon.\n\n**Halimbawa 1:** Nahihirapan ang kaklase mong intindihin ang leksiyon. Sa halip na magalit, **ipaliwanag mo ulit nang mahinahon**.\n\n**Halimbawa 2:** Naghihintay ka sa pila para sa laruan. Sa halip na sumingit, **maghintay ka nang may pasensiya**.\n\n## 🗣️ Wastong Salita at Sagot\nAng paggamit ng **tamang salita** at **magandang sagot** ay nagpapakita ng respeto:\n\n| Sitwasyon | Magandang Sagot |\n|---|---|\n| Kapag may nagkamali | \"Ayos lang, pwede nating ayusin.\" |\n| Kapag hindi sang-ayon | \"Sa tingin ko po, ganito rin...\" |\n| Kapag natutuwa | \"Salamat, masaya ako!\" |\n\n## 🌈 Bakit Mahalaga ang Magandang Ugnayan?\n- Nakakatulong ito upang **maunawaan natin ang isa't isa**\n- Nakakabuo ito ng **matibay na pagkakaibigan**\n- Nagpapakita ito ng **respeto** sa damdamin ng iba\n\nIpagpatuloy natin ang pagpapakita ng pasensiya at respeto sa ating kapuwa! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang ugnayan?",
+            "options": [
+              "Paraan ng pakikitungo sa ibang tao",
+              "Uri ng laruan",
+              "Pangalan ng paaralan",
+              "Klase sa Matematika"
+            ],
+            "correct_answer": "Paraan ng pakikitungo sa ibang tao"
+          },
+          {
+            "question": "Ano ang kasanayang interpersonal?",
+            "options": [
+              "Kakayahang makisama nang mabuti sa iba",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang kumanta nang malakas",
+              "Kakayahang gumuhit ng larawan"
+            ],
+            "correct_answer": "Kakayahang makisama nang mabuti sa iba"
+          },
+          {
+            "question": "Ano ang pasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado sa mahirap na sitwasyon",
+              "Kakayahang magalit agad",
+              "Kakayahang tumakbo palayo",
+              "Kakayahang manood ng TV"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado sa mahirap na sitwasyon"
+          },
+          {
+            "question": "Nahihirapan ang kaklase mong intindihin ang leksiyon. Ano ang mabuting gawin?",
+            "options": [
+              "Ipaliwanag ulit nang mahinahon",
+              "Magalit at umiwas",
+              "Tawanan siya",
+              "Iwasan siyang tulungan"
+            ],
+            "correct_answer": "Ipaliwanag ulit nang mahinahon"
+          },
+          {
+            "question": "Naghihintay ka sa pila para sa laruan. Ano ang tamang gawin?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumingit sa pila",
+              "Umiyak nang malakas",
+              "Kunin agad ang laruan"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Aling sagot ang nagpapakita ng magandang ugnayan kapag may nagkamali?",
+            "options": [
+              "Ayos lang, pwede nating ayusin.",
+              "Kasalanan mo talaga iyan.",
+              "Ayaw na kitang kausapin.",
+              "Hindi na kita kaibigan."
+            ],
+            "correct_answer": "Ayos lang, pwede nating ayusin."
+          },
+          {
+            "question": "Bakit mahalaga ang pakikinig sa iba?",
+            "options": [
+              "Nagpapakita ito ng respeto sa kanilang saloobin",
+              "Nakakatulong itong makatapos nang mabilis",
+              "Nakakabawas ito ng oras ng klase",
+              "Wala itong kabuluhan"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa kanilang saloobin"
+          },
+          {
+            "question": "Ano ang epekto ng magandang ugnayan sa kapuwa?",
+            "options": [
+              "Nakakabuo ito ng matibay na pagkakaibigan",
+              "Nagdudulot ito ng away",
+              "Nagpapababa ito ng tiwala",
+              "Wala itong nagagawa"
+            ],
+            "correct_answer": "Nakakabuo ito ng matibay na pagkakaibigan"
+          },
+          {
+            "question": "Aling sagot ang magalang kapag hindi ka sang-ayon sa kaibigan?",
+            "options": [
+              "Sa tingin ko po, ganito rin ang mabuting gawin.",
+              "Mali ka, tanga ka ba?",
+              "Ayoko sa iyo.",
+              "Huwag mo akong kausapin."
+            ],
+            "correct_answer": "Sa tingin ko po, ganito rin ang mabuting gawin."
+          },
+          {
+            "question": "Ano ang dapat gawin kapag hindi agad natutupad ang iyong gusto?",
+            "options": [
+              "Magpakita ng pasensiya",
+              "Umiyak at sumigaw",
+              "Sumuko agad",
+              "Manakit ng iba"
+            ],
+            "correct_answer": "Magpakita ng pasensiya"
+          },
+          {
+            "question": "Bakit kailangan ang tamang salita at magandang sagot sa pakikitungo?",
+            "options": [
+              "Upang maipakita ang respeto sa damdamin ng iba",
+              "Upang mapahaba ang usapan",
+              "Upang mapansin ng iba",
+              "Upang manalo sa laro"
+            ],
+            "correct_answer": "Upang maipakita ang respeto sa damdamin ng iba"
+          },
+          {
+            "question": "May kasamahan kang nagagalit dahil natalo sa laro. Ano ang pinakamahusay na gawin?",
+            "options": [
+              "Makinig at unawain siya nang may pasensiya",
+              "Tawanan ang kanyang pagkatalo",
+              "Iwanan siya nang mag-isa",
+              "Sabihin sa kanya na mahina siya"
+            ],
+            "correct_answer": "Makinig at unawain siya nang may pasensiya"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 📚 Friday Review — English (Grade 3)\n\n- **Compound sentence** = two **independent clauses** joined by a **joining word** (and, but, or, so)\n- Each clause has its own **doer** and **action**\n- Put a **comma** before the joining word\n- Capitalize only the **first word** of the whole sentence\n- A **simple sentence** has only one independent clause\n\nGreat first week of Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "A compound sentence has how many independent clauses?",
+            "options": [
+              "Two",
+              "One",
+              "Three",
+              "None"
+            ],
+            "correct_answer": "Two"
+          },
+          {
+            "question": "Which word joins two independent clauses?",
+            "options": [
+              "so",
+              "quickly",
+              "happy",
+              "loudly"
+            ],
+            "correct_answer": "so"
+          },
+          {
+            "question": "Where does the comma go before the joining word?",
+            "options": [
+              "Right before it",
+              "Right after it",
+              "At the very end",
+              "At the very start"
+            ],
+            "correct_answer": "Right before it"
+          },
+          {
+            "question": "Which is a compound sentence?",
+            "options": [
+              "She sang, and he danced.",
+              "She sang loudly.",
+              "He danced well.",
+              "They played."
+            ],
+            "correct_answer": "She sang, and he danced."
+          },
+          {
+            "question": "A simple sentence has:",
+            "options": [
+              "one independent clause",
+              "two independent clauses",
+              "no clauses",
+              "three joining words"
+            ],
+            "correct_answer": "one independent clause"
+          },
+          {
+            "question": "In \"It rained, so we stayed home,\" what is the joining word?",
+            "options": [
+              "so",
+              "rained",
+              "stayed",
+              "home"
+            ],
+            "correct_answer": "so"
+          },
+          {
+            "question": "Which word should be capitalized in a compound sentence?",
+            "options": [
+              "Only the first word",
+              "Every word",
+              "Only the joining word",
+              "No words"
+            ],
+            "correct_answer": "Only the first word"
+          },
+          {
+            "question": "What does every independent clause need?",
+            "options": [
+              "A doer and an action",
+              "A joining word only",
+              "A comma only",
+              "A question mark only"
+            ],
+            "correct_answer": "A doer and an action"
+          },
+          {
+            "question": "Read: \"Leo cleaned his room, but Mia played outside.\" What is clause 2?",
+            "options": [
+              "Mia played outside",
+              "Leo cleaned his room",
+              "but Mia",
+              "his room outside"
+            ],
+            "correct_answer": "Mia played outside"
+          },
+          {
+            "question": "Why do writers use compound sentences?",
+            "options": [
+              "To connect two related ideas smoothly",
+              "To make sentences confusing",
+              "To remove all punctuation",
+              "To avoid using verbs"
+            ],
+            "correct_answer": "To connect two related ideas smoothly"
+          },
+          {
+            "question": "Which sentence uses the joining word correctly?",
+            "options": [
+              "The wind blew hard, and the leaves fell.",
+              "The wind blew hard and, the leaves fell.",
+              "The wind, blew hard and the leaves fell.",
+              "The wind blew hard and the leaves, fell."
+            ],
+            "correct_answer": "The wind blew hard, and the leaves fell."
+          },
+          {
+            "question": "Which pair of clauses would BEST form a compound sentence about rain?",
+            "options": [
+              "It rained hard, and the streets got wet.",
+              "Rained hard streets wet.",
+              "It, rained, hard, streets, wet.",
+              "It rained hard streets wet and."
+            ],
+            "correct_answer": "It rained hard, and the streets got wet."
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# ⚖️ Friday Review — Mathematics (Grade 3)\n\n- **Mass units:** milligram (mg) < gram (g) < kilogram (kg)\n- **1 kilogram = 1,000 grams**\n- **Balance scale** — the side that goes **down** is heavier\n- **Estimate** first, then **measure** to check\n- Use a **bathroom scale** for body mass, a **kitchen scale** for ingredients\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "Which unit measures the tiniest mass?",
+            "options": [
+              "Milligram",
+              "Kilogram",
+              "Meter",
+              "Liter"
+            ],
+            "correct_answer": "Milligram"
+          },
+          {
+            "question": "How many grams equal 1 kilogram?",
+            "options": [
+              "1,000",
+              "100",
+              "10",
+              "10,000"
+            ],
+            "correct_answer": "1,000"
+          },
+          {
+            "question": "On a balance scale, the heavier object goes:",
+            "options": [
+              "down",
+              "up",
+              "sideways",
+              "nowhere"
+            ],
+            "correct_answer": "down"
+          },
+          {
+            "question": "Which tool measures a person's body mass?",
+            "options": [
+              "Bathroom scale",
+              "Ruler",
+              "Thermometer",
+              "Measuring cup"
+            ],
+            "correct_answer": "Bathroom scale"
+          },
+          {
+            "question": "Which is the BEST estimate for the mass of a pencil?",
+            "options": [
+              "10 grams",
+              "10 kilograms",
+              "10 milligrams",
+              "10 meters"
+            ],
+            "correct_answer": "10 grams"
+          },
+          {
+            "question": "3 kilograms is equal to how many grams?",
+            "options": [
+              "3,000 grams",
+              "300 grams",
+              "30 grams",
+              "3 grams"
+            ],
+            "correct_answer": "3,000 grams"
+          },
+          {
+            "question": "Which is the BEST unit for measuring a bag of rice?",
+            "options": [
+              "Kilogram",
+              "Milligram",
+              "Centimeter",
+              "Milliliter"
+            ],
+            "correct_answer": "Kilogram"
+          },
+          {
+            "question": "What should you do BEFORE measuring an object's mass?",
+            "options": [
+              "Make an estimate",
+              "Throw it away",
+              "Paint it",
+              "Ignore it"
+            ],
+            "correct_answer": "Make an estimate"
+          },
+          {
+            "question": "A toy car and a book are on a balance scale. The book's side goes down. Which has more mass?",
+            "options": [
+              "The book",
+              "The toy car",
+              "They are equal",
+              "Neither has mass"
+            ],
+            "correct_answer": "The book"
+          },
+          {
+            "question": "Which object most likely has its mass measured in milligrams?",
+            "options": [
+              "A grain of salt",
+              "A bag of rice",
+              "A grown dog",
+              "A refrigerator"
+            ],
+            "correct_answer": "A grain of salt"
+          },
+          {
+            "question": "A recipe needs exactly 200 grams of sugar. What is the BEST way to get this amount?",
+            "options": [
+              "Use a scale to measure exactly 200 grams",
+              "Just guess the amount",
+              "Use a whole kilogram bag",
+              "Skip measuring completely"
+            ],
+            "correct_answer": "Use a scale to measure exactly 200 grams"
+          },
+          {
+            "question": "Which statement about mass is TRUE?",
+            "options": [
+              "A kilogram is heavier than a gram",
+              "A gram is heavier than a kilogram",
+              "A milligram is heavier than a gram",
+              "All units of mass are equal"
+            ],
+            "correct_answer": "A kilogram is heavier than a gram"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Biyernes na Balik-Aral — Filipino (Grade 3)\n\n- **Tambalang pangungusap** = dalawang **sugnay na nakapag-iisa** na pinagdugtong ng **pananda** (at, ngunit, o, kaya)\n- Bawat sugnay ay may sariling **simuno** at **panaguri**\n- Maglagay ng **kuwit** bago ang pananda\n- **Payak na pangungusap** = isang sugnay lamang\n\nMagaling sa unang linggo ng Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ilang sugnay na nakapag-iisa ang mayroon ang tambalang pangungusap?",
+            "options": [
+              "Dalawa",
+              "Isa",
+              "Tatlo",
+              "Wala"
+            ],
+            "correct_answer": "Dalawa"
+          },
+          {
+            "question": "Alin ang pananda na nagdurugtong ng dalawang sugnay?",
+            "options": [
+              "kaya",
+              "mabilis",
+              "maganda",
+              "kahapon"
+            ],
+            "correct_answer": "kaya"
+          },
+          {
+            "question": "Saan inilalagay ang kuwit bago ang pananda?",
+            "options": [
+              "Bago ang pananda",
+              "Pagkatapos ng huling salita",
+              "Bago ang unang salita",
+              "Wala kahit saan"
+            ],
+            "correct_answer": "Bago ang pananda"
+          },
+          {
+            "question": "Alin ang tambalang pangungusap?",
+            "options": [
+              "Kumain siya, at natulog agad.",
+              "Kumain siya kanina.",
+              "Natutulog siya ngayon.",
+              "Gutom siya."
+            ],
+            "correct_answer": "Kumain siya, at natulog agad."
+          },
+          {
+            "question": "Ang payak na pangungusap ay may:",
+            "options": [
+              "isang sugnay lamang",
+              "dalawang sugnay",
+              "tatlong sugnay",
+              "walang sugnay"
+            ],
+            "correct_answer": "isang sugnay lamang"
+          },
+          {
+            "question": "Sa \"Umulan, kaya nagpayong sila,\" ano ang pananda?",
+            "options": [
+              "kaya",
+              "umulan",
+              "nagpayong",
+              "sila"
+            ],
+            "correct_answer": "kaya"
+          },
+          {
+            "question": "Ano ang taglay ng bawat sugnay na nakapag-iisa?",
+            "options": [
+              "Sariling simuno at panaguri",
+              "Pananda lamang",
+              "Kuwit lamang",
+              "Bantas na tanong lamang"
+            ],
+            "correct_answer": "Sariling simuno at panaguri"
+          },
+          {
+            "question": "Basahin: \"Nag-aral si Leo, ngunit naglaro si Mia.\" Ano ang ikalawang sugnay?",
+            "options": [
+              "naglaro si Mia",
+              "nag-aral si Leo",
+              "ngunit si Mia",
+              "si Leo naglaro"
+            ],
+            "correct_answer": "naglaro si Mia"
+          },
+          {
+            "question": "Bakit ginagamit ang tambalang pangungusap sa pagsulat?",
+            "options": [
+              "Upang maiugnay nang maayos ang dalawang ideya",
+              "Upang paikliin ang pangungusap",
+              "Upang alisin ang bantas",
+              "Upang iwasan ang malaking titik"
+            ],
+            "correct_answer": "Upang maiugnay nang maayos ang dalawang ideya"
+          },
+          {
+            "question": "Alin ang WASTONG gamit ng malaking titik sa tambalang pangungusap?",
+            "options": [
+              "Sa unang salita lamang ng buong pangungusap",
+              "Sa bawat salita",
+              "Sa huling salita lamang",
+              "Wala kahit saan"
+            ],
+            "correct_answer": "Sa unang salita lamang ng buong pangungusap"
+          },
+          {
+            "question": "Piliin ang pares ng sugnay na maaaring maging tambalang pangungusap tungkol sa ulan.",
+            "options": [
+              "Umulan nang malakas, at basang-basa ang lupa.",
+              "Umulan, malakas, basa, lupa.",
+              "Umulan malakas na basa ang lupa.",
+              "Ulan, at, basa, ang, lupa."
+            ],
+            "correct_answer": "Umulan nang malakas, at basang-basa ang lupa."
+          },
+          {
+            "question": "Bakit mahalagang matutunan ang tambalang pangungusap?",
+            "options": [
+              "Upang mas malinaw na maipahayag ang magkaugnay na ideya",
+              "Upang paikliin lamang ang usapan",
+              "Upang alisin ang pananda",
+              "Upang hindi na gumamit ng bantas"
+            ],
+            "correct_answer": "Upang mas malinaw na maipahayag ang magkaugnay na ideya"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- **Living things:** grow, respond, and reproduce (plants, animals, people)\n- **Non-living things:** do not grow, respond, or reproduce (rocks, water, chairs)\n- **Observe** — look closely | **Predict** — smart guess | **Measure** — use a tool like a ruler\n- All living things need **air, food, and water**\n\nGreat scientific thinking! 🔎",
+        "quiz": [
+          {
+            "question": "Which is a living thing?",
+            "options": [
+              "A dog",
+              "A rock",
+              "A table",
+              "A spoon"
+            ],
+            "correct_answer": "A dog"
+          },
+          {
+            "question": "Which is a non-living thing?",
+            "options": [
+              "A chair",
+              "A tree",
+              "A bird",
+              "A person"
+            ],
+            "correct_answer": "A chair"
+          },
+          {
+            "question": "Which characteristic shows that something is alive?",
+            "options": [
+              "It can grow",
+              "It never changes",
+              "It has no needs",
+              "It cannot move at all"
+            ],
+            "correct_answer": "It can grow"
+          },
+          {
+            "question": "A plant turning toward sunlight shows that it can:",
+            "options": [
+              "respond",
+              "measure",
+              "predict",
+              "observe"
+            ],
+            "correct_answer": "respond"
+          },
+          {
+            "question": "Making new living things like itself is called:",
+            "options": [
+              "reproducing",
+              "observing",
+              "predicting",
+              "measuring"
+            ],
+            "correct_answer": "reproducing"
+          },
+          {
+            "question": "Which science skill means looking closely at something?",
+            "options": [
+              "Observing",
+              "Reproducing",
+              "Growing",
+              "Responding"
+            ],
+            "correct_answer": "Observing"
+          },
+          {
+            "question": "Which science skill means making a smart guess?",
+            "options": [
+              "Predicting",
+              "Growing",
+              "Reproducing",
+              "Responding"
+            ],
+            "correct_answer": "Predicting"
+          },
+          {
+            "question": "Which tool helps you measure length?",
+            "options": [
+              "A ruler",
+              "A hand lens",
+              "A calendar",
+              "A balance scale"
+            ],
+            "correct_answer": "A ruler"
+          },
+          {
+            "question": "Why is a rock non-living?",
+            "options": [
+              "It does not grow, respond, or reproduce",
+              "It is too small to see",
+              "It has a rough surface",
+              "It is found near water"
+            ],
+            "correct_answer": "It does not grow, respond, or reproduce"
+          },
+          {
+            "question": "Which basic need do all living things share?",
+            "options": [
+              "Air, food, and water",
+              "Paint and glue",
+              "Electricity",
+              "Books"
+            ],
+            "correct_answer": "Air, food, and water"
+          },
+          {
+            "question": "A seed grows into a plant that makes more seeds. What does this show?",
+            "options": [
+              "The plant is a living thing",
+              "The plant is non-living",
+              "The seed is a rock",
+              "The seed cannot grow"
+            ],
+            "correct_answer": "The plant is a living thing"
+          },
+          {
+            "question": "You find an object that never moves, grows, or reproduces on its own. What is it?",
+            "options": [
+              "A non-living thing",
+              "A growing animal",
+              "A living plant",
+              "A baby bird"
+            ],
+            "correct_answer": "A non-living thing"
+          }
+        ]
+      },
+      "Makabansa": {
+        "summary_markdown": "# 🏘️ Biyernes na Balik-Aral — Makabansa (Grade 3)\n\n- **Pagkakakilanlan** = mga bagay na nagpapakilala kung sino ang isang komunidad\n- **Sagisag:** himno (awit), coat of arms (opisyal na larawan), bayaning lokal (taong iginagalang)\n- Ang mga sagisag ay **bumubuo ng pagkakakilanlan** at nagbubuklod sa mga tao\n- Igalang ang himno at coat of arms sa tamang paraan\n\nMagaling sa unang linggo ng Termino 2! 💛",
+        "quiz": [
+          {
+            "question": "Ano ang pagkakakilanlan ng isang komunidad?",
+            "options": [
+              "Mga bagay na nagpapakilala kung sino sila",
+              "Ang laki ng lupain",
+              "Ang bilang ng bahay",
+              "Ang presyo ng bilihin"
+            ],
+            "correct_answer": "Mga bagay na nagpapakilala kung sino sila"
+          },
+          {
+            "question": "Ang awit na kumakatawan sa isang bayan ay tinatawag na:",
+            "options": [
+              "himno",
+              "kuwento",
+              "tula",
+              "bugtong"
+            ],
+            "correct_answer": "himno"
+          },
+          {
+            "question": "Ano ang coat of arms?",
+            "options": [
+              "Opisyal na larawang simbolo",
+              "Uri ng laro",
+              "Kasangkapan sa bahay",
+              "Damit ng bata"
+            ],
+            "correct_answer": "Opisyal na larawang simbolo"
+          },
+          {
+            "question": "Sino ang bayaning lokal?",
+            "options": [
+              "Taong iginagalang dahil sa naiambag",
+              "Sinumang naninirahan",
+              "Bisitang dumadalaw lamang",
+              "Estranghero"
+            ],
+            "correct_answer": "Taong iginagalang dahil sa naiambag"
+          },
+          {
+            "question": "Kailan karaniwang inaawit ang himno?",
+            "options": [
+              "Tuwing may importanteng okasyon",
+              "Kapag natutulog",
+              "Kapag kumakain",
+              "Kapag naglalakad"
+            ],
+            "correct_answer": "Tuwing may importanteng okasyon"
+          },
+          {
+            "question": "Bakit mahalaga ang mga sagisag ng komunidad?",
+            "options": [
+              "Tumutulong bumuo ng pagkakakilanlan",
+              "Pambili ng gamit",
+              "Walang silbi",
+              "Panlaro lamang"
+            ],
+            "correct_answer": "Tumutulong bumuo ng pagkakakilanlan"
+          },
+          {
+            "question": "Paano dapat kumilos ang bata habang inaawit ang himno?",
+            "options": [
+              "Tumayo nang tahimik",
+              "Tumakbo sa paligid",
+              "Kumain habang umuupo",
+              "Magsalita nang malakas"
+            ],
+            "correct_answer": "Tumayo nang tahimik"
+          },
+          {
+            "question": "Alin ang HINDI paggalang sa coat of arms?",
+            "options": [
+              "Paglalagay ng dumi rito",
+              "Pag-aaral ng kahulugan nito",
+              "Pagtingin nang may respeto",
+              "Pagsasabi ng kahalagahan nito"
+            ],
+            "correct_answer": "Paglalagay ng dumi rito"
+          },
+          {
+            "question": "Ang mga sagisag ng komunidad ay nagbubuklod sa mga tao sa pamamagitan ng:",
+            "options": [
+              "karaniwang pagmamalaki",
+              "pag-aaway",
+              "pagkakaiba-iba lamang",
+              "kompetisyon"
+            ],
+            "correct_answer": "karaniwang pagmamalaki"
+          },
+          {
+            "question": "May bagong coat of arms na may larawan ng bundok. Ano ang ipinapakita nito?",
+            "options": [
+              "Mahalaga ang bundok sa pagkakakilanlan ng lugar",
+              "Walang bundok sa lugar",
+              "Ipinagbabawal umakyat sa bundok",
+              "Ang bundok ay hindi na umiiral"
+            ],
+            "correct_answer": "Mahalaga ang bundok sa pagkakakilanlan ng lugar"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang mga sagisag ng ating rehiyon?",
+            "options": [
+              "Upang maunawaan ang kasaysayan at kultura",
+              "Upang makalimutan ang nakaraan",
+              "Upang iwasan ang paaralan",
+              "Upang bumili ng bagong gamit"
+            ],
+            "correct_answer": "Upang maunawaan ang kasaysayan at kultura"
+          },
+          {
+            "question": "Alin ang pinakamahusay na paraan upang igalang ang sagisag ng bayan?",
+            "options": [
+              "Pag-aaral at pagpapahalaga rito",
+              "Pagsulat ng pangalan dito",
+              "Pagtatapon nito",
+              "Pagbabalewala rito"
+            ],
+            "correct_answer": "Pag-aaral at pagpapahalaga rito"
+          }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# 🎨 Friday Review — Computer (Grade 3)\n\n- **Pencil/Brush** — freehand lines | **Shapes** — circles/squares | **Fill Color** — colors a shape | **Eraser** — removes mistakes\n- A **labeled picture** = drawing + words naming its parts\n- A **caption** is a short line of text explaining a picture\n- Plan your picture first, then draw, color, and add the caption\n\nGreat creative work! 🖌️",
+        "quiz": [
+          {
+            "question": "Which tool draws freehand lines?",
+            "options": [
+              "Pencil/Brush",
+              "Fill Color",
+              "Eraser",
+              "Text tool"
+            ],
+            "correct_answer": "Pencil/Brush"
+          },
+          {
+            "question": "Which tool colors in a closed shape?",
+            "options": [
+              "Fill Color",
+              "Eraser",
+              "Pencil/Brush",
+              "Shapes"
+            ],
+            "correct_answer": "Fill Color"
+          },
+          {
+            "question": "What does a labeled picture include?",
+            "options": [
+              "A drawing and words naming its parts",
+              "Only bright colors",
+              "No text at all",
+              "A blank page"
+            ],
+            "correct_answer": "A drawing and words naming its parts"
+          },
+          {
+            "question": "What is a caption?",
+            "options": [
+              "A short line of text explaining a picture",
+              "A kind of eraser",
+              "A big shape",
+              "A file name only"
+            ],
+            "correct_answer": "A short line of text explaining a picture"
+          },
+          {
+            "question": "Which tool would you use to make a square shape?",
+            "options": [
+              "Shapes tool",
+              "Eraser",
+              "Fill Color",
+              "Text tool"
+            ],
+            "correct_answer": "Shapes tool"
+          },
+          {
+            "question": "What should you do if you make a small mistake in your drawing?",
+            "options": [
+              "Erase only the mistake",
+              "Erase the whole drawing",
+              "Close without saving",
+              "Ignore it completely"
+            ],
+            "correct_answer": "Erase only the mistake"
+          },
+          {
+            "question": "Which step comes FIRST when making a labeled drawing?",
+            "options": [
+              "Open the drawing program",
+              "Type the caption",
+              "Fill in colors",
+              "Add small details"
+            ],
+            "correct_answer": "Open the drawing program"
+          },
+          {
+            "question": "What tool do you click to type a caption?",
+            "options": [
+              "The text tool",
+              "The eraser tool",
+              "The shapes tool",
+              "The fill color tool"
+            ],
+            "correct_answer": "The text tool"
+          },
+          {
+            "question": "Why should a caption be short and clear?",
+            "options": [
+              "So others can read and understand it easily",
+              "So it fills the whole page",
+              "So it uses every color",
+              "So it hides the drawing"
+            ],
+            "correct_answer": "So others can read and understand it easily"
+          },
+          {
+            "question": "What should you do BEFORE you start drawing?",
+            "options": [
+              "Plan your picture",
+              "Add the caption first",
+              "Erase the blank page",
+              "Turn off the monitor"
+            ],
+            "correct_answer": "Plan your picture"
+          },
+          {
+            "question": "Which combination of tools creates a labeled drawing with a title?",
+            "options": [
+              "Shapes, Fill Color, Pencil/Brush, and Text tool",
+              "Only the Eraser tool",
+              "Only the Fill Color tool",
+              "Only the Text tool"
+            ],
+            "correct_answer": "Shapes, Fill Color, Pencil/Brush, and Text tool"
+          },
+          {
+            "question": "You finished your drawing of your family with names labeled. What should you do next?",
+            "options": [
+              "Save your file with a sensible name",
+              "Delete the drawing",
+              "Turn off the computer without saving",
+              "Erase all the labels"
+            ],
+            "correct_answer": "Save your file with a sensible name"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 💛 Biyernes na Balik-Aral — GMRC (Grade 3)\n\n- **Ugnayan** = paraan ng pakikitungo sa kapuwa\n- **Kasanayang interpersonal:** pakikinig, magalang na pagsasabi ng saloobin, pasensiya\n- **Pasensiya** = manatiling kalmado kahit mahirap ang sitwasyon\n- Gumamit ng **tamang salita** at **magandang sagot** upang ipakita ang respeto\n\nMagaling sa unang linggo ng Termino 2! 💫",
+        "quiz": [
+          {
+            "question": "Ano ang ugnayan?",
+            "options": [
+              "Paraan ng pakikitungo sa kapuwa",
+              "Uri ng laruan",
+              "Pangalan ng lugar",
+              "Klase sa paaralan"
+            ],
+            "correct_answer": "Paraan ng pakikitungo sa kapuwa"
+          },
+          {
+            "question": "Ano ang kasanayang interpersonal?",
+            "options": [
+              "Kakayahang makisama nang mabuti sa iba",
+              "Kakayahang tumakbo nang mabilis",
+              "Kakayahang kumanta",
+              "Kakayahang gumuhit"
+            ],
+            "correct_answer": "Kakayahang makisama nang mabuti sa iba"
+          },
+          {
+            "question": "Ano ang pasensiya?",
+            "options": [
+              "Kakayahang manatiling kalmado sa mahirap na sitwasyon",
+              "Kakayahang magalit agad",
+              "Kakayahang umiwas sa gawain",
+              "Kakayahang manood ng TV"
+            ],
+            "correct_answer": "Kakayahang manatiling kalmado sa mahirap na sitwasyon"
+          },
+          {
+            "question": "Aling sagot ang nagpapakita ng magandang ugnayan kapag may nagkamali?",
+            "options": [
+              "Ayos lang, pwede nating ayusin.",
+              "Kasalanan mo talaga iyan.",
+              "Ayaw na kitang kausapin.",
+              "Hindi na kita kaibigan."
+            ],
+            "correct_answer": "Ayos lang, pwede nating ayusin."
+          },
+          {
+            "question": "Bakit mahalaga ang pakikinig sa iba?",
+            "options": [
+              "Nagpapakita ito ng respeto sa kanilang saloobin",
+              "Nakakatulong itong makatapos nang mabilis",
+              "Nakakabawas ito ng oras",
+              "Wala itong kabuluhan"
+            ],
+            "correct_answer": "Nagpapakita ito ng respeto sa kanilang saloobin"
+          },
+          {
+            "question": "Naghihintay ka sa pila. Ano ang tamang gawin?",
+            "options": [
+              "Maghintay nang may pasensiya",
+              "Sumingit sa pila",
+              "Umiyak nang malakas",
+              "Kunin agad ang gusto mo"
+            ],
+            "correct_answer": "Maghintay nang may pasensiya"
+          },
+          {
+            "question": "Ano ang epekto ng magandang ugnayan sa kapuwa?",
+            "options": [
+              "Nakakabuo ito ng matibay na pagkakaibigan",
+              "Nagdudulot ito ng away",
+              "Nagpapababa ito ng tiwala",
+              "Wala itong epekto"
+            ],
+            "correct_answer": "Nakakabuo ito ng matibay na pagkakaibigan"
+          },
+          {
+            "question": "Aling sagot ang magalang kapag hindi ka sang-ayon?",
+            "options": [
+              "Sa tingin ko po, ganito rin ang mabuti.",
+              "Mali ka, tanga ka ba?",
+              "Ayoko sa iyo.",
+              "Huwag mo akong kausapin."
+            ],
+            "correct_answer": "Sa tingin ko po, ganito rin ang mabuti."
+          },
+          {
+            "question": "Ano ang dapat gawin kapag hindi agad natutupad ang gusto mo?",
+            "options": [
+              "Magpakita ng pasensiya",
+              "Umiyak at sumigaw",
+              "Sumuko agad",
+              "Manakit ng iba"
+            ],
+            "correct_answer": "Magpakita ng pasensiya"
+          },
+          {
+            "question": "Bakit kailangan ang tamang salita at magandang sagot?",
+            "options": [
+              "Upang maipakita ang respeto sa damdamin ng iba",
+              "Upang mapahaba ang usapan",
+              "Upang mapansin ng iba",
+              "Upang manalo sa laro"
+            ],
+            "correct_answer": "Upang maipakita ang respeto sa damdamin ng iba"
+          },
+          {
+            "question": "May kasamahan kang nagagalit dahil natalo. Ano ang pinakamahusay na gawin?",
+            "options": [
+              "Makinig at unawain siya nang may pasensiya",
+              "Tawanan ang kanyang pagkatalo",
+              "Iwanan siya nang mag-isa",
+              "Sabihin sa kanya na mahina siya"
+            ],
+            "correct_answer": "Makinig at unawain siya nang may pasensiya"
+          },
+          {
+            "question": "Ang mabuting kasanayang interpersonal ay nakakatulong upang:",
+            "options": [
+              "mas maunawaan natin ang isa't isa",
+              "lumayo tayo sa ibang tao",
+              "manalo lagi sa laro",
+              "iwasan ang lahat ng usapan"
+            ],
+            "correct_answer": "mas maunawaan natin ang isa't isa"
+          }
+        ]
+      }
+    }
+  }
+}

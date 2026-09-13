@@ -44,12 +44,18 @@ Or use this reference:
 |---|---|---|
 | 9 | Aug 10, 2026 | Term 1 Week 8 |
 | 10 | Aug 17 | Term 1 Week 9 |
-| 11 | Aug 24 | Term 1 Week 10 |
-| 12 | Aug 31 | Term 1 Week 11 |
-| **13** | **Sep 7** | **Term 1 Week 12 (last before break)** |
-| 14 | Sep 14 | Term 1 break |
-| 15 | Sep 21 | Term 2 Week 1 |
-| 16 | Sep 28 | Term 2 Week 2 |
+| 11 | Aug 24 | Term 1 Week 10 (last Term 1 instructional week) |
+| 12 | Aug 31 | Term 1 Enrichment |
+| 13 | Sep 7 | Term 1 Enrichment |
+| **14** | **Sep 14** | **Term 2 starts — no break here** |
+| 15 | Sep 21 | Term 2 Week 12 |
+| 16 | Sep 28 | Term 2 Week 13 |
+
+This table must stay in sync with `lib/promptBuilder.ts`'s `weekToTermInfo()` — that
+function (not this table) is the source of truth the app actually runs on. The Sep
+2026 calendar rebuild in that file is authoritative; this table was previously stale
+by one week here (said "Week 14 = Sep 14 = Term 1 break," which caused the real
+Sep 14-18 week to be skipped during authoring — see git history around 2026-09-13).
 
 ---
 
