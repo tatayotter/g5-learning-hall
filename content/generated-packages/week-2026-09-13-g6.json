@@ -1,0 +1,2016 @@
+{
+  "grade": 6,
+  "week_starting_date": "2026-09-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 🗣️ English — Persuasion, Outlining, and Sentence Power (Term 2, Week 1)\n\nWelcome to **Term 2**! We now dig deeper into how persuasive texts work and how strong writers build their sentences.\n\n## 💎 Diamond (Inductive-Deductive) Outlining\nThe **diamond outline** organizes an informational text from **specific details up to a general idea**, then back down to a **specific conclusion** — like a diamond shape.\n\n- **Top point:** a specific detail or example\n- **Widening middle:** more details building toward the main idea\n- **Center (widest point):** the **general idea/main claim**\n- **Narrowing again:** supporting details that lead to\n- **Bottom point:** a specific concluding statement\n\nThis helps you see how small facts **build up** to a big claim, and how a big claim **narrows down** to a clear conclusion.\n\n## 📢 Propaganda Techniques — Round 2\nPersuasive texts often use techniques based on **emotion rather than proof**.\n\n| Technique | How it works | Example |\n|---|---|---|\n| **Testimonial** | a respected or famous person endorses the product/idea | an athlete says \"I use this every day\" |\n| **Plain folks** | the speaker presents themselves as an ordinary, relatable person | a candidate eating street food with vendors |\n| **Bandwagon** | urges you to join because \"everyone else\" already has | \"Join the millions who already switched!\" |\n\n**Key skill:** ask *\"Is this claim backed by evidence, or only by a feeling of trust, familiarity, or crowd pressure?\"*\n\n## 📚 Directories as a General Reference\nA **directory** lists **acronyms and abbreviations** used by organizations (e.g., DepEd = Department of Education, WHO = World Health Organization). Use a directory when you meet an unfamiliar short form in a text.\n\n## ⚙️ Intransitive Verbs\nAn **intransitive verb** does NOT need a direct object to complete its meaning.\n- *The baby **slept**.* (complete meaning, no object needed)\n- Compare to a **transitive verb**: *The baby **dropped** the spoon.* (needs \"the spoon\" to complete the meaning)\n\n## ⏳ Perfect Tenses\n| Tense | Form | Example |\n|---|---|---|\n| **Present perfect** | has/have + past participle | She **has finished** her project. |\n| **Past perfect** | had + past participle | She **had finished** before the bell rang. |\n| **Future perfect** | will have + past participle | She **will have finished** by Friday. |\n\n## 🧩 Prepositional Phrases as Adjectives\nA prepositional phrase can describe a noun, just like an adjective.\n- *The book **on the table** is mine.* (\"on the table\" describes *which* book)\n- *The girl **with the red bag** is my cousin.*\n\n## 🧱 Noun/Pronoun/Adjective Complements\nA **complement** completes the meaning of a linking verb by renaming or describing the subject.\n- **Noun complement:** *Maria is a **doctor**.*\n- **Pronoun complement:** *The winner was **she**.*\n- **Adjective complement:** *The soup tastes **delicious**.*\n\n## 🔗 Compound-Complex Sentences\nCombines **two independent clauses** with **at least one dependent clause**.\n- *Although it rained, we finished the game, and the crowd cheered loudly.*\n  - Dependent: *Although it rained*\n  - Independent 1: *we finished the game*\n  - Independent 2: *the crowd cheered loudly*\n\n## 🙅 Non-Verbal Cues in Speaking\nGestures, eye contact, posture, and facial expressions carry meaning **alongside** your words — crossed arms can signal defensiveness even if your words sound friendly.\n\n## 📋 Open-Ended Survey Form\nUnlike a simple checklist, an **open-ended survey** lets respondents **write their own answers** in their own words — useful when you want detailed opinions, not just fixed choices.\n\nGreat start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "In a diamond outline, where does the general main idea usually sit?",
+            "options": [
+              "At the widest, center point",
+              "At the very top point",
+              "At the very bottom point",
+              "Nowhere in the outline"
+            ],
+            "correct_answer": "At the widest, center point"
+          },
+          {
+            "question": "A celebrity says \"I personally use this toothpaste\" in an ad. Which technique is this?",
+            "options": [
+              "Testimonial",
+              "Bandwagon",
+              "Plain folks",
+              "Card stacking"
+            ],
+            "correct_answer": "Testimonial"
+          },
+          {
+            "question": "A politician is filmed eating at a small food stall to seem relatable. This is:",
+            "options": [
+              "Plain folks",
+              "Testimonial",
+              "Transfer",
+              "Name-calling"
+            ],
+            "correct_answer": "Plain folks"
+          },
+          {
+            "question": "\"Join the thousands who already switched brands!\" uses which technique?",
+            "options": [
+              "Bandwagon",
+              "Testimonial",
+              "Plain folks",
+              "Glittering generality"
+            ],
+            "correct_answer": "Bandwagon"
+          },
+          {
+            "question": "A directory is most useful for looking up:",
+            "options": [
+              "Acronyms used by organizations",
+              "Rhyming words for poems",
+              "Antonyms of common words",
+              "Historical dates of events"
+            ],
+            "correct_answer": "Acronyms used by organizations"
+          },
+          {
+            "question": "Which sentence uses an intransitive verb?",
+            "options": [
+              "The children laughed.",
+              "The children threw the ball.",
+              "The children ate the cake.",
+              "The children read the book."
+            ],
+            "correct_answer": "The children laughed."
+          },
+          {
+            "question": "Which sentence is in the past perfect tense?",
+            "options": [
+              "She had left before we arrived.",
+              "She will leave tomorrow morning.",
+              "She leaves every single morning.",
+              "She is leaving right now."
+            ],
+            "correct_answer": "She had left before we arrived."
+          },
+          {
+            "question": "Which prepositional phrase acts as an adjective in \"The house on the hill is old\"?",
+            "options": [
+              "on the hill",
+              "is old",
+              "The house",
+              "an adjective"
+            ],
+            "correct_answer": "on the hill"
+          },
+          {
+            "question": "In \"The champion was he,\" the word \"he\" is a:",
+            "options": [
+              "Pronoun complement",
+              "Direct object",
+              "Prepositional phrase",
+              "Intransitive verb"
+            ],
+            "correct_answer": "Pronoun complement"
+          },
+          {
+            "question": "Which sentence is compound-complex?",
+            "options": [
+              "Although it was late, she studied hard, and she still smiled.",
+              "She studied hard because she cared.",
+              "She studied, and then she slept.",
+              "Because she cared, she studied."
+            ],
+            "correct_answer": "Although it was late, she studied hard, and she still smiled."
+          },
+          {
+            "question": "An ad shows a famous doctor recommending a vitamin with no clinical study cited. What should a critical reader ask?",
+            "options": [
+              "Is trust in the doctor replacing real evidence?",
+              "Is the vitamin bottle attractive enough?",
+              "Is the doctor's voice pleasant to hear?",
+              "Is the advertisement colorful enough?"
+            ],
+            "correct_answer": "Is trust in the doctor replacing real evidence?"
+          },
+          {
+            "question": "A survey asks, \"What do you think should improve in our school?\" with a blank line for the answer. This is BEST described as:",
+            "options": [
+              "An open-ended survey question",
+              "A closed multiple-choice question",
+              "A yes-or-no question",
+              "A rating-scale question"
+            ],
+            "correct_answer": "An open-ended survey question"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Mathematics — Ratio: Comparing Quantities (Term 2, Week 1)\n\nFirst Math lesson of Term 2! We now compare quantities using **ratio**. 📊\n\n## 🤝 What Is a Ratio?\nA **ratio** compares two (or more) quantities. It can describe:\n- **Part-to-part** — comparing one part of a group to another part\n- **Part-to-whole** — comparing one part of a group to the entire group\n\n**Notation:** `a : b`, read as \"a is to b,\" or as the fraction `a/b`.\n\n## 🧠 Worked Example 1 — Part-to-Part vs Part-to-Whole\n*A basket has 8 mangoes and 12 bananas.*\n- **Part-to-part** (mangoes to bananas): `8 : 12` → simplify by dividing both by 4 → `2 : 3`\n- **Part-to-whole** (mangoes to total fruits): total = `8 + 12 = 20` → `8 : 20` → simplify → `2 : 5`\n\n**Key idea:** always simplify a ratio the same way you simplify a fraction — divide both terms by their **greatest common factor**.\n\n## ➗ Expressing One Number as a Fraction Using a Ratio\n*If the ratio of boys to girls in a class is `3 : 5`, what fraction of the class are boys?*\n- Total parts = `3 + 5 = 8`\n- Boys are `3` out of `8` parts → **3/8** of the class are boys\n\n## ⚖️ Equivalent Ratios\nRatios are **equivalent** when they express the same relationship, just scaled up or down — multiply or divide **both terms by the same number**.\n- `2 : 3` is equivalent to `4 : 6`, `6 : 9`, `10 : 15` (each term ×2, ×3, ×5)\n\n## 🧠 Worked Example 2 — Ratio and Proportion (Double Number Line)\n*A recipe uses a ratio of `2 : 5` (sugar : flour, in cups). How much flour is needed for 6 cups of sugar?*\n- Step 1: Set up the ratio table:\n\n| Sugar | 2 | 4 | 6 |\n|---|---|---|---|\n| Flour | 5 | 10 | 15 |\n\n- Step 2: Notice the sugar column tripled (`2 → 6`, ×3)\n- Step 3: Multiply flour by the same scale factor: `5 × 3 = 15`\n- **Answer: 15 cups of flour** ✅\n\n## 📈 Using a Double Number Line\nA **double number line** shows two related quantities lined up on parallel number lines, scaled the same way — it visually shows how ratios grow together, which is especially useful when the scale factor isn't a whole number.\n\n## ⚠️ Common Errors\n- ❌ Adding the same number to both terms instead of **multiplying**\n- ❌ Confusing part-to-part with part-to-whole\n- ❌ Forgetting to simplify by the greatest common factor\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "A box has 6 red balls and 9 blue balls. What is the ratio of red to blue balls?",
+            "options": [
+              "2 : 3",
+              "6 : 9",
+              "3 : 2",
+              "1 : 2"
+            ],
+            "correct_answer": "2 : 3"
+          },
+          {
+            "question": "A class has 4 boys for every 5 girls. What is the ratio of boys to the TOTAL class?",
+            "options": [
+              "4 : 9",
+              "4 : 5",
+              "5 : 9",
+              "9 : 4"
+            ],
+            "correct_answer": "4 : 9"
+          },
+          {
+            "question": "Which ratio is equivalent to 3 : 4?",
+            "options": [
+              "9 : 12",
+              "3 : 5",
+              "4 : 3",
+              "6 : 7"
+            ],
+            "correct_answer": "9 : 12"
+          },
+          {
+            "question": "If the ratio of pencils to pens is 2 : 7, what fraction of the items are pencils?",
+            "options": [
+              "2/9",
+              "2/7",
+              "7/9",
+              "7/2"
+            ],
+            "correct_answer": "2/9"
+          },
+          {
+            "question": "A ratio of 2 : 5 (sugar : flour) is scaled up. If sugar becomes 8 cups, how much flour is needed?",
+            "options": [
+              "20 cups",
+              "13 cups",
+              "16 cups",
+              "10 cups"
+            ],
+            "correct_answer": "20 cups"
+          },
+          {
+            "question": "What must you do to BOTH terms of a ratio to find an equivalent ratio?",
+            "options": [
+              "Multiply or divide by the same number",
+              "Add the same number to both",
+              "Subtract different numbers",
+              "Square each term separately"
+            ],
+            "correct_answer": "Multiply or divide by the same number"
+          },
+          {
+            "question": "Simplify the ratio 15 : 20 to lowest terms.",
+            "options": [
+              "3 : 4",
+              "5 : 4",
+              "3 : 5",
+              "15 : 4"
+            ],
+            "correct_answer": "3 : 4"
+          },
+          {
+            "question": "A recipe uses a ratio of juice to water of 1 : 4. How much water is needed for 3 cups of juice?",
+            "options": [
+              "12 cups",
+              "7 cups",
+              "4 cups",
+              "9 cups"
+            ],
+            "correct_answer": "12 cups"
+          },
+          {
+            "question": "A student writes the ratio of cats to dogs as 3 : 8 when there are 3 cats and 5 dogs. What is the error?",
+            "options": [
+              "The total was used instead of the number of dogs",
+              "The numbers were not multiplied correctly",
+              "The ratio should have three terms",
+              "The ratio symbol was written backwards"
+            ],
+            "correct_answer": "The total was used instead of the number of dogs"
+          },
+          {
+            "question": "In a garden, the ratio of roses to tulips is 5 : 3. If there are 40 roses, how many tulips are there?",
+            "options": [
+              "24",
+              "64",
+              "15",
+              "8"
+            ],
+            "correct_answer": "24"
+          },
+          {
+            "question": "A double number line shows sugar and flour lined up at matching scale marks. What is its MAIN purpose?",
+            "options": [
+              "To visually show how two ratios grow together",
+              "To measure the exact weight of ingredients",
+              "To replace the need for a recipe entirely",
+              "To count the total number of ingredients"
+            ],
+            "correct_answer": "To visually show how two ratios grow together"
+          },
+          {
+            "question": "A bag has red, blue, and green marbles in ratio 2 : 3 : 5. If there are 50 marbles total, how many are green?",
+            "options": [
+              "25",
+              "10",
+              "15",
+              "20"
+            ],
+            "correct_answer": "25"
+          }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 📖 Filipino — Pag-unawa sa Kilos at Damdamin ng Tauhan (Termino 2, Linggo 1)\n\nBagong simula sa **Termino 2**! Ngayon, susuriin natin ang **kilos, pahayag, at damdamin ng mga tauhan** sa isang akda. 🎭\n\n## 🎬 Mahahalagang Detalye sa Kuwento\nBago maunawaan ang isang tauhan, kailangan mong matukoy muna ang **mahahalagang detalye** — sino, ano, saan, kailan, at bakit nangyari ang isang pangyayari.\n\n## 🗣️ Kahulugan ng Kilos at Pahayag ng Tauhan\nAng bawat **kilos** (gawa) at **pahayag** (sinasabi) ng tauhan ay may **kahulugan** — hindi ito basta nangyayari lamang.\n\n**Halimbawa:** Kapag hindi tumingin sa mata ang isang tauhan habang nagsasalita, maaaring nagpapahiwatig ito ng **kahihiyan** o **kasinungalingan**.\n\n## 💭 Paghinuha sa Damdamin at Kilos ng Tauhan\nAng **paghinuha** (inference) ay ang paggamit ng mga pahiwatig sa teksto upang malaman ang hindi direktang sinasabi.\n\n**Mga pahiwatig:** paraan ng pagsasalita, kilos ng katawan, reaksyon ng ibang tauhan, at pagpili ng salita.\n\n## 💬 Opinyon at Reaksiyon sa Ikinilos ng Tauhan\nKapag binabasa ang isang teksto, dapat mong maibahagi rin ang **sariling opinyon** tungkol sa ginawa ng tauhan — tama ba ito o mali, at bakit.\n\n## 📜 Mga Salawikaing Pilipino\nAng **salawikain** ay maikling kasabihan na naglalaman ng **aral o katotohanan sa buhay**.\n\n**Halimbawa:** *\"Kung ano ang puno, siya ang bunga\"* — ang katangian ng anak ay maihahalintulad sa katangian ng magulang.\n\n**Paggamit bilang panandang konteksto:** Kapag nakita mo ang isang salawikain sa teksto, tingnan ang mga pangungusap bago at pagkatapos nito upang maunawaan ang kahulugan nito.\n\n## ✍️ Tekstong Impormatibo (Eksposisyon)\nSa pagbabasa ng eksposisyon, hanapin ang:\n- **Mahahalagang detalye** na sumusuporta sa paksa\n- **Pangunahing diwa/ideya** ng buong teksto\n- **Sariling opinyon** batay sa binasa\n\n## 🔤 Gramatika: Kaganapan ng Pandiwa — Tagatanggap/Benepaktibo\nAng **kaganapan ng pandiwa** ay ang tao o bagay na nakikinabang o tumatanggap ng kilos.\n\n**Halimbawa:** *\"Nagluto ng hapunan si Nanay **para sa pamilya**.\"* — ang \"pamilya\" ang **benepaktibo** (nakinabang sa kilos).\n\n## ✅ Buod\nAng kakayahang magbigay ng kahulugan, huminuha ng damdamin, at magbigay ng opinyon tungkol sa tauhan ay tumutulong sa iyong maunawaang lubusan ang isang akda — hindi lamang basahin ito.\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang tinutukoy ng \"mahahalagang detalye\" sa isang kuwento?",
+            "options": [
+              "Sino, ano, saan, kailan, at bakit nangyari",
+              "Ang bilang ng pahina ng kuwento",
+              "Ang pangalan lamang ng may-akda",
+              "Ang uri ng papel na ginamit"
+            ],
+            "correct_answer": "Sino, ano, saan, kailan, at bakit nangyari"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng paghinuha (inference)?",
+            "options": [
+              "Paggamit ng pahiwatig upang malaman ang di-tuwirang sinasabi",
+              "Direktang pagbasa ng nakasulat na pangungusap",
+              "Pagbibilang ng mga salita sa talata",
+              "Paghahanap ng kahulugan sa diksyunaryo"
+            ],
+            "correct_answer": "Paggamit ng pahiwatig upang malaman ang di-tuwirang sinasabi"
+          },
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maikling kasabihang may aral sa buhay",
+              "Mahabang kuwentong may tauhan",
+              "Awiting may tugma at sukat",
+              "Dulang itinatanghal sa entablado"
+            ],
+            "correct_answer": "Maikling kasabihang may aral sa buhay"
+          },
+          {
+            "question": "Ano ang ipinapahiwatig ng salawikaing \"Kung ano ang puno, siya ang bunga\"?",
+            "options": [
+              "Ang katangian ng anak ay kahawig ng magulang",
+              "Ang puno ay laging matangkad",
+              "Ang bunga ay laging matamis",
+              "Walang kaugnayan ang puno sa tao"
+            ],
+            "correct_answer": "Ang katangian ng anak ay kahawig ng magulang"
+          },
+          {
+            "question": "Sa pangungusap na \"Naglinis si Ben ng silid para sa kaniyang lola,\" alin ang benepaktibo?",
+            "options": [
+              "kaniyang lola",
+              "si Ben",
+              "silid",
+              "naglinis"
+            ],
+            "correct_answer": "kaniyang lola"
+          },
+          {
+            "question": "Bakit dapat magbigay ng sariling opinyon tungkol sa kilos ng tauhan?",
+            "options": [
+              "Upang maipakita ang sariling pag-unawa at pananaw",
+              "Upang mapabilis ang pagbabasa",
+              "Upang hindi na kailangang basahin ang teksto",
+              "Upang mapalitan ang kuwento"
+            ],
+            "correct_answer": "Upang maipakita ang sariling pag-unawa at pananaw"
+          },
+          {
+            "question": "Sa eksposisyon, ano ang pangunahing hinahanap ng mambabasa?",
+            "options": [
+              "Ang pangunahing diwa at sumusuportang detalye",
+              "Ang mga tauhan at tagpuan",
+              "Ang tugma ng mga taludtod",
+              "Ang bilang ng mga larawan"
+            ],
+            "correct_answer": "Ang pangunahing diwa at sumusuportang detalye"
+          },
+          {
+            "question": "Ano ang maaaring ipahiwatig kapag umiiwas sa titig ang isang tauhan habang nagsasalita?",
+            "options": [
+              "Kahihiyan o kasinungalingan",
+              "Labis na kaligayahan",
+              "Matinding gutom",
+              "Sobrang antok"
+            ],
+            "correct_answer": "Kahihiyan o kasinungalingan"
+          },
+          {
+            "question": "Paano ginagamit ang salawikain bilang panandang konteksto?",
+            "options": [
+              "Sa pagtingin sa mga pangungusap bago at pagkatapos nito",
+              "Sa pagbilang ng titik sa bawat salita",
+              "Sa paggamit ng makulay na papel",
+              "Sa pagsulat nito nang paulit-ulit"
+            ],
+            "correct_answer": "Sa pagtingin sa mga pangungusap bago at pagkatapos nito"
+          },
+          {
+            "question": "Binasa ni Ana ang isang kuwento kung saan tumango lang ang tauhan nang walang sinabi. Ano ang PINAKAMAHUSAY na paraan para maunawaan ito?",
+            "options": [
+              "Suriin ang sitwasyon at kilos ng ibang tauhan bilang pahiwatig",
+              "Balewalain ang bahaging iyon ng kuwento",
+              "Hilingin sa guro na basahin ito para sa kaniya",
+              "Ipagpalagay na walang kahulugan ang tango"
+            ],
+            "correct_answer": "Suriin ang sitwasyon at kilos ng ibang tauhan bilang pahiwatig"
+          },
+          {
+            "question": "Isang tauhan ang nagbigay ng kaniyang huling pagkain sa isang batang gutom. Alin ang PINAKAANGKOP na reaksiyon batay sa kilos na ito?",
+            "options": [
+              "Paghanga sa kagandahang-loob ng tauhan",
+              "Pagtuligsa dahil nasayang ang pagkain",
+              "Walang pakialam sapagkat hindi mahalaga",
+              "Pagkalito kung bakit ito ginawa"
+            ],
+            "correct_answer": "Paghanga sa kagandahang-loob ng tauhan"
+          },
+          {
+            "question": "Bakit mahalagang tukuyin ang kaganapan ng pandiwa sa isang pangungusap?",
+            "options": [
+              "Upang malaman kung sino ang nakikinabang sa kilos",
+              "Upang mabilang ang mga pantig ng salita",
+              "Upang mapalitan ang paksa ng pangungusap",
+              "Upang hindi na kailangan ng pandiwa"
+            ],
+            "correct_answer": "Upang malaman kung sino ang nakikinabang sa kilos"
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ❤️ Science — The Circulatory System (Term 2, Week 1)\n\nFirst Science lesson of Term 2! Let's explore the system that keeps every part of your body alive. 🔬\n\n## 🫀 Main Parts of the Circulatory System\n\n| Part | Description | Function |\n|---|---|---|\n| **Heart** | a fist-sized muscular organ with 4 chambers | pumps blood throughout the body |\n| **Blood** | a liquid tissue made of plasma, red cells, white cells, platelets | carries oxygen, nutrients, and waste |\n| **Blood vessels** | tube-like pathways | carry blood to and from the heart |\n\n## 🔄 How the Heart Works\nThe heart has **4 chambers**: 2 upper (**atria**) and 2 lower (**ventricles**). It **contracts** (squeezes) to push blood out and **relaxes** to let blood back in — this repeating cycle is your **heartbeat**.\n\n## 🩸 Three Types of Blood Vessels\n\n| Vessel | Direction | Wall thickness |\n|---|---|---|\n| **Arteries** | carry blood **away** from the heart | thick, elastic walls (handle high pressure) |\n| **Veins** | carry blood **back** to the heart | thinner walls, have **valves** to prevent backflow |\n| **Capillaries** | tiny vessels connecting arteries and veins | very thin walls — allow exchange of oxygen, nutrients, and waste with body cells |\n\n## 🧠 Worked Example — Tracing a Drop of Blood\n*Trace freshly oxygenated blood from the lungs back to the body's muscles.*\n1. Oxygen-rich blood leaves the **lungs** and enters the **heart**\n2. The heart **pumps** it out through **arteries**\n3. Arteries branch into smaller vessels, then into **capillaries**\n4. At the capillaries, oxygen and nutrients pass into the **muscle cells**; carbon dioxide and waste pass back into the blood\n5. The now oxygen-poor blood travels back through **veins** to the heart, to be sent to the lungs again\n\n## 🔁 Why This Is a Continuous Cycle\nBlood **never stops circulating** while you are alive. If circulation stopped even briefly, body cells would be **deprived of oxygen and nutrients**, which is why a stopped heart is a medical emergency.\n\n## 💡 Keeping Your Circulatory System Healthy\n- **Regular exercise** strengthens the heart muscle\n- **Balanced diet** — less salty and fatty food protects blood vessels\n- **Avoid smoking** — it damages blood vessel walls\n- **Enough sleep and low stress** support healthy heart rate\n\n## ⚠️ Common Misconception\nBlood does **NOT** only travel in one giant loop with no branching — it flows through a **branching network** reaching every tissue, then returns.\n\nGreat start to Term 2! 🔎",
+        "quiz": [
+          {
+            "question": "Which organ pumps blood throughout the body?",
+            "options": [
+              "Heart",
+              "Lungs",
+              "Liver",
+              "Kidney"
+            ],
+            "correct_answer": "Heart"
+          },
+          {
+            "question": "How many chambers does the human heart have?",
+            "options": [
+              "4",
+              "2",
+              "3",
+              "6"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Which blood vessels carry blood AWAY from the heart?",
+            "options": [
+              "Arteries",
+              "Veins",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Arteries"
+          },
+          {
+            "question": "Which blood vessels have valves to prevent blood from flowing backward?",
+            "options": [
+              "Veins",
+              "Arteries",
+              "Capillaries",
+              "Ventricles"
+            ],
+            "correct_answer": "Veins"
+          },
+          {
+            "question": "Where does the exchange of oxygen and nutrients with body cells happen?",
+            "options": [
+              "Capillaries",
+              "Arteries",
+              "Veins",
+              "Atria"
+            ],
+            "correct_answer": "Capillaries"
+          },
+          {
+            "question": "What is blood mostly made of, besides plasma?",
+            "options": [
+              "Red cells, white cells, and platelets",
+              "Water and salt only",
+              "Muscle fibers and bone",
+              "Oxygen gas alone"
+            ],
+            "correct_answer": "Red cells, white cells, and platelets"
+          },
+          {
+            "question": "Why do arteries have thick, elastic walls?",
+            "options": [
+              "To handle the high pressure of pumped blood",
+              "To make blood taste different",
+              "To slow down white blood cells",
+              "To store extra oxygen for later"
+            ],
+            "correct_answer": "To handle the high pressure of pumped blood"
+          },
+          {
+            "question": "What are the two upper chambers of the heart called?",
+            "options": [
+              "Atria",
+              "Ventricles",
+              "Valves",
+              "Vessels"
+            ],
+            "correct_answer": "Atria"
+          },
+          {
+            "question": "Which habit helps keep the circulatory system healthy?",
+            "options": [
+              "Regular exercise",
+              "Skipping sleep often",
+              "Eating very salty food",
+              "Avoiding all movement"
+            ],
+            "correct_answer": "Regular exercise"
+          },
+          {
+            "question": "A drop of blood just released oxygen to a muscle cell. Which vessel will it travel through NEXT to return to the heart?",
+            "options": [
+              "A vein",
+              "An artery",
+              "A nerve",
+              "A tendon"
+            ],
+            "correct_answer": "A vein"
+          },
+          {
+            "question": "Why is a stopped heart considered a medical emergency?",
+            "options": [
+              "Cells stop receiving oxygen and nutrients",
+              "The lungs immediately stop existing",
+              "Blood vessels turn into capillaries",
+              "White blood cells multiply too fast"
+            ],
+            "correct_answer": "Cells stop receiving oxygen and nutrients"
+          },
+          {
+            "question": "A student claims blood travels in one single giant loop with no branches. What is wrong with this claim?",
+            "options": [
+              "Blood flows through a branching network of vessels",
+              "Blood actually never leaves the heart at all",
+              "Blood only travels through bones, not vessels",
+              "Blood moves only once during a lifetime"
+            ],
+            "correct_answer": "Blood flows through a branching network of vessels"
+          }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎖️ Araling Panlipunan — Imperyalismo at Digmaang Pilipino-Amerikano (Termino 2, Linggo 1)\n\nBagong yugto ng kasaysayan sa **Termino 2**! Pagkatapos ng Himagsikan laban sa Espanya, may bagong dumating na mananakop. 🇺🇸\n\n## 🌍 Ano ang Imperyalismo?\nAng **imperyalismo** ay ang patakaran ng isang makapangyarihang bansa na sakupin o kontrolin ang ibang teritoryo para sa **ekonomiya, kapangyarihan, o estratehikong dahilan**.\n\n**Konteksto:** Matapos bilhin ng Estados Unidos ang Pilipinas mula sa Espanya sa **Kasunduan sa Paris (1898)** — nang walang pakikilahok ng mga Pilipino — nagsimula ang bagong yugto ng pananakop.\n\n## 💥 Unang Putok sa Sta. Mesa (Pebrero 4, 1899)\nAng unang labanan ng **Digmaang Pilipino-Amerikano** — nagsimula nang barilin ng sundalong Amerikano si **Private William Grayson** ang isang sundalong Pilipino sa tulay ng Sta. Mesa.\n\n**Kahalagahan:** Ito ang naging **dahilan ng pagsiklab** ng digmaan sa pagitan ng dalawang bansa.\n\n## 📜 Kasunduang Bates\nIsang kasunduan sa pagitan ng Estados Unidos at ng mga Muslim sa Mindanao (Sultanato ng Sulu) na naglalayong **panatilihin ang katahimikan** habang tinutugis ng Amerika ang puwersa ni Aguinaldo sa Luzon.\n\n## ⛰️ Labanan sa Tirad Pass (Disyembre 2, 1899)\nIpinagtanggol ni **Heneral Gregorio del Pilar** at 60 kawal ang isang makitid na daanan sa bundok upang bigyan ng pagkakataong makatakas si Aguinaldo. Namatay si del Pilar sa labanang ito — kilala bilang \"**Ang Leonidas ng Pilipinas**.\"\n\n## 🏔️ Pagkadakip kay Aguinaldo (Marso 23, 1901)\nNadakip si **Emilio Aguinaldo** sa Palanan, Isabela sa pamamagitan ng **taktikang panlilinlang** ng puwersang Amerikano na nagpanggap na bihag ng mga rebeldeng Pilipino.\n\n**Epekto:** Nagpahayag si Aguinaldo ng katapatan sa Estados Unidos, na nagpahina sa organisadong paglaban, bagaman **nagpatuloy pa rin** ang gerilyang pakikidigma sa iba't ibang rehiyon.\n\n## 🏆 Tagumpay ng Balangiga (Setyembre 28, 1901)\nSa Samar, sinalakay ng mga Pilipino ang mga sundalong Amerikano habang nag-aalmusal, isang bihirang **tagumpay ng mga Pilipino** sa panahong iyon. Bilang **paghihiganti**, iniutos ng heneral na Amerikanong si Jacob Smith na gawing \"howling wilderness\" ang Samar — isang malaking kaganapan ng pananalasa laban sa mga sibilyan.\n\n## 💡 Aral mula sa Yugtong Ito\nIpinapakita ng Digmaang Pilipino-Amerikano na ang mga Pilipino ay **patuloy na lumaban** para sa tunay na kalayaan, hindi lamang laban sa Espanya kundi maging laban sa bagong mananakop.\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang imperyalismo?",
+            "options": [
+              "Patakaran ng pagsakop sa ibang teritoryo para sa kapangyarihan",
+              "Kasunduan ng kapayapaan sa pagitan ng bansa",
+              "Sistema ng pamahalaang bayan",
+              "Paraan ng pangangalakal sa pagitan ng barangay"
+            ],
+            "correct_answer": "Patakaran ng pagsakop sa ibang teritoryo para sa kapangyarihan"
+          },
+          {
+            "question": "Saan naganap ang Unang Putok ng Digmaang Pilipino-Amerikano?",
+            "options": [
+              "Sta. Mesa",
+              "Tirad Pass",
+              "Palanan, Isabela",
+              "Balangiga, Samar"
+            ],
+            "correct_answer": "Sta. Mesa"
+          },
+          {
+            "question": "Sino ang sundalong Amerikanong bumaril sa unang putok?",
+            "options": [
+              "Private William Grayson",
+              "Heneral Jacob Smith",
+              "Emilio Aguinaldo",
+              "Gregorio del Pilar"
+            ],
+            "correct_answer": "Private William Grayson"
+          },
+          {
+            "question": "Ano ang layunin ng Kasunduang Bates?",
+            "options": [
+              "Panatilihin ang katahimikan sa mga Muslim sa Mindanao",
+              "Ipagbawal ang paggamit ng Ingles",
+              "Ibigay ang kalayaan ng Pilipinas",
+              "Itigil ang Digmaang Pilipino-Amerikano"
+            ],
+            "correct_answer": "Panatilihin ang katahimikan sa mga Muslim sa Mindanao"
+          },
+          {
+            "question": "Sino ang tinaguriang \"Leonidas ng Pilipinas\"?",
+            "options": [
+              "Gregorio del Pilar",
+              "Emilio Aguinaldo",
+              "Andres Bonifacio",
+              "Jacob Smith"
+            ],
+            "correct_answer": "Gregorio del Pilar"
+          },
+          {
+            "question": "Saan naganap ang huling pagtatanggol ni Gregorio del Pilar?",
+            "options": [
+              "Tirad Pass",
+              "Sta. Mesa",
+              "Balangiga",
+              "Palanan"
+            ],
+            "correct_answer": "Tirad Pass"
+          },
+          {
+            "question": "Paano nadakip si Aguinaldo?",
+            "options": [
+              "Sa pamamagitan ng panlilinlang ng mga Amerikano",
+              "Sa pamamagitan ng tuwirang labanan",
+              "Sa pamamagitan ng kusang pagsuko",
+              "Sa pamamagitan ng kasunduang pangkapayapaan"
+            ],
+            "correct_answer": "Sa pamamagitan ng panlilinlang ng mga Amerikano"
+          },
+          {
+            "question": "Ano ang Tagumpay ng Balangiga?",
+            "options": [
+              "Matagumpay na pagsalakay ng mga Pilipino sa mga Amerikano",
+              "Kasunduan sa pagitan ng dalawang bansa",
+              "Pagsuko ni Aguinaldo sa mga Amerikano",
+              "Deklarasyon ng bagong pamahalaan"
+            ],
+            "correct_answer": "Matagumpay na pagsalakay ng mga Pilipino sa mga Amerikano"
+          },
+          {
+            "question": "Ano ang naging kaparusahan ng Amerika sa Samar matapos ang Balangiga?",
+            "options": [
+              "Malawakang pananalasa laban sa mga sibilyan",
+              "Pagbibigay ng tulong pinansyal",
+              "Agarang pagbibigay ng kalayaan",
+              "Pagpapatayo ng mga paaralan"
+            ],
+            "correct_answer": "Malawakang pananalasa laban sa mga sibilyan"
+          },
+          {
+            "question": "Paano nakuha ng Estados Unidos ang Pilipinas mula sa Espanya?",
+            "options": [
+              "Sa pamamagitan ng Kasunduan sa Paris",
+              "Sa pamamagitan ng deklarasyon ni Bonifacio",
+              "Sa pamamagitan ng halalan ng mamamayan",
+              "Sa pamamagitan ng kasunduan kay Rizal"
+            ],
+            "correct_answer": "Sa pamamagitan ng Kasunduan sa Paris"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang pagkadakip kay Aguinaldo?",
+            "options": [
+              "Nagpapakita ito kung paano humina ang organisadong paglaban",
+              "Nagpapakita ito ng kalayaan ng Pilipinas",
+              "Nagpapakita ito ng tagumpay ng Katipunan",
+              "Nagpapakita ito ng pagtatapos ng imperyalismo"
+            ],
+            "correct_answer": "Nagpapakita ito kung paano humina ang organisadong paglaban"
+          },
+          {
+            "question": "Ano ang PINAKAMAHALAGANG aral mula sa Digmaang Pilipino-Amerikano?",
+            "options": [
+              "Nagpatuloy ang paglaban ng mga Pilipino kahit may bagong mananakop",
+              "Tumigil agad ang mga Pilipino sa paglaban",
+              "Sumang-ayon kaagad ang lahat ng Pilipino sa Amerika",
+              "Walang naganap na labanan pagkatapos ng Espanya"
+            ],
+            "correct_answer": "Nagpatuloy ang paglaban ng mga Pilipino kahit may bagong mananakop"
+          }
+        ]
+      }
+    },
+    "Thursday": {
+      "MAPEH": {
+        "summary_markdown": "# 🏸 MAPEH — Striking/Fielding at Net/Wall Games (Termino 2, Linggo 1)\n\nBagong uri ng laro para sa Termino 2! 🎾⚾\n\n## 🏏 Striking/Fielding Games\nLayunin: **tamaan ang bola** at tumakbo sa mga **base** bago maisauli ng kalaban ang bola.\n- **Halimbawa:** softball, baseball, patintero-inspired striking games\n- **Susi:** tamang **timing** ng pagtama, mabilis na pagtakbo, mahusay na **fielding** (pagsalo/pagbato pabalik)\n\n## 🏓 Net/Wall Games\nLayunin: **ipadaan ang bola sa net o pader** patungo sa lugar na mahirap sagutin ng kalaban.\n- **Halimbawa:** badminton, volleyball, table tennis, sipa-tennis\n- **Susi:** **placement** (kung saan ipapadpad ang bola), timing ng swing, at posisyon sa court\n\n## 🧠 Mahahalagang Kasanayan\n\n| Kasanayan | Paglalarawan |\n|---|---|\n| **Striking** | pagtama sa bola gamit ang kamay, paa, o pamalo |\n| **Fielding** | pagsalo o pagbawi ng bola pagkatapos itong tamaan |\n| **Serving** | pagpapasimula ng laro sa pamamagitan ng pagpadala ng bola sa kalaban |\n| **Volleying** | pagpapadaan ng bola nang hindi pinatatalbog sa sahig |\n\n## 💪 Estratehiya sa Striking/Fielding\n- **Sa pagbato/pagtama:** tumingin sa bola hanggang sa sandaling matama ito\n- **Sa fielding:** manatili sa tamang posisyon bago pa dumating ang bola\n- **Sa pagtakbo sa base:** magpasya nang mabilis kung tatakbo o hindi\n\n## 🎯 Estratehiya sa Net/Wall Games\n- **Ipadala ang bola sa bakanteng espasyo** ng kalaban\n- **Baguhin ang bilis at direksyon** upang hindi mahulaan ng kalaban\n- **Bumalik agad sa gitnang posisyon** (ready position) pagkatapos ng bawat tira\n\n## 🛡️ Kaligtasan\nMag-warm up bago maglaro, gumamit ng tamang kagamitan (racket, guwantes), at manatiling alerto sa direksyon ng bolang lumilipad.\n\n## 🤝 Sportsmanship\nKilalanin ang magandang laro ng kalaban, sundin ang mga panuntunan, at maglaro nang **patas** kahit walang nakatingin na referee.\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang layunin ng striking/fielding games?",
+            "options": [
+              "Tamaan ang bola at tumakbo sa mga base",
+              "Ipasok ang bola sa isang target",
+              "Ipadaan ang bola sa ibabaw ng net",
+              "Manatili lamang sa isang lugar"
+            ],
+            "correct_answer": "Tamaan ang bola at tumakbo sa mga base"
+          },
+          {
+            "question": "Alin ang halimbawa ng net/wall game?",
+            "options": [
+              "Badminton",
+              "Softball",
+              "Baseball",
+              "Patintero"
+            ],
+            "correct_answer": "Badminton"
+          },
+          {
+            "question": "Ano ang fielding?",
+            "options": [
+              "Pagsalo o pagbawi ng bola pagkatapos itong tamaan",
+              "Pagpapasimula ng laro sa net",
+              "Pagtakbo patungo sa base",
+              "Pagpapadala ng bola sa ere"
+            ],
+            "correct_answer": "Pagsalo o pagbawi ng bola pagkatapos itong tamaan"
+          },
+          {
+            "question": "Ano ang volleying sa net/wall games?",
+            "options": [
+              "Pagpapadaan ng bola nang hindi ito humahagpak sa sahig",
+              "Pagbato ng bola gamit ang pamalo",
+              "Pagtakbo patungo sa susunod na base",
+              "Pagsalo ng bola gamit ang dalawang kamay"
+            ],
+            "correct_answer": "Pagpapadaan ng bola nang hindi ito humahagpak sa sahig"
+          },
+          {
+            "question": "Bakit mahalagang tumingin sa bola hanggang sa matama ito?",
+            "options": [
+              "Nadaragdagan ang katumpakan ng pagtama",
+              "Napapabilis ang takbo ng manlalaro",
+              "Naiiwasan ang pagsalo ng kalaban",
+              "Nababawasan ang bigat ng bola"
+            ],
+            "correct_answer": "Nadaragdagan ang katumpakan ng pagtama"
+          },
+          {
+            "question": "Sa net/wall games, saan pinakamainam ipadala ang bola?",
+            "options": [
+              "Sa bakanteng espasyo ng kalaban",
+              "Sa pinakamalapit na bahagi ng net",
+              "Sa parehong lugar palagi",
+              "Sa labas ng court"
+            ],
+            "correct_answer": "Sa bakanteng espasyo ng kalaban"
+          },
+          {
+            "question": "Bakit mahalagang bumalik sa ready position pagkatapos ng bawat tira?",
+            "options": [
+              "Upang mahandang tumugon sa susunod na tira",
+              "Upang mapahinga nang matagal",
+              "Upang makapagpalit ng kagamitan",
+              "Upang makipag-usap sa kakampi"
+            ],
+            "correct_answer": "Upang mahandang tumugon sa susunod na tira"
+          },
+          {
+            "question": "Ano ang mahalagang gawin bago maglaro ng striking/fielding o net/wall games?",
+            "options": [
+              "Mag-warm up",
+              "Kumain ng mabigat na pagkain",
+              "Matulog nang mahimbing",
+              "Uminom ng malamig na tubig kaagad"
+            ],
+            "correct_answer": "Mag-warm up"
+          },
+          {
+            "question": "Ano ang nagpapakita ng tunay na sportsmanship sa mga larong ito?",
+            "options": [
+              "Maglaro nang patas kahit walang referee",
+              "Manalo sa anumang paraan",
+              "Isumbong agad ang kalaban",
+              "Iwasan ang pakikilahok sa laro"
+            ],
+            "correct_answer": "Maglaro nang patas kahit walang referee"
+          },
+          {
+            "question": "Bakit mahalagang baguhin ang bilis at direksyon ng tira sa net/wall games?",
+            "options": [
+              "Upang hindi mahulaan ng kalaban ang susunod na galaw",
+              "Upang mapabilis ang pagtatapos ng laro",
+              "Upang mas madaling mahuli ang bola",
+              "Upang hindi na kailangang tumakbo"
+            ],
+            "correct_answer": "Upang hindi mahulaan ng kalaban ang susunod na galaw"
+          },
+          {
+            "question": "Sa isang laro ng softball, mabagal na tumatakbo ang isang manlalaro papuntang unang base kahit malayo ang bola. Ano ang dapat niyang gawin?",
+            "options": [
+              "Tumakbo nang buong-lakas hanggang sa base",
+              "Huminto para magpahinga muna",
+              "Bumalik sa naunang posisyon",
+              "Hintayin ang susunod na inning"
+            ],
+            "correct_answer": "Tumakbo nang buong-lakas hanggang sa base"
+          },
+          {
+            "question": "Palaging naiipit sa gitna ng court ang isang manlalaro ng badminton kaya nahuhuli sa mga tira sa gilid. Ano ang PINAKAMABUTING solusyon?",
+            "options": [
+              "Bumalik agad sa ready position pagkatapos ng bawat tira",
+              "Manatili sa gilid ng court palagi",
+              "Tumigil sa paglalaro ng badminton",
+              "Hintayin na lang ang bawat tira ng kalaban"
+            ],
+            "correct_answer": "Bumalik agad sa ready position pagkatapos ng bawat tira"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 GMRC — Paggalang sa mga Nakatatanda sa Pamilya (Termino 2, Linggo 1)\n\nBagong pagpapahalaga para sa Termino 2: **Kagandahang-loob**. 👵👴\n\n## 👨‍👩‍👧 Sino ang mga \"Elders\" at \"Elderly\" sa Pamilya?\n- **Elders** — mga mas matanda sa iyo ngunit hindi pa lubos na may-edad (hal. mga magulang, tito/tita, kuya/ate)\n- **Elderly** — mga nasa hustong gulang na o may edad na (hal. lolo, lola, matandang kamag-anak)\n\n## 🗣️ Angkop na Salita at Gesture\n- Gamitin ang **po** at **opo** kapag nakikipag-usap sa mas matanda\n- **Bumati** kapag nagkita — \"Magandang umaga po\"\n- **Mano** — paggalang sa pamamagitan ng paghawak ng kamay ng matanda sa noo\n- Iwasan ang **pagtaas ng boses** o pagsagot nang pabalang\n\n## 🎗️ Pag-alaala at Pag-alalay\n- **Pag-alaala** — tandaan ang kanilang kaarawan, anibersaryo, o mga bagay na mahalaga sa kanila\n- **Pag-alalay** — tulungan sila sa paglakad, pagbuhat ng bagay, o pag-akyat ng hagdan\n- **Pakikinig** — bigyan ng pansin ang kanilang mga kuwento at karanasan, kahit paulit-ulit na ito\n\n## 💝 Ang Pagpapahalagang KAGANDAHANG-LOOB\nAng **kagandahang-loob** ay ang pagpapakita ng **kabaitan at pagmamalasakit** sa iba nang walang inaasahang kapalit.\n\n**Halimbawa ng kagandahang-loob sa mga nakatatanda:**\n- Kusang-loob na pagbibigay ng upuan sa sasakyan\n- Pagtulong sa lolo/lola sa pagbuhat ng bag ng grocery\n- Pagbabahagi ng oras kahit abala sa sariling gawain\n\n## 🧠 Bakit Mahalaga Ito?\n1. **Utang na loob** — ang mga nakatatanda ay nagbigay ng buhay, aral, at gabay\n2. **Halimbawa sa nakababata** — ang paggalang mo sa matanda ay nakikita ng iyong mga kapatid o kaibigan\n3. **Ginto ang karanasan nila** — may mga aral silang natutunan na hindi mo pa alam\n\n## ⚠️ Iwasan\n- Pagbale-wala sa kanilang payo nang walang kadahilanan\n- Pagsagot nang pabalang o may inis\n- Pagkalimot sa kanilang kaarawan o mahahalagang araw\n\n> *\"Ang taong hindi marunong gumalang sa nakatatanda ay hindi rin igagalang balang araw.\"*\n\nMagandang simula sa Termino 2! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang tinutukoy na \"elderly\" sa pamilya?",
+            "options": [
+              "Mga nasa hustong gulang na, tulad ng lolo at lola",
+              "Mga bagong panganak na sanggol",
+              "Mga kapatid na mas bata",
+              "Mga kaibigan sa paaralan"
+            ],
+            "correct_answer": "Mga nasa hustong gulang na, tulad ng lolo at lola"
+          },
+          {
+            "question": "Anong mga salita ang dapat gamitin kapag nakikipag-usap sa nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Oo at hindi lamang",
+              "Anumang salitang gusto mo",
+              "Salitang banyaga lamang"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Ano ang mano?",
+            "options": [
+              "Paggalang sa pamamagitan ng paghawak ng kamay ng matanda sa noo",
+              "Isang uring pagkain",
+              "Isang laro para sa bata",
+              "Isang uri ng pagbati sa telepono"
+            ],
+            "correct_answer": "Paggalang sa pamamagitan ng paghawak ng kamay ng matanda sa noo"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng pag-alalay sa matanda?",
+            "options": [
+              "Pagtulong sa kanila sa paglakad o pagbuhat",
+              "Pagsagot nang pabalang sa kanila",
+              "Pagkalimot sa kanilang kaarawan",
+              "Pag-iwas sa kanilang presensya"
+            ],
+            "correct_answer": "Pagtulong sa kanila sa paglakad o pagbuhat"
+          },
+          {
+            "question": "Ano ang kagandahang-loob?",
+            "options": [
+              "Pagpapakita ng kabaitan nang walang inaasahang kapalit",
+              "Paggawa ng kabutihan para lang sa gantimpala",
+              "Pagtulong lamang kapag pinapanood",
+              "Pagbibigay ng regalo tuwing kaarawan lamang"
+            ],
+            "correct_answer": "Pagpapakita ng kabaitan nang walang inaasahang kapalit"
+          },
+          {
+            "question": "Bakit mahalagang pakinggan ang mga kuwento ng matatanda kahit paulit-ulit na ito?",
+            "options": [
+              "Nagpapakita ito ng paggalang at pagpapahalaga sa kanila",
+              "Upang mabilis matapos ang usapan",
+              "Upang hindi na sila magsalita pa",
+              "Upang makakuha ng gantimpala"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang at pagpapahalaga sa kanila"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagandahang-loob sa isang nakatatanda?",
+            "options": [
+              "Kusang pagbibigay ng upuan sa sasakyan",
+              "Pagtakbo palayo kapag nakita sila",
+              "Pagsagot nang mataas ang boses",
+              "Pagbalewala sa kanilang tanong"
+            ],
+            "correct_answer": "Kusang pagbibigay ng upuan sa sasakyan"
+          },
+          {
+            "question": "Ano ang \"utang na loob\" na tinutukoy sa pagpapahalaga sa matatanda?",
+            "options": [
+              "Ang pagkilala sa buhay, aral, at gabay na ibinigay nila",
+              "Ang pagbabayad ng pera sa kanila",
+              "Ang pagsunod sa kanilang lahat ng gusto",
+              "Ang pagbibigay ng regalo linggo-linggo"
+            ],
+            "correct_answer": "Ang pagkilala sa buhay, aral, at gabay na ibinigay nila"
+          },
+          {
+            "question": "Bakit sinasabing halimbawa ang paggalang mo sa mga nakatatanda?",
+            "options": [
+              "Nakikita ito ng mga nakababata sa iyong paligid",
+              "Walang epekto ito sa ibang tao",
+              "Nakikita lamang ito ng nakatatanda",
+              "Hindi ito napapansin ng iba"
+            ],
+            "correct_answer": "Nakikita ito ng mga nakababata sa iyong paligid"
+          },
+          {
+            "question": "Ano ang dapat iwasan kapag nakikitungo sa mga nakatatanda?",
+            "options": [
+              "Pagsagot nang pabalang o may inis",
+              "Pagbati sa umaga",
+              "Pagtulong sa kanilang bitbit",
+              "Paggamit ng po at opo"
+            ],
+            "correct_answer": "Pagsagot nang pabalang o may inis"
+          },
+          {
+            "question": "Nakita mong nahihirapang bumuhat ng bag ng grocery ang iyong lola. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Agad tumulong na buhatin ang bag",
+              "Hayaan siyang mag-isa upang matuto",
+              "Tawagin ang ibang tao para tumulong",
+              "Pumunta na lamang sa ibang lugar"
+            ],
+            "correct_answer": "Agad tumulong na buhatin ang bag"
+          },
+          {
+            "question": "Bakit sinasabing hindi sapat ang isang beses lamang na kabutihan sa isang matanda upang maituring na kagandahang-loob?",
+            "options": [
+              "Dahil ang tunay na kagandahang-loob ay ginagawa nang tuluy-tuloy",
+              "Dahil kailangan itong gawin sa harap ng maraming tao",
+              "Dahil kailangan itong may kapalit na gantimpala",
+              "Dahil hindi ito napapansin ng mga matanda"
+            ],
+            "correct_answer": "Dahil ang tunay na kagandahang-loob ay ginagawa nang tuluy-tuloy"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 EPP — Fishery Arts and Its Branches (Term 2, Week 1)\n\nWelcome to a brand-new EPP area for Term 2 — **Fishery Arts**! 🎣\n\n## 🌊 What Is Fishery Arts?\n**Fishery arts** is the study and practice of raising, catching, and processing fish and other aquatic resources for food, income, and livelihood.\n\n## 🧩 The Three Main Branches\n\n| Branch | What it covers |\n|---|---|\n| **Fish Culture** | raising fish in **controlled environments** — ponds, fish tanks, or cages |\n| **Fish Capture** | catching fish from **natural bodies of water** — rivers, lakes, seas |\n| **Fish Processing** | preparing caught or raised fish for **sale or preservation** — drying, smoking, canning |\n\n## 🐠 Fish Culture (Aquaculture)\nFarmers raise fish in a **controlled space** where they can manage water quality, feeding, and stocking density — this gives more **predictable and reliable** harvests than relying on wild catch.\n\n**Common species raised in the Philippines:** tilapia, bangus (milkfish), hito (catfish).\n\n## 🎣 Fish Capture\nFishing directly from natural waters using **nets, hooks and lines, or traps**. This depends on **seasons, weather, and fish migration patterns** — less predictable than fish culture.\n\n## 🏭 Fish Processing\nTurning fresh fish into products that **last longer and reach more markets**:\n- **Drying** (daing) — removing moisture with sun or heat\n- **Smoking** (tinapa) — preserving with smoke and adding flavor\n- **Salting** (tuyo, or salted fish) — preventing bacterial growth with salt\n- **Canning** (e.g., canned sardines) — sealing in an airtight container after cooking\n\n## 💰 Importance and Benefits of Fish Raising\n\n1. **Source of food** — a major source of protein for Filipino households\n2. **Source of income** — fish farmers and vendors earn a living from selling fish and fish products\n3. **Source of employment** — from fish farming, to processing, to selling in the market, fisheries create many jobs\n\n## 🌏 Why This Matters for the Philippines\nAs an **archipelago** surrounded by seas, lakes, and rivers, the Philippines has abundant natural resources for fishery arts — making it an important part of the country's food security and economy.\n\n## ⚠️ A Balanced View\nNot all methods are equally sustainable. **Overfishing** (catching too many fish too quickly) can deplete natural fish populations — this is one reason **fish culture** is important as a more controlled and sustainable alternative.\n\nGreat start to this new area of EPP! 🌟",
+        "quiz": [
+          {
+            "question": "What is fishery arts?",
+            "options": [
+              "The study and practice of raising, catching, and processing fish",
+              "The study of ocean currents and tides",
+              "The art of drawing pictures of fish",
+              "The study of boat-building materials"
+            ],
+            "correct_answer": "The study and practice of raising, catching, and processing fish"
+          },
+          {
+            "question": "Which branch of fishery arts involves raising fish in ponds or tanks?",
+            "options": [
+              "Fish culture",
+              "Fish capture",
+              "Fish processing",
+              "Fish marketing"
+            ],
+            "correct_answer": "Fish culture"
+          },
+          {
+            "question": "Which branch involves catching fish from rivers, lakes, or seas?",
+            "options": [
+              "Fish capture",
+              "Fish culture",
+              "Fish processing",
+              "Fish packaging"
+            ],
+            "correct_answer": "Fish capture"
+          },
+          {
+            "question": "Turning fresh fish into tinapa (smoked fish) is an example of:",
+            "options": [
+              "Fish processing",
+              "Fish culture",
+              "Fish capture",
+              "Fish farming"
+            ],
+            "correct_answer": "Fish processing"
+          },
+          {
+            "question": "Which fish is commonly raised in Philippine aquaculture?",
+            "options": [
+              "Tilapia",
+              "Whale shark",
+              "Dolphin",
+              "Squid only"
+            ],
+            "correct_answer": "Tilapia"
+          },
+          {
+            "question": "Why is fish culture often more predictable than fish capture?",
+            "options": [
+              "The environment is controlled by the farmer",
+              "It never requires feeding fish",
+              "It does not need clean water at all",
+              "It happens only during storms"
+            ],
+            "correct_answer": "The environment is controlled by the farmer"
+          },
+          {
+            "question": "What method preserves fish using salt to prevent bacterial growth?",
+            "options": [
+              "Salting",
+              "Steaming",
+              "Freezing only",
+              "Boiling only"
+            ],
+            "correct_answer": "Salting"
+          },
+          {
+            "question": "Which is NOT one of the three main branches of fishery arts?",
+            "options": [
+              "Fish transportation",
+              "Fish culture",
+              "Fish capture",
+              "Fish processing"
+            ],
+            "correct_answer": "Fish transportation"
+          },
+          {
+            "question": "What is one major benefit of fish raising for a family?",
+            "options": [
+              "A source of food and income",
+              "A way to avoid using electricity",
+              "A method for building houses",
+              "A tool for traveling faster"
+            ],
+            "correct_answer": "A source of food and income"
+          },
+          {
+            "question": "Why is the Philippines well-suited for fishery arts?",
+            "options": [
+              "It is an archipelago surrounded by seas, lakes, and rivers",
+              "It has very few bodies of water",
+              "It has no coastline at all",
+              "It only has mountain regions"
+            ],
+            "correct_answer": "It is an archipelago surrounded by seas, lakes, and rivers"
+          },
+          {
+            "question": "What problem can happen if fishers catch too many fish too quickly from the wild?",
+            "options": [
+              "Overfishing can deplete natural fish populations",
+              "Fish will multiply faster than normal",
+              "Ocean water will become fresher",
+              "Fish prices will drop to zero"
+            ],
+            "correct_answer": "Overfishing can deplete natural fish populations"
+          },
+          {
+            "question": "A community relies only on fish capture from a river, and catches have been dropping every year. What would BEST help make their fish supply more sustainable?",
+            "options": [
+              "Starting a fish culture project alongside fishing",
+              "Using bigger nets to catch even more fish",
+              "Fishing only during the rainy season",
+              "Stopping all fish processing activities"
+            ],
+            "correct_answer": "Starting a fish culture project alongside fishing"
+          }
+        ]
+      }
+    },
+    "Friday": {
+      "English": {
+        "summary_markdown": "# 🗣️ Friday Review — English (Grade 6, Term 2 Week 1)\n\n- **Diamond outlining:** specific detail → general main idea (center) → specific conclusion\n- **Propaganda Round 2:** testimonial (endorsement) · plain folks (relatable) · bandwagon (everyone's doing it)\n- **Directories:** reference for acronyms/abbreviations\n- **Grammar:** intransitive verbs (no object needed) · perfect tenses (has/had/will have + past participle) · prepositional phrases as adjectives · noun/pronoun/adjective complements · compound-complex sentences\n- **Non-verbal cues** carry meaning alongside words\n- **Open-ended survey:** respondents write their own answers\n\nGreat start to Term 2! 🌟",
+        "quiz": [
+          {
+            "question": "A movie star says \"This shampoo is what I use\" in a commercial. This is:",
+            "options": [
+              "Testimonial",
+              "Bandwagon",
+              "Plain folks",
+              "Card stacking"
+            ],
+            "correct_answer": "Testimonial"
+          },
+          {
+            "question": "\"Everyone in town already has one — don't be left out!\" is:",
+            "options": [
+              "Bandwagon",
+              "Testimonial",
+              "Plain folks",
+              "Transfer"
+            ],
+            "correct_answer": "Bandwagon"
+          },
+          {
+            "question": "In a diamond outline, the widest point represents:",
+            "options": [
+              "The general main idea",
+              "A single specific detail",
+              "The title of the text",
+              "The name of the author"
+            ],
+            "correct_answer": "The general main idea"
+          },
+          {
+            "question": "Which sentence has an intransitive verb?",
+            "options": [
+              "The dog barked loudly.",
+              "The dog chased the cat.",
+              "The dog carried the bone.",
+              "The dog broke the vase."
+            ],
+            "correct_answer": "The dog barked loudly."
+          },
+          {
+            "question": "\"They have completed the project\" is in which tense?",
+            "options": [
+              "Present perfect",
+              "Past perfect",
+              "Future perfect",
+              "Simple past"
+            ],
+            "correct_answer": "Present perfect"
+          },
+          {
+            "question": "A directory is best used to look up:",
+            "options": [
+              "Acronyms and abbreviations",
+              "Rhymes for a poem",
+              "Synonyms of a word",
+              "Weather forecasts"
+            ],
+            "correct_answer": "Acronyms and abbreviations"
+          },
+          {
+            "question": "Which is a compound-complex sentence?",
+            "options": [
+              "Because she was late, she ran, and she still missed the bus.",
+              "She ran because she was late.",
+              "She ran, and she missed the bus.",
+              "Because she was late, she ran."
+            ],
+            "correct_answer": "Because she was late, she ran, and she still missed the bus."
+          },
+          {
+            "question": "Crossed arms and a frown while saying \"I'm fine\" shows the importance of:",
+            "options": [
+              "Non-verbal cues",
+              "Perfect tenses",
+              "Compound sentences",
+              "Diamond outlining"
+            ],
+            "correct_answer": "Non-verbal cues"
+          },
+          {
+            "question": "An open-ended survey question is BEST used when you want:",
+            "options": [
+              "Detailed answers in the respondent's own words",
+              "A simple yes or no answer",
+              "A rating from 1 to 5 only",
+              "A single word answer only"
+            ],
+            "correct_answer": "Detailed answers in the respondent's own words"
+          },
+          {
+            "question": "A politician wears simple clothes and eats street food on camera to seem ordinary. This is:",
+            "options": [
+              "Plain folks",
+              "Testimonial",
+              "Bandwagon",
+              "Name-calling"
+            ],
+            "correct_answer": "Plain folks"
+          },
+          {
+            "question": "A famous athlete's endorsement is used instead of scientific proof. What question should a critical viewer ask?",
+            "options": [
+              "Is trust in the athlete replacing real evidence?",
+              "Is the athlete famous enough?",
+              "Is the commercial colorful enough?",
+              "Is the athlete's voice pleasant?"
+            ],
+            "correct_answer": "Is trust in the athlete replacing real evidence?"
+          },
+          {
+            "question": "\"The book on the shelf is mine\" — which phrase acts as an adjective describing \"book\"?",
+            "options": [
+              "on the shelf",
+              "is mine",
+              "The book",
+              "an adjective"
+            ],
+            "correct_answer": "on the shelf"
+          }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 🔢 Friday Review — Mathematics (Grade 6, Term 2 Week 1)\n\n- **Ratio** compares quantities: **part-to-part** or **part-to-whole**\n- Simplify a ratio the same way as a fraction — divide by the **greatest common factor**\n- **Equivalent ratios:** multiply or divide BOTH terms by the same number\n- **Ratio table / double number line:** find the scale factor, then apply it to both quantities\n\n| Example | Answer |\n|---|---|\n| Simplify 15 : 20 | 3 : 4 |\n| Ratio 2:5, scale sugar to 6 | flour = 15 |\n| Ratio 3:5 boys:girls, fraction boys | 3/8 |\n\nGreat start to Term 2! ⭐",
+        "quiz": [
+          {
+            "question": "Simplify the ratio 12 : 18 to lowest terms.",
+            "options": [
+              "2 : 3",
+              "6 : 9",
+              "4 : 6",
+              "1 : 2"
+            ],
+            "correct_answer": "2 : 3"
+          },
+          {
+            "question": "A ratio of red to blue marbles is 3 : 7. What is the ratio of red marbles to TOTAL marbles?",
+            "options": [
+              "3 : 10",
+              "3 : 7",
+              "7 : 10",
+              "7 : 3"
+            ],
+            "correct_answer": "3 : 10"
+          },
+          {
+            "question": "Which ratio is equivalent to 4 : 5?",
+            "options": [
+              "8 : 10",
+              "4 : 6",
+              "5 : 4",
+              "9 : 10"
+            ],
+            "correct_answer": "8 : 10"
+          },
+          {
+            "question": "A recipe ratio of oil to vinegar is 3 : 1. How much vinegar is needed for 9 cups of oil?",
+            "options": [
+              "3 cups",
+              "9 cups",
+              "27 cups",
+              "1 cup"
+            ],
+            "correct_answer": "3 cups"
+          },
+          {
+            "question": "If the ratio of cats to dogs is 2 : 9, what fraction of the animals are cats?",
+            "options": [
+              "2/11",
+              "2/9",
+              "9/11",
+              "9/2"
+            ],
+            "correct_answer": "2/11"
+          },
+          {
+            "question": "To find an equivalent ratio, you must:",
+            "options": [
+              "Multiply or divide both terms by the same number",
+              "Add the same number to both terms",
+              "Multiply only one of the two terms",
+              "Subtract one term from the other"
+            ],
+            "correct_answer": "Multiply or divide both terms by the same number"
+          },
+          {
+            "question": "A ratio table shows sugar doubling from 3 to 6 cups. If flour started at 8 cups, what is the new flour amount?",
+            "options": [
+              "16 cups",
+              "11 cups",
+              "8 cups",
+              "24 cups"
+            ],
+            "correct_answer": "16 cups"
+          },
+          {
+            "question": "A ratio of pencils to erasers is 5 : 2. If there are 10 pencils, how many erasers are there?",
+            "options": [
+              "4",
+              "2",
+              "20",
+              "7"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "What is the main purpose of a double number line in ratio problems?",
+            "options": [
+              "To show how two quantities scale together visually",
+              "To calculate the perimeter of shapes",
+              "To measure angles in a triangle",
+              "To find the area of a circle"
+            ],
+            "correct_answer": "To show how two quantities scale together visually"
+          },
+          {
+            "question": "A student simplifies 10:15 to 2:5 instead of 2:3. What mistake did they make?",
+            "options": [
+              "They divided incorrectly by the common factor",
+              "They multiplied the terms instead",
+              "They used the wrong ratio symbol",
+              "They added instead of dividing"
+            ],
+            "correct_answer": "They divided incorrectly by the common factor"
+          },
+          {
+            "question": "A juice mix ratio is 1 : 4 (concentrate : water). For 3 cups of concentrate, how much water is needed?",
+            "options": [
+              "12 cups",
+              "7 cups",
+              "4 cups",
+              "3 cups"
+            ],
+            "correct_answer": "12 cups"
+          },
+          {
+            "question": "In a bag, the ratio of yellow to green to red candies is 2 : 3 : 5. If there are 100 candies total, how many are red?",
+            "options": [
+              "50",
+              "20",
+              "30",
+              "40"
+            ],
+            "correct_answer": "50"
+          }
+        ]
+      },
+      "Filipino": {
+        "summary_markdown": "# 📖 Biyernes na Balik-Aral — Filipino (Grade 6, Termino 2 Linggo 1)\n\n- **Paghinuha (inference)** = paggamit ng pahiwatig upang maunawaan ang di-tuwirang sinasabi\n- **Salawikain** = maikling kasabihang may aral (hal. \"Kung ano ang puno, siya ang bunga\")\n- **Kaganapan ng pandiwa — benepaktibo** = ang nakikinabang sa kilos\n- Mahalaga ang **opinyon at reaksiyon** sa kilos ng tauhan bilang tanda ng pag-unawa\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang paghinuha?",
+            "options": [
+              "Paggamit ng pahiwatig upang maunawaan ang hindi tuwirang sinasabi",
+              "Direktang pagkopya ng teksto",
+              "Pagbibilang ng talata sa kuwento",
+              "Paghahanap ng pamagat ng aklat"
+            ],
+            "correct_answer": "Paggamit ng pahiwatig upang maunawaan ang hindi tuwirang sinasabi"
+          },
+          {
+            "question": "Ano ang salawikain?",
+            "options": [
+              "Maikling kasabihang may aral sa buhay",
+              "Mahabang kuwento may tauhan",
+              "Tula na may sukat at tugma",
+              "Dula na itinatanghal"
+            ],
+            "correct_answer": "Maikling kasabihang may aral sa buhay"
+          },
+          {
+            "question": "Sa \"Naghanda si Aling Maria ng pagkain para sa mga bisita,\" alin ang benepaktibo?",
+            "options": [
+              "mga bisita",
+              "Aling Maria",
+              "pagkain",
+              "naghanda"
+            ],
+            "correct_answer": "mga bisita"
+          },
+          {
+            "question": "Bakit mahalagang magbigay ng opinyon tungkol sa kilos ng tauhan?",
+            "options": [
+              "Upang maipakita ang sariling pananaw at pag-unawa",
+              "Upang mapabilis lamang ang pagbasa",
+              "Upang mapalitan ang buong kuwento",
+              "Upang hindi na basahin pa ang teksto"
+            ],
+            "correct_answer": "Upang maipakita ang sariling pananaw at pag-unawa"
+          },
+          {
+            "question": "Ano ang hinahanap sa isang tekstong eksposisyon?",
+            "options": [
+              "Pangunahing diwa at sumusuportang detalye",
+              "Bilang ng mga tauhan",
+              "Tugma ng mga taludtod",
+              "Uri ng papel na ginamit"
+            ],
+            "correct_answer": "Pangunahing diwa at sumusuportang detalye"
+          },
+          {
+            "question": "Ano ang ipinapahiwatig kapag umiiwas sa titig ang isang tauhan?",
+            "options": [
+              "Kahihiyan o kasinungalingan",
+              "Sobrang saya",
+              "Matinding gutom",
+              "Labis na antok"
+            ],
+            "correct_answer": "Kahihiyan o kasinungalingan"
+          },
+          {
+            "question": "Paano ginagamit ang salawikain bilang pahiwatig ng kahulugan?",
+            "options": [
+              "Sa pagsusuri ng mga pangungusap bago at pagkatapos nito",
+              "Sa pagbibilang ng titik nito",
+              "Sa pagsulat nito nang malaki",
+              "Sa pagbanggit lamang ng pamagat"
+            ],
+            "correct_answer": "Sa pagsusuri ng mga pangungusap bago at pagkatapos nito"
+          },
+          {
+            "question": "Ano ang tinutukoy ng kaganapan ng pandiwa na benepaktibo?",
+            "options": [
+              "Ang taong nakikinabang sa kilos",
+              "Ang gumagawa ng kilos",
+              "Ang lugar kung saan nangyari ang kilos",
+              "Ang oras ng pangyayari"
+            ],
+            "correct_answer": "Ang taong nakikinabang sa kilos"
+          },
+          {
+            "question": "Anong pahiwatig ang maaaring gamitin upang malaman ang damdamin ng isang tauhan?",
+            "options": [
+              "Paraan ng pagsasalita at kilos ng katawan",
+              "Bilang ng pahina ng aklat",
+              "Kulay ng pabalat ng libro",
+              "Pangalan ng manunulat"
+            ],
+            "correct_answer": "Paraan ng pagsasalita at kilos ng katawan"
+          },
+          {
+            "question": "Isang tauhan ang tumulong sa kaibigan kahit pagod na siya. Ano ang PINAKAANGKOP na reaksiyon dito?",
+            "options": [
+              "Paghanga sa kaniyang kagandahang-loob",
+              "Pagtuligsa dahil sa pagod",
+              "Walang pakialam dito",
+              "Pagkalito sa dahilan"
+            ],
+            "correct_answer": "Paghanga sa kaniyang kagandahang-loob"
+          },
+          {
+            "question": "Bakit mahalagang tukuyin ang mahahalagang detalye bago suriin ang isang tauhan?",
+            "options": [
+              "Upang magkaroon ng basehan sa pagsusuri ng kilos nito",
+              "Upang mapabilis ang pagbabasa nang hindi umuunawa",
+              "Upang mapalitan ang buong akda",
+              "Upang maiwasan ang pagbasa ng kuwento"
+            ],
+            "correct_answer": "Upang magkaroon ng basehan sa pagsusuri ng kilos nito"
+          },
+          {
+            "question": "Alin sa mga sumusunod ang HALIMBAWA ng salawikain?",
+            "options": [
+              "Kung ano ang puno, siya ang bunga.",
+              "Maligayang bati sa iyo!",
+              "Ang Pilipinas ay may pitong-libong isla.",
+              "Tara na, halina at sumama."
+            ],
+            "correct_answer": "Kung ano ang puno, siya ang bunga."
+          }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# ❤️ Friday Review — Science (Grade 6, Term 2 Week 1)\n\n- **Circulatory system parts:** heart (pumps blood), blood (carries oxygen/nutrients), blood vessels (pathways)\n- **Heart:** 4 chambers — 2 atria (upper), 2 ventricles (lower)\n- **Arteries** (away from heart, thick walls) · **Veins** (toward heart, has valves) · **Capillaries** (exchange site)\n- Circulation is a **continuous cycle** — stopping it deprives cells of oxygen\n- Healthy habits: exercise, balanced diet, no smoking, enough sleep\n\nGreat start to Term 2! 🔎",
+        "quiz": [
+          {
+            "question": "What pumps blood throughout the body?",
+            "options": [
+              "The heart",
+              "The lungs",
+              "The stomach",
+              "The skin"
+            ],
+            "correct_answer": "The heart"
+          },
+          {
+            "question": "Which vessels carry blood back TOWARD the heart?",
+            "options": [
+              "Veins",
+              "Arteries",
+              "Capillaries",
+              "Nerves"
+            ],
+            "correct_answer": "Veins"
+          },
+          {
+            "question": "How many chambers make up the heart?",
+            "options": [
+              "4",
+              "2",
+              "3",
+              "6"
+            ],
+            "correct_answer": "4"
+          },
+          {
+            "question": "Where does exchange of oxygen and nutrients with body cells occur?",
+            "options": [
+              "Capillaries",
+              "Arteries",
+              "Veins",
+              "Atria"
+            ],
+            "correct_answer": "Capillaries"
+          },
+          {
+            "question": "Which vessel type has thick, elastic walls to handle high pressure?",
+            "options": [
+              "Arteries",
+              "Veins",
+              "Capillaries",
+              "Ventricles"
+            ],
+            "correct_answer": "Arteries"
+          },
+          {
+            "question": "What do valves in veins prevent?",
+            "options": [
+              "Blood from flowing backward",
+              "Blood from carrying oxygen",
+              "Blood from reaching the heart",
+              "Blood from mixing with plasma"
+            ],
+            "correct_answer": "Blood from flowing backward"
+          },
+          {
+            "question": "What are the lower chambers of the heart called?",
+            "options": [
+              "Ventricles",
+              "Atria",
+              "Valves",
+              "Vessels"
+            ],
+            "correct_answer": "Ventricles"
+          },
+          {
+            "question": "Which of these is a healthy habit for the circulatory system?",
+            "options": [
+              "Regular exercise",
+              "Eating very salty food often",
+              "Avoiding all sleep",
+              "Never moving the body"
+            ],
+            "correct_answer": "Regular exercise"
+          },
+          {
+            "question": "Why is circulation described as a continuous cycle?",
+            "options": [
+              "Blood never stops moving while a person is alive",
+              "Blood only moves once per day",
+              "Blood stops moving during sleep",
+              "Blood only flows in the morning"
+            ],
+            "correct_answer": "Blood never stops moving while a person is alive"
+          },
+          {
+            "question": "A drop of blood just delivered oxygen to a leg muscle. Which vessel carries it back to the heart?",
+            "options": [
+              "A vein",
+              "An artery",
+              "A capillary only",
+              "A nerve"
+            ],
+            "correct_answer": "A vein"
+          },
+          {
+            "question": "Why is a stopped heart a medical emergency?",
+            "options": [
+              "Cells stop receiving oxygen and nutrients",
+              "The lungs immediately disappear",
+              "Blood turns into plasma only",
+              "White blood cells multiply rapidly"
+            ],
+            "correct_answer": "Cells stop receiving oxygen and nutrients"
+          },
+          {
+            "question": "A student says blood travels in one simple loop with no branches. What is the correct idea?",
+            "options": [
+              "Blood flows through a branching network of vessels",
+              "Blood never actually leaves the heart",
+              "Blood only reaches the brain",
+              "Blood moves only once in a lifetime"
+            ],
+            "correct_answer": "Blood flows through a branching network of vessels"
+          }
+        ]
+      },
+      "Araling Panlipunan": {
+        "summary_markdown": "# 🎖️ Biyernes na Balik-Aral — Araling Panlipunan (Grade 6, Termino 2 Linggo 1)\n\n- **Imperyalismo** = pagsakop sa ibang teritoryo para sa kapangyarihan/ekonomiya\n- **Unang Putok sa Sta. Mesa (1899)** — nagsimula ang Digmaang Pilipino-Amerikano\n- **Kasunduang Bates** — kasunduan sa mga Muslim sa Mindanao\n- **Tirad Pass** — huling pagtatanggol ni Gregorio del Pilar\n- **Pagkadakip kay Aguinaldo (1901)** — sa pamamagitan ng panlilinlang\n- **Tagumpay ng Balangiga** — sinundan ng malawakang pananalasa sa Samar\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Ano ang imperyalismo?",
+            "options": [
+              "Pagsakop sa ibang teritoryo para sa kapangyarihan",
+              "Kasunduan ng kapayapaan",
+              "Sistema ng pamahalaang bayan",
+              "Uri ng kalakalan sa barangay"
+            ],
+            "correct_answer": "Pagsakop sa ibang teritoryo para sa kapangyarihan"
+          },
+          {
+            "question": "Saan naganap ang Unang Putok ng Digmaang Pilipino-Amerikano?",
+            "options": [
+              "Sta. Mesa",
+              "Balangiga",
+              "Tirad Pass",
+              "Palanan"
+            ],
+            "correct_answer": "Sta. Mesa"
+          },
+          {
+            "question": "Ano ang layunin ng Kasunduang Bates?",
+            "options": [
+              "Panatilihin ang katahimikan sa Mindanao",
+              "Ipagbawal ang Ingles",
+              "Ibalik ang Espanya sa Pilipinas",
+              "Wakasan ang Digmaang Pilipino-Amerikano"
+            ],
+            "correct_answer": "Panatilihin ang katahimikan sa Mindanao"
+          },
+          {
+            "question": "Sino ang tinaguriang \"Leonidas ng Pilipinas\"?",
+            "options": [
+              "Gregorio del Pilar",
+              "Emilio Aguinaldo",
+              "Jacob Smith",
+              "William Grayson"
+            ],
+            "correct_answer": "Gregorio del Pilar"
+          },
+          {
+            "question": "Paano nadakip si Aguinaldo?",
+            "options": [
+              "Sa pamamagitan ng panlilinlang ng mga Amerikano",
+              "Sa pamamagitan ng tuwirang labanan",
+              "Sa pamamagitan ng kusang pagsuko",
+              "Sa pamamagitan ng bilihan"
+            ],
+            "correct_answer": "Sa pamamagitan ng panlilinlang ng mga Amerikano"
+          },
+          {
+            "question": "Ano ang Tagumpay ng Balangiga?",
+            "options": [
+              "Matagumpay na pagsalakay ng mga Pilipino",
+              "Pagsuko ng mga Pilipino",
+              "Kasunduan sa pagitan ng dalawang bansa",
+              "Deklarasyon ng bagong pamahalaan"
+            ],
+            "correct_answer": "Matagumpay na pagsalakay ng mga Pilipino"
+          },
+          {
+            "question": "Ano ang naging parusa ng Amerika sa Samar matapos ang Balangiga?",
+            "options": [
+              "Malawakang pananalasa laban sa mga sibilyan",
+              "Pagbibigay ng tulong pinansyal",
+              "Agarang kalayaan",
+              "Pagpapatayo ng paaralan"
+            ],
+            "correct_answer": "Malawakang pananalasa laban sa mga sibilyan"
+          },
+          {
+            "question": "Sino ang bumaril sa unang putok sa Sta. Mesa?",
+            "options": [
+              "Private William Grayson",
+              "Heneral Jacob Smith",
+              "Emilio Aguinaldo",
+              "Gregorio del Pilar"
+            ],
+            "correct_answer": "Private William Grayson"
+          },
+          {
+            "question": "Paano nakuha ng Estados Unidos ang Pilipinas mula sa Espanya?",
+            "options": [
+              "Sa pamamagitan ng Kasunduan sa Paris",
+              "Sa pamamagitan ng deklarasyon ni Rizal",
+              "Sa pamamagitan ng halalan",
+              "Sa pamamagitan ng Kasunduang Bates"
+            ],
+            "correct_answer": "Sa pamamagitan ng Kasunduan sa Paris"
+          },
+          {
+            "question": "Bakit mahalagang pag-aralan ang pagkadakip kay Aguinaldo?",
+            "options": [
+              "Nagpapakita ito kung paano humina ang organisadong paglaban",
+              "Nagpapakita ito ng tagumpay ng Katipunan",
+              "Nagpapakita ito ng kalayaan ng Pilipinas",
+              "Nagpapakita ito ng pagtatapos ng imperyalismo"
+            ],
+            "correct_answer": "Nagpapakita ito kung paano humina ang organisadong paglaban"
+          },
+          {
+            "question": "Ano ang PINAKAMAHALAGANG aral mula sa digmaang ito?",
+            "options": [
+              "Nagpatuloy ang paglaban ng Pilipino kahit may bagong mananakop",
+              "Tumigil agad sa paglaban ang mga Pilipino",
+              "Sumang-ayon lahat sa Amerika",
+              "Walang labanang naganap"
+            ],
+            "correct_answer": "Nagpatuloy ang paglaban ng Pilipino kahit may bagong mananakop"
+          },
+          {
+            "question": "Bakit itinuturing na mahalagang pangyayari ang Tagumpay ng Balangiga?",
+            "options": [
+              "Bihirang tagumpay ito ng mga Pilipino sa panahong iyon",
+              "Doon nagsimula ang Digmaang Pilipino-Amerikano",
+              "Doon nadakip si Aguinaldo",
+              "Doon nilagdaan ang Kasunduan sa Paris"
+            ],
+            "correct_answer": "Bihirang tagumpay ito ng mga Pilipino sa panahong iyon"
+          }
+        ]
+      },
+      "MAPEH": {
+        "summary_markdown": "# 🏸 Biyernes na Balik-Aral — MAPEH (Grade 6, Termino 2 Linggo 1)\n\n- **Striking/fielding games** (softball) — tamaan ang bola, tumakbo sa base\n- **Net/wall games** (badminton, volleyball) — ipadaan ang bola sa net patungo sa bakanteng espasyo\n- **Fielding** = pagsalo/pagbawi ng bola | **Volleying** = pagpapadaan nang hindi humahagpak\n- Bumalik sa **ready position** pagkatapos ng bawat tira\n- Mag-**warm up** bago maglaro; maglaro nang **patas**\n\nMagandang simula sa Termino 2! 🌟",
+        "quiz": [
+          {
+            "question": "Alin ang halimbawa ng striking/fielding game?",
+            "options": [
+              "Softball",
+              "Badminton",
+              "Volleyball",
+              "Table tennis"
+            ],
+            "correct_answer": "Softball"
+          },
+          {
+            "question": "Alin ang halimbawa ng net/wall game?",
+            "options": [
+              "Volleyball",
+              "Softball",
+              "Baseball",
+              "Patintero"
+            ],
+            "correct_answer": "Volleyball"
+          },
+          {
+            "question": "Ano ang fielding?",
+            "options": [
+              "Pagsalo o pagbawi ng bola",
+              "Pagpapasimula ng laro",
+              "Pagtakbo sa base",
+              "Pagtama sa bola"
+            ],
+            "correct_answer": "Pagsalo o pagbawi ng bola"
+          },
+          {
+            "question": "Ano ang volleying?",
+            "options": [
+              "Pagpapadaan ng bola nang hindi humahagpak sa sahig",
+              "Pagbato ng bola gamit ang pamalo",
+              "Pagtakbo patungo sa base",
+              "Pagsalo ng bola gamit ang dalawang kamay"
+            ],
+            "correct_answer": "Pagpapadaan ng bola nang hindi humahagpak sa sahig"
+          },
+          {
+            "question": "Bakit mahalagang tumingin sa bola hanggang matama ito?",
+            "options": [
+              "Nadaragdagan ang katumpakan ng pagtama",
+              "Napapabilis ang takbo",
+              "Naiiwasan ang kalaban",
+              "Nababawasan ang bigat ng bola"
+            ],
+            "correct_answer": "Nadaragdagan ang katumpakan ng pagtama"
+          },
+          {
+            "question": "Saan pinakamainam ipadala ang bola sa net/wall games?",
+            "options": [
+              "Sa bakanteng espasyo ng kalaban",
+              "Sa pinakamalapit na bahagi ng net",
+              "Sa parehong lugar palagi",
+              "Sa labas ng court"
+            ],
+            "correct_answer": "Sa bakanteng espasyo ng kalaban"
+          },
+          {
+            "question": "Bakit mahalagang bumalik sa ready position pagkatapos ng bawat tira?",
+            "options": [
+              "Upang mahandang tumugon sa susunod na tira",
+              "Upang mapahinga nang matagal",
+              "Upang makipag-usap sa kakampi",
+              "Upang makapagpalit ng kagamitan"
+            ],
+            "correct_answer": "Upang mahandang tumugon sa susunod na tira"
+          },
+          {
+            "question": "Ano ang dapat gawin bago maglaro ng anumang isport?",
+            "options": [
+              "Mag-warm up",
+              "Kumain nang mabigat",
+              "Matulog agad",
+              "Uminom ng malamig na tubig"
+            ],
+            "correct_answer": "Mag-warm up"
+          },
+          {
+            "question": "Ano ang nagpapakita ng sportsmanship?",
+            "options": [
+              "Maglaro nang patas kahit walang referee",
+              "Manalo sa anumang paraan",
+              "Isumbong agad ang kalaban",
+              "Iwasan ang paglahok"
+            ],
+            "correct_answer": "Maglaro nang patas kahit walang referee"
+          },
+          {
+            "question": "Bakit mahalagang baguhin ang bilis at direksyon ng tira?",
+            "options": [
+              "Upang hindi mahulaan ng kalaban ang susunod na galaw",
+              "Upang mapabilis ang laro",
+              "Upang mas madaling mahuli ang bola",
+              "Upang hindi na kailangang tumakbo"
+            ],
+            "correct_answer": "Upang hindi mahulaan ng kalaban ang susunod na galaw"
+          },
+          {
+            "question": "Mabagal tumatakbo ang isang manlalaro ng softball papunta sa unang base. Ano ang dapat niyang gawin?",
+            "options": [
+              "Tumakbo nang buong-lakas",
+              "Tumigil para magpahinga",
+              "Bumalik sa naunang posisyon",
+              "Hintayin ang susunod na inning"
+            ],
+            "correct_answer": "Tumakbo nang buong-lakas"
+          },
+          {
+            "question": "Palaging naiipit sa gitna ang isang manlalaro ng badminton kaya nahuhuli sa mga tira sa gilid. Ano ang solusyon?",
+            "options": [
+              "Bumalik agad sa ready position pagkatapos ng bawat tira",
+              "Manatili sa gilid palagi",
+              "Tumigil sa paglalaro",
+              "Hintayin na lang ang kalaban"
+            ],
+            "correct_answer": "Bumalik agad sa ready position pagkatapos ng bawat tira"
+          }
+        ]
+      },
+      "GMRC": {
+        "summary_markdown": "# 🙏 Biyernes na Balik-Aral — GMRC (Grade 6, Termino 2 Linggo 1)\n\n- **Elders** = mas matanda ngunit hindi pa may-edad | **Elderly** = nasa hustong gulang na\n- Gamitin ang **po/opo**, gumawa ng **mano**, at **bumati** sa mga nakatatanda\n- **Pag-alaala** at **pag-alalay** = pagtandaan at pagtulong sa kanila\n- **Kagandahang-loob** = kabaitang walang inaasahang kapalit\n- Paggalang ngayon = **utang na loob** sa kanilang gabay at aral\n\nMagandang simula sa Termino 2! 💫",
+        "quiz": [
+          {
+            "question": "Sino ang tinatawag na \"elderly\"?",
+            "options": [
+              "Mga nasa hustong gulang na tulad ng lolo at lola",
+              "Mga bagong panganak",
+              "Mga kapatid na mas bata",
+              "Mga kaibigan sa paaralan"
+            ],
+            "correct_answer": "Mga nasa hustong gulang na tulad ng lolo at lola"
+          },
+          {
+            "question": "Anong salita ang dapat gamitin sa mga nakatatanda?",
+            "options": [
+              "Po at opo",
+              "Anumang gusto mo",
+              "Salitang banyaga lamang",
+              "Hindi kailangan ng espesyal na salita"
+            ],
+            "correct_answer": "Po at opo"
+          },
+          {
+            "question": "Ano ang mano?",
+            "options": [
+              "Paggalang sa pamamagitan ng paghawak ng kamay ng matanda sa noo",
+              "Isang uri ng pagkain",
+              "Isang laro ng bata",
+              "Pagbati sa telepono"
+            ],
+            "correct_answer": "Paggalang sa pamamagitan ng paghawak ng kamay ng matanda sa noo"
+          },
+          {
+            "question": "Ano ang kagandahang-loob?",
+            "options": [
+              "Kabaitang walang inaasahang kapalit",
+              "Kabaitan kapag may gantimpala lamang",
+              "Pagtulong kapag pinapanood",
+              "Pagbibigay ng regalo taon-taon lamang"
+            ],
+            "correct_answer": "Kabaitang walang inaasahang kapalit"
+          },
+          {
+            "question": "Ano ang pag-alalay sa matanda?",
+            "options": [
+              "Pagtulong sa paglakad o pagbuhat ng bagay",
+              "Pagsagot nang pabalang",
+              "Pagkalimot sa kanilang kaarawan",
+              "Pag-iwas sa kanila"
+            ],
+            "correct_answer": "Pagtulong sa paglakad o pagbuhat ng bagay"
+          },
+          {
+            "question": "Bakit mahalagang pakinggan ang kuwento ng matatanda kahit paulit-ulit?",
+            "options": [
+              "Nagpapakita ito ng paggalang sa kanila",
+              "Upang mabilis matapos ang usapan",
+              "Upang hindi na sila magsalita pa",
+              "Upang makakuha ng gantimpala"
+            ],
+            "correct_answer": "Nagpapakita ito ng paggalang sa kanila"
+          },
+          {
+            "question": "Alin ang halimbawa ng kagandahang-loob sa nakatatanda?",
+            "options": [
+              "Kusang pagbibigay ng upuan sa sasakyan",
+              "Pagtakbo palayo kapag nakita sila",
+              "Pagsagot nang pabalang",
+              "Pagbalewala sa kanilang tanong"
+            ],
+            "correct_answer": "Kusang pagbibigay ng upuan sa sasakyan"
+          },
+          {
+            "question": "Ano ang ibig sabihin ng utang na loob sa konteksto ng mga nakatatanda?",
+            "options": [
+              "Pagkilala sa buhay, aral, at gabay na ibinigay nila",
+              "Pagbabayad ng pera sa kanila",
+              "Pagsunod sa lahat ng kanilang gusto",
+              "Pagbibigay ng regalo lamang"
+            ],
+            "correct_answer": "Pagkilala sa buhay, aral, at gabay na ibinigay nila"
+          },
+          {
+            "question": "Bakit sinasabing halimbawa ang paggalang mo sa nakatatanda?",
+            "options": [
+              "Nakikita ito ng mga nakababata sa iyong paligid",
+              "Walang epekto ito sa iba",
+              "Nakikita lamang ito ng matanda mismo",
+              "Hindi ito napapansin ng sinuman"
+            ],
+            "correct_answer": "Nakikita ito ng mga nakababata sa iyong paligid"
+          },
+          {
+            "question": "Ano ang dapat iwasan kapag nakikitungo sa matanda?",
+            "options": [
+              "Pagsagot nang pabalang o may inis",
+              "Pagbati sa umaga",
+              "Paggamit ng po at opo",
+              "Pagtulong sa kanilang bitbit"
+            ],
+            "correct_answer": "Pagsagot nang pabalang o may inis"
+          },
+          {
+            "question": "Nahihirapang bumuhat ang lola mo ng grocery bag. Ano ang PINAKAMABUTING gawin?",
+            "options": [
+              "Agad tumulong na buhatin ang bag",
+              "Hayaan siyang mag-isa",
+              "Tawagin ang ibang tao",
+              "Umalis na lamang"
+            ],
+            "correct_answer": "Agad tumulong na buhatin ang bag"
+          },
+          {
+            "question": "Bakit hindi sapat ang isang beses lamang na kabutihan upang maituring na tunay na kagandahang-loob?",
+            "options": [
+              "Dahil ang tunay na kagandahang-loob ay ginagawa nang tuluy-tuloy",
+              "Dahil kailangan itong makita ng maraming tao",
+              "Dahil kailangan itong may kapalit",
+              "Dahil hindi ito napapansin"
+            ],
+            "correct_answer": "Dahil ang tunay na kagandahang-loob ay ginagawa nang tuluy-tuloy"
+          }
+        ]
+      },
+      "EPP (AFA/FCS/IA)": {
+        "summary_markdown": "# 🐟 Friday Review — EPP (AFA/FCS/IA) (Grade 6, Term 2 Week 1)\n\n- **Fishery arts** = raising, catching, and processing fish and aquatic resources\n- **Fish culture** (controlled ponds/tanks) · **Fish capture** (natural waters) · **Fish processing** (drying, smoking, salting, canning)\n- Common Philippine aquaculture species: **tilapia, bangus, hito**\n- Fisheries provide **food, income, and employment**\n- **Overfishing** can deplete wild fish — fish culture offers a sustainable alternative\n\nGreat start to this new area of EPP! 🌟",
+        "quiz": [
+          {
+            "question": "What is fishery arts?",
+            "options": [
+              "The study and practice of raising, catching, and processing fish",
+              "The study of ocean tides only",
+              "The art of drawing sea creatures",
+              "The study of boat engines"
+            ],
+            "correct_answer": "The study and practice of raising, catching, and processing fish"
+          },
+          {
+            "question": "Raising fish in ponds or tanks is called:",
+            "options": [
+              "Fish culture",
+              "Fish capture",
+              "Fish processing",
+              "Fish trading"
+            ],
+            "correct_answer": "Fish culture"
+          },
+          {
+            "question": "Catching fish from rivers, lakes, or seas is called:",
+            "options": [
+              "Fish capture",
+              "Fish culture",
+              "Fish processing",
+              "Fish packaging"
+            ],
+            "correct_answer": "Fish capture"
+          },
+          {
+            "question": "Making tinapa (smoked fish) is an example of:",
+            "options": [
+              "Fish processing",
+              "Fish culture",
+              "Fish capture",
+              "Fish farming"
+            ],
+            "correct_answer": "Fish processing"
+          },
+          {
+            "question": "Which fish species is commonly raised in Philippine fish farms?",
+            "options": [
+              "Tilapia",
+              "Whale shark",
+              "Dolphin",
+              "Jellyfish"
+            ],
+            "correct_answer": "Tilapia"
+          },
+          {
+            "question": "Why is fish culture more predictable than fish capture?",
+            "options": [
+              "The farmer controls the environment",
+              "It never needs any water",
+              "It requires no feeding",
+              "It only happens during typhoons"
+            ],
+            "correct_answer": "The farmer controls the environment"
+          },
+          {
+            "question": "Which method uses salt to prevent fish spoilage?",
+            "options": [
+              "Salting",
+              "Steaming",
+              "Freezing only",
+              "Boiling only"
+            ],
+            "correct_answer": "Salting"
+          },
+          {
+            "question": "Which is NOT a branch of fishery arts?",
+            "options": [
+              "Fish transportation",
+              "Fish culture",
+              "Fish capture",
+              "Fish processing"
+            ],
+            "correct_answer": "Fish transportation"
+          },
+          {
+            "question": "What is one major benefit of fishery arts to a family?",
+            "options": [
+              "A source of food and income",
+              "A way to avoid electricity use",
+              "A method for building furniture",
+              "A tool for growing crops"
+            ],
+            "correct_answer": "A source of food and income"
+          },
+          {
+            "question": "Why is the Philippines well-suited for fishery arts?",
+            "options": [
+              "It is an archipelago with abundant water resources",
+              "It has very little water",
+              "It has no rivers or lakes",
+              "It is a landlocked country"
+            ],
+            "correct_answer": "It is an archipelago with abundant water resources"
+          },
+          {
+            "question": "What problem results from catching too many wild fish too quickly?",
+            "options": [
+              "Overfishing depletes natural fish populations",
+              "Fish multiply faster than usual",
+              "Water becomes cleaner",
+              "Fish prices drop to zero permanently"
+            ],
+            "correct_answer": "Overfishing depletes natural fish populations"
+          },
+          {
+            "question": "A community's river catch keeps dropping each year. What would BEST help their fish supply become sustainable?",
+            "options": [
+              "Starting a fish culture project alongside fishing",
+              "Using much bigger nets",
+              "Fishing only at night",
+              "Stopping fish processing entirely"
+            ],
+            "correct_answer": "Starting a fish culture project alongside fishing"
+          }
+        ]
+      }
+    }
+  }
+}

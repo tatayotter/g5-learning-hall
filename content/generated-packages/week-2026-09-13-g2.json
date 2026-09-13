@@ -1,0 +1,152 @@
+{
+  "grade": 2,
+  "week_starting_date": "2026-09-13",
+  "days": {
+    "Monday": {
+      "English": {
+        "summary_markdown": "# 📖 English — Magic-e and Vowel Team Words\n\nWelcome to Term 2, Grade 2! Today we learn two new **word patterns**. 🎉\n\n## ✨ CVCe Words (The \"Magic e\")\nWhen a short word ends in a silent **e**, the **e** is magic — it makes the vowel before it say its own **name**!\n\n- **cake** — the **a** says its name \"ay\"\n- **bike** — the **i** says its name \"eye\"\n- **home** — the **o** says its name \"oh\"\n- **cute** — the **u** says its name \"you\"\n\n**Example 1:** *cap* (short a) becomes **cape** (long a) when we add the magic e!\n\n**Example 2:** *kit* (short i) becomes **kite** (long i) when we add the magic e!\n\n## 🌈 CVVC Words (Vowel Teams)\nSome words have **two vowels together**. Usually, the **first vowel says its name** and the second vowel is quiet.\n\n- **rain** — the **a** talks, the **i** is quiet\n- **boat** — the **o** talks, the **a** is quiet\n- **feet** — the **e** says its name\n- **tail** — the **a** says its name\n\n**Example:** *\"The rain fell on the boat.\"* Both **rain** and **boat** have vowel teams!\n\n## 📝 Reading Practice\nTry reading these out loud: **cake, bike, home, cute, rain, boat, feet, tail**.\n\nYou're becoming a super reader! 🌟",
+        "quiz": [
+          { "question": "In the word 'cake', which letter is silent?", "options": ["e", "a", "c", "k"], "correct_answer": "e" },
+          { "question": "What does the magic e do to the vowel before it?", "options": ["Makes it say its own name", "Makes it silent too", "Makes it a number", "Makes it disappear"], "correct_answer": "Makes it say its own name" },
+          { "question": "Add a magic e to 'cap'. What word do you get?", "options": ["cape", "caps", "camp", "cap"], "correct_answer": "cape" },
+          { "question": "Which word has the CVCe pattern?", "options": ["bike", "sit", "run", "cup"], "correct_answer": "bike" },
+          { "question": "In 'rain', which vowel says its own name?", "options": ["a", "i", "r", "n"], "correct_answer": "a" },
+          { "question": "Which word has a vowel team (two vowels together)?", "options": ["boat", "bed", "sun", "top"], "correct_answer": "boat" },
+          { "question": "Add a magic e to 'kit'. What word do you get?", "options": ["kite", "kits", "kid", "kick"], "correct_answer": "kite" },
+          { "question": "Which of these words rhymes with 'home'?", "options": ["dome", "hop", "hot", "ham"], "correct_answer": "dome" },
+          { "question": "In the word 'feet', which vowel is heard?", "options": ["e", "f", "t", "both e's equally"], "correct_answer": "e" },
+          { "question": "Which sentence uses a magic-e word correctly?", "options": ["My kite flew high in the sky.", "My kit flew high in the sky.", "My kits flew high in the sky.", "My kite flow high in the sky."], "correct_answer": "My kite flew high in the sky." },
+          { "question": "Which word does NOT have a vowel team?", "options": ["sit", "tail", "boat", "feet"], "correct_answer": "sit" },
+          { "question": "Which word means the opposite pattern change happened: 'cute' has a magic e added to which short word?", "options": ["cut", "cot", "cat", "cup"], "correct_answer": "cut" }
+        ]
+      },
+      "Mathematics": {
+        "summary_markdown": "# 📏 Mathematics — Measuring Length (Meters & Centimeters)\n\nWelcome back, Grade 2! This term we measure things all around us. 📐\n\n## 📐 Two Units of Length\n- **Centimeter (cm)** — for **short** things, like a pencil or a crayon\n- **Meter (m)** — for **long** things or distances, like a door or the classroom\n\n**Example 1:** A pencil is about **15 cm** long.\n\n**Example 2:** A classroom door is about **2 m** tall.\n\n## 🛠️ Tools for Measuring\n- **Ruler** — measures small things in **cm**\n- **Tape measure** — measures longer things and distances in **m**\n\n## 🤔 Which Unit to Use?\nAsk: *Is it small enough to hold, or long like a hallway?*\n\n- A crayon → **cm**\n- The length of the school hallway → **m**\n- A notebook → **cm**\n- The distance from your house to school → **m**\n\n## 🔍 Estimating Length\n**Estimating** means making a smart guess **before** measuring.\n\n**Example:** Look at your table. Guess: *\"I think it is about 1 meter long.\"* Then measure to check!\n\n## ⚖️ Comparing Lengths\n**Example:** A spoon (15 cm) is **shorter** than a ruler (30 cm).\n\nGreat measuring, Grade 2! 🌟",
+        "quiz": [
+          { "question": "Which unit is best for measuring a pencil?", "options": ["Centimeter", "Meter", "Kilometer", "Liter"], "correct_answer": "Centimeter" },
+          { "question": "Which unit is best for measuring the length of a hallway?", "options": ["Meter", "Centimeter", "Gram", "Second"], "correct_answer": "Meter" },
+          { "question": "Which tool measures small objects in centimeters?", "options": ["Ruler", "Tape measure", "Weighing scale", "Clock"], "correct_answer": "Ruler" },
+          { "question": "What does it mean to estimate a length?", "options": ["Make a smart guess before measuring", "Measure it three times", "Draw a picture of it", "Ask a friend to guess"], "correct_answer": "Make a smart guess before measuring" },
+          { "question": "A pencil is about how many centimeters long?", "options": ["15 cm", "15 m", "150 m", "1 cm"], "correct_answer": "15 cm" },
+          { "question": "Which is longer, 1 meter or 50 centimeters?", "options": ["1 meter", "50 centimeters", "They are equal", "Cannot be told"], "correct_answer": "1 meter" },
+          { "question": "Which object would you measure in meters?", "options": ["The length of a classroom", "A crayon", "A small eraser", "A paperclip"], "correct_answer": "The length of a classroom" },
+          { "question": "A spoon is 15 cm and a ruler is 30 cm. Which is shorter?", "options": ["The spoon", "The ruler", "They are the same", "Cannot be told"], "correct_answer": "The spoon" },
+          { "question": "What do we use a tape measure for?", "options": ["Measuring longer distances", "Measuring how heavy something is", "Telling the time", "Counting money"], "correct_answer": "Measuring longer distances" },
+          { "question": "Which is the better estimate for the height of a classroom door?", "options": ["2 meters", "2 centimeters", "20 centimeters", "200 meters"], "correct_answer": "2 meters" },
+          { "question": "Which is the better estimate for the length of a crayon?", "options": ["8 centimeters", "8 meters", "80 meters", "1 meter"], "correct_answer": "8 centimeters" },
+          { "question": "To find out exactly how long your table is, what should you do after estimating?", "options": ["Measure it with a tool", "Just trust your guess", "Ask another student to guess", "Skip measuring completely"], "correct_answer": "Measure it with a tool" }
+        ]
+      }
+    },
+    "Tuesday": {
+      "Filipino": {
+        "summary_markdown": "# 🇵🇭 Filipino — Diptonggo at Klaster ng Katinig\n\nMaligayang pagbabalik, Grade 2! Matuto tayo ng mga bagong tunog ngayong termino. 🎉\n\n## 🔤 Ano ang Diptonggo?\nAng **diptonggo** ay dalawang patinig na magkasama sa isang pantig, tulad ng **ay, aw, iw, oy, uy**.\n\n- **kalabaw** — may diptonggong **aw**\n- **baboy** — may diptonggong **oy**\n- **kahoy** — may diptonggong **oy**\n- **paligo** → **maligo** — hindi diptonggo (magkahiwalay ang pantig)\n\n**Halimbawa 1:** *\"Ang kalabaw ay tumakbo sa parang.\"*\n\n**Halimbawa 2:** *\"Bumili kami ng kahoy sa gubat.\"*\n\n## 🧩 Ano ang Klaster ng Katinig?\nAng **klaster** ay dalawang katinig na magkasama bago ang patinig, tulad ng **pl, pr, tr, bl**.\n\n- **plato** — may klaster na **pl**\n- **trak** — may klaster na **tr**\n- **bloke** — may klaster na **bl**\n\n**Halimbawa:** *\"Naglagay ako ng pagkain sa plato.\"*\n\n## 🗣️ Pagsasanay sa Pagbigkas\nSubukang bigkasin nang malinaw: **kalabaw, baboy, kahoy, plato, trak, bloke**.\n\nMagaling ka talaga, Grade 2! 🌟",
+        "quiz": [
+          { "question": "Ano ang tawag sa dalawang patinig na magkasama sa isang pantig?", "options": ["Diptonggo", "Klaster", "Pang-uri", "Pangngalan"], "correct_answer": "Diptonggo" },
+          { "question": "Aling salita ang may diptonggong 'aw'?", "options": ["kalabaw", "bahay", "puno", "mesa"], "correct_answer": "kalabaw" },
+          { "question": "Aling salita ang may diptonggong 'oy'?", "options": ["baboy", "bata", "aso", "pera"], "correct_answer": "baboy" },
+          { "question": "Ano ang klaster ng katinig?", "options": ["Dalawang katinig na magkasama bago ang patinig", "Isang patinig na nag-iisa", "Isang tunog na malakas", "Isang bantas sa pangungusap"], "correct_answer": "Dalawang katinig na magkasama bago ang patinig" },
+          { "question": "Aling salita ang may klaster na 'pl'?", "options": ["plato", "puno", "bata", "sapatos"], "correct_answer": "plato" },
+          { "question": "Aling salita ang may klaster na 'tr'?", "options": ["trak", "tao", "tinapay", "tulog"], "correct_answer": "trak" },
+          { "question": "Aling salita ang may klaster na 'bl'?", "options": ["bloke", "bola", "baso", "bahay"], "correct_answer": "bloke" },
+          { "question": "Alin sa mga ito ang halimbawa ng diptonggo?", "options": ["kahoy", "aso", "araw", "bahay"], "correct_answer": "kahoy" },
+          { "question": "\"Ang ___ ay tumakbo sa parang.\" Anong salita ang may diptonggo ang bubuo sa pangungusap?", "options": ["kalabaw", "guro", "libro", "silya"], "correct_answer": "kalabaw" },
+          { "question": "Bakit mahalagang matutong bigkasin nang tama ang diptonggo at klaster?", "options": ["Para mabasa nang malinaw at tama ang mga salita", "Para magmadali sa pagsasalita", "Para maiwasan ang pag-aaral", "Para hindi magbasa nang malakas"], "correct_answer": "Para mabasa nang malinaw at tama ang mga salita" },
+          { "question": "Alin ang tamang bigkas ng salitang may klaster na 'pl'?", "options": ["pla-to", "pa-la-to", "pi-la-to", "pu-la-to"], "correct_answer": "pla-to" },
+          { "question": "Alin sa mga sumusunod ang HINDI diptonggo?", "options": ["mesa", "baboy", "kahoy", "kalabaw"], "correct_answer": "mesa" }
+        ]
+      },
+      "Science": {
+        "summary_markdown": "# 🌱 Science — Parts of a Plant\n\nWelcome to Term 2, Grade 2! Let's explore the plants around us. 🌿\n\n## 🌳 Common Plants in the Community\nWe see many kinds of plants — **trees**, **shrubs**, **vegetables**, and **flowers**.\n\n**Example 1:** A **mango tree** is a tree that gives us fruit.\n**Example 2:** **Kangkong** is a vegetable plant we can eat.\n\n## 🌼 The Basic Parts of a Plant\n| Part | Job |\n|---|---|\n| **Root** | holds the plant in soil and takes in water |\n| **Stem** | carries water and food, holds the plant up |\n| **Leaf** | makes food using sunlight |\n| **Flower** | makes seeds |\n| **Fruit** | protects the seeds inside |\n| **Seed** | grows into a new plant |\n\n**Example:** The **roots** of a santan plant drink water from the soil, and the **leaves** use sunlight to make food.\n\n## 🔍 Look Closely!\nNext time you see a plant, try to point to its **root, stem, leaf,** and **flower**.\n\n## 💚 Why Plants Matter\nPlants give us **food**, **shade**, and **clean air** to breathe.\n\nYou're a plant expert now! 🌟",
+        "quiz": [
+          { "question": "Which plant part holds the plant in the soil?", "options": ["Root", "Leaf", "Flower", "Fruit"], "correct_answer": "Root" },
+          { "question": "Which plant part makes food using sunlight?", "options": ["Leaf", "Root", "Seed", "Stem"], "correct_answer": "Leaf" },
+          { "question": "Which plant part grows into a new plant?", "options": ["Seed", "Flower", "Stem", "Root"], "correct_answer": "Seed" },
+          { "question": "What is the job of the stem?", "options": ["Carries water and holds the plant up", "Makes seeds", "Takes in sunlight only", "Protects the roots"], "correct_answer": "Carries water and holds the plant up" },
+          { "question": "Which plant part makes the seeds?", "options": ["Flower", "Root", "Leaf", "Stem"], "correct_answer": "Flower" },
+          { "question": "A mango tree is an example of a:", "options": ["tree", "vegetable", "flower only", "root only"], "correct_answer": "tree" },
+          { "question": "Kangkong is an example of a:", "options": ["vegetable", "tree", "shrub only", "flower only"], "correct_answer": "vegetable" },
+          { "question": "Which plant part protects the seeds inside?", "options": ["Fruit", "Root", "Stem", "Leaf"], "correct_answer": "Fruit" },
+          { "question": "How does the root help the plant?", "options": ["It takes in water from the soil", "It makes food for the plant", "It makes new seeds", "It gives shade to people"], "correct_answer": "It takes in water from the soil" },
+          { "question": "Why are plants important to us?", "options": ["They give food, shade, and clean air", "They only give shade", "They make loud sounds", "They only grow indoors"], "correct_answer": "They give food, shade, and clean air" },
+          { "question": "Which part of the plant do we usually eat when we eat kangkong leaves?", "options": ["Leaf", "Root only", "Fruit only", "Seed only"], "correct_answer": "Leaf" },
+          { "question": "You see a plant with a strong root, tall stem, green leaves, and a flower. What plant part will later become a fruit?", "options": ["The flower", "The root", "The stem", "The leaf"], "correct_answer": "The flower" }
+        ]
+      }
+    },
+    "Wednesday": {
+      "Makabansa": {
+        "summary_markdown": "# 🎎 Makabansa — Ano ang Kultura?\n\nMaligayang pagbabalik, Grade 2! Alamin natin ang tungkol sa **kultura**. 🌏\n\n## 🎭 Kahulugan ng Kultura\nAng **kultura** ay ang paraan ng **pamumuhay, paniniwala, at kaugalian** ng isang grupo ng tao. Ito ay ipinapasa mula sa **matatanda** tungo sa mga **bata**.\n\n**Halimbawa 1:** Ang paraan ng pagluluto ng ating Lola ay bahagi ng ating kultura.\n\n**Halimbawa 2:** Ang mga kuwentong ikinukuwento ng ating mga magulang ay bahagi rin ng kultura.\n\n## 🗺️ Iba't Ibang Kultura sa Pilipinas\nMagkaiba-iba ang kultura ng bawat komunidad sa Pilipinas — depende sa **wika, pagkain, damit,** at **kaugalian**.\n\n- Sa ibang lugar, **suman** ang minamasarap na kakanin.\n- Sa ibang lugar, **malong** ang karaniwang kasuotan.\n\n## 🤝 Bakit Mahalaga ang Kultura?\n- Nagbibigay ito ng **pagkakakilanlan** (identity) sa isang grupo ng tao.\n- Nagpapakita ito kung sino tayo bilang mga **Pilipino**.\n\n**Halimbawa:** Kapag sinasayaw natin ang **tinikling**, ipinapakita natin ang ating kultura.\n\nMagaling, Grade 2! 🌟",
+        "quiz": [
+          { "question": "Ano ang kultura?", "options": ["Paraan ng pamumuhay, paniniwala, at kaugalian", "Isang uri ng pagkain lamang", "Isang laro para sa mga bata", "Isang bagay na binibili sa tindahan"], "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian" },
+          { "question": "Sino ang karaniwang nagpapasa ng kultura sa mga bata?", "options": ["Matatanda", "Kapitbahay", "Tindera", "Estranghero"], "correct_answer": "Matatanda" },
+          { "question": "Bakit magkaiba-iba ang kultura ng bawat komunidad sa Pilipinas?", "options": ["Naiiba ang wika, pagkain, at kaugalian nila", "Magkakapareho lahat sila", "Walang sinumang may kultura", "Bawal magkaroon ng kultura"], "correct_answer": "Naiiba ang wika, pagkain, at kaugalian nila" },
+          { "question": "Alin sa mga ito ang halimbawa ng kultura?", "options": ["Paraan ng pagluluto ng Lola", "Presyo ng bigas", "Bilang ng mag-aaral sa klase", "Kulay ng sasakyan"], "correct_answer": "Paraan ng pagluluto ng Lola" },
+          { "question": "Ano ang ipinapakita natin kapag sumasayaw tayo ng tinikling?", "options": ["Ating kultura", "Ating sukat", "Ating pera", "Ating gamit"], "correct_answer": "Ating kultura" },
+          { "question": "Ano ang ibinibigay ng kultura sa isang grupo ng tao?", "options": ["Pagkakakilanlan (identity)", "Pera", "Sasakyan", "Bahay"], "correct_answer": "Pagkakakilanlan (identity)" },
+          { "question": "Alin ang halimbawa ng kaugalian na ipinapasa mula sa matatanda?", "options": ["Mga kuwentong ikinukuwento ng magulang", "Pagbili ng bagong gadyet", "Panonood ng TV mag-isa", "Paggamit ng kompyuter"], "correct_answer": "Mga kuwentong ikinukuwento ng magulang" },
+          { "question": "Sa ibang lugar sa Pilipinas, ano ang karaniwang kasuotan na binanggit?", "options": ["Malong", "Sapatos", "Sumbrero lamang", "Damit pang-eskwela"], "correct_answer": "Malong" },
+          { "question": "Ano ang nagpapakita kung sino tayo bilang mga Pilipino?", "options": ["Ating kultura", "Ating kulay ng buhok", "Ating taas", "Ating gulang"], "correct_answer": "Ating kultura" },
+          { "question": "Alin ang HINDI halimbawa ng kultura?", "options": ["Numero ng telepono", "Sayaw na tinikling", "Kakaning suman", "Kuwentong-bayan"], "correct_answer": "Numero ng telepono" },
+          { "question": "Bakit dapat nating pahalagahan ang kultura ng ating komunidad?", "options": ["Dahil ito ang nagpapakilala sa atin", "Dahil ito ay mahal bilhin", "Dahil kailangan ito sa paaralan lamang", "Dahil ito'y bago pa lamang"], "correct_answer": "Dahil ito ang nagpapakilala sa atin" },
+          { "question": "Narinig mo ang kuwentong-bayan mula sa iyong Lolo. Ano ang ipinapakita nito?", "options": ["Pagpapasa ng kultura sa susunod na henerasyon", "Pagbabago ng panahon", "Pagbili ng bagong laruan", "Paggawa ng gawaing-bahay"], "correct_answer": "Pagpapasa ng kultura sa susunod na henerasyon" }
+        ]
+      },
+      "Computer": {
+        "summary_markdown": "# ⌨️ Computer — Meet the Keyboard!\n\nWelcome to Term 2, Grade 2! Today we explore the **keyboard**. 💻\n\n## 🔤 Parts of the Keyboard\n- **Letter keys** — the keys with letters **A to Z**\n- **Number keys** — the keys with numbers **0 to 9**, usually on top\n- **Spacebar** — the long key at the **bottom middle**; press it to make a space between words\n- **Enter/Return key** — press it to start a **new line** or confirm something\n\n**Example 1:** To type \"I am\", press **I**, then the **spacebar**, then **a** and **m**.\n\n**Example 2:** After typing a sentence, press **Enter** to move to a new line.\n\n## ✋ Using Both Hands\nWe can rest our **left hand** on the left side of the keyboard and our **right hand** on the right side. This is not fast typing yet — we are just getting **comfortable**.\n\n## 🎯 Practice Tips\n- Look at the keys carefully before pressing\n- Type slowly and **carefully**, not fast\n- Take your time to find each key\n\n**Example:** Try typing your own **name**, one letter at a time, checking each key.\n\n## ⭐ Why Keyboard Skills Matter\nLearning the keyboard helps us **write stories**, **type our names**, and use computers for **learning**.\n\nGreat job exploring the keyboard! 🌟",
+        "quiz": [
+          { "question": "What are the keys with letters A to Z called?", "options": ["Letter keys", "Number keys", "Spacebar", "Enter key"], "correct_answer": "Letter keys" },
+          { "question": "Which key do you press to make a space between words?", "options": ["Spacebar", "Enter key", "Number key", "Shift key"], "correct_answer": "Spacebar" },
+          { "question": "Which key do you press to start a new line?", "options": ["Enter key", "Spacebar", "Letter key", "Number key"], "correct_answer": "Enter key" },
+          { "question": "Where are the number keys usually found on a keyboard?", "options": ["On top of the letter keys", "Below the spacebar", "On the left side only", "There are no number keys"], "correct_answer": "On top of the letter keys" },
+          { "question": "How should you type when you are still learning?", "options": ["Slowly and carefully", "As fast as possible", "With your eyes closed", "Using only one finger forever"], "correct_answer": "Slowly and carefully" },
+          { "question": "Where is the spacebar located on the keyboard?", "options": ["Bottom middle", "Top left", "Top right", "Bottom left corner"], "correct_answer": "Bottom middle" },
+          { "question": "Which hand should rest on the right side of the keyboard?", "options": ["Right hand", "Left hand", "Both hands on one side", "Neither hand"], "correct_answer": "Right hand" },
+          { "question": "You typed \"Iam\" without a space. What key did you forget to press?", "options": ["Spacebar", "Enter key", "Number key", "Letter key"], "correct_answer": "Spacebar" },
+          { "question": "After finishing one sentence and wanting to start a new line, which key do you press?", "options": ["Enter key", "Spacebar", "Letter A", "Number 1"], "correct_answer": "Enter key" },
+          { "question": "Why is it good to learn keyboard skills?", "options": ["It helps us write and learn using computers", "It makes the computer heavier", "It changes the color of the screen", "It turns off the monitor"], "correct_answer": "It helps us write and learn using computers" },
+          { "question": "What should you do before pressing a key?", "options": ["Look at the keys carefully", "Press any key quickly", "Close your eyes", "Shake the keyboard"], "correct_answer": "Look at the keys carefully" },
+          { "question": "Which of these is a number key?", "options": ["5", "A", "Enter", "Spacebar"], "correct_answer": "5" }
+        ]
+      }
+    },
+    "Thursday": {
+      "GMRC": {
+        "summary_markdown": "# 💛 GMRC — Tamang Pakikitungo sa Iba\n\nMaligayang pagbabalik, Grade 2! Ngayong termino, pag-usapan natin ang **accountability** o **pananagutan**. 🌟\n\n## 🙏 Simpleng Kagandahang-Asal\n- **Pagbati** — \"Magandang umaga po!\"\n- **Pagpapaalam** — \"Aalis na po ako.\"\n- **\"Salamat\"** — kapag tinulungan ka\n- **\"Paumanhin\"** — kapag nagkamali ka\n- **\"Pakisuyo\"** — kapag humihingi ng tulong\n\n**Halimbawa 1:** Natapakan mo ang paa ng kaklase. Sabihin: *\"Paumanhin po.\"*\n\n**Halimbawa 2:** Kailangan mo ng tulong sa pagbuhat ng bag. Sabihin: *\"Pakisuyo pong tulungan ako.\"*\n\n## 🤲 Ano ang Pananagutan (Accountability)?\nAng **pananagutan** ay ang pagtanggap sa iyong mga **salita at kilos** — tama man o mali.\n\n- Kung nagkamali ka, **aminin** ito nang tapat.\n- Kung may pangako ka, **tuparin** ito.\n\n**Halimbawa:** Nasira mo ang laruan ng kaklase. Sabihin: *\"Ako ang nakasira nito. Paumanhin, tutulungan kitang ayusin.\"*\n\n## 🔄 Paglutas ng Maliliit na Alitan\nKapag may hindi pagkakaunawaan:\n1. **Manahimik muna** at huminga nang malalim\n2. **Aminin** kung mali ka\n3. **Gumawa ng paraan** para maayos ito\n\nMagaling na bata ka! 💫",
+        "quiz": [
+          { "question": "Ano ang sasabihin mo kapag natulungan ka ng iba?", "options": ["Salamat", "Paumanhin", "Pakisuyo", "Aalis na po"], "correct_answer": "Salamat" },
+          { "question": "Ano ang sasabihin mo kapag nagkamali ka?", "options": ["Paumanhin", "Salamat", "Magandang umaga", "Aalis na po"], "correct_answer": "Paumanhin" },
+          { "question": "Ano ang tawag sa pagtanggap sa iyong mga salita at kilos?", "options": ["Pananagutan", "Pagmamalaki", "Pagtatago", "Pagmamadali"], "correct_answer": "Pananagutan" },
+          { "question": "Natapakan mo ang paa ng kaklase. Ano ang tamang sabihin?", "options": ["Paumanhin po.", "Salamat po.", "Magandang umaga po.", "Sige po."], "correct_answer": "Paumanhin po." },
+          { "question": "Kailangan mo ng tulong sa pagbuhat ng bag. Anong salita ang gagamitin mo?", "options": ["Pakisuyo", "Paumanhin", "Salamat", "Magandang gabi"], "correct_answer": "Pakisuyo" },
+          { "question": "Nasira mo ang laruan ng kaklase. Ano ang dapat mong gawin?", "options": ["Aminin ito at humingi ng paumanhin", "Itago ang laruan", "Sisihin ang ibang bata", "Umalis na lamang"], "correct_answer": "Aminin ito at humingi ng paumanhin" },
+          { "question": "Ano ang unang dapat gawin kapag may hindi pagkakaunawaan?", "options": ["Manahimik muna at huminga nang malalim", "Sumigaw agad", "Tumakbo palayo", "Magtago sa kuwarto"], "correct_answer": "Manahimik muna at huminga nang malalim" },
+          { "question": "Nangako kang tutulong sa kapatid mo. Ano ang tamang gawin?", "options": ["Tuparin ang pangako", "Kalimutan na lamang ito", "Ipagpaliban nang walang dahilan", "Sabihing hindi mo alam"], "correct_answer": "Tuparin ang pangako" },
+          { "question": "Alin ang halimbawa ng pagpapaalam?", "options": ["Aalis na po ako.", "Salamat po.", "Paumanhin po.", "Pakisuyo po."], "correct_answer": "Aalis na po ako." },
+          { "question": "Bakit mahalagang aminin ang pagkakamali?", "options": ["Para ipakita ang katapatan at pananagutan", "Para magalit ang lahat", "Para hindi na muling makipagkaibigan", "Para maiwasan ang paglilinis"], "correct_answer": "Para ipakita ang katapatan at pananagutan" },
+          { "question": "Alin ang tamang paraan ng paglutas ng maliit na alitan?", "options": ["Aminin ang mali at gumawa ng paraan para maayos ito", "Sisihin ang kabilang panig", "Magtampo nang matagal", "Iwasan magpakailanman ang kausap"], "correct_answer": "Aminin ang mali at gumawa ng paraan para maayos ito" },
+          { "question": "Nabuwal mo ang gamit ng kaklase habang naglalaro. Ano ang tamang gawin?", "options": ["Aminin ito at tulungan siyang ayusin", "Magkunwaring hindi ikaw ang gumawa", "Tumakbo palayo agad", "Pabayaan na lamang ito"], "correct_answer": "Aminin ito at tulungan siyang ayusin" }
+        ]
+      }
+    },
+    "Friday": {
+      "Weekly Review": {
+        "summary_markdown": "# 🌟 Weekly Review — Term 2, Week 1 (Grade 2)\n\nGreat first week of Term 2! Here's what we learned. 🎉\n\n## 📖 English\n- **CVCe words** (magic e): cake, bike, home, cute\n- **CVVC words** (vowel teams): rain, boat, feet, tail\n\n## 🔢 Mathematics\n- **cm** for short things, **m** for long things/distances\n- **Estimate** first, then measure to check\n\n## 🇵🇭 Filipino\n- **Diptonggo**: ay, aw, iw, oy, uy (hal. kalabaw, baboy)\n- **Klaster ng katinig**: pl, pr, tr, bl (hal. plato, trak)\n\n## 🔬 Science\n- Plant parts: **root, stem, leaf, flower, fruit, seed**\n- Each part has its own **job**\n\n## 🎎 Makabansa\n- **Kultura** = paraan ng pamumuhay, paniniwala, at kaugalian\n- Ipinapasa mula sa matatanda tungo sa mga bata\n\n## 💻 Computer\n- Keyboard parts: **letter keys, number keys, spacebar, Enter key**\n\n## 💛 GMRC\n- **Pananagutan**: pag-amin sa mali, pagtupad sa pangako\n- Kagandahang-asal: salamat, paumanhin, pakisuyo\n\nAmazing work starting Term 2! Keep it up! ⭐",
+        "quiz": [
+          { "question": "Which word has the CVCe (magic e) pattern?", "options": ["bike", "sit", "run", "top"], "correct_answer": "bike" },
+          { "question": "Which word has a vowel team?", "options": ["boat", "bed", "cup", "sun"], "correct_answer": "boat" },
+          { "question": "Which unit is best for measuring a pencil?", "options": ["Centimeter", "Meter", "Kilometer", "Liter"], "correct_answer": "Centimeter" },
+          { "question": "What should you do before measuring something?", "options": ["Estimate its length first", "Skip measuring completely", "Cut it in half", "Ask no one for help"], "correct_answer": "Estimate its length first" },
+          { "question": "Aling salita ang may diptonggo?", "options": ["kalabaw", "mesa", "puno", "aso"], "correct_answer": "kalabaw" },
+          { "question": "Aling salita ang may klaster ng katinig?", "options": ["plato", "bata", "aso", "guro"], "correct_answer": "plato" },
+          { "question": "Which plant part takes in water from the soil?", "options": ["Root", "Leaf", "Flower", "Fruit"], "correct_answer": "Root" },
+          { "question": "Which plant part makes food using sunlight?", "options": ["Leaf", "Root", "Seed", "Stem"], "correct_answer": "Leaf" },
+          { "question": "Ano ang kultura?", "options": ["Paraan ng pamumuhay, paniniwala, at kaugalian", "Isang uri ng pagkain lamang", "Isang laro ng bata", "Isang uri ng gamot"], "correct_answer": "Paraan ng pamumuhay, paniniwala, at kaugalian" },
+          { "question": "Which key on the keyboard do you press to start a new line?", "options": ["Enter key", "Spacebar", "Letter key", "Number key"], "correct_answer": "Enter key" },
+          { "question": "Ano ang tawag sa pagtanggap sa iyong mga salita at kilos?", "options": ["Pananagutan", "Pagmamalaki", "Pagtatago", "Pagmamadali"], "correct_answer": "Pananagutan" },
+          { "question": "Nasira mo ang gamit ng kaklase mo nang di-sinasadya. Ano ang tamang gawin?", "options": ["Aminin ito at humingi ng paumanhin", "Itago ang gamit", "Sisihin ang ibang tao", "Umalis na lamang agad"], "correct_answer": "Aminin ito at humingi ng paumanhin" }
+        ]
+      }
+    }
+  }
+}
