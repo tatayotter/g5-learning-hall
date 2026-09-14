@@ -25,13 +25,18 @@ interface QuestCardProps {
   subjectName: string;
   subtitle?: string;
   completed: boolean;
+  // Daily attempt cap reached without a perfect score — distinct from
+  // `completed`; a card can never be both, but completed always wins if it
+  // somehow is (see MAIN_QUEST_DAILY_ATTEMPT_CAP in lib/mainQuestAttempts.ts).
+  locked?: boolean;
   xp?: number;
   gold?: number;
   onEnter: () => void;
 }
 
-export default function QuestCard({ subjectName, subtitle, completed, xp = 200, gold = 50, onEnter }: QuestCardProps) {
+export default function QuestCard({ subjectName, subtitle, completed, locked = false, xp = 200, gold = 50, onEnter }: QuestCardProps) {
   const style = SUBJECT_STYLE[subjectName] ?? DEFAULT_STYLE;
+  const isLocked = locked && !completed;
 
   // Image is the card — content floats over it, no overlay. Every subject
   // (assigned or falling back to DEFAULT_STYLE) has a cardBg now, so this is
@@ -74,7 +79,11 @@ export default function QuestCard({ subjectName, subtitle, completed, xp = 200, 
           {subjectName}
         </h3>
 
-        {!completed && (
+        {isLocked ? (
+          <span className="bg-white rounded-full px-2 py-1 text-[10px] font-bold text-red-700">
+            2/2 attempts used today
+          </span>
+        ) : !completed && (
           <div className="flex items-center justify-center gap-2 flex-wrap">
             <span className="flex items-center gap-1 bg-white rounded-full px-2 py-1 text-[10px] font-bold text-green-700">
               <img src="/icons/stats/stat_up.svg" alt="" className="w-3 h-3" /> {xp} EXP
@@ -87,12 +96,12 @@ export default function QuestCard({ subjectName, subtitle, completed, xp = 200, 
 
         <GameButton
           variant="quest"
-          color={completed ? '#7f7f7f' : undefined}
+          color={completed || isLocked ? '#7f7f7f' : undefined}
           onClick={onEnter}
-          disabled={completed}
+          disabled={completed || isLocked}
           style={{ fontSize: '1.1rem' }}
         >
-          {completed ? '✓ Completed' : 'Start Quest'}
+          {completed ? '✓ Completed' : isLocked ? '🔒 Back Tomorrow' : 'Start Quest'}
         </GameButton>
 
       </div>

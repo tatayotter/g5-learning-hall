@@ -97,6 +97,11 @@ export interface WeeklyData {
   package_data?: any;
   quiz_attempts?: Record<string, number>;
   mastered_quizzes?: string[];
+  // Real-calendar-day attempt counts for the board's main quests, keyed
+  // `${weekday}_${subject}` (e.g. "monday_math") — resets every real day,
+  // unlike quiz_attempts above which is a lifetime counter used only for
+  // reward scaling. See MAIN_QUEST_DAILY_ATTEMPT_CAP in lib/mainQuestAttempts.ts.
+  daily_quest_attempts?: Record<string, number>;
   guild_sessions_count: number;
   monster_battles_won: number;
   sibling_battles_won: number;
@@ -141,6 +146,7 @@ export function useWeeklyData(userId: string | null) {
 
   const today = new Date();
   const currentSunday = format(startOfWeek(today), 'yyyy-MM-dd');
+  const todayStr = format(today, 'yyyy-MM-dd');
 
   // Content is grade-keyed, not per-student (Phase 4 Wave 3, see
   // docs/weekly-progress-redesign-plan.md) — replaces the old contentSourceId
@@ -170,9 +176,25 @@ export function useWeeklyData(userId: string | null) {
       // here this fetch can race ahead on the unauthenticated `anon` role and get rejected.
       await ensureAnonymousSession();
 
-      const [{ content: gradeContent, contentWeekId: weekId }, progressData] = await Promise.all([
+      const [{ content: gradeContent, contentWeekId: weekId }, progressData, dailyAttemptRows] = await Promise.all([
         fetchGradeContent(grade, currentSunday),
         fetchPlayerProgress(userId),
+        // Today's main-quest attempt counts (see main_quest_daily_attempts) —
+        // fetched every load so a stale/locked board reflects a day boundary
+        // that passed since the last visit. Lenient on error: an empty map
+        // just means nothing shows as locked, never a false lock.
+        supabase
+          .from('main_quest_daily_attempts')
+          .select('weekday, subject, attempts_used')
+          .eq('user_id', userId)
+          .eq('week_starting_date', currentSunday)
+          .eq('attempt_date', todayStr)
+          .then(({ data: rows, error }) => {
+            if (error) { console.error('Failed to fetch daily quest attempts:', error); return {}; }
+            const map: Record<string, number> = {};
+            (rows || []).forEach(r => { map[`${r.weekday}_${r.subject}`] = r.attempts_used; });
+            return map;
+          }),
       ]);
       if (cancelled) return;
 
@@ -212,6 +234,7 @@ export function useWeeklyData(userId: string | null) {
         package_data: gradeContent,
         trash_collected: progressData?.trash_collected_total ?? 0,
         trash_gold_earned: progressData?.trash_gold_earned_total ?? 0,
+        daily_quest_attempts: dailyAttemptRows,
       });
       setLoading(false);
     }
@@ -458,6 +481,15 @@ export function useWeeklyData(userId: string | null) {
     );
   };
 
+  // Mirrors grade_content_quiz's own attempts_used_today into local state —
+  // the RPC already applied the real increment server-side, this just saves
+  // a refetch so the board's lock state updates immediately after a submit.
+  const bumpDailyQuestAttempt = (weekday: string, subject: string, attemptsUsedToday: number) => {
+    setData(prev => prev
+      ? { ...prev, daily_quest_attempts: { ...(prev.daily_quest_attempts || {}), [`${weekday}_${subject}`]: attemptsUsedToday } }
+      : prev);
+  };
+
   const applyGoldDelta = async (amount: number) => {
     if (!data || !userId) return; // see updateStatsAndJournal's matching comment
 
@@ -504,5 +536,5 @@ export function useWeeklyData(userId: string | null) {
     setProgress(prev => prev ? { ...prev, level: stats.level, xp: stats.xp, gold: stats.gold } : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect };
+  return { data, loading, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
 }

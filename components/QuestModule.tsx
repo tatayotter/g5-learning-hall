@@ -8,6 +8,7 @@ import GameButton from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { calculateReward } from '@/lib/quizReward';
 import VisualAid from '@/components/quest/VisualAid';
+import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -54,6 +55,12 @@ export interface QuizGradeResult {
   total: number;
   is_perfect: boolean;
   correct_answers: string[];
+  // Server-authoritative daily-attempt bookkeeping (see
+  // MAIN_QUEST_DAILY_ATTEMPT_CAP in lib/mainQuestAttempts.ts).
+  // `locked: true` means the cap was already reached BEFORE this call —
+  // nothing was graded, no attempt was consumed.
+  locked?: boolean;
+  attempts_used_today?: number;
 }
 
 interface QuestModuleProps {
@@ -63,6 +70,11 @@ interface QuestModuleProps {
   questData: any;
   currentStats: CharacterStats;
   attemptsSoFar: number;
+  // How many of today's MAIN_QUEST_DAILY_ATTEMPT_CAP attempts are already
+  // used, as of when this module opened — server-authoritative (see
+  // ActiveQuestView's dailyAttemptsUsed). Distinct from attemptsSoFar, which
+  // is a lifetime counter used only for reward scaling.
+  dailyAttemptsUsed: number;
   isMastered: boolean;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
@@ -74,7 +86,7 @@ interface QuestModuleProps {
 
 const COOLDOWN_SECONDS = 20;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, isMastered, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -86,6 +98,15 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const [celebration, setCelebration] = useState<{ active: boolean; type: 'levelup' | 'perfect' }>({ active: false, type: 'perfect' });
+  // Server-authoritative count of today's attempts, refreshed from each
+  // grading response so the retry button locks the instant the 2nd
+  // non-perfect attempt lands, without waiting for a re-fetch/re-render
+  // from further up the tree.
+  const [dailyUsedToday, setDailyUsedToday] = useState(dailyAttemptsUsed);
+  // Only set on the rare defense-in-depth path where the server reports the
+  // cap was already hit before this submission (board-level gating should
+  // normally prevent ever reaching this) — nothing was graded that time.
+  const [alreadyLockedOnEntry, setAlreadyLockedOnEntry] = useState(false);
 
   // Countdown ticker
   useEffect(() => {
@@ -126,6 +147,20 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       return;
     }
     setGrading(false);
+
+    if (typeof graded.attempts_used_today === 'number') {
+      setDailyUsedToday(graded.attempts_used_today);
+    }
+
+    // Defense-in-depth: the board normally never lets a locked quest be
+    // entered, but this covers a module left open across a day boundary, or
+    // opened from a second device that already used up today's attempts.
+    // Nothing was graded server-side, so nothing to record here either.
+    if (graded.locked) {
+      setAlreadyLockedOnEntry(true);
+      setSubmitted(true);
+      return;
+    }
 
     const { correct_count: correctCount, total, is_perfect: isPerfect, correct_answers: gradedAnswers } = graded;
     const newAttempts = safeAttemptsSoFar + 1;
@@ -175,6 +210,10 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   };
 
   const allAnswered = quiz.length > 0 && quiz.every((_, i) => selectedAnswers[i] !== undefined);
+  // Today's cap reached without a perfect score — the retry button is
+  // replaced by a "come back tomorrow" message instead of the usual
+  // cooldown-then-retry flow (see lib/mainQuestAttempts.ts).
+  const dailyLockedForRestOfDay = alreadyLockedOnEntry || (submitted && !lastResult?.isPerfect && dailyUsedToday >= MAIN_QUEST_DAILY_ATTEMPT_CAP);
 
   // --- ALREADY MASTERED: locked recap view ---
   if (isMastered) {
@@ -184,6 +223,22 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         <h2 className="text-3xl font-bold text-green-700 mb-4 font-display">Quest Completed!</h2>
         <p className="text-[#6b4820] mb-2">Mastered in {safeAttemptsSoFar || 1} attempt{safeAttemptsSoFar !== 1 ? 's' : ''}.</p>
         <p className="text-xl text-[#2a1505] mb-6">You earned <span className="font-bold text-[#c9781a] font-mono">{recap.xp} XP</span> and <span className="font-bold text-yellow-600 font-mono">{recap.gold} Gold</span>.</p>
+        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
+          Return to Campaign Map
+        </GameButton>
+      </div>
+    );
+  }
+
+  // --- ALREADY OUT OF ATTEMPTS FOR TODAY (defense-in-depth; the board
+  // shouldn't normally let this screen be reached in this state at all) ---
+  if (alreadyLockedOnEntry) {
+    return (
+      <div className="bg-amber-50 border border-amber-600 p-8 rounded-xl text-center">
+        <h2 className="text-3xl font-bold text-amber-700 mb-4 font-display">🔒 Quest Locked</h2>
+        <p className="text-[#6b4820] mb-6">
+          You've already used both attempts for {questName.replace('_', ' ')} today. Come back tomorrow for 2 fresh attempts!
+        </p>
         <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map
         </GameButton>
@@ -210,7 +265,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       <div className="flex justify-between items-center border-b border-[#c9a87a] pb-4 mb-6">
         <h2 className="text-2xl font-bold text-[#7a4a0f] font-display">{questName.replace('_', ' ')}</h2>
         <span className="bg-[#c9781a]/20 text-[#7a4a0f] text-xs font-bold px-3 py-1 rounded-full border border-[#8b5e2a]">
-          {safeAttemptsSoFar > 0 ? `ATTEMPT ${safeAttemptsSoFar + 1}` : 'IN PROGRESS'}
+          ATTEMPT {Math.min(submitted ? dailyUsedToday : dailyUsedToday + 1, MAIN_QUEST_DAILY_ATTEMPT_CAP)} OF {MAIN_QUEST_DAILY_ATTEMPT_CAP} TODAY
         </span>
       </div>
 
@@ -237,7 +292,9 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
             <div className="bg-red-100 border border-red-500 rounded-lg p-4 mb-6 text-red-700">
               <p className="font-bold mb-1">❌ Not quite — {lastResult?.score}/{lastResult?.total} correct.</p>
               <p className="text-sm text-red-600">
-                No loot awarded this attempt. 📖 Review your mistakes and remember the correct answers below before your next try — it'll help more than guessing.
+                {dailyLockedForRestOfDay
+                  ? `No loot awarded this attempt. 🔒 That was your ${MAIN_QUEST_DAILY_ATTEMPT_CAP}${MAIN_QUEST_DAILY_ATTEMPT_CAP === 2 ? 'nd' : 'th'} attempt today — this quest is locked until tomorrow. Review the correct answers below before then.`
+                  : "No loot awarded this attempt. 📖 Review your mistakes and remember the correct answers below before your next try — it'll help more than guessing."}
               </p>
             </div>
           )}
@@ -276,22 +333,33 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
           <div className="mt-6 flex justify-end gap-3 items-center">
             {submitted ? (
-              <>
-                {cooldownRemaining > 0 && (
-                  <span className="text-sm text-[#6b4820] font-mono">
-                    ⏳ Review time: {cooldownRemaining}s
+              dailyLockedForRestOfDay ? (
+                <>
+                  <span className="text-sm text-[#6b4820] font-bold">
+                    🔒 Locked — back tomorrow for {MAIN_QUEST_DAILY_ATTEMPT_CAP} fresh attempts
                   </span>
-                )}
-                <GameButton
-                  variant="quest"
-                  color="#3b82f6"
-                  onClick={handleRetry}
-                  disabled={cooldownRemaining > 0}
-                  style={{ fontSize: 15 }}
-                >
-                  {cooldownRemaining > 0 ? `🔒 Wait ${cooldownRemaining}s` : '🔁 Try Again'}
-                </GameButton>
-              </>
+                  <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
+                    Return to Campaign Map
+                  </GameButton>
+                </>
+              ) : (
+                <>
+                  {cooldownRemaining > 0 && (
+                    <span className="text-sm text-[#6b4820] font-mono">
+                      ⏳ Review time: {cooldownRemaining}s
+                    </span>
+                  )}
+                  <GameButton
+                    variant="quest"
+                    color="#3b82f6"
+                    onClick={handleRetry}
+                    disabled={cooldownRemaining > 0}
+                    style={{ fontSize: 15 }}
+                  >
+                    {cooldownRemaining > 0 ? `🔒 Wait ${cooldownRemaining}s` : '🔁 Try Again'}
+                  </GameButton>
+                </>
+              )
             ) : (
               <>
                 <GameButton

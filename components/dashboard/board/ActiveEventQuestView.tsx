@@ -151,6 +151,11 @@ export default function ActiveEventQuestView({
           questData={eventQuest}
           currentStats={data.character_stats}
           attemptsSoFar={questRow?.attempts || 0}
+          // Event quests are explicitly out of scope for the main-quest
+          // daily attempt cap (see lib/mainQuestAttempts.ts) — 0 and never
+          // updated (grade_event_quiz returns no attempts_used_today) means
+          // this can never trip the daily lock.
+          dailyAttemptsUsed={0}
           isMastered={!!questRow?.is_mastered}
           gradeQuiz={async (selectedAnswers) => {
             const { data: graded, error } = await supabase.rpc('grade_event_quiz', {
