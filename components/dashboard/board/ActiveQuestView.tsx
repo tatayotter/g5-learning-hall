@@ -26,7 +26,9 @@ interface ActiveQuestViewProps {
   setActiveQuest: (quest: string | null) => void;
   studyReadRemaining: number;
   data: WeeklyData;
+  todayStr: string;
   updateStatsAndJournal: UseWeeklyDataReturn['updateStatsAndJournal'];
+  bumpDailyQuestAttempt: UseWeeklyDataReturn['bumpDailyQuestAttempt'];
 }
 
 export default function ActiveQuestView({
@@ -38,10 +40,13 @@ export default function ActiveQuestView({
   setActiveQuest,
   studyReadRemaining,
   data,
+  todayStr,
   updateStatsAndJournal,
+  bumpDailyQuestAttempt,
 }: ActiveQuestViewProps) {
   const [day, subject] = activeQuest.split('_');
   const questData = mainQuestPackageData[day]?.[subject];
+  const dailyAttemptsUsed = (data.daily_quest_attempts || {})[activeQuest] || 0;
 
   return (
     <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
@@ -99,6 +104,7 @@ export default function ActiveQuestView({
           questData={questData}
           currentStats={data.character_stats}
           attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
+          dailyAttemptsUsed={dailyAttemptsUsed}
           isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
           gradeQuiz={async (selectedAnswers) => {
             // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
@@ -114,9 +120,18 @@ export default function ActiveQuestView({
             const { data: graded, error } = await supabase.rpc('grade_content_quiz', {
               p_user_id: activeUserId,
               p_answers: answers,
+              p_week_starting_date: data.week_starting_date,
+              p_weekday: day,
+              p_subject: subject,
+              p_today: todayStr,
             });
             if (error || !graded) throw error || new Error('grade_content_quiz returned no data');
+            // Mirror the server's authoritative daily-attempt count locally right
+            // away — grading and the attempt-count bump happen atomically inside
+            // the RPC, so this is never out of sync with what was just recorded.
+            bumpDailyQuestAttempt(day, subject, graded.attempts_used_today ?? dailyAttemptsUsed);
             return {
+              locked: graded.locked ?? false,
               correct_count: graded.correct_count,
               total: graded.total,
               is_perfect: graded.is_perfect,

@@ -337,7 +337,7 @@ export default function Dashboard() {
   // activeUserId directly (null until hydration resolves it) means there's
   // nothing to fetch or flash during that window — the existing
   // !hydrated/loading/!data guards below already render a loading screen for it.
-  const { data, loading, updateStatsAndJournal, currentSunday, contentWeekId, applyGoldDelta, bumpCounters, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
+  const { data, loading, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -1001,6 +1001,7 @@ export default function Dashboard() {
             loginStreak={loginStreak}
             totalQuests={totalQuests}
             masteredQuizzes={data.mastered_quizzes}
+            dailyQuestAttempts={data.daily_quest_attempts}
             dashReferralKey={dashReferralKey}
             activeEvent={activeEvent}
             eventClaimed={eventClaimed}
@@ -1047,7 +1048,9 @@ export default function Dashboard() {
             setActiveQuest={setActiveQuest}
             studyReadRemaining={studyReadRemaining}
             data={data}
+            todayStr={todayStr}
             updateStatsAndJournal={updateStatsAndJournal}
+            bumpDailyQuestAttempt={bumpDailyQuestAttempt}
           />
         )}
 

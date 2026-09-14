@@ -18,12 +18,14 @@ import BossPersonaFan from '@/components/monster/BossPersonaFan';
 import { getPersonasForGrade } from '@/lib/bossPersonas';
 import { POOL_READY_THRESHOLD, BossQuestion } from '@/lib/bossFightEngine';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
+import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
 
 interface BoardMapViewProps {
   activeUserId: UserId;
   loginStreak: number;
   totalQuests: number;
   masteredQuizzes: string[] | undefined;
+  dailyQuestAttempts: Record<string, number> | undefined;
   dashReferralKey: string | null;
 
   activeEvent: CustomEvent | null;
@@ -54,6 +56,7 @@ export default function BoardMapView({
   loginStreak,
   totalQuests,
   masteredQuizzes,
+  dailyQuestAttempts,
   dashReferralKey,
   activeEvent,
   eventClaimed,
@@ -258,14 +261,18 @@ export default function BoardMapView({
                 <p className="text-sm text-gray-400">No quests registered for this specific calendar path.</p>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {subjectKeys.map((subjectName) => (
-                    <QuestCard
-                      key={subjectName}
-                      subjectName={subjectName}
-                      completed={(masteredQuizzes || []).includes(`${day}_${subjectName}`)}
-                      onEnter={() => onEnterQuest(`${day}_${subjectName}`)}
-                    />
-                  ))}
+                  {subjectKeys.map((subjectName) => {
+                    const attemptsToday = (dailyQuestAttempts || {})[`${day}_${subjectName}`] || 0;
+                    return (
+                      <QuestCard
+                        key={subjectName}
+                        subjectName={subjectName}
+                        completed={(masteredQuizzes || []).includes(`${day}_${subjectName}`)}
+                        locked={attemptsToday >= MAIN_QUEST_DAILY_ATTEMPT_CAP}
+                        onEnter={() => onEnterQuest(`${day}_${subjectName}`)}
+                      />
+                    );
+                  })}
                 </div>
               )
             ) : null}
