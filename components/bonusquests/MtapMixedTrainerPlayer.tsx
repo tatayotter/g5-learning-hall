@@ -14,7 +14,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
-import GameButton from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio } from '@/components/VictoryScreen';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import {
   MtapQuestion, MtapGradeResult, MixedTrainerRewardResult, fetchMixedTrainerSet, gradeMtapAnswer, creditMtapReward, claimMixedTrainerReward,
 } from '@/lib/mtapEngine';
@@ -29,6 +31,65 @@ interface MtapMixedTrainerPlayerProps {
 }
 
 type Phase = 'loading' | 'question' | 'answered' | 'done' | 'empty';
+
+type TierTally = Record<MtapTier, { correct: number; total: number }>;
+
+// End-of-run summary. Exported (and prop-driven) so /dev/ui-gallery can preview it
+// without a live session.
+export function MixedTrainerComplete({ tierTally, reward, pillResult, onExit }: {
+  tierTally: TierTally;
+  reward: { xp: number; gold: number };
+  pillResult: MixedTrainerRewardResult | null;
+  onExit: () => void;
+}) {
+  const totalCorrect = TIERS.reduce((sum, t) => sum + tierTally[t].correct, 0);
+  const totalAnswered = TIERS.reduce((sum, t) => sum + tierTally[t].total, 0);
+  const rewards: VictoryReward[] = [];
+  if (reward.xp > 0) rewards.push({ ...XP_REWARD, value: reward.xp, icon: <XpIcon /> });
+  if (reward.gold > 0) rewards.push({ ...GOLD_REWARD, value: reward.gold, icon: <GoldIcon /> });
+  const outlined = (text: string, size: number, color = '#ffffff') => (
+    <span style={{ position: 'relative', display: 'inline-block', fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: size, lineHeight: 1 }}>
+      <span aria-hidden style={questTextShadowStyle}>{text}</span>
+      <span style={{ ...questTextStyle, color }}>{text}</span>
+    </span>
+  );
+  return (
+    <VictoryScreen
+      title="Mixed Trainer Complete!"
+      stars={starsFromRatio(totalCorrect, totalAnswered)}
+      subtitle={`${totalCorrect} of ${totalAnswered} correct across every strand`}
+      rewards={rewards}
+      actions={<GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>Back to topics</GameButton>}
+    >
+      {/* Per-tier breakdown, framed like the battle HP card. */}
+      <div
+        className="vs-rise relative mx-auto max-w-md rounded-lg border-2 border-[#4a2f18] px-4 py-4 text-center"
+        style={{ animationDelay: '900ms', boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+      >
+        <Nail className="top-1 left-1" />
+        <Nail className="top-1 right-1" />
+        <Nail className="bottom-1 left-1" />
+        <Nail className="bottom-1 right-1" />
+        <div className="grid grid-cols-3 gap-2">
+          {TIERS.map(t => (
+            <div key={t}>
+              <p className="mb-1">{outlined(TIER_LABEL[t], 11)}</p>
+              <p>{outlined(`${tierTally[t].correct}/${tierTally[t].total}`, 26, tierTally[t].total > 0 && tierTally[t].correct === tierTally[t].total ? '#86efac' : '#ffffff')}</p>
+            </div>
+          ))}
+        </div>
+        {pillResult?.granted && (
+          <p className="mt-3">{outlined(`+${pillResult.growth_pills} Growth Pill for finishing a full run!`, 13, '#f5c542')}</p>
+        )}
+        {pillResult && !pillResult.granted && pillResult.reason === 'already_claimed_today' && (
+          <p className="mt-3 text-xs italic text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+            Already claimed today&apos;s Growth Pill for this grade. Come back tomorrow for another.
+          </p>
+        )}
+      </div>
+    </VictoryScreen>
+  );
+}
 
 export default function MtapMixedTrainerPlayer({
   userId, grade, onExit, onRewardEarned, onProgress,
@@ -154,35 +215,7 @@ export default function MtapMixedTrainerPlayer({
     );
   }
   if (phase === 'done') {
-    const totalCorrect = TIERS.reduce((sum, t) => sum + tierTally[t].correct, 0);
-    const totalAnswered = TIERS.reduce((sum, t) => sum + tierTally[t].total, 0);
-    return (
-      <div className="bg-[#e8f5e0] border border-green-700 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-bold text-green-700 mb-2 font-display">Mixed Trainer complete!</h2>
-        <p className="text-[#2a1505] mb-4">{totalCorrect} / {totalAnswered} correct — an elimination-round-style set across every strand.</p>
-        <div className="grid grid-cols-3 gap-2 max-w-sm mx-auto mb-6">
-          {TIERS.map(t => (
-            <div key={t} className="bg-white border border-green-300 rounded-lg py-2 px-1">
-              <p className="text-[10px] font-bold uppercase tracking-wide text-[#7a4a0f]">{TIER_LABEL[t]}</p>
-              <p className="text-sm font-bold text-[#2a1505] font-mono">{tierTally[t].correct}/{tierTally[t].total}</p>
-            </div>
-          ))}
-        </div>
-        <p className="text-[#2a1505] mb-2">
-          Earned <span className="font-bold text-[#c9781a] font-mono">{sessionReward.xp} XP</span> and{' '}
-          <span className="font-bold text-yellow-600 font-mono">{sessionReward.gold} Gold</span> this run.
-        </p>
-        {pillResult?.granted && (
-          <p className="text-[#2a1505] mb-6 font-bold">🎁 +{pillResult.growth_pills} Growth Pill for finishing a full run!</p>
-        )}
-        {pillResult && !pillResult.granted && pillResult.reason === 'already_claimed_today' && (
-          <p className="text-xs text-[#8b5e2a] italic mb-4">Already claimed today's Growth Pill for this grade — come back tomorrow for another.</p>
-        )}
-        <div className="mt-4">
-          <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>Back to topics</GameButton>
-        </div>
-      </div>
-    );
+    return <MixedTrainerComplete tierTally={tierTally} reward={sessionReward} pillResult={pillResult} onExit={onExit} />;
   }
 
   const timerColor = timeLeft <= 5 ? 'text-red-600' : 'text-[#7a4a0f]';

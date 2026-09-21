@@ -23,6 +23,7 @@ import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
 import { takePrefetch } from '@/lib/tabPrefetch';
+import GuildSessionResults from '@/components/guilds/GuildSessionResults';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -327,7 +328,19 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     : { emoji: '📜', label: 'Apprentice', color: 'text-stone-400' };
 
   return (
-    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-emerald-800 battle-panel-in" style={{ zIndex: 80 }}>
+    <GuildSessionResults
+      guild="lorekeeper"
+      bgUrl="/guilds/lorekeeper-bg.png"
+      rank={rank}
+      correct={engine.correctCount}
+      wrong={engine.wrongCount}
+      xp={engine.totalXpEarned}
+      gold={engine.totalGoldEarned}
+      playAgainColor="#047857"
+      onPlayAgain={() => { engine.start(); setScreen('playing'); }}
+      onExit={onExit}
+      overlays={
+        <>
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => setNewCurioId(null)} />
       )}
@@ -338,87 +351,8 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           onGoToCompendium={() => setCompanionGraduation(null)}
         />
       )}
-
-      {/* Centered column */}
-      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
-
-        {/* Header bar — always full width */}
-        <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
-          <span className="text-emerald-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
-          <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
-        </div>
-
-        {/* Body — portrait: stacked | landscape: side-by-side */}
-        <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
-
-          {/* Sprite strip */}
-          <div
-            className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
-            style={{ backgroundImage: "url('/guilds/lorekeeper-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-          >
-            <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
-              <GuardianSprite guild="lorekeeper" pose="defeated" className="w-full h-full" />
-            </div>
-          </div>
-
-          {/* Results card */}
-          <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
-          <div className="p-4 flex flex-col gap-3 flex-1">
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 gap-2">
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-green-600">{engine.correctCount}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Correct</p>
-              </div>
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-red-500">{engine.wrongCount}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Wrong</p>
-              </div>
-              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-emerald-700">+{engine.totalXpEarned}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Subclass XP</p>
-              </div>
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
-                  <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />
-                  {engine.totalGoldEarned}
-                </p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
-              </div>
-            </div>
-
-            {/* Accuracy bar */}
-            {(engine.correctCount + engine.wrongCount) > 0 && (() => {
-              const total = engine.correctCount + engine.wrongCount;
-              const pct = Math.round((engine.correctCount / total) * 100);
-              return (
-                <div>
-                  <div className="flex justify-between text-xs text-gray-500 mb-1">
-                    <span>Accuracy</span>
-                    <span className="font-bold text-emerald-700">{pct}%</span>
-                  </div>
-                  <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
-                    <div className="h-2 bg-emerald-500 rounded-full transition-all" style={{ width: `${pct}%` }} />
-                  </div>
-                </div>
-              );
-            })()}
-
-            {/* Actions */}
-            <div className="flex flex-col gap-3 mt-auto pt-2">
-              <GameButton variant="quest" color="#047857" onClick={() => { engine.start(); setScreen('playing'); }} className="w-full" style={{ fontSize: 15 }}>
-                ⚔️ Play Again
-              </GameButton>
-              <GameButton variant="quest" color="#8b5e2a" onClick={onExit} className="w-full" style={{ fontSize: 14 }}>
-                ← Return to Campaign Map
-              </GameButton>
-            </div>
-          </div>
-          </div>{/* end results card */}
-        </div>{/* end body row */}
-
-      </div>{/* end centered column */}
-    </div>
+        </>
+      }
+    />
   );
 }

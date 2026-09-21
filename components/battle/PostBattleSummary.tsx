@@ -7,8 +7,9 @@
 // in the game ends the same way instead of PVP alone getting a proper recap.
 import { useMemo, useState } from 'react';
 import { ActiveBattleMonster, MonsterImage } from '@/components/battle/shared';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questButtonDropShadow } from '@/components/GameButton';
-import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
+import { Nail } from '@/components/battle/MonsterHpPanel';
+import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD } from '@/components/VictoryScreen';
 
 const TITLE_COLOR: Record<'win' | 'loss' | 'draw', string> = {
   win: '#f5c542', // quest-button gold
@@ -141,73 +142,50 @@ function Side({ avatarSrc, avatarFallbackEmoji, avatarContain, name, subtitle, t
   );
 }
 
+// Stars are outcome-based, not a score: win 3, draw 1, loss 0.
+const OUTCOME_STARS: Record<'win' | 'loss' | 'draw', number> = { win: 3, draw: 1, loss: 0 };
+
 export default function PostBattleSummary({ outcome, left, right, log, expEarned, goldEarned, rewardLine, onContinue }: PostBattleSummaryProps) {
-  const titleIcon = outcome === 'draw' ? '/icons/stats/draw.svg' : outcome === 'win' ? '/icons/stats/victory.svg' : '/icons/stats/defeat.svg';
   const titleText = outcome === 'draw' ? "It's a Draw!" : outcome === 'win' ? 'Victory!' : 'Defeat...';
 
-  const computedRewardLine = rewardLine ?? (
-    expEarned || goldEarned
-      ? `You Earned ${expEarned ?? 0} EXP${goldEarned ? `, ${goldEarned} Gold` : ''}`
-      : undefined
-  );
+  const rewards: VictoryReward[] = [];
+  if (expEarned) rewards.push({ ...XP_REWARD, label: 'Curio EXP', value: expEarned, icon: <XpIcon /> });
+  if (goldEarned) rewards.push({ ...GOLD_REWARD, value: goldEarned, icon: <GoldIcon /> });
 
   const encouragement = useMemo(() => {
     const pool = outcome === 'draw' ? DRAW_ENCOURAGEMENT : DEFEAT_ENCOURAGEMENT;
     return pool[Math.floor(Math.random() * pool.length)];
   }, [outcome]);
 
+  // A loss/draw gets its warm nudge; a win shows the free-text reward line only
+  // when the caller had no numeric rewards to put in the tiles.
+  const subtitle = outcome !== 'win' ? encouragement : (rewards.length === 0 ? rewardLine : undefined);
+
   return (
-    <div
-      className="relative border-2 border-[#4a2f18] rounded-2xl p-6 battle-panel-in"
-      style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
-    >
-      {/* Same wood-plank + gold trim + corner-nail frame as the battle
-          screen's MonsterHpPanel, reusing its exported style pieces rather
-          than re-deriving them (2026-08-29). */}
-      <Nail className="top-2 left-2" />
-      <Nail className="top-2 right-2" />
-      <Nail className="bottom-2 left-2" />
-      <Nail className="bottom-2 right-2" />
-      <div className="flex flex-col items-center justify-center gap-1 mb-1">
-        <img src={titleIcon} alt={outcome} className="w-10 h-10 object-contain" />
-        {/* Same Bungee/stroke/shadow text treatment as the quest GameButton's
-            label, colored per outcome (gold win / red loss / blue draw)
-            instead of the button's white (2026-08-29). */}
-        <p className="text-center text-2xl font-bold" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-          <span style={{ position: 'relative', display: 'inline-block' }}>
-            <span aria-hidden style={questTextShadowStyle}>{titleText}</span>
-            <span style={{ position: 'relative', color: TITLE_COLOR[outcome], WebkitTextStroke: '0.0952em #000', paintOrder: 'stroke fill' as const, textTransform: 'uppercase' as const }}>{titleText}</span>
-          </span>
-        </p>
-      </div>
-      {/* The small reason line ("Fight complete") is redundant with the
-          title text (Victory!/Defeat.../It's a Draw!) on every outcome now —
-          dropped entirely rather than only on a win (2026-08-29). A loss gets
-          a short encouraging byline in its place, a draw gets a
-          strategy-focused one — both from a small rotating pool (2026-08-29). */}
-      {(outcome === 'loss' || outcome === 'draw') && (
-        <p className="text-center text-xs mb-4 text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
-          {encouragement}
-        </p>
-      )}
-      {computedRewardLine && (
-        <p className="text-center text-xs font-bold mb-4 text-[#fde68a]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
-          {computedRewardLine}
-        </p>
-      )}
-      {!computedRewardLine && outcome === 'win' && <div className="mb-4" />}
-      <div className="flex items-start gap-4 mb-6">
-        <Side {...left} />
-        <Side {...right} />
-      </div>
-      <div className="bg-[#f5f0e8] rounded-xl p-3 max-h-40 overflow-y-auto mb-6">
-        {log.map((msg, i) => (
-          <p key={i} className="text-xs text-[#6b4820] mb-1">{msg}</p>
-        ))}
-      </div>
-      <GameButton variant="quest" color="#d97706" onClick={onContinue} className="w-full" style={{ fontSize: 16 }}>
-        Continue
-      </GameButton>
+    <div className="battle-panel-in">
+      <VictoryScreen
+        title={titleText.toUpperCase()}
+        titleColor={TITLE_COLOR[outcome]}
+        stars={OUTCOME_STARS[outcome]}
+        rays={outcome === 'win'}
+        subtitle={subtitle}
+        rewards={rewards}
+        actions={
+          <GameButton variant="quest" color="#d97706" onClick={onContinue} className="w-full max-w-sm" style={{ fontSize: 20 }}>
+            Continue
+          </GameButton>
+        }
+      >
+        <div className="flex items-start gap-4 mb-6 text-left">
+          <Side {...left} />
+          <Side {...right} />
+        </div>
+        <div className="bg-[#f5f0e8] border border-[#c9a87a] rounded-xl p-3 max-h-40 overflow-y-auto text-left">
+          {log.map((msg, i) => (
+            <p key={i} className="text-xs text-[#6b4820] mb-1">{msg}</p>
+          ))}
+        </div>
+      </VictoryScreen>
     </div>
   );
 }

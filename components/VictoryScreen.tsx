@@ -67,6 +67,13 @@ const CSS = `
   }
 `;
 
+// Stars for an "n of m correct" result: 90%+ = 3, 60%+ = 2, any correct = 1.
+export function starsFromRatio(correct: number, total: number) {
+  if (total <= 0 || correct <= 0) return 0;
+  const r = correct / total;
+  return r >= 0.9 ? 3 : r >= 0.6 ? 2 : 1;
+}
+
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
@@ -195,13 +202,14 @@ interface VictoryScreenProps {
   titleColor?: string;   // fill for the Bungee title (default green)
   subtitle?: ReactNode;
   stars?: number;        // earned stars out of 3 (default 3)
-  rewards: VictoryReward[];
+  rewards?: VictoryReward[]; // omit for outcomes with no payout (e.g. a defeat)
+  rays?: boolean;            // sun rays behind the title (default on)
   children?: ReactNode;  // bottom card slot (e.g. <CurioTrainingCard />)
   actions: ReactNode;    // buttons row
 }
 
 export default function VictoryScreen({
-  title = 'Quest Completed!', titleColor = '#4ade80', subtitle, stars = 3, rewards, children, actions,
+  title = 'Quest Completed!', titleColor = '#4ade80', subtitle, stars = 3, rewards = [], rays = true, children, actions,
 }: VictoryScreenProps) {
   const rewardEnd = 700 + Math.max(0, rewards.length - 1) * 150;
   return (
@@ -217,7 +225,7 @@ export default function VictoryScreen({
         <Nail className="bottom-1.5 right-1.5" />
 
         <div className="relative overflow-hidden rounded-xl px-4 sm:px-8 py-8 text-center" style={{ background: 'linear-gradient(180deg,#fffdf7 0%,#fbf3df 60%,#f0ddb8 100%)', border: '2px solid #c9a87a' }}>
-          <div className="vs-rays" aria-hidden />
+          {rays && <div className="vs-rays" aria-hidden />}
 
           <div className="relative">
             <h2 className="vs-title leading-tight mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 38 }}>
@@ -235,9 +243,11 @@ export default function VictoryScreen({
 
             {subtitle && <p className="vs-rise font-display font-bold text-[#7a4a0f] mb-6" style={{ animationDelay: '600ms' }}>{subtitle}</p>}
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
-              {rewards.map((r, i) => <RewardTile key={r.label} reward={r} delay={700 + i * 150} />)}
-            </div>
+            {rewards.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+                {rewards.map((r, i) => <RewardTile key={r.label} reward={r} delay={700 + i * 150} />)}
+              </div>
+            )}
 
             {children && <div className="mb-6">{children}</div>}
 
