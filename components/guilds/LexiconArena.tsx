@@ -23,6 +23,7 @@ import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterC
 import { QualityTier } from '@/lib/curioQuality';
 import { takePrefetch } from '@/lib/tabPrefetch';
 import GuildSessionResults from '@/components/guilds/GuildSessionResults';
+import type { GuildSessionScore } from '@/lib/dailyChecklist';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -50,7 +51,7 @@ interface LexiconArenaProps {
   userId: string;
   weekStartingDate: string;
   currentStats: CharacterStats;
-  onGoldEarned: (newStats: CharacterStats) => void;
+  onGoldEarned: (newStats: CharacterStats, score: GuildSessionScore) => void;
   onExit: () => void;
 }
 
@@ -175,7 +176,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
       xp: newXp,
       level: newLevel,
     };
-    onGoldEarned(newStats);
+    onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
     logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${engine.correctCount} correct, ${engine.wrongCount} wrong, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
   };
 

@@ -23,6 +23,7 @@ import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterC
 import { QualityTier } from '@/lib/curioQuality';
 import { takePrefetch } from '@/lib/tabPrefetch';
 import GuildSessionResults from '@/components/guilds/GuildSessionResults';
+import type { GuildSessionScore } from '@/lib/dailyChecklist';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -54,7 +55,7 @@ interface LogicLabyrinthProps {
   userId: string;
   weekStartingDate: string;
   currentStats: CharacterStats;
-  onGoldEarned: (newStats: CharacterStats) => void;
+  onGoldEarned: (newStats: CharacterStats, score: GuildSessionScore) => void;
   onExit: () => void;
 }
 
@@ -145,9 +146,12 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
         }
       }
     }
-    if (engine.totalGoldEarned > 0) {
+    // Record the session even when it earned no gold (a session with no answers isn't a session).
+    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats);
+      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
+    }
+    if (engine.totalGoldEarned > 0) {
       logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
     }
   };

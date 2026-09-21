@@ -7,7 +7,7 @@
 import { motion } from 'framer-motion';
 import { UserId } from '@/lib/userSession';
 import { CharacterStats } from '@/hooks/useWeeklyData';
-import { GuildKey } from '@/lib/dailyChecklist';
+import { GuildKey, GuildSessionScore } from '@/lib/dailyChecklist';
 import { SubclassProfile } from '@/lib/guildEngine';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
@@ -24,7 +24,7 @@ interface GuildsTabProps {
   activeUserId: UserId;
   weekStartingDate: string;
   characterStats: CharacterStats;
-  onGuildGoldEarned: (newStats: CharacterStats) => void;
+  onGuildGoldEarned: (newStats: CharacterStats, score: GuildSessionScore) => void;
 }
 
 export default function GuildsTab({

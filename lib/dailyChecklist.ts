@@ -51,11 +51,18 @@ export async function fetchChecklistBattleFlags(userId: string): Promise<Checkli
 // components' completion callback, via an RPC so a student who hasn't visited
 // the Monster Arena yet (no user_battle_state row) still gets one created
 // atomically rather than racing a client-side read-then-upsert.
-export async function markGuildSessionToday(userId: string, guildKey: GuildKey, today: string) {
+export interface GuildSessionScore {
+  questionsAnswered: number;
+  correctCount: number;
+}
+
+export async function markGuildSessionToday(userId: string, guildKey: GuildKey, today: string, score?: GuildSessionScore) {
   await supabase.rpc('mark_guild_session_today', {
     p_user_id: userId,
     p_guild_key: guildKey,
     p_today: today,
+    p_questions_answered: score?.questionsAnswered ?? 0,
+    p_correct_count: score?.correctCount ?? 0,
   });
 }
 
