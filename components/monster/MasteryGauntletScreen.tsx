@@ -22,6 +22,7 @@ import { shuffle, BossQuestion } from '@/lib/bossFightEngine';
 import { useGauntletQueue } from '@/lib/masteryGauntletEngine';
 import { gradeMonsterQuestion } from '@/lib/guildEngine';
 import GameButton from '@/components/GameButton';
+import VictoryScreen from '@/components/VictoryScreen';
 
 interface MasteryGauntletScreenProps {
   userId: string;
@@ -64,17 +65,24 @@ export function GauntletEmptyScreen({ day, onExit }: { day: string; onExit: () =
   );
 }
 
-// Same reasoning as GauntletEmptyScreen above.
-export function GauntletFinishedScreen({ day, onExit }: { day: string; onExit: () => void }) {
+// Same reasoning as GauntletEmptyScreen above. No reward tiles: a day's
+// gauntlet pays nothing by itself, the event reward comes once every weekday
+// is done. There is no lose state, so completing always earns all 3 stars.
+export function GauntletFinishedScreen({ day, mastered, onExit }: { day: string; mastered?: number; onExit: () => void }) {
   return (
-    <div className="bg-[#e8f5e0] border border-green-700 rounded-2xl p-8 text-center">
-      <p className="text-2xl mb-2">🏅</p>
-      <p className="text-green-700 font-bold text-lg mb-1">{day}'s Gauntlet Complete!</p>
-      <p className="text-[#6b4820] text-sm mb-6">Finish every weekday's gauntlet to claim this event's reward.</p>
-      <GameButton variant="quest" color="#15803d" onClick={onExit} style={{ fontSize: 15 }}>
-        Done
-      </GameButton>
-    </div>
+    <VictoryScreen
+      title="Gauntlet Complete!"
+      subtitle={mastered ? `${day}: ${mastered} question${mastered === 1 ? '' : 's'} mastered` : `${day} cleared`}
+      actions={
+        <GameButton variant="quest" color="#15803d" onClick={onExit} style={{ fontSize: 20 }}>
+          Done
+        </GameButton>
+      }
+    >
+      <p className="vs-rise text-sm font-semibold text-[#6b4820] max-w-sm mx-auto" style={{ animationDelay: '800ms' }}>
+        Finish every weekday&apos;s gauntlet to claim this event&apos;s reward.
+      </p>
+    </VictoryScreen>
   );
 }
 
@@ -82,13 +90,14 @@ export default function MasteryGauntletScreen({
   userId, grade, term, day, pool, eventTitle, onExit,
 }: MasteryGauntletScreenProps) {
   const [finished, setFinished] = useState(false);
+  const [masteredCount, setMasteredCount] = useState(0);
 
   if (pool.length === 0) {
     return <GauntletEmptyScreen day={day} onExit={() => onExit(false)} />;
   }
 
   if (finished) {
-    return <GauntletFinishedScreen day={day} onExit={() => onExit(true)} />;
+    return <GauntletFinishedScreen day={day} mastered={masteredCount} onExit={() => onExit(true)} />;
   }
 
   return (
@@ -98,7 +107,7 @@ export default function MasteryGauntletScreen({
       userId={userId}
       grade={grade}
       term={term}
-      onFinished={() => setFinished(true)}
+      onFinished={n => { setMasteredCount(n); setFinished(true); }}
     />
   );
 }
@@ -114,7 +123,7 @@ export function GauntletBattle({
   userId: string;
   grade: number;
   term: number;
-  onFinished: () => void;
+  onFinished: (mastered: number) => void;
 }) {
   const { status, current, correctCount, originalPoolSize, progressPct, submitAnswer } = useGauntletQueue(pool);
   const shuffledOptions = useMemo(() => (current ? shuffle(current.options) : []), [current?.id]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -123,7 +132,7 @@ export function GauntletBattle({
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
 
   useEffect(() => {
-    if (status === 'won') onFinished();
+    if (status === 'won') onFinished(originalPoolSize);
   }, [status]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleAnswer = async (opt: string) => {

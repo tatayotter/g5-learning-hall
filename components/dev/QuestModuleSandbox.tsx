@@ -1,4 +1,6 @@
-// components/QuestModule.tsx
+// components/dev/QuestModuleSandbox.tsx
+// DEV-ONLY FORK of components/QuestModule.tsx — edit freely here; the live quest screen is untouched.
+// Rendered by /dev/quest-quiz with mock data. When happy, port the changes back to QuestModule.tsx.
 import { useState, useEffect } from 'react';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -76,10 +78,10 @@ interface QuestModuleProps {
   // is a lifetime counter used only for reward scaling.
   dailyAttemptsUsed: number;
   isMastered: boolean;
+  // Curio EXP line shown on the completion screens (set once the award lands).
+  trainingResult?: TrainingResult | null;
   // The curio picked to train for this quest — shown next to the progress dots.
   trainingCurio?: { monster_id: string; nickname: string | null; monster_level: number } | null;
-  // Filled in by the parent once the training curio's EXP has been awarded.
-  trainingResult?: TrainingResult | null;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
   // locally even if it wanted to.
@@ -90,7 +92,7 @@ interface QuestModuleProps {
 
 const COOLDOWN_SECONDS = 20;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModuleSandbox({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});

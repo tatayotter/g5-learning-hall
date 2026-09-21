@@ -183,6 +183,8 @@ export default function BattleStage({
         backgroundPosition: 'center',
       }}
     >
+      <div aria-hidden className="bstage-vignette" />
+
       <div className="bstage-top-tags">
         <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[38%]">
           {leftName}

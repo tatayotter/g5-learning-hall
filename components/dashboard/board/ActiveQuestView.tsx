@@ -5,6 +5,7 @@
 // change.
 'use client';
 
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { UserId } from '@/lib/userSession';
@@ -14,6 +15,10 @@ import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import GameButton from '@/components/GameButton';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
+import VisualAid from '@/components/quest/VisualAid';
+import CurioTrainingPicker, { TRAINING_EXP_SHARE, OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
+import { ALL_MONSTERS, getMonsterLevel } from '@/lib/monsterConfig';
+import type { TrainingResult } from '@/components/VictoryScreen';
 
 type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
 
@@ -47,6 +52,41 @@ export default function ActiveQuestView({
   const [day, subject] = activeQuest.split('_');
   const questData = mainQuestPackageData[day]?.[subject];
   const dailyAttemptsUsed = (data.daily_quest_attempts || {})[activeQuest] || 0;
+  const [trainingCurio, setTrainingCurio] = useState<OwnedCurio | undefined>(undefined);
+  const trainingCurioId = trainingCurio?.id;
+  const [trainingResult, setTrainingResult] = useState<TrainingResult | null>(null);
+
+  // Awards the training curio its share of the quest XP. Runs once, on the
+  // perfect (quest-completed) submission only. Best-effort: a failure here must
+  // never block the quest reward itself.
+  const awardTrainingExp = async (xpEarned: number) => {
+    if (!trainingCurioId) return;
+    const exp = Math.floor(xpEarned * TRAINING_EXP_SHARE);
+    if (exp <= 0) return;
+    try {
+      const { data: row, error } = await supabase
+        .from('user_monsters')
+        .select('monster_id, monster_exp, monster_level')
+        .eq('id', trainingCurioId)
+        .eq('user_id', activeUserId)
+        .maybeSingle();
+      if (error || !row) return;
+      const newExp = row.monster_exp + exp;
+      const newLevel = getMonsterLevel(newExp);
+      const { error: updErr } = await supabase
+        .from('user_monsters')
+        .update({ monster_exp: newExp, monster_level: newLevel })
+        .eq('id', trainingCurioId)
+        .eq('user_id', activeUserId);
+      if (updErr) return;
+      const name = ALL_MONSTERS[row.monster_id]?.name ?? 'Your curio';
+      const leveled = newLevel > row.monster_level;
+      setTrainingResult({ monsterId: row.monster_id, name, exp, prevExp: row.monster_exp, newExp, leveledTo: leveled ? newLevel : null });
+      logAction(activeUserId, data.week_starting_date, 'quiz', `🐾 ${name} trained +${exp} Curio EXP`, exp, 0);
+    } catch (e) {
+      console.error('Curio training exp failed:', e);
+    }
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto animate-in fade-in duration-500">
@@ -56,12 +96,13 @@ export default function ActiveQuestView({
             ← Retreat to Map
           </GameButton>
 
-          <div className="bg-[#f0ddb8] border border-[#8b5e2a] p-8 rounded-xl shadow-lg">
+          <div className="bg-white p-8 rounded-xl shadow-lg">
             <h2 className="text-3xl font-bold mb-6 text-[#7a4a0f] font-display">Study Session: {subject}</h2>
             <div className="border-t border-[#c9a87a] pt-6">
               {questData?.summary_markdown
                 ? <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>{questData.summary_markdown}</ReactMarkdown>
                 : <p className="text-[#3a2610] leading-relaxed">No notes available for this module.</p>}
+              <VisualAid spec={questData?.visual_aid} />
             </div>
           </div>
 
@@ -85,6 +126,7 @@ export default function ActiveQuestView({
           <p className="text-[#6b4820] mb-8 max-w-sm mx-auto">
             You are about to start the assessment. Once you enter the exam, there is no turning back.
           </p>
+          <CurioTrainingPicker userId={activeUserId} selectedId={trainingCurioId} onSelect={setTrainingCurio} />
           <div className="flex gap-4 justify-center">
             <GameButton variant="quest" color="#d4d4d4" onClick={() => setQuizPhase('study')} style={{ fontSize: 15 }}>
               Go Back to Notes
@@ -106,6 +148,8 @@ export default function ActiveQuestView({
           attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
           dailyAttemptsUsed={dailyAttemptsUsed}
           isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
+          trainingResult={trainingResult}
+          trainingCurio={trainingCurio ?? null}
           gradeQuiz={async (selectedAnswers) => {
             // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
             // see docs/weekly-progress-redesign-plan.md) — Weekly Review (built
@@ -154,6 +198,7 @@ export default function ActiveQuestView({
                 (data.perfect_quizzes || 0) + 1
               );
               logAction(activeUserId, data.week_starting_date, 'quiz', `Completed ${subject} in ${newAttempts} attempt(s)`, xpEarned, goldEarned);
+              awardTrainingExp(xpEarned);
               trackEvent('main_quest_completed', { subject, attempts: newAttempts, xp_earned: xpEarned, gold_earned: goldEarned });
               if (newStats.level > data.character_stats.level) {
                 logAction(activeUserId, data.week_starting_date, 'achievement', `🎉 Leveled up to Level ${newStats.level}!`, 0, 0);
@@ -175,6 +220,8 @@ export default function ActiveQuestView({
           onExit={() => {
             setActiveQuest(null);
             setQuizPhase('study');
+            setTrainingCurio(undefined);
+            setTrainingResult(null);
           }}
         />
       )}

@@ -37,6 +37,9 @@ import CodexPanel from '@/components/CodexPanel';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import WelcomeCard from '@/components/WelcomeCard';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
+import GuildSessionResults from '@/components/guilds/GuildSessionResults';
+import { MtapSetComplete } from '@/components/bonusquests/MtapQuizPlayer';
+import { MixedTrainerComplete } from '@/components/bonusquests/MtapMixedTrainerPlayer';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
 
@@ -147,7 +150,8 @@ type OverlayKey =
   | 'toast' | 'achievementToast' | 'critBonusToast' | 'liveBattleInvite'
   | 'graduation' | 'growthPill' | 'eggHatch' | 'tutorSuccess' | 'tutorFail'
   | 'dailyBonus' | 'curioReveal' | 'wildEncounter' | 'eventAnnouncement'
-  | 'duplicateCatch' | 'bossVictory' | 'bossCutscene' | 'bossMist' | 'bossPersonaFan';
+  | 'duplicateCatch' | 'bossVictory' | 'bossCutscene' | 'bossMist' | 'bossPersonaFan'
+  | 'guildResultsHigh' | 'guildResultsLow' | 'mtapSet' | 'mtapMixed';
 
 export default function UiGallery() {
   const monsterList = Object.values(ALL_MONSTERS);
@@ -218,6 +222,14 @@ export default function UiGallery() {
 
   function renderOverlay() {
     switch (activeOverlay) {
+      case 'guildResultsHigh':
+        return <GuildSessionResults guild="lexiconarena" bgUrl="/guilds/lex-bg.png" rank={{ label: 'Lexicon Master' }} correct={12} wrong={2} xp={180} gold={96} playAgainColor="#3b82f6" onPlayAgain={close} onExit={close} />;
+      case 'guildResultsLow':
+        return <GuildSessionResults guild="spellcaster" bgUrl="/guilds/spell-bg.png" rank={{ label: 'Apprentice' }} correct={3} wrong={9} xp={45} gold={24} playAgainColor="#9333ea" onPlayAgain={close} onExit={close} />;
+      case 'mtapSet':
+        return <div className="fixed inset-0 z-[80] overflow-y-auto bg-[#f5f0e8]"><div className="max-w-xl mx-auto px-3 py-8"><MtapSetComplete correct={8} total={10} reward={{ xp: 160, gold: 40 }} onExit={close} /></div></div>;
+      case 'mtapMixed':
+        return <div className="fixed inset-0 z-[80] overflow-y-auto bg-[#f5f0e8]"><div className="max-w-xl mx-auto px-3 py-8"><MixedTrainerComplete tierTally={{ easy: { correct: 5, total: 5 }, average: { correct: 3, total: 5 }, difficult: { correct: 1, total: 4 } }} reward={{ xp: 180, gold: 45 }} pillResult={{ granted: true, growth_pills: 1 } as never} onExit={close} /></div></div>;
       case 'toast':
         return <Toast message="Quest completed! +200 EXP" show onClose={close} />;
       case 'achievementToast':
@@ -450,7 +462,7 @@ export default function UiGallery() {
           </div>
           <div className="space-y-3">
             <p className="text-xs font-bold text-[#6b4820] uppercase tracking-wide">Gauntlet — day complete</p>
-            <GauntletFinishedScreen day="Monday" onExit={() => {}} />
+            <GauntletFinishedScreen day="Monday" mastered={12} onExit={() => {}} />
           </div>
         </div>
       </Section>
@@ -737,6 +749,10 @@ export default function UiGallery() {
           <PreviewButton label="BossCutscene" onClick={() => setActiveOverlay('bossCutscene')} />
           <PreviewButton label="BossMistOverlay" onClick={() => setActiveOverlay('bossMist')} />
           <PreviewButton label="BossPersonaFan" onClick={() => setActiveOverlay('bossPersonaFan')} />
+          <PreviewButton label="GuildSessionResults (3 stars)" onClick={() => setActiveOverlay('guildResultsHigh')} />
+          <PreviewButton label="GuildSessionResults (1 star)" onClick={() => setActiveOverlay('guildResultsLow')} />
+          <PreviewButton label="MtapSetComplete" onClick={() => setActiveOverlay('mtapSet')} />
+          <PreviewButton label="MixedTrainerComplete" onClick={() => setActiveOverlay('mtapMixed')} />
         </div>
       </Section>
 

@@ -10,6 +10,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
 import GameButton from '@/components/GameButton';
+import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio } from '@/components/VictoryScreen';
 import {
   MtapQuestion, MtapGradeResult, fetchMtapQuestions, gradeMtapAnswer, creditMtapReward,
 } from '@/lib/mtapEngine';
@@ -27,6 +28,26 @@ interface MtapQuizPlayerProps {
 }
 
 type Phase = 'loading' | 'question' | 'answered' | 'done' | 'empty';
+
+// End-of-set summary. Exported (and prop-driven) so /dev/ui-gallery can preview it
+// without a live session.
+export function MtapSetComplete({ correct, total, reward, onExit }: {
+  correct: number; total: number; reward: { xp: number; gold: number }; onExit: () => void;
+}) {
+  const rewards: VictoryReward[] = [];
+  if (reward.xp > 0) rewards.push({ ...XP_REWARD, value: reward.xp, icon: <XpIcon /> });
+  if (reward.gold > 0) rewards.push({ ...GOLD_REWARD, value: reward.gold, icon: <GoldIcon /> });
+  const score = `${correct} of ${total} correct`;
+  return (
+    <VictoryScreen
+      title="Set Complete!"
+      stars={starsFromRatio(correct, total)}
+      subtitle={rewards.length === 0 && correct > 0 ? `${score}. Repeat answers earn no extra reward, but great practice!` : score}
+      rewards={rewards}
+      actions={<GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>Back to topics</GameButton>}
+    />
+  );
+}
 
 export default function MtapQuizPlayer({
   userId, grade, archetype, archetypeName, tier, onExit, onRewardEarned, onProgress,
@@ -129,17 +150,7 @@ export default function MtapQuizPlayer({
     );
   }
   if (phase === 'done') {
-    return (
-      <div className="bg-[#e8f5e0] border border-green-700 rounded-2xl p-8 text-center">
-        <h2 className="text-2xl font-bold text-green-700 mb-2 font-display">Set complete!</h2>
-        <p className="text-[#2a1505] mb-2">{sessionCorrect} / {questions.length} correct this round.</p>
-        <p className="text-[#2a1505] mb-6">
-          Earned <span className="font-bold text-[#c9781a] font-mono">{sessionReward.xp} XP</span> and{' '}
-          <span className="font-bold text-yellow-600 font-mono">{sessionReward.gold} Gold</span> this session.
-        </p>
-        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>Back to topics</GameButton>
-      </div>
-    );
+    return <MtapSetComplete correct={sessionCorrect} total={questions.length} reward={sessionReward} onExit={onExit} />;
   }
 
   const timerColor = timeLeft <= 5 ? 'text-red-600' : 'text-[#7a4a0f]';

@@ -129,9 +129,11 @@ export function runBattleBeats(beats: BattleBeat[], onBeat: (beat: BattleBeat) =
 // gets the same clear per-hit feedback the solo screen has always had.
 export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string | null }) {
   return (
-    <div className="battle-banner-text font-display text-center py-4 text-2xl text-amber-300 animate-pulse flex items-center justify-center gap-2">
-      {iconSrc && <img src={iconSrc} alt="" className="w-7 h-7 object-contain" />}
-      {text}
+    <div className="flex justify-center">
+      <div className="battle-banner-ribbon battle-banner-text font-display text-center px-8 py-2.5 text-2xl text-amber-200 flex items-center justify-center gap-2">
+        {iconSrc && <img src={iconSrc} alt="" className="w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.6)]" />}
+        {text}
+      </div>
     </div>
   );
 }
@@ -140,13 +142,16 @@ export function AttackBanner({ text, iconSrc }: { text: string; iconSrc: string 
 // each new hit so the rise-and-fade animation replays every time.
 export function DamageNumber({ value, missed }: { value: number; missed: boolean }) {
   return (
-    <span
-      className={`damage-number font-display absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none select-none ${
-        missed ? 'dmg-text-miss' : 'dmg-text-hit'
-      }`}
-    >
-      {missed ? 'Miss!' : `-${value}`}
-    </span>
+    <>
+      {!missed && <span aria-hidden className="hit-burst absolute left-1/2 top-1/2 pointer-events-none" />}
+      <span
+        className={`damage-number font-display absolute left-1/2 top-0 -translate-x-1/2 pointer-events-none select-none ${
+          missed ? 'dmg-text-miss' : 'dmg-text-hit'
+        }`}
+      >
+        {missed ? 'Miss!' : `-${value}`}
+      </span>
+    </>
   );
 }
 
@@ -296,7 +301,20 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
     <div className={embedded ? 'mt-2 bg-[#f5e8c8] border border-[#8b5e2a] rounded-xl p-3' : 'bg-white border border-[#8b5e2a] rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
       <div key={index} className="battle-panel-in">
         <div className="flex items-center justify-between mb-1.5">
-          <p className="text-xs text-[#6b4820] font-mono">Question {index + 1} of {askedCount}</p>
+          <div className="flex items-center gap-1.5" aria-label={`Question ${index + 1} of ${askedCount}`}>
+            {Array.from({ length: askedCount }).map((_, i) => (
+              <span
+                key={i}
+                className={`h-2.5 rounded-full border transition-all ${
+                  i < index
+                    ? (results[i] ? 'w-2.5 bg-green-500 border-green-700' : 'w-2.5 bg-red-400 border-red-600')
+                    : i === index
+                      ? 'w-6 bg-[#c9781a] border-[#8b5e2a]'
+                      : 'w-2.5 bg-[#f0ddb8] border-[#c9a87a]'
+                }`}
+              />
+            ))}
+          </div>
           {current.subject && (
             <span className="text-[10px] font-bold uppercase tracking-wide text-[#7a4a0f] bg-[#c9781a]/20 border border-[#8b5e2a] rounded-full px-2 py-0.5">
               {current.subject}
@@ -305,7 +323,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
         </div>
         <p className="text-base font-bold text-[#2a1505] mb-3 leading-snug">{current.question || current.problem_prompt}</p>
         <div className="space-y-2">
-        {(current.options || []).map((opt: any) => {
+        {(current.options || []).map((opt: any, optIdx: number) => {
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;
@@ -322,9 +340,12 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
               key={key}
               onClick={() => handleAnswer(key)}
               disabled={!!selected || skipped || grading}
-              className={`w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile ${style} ${feedbackAnim}`}
+              className={`quiz-option w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile flex items-center gap-3 ${style} ${feedbackAnim}`}
             >
-              {text}
+              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#f0ddb8] border-2 border-[#8b5e2a] text-[#7a4a0f] text-xs font-extrabold flex items-center justify-center">
+                {String.fromCharCode(65 + optIdx)}
+              </span>
+              <span className="min-w-0">{text}</span>
             </button>
           );
         })}

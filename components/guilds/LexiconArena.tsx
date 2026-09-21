@@ -22,6 +22,8 @@ import CritBonusToast from '@/components/CritBonusToast';
 import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
 import { takePrefetch } from '@/lib/tabPrefetch';
+import GuildSessionResults from '@/components/guilds/GuildSessionResults';
+import type { GuildSessionScore } from '@/lib/dailyChecklist';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -49,7 +51,7 @@ interface LexiconArenaProps {
   userId: string;
   weekStartingDate: string;
   currentStats: CharacterStats;
-  onGoldEarned: (newStats: CharacterStats) => void;
+  onGoldEarned: (newStats: CharacterStats, score: GuildSessionScore) => void;
   onExit: () => void;
 }
 
@@ -174,7 +176,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
       xp: newXp,
       level: newLevel,
     };
-    onGoldEarned(newStats);
+    onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
     logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${engine.correctCount} correct, ${engine.wrongCount} wrong, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
   };
 
@@ -346,68 +348,27 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     : { emoji: '📜', label: 'Apprentice', color: 'text-stone-400' };
 
   return (
-    <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-blue-900 battle-panel-in" style={{ zIndex: 80 }}>
+    <GuildSessionResults
+      guild="lexiconarena"
+      bgUrl="/guilds/lex-bg.png"
+      rank={rank}
+      correct={engine.correctCount}
+      wrong={engine.wrongCount}
+      xp={engine.totalXpEarned}
+      gold={engine.totalGoldEarned}
+      playAgainColor="#3b82f6"
+      onPlayAgain={() => { engine.start(); setScreen('playing'); }}
+      onExit={onExit}
+      overlays={
+        <>
       {newCurioId && ALL_MONSTERS[newCurioId] && (
         <CurioRevealModal monster={ALL_MONSTERS[newCurioId]} userId={userId} onClose={() => { setNewCurioId(null); onExit(); }} />
       )}
       {companionGraduation && (
         <GraduationCeremonyModal {...companionGraduation} userId={userId} onGoToCompendium={() => { setCompanionGraduation(null); onExit(); }} />
       )}
-      <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
-        <div className="flex-shrink-0 bg-stone-900 px-4 py-3 flex items-center justify-between">
-          <span className="text-blue-400 font-bold text-sm tracking-wide uppercase">Session Complete</span>
-          <span className={`text-lg font-bold ${rank.color}`}>{rank.emoji} {rank.label}</span>
-        </div>
-        <div className="flex flex-col landscape:flex-row flex-1 min-h-0">
-          <div
-            className="flex-shrink-0 flex items-center justify-center py-4 landscape:w-2/5 landscape:py-0"
-            style={{ backgroundImage: "url('/guilds/lex-bg.png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
-          >
-            <div className="w-44 h-44 landscape:w-32 landscape:h-32 lg:w-52 lg:h-52">
-              <GuardianSprite guild="lexiconarena" pose="defeated" className="w-full h-full" />
-            </div>
-          </div>
-          <div className="flex-1 bg-white overflow-y-auto flex flex-col min-h-0">
-          <div className="p-4 flex flex-col gap-3 flex-1">
-            <div className="grid grid-cols-2 gap-2">
-              <div className="bg-green-50 border border-green-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-green-600">{engine.correctCount}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Correct</p>
-              </div>
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-red-500">{engine.wrongCount}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Wrong</p>
-              </div>
-              <div className="bg-blue-50 border border-blue-200 rounded-2xl p-3 text-center">
-                <p className={`text-3xl font-bold font-mono ${accent}`}>+{engine.totalXpEarned}</p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Subclass XP</p>
-              </div>
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3 text-center">
-                <p className="text-3xl font-bold font-mono text-amber-600 flex items-center justify-center gap-1">
-                  <img src="/icons/rewards/gold_coin.svg" alt="" className="w-5 h-5" />{engine.totalGoldEarned}
-                </p>
-                <p className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wide">Gold Earned</p>
-              </div>
-            </div>
-            {(engine.correctCount + engine.wrongCount) > 0 && (() => {
-              const pct = Math.round((engine.correctCount / (engine.correctCount + engine.wrongCount)) * 100);
-              return (
-                <div>
-                  <div className="flex justify-between text-xs text-gray-500 mb-1"><span>Accuracy</span><span className={`font-bold ${accent}`}>{pct}%</span></div>
-                  <div className="h-2 bg-stone-100 rounded-full overflow-hidden">
-                    <div className={`h-2 rounded-full transition-all ${isTala ? 'bg-pink-500' : 'bg-blue-500'}`} style={{ width: `${pct}%` }} />
-                  </div>
-                </div>
-              );
-            })()}
-            <div className="flex flex-col gap-3 mt-auto pt-2">
-              <GameButton variant="quest" color="#3b82f6" onClick={() => { engine.start(); setScreen('playing'); }} className="w-full" style={{ fontSize: 15 }}>⚔️ Play Again</GameButton>
-              <GameButton variant="quest" color="#8b5e2a" onClick={onExit} className="w-full" style={{ fontSize: 14 }}>← Return to Campaign Map</GameButton>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </>
+      }
+    />
   );
 }

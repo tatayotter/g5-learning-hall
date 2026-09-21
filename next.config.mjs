@@ -6,6 +6,14 @@ const nextConfig = {
   images: {
     qualities: [20, 75],
   },
+  // Server source maps were ~32 MB of every deployment's ~52 MB server output, and
+  // Vercel stores a full copy of each deployment (Hobby storage limit). They only
+  // improve production stack traces, so leave them off.
+  productionBrowserSourceMaps: false,
+  experimental: {
+    turbopackSourceMaps: false,
+    serverSourceMaps: false,
+  },
   async redirects() {
     return [
       {

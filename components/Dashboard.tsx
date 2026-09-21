@@ -7,7 +7,7 @@ import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
-import { markGuildSessionToday, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { markGuildSessionToday, GuildSessionScore, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
@@ -813,9 +813,9 @@ export default function Dashboard() {
   // Shared by all 5 guild mini-games' onGoldEarned — each was an identical
   // ~15-line inline callback differing only by which guild rendered it, and
   // activeGuild already identifies that from closure.
-  const handleGuildGoldEarned = (newStats: CharacterStats) => {
+  const handleGuildGoldEarned = (newStats: CharacterStats, score: GuildSessionScore) => {
     if (!activeGuild) return;
-    markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'));
+    markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'), score);
     updateStatsAndJournal(
       newStats, data.journal_logs,
       data.purchased_items, data.mastery_count, data.honor_grants,
