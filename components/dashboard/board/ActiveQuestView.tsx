@@ -18,6 +18,7 @@ import QuestModule, { markdownComponents } from '@/components/QuestModule';
 import VisualAid from '@/components/quest/VisualAid';
 import CurioTrainingPicker, { TRAINING_EXP_SHARE, OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
 import { ALL_MONSTERS, getMonsterLevel } from '@/lib/monsterConfig';
+import type { TrainingResult } from '@/components/VictoryScreen';
 
 type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
 
@@ -53,7 +54,7 @@ export default function ActiveQuestView({
   const dailyAttemptsUsed = (data.daily_quest_attempts || {})[activeQuest] || 0;
   const [trainingCurio, setTrainingCurio] = useState<OwnedCurio | undefined>(undefined);
   const trainingCurioId = trainingCurio?.id;
-  const [trainingNote, setTrainingNote] = useState<string | null>(null);
+  const [trainingResult, setTrainingResult] = useState<TrainingResult | null>(null);
 
   // Awards the training curio its share of the quest XP. Runs once, on the
   // perfect (quest-completed) submission only. Best-effort: a failure here must
@@ -80,7 +81,7 @@ export default function ActiveQuestView({
       if (updErr) return;
       const name = ALL_MONSTERS[row.monster_id]?.name ?? 'Your curio';
       const leveled = newLevel > row.monster_level;
-      setTrainingNote(`${name} trained: +${exp} Curio EXP${leveled ? ` · Level up! Lv.${newLevel}` : ''}`);
+      setTrainingResult({ monsterId: row.monster_id, name, exp, prevExp: row.monster_exp, newExp, leveledTo: leveled ? newLevel : null });
       logAction(activeUserId, data.week_starting_date, 'quiz', `🐾 ${name} trained +${exp} Curio EXP`, exp, 0);
     } catch (e) {
       console.error('Curio training exp failed:', e);
@@ -147,7 +148,7 @@ export default function ActiveQuestView({
           attemptsSoFar={(data.quiz_attempts || {})[activeQuest] || 0}
           dailyAttemptsUsed={dailyAttemptsUsed}
           isMastered={(data.mastered_quizzes || []).includes(activeQuest)}
-          trainingNote={trainingNote}
+          trainingResult={trainingResult}
           trainingCurio={trainingCurio ?? null}
           gradeQuiz={async (selectedAnswers) => {
             // Every question now carries a stable content_questions.id (Phase 4 Wave 3,
@@ -220,7 +221,7 @@ export default function ActiveQuestView({
             setActiveQuest(null);
             setQuizPhase('study');
             setTrainingCurio(undefined);
-            setTrainingNote(null);
+            setTrainingResult(null);
           }}
         />
       )}

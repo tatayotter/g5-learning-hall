@@ -4,6 +4,7 @@ import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
+import VictoryScreen, { CurioTrainingCard, TrainingResult, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD } from '@/components/VictoryScreen';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { calculateReward } from '@/lib/quizReward';
@@ -77,8 +78,8 @@ interface QuestModuleProps {
   isMastered: boolean;
   // The curio picked to train for this quest — shown next to the progress dots.
   trainingCurio?: { monster_id: string; nickname: string | null; monster_level: number } | null;
-  // Set by the parent once the training curio's EXP lands (perfect score only).
-  trainingNote?: string | null;
+  // Filled in by the parent once the training curio's EXP has been awarded.
+  trainingResult?: TrainingResult | null;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
   // locally even if it wanted to.
@@ -87,20 +88,9 @@ interface QuestModuleProps {
   onExit: () => void;
 }
 
-// Reward value pill — same body font as the surrounding sentence (no mono),
-// colored to match the quest-button palette.
-function RewardChip({ tone, children }: { tone: 'xp' | 'gold'; children: React.ReactNode }) {
-  const c = tone === 'xp' ? { bg: '#dbeafe', bd: '#2563eb', tx: '#1e40af' } : { bg: '#fef3c7', bd: '#ca8a04', tx: '#92400e' };
-  return (
-    <span className="font-extrabold rounded-full px-3 py-0.5 border-2" style={{ background: c.bg, borderColor: c.bd, color: c.tx }}>
-      {children}
-    </span>
-  );
-}
-
 const COOLDOWN_SECONDS = 20;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingNote, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -227,20 +217,22 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   // --- ALREADY MASTERED: locked recap view ---
   if (isMastered) {
     const recap = calculateReward(safeAttemptsSoFar);
+    const tries = Math.max(safeAttemptsSoFar, 1);
     return (
-      <div className="bg-[#e8f5e0] border border-green-700 p-8 rounded-xl text-center">
-        <h2 className="mb-4 leading-tight" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 34 }}>
-          <span style={{ position: 'relative', display: 'inline-block' }}>
-            <span aria-hidden style={questTextShadowStyle}>Quest Completed!</span>
-            <span style={{ ...questTextStyle, color: '#4ade80' }}>Quest Completed!</span>
-          </span>
-        </h2>
-        <p className="text-[#6b4820] font-semibold mb-3">Mastered in {Math.max(safeAttemptsSoFar, 1)} attempt{Math.max(safeAttemptsSoFar, 1) !== 1 ? 's' : ''}.</p>
-        <p className="text-lg font-semibold text-[#2a1505] mb-6 flex items-center justify-center gap-2 flex-wrap">You earned <RewardChip tone="xp">{recap.xp} XP</RewardChip> and <RewardChip tone="gold">{recap.gold} Gold</RewardChip></p>
-        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
-          Return to Campaign Map
-        </GameButton>
-      </div>
+      <VictoryScreen
+        subtitle={`Mastered in ${tries} attempt${tries !== 1 ? 's' : ''}`}
+        rewards={[
+          { ...XP_REWARD, value: recap.xp, icon: <XpIcon /> },
+          { ...GOLD_REWARD, value: recap.gold, icon: <GoldIcon /> },
+        ]}
+        actions={
+          <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>
+            Return to Campaign Map
+          </GameButton>
+        }
+      >
+        {trainingResult && <CurioTrainingCard result={trainingResult} />}
+      </VictoryScreen>
     );
   }
 
@@ -263,20 +255,20 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
   // --- JUST HIT A PERFECT SCORE ---
   if (submitted && lastResult?.isPerfect) {
     return (
-      <div className="bg-[#e8f5e0] border border-green-700 p-8 rounded-xl text-center">
-        <h2 className="mb-4 leading-tight" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: 34 }}>
-          <span style={{ position: 'relative', display: 'inline-block' }}>
-            <span aria-hidden style={questTextShadowStyle}>Quest Completed!</span>
-            <span style={{ ...questTextStyle, color: '#4ade80' }}>Quest Completed!</span>
-          </span>
-        </h2>
-        <p className="text-[#6b4820] font-semibold mb-3">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt{lastResult.attemptNumber !== 1 ? 's' : ''}.</p>
-        <p className={`text-lg font-semibold text-[#2a1505] flex items-center justify-center gap-2 flex-wrap ${trainingNote ? "mb-3" : "mb-6"}`}>You earned <RewardChip tone="xp">{lastResult.xp} XP</RewardChip> and <RewardChip tone="gold">{lastResult.gold} Gold</RewardChip></p>
-        {trainingNote && <p className="text-sm font-bold text-[#7a4a0f] mb-6">🐾 {trainingNote}</p>}
-        <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
-          Return to Campaign Map
-        </GameButton>
-      </div>
+      <VictoryScreen
+        subtitle={`Perfect score ${lastResult.score}/${lastResult.total} · ${lastResult.attemptNumber} attempt${lastResult.attemptNumber !== 1 ? 's' : ''}`}
+        rewards={[
+          { ...XP_REWARD, value: lastResult.xp, icon: <XpIcon /> },
+          { ...GOLD_REWARD, value: lastResult.gold, icon: <GoldIcon /> },
+        ]}
+        actions={
+          <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>
+            Return to Campaign Map
+          </GameButton>
+        }
+      >
+        {trainingResult && <CurioTrainingCard result={trainingResult} />}
+      </VictoryScreen>
     );
   }
 

@@ -75,6 +75,7 @@ export default function QuestQuizDevPage() {
           dailyAttemptsUsed={dailyUsed}
           isMastered={mastered}
           trainingCurio={trainee ?? null}
+          trainingResult={trainee ? { monsterId: trainee.monster_id, name: trainee.nickname || 'Your curio', exp: 66, prevExp: (trainee.monster_level - 1) * 100 + 10, newExp: (trainee.monster_level - 1) * 100 + 10 + 66, leveledTo: null } : null}
           gradeQuiz={async (answers) => {
             const correct = CORRECT.filter((c, i) => answers[i] === c).length;
             return {
