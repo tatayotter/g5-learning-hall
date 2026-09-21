@@ -81,7 +81,21 @@ export default function MonsterHpPanel({ name, level, currentHp, maxHp, status }
         </span>
       </p>
       <div className="relative h-[18px] bg-[#0a0807] border-2 border-[#ffffff] rounded-full overflow-hidden">
-        <div className="h-full bg-green-500 transition-all" style={{ width: `${pct}%` }} />
+        {/* Trail: lags behind the real bar so a hit reads as a chunk being lost */}
+        <div className="absolute inset-y-0 left-0 bg-[#fde68a]/80 hp-trail" style={{ width: `${pct}%` }} />
+        <div
+          className="absolute inset-y-0 left-0 hp-fill"
+          style={{
+            width: `${pct}%`,
+            background: pct > 50
+              ? 'linear-gradient(180deg,#86efac 0%,#22c55e 55%,#15803d 100%)'
+              : pct > 25
+                ? 'linear-gradient(180deg,#fde047 0%,#eab308 55%,#a16207 100%)'
+                : 'linear-gradient(180deg,#fca5a5 0%,#ef4444 55%,#991b1b 100%)',
+          }}
+        />
+        {/* Gloss highlight */}
+        <div className="absolute inset-x-1 top-[2px] h-[4px] rounded-full bg-white/35 pointer-events-none" />
         <p
           className="absolute inset-0 flex items-center justify-center text-[#ffffff] text-[10px] leading-none"
           style={{

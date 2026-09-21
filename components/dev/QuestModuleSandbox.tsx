@@ -1,4 +1,6 @@
-// components/QuestModule.tsx
+// components/dev/QuestModuleSandbox.tsx
+// DEV-ONLY FORK of components/QuestModule.tsx — edit freely here; the live quest screen is untouched.
+// Rendered by /dev/quest-quiz with mock data. When happy, port the changes back to QuestModule.tsx.
 import { useState, useEffect } from 'react';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -77,8 +79,6 @@ interface QuestModuleProps {
   isMastered: boolean;
   // The curio picked to train for this quest — shown next to the progress dots.
   trainingCurio?: { monster_id: string; nickname: string | null; monster_level: number } | null;
-  // Set by the parent once the training curio's EXP lands (perfect score only).
-  trainingNote?: string | null;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
   // questData never carries correct_answer, so this module can't compare
   // locally even if it wanted to.
@@ -100,7 +100,7 @@ function RewardChip({ tone, children }: { tone: 'xp' | 'gold'; children: React.R
 
 const COOLDOWN_SECONDS = 20;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingNote, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModuleSandbox({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -271,8 +271,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
           </span>
         </h2>
         <p className="text-[#6b4820] font-semibold mb-3">Perfect score: {lastResult.score}/{lastResult.total} in {lastResult.attemptNumber} attempt{lastResult.attemptNumber !== 1 ? 's' : ''}.</p>
-        <p className={`text-lg font-semibold text-[#2a1505] flex items-center justify-center gap-2 flex-wrap ${trainingNote ? "mb-3" : "mb-6"}`}>You earned <RewardChip tone="xp">{lastResult.xp} XP</RewardChip> and <RewardChip tone="gold">{lastResult.gold} Gold</RewardChip></p>
-        {trainingNote && <p className="text-sm font-bold text-[#7a4a0f] mb-6">🐾 {trainingNote}</p>}
+        <p className="text-lg font-semibold text-[#2a1505] mb-6 flex items-center justify-center gap-2 flex-wrap">You earned <RewardChip tone="xp">{lastResult.xp} XP</RewardChip> and <RewardChip tone="gold">{lastResult.gold} Gold</RewardChip></p>
         <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map
         </GameButton>

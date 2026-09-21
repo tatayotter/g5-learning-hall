@@ -9,6 +9,7 @@ import { SHOP_CATALOG } from '@/lib/inventory';
 import { ALL_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import { redeemVoucherCode, VOUCHER_FAILURE_MESSAGES, VoucherRedeemResult } from '@/lib/vouchers';
 import CurioRevealModal from '@/components/CurioRevealModal';
+import GameButton from '@/components/GameButton';
 
 interface VoucherRedeemPanelProps {
   userId: string;
@@ -59,11 +60,11 @@ export default function VoucherRedeemPanel({ userId, onRedeemed }: VoucherRedeem
   };
 
   return (
-    <div className="bg-white border border-amber-200 rounded-xl p-4 mb-6">
+    <div className="relative rounded-2xl border-2 border-[#8b5e2a] bg-gradient-to-b from-[#fffdf7] to-[#fbf3df] p-4 mb-6 shadow-[0_5px_0_#8b5e2a,0_10px_18px_rgba(42,21,5,0.2)]">
       {revealMonster && (
         <CurioRevealModal monster={revealMonster} userId={userId} onClose={() => setRevealMonster(null)} />
       )}
-      <p className="text-xs font-bold text-amber-900 uppercase tracking-widest mb-2">🎟️ Have a Code?</p>
+      <p className="font-display font-extrabold text-lg text-[#7a4a0f] mb-2">🎟️ Have a Code?</p>
       <div className="flex gap-2">
         <input
           type="text"
@@ -71,15 +72,17 @@ export default function VoucherRedeemPanel({ userId, onRedeemed }: VoucherRedeem
           onChange={e => { setCode(e.target.value); setMessage(null); }}
           onKeyDown={e => { if (e.key === 'Enter') handleRedeem(); }}
           placeholder="Enter voucher code"
-          className="flex-1 min-w-0 bg-white border border-amber-300 rounded-lg px-3 py-2 text-sm text-amber-900 font-mono uppercase tracking-wide placeholder:normal-case placeholder:tracking-normal placeholder:font-sans focus:outline-none focus:border-amber-500"
+          className="flex-1 min-w-0 bg-white border-2 border-[#c9a87a] rounded-xl px-3 py-2.5 text-[15px] text-[#2a1505] font-mono uppercase tracking-wide shadow-[inset_0_2px_3px_rgba(42,21,5,0.08)] placeholder:normal-case placeholder:tracking-normal placeholder:font-sans placeholder:text-[#a08560] focus:outline-none focus:border-[#c9781a] focus:ring-4 focus:ring-[#f5c95c]/55"
         />
-        <button
+        <GameButton
+          variant="quest"
           onClick={handleRedeem}
           disabled={redeeming || !code.trim()}
-          className="bg-amber-600 hover:bg-amber-500 disabled:opacity-40 text-white text-sm font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+          className="flex-shrink-0"
+          style={{ fontSize: 16 }}
         >
           {redeeming ? 'Redeeming…' : 'Redeem'}
-        </button>
+        </GameButton>
       </div>
       {message && (
         <p className={`text-xs font-bold mt-2 ${message.ok ? 'text-green-700' : 'text-red-600'}`}>

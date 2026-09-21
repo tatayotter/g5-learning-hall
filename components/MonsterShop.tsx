@@ -100,6 +100,37 @@ interface Props {
 // (2026-08-29).
 // ---------------------------------------------------------------------------
 
+const SHOP_CSS = `
+  .scard { position:relative; display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 8px 10px; cursor:pointer;
+    background:linear-gradient(180deg,#fffdf7 0%,#fbf3df 100%); border:2px solid #8b5e2a; border-radius:16px;
+    box-shadow:0 4px 0 #8b5e2a, 0 8px 12px rgba(42,21,5,.2); transition:transform .1s, box-shadow .1s; }
+  .scard::before { content:''; position:absolute; inset:4px; border:1px dashed #c9a87a; border-radius:11px; pointer-events:none; }
+  .scard:hover { transform:translateY(-2px); box-shadow:0 6px 0 #8b5e2a, 0 11px 14px rgba(42,21,5,.26); }
+  .scard:active { transform:translateY(3px); box-shadow:0 1px 0 #8b5e2a; }
+  .scard-art { position:relative; width:100%; aspect-ratio:1; display:flex; align-items:center; justify-content:center; padding:8px;
+    border-radius:12px; background:radial-gradient(circle,#fff6d6 0%,#f0ddb8 85%); border:1px solid #e0c790; }
+  .scard-name { position:relative; width:100%; text-align:center; font-weight:800; font-size:12px; line-height:1.2; color:#2a1505;
+    min-height:2.4em; display:flex; align-items:center; justify-content:center; }
+  .sprice { position:relative; display:inline-flex; align-items:center; gap:4px; padding:2px 10px; border-radius:999px; font-weight:900; font-size:12px;
+    border:2px solid #000; box-shadow:inset 0 -2px 0 rgba(0,0,0,.25); }
+  .sprice-ok { background:#f5c542; color:#2a1505; }
+  .sprice-no { background:#d6d3d1; color:#78716c; border-color:#78716c; }
+  .sbadge { position:absolute; z-index:2; font-size:10px; font-weight:900; min-width:20px; text-align:center; padding:1px 6px; border-radius:999px; }
+  .sselect { width:100%; appearance:none; cursor:pointer; padding:10px 36px 10px 14px; font-weight:800; font-size:14px; color:#2a1505;
+    background:linear-gradient(180deg,#fffdf7 0%,#f0ddb8 100%); border:2px solid #8b5e2a; border-radius:12px; box-shadow:0 3px 0 #8b5e2a; outline:none; }
+  .sselect:focus { box-shadow:0 3px 0 #8b5e2a, 0 0 0 3px rgba(245,201,92,.55); }
+  .schip { font-size:12px; font-weight:800; padding:5px 14px; border-radius:999px; color:#6b4820; cursor:pointer;
+    background:linear-gradient(180deg,#fffdf7 0%,#f0ddb8 100%); border:2px solid #8b5e2a; box-shadow:0 3px 0 #8b5e2a; transition:transform .1s, box-shadow .1s; }
+  .schip:hover { transform:translateY(-1px); box-shadow:0 4px 0 #8b5e2a; }
+  .schip:active { transform:translateY(2px); box-shadow:0 1px 0 #8b5e2a; }
+  .schip-on { color:#2a1505; background:linear-gradient(180deg,#ffe9a8 0%,#f5c95c 100%); border-color:#c9781a; box-shadow:0 3px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.5); }
+  .spop { position:relative; padding:24px; background:linear-gradient(180deg,#fffdf7 0%,#fbf3df 100%); border:2px solid #8b5e2a; border-radius:20px;
+    box-shadow:0 6px 0 #8b5e2a, 0 16px 30px rgba(0,0,0,.4); }
+  .spop::before { content:''; position:absolute; inset:6px; border:1px dashed #c9a87a; border-radius:14px; pointer-events:none; }
+  .spop > * { position:relative; }
+  .shead { font-family:var(--font-cinzel), serif; font-weight:800; font-size:20px; color:#7a4a0f; }
+`;
+
 interface ShopCardProps {
   icon: string;
   name: string;
@@ -117,22 +148,21 @@ function ShopCard({
   imageSize = 'w-full h-full', onClick,
 }: ShopCardProps) {
   return (
-    <button
-      onClick={onClick}
-      className="relative bg-[#fdf6e3] border border-amber-200 rounded-xl p-2 aspect-square flex flex-col items-center justify-center hover:border-amber-400 hover:shadow-md transition-all"
-    >
-      <div className="w-2/3 h-2/3 flex items-center justify-center">
-        <img src={icon} alt={name} className={`${imageSize} object-contain`} />
+    <button onClick={onClick} className="scard">
+      <div className="scard-art">
+        <img src={icon} alt={name} className={`${imageSize} object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]`} />
+        {owned ? (
+          <span className="sbadge bottom-1 right-1 bg-green-600 text-white border-2 border-green-900">✓</span>
+        ) : inBag > 0 && (
+          <span className="sbadge bottom-1 right-1 bg-[#7a4a0f] text-white border-2 border-[#3a2610]">×{inBag}</span>
+        )}
       </div>
-      <p className="text-[10px] font-bold text-amber-900 text-center leading-tight mt-1 truncate w-full px-1">{name}</p>
-      <span className={`absolute top-1 left-1 inline-flex items-center gap-0.5 border border-black text-[8px] font-extrabold px-1 py-0.5 rounded-full ${(affordable || owned) ? 'bg-amber-400 text-black' : 'bg-stone-200 text-stone-400'}`}>
-        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-2 h-2" /> {cost}
-      </span>
+      <p className="scard-name">{name}</p>
       {owned ? (
-        <span className="absolute bottom-1 right-1 bg-green-600 text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-green-800">✓</span>
-      ) : inBag > 0 && (
-        <span className="absolute bottom-1 right-1 bg-amber-800 text-white text-[9px] font-bold min-w-[16px] px-1 rounded-full border border-amber-900 text-center leading-[14px]">
-          ×{inBag}
+        <span className="sprice sprice-ok" style={{ background: '#86efac', borderColor: '#14532d' }}>Owned</span>
+      ) : (
+        <span className={`sprice ${affordable ? 'sprice-ok' : 'sprice-no'}`}>
+          <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3.5 h-3.5" /> {cost}
         </span>
       )}
     </button>
@@ -240,6 +270,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   return (
     <div>
+      <style>{SHOP_CSS}</style>
       {shopTutorial.step && (
         <TutorialSpotlight
           key={shopTutorial.step.id}
@@ -264,7 +295,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           </span>
         </h1>
       </div>
-      <p className="text-gray-500 text-sm mb-6">
+      <p className="text-[#6b4820] text-sm mb-6 font-semibold">
         Buy consumable items to use in Curio Arena battles.
         {isFamily && ' As a family member, you receive free daily supplies!'}
       </p>
@@ -305,7 +336,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         {Object.keys(inventory).length === 0 ? (
           <p className="text-[#f0ddb8] text-sm italic" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>No items yet. Buy some below!</p>
         ) : (
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 gap-3">
             {SHOP_CATALOG.map(item => {
               const qty = inventory[item.key] || 0;
               if (qty === 0) return null;
@@ -313,12 +344,13 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                 <button
                   key={item.key}
                   onClick={() => setSelectedItem(item)}
-                  className="relative bg-white border border-amber-200 rounded-lg aspect-square p-2 flex items-center justify-center hover:border-amber-400 hover:shadow-md transition-all"
+                  className="scard !p-1.5"
+                  title={item.name}
                 >
-                  <img src={item.icon} alt={item.name} className="w-full h-full object-contain" />
-                  <span className="absolute bottom-1 right-1 bg-amber-800 text-white text-[10px] font-bold min-w-[18px] px-1 py-0.5 rounded-full leading-none border border-amber-900 text-center">
-                    ×{qty}
-                  </span>
+                  <div className="scard-art">
+                    <img src={item.icon} alt={item.name} className="w-full h-full object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]" />
+                    <span className="sbadge bottom-1 right-1 bg-[#7a4a0f] text-white border-2 border-[#3a2610]">×{qty}</span>
+                  </div>
                 </button>
               );
             })}
@@ -329,12 +361,12 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {/* Category filter — a dropdown instead of tabs so it reads as
           filtering by game-use rather than switching screens (2026-08-29). */}
       <div className="mb-6" data-tutorial-id="vault-sections">
-        <label className="text-xs font-bold text-stone-500 uppercase tracking-widest block mb-1.5">Filter by category</label>
+        <label className="text-xs font-extrabold text-[#6b4820] uppercase tracking-widest block mb-2">Filter by category</label>
         <div className="relative max-w-xs">
           <select
             value={activeSection}
             onChange={e => setActiveSection(e.target.value as typeof activeSection)}
-            className="w-full appearance-none bg-white border-2 border-amber-300 rounded-lg pl-3 pr-9 py-2.5 font-bold text-sm text-amber-900 cursor-pointer"
+            className="sselect"
           >
             <option value="all">All Items</option>
             <option value="items">Curio Battle Items</option>
@@ -342,15 +374,15 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             <option value="tomes">Tomes of Knowledge</option>
             <option value="sprites">Trainer Sprites</option>
           </select>
-          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-amber-600 text-xs">▼</span>
+          <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#7a4a0f] text-xs">▼</span>
         </div>
       </div>
 
       {/* Curio Battle Items — consumables */}
       {(activeSection === 'all' || activeSection === 'items') && (
         <div className="mb-8">
-          {activeSection === 'all' && <h2 className="text-sm font-bold text-amber-800 uppercase tracking-widest mb-3">⚔️ Curio Battle Items</h2>}
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+          {activeSection === 'all' && <h2 className="shead mb-3">⚔️ Curio Battle Items</h2>}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
             {SHOP_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -375,7 +407,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {(activeSection === 'all' || activeSection === 'scrolls') && (
         <div className="mb-8">
           {activeSection === 'all' ? (
-            <h2 className="text-sm font-bold text-amber-800 uppercase tracking-widest mb-3">📜 Curio Battle Skills</h2>
+            <h2 className="shead mb-3">📜 Curio Battle Skills</h2>
           ) : (
             <p className="text-stone-500 text-sm mb-4">
               Buy an Unlearn Scroll to open a monster&apos;s skill slot in the Compendium, then a
@@ -391,9 +423,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                   <button
                     key={cat}
                     onClick={() => setScrollCategory(cat)}
-                    className={`text-xs font-bold px-3 py-1.5 rounded-full transition-colors ${
-                      scrollCategory === cat ? 'bg-amber-500 text-white shadow-sm' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
-                    }`}
+                    className={`schip ${scrollCategory === cat ? 'schip-on' : ''}`}
                   >
                     {cat === 'all' ? 'All' : SCROLL_CATEGORY_LABELS[cat]}
                   </button>
@@ -407,9 +437,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                     <button
                       key={el}
                       onClick={() => setScrollElement(el)}
-                      className={`text-xs font-bold px-3 py-1 rounded-full capitalize transition-colors ${
-                        scrollElement === el ? 'bg-amber-800 text-white' : 'bg-white border border-amber-200 text-stone-500 hover:text-stone-700'
-                      }`}
+                      className={`schip capitalize ${scrollElement === el ? 'schip-on' : ''}`}
                     >
                       {el}
                     </button>
@@ -419,7 +447,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             </>
           )}
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
             {SCROLL_CATALOG
               .filter(item => activeSection === 'all' || scrollCategory === 'all' || item.category === scrollCategory)
               .filter(item => activeSection === 'all' || scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
@@ -445,14 +473,14 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {(activeSection === 'all' || activeSection === 'tomes') && (
         <div className="mb-8">
           {activeSection === 'all' ? (
-            <h2 className="text-sm font-bold text-amber-800 uppercase tracking-widest mb-3">📚 Tomes of Knowledge</h2>
+            <h2 className="shead mb-3">📚 Tomes of Knowledge</h2>
           ) : (
             <p className="text-stone-500 text-sm mb-4">
               Boost the odds of a single Tutor roll in the Compendium. Each tome only helps a curio
               currently at its matching quality tier.
             </p>
           )}
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
             {TOME_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -476,13 +504,13 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {(activeSection === 'all' || activeSection === 'sprites') && (
         <div>
           {activeSection === 'all' ? (
-            <h2 className="text-sm font-bold text-amber-800 uppercase tracking-widest mb-3">🖼️ Trainer Sprites</h2>
+            <h2 className="shead mb-3">🖼️ Trainer Sprites</h2>
           ) : (
             <p className="text-stone-500 text-sm mb-4">
               Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
             </p>
           )}
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
             {USERPIC_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -514,35 +542,35 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           onClick={() => setSelectedItem(null)}
         >
           <div
-            className="bg-white border border-[#c9a87a] rounded-2xl p-6 max-w-sm w-full text-center battle-panel-in"
+            className="spop max-w-sm w-full text-center battle-panel-in"
             onClick={e => e.stopPropagation()}
           >
-            <div className="w-20 h-20 mx-auto mb-3">
+            <div className="mx-auto mb-3 w-28 h-28 p-3 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle,#fff6d6 0%,#f0ddb8 85%)', border: '2px solid #c9a87a' }}>
               <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />
             </div>
-            <h3 className="text-lg font-bold text-[#2a1505] mb-1">{selectedItem.name}</h3>
-            <p className="text-sm text-[#6b4820] mb-3">{selectedItem.desc}</p>
+            <h3 className="font-display text-2xl font-extrabold text-[#7a4a0f] mb-1">{selectedItem.name}</h3>
+            <p className="text-sm font-semibold text-[#6b4820] mb-4">{selectedItem.desc}</p>
 
             {/* Skill Scrolls only — tier/element/category plus a damage
                 comparison against a base element attack (every element's
                 tier-1 "base" skill is exactly 1.0x, so it's a fixed
                 yardstick every scroll can be measured against) (2026-08-29). */}
             {selectedItem.baseDamageMultiplier !== undefined && (
-              <div className="bg-[#fdf6e3] border border-amber-200 rounded-xl p-3 mb-4 text-left">
+              <div className="bg-[#f5ecd6] border-2 border-[#c9a87a] rounded-xl p-3 mb-4 text-left">
                 <div className="flex items-center justify-center flex-wrap gap-2 mb-3">
                   {selectedItem.element && (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide bg-white border border-amber-200 rounded-full px-2 py-0.5 text-amber-800 capitalize">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-extrabold uppercase tracking-wide bg-white border-2 border-[#8b5e2a] rounded-full px-2.5 py-0.5 text-[#7a4a0f] capitalize">
                       <img src={ELEMENT_ICON_SRC[selectedItem.element]} alt="" className="w-3 h-3" /> {selectedItem.element}
                     </span>
                   )}
                   {selectedItem.tier && (
                     <span className="text-xs font-bold" title={`Tier ${selectedItem.tier}`}>
-                      <span className="text-amber-500">{'★'.repeat(selectedItem.tier)}</span>
-                      <span className="text-stone-300">{'★'.repeat(3 - selectedItem.tier)}</span>
+                      <span className="text-[#c9781a]">{'★'.repeat(selectedItem.tier)}</span>
+                      <span className="text-[#d6c3a0]">{'★'.repeat(3 - selectedItem.tier)}</span>
                     </span>
                   )}
                   {selectedItem.category && (
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-stone-500">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#6b4820]">
                       {SCROLL_CATEGORY_LABELS[selectedItem.category]}
                     </span>
                   )}
@@ -559,40 +587,40 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                   return (
                     <div className="space-y-1.5">
                       <div>
-                        <div className="flex justify-between text-[10px] text-stone-500 mb-0.5">
+                        <div className="flex justify-between text-[10px] font-bold text-[#6b4820] mb-0.5">
                           <span>Base Attack</span><span>1.0x</span>
                         </div>
-                        <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-stone-400 rounded-full" style={{ width: `${Math.min(100, (1 / 2) * 100)}%` }} />
+                        <div className="h-2.5 bg-[#e8d0a0] border border-[#c9a87a] rounded-full overflow-hidden">
+                          <div className="h-full bg-[#a08560] rounded-full" style={{ width: `${Math.min(100, (1 / 2) * 100)}%` }} />
                         </div>
                       </div>
                       <div>
-                        <div className="flex justify-between text-[10px] text-amber-800 font-bold mb-0.5">
+                        <div className="flex justify-between text-[10px] text-[#7a4a0f] font-extrabold mb-0.5">
                           <span>{selectedItem.name}</span><span>{selectedItem.baseDamageMultiplier}x</span>
                         </div>
-                        <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-                          <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.min(100, (selectedItem.baseDamageMultiplier! / 2) * 100)}%` }} />
+                        <div className="h-2.5 bg-[#e8d0a0] border border-[#c9a87a] rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-[#f5c542] to-[#c9781a] rounded-full" style={{ width: `${Math.min(100, (selectedItem.baseDamageMultiplier! / 2) * 100)}%` }} />
                         </div>
                       </div>
                       <p className={`text-[11px] text-center font-bold pt-1 ${compareColor}`}>{compareLabel}</p>
                     </div>
                   );
                 })() : (
-                  <p className="text-[11px] text-stone-500 text-center italic mb-2">No direct damage — a utility/support skill.</p>
+                  <p className="text-[11px] text-[#6b4820] text-center italic mb-2">No direct damage — a utility/support skill.</p>
                 )}
 
                 {/* Effects — the whole reason a Fighting Skill (0 damage) is
                     worth teaching at all, and what an Alt skill trades some
                     of its damage for. */}
                 {selectedItem.effects && selectedItem.effects.length > 0 && (
-                  <div className={selectedItem.baseDamageMultiplier > 0 ? 'mt-2 pt-2 border-t border-amber-200' : ''}>
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-stone-500 mb-1">
+                  <div className={selectedItem.baseDamageMultiplier > 0 ? 'mt-2 pt-2 border-t-2 border-[#c9a87a]' : ''}>
+                    <p className="text-[10px] font-extrabold uppercase tracking-wide text-[#6b4820] mb-1">
                       {selectedItem.effects.length > 1 ? 'Effects' : 'Effect'}
                     </p>
                     <ul className="space-y-0.5">
                       {selectedItem.effects.map((effect, i) => (
-                        <li key={i} className="text-[11px] text-amber-900 font-bold flex items-center gap-1.5">
-                          <span className="text-amber-500">✦</span> {formatSkillEffect(effect)}
+                        <li key={i} className="text-[11px] text-[#2a1505] font-bold flex items-center gap-1.5">
+                          <span className="text-[#c9781a]">✦</span> {formatSkillEffect(effect)}
                         </li>
                       ))}
                     </ul>
@@ -607,11 +635,11 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               return (
                 <>
                   {!selectedItem.ownedOnly && (
-                    <p className="text-xs text-[#8b5e2a] font-bold mb-4">In bag: ×{inventory[selectedItem.key] || 0}</p>
+                    <p className="mb-4"><span className="inline-block text-xs font-extrabold text-[#7a4a0f] bg-[#f0ddb8] border border-[#c9a87a] rounded-full px-3 py-0.5">In bag: ×{inventory[selectedItem.key] || 0}</span></p>
                   )}
                   {alreadyOwned ? (
                     <div className="flex gap-2">
-                      <div className="flex-1 bg-stone-100 border-2 border-stone-300 text-stone-500 font-extrabold uppercase tracking-wide text-xs py-2.5 rounded-lg text-center">
+                      <div className="flex-1 bg-[#dcfce7] border-2 border-[#15803d] text-[#166534] font-extrabold uppercase tracking-wide text-xs py-2.5 rounded-xl text-center flex items-center justify-center">
                         ✓ Owned
                       </div>
                       <GameButton variant="quest" color="#57534e" onClick={() => setSelectedItem(null)} className="flex-1" style={{ fontSize: 14 }}>
