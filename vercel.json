@@ -1,3 +1,4 @@
 {
-  "crons": []
+  "crons": [],
+  "ignoreCommand": "bash scripts/vercel-ignore-build.sh"
 }
