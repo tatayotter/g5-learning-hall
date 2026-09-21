@@ -297,16 +297,32 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
 // "completed" as "done with this grade" and advances the player once every
 // question in their current grade is completed. See hooks/useTimeAttack.ts's
 // submitResult for where that correct-only filtering happens.
+// A plain batch insert used to fail whole (23505 / HTTP 409, nothing saved) when any
+// single row was already recorded for this user + quest_type — including the same
+// question id appearing twice in one session's list. The table is unique on
+// (user_id, quest_type, question_id), so de-duplicate the batch and let the database
+// skip rows that already exist instead of rejecting the lot.
+async function insertCompletedQuestions(rows: { user_id: string; quest_type: string; question_id: string }[]) {
+  const seen = new Set<string>();
+  const unique = rows.filter(r => {
+    const key = `${r.user_id}|${r.quest_type}|${r.question_id}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  if (unique.length === 0) return null;
+  const { error } = await supabase
+    .from('user_completed_questions')
+    .upsert(unique, { onConflict: 'user_id,quest_type,question_id', ignoreDuplicates: true });
+  return error;
+}
+
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
   if (questionIds.length === 0) return;
 
-  const USER_ID = userId;
-  const rows = questionIds.map((id: string) => ({
-    user_id: USER_ID,
-    quest_type: questType,
-    question_id: id
-  }));
-  const { error } = await supabase.from('user_completed_questions').insert(rows);
+  const error = await insertCompletedQuestions(
+    questionIds.map((id: string) => ({ user_id: userId, quest_type: questType, question_id: id })),
+  );
   if (error) {
     console.error('Failed to mark questions completed:', error);
   }
@@ -331,12 +347,9 @@ export async function fetchAnsweredArenaQuestionIds(userId: string): Promise<Set
 
 export async function markArenaQuestionsCompleted(userId: string, questions: any[]) {
   if (questions.length === 0) return;
-  const rows = questions.map(q => ({
-    user_id: userId,
-    quest_type: MONSTER_ARENA_QUEST_TYPE,
-    question_id: q.id,
-  }));
-  const { error } = await supabase.from('user_completed_questions').insert(rows);
+  const error = await insertCompletedQuestions(
+    questions.map(q => ({ user_id: userId, quest_type: MONSTER_ARENA_QUEST_TYPE, question_id: q.id })),
+  );
   if (error) {
     console.error('Failed to mark arena questions completed:', error);
   }
