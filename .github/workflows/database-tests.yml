@@ -1,0 +1,35 @@
+name: Database tests
+
+# Spins up a fresh local Supabase stack (Docker, via the Supabase CLI), replays every
+# migration in supabase/migrations against it, then runs the pgTAP suite in
+# supabase/tests/database/. Never touches the hosted project — this is exactly what
+# `supabase test db` is for: catching a broken migration or a regressed RLS/identity check
+# before it ever reaches production.
+"on":
+  pull_request:
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/tests/**"
+      - "supabase/config.toml"
+      - ".github/workflows/database-tests.yml"
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local Supabase stack
+        run: supabase start
+
+      - name: Run pgTAP database tests
+        run: supabase test db
+
+      - name: Stop local Supabase stack
+        if: always()
+        run: supabase stop --no-backup
