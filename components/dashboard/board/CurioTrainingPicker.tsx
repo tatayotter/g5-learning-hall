@@ -5,7 +5,7 @@
 // (see ActiveQuestView). An eligible curio is always selected; the player can switch.
 import { useEffect, useRef, useState } from 'react';
 import { supabase } from '@/lib/supabase';
-import { ALL_MONSTERS, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, BATTLE_CONSTANTS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
@@ -17,6 +17,7 @@ export interface OwnedCurio {
   nickname: string | null;
   monster_level: number;
   slot: number | null;
+  graduation_tier: number | null;
 }
 
 const isMax = (c: { monster_level: number }) => c.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
@@ -36,7 +37,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
     let cancelled = false;
     supabase
       .from('user_monsters')
-      .select('id, monster_id, nickname, monster_level, slot')
+      .select('id, monster_id, nickname, monster_level, slot, graduation_tier')
       .eq('user_id', userId)
       .order('slot', { ascending: true, nullsFirst: false })
       .then(({ data }) => { if (!cancelled) setCurios((data as OwnedCurio[]) ?? []); });
@@ -92,7 +93,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
         {trainable.map(c => {
-          const def = ALL_MONSTERS[c.monster_id];
+          const def = getOwnedMonsterDisplay(ALL_MONSTERS[c.monster_id], c.graduation_tier);
           const selected = selectedId === c.id;
           return (
             <button
