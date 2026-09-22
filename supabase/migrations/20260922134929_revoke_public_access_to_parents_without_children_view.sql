@@ -1,0 +1,22 @@
+-- Security fix: v_parents_without_linked_children is a SECURITY DEFINER view
+-- over `parents` (RLS-locked to `id = auth.uid()` for direct table access)
+-- that lists every APPROVED parent with no linked child yet -- full_name and
+-- phone number included -- with no per-user scoping at all (unlike every
+-- other view in this schema flagged by the same advisor: classmates_public,
+-- children_public, draft_questions_public, mtap_expansion_content_public/
+-- _reviewer all filter by the querying user's own identity; this one
+-- doesn't, because it was built as an ad hoc admin/ops query, not an
+-- app-facing endpoint -- grep confirms zero references in application code).
+--
+-- The view itself had no bug: it's still the right tool for pulling a
+-- re-engagement list by hand. The bug is that Supabase's default grants gave
+-- `anon` and `authenticated` SELECT on it like any other public-schema view,
+-- which means PostgREST served it at /rest/v1/v_parents_without_linked_children
+-- to literally anyone, unauthenticated or not -- a live PII leak (parent
+-- name + phone) with no query needed on the caller's part.
+--
+-- Fix: revoke SELECT from anon/authenticated only. postgres and service_role
+-- (direct SQL, the Supabase MCP tools, the dashboard) keep full access, so
+-- this remains queryable for its actual use case -- it just stops being
+-- reachable through the public REST API.
+revoke select on public.v_parents_without_linked_children from anon, authenticated;
