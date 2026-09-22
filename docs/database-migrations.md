@@ -122,6 +122,44 @@ version number (this happened for all 5 of this baseline's own files, see Histor
 fix is a direct `UPDATE` of that one row's `version` (and `name`, if it drifted too) to match
 the local filename — not a repair/revert.
 
+## Troubleshooting: "Found local migration files to be inserted before the last migration"
+
+A different error from the one above, though it looks similar. This means the migration(s) in
+question are correctly *not yet applied* — but their filename's version is chronologically
+*earlier* than the latest version already recorded on remote, which `db push` treats as
+suspicious by default (it suggests `--include-all` to force it). This isn't a content problem.
+
+It comes up specifically when merging a branch/PR that sat open since before this pipeline
+existed (2026-09-22) — see the next section. Resolve it the same way as every other
+version-drift case, **not** with `--include-all`: apply the migration's content directly
+(Supabase MCP tools' `apply_migration`, or the dashboard SQL editor), confirm it's a true
+no-op if the content was already live, then `UPDATE` that row's `version` in
+`schema_migrations` to match the local filename exactly. Once it's recorded as already-applied
+under the matching version, `db push` stops considering it pending at all, and the ordering
+check never triggers again.
+
+## Merging a branch that predates this pipeline (before 2026-09-22)
+
+GitHub doesn't retroactively add a newly-created workflow to an already-open PR's checks
+unless that PR's branch gets updated after the workflow existed. Concretely: **a PR opened
+before `database-tests.yml` existed may show all-green checks without that workflow ever
+having run on it.** Before merging an old PR that touches `supabase/migrations/`, check
+whether `database-tests.yml` actually appears in its checks — if it doesn't, budget time for
+one or more of these on the first real deploy attempt afterward, all discovered the hard way
+merging PR #71 (opened 2026-09-14) on 2026-09-22:
+
+1. **A migration's function redefinition collides with the schema baseline.** If a migration
+   predates the baseline's introspection date but its fix was already live on production
+   *before* the baseline was captured, the baseline already contains the fixed version — so a
+   bare `CREATE FUNCTION` (used deliberately to avoid the overload trap on a signature change)
+   fails with "function already exists." Fix: `CREATE OR REPLACE`, after confirming the
+   baseline's captured version and the migration's version are actually identical (diff them —
+   this is only safe when they match; see part C's `set_team_slot` fix for the full reasoning).
+2. **Genuinely non-idempotent DDL that was never caught before.** `ADD COLUMN` without
+   `IF NOT EXISTS`, `ADD CONSTRAINT` without the existence-check pattern — anything this repo's
+   idempotency rules (above) require but the file predates those rules being enforced by CI.
+3. **The ordering error** two sections up, once 1 and 2 are fixed.
+
 ## History
 
 Until 2026-09-22, this repo's entire foundational schema (51 tables, 62 functions, RLS
