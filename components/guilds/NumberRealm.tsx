@@ -23,7 +23,7 @@ import { ALL_MONSTERS, getGuildMonsterTierDef, MonsterDef } from '@/lib/monsterC
 import { QualityTier } from '@/lib/curioQuality';
 import { takePrefetch } from '@/lib/tabPrefetch';
 import GuildSessionResults from '@/components/guilds/GuildSessionResults';
-import type { GuildSessionScore } from '@/lib/dailyChecklist';
+import type { GuildSessionScore } from '@/lib/guildSessions';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).

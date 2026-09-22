@@ -7,7 +7,8 @@
 import { motion } from 'framer-motion';
 import { UserId } from '@/lib/userSession';
 import { CharacterStats } from '@/hooks/useWeeklyData';
-import { GuildKey, GuildSessionScore } from '@/lib/dailyChecklist';
+import { GuildKey } from '@/lib/dailyChecklist';
+import type { GuildSessionScore } from '@/lib/guildSessions';
 import { SubclassProfile } from '@/lib/guildEngine';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';

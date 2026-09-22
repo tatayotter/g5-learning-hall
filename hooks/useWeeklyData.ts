@@ -402,7 +402,11 @@ export function useWeeklyData(userId: string | null) {
       p_mastery_count: newMasteryCount,
       p_purchased_items: newPurchasedItems,
       p_honor_grants: newHonorGrants,
-      p_guild_sessions_delta: counterDeltas.guild,
+      // The lifetime counter is now incremented server-side, atomically with the session
+      // record (mark_guild_session_today, p_count_lifetime: true) — see lib/guildSessions.ts.
+      // Sending counterDeltas.guild here too would double count; it's kept only as the local
+      // weekly-reset value below (journalChanges.guild_sessions_count).
+      p_guild_sessions_delta: 0,
       p_monster_battles_won_delta: counterDeltas.monster,
       p_sibling_battles_won_delta: counterDeltas.sibling,
       p_perfect_quizzes_delta: counterDeltas.perfect,

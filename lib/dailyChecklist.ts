@@ -31,40 +31,38 @@ export const GUILDS: { key: GuildKey; label: string; lore: string }[] = [
 
 export interface ChecklistBattleFlags {
   last_wild_encounter_win: string | null;
-  guild_last_played: Partial<Record<GuildKey, string>>;
+  guilds_played_today: GuildKey[];
 }
 
-export async function fetchChecklistBattleFlags(userId: string): Promise<ChecklistBattleFlags> {
-  const { data, error } = await supabase
-    .from('user_battle_state')
-    .select('last_wild_encounter_win, guild_last_played')
-    .eq('user_id', userId)
-    .maybeSingle();
+// `today` is a display-only date (lib/appDay.ts's manilaToday()) — this only decides what the
+// checklist UI shows as done. The server is authoritative for the actual bonus grant
+// (claim_daily_checklist_bonus derives its own day and reads guild_sessions itself), so a
+// stale/mismatched `today` here can't cause a wrongful claim, only a cosmetic display lag.
+//
+// Guild plays come from guild_sessions (one row per user/guild/day) rather than the legacy
+// user_battle_state.guild_last_played JSON, which claim_daily_checklist_bonus no longer reads.
+export async function fetchChecklistBattleFlags(userId: string, today: string): Promise<ChecklistBattleFlags> {
+  const [battleRes, guildRes] = await Promise.all([
+    supabase
+      .from('user_battle_state')
+      .select('last_wild_encounter_win')
+      .eq('user_id', userId)
+      .maybeSingle(),
+    supabase
+      .from('guild_sessions')
+      .select('guild_key')
+      .eq('user_id', userId)
+      .eq('played_on', today),
+  ]);
 
-  if (error || !data) {
-    return { last_wild_encounter_win: null, guild_last_played: {} };
-  }
-  return data as ChecklistBattleFlags;
+  return {
+    last_wild_encounter_win: battleRes.data?.last_wild_encounter_win ?? null,
+    guilds_played_today: ((guildRes.data as { guild_key: GuildKey }[] | null) ?? []).map(row => row.guild_key),
+  };
 }
 
-// Stamps "played this specific guild today" — called from any of the 5 guild
-// components' completion callback, via an RPC so a student who hasn't visited
-// the Monster Arena yet (no user_battle_state row) still gets one created
-// atomically rather than racing a client-side read-then-upsert.
-export interface GuildSessionScore {
-  questionsAnswered: number;
-  correctCount: number;
-}
-
-export async function markGuildSessionToday(userId: string, guildKey: GuildKey, today: string, score?: GuildSessionScore) {
-  await supabase.rpc('mark_guild_session_today', {
-    p_user_id: userId,
-    p_guild_key: guildKey,
-    p_today: today,
-    p_questions_answered: score?.questionsAnswered ?? 0,
-    p_correct_count: score?.correctCount ?? 0,
-  });
-}
+// markGuildSessionToday moved to lib/guildSessions.ts — it now retries and queues on
+// failure instead of firing-and-forgetting, so it needed its own module.
 
 export function isQuestDayDone(
   dayName: string,
@@ -133,17 +131,12 @@ export interface ChecklistClaimResult {
   gold?: number;
 }
 
-export async function claimChecklistBonus(
-  userId: string,
-  today: string,
-  dayName: string,
-  grade: number
-): Promise<ChecklistClaimResult> {
+// The server derives today's date, the weekday and the player's grade itself (from their own
+// journal row for the current content week) — see claim_daily_checklist_bonus. The only thing
+// the client identifies is who is claiming.
+export async function claimChecklistBonus(userId: string): Promise<ChecklistClaimResult> {
   const { data, error } = await supabase.rpc('claim_daily_checklist_bonus', {
     p_user_id: userId,
-    p_today: today,
-    p_day_name: dayName,
-    p_grade: grade,
   });
 
   if (error) {
