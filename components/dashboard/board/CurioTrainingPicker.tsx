@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { ALL_MONSTERS, BATTLE_CONSTANTS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
-import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
 
 export const TRAINING_EXP_SHARE = 1 / 3;
 
@@ -70,23 +70,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
 
   return (
     <div className="mb-8 text-left">
-      <style>{`
-        .ccard { position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; padding:22px 10px 12px; cursor:pointer;
-          border-radius:16px; border:2px solid #8b5e2a; background:linear-gradient(180deg,#fffdf7 0%,#fbf3df 100%);
-          box-shadow:0 4px 0 #8b5e2a, 0 8px 12px rgba(42,21,5,.22); transition:transform .1s, box-shadow .1s; }
-        .ccard::before { content:''; position:absolute; inset:4px; border:1px dashed #c9a87a; border-radius:11px; pointer-events:none; }
-        .ccard:hover { transform:translateY(-2px); box-shadow:0 6px 0 #8b5e2a, 0 11px 14px rgba(42,21,5,.28); }
-        .ccard:active { transform:translateY(3px); box-shadow:0 1px 0 #8b5e2a; }
-        .ccard-sprite { display:flex; padding:6px; border-radius:50%; background:radial-gradient(circle,#f0ddb8 0%,#e8d0a0 70%); border:2px solid #c9a87a; }
-        .ccard-lv { font-size:12px; font-weight:800; color:#6b4820; background:#f0ddb8; border:1px solid #c9a87a; border-radius:999px; padding:1px 10px; }
-        .ccard-selected { border-color:#c9781a; background:linear-gradient(180deg,#ffe9a8 0%,#f5c95c 100%);
-          box-shadow:0 4px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.6), 0 8px 14px rgba(201,120,26,.4); transform:translateY(-1px); }
-        .ccard-selected .ccard-sprite { background:radial-gradient(circle,#fff6d6 0%,#f5c95c 80%); border-color:#c9781a; }
-        .ccard-tag { position:absolute; top:-10px; left:50%; transform:translateX(-50%); z-index:2; overflow:hidden; white-space:nowrap;
-          background:#f5c542; border:0.0476em solid #000; border-radius:0.508em; padding:.25em .7em; }
-        .ccard-check { position:absolute; top:6px; right:8px; width:22px; height:22px; border-radius:50%; background:#22c55e; color:#fff;
-          border:2px solid #14532d; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center; z-index:2; }
-      `}</style>
+      <style>{CURIO_CARD_STYLES}</style>
       <p className="text-center text-[#7a4a0f] font-bold mb-1">Which curio should train?</p>
       <p className="text-center text-xs text-[#6b4820] mb-4">
         Your active curio is picked by default — tap another to switch. The trainee earns {Math.round(TRAINING_EXP_SHARE * 100)}% of the XP you earn when you complete this quest.

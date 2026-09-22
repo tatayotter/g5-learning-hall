@@ -42,6 +42,7 @@ import { MtapSetComplete } from '@/components/bonusquests/MtapQuizPlayer';
 import { MixedTrainerComplete } from '@/components/bonusquests/MtapMixedTrainerPlayer';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
+import StarterSelection from '@/components/monster/StarterSelection';
 
 import Toast from '@/components/Toast';
 import AchievementToast from '@/components/AchievementToast';
@@ -588,6 +589,15 @@ export default function UiGallery() {
             onTradeAll={() => {}}
             onDismiss={() => {}}
           />
+        </div>
+      </Section>
+
+      <Section
+        title="Starter curio selection"
+        note="components/monster/StarterSelection.tsx — shown once for a brand-new account with no curios yet. Restyled to the parchment palette 2026-09-23 (was the old dark theme); lore moved from an always-visible paragraph into the tap-the-i-badge popup. Card selection/confirm work live in this gallery; the final &quot;Choose&quot; submit still hits a real (mock, non-existent) userId, so clicking all the way through is safe — RLS blocks the write."
+      >
+        <div className="bg-white rounded-xl p-4">
+          <StarterSelection userId="mock-user-id" onComplete={() => {}} />
         </div>
       </Section>
 
