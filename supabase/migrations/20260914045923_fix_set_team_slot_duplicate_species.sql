@@ -18,9 +18,19 @@
 -- behind an overloaded duplicate (see docs note on the CREATE OR REPLACE
 -- overload trap: replacing under a different arg list creates a second
 -- function instead of replacing the first).
+--
+-- CREATE OR REPLACE, not a bare CREATE: a from-scratch replay hit "function
+-- \"set_team_slot\" already exists with same argument types" (SQLSTATE 42723)
+-- -- the schema baseline (supabase/migrations/20260806230002_..._c_functions.sql)
+-- was introspected from production AFTER this fix was already live there, so
+-- it already defines set_team_slot with this exact 7-arg signature. OR
+-- REPLACE is safe here specifically because the arg list now matches exactly
+-- (unlike the overload trap this comment already guards against, which is
+-- about replacing under a genuinely *different* arg list) -- see
+-- docs/database-migrations.md's idempotency section.
 DROP FUNCTION IF EXISTS public.set_team_slot(text, text, integer, integer, integer, text);
 
-CREATE FUNCTION public.set_team_slot(
+CREATE OR REPLACE FUNCTION public.set_team_slot(
   p_user_id text,
   p_monster_id text,
   p_slot integer,
