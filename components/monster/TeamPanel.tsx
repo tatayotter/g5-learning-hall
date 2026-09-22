@@ -123,13 +123,17 @@ export default function TeamPanel({
     }
   };
 
-  const handleAddMonster = async (slot: number, monsterId: string) => {
+  const handleAddMonster = async (slot: number, monsterId: string, monsterRowId: string) => {
     // set_team_slot never overwrites an existing monster's row — it reuses
     // monsterId's own persistent row if one exists (so a previously-benched
     // monster comes back with its own level/exp/equipped_skills intact) and
     // benches whoever it displaces, rather than destroying either identity.
+    // monsterRowId pins the RPC to this exact bench row — a player can own
+    // two rows of the same species at once (kept a duplicate catch while the
+    // original was already on the team), so looking the row up by species
+    // alone is ambiguous and previously errored out silently.
     const { error } = await supabase.rpc('set_team_slot', {
-      p_user_id: userId, p_monster_id: monsterId, p_slot: slot,
+      p_user_id: userId, p_monster_id: monsterId, p_slot: slot, p_monster_row_id: monsterRowId,
     });
     if (error) {
       console.error('set_team_slot error:', error);
@@ -659,7 +663,7 @@ export default function TeamPanel({
                       return (
                         <button
                           key={bm.id}
-                          onClick={() => handleAddMonster(slot, bm.monster_id)}
+                          onClick={() => handleAddMonster(slot, bm.monster_id, bm.id)}
                           className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
                         >
                           {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
@@ -772,7 +776,7 @@ export default function TeamPanel({
                       return (
                         <button
                           key={slot}
-                          onClick={() => { handleAddMonster(slot, bm.monster_id); setPromotingBenchId(null); }}
+                          onClick={() => { handleAddMonster(slot, bm.monster_id, bm.id); setPromotingBenchId(null); }}
                           className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
                         >
                           {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}

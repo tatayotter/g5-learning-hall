@@ -179,9 +179,13 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
     return !WILD_MONSTERS[id] || knownSpeciesIds.has(id);
   };
 
-  // A player only ever owns one instance of a given species, so this lookup
-  // (used below for both the "active graduation tier" checks) is unambiguous.
-  const graduationTierForSpecies = (speciesId: string) => userMonsters.find(m => m.monster_id === speciesId)?.graduation_tier ?? 0;
+  // A player CAN own more than one instance of a given species at once (the
+  // egg mechanism explicitly allows a graduated adult plus its own freshly
+  // hatched, ungraduated child — see MonsterGuild.tsx's displayMonsters
+  // comment), so report the highest tier any owned instance has reached
+  // rather than whichever row happens to be first in the array.
+  const graduationTierForSpecies = (speciesId: string) =>
+    userMonsters.reduce((max, m) => m.monster_id === speciesId ? Math.max(max, m.graduation_tier ?? 0) : max, 0);
 
   const dexEntries: DexEntry[] = [];
   for (const def of Object.values(ALL_MONSTERS)) {
@@ -426,7 +430,10 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
           const isActiveTier = entry.guildLabel
             ? entry.tier === getGuildMonsterTier(speciesDef, guildLevelForKey(subclassProfile, speciesDef.guildEvolution!.guildKey))
             : entry.tier === graduationTierForSpecies(entry.speciesId) + 1;
-          const inTeam = userMonsters.find(m => m.monster_id === entry.speciesId);
+          // Must check slot !== null — a bare species match is true for any
+          // owned row (team or bench alike), which previously made every
+          // benched curio show "In Team" instead of "Benched".
+          const inTeam = userMonsters.some(m => m.monster_id === entry.speciesId && m.slot !== null);
           return (
             // Same wood-plank + gold trim + corner-nail frame as the battle
             // screen's MonsterHpPanel, reusing its exported style pieces
