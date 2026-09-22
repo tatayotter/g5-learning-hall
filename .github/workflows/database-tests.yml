@@ -38,9 +38,12 @@ jobs:
           fi
           echo "No duplicate migration version numbers found."
 
+      # Pinned, not "latest": setup-cli resolves "latest" via an unauthenticated GitHub API
+      # call at runtime, which intermittently hits a rate limit on shared runners and fails
+      # the whole job before any migration work even starts. Bump this by hand occasionally.
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          version: 2.117.0
 
       - name: Start local Supabase stack
         run: supabase start
