@@ -1,6 +1,6 @@
 -- Week 12 (2026-08-31) main quest content for grades 2-6
 -- Generated from BOW Wk11 topics
--- Apply as a migration: supabase/migrations/20260825100000_week12_content.sql
+-- Apply as a migration: supabase/migrations/20260825100001_week12_content.sql
 
 -- Grade 2 Week 12 (2026-08-31)
 DO $g2$ DECLARE
