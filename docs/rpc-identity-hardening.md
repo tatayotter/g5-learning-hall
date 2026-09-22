@@ -18,6 +18,17 @@ treated as a living checklist any new `p_user_id`-taking `SECURITY DEFINER` RPC 
 checked against, not a one-time pass — added `spend_gold` to the list below so a future
 audit query catches it if the pattern ever regresses again.
 use.
+
+**2026-09-22 regression + fix, found via the Supabase security-advisor triage (not a
+targeted re-audit):** `apply_referral_code(p_registrant_id, p_code)`, added after Group A,
+had the identical gap — no check that `p_registrant_id` matched the caller's own identity,
+exploitable to plant a fraudulent referral-reward claim against an arbitrary account. Fixed
+in `20260922152410_harden_apply_referral_code_identity_check.sql`. **This one used
+`p_registrant_id`, not `p_user_id`** — the original audit query below only matched
+`p_user_id`/`p_child_id`/`p_registrant_id`/`p_owner_id` because it was widened during this
+same pass; if a future function uses yet another subject-id parameter name, the query needs
+widening again rather than assuming the existing pattern list is exhaustive. Added to the
+Group A list below.
 Related: [[feedback_postgres_function_hardening]] (admin passcode boundary),
 [[project_curio_quality_tutoring]] (where this was first flagged, as a "someday" item —
 this doc supersedes that framing; it's a live issue, not a someday one).
@@ -54,6 +65,15 @@ order by checks_identity, p.proname;
 ```
 
 Zero of the 23 matches check identity.
+
+**2026-09-22 note:** the `ilike '%p_user_id%'` filter above only catches one subject-id
+parameter name. Widen it before trusting a "clean" result — this session's audit used
+`p_user_id`, `p_child_id`, `p_registrant_id`, `p_owner_id` and still had to spot-check
+functions that check identity via `auth.uid()` directly (parent-facing, e.g. `get_child_pin`)
+rather than `current_app_user_id()`, which the `checks_identity` column above also misses.
+Also watch for a legitimate SQL-language wrapper overload that just delegates to an already
+-hardened same-name function (e.g. `claim_daily_checklist_bonus`'s 4-arg form) — that reads
+as "unchecked" by this query but isn't a real gap, since the delegation carries the check.
 
 **It's exploitable today, not just theoretical.** `tutor_curio` (and by the same grant
 pattern, presumably all of the below) grants `EXECUTE` to `anon` — callable with the
@@ -101,6 +121,7 @@ have no legitimate cross-user caller:
 - `record_progress_event(p_user_id, p_column)`
 - `sync_egg_progress(p_user_id)`
 - `add_trash_stats(p_user_id, p_collected, p_gold)`
+- `apply_referral_code(p_registrant_id, p_code)` — added 2026-09-22, see status note above
 
 Fix pattern (add as the first statement in the function body):
 
