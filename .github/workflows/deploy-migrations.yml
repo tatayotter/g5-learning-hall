@@ -1,0 +1,100 @@
+name: Deploy database migrations
+
+# On every push to main that touches supabase/migrations, re-runs the exact same
+# from-scratch replay + pgTAP suite as database-tests.yml (belt-and-suspenders: don't trust
+# that the PR's check definitely ran/passed against this exact commit), then -- gated behind
+# the `supabase-production` GitHub Environment, which requires manual approval -- links to the
+# real hosted project and runs `supabase db push`.
+#
+# This exists because every migration in this repo's history up to 2026-09-22 was applied to
+# production by hand (dashboard/SQL editor, or an AI agent via the Supabase MCP tool), never
+# through a deterministic pipeline -- which is exactly how this repo ended up with 51 tables/
+# 62 functions never captured in any migration, three pairs of migrations sharing the same
+# version number, and 93 other local-vs-production version mismatches, all only discovered and
+# fixed in PR #75. This workflow is the actual fix for the root cause, not just that one
+# cleanup: from here on, merging to main is what deploys a migration, not a human remembering
+# to run one by hand.
+#
+# Required repo secrets (Settings > Secrets and variables > Actions), set by the repo owner,
+# never by this workflow or by pasting them into an AI session:
+#   SUPABASE_ACCESS_TOKEN - a personal access token from supabase.com/dashboard/account/tokens
+#   SUPABASE_DB_PASSWORD  - this project's database password (Project Settings > Database)
+"on":
+  push:
+    branches:
+      - main
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/config.toml"
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check for duplicate migration version numbers
+        # The cheapest, fastest possible check for the exact bug class that broke this
+        # repo's CI mid-September: two unrelated migrations both stamped with the same
+        # 14-digit version prefix. A from-scratch replay also catches this (it's a literal
+        # primary-key violation on supabase_migrations.schema_migrations), but that takes a
+        # couple of minutes of Docker startup to get to; this takes under a second and gives
+        # a much clearer error pointing at the exact colliding filenames.
+        run: |
+          cd supabase/migrations
+          dupes=$(ls *.sql | grep -oE '^[0-9]{14}' | sort | uniq -d)
+          if [ -n "$dupes" ]; then
+            echo "::error::Duplicate migration version number(s) found:"
+            for v in $dupes; do
+              echo "::error::  $v is used by:"
+              ls "${v}"_*.sql | sed 's/^/::error::    /'
+            done
+            exit 1
+          fi
+          echo "No duplicate migration version numbers found."
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local Supabase stack
+        run: supabase start
+
+      - name: Run pgTAP database tests
+        run: supabase test db
+
+      - name: Stop local Supabase stack
+        if: always()
+        run: supabase stop --no-backup
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    # Requires manual approval in the GitHub UI (Environments > supabase-production has a
+    # required reviewer configured) before this job runs -- merging to main starts the deploy,
+    # but a human still has to explicitly let the actual `db push` happen.
+    environment: supabase-production
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Link to the hosted project
+        run: supabase link --project-ref rsiupmbfhqtihmtahccg
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+
+      - name: Show what would be pushed
+        run: supabase db push --dry-run
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+
+      - name: Push pending migrations to production
+        run: supabase db push
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}

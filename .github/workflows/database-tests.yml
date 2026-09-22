@@ -1,0 +1,53 @@
+name: Database tests
+
+# Spins up a fresh local Supabase stack (Docker, via the Supabase CLI), replays every
+# migration in supabase/migrations against it, then runs the pgTAP suite in
+# supabase/tests/database/. Never touches the hosted project — this is exactly what
+# `supabase test db` is for: catching a broken migration or a regressed RLS/identity check
+# before it ever reaches production.
+"on":
+  pull_request:
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/tests/**"
+      - "supabase/config.toml"
+      - ".github/workflows/database-tests.yml"
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check for duplicate migration version numbers
+        # Fast, clear-error preliminary check for the exact bug class that broke this repo's
+        # CI in PR #75: two unrelated migrations sharing the same 14-digit version prefix.
+        # The replay below also catches this (a primary-key violation on
+        # supabase_migrations.schema_migrations) but only after Docker startup; this is instant.
+        run: |
+          cd supabase/migrations
+          dupes=$(ls *.sql | grep -oE '^[0-9]{14}' | sort | uniq -d)
+          if [ -n "$dupes" ]; then
+            echo "::error::Duplicate migration version number(s) found:"
+            for v in $dupes; do
+              echo "::error::  $v is used by:"
+              ls "${v}"_*.sql | sed 's/^/::error::    /'
+            done
+            exit 1
+          fi
+          echo "No duplicate migration version numbers found."
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start local Supabase stack
+        run: supabase start
+
+      - name: Run pgTAP database tests
+        run: supabase test db
+
+      - name: Stop local Supabase stack
+        if: always()
+        run: supabase stop --no-backup
