@@ -66,6 +66,20 @@
 -- failure (ERROR: column "boss_fights_enabled" of relation "admin_config" already exists),
 -- then confirmed complete by scripting a check across every migration file for any
 -- unconditional ADD COLUMN targeting a column already in this baseline.
+--
+-- NOTE ON pg_cron: this file's original header claimed pg_cron was platform-provisioned and
+-- didn't need capturing here, same as pg_net/pgcrypto/uuid-ossp/pg_stat_statements/
+-- supabase_vault. That held for those five -- Supabase's local CLI stack enables them itself
+-- before user migrations run -- but not for pg_cron: a from-scratch CI replay failed with
+-- "schema \"cron\" does not exist" the moment the first `select cron.schedule(...)` ran
+-- (20260904050000_schedule_push_notification_crons.sql, the earliest of the four migrations
+-- that touch the cron schema). On a hosted Supabase project pg_cron is enabled once via the
+-- dashboard's Database > Extensions toggle, invisibly to migrations, exactly like every other
+-- object in this baseline -- so it gets the same fix: an explicit CREATE EXTENSION here, at
+-- the very top of the earliest file, so every later migration that assumes it can already
+-- find one.
+
+CREATE EXTENSION IF NOT EXISTS pg_cron WITH SCHEMA pg_catalog;
 
 -- ============================================================================
 -- 1. TABLES
