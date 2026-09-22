@@ -1,6 +1,6 @@
 // components/DailyChecklist.tsx
 import { useState, useEffect, useCallback } from 'react';
-import { format } from 'date-fns';
+import { manilaToday } from '@/lib/appDay';
 import {
   fetchChecklistBattleFlags,
   hasClaimedChecklistBonus,
@@ -97,10 +97,10 @@ export default function DailyChecklist({
   gauntletDaysDone,
   onGoToEvent,
 }: DailyChecklistProps) {
-  const todayKey = format(new Date(), 'yyyy-MM-dd');
+  const todayKey = manilaToday();
   const [battleFlags, setBattleFlags] = useState<ChecklistBattleFlags>({
     last_wild_encounter_win: null,
-    guild_last_played: {},
+    guilds_played_today: [],
   });
   const [loading, setLoading] = useState(true);
   const [claimed, setClaimed] = useState(false);
@@ -111,7 +111,7 @@ export default function DailyChecklist({
   const loadFlags = useCallback(async (isInitial = false) => {
     if (isInitial) setLoading(true);
     const [flags, claimedToday, streak] = await Promise.all([
-      fetchChecklistBattleFlags(userId),
+      fetchChecklistBattleFlags(userId, todayKey),
       hasClaimedChecklistBonus(userId, todayKey),
       fetchDailyChecklistStreak(userId, todayKey),
     ]);
@@ -137,7 +137,7 @@ export default function DailyChecklist({
   const questScheduledToday = Object.keys(packageData?.[currentDayName] || {}).length > 0;
   const questDone = gauntletActive || isQuestDayDone(currentDayName, packageData, masteredQuizzes || []);
   const battleDone = battleFlags.last_wild_encounter_win === todayKey;
-  const guildsPlayedToday = GUILDS.filter(g => battleFlags.guild_last_played?.[g.key] === todayKey);
+  const guildsPlayedToday = GUILDS.filter(g => battleFlags.guilds_played_today.includes(g.key));
   const guildsAllDone = guildsPlayedToday.length === GUILDS.length;
 
   // Only 'gauntlet' events (Topic Mastery Gauntlet) get a checklist item —
@@ -195,7 +195,7 @@ export default function DailyChecklist({
   const handleClaim = async () => {
     if (claiming || claimed) return;
     setClaiming(true);
-    const result = await claimChecklistBonus(userId, todayKey, currentDayName, grade);
+    const result = await claimChecklistBonus(userId);
     if (result.granted) {
       setClaimed(true);
       const gold = result.gold ?? STREAK_GOLD_LADDER[0];
@@ -268,7 +268,7 @@ export default function DailyChecklist({
           {!guildsAllDone && (
             <div className="grid grid-cols-3 gap-3 mt-4">
               {GUILDS.map(g => {
-                const done = battleFlags.guild_last_played?.[g.key] === todayKey;
+                const done = battleFlags.guilds_played_today.includes(g.key);
                 if (done) return null;
                 return (
                   <div key={g.key} className="flex flex-col items-center gap-2 bg-white border border-stone-200 rounded-2xl px-3 pt-4 pb-3 shadow-sm">

@@ -7,7 +7,8 @@ import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
-import { markGuildSessionToday, GuildSessionScore, GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
@@ -113,6 +114,17 @@ export default function Dashboard() {
     }
     hydrate();
   }, []);
+
+  // Retry any guild sessions that failed to record earlier (network drop, tab closed
+  // mid-request). Idempotent server-side (see guild_session_idempotency), so flushing
+  // repeatedly — on every load and whenever connectivity returns — is always safe.
+  useEffect(() => {
+    if (!activeUserId) return;
+    void flushPendingGuildSessions(activeUserId);
+    const onOnline = () => { void flushPendingGuildSessions(activeUserId); };
+    window.addEventListener('online', onOnline);
+    return () => window.removeEventListener('online', onOnline);
+  }, [activeUserId]);
 
   // Main theme plays for the whole logged-in session; BattleScreen and
   // LiveBattleScreen duck it (pauseMainTheme/resumeMainTheme) while their
@@ -815,7 +827,7 @@ export default function Dashboard() {
   // activeGuild already identifies that from closure.
   const handleGuildGoldEarned = (newStats: CharacterStats, score: GuildSessionScore) => {
     if (!activeGuild) return;
-    markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'), score);
+    void markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'), score);
     updateStatsAndJournal(
       newStats, data.journal_logs,
       data.purchased_items, data.mastery_count, data.honor_grants,
