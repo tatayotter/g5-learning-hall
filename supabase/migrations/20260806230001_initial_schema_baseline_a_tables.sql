@@ -1,6 +1,6 @@
 -- Initial schema baseline, part A of D: TABLES, INDEXES, RLS-ENABLE.
 --
--- This is part of a 4-file baseline capturing the foundational schema (51 tables, 61
+-- This is part of a 5-file baseline capturing the foundational schema (51 tables, 62
 -- functions, 1 trigger, 1 view) that was built directly against the database (dashboard/SQL
 -- editor) before this project adopted migration discipline on 2026-08-07, and was never
 -- captured in any migration since.
@@ -11,7 +11,21 @@
 -- public.user_identity_map existed, which they never did anywhere in this directory. A
 -- systematic audit (every table/view/function/trigger/extension in production, cross-checked
 -- against every CREATE statement in every migration file) found the true scope: 51 tables,
--- 61 functions, 1 trigger and 1 view, essentially the entire early-app foundation.
+-- 62 functions, 1 trigger and 1 view, essentially the entire early-app foundation.
+--
+-- NOTE ON THE FUNCTION COUNT: the first version of this audit found 61 functions and, via an
+-- actual from-scratch CI replay failure, turned out to have missed one --
+-- strip_weekly_quiz_answers, added here in part C. It's used by a VIEW in a later real
+-- migration (20260811082838_baseline_weekly_progress_scope.sql) that -- textually further
+-- down the very same file -- (re-)defines the function; that only ever worked historically
+-- because the function already existed pre-migration-discipline, same as everything else in
+-- this baseline, so it needs the same treatment here. A second candidate the same CI failure
+-- surfaced, add_trash_stats, was investigated and turned out to be a false positive: it's
+-- fully and correctly created by its own real migration
+-- (20260821000000_add_trash_stats.sql), just without an explicit "public." schema prefix on
+-- the CREATE FUNCTION statement, which is why the first audit's text search missed it. Adding
+-- it here too would have been harmless (CREATE OR REPLACE is idempotent) but redundant, so it
+-- was left out.
 --
 -- Generated directly from production's live schema via Postgres introspection
 -- (pg_get_functiondef, pg_get_constraintdef, pg_indexes, pg_policies, format_type/attidentity
@@ -33,7 +47,7 @@
 --
 -- Part B (this same baseline) carries the constraints and RLS policies for these tables,
 -- since those aren't idempotent via IF NOT EXISTS and need the explicit-existence-check
--- pattern documented there. Part C carries the 61 functions. Part D carries the one trigger
+-- pattern documented there. Part C carries the 62 functions. Part D carries the one trigger
 -- and one view.
 --
 -- NOTE ON COLUMNS ADDED LATER: three columns present in production today are deliberately

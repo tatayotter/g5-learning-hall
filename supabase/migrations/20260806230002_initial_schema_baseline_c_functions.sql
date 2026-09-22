@@ -1,4 +1,4 @@
--- Initial schema baseline, part C of D: FUNCTIONS (61 total).
+-- Initial schema baseline, part C of D: FUNCTIONS (62 total).
 --
 -- See part A (20260806230001_initial_schema_baseline_a_tables.sql) for the full rationale,
 -- versioning note, and idempotency notes shared by this whole baseline. In short: this
@@ -18,6 +18,12 @@
 -- draft of the REVOKE/GRANT lines had a doubled "public.public." schema prefix, which would
 -- have failed outright (invalid function reference) -- caught and fixed before this was ever
 -- applied anywhere.
+--
+-- strip_weekly_quiz_answers was added in a second pass, after a from-scratch CI replay
+-- failure showed the first audit had missed it (see part A's header for the full story,
+-- including why its near-twin add_trash_stats was investigated and correctly left out). It
+-- uses the default anon+authenticated+service_role PostgREST grant in production, so it gets
+-- no REVOKE/GRANT pair, same as every other default-grant function here.
 
 -- account_created_at
 CREATE OR REPLACE FUNCTION public.account_created_at(p_id text)
@@ -1399,6 +1405,50 @@ begin
     new_quiz := new_quiz || jsonb_build_array(q - 'correct_answer');
   end loop;
   return new_quiz;
+end;
+$function$;
+
+-- strip_weekly_quiz_answers
+CREATE OR REPLACE FUNCTION public.strip_weekly_quiz_answers(data jsonb)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ IMMUTABLE
+ SET search_path TO 'public'
+AS $function$
+declare
+  day_key text;
+  subject_key text;
+  day_obj jsonb;
+  subj_obj jsonb;
+  quiz_arr jsonb;
+  new_quiz jsonb;
+  q jsonb;
+  result jsonb := data;
+begin
+  if data is null or jsonb_typeof(data) <> 'object' then
+    return data;
+  end if;
+
+  for day_key in select jsonb_object_keys(data) loop
+    day_obj := data -> day_key;
+    if jsonb_typeof(day_obj) = 'object' then
+      for subject_key in select jsonb_object_keys(day_obj) loop
+        subj_obj := day_obj -> subject_key;
+        if jsonb_typeof(subj_obj) = 'object' then
+          quiz_arr := subj_obj -> 'quiz';
+          if jsonb_typeof(quiz_arr) = 'array' then
+            new_quiz := '[]'::jsonb;
+            for q in select * from jsonb_array_elements(quiz_arr) loop
+              new_quiz := new_quiz || jsonb_build_array(q - 'correct_answer');
+            end loop;
+            result := jsonb_set(result, array[day_key, subject_key, 'quiz'], new_quiz);
+          end if;
+        end if;
+      end loop;
+    end if;
+  end loop;
+
+  return result;
 end;
 $function$;
 
