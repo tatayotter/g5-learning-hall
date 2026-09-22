@@ -14,7 +14,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -225,6 +225,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
     return (
       <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-cyan-900" style={{ zIndex: 80 }}>
+        <style>{QUIZ_OPTION_STYLES}</style>
         <CritBonusToast event={engine.lastCrit} />
         <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
 
@@ -276,23 +277,29 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
                 )}
 
                 <div className="grid grid-cols-2 gap-2">
-                  {q.options_array.map((opt) => {
-                    let style = 'bg-amber-50 border-amber-200 hover:border-cyan-400 hover:bg-cyan-50';
+                  {q.options_array.map((opt, idx) => {
+                    const label = ['A', 'B', 'C', 'D'][idx];
+                    let state = '';
                     if (selectedOption === opt.id) {
-                      style = opt.id === q.correct_option_id ? 'bg-green-50 border-green-400' : 'bg-red-50 border-red-400';
+                      state = opt.id === q.correct_option_id ? 'correct' : 'wrong';
                     }
                     return (
                       <GameButton
                         key={opt.id}
                         onClick={() => handleSelect(opt.id)}
                         disabled={selectedOption !== null}
-                        className={`border-2 rounded-xl p-3 transition-colors text-center ${style} disabled:cursor-default`}
+                        className={`qopt ${state ? `qopt-${state}` : ''}`}
                       >
-                        {opt.image_url ? (
-                          <img src={opt.image_url} alt={opt.label} className="max-h-20 mx-auto object-contain" />
-                        ) : (
-                          <span className="text-base font-bold text-gray-800">{opt.label}</span>
-                        )}
+                        <span className="qopt-badge">{label}</span>
+                        <span className="qopt-text">
+                          {opt.image_url ? (
+                            <img src={opt.image_url} alt={opt.label} className="max-h-16 mx-auto object-contain" />
+                          ) : (
+                            opt.label
+                          )}
+                        </span>
+                        {state === 'correct' && <span className="qopt-mark">✔</span>}
+                        {state === 'wrong' && <span className="qopt-mark">✖</span>}
                       </GameButton>
                     );
                   })}

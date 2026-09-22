@@ -14,7 +14,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -256,6 +256,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
     return (
       <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-blue-900" style={{ zIndex: 80 }}>
+        <style>{QUIZ_OPTION_STYLES}</style>
         <CritBonusToast event={engine.lastCrit} />
         <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
 
@@ -308,22 +309,26 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
                 {/* Choices */}
                 <div className="grid grid-cols-2 gap-2 landscape:grid-cols-2">
                   {choices.map((choice, idx) => {
+                    const label = ['A', 'B', 'C', 'D'][idx];
                     const isSelected = selected === choice;
                     const isCorrect = choice === w.correct_spelling;
-                    let cardStyle = 'bg-amber-50 border-amber-200 hover:border-blue-400 hover:bg-blue-50 text-gray-800';
-                    if (feedback && isSelected) {
-                      cardStyle = feedback === 'correct' ? 'bg-green-50 border-green-400 text-gray-800' : 'bg-red-50 border-red-400 text-gray-800';
-                    } else if (feedback && isCorrect) {
-                      cardStyle = 'bg-green-50 border-green-400 text-gray-800';
+                    let state = '';
+                    if (feedback) {
+                      if (isCorrect) state = 'correct';
+                      else if (isSelected) state = 'wrong';
+                      else state = 'dim';
                     }
                     return (
                       <GameButton
                         key={`${choice}-${idx}`}
                         onClick={() => handleChoice(choice)}
                         disabled={selected !== null}
-                        className={`w-full p-3 rounded-xl border-2 text-center font-bold text-sm transition-all ${cardStyle} disabled:cursor-default`}
+                        className={`qopt ${state ? `qopt-${state}` : ''}`}
                       >
-                        {choice}
+                        <span className="qopt-badge">{label}</span>
+                        <span className="qopt-text">{choice}</span>
+                        {state === 'correct' && <span className="qopt-mark">✔</span>}
+                        {state === 'wrong' && <span className="qopt-mark">✖</span>}
                       </GameButton>
                     );
                   })}

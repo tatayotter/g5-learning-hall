@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { MonsterDef } from '@/lib/monsterConfig';
 import { playMonsterAppear, playChime, playClash } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
+import { QUIZ_OPTION_STYLES } from '@/components/GameButton';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -57,6 +58,7 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
   return (
     <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
       <div className="bg-white border border-[#c9a87a] rounded-2xl p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
+        <style>{QUIZ_OPTION_STYLES}</style>
         <div className="flex items-center gap-3 mb-2">
           <MonsterImage monster={monster} className="w-12 h-12 battle-float" emojiClassName="text-4xl" />
           <div>
@@ -76,7 +78,8 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
         <p className="text-[#2a1505] font-bold mb-4">{question.question}</p>
 
         <div className="space-y-3">
-          {choices.map(c => {
+          {choices.map((c, idx) => {
+            const label = ['A', 'B', 'C', 'D'][idx];
             const isSelected = selected === c.key;
             // Guard: correct_choice may be null if a question was inserted without it.
             // Moving this inside the `if (selected)` block also avoids computing it
@@ -84,25 +87,25 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
             // unconditionally and crashed the component on mount when correct_choice
             // was null (TypeError: null.toLowerCase).
             const correctChoice = (question.correct_choice ?? '').toLowerCase();
-            // Semantic feedback colors stay standard Tailwind, not re-themed
-            // to brown (docs/STYLE_GUIDE.md) — default option is the usual
-            // white/parchment-bordered tile.
-            let style = 'bg-white border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#f0ddb8] text-[#2a1505]';
-            let feedbackAnim = '';
+            let state = '';
             if (selected) {
               const isCorrect = c.key.toLowerCase() === correctChoice;
-              if (isSelected && isCorrect) { style = 'border-green-600 bg-green-100 text-[#2a1505]'; feedbackAnim = 'battle-answer-correct'; }
-              else if (isSelected && !isCorrect) { style = 'border-red-500 bg-red-100 text-red-700'; feedbackAnim = 'battle-answer-wrong'; }
-              else if (isCorrect) style = 'border-green-600 bg-green-50 text-[#2a1505]';
+              if (isSelected && isCorrect) state = 'correct';
+              else if (isSelected && !isCorrect) state = 'wrong';
+              else if (isCorrect) state = 'correct';
+              else state = 'dim';
             }
             return (
               <button
                 key={c.key}
                 onClick={() => handleAnswer(c.key)}
                 disabled={!!selected}
-                className={`w-full text-left p-3 rounded-xl border-2 transition-all btn-tactile ${style} ${feedbackAnim}`}
+                className={`qopt ${state ? `qopt-${state}` : ''}`}
               >
-                {c.text}
+                <span className="qopt-badge">{label}</span>
+                <span className="qopt-text">{c.text}</span>
+                {state === 'correct' && <span className="qopt-mark">✔</span>}
+                {state === 'wrong' && <span className="qopt-mark">✖</span>}
               </button>
             );
           })}
