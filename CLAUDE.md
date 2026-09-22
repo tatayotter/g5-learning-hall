@@ -7,6 +7,15 @@ Before styling or restyling any quest, quiz, battle, or event-facing screen, rea
 content panels) that's easy to get backwards by copying an older component — that file has the
 exact tokens and a checklist.
 
+## Database migrations & deployment
+
+Before adding or editing anything in `supabase/migrations/`, read `docs/database-migrations.md`
+first. It covers the idempotency patterns Postgres doesn't give you for free (no
+`IF NOT EXISTS` for `ADD CONSTRAINT`/`CREATE POLICY`/`CREATE TRIGGER`), the sharpest edge in
+this system (CI's empty-database replay doesn't prove a migration will succeed against real
+production data), and how the two CI workflows and the required-approval production deploy
+gate work.
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
