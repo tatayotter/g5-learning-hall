@@ -27,6 +27,16 @@
 -- column exists) would fail, and creating them here AND letting that migration create them
 -- again would just be redundant. See part A's matching header note for the two columns.
 --
+-- NOTE ON ONE MISSING POLICY: children's "parent can read own children" policy is also
+-- deliberately NOT in this file, for the same reason -- 20260812110000_lock_down_children_
+-- classmates_credentials.sql is that policy's real origin (it drops the old, insecure
+-- "public can read active children of approved parents" policy and replaces it with this
+-- one, unconditionally, with no existence check since it assumes a fresh create right after
+-- its own drop). A from-scratch CI replay caught this with "policy already exists"
+-- (SQLSTATE 42710); confirmed complete by scripting the same kind of check used for the
+-- ADD COLUMN issue in part A, this time for CREATE POLICY name collisions across every
+-- migration file.
+--
 -- Ordered in three passes within this file: all PRIMARY KEY/UNIQUE/CHECK constraints
 -- first, then all FOREIGN KEY constraints, then all RLS policies. A single table-order
 -- pass (alphabetical, matching the original introspection order) isn't safe here --
@@ -719,11 +729,6 @@ end $p$;
 do $p$ begin
   if not exists (select 1 from pg_policies where schemaname='public' and tablename='budget_of_work' and policyname='budget_of_work: read all') then
     create policy "budget_of_work: read all" on public.budget_of_work for SELECT using (true);
-  end if;
-end $p$;
-do $p$ begin
-  if not exists (select 1 from pg_policies where schemaname='public' and tablename='children' and policyname='parent can read own children') then
-    create policy "parent can read own children" on public.children for SELECT using ((auth.uid() = parent_id));
   end if;
 end $p$;
 do $p$ begin
