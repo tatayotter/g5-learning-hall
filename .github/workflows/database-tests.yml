@@ -20,6 +20,24 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Check for duplicate migration version numbers
+        # Fast, clear-error preliminary check for the exact bug class that broke this repo's
+        # CI in PR #75: two unrelated migrations sharing the same 14-digit version prefix.
+        # The replay below also catches this (a primary-key violation on
+        # supabase_migrations.schema_migrations) but only after Docker startup; this is instant.
+        run: |
+          cd supabase/migrations
+          dupes=$(ls *.sql | grep -oE '^[0-9]{14}' | sort | uniq -d)
+          if [ -n "$dupes" ]; then
+            echo "::error::Duplicate migration version number(s) found:"
+            for v in $dupes; do
+              echo "::error::  $v is used by:"
+              ls "${v}"_*.sql | sed 's/^/::error::    /'
+            done
+            exit 1
+          fi
+          echo "No duplicate migration version numbers found."
+
       - uses: supabase/setup-cli@v1
         with:
           version: latest
