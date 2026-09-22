@@ -14,7 +14,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio } from '@/components/VictoryScreen';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import {
@@ -222,6 +222,7 @@ export default function MtapMixedTrainerPlayer({
 
   return (
     <div className="bg-[#f0ddb8] border-[3px] border-[#8b5e2a] rounded-2xl p-5">
+      <style>{QUIZ_OPTION_STYLES}</style>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold text-[#7a4a0f] bg-[#fff7ed] border border-[#c9a87a] rounded-full px-3 py-1 font-mono">
@@ -237,22 +238,27 @@ export default function MtapMixedTrainerPlayer({
       <div className="bg-white border border-[#c9a87a] rounded-xl p-5">
         <p className="font-bold text-[#2a1505] mb-4">{current.question}</p>
         <div className="space-y-2">
-          {current.options.map(opt => {
-            let cls = 'bg-[#f0ddb8] border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#e8c88a] text-[#2a1505]';
+          {current.options.map((opt, idx) => {
+            const label = ['A', 'B', 'C', 'D'][idx];
+            let state = '';
             if (phase === 'answered') {
-              if (result?.correct_answer && opt === result.correct_answer) cls = 'bg-green-100 border-green-600 text-[#2a1505]';
-              else if (opt === selected) cls = 'bg-red-100 border-red-500 text-[#2a1505]';
+              if (result?.correct_answer && opt === result.correct_answer) state = 'correct';
+              else if (opt === selected) state = 'wrong';
+              else state = 'dim';
             } else if (opt === selected) {
-              cls = 'bg-[#c9781a]/20 border-[#c9781a] text-[#2a1505]';
+              state = 'selected';
             }
             return (
               <GameButton
                 key={opt}
                 disabled={phase !== 'question' || grading}
                 onClick={() => handlePick(opt)}
-                className={`w-full text-left p-3 rounded-lg border text-sm font-semibold transition-colors ${cls}`}
+                className={`qopt ${state ? `qopt-${state}` : ''}`}
               >
-                {opt}
+                <span className="qopt-badge">{label}</span>
+                <span className="qopt-text">{opt}</span>
+                {state === 'correct' && <span className="qopt-mark">✔</span>}
+                {state === 'wrong' && <span className="qopt-mark">✖</span>}
               </GameButton>
             );
           })}

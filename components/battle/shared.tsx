@@ -9,7 +9,7 @@ import { MonsterDef, StatusEffect, ActiveModifier, statusDuration, BATTLE_CONSTA
 import { gradeMonsterQuestion } from '@/lib/guildEngine';
 import { QualityTier } from '@/lib/curioQuality';
 import InfoTag from '@/components/InfoTag';
-import GameButton from '@/components/GameButton';
+import GameButton, { QUIZ_OPTION_STYLES } from '@/components/GameButton';
 
 export interface UserMonster {
   id: string;
@@ -299,6 +299,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   // rather than only playing once for the whole modal.
   const inner = (
     <div className={embedded ? 'mt-2 bg-[#f5e8c8] border border-[#8b5e2a] rounded-xl p-3' : 'bg-white border border-[#8b5e2a] rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in'}>
+      <style>{QUIZ_OPTION_STYLES}</style>
       <div key={index} className="battle-panel-in">
         <div className="flex items-center justify-between mb-1.5">
           <div className="flex items-center gap-1.5" aria-label={`Question ${index + 1} of ${askedCount}`}>
@@ -328,24 +329,24 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;
           const isCorrect = revealedCorrect !== null && key === revealedCorrect;
-          let style = 'bg-white border-[#c9a87a] hover:border-[#c9781a] hover:bg-[#f0ddb8]';
-          let feedbackAnim = '';
+          let state = '';
           if (revealedCorrect !== null) {
-            if (isSelected && isCorrect) { style = 'bg-green-100 border-green-600'; feedbackAnim = 'battle-answer-correct'; }
-            else if (isSelected && !isCorrect) { style = 'bg-red-100 border-red-500'; feedbackAnim = 'battle-answer-wrong'; }
-            else if (isCorrect) style = 'bg-green-100 border-green-600';
+            if (isSelected && isCorrect) state = 'correct';
+            else if (isSelected && !isCorrect) state = 'wrong';
+            else if (isCorrect) state = 'correct';
+            else state = 'dim';
           }
           return (
             <button
               key={key}
               onClick={() => handleAnswer(key)}
               disabled={!!selected || skipped || grading}
-              className={`quiz-option w-full text-left p-3 rounded-xl border-2 text-[#2a1505] transition-all btn-tactile flex items-center gap-3 ${style} ${feedbackAnim}`}
+              className={`qopt ${state ? `qopt-${state}` : ''}`}
             >
-              <span className="flex-shrink-0 w-7 h-7 rounded-full bg-[#f0ddb8] border-2 border-[#8b5e2a] text-[#7a4a0f] text-xs font-extrabold flex items-center justify-center">
-                {String.fromCharCode(65 + optIdx)}
-              </span>
-              <span className="min-w-0">{text}</span>
+              <span className="qopt-badge">{String.fromCharCode(65 + optIdx)}</span>
+              <span className="qopt-text">{text}</span>
+              {state === 'correct' && <span className="qopt-mark">✔</span>}
+              {state === 'wrong' && <span className="qopt-mark">✖</span>}
             </button>
           );
         })}

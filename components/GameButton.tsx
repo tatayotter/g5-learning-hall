@@ -98,6 +98,44 @@ export const questButtonBoxShadow = questButtonStyle.boxShadow;
 export const questButtonDropShadow = '0 0.1270em 0 0.0476em rgba(0,0,0,0.75)';
 export { questTextShadowStyle, questTextStyle };
 
+// Shared "quest card" quiz-option look, lifted verbatim from QuestModule.tsx
+// (the reference implementation docs/STYLE_GUIDE.md points to) so every
+// other multiple-choice surface — guild mini-games, MTAP quiz/trainer,
+// battle's question modal, wild encounters — renders options identically
+// instead of each keeping its own flat/stock-Tailwind approximation.
+// Inject once per screen via `<style>{QUIZ_OPTION_STYLES}</style>`, then use
+// `qopt qopt-${state}` on each option button with a `qopt-badge`/`qopt-text`
+// child structure (see QuestModule.tsx for the reference markup). `state` is
+// one of: '' (idle/default), 'selected' (picked, not yet resolved),
+// 'correct', 'wrong', 'dim' (shown-but-not-picked once resolved).
+export const QUIZ_OPTION_STYLES = `
+  .qopt { display:flex; align-items:center; gap:12px; width:100%; text-align:left; padding:10px 14px;
+    font-weight:700; font-size:15px; color:#2a1505; border-radius:14px; border:2px solid #8b5e2a;
+    background:linear-gradient(180deg,#fff8e6 0%,#f0ddb8 100%); box-shadow:0 4px 0 #8b5e2a, 0 6px 8px rgba(42,21,5,.25);
+    transition:transform .1s, box-shadow .1s, background .15s; cursor:pointer; position:relative; }
+  .qopt:not(:disabled):hover { transform:translateY(-2px); box-shadow:0 6px 0 #8b5e2a, 0 9px 12px rgba(42,21,5,.3);
+    background:linear-gradient(180deg,#fffdf2 0%,#f7e6c2 100%); }
+  .qopt:not(:disabled):active { transform:translateY(3px); box-shadow:0 1px 0 #8b5e2a; }
+  .qopt-badge { flex:none; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:14px; color:#fff; background:radial-gradient(circle at 30% 25%,#e8a13a,#b5651a);
+    border:2px solid #7a4a0f; box-shadow:inset 0 -2px 0 rgba(0,0,0,.25); text-shadow:0 1px 1px rgba(0,0,0,.4); }
+  .qopt-text { flex:1; min-width:0; }
+  .qopt-mark { flex:none; font-size:20px; font-weight:900; }
+  .qopt-selected { border-color:#c9781a; background:linear-gradient(180deg,#ffe9a8 0%,#f5c95c 100%);
+    box-shadow:0 4px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.6), 0 6px 12px rgba(201,120,26,.4); transform:translateY(-1px); }
+  .qopt-correct { border-color:#15803d; background:linear-gradient(180deg,#dcfce7 0%,#86efac 100%);
+    box-shadow:0 4px 0 #15803d, 0 0 14px rgba(34,197,94,.6); animation:qopt-pop .35s ease-out; }
+  .qopt-correct .qopt-badge { background:radial-gradient(circle at 30% 25%,#4ade80,#15803d); border-color:#14532d; }
+  .qopt-correct .qopt-mark { color:#15803d; }
+  .qopt-wrong { border-color:#b91c1c; background:linear-gradient(180deg,#fee2e2 0%,#fca5a5 100%);
+    box-shadow:0 4px 0 #b91c1c; animation:qopt-shake .35s ease-in-out; }
+  .qopt-wrong .qopt-badge { background:radial-gradient(circle at 30% 25%,#f87171,#b91c1c); border-color:#7f1d1d; }
+  .qopt-wrong .qopt-mark { color:#b91c1c; }
+  .qopt-dim { opacity:.55; box-shadow:0 2px 0 #8b5e2a; cursor:default; }
+  @keyframes qopt-pop { 0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)} }
+  @keyframes qopt-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+`;
+
 export default function GameButton({ children, className, variant = 'plain', color, icon, sub, style, disabled, ...props }: GameButtonProps) {
   if (variant === 'quest') {
     const tileLayout = icon !== undefined || sub !== undefined;

@@ -15,7 +15,7 @@ import { trackEvent } from '@/lib/analytics';
 import { playChime, playClash } from '@/lib/sounds';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { GUILDS } from '@/lib/dailyChecklist';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
@@ -241,6 +241,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
 
     return (
       <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-emerald-800" style={{ zIndex: 80 }}>
+        <style>{QUIZ_OPTION_STYLES}</style>
         <CritBonusToast event={engine.lastCrit} />
         {/* Centered column — full width on mobile, max-w-xl on desktop */}
         <div className="flex flex-col w-full lg:max-w-xl lg:max-h-[90vh] lg:rounded-2xl lg:overflow-hidden lg:shadow-2xl flex-1 min-h-0 lg:flex-none">
@@ -294,26 +295,19 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
                 const label = ['A', 'B', 'C', 'D'][idx];
                 const isSelected = selectedChoice === c.key;
                 const isCorrect = c.key.toLowerCase() === q.correct_choice.toLowerCase();
-                let cardStyle = 'bg-amber-50 border-amber-200 hover:border-emerald-400 hover:bg-emerald-50';
-                let badgeStyle = 'bg-amber-200 text-amber-800';
-                if (isSelected) {
-                  if (isCorrect) {
-                    cardStyle = 'bg-green-50 border-green-400';
-                    badgeStyle = 'bg-green-500 text-white';
-                  } else {
-                    cardStyle = 'bg-red-50 border-red-400';
-                    badgeStyle = 'bg-red-500 text-white';
-                  }
-                }
+                let state = '';
+                if (isSelected) state = isCorrect ? 'correct' : 'wrong';
                 return (
                   <GameButton
                     key={c.key}
                     onClick={() => handleAnswer(c.key)}
                     disabled={selectedChoice !== null}
-                    className={`w-full text-left px-3 py-3 rounded-xl border-2 transition-colors text-base text-gray-800 ${cardStyle} disabled:cursor-default flex items-center gap-3`}
+                    className={`qopt ${state ? `qopt-${state}` : ''}`}
                   >
-                    <span className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold ${badgeStyle}`}>{label}</span>
-                    <span>{c.text}</span>
+                    <span className="qopt-badge">{label}</span>
+                    <span className="qopt-text">{c.text}</span>
+                    {state === 'correct' && <span className="qopt-mark">✔</span>}
+                    {state === 'wrong' && <span className="qopt-mark">✖</span>}
                   </GameButton>
                 );
               })}

@@ -5,7 +5,7 @@ import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { playChime, playClash, playLevelUp } from '@/lib/sounds';
 import VictoryScreen, { CurioTrainingCard, TrainingResult, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD } from '@/components/VictoryScreen';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { calculateReward } from '@/lib/quizReward';
 import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
@@ -283,31 +283,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         .qcard-q { font-weight:800; font-size:17px; line-height:1.35; color:#2a1505; padding-top:6px; }
         .qcard-right { border-color:#15803d; box-shadow:0 5px 0 #15803d, 0 10px 18px rgba(21,128,61,.25); }
         .qcard-miss { border-color:#b91c1c; box-shadow:0 5px 0 #b91c1c, 0 10px 18px rgba(185,28,28,.25); }
-        .qopt { display:flex; align-items:center; gap:12px; width:100%; text-align:left; padding:10px 14px;
-          font-weight:700; font-size:15px; color:#2a1505; border-radius:14px; border:2px solid #8b5e2a;
-          background:linear-gradient(180deg,#fff8e6 0%,#f0ddb8 100%); box-shadow:0 4px 0 #8b5e2a, 0 6px 8px rgba(42,21,5,.25);
-          transition:transform .1s, box-shadow .1s, background .15s; cursor:pointer; position:relative; }
-        .qopt:not(:disabled):hover { transform:translateY(-2px); box-shadow:0 6px 0 #8b5e2a, 0 9px 12px rgba(42,21,5,.3);
-          background:linear-gradient(180deg,#fffdf2 0%,#f7e6c2 100%); }
-        .qopt:not(:disabled):active { transform:translateY(3px); box-shadow:0 1px 0 #8b5e2a; }
-        .qopt-badge { flex:none; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-          font-weight:900; font-size:14px; color:#fff; background:radial-gradient(circle at 30% 25%,#e8a13a,#b5651a);
-          border:2px solid #7a4a0f; box-shadow:inset 0 -2px 0 rgba(0,0,0,.25); text-shadow:0 1px 1px rgba(0,0,0,.4); }
-        .qopt-text { flex:1; min-width:0; }
-        .qopt-mark { flex:none; font-size:20px; font-weight:900; }
-        .qopt-selected { border-color:#c9781a; background:linear-gradient(180deg,#ffe9a8 0%,#f5c95c 100%);
-          box-shadow:0 4px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.6), 0 6px 12px rgba(201,120,26,.4); transform:translateY(-1px); }
-        .qopt-correct { border-color:#15803d; background:linear-gradient(180deg,#dcfce7 0%,#86efac 100%);
-          box-shadow:0 4px 0 #15803d, 0 0 14px rgba(34,197,94,.6); animation:qopt-pop .35s ease-out; }
-        .qopt-correct .qopt-badge { background:radial-gradient(circle at 30% 25%,#4ade80,#15803d); border-color:#14532d; }
-        .qopt-correct .qopt-mark { color:#15803d; }
-        .qopt-wrong { border-color:#b91c1c; background:linear-gradient(180deg,#fee2e2 0%,#fca5a5 100%);
-          box-shadow:0 4px 0 #b91c1c; animation:qopt-shake .35s ease-in-out; }
-        .qopt-wrong .qopt-badge { background:radial-gradient(circle at 30% 25%,#f87171,#b91c1c); border-color:#7f1d1d; }
-        .qopt-wrong .qopt-mark { color:#b91c1c; }
-        .qopt-dim { opacity:.55; box-shadow:0 2px 0 #8b5e2a; cursor:default; }
-        @keyframes qopt-pop { 0%{transform:scale(1)} 50%{transform:scale(1.04)} 100%{transform:scale(1)} }
-        @keyframes qopt-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+        ${QUIZ_OPTION_STYLES}
       `}</style>
       <div className="flex justify-between items-center border-b border-[#c9a87a] pb-4 mb-6">
         <h2 className="text-2xl font-bold text-[#7a4a0f] font-display">{questName.replace('_', ' ')}</h2>
