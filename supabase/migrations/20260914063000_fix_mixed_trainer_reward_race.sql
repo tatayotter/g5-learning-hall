@@ -11,11 +11,25 @@
 -- Fix: add a generated `claim_day` column + a unique constraint on
 -- (user_id, grade, claim_day), then make the insert idempotent against it
 -- the same way every other claim RPC here already does.
+--
+-- IF NOT EXISTS / explicit existence check, not bare ADD COLUMN / ADD CONSTRAINT: this PR
+-- was already applied directly to production back on 2026-09-14 (its own summary says so),
+-- but never went through migration tracking until today, well after this repo's CI started
+-- requiring idempotency (see docs/database-migrations.md) -- a bare re-run against production,
+-- where both already exist, would fail outright.
 ALTER TABLE public.mtap_mixed_trainer_completions
-  ADD COLUMN claim_day date GENERATED ALWAYS AS ((created_at AT TIME ZONE 'utc')::date) STORED;
+  ADD COLUMN IF NOT EXISTS claim_day date GENERATED ALWAYS AS ((created_at AT TIME ZONE 'utc')::date) STORED;
 
-ALTER TABLE public.mtap_mixed_trainer_completions
-  ADD CONSTRAINT mtap_mixed_trainer_completions_user_grade_day_key UNIQUE (user_id, grade, claim_day);
+do $$ begin
+  if not exists (
+    select 1 from pg_constraint
+    where conname = 'mtap_mixed_trainer_completions_user_grade_day_key'
+      and conrelid = 'public.mtap_mixed_trainer_completions'::regclass
+  ) then
+    alter table public.mtap_mixed_trainer_completions
+      add constraint mtap_mixed_trainer_completions_user_grade_day_key unique (user_id, grade, claim_day);
+  end if;
+end $$;
 
 CREATE OR REPLACE FUNCTION public.claim_mixed_trainer_reward(p_user_id text, p_grade integer, p_question_codes text[])
  RETURNS jsonb
