@@ -18,6 +18,17 @@
 -- and admin-weekly both funnel through it) rather than patching each route.
 -- The CHECK constraint is the backstop for anything that ever bypasses the RPC.
 
+-- ─── 0. Repoint the bad rows ──────────────────────────────────────────────────
+-- The five 2026-08-31 (Monday) Week 12 rows this comment above describes were
+-- fixed by hand via the dashboard in real history, never as a migration --
+-- which a from-scratch CI replay can't see, so the CHECK constraint below
+-- would otherwise fail immediately against 20260825100001_week12_content.sql's
+-- still-Monday-keyed rows. Idempotent: a no-op once those rows are already
+-- Sunday-keyed (including on production, where the hand-fix already ran).
+UPDATE public.content_weeks
+  SET week_starting_date = '2026-08-30'
+  WHERE week_starting_date = '2026-08-31';
+
 -- ─── 1. Backstop constraint ──────────────────────────────────────────────────
 -- extract(dow) is 0 for Sunday. NOT VALID would let existing bad rows linger;
 -- every row is already Sunday-keyed, so validate immediately.
