@@ -18,6 +18,15 @@
 -- that specific case (admin_config's primary key) plus a representative sample spanning
 -- every statement shape present in this file (a FOREIGN KEY, a composite PRIMARY KEY, an
 -- ARRAY-based CHECK, a policy with an EXISTS subquery, a policy with an unquoted name).
+--
+-- Ordered in three passes within this file: all PRIMARY KEY/UNIQUE/CHECK constraints
+-- first, then all FOREIGN KEY constraints, then all RLS policies. A single table-order
+-- pass (alphabetical, matching the original introspection order) isn't safe here --
+-- children_parent_id_fkey references parents(id), but 'children' sorts before 'parents'
+-- alphabetically, so a first attempt at this file failed a from-scratch CI replay with
+-- 'there is no unique constraint matching given keys for referenced table "parents"'
+-- (SQLSTATE 42830). Grouping by constraint kind instead sidesteps every such ordering
+-- issue at once, regardless of which table alphabetically precedes which.
 
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'admin_config_pkey' and conrelid = 'public.admin_config'::regclass) then
@@ -85,16 +94,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'children_referred_by_child_id_fkey' and conrelid = 'public.children'::regclass) then
-    alter table only public.children add constraint children_referred_by_child_id_fkey FOREIGN KEY (referred_by_child_id) REFERENCES children(id) ON DELETE SET NULL;
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'children_parent_id_fkey' and conrelid = 'public.children'::regclass) then
-    alter table only public.children add constraint children_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES parents(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'classmates_pkey' and conrelid = 'public.classmates'::regclass) then
     alter table only public.classmates add constraint classmates_pkey PRIMARY KEY (id);
   end if;
@@ -132,16 +131,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'curio_eggs_status_check' and conrelid = 'public.curio_eggs'::regclass) then
     alter table only public.curio_eggs add constraint curio_eggs_status_check CHECK ((status = ANY (ARRAY['incubating'::text, 'stalled'::text, 'hatched'::text])));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'curio_eggs_hatched_user_monster_id_fkey' and conrelid = 'public.curio_eggs'::regclass) then
-    alter table only public.curio_eggs add constraint curio_eggs_hatched_user_monster_id_fkey FOREIGN KEY (hatched_user_monster_id) REFERENCES user_monsters(id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'curio_eggs_parent_user_monster_id_fkey' and conrelid = 'public.curio_eggs'::regclass) then
-    alter table only public.curio_eggs add constraint curio_eggs_parent_user_monster_id_fkey FOREIGN KEY (parent_user_monster_id) REFERENCES user_monsters(id) ON DELETE SET NULL;
   end if;
 end $c$;
 do $c$ begin
@@ -230,11 +219,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'event_quests_event_id_fkey' and conrelid = 'public.event_quests'::regclass) then
-    alter table only public.event_quests add constraint event_quests_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'family_credentials_pkey' and conrelid = 'public.family_credentials'::regclass) then
     alter table only public.family_credentials add constraint family_credentials_pkey PRIMARY KEY (id);
   end if;
@@ -285,11 +269,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'parent_link_requests_child_id_fkey' and conrelid = 'public.parent_link_requests'::regclass) then
-    alter table only public.parent_link_requests add constraint parent_link_requests_child_id_fkey FOREIGN KEY (child_id) REFERENCES children(id);
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'parents_pkey' and conrelid = 'public.parents'::regclass) then
     alter table only public.parents add constraint parents_pkey PRIMARY KEY (id);
   end if;
@@ -300,16 +279,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'parents_approved_by_fkey' and conrelid = 'public.parents'::regclass) then
-    alter table only public.parents add constraint parents_approved_by_fkey FOREIGN KEY (approved_by) REFERENCES auth.users(id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'parents_id_fkey' and conrelid = 'public.parents'::regclass) then
-    alter table only public.parents add constraint parents_id_fkey FOREIGN KEY (id) REFERENCES auth.users(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_pkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
     alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_pkey PRIMARY KEY (id);
   end if;
@@ -317,21 +286,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_status_check' and conrelid = 'public.pending_parent_reassignments'::regclass) then
     alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'cancelled'::text, 'completed'::text])));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_old_parent_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
-    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_old_parent_id_fkey FOREIGN KEY (old_parent_id) REFERENCES parents(id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_new_parent_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
-    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_new_parent_id_fkey FOREIGN KEY (new_parent_id) REFERENCES parents(id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_child_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
-    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_child_id_fkey FOREIGN KEY (child_id) REFERENCES children(id);
   end if;
 end $c$;
 do $c$ begin
@@ -362,11 +316,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'quiz_attempts_pkey' and conrelid = 'public.quiz_attempts'::regclass) then
     alter table only public.quiz_attempts add constraint quiz_attempts_pkey PRIMARY KEY (id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'quiz_attempts_guide_id_fkey' and conrelid = 'public.quiz_attempts'::regclass) then
-    alter table only public.quiz_attempts add constraint quiz_attempts_guide_id_fkey FOREIGN KEY (guide_id) REFERENCES study_guides(id) ON DELETE CASCADE;
   end if;
 end $c$;
 do $c$ begin
@@ -470,11 +419,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'study_guides_subject_id_fkey' and conrelid = 'public.study_guides'::regclass) then
-    alter table only public.study_guides add constraint study_guides_subject_id_fkey FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'subjects_pkey' and conrelid = 'public.subjects'::regclass) then
     alter table only public.subjects add constraint subjects_pkey PRIMARY KEY (id);
   end if;
@@ -510,11 +454,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'subscriptions_parent_id_fkey' and conrelid = 'public.subscriptions'::regclass) then
-    alter table only public.subscriptions add constraint subscriptions_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES parents(id);
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'trade_items_pkey' and conrelid = 'public.trade_items'::regclass) then
     alter table only public.trade_items add constraint trade_items_pkey PRIMARY KEY (id);
   end if;
@@ -527,16 +466,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'trade_items_side_check' and conrelid = 'public.trade_items'::regclass) then
     alter table only public.trade_items add constraint trade_items_side_check CHECK ((side = ANY (ARRAY['initiator'::text, 'recipient'::text])));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'trade_items_user_monster_id_fkey' and conrelid = 'public.trade_items'::regclass) then
-    alter table only public.trade_items add constraint trade_items_user_monster_id_fkey FOREIGN KEY (user_monster_id) REFERENCES user_monsters(id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'trade_items_trade_id_fkey' and conrelid = 'public.trade_items'::regclass) then
-    alter table only public.trade_items add constraint trade_items_trade_id_fkey FOREIGN KEY (trade_id) REFERENCES trades(id) ON DELETE CASCADE;
   end if;
 end $c$;
 do $c$ begin
@@ -562,11 +491,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'trades_initiator_gold_check' and conrelid = 'public.trades'::regclass) then
     alter table only public.trades add constraint trades_initiator_gold_check CHECK ((initiator_gold >= 0));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'trades_parent_trade_id_fkey' and conrelid = 'public.trades'::regclass) then
-    alter table only public.trades add constraint trades_parent_trade_id_fkey FOREIGN KEY (parent_trade_id) REFERENCES trades(id);
   end if;
 end $c$;
 do $c$ begin
@@ -605,11 +529,6 @@ do $c$ begin
   end if;
 end $c$;
 do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'user_event_claims_event_id_fkey' and conrelid = 'public.user_event_claims'::regclass) then
-    alter table only public.user_event_claims add constraint user_event_claims_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'user_event_progress_pkey' and conrelid = 'public.user_event_progress'::regclass) then
     alter table only public.user_event_progress add constraint user_event_progress_pkey PRIMARY KEY (id);
   end if;
@@ -617,16 +536,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'user_event_progress_user_id_event_quest_id_key' and conrelid = 'public.user_event_progress'::regclass) then
     alter table only public.user_event_progress add constraint user_event_progress_user_id_event_quest_id_key UNIQUE (user_id, event_quest_id);
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'user_event_progress_event_id_fkey' and conrelid = 'public.user_event_progress'::regclass) then
-    alter table only public.user_event_progress add constraint user_event_progress_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'user_event_progress_event_quest_id_fkey' and conrelid = 'public.user_event_progress'::regclass) then
-    alter table only public.user_event_progress add constraint user_event_progress_event_quest_id_fkey FOREIGN KEY (event_quest_id) REFERENCES event_quests(id) ON DELETE CASCADE;
   end if;
 end $c$;
 do $c$ begin
@@ -697,6 +606,106 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'user_themes_pkey' and conrelid = 'public.user_themes'::regclass) then
     alter table only public.user_themes add constraint user_themes_pkey PRIMARY KEY (user_id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'children_referred_by_child_id_fkey' and conrelid = 'public.children'::regclass) then
+    alter table only public.children add constraint children_referred_by_child_id_fkey FOREIGN KEY (referred_by_child_id) REFERENCES children(id) ON DELETE SET NULL;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'children_parent_id_fkey' and conrelid = 'public.children'::regclass) then
+    alter table only public.children add constraint children_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES parents(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'curio_eggs_hatched_user_monster_id_fkey' and conrelid = 'public.curio_eggs'::regclass) then
+    alter table only public.curio_eggs add constraint curio_eggs_hatched_user_monster_id_fkey FOREIGN KEY (hatched_user_monster_id) REFERENCES user_monsters(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'curio_eggs_parent_user_monster_id_fkey' and conrelid = 'public.curio_eggs'::regclass) then
+    alter table only public.curio_eggs add constraint curio_eggs_parent_user_monster_id_fkey FOREIGN KEY (parent_user_monster_id) REFERENCES user_monsters(id) ON DELETE SET NULL;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'event_quests_event_id_fkey' and conrelid = 'public.event_quests'::regclass) then
+    alter table only public.event_quests add constraint event_quests_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'parent_link_requests_child_id_fkey' and conrelid = 'public.parent_link_requests'::regclass) then
+    alter table only public.parent_link_requests add constraint parent_link_requests_child_id_fkey FOREIGN KEY (child_id) REFERENCES children(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'parents_approved_by_fkey' and conrelid = 'public.parents'::regclass) then
+    alter table only public.parents add constraint parents_approved_by_fkey FOREIGN KEY (approved_by) REFERENCES auth.users(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'parents_id_fkey' and conrelid = 'public.parents'::regclass) then
+    alter table only public.parents add constraint parents_id_fkey FOREIGN KEY (id) REFERENCES auth.users(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_old_parent_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
+    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_old_parent_id_fkey FOREIGN KEY (old_parent_id) REFERENCES parents(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_new_parent_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
+    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_new_parent_id_fkey FOREIGN KEY (new_parent_id) REFERENCES parents(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'pending_parent_reassignments_child_id_fkey' and conrelid = 'public.pending_parent_reassignments'::regclass) then
+    alter table only public.pending_parent_reassignments add constraint pending_parent_reassignments_child_id_fkey FOREIGN KEY (child_id) REFERENCES children(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'quiz_attempts_guide_id_fkey' and conrelid = 'public.quiz_attempts'::regclass) then
+    alter table only public.quiz_attempts add constraint quiz_attempts_guide_id_fkey FOREIGN KEY (guide_id) REFERENCES study_guides(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'study_guides_subject_id_fkey' and conrelid = 'public.study_guides'::regclass) then
+    alter table only public.study_guides add constraint study_guides_subject_id_fkey FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'subscriptions_parent_id_fkey' and conrelid = 'public.subscriptions'::regclass) then
+    alter table only public.subscriptions add constraint subscriptions_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES parents(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'trade_items_user_monster_id_fkey' and conrelid = 'public.trade_items'::regclass) then
+    alter table only public.trade_items add constraint trade_items_user_monster_id_fkey FOREIGN KEY (user_monster_id) REFERENCES user_monsters(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'trade_items_trade_id_fkey' and conrelid = 'public.trade_items'::regclass) then
+    alter table only public.trade_items add constraint trade_items_trade_id_fkey FOREIGN KEY (trade_id) REFERENCES trades(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'trades_parent_trade_id_fkey' and conrelid = 'public.trades'::regclass) then
+    alter table only public.trades add constraint trades_parent_trade_id_fkey FOREIGN KEY (parent_trade_id) REFERENCES trades(id);
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'user_event_claims_event_id_fkey' and conrelid = 'public.user_event_claims'::regclass) then
+    alter table only public.user_event_claims add constraint user_event_claims_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'user_event_progress_event_id_fkey' and conrelid = 'public.user_event_progress'::regclass) then
+    alter table only public.user_event_progress add constraint user_event_progress_event_id_fkey FOREIGN KEY (event_id) REFERENCES custom_events(id) ON DELETE CASCADE;
+  end if;
+end $c$;
+do $c$ begin
+  if not exists (select 1 from pg_constraint where conname = 'user_event_progress_event_quest_id_fkey' and conrelid = 'public.user_event_progress'::regclass) then
+    alter table only public.user_event_progress add constraint user_event_progress_event_quest_id_fkey FOREIGN KEY (event_quest_id) REFERENCES event_quests(id) ON DELETE CASCADE;
   end if;
 end $c$;
 do $p$ begin
