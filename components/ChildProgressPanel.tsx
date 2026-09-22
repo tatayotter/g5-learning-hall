@@ -71,7 +71,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   const [masteryCount, setMasteryCount] = useState<number | null>(null);
   const [perfectQuizzes, setPerfectQuizzes] = useState<number | null>(null);
   const [subclass, setSubclass] = useState<SubclassProfile | null>(null);
-  const [lastLogin, setLastLogin] = useState<string | null>(null);
+  const [lastActive, setLastActive] = useState<string | null>(null);
   const [quizzesLast7Days, setQuizzesLast7Days] = useState<number>(0);
   const [streak, setStreak] = useState(0);
 
@@ -97,7 +97,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
       const sevenDaysAgo = new Date();
       sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-      const [progressRes, subclassRes, loginRes, quizRes, streakRes] = await Promise.all([
+      const [progressRes, subclassRes, activityRes, quizRes, streakRes] = await Promise.all([
         // One row per user (lifetime, not week-keyed) — see
         // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2. Replaces the old
         // <=/ORDER BY/LIMIT 1 "most recent row on or before this week" lookup, which had
@@ -113,11 +113,12 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
           .select('lorekeeper_lvl, spellcaster_lvl, number_realm_lvl, logic_labyrinth_lvl, lexicon_arena_lvl')
           .eq('user_id', childId)
           .maybeSingle(),
-        supabase
-          .from('user_last_login')
-          .select('last_login')
-          .eq('user_id', childId)
-          .maybeSingle(),
+        // Most recent recorded activity across every real play source (quests, battles,
+        // guilds, journal, ...) — not the last login, which only updates on a fresh sign-in
+        // and so reads "stale" for a child who keeps a saved session and never re-logs-in.
+        // guild_sessions/player_activity are child-only RLS, so this goes through a
+        // parent-ownership-checked RPC the same way get_child_streak already does.
+        supabase.rpc('get_child_last_active', { p_child_id: childId }),
         supabase
           .from('user_completed_questions')
           .select('id', { count: 'exact', head: true })
@@ -133,7 +134,8 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
       setMasteryCount(progressRes.data?.mastery_count ?? null);
       setPerfectQuizzes(progressRes.data?.perfect_quizzes_total ?? null);
       setSubclass((subclassRes.data as SubclassProfile) ?? null);
-      setLastLogin(loginRes.data?.last_login ?? null);
+      const activityRow = (activityRes.data as { last_active: string }[] | null)?.[0];
+      setLastActive(activityRow?.last_active ?? null);
       setQuizzesLast7Days(quizRes.count ?? 0);
       const claimDates = ((streakRes.data as { claim_date: string }[] | null) ?? []).map((r) => r.claim_date);
       setStreak(computeStreak(claimDates));
@@ -234,7 +236,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
 
       <p className="text-sm text-stone-500">
         {masteryCount ?? 0} topics mastered · {perfectQuizzes ?? 0} perfect quizzes (career) · {quizzesLast7Days} questions this week
-        {lastLogin && <> · last played {new Date(lastLogin).toLocaleDateString()}</>}
+        {lastActive ? <> · last active {new Date(lastActive).toLocaleDateString()}</> : <> · no activity yet</>}
       </p>
 
       {isPremium ? (
