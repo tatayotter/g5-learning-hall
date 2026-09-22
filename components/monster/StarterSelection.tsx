@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import { MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import StarterClaimModal from '@/components/monster/StarterClaimModal';
-import GameButton from '@/components/GameButton';
+import GameButton, { CURIO_CARD_STYLES } from '@/components/GameButton';
 import { MonsterDef } from '@/lib/monsterConfig';
 
 interface StarterSelectionProps {
@@ -52,44 +52,43 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
 
   return (
     <div className="max-w-4xl mx-auto">
+      <style>{CURIO_CARD_STYLES}</style>
       <h2 className="text-3xl font-display font-bold text-[#7a4a0f] mb-2">Choose Your Starter</h2>
       <p className="text-[#6b4820] mb-8">Pick your first curio. Choose wisely — you'll unlock more as you level up!</p>
-      <div className="grid grid-cols-3 gap-4 mb-8">
-        {starters.map(monster => (
-          <button
-            key={monster.id}
-            onClick={() => setSelected(monster.id)}
-            className={`p-4 rounded-2xl border-2 text-center transition-all ${
-              selected === monster.id
-                ? 'border-[#c9781a] bg-[#c9781a]/20'
-                : 'border-[#c9a87a] bg-white hover:border-[#c9781a] hover:bg-[#f0ddb8]'
-            }`}
-          >
-            <div
-              role="button"
-              aria-label={`View ${monster.name}'s lore`}
-              onClick={e => { e.stopPropagation(); setLoreMonster(monster); }}
-              className="relative w-24 h-24 mx-auto mb-2"
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+        {starters.map(monster => {
+          const isSelected = selected === monster.id;
+          return (
+            <button
+              key={monster.id}
+              onClick={() => setSelected(monster.id)}
+              className={`ccard ${isSelected ? 'ccard-selected' : ''}`}
             >
-              <MonsterImage monster={monster} className="w-full h-full" />
-              <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white border border-[#8b5e2a] text-[#7a4a0f] text-[11px] font-extrabold flex items-center justify-center shadow-sm">
-                i
+              <div
+                role="button"
+                aria-label={`View ${monster.name}'s lore`}
+                onClick={e => { e.stopPropagation(); setLoreMonster(monster); }}
+                className="relative"
+              >
+                <span className="ccard-sprite">
+                  <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-4xl" />
+                </span>
+                <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white border border-[#8b5e2a] text-[#7a4a0f] text-[11px] font-extrabold flex items-center justify-center shadow-sm z-10">
+                  i
+                </span>
+              </div>
+              <span className="text-sm font-extrabold text-[#2a1505] truncate max-w-full">{monster.name}</span>
+              <span className="text-[11px] text-[#6b4820] capitalize truncate max-w-full">{monster.element} · {monster.archetype.replace('_', ' ')}</span>
+              <span className="text-[11px] text-[#6b4820] flex items-center gap-x-2 gap-y-0.5 flex-wrap justify-center leading-tight">
+                <span className="flex items-center gap-0.5"><img src="/icons/stats/hp.svg" alt="" className="w-3 h-3 object-contain" />{monster.baseHp}</span>
+                <span className="flex items-center gap-0.5"><img src="/icons/stats/atk.svg" alt="" className="w-3 h-3 object-contain" />{monster.baseAttack}</span>
+                <span className="flex items-center gap-0.5"><img src="/icons/stats/def.svg" alt="" className="w-3 h-3 object-contain" />{monster.baseDefense}</span>
+                <span className="flex items-center gap-0.5"><img src="/icons/stats/spd.svg" alt="" className="w-3 h-3 object-contain" />{monster.baseSpeed}</span>
               </span>
-            </div>
-            <p className="font-bold text-[#2a1505] font-display">{monster.name}</p>
-            <p className="text-xs text-[#6b4820] capitalize mb-2">{monster.element} · {monster.archetype.replace('_', ' ')}</p>
-            <div className="text-xs text-[#6b4820] space-y-1">
-              <p className="flex items-center gap-1 flex-wrap justify-center">
-                <img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseHp} HP ·
-                <img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseAttack} ATK
-              </p>
-              <p className="flex items-center gap-1 flex-wrap justify-center">
-                <img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseDefense} DEF ·
-                <img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {monster.baseSpeed} SPD
-              </p>
-            </div>
-          </button>
-        ))}
+              {isSelected && <span className="ccard-check">✔</span>}
+            </button>
+          );
+        })}
       </div>
       <div className="text-center">
         <GameButton
