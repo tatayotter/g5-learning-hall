@@ -35,6 +35,23 @@
 -- since those aren't idempotent via IF NOT EXISTS and need the explicit-existence-check
 -- pattern documented there. Part C carries the 61 functions. Part D carries the one trigger
 -- and one view.
+--
+-- NOTE ON COLUMNS ADDED LATER: three columns present in production today are deliberately
+-- NOT included in these CREATE TABLE statements, because a real (non-baseline) migration
+-- adds each one unconditionally (no IF NOT EXISTS) and would otherwise collide with it on a
+-- from-scratch replay -- admin_config.boss_fights_enabled (added by
+-- 20260807000000_boss_fight_schema.sql), custom_events.content_source and
+-- custom_events.gauntlet_term (added, together with their CHECK constraints, by
+-- 20260828140000_topic_mastery_gauntlet.sql -- see part B's header for the matching note on
+-- the two CHECK constraints deliberately left out there), and
+-- user_event_claims.granted_monster_id (added by
+-- 20260902120000_user_event_claims_granted_monster.sql). This is the same category of issue
+-- as the version-ordering notes above: this baseline reflects the schema as it existed right
+-- before migration discipline began, not production's current state, wherever a later real
+-- migration is the true origin of a column. Found via an actual from-scratch CI replay
+-- failure (ERROR: column "boss_fights_enabled" of relation "admin_config" already exists),
+-- then confirmed complete by scripting a check across every migration file for any
+-- unconditional ADD COLUMN targeting a column already in this baseline.
 
 -- ============================================================================
 -- 1. TABLES
@@ -43,8 +60,7 @@
 create table if not exists public.admin_config (
   id boolean not null default true,
   passcode_hash text not null,
-  admin_email text,
-  boss_fights_enabled boolean not null default false);
+  admin_email text);
 create table if not exists public.analytics_events (
   id bigint generated always as identity,
   created_at timestamp with time zone not null default now(),
@@ -127,9 +143,7 @@ create table if not exists public.custom_events (
   end_date date not null,
   status text not null default 'draft'::text,
   created_at timestamp with time zone not null default now(),
-  updated_at timestamp with time zone not null default now(),
-  content_source text not null default 'authored'::text,
-  gauntlet_term smallint);
+  updated_at timestamp with time zone not null default now());
 create table if not exists public.daily_checklist_claims (
   app_user_id text not null,
   claim_date date not null,
@@ -443,8 +457,7 @@ create table if not exists public.user_event_claims (
   id uuid not null default gen_random_uuid(),
   event_id uuid not null,
   user_id text not null,
-  claimed_at timestamp with time zone not null default now(),
-  granted_monster_id text);
+  claimed_at timestamp with time zone not null default now());
 create table if not exists public.user_event_progress (
   id uuid not null default gen_random_uuid(),
   event_id uuid not null,

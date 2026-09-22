@@ -19,6 +19,14 @@
 -- every statement shape present in this file (a FOREIGN KEY, a composite PRIMARY KEY, an
 -- ARRAY-based CHECK, a policy with an EXISTS subquery, a policy with an unquoted name).
 --
+-- NOTE ON TWO MISSING CHECK CONSTRAINTS: custom_events_content_source_check and
+-- custom_events_gauntlet_term_check are deliberately NOT in this file, even though
+-- production has them. Both columns they check are added later by the real migration
+-- 20260828140000_topic_mastery_gauntlet.sql, together with these exact CHECK constraints,
+-- via `alter table ... add column ... check (...)` -- so creating them here (before that
+-- column exists) would fail, and creating them here AND letting that migration create them
+-- again would just be redundant. See part A's matching header note for the two columns.
+--
 -- Ordered in three passes within this file: all PRIMARY KEY/UNIQUE/CHECK constraints
 -- first, then all FOREIGN KEY constraints, then all RLS policies. A single table-order
 -- pass (alphabetical, matching the original introspection order) isn't safe here --
@@ -141,16 +149,6 @@ end $c$;
 do $c$ begin
   if not exists (select 1 from pg_constraint where conname = 'custom_events_dates_check' and conrelid = 'public.custom_events'::regclass) then
     alter table only public.custom_events add constraint custom_events_dates_check CHECK ((end_date >= start_date));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'custom_events_gauntlet_term_check' and conrelid = 'public.custom_events'::regclass) then
-    alter table only public.custom_events add constraint custom_events_gauntlet_term_check CHECK (((gauntlet_term >= 1) AND (gauntlet_term <= 3)));
-  end if;
-end $c$;
-do $c$ begin
-  if not exists (select 1 from pg_constraint where conname = 'custom_events_content_source_check' and conrelid = 'public.custom_events'::regclass) then
-    alter table only public.custom_events add constraint custom_events_content_source_check CHECK ((content_source = ANY (ARRAY['authored'::text, 'gauntlet'::text])));
   end if;
 end $c$;
 do $c$ begin
