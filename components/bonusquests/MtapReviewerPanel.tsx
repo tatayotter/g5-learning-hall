@@ -9,6 +9,7 @@
 
 import { useEffect, useState } from 'react';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 import { fetchMtapReviewerExamples, MtapReviewerRow } from '@/lib/mtapEngine';
 import { MtapStrandDef, TIER_LABEL, TIERS, MtapTier } from '@/lib/mtapContent';
 
@@ -44,7 +45,7 @@ export default function MtapReviewerPanel({ grade, strand, onClose }: MtapReview
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs text-[#a8a29e] cursor-pointer" onClick={onClose}>&larr; {strand.name}</span>
+        <span className="text-xs text-[#a8a29e] cursor-pointer" onClick={() => { playPageFlip(); onClose(); }}>&larr; {strand.name}</span>
         <span className="flex items-center gap-1 text-xs font-bold text-stone-500 bg-stone-100 border border-stone-200 rounded-full px-3 py-1">
           Reviewer &middot; no timer
         </span>

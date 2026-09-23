@@ -7,7 +7,7 @@
 // on the old skill's icon so the loss still registers as an event.
 import { useEffect, useState } from 'react';
 import { Skill, MonsterDef, getSkillIconSrc } from '@/lib/monsterConfig';
-import { playSkillForget } from '@/lib/sounds';
+import { playSkillForget, playPageFlip } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
@@ -74,7 +74,7 @@ export default function UnlearnSkillModal({ monster, skill, userId, onClose }: U
             <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-5xl" />
           </div>
           <button
-            onClick={onClose}
+            onClick={() => { playPageFlip(); onClose(); }}
             className="w-full py-3 rounded-xl font-bold text-white btn-tactile bg-neutral-700 hover:bg-neutral-600"
           >
             Okay

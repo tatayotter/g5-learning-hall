@@ -5,7 +5,7 @@ import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { playCurioLevelUp } from '@/lib/sounds';
+import { playCurioLevelUp, playPageFlip } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
@@ -1063,7 +1063,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           <>
             {/* Floating FAB — Curio Arena icon, sits above the main compass */}
             <button
-              onClick={() => setArenaNavOpen(true)}
+              onClick={() => { playPageFlip(); setArenaNavOpen(true); }}
               className="arena-fab hover:-translate-y-1 hover:drop-shadow-lg active:translate-y-0 active:scale-95 transition-all duration-150 ease-out"
               aria-label="Open Curio Arena menu"
               title="Curio Arena"
@@ -1112,7 +1112,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                         trigger (SidebarRail.tsx): top-center on the bottom
                         sheet, right-edge-middle on the landscape side drawer. */}
                     <button
-                      onClick={() => setArenaNavOpen(false)}
+                      onClick={() => { playPageFlip(); setArenaNavOpen(false); }}
                       className={`absolute z-10 active:scale-95 transition-all duration-150 ease-out
                         ${isLandscape
                           ? 'bottom-6 -right-10 hover:opacity-80'
@@ -1145,7 +1145,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                         return (
                           <button
                             key={tab.id}
-                            onClick={() => { setTradeTarget(null); setView(tab.id); setArenaNavOpen(false); }}
+                            onClick={() => { playPageFlip(); setTradeTarget(null); setView(tab.id); setArenaNavOpen(false); }}
                             className="relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border transition-all duration-150 ease-out
                               hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95
                               border-transparent"

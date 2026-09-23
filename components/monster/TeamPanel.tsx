@@ -8,6 +8,7 @@ import {
   getMonsterLevel,
 } from '@/lib/monsterConfig';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
+import { playPageFlip } from '@/lib/sounds';
 import { graduateMonster } from '@/lib/monsterGraduation';
 import { useGrowthPill } from '@/lib/growthPill';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
@@ -296,7 +297,7 @@ export default function TeamPanel({
           onClick={e => e.stopPropagation()}
         >
           <button
-            onClick={() => setDetailMonster(null)}
+            onClick={() => { playPageFlip(); setDetailMonster(null); }}
             className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-xl leading-none btn-tactile"
             aria-label="Close"
           >

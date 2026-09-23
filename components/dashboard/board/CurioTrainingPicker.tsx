@@ -8,6 +8,7 @@ import { supabase } from '@/lib/supabase';
 import { ALL_MONSTERS, BATTLE_CONSTANTS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 export const TRAINING_EXP_SHARE = 1 / 3;
 
@@ -82,7 +83,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
           return (
             <button
               key={c.id}
-              onClick={() => onSelect(c)}
+              onClick={() => { playPageFlip(); onSelect(c); }}
               className={`ccard ${selected ? 'ccard-selected' : ''}`}
             >
               {c.id === activeCurio?.id && (

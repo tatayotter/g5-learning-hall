@@ -6,6 +6,7 @@ import { MonsterImage } from '@/components/battle/shared';
 import StarterClaimModal from '@/components/monster/StarterClaimModal';
 import GameButton, { CURIO_CARD_STYLES } from '@/components/GameButton';
 import { MonsterDef } from '@/lib/monsterConfig';
+import { playPageFlip } from '@/lib/sounds';
 
 interface StarterSelectionProps {
   userId: string;
@@ -61,13 +62,13 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
           return (
             <button
               key={monster.id}
-              onClick={() => setSelected(monster.id)}
+              onClick={() => { playPageFlip(); setSelected(monster.id); }}
               className={`ccard ${isSelected ? 'ccard-selected' : ''}`}
             >
               <div
                 role="button"
                 aria-label={`View ${monster.name}'s lore`}
-                onClick={e => { e.stopPropagation(); setLoreMonster(monster); }}
+                onClick={e => { e.stopPropagation(); playPageFlip(); setLoreMonster(monster); }}
                 className="relative"
               >
                 <span className="ccard-sprite">

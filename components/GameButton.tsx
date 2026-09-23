@@ -1,6 +1,7 @@
 // components/GameButton.tsx
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { ReactNode } from 'react';
+import { playPageFlip } from '@/lib/sounds';
 
 interface GameButtonProps extends HTMLMotionProps<'button'> {
   // 'plain' (default): unstyled — caller supplies the full look via
@@ -171,6 +172,7 @@ export default function GameButton({ children, className, variant = 'plain', col
         disabled={disabled}
         whileHover={disabled ? undefined : { scale: 1.02 }}
         whileTap={disabled ? undefined : { scale: 0.95 }}
+        onTapStart={disabled ? undefined : () => playPageFlip()}
         className={className}
         style={{
           ...questButtonStyle,
@@ -202,8 +204,10 @@ export default function GameButton({ children, className, variant = 'plain', col
 
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={disabled ? undefined : { scale: 1.02 }}
+      whileTap={disabled ? undefined : { scale: 0.95 }}
+      onTapStart={disabled ? undefined : () => playPageFlip()}
+      disabled={disabled}
       className={className}
       style={style}
       {...props}

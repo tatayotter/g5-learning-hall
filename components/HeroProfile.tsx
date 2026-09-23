@@ -19,6 +19,7 @@ import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import { getMyReferralKey } from '@/lib/referral';
+import { playPageFlip } from '@/lib/sounds';
 
 // Scene grid: 3 cols × 2 rows (back row behind, front row in front)
 const GRID_CELLS = [
@@ -119,6 +120,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
 
     if (isTap) {
       // Tap = flip
+      playPageFlip();
       toggleFlip(dragging);
     } else {
       // Drag = move to nearest cell
@@ -294,7 +296,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
 
           {/* Edit mode toggle */}
           <button
-            onClick={() => { setEditMode(m => !m); setDragging(null); setHoverCell(null); }}
+            onClick={() => { playPageFlip(); setEditMode(m => !m); setDragging(null); setHoverCell(null); }}
             title={editMode ? 'Exit arrange mode' : 'Drag to move · Tap to flip'}
             className="absolute top-2 right-2 z-30 text-[11px] font-bold px-2 py-1 rounded-full backdrop-blur-sm transition-colors"
             style={{ background: editMode ? 'rgba(251,191,36,0.85)' : 'rgba(0,0,0,0.35)', color: editMode ? '#000' : '#fff' }}
@@ -463,13 +465,13 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
           <h2 className="text-xl font-bold text-gray-900">Battle Record</h2>
           <div className="flex bg-stone-100 border border-stone-200 rounded-full p-0.5 text-xs font-bold">
             <button
-              onClick={() => setBattleView('week')}
+              onClick={() => { playPageFlip(); setBattleView('week'); }}
               className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'week' ? 'bg-amber-500 text-white' : 'text-gray-500 hover:text-gray-700'}`}
             >
               This Week
             </button>
             <button
-              onClick={() => setBattleView('lifetime')}
+              onClick={() => { playPageFlip(); setBattleView('lifetime'); }}
               className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'lifetime' ? 'bg-amber-500 text-white' : 'text-gray-500 hover:text-gray-700'}`}
             >
               Lifetime
@@ -494,7 +496,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
           <h2 className="text-xl font-bold text-gray-900">Achievements</h2>
           {onViewAchievements && (
             <button
-              onClick={onViewAchievements}
+              onClick={() => { playPageFlip(); onViewAchievements(); }}
               className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors"
             >
               View All →
@@ -520,7 +522,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
         <div className="flex items-center justify-between border-b border-stone-100 pb-4 mb-5">
           <h2 className="text-xl font-bold text-gray-900">Your Cosmetics</h2>
           <button
-            onClick={() => setPickerOpen(true)}
+            onClick={() => { playPageFlip(); setPickerOpen(true); }}
             className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors"
           >
             All Avatars →
@@ -537,7 +539,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
               return (
                 <button
                   key={item.key}
-                  onClick={() => handleQuickSwitch(avatar)}
+                  onClick={() => { playPageFlip(); handleQuickSwitch(avatar); }}
                   disabled={!!switchingAvatar}
                   title={item.name}
                   className={`relative aspect-square rounded-lg border-2 overflow-hidden bg-stone-100 transition-all disabled:opacity-50 ${

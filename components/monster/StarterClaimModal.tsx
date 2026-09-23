@@ -7,7 +7,7 @@
 // no "from" form here — just a single monster being claimed for the first time.
 import { useEffect, useState } from 'react';
 import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
-import { playCurioCaught } from '@/lib/sounds';
+import { playCurioCaught, playPageFlip } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -124,7 +124,7 @@ export default function StarterClaimModal({ monster, userId, onComplete }: Start
               </div>
 
               <button
-                onClick={onComplete}
+                onClick={() => { playPageFlip(); onComplete(); }}
                 className={`w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in ${
                   isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500'
                 }`}

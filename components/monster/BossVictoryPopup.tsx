@@ -6,6 +6,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
+import { playPageFlip } from '@/lib/sounds';
 
 interface BossVictoryPopupProps {
   personaName: string;
@@ -20,6 +21,7 @@ export default function BossVictoryPopup({ personaName, artUrl, glowColor, xp, g
   const [visible, setVisible] = useState(true);
 
   const dismiss = () => {
+    playPageFlip();
     setVisible(false);
     onDismiss();
   };

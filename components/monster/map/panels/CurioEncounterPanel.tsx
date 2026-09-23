@@ -5,6 +5,7 @@
 import { MonsterImage } from '@/components/battle/shared';
 import type { MonsterDef } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
+import { playPageFlip } from '@/lib/sounds';
 
 interface CurioEncounterPanelProps {
   curioDef: MonsterDef;
@@ -30,7 +31,7 @@ export default function CurioEncounterPanel({ curioDef, quality, onBattle, onRun
         <button
           className="flex-1 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800
                      text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={onBattle}
+          onClick={() => { playPageFlip(); onBattle(); }}
         >
           ⚔️ Battle!
         </button>
@@ -38,7 +39,7 @@ export default function CurioEncounterPanel({ curioDef, quality, onBattle, onRun
           className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
                      text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
                      transition-colors"
-          onClick={onRunAway}
+          onClick={() => { playPageFlip(); onRunAway(); }}
         >
           🏃 Run Away!
         </button>

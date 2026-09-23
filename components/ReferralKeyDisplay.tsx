@@ -4,6 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { getMyReferralStats, ReferralStats } from '@/lib/referral';
+import { playPageFlip } from '@/lib/sounds';
 
 interface ReferralKeyDisplayProps {
   referralKey: string;
@@ -27,6 +28,7 @@ export default function ReferralKeyDisplay({
   }, [compact]);
 
   async function handleCopy() {
+    playPageFlip();
     const url = buildShareUrl(referralKey);
     try {
       await navigator.clipboard.writeText(url);

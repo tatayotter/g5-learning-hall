@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CustomEvent } from '@/lib/customEvents';
+import { playPageFlip } from '@/lib/sounds';
 
 interface EventAnnouncementPopupProps {
   event: CustomEvent;
@@ -13,6 +14,7 @@ export default function EventAnnouncementPopup({ event, onDismiss }: EventAnnoun
   const [visible, setVisible] = useState(true);
 
   const dismiss = () => {
+    playPageFlip();
     setVisible(false);
     onDismiss();
   };

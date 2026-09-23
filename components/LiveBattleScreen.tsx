@@ -21,7 +21,7 @@ import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { USERS } from '@/lib/userSession';
-import { playAttackWhoosh, playHitThud, playVictory, playDefeat, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playVictory, playDefeat, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import InfoTag from '@/components/InfoTag';
 
 // Sentinel skillIds for non-skill round actions — not real SKILLS entries, so
@@ -671,7 +671,7 @@ export default function LiveBattleScreen({
           return (
             <button
               key={key}
-              onClick={() => handleUseItem(key)}
+              onClick={() => { playPageFlip(); handleUseItem(key); }}
               disabled={itemBusy || noReviveTargets}
               className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
@@ -688,7 +688,7 @@ export default function LiveBattleScreen({
         })
       )}
       <button
-        onClick={() => setShowItemMenu(false)}
+        onClick={() => { playPageFlip(); setShowItemMenu(false); }}
         className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
       >
         Cancel
@@ -705,7 +705,7 @@ export default function LiveBattleScreen({
         otherAliveMonsters.map(({ m, i }) => (
           <button
             key={i}
-            onClick={() => handleSwitchMonster(i)}
+            onClick={() => { playPageFlip(); handleSwitchMonster(i); }}
             className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors btn-tactile"
           >
             <span className="text-left">
@@ -716,7 +716,7 @@ export default function LiveBattleScreen({
         ))
       )}
       <button
-        onClick={() => setShowSwitchMenu(false)}
+        onClick={() => { playPageFlip(); setShowSwitchMenu(false); }}
         className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
       >
         Cancel
@@ -733,7 +733,7 @@ export default function LiveBattleScreen({
         faintedMyMonsters.map(({ m, i }) => (
           <button
             key={i}
-            onClick={() => handleReviveTarget(i)}
+            onClick={() => { playPageFlip(); handleReviveTarget(i); }}
             disabled={itemBusy}
             className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
           >
@@ -745,7 +745,7 @@ export default function LiveBattleScreen({
         ))
       )}
       <button
-        onClick={() => { setShowReviveMenu(false); setShowItemMenu(true); }}
+        onClick={() => { playPageFlip(); setShowReviveMenu(false); setShowItemMenu(true); }}
         className="w-full text-center text-xs text-gray-500 hover:text-gray-300 pt-1 btn-tactile"
       >
         Cancel
@@ -759,13 +759,13 @@ export default function LiveBattleScreen({
       </p>
       <div className="flex gap-2">
         <button
-          onClick={() => setConfirmSurrender(false)}
+          onClick={() => { playPageFlip(); setConfirmSurrender(false); }}
           className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
         >
           Cancel
         </button>
         <button
-          onClick={handleSurrender}
+          onClick={() => { playPageFlip(); handleSurrender(); }}
           className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
         >
           Surrender

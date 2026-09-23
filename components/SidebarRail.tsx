@@ -7,6 +7,7 @@ import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
 import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
+import { playPageFlip } from '@/lib/sounds';
 
 function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -161,7 +162,7 @@ export default function SidebarRail({
         <>
           {/* Floating compass trigger — sits above the stat bar */}
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => { playPageFlip(); setIsOpen(true); }}
             className="nav-fab flex items-center justify-center
               hover:-translate-y-1 hover:drop-shadow-lg
               active:translate-y-0 active:scale-95
@@ -264,7 +265,7 @@ export default function SidebarRail({
               <Nail className="top-2 right-2" />
               {/* Compass — bottom-sheet: top edge center / drawer: right edge middle */}
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={() => { playPageFlip(); setIsOpen(false); }}
                 className={`absolute z-10 active:scale-95 transition-all duration-150 ease-out
                   ${isLandscape
                     ? 'bottom-6 -right-10 hover:opacity-80'
@@ -316,7 +317,7 @@ export default function SidebarRail({
               {/* Bottom row: logout left · sound toggles right */}
               <div className="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
                 <button
-                  onClick={() => { setIsOpen(false); setConfirmingLogout(true); }}
+                  onClick={() => { playPageFlip(); setIsOpen(false); setConfirmingLogout(true); }}
                   className="flex items-center gap-2 py-2 px-2 rounded-xl transition-all duration-150 ease-out hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95"
                 >
                   <img src="/main ui/logout.png" alt="" className="w-8 h-8 object-contain" />
@@ -326,7 +327,7 @@ export default function SidebarRail({
                 {/* Sound toggles */}
                 <div className="flex items-center gap-1.5">
                   <button
-                    onClick={onToggleMusic}
+                    onClick={() => { playPageFlip(); onToggleMusic?.(); }}
                     title={musicOn ? 'Mute music' : 'Unmute music'}
                     className="w-9 h-9 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center justify-center
                       transition-all duration-150 ease-out hover:-translate-y-1 active:translate-y-0 active:scale-95"
@@ -334,7 +335,7 @@ export default function SidebarRail({
                     <span className="text-sm leading-none">{musicOn ? '🎵' : '🔇'}</span>
                   </button>
                   <button
-                    onClick={onToggleSfx}
+                    onClick={() => { playPageFlip(); onToggleSfx?.(); }}
                     title={sfxOn ? 'Mute sound effects' : 'Unmute sound effects'}
                     className="w-9 h-9 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center justify-center
                       transition-all duration-150 ease-out hover:-translate-y-1 active:translate-y-0 active:scale-95"
@@ -369,13 +370,13 @@ export default function SidebarRail({
               <p className="text-[#8a7c66] text-xs mb-5">You'll return to the hero select screen.</p>
               <div className="flex gap-3">
                 <button
-                  onClick={() => setConfirmingLogout(false)}
+                  onClick={() => { playPageFlip(); setConfirmingLogout(false); }}
                   className="flex-1 py-2 rounded-lg font-bold text-sm bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
-                  onClick={() => { setConfirmingLogout(false); onLogout(); }}
+                  onClick={() => { playPageFlip(); setConfirmingLogout(false); onLogout(); }}
                   className="flex-1 py-2 rounded-lg font-bold text-sm bg-amber-700 hover:bg-amber-600 text-[#ffffff] transition-colors"
                 >
                   Logout

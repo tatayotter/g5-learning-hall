@@ -13,7 +13,7 @@ import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { GMBadge } from '@/components/battle/shared';
 import InfoTag from '@/components/InfoTag';
-import { playCheer } from '@/lib/sounds';
+import { playCheer, playPageFlip } from '@/lib/sounds';
 
 function TeamStrip({ team }: { team: LeaderboardEntry['team'] }) {
   if (team.length === 0) {
@@ -271,7 +271,7 @@ function CategorySection({ category, currentUserId, reactionCounts, onReactionSe
 
       {rest.length > 0 && (
         <button
-          onClick={() => setExpanded(v => !v)}
+          onClick={() => { playPageFlip(); setExpanded(v => !v); }}
           className="w-full text-center text-sm text-indigo-400 hover:text-indigo-300 font-bold py-2"
         >
           {expanded ? '▲ Hide Full Leaderboard' : `▼ Show Full Leaderboard (${category.ranked.length} players)`}

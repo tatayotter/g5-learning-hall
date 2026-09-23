@@ -3,6 +3,7 @@
 // enters the trainer's 3×3 detection zone (pendingTrainerChallenge). Accept
 // launches the battle; Run Away dismisses and despawns the trainer.
 import type { NpcTrainer } from '@/lib/monsterConfig';
+import { playPageFlip } from '@/lib/sounds';
 
 interface TrainerChallengePanelProps {
   trainer: NpcTrainer;
@@ -31,7 +32,7 @@ export default function TrainerChallengePanel({ trainer, onAccept, onRunAway }: 
         <button
           className="flex-1 bg-amber-600 hover:bg-amber-500 active:bg-amber-700
                      text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={onAccept}
+          onClick={() => { playPageFlip(); onAccept(); }}
         >
           ⚔️ Accept!
         </button>
@@ -39,7 +40,7 @@ export default function TrainerChallengePanel({ trainer, onAccept, onRunAway }: 
           className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
                      text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
                      transition-colors"
-          onClick={onRunAway}
+          onClick={() => { playPageFlip(); onRunAway(); }}
         >
           🏃 Run Away!
         </button>

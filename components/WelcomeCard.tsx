@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 // One motivational line per day of week (Sun–Sat).
 // Tone: warm, academic, kid-appropriate — "how does it feel to understand things better?"
@@ -52,7 +53,7 @@ export default function WelcomeCard({
 
           {/* Close button */}
           <button
-            onClick={() => setDismissed(true)}
+            onClick={() => { playPageFlip(); setDismissed(true); }}
             className="absolute top-3 right-3 text-white/40 hover:text-white/80 transition-colors text-lg leading-none"
             aria-label="Dismiss welcome card"
           >

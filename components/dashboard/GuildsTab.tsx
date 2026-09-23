@@ -11,6 +11,7 @@ import { GuildKey } from '@/lib/dailyChecklist';
 import type { GuildSessionScore } from '@/lib/guildSessions';
 import { SubclassProfile } from '@/lib/guildEngine';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import Lorekeeper from '@/components/guilds/Lorekeeper';
 import SpellCaster from '@/components/guilds/SpellCaster';
@@ -60,7 +61,7 @@ export default function GuildsTab({
           ]).map((g, i) => (
             <motion.div
               key={g.key}
-              onClick={() => setActiveGuild(g.key)}
+              onClick={() => { playPageFlip(); setActiveGuild(g.key); }}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setActiveGuild(g.key); }}
               role="button"
               tabIndex={0}

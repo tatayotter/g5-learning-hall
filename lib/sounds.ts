@@ -175,8 +175,23 @@ export function playLevelUp() {
   });
 }
 
-// --- Soft page-flip for tab switching ---
+// --- Haptic buzz to pair with the tap sound below on touch devices. Gated on
+// the same sfxEnabled toggle as everything else here (no dedicated haptics
+// setting exists) and silently no-ops on desktop / unsupported browsers. ---
+function vibrateTap(ms: number) {
+  if (!sfxEnabled) return;
+  if (typeof navigator === 'undefined' || typeof navigator.vibrate !== 'function') return;
+  try { navigator.vibrate(ms); } catch {}
+}
+
+// --- Soft page-flip: the app's generic UI tap, used everywhere from tab
+// switches to every button/card press. Playback rate, filter frequency and
+// peak gain are each jittered a little per call — with this one sound firing
+// on nearly every tap in the game, an identical waveform every time reads as
+// robotic; small per-tap variance is what makes repeated presses feel alive
+// instead of looping the same clip. ---
 export function playPageFlip() {
+  vibrateTap(10);
   if (!sfxEnabled) return;
   const ctx = getContext();
   const now = ctx.currentTime;
@@ -188,12 +203,14 @@ export function playPageFlip() {
   }
   const noise = ctx.createBufferSource();
   noise.buffer = buffer;
+  noise.playbackRate.value = 0.85 + Math.random() * 0.3; // 0.85x-1.15x speed/pitch
   const bandpass = ctx.createBiquadFilter();
   bandpass.type = 'bandpass';
-  bandpass.frequency.value = 3000;
+  bandpass.frequency.value = 2700 + Math.random() * 700; // 2700-3400 Hz
   bandpass.Q.value = 0.7;
   const gain = ctx.createGain();
-  gain.gain.setValueAtTime(0.08, now);
+  const peak = 0.07 + Math.random() * 0.025; // 0.07-0.095
+  gain.gain.setValueAtTime(peak, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
   noise.connect(bandpass);
   bandpass.connect(gain);

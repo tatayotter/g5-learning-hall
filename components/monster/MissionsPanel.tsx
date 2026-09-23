@@ -11,6 +11,7 @@ import {
   MISSION_TIERS, MISSION_SLOT_LEVELS, MissionTier, CurioMission,
   getUnlockedMissionSlots, fetchActiveMissions, sendOnMission, claimMission,
 } from '@/lib/curioMissions';
+import { playChime, playPageFlip } from '@/lib/sounds';
 
 // ─── TIER COLORS ─────────────────────────────────────────────────────────────
 // One distinct palette per duration tier: card bg, border, progress bar, claim btn.
@@ -160,6 +161,7 @@ export default function MissionsPanel({
       alert(`Could not claim mission:\n${result.error ?? 'Unknown error'}`);
       return;
     }
+    playChime();
     await load();
     await onLoadoutChange();
   };
@@ -250,7 +252,7 @@ export default function MissionsPanel({
                 {/* Progress + reward OR Claim */}
                 {done ? (
                   <button
-                    onClick={() => handleClaim(mission)}
+                    onClick={() => { playPageFlip(); handleClaim(mission); }}
                     disabled={busy === mission.id}
                     className={`mt-auto w-full ${p.claim} disabled:opacity-40 text-white text-[10px] font-bold py-1 rounded-lg transition-colors`}
                   >
@@ -281,6 +283,7 @@ export default function MissionsPanel({
             <button
               key={`empty-${i}`}
               onClick={() => {
+                playPageFlip();
                 if (pickerSlot === i) { setPickerSlot(null); setPickerTier(null); }
                 else { setPickerSlot(i); setPickerTier(null); }
               }}
@@ -310,7 +313,7 @@ export default function MissionsPanel({
                   return (
                     <button
                       key={tier.durationHours}
-                      onClick={() => setPickerTier(tier)}
+                      onClick={() => { playPageFlip(); setPickerTier(tier); }}
                       className={`flex flex-col items-center gap-0.5 p-2 rounded-lg border ${p.picker} ${p.pickerHover} transition-colors`}
                     >
                       <span className="text-xs font-bold text-gray-800">{tier.label}</span>
@@ -320,7 +323,7 @@ export default function MissionsPanel({
                 })}
               </div>
               <button
-                onClick={() => { setPickerSlot(null); setPickerTier(null); }}
+                onClick={() => { playPageFlip(); setPickerSlot(null); setPickerTier(null); }}
                 className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
               >
                 Cancel
@@ -333,7 +336,7 @@ export default function MissionsPanel({
                 <p className="text-xs font-bold text-stone-600 uppercase tracking-wider">
                   {pickerTier.label} · <span className={tierPalette(pickerTier.durationHours).label}>+{pickerTier.expReward} EXP</span> — Choose a Curio:
                 </p>
-                <button onClick={() => setPickerTier(null)} className="text-xs text-stone-500 hover:underline">
+                <button onClick={() => { playPageFlip(); setPickerTier(null); }} className="text-xs text-stone-500 hover:underline">
                   ← Back
                 </button>
               </div>
@@ -350,7 +353,7 @@ export default function MissionsPanel({
                     return (
                       <button
                         key={um.id}
-                        onClick={() => handleSend(um.id, pickerTier)}
+                        onClick={() => { playPageFlip(); handleSend(um.id, pickerTier); }}
                         disabled={busy === 'send'}
                         className="w-full flex items-center gap-3 p-2.5 rounded-lg border border-stone-100 bg-stone-50 hover:bg-stone-100 disabled:opacity-40 transition-colors text-left"
                       >
@@ -371,7 +374,7 @@ export default function MissionsPanel({
               )}
 
               <button
-                onClick={() => { setPickerSlot(null); setPickerTier(null); }}
+                onClick={() => { playPageFlip(); setPickerSlot(null); setPickerTier(null); }}
                 className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
               >
                 Cancel

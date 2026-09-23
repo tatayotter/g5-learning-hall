@@ -23,6 +23,7 @@ import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
 import { QualityTier, getQualityGlowClass } from '@/lib/curioQuality';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 export interface BattleStageMonster {
   name: string;
@@ -138,7 +139,7 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger, elemen
   const { bg, border, hover } = (element && ELEMENT_STYLES[element]) || DEFAULT_TILE_STYLE;
   return (
     <button
-      onClick={onClick}
+      onClick={disabled ? undefined : () => { playPageFlip(); onClick?.(); }}
       disabled={disabled}
       className={`flex items-center gap-2 text-left ${bg} ${border} ${hover} border rounded-lg px-2 py-[7px] transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile`}
     >
@@ -232,7 +233,7 @@ export default function BattleStage({
       </div>
 
       <button
-        onClick={() => setLogOpen(o => !o)}
+        onClick={() => { playPageFlip(); setLogOpen(o => !o); }}
         className={`bstage-show-log bg-white hover:bg-[#f0ddb8] text-[#2a1505] font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
       >
         {logOpen ? 'Hide Log' : 'Show Log'}
