@@ -13,6 +13,7 @@ import {
 } from '@/lib/guildConfig';
 import { TITLE_TIERS } from '@/lib/titles';
 import { ACHIEVEMENTS } from '@/lib/achievements';
+import { playPageFlip } from '@/lib/sounds';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { SCROLL_CATALOG } from '@/lib/skillScrolls';
 import {
@@ -206,7 +207,7 @@ export default function CodexPanel() {
           {SECTIONS.map(s => (
             <button
               key={s.id}
-              onClick={() => setActiveSection(s.id)}
+              onClick={() => { playPageFlip(); setActiveSection(s.id); }}
               className={`px-3 py-2 text-sm font-bold text-left rounded-lg whitespace-nowrap transition-colors ${
                 activeSection === s.id
                   ? 'bg-amber-100 text-amber-700 border border-amber-300'

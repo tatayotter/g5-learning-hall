@@ -21,7 +21,7 @@ import {
   PlayerSearchResult, TradeThread, TradeWithItems,
 } from '@/lib/trades';
 import { logAction } from '@/lib/playerlog';
-import { playTradeAccept, playTradeDecline } from '@/lib/sounds';
+import { playTradeAccept, playTradeDecline, playPageFlip } from '@/lib/sounds';
 import GameButton from '@/components/GameButton';
 
 interface TradePanelProps {
@@ -130,7 +130,7 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
         ] as { id: typeof tab; label: string }[]).map(t => (
           <button
             key={t.id}
-            onClick={() => setTab(t.id)}
+            onClick={() => { playPageFlip(); setTab(t.id); }}
             className={`px-4 py-2 text-sm font-bold transition-colors border-b-2 -mb-px ${
               tab === t.id ? 'border-[#c9781a] text-[#c9781a]' : 'border-transparent text-[#6b4820] hover:text-[#2a1505]'
             }`}
@@ -242,7 +242,7 @@ function ThreadCard({
       )}
 
       {thread.trades.length > 1 && (
-        <button onClick={() => setShowLog(v => !v)} className="text-xs text-indigo-600 hover:text-indigo-500 font-bold mb-2">
+        <button onClick={() => { playPageFlip(); setShowLog(v => !v); }} className="text-xs text-indigo-600 hover:text-indigo-500 font-bold mb-2">
           {showLog ? '▲ Hide offer history' : `▼ Show offer history (${thread.trades.length} offers)`}
         </button>
       )}
@@ -261,21 +261,21 @@ function ThreadCard({
         <div className="flex gap-2">
           <button
             disabled={busy}
-            onClick={onAccept}
+            onClick={() => { playPageFlip(); onAccept?.(); }}
             className="px-3 py-1.5 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white disabled:opacity-50"
           >
             Accept
           </button>
           <button
             disabled={busy}
-            onClick={onDecline}
+            onClick={() => { playPageFlip(); onDecline?.(); }}
             className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#8b5e2a] hover:bg-[#6b4820] text-white disabled:opacity-50"
           >
             Decline
           </button>
           <button
             disabled={busy}
-            onClick={onStartCounter}
+            onClick={() => { playPageFlip(); onStartCounter?.(); }}
             className="px-3 py-1.5 text-xs font-bold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-50"
           >
             Counter
@@ -285,7 +285,7 @@ function ThreadCard({
       {!readOnly && canCancel && (
         <button
           disabled={busy}
-          onClick={onCancel}
+          onClick={() => { playPageFlip(); onCancel?.(); }}
           className="px-3 py-1.5 text-xs font-bold rounded-lg bg-[#8b5e2a] hover:bg-[#6b4820] text-white disabled:opacity-50"
         >
           Cancel
@@ -387,7 +387,7 @@ function NewTradeFlow({
           {results.map(p => (
             <button
               key={p.id}
-              onClick={() => selectTarget(p)}
+              onClick={() => { playPageFlip(); selectTarget(p); }}
               className="w-full text-left px-3 py-2 rounded-lg bg-white hover:bg-[#f0ddb8] border border-[#c9a87a] text-sm text-[#2a1505]"
             >
               {p.display_name} <span className="text-[#6b4820]">· {p.grade}</span>
@@ -402,7 +402,7 @@ function NewTradeFlow({
     <div className="space-y-5">
       <div className="flex items-center justify-between">
         <p className="text-sm text-[#3a2610]">Trading with <span className="font-bold text-[#2a1505]">{target.display_name}</span></p>
-        <button onClick={() => setTarget(null)} className="text-xs text-[#6b4820] hover:text-[#2a1505]">Change player</button>
+        <button onClick={() => { playPageFlip(); setTarget(null); }} className="text-xs text-[#6b4820] hover:text-[#2a1505]">Change player</button>
       </div>
 
       <OfferBuilder
@@ -529,7 +529,7 @@ function MonsterPicker({
         {monsters.map(m => (
           <button
             key={m.id}
-            onClick={() => onToggle(m.id)}
+            onClick={() => { playPageFlip(); onToggle(m.id); }}
             className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg border text-left text-sm ${
               picked.has(m.id) ? 'border-[#c9781a] bg-[#c9781a]/20 text-[#8b5e2a]' : 'border-[#c9a87a] bg-white text-[#2a1505]'
             }`}

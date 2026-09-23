@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import type { PlayerNotification } from '@/lib/referral';
+import { playPageFlip } from '@/lib/sounds';
 
 interface NotificationInboxProps {
   notifications: PlayerNotification[];
@@ -19,6 +20,7 @@ export default function NotificationInbox({
   const unread = notifications.filter((n) => !n.read);
 
   function handleOpen() {
+    playPageFlip();
     setOpen((o) => !o);
     if (!open && unread.length > 0) {
       onMarkRead();

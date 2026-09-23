@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playItemUse, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
   ALL_MONSTERS, SKILLS, BATTLE_CONSTANTS,
@@ -677,7 +677,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           return (
             <button
               key={key}
-              onClick={() => handleItemUse(key)}
+              onClick={() => { playPageFlip(); handleItemUse(key); }}
               disabled={itemBusy || noReviveTargets}
               className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
             >
@@ -692,7 +692,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         });
       })()}
       <button
-        onClick={() => setPhase('select_skill')}
+        onClick={() => { playPageFlip(); setPhase('select_skill'); }}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
       >
         Cancel
@@ -709,7 +709,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         otherAlivePlayerMonsters.map(({ m, i }) => (
           <button
             key={i}
-            onClick={() => handleSwitchMonster(i)}
+            onClick={() => { playPageFlip(); handleSwitchMonster(i); }}
             className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all btn-tactile"
           >
             <div className="w-9 h-9">
@@ -723,7 +723,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         ))
       )}
       <button
-        onClick={() => setPhase('select_skill')}
+        onClick={() => { playPageFlip(); setPhase('select_skill'); }}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
       >
         Cancel
@@ -740,7 +740,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         faintedPlayerMonsters.map(({ m, i }) => (
           <button
             key={i}
-            onClick={() => handleReviveTarget(i)}
+            onClick={() => { playPageFlip(); handleReviveTarget(i); }}
             disabled={itemBusy}
             className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
           >
@@ -755,7 +755,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         ))
       )}
       <button
-        onClick={() => setPhase('select_item')}
+        onClick={() => { playPageFlip(); setPhase('select_item'); }}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
       >
         Cancel
@@ -767,13 +767,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
       <div className="flex gap-2">
         <button
-          onClick={() => setConfirmSurrender(false)}
+          onClick={() => { playPageFlip(); setConfirmSurrender(false); }}
           className="flex-1 bg-neutral-800 hover:bg-neutral-700 text-white py-2 rounded-lg btn-tactile"
         >
           Cancel
         </button>
         <button
-          onClick={handleSurrender}
+          onClick={() => { playPageFlip(); handleSurrender(); }}
           className="flex-1 bg-red-700 hover:bg-red-600 text-white py-2 rounded-lg font-bold btn-tactile"
         >
           Surrender

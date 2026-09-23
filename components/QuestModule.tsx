@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
-import { playChime, playClash, playLevelUp } from '@/lib/sounds';
+import { playChime, playClash, playLevelUp, playPageFlip } from '@/lib/sounds';
 import VictoryScreen, { CurioTrainingCard, TrainingResult, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD } from '@/components/VictoryScreen';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
@@ -130,6 +130,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
 
   const handleSelect = (qIndex: number, option: string) => {
     if (submitted) return;
+    playPageFlip();
     setSelectedAnswers({ ...selectedAnswers, [qIndex]: option });
   };
 

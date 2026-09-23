@@ -10,6 +10,7 @@ import { guildLevelForKey, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/
 import { GUILDS } from '@/lib/dailyChecklist';
 import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
+import { playPageFlip } from '@/lib/sounds';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
@@ -290,7 +291,7 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
             <Nail className="bottom-2 left-2" />
             <Nail className="bottom-2 right-2" />
             <button
-              onClick={() => setSelectedKey(null)}
+              onClick={() => { playPageFlip(); setSelectedKey(null); }}
               className="absolute top-3 right-3 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
               style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}
               aria-label="Close"

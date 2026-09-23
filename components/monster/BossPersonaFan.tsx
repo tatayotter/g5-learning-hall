@@ -12,6 +12,7 @@
 import { useState } from 'react';
 import type { CSSProperties } from 'react';
 import { BossPersona } from '@/lib/bossPersonas';
+import { playPageFlip } from '@/lib/sounds';
 
 interface BossPersonaFanProps {
   personas: BossPersona[];
@@ -58,7 +59,7 @@ export default function BossPersonaFan({ personas, defeated, readySubjects, onCh
           return (
             <div
               key={p.subject}
-              onClick={() => { if (!isCenter && show) setIdx(i); }}
+              onClick={() => { if (!isCenter && show) { playPageFlip(); setIdx(i); } }}
               className="absolute bottom-0 left-1/2 rounded-2xl border-2 flex flex-col items-center justify-end p-3 transition-all duration-[400ms] ease-out"
               style={{
                 width: 150, height: 210,
@@ -98,7 +99,7 @@ export default function BossPersonaFan({ personas, defeated, readySubjects, onCh
               </p>
               {isCenter && (
                 <button
-                  onClick={(e) => { e.stopPropagation(); if (!isDefeated && isReady) onChallenge(p.subject); }}
+                  onClick={(e) => { e.stopPropagation(); if (!isDefeated && isReady) { playPageFlip(); onChallenge(p.subject); } }}
                   disabled={isDefeated || !isReady}
                   className="w-full py-1.5 rounded-lg text-[11px] font-extrabold uppercase tracking-wide transition-colors"
                   style={{
@@ -117,7 +118,7 @@ export default function BossPersonaFan({ personas, defeated, readySubjects, onCh
 
       <div className="flex items-center justify-center gap-5 mt-2">
         <button
-          onClick={() => setIdx(i => (i - 1 + n) % n)}
+          onClick={() => { playPageFlip(); setIdx(i => (i - 1 + n) % n); }}
           aria-label="Previous boss"
           className="w-9 h-9 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-colors"
         >
@@ -125,7 +126,7 @@ export default function BossPersonaFan({ personas, defeated, readySubjects, onCh
         </button>
         <span className="text-[11px] text-gray-500 min-w-[50px] text-center">{idx + 1} of {n}</span>
         <button
-          onClick={() => setIdx(i => (i + 1) % n)}
+          onClick={() => { playPageFlip(); setIdx(i => (i + 1) % n); }}
           aria-label="Next boss"
           className="w-9 h-9 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-colors"
         >

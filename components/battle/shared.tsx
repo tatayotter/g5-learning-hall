@@ -10,6 +10,7 @@ import { gradeMonsterQuestion } from '@/lib/guildEngine';
 import { QualityTier } from '@/lib/curioQuality';
 import InfoTag from '@/components/InfoTag';
 import GameButton, { QUIZ_OPTION_STYLES } from '@/components/GameButton';
+import { playChime, playClash, playPageFlip } from '@/lib/sounds';
 
 export interface UserMonster {
   id: string;
@@ -273,11 +274,13 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
 
   const handleAnswer = async (opt: string) => {
     if (selected || grading || skipped) return;
+    playPageFlip();
     setSelected(opt);
     setGrading(true);
     const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, current.id, opt);
     setGrading(false);
     setRevealedCorrect(correctAnswer);
+    if (isCorrect) playChime(); else playClash();
     advance(isCorrect);
   };
 

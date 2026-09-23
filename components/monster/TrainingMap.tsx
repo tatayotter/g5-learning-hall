@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
-import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins } from '@/lib/sounds';
+import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip } from '@/lib/sounds';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
@@ -593,7 +593,7 @@ export default function TrainingMap({
   const leftTag = (
     <span className="flex items-center gap-1.5">
       {onExitRegion && (
-        <button onClick={onExitRegion} className="hover:text-amber-400" title="Back to World Map">←</button>
+        <button onClick={() => { playPageFlip(); onExitRegion(); }} className="hover:text-amber-400" title="Back to World Map">←</button>
       )}
       {isLedgersHeart ? REGIONS.ledgers_heart.name : region!.name}
     </span>
@@ -647,7 +647,7 @@ export default function TrainingMap({
         trashItems={trashItems}
         collectingTrashIds={collectingTrashIds}
         recyclerTile={recyclerTile}
-        onPlayerClick={setStatsTargetId}
+        onPlayerClick={(id: string) => { playPageFlip(); setStatsTargetId(id); }}
       />}
       {lockedPortalMsg && (
         <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">

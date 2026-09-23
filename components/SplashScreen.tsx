@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
@@ -283,7 +284,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                   return (
                     <motion.button
                       key={id}
-                      onClick={() => handleRowClick(id)}
+                      onClick={() => { playPageFlip(); handleRowClick(id); }}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.97 }}
                       initial={{ opacity: 0, y: 10 }}
@@ -442,7 +443,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               </a>
               <button
                 type="button"
-                onClick={openReturningLogin}
+                onClick={() => { playPageFlip(); openReturningLogin(); }}
                 className="flex-1 text-center rounded-full bg-white text-[#2a1505] font-extrabold text-[13px] py-3 border border-[#c9a87a] shadow-[0_2px_0_rgba(0,0,0,0.08)] hover:bg-[#fdf6e8] active:translate-y-px transition"
               >
                 Can&apos;t Find Account

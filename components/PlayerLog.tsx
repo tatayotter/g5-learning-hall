@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { format } from 'date-fns';
+import { playPageFlip } from '@/lib/sounds';
 
 interface LogEntry {
   id: string;
@@ -140,7 +141,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
 
       {!showAll && entries.length > COLLAPSED_COUNT && (
         <button
-          onClick={() => { setShowAll(true); setPage(0); }}
+          onClick={() => { playPageFlip(); setShowAll(true); setPage(0); }}
           className="w-full text-center text-sm font-bold text-amber-700 hover:text-amber-900 py-2.5 border border-amber-200 rounded-xl bg-amber-50 hover:bg-amber-100 transition-colors"
         >
           View All ({entries.length})
@@ -150,7 +151,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
       {showAll && (
         <div className="flex items-center justify-between pt-2">
           <button
-            onClick={() => setShowAll(false)}
+            onClick={() => { playPageFlip(); setShowAll(false); }}
             className="text-xs font-bold text-gray-400 hover:text-gray-700 transition-colors"
           >
             ← Show Recent Only
@@ -158,7 +159,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
           {totalPages > 1 && (
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                onClick={() => { playPageFlip(); setPage((p) => Math.max(0, p - 1)); }}
                 disabled={page === 0}
                 className="text-xs font-bold text-gray-500 hover:text-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >
@@ -166,7 +167,7 @@ export default function PlayerLog({ userId }: { userId: string }) {
               </button>
               <span className="text-xs text-gray-400">Page {page + 1} of {totalPages}</span>
               <button
-                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                onClick={() => { playPageFlip(); setPage((p) => Math.min(totalPages - 1, p + 1)); }}
                 disabled={page >= totalPages - 1}
                 className="text-xs font-bold text-gray-500 hover:text-gray-800 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
               >

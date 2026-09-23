@@ -12,6 +12,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import type { TutorialStep } from '@/hooks/useTutorialSequence';
+import { playPageFlip } from '@/lib/sounds';
 
 interface TutorialSpotlightProps {
   step: TutorialStep;
@@ -129,7 +130,7 @@ export default function TutorialSpotlight({
       >
         <button
           type="button"
-          onClick={onSkip}
+          onClick={() => { playPageFlip(); onSkip(); }}
           className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-sm leading-none px-1"
           aria-label="Skip tutorial"
         >
@@ -152,7 +153,7 @@ export default function TutorialSpotlight({
           ) : (
             <button
               type="button"
-              onClick={onNext}
+              onClick={() => { playPageFlip(); onNext(); }}
               className="bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold px-4 py-1.5 rounded-lg transition-colors"
             >
               {isLast ? "Got it!" : 'Next'}

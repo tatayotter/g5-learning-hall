@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { saveAvatar } from '@/lib/userSession';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
+import { playPageFlip } from '@/lib/sounds';
 
 // Default sprites — always selectable, never purchaseable.
 const DEFAULT_USERPICS = [
@@ -49,7 +50,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
       >
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-white">Choose Your Avatar</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-300 text-sm">✕ Close</button>
+          <button onClick={() => { playPageFlip(); onClose(); }} className="text-gray-500 hover:text-gray-300 text-sm">✕ Close</button>
         </div>
 
         {loading ? (
@@ -66,7 +67,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                 return (
                   <button
                     key={file}
-                    onClick={() => handlePick(avatar)}
+                    onClick={() => { playPageFlip(); handlePick(avatar); }}
                     disabled={!!saving}
                     title={label}
                     className={`relative aspect-square rounded-xl border-2 overflow-hidden bg-neutral-950 transition-all disabled:opacity-50 ${
@@ -99,7 +100,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                     return (
                       <button
                         key={item.key}
-                        onClick={() => owned ? handlePick(avatar) : alert(`🔒 Unlock "${item.name}" for ${item.cost} Gold in the Trainer Sprites tab of the Curio Arena Shop.`)}
+                        onClick={() => { playPageFlip(); owned ? handlePick(avatar) : alert(`🔒 Unlock "${item.name}" for ${item.cost} Gold in the Trainer Sprites tab of the Curio Arena Shop.`); }}
                         disabled={owned && !!saving}
                         title={owned ? item.name : `Locked — ${item.cost} Gold in the Shop`}
                         className={`relative aspect-square rounded-xl border-2 overflow-hidden bg-neutral-950 transition-all disabled:opacity-50 ${

@@ -12,6 +12,7 @@ import type { TrashInventory } from '@/hooks/useTrashItems';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import { friendPartnerId, type FriendData } from '@/lib/friends';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 export type InfoTab = 'team' | 'online' | 'bag' | 'friends';
 
@@ -131,7 +132,7 @@ export default function MapInfoDrawer({
               .map(p => (
                 <button
                   key={p.userId}
-                  onClick={() => onStatsTarget(p.userId)}
+                  onClick={() => { playPageFlip(); onStatsTarget(p.userId); }}
                   className="w-full flex items-center gap-2 bg-white border border-[#c9a87a] hover:border-amber-500 rounded-lg px-2.5 py-1.5 text-left transition-colors"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
@@ -158,13 +159,13 @@ export default function MapInfoDrawer({
                       {USERS[r.requester_id]?.name || r.requester_id}
                     </span>
                     <button
-                      onClick={() => onAcceptFriendRequest(r.id)}
+                      onClick={() => { playPageFlip(); onAcceptFriendRequest(r.id); }}
                       className="text-[12px] font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded px-2 py-1 transition-colors"
                     >
                       Accept
                     </button>
                     <button
-                      onClick={() => onDeclineFriendRequest(r.id)}
+                      onClick={() => { playPageFlip(); onDeclineFriendRequest(r.id); }}
                       className="text-[12px] font-bold text-[#6b4820] bg-[#f0ddb8] hover:bg-[#e8c88a] rounded px-2 py-1 transition-colors"
                     >
                       Decline
@@ -193,14 +194,14 @@ export default function MapInfoDrawer({
                     >
                       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isOnline ? 'bg-green-500' : 'bg-[#c9a87a]'}`} />
                       <button
-                        onClick={() => onStatsTarget(friendId)}
+                        onClick={() => { playPageFlip(); onStatsTarget(friendId); }}
                         className="text-[#2a1505] text-sm font-medium truncate flex-1 text-left hover:text-[#c9781a] transition-colors"
                       >
                         {USERS[friendId]?.name || friendId}
                         {USERS[friendId]?.isFamily && <GMBadge />}
                       </button>
                       <button
-                        onClick={() => onRemoveFriend(friendId)}
+                        onClick={() => { playPageFlip(); onRemoveFriend(friendId); }}
                         title="Remove friend"
                         className="text-[12px] font-bold text-[#8b5e2a] hover:text-red-600 px-1 transition-colors"
                       >
@@ -224,7 +225,7 @@ export default function MapInfoDrawer({
                     </span>
                     <span className="text-[12px] text-[#6b4820]">Pending…</span>
                     <button
-                      onClick={() => onCancelFriendRequest(r.id)}
+                      onClick={() => { playPageFlip(); onCancelFriendRequest(r.id); }}
                       className="text-[12px] font-bold text-[#6b4820] bg-[#f0ddb8] hover:bg-[#e8c88a] rounded px-2 py-1 transition-colors"
                     >
                       Cancel

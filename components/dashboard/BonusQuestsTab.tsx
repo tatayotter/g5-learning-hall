@@ -14,6 +14,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { UserId } from '@/lib/userSession';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 import MtapTopicsView from '@/components/bonusquests/MtapTopicsView';
 import { SEC_PACK_ID_BY_GRADE, fetchOwnedSecPackIds } from '@/lib/secEngine';
 import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
@@ -55,7 +56,7 @@ export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTa
   if (openGrade != null) {
     return (
       <div>
-        <span className="text-xs text-[#a8a29e] cursor-pointer mb-2 inline-block" onClick={() => setOpenGrade(null)}>&larr; Bonus Quests</span>
+        <span className="text-xs text-[#a8a29e] cursor-pointer mb-2 inline-block" onClick={() => { playPageFlip(); setOpenGrade(null); }}>&larr; Bonus Quests</span>
         <MtapTopicsView userId={userId} grade={openGrade} onRewardEarned={onRewardEarned} />
       </div>
     );
@@ -88,7 +89,7 @@ export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTa
             return (
               <motion.div
                 key={g}
-                onClick={() => setOpenGrade(g)}
+                onClick={() => { playPageFlip(); setOpenGrade(g); }}
                 role="button"
                 tabIndex={0}
                 whileHover="hover"

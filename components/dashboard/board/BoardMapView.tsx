@@ -12,6 +12,7 @@ import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import WelcomeCard from '@/components/WelcomeCard';
+import { playPageFlip } from '@/lib/sounds';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import QuestCard from '@/components/QuestCard';
 import BossPersonaFan from '@/components/monster/BossPersonaFan';
@@ -141,7 +142,7 @@ export default function BoardMapView({
                 {claimedMonsterId && ALL_MONSTERS[claimedMonsterId] && (
                   <button
                     type="button"
-                    onClick={onViewClaimedInCompendium}
+                    onClick={() => { playPageFlip(); onViewClaimedInCompendium(); }}
                     className="cursor-pointer"
                     title="View in Compendium"
                   >

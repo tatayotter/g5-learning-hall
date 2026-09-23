@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Achievement } from '@/lib/achievements';
-import { playAchievementUnlock } from '@/lib/sounds';
+import { playAchievementUnlock, playPageFlip } from '@/lib/sounds';
 
 interface AchievementToastProps {
   userId: string;
@@ -93,7 +93,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
                 </h3>
               </div>
               <button
-                onClick={() => { setVisible([]); onDismissAll(); }}
+                onClick={() => { playPageFlip(); setVisible([]); onDismissAll(); }}
                 className={`text-xs mt-1 transition-colors ${colors.dismiss}`}
               >
                 ✕

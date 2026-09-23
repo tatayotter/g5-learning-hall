@@ -7,6 +7,7 @@ import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvent
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import { trackEvent } from '@/lib/analytics';
+import { playPageFlip } from '@/lib/sounds';
 
 interface EventPanelProps {
   event: CustomEvent;
@@ -83,7 +84,7 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
       {event.banner_url && (
         <button
           type="button"
-          onClick={() => setShowFullPoster(true)}
+          onClick={() => { playPageFlip(); setShowFullPoster(true); }}
           className="block w-full rounded-lg mb-3 cursor-zoom-in"
           title="View full poster"
         >
@@ -110,7 +111,7 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
           return (
             <button
               key={q.id}
-              onClick={() => !done && onPlayQuest(q.id)}
+              onClick={() => { if (!done) { playPageFlip(); onPlayQuest(q.id); } }}
               disabled={done}
               className={`w-full flex items-center gap-2 text-sm text-left px-2 py-1 rounded transition-colors ${
                 done ? 'cursor-default' : 'hover:bg-amber-900/20'
@@ -164,7 +165,7 @@ export default function EventPanel({ event, eventQuests, progress, claimed, onPl
               className="max-w-full max-h-full rounded-xl shadow-2xl"
             />
             <button
-              onClick={(e) => { e.stopPropagation(); setShowFullPoster(false); }}
+              onClick={(e) => { e.stopPropagation(); playPageFlip(); setShowFullPoster(false); }}
               className="absolute top-4 right-4 text-white/80 hover:text-white text-3xl leading-none"
               aria-label="Close"
             >

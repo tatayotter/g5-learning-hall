@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import { WeeklyData } from '@/hooks/useWeeklyData';
 import { fetchPlayerProgress, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
+import { playPageFlip } from '@/lib/sounds';
 
 interface AchievementsBoardProps {
   // Use '?' to make data optional in the interface,
@@ -50,7 +51,7 @@ export default function AchievementsBoard({ data, userId }: AchievementsBoardPro
     <div className="mt-16 pt-10 border-t-2 border-neutral-800">
       <button
         type="button"
-        onClick={() => setExpanded(e => !e)}
+        onClick={() => { playPageFlip(); setExpanded(e => !e); }}
         className="w-full flex items-center justify-between gap-4 p-4 rounded-xl bg-[#111] border border-[#333] hover:border-neutral-600 transition-colors text-left"
       >
         <div>
@@ -89,7 +90,7 @@ export default function AchievementsBoard({ data, userId }: AchievementsBoardPro
             <div className="flex items-center justify-center gap-4 mt-4">
               <button
                 type="button"
-                onClick={() => setPage(p => Math.max(0, p - 1))}
+                onClick={() => { playPageFlip(); setPage(p => Math.max(0, p - 1)); }}
                 disabled={safePage === 0}
                 className="px-3 py-1 text-xs font-bold rounded-lg bg-[#111] border border-[#333] text-gray-300 disabled:opacity-40 disabled:cursor-not-allowed hover:border-neutral-600"
               >
@@ -98,7 +99,7 @@ export default function AchievementsBoard({ data, userId }: AchievementsBoardPro
               <span className="text-[11px] text-gray-500 font-mono">Page {safePage + 1} of {pageCount}</span>
               <button
                 type="button"
-                onClick={() => setPage(p => Math.min(pageCount - 1, p + 1))}
+                onClick={() => { playPageFlip(); setPage(p => Math.min(pageCount - 1, p + 1)); }}
                 disabled={safePage === pageCount - 1}
                 className="px-3 py-1 text-xs font-bold rounded-lg bg-[#111] border border-[#333] text-gray-300 disabled:opacity-40 disabled:cursor-not-allowed hover:border-neutral-600"
               >

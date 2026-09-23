@@ -6,7 +6,7 @@
 // instead of a whole monster sprite.
 import { useEffect, useState } from 'react';
 import { Skill, MonsterDef, getSkillIconSrc } from '@/lib/monsterConfig';
-import { playSkillInscribe } from '@/lib/sounds';
+import { playSkillInscribe, playPageFlip } from '@/lib/sounds';
 import { MonsterImage } from '@/components/battle/shared';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -98,7 +98,7 @@ export default function TeachSkillModal({ monster, skill, userId, onClose }: Tea
                 <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-5xl" />
               </div>
               <button
-                onClick={onClose}
+                onClick={() => { playPageFlip(); onClose(); }}
                 className={`w-full py-3 rounded-xl font-bold text-white btn-tactile battle-panel-in ${
                   isTala ? 'bg-pink-600 hover:bg-pink-500' : 'bg-amber-600 hover:bg-amber-500'
                 }`}

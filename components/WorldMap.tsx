@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Element, ELEMENT_ICON_SRC } from '@/lib/monsterConfig';
 import { REGIONS, ELEMENT_COLOR, REGION_BY_ELEMENT, Region } from '@/lib/regions';
 import MapStage from '@/components/MapStage';
+import { playPageFlip } from '@/lib/sounds';
 
 interface WorldMapProps {
   playerLevel: number;
@@ -111,7 +112,7 @@ export default function WorldMap({ playerLevel, onSelectRegion }: WorldMapProps)
           return (
             <button
               key={region.id}
-              onClick={() => unlocked && onSelectRegion(region.id)}
+              onClick={() => { if (unlocked) { playPageFlip(); onSelectRegion(region.id); } }}
               onMouseEnter={() => setHoveredId(region.id)}
               onMouseLeave={() => setHoveredId(null)}
               disabled={!unlocked}
@@ -160,7 +161,7 @@ function RegionHotspot({
       onMouseLeave={() => onHover(null)}
       onFocus={() => onHover(region.id)}
       onBlur={() => onHover(null)}
-      onClick={() => unlocked && onSelect(region.id)}
+      onClick={() => { if (unlocked) { playPageFlip(); onSelect(region.id); } }}
       disabled={!unlocked}
       className={`absolute -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center transition-transform ${
         unlocked ? 'hover:scale-110 cursor-pointer' : 'cursor-not-allowed grayscale opacity-50'

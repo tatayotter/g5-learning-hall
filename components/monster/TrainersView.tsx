@@ -13,6 +13,7 @@ import { NPC_TRAINERS, ALL_MONSTERS, MONSTERS, getCounterElement, NpcTrainer } f
 import { UserMonster } from '@/components/battle/shared';
 import { BattleState } from '@/components/monster/types';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 
 type LiveBattleInbox = ReturnType<typeof useLiveBattleInbox>;
 
@@ -81,7 +82,7 @@ export default function TrainersView({
                 </div>
               </div>
               <button
-                onClick={() => liveBattleInbox.refreshPresence()}
+                onClick={() => { playPageFlip(); liveBattleInbox.refreshPresence(); }}
                 className="text-xs bg-white border border-[#c9a87a] hover:bg-[#f0ddb8] hover:border-[#c9781a] text-[#6b4820] font-bold px-3 py-1.5 rounded-lg transition-colors flex-shrink-0"
                 title="Refresh online list"
               >

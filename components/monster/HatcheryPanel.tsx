@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { CurioEgg, incubateCurioEgg } from '@/lib/curioEggs';
 import { ALL_MONSTERS, EGG_SPRITE_SRC } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
+import { playPageFlip } from '@/lib/sounds';
 
 interface HatcheryPanelProps {
   userId: string;
@@ -108,7 +109,7 @@ function StalledEggCard({ egg, userId, onEggsChanged }: { egg: CurioEgg; userId:
         <p className="text-xs text-amber-400 mt-1">You forgot to check in, egg stopped growing.</p>
       </div>
       <button
-        onClick={handleIncubate}
+        onClick={() => { playPageFlip(); handleIncubate(); }}
         disabled={busy}
         className="text-xs bg-amber-700 hover:bg-amber-600 disabled:opacity-40 px-4 py-2 rounded-lg text-white font-bold flex-shrink-0"
       >

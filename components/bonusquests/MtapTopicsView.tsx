@@ -11,6 +11,7 @@ import { UserId } from '@/lib/userSession';
 import { MTAP_STRANDS_BY_GRADE, TIERS, MtapTier, MIXED_TRAINER_SET_SIZE } from '@/lib/mtapContent';
 import { fetchMtapAttempts, computeTierUnlocked, computeTierMastered, computeMixedTrainerUnlocked, MtapAttempt } from '@/lib/mtapEngine';
 import GameButton from '@/components/GameButton';
+import { playPageFlip } from '@/lib/sounds';
 import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
 import MtapQuizPlayer from '@/components/bonusquests/MtapQuizPlayer';
 import MtapMixedTrainerPlayer from '@/components/bonusquests/MtapMixedTrainerPlayer';
@@ -111,7 +112,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
                   instead of fighting the rest of the row for space. */}
               <div
                 className="p-3 px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 cursor-pointer"
-                onClick={() => setExpanded(isOpen ? null : idx)}
+                onClick={() => { playPageFlip(); setExpanded(isOpen ? null : idx); }}
               >
                 <div className="flex items-center gap-3 min-w-0">
                   <span className="text-xs font-bold text-[#7a4a0f] bg-[#fff7ed] border border-[#c9a87a] rounded-md w-6 h-6 flex items-center justify-center shrink-0">
@@ -169,7 +170,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
                             <button
                               key={tier}
                               title={`${letter} tier — tap to play`}
-                              onClick={() => setView({ mode: 'quiz', archetype: arch.key, archetypeName: arch.name, tier })}
+                              onClick={() => { playPageFlip(); setView({ mode: 'quiz', archetype: arch.key, archetypeName: arch.name, tier }); }}
                               className={`w-7 h-7 rounded-full border flex items-center justify-center text-[10px] font-extrabold ${mastered ? 'bg-[#e8f5e0] border-green-600 text-green-700' : 'bg-[#f5c542] border-[#8b5e2a] text-[#2a1505]'}`}
                             >
                               {mastered ? '✓' : letter}
