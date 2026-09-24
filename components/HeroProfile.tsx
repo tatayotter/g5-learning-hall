@@ -248,13 +248,18 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     if (ok) setAvatarTick(t => t + 1);
   };
 
-  // These three carry forward and keep accumulating week over week (see
-  // hooks/useWeeklyData.ts's carriedForward), so the current week's row
-  // already holds the true career total — no toggle needed.
+  // data.mastery_count/honor_grants/purchased_items are this-WEEK-only —
+  // hooks/useWeeklyData.ts's EMPTY_JOURNAL_FIELDS explicitly zeroes them
+  // every week now (no carry-forward, unlike character_stats), despite what
+  // an earlier version of this comment claimed. The real lifetime totals
+  // live on player_progress (fetched above as `progress`, Phase 4 Wave 2 of
+  // the weekly-progress redesign) — same source the "Lifetime Quizzes"/
+  // "Trainer Wins" tiles below already use. Falls back to the weekly value
+  // while progress is still loading, same pattern as those other tiles.
   const careerTiles: { label: string; value: number }[] = [
-    { label: 'Masteries', value: data.mastery_count || 0 },
-    { label: 'Honor Grants', value: data.honor_grants || 0 },
-    { label: 'Items Purchased', value: data.purchased_items || 0 },
+    { label: 'Masteries', value: progress?.mastery_count ?? data.mastery_count ?? 0 },
+    { label: 'Honor Grants', value: progress?.honor_grants ?? data.honor_grants ?? 0 },
+    { label: 'Items Purchased', value: progress?.purchased_items ?? data.purchased_items ?? 0 },
   ];
 
   const weekBattle = {

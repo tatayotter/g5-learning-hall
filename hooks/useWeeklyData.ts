@@ -1,5 +1,5 @@
 // hooks/useWeeklyData.ts
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
@@ -143,6 +143,14 @@ export function useWeeklyData(userId: string | null) {
   // this grade/week yet. Needed by updateStatsAndJournal to know which player_weekly_journal
   // row to upsert (Phase 4 Wave 4).
   const [contentWeekId, setContentWeekId] = useState<string | null>(null);
+  // Achievement ids this hook has already claimed locally since the last fetch, including
+  // ones whose RPC is still in flight. updateStatsAndJournal used to gate "already unlocked?"
+  // on `data.achievements` from its render closure only, so two overlapping saves both saw
+  // the same stale list and both awarded (observed: sub-second-apart duplicate awards in
+  // player_log), and whichever setData landed last could write an older list back over a
+  // newer one, letting a later save in the same open tab re-award it. Cleared on every
+  // fetch (the DB record is authoritative again by then) so it can never leak between users.
+  const claimedAchievementsRef = useRef<Record<string, boolean>>({});
 
   const today = new Date();
   const currentSunday = format(startOfWeek(today), 'yyyy-MM-dd');
@@ -158,6 +166,7 @@ export function useWeeklyData(userId: string | null) {
 
   useEffect(() => {
     let cancelled = false;
+    claimedAchievementsRef.current = {};
     async function fetchData() {
       // No real user resolved yet (Dashboard is still hydrating from
       // localStorage) — don't fetch anyone's data, real or placeholder.
@@ -274,7 +283,7 @@ export function useWeeklyData(userId: string | null) {
       return;
     }
 
-    const currentAchievements = data.achievements || {};
+    const currentAchievements = { ...(data.achievements || {}), ...claimedAchievementsRef.current };
     let addedXp = 0;
     let addedGold = 0;
 
@@ -284,13 +293,18 @@ export function useWeeklyData(userId: string | null) {
 
     // Achievement criteria now check LIFETIME totals (player_progress), not the current
     // week's weekly-reset counters — thresholds unchanged, only the data source moved
-    // (Phase 4 Wave 2, see docs/weekly-progress-redesign-plan.md). The 12 counters below
-    // still reset weekly in weekly_packages (unchanged write below), so what's being unlocked
-    // here is projected: lifetimeTotal + (thisCall'sNewWeeklyValue - thisWeek'sOldValue) —
-    // exactly what the Phase 3 trigger will compute once this call's otherChanges write lands,
-    // computed here ahead of time so the achievement check and the atomic xp/gold write can
-    // stay in the same round trip. mastery_count/purchased_items/honor_grants need no such
-    // projection — they already carry forward as lifetime-equivalent values today.
+    // (Phase 4 Wave 2, see docs/weekly-progress-redesign-plan.md). The counters below
+    // reset weekly (data.journal_logs/mastery_count/etc., see EMPTY_JOURNAL_FIELDS), so
+    // what's being unlocked here is projected: lifetimeTotal + (thisCall'sNewWeeklyValue -
+    // thisWeek'sOldValue), computed here ahead of time so the achievement check and the
+    // atomic xp/gold write can stay in the same round trip. mastery_count/purchased_items/
+    // honor_grants get the SAME projection as the other 12 counters below (2026-09-23 fix —
+    // an earlier version of this comment claimed they "already carry forward as
+    // lifetime-equivalent values today," which stopped being true once EMPTY_JOURNAL_FIELDS
+    // started zeroing them weekly; skipping the projection here, and sending the raw weekly
+    // value as an absolute to apply_progress_update below, was silently overwriting
+    // player_progress's real lifetime totals with a small weekly-scoped number on every call —
+    // see the migration fixing apply_progress_update's SQL side of this same bug).
     const projectLifetime = (total: number, newWeeklyValue: number, oldWeeklyValue: number) =>
       total + (newWeeklyValue - oldWeeklyValue);
 
@@ -299,9 +313,9 @@ export function useWeeklyData(userId: string | null) {
         ...data,
         character_stats: newStats,
         journal_logs: newJournal,
-        purchased_items: newPurchasedItems,
-        mastery_count: newMasteryCount,
-        honor_grants: newHonorGrants,
+        purchased_items: projectLifetime(progress?.purchased_items || 0, newPurchasedItems, data.purchased_items || 0),
+        mastery_count: projectLifetime(progress?.mastery_count || 0, newMasteryCount, data.mastery_count || 0),
+        honor_grants: projectLifetime(progress?.honor_grants || 0, newHonorGrants, data.honor_grants || 0),
         quiz_attempts: newQuizAttempts,
         mastered_quizzes: newMasteredQuizzes,
         guild_sessions_count: projectLifetime(progress?.guild_sessions_count_total || 0, newGuildSessionsCount, data.guild_sessions_count || 0),
@@ -328,6 +342,10 @@ export function useWeeklyData(userId: string | null) {
         newlyUnlockedIds.push(ach.id);
       }
     });
+
+    // Claim synchronously, BEFORE the awaits below, so an overlapping save can't also unlock
+    // these — see claimedAchievementsRef. Rolled back if the RPC fails.
+    newlyUnlockedIds.forEach(id => { claimedAchievementsRef.current[id] = true; });
 
     newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
       logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
@@ -373,10 +391,15 @@ export function useWeeklyData(userId: string | null) {
       tatay_battles_lost: newTatayBattlesLost
     };
 
-    // Per-call deltas for the 12 lifetime *_total counters on player_progress — same
-    // projectLifetime math as the achievement check above, reused here as the actual RPC
-    // arguments instead of just a projection.
+    // Per-call deltas for the lifetime counters on player_progress — same projectLifetime
+    // math as the achievement check above, reused here as the actual RPC arguments instead
+    // of just a projection. mastery/purchased/honor included here now too (2026-09-23 fix —
+    // see the comment above projectLifetime's definition for what sending the raw weekly
+    // value instead of a delta was doing to player_progress).
     const counterDeltas = {
+      mastery: newMasteryCount - (data.mastery_count || 0),
+      purchased: newPurchasedItems - (data.purchased_items || 0),
+      honor: newHonorGrants - (data.honor_grants || 0),
       guild: newGuildSessionsCount - (data.guild_sessions_count || 0),
       monster: newMonsterBattlesWon - (data.monster_battles_won || 0),
       sibling: newSiblingBattlesWon - (data.sibling_battles_won || 0),
@@ -395,13 +418,10 @@ export function useWeeklyData(userId: string | null) {
     // (lifetime, not week-keyed) now — applied atomically in one round trip by
     // apply_progress_update (Phase 4 Wave 4, see docs/weekly-progress-redesign-plan.md).
     // Auto-creates its row on first use, so there's no carry-forward step to get wrong here.
-    const { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
+    const progressArgs = {
       p_user_id: userId,
       p_xp_delta: xpDelta,
       p_gold_delta: goldDelta,
-      p_mastery_count: newMasteryCount,
-      p_purchased_items: newPurchasedItems,
-      p_honor_grants: newHonorGrants,
       // The lifetime counter is now incremented server-side, atomically with the session
       // record (mark_guild_session_today, p_count_lifetime: true) — see lib/guildSessions.ts.
       // Sending counterDeltas.guild here too would double count; it's kept only as the local
@@ -419,15 +439,49 @@ export function useWeeklyData(userId: string | null) {
       p_tatay_battles_won_delta: counterDeltas.tatayWon,
       p_tatay_battles_lost_delta: counterDeltas.tatayLost,
       p_new_achievement_ids: newlyUnlockedIds,
+    };
+    // mastery/purchased/honor go in as DELTAS on dedicated params that the DB adds to
+    // player_progress's lifetime totals (migration 20260923120000_fix_progress_mastery_
+    // purchase_honor_deltas). The old p_mastery_count/p_purchased_items/p_honor_grants params
+    // were absolutes, and we used to feed them this week's reset-to-0-weekly value on every
+    // save — overwriting the lifetime totals. Those three are deliberately NOT sent any more
+    // (the migration keeps accepting them but ignores them, so tabs still running the old
+    // bundle after the migration lands can neither clobber nor inflate the totals).
+    const lifetimeDeltaArgs = {
+      p_mastery_delta: counterDeltas.mastery,
+      p_purchased_items_delta: counterDeltas.purchased,
+      p_honor_grants_delta: counterDeltas.honor,
+    };
+
+    let { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
+      ...progressArgs,
+      ...lifetimeDeltaArgs,
     });
+
+    // This client can go live before the migration above is approved and applied (Vercel
+    // deploys on merge; deploy-migrations.yml waits for a manual approval click). Against a
+    // DB that doesn't have the *_delta params yet PostgREST answers PGRST202 ("function not
+    // found in the schema cache") and applies nothing, so retry once without them: xp, gold
+    // and every other counter still save, and the 3 lifetime counters simply don't move until
+    // the migration lands (omitting the old absolute params leaves them untouched there —
+    // COALESCE(NULL, current)).
+    if (statsError?.code === 'PGRST202') {
+      ({ data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', progressArgs));
+    }
 
     if (statsError || !finalStats) {
       console.error('Failed to apply progress update:', statsError);
+      newlyUnlockedIds.forEach(id => { delete claimedAchievementsRef.current[id]; });
       alert(`⚠️ Save failed: ${statsError?.message}`);
       return;
     }
 
-    setData({ ...data, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: newUnlocked });
+    // Functional update, and achievements MERGED into whatever is there now rather than
+    // overwritten from this call's stale closure — `{ ...data, achievements: newUnlocked }`
+    // could write an older unlocked-list back over a newer one from an overlapping save.
+    setData(prev => prev
+      ? { ...prev, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked } }
+      : prev);
 
     // journal_logs/counters are this-week-only content, not lifetime — written directly via a
     // client upsert (RLS: `current_app_user_id() = user_id`), same trust boundary the old blind
