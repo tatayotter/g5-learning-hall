@@ -71,9 +71,7 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
                 onClick={e => { e.stopPropagation(); playPageFlip(); setLoreMonster(monster); }}
                 className="relative"
               >
-                <span className="ccard-sprite">
-                  <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-4xl" />
-                </span>
+                <MonsterImage monster={monster} className="w-16 h-16" emojiClassName="text-4xl" />
                 <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-white border border-[#8b5e2a] text-[#7a4a0f] text-[11px] font-extrabold flex items-center justify-center shadow-sm z-10">
                   i
                 </span>

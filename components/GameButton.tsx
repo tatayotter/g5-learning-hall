@@ -139,13 +139,14 @@ export const QUIZ_OPTION_STYLES = `
 
 // Shared "curio card" look, lifted verbatim from CurioTrainingPicker.tsx (the
 // "which curio should train?" main-quest picker) — a parchment-gradient tile
-// with a dashed inset border and a circular sprite well, distinct from the
-// flatter QUIZ_OPTION_STYLES above since these are curio-picker cards, not
-// answer options. Inject once per screen via `<style>{CURIO_CARD_STYLES}</style>`,
-// then put `ccard ${selected ? 'ccard-selected' : ''}` on the card button,
-// wrap the sprite in a `ccard-sprite` span, and optionally add a `ccard-tag`
-// (a pill flag pinned to the top edge, e.g. "Active") and/or a `ccard-check`
-// (a green checkmark badge, top-right) for the selected state.
+// with a dashed inset border, distinct from the flatter QUIZ_OPTION_STYLES
+// above since these are curio-picker cards, not answer options. Inject once
+// per screen via `<style>{CURIO_CARD_STYLES}</style>`, then put
+// `ccard ${selected ? 'ccard-selected' : ''}` on the card button and drop the
+// sprite/avatar image straight in — no circular well around it, that's been
+// tried and explicitly rejected twice (2026-09-23). Optionally add a
+// `ccard-tag` (a pill flag pinned to the top edge, e.g. "Active") and/or a
+// `ccard-check` (a green checkmark badge, top-right) for the selected state.
 export const CURIO_CARD_STYLES = `
   .ccard { position:relative; display:flex; flex-direction:column; align-items:center; gap:4px; padding:22px 10px 12px; cursor:pointer;
     border-radius:16px; border:2px solid #8b5e2a; background:linear-gradient(180deg,#fffdf7 0%,#fbf3df 100%);
@@ -153,11 +154,9 @@ export const CURIO_CARD_STYLES = `
   .ccard::before { content:''; position:absolute; inset:4px; border:1px dashed #c9a87a; border-radius:11px; pointer-events:none; }
   .ccard:hover { transform:translateY(-2px); box-shadow:0 6px 0 #8b5e2a, 0 11px 14px rgba(42,21,5,.28); }
   .ccard:active { transform:translateY(3px); box-shadow:0 1px 0 #8b5e2a; }
-  .ccard-sprite { display:flex; padding:6px; border-radius:50%; background:radial-gradient(circle,#f0ddb8 0%,#e8d0a0 70%); border:2px solid #c9a87a; }
   .ccard-lv { font-size:12px; font-weight:800; color:#6b4820; background:#f0ddb8; border:1px solid #c9a87a; border-radius:999px; padding:1px 10px; }
   .ccard-selected { border-color:#c9781a; background:linear-gradient(180deg,#ffe9a8 0%,#f5c95c 100%);
     box-shadow:0 4px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.6), 0 8px 14px rgba(201,120,26,.4); transform:translateY(-1px); }
-  .ccard-selected .ccard-sprite { background:radial-gradient(circle,#fff6d6 0%,#f5c95c 80%); border-color:#c9781a; }
   .ccard-tag { position:absolute; top:-10px; left:50%; transform:translateX(-50%); z-index:2; overflow:hidden; white-space:nowrap;
     background:#f5c542; border:0.0476em solid #000; border-radius:0.508em; padding:.25em .7em; }
   .ccard-check { position:absolute; top:6px; right:8px; width:22px; height:22px; border-radius:50%; background:#22c55e; color:#fff;
