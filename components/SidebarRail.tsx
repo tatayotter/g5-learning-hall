@@ -110,7 +110,7 @@ function HudChip({ icon, iconSrc, value, ring, text, small }: { icon?: string; i
       {iconSrc
         ? <img src={iconSrc} alt="" className={small ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
         : <span aria-hidden>{icon}</span>}
-      <span style={{ color: text }}>{value}</span>
+      <span style={{ color: text, fontFamily: questButtonFontFamily, fontWeight: 400 }}>{value}</span>
     </span>
   );
 }
@@ -198,7 +198,7 @@ export default function SidebarRail({
             }}>
             <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
             <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-            <span className={`text-amber-400 font-bold leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>Lv.{playerLevel}</span>
+            <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
             <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
             <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
             {/* Grade/week only fit alongside everything else once there's
