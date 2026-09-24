@@ -102,6 +102,52 @@ function manilaDate(iso: string): string {
   return new Date(new Date(iso).getTime() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
 }
 
+interface CurioTraining {
+  name: string;
+  exp: number;
+}
+
+// ActiveQuestView's awardTrainingExp writes a curio's "{name} trained +{exp} Curio EXP" line
+// right after the "Completed {subject}" line of the quest that earned it (same save; ~0.2-0.3s
+// apart in real rows), but neither row carries a subject or quest key. Pairing each training
+// line with the NEAREST completion in time recovers the link, which is what puts a curio's
+// training on the card of the quest it came from rather than on the calendar day it happened:
+// a Monday quest finished on Thursday shows its subject reward AND its curio training under
+// Monday. The window is generous on purpose (a quest takes minutes, never seconds, so two
+// completions can't fall inside it). A training line with no completion in range — not
+// something the quest flow writes today — is kept by calendar date instead of being dropped.
+const CURIO_LINK_WINDOW_MS = 15_000;
+
+function linkCurioTrainings(entries: LogEntry[]): {
+  bySubject: Record<string, CurioTraining[]>;
+  unlinkedByDate: Record<string, CurioTraining[]>;
+} {
+  const completions: { subject: string; at: number }[] = [];
+  for (const e of entries) {
+    const m = e.description.match(/^Completed (.+) in \d+ attempt/);
+    if (m) completions.push({ subject: m[1], at: new Date(e.created_at).getTime() });
+  }
+  const bySubject: Record<string, CurioTraining[]> = {};
+  const unlinkedByDate: Record<string, CurioTraining[]> = {};
+  for (const e of entries) {
+    const m = e.description.match(/trained \+(\d+) Curio EXP$/);
+    if (!m) continue;
+    const training: CurioTraining = {
+      name: e.description.slice(0, e.description.indexOf(' trained +')).replace(/^[^\w]+/, '').trim(),
+      exp: Number(m[1]),
+    };
+    const at = new Date(e.created_at).getTime();
+    let best: { subject: string; gap: number } | null = null;
+    for (const c of completions) {
+      const gap = Math.abs(c.at - at);
+      if (gap <= CURIO_LINK_WINDOW_MS && (!best || gap < best.gap)) best = { subject: c.subject, gap };
+    }
+    if (best) (bySubject[best.subject] ||= []).push(training);
+    else (unlinkedByDate[manilaDate(e.created_at)] ||= []).push(training);
+  }
+  return { bySubject, unlinkedByDate };
+}
+
 // One day's card — the curio-picker's parchment card treatment (see
 // DAY_CARD_STYLES above), replacing the trail/waypoint treatment tried and
 // dropped earlier (2026-09-23): a footprint-image trail drew too much
@@ -250,22 +296,10 @@ export default function BoardMapView({
     return map;
   }, [logEntries]);
 
-  // calendar date (YYYY-MM-DD) -> curios that trained that day, from
-  // ActiveQuestView.tsx's awardTrainingExp "{name} trained +{exp} Curio EXP"
-  // log line. No subject/quest_key on these rows, so they can't be
-  // reliably attributed to one specific subject card — shown as a
-  // day-level list instead (see the mid-session decision on this).
-  const curioTrainingByDate = useMemo(() => {
-    const map: Record<string, { name: string; exp: number }[]> = {};
-    for (const e of logEntries) {
-      const m = e.description.match(/trained \+(\d+) Curio EXP$/);
-      if (!m) continue;
-      const name = e.description.slice(0, e.description.indexOf(' trained +')).replace(/^[^\w]+/, '').trim();
-      const date = manilaDate(e.created_at);
-      (map[date] ||= []).push({ name, exp: Number(m[1]) });
-    }
-    return map;
-  }, [logEntries]);
+  // Curio trainings, paired to the quest (subject) that earned each one — see
+  // linkCurioTrainings. Shown as a day-level list on the quest's own day card
+  // (not per subject row), but sourced by quest rather than by calendar day.
+  const curioTrainings = useMemo(() => linkCurioTrainings(logEntries), [logEntries]);
 
   return (
     <div>
@@ -428,7 +462,14 @@ export default function BoardMapView({
           : subjectKeys.length > 0 &&
             subjectKeys.every((subjectName) => (masteredQuizzes || []).includes(`${day}_${subjectName}`));
 
-        const dayCurioTraining = dayFullyMastered ? (curioTrainingByDate[dateForWeekday(weekStartingDate, day)] || []) : [];
+        // This day's quests' curio trainings (in card order), plus any unpaired training that
+        // happened on this calendar day so it isn't silently lost.
+        const dayCurioTraining: CurioTraining[] = dayFullyMastered
+          ? [
+              ...subjectKeys.flatMap((subjectName) => curioTrainings.bySubject[subjectName] || []),
+              ...(curioTrainings.unlinkedByDate[dateForWeekday(weekStartingDate, day)] || []),
+            ]
+          : [];
 
         return (
           <DayCard
