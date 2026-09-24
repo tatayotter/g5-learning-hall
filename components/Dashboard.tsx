@@ -1034,6 +1034,7 @@ export default function Dashboard() {
             bossPoolCounts={bossPoolCounts}
             onChallengeBoss={(subject) => setActiveBossFight(subject)}
             currentDayName={currentDayName}
+            weekStartingDate={data.week_starting_date}
             mainQuestPackageData={mainQuestPackageData}
             gauntletDayPools={gauntletDayPools}
             gauntletDaysDone={gauntletDaysDone}

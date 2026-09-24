@@ -1,5 +1,6 @@
 'use client';
 import type { RefObject } from 'react';
+import { CURIO_CARD_STYLES } from '@/components/GameButton';
 
 export interface ChildFormData {
   fullName: string;
@@ -20,6 +21,13 @@ export function defaultAvatarForGender(gender: 'boy' | 'girl'): string {
     ? '/userpics/userpics_premium/ssg3.png'
     : '/userpics/userpics_premium/ssb3.png';
 }
+
+// Shared parchment input look — same formula as SplashScreen.tsx's login
+// fields, so the signup form's fields read as the same "game" surface
+// instead of a generic stock-Tailwind form.
+const INPUT_CLASS =
+  'w-full rounded-[14px] bg-white border border-[#c9a87a] px-4 py-3 text-base text-[#2a1505] ' +
+  'placeholder:text-[#8b5e2a]/60 outline-none focus:border-[#c9781a] transition-colors';
 
 export const emptyChildForm = (): ChildFormData => ({
   fullName: '',
@@ -50,14 +58,35 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
 
   if (theme === 'light') {
     return (
-      <div className="space-y-3">
+      <div className="space-y-3.5">
+        <style>{CURIO_CARD_STYLES}</style>
         <div className="flex items-center justify-between mb-1">
-          <h3 className="text-sm font-bold text-amber-700 uppercase tracking-wider">{label}</h3>
+          <h3 className="text-sm font-bold text-[#7a4a0f] uppercase tracking-wider">{label}</h3>
           {onRemove && (
             <button type="button" onClick={onRemove} className="text-gray-400 hover:text-red-500 text-sm">
               ✕ Remove
             </button>
           )}
+        </div>
+
+        {/* Pick your hero — boy/girl doubles as the avatar picker, so there's
+            no separate "here's your avatar" afterthought box below. */}
+        <div className="grid grid-cols-2 gap-3">
+          {(['boy', 'girl'] as const).map((g) => {
+            const isSelected = data.gender === g;
+            return (
+              <button
+                key={g}
+                type="button"
+                onClick={() => setGender(g)}
+                className={`ccard ${isSelected ? 'ccard-selected' : ''}`}
+              >
+                <img src={defaultAvatarForGender(g)} alt="" className="w-20 h-20 object-contain" />
+                <span className="text-sm font-extrabold text-[#2a1505]">{g === 'boy' ? 'Boy' : 'Girl'}</span>
+                {isSelected && <span className="ccard-check">✔</span>}
+              </button>
+            );
+          })}
         </div>
 
         <input
@@ -66,29 +95,30 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           placeholder="Full name"
           value={data.fullName}
           onChange={(e) => set('fullName', e.target.value)}
-          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          className={INPUT_CLASS}
           required
         />
 
-        <div className="grid grid-cols-2 gap-3">
-          <select
-            value={data.grade}
-            onChange={(e) => set('grade', e.target.value)}
-            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-amber-400 transition-all"
-          >
-            {GRADES.map((g) => (
-              <option key={g} value={g}>{g}</option>
-            ))}
-          </select>
-
-          <select
-            value={data.gender}
-            onChange={(e) => setGender(e.target.value as 'boy' | 'girl')}
-            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-amber-400 transition-all"
-          >
-            <option value="boy">Boy</option>
-            <option value="girl">Girl</option>
-          </select>
+        {/* Grade — a chip row instead of a native <select>, so it reads as a
+            pick, not a form field. */}
+        <div className="flex flex-wrap gap-2">
+          {GRADES.map((g) => {
+            const isSelected = data.grade === g;
+            return (
+              <button
+                key={g}
+                type="button"
+                onClick={() => set('grade', g)}
+                className={`px-3.5 py-2 rounded-full text-sm font-bold border transition-colors ${
+                  isSelected
+                    ? 'bg-[#c9781a]/20 border-[#c9781a] text-[#7a4a0f]'
+                    : 'bg-white border-[#c9a87a] text-[#6b4820] hover:border-[#c9781a] hover:bg-[#f0ddb8]'
+                }`}
+              >
+                {g}
+              </button>
+            );
+          })}
         </div>
 
         <input
@@ -96,7 +126,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           placeholder="School name"
           value={data.schoolName}
           onChange={(e) => set('schoolName', e.target.value)}
-          className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+          className={INPUT_CLASS}
           required
         />
 
@@ -106,7 +136,7 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
             placeholder="Username"
             value={data.username}
             onChange={(e) => set('username', e.target.value)}
-            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+            className={INPUT_CLASS}
             required
           />
           <input
@@ -115,17 +145,14 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
             placeholder="4-digit PIN"
             value={data.pin}
             onChange={(e) => set('pin', e.target.value.replace(/\D/g, '').slice(0, 4))}
-            className="rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 placeholder-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
+            className={INPUT_CLASS}
             required
           />
         </div>
 
-        <div className="flex items-center gap-3 bg-amber-50 border border-amber-100 rounded-xl px-3 py-2.5">
-          <img src={data.avatar} alt="avatar preview" className="w-10 h-10 object-contain" />
-          <p className="text-sm text-gray-500 leading-tight">
-            Your starting avatar — change it anytime from your profile after signing up.
-          </p>
-        </div>
+        <p className="text-center text-[11px] text-[#8b5e2a]">
+          You can change your look anytime from your profile after signing up.
+        </p>
       </div>
     );
   }

@@ -97,9 +97,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
                   </span>
                 </span>
               )}
-              <span className="ccard-sprite">
-                <MonsterImage monster={def} className="w-16 h-16" emojiClassName="text-4xl" />
-              </span>
+              <MonsterImage monster={def} className="w-16 h-16" emojiClassName="text-4xl" />
               <span className="text-sm font-extrabold text-[#2a1505] truncate max-w-full">{c.nickname || def?.name || c.monster_id}</span>
               <span className="ccard-lv">
                 Lv.{c.monster_level}{c.slot != null ? '' : ' · bench'}

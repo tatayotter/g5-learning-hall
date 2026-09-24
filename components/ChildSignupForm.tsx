@@ -6,6 +6,7 @@ import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSes
 import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
+import GameButton from '@/components/GameButton';
 import { validateReferralCode } from '@/lib/referral';
 
 interface ChildSignupFormProps {
@@ -115,8 +116,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
 
       {/* Referral code */}
       <div className="space-y-2">
-        <label className="block text-sm font-bold text-amber-700 uppercase tracking-wider">
-          Referral Code <span className="text-stone-400 font-normal normal-case">— optional</span>
+        <label className="block text-sm font-bold text-[#7a4a0f] uppercase tracking-wider">
+          Referral Code <span className="text-[#8b5e2a]/70 font-normal normal-case">— optional</span>
         </label>
         <div className="relative">
           <input
@@ -125,24 +126,24 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
             placeholder="e.g. aB3z"
             value={referralCode}
             onChange={(e) => setReferralCode(e.target.value)}
-            className={`w-full rounded-xl px-4 py-3 bg-[#ffffff] border font-mono text-base tracking-widest
-                        text-gray-900 placeholder-stone-400 outline-none transition-all
+            className={`w-full rounded-[14px] px-4 py-3 bg-white border font-mono text-base tracking-widest
+                        text-[#2a1505] placeholder:text-[#8b5e2a]/60 outline-none transition-colors
                         ${referralState === 'valid'
-                          ? 'border-green-400 focus:border-green-500 focus:ring-2 focus:ring-green-100'
+                          ? 'border-green-500 focus:border-green-600'
                           : referralState === 'invalid'
-                          ? 'border-amber-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-100'
-                          : 'border-stone-300 focus:border-amber-400 focus:ring-2 focus:ring-amber-100'}`}
+                          ? 'border-amber-400 focus:border-amber-500'
+                          : 'border-[#c9a87a] focus:border-[#c9781a]'}`}
           />
           {referralState === 'checking' && (
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-stone-400">
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-[#8b5e2a]/70">
               Checking…
             </span>
           )}
         </div>
 
         {referralState === 'valid' && (
-          <div className="flex items-start gap-2 bg-green-50 border border-green-200 rounded-xl px-3 py-2">
-            <span className="text-green-500 mt-0.5">✓</span>
+          <div className="flex items-start gap-2 bg-green-50 border border-green-200 rounded-[14px] px-3 py-2">
+            <span className="text-green-600 font-bold mt-0.5">✔</span>
             <p className="text-sm text-green-700">
               Code from <span className="font-bold">{referralReferrerName}</span> — you&apos;ll receive{' '}
               <span className="font-bold">1 Growth Pill + 100 Gold</span> on your first login!
@@ -150,35 +151,35 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
           </div>
         )}
         {referralState === 'invalid' && (
-          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
-            <span className="text-amber-500 mt-0.5">⚠</span>
+          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-[14px] px-3 py-2">
+            <span className="text-amber-600 font-bold mt-0.5">!</span>
             <p className="text-sm text-amber-700">
               That code wasn&apos;t found — double-check it, or leave it blank to continue.
             </p>
           </div>
         )}
         {referralState === 'idle' && referralCode.trim().length === 0 && (
-          <p className="text-sm text-stone-400 flex items-center gap-1">
-            🎁 Have a friend&apos;s code? Enter it to earn bonus Gold on signup!
+          <p className="text-sm text-[#8b5e2a]/80">
+            Have a friend&apos;s code? Enter it to earn bonus Gold on signup!
           </p>
         )}
       </div>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
+        <div className="bg-red-50 border border-red-200 rounded-[14px] px-3 py-2">
           <p className="text-base text-red-600">{error}</p>
         </div>
       )}
 
-      <button
+      <GameButton
         type="submit"
+        variant="quest"
         disabled={submitting}
-        className="w-full rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700
-                   disabled:opacity-50 text-[#ffffff] font-bold py-3.5 text-lg
-                   shadow-lg shadow-amber-500/30 transition-all"
+        className="w-full"
+        style={{ fontSize: 17 }}
       >
-        {submitting ? 'Creating your hero…' : '⚔️ Start Your Adventure!'}
-      </button>
+        {submitting ? 'Creating your hero…' : 'Start Your Adventure!'}
+      </GameButton>
 
       <p className="text-center text-sm text-stone-400 leading-relaxed">
         You can play right away. Link a parent email later from inside the game to
