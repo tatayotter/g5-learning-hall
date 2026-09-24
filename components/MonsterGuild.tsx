@@ -1171,6 +1171,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {/* Map view — World Map region picker, or the selected region's Training Map. */}
       {view === 'map' && battleState && (
         <MapView
+          // TrainingMap's map-loading effect runs once per mount (empty deps
+          // — see its own comment) on the assumption that changing regions
+          // remounts it; nothing previously gave it a key to force that, so
+          // onEnterRegion (portal walk-ins, or a direct region-access button)
+          // updated `regionId` but the old map/background silently stuck
+          // around. Keying by region forces the intended clean remount.
+          key={activeRegion}
           userId={userId}
           battleState={battleState}
           userMonsters={userMonsters}
