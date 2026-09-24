@@ -86,6 +86,7 @@ export type MapBackground =
       tileSize: number;
       belowPlayerLayers: string[];
       abovePlayerLayers: string[];
+      layerOpacity?: Record<string, number>;
     };
 
 export interface MapCanvasSyncState {
@@ -103,6 +104,8 @@ export interface MapCanvasSyncState {
    *  CSS scale crops both sides. Used to tighten the camera clamp so the
    *  player sprite stays within the visible viewport. */
   visibleCanvasW?: number;
+  /** Tilemap camera zoom (player-adjustable); defaults to TILE_ART_ZOOM. */
+  zoom?: number;
   /** Trash items to render below the foliage layer (depth 9). */
   trashItems?: Array<{ id: string; type: string; x: number; y: number }>;
   /** IDs of trash items currently in pickup animation. */
@@ -283,6 +286,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private lastMapWidth = 0;
   private lastMapHeight = 0;
   private visibleCanvasW = CANVAS_WIDTH;
+  private zoom = TILE_ART_ZOOM;
   // Whether the follow offset has ever been placed for the current tilemap —
   // the very first placement snaps instead of tweening (see applyState).
   private followInitialized = false;
@@ -414,8 +418,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       return { tileW: CANVAS_WIDTH / mapWidth, tileH: CANVAS_HEIGHT / mapHeight, offsetX: 0, offsetY: 0 };
     }
     const { tileSize } = background;
-    const tileW = tileSize * TILE_ART_ZOOM;
-    const tileH = tileSize * TILE_ART_ZOOM;
+    const tileW = tileSize * this.zoom;
+    const tileH = tileSize * this.zoom;
     const mapPixelW = mapWidth * tileW;
     const mapPixelH = mapHeight * tileH;
     const playerCenterX = (selfX + 0.5) * tileW;
@@ -510,6 +514,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (state.visibleCanvasW !== undefined) this.visibleCanvasW = state.visibleCanvasW;
     const prevTransform = this.lastTransform;
     const prevTileH = this.lastTransform.tileH;
+    if (state.zoom !== undefined && state.zoom !== this.zoom) this.applyZoom(state.zoom);
     if (this.self) {
       // Once the self sprite exists, updateSelfPosition() (called every
       // animation frame from MapCanvas.tsx's continuous-movement loop) is
@@ -559,6 +564,19 @@ export default class TrainingMapScene extends Phaser.Scene {
     // sound there) but this scene no longer reacts to it visually.
     this.lastBumping = state.bumping;
     this.lastStepping = state.stepping;
+  }
+
+  // Player changed the camera zoom: everything sized against the old tile
+  // size (tilemap layer scale, trash sprites, shadows) is rescaled by the
+  // ratio. Self/other sprites are refit by applyState's tileH-change check,
+  // and the recycler is rebuilt on every sync anyway.
+  private applyZoom(next: number) {
+    const ratio = next / this.zoom;
+    this.zoom = next;
+    for (const layer of this.tilemapLayers) layer.setScale(next);
+    for (const [, entry] of this.trashTexts) entry.sprite.setScale(entry.sprite.scaleX * ratio);
+    const shadows = [this.self?.shadow, ...[...this.others.values()].map(o => o.shadow)];
+    for (const sh of shadows) if (sh?.active) sh.setScale(sh.scaleX * ratio, sh.scaleY * ratio);
   }
 
   // Moves the tilemap layers to lastTransform's offset — snapping on first
@@ -649,7 +667,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         // TilemapLayer's alpha in a state its WebGL renderer treats as
         // invisible unless explicitly set — without this the layer never
         // draws a single pixel despite otherwise reporting fully built.
-        layer.setAlpha(1);
+        layer.setAlpha(bg.layerOpacity?.[layerName] ?? 1);
         layer.setScale(scale);
         const isAbove = bg.abovePlayerLayers.includes(layerName);
         layer.setDepth(isAbove ? 11 + depth : depth);

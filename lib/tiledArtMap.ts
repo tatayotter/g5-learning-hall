@@ -30,13 +30,27 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'TileSet': '/tilesets/forgotten-memories/TileSet.png',
   'Trees': '/tilesets/forgotten-memories/Trees.png',
   'Trees_seperated': '/tilesets/forgotten-memories/Trees_seperated.png',
+  'Town Props 2': '/tilesets/forgotten-memories/Town_Props_2.png',
   'WaterTiles-6frames': '/tilesets/forgotten-memories/WaterTiles-6frames.png',
 };
 
 export interface TiledArtLayer {
   name: string;
   data: number[];
+  opacity: number;
 }
+
+// The fixed layer contract every tile-art map follows (see
+// public/maps-tiled-art/README.md). Role order is also draw order.
+type LayerRole = 'ground' | 'detail' | 'shadows' | 'base' | 'top';
+const ROLE_BY_NAME: Record<string, LayerRole> = {
+  'ground': 'ground',
+  'ground detail': 'detail',
+  'shadows': 'shadows',
+  'objects base': 'base',
+  'objects top': 'top',
+};
+const ROLE_ORDER: LayerRole[] = ['ground', 'detail', 'shadows', 'base', 'top'];
 
 export interface TiledArtPortal {
   x: number;
@@ -52,8 +66,11 @@ export interface TiledArtMap {
   tileSize: number;
   belowPlayerLayers: string[];
   abovePlayerLayers: string[];
+  layerOpacity: Record<string, number>;
   layout: MapTile[][];
   spawn: { x: number; y: number };
+  // Optional "Recycler" object layer point; null → caller falls back to RECYCLER_TILES.
+  recycler: { x: number; y: number } | null;
   // Walkable tiles that transition to another region when stepped on — see
   // the "Portals" objectgroup convention documented in
   // public/maps-tiled-art/README.md.
@@ -187,40 +204,61 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
   const tilesetEls = Array.from(mapEl.querySelectorAll(':scope > tileset'));
   const tilesets = await Promise.all(tilesetEls.map(el => resolveTileset(el, tmxUrl)));
 
+  // Layer contract: Ground, Ground Detail, Shadows, Objects Base (solid, draws
+  // behind the player), Objects Top (never solid, draws in front of the
+  // player). Hidden layers are skipped; unknown names are warned about and
+  // skipped rather than guessed at.
   const layerEls = Array.from(mapEl.querySelectorAll(':scope > layer'));
-  const layers: TiledArtLayer[] = layerEls.map(layerEl => ({
-    name: attr(layerEl, 'name'),
-    data: parseCsvLayerData(layerEl.querySelector('data')!),
-  }));
-
-  // Everything from the first layer literally named "Above Player" (inclusive)
-  // onward renders in front of the player sprite; everything before it stays
-  // behind. A map with no such layer just renders entirely behind the player.
-  const aboveIdx = layers.findIndex(l => l.name.trim().toLowerCase() === 'above player');
-  const belowPlayerLayers = (aboveIdx === -1 ? layers : layers.slice(0, aboveIdx)).map(l => l.name);
-  const abovePlayerLayers = (aboveIdx === -1 ? [] : layers.slice(aboveIdx)).map(l => l.name);
+  const roleOf = new Map<string, LayerRole>();
+  const layers: TiledArtLayer[] = [];
+  for (const layerEl of layerEls) {
+    const name = attr(layerEl, 'name');
+    if (attr(layerEl, 'visible') === '0') continue;
+    const role = ROLE_BY_NAME[name.trim().toLowerCase()];
+    if (!role) {
+      console.warn(`[tiledArtMap] Unknown tile layer "${name}" in ${tmxUrl} — skipped. Valid: Ground, Ground Detail, Shadows, Objects Base, Objects Top.`);
+      continue;
+    }
+    roleOf.set(name, role);
+    layers.push({
+      name,
+      data: parseCsvLayerData(layerEl.querySelector('data')!),
+      opacity: attr(layerEl, 'opacity') === '' ? 1 : Number(attr(layerEl, 'opacity')),
+    });
+  }
+  if (!layers.some(l => roleOf.get(l.name) === 'ground')) {
+    throw new Error(`${tmxUrl} has no visible "Ground" tile layer.`);
+  }
+  layers.sort((a, b) => ROLE_ORDER.indexOf(roleOf.get(a.name)!) - ROLE_ORDER.indexOf(roleOf.get(b.name)!));
+  const belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
+  const abovePlayerLayers = layers.filter(l => roleOf.get(l.name) === 'top').map(l => l.name);
+  const layerOpacity: Record<string, number> = {};
+  for (const l of layers) layerOpacity[l.name] = l.opacity;
 
   // Collision: any objectgroup whose name contains "collision" contributes
   // blocking rects. Everything else stays walkable (and, per this map's
   // design, doubles as a wild-encounter tile — there's no separate "town"
   // tile type here).
   const objectGroupEls = Array.from(mapEl.querySelectorAll(':scope > objectgroup'));
-  const collisionRects: Rect[] = [];
   const noEncounterRects: Rect[] = [];
   const portals: TiledArtPortal[] = [];
   let spawnTile = { x: 1, y: 1 };
+  let recyclerTile: { x: number; y: number } | null = null;
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/collision/i.test(groupName)) {
-      collisionRects.push(...objectEls.map(parseObjectRect));
-    } else if (/encounter/i.test(groupName)) {
+    if (/encounter/i.test(groupName)) {
       noEncounterRects.push(...objectEls.map(parseObjectRect));
     } else if (/spawn/i.test(groupName)) {
       const spawnEl = objectEls.find(o => /spawn/i.test(attr(o, 'name'))) ?? objectEls[0];
       if (spawnEl) {
         const rect = parseObjectRect(spawnEl);
         spawnTile = { x: Math.floor(rect.x / tileWidth), y: Math.floor(rect.y / tileHeight) };
+      }
+    } else if (/recycler/i.test(groupName)) {
+      if (objectEls[0]) {
+        const rect = parseObjectRect(objectEls[0]);
+        recyclerTile = { x: Math.floor(rect.x / tileWidth), y: Math.floor(rect.y / tileHeight) };
       }
     } else if (/portal/i.test(groupName)) {
       for (const objectEl of objectEls) {
@@ -242,6 +280,7 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     }
   }
 
+  const baseLayers = layers.filter(l => roleOf.get(l.name) === 'base');
   const layout: MapTile[][] = [];
   for (let y = 0; y < mapHeight; y++) {
     const row: MapTile[] = [];
@@ -249,22 +288,17 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
       const cx = (x + 0.5) * tileWidth;
       const cy = (y + 0.5) * tileHeight;
       const inRect = (r: Rect) => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height;
-      const blocked = collisionRects.some(inRect);
+      // Painted means blocked: any tile on an Objects Base layer is solid.
+      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0);
       const noEncounter = !blocked && noEncounterRects.some(inRect);
       row.push({ type: blocked ? 'wall' : noEncounter ? 'path' : 'grass' });
     }
     layout.push(row);
   }
 
-  // Any tile the "Trees" layer (trunks/lower canopy, below the player) or
-  // "Above Player" layer (tree-tops, drawn over the player) draws a
-  // non-empty (gid !== 0) tile onto — a tree's visual canopy typically
-  // extends well beyond its trunk's much smaller collision rect, and spans
-  // both layers, so this is a separate, wider exclusion than 'wall'.
-  const foliageLayers = layers.filter(l => {
-    const n = l.name.trim().toLowerCase();
-    return n === 'trees' || n === 'above player';
-  });
+  // Foliage = anything drawn on Objects Top (canopy that covers the player);
+  // used only to keep spawned markers from hiding under it.
+  const foliageLayers = layers.filter(l => roleOf.get(l.name) === 'top');
   const foliage: boolean[][] = [];
   for (let y = 0; y < mapHeight; y++) {
     const row: boolean[] = [];
@@ -284,7 +318,7 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     tileheight: tileHeight,
     orientation: 'orthogonal',
     renderorder: 'right-down',
-    layers: layers.map(l => ({ type: 'tilelayer', name: l.name, width: mapWidth, height: mapHeight, data: l.data })),
+    layers: layers.map(l => ({ type: 'tilelayer', name: l.name, width: mapWidth, height: mapHeight, data: l.data, opacity: l.opacity, visible: true })),
     tilesets: tilesets.map(ts => ({
       firstgid: ts.firstgid,
       name: ts.name,
@@ -308,8 +342,10 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     tileSize: tileWidth,
     belowPlayerLayers,
     abovePlayerLayers,
+    layerOpacity,
     layout,
     spawn: spawnTile,
+    recycler: recyclerTile,
     portals,
     foliage,
   };

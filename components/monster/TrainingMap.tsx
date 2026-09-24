@@ -247,7 +247,8 @@ export default function TrainingMap({
   const [foliage, setFoliage] = useState<boolean[][] | null>(null);
   const [lockedPortalMsg, setLockedPortalMsg] = useState<string | null>(null);
 
-  const recyclerTile = RECYCLER_TILES[activeRegion.id] ?? null;
+  const [mapRecycler, setMapRecycler] = useState<{ x: number; y: number } | null>(null);
+  const recyclerTile = mapRecycler ?? RECYCLER_TILES[activeRegion.id] ?? null;
   useEffect(() => {
     let cancelled = false;
     if (activeRegion.tileArtPath) {
@@ -263,8 +264,10 @@ export default function TrainingMap({
           tileSize: parsed.tileSize,
           belowPlayerLayers: parsed.belowPlayerLayers,
           abovePlayerLayers: parsed.abovePlayerLayers,
+          layerOpacity: parsed.layerOpacity,
         });
         setPortals(parsed.portals);
+        setMapRecycler(parsed.recycler);
         setFoliage(parsed.foliage);
         // Ledger's Heart persists position to the DB, so a player whose saved
         // spot no longer exists on a re-authored map (out of bounds, or now
