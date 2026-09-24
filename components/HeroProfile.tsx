@@ -20,6 +20,22 @@ import { MonsterImage } from '@/components/battle/shared';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import { getMyReferralKey } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
+import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+
+// Section-title treatment shared by every stat panel below — same Bungee/
+// stroke/shadow quest-text recipe as the Active Campaign Map's day headings
+// (components/dashboard/board/BoardMapView.tsx), in the same muted gold used
+// there for a non-"today" day so it reads as a heading, not a CTA.
+function SectionHeading({ children }: { children: string }) {
+  return (
+    <h2 className="text-lg" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+      <span style={{ position: 'relative', display: 'inline-block' }}>
+        <span aria-hidden style={questTextShadowStyle}>{children}</span>
+        <span style={{ ...questTextStyle, color: '#c9781a' }}>{children}</span>
+      </span>
+    </h2>
+  );
+}
 
 // Scene grid: 3 cols × 2 rows (back row behind, front row in front)
 const GRID_CELLS = [
@@ -282,7 +298,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   return (
     <div>
       {/* ===== TRAINER CARD — 2-column scene layout ===== */}
-      <div className="bg-white border border-stone-200 rounded-2xl overflow-hidden shadow-sm mb-6 flex flex-col lg:flex-row">
+      <div className="bg-white border border-[#c9a87a] rounded-2xl overflow-hidden shadow-sm mb-6 flex flex-col lg:flex-row">
 
         {/* LEFT — scene panel */}
         <div
@@ -304,9 +320,9 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
             onClick={() => { playPageFlip(); setEditMode(m => !m); setDragging(null); setHoverCell(null); }}
             title={editMode ? 'Exit arrange mode' : 'Drag to move · Tap to flip'}
             className="absolute top-2 right-2 z-30 text-[11px] font-bold px-2 py-1 rounded-full backdrop-blur-sm transition-colors"
-            style={{ background: editMode ? 'rgba(251,191,36,0.85)' : 'rgba(0,0,0,0.35)', color: editMode ? '#000' : '#fff' }}
+            style={{ background: editMode ? 'rgba(245,197,66,0.9)' : 'rgba(0,0,0,0.35)', color: editMode ? '#2a1505' : '#fff' }}
           >
-            {editMode ? '✓ Done' : '✏️ Arrange'}
+            {editMode ? '✓ Done' : 'Arrange'}
           </button>
 
           {/* Grid cell targets — visible in edit mode */}
@@ -318,7 +334,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
                 key={i}
                 className={`absolute w-12 h-12 rounded-full -translate-x-1/2 -translate-y-1/2 border-2 border-dashed transition-all pointer-events-none ${
                   editMode ? 'opacity-100' : 'opacity-0'
-                } ${isHover ? 'border-amber-400 bg-amber-400/25 scale-125' : isBack ? 'border-white/25' : 'border-white/40'}`}
+                } ${isHover ? 'border-[#f5c542] bg-[#f5c542]/25 scale-125' : isBack ? 'border-white/25' : 'border-white/40'}`}
                 style={{ left: cell.left, bottom: cell.bottom }}
               />
             );
@@ -384,23 +400,23 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
         </div>
 
         {/* RIGHT — stats panel */}
-        <div className="lg:w-7/12 p-6 flex flex-col gap-4" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
+        <div className="lg:w-7/12 p-6 flex flex-col gap-4 bg-white">
 
           {/* Name + floating level badge */}
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <h2 className="text-2xl font-bold text-gray-900 leading-tight truncate">
+              <h2 className="text-2xl font-bold text-[#2a1505] leading-tight truncate">
                 {activeUser?.fullName || 'Hero'}
               </h2>
-              <span className="inline-flex items-center gap-1 bg-amber-100 border border-amber-300 text-amber-800 text-xs font-extrabold uppercase tracking-wide px-2.5 py-0.5 rounded-full mt-1">
+              <span className="inline-flex items-center gap-1 bg-[#f0ddb8] border border-[#c9a87a] text-[#7a4a0f] text-xs font-extrabold uppercase tracking-wide px-2.5 py-0.5 rounded-full mt-1">
                 {currentTitle.icon} {currentTitle.title}
               </span>
               {nextTitle && (
-                <p className="text-[11px] text-gray-400 mt-1">↑ {nextTitle.icon} {nextTitle.title} at Lv {nextTitle.minLevel}</p>
+                <p className="text-[11px] text-[#8b5e2a] mt-1">↑ {nextTitle.icon} {nextTitle.title} at Lv {nextTitle.minLevel}</p>
               )}
             </div>
-            <div className="flex-shrink-0 bg-amber-500 text-white rounded-2xl px-3 py-2 text-center min-w-[52px]">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-amber-100 leading-none mb-0.5">LVL</p>
+            <div className="flex-shrink-0 bg-[#c9781a] text-white rounded-2xl px-3 py-2 text-center min-w-[52px]">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-[#f0ddb8] leading-none mb-0.5">LVL</p>
               <p className="text-2xl font-black font-mono leading-none">{level}</p>
             </div>
           </div>
@@ -408,18 +424,18 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
           {/* XP bar */}
           <div>
             <div className="flex justify-between text-[11px] mb-1.5">
-              <span className="font-bold text-gray-500 uppercase tracking-wide">Experience</span>
-              <span className="font-mono text-gray-400">{xp.toLocaleString()} / {xpNeeded.toLocaleString()}</span>
+              <span className="font-bold text-[#6b4820] uppercase tracking-wide">Experience</span>
+              <span className="font-mono text-[#8b5e2a]">{xp.toLocaleString()} / {xpNeeded.toLocaleString()}</span>
             </div>
-            <div className="w-full bg-stone-200 rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-[#e8d0a0]/60 rounded-full h-3 overflow-hidden">
               <div
                 className="h-3 rounded-full transition-all duration-500"
-                style={{ width: `${progressPercentage}%`, background: 'linear-gradient(90deg, #059669, #34d399)' }}
+                style={{ width: `${progressPercentage}%`, background: 'linear-gradient(90deg, #c9781a, #f5c542)' }}
               />
             </div>
           </div>
 
-          <div className="border-t border-stone-100" />
+          <div className="border-t border-[#c9a87a]/40" />
 
           {/* Icon-driven stats */}
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
@@ -440,8 +456,8 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
                   <span className="text-xl leading-none flex-shrink-0">{icon}</span>
                 )}
                 <div className="min-w-0">
-                  <p className="text-[10px] text-gray-400 uppercase tracking-wide leading-none">{label}</p>
-                  <p className={`font-bold font-mono text-base leading-tight ${isGold ? 'text-amber-600' : 'text-gray-900'}`}>{value}</p>
+                  <p className="text-[10px] text-[#8b5e2a] uppercase tracking-wide leading-none">{label}</p>
+                  <p className={`font-bold font-mono text-base leading-tight ${isGold ? 'text-[#c9781a]' : 'text-[#2a1505]'}`}>{value}</p>
                 </div>
               </div>
             ))}
@@ -450,34 +466,34 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
       </div>
 
       {/* --- Career Totals --- */}
-      <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
-        <div className="flex justify-between items-center border-b border-stone-100 pb-4 mb-5">
-          <h2 className="text-xl font-bold text-gray-900">Career Totals</h2>
+      <div className="border border-[#c9a87a] bg-white p-6 rounded-xl shadow-sm mb-6">
+        <div className="flex justify-between items-center border-b border-[#c9a87a]/40 pb-4 mb-5">
+          <SectionHeading>Career Totals</SectionHeading>
         </div>
         <div className="grid grid-cols-3 gap-3 text-center">
           {careerTiles.map(tile => (
-            <div key={tile.label} className="bg-stone-50 border border-stone-200 rounded-xl p-3">
-              <p className="text-[10px] text-gray-400 uppercase tracking-wide leading-tight">{tile.label}</p>
-              <p className="font-bold text-gray-900 text-sm mt-0.5">{tile.value}</p>
+            <div key={tile.label} className="bg-[#f5f0e8] border border-[#c9a87a] rounded-xl p-3">
+              <p className="text-[10px] text-[#8b5e2a] uppercase tracking-wide leading-tight">{tile.label}</p>
+              <p className="font-bold text-[#2a1505] text-sm mt-0.5">{tile.value}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* --- Battle Record (This Week / Lifetime toggle) --- */}
-      <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
-        <div className="flex items-center justify-between border-b border-stone-100 pb-4 mb-5">
-          <h2 className="text-xl font-bold text-gray-900">Battle Record</h2>
-          <div className="flex bg-stone-100 border border-stone-200 rounded-full p-0.5 text-xs font-bold">
+      <div className="border border-[#c9a87a] bg-white p-6 rounded-xl shadow-sm mb-6">
+        <div className="flex items-center justify-between border-b border-[#c9a87a]/40 pb-4 mb-5">
+          <SectionHeading>Battle Record</SectionHeading>
+          <div className="flex bg-[#f5f0e8] border border-[#c9a87a] rounded-full p-0.5 text-xs font-bold">
             <button
               onClick={() => { playPageFlip(); setBattleView('week'); }}
-              className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'week' ? 'bg-amber-500 text-white' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'week' ? 'bg-[#c9781a] text-white' : 'text-[#6b4820] hover:text-[#2a1505]'}`}
             >
               This Week
             </button>
             <button
               onClick={() => { playPageFlip(); setBattleView('lifetime'); }}
-              className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'lifetime' ? 'bg-amber-500 text-white' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`px-2.5 py-1 rounded-full transition-colors ${battleView === 'lifetime' ? 'bg-[#c9781a] text-white' : 'text-[#6b4820] hover:text-[#2a1505]'}`}
             >
               Lifetime
             </button>
@@ -485,9 +501,9 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
           {battleTiles.map(tile => (
-            <div key={tile.label} className="bg-stone-50 border border-stone-200 rounded-xl p-3">
-              <p className="text-[10px] text-gray-400 uppercase tracking-wide leading-tight">{tile.label}</p>
-              <p className="font-bold text-gray-900 text-sm mt-0.5">
+            <div key={tile.label} className="bg-[#f5f0e8] border border-[#c9a87a] rounded-xl p-3">
+              <p className="text-[10px] text-[#8b5e2a] uppercase tracking-wide leading-tight">{tile.label}</p>
+              <p className="font-bold text-[#2a1505] text-sm mt-0.5">
                 {battleView === 'lifetime' && lifetimeLoading ? '…' : tile.value}
               </p>
             </div>
@@ -496,26 +512,26 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
       </div>
 
       {/* --- Achievements Summary --- */}
-      <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
-        <div className="flex items-center justify-between border-b border-stone-100 pb-4 mb-5">
-          <h2 className="text-xl font-bold text-gray-900">Achievements</h2>
+      <div className="border border-[#c9a87a] bg-white p-6 rounded-xl shadow-sm mb-6">
+        <div className="flex items-center justify-between border-b border-[#c9a87a]/40 pb-4 mb-5">
+          <SectionHeading>Achievements</SectionHeading>
           {onViewAchievements && (
             <button
               onClick={() => { playPageFlip(); onViewAchievements(); }}
-              className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors"
+              className="text-xs font-bold text-[#6b4820] hover:text-[#2a1505] transition-colors"
             >
               View All →
             </button>
           )}
         </div>
-        <p className="text-xs text-gray-400 mb-3">{unlockedAchievements.length} of {ACHIEVEMENTS.length} unlocked</p>
+        <p className="text-xs text-[#8b5e2a] mb-3">{unlockedAchievements.length} of {ACHIEVEMENTS.length} unlocked</p>
         {unlockedAchievements.length === 0 ? (
-          <p className="text-xs text-gray-400">No achievements unlocked yet — get out there!</p>
+          <p className="text-xs text-[#8b5e2a]">No achievements unlocked yet — get out there!</p>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
             {unlockedAchievements.slice(-6).reverse().map(a => (
-              <div key={a.id} className="bg-amber-50 border border-amber-200 rounded-xl p-2.5">
-                <p className="text-xs font-bold text-gray-900 leading-tight">{a.title}</p>
+              <div key={a.id} className="bg-[#f0ddb8] border border-[#c9a87a] rounded-xl p-2.5">
+                <p className="text-xs font-bold text-[#2a1505] leading-tight">{a.title}</p>
               </div>
             ))}
           </div>
@@ -523,18 +539,18 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
       </div>
 
       {/* --- Cosmetics --- */}
-      <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fefce8 0%, #ffffff 55%)' }}>
-        <div className="flex items-center justify-between border-b border-stone-100 pb-4 mb-5">
-          <h2 className="text-xl font-bold text-gray-900">Your Cosmetics</h2>
+      <div className="border border-[#c9a87a] bg-white p-6 rounded-xl shadow-sm mb-6">
+        <div className="flex items-center justify-between border-b border-[#c9a87a]/40 pb-4 mb-5">
+          <SectionHeading>Your Cosmetics</SectionHeading>
           <button
             onClick={() => { playPageFlip(); setPickerOpen(true); }}
-            className="text-xs font-bold text-amber-600 hover:text-amber-700 transition-colors"
+            className="text-xs font-bold text-[#6b4820] hover:text-[#2a1505] transition-colors"
           >
             All Avatars →
           </button>
         </div>
         {ownedUserpics.length === 0 ? (
-          <p className="text-xs text-gray-400">No unlocked trainer sprites yet — check the Curio Arena Shop.</p>
+          <p className="text-xs text-[#8b5e2a]">No unlocked trainer sprites yet — check the Curio Arena Shop.</p>
         ) : (
           <div className="grid grid-cols-5 sm:grid-cols-8 gap-2">
             {ownedUserpics.map(item => {
@@ -547,16 +563,16 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
                   onClick={() => { playPageFlip(); handleQuickSwitch(avatar); }}
                   disabled={!!switchingAvatar}
                   title={item.name}
-                  className={`relative aspect-square rounded-lg border-2 overflow-hidden bg-stone-100 transition-all disabled:opacity-50 ${
-                    isCurrent ? 'border-amber-400' : 'border-stone-200 hover:border-stone-400'
+                  className={`relative aspect-square rounded-lg border-2 overflow-hidden bg-[#f5f0e8] transition-all disabled:opacity-50 ${
+                    isCurrent ? 'border-[#c9781a]' : 'border-[#c9a87a] hover:border-[#8b5e2a]'
                   }`}
                 >
                   <img src={avatar} alt={item.name} className="w-full h-full object-contain bg-neutral-950" />
                   {isCurrent && (
-                    <span className="absolute bottom-0.5 right-0.5 bg-amber-500 text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
+                    <span className="absolute bottom-0.5 right-0.5 bg-[#c9781a] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">✓</span>
                   )}
                   {isSwitching && (
-                    <span className="absolute inset-0 bg-white/70 flex items-center justify-center text-xs text-gray-700">...</span>
+                    <span className="absolute inset-0 bg-white/70 flex items-center justify-center text-xs text-[#3a2610]">...</span>
                   )}
                 </button>
               );
@@ -567,10 +583,10 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
 
       {/* --- Referral --- */}
       {referralKey && (
-        <div className="border border-stone-200 p-6 rounded-xl shadow-sm mb-6" style={{ background: 'linear-gradient(150deg, #fffbeb 0%, #ffffff 55%)' }}>
-          <h2 className="text-xl font-bold text-gray-900 border-b border-stone-100 pb-4 mb-5">
-            Invite Friends
-          </h2>
+        <div className="border border-[#c9a87a] bg-white p-6 rounded-xl shadow-sm mb-6">
+          <div className="border-b border-[#c9a87a]/40 pb-4 mb-5">
+            <SectionHeading>Invite Friends</SectionHeading>
+          </div>
           <ReferralKeyDisplay referralKey={referralKey} />
         </div>
       )}
