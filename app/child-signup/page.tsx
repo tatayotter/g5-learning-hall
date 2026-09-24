@@ -51,8 +51,12 @@ export default async function ChildSignupPage({
         </div>
 
         <div
-          className="rounded-2xl shadow-2xl p-6"
-          style={{ background: 'linear-gradient(160deg, #fef9f0 0%, #fffdf7 100%)', border: '1px solid rgba(180,130,60,0.2)' }}
+          className="rounded-2xl p-6"
+          style={{
+            background: 'linear-gradient(160deg, #fef9f0 0%, #fffdf7 100%)',
+            border: '2px solid #c9a87a',
+            boxShadow: '0 6px 0 #8b5e2a, 0 14px 24px rgba(42,21,5,0.35)',
+          }}
         >
           <ChildSignupForm source={source} initialReferralCode={initialReferralCode} />
         </div>

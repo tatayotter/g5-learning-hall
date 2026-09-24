@@ -1,5 +1,6 @@
 'use client';
 import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
@@ -63,6 +64,7 @@ function RosterAvatar({
 }
 
 export default function SplashScreen({ onSelect }: SplashScreenProps) {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
@@ -435,19 +437,25 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               transition={{ delay: 0.45 }}
               className="flex gap-2.5 w-full"
             >
-              <a
-                href="/child-signup"
-                className="flex-1 text-center rounded-full bg-[#f5c542] text-[#2a1505] font-extrabold text-[13px] py-3 border border-black/10 shadow-[0_2px_0_rgba(0,0,0,0.25)] hover:brightness-105 active:translate-y-px transition"
+              <GameButton
+                type="button"
+                variant="quest"
+                onClick={() => router.push('/child-signup')}
+                className="flex-1"
+                style={{ fontSize: 15 }}
               >
                 Create Account
-              </a>
-              <button
+              </GameButton>
+              <GameButton
                 type="button"
-                onClick={() => { playPageFlip(); openReturningLogin(); }}
-                className="flex-1 text-center rounded-full bg-white text-[#2a1505] font-extrabold text-[13px] py-3 border border-[#c9a87a] shadow-[0_2px_0_rgba(0,0,0,0.08)] hover:bg-[#fdf6e8] active:translate-y-px transition"
+                variant="quest"
+                color="#d4d4d4"
+                onClick={openReturningLogin}
+                className="flex-1"
+                style={{ fontSize: 15 }}
               >
                 Can&apos;t Find Account
-              </button>
+              </GameButton>
             </motion.div>
 
             <motion.div
