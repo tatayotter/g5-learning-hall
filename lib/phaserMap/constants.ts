@@ -12,9 +12,15 @@
 export const CANVAS_WIDTH = 896;
 export const CANVAS_HEIGHT = 504;
 
-// How zoomed-in the camera is for real-tile-art maps — 2x means each 32px
-// tile renders at 64px, showing a 14x7.875-tile window around the player.
-export const TILE_ART_ZOOM = 2;
+// How zoomed-in the camera is for real-tile-art maps — 1.75x means each 32px
+// tile renders at 56px, showing a 16x9-tile window around the player
+// (the map is 60x40, so 2x felt too tight). Lower = see more of the map.
+export const TILE_ART_ZOOM = 1.75;
+// Player-adjustable range (MapCanvas zoom buttons / mouse wheel). Steps of
+// 0.25 keep every tile a whole number of pixels (40..80px), avoiding seams.
+export const TILE_ART_ZOOM_MIN = 1.25;
+export const TILE_ART_ZOOM_MAX = 2.5;
+export const TILE_ART_ZOOM_STEP = 0.25;
 
 // Other-player sprites move via a purely client-local "wander" step
 // (hooks/useMapPresence.ts for real players, hooks/useBotPresence.ts for

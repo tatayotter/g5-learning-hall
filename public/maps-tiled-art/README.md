@@ -7,15 +7,23 @@ no manual "Export As JSON" step needed, the loader reads the XML directly.
 
 ## Conventions
 
-- **Tile layers** render back-to-front in the order they appear in Tiled's
-  Layers panel (bottom of the panel = drawn first/behind). Everything from
-  the first layer literally named `Above Player` onward renders in front of
-  the player sprite; everything before it renders behind. A map with no such
-  layer renders entirely behind the player.
-- **Collision**: any object layer whose name contains "collision"
-  (case-insensitive — e.g. "Fence Collision", "Tree collision") contributes
-  blocking rectangles. A tile is blocked if its center point falls inside any
-  rect from one of those layers.
+### Tile layers (fixed names, this order)
+
+| Layer | Contents | Draws | Collision |
+|---|---|---|---|
+| `Ground` | grass, dirt, water (required) | behind everything | none |
+| `Ground Detail` | flowers, path edges, puddles | behind everything | none |
+| `Shadows` | ground shadows (set layer opacity in Tiled) | behind everything | none |
+| `Objects Base` | trunks, fence bottoms, rocks, walls | behind the player | **every painted tile blocks** |
+| `Objects Top` | foliage, roof overhangs | in front of the player | none |
+
+Names are case-insensitive but otherwise exact. Hidden layers are skipped,
+unknown layer names are skipped with a console warning, and per-layer opacity
+is honored. There are no collision rectangles: painted on `Objects Base` = solid.
+Non-blocking decoration belongs on `Ground Detail`.
+
+### Object layers
+
 - **No-encounter zones**: any object layer whose name contains "encounter"
   (e.g. "no encounter layer") marks tiles as walkable but exempt from the
   wild-encounter quiz roll — draw rectangles over dirt paths/plazas with this
@@ -25,6 +33,9 @@ no manual "Export As JSON" step needed, the loader reads the XML directly.
 - **Spawn point**: an object layer whose name contains "spawn" (e.g.
   "spawns"), containing one point object (named "spawn" if there are several
   objects in the layer — otherwise the first one is used).
+- **Recycler**: an object layer named `Recycler` with one point object marking the
+  Recycler NPC's tile. Optional — without it the map falls back to `RECYCLER_TILES`
+  in `lib/trashConfig.ts`. Put it on a walkable tile.
 - **Portals**: an object layer whose name contains "portal" (e.g. "Portals").
   Each point object in it needs to identify its target region — either by
   **naming the object** itself (simplest: select the point, Properties panel

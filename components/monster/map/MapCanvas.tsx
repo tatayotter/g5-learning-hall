@@ -8,7 +8,7 @@
 // the old CSS grid used) since canvas text/rounded-rect primitives would
 // only regress that polish's fidelity for no gameplay benefit — see the
 // scene file's header comment for the full rationale.
-import { useEffect, useRef, useContext } from 'react';
+import { useEffect, useRef, useContext, useState } from 'react';
 import { MapScaleContext } from '@/components/MapStage';
 import { USERS } from '@/lib/userSession';
 import { GMBadge, MonsterImage } from '@/components/battle/shared';
@@ -16,7 +16,8 @@ import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
 import { REGIONS } from '@/lib/regions';
 import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality';
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
-import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
+import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
+import { playPageFlip } from '@/lib/sounds';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
 import type { TrashItem } from '@/hooks/useTrashItems';
@@ -57,12 +58,12 @@ function pctFromTransform(t: Transform) {
 // painted-image backgrounds, which have no camera pan at all). Real markers
 // only ever show this for a single frame before getTransform() below takes
 // over, so it doesn't need to match the scene's clamp-at-map-edges behavior.
-function naiveInitialTransform(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number): Transform {
+function naiveInitialTransform(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number, zoom: number): Transform {
   if (background.type === 'image') {
     return { tileW: CANVAS_WIDTH / mapWidth, tileH: CANVAS_HEIGHT / mapHeight, offsetX: 0, offsetY: 0 };
   }
-  const tileW = background.tileSize * TILE_ART_ZOOM;
-  const tileH = background.tileSize * TILE_ART_ZOOM;
+  const tileW = background.tileSize * zoom;
+  const tileH = background.tileSize * zoom;
   return {
     tileW, tileH,
     offsetX: CANVAS_WIDTH / 2 - (selfX + 0.5) * tileW,
@@ -125,6 +126,39 @@ export default function MapCanvas({
     : CANVAS_WIDTH;
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Player-adjustable camera zoom (tile-art maps only), remembered per device.
+  const [zoom, setZoom] = useState(TILE_ART_ZOOM);
+  useEffect(() => {
+    try {
+      const saved = Number(localStorage.getItem('mapZoom'));
+      if (saved >= TILE_ART_ZOOM_MIN && saved <= TILE_ART_ZOOM_MAX) setZoom(saved);
+    } catch { /* storage unavailable — keep default */ }
+  }, []);
+  const changeZoom = (delta: number) => {
+    setZoom(z => {
+      const next = Math.min(TILE_ART_ZOOM_MAX, Math.max(TILE_ART_ZOOM_MIN, Math.round((z + delta) / TILE_ART_ZOOM_STEP) * TILE_ART_ZOOM_STEP));
+      try { localStorage.setItem('mapZoom', String(next)); } catch { /* ignore */ }
+      return next;
+    });
+  };
+  const changeZoomRef = useRef(changeZoom);
+  changeZoomRef.current = changeZoom;
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+    let lastWheel = 0;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const now = performance.now();
+      if (now - lastWheel < 120) return; // one step per wheel "notch"
+      lastWheel = now;
+      changeZoomRef.current(e.deltaY < 0 ? TILE_ART_ZOOM_STEP : -TILE_ART_ZOOM_STEP);
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, []);
   const gameRef = useRef<import('phaser').Game | null>(null);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
   // Direct DOM target for the self name-tag/status-icon wrapper — positioned
@@ -247,6 +281,7 @@ export default function MapCanvas({
       dustPuffs,
       onPlayerClick,
       visibleCanvasW,
+      zoom,
       trashItems: trashItems?.map(i => ({
         id: i.id,
         type: i.type,
@@ -284,7 +319,7 @@ export default function MapCanvas({
         // has already recomputed its transform for this exact tile this
         // frame (updateSelfPosition call above), so getTransform() here is
         // never stale.
-        const transform = sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, x - 0.5, y - 0.5);
+        const transform = sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, x - 0.5, y - 0.5, zoom);
         const { leftPct: lp, topPct: tp } = pctFromTransform(transform);
         selfWrapRef.current.style.left = `${lp(x - 0.5)}%`;
         selfWrapRef.current.style.top = `${tp(y - 0.5)}%`;
@@ -321,7 +356,7 @@ export default function MapCanvas({
   // every marker's actual position every frame once the scene exists) — used
   // for markers' initial style before the first rAF tick.
   const { tileWPct, tileHPct, leftPct, topPct } = pctFromTransform(
-    sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, posX, posY)
+    sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, posX, posY, zoom)
   );
 
   const nameTag = (targetId: string, displayName?: string) => {
@@ -366,8 +401,38 @@ export default function MapCanvas({
   );
 
   return (
-    <div className="relative w-full h-full">
+    <div ref={rootRef} className="relative w-full h-full">
       <div ref={containerRef} className="absolute inset-0" />
+
+      {background.type === 'tilemap' && (
+        <div
+          className="absolute z-20 flex flex-col gap-1"
+          // In cover-mode fullscreen the canvas is CSS-scaled and cropped on
+          // both sides, so anchor to the VISIBLE strip and undo the scale so
+          // the buttons stay a normal touch size below the HUD bar.
+          style={{
+            top: 64 / mapScale,
+            right: (CANVAS_WIDTH - visibleCanvasW) / 2 + 8 / mapScale,
+            transform: `scale(${1 / mapScale})`,
+            transformOrigin: 'top right',
+          }}
+        >
+          <button
+            type="button"
+            aria-label="Zoom in"
+            disabled={zoom >= TILE_ART_ZOOM_MAX}
+            onClick={() => { playPageFlip(); changeZoom(TILE_ART_ZOOM_STEP); }}
+            className="w-9 h-9 rounded-lg bg-black/60 text-white text-xl leading-none border border-white/30 disabled:opacity-40 active:scale-95"
+          >+</button>
+          <button
+            type="button"
+            aria-label="Zoom out"
+            disabled={zoom <= TILE_ART_ZOOM_MIN}
+            onClick={() => { playPageFlip(); changeZoom(-TILE_ART_ZOOM_STEP); }}
+            className="w-9 h-9 rounded-lg bg-black/60 text-white text-xl leading-none border border-white/30 disabled:opacity-40 active:scale-95"
+          >−</button>
+        </div>
+      )}
 
       {townMarkerTile && (
         <div
