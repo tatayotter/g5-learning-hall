@@ -46,8 +46,12 @@ insert into content_questions (content_quiz_id, prompt, options, correct_answer)
 select quiz_id, 'placeholder question', '["a","b"]'::jsonb, 'a' from content_fx;
 
 -- journal + main quest + wild-battle all satisfied; only the guild requirement is exercised below.
-insert into player_weekly_journal (user_id, content_week_id, journal_logs)
-select user_a, week_id, jsonb_build_object(today::text, 'did some stuff') from fx, content_fx;
+-- 'Friday_Weekly Review' keeps the main quest satisfied when this suite happens to run on a
+-- Friday: Friday is one combined Weekly Review quest whenever the week has any Mon-Thu content
+-- (the fixture's quiz), rather than "nothing scheduled today". Harmless on every other weekday.
+insert into player_weekly_journal (user_id, content_week_id, journal_logs, mastered_quizzes)
+select user_a, week_id, jsonb_build_object(today::text, 'did some stuff'), '["Friday_Weekly Review"]'::jsonb
+from fx, content_fx;
 insert into user_battle_state (user_id, last_wild_encounter_win)
 select user_a, today from fx;
 
