@@ -62,6 +62,18 @@ export function totalAdvanceChance(tier: QualityTier): number {
     .reduce((sum, t) => sum + (TUTOR_ROLL_TABLE[t as keyof typeof TUTOR_ROLL_TABLE] ?? 0), 0);
 }
 
+// Battle HUD name color per tier (MonsterHpPanel) — the battle stage shows
+// quality as a color treatment on the curio's name instead of a glow behind
+// the sprite. Same hue family as the glows below (green / cyan / orange) so
+// the tiers read the same everywhere, lightened to stay legible as fill
+// inside the HUD's black text stroke on dark wood.
+export const QUALITY_NAME_COLOR: Record<QualityTier, string> = {
+  normal: '#ffffff',
+  good: '#86efac',
+  outstanding: '#67e8f9',
+  perfect: '#fdba74',
+};
+
 export function getQualityGlowClass(quality: QualityTier): string {
   switch (quality) {
     case 'good': return 'quality-glow-good';

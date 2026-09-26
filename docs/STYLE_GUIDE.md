@@ -43,8 +43,9 @@ true white now.
 
 **Deliberately still dark — persistent overlays and scrims, regardless of the shell's theme:**
 `SidebarRail.tsx`'s HUD stat bar and nav-drawer/logout scrims, `MapStage.tsx`'s map letterbox/
-drawer/corner-tag chrome, `BattleStage.tsx`'s corner name tags and battle log toggle overlay,
-`MonsterHpPanel.tsx`, `MapCanvas.tsx`'s in-canvas name tags, and the on-screen `FloatingJoystick.tsx`
+drawer/corner-tag chrome, `BattleStage.tsx`'s battle log toggle overlay,
+`MonsterHpPanel.tsx` (compact single-row HUD since 2026-09-26 — it now also carries the trainer
+name that used to be a separate corner tag; keep it one row so large curios' heads stay clear), `MapCanvas.tsx`'s in-canvas name tags, and the on-screen `FloatingJoystick.tsx`
 (renamed from `Joystick.tsx` 2026-09-05 when it became a MOBA-style press-and-drag joystick) —
 these all float directly over game art or dim the screen behind a modal, the same category as a
 video player's control bar staying dark in an otherwise light app. Don't "fix" these to match the

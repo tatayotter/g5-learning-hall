@@ -26,6 +26,7 @@ import VisualAid from '@/components/quest/VisualAid';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import InfoTag from '@/components/InfoTag';
 import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
+import BattleStagePlayground from '@/components/dev/BattleStagePlayground';
 import PostBattleSummary, { PostBattleSideInfo } from '@/components/battle/PostBattleSummary';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { ALL_MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from '@/lib/monsterConfig';
@@ -389,6 +390,13 @@ export default function UiGallery() {
       </Section>
 
       <Section
+        title="Battle stage (Phaser)"
+        note="components/battle/BattleStage.tsx + BattleCanvas.tsx + lib/phaserBattle/BattleStageScene.ts — the real stage with mock state. Size class + floats come from each curio's MonsterDef (lib/curioBody.ts)."
+      >
+        <BattleStagePlayground />
+      </Section>
+
+      <Section
         title="Battle action tiles + HP card"
         note="components/battle/BattleStage.tsx, components/battle/MonsterHpPanel.tsx — ActionTile's variant=&quot;quest&quot;, approved 2026-08-29 and now wired into the real move/utility grids (BattleScreen.tsx, LiveBattleScreen.tsx). BossFightScreen/MasteryGauntletScreen still use the default 'panel' look below (ActionTile reused there as a plain answer-option list, not a skill grid)."
       >
@@ -488,7 +496,7 @@ export default function UiGallery() {
           reasonLabel={outcome === 'win' ? 'Victory!' : outcome === 'loss' ? 'Defeated...' : 'Draw'}
           left={left}
           right={right}
-          log={['You used Flamethrower!', 'Forest Scout used Vine Whip!', 'Critical hit!']}
+          log={['You used Blaze Stream!', 'Forest Scout used Bramble Lash!', 'Critical hit!']}
           expEarned={outcome === 'win' ? 120 : undefined}
           goldEarned={outcome === 'win' ? 40 : undefined}
           onContinue={() => {}}

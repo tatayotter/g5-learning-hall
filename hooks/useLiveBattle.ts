@@ -2,6 +2,7 @@
 // Per-battle realtime channel for a live 1v1 PVP match ("simultaneous racing
 // rounds" — see plan). Modeled on hooks/useMapPresence.ts's presence+broadcast
 // pattern, extended with join/leave handling for forfeit detection.
+import { BATTLE_INTRO_PVP_GRACE_MS } from '@/lib/battleIntro';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
@@ -71,11 +72,14 @@ export interface RoundOutcome {
   myNextStatusTurns: number;
   oppNextStatus: StatusEffect;
   oppNextStatusTurns: number;
-  // Set when both hits would have been mutually lethal this round and Speed
-  // broke the tie — the named side's attack landed first, so the other
-  // side's damage never happened (mirrors the solo BattleScreen's doNpcTurn
-  // speed-preemption rule).
+  // Full speed-based turn order (same rule as the solo BattleScreen): the
+  // faster curio moves first. speedWinner is set when that first move KO'd
+  // the slower curio — the named side knocked the other out before it could
+  // act, so the other side's whole move (damage AND effects) is cancelled.
   speedWinner: 'me' | 'opponent' | null;
+  // Who moved first this round (null = equal speed: simultaneous trade).
+  // Only drives beat order on screen; the math is in resolveRound.
+  firstMover: 'me' | 'opponent' | null;
   // Alt/universal skills' secondary effects — the *resulting* modifier stack
   // for each side (already ticked + this round's effects folded in), plus any
   // self HP change (lifesteal/flat heal) and whether a cleanse fired. No-ops
@@ -218,27 +222,26 @@ export function useLiveBattle(
     if (myParalyzed) myDamageDealt = 0;
     if (oppParalyzed) opponentDamageDealt = 0;
 
-    // Speed only matters when both hits would otherwise be mutually lethal
-    // this round — the faster side's attack lands first and defeats the
-    // other before its own hit can register, so that damage is zeroed out.
-    // Equal speed leaves the trade as a mutual KO (unchanged).
+    // Full speed-based turn order: the faster curio moves first, and if that
+    // move KOs the slower curio, the slower one never acts — its damage and
+    // every effect of its move are cancelled below. Equal speed is a
+    // simultaneous trade (both land, mutual KO possible).
+    const mySpeed = getScaledStats(myMonster.def, myMonster.level, myQuality).speed;
+    const oppSpeed = getScaledStats(oppMonster.def, oppMonster.level, oppQuality).speed;
+    const firstMover: 'me' | 'opponent' | null = mySpeed > oppSpeed ? 'me' : oppSpeed > mySpeed ? 'opponent' : null;
     let speedWinner: 'me' | 'opponent' | null = null;
-    const myMonsterWouldFaint = myMonster.currentHp - opponentDamageDealt <= 0;
-    const oppMonsterWouldFaint = oppMonster.currentHp - myDamageDealt <= 0;
-    if (myMonsterWouldFaint && oppMonsterWouldFaint) {
-      const mySpeed = getScaledStats(myMonster.def, myMonster.level, myQuality).speed;
-      const oppSpeed = getScaledStats(oppMonster.def, oppMonster.level, oppQuality).speed;
-      if (mySpeed > oppSpeed) {
-        speedWinner = 'me';
-        opponentDamageDealt = 0;
-      } else if (oppSpeed > mySpeed) {
-        speedWinner = 'opponent';
-        myDamageDealt = 0;
-      }
+    if (firstMover === 'me' && oppMonster.currentHp - myDamageDealt <= 0) {
+      speedWinner = 'me';
+      opponentDamageDealt = 0;
+    } else if (firstMover === 'opponent' && myMonster.currentHp - opponentDamageDealt <= 0) {
+      speedWinner = 'opponent';
+      myDamageDealt = 0;
     }
+    const myCancelled = speedWinner === 'opponent';
+    const oppCancelled = speedWinner === 'me';
 
-    const myEffect = mine.isPerfect && mySkill && !myParalyzed ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
-    const oppEffect = theirs.isPerfect && oppSkill && !oppParalyzed ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
+    const myEffect = mine.isPerfect && mySkill && !myParalyzed && !myCancelled ? ELEMENT_STATUS[myMonster.def.element] ?? null : null;
+    const oppEffect = theirs.isPerfect && oppSkill && !oppParalyzed && !oppCancelled ? ELEMENT_STATUS[oppMonster.def.element] ?? null : null;
     const myIsSelfEffect = !!myEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(myEffect);
     const oppIsSelfEffect = !!oppEffect && SELF_TARGETING_ELEMENT_STATUSES.includes(oppEffect);
     // A self-targeting effect (blessed) buffs the caster's own next attack;
@@ -255,8 +258,9 @@ export function useLiveBattle(
 
     // Burn DoT ticks every round for whoever entered it burned — matches the
     // solo BattleScreen's applyStatusTick, which this PVP path never ran.
-    const myBurnDamage = myMonster.status === 'burn' ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
-    const oppBurnDamage = oppMonster.status === 'burn' ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
+    // (Not on a curio already knocked out before it could move.)
+    const myBurnDamage = myMonster.status === 'burn' && !myCancelled ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
+    const oppBurnDamage = oppMonster.status === 'burn' && !oppCancelled ? BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN : 0;
 
     // Blessed is a one-shot buff — consumed the moment it powers an attack,
     // matching the solo BattleScreen's explicit status-clear on the same turn.
@@ -273,14 +277,14 @@ export function useLiveBattle(
     let oppHpDelta = 0;
     let myCleanse = false;
     let oppCleanse = false;
-    if (mySkill && !myParalyzed) {
+    if (mySkill && !myParalyzed && !myCancelled) {
       const res = applySkillEffects(mySkill, myDamageDealt, myMonster.maxHp, myModifiers, oppModifiers);
       myModifiers = res.casterModifiers;
       oppModifiers = res.targetModifiers;
       myHpDelta += res.casterHpDelta;
       myCleanse = myCleanse || res.cleanseCaster;
     }
-    if (oppSkill && !oppParalyzed) {
+    if (oppSkill && !oppParalyzed && !oppCancelled) {
       const res = applySkillEffects(oppSkill, opponentDamageDealt, oppMonster.maxHp, oppModifiers, myModifiers);
       oppModifiers = res.casterModifiers;
       myModifiers = res.targetModifiers;
@@ -318,13 +322,13 @@ export function useLiveBattle(
     const oppNextStatus = oppNext.status;
     const oppNextStatusTurns = oppNext.statusTurns;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
   }, [skills, userId]);
 
@@ -371,7 +375,11 @@ export function useLiveBattle(
         }
         // Challenger is the deterministic tie-breaker that kicks off round 1.
         if (side === 'challenger') {
-          channel.send({ type: 'broadcast', event: 'round_start', payload: { round: 1, deadlineAt: Date.now() + ROUND_DURATION_MS } });
+          // Round 1 also covers the battle intro screen (BattleIntro): loading
+          // plus its auto-starting Ready button can block input for up to
+          // BATTLE_INTRO_PVP_GRACE_MS — added so nobody's first decision
+          // window shrinks.
+          channel.send({ type: 'broadcast', event: 'round_start', payload: { round: 1, deadlineAt: Date.now() + ROUND_DURATION_MS + BATTLE_INTRO_PVP_GRACE_MS } });
         }
       }
     });
@@ -447,6 +455,7 @@ export function useLiveBattle(
         oppNextStatus: payload.myNextStatus ?? null,
         oppNextStatusTurns: payload.myNextStatusTurns ?? 0,
         speedWinner: payload.speedWinner === 'me' ? 'opponent' : payload.speedWinner === 'opponent' ? 'me' : null,
+        firstMover: payload.firstMover === 'me' ? 'opponent' : payload.firstMover === 'opponent' ? 'me' : null,
         myModifiers: payload.oppModifiers ?? [],
         oppModifiers: payload.myModifiers ?? [],
         myHpDelta: payload.oppHpDelta ?? 0,

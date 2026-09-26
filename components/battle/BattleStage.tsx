@@ -16,12 +16,17 @@
 // covering the whole viewport) and scales to fit both width AND height —
 // the page chrome (nav tabs, sidebar, padding) otherwise pushes the canvas
 // below the fold and forces scrolling to see the action panel.
-import { useState, ReactNode } from 'react';
-import { MonsterDef, StatusEffect } from '@/lib/monsterConfig';
-import { MonsterImage, DamageNumber, AttackBanner } from '@/components/battle/shared';
+import { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+import { MonsterDef, StatusEffect, type Element, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC, STATUS_DEFINITIONS } from '@/lib/monsterConfig';
+import type { AttackClass } from '@/lib/attackClasses';
+import { AttackBanner } from '@/components/battle/shared';
+import BattleCanvas, { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import BattleIntro from '@/components/battle/BattleIntro';
+import { BATTLE_INTRO_MIN_MS, BATTLE_INTRO_MAX_MS } from '@/lib/battleIntro';
+import type { StageLayout } from '@/lib/phaserBattle/BattleStageScene';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
-import { QualityTier, getQualityGlowClass } from '@/lib/curioQuality';
+import { QualityTier } from '@/lib/curioQuality';
 import GameButton from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
 
@@ -32,52 +37,71 @@ export interface BattleStageMonster {
   currentHp: number;
   maxHp: number;
   status: StatusEffect;
+  // Event signals consumed by BattleCanvas: set to 'battle-attack-right' /
+  // 'battle-attack-left' / 'battle-hit' (reset to '' between events), and a
+  // fresh `key` per hit on damagePopup.
   animClassName?: string;
+  // The move this curio performs right now — a fresh `key` per use. Picks the
+  // Phaser sequence (lib/attackClasses.ts); `element` is the MOVE's element
+  // (null for element-less moves) and colors it. Hitting moves hold the
+  // target's hit/damage signals until they connect.
+  action?: { key: number; animation: AttackClass; element: Element | null } | null;
   damagePopup?: { key: number; value: number; missed: boolean } | null;
   quality?: QualityTier; // absent for NPC trainers, which have no quality tier
 }
+
+// Builds a BattleStageMonster.action for one use of a move (skill, or Rest
+// as { animation: 'restore', element: curio's element }). Module-level
+// counter keys each use so repeating the same move still replays it.
+let stageActionSeq = 0;
+export function makeStageAction(move: { animation: AttackClass; element: Element | null }): BattleStageMonster['action'] {
+  stageActionSeq += 1;
+  return { key: stageActionSeq, animation: move.animation, element: move.element };
+}
+
+export interface BattleTeamEntry { fainted: boolean; active: boolean; spriteUrl?: string }
+
+// Every non-curio image the battle screen can show — preloaded behind the
+// intro alongside the teams' curio art.
+const BATTLE_UI_IMAGES = [
+  '/battleui/battle_bg_normal.webp',
+  '/battleui/battle_platform.webp',
+  NORMAL_SKILL_ICON_SRC,
+  ...Object.values(ELEMENT_ICON_SRC),
+  ...Object.values(STATUS_DEFINITIONS).map(d => d.iconSrc),
+];
+
+// loading → (assets in + minimum passed) → ready: Ready button, waits for
+// the player → leaving: fades while curios make their entrance → done.
+type IntroPhase = 'loading' | 'ready' | 'leaving' | 'done';
 
 interface BattleStageProps {
   leftName: string;
   rightName: string;
   leftMon: BattleStageMonster;
   rightMon: BattleStageMonster;
+  // Each side's whole team for the HUD's roster dots (see MonsterHpPanel).
+  // `spriteUrl` (curioSpriteUrl of the displayed def) lets the battle intro
+  // preload every team member's art, not just the two on the field.
+  leftTeam?: BattleTeamEntry[];
+  rightTeam?: BattleTeamEntry[];
+  // Battle intro screen (BattleIntro): on by default, shown for at least
+  // introMinMs while every image the battle needs loads, then waits on a
+  // Ready button. introAutoStartMs (PvP) makes that button count down and
+  // start the fight on its own. onIntroDone fires as it lifts.
+  intro?: boolean;
+  introMinMs?: number;
+  introAutoStartMs?: number;
+  onIntroDone?: () => void;
   roundBadge?: string | null;
   log: string[];
   banner?: { text: string; iconSrc: string | null } | null;
   statusBanner?: ReactNode;
   actionPanel: ReactNode;
   overlay?: ReactNode;
-}
-
-function Creature({ mon, side }: { mon: BattleStageMonster; side: 'left' | 'right' }) {
-  return (
-    <div className={`bstage-creature ${side}`}>
-      {/* Sprite must come first in DOM order to lay out above the platform
-          in this column flex (layout order = document order); it paints in
-          front of the platform where they overlap via z-index instead —
-          both need `position: relative` for z-index to take effect at all,
-          since document order alone would otherwise make the *later*
-          element (platform) paint on top. */}
-      <div className={`relative ${mon.animClassName ?? ''}`}>
-        {/* The enemy (right side) sprite is mirrored to face the player —
-            only the image flips; the damage popup below is a sibling, not a
-            child, so it stays readable instead of mirroring with it. */}
-        <div
-          className={`bstage-sprite ${mon.quality ? getQualityGlowClass(mon.quality) : ''}`}
-          style={side === 'right' ? { transform: 'scaleX(-1)' } : undefined}
-        >
-          <MonsterImage monster={mon.def} className="w-full h-full battle-float" emojiClassName="text-6xl" />
-        </div>
-        {mon.damagePopup && (
-          <DamageNumber key={mon.damagePopup.key} value={mon.damagePopup.value} missed={mon.damagePopup.missed} />
-        )}
-      </div>
-      <div className="bstage-platform">
-        <img src="/battleui/battle_platform.webp" alt="" draggable={false} />
-      </div>
-    </div>
-  );
+  // 'auto' (default) picks portrait on phones held upright. Forcing a value
+  // is for previews (/dev/ui-gallery).
+  layout?: 'auto' | StageLayout;
 }
 
 // One button in the moves/utils grid — icon + title/sub, same shape for a
@@ -166,18 +190,107 @@ export function PlaceholderTile({ title, sub }: { title: ReactNode; sub: ReactNo
   );
 }
 
-const CANVAS_WIDTH = 896;
-const CANVAS_HEIGHT = 504;
+// Logical canvas per layout. Portrait is the phone layout (the installed
+// app is portrait-locked — see app/manifest.ts): opponent up-right and back,
+// player low-left and forward, a tall move panel filling the bottom half.
+// See the .bstage-portrait rules in app/globals.css.
+const CANVAS_SIZE: Record<StageLayout, { w: number; h: number }> = {
+  landscape: { w: 896, h: 504 },
+  portrait: { w: 480, h: 860 },
+};
+
+// 'auto' = portrait on a mobile-width screen held upright, landscape
+// otherwise. Re-evaluated on rotation.
+function useAutoPortrait(): boolean {
+  const [portrait, setPortrait] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1024px) and (orientation: portrait)');
+    const update = () => setPortrait(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+  return portrait;
+}
 
 export default function BattleStage({
-  leftName, rightName, leftMon, rightMon, roundBadge, log, banner, statusBanner, actionPanel, overlay,
+  leftName, rightName, leftMon, rightMon, leftTeam, rightTeam, roundBadge, log, banner, statusBanner, actionPanel, overlay,
+  layout: layoutProp = 'auto',
+  intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
+
+  // ── Battle intro ──────────────────────────────────────────────────────
+  // Curio art for both whole teams goes to the Phaser scene (its texture
+  // cache); UI images are warmed in the browser cache. The asset list is
+  // fixed at mount — it's the battle's roster, which doesn't change.
+  const [curioUrls] = useState(() => [...new Set([
+    curioSpriteUrl(leftMon.def), curioSpriteUrl(rightMon.def),
+    ...(leftTeam ?? []).map(t => t.spriteUrl), ...(rightTeam ?? []).map(t => t.spriteUrl),
+  ].filter((u): u is string => !!u))]);
+  const [introPhase, setIntroPhase] = useState<IntroPhase>(intro ? 'loading' : 'done');
+  const [uiLoaded, setUiLoaded] = useState(0);
+  const [sceneLoaded, setSceneLoaded] = useState(false);
+  const introStartRef = useRef(0);
+  const onIntroDoneRef = useRef(onIntroDone);
+  useEffect(() => { onIntroDoneRef.current = onIntroDone; });
+  // Progress = every browser-cache image + one step for the Phaser scene
+  // having all curio textures ready.
+  const introTotal = BATTLE_UI_IMAGES.length + curioUrls.length + 1;
+  const introDoneCount = Math.min(uiLoaded, introTotal - 1) + (sceneLoaded ? 1 : 0);
+
+  useEffect(() => {
+    if (!intro) return;
+    introStartRef.current = Date.now();
+    let cancelled = false;
+    for (const src of [...BATTLE_UI_IMAGES, ...curioUrls]) {
+      const img = new Image();
+      const done = () => { if (!cancelled) setUiLoaded(n => n + 1); };
+      img.onload = done;
+      img.onerror = done; // a missing file shouldn't hold the intro
+      img.src = src;
+    }
+    // Safety cutoff — never leave a player stuck loading; go to the Ready
+    // button even if an asset is still hanging.
+    const cutoff = setTimeout(() => { if (!cancelled) setIntroPhase(p => (p === 'loading' ? 'ready' : p)); }, BATTLE_INTRO_MAX_MS);
+    return () => { cancelled = true; clearTimeout(cutoff); };
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Offer the Ready button once everything's loaded AND the minimum time
+  // has passed.
+  const allLoaded = uiLoaded >= BATTLE_UI_IMAGES.length + curioUrls.length && sceneLoaded;
+  useEffect(() => {
+    if (introPhase !== 'loading' || !allLoaded) return;
+    const wait = Math.max(0, introMinMs - (Date.now() - introStartRef.current));
+    const t = setTimeout(() => setIntroPhase('ready'), wait);
+    return () => clearTimeout(t);
+  }, [introPhase, allLoaded, introMinMs]);
+  const startBattle = useCallback(() => setIntroPhase(p => (p === 'ready' ? 'leaving' : p)), []);
+  useEffect(() => {
+    if (introPhase !== 'leaving') return;
+    const t = setTimeout(() => { setIntroPhase('done'); onIntroDoneRef.current?.(); }, 350);
+    return () => clearTimeout(t);
+  }, [introPhase]);
+  const autoPortrait = useAutoPortrait();
+  const layout: StageLayout = layoutProp === 'auto' ? (autoPortrait ? 'portrait' : 'landscape') : layoutProp;
+  const portrait = layout === 'portrait';
+  const { w: CANVAS_WIDTH, h: CANVAS_HEIGHT } = CANVAS_SIZE[layout];
   const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  // On a phone held upright the battle owns the whole screen, and the app's
+  // floating compass/arena buttons (SidebarRail's .nav-fab / .arena-fab)
+  // would sit on top of the move panel — hide them for the battle's
+  // lifetime. The class comes off on rotate to landscape and on unmount.
+  const hideAppFabs = portrait && isMobile;
+  useEffect(() => {
+    if (!hideAppFabs) return;
+    document.body.classList.add('battle-portrait-active');
+    return () => document.body.classList.remove('battle-portrait-active');
+  }, [hideAppFabs]);
 
   const canvas = (
     <div
-      className={`bstage-container border-2 border-[#0a0807] ${logOpen ? 'log-open' : ''}`}
+      className={`bstage-container border-2 border-[#0a0807] ${portrait ? 'bstage-portrait' : ''} ${logOpen ? 'log-open' : ''}`}
       style={{
         backgroundImage: 'url(/battleui/battle_bg_normal.webp)',
         backgroundSize: 'cover',
@@ -186,14 +299,17 @@ export default function BattleStage({
     >
       <div aria-hidden className="bstage-vignette" />
 
-      <div className="bstage-top-tags">
-        <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-br-lg truncate max-w-[38%]">
-          {leftName}
-        </div>
-        <div className="bg-[#0a0807]/70 text-[#ffffff] font-bold text-[13px] px-3 py-1 rounded-bl-lg truncate max-w-[38%]">
-          {rightName}
-        </div>
-      </div>
+      {introPhase !== 'done' && (
+        <BattleIntro
+          left={{ trainerName: leftName, leadName: leftMon.name, leadSpriteUrl: curioSpriteUrl(leftMon.def), teamSize: leftTeam?.length ?? 1, element: leftMon.def.element }}
+          right={{ trainerName: rightName, leadName: rightMon.name, leadSpriteUrl: curioSpriteUrl(rightMon.def), teamSize: rightTeam?.length ?? 1, element: rightMon.def.element }}
+          progress={introDoneCount / introTotal}
+          leaving={introPhase === 'leaving'}
+          showReady={introPhase === 'ready'}
+          onReady={startBattle}
+          autoStartMs={introAutoStartMs}
+        />
+      )}
 
       {roundBadge && (
         <div className="bstage-round-badge bg-[#0a0807]/60 text-amber-400 font-mono text-xs font-bold px-2 py-0.5 rounded-full">
@@ -201,14 +317,26 @@ export default function BattleStage({
         </div>
       )}
 
+      {/* Portrait: the player's card (first) sits bottom-right of the stage and
+          the opponent's (second) top-left — so each card's "side" follows
+          where it's drawn, keeping its contents reading outward-in. */}
       <div className="bstage-hp-row">
-        <MonsterHpPanel name={leftMon.name} level={leftMon.level} currentHp={leftMon.currentHp} maxHp={leftMon.maxHp} status={leftMon.status} />
-        <MonsterHpPanel name={rightMon.name} level={rightMon.level} currentHp={rightMon.currentHp} maxHp={rightMon.maxHp} status={rightMon.status} />
+        <MonsterHpPanel name={leftMon.name} level={leftMon.level} currentHp={leftMon.currentHp} maxHp={leftMon.maxHp} status={leftMon.status} trainerName={leftName} side={portrait ? 'right' : 'left'} team={leftTeam} quality={leftMon.quality} />
+        <MonsterHpPanel name={rightMon.name} level={rightMon.level} currentHp={rightMon.currentHp} maxHp={rightMon.maxHp} status={rightMon.status} trainerName={rightName} side={portrait ? 'left' : 'right'} team={rightTeam} quality={rightMon.quality} />
       </div>
 
+      {/* Curios, platforms, and every hit/attack effect are drawn by Phaser
+          (components/battle/BattleCanvas.tsx) — see lib/curioBody.ts for how
+          each curio's size class and floater flag shape it on stage. */}
       <div className="bstage-stage">
-        <Creature mon={leftMon} side="left" />
-        <Creature mon={rightMon} side="right" />
+        <BattleCanvas
+          key={layout} leftMon={leftMon} rightMon={rightMon} layout={layout}
+          // Curios step onto the stage (entrance animation) as the intro starts
+          // to fade, not while it's still covering them.
+          ready={introPhase === 'leaving' || introPhase === 'done'}
+          preloadUrls={curioUrls}
+          onAssetsReady={() => setSceneLoaded(true)}
+        />
       </div>
 
       {banner && (
@@ -260,7 +388,7 @@ export default function BattleStage({
     return (
       <>
         <div className="fixed inset-0 z-[75] flex items-center justify-center" style={{ background: 'var(--background)' }}>
-          <div className="bstage-scale-inner" style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}>
+          <div className="bstage-scale-inner" style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, transform: `scale(${scale})`, transformOrigin: 'center center' }}>
             {canvas}
           </div>
         </div>
@@ -272,7 +400,7 @@ export default function BattleStage({
   return (
     <>
       <div ref={shellRef} className="bstage-shell mx-auto" style={{ height: CANVAS_HEIGHT * scale }}>
-        <div className="bstage-scale-inner" style={{ transform: `scale(${scale})` }}>
+        <div className="bstage-scale-inner" style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, transform: `scale(${scale})` }}>
           {canvas}
         </div>
       </div>
