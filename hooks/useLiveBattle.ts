@@ -332,10 +332,12 @@ export function useLiveBattle(
     });
   }, [skills, userId]);
 
-  const startNextRound = useCallback((nextRound: number) => {
+  // extraMs: round 1 only — covers the battle intro screen (see the
+  // round_start broadcast below and BATTLE_INTRO_PVP_GRACE_MS).
+  const startNextRound = useCallback((nextRound: number, extraMs = 0) => {
     myAnswerRef.current = null;
     opponentAnswerRef.current = null;
-    const deadline = Date.now() + ROUND_DURATION_MS;
+    const deadline = Date.now() + ROUND_DURATION_MS + extraMs;
     setRound(nextRound);
     setDeadlineAt(deadline);
     setPhase('select_skill');
@@ -345,7 +347,9 @@ export function useLiveBattle(
   // short connecting delay, then clean up any pending bot answer on unmount.
   useEffect(() => {
     if (!isBotMode) return;
-    const t = setTimeout(() => startNextRound(1), 1500);
+    // Round 1 gets the same intro grace as a real match — bot battles show
+    // the battle intro too, and without it the intro ate round 1's clock.
+    const t = setTimeout(() => startNextRound(1, BATTLE_INTRO_PVP_GRACE_MS), 1500);
     return () => {
       clearTimeout(t);
       if (botTimerRef.current) clearTimeout(botTimerRef.current);
