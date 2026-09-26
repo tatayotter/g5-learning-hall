@@ -1478,7 +1478,9 @@ body.battle-portrait-active .arena-fab { display: none; }
 .bintro-slot { width: 290px; display: flex; justify-content: center; }
 .bintro-slot-left  { --bi-lx: 26px;  --bi-ly: 0px; }
 .bintro-slot-right { --bi-lx: -26px; --bi-ly: 0px; }
-.bintro-sprite { width: 170px; height: 170px; }
+/* Tallest size class (huge, 200px) + room for the lunge; sprites sit on its
+   bottom edge so every curio shares one baseline. */
+.bintro-stand { height: calc(205px * var(--bi-scale, 1)); }
 .bintro-slide-left  { animation: bintro-in-left 0.5s cubic-bezier(.2,.9,.3,1) 0.3s both; }
 .bintro-slide-right { animation: bintro-in-right 0.5s cubic-bezier(.2,.9,.3,1) 0.3s both; }
 .bintro-lunge { animation: bintro-lunge 0.45s ease-in-out 1.45s both; }
@@ -1569,7 +1571,7 @@ body.battle-portrait-active .arena-fab { display: none; }
 .bstage-portrait .bintro-slot-right { order: 1; --bi-lx: 0px; --bi-ly: 22px; }  /* opponent on top */
 .bstage-portrait .bintro-vs { order: 2; margin-top: 30px; } /* room for the tagline above it */
 .bstage-portrait .bintro-slot-left { order: 3; --bi-lx: 0px; --bi-ly: -22px; }  /* player below */
-.bstage-portrait .bintro-sprite { width: 150px; height: 150px; }
+.bstage-portrait .bintro { --bi-scale: 0.78; }
 .bstage-portrait .bintro-loader { width: 78%; }
 .bstage-portrait .bintro-panel { left: 0; right: 0; width: auto; top: auto; bottom: auto; height: 57%; }
 .bstage-portrait .bintro-panel-left {

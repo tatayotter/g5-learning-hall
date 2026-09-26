@@ -301,8 +301,8 @@ export default function BattleStage({
 
       {introPhase !== 'done' && (
         <BattleIntro
-          left={{ trainerName: leftName, leadName: leftMon.name, leadSpriteUrl: curioSpriteUrl(leftMon.def), teamSize: leftTeam?.length ?? 1, element: leftMon.def.element }}
-          right={{ trainerName: rightName, leadName: rightMon.name, leadSpriteUrl: curioSpriteUrl(rightMon.def), teamSize: rightTeam?.length ?? 1, element: rightMon.def.element }}
+          left={{ trainerName: leftName, leadName: leftMon.name, leadSpriteUrl: curioSpriteUrl(leftMon.def), teamSize: leftTeam?.length ?? 1, element: leftMon.def.element, size: leftMon.def.size }}
+          right={{ trainerName: rightName, leadName: rightMon.name, leadSpriteUrl: curioSpriteUrl(rightMon.def), teamSize: rightTeam?.length ?? 1, element: rightMon.def.element, size: rightMon.def.size }}
           progress={introDoneCount / introTotal}
           leaving={introPhase === 'leaving'}
           showReady={introPhase === 'ready'}

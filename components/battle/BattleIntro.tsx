@@ -21,6 +21,8 @@ import { useEffect, useState, type CSSProperties } from 'react';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import type { Element } from '@/lib/monsterConfig';
+import type { CurioSize } from '@/lib/curioBody';
+import { trimToDataUrl } from '@/lib/imageTrim';
 import { pickBattleIntroTagline } from '@/lib/battleIntro';
 
 export interface IntroSide {
@@ -29,6 +31,33 @@ export interface IntroSide {
   leadSpriteUrl: string;
   teamSize: number;
   element: Element;
+  size: CurioSize;
+}
+
+// Intro sprite height per size class (trimmed art), same ratios as the
+// battle stage's CURIO_SIZE_HEIGHT_PX scaled up for the VS card — a baby
+// curio stays small next to a kaiju here too. Portrait scales these down
+// via the --bi-scale custom property (see .bintro-* in globals.css).
+const INTRO_HEIGHT_PX: Record<CurioSize, number> = {
+  tiny: 70, small: 95, medium: 125, large: 160, huge: 200,
+};
+
+// Loads the sprite and trims its transparent padding (the same trim the
+// battle stage applies), so size classes measure the creature. Falls back
+// to the raw file until the trim is ready or if it fails.
+function useTrimmedSprite(url: string): { src: string; aspect: number | null } {
+  const [trimmed, setTrimmed] = useState<{ url: string; src: string; aspect: number } | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    const img = new Image();
+    img.onload = () => {
+      if (cancelled) return;
+      try { setTrimmed({ url, ...trimToDataUrl(img) }); } catch { /* keep raw */ }
+    };
+    img.src = url;
+    return () => { cancelled = true; };
+  }, [url]);
+  return trimmed && trimmed.url === url ? { src: trimmed.src, aspect: trimmed.aspect } : { src: url, aspect: null };
 }
 
 // [light, mid, dark] — the same element palette the Phaser stage's bursts
@@ -55,18 +84,30 @@ function OutlinedText({ text, size, color = '#ffffff' }: { text: string; size: n
 
 function Contender({ side, mirrored, slideClass }: { side: IntroSide; mirrored: boolean; slideClass: string }) {
   const [light, mid] = ELEMENT_COLORS[side.element];
+  const sprite = useTrimmedSprite(side.leadSpriteUrl);
+  const h = INTRO_HEIGHT_PX[side.size];
   return (
     <div className={`bintro-side flex flex-col items-center gap-2 ${slideClass}`}>
+      {/* Fixed-height stage so both curios stand on one baseline whatever
+          their size class. */}
+      <div className="bintro-stand relative flex items-end justify-center">
       <div className="relative bintro-lunge">
         <span aria-hidden className="bintro-aura" style={{ background: `radial-gradient(circle, ${light}cc 0%, ${mid}66 40%, transparent 70%)` }} />
         <img
-          src={side.leadSpriteUrl}
+          src={sprite.src}
           alt={side.leadName}
-          className="bintro-sprite relative object-contain drop-shadow-[0_6px_10px_rgba(0,0,0,0.55)]"
-          // All curio art faces right; the opponent's is mirrored to face in.
-          style={mirrored ? { transform: 'scaleX(-1)' } : undefined}
+          className="relative block object-contain drop-shadow-[0_6px_10px_rgba(0,0,0,0.55)]"
+          style={{
+            height: `calc(${h}px * var(--bi-scale, 1))`,
+            // Cap wide art (coiled serpents, spread wings) like the stage does.
+            maxWidth: 'calc(270px * var(--bi-scale, 1))',
+            width: sprite.aspect ? `calc(${h}px * var(--bi-scale, 1) * ${sprite.aspect.toFixed(4)})` : 'auto',
+            // All curio art faces right; the opponent's is mirrored to face in.
+            transform: mirrored ? 'scaleX(-1)' : undefined,
+          }}
           draggable={false}
         />
+      </div>
       </div>
       <OutlinedText text={side.leadName} size={18} />
       <div
