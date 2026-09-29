@@ -1182,6 +1182,10 @@ body.battle-fullscreen-active .arena-fab { display: none; }
 /* Button text/icons grow with the extra height: 14px at 480x860, up to
    21px on tall phones (e.g. ~20px at 375x812). */
 .bstage-portrait { --bstage-tile-font: clamp(14px, calc(14px + var(--bstage-extra, 0px) * 0.035), 21px); }
+/* Portrait: the Show Log tab and its log sit at the left, clear of the
+   player's HP card (right-anchored just above the panel, 258px wide). */
+.bstage-portrait .bstage-show-log { left: 24px; transform: none; }
+.bstage-portrait .bstage-log-panel { left: 24px; transform: none; width: 180px; }
 .bstage-portrait .bstage-action-panel { top: 540px; bottom: 11px; overflow-y: auto; display: flex; flex-direction: column; }
 .bstage-portrait .bstage-moves { grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 9px; flex: 3 1 18px; }
 .bstage-portrait .bstage-utils { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 9px; margin-top: 9px; flex: 2 1 9px; }
