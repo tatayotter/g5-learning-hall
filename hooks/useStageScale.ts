@@ -22,7 +22,8 @@ const MOBILE_QUERY = '(max-width: 1024px)';
 export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false, growHeight = false) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
-  const [height, setHeight] = useState(canvasHeight);
+  // Logical height when growHeight stretched it; null = use canvasHeight.
+  const [grownHeight, setGrownHeight] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -45,11 +46,11 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
         const scaleW = window.innerWidth / canvasWidth;
         const scaleH = window.innerHeight / canvasHeight;
         if (growHeight && !coverMode && isMobile && scaleH > scaleW) {
-          setHeight(Math.floor(window.innerHeight / scaleW));
+          setGrownHeight(Math.floor(window.innerHeight / scaleW));
           setScale(scaleW);
           return;
         }
-        setHeight(canvasHeight);
+        setGrownHeight(null);
         // coverMode = fill viewport: scale by the larger axis so both
         // dimensions are at least as big as the viewport (overflow cropped).
         // Default = fit/contain: scale by the smaller axis (letterbox).
@@ -59,7 +60,6 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
       window.addEventListener('resize', update);
       return () => window.removeEventListener('resize', update);
     }
-    setHeight(canvasHeight);
     const el = shellRef.current;
     if (!el) return;
     const update = () => setScale(Math.min(1, el.clientWidth / canvasWidth));
@@ -69,5 +69,6 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
     return () => ro.disconnect();
   }, [isMobile, canvasWidth, canvasHeight, coverMode, growHeight]);
 
+  const height = growHeight && isMobile && !coverMode && grownHeight !== null ? grownHeight : canvasHeight;
   return { shellRef, scale, isMobile, height };
 }
