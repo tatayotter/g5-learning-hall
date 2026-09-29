@@ -224,6 +224,15 @@ export default function BattleStage({
   intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
+  // Red damage vignette when the player's curio takes a hit (on the stage's
+  // impact frame). Strength and reach follow the hit's share of max HP;
+  // a new key per hit replays the CSS animation.
+  const [hurt, setHurt] = useState<{ key: number; fraction: number; knockout: boolean } | null>(null);
+  const hurtKeyRef = useRef(0);
+  const onPlayerHurt = useCallback((fraction: number, knockout: boolean) => {
+    hurtKeyRef.current += 1;
+    setHurt({ key: hurtKeyRef.current, fraction: Math.max(0, Math.min(1, fraction)), knockout });
+  }, []);
   // The move panel's height, so the Show Log tab and the log sit exactly
   // on its top edge (--bstage-panel-h) whatever its content or layout.
   const actionPanelRef = useRef<HTMLDivElement>(null);
@@ -357,9 +366,25 @@ export default function BattleStage({
           ready={introPhase === 'leaving' || introPhase === 'done'}
           preloadUrls={curioUrls}
           onAssetsReady={() => setSceneLoaded(true)}
+          onPlayerHurt={onPlayerHurt}
         />
         {coinToss && <CoinToss toss={coinToss} />}
       </div>
+
+      {hurt && (
+        <div
+          key={hurt.key}
+          aria-hidden
+          className={`bstage-hurt ${hurt.knockout ? 'bstage-hurt-ko' : ''}`}
+          style={{
+            // 5% of max HP -> faint edge glow; half or more -> deep red
+            // reaching well into the screen. A knockout is always full.
+            '--hurt-strength': hurt.knockout ? 1 : Math.min(1, 0.35 + hurt.fraction * 1.3),
+            '--hurt-clear': `${hurt.knockout ? 25 : Math.round(62 - Math.min(hurt.fraction, 0.6) * 50)}%`,
+          } as CSSProperties}
+          onAnimationEnd={() => setHurt(h => (h?.key === hurt.key ? null : h))}
+        />
+      )}
 
       {banner && (
         <div className="bstage-stage-banner">

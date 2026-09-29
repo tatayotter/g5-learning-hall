@@ -560,6 +560,27 @@ html {
 .hp-fill  { transition: width 0.35s ease-out, background 0.3s ease; box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25); }
 .hp-trail { transition: width 0.9s ease-out 0.35s; }
 
+/* Red damage vignette (BattleStage): flashes in from the screen edges when
+   the player's curio takes a hit, then fades. --hurt-strength (opacity) and
+   --hurt-clear (how much of the centre stays clear) scale with the hit.
+   Above the whole battle HUD (move panel 14, banner 16), under the round
+   badge (21) and modals. */
+.bstage-hurt {
+  position: absolute; inset: 0; z-index: 18; pointer-events: none;
+  background: radial-gradient(ellipse at center,
+    rgba(170, 0, 0, 0) var(--hurt-clear, 55%),
+    rgba(190, 12, 12, 0.5) calc(var(--hurt-clear, 55%) + 22%),
+    rgba(130, 0, 0, 0.9) 100%);
+  opacity: 0;
+  animation: bstage-hurt 0.8s ease-out forwards;
+}
+.bstage-hurt-ko { animation-duration: 1.3s; }
+@keyframes bstage-hurt {
+  0% { opacity: 0; }
+  12% { opacity: var(--hurt-strength, 0.6); }
+  100% { opacity: 0; }
+}
+
 /* Soft edge darkening + top light so the flat backdrop feels lit. */
 .bstage-vignette {
   position: absolute; inset: 0; z-index: 2; pointer-events: none;

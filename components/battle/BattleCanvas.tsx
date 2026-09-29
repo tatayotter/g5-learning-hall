@@ -41,13 +41,15 @@ function resolveBungeeFamily(): string {
 // into the scene as soon as it exists, then `onAssetsReady` fires. Curios
 // aren't placed on stage until `ready` — so their entrance animations play
 // right as the intro lifts, not hidden behind it.
-export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', ready = true, preloadUrls, onAssetsReady }: {
+export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', ready = true, preloadUrls, onAssetsReady, onPlayerHurt }: {
   leftMon: BattleStageMonster;
   rightMon: BattleStageMonster;
   layout?: StageLayout;
   ready?: boolean;
   preloadUrls?: string[];
   onAssetsReady?: () => void;
+  // See BattleStageScene.onPlayerHurt.
+  onPlayerHurt?: (fraction: number, knockout: boolean) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const gameRef = useRef<import('phaser').Game | null>(null);
@@ -59,10 +61,12 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
   const readyRef = useRef(ready);
   const preloadRef = useRef(preloadUrls);
   const onAssetsReadyRef = useRef(onAssetsReady);
+  const onPlayerHurtRef = useRef(onPlayerHurt);
   useEffect(() => {
     readyRef.current = ready;
     preloadRef.current = preloadUrls;
     onAssetsReadyRef.current = onAssetsReady;
+    onPlayerHurtRef.current = onPlayerHurt;
   });
 
   useEffect(() => {
@@ -97,6 +101,7 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
       const canvas = gameRef.current.canvas;
       canvas.style.width = '100%';
       canvas.style.height = '100%';
+      scene.onPlayerHurt = (fraction, knockout) => onPlayerHurtRef.current?.(fraction, knockout);
       await scene.whenReady;
       await scene.preloadCurios(preloadRef.current ?? []);
       if (destroyed) return;
@@ -138,8 +143,8 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
   useActionSignal('right', rightMon.action, sceneRef);
   useAnimSignal('left', leftMon.animClassName, sceneRef);
   useAnimSignal('right', rightMon.animClassName, sceneRef);
-  useDamageSignal('left', leftMon.damagePopup, sceneRef);
-  useDamageSignal('right', rightMon.damagePopup, sceneRef);
+  useDamageSignal('left', leftMon.damagePopup, leftMon.maxHp, sceneRef);
+  useDamageSignal('right', rightMon.damagePopup, rightMon.maxHp, sceneRef);
 
   return <div ref={containerRef} aria-hidden className="absolute inset-0 pointer-events-none" />;
 }
@@ -171,12 +176,13 @@ function useActionSignal(
 function useDamageSignal(
   side: Side,
   popup: BattleStageMonster['damagePopup'],
+  maxHp: number,
   sceneRef: React.RefObject<BattleStageScene | null>,
 ) {
   const key = popup?.key;
   useEffect(() => {
     if (!popup) return;
-    sceneRef.current?.damage(side, popup.value, popup.missed);
+    sceneRef.current?.damage(side, popup.value, popup.missed, maxHp);
     // Keyed on the popup's key: one call per new hit.
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
 }

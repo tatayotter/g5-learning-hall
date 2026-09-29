@@ -100,12 +100,17 @@ interface Actor {
   // one, so hit/damage events that arrive with the attack are held until then.
   impactAt: number;
   pendingHit: boolean;
-  pendingDamage: { value: number; missed: boolean } | null;
+  pendingDamage: { value: number; missed: boolean; maxHp: number } | null;
   attackerElement: Element | 'normal' | null;
 }
 
 export default class BattleStageScene extends Phaser.Scene {
   private ready = false;
+  // Called on the impact frame when the player's curio (always the left
+  // side, in both battle screens) takes damage: the hit as a fraction of its
+  // max HP, and whether it was knocked out. BattleStage shows the red
+  // damage vignette from this.
+  onPlayerHurt: ((fraction: number, knockout: boolean) => void) | null = null;
   // Resolves once create() has run — BattleCanvas waits on this before
   // preloading the battle's curio art (see preloadCurios).
   private resolveReady!: () => void;
@@ -760,10 +765,10 @@ export default class BattleStageScene extends Phaser.Scene {
     this.scheduleImpact(a);
   }
 
-  damage(side: Side, value: number, missed: boolean) {
+  damage(side: Side, value: number, missed: boolean, maxHp = 0) {
     const a = this.actors[side];
     if (!a) return;
-    a.pendingDamage = { value, missed };
+    a.pendingDamage = { value, missed, maxHp };
     this.scheduleImpact(a);
   }
 
@@ -792,6 +797,9 @@ export default class BattleStageScene extends Phaser.Scene {
     a.attackerElement = null;
     a.impactAt = 0;
     if (!dmg && !hit) return;
+    if (a.side === 'left' && dmg && !dmg.missed && dmg.value > 0) {
+      this.onPlayerHurt?.(dmg.maxHp > 0 ? dmg.value / dmg.maxHp : 0.2, a.fainted);
+    }
 
     const s = a.sprite;
     const topY = s.y - Math.abs(s.displayHeight);
