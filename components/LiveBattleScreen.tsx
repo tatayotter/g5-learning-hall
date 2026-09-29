@@ -287,7 +287,11 @@ export default function LiveBattleScreen({
           setOppDamagePopup({ key: Date.now(), value: lastOutcome.myDamageDealt, missed: lastOutcome.myDamageDealt === 0 });
           if (lastOutcome.myDamageDealt > 0) triggerAnim('opp', 'battle-hit');
         }
-        if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        // A hitting move that was performed gets its sound from the battle
+        // stage, on the impact frame.
+        if (!(myActed && attackClassHits(mySkillDef.animation))) {
+          if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        }
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
         // Actual state write for my own status (self-granted blessed, or the
@@ -334,7 +338,9 @@ export default function LiveBattleScreen({
           setMyDamagePopup({ key: Date.now(), value: lastOutcome.opponentDamageDealt, missed: lastOutcome.opponentDamageDealt === 0 });
           if (lastOutcome.opponentDamageDealt > 0) triggerAnim('my', 'battle-hit');
         }
-        if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        if (!(oppActed && attackClassHits(oppSkillDef.animation))) {
+          if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
+        }
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
         // Actual state write for the opponent's own status is already applied
