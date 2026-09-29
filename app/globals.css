@@ -1171,9 +1171,12 @@ body.battle-fullscreen-active .arena-fab { display: none; }
 .bstage-portrait .bstage-stage-banner { bottom: 170px; }
 .bstage-portrait .bstage-show-log,
 .bstage-portrait .bstage-log-panel { bottom: 318px; }
-.bstage-portrait .bstage-action-panel { top: 540px; bottom: 11px; overflow-y: auto; }
-.bstage-portrait .bstage-moves { grid-template-columns: 1fr; gap: 9px; }
-.bstage-portrait .bstage-utils { grid-template-columns: repeat(2, 1fr); gap: 9px; margin-top: 9px; }
+/* The portrait panel has a fixed height (540px down to the bottom edge);
+   the move and utility buttons stretch to fill it (equal-height rows) so
+   there's no dead strip under them, and phones get bigger tap targets. */
+.bstage-portrait .bstage-action-panel { top: 540px; bottom: 11px; overflow-y: auto; display: flex; flex-direction: column; }
+.bstage-portrait .bstage-moves { grid-template-columns: 1fr; grid-auto-rows: 1fr; gap: 9px; flex: 3 1 18px; }
+.bstage-portrait .bstage-utils { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 1fr; gap: 9px; margin-top: 9px; flex: 2 1 9px; }
 
 /* Shared by both BattleStage and MapStage — fixed to the real browser
    viewport (not `absolute` within the scaled 896x504 canvas) so modal
