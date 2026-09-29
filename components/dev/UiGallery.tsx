@@ -172,7 +172,7 @@ export default function UiGallery() {
     def, level: 10 - i, currentHp: i === 0 ? 0 : 35, maxHp: 55, status: null, statusTurns: 0, restUsed: 0,
   }));
   const left: PostBattleSideInfo = {
-    avatarSrc: '/avatars/avatar_1.webp',
+    avatarSrc: '/userpics/userpics_premium/ssb3.png',
     avatarFallbackEmoji: '🧑',
     name: 'You',
     subtitle: 'Level 12',
