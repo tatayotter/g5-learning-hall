@@ -8,15 +8,21 @@
 // viewport, so scaling off 100vw overflows past the real content column),
 // and goes full-screen on mobile-width screens, scaling to fit both width
 // AND height (the page chrome otherwise pushes the canvas below the fold).
+//
+// growHeight (mobile only): instead of letterboxing a screen that's
+// relatively taller than the canvas, scale to fit the width and return a
+// taller logical `height` that fills the screen. The caller lays out the
+// extra height (BattleStage's portrait layout gives it to the move panel).
 import { useState, useEffect, useRef } from 'react';
 
 // Matches the app's existing mobile/tablet breakpoint (see the "Mobile
 // Typography Scale" media query in app/globals.css).
 const MOBILE_QUERY = '(max-width: 1024px)';
 
-export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false) {
+export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false, growHeight = false) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [height, setHeight] = useState(canvasHeight);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -38,6 +44,12 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
       const update = () => {
         const scaleW = window.innerWidth / canvasWidth;
         const scaleH = window.innerHeight / canvasHeight;
+        if (growHeight && !coverMode && isMobile && scaleH > scaleW) {
+          setHeight(Math.floor(window.innerHeight / scaleW));
+          setScale(scaleW);
+          return;
+        }
+        setHeight(canvasHeight);
         // coverMode = fill viewport: scale by the larger axis so both
         // dimensions are at least as big as the viewport (overflow cropped).
         // Default = fit/contain: scale by the smaller axis (letterbox).
@@ -47,6 +59,7 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
       window.addEventListener('resize', update);
       return () => window.removeEventListener('resize', update);
     }
+    setHeight(canvasHeight);
     const el = shellRef.current;
     if (!el) return;
     const update = () => setScale(Math.min(1, el.clientWidth / canvasWidth));
@@ -54,7 +67,7 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
     const ro = new ResizeObserver(update);
     ro.observe(el);
     return () => ro.disconnect();
-  }, [isMobile, canvasWidth, canvasHeight, coverMode]);
+  }, [isMobile, canvasWidth, canvasHeight, coverMode, growHeight]);
 
-  return { shellRef, scale, isMobile };
+  return { shellRef, scale, isMobile, height };
 }

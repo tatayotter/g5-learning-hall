@@ -16,7 +16,7 @@
 // covering the whole viewport) and scales to fit both width AND height —
 // the page chrome (nav tabs, sidebar, padding) otherwise pushes the canvas
 // below the fold and forces scrolling to see the action panel.
-import { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+import { useState, useEffect, useRef, useCallback, ReactNode, type CSSProperties } from 'react';
 import { MonsterDef, StatusEffect, type Element, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC, STATUS_DEFINITIONS } from '@/lib/monsterConfig';
 import type { AttackClass } from '@/lib/attackClasses';
 import { AttackBanner } from '@/components/battle/shared';
@@ -277,8 +277,11 @@ export default function BattleStage({
   const autoPortrait = useAutoPortrait();
   const layout: StageLayout = layoutProp === 'auto' ? (autoPortrait ? 'portrait' : 'landscape') : layoutProp;
   const portrait = layout === 'portrait';
-  const { w: CANVAS_WIDTH, h: CANVAS_HEIGHT } = CANVAS_SIZE[layout];
-  const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
+  const { w: CANVAS_WIDTH, h: BASE_HEIGHT } = CANVAS_SIZE[layout];
+  // Portrait on a phone taller than 480x860 grows instead of letterboxing;
+  // the extra height goes to the move panel (--bstage-extra, globals.css).
+  const { shellRef, scale, isMobile, height: CANVAS_HEIGHT } = useStageScale(CANVAS_WIDTH, BASE_HEIGHT, false, portrait);
+  const extraHeight = CANVAS_HEIGHT - BASE_HEIGHT;
 
   // On a phone the battle owns the whole screen (fixed overlay below) in
   // either orientation, and the app's fixed top HUD bar and floating
@@ -298,6 +301,7 @@ export default function BattleStage({
         backgroundImage: 'url(/battleui/battle_bg_normal.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        ...(portrait ? { height: CANVAS_HEIGHT, '--bstage-extra': `${extraHeight}px` } as CSSProperties : null),
       }}
     >
       <div aria-hidden className="bstage-vignette" />

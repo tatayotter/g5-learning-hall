@@ -1156,9 +1156,9 @@ html {
 body.battle-fullscreen-active .app-top-hud,
 body.battle-fullscreen-active .nav-fab,
 body.battle-fullscreen-active .arena-fab { display: none; }
-.bstage-portrait .bstage-stage { bottom: 330px; }
+.bstage-portrait .bstage-stage { bottom: calc(330px + var(--bstage-extra, 0px)); }
 .bstage-portrait .bstage-hp-row {
-  top: 0; left: 0; right: 0; bottom: 330px;
+  top: 0; left: 0; right: 0; bottom: calc(330px + var(--bstage-extra, 0px));
   display: block;
   pointer-events: none;
 }
@@ -1167,11 +1167,13 @@ body.battle-fullscreen-active .arena-fab { display: none; }
 .bstage-portrait .bstage-hp-row > :last-child { left: 10px; top: 8px; }       /* opponent */
 .bstage-portrait .bstage-hp-card { width: 258px; }
 .bstage-portrait .bstage-round-badge { left: auto; right: 10px; top: 10px; transform: none; }
-.bstage-portrait .bstage-status-banner { bottom: 336px; }
-.bstage-portrait .bstage-stage-banner { bottom: 170px; }
+.bstage-portrait .bstage-status-banner { bottom: calc(336px + var(--bstage-extra, 0px)); }
+.bstage-portrait .bstage-stage-banner { bottom: calc(170px + var(--bstage-extra, 0px) / 2); }
 .bstage-portrait .bstage-show-log,
-.bstage-portrait .bstage-log-panel { bottom: 318px; }
-/* The portrait panel has a fixed height (540px down to the bottom edge);
+.bstage-portrait .bstage-log-panel { bottom: calc(318px + var(--bstage-extra, 0px)); }
+/* The portrait panel has a fixed height (540px down to the bottom edge;
+   taller on phones taller than 480x860 — BattleStage sets --bstage-extra
+   to the added height and the stage-side offsets above add it back);
    the move and utility buttons stretch to fill it (equal-height rows) so
    there's no dead strip under them, and phones get bigger tap targets. */
 .bstage-portrait .bstage-action-panel { top: 540px; bottom: 11px; overflow-y: auto; display: flex; flex-direction: column; }
