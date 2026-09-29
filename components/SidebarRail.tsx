@@ -189,7 +189,7 @@ export default function SidebarRail({
               stays pointer-events-none (it's a display overlay, clicks pass
               through to the game underneath) — only the docked bell opts
               back into pointer-events-auto. */}
-          <div className={`fixed top-0 left-0 right-0 z-[79] select-none pointer-events-none font-display
+          <div className={`app-top-hud fixed top-0 left-0 right-0 z-[79] select-none pointer-events-none font-display
             flex items-center gap-3
             ${isDesktop ? 'px-8 pt-1.5 pb-2' : 'px-4 pt-1 pb-1.5'}`}
             style={{

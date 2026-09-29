@@ -1152,9 +1152,10 @@ html {
   background-repeat: no-repeat !important;
   background-color: #bac39e;
 }
-/* Set on <body> by BattleStage during a portrait battle on a phone. */
-body.battle-portrait-active .nav-fab,
-body.battle-portrait-active .arena-fab { display: none; }
+/* Set on <body> by BattleStage during a full-screen battle on a phone. */
+body.battle-fullscreen-active .app-top-hud,
+body.battle-fullscreen-active .nav-fab,
+body.battle-fullscreen-active .arena-fab { display: none; }
 .bstage-portrait .bstage-stage { bottom: 330px; }
 .bstage-portrait .bstage-hp-row {
   top: 0; left: 0; right: 0; bottom: 330px;

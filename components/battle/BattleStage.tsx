@@ -280,16 +280,16 @@ export default function BattleStage({
   const { w: CANVAS_WIDTH, h: CANVAS_HEIGHT } = CANVAS_SIZE[layout];
   const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  // On a phone held upright the battle owns the whole screen, and the app's
-  // floating compass/arena buttons (SidebarRail's .nav-fab / .arena-fab)
-  // would sit on top of the move panel — hide them for the battle's
-  // lifetime. The class comes off on rotate to landscape and on unmount.
-  const hideAppFabs = portrait && isMobile;
+  // On a phone the battle owns the whole screen (fixed overlay below) in
+  // either orientation, and the app's fixed top HUD bar and floating
+  // compass/arena buttons (SidebarRail's .app-top-hud / .nav-fab,
+  // MonsterGuild's .arena-fab) would sit over the HP cards and move panel — hide them for
+  // the battle's lifetime. The class comes off on unmount.
   useEffect(() => {
-    if (!hideAppFabs) return;
-    document.body.classList.add('battle-portrait-active');
-    return () => document.body.classList.remove('battle-portrait-active');
-  }, [hideAppFabs]);
+    if (!isMobile) return;
+    document.body.classList.add('battle-fullscreen-active');
+    return () => document.body.classList.remove('battle-fullscreen-active');
+  }, [isMobile]);
 
   const canvas = (
     <div
