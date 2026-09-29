@@ -26,7 +26,7 @@ import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { USERS } from '@/lib/userSession';
-import { playAttackWhoosh, playHitThud, playVictory, playDefeat, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
+import { playAttackWhoosh, playBattleSfx, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import InfoTag from '@/components/InfoTag';
 
 // Sentinel skillIds for non-skill round actions — not real SKILLS entries, so
@@ -287,11 +287,10 @@ export default function LiveBattleScreen({
           setOppDamagePopup({ key: Date.now(), value: lastOutcome.myDamageDealt, missed: lastOutcome.myDamageDealt === 0 });
           if (lastOutcome.myDamageDealt > 0) triggerAnim('opp', 'battle-hit');
         }
-        // A hitting move that was performed gets its sound from the battle
-        // stage, on the impact frame.
-        if (!(myActed && attackClassHits(mySkillDef.animation))) {
-          if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
-        }
+        // A performed move gets its cast and impact sounds from the battle
+        // stage; here only the turns where no move plays.
+        if (lastOutcome.myParalyzed) playBattleSfx('paralyze');
+        else if (lastOutcome.myTimedOut) playAttackWhoosh();
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
         // Actual state write for my own status (self-granted blessed, or the
@@ -338,9 +337,8 @@ export default function LiveBattleScreen({
           setMyDamagePopup({ key: Date.now(), value: lastOutcome.opponentDamageDealt, missed: lastOutcome.opponentDamageDealt === 0 });
           if (lastOutcome.opponentDamageDealt > 0) triggerAnim('my', 'battle-hit');
         }
-        if (!(oppActed && attackClassHits(oppSkillDef.animation))) {
-          if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
-        }
+        if (lastOutcome.opponentParalyzed) playBattleSfx('paralyze');
+        else if (lastOutcome.opponentTimedOut) playAttackWhoosh();
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
         // Actual state write for the opponent's own status is already applied
@@ -364,7 +362,7 @@ export default function LiveBattleScreen({
         updateMyActive(prev => ({ ...prev, currentHp: Math.max(0, prev.currentHp - lastOutcome.myBurnDamage) }));
         setMyDamagePopup({ key: Date.now(), value: lastOutcome.myBurnDamage, missed: false });
         triggerAnim('my', 'battle-hit');
-        playHitThud();
+        playBattleSfx('burn_tick');
       },
     } : null;
 
@@ -378,7 +376,7 @@ export default function LiveBattleScreen({
         updateOppActive(prev => ({ ...prev, currentHp: Math.max(0, prev.currentHp - lastOutcome.oppBurnDamage) }));
         setOppDamagePopup({ key: Date.now(), value: lastOutcome.oppBurnDamage, missed: false });
         triggerAnim('opp', 'battle-hit');
-        playHitThud();
+        playBattleSfx('burn_tick');
       },
     } : null;
 
@@ -460,7 +458,8 @@ export default function LiveBattleScreen({
       const won = oppWiped && !myWiped;
       const winnerId = myWiped && oppWiped ? null : (won ? myUserId : opponentId);
       addLog(won ? `${opponentName} was defeated!` : 'All your curios fainted!');
-      (won ? playVictory : playDefeat)();
+      // After the finishing blow's boom.
+      playBattleSfx(won ? 'victory' : 'defeat', { delayMs: 900 });
       pauseBattleTheme();
       declareBattleEnd(winnerId, 'ko');
     }
@@ -667,7 +666,7 @@ export default function LiveBattleScreen({
     setConfirmSurrender(false);
     addLog('You surrendered the battle.');
     pauseBattleTheme();
-    playDefeat();
+    playBattleSfx('defeat');
     declareBattleEnd(opponentId, 'surrender');
   };
 

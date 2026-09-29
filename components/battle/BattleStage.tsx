@@ -29,7 +29,7 @@ import MonsterHpPanel, { woodTextureStyle, Nail } from '@/components/battle/Mons
 import { useStageScale } from '@/hooks/useStageScale';
 import { QualityTier } from '@/lib/curioQuality';
 import GameButton from '@/components/GameButton';
-import { playPageFlip } from '@/lib/sounds';
+import { playPageFlip, playBattleSfx, preloadBattleSfx, type BattleSfx } from '@/lib/sounds';
 
 export interface BattleStageMonster {
   name: string;
@@ -208,6 +208,26 @@ const CANVAS_SIZE: Record<StageLayout, { w: number; h: number }> = {
   portrait: { w: 480, h: 860 },
 };
 
+// A status landing on a curio plays its sound, a beat after the change so it
+// follows the move's impact (the screens set status when the move starts).
+// A curio switching in with a status already on it stays quiet.
+const STATUS_SFX: Partial<Record<NonNullable<StatusEffect>, BattleSfx>> = {
+  paralyze: 'paralyze', blessed: 'blessed', curse: 'hex_land',
+};
+const STATUS_SFX_DELAY_MS = 350;
+function useStatusSfx(monName: string, status: StatusEffect | undefined) {
+  const prev = useRef({ monName, status });
+  useEffect(() => {
+    const was = prev.current;
+    prev.current = { monName, status };
+    if (!status || was.monName !== monName || was.status === status) return;
+    const sfx = STATUS_SFX[status];
+    if (!sfx) return;
+    const t = setTimeout(() => playBattleSfx(sfx), STATUS_SFX_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [monName, status]);
+}
+
 // 'auto' = portrait on a mobile-width screen held upright, landscape
 // otherwise. Re-evaluated on rotation.
 function useAutoPortrait(): boolean {
@@ -295,8 +315,19 @@ export default function BattleStage({
     return () => clearTimeout(t);
   }, [introPhase, allLoaded, introMinMs]);
   const startBattle = useCallback(() => setIntroPhase(p => (p === 'ready' ? 'leaving' : p)), []);
+  // Battle sounds: decode the whole set as the battle opens; the intro's
+  // "VS" slam (0.8s in, see BattleIntro) and the start horn as it lifts.
+  useEffect(() => { preloadBattleSfx(); }, []);
+  useEffect(() => {
+    if (!intro) return;
+    const t = setTimeout(() => playBattleSfx('intro_vs'), 780);
+    return () => clearTimeout(t);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useStatusSfx(leftMon.name, leftMon.status);
+  useStatusSfx(rightMon.name, rightMon.status);
   useEffect(() => {
     if (introPhase !== 'leaving') return;
+    playBattleSfx('battle_start');
     const t = setTimeout(() => { setIntroPhase('done'); onIntroDoneRef.current?.(); }, 350);
     return () => clearTimeout(t);
   }, [introPhase]);

@@ -390,13 +390,67 @@ export function isAmbiencePlaying() {
 // Decoded once into AudioBuffers and played through the shared AudioContext
 // (not <audio> elements), so the Phaser battle stage can start them on its
 // impact frames with ms precision, overlapping freely.
-export type BattleSfx = 'strike' | 'hit_heavy' | 'finishing_blow';
+//
+// Every move plays a CAST sound when it starts (per attack class) and an
+// OUTCOME sound when it resolves: a light or heavy hit (by share of max HP)
+// with an element layer on top, a dodge, or a knockout. Status changes,
+// entrances/faints/switches, the intro, the coin toss and the result
+// jingles have their own. ElevenLabs Sound Effects (Free plan) clips.
+//
+// volume: levelled from measured loudness so the mix sits together
+// (impacts on top, casts a little under, element layers underneath).
+// maxMs: where the clip's audible tail ends; playback fades out there so a
+// near-silent tail never lingers.
+const BATTLE_SFX = {
+  // Casts — one per attack class (lib/attackClasses.ts), plus follow-ups.
+  cast_strike: { src: '/sounds/battle_cast_strike.mp3', volume: 0.52, maxMs: 480 },
+  cast_pounce: { src: '/sounds/battle_cast_pounce.mp3', volume: 0.58, maxMs: 410 },
+  cast_projectile: { src: '/sounds/battle_cast_projectile.mp3', volume: 0.26, maxMs: 350 },
+  cast_barrage: { src: '/sounds/battle_cast_barrage.mp3', volume: 0.38, maxMs: 590 },
+  cast_beam: { src: '/sounds/battle_cast_beam.mp3', volume: 0.44, maxMs: 840 },
+  cast_wave: { src: '/sounds/battle_cast_wave.mp3', volume: 2.92, maxMs: 800 },
+  cast_zone: { src: '/sounds/battle_cast_zone.mp3', volume: 0.51, maxMs: 480 },
+  cast_drain: { src: '/sounds/battle_cast_drain.mp3', volume: 0.4, maxMs: 370 },
+  drain_return: { src: '/sounds/battle_drain_return.mp3', volume: 0.68, maxMs: 510 },
+  cast_power_up: { src: '/sounds/battle_cast_power_up.mp3', volume: 0.38, maxMs: 1000 },
+  cast_guard: { src: '/sounds/battle_cast_guard.mp3', volume: 0.49, maxMs: 540 },
+  cast_hex: { src: '/sounds/battle_cast_hex.mp3', volume: 0.85, maxMs: 430 },
+  hex_land: { src: '/sounds/battle_hex_land.mp3', volume: 0.84, maxMs: 400 },
+  cast_restore: { src: '/sounds/battle_cast_restore.mp3', volume: 1.05, maxMs: 760 },
+  // Outcomes.
+  hit_light: { src: '/sounds/battle_hit_light.mp3', volume: 0.43, maxMs: 180 },
+  hit_heavy: { src: '/sounds/battle_hit_heavy.mp3', volume: 0.6, maxMs: 440 },
+  finishing_blow: { src: '/sounds/battle_finishing_blow.mp3', volume: 0.7, maxMs: 1160 },
+  miss_dodge: { src: '/sounds/battle_miss_dodge.mp3', volume: 0.36, maxMs: 360 },
+  // Element layers, played on top of a hit.
+  el_fire: { src: '/sounds/battle_el_fire.mp3', volume: 0.34, maxMs: 450 },
+  el_water: { src: '/sounds/battle_el_water.mp3', volume: 0.34, maxMs: 350 },
+  el_leaf: { src: '/sounds/battle_el_leaf.mp3', volume: 0.99, maxMs: 420 },
+  el_storm: { src: '/sounds/battle_el_storm.mp3', volume: 0.31, maxMs: 510 },
+  el_shadow: { src: '/sounds/battle_el_shadow.mp3', volume: 0.5, maxMs: 290 },
+  el_light: { src: '/sounds/battle_el_light.mp3', volume: 0.44, maxMs: 550 },
+  // Status.
+  burn_tick: { src: '/sounds/battle_burn_tick.mp3', volume: 0.66, maxMs: 500 },
+  paralyze: { src: '/sounds/battle_paralyze.mp3', volume: 0.47, maxMs: 480 },
+  blessed: { src: '/sounds/battle_blessed.mp3', volume: 0.35, maxMs: 500 },
+  revive: { src: '/sounds/battle_revive.mp3', volume: 0.36, maxMs: 880 },
+  // Flow.
+  entrance: { src: '/sounds/battle_entrance.mp3', volume: 0.5, maxMs: 470 },
+  faint: { src: '/sounds/battle_faint.mp3', volume: 0.51, maxMs: 540 },
+  recall: { src: '/sounds/battle_recall.mp3', volume: 0.43, maxMs: 500 },
+  intro_vs: { src: '/sounds/battle_intro_vs.mp3', volume: 0.99, maxMs: 620 },
+  battle_start: { src: '/sounds/battle_battle_start.mp3', volume: 0.46, maxMs: 800 },
+  coin_flip: { src: '/sounds/battle_coin_flip.mp3', volume: 1.62, maxMs: 840 },
+  coin_land: { src: '/sounds/battle_coin_land.mp3', volume: 0.91, maxMs: 210 },
+  victory: { src: '/sounds/battle_victory.mp3', volume: 0.68, maxMs: 1550 },
+  defeat: { src: '/sounds/battle_defeat.mp3', volume: 0.5, maxMs: 2030 },
+  // Earlier all-in-one strike (dash + claw hit); superseded by
+  // cast_strike + hit_*, kept for the /dev/ui-gallery preview.
+  strike: { src: '/sounds/battle_strike.mp3', volume: 0.6, maxMs: 440 },
+} satisfies Record<string, { src: string; volume: number; maxMs: number }>;
 
-const BATTLE_SFX: Record<BattleSfx, { src: string; volume: number }> = {
-  strike: { src: '/sounds/battle_strike.mp3', volume: 0.6 },
-  hit_heavy: { src: '/sounds/battle_hit_heavy.mp3', volume: 0.6 },
-  finishing_blow: { src: '/sounds/battle_finishing_blow.mp3', volume: 0.7 },
-};
+export type BattleSfx = keyof typeof BATTLE_SFX;
+export const BATTLE_SFX_NAMES = Object.keys(BATTLE_SFX) as BattleSfx[];
 
 const battleSfxBuffers = new Map<BattleSfx, Promise<AudioBuffer | null>>();
 
@@ -412,9 +466,10 @@ function loadBattleSfx(name: BattleSfx): Promise<AudioBuffer | null> {
   return p;
 }
 
-// Call when a battle opens, so the first hit isn't late while it decodes.
+// Call when a battle opens, so the first sounds aren't late while they
+// decode (about 0.9 MB for the whole set, fetched once and cached).
 export function preloadBattleSfx() {
-  for (const name of Object.keys(BATTLE_SFX) as BattleSfx[]) void loadBattleSfx(name);
+  for (const name of BATTLE_SFX_NAMES) void loadBattleSfx(name);
 }
 
 // delayMs: start this long from now. offsetMs: skip this far into the clip
@@ -423,15 +478,23 @@ export function playBattleSfx(name: BattleSfx, { delayMs = 0, offsetMs = 0 }: { 
   if (!sfxEnabled) return;
   const ctx = getContext();
   const startAt = ctx.currentTime + Math.max(0, delayMs) / 1000;
+  const { volume, maxMs } = BATTLE_SFX[name];
   void loadBattleSfx(name).then(buf => {
     if (!buf || !sfxEnabled) return;
     const src = ctx.createBufferSource();
     src.buffer = buf;
     const gain = ctx.createGain();
-    gain.gain.value = BATTLE_SFX[name].volume;
+    const t0 = Math.max(startAt, ctx.currentTime);
+    const offset = Math.max(0, offsetMs) / 1000;
+    const playFor = Math.max(0.05, maxMs / 1000 - offset);
+    const fade = Math.min(0.06, playFor / 3);
+    gain.gain.setValueAtTime(volume, t0);
+    gain.gain.setValueAtTime(volume, t0 + playFor - fade);
+    gain.gain.linearRampToValueAtTime(0, t0 + playFor);
     src.connect(gain);
     gain.connect(ctx.destination);
-    src.start(Math.max(startAt, ctx.currentTime), Math.max(0, offsetMs) / 1000);
+    src.start(t0, offset);
+    src.stop(t0 + playFor + 0.01);
   });
 }
 
