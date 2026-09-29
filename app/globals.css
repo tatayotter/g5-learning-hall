@@ -1365,8 +1365,10 @@ body.battle-fullscreen-active .arena-fab { display: none; }
     padding: 1rem !important;
   }
 
-  /* Button text */
-  button {
+  /* Button text. Not inside the battle stage: that canvas is already
+     scaled down to fit the screen, so shrinking its buttons here would
+     shrink them twice (and override their own sizing). */
+  button:not(.bstage-container *) {
     font-size: 0.8rem !important;
   }
 
