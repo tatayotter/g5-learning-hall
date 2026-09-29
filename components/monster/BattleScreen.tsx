@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { playAttackWhoosh, playHitThud, playMiss, playVictory, playDefeat, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
+import { playAttackWhoosh, playHitThud, playVictory, playDefeat, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
   ALL_MONSTERS, SKILLS, BATTLE_CONSTANTS,
@@ -493,12 +493,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       damage,
       missed,
       apply: () => {
-        playAttackWhoosh();
         setPlayerAction(makeStageAction(skill));
         // Buffs/heals/curses (non-hitting classes) never touch the enemy — no
-        // hit reaction and no "-0" damage number over it.
+        // hit reaction and no "-0" damage number over it. Hitting moves get
+        // their hit/miss sound from the battle stage, on the impact frame.
+        if (!attackClassHits(skill.animation)) playAttackWhoosh();
         if (attackClassHits(skill.animation)) {
-          if (missed) { playMiss(); } else { playHitThud(); triggerAnim('npc', 'battle-hit'); }
+          if (!missed) triggerAnim('npc', 'battle-hit');
           setNpcDamagePopup({ key: Date.now(), value: damage, missed });
         }
         addLog(msg);
@@ -592,8 +593,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       damage,
       missed: false,
       apply: () => {
-        setNpcAction(makeStageAction(getNpcSkill(currentNpc)));
-        playHitThud();
+        const npcSkill = getNpcSkill(currentNpc);
+        setNpcAction(makeStageAction(npcSkill));
+        // A hitting move's impact sound comes from the battle stage.
+        if (!attackClassHits(npcSkill.animation)) playHitThud();
         triggerAnim('player', 'battle-hit');
         setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
         addLog(`${currentNpc.def.name} ${npcAttackVerb} for ${damage} damage!`);

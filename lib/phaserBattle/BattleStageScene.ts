@@ -22,6 +22,7 @@ import {
 } from '@/lib/curioBody';
 import type { AttackClass } from '@/lib/attackClasses';
 import { opaqueBounds } from '@/lib/imageTrim';
+import { playBattleSfx, playMiss, preloadBattleSfx } from '@/lib/sounds';
 
 // The stage box is measured at mount (components/battle/BattleCanvas.tsx) —
 // .bstage-stage sits inside the container's 2px border, so it's 892x328, not
@@ -48,6 +49,10 @@ const DEPTH_BACK = 0.8;
 const SLOWMO = 0.3;
 const KO_SLOWMO_LEAD_MS = 170; // scene ms before impact that time slows
 const KO_SLOWMO_HOLD_MS = 750; // real ms after impact before time recovers
+// Where each hit sound peaks inside its clip (measured from the files), so
+// the peak can be lined up with the on-screen impact.
+const STRIKE_SFX_PEAK_MS = 50;
+const KO_SFX_PEAK_MS = 220;
 const PLATFORM_W = 210;
 const PLATFORM_H = 75;
 
@@ -102,6 +107,12 @@ interface Actor {
   pendingHit: boolean;
   pendingDamage: { value: number; missed: boolean } | null;
   attackerElement: Element | 'normal' | null;
+  // The move this actor is performing right now (set by perform), and the
+  // class of the move inbound on it — picks the impact sound.
+  performing: AttackClass | null;
+  attackerClass: AttackClass | null;
+  // The finishing-blow sound was already scheduled for this knockout.
+  koSfx: boolean;
 }
 
 export default class BattleStageScene extends Phaser.Scene {
@@ -154,6 +165,7 @@ export default class BattleStageScene extends Phaser.Scene {
   }
 
   create() {
+    preloadBattleSfx();
     // Render at device resolution: the game canvas is res× the stage size and
     // CSS-shrunk back to 896x332, so zooming the camera keeps all scene
     // coordinates in stage pixels.
@@ -220,7 +232,7 @@ export default class BattleStageScene extends Phaser.Scene {
       shadow: this.add.ellipse(this.sideX[side], this.ground[side], 100, 100, 0x1a1008, 1).setAlpha(0),
       baseSX: 1, baseSY: 1, homeY: this.ground[side] - (mon.floats ? FLOAT_LIFT_PX * this.depth[side] : 0),
       idle: null, busy: false, fainted: false, collapsed: false,
-      impactAt: 0, pendingHit: false, pendingDamage: null, attackerElement: null,
+      impactAt: 0, pendingHit: false, pendingDamage: null, attackerElement: null, performing: null, attackerClass: null, koSfx: false,
     };
     this.actors[side] = actor;
 
@@ -277,6 +289,7 @@ export default class BattleStageScene extends Phaser.Scene {
     if (!this.ready || !a?.sprite || a.fainted) return;
     const t = this.actors[other(side)];
     const tints = BURST_TINTS[element ?? 'normal'];
+    a.performing = cls;
     switch (cls) {
       case 'strike': return this.seqStrike(a, t, tints, element);
       case 'pounce': return this.seqPounce(a, t, tints, element);
@@ -640,6 +653,7 @@ export default class BattleStageScene extends Phaser.Scene {
   private finish(a: Actor) {
     if (this.actors[a.side] !== a) return;
     a.busy = false;
+    a.performing = null;
     a.sprite?.setDepth(0);
     this.startIdle(a);
   }
@@ -650,12 +664,19 @@ export default class BattleStageScene extends Phaser.Scene {
     if (!t) return;
     t.impactAt = this.time.now + ms;
     t.attackerElement = element ?? 'normal';
+    t.attackerClass = this.actors[other(t.side)]?.performing ?? null;
     // The target's HP already hit 0 when this move started (the screen sends
     // HP with the move) — so this is the finishing blow: slow time down just
     // before it connects, so the final approach plays in slow motion.
     if (t.fainted && !t.collapsed) {
       const lead = Math.min(ms, KO_SLOWMO_LEAD_MS);
       this.time.delayedCall(ms - lead, () => this.enterSlowMo());
+      // A knockout can't miss, so the finishing-blow sound is scheduled now:
+      // its swell runs through the slow motion and peaks on the impact.
+      // Real time to impact = normal-speed part + the slowed lead.
+      const realToImpact = (ms - lead) / this.time.timeScale + lead / SLOWMO;
+      playBattleSfx('finishing_blow', { delayMs: realToImpact - KO_SFX_PEAK_MS, offsetMs: Math.max(0, KO_SFX_PEAK_MS - realToImpact) });
+      t.koSfx = true;
     }
     this.time.delayedCall(ms, () => this.resolveImpact(t));
   }
@@ -790,11 +811,25 @@ export default class BattleStageScene extends Phaser.Scene {
     a.pendingHit = false;
     const element = a.attackerElement ?? 'neutral';
     a.attackerElement = null;
+    const attackerClass = a.attackerClass;
+    a.attackerClass = null;
     a.impactAt = 0;
     if (!dmg && !hit) return;
 
     const s = a.sprite;
     const topY = s.y - Math.abs(s.displayHeight);
+    // Sounds only for a move's impact — a hit with no inbound move (a burn
+    // tick) keeps the battle screen's own sound.
+    if (attackerClass) {
+      if (hit && a.fainted) {
+        if (!a.koSfx) playBattleSfx('finishing_blow', { offsetMs: KO_SFX_PEAK_MS });
+      } else if (hit) {
+        if (attackerClass === 'strike') playBattleSfx('strike', { offsetMs: STRIKE_SFX_PEAK_MS });
+        else playBattleSfx('hit_heavy');
+      } else if (dmg?.missed) {
+        playMiss();
+      }
+    }
     if (hit) {
       const attacker = this.actors[other(a.side)];
       const force = attacker ? CURIO_SIZE_WEIGHT[attacker.mon.size] : 1;

@@ -386,6 +386,55 @@ export function isAmbiencePlaying() {
   return ambienceNodes !== null;
 }
 
+// --- Battle stage sample SFX ---
+// Decoded once into AudioBuffers and played through the shared AudioContext
+// (not <audio> elements), so the Phaser battle stage can start them on its
+// impact frames with ms precision, overlapping freely.
+export type BattleSfx = 'strike' | 'hit_heavy' | 'finishing_blow';
+
+const BATTLE_SFX: Record<BattleSfx, { src: string; volume: number }> = {
+  strike: { src: '/sounds/battle_strike.mp3', volume: 0.6 },
+  hit_heavy: { src: '/sounds/battle_hit_heavy.mp3', volume: 0.6 },
+  finishing_blow: { src: '/sounds/battle_finishing_blow.mp3', volume: 0.7 },
+};
+
+const battleSfxBuffers = new Map<BattleSfx, Promise<AudioBuffer | null>>();
+
+function loadBattleSfx(name: BattleSfx): Promise<AudioBuffer | null> {
+  let p = battleSfxBuffers.get(name);
+  if (!p) {
+    p = fetch(BATTLE_SFX[name].src)
+      .then(r => r.arrayBuffer())
+      .then(b => getContext().decodeAudioData(b))
+      .catch(() => null);
+    battleSfxBuffers.set(name, p);
+  }
+  return p;
+}
+
+// Call when a battle opens, so the first hit isn't late while it decodes.
+export function preloadBattleSfx() {
+  for (const name of Object.keys(BATTLE_SFX) as BattleSfx[]) void loadBattleSfx(name);
+}
+
+// delayMs: start this long from now. offsetMs: skip this far into the clip
+// (to line its peak up with an impact that's already happening).
+export function playBattleSfx(name: BattleSfx, { delayMs = 0, offsetMs = 0 }: { delayMs?: number; offsetMs?: number } = {}) {
+  if (!sfxEnabled) return;
+  const ctx = getContext();
+  const startAt = ctx.currentTime + Math.max(0, delayMs) / 1000;
+  void loadBattleSfx(name).then(buf => {
+    if (!buf || !sfxEnabled) return;
+    const src = ctx.createBufferSource();
+    src.buffer = buf;
+    const gain = ctx.createGain();
+    gain.gain.value = BATTLE_SFX[name].volume;
+    src.connect(gain);
+    gain.connect(ctx.destination);
+    src.start(Math.max(startAt, ctx.currentTime), Math.max(0, offsetMs) / 1000);
+  });
+}
+
 // --- Battle: attack whoosh ---
 export function playAttackWhoosh() {
   if (!sfxEnabled) return;
