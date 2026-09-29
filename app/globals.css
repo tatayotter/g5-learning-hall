@@ -1087,7 +1087,7 @@ html {
   position: absolute;
   left: 50%; width: 360px;
   transform: translateX(-50%);
-  bottom: 134px;
+  bottom: var(--bstage-tab-bottom);
   height: 0;
   overflow: hidden;
   transition: height 0.28s cubic-bezier(.22,.8,.26,1), opacity 0.2s ease;
@@ -1107,7 +1107,7 @@ html {
    hover transform, which made the pill visibly jump sideways. */
 .bstage-show-log {
   position: absolute;
-  bottom: 134px; left: 50%;
+  bottom: var(--bstage-tab-bottom); left: 50%;
   transform: translateX(-50%);
   z-index: 15;
   padding: 6px 16px;
@@ -1116,6 +1116,11 @@ html {
   transition: opacity 0.2s ease;
 }
 
+/* The Show Log tab and the log panel sit on the move panel's top edge:
+   11px (panel's bottom offset) + its measured height (--bstage-panel-h,
+   set by BattleStage) - 2px so the tab overlaps the frame's border and
+   reads as attached. The fallbacks match the pre-measurement layouts. */
+.bstage-container { --bstage-tab-bottom: calc(11px + var(--bstage-panel-h, 125px) - 2px); }
 .bstage-action-panel {
   position: absolute;
   bottom: 11px; left: 11px; right: 11px;
@@ -1169,8 +1174,6 @@ body.battle-fullscreen-active .arena-fab { display: none; }
 .bstage-portrait .bstage-round-badge { left: auto; right: 10px; top: 10px; transform: none; }
 .bstage-portrait .bstage-status-banner { bottom: calc(336px + var(--bstage-extra, 0px)); }
 .bstage-portrait .bstage-stage-banner { bottom: calc(170px + var(--bstage-extra, 0px) / 2); }
-.bstage-portrait .bstage-show-log,
-.bstage-portrait .bstage-log-panel { bottom: calc(318px + var(--bstage-extra, 0px)); }
 /* The portrait panel has a fixed height (540px down to the bottom edge;
    taller on phones taller than 480x860 — BattleStage sets --bstage-extra
    to the added height and the stage-side offsets above add it back);

@@ -224,6 +224,17 @@ export default function BattleStage({
   intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
+  // The move panel's height, so the Show Log tab and the log sit exactly
+  // on its top edge (--bstage-panel-h) whatever its content or layout.
+  const actionPanelRef = useRef<HTMLDivElement>(null);
+  const [actionPanelH, setActionPanelH] = useState<number | null>(null);
+  useEffect(() => {
+    const el = actionPanelRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setActionPanelH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   // ── Battle intro ──────────────────────────────────────────────────────
   // Curio art for both whole teams goes to the Phaser scene (its texture
@@ -304,6 +315,7 @@ export default function BattleStage({
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         ...(portrait ? { height: CANVAS_HEIGHT, '--bstage-extra': `${extraHeight}px` } as CSSProperties : null),
+        ...(actionPanelH !== null ? { '--bstage-panel-h': `${actionPanelH}px` } as CSSProperties : null),
       }}
     >
       <div aria-hidden className="bstage-vignette" />
@@ -384,6 +396,7 @@ export default function BattleStage({
           scrolls, which would clip anything outside it) and fall in the
           tiles' rounded corners. */}
       <div
+        ref={actionPanelRef}
         className={`bstage-action-panel border-2 border-[#4a2f18] rounded-xl p-[9px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
         style={{ boxShadow: '0 0 0 3px #d4a017, 0 2px 0 1px rgba(0,0,0,0.75)', ...woodTextureStyle }}
       >
