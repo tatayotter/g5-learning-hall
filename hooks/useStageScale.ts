@@ -13,13 +13,17 @@
 // relatively taller than the canvas, scale to fit the width and return a
 // taller logical `height` that fills the screen. The caller lays out the
 // extra height (BattleStage's portrait layout gives it to the move panel).
+//
+// inline: never go full-screen, even on a mobile-width screen — scale to the
+// container like desktop (the /dev/ui-gallery playground, so it doesn't
+// cover the rest of the page).
 import { useState, useEffect, useRef } from 'react';
 
 // Matches the app's existing mobile/tablet breakpoint (see the "Mobile
 // Typography Scale" media query in app/globals.css).
 const MOBILE_QUERY = '(max-width: 1024px)';
 
-export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false, growHeight = false) {
+export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false, growHeight = false, inline = false) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   // Logical height when growHeight stretched it; null = use canvasHeight.
@@ -28,11 +32,11 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
 
   useEffect(() => {
     const mq = window.matchMedia(MOBILE_QUERY);
-    const update = () => setIsMobile(mq.matches);
+    const update = () => setIsMobile(mq.matches && !inline);
     update();
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
-  }, []);
+  }, [inline]);
 
   useEffect(() => {
     // coverMode (fullscreen maps, e.g. the training map) always fills the
