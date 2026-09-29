@@ -157,7 +157,9 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger, elemen
         icon={icon}
         sub={sub}
         className="w-full"
-        style={{ fontSize: 14 }}
+        // Everything in the quest button is em-sized, so this scales text,
+        // icon and subtitle together (portrait phones: --bstage-tile-font).
+        style={{ fontSize: 'var(--bstage-tile-font, 14px)' }}
       >
         {title}
       </GameButton>
