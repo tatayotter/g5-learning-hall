@@ -3,6 +3,7 @@
 // rounds" — see plan). Modeled on hooks/useMapPresence.ts's presence+broadcast
 // pattern, extended with join/leave handling for forfeit detection.
 import { BATTLE_INTRO_PVP_GRACE_MS } from '@/lib/battleIntro';
+import { seededCoinFlip, tossCoin } from '@/lib/coinToss';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
@@ -80,6 +81,10 @@ export interface RoundOutcome {
   // Who moved first this round (null = equal speed: simultaneous trade).
   // Only drives beat order on screen; the math is in resolveRound.
   firstMover: 'me' | 'opponent' | null;
+  // Speed tie that met a finishing blow: who won the coin toss (and so moved
+  // first). null otherwise — including ties where neither hit would KO,
+  // which are a simultaneous trade (see lib/coinToss.ts).
+  coinToss: 'me' | 'opponent' | null;
   // Alt/universal skills' secondary effects — the *resulting* modifier stack
   // for each side (already ticked + this round's effects folded in), plus any
   // self HP change (lifesteal/flat heal) and whether a cleanse fired. No-ops
@@ -224,11 +229,29 @@ export function useLiveBattle(
 
     // Full speed-based turn order: the faster curio moves first, and if that
     // move KOs the slower curio, the slower one never acts — its damage and
-    // every effect of its move are cancelled below. Equal speed is a
-    // simultaneous trade (both land, mutual KO possible).
+    // every effect of its move are cancelled below.
+    //
+    // Equal speed (lib/coinToss.ts): if neither hit would KO, it's a
+    // simultaneous trade — both land. If either would be a finishing blow, a
+    // coin toss picks who moves first. Both clients must agree without a
+    // round trip, so the coin is seeded from the battle id, round, and the two
+    // curios in challenger/opponent order (bot battles are local: random).
     const mySpeed = getScaledStats(myMonster.def, myMonster.level, myQuality).speed;
     const oppSpeed = getScaledStats(oppMonster.def, oppMonster.level, oppQuality).speed;
-    const firstMover: 'me' | 'opponent' | null = mySpeed > oppSpeed ? 'me' : oppSpeed > mySpeed ? 'opponent' : null;
+    let firstMover: 'me' | 'opponent' | null = mySpeed > oppSpeed ? 'me' : oppSpeed > mySpeed ? 'opponent' : null;
+    let coinToss: 'me' | 'opponent' | null = null;
+    if (firstMover === null
+      && (myMonster.currentHp - opponentDamageDealt <= 0 || oppMonster.currentHp - myDamageDealt <= 0)) {
+      const iAmChallenger = side === 'challenger';
+      const challengerMon = iAmChallenger ? myMonster : oppMonster;
+      const opponentSideMon = iAmChallenger ? oppMonster : myMonster;
+      const bit = isBotMode
+        ? (tossCoin() ? 0 : 1)
+        : seededCoinFlip(`${battleId}|${mine.round}|${challengerMon.def.id}|${opponentSideMon.def.id}`);
+      const challengerWins = bit === 0;
+      coinToss = challengerWins === iAmChallenger ? 'me' : 'opponent';
+      firstMover = coinToss;
+    }
     let speedWinner: 'me' | 'opponent' | null = null;
     if (firstMover === 'me' && oppMonster.currentHp - myDamageDealt <= 0) {
       speedWinner = 'me';
@@ -322,15 +345,15 @@ export function useLiveBattle(
     const oppNextStatus = oppNext.status;
     const oppNextStatusTurns = oppNext.statusTurns;
 
-    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
+    setLastOutcome({ round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, coinToss, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId });
     setPhase('round_resolved');
 
     channelRef.current?.send({
       type: 'broadcast',
       event: 'round_result',
-      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
+      payload: { round: mine.round, myDamageDealt, opponentDamageDealt, myStatusInflicted, opponentStatusInflicted, mySelfStatus, oppSelfStatus, myAttackMissed, opponentAttackMissed, myTimedOut, opponentTimedOut, myParalyzed, opponentParalyzed: oppParalyzed, myBurnDamage, oppBurnDamage, myCursed, opponentCursed, myBlessedConsumed, oppBlessedConsumed, myNextStatus, myNextStatusTurns, oppNextStatus, oppNextStatusTurns, speedWinner, firstMover, coinToss, myModifiers, oppModifiers, myHpDelta, oppHpDelta, myCleanse, oppCleanse, mySkillId, oppSkillId, from: userId },
     });
-  }, [skills, userId]);
+  }, [skills, userId, side, battleId, isBotMode]);
 
   // extraMs: round 1 only — covers the battle intro screen (see the
   // round_start broadcast below and BATTLE_INTRO_PVP_GRACE_MS).
@@ -460,6 +483,7 @@ export function useLiveBattle(
         oppNextStatusTurns: payload.myNextStatusTurns ?? 0,
         speedWinner: payload.speedWinner === 'me' ? 'opponent' : payload.speedWinner === 'opponent' ? 'me' : null,
         firstMover: payload.firstMover === 'me' ? 'opponent' : payload.firstMover === 'opponent' ? 'me' : null,
+        coinToss: payload.coinToss === 'me' ? 'opponent' : payload.coinToss === 'opponent' ? 'me' : null,
         myModifiers: payload.oppModifiers ?? [],
         oppModifiers: payload.myModifiers ?? [],
         myHpDelta: payload.oppHpDelta ?? 0,

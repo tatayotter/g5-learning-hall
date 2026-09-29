@@ -7,6 +7,10 @@
 import { useMemo, useState } from 'react';
 import BattleStage, { type BattleStageMonster, makeStageAction, ActionTile } from '@/components/battle/BattleStage';
 import { attackClassHits, type AttackClass } from '@/lib/attackClasses';
+import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import type { CoinTossState } from '@/components/battle/CoinToss';
+import { BATTLE_BEAT_MS } from '@/components/battle/shared';
+import { COIN_TOSS_BANNER, coinTossResultText, tossCoin } from '@/lib/coinToss';
 import { QUALITY_TIERS, type QualityTier } from '@/lib/curioQuality';
 import {
   ALL_MONSTERS, SKILLS, getSkillIconSrc, NORMAL_SKILL_ICON_SRC, getGraduatedMonsterDisplay, getGuildMonsterTierDef, getMaxGraduationTier, type MonsterDef, type Element,
@@ -45,6 +49,24 @@ export default function BattleStagePlayground() {
   const [quality, setQuality] = useState<Record<SideKey, QualityTier>>({ left: 'outstanding', right: 'perfect' });
   const [move, setMove] = useState<Record<SideKey, number>>({ left: 0, right: 1 });
   const [action, setAction] = useState<Record<SideKey, BattleStageMonster['action']>>({ left: null, right: null });
+  const [coinToss, setCoinToss] = useState<CoinTossState | null>(null);
+
+  // One coin-toss beat, as BattleScreen/LiveBattleScreen play it.
+  const tossForTurn = () => {
+    const leftWins = tossCoin();
+    const winner = forms[pick[leftWins ? 'left' : 'right']];
+    setCoinToss(null);
+    requestAnimationFrame(() => {
+      setCoinToss({
+        leftSpriteUrl: curioSpriteUrl(forms[pick.left]),
+        rightSpriteUrl: curioSpriteUrl(forms[pick.right]),
+        winner: leftWins ? 'left' : 'right',
+        resultText: coinTossResultText(leftWins, winner.name, 'Rival'),
+      });
+      setBanner({ text: COIN_TOSS_BANNER, iconSrc: null });
+      setTimeout(() => { setCoinToss(null); setBanner(null); }, BATTLE_BEAT_MS);
+    });
+  };
 
   const triggerAnim = (side: SideKey, name: string) => {
     setAnim(a => ({ ...a, [side]: '' }));
@@ -147,6 +169,7 @@ export default function BattleStagePlayground() {
         <button className={btn} onClick={() => burn('left')}>Burn tick (left)</button>
         <button className={btn} onClick={() => setHp({ left: 100, right: 100 })}>Heal both</button>
         <button className={btn} onClick={() => setIntroKey(k => k + 1)}>Replay intro</button>
+        <button className={btn} onClick={tossForTurn}>Coin toss</button>
       </div>
       <BattleStage
         key={introKey}
@@ -159,6 +182,7 @@ export default function BattleStagePlayground() {
         roundBadge="Round 1"
         log={['Battle started!']}
         banner={banner}
+        coinToss={coinToss}
         layout={layout}
         actionPanel={(() => {
           // Same markup shape as BattleScreen's real panel (.bstage-moves +

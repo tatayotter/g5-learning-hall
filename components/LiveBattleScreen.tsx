@@ -18,6 +18,8 @@ import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, r
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
 import { attackClassHits } from '@/lib/attackClasses';
 import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import type { CoinTossState } from '@/components/battle/CoinToss';
+import { COIN_TOSS_BANNER, coinTossResultText } from '@/lib/coinToss';
 import { BATTLE_INTRO_READY_AUTOSTART_MS } from '@/lib/battleIntro';
 import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
@@ -88,6 +90,7 @@ export default function LiveBattleScreen({
   // The move each side is performing right now (see BattleStageMonster.action).
   const [myAction, setMyAction] = useState<BattleStageMonster['action']>(null);
   const [oppAction, setOppAction] = useState<BattleStageMonster['action']>(null);
+  const [coinToss, setCoinToss] = useState<CoinTossState | null>(null);
   // Set to the round number once that round's attack beats have finished
   // playing — gates auto-advance/KO handling so they don't fire mid-sequence
   // while a beat's 2s window is still on screen.
@@ -227,7 +230,11 @@ export default function LiveBattleScreen({
     if (!lastOutcome) return;
     setBanner(null);
 
-    if (lastOutcome.speedWinner === 'me') {
+    // A coin-toss round's speedWinner won the toss, not a speed race (the
+    // coin beat below logs that instead).
+    if (lastOutcome.coinToss) {
+      // no speed log
+    } else if (lastOutcome.speedWinner === 'me') {
       addLog(`⚡ You were faster — your hit landed first!`);
     } else if (lastOutcome.speedWinner === 'opponent') {
       addLog(`⚡ ${opponentName} was faster and struck first!`);
@@ -375,10 +382,34 @@ export default function LiveBattleScreen({
     if ((lastOutcome.firstMover === 'opponent' || lastOutcome.speedWinner === 'opponent') && myBeat && oppBeat) beats = [oppBeat, myBeat];
     beats = [...beats, myBurnBeat, oppBurnBeat].filter((b): b is BattleBeat => !!b);
 
+    // Speed tie that met a finishing blow (lib/coinToss.ts): the coin toss
+    // plays over the stage as its own beat before the attacks.
+    let coinBeat: BattleBeat | null = null;
+    if (lastOutcome.coinToss) {
+      const iWon = lastOutcome.coinToss === 'me';
+      const resultText = coinTossResultText(iWon, (iWon ? myMon : oppMon).def.name, opponentName);
+      coinBeat = {
+        actor: iWon ? 'player' : 'opponent',
+        message: COIN_TOSS_BANNER,
+        iconSrc: null,
+        damage: null,
+        missed: false,
+        apply: () => {
+          setCoinToss({ leftSpriteUrl: curioSpriteUrl(myMon.def), rightSpriteUrl: curioSpriteUrl(oppMon.def), winner: iWon ? 'left' : 'right', resultText });
+          addLog(resultText);
+        },
+      };
+      beats = [coinBeat, ...beats];
+    }
+
     runBattleBeats(
       beats,
-      (beat) => { setBanner({ text: beat.message, iconSrc: beat.iconSrc }); addLog(beat.message); },
-      () => { setBanner(null); setBeatsDoneForRound(lastOutcome.round); },
+      (beat) => {
+        if (beat !== coinBeat) setCoinToss(null);
+        setBanner({ text: beat.message, iconSrc: beat.iconSrc });
+        addLog(beat.message);
+      },
+      () => { setCoinToss(null); setBanner(null); setBeatsDoneForRound(lastOutcome.round); },
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastOutcome]);
@@ -875,6 +906,7 @@ export default function LiveBattleScreen({
     <BattleStage
       leftName={myDisplayName}
       rightName={opponentName}
+      coinToss={coinToss}
       // Round clock is shared — the intro's Ready button counts down and
       // starts on its own (round 1 is extended to cover it).
       introAutoStartMs={BATTLE_INTRO_READY_AUTOSTART_MS}

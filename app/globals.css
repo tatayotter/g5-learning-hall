@@ -1603,3 +1603,56 @@ body.battle-portrait-active .arena-fab { display: none; }
   .bintro-aura, .bintro-vs-text, .bintro-rays, .bintro-loader, .bintro-ready, .bintro-tagline { animation: none; }
   .bintro-ring, .bintro-sparks, .bintro-streak, .bintro-flash { display: none; }
 }
+
+/* ── Speed-tie coin toss (components/battle/CoinToss.tsx) ────────────────
+   Fills .bstage-stage (so it covers the curios in either layout, under the
+   HP cards). One battle beat long: title pops, coin arcs + spins ~1.4s and
+   lands on the winner's face, result text follows. */
+.bcoin {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: rgba(10, 8, 7, 0.45);
+  animation: bcoin-fade 0.25s ease both;
+  pointer-events: none;
+}
+.bcoin-title { animation: bcoin-pop 0.35s cubic-bezier(.2,1.5,.4,1) 0.05s both; }
+.bcoin-arc { perspective: 600px; animation: bcoin-arc 1.4s cubic-bezier(.33,0,.67,1) 0.2s both; }
+.bcoin-coin {
+  position: relative; width: 108px; height: 108px;
+  transform-style: preserve-3d;
+  animation: bcoin-spin 1.4s cubic-bezier(.2,.6,.3,1) 0.2s both;
+}
+.bcoin-face {
+  position: absolute; inset: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: radial-gradient(circle at 35% 30%, #fff3b0 0%, #f5c542 45%, #b8860b 100%);
+  border: 5px solid #8a6a0e;
+  box-shadow: inset 0 0 0 3px #fde68a, 0 4px 10px rgba(0,0,0,.45);
+}
+.bcoin-face img { width: 78%; height: 78%; object-fit: contain; }
+.bcoin-face-back { transform: rotateY(180deg); }
+.bcoin-shadow {
+  width: 80px; height: 12px; margin-top: -4px; border-radius: 50%;
+  background: rgba(0,0,0,.35);
+  animation: bcoin-shadow 1.4s cubic-bezier(.33,0,.67,1) 0.2s both;
+}
+.bcoin-result { max-width: 80%; text-align: center; animation: bcoin-pop 0.35s cubic-bezier(.2,1.5,.4,1) 1.55s both; }
+@keyframes bcoin-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes bcoin-pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes bcoin-spin { from { transform: rotateY(0deg); } to { transform: rotateY(var(--bc-end)); } }
+@keyframes bcoin-arc {
+  0% { transform: translateY(0); }
+  45% { transform: translateY(-80px); }
+  85% { transform: translateY(0); }
+  92% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+@keyframes bcoin-shadow {
+  0%, 85%, 100% { transform: scale(1); opacity: 1; }
+  45% { transform: scale(.45); opacity: .4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bcoin-arc, .bcoin-shadow { animation: none; }
+  .bcoin-coin { animation: none; transform: rotateY(var(--bc-end)); }
+}

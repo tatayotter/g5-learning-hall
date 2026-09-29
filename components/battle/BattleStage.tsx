@@ -22,6 +22,7 @@ import type { AttackClass } from '@/lib/attackClasses';
 import { AttackBanner } from '@/components/battle/shared';
 import BattleCanvas, { curioSpriteUrl } from '@/components/battle/BattleCanvas';
 import BattleIntro from '@/components/battle/BattleIntro';
+import CoinToss, { type CoinTossState } from '@/components/battle/CoinToss';
 import { BATTLE_INTRO_MIN_MS, BATTLE_INTRO_MAX_MS } from '@/lib/battleIntro';
 import type { StageLayout } from '@/lib/phaserBattle/BattleStageScene';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
@@ -89,6 +90,8 @@ interface BattleStageProps {
   // introMinMs while every image the battle needs loads, then waits on a
   // Ready button. introAutoStartMs (PvP) makes that button count down and
   // start the fight on its own. onIntroDone fires as it lifts.
+  // Speed-tie coin toss (lib/coinToss.ts), shown over the stage while set.
+  coinToss?: CoinTossState | null;
   intro?: boolean;
   introMinMs?: number;
   introAutoStartMs?: number;
@@ -216,7 +219,7 @@ function useAutoPortrait(): boolean {
 export default function BattleStage({
   leftName, rightName, leftMon, rightMon, leftTeam, rightTeam, roundBadge, log, banner, statusBanner, actionPanel, overlay,
   layout: layoutProp = 'auto',
-  intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone,
+  intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
 
@@ -337,6 +340,7 @@ export default function BattleStage({
           preloadUrls={curioUrls}
           onAssetsReady={() => setSceneLoaded(true)}
         />
+        {coinToss && <CoinToss toss={coinToss} />}
       </div>
 
       {banner && (

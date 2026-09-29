@@ -17,6 +17,8 @@ import {
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
 import { attackClassHits } from '@/lib/attackClasses';
 import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import type { CoinTossState } from '@/components/battle/CoinToss';
+import { COIN_TOSS_BANNER, coinTossResultText, tossCoin } from '@/lib/coinToss';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import InfoTag from '@/components/InfoTag';
 
@@ -62,6 +64,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [npcDamagePopup, setNpcDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
   // The move each side is performing right now (see BattleStageMonster.action).
   const [playerAction, setPlayerAction] = useState<BattleStageMonster['action']>(null);
+  const [coinToss, setCoinToss] = useState<CoinTossState | null>(null);
   const [npcAction, setNpcAction] = useState<BattleStageMonster['action']>(null);
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
@@ -342,16 +345,75 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // is faster and KOs the player's curio, the player's chosen attack is
     // cancelled (doNpcTurn's faint path), and if the player is faster and
     // KOs the NPC, the NPC's attack is cancelled (resolvePlayerAttack sends
-    // out the next curio, which takes the round's NPC action). Ties go to
-    // the player. A paralyzed NPC never goes first.
-    const npcIsFaster = npcMon.currentHp > 0 && npcMon.status !== 'paralyze'
-      && getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed > getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
-    if (npcIsFaster) {
+    // out the next curio, which takes the round's NPC action). A paralyzed
+    // NPC never goes first.
+    //
+    // Speed ties (lib/coinToss.ts): if neither hit would knock the other
+    // out, order doesn't matter — the player goes first and both land. If
+    // either would be a finishing blow, a coin toss (shown on stage) decides.
+    const npcFirst = () => doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false));
+    const playerFirst = () => resolvePlayerAttack(skill, correctCount, askedCount, true);
+    const npcCanAct = npcMon.currentHp > 0 && npcMon.status !== 'paralyze';
+    const npcSpeed = getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed;
+    const playerSpeed = getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
+    if (npcCanAct && npcSpeed > playerSpeed) {
       addLog(`${npcMon.def.name} is faster and moves first!`);
-      doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false));
-    } else {
-      resolvePlayerAttack(skill, correctCount, askedCount, true);
+      npcFirst();
+      return;
     }
+    if (npcCanAct && npcSpeed === playerSpeed) {
+      const playerWouldKo = npcMon.currentHp - computePlayerDamage(skill, correctCount, askedCount, playerMon, npcMon) <= 0;
+      const npcWouldKo = playerMon.currentHp - computeNpcDamage(npcMon, playerMon) <= 0;
+      if (playerWouldKo || npcWouldKo) {
+        const playerWins = tossCoin();
+        const winner = playerWins ? playerMon : npcMon;
+        runCoinToss(
+          playerWins ? 'left' : 'right',
+          coinTossResultText(playerWins, winner.def.name, opponentName),
+          playerWins ? playerFirst : npcFirst,
+        );
+        return;
+      }
+    }
+    playerFirst();
+  };
+
+  // One battle beat: the coin toss animation over the stage (CoinToss) with
+  // the tie banner, then the round continues in the winner's order.
+  const runCoinToss = (winner: 'left' | 'right', resultText: string, then: () => void) => {
+    setCoinToss({
+      leftSpriteUrl: curioSpriteUrl(playerMon.def),
+      rightSpriteUrl: curioSpriteUrl(npcMon.def),
+      winner,
+      resultText,
+    });
+    runBattleBeats(
+      [{ actor: winner === 'left' ? 'player' : 'opponent', message: COIN_TOSS_BANNER, iconSrc: null, damage: null, missed: false, apply: () => addLog(resultText) }],
+      b => setBanner({ text: b.message, iconSrc: b.iconSrc }),
+      () => { setBanner(null); setCoinToss(null); then(); },
+    );
+  };
+
+  // The player's damage for `skill` — shared by resolvePlayerAttack and the
+  // speed-tie finishing-blow check above so they can never disagree.
+  const computePlayerDamage = (skill: Skill, correctCount: number, askedCount: number, playerMon: ActiveBattleMonster, npcMon: ActiveBattleMonster): number => {
+    const atkMult = getModifierMultiplier(playerMon.modifiers, 'atk');
+    const defMult = getModifierMultiplier(npcMon.modifiers, 'def');
+    const accuracyBonus = getModifierMultiplier(playerMon.modifiers, 'accuracy');
+    let damage = calculateDamage(
+      skill,
+      getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).attack * atkMult,
+      correctCount,
+      askedCount,
+      playerMon.def.element,
+      npcMon.def.element,
+      playerMon.status === 'blessed',
+      getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).defense * defMult,
+      accuracyBonus,
+    );
+    if (playerMon.status === 'atk_boost') damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
+    if (playerMon.status === 'curse') damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+    return damage;
   };
 
   // The player's attack for this round. Reads the LATEST state from refs
@@ -366,32 +428,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const npcMonsters = npcMonstersRef.current;
     const playerMon = playerMonsters[playerMonsterIdx];
     const npcMon = npcMonsters[npcMonsterIdx];
-    const isBlessed = playerMon.status === 'blessed';
     const isPerfect = correctCount === askedCount;
-
-    const atkMult = getModifierMultiplier(playerMon.modifiers, 'atk');
-    const defMult = getModifierMultiplier(npcMon.modifiers, 'def');
-    const accuracyBonus = getModifierMultiplier(playerMon.modifiers, 'accuracy');
-
-    let damage = calculateDamage(
-      skill,
-      getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).attack * atkMult,
-      correctCount,
-      askedCount,
-      playerMon.def.element,
-      npcMon.def.element,
-      isBlessed,
-      getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).defense * defMult,
-      accuracyBonus,
-    );
-
-    if (playerMon.status === 'atk_boost') {
-      damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
-    }
-
-    if (playerMon.status === 'curse') {
-      damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
-    }
+    const damage = computePlayerDamage(skill, correctCount, askedCount, playerMon, npcMon);
 
     const missed = damage === 0 && !skill.effects?.length;
     let msg: string;
@@ -434,7 +472,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       if (i !== playerMonsterIdx) return m;
       let updated = { ...m, modifiers: effectResult.casterModifiers };
       // Consume any blessed carried in from a prior turn (it just powered
-      // this attack via isBlessed above), then re-bless for the next turn if
+      // this attack via computePlayerDamage's blessed bonus), then re-bless for the next turn if
       // this hit itself earned a fresh one.
       if (updated.status === 'blessed') updated.status = null as StatusEffect;
       if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = statusDuration('blessed'); }
@@ -876,6 +914,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     <BattleStage
       leftName={playerDisplayName}
       rightName={opponentName}
+      coinToss={coinToss}
       leftTeam={playerMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === playerMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
       rightTeam={npcMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === npcMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
       leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, action: playerAction, damagePopup: playerDamagePopup, quality: playerMon.userMonster?.quality }}
