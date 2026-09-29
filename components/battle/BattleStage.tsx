@@ -16,7 +16,7 @@
 // covering the whole viewport) and scales to fit both width AND height —
 // the page chrome (nav tabs, sidebar, padding) otherwise pushes the canvas
 // below the fold and forces scrolling to see the action panel.
-import { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+import { useState, useEffect, useRef, useCallback, ReactNode, type CSSProperties } from 'react';
 import { MonsterDef, StatusEffect, type Element, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC, STATUS_DEFINITIONS } from '@/lib/monsterConfig';
 import type { AttackClass } from '@/lib/attackClasses';
 import { AttackBanner } from '@/components/battle/shared';
@@ -25,7 +25,7 @@ import BattleIntro from '@/components/battle/BattleIntro';
 import CoinToss, { type CoinTossState } from '@/components/battle/CoinToss';
 import { BATTLE_INTRO_MIN_MS, BATTLE_INTRO_MAX_MS } from '@/lib/battleIntro';
 import type { StageLayout } from '@/lib/phaserBattle/BattleStageScene';
-import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
+import MonsterHpPanel, { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
 import { QualityTier } from '@/lib/curioQuality';
 import GameButton from '@/components/GameButton';
@@ -157,7 +157,9 @@ export function ActionTile({ icon, title, sub, onClick, disabled, danger, elemen
         icon={icon}
         sub={sub}
         className="w-full"
-        style={{ fontSize: 14 }}
+        // Everything in the quest button is em-sized, so this scales text,
+        // icon and subtitle together (portrait phones: --bstage-tile-font).
+        style={{ fontSize: 'var(--bstage-tile-font, 14px)' }}
       >
         {title}
       </GameButton>
@@ -222,6 +224,17 @@ export default function BattleStage({
   intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
+  // The move panel's height, so the Show Log tab and the log sit exactly
+  // on its top edge (--bstage-panel-h) whatever its content or layout.
+  const actionPanelRef = useRef<HTMLDivElement>(null);
+  const [actionPanelH, setActionPanelH] = useState<number | null>(null);
+  useEffect(() => {
+    const el = actionPanelRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setActionPanelH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   // ── Battle intro ──────────────────────────────────────────────────────
   // Curio art for both whole teams goes to the Phaser scene (its texture
@@ -277,8 +290,11 @@ export default function BattleStage({
   const autoPortrait = useAutoPortrait();
   const layout: StageLayout = layoutProp === 'auto' ? (autoPortrait ? 'portrait' : 'landscape') : layoutProp;
   const portrait = layout === 'portrait';
-  const { w: CANVAS_WIDTH, h: CANVAS_HEIGHT } = CANVAS_SIZE[layout];
-  const { shellRef, scale, isMobile } = useStageScale(CANVAS_WIDTH, CANVAS_HEIGHT);
+  const { w: CANVAS_WIDTH, h: BASE_HEIGHT } = CANVAS_SIZE[layout];
+  // Portrait on a phone taller than 480x860 grows instead of letterboxing;
+  // the extra height goes to the move panel (--bstage-extra, globals.css).
+  const { shellRef, scale, isMobile, height: CANVAS_HEIGHT } = useStageScale(CANVAS_WIDTH, BASE_HEIGHT, false, portrait);
+  const extraHeight = CANVAS_HEIGHT - BASE_HEIGHT;
 
   // On a phone the battle owns the whole screen (fixed overlay below) in
   // either orientation, and the app's fixed top HUD bar and floating
@@ -298,6 +314,8 @@ export default function BattleStage({
         backgroundImage: 'url(/battleui/battle_bg_normal.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        ...(portrait ? { height: CANVAS_HEIGHT, '--bstage-extra': `${extraHeight}px` } as CSSProperties : null),
+        ...(actionPanelH !== null ? { '--bstage-panel-h': `${actionPanelH}px` } as CSSProperties : null),
       }}
     >
       <div aria-hidden className="bstage-vignette" />
@@ -366,12 +384,26 @@ export default function BattleStage({
 
       <button
         onClick={() => { playPageFlip(); setLogOpen(o => !o); }}
-        className={`bstage-show-log bg-white hover:bg-[#f0ddb8] text-[#2a1505] font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        className={`bstage-show-log border-2 border-b-0 border-[#4a2f18] text-[#f3dfb4] hover:text-white font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        style={woodTextureStyle}
       >
         {logOpen ? 'Hide Log' : 'Show Log'}
       </button>
 
-      <div className={`bstage-action-panel bg-white/95 border border-[#c9a87a] rounded-xl p-[7px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
+      {/* Same wood + gold-ring + nail frame as the HP cards (MonsterHpPanel),
+          so the move panel reads as part of the battle HUD, not a plain
+          white box. The nails sit inside the frame (the portrait panel
+          scrolls, which would clip anything outside it) and fall in the
+          tiles' rounded corners. */}
+      <div
+        ref={actionPanelRef}
+        className={`bstage-action-panel border-2 border-[#4a2f18] rounded-xl p-[9px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        style={{ boxShadow: '0 0 0 3px #d4a017, 0 2px 0 1px rgba(0,0,0,0.75)', ...woodTextureStyle }}
+      >
+        <Nail className="top-[3px] left-[3px]" />
+        <Nail className="top-[3px] right-[3px]" />
+        <Nail className="bottom-[3px] left-[3px]" />
+        <Nail className="bottom-[3px] right-[3px]" />
         {actionPanel}
       </div>
     </div>
