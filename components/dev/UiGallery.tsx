@@ -76,6 +76,7 @@ import {
   playItemUse, playPvpChallenge, playShopPurchase, playTeachingScroll, playGuardianDefeatVoice,
   playTradeAccept, playTradeDecline, playEggCrack, playGrowthPillGulp,
   playSkillInscribe, playSkillForget, playRerollSpin, playPvpAccept, playPvpDecline,
+  playBattleSfx, BATTLE_SFX_NAMES,
   startMainTheme, stopMainTheme, startBattleTheme, stopBattleTheme,
   startTermBossTheme, stopTermBossTheme, startBossFightTheme, stopBossFightTheme,
 } from '@/lib/sounds';
@@ -714,6 +715,15 @@ export default function UiGallery() {
               <PreviewButton label="Reroll spin" onClick={playRerollSpin} />
               <PreviewButton label="PvP accept" onClick={playPvpAccept} />
               <PreviewButton label="PvP decline" onClick={playPvpDecline} />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-bold text-[#6b4820] mb-2 uppercase tracking-wide">Battle stage clips (lib/sounds.ts BATTLE_SFX, levelled and trimmed as in battle; ElevenLabs Free plan, personal-use license)</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {BATTLE_SFX_NAMES.map(name => (
+                <PreviewButton key={name} label={name.replace(/_/g, ' ')} onClick={() => playBattleSfx(name)} />
+              ))}
             </div>
           </div>
 

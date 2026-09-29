@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { playAttackWhoosh, playHitThud, playVictory, playDefeat, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
+import { playBattleSfx, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
   ALL_MONSTERS, SKILLS, BATTLE_CONSTANTS,
@@ -137,6 +137,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     if (updated.status === 'burn') {
       updated.currentHp = Math.max(0, updated.currentHp - BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN);
       msgs.push(`${updated.def.name} takes ${BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN} burn damage!`);
+      // Ticks resolve with the NPC's move — sound it after that move's hit.
+      playBattleSfx('burn_tick', { delayMs: 700 });
     }
     // Every status (including burn/paralyze, which used to be hardcoded to
     // never clear here — the cause of a monster staying paralyzed forever)
@@ -495,9 +497,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       apply: () => {
         setPlayerAction(makeStageAction(skill));
         // Buffs/heals/curses (non-hitting classes) never touch the enemy — no
-        // hit reaction and no "-0" damage number over it. Hitting moves get
-        // their hit/miss sound from the battle stage, on the impact frame.
-        if (!attackClassHits(skill.animation)) playAttackWhoosh();
+        // hit reaction and no "-0" damage number over it. The battle stage
+        // plays the move's cast sound and its hit/miss on the impact frame.
         if (attackClassHits(skill.animation)) {
           if (!missed) triggerAnim('npc', 'battle-hit');
           setNpcDamagePopup({ key: Date.now(), value: damage, missed });
@@ -517,7 +518,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           const earned = trainer?.reward.exp ?? 0;
           setExpEarned(earned);
           addLog(`You defeated ${opponentName}!`);
-          playVictory();
+          // After the finishing blow's boom.
+          playBattleSfx('victory', { delayMs: 900 });
           pauseBattleTheme();
           setBattleResult({ won: true, exp: earned, reason: 'ko' });
           setPhase('ended');
@@ -555,6 +557,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
     if (currentNpc.status === 'paralyze') {
       addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
+      playBattleSfx('paralyze');
       const [updatedNpc, msgs] = applyStatusTick(currentNpc);
       msgs.forEach(addLog);
       // A full round still passed for the player even though the NPC's turn
@@ -595,8 +598,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       apply: () => {
         const npcSkill = getNpcSkill(currentNpc);
         setNpcAction(makeStageAction(npcSkill));
-        // A hitting move's impact sound comes from the battle stage.
-        if (!attackClassHits(npcSkill.animation)) playHitThud();
+        // A hitting move's impact sound comes from the battle stage; a
+        // non-hitting one that still deals damage gets a light hit here.
+        if (!attackClassHits(npcSkill.animation)) playBattleSfx('hit_light', { delayMs: 300 });
         triggerAnim('player', 'battle-hit');
         setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
         addLog(`${currentNpc.def.name} ${npcAttackVerb} for ${damage} damage!`);
@@ -620,7 +624,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         const nextIdx = updatedPlayerAfterNpc.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
         if (nextIdx === -1) {
           addLog('All your curios fainted! You lost!');
-          playDefeat();
+          playBattleSfx('defeat', { delayMs: 900 });
           pauseBattleTheme();
           setBattleResult({ won: false, exp: 0, reason: 'ko' });
           setPhase('ended');
@@ -657,7 +661,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const handleSurrender = () => {
     setConfirmSurrender(false);
     addLog('You surrendered the battle.');
-    playDefeat();
+    playBattleSfx('defeat');
     pauseBattleTheme();
     setBattleResult({ won: false, exp: 0, reason: 'surrender' });
     setPhase('ended');

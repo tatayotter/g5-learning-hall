@@ -6,7 +6,8 @@
 // this for one battle beat (BATTLE_BEAT_MS). Timeline (CSS, .bcoin-* in
 // app/globals.css): title pops in, the coin arcs up spinning with each
 // curio on a face, lands on the winner's face (~1.4s), result text follows.
-import type { CSSProperties } from 'react';
+import { useEffect, useRef, type CSSProperties } from 'react';
+import { playBattleSfx } from '@/lib/sounds';
 import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import { COIN_TOSS_TITLE } from '@/lib/coinToss';
 
@@ -37,6 +38,15 @@ function Face({ src, back, mirrored }: { src: string; back?: boolean; mirrored?:
 }
 
 export default function CoinToss({ toss }: { toss: CoinTossState }) {
+  // Flip as it appears; the clink as it touches down (the arc lands at 85%
+  // of its 1.4s, after a 0.2s delay — .bcoin-arc in app/globals.css).
+  // (The ref keeps React's dev-mode double effect run from flipping twice.)
+  const flipped = useRef(false);
+  useEffect(() => {
+    if (!flipped.current) { flipped.current = true; playBattleSfx('coin_flip'); }
+    const t = setTimeout(() => playBattleSfx('coin_land'), 1390);
+    return () => clearTimeout(t);
+  }, []);
   // Five full turns, then land on the winner's face (back face = +180deg).
   const end = toss.winner === 'left' ? 1800 : 1980;
   return (

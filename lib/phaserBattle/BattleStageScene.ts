@@ -22,7 +22,7 @@ import {
 } from '@/lib/curioBody';
 import type { AttackClass } from '@/lib/attackClasses';
 import { opaqueBounds } from '@/lib/imageTrim';
-import { playBattleSfx, playMiss, preloadBattleSfx } from '@/lib/sounds';
+import { playBattleSfx, preloadBattleSfx, type BattleSfx } from '@/lib/sounds';
 
 // The stage box is measured at mount (components/battle/BattleCanvas.tsx) —
 // .bstage-stage sits inside the container's 2px border, so it's 892x328, not
@@ -51,7 +51,20 @@ const KO_SLOWMO_LEAD_MS = 170; // scene ms before impact that time slows
 const KO_SLOWMO_HOLD_MS = 750; // real ms after impact before time recovers
 // Where each hit sound peaks inside its clip (measured from the files), so
 // the peak can be lined up with the on-screen impact.
-const STRIKE_SFX_PEAK_MS = 50;
+// A hit taking at least this share of the target's max HP plays the heavy
+// impact; smaller hits play the light one.
+const HEAVY_HIT_FRACTION = 0.15;
+
+// The sound each attack class plays as it starts (lib/sounds.ts BATTLE_SFX).
+const CAST_SFX: Record<AttackClass, BattleSfx> = {
+  strike: 'cast_strike', pounce: 'cast_pounce', projectile: 'cast_projectile', barrage: 'cast_barrage',
+  beam: 'cast_beam', wave: 'cast_wave', zone: 'cast_zone', drain: 'cast_drain',
+  power_up: 'cast_power_up', guard: 'cast_guard', hex: 'cast_hex', restore: 'cast_restore',
+};
+// Layered on top of a hit, by the attacker's element ('normal' moves get none).
+const ELEMENT_SFX: Partial<Record<Element | 'normal' | 'neutral', BattleSfx>> = {
+  fire: 'el_fire', water: 'el_water', leaf: 'el_leaf', storm: 'el_storm', shadow: 'el_shadow', light: 'el_light',
+};
 const KO_SFX_PEAK_MS = 220;
 const PLATFORM_W = 210;
 const PLATFORM_H = 75;
@@ -227,9 +240,12 @@ export default class BattleStageScene extends Phaser.Scene {
     if (existing && existing.identity === identity) {
       existing.mon = mon;
       if (mon.fainted && !existing.fainted) this.faint(existing);
-      else if (!mon.fainted && existing.fainted) this.enter(existing);
+      else if (!mon.fainted && existing.fainted) { playBattleSfx('revive'); this.enter(existing, true); }
       return;
     }
+    // A curio swapped out while still standing is recalled (a fainted one
+    // already played its faint).
+    if (existing && !existing.fainted && existing.sprite) playBattleSfx('recall');
     if (existing) this.destroyActor(existing);
 
     const actor: Actor = {
@@ -295,6 +311,7 @@ export default class BattleStageScene extends Phaser.Scene {
     const t = this.actors[other(side)];
     const tints = BURST_TINTS[element ?? 'normal'];
     a.performing = cls;
+    playBattleSfx(CAST_SFX[cls]);
     switch (cls) {
       case 'strike': return this.seqStrike(a, t, tints, element);
       case 'pounce': return this.seqPounce(a, t, tints, element);
@@ -527,6 +544,7 @@ export default class BattleStageScene extends Phaser.Scene {
     // After the hit, motes of stolen energy stream back into the user.
     this.time.delayedCall(charge + flight + 180, () => {
       if (!a.sprite) return;
+      playBattleSfx('drain_return');
       const home = this.center(a);
       for (let i = 0; i < 10; i++) {
         const m = this.add.image(to.x + Phaser.Math.Between(-20, 20), to.y + Phaser.Math.Between(-24, 24), 'bstage-spark')
@@ -619,6 +637,7 @@ export default class BattleStageScene extends Phaser.Scene {
       // damage (this class never hits).
       this.time.delayedCall(560, () => {
         if (this.actors[t.side] !== t || !(ts instanceof Phaser.GameObjects.Image) || t.fainted) return;
+        playBattleSfx('hex_land');
         ts.setTint(0xb0a2cc);
         this.time.delayedCall(420, () => { if (!ts.active) return; if (!t.busy) ts.clearTint(); });
       });
@@ -826,17 +845,22 @@ export default class BattleStageScene extends Phaser.Scene {
 
     const s = a.sprite;
     const topY = s.y - Math.abs(s.displayHeight);
-    // Sounds only for a move's impact — a hit with no inbound move (a burn
-    // tick) keeps the battle screen's own sound.
+    // Outcome sounds, only for a move's impact — a hit with no inbound move
+    // (a burn tick) keeps the battle screen's own sound. A hit is a light or
+    // heavy impact by its share of max HP (a knockout is the finishing blow,
+    // usually already scheduled by impactIn), with the attacker's element
+    // layered on top; a miss is the dodge whoosh.
     if (attackerClass) {
       if (hit && a.fainted) {
         if (!a.koSfx) playBattleSfx('finishing_blow', { offsetMs: KO_SFX_PEAK_MS });
       } else if (hit) {
-        if (attackerClass === 'strike') playBattleSfx('strike', { offsetMs: STRIKE_SFX_PEAK_MS });
-        else playBattleSfx('hit_heavy');
+        const fraction = dmg && dmg.maxHp > 0 ? dmg.value / dmg.maxHp : HEAVY_HIT_FRACTION;
+        playBattleSfx(fraction >= HEAVY_HIT_FRACTION ? 'hit_heavy' : 'hit_light');
       } else if (dmg?.missed) {
-        playMiss();
+        playBattleSfx('miss_dodge');
       }
+      const layer = hit ? ELEMENT_SFX[element] : undefined;
+      if (layer) playBattleSfx(layer);
     }
     if (hit) {
       const attacker = this.actors[other(a.side)];
@@ -910,7 +934,8 @@ export default class BattleStageScene extends Phaser.Scene {
   // element, a light column rises, and the curio materializes out of it —
   // dropping onto the platform (or rising into its hover, for floaters).
   // Used for battle start, every switch/send-out, and revives.
-  private enter(a: Actor) {
+  // silent: a revive plays its own sound instead of the entrance pop.
+  private enter(a: Actor, silent = false) {
     const s = a.sprite;
     if (!s) return;
     a.fainted = false;
@@ -921,6 +946,7 @@ export default class BattleStageScene extends Phaser.Scene {
     const now = this.time.now;
     const delay = now - this.lastEnterAt < 300 ? 450 : 0;
     this.lastEnterAt = now + delay;
+    if (!silent) playBattleSfx('entrance', { delayMs: delay / this.time.timeScale });
     a.busy = true;
     const x = this.sideX[a.side];
     const tints = BURST_TINTS[a.mon.element];
@@ -1004,6 +1030,7 @@ export default class BattleStageScene extends Phaser.Scene {
   private collapse(a: Actor) {
     const s = a.sprite;
     if (!s) return;
+    playBattleSfx('faint');
     a.collapsed = true;
     a.busy = true;
     if (a.idle) { a.idle.remove(); a.idle = null; }
