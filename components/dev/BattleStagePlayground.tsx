@@ -173,6 +173,7 @@ export default function BattleStagePlayground() {
       </div>
       <BattleStage
         key={introKey}
+        inline
         leftName="Test Trainer"
         rightName="Rival"
         leftMon={mon('left')}

@@ -93,6 +93,10 @@ interface BattleStageProps {
   // Speed-tie coin toss (lib/coinToss.ts), shown over the stage while set.
   coinToss?: CoinTossState | null;
   intro?: boolean;
+  // Stay inline (scaled to the container) even on a phone-width screen,
+  // instead of taking over the whole screen. For the /dev/ui-gallery
+  // playground only; the game always wants full-screen on phones.
+  inline?: boolean;
   introMinMs?: number;
   introAutoStartMs?: number;
   onIntroDone?: () => void;
@@ -221,7 +225,7 @@ function useAutoPortrait(): boolean {
 export default function BattleStage({
   leftName, rightName, leftMon, rightMon, leftTeam, rightTeam, roundBadge, log, banner, statusBanner, actionPanel, overlay,
   layout: layoutProp = 'auto',
-  intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss,
+  intro = true, introMinMs = BATTLE_INTRO_MIN_MS, introAutoStartMs, onIntroDone, coinToss, inline = false,
 }: BattleStageProps) {
   const [logOpen, setLogOpen] = useState(false);
   // The move panel's height, so the Show Log tab and the log sit exactly
@@ -293,7 +297,7 @@ export default function BattleStage({
   const { w: CANVAS_WIDTH, h: BASE_HEIGHT } = CANVAS_SIZE[layout];
   // Portrait on a phone taller than 480x860 grows instead of letterboxing;
   // the extra height goes to the move panel (--bstage-extra, globals.css).
-  const { shellRef, scale, isMobile, height: CANVAS_HEIGHT } = useStageScale(CANVAS_WIDTH, BASE_HEIGHT, false, portrait);
+  const { shellRef, scale, isMobile, height: CANVAS_HEIGHT } = useStageScale(CANVAS_WIDTH, BASE_HEIGHT, false, portrait, inline);
   const extraHeight = CANVAS_HEIGHT - BASE_HEIGHT;
 
   // On a phone the battle owns the whole screen (fixed overlay below) in
