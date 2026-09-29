@@ -25,7 +25,7 @@ import BattleIntro from '@/components/battle/BattleIntro';
 import CoinToss, { type CoinTossState } from '@/components/battle/CoinToss';
 import { BATTLE_INTRO_MIN_MS, BATTLE_INTRO_MAX_MS } from '@/lib/battleIntro';
 import type { StageLayout } from '@/lib/phaserBattle/BattleStageScene';
-import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
+import MonsterHpPanel, { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import { useStageScale } from '@/hooks/useStageScale';
 import { QualityTier } from '@/lib/curioQuality';
 import GameButton from '@/components/GameButton';
@@ -366,12 +366,25 @@ export default function BattleStage({
 
       <button
         onClick={() => { playPageFlip(); setLogOpen(o => !o); }}
-        className={`bstage-show-log bg-white hover:bg-[#f0ddb8] text-[#2a1505] font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        className={`bstage-show-log border-2 border-b-0 border-[#4a2f18] text-[#f3dfb4] hover:text-white font-bold text-[11px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        style={woodTextureStyle}
       >
         {logOpen ? 'Hide Log' : 'Show Log'}
       </button>
 
-      <div className={`bstage-action-panel bg-white/95 border border-[#c9a87a] rounded-xl p-[7px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}>
+      {/* Same wood + gold-ring + nail frame as the HP cards (MonsterHpPanel),
+          so the move panel reads as part of the battle HUD, not a plain
+          white box. The nails sit inside the frame (the portrait panel
+          scrolls, which would clip anything outside it) and fall in the
+          tiles' rounded corners. */}
+      <div
+        className={`bstage-action-panel border-2 border-[#4a2f18] rounded-xl p-[9px] ${banner ? 'bstage-fade-out' : 'bstage-fade-in'}`}
+        style={{ boxShadow: '0 0 0 3px #d4a017, 0 2px 0 1px rgba(0,0,0,0.75)', ...woodTextureStyle }}
+      >
+        <Nail className="top-[3px] left-[3px]" />
+        <Nail className="top-[3px] right-[3px]" />
+        <Nail className="bottom-[3px] left-[3px]" />
+        <Nail className="bottom-[3px] right-[3px]" />
         {actionPanel}
       </div>
     </div>
