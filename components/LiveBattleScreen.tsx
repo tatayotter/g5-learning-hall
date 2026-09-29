@@ -15,7 +15,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
 import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
-import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
+import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
+import { attackClassHits } from '@/lib/attackClasses';
+import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import type { CoinTossState } from '@/components/battle/CoinToss';
+import { COIN_TOSS_BANNER, coinTossResultText } from '@/lib/coinToss';
+import { BATTLE_INTRO_READY_AUTOSTART_MS } from '@/lib/battleIntro';
 import { SKILLS, getAvailableSkillTiers, getEquippedSkills, getSkillIconSrc, REST_BY_ELEMENT } from '@/lib/monsterConfig';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import { InventoryMap } from '@/lib/inventory';
@@ -82,6 +87,10 @@ export default function LiveBattleScreen({
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
   const [myDamagePopup, setMyDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
   const [oppDamagePopup, setOppDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
+  // The move each side is performing right now (see BattleStageMonster.action).
+  const [myAction, setMyAction] = useState<BattleStageMonster['action']>(null);
+  const [oppAction, setOppAction] = useState<BattleStageMonster['action']>(null);
+  const [coinToss, setCoinToss] = useState<CoinTossState | null>(null);
   // Set to the round number once that round's attack beats have finished
   // playing — gates auto-advance/KO handling so they don't fire mid-sequence
   // while a beat's 2s window is still on screen.
@@ -166,6 +175,8 @@ export default function LiveBattleScreen({
   // stale and our two clients' independent round-damage math can diverge.
   useEffect(() => {
     if (!incomingSelfSync) return;
+    // Only Rest sends restUsed — play the opponent's Rest on my screen too.
+    if (incomingSelfSync.restUsed !== undefined) setOppAction(makeStageAction({ animation: 'restore', element: oppMon.def.element }));
     updateOppActive(prev => ({ ...prev, ...incomingSelfSync }));
     clearIncomingSelfSync();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -219,7 +230,11 @@ export default function LiveBattleScreen({
     if (!lastOutcome) return;
     setBanner(null);
 
-    if (lastOutcome.speedWinner === 'me') {
+    // A coin-toss round's speedWinner won the toss, not a speed race (the
+    // coin beat below logs that instead).
+    if (lastOutcome.coinToss) {
+      // no speed log
+    } else if (lastOutcome.speedWinner === 'me') {
       addLog(`⚡ You were faster — your hit landed first!`);
     } else if (lastOutcome.speedWinner === 'opponent') {
       addLog(`⚡ ${opponentName} was faster and struck first!`);
@@ -227,10 +242,18 @@ export default function LiveBattleScreen({
 
     const mySkillDef = lastOutcome.mySkillId ? SKILLS[lastOutcome.mySkillId] : null;
     const oppSkillDef = lastOutcome.oppSkillId ? SKILLS[lastOutcome.oppSkillId] : null;
+    // Knocked out by the faster curio before its own move came up — the move
+    // is cancelled (resolveRound already zeroed its damage and effects). The
+    // beat still runs, since each beat's apply also writes the OTHER side's
+    // resolved state, but it plays no move.
+    const myCancelled = lastOutcome.speedWinner === 'opponent';
+    const oppCancelled = lastOutcome.speedWinner === 'me';
 
     const myBeat: BattleBeat | null = mySkillDef ? {
       actor: 'player',
-      message: lastOutcome.myParalyzed
+      message: myCancelled
+        ? `${myMon.def.name} fainted before it could move!`
+        : lastOutcome.myParalyzed
         ? `⚡ You are paralyzed and can't move!`
         : lastOutcome.myTimedOut
           ? `⏰ Your attack missed! (took too long to decide)`
@@ -256,9 +279,14 @@ export default function LiveBattleScreen({
             modifiers: lastOutcome.oppModifiers,
           };
         });
-        setOppDamagePopup({ key: Date.now(), value: lastOutcome.myDamageDealt, missed: lastOutcome.myDamageDealt === 0 });
-        triggerAnim('my', 'battle-attack-right');
-        triggerAnim('opp', 'battle-hit');
+        // A paralyzed or timed-out turn performs nothing; a non-hitting move
+        // (buff/heal/curse) plays its own sequence without touching the foe.
+        const myActed = !lastOutcome.myParalyzed && !lastOutcome.myTimedOut && !myCancelled;
+        if (myActed) setMyAction(makeStageAction(mySkillDef));
+        if (myActed && attackClassHits(mySkillDef.animation)) {
+          setOppDamagePopup({ key: Date.now(), value: lastOutcome.myDamageDealt, missed: lastOutcome.myDamageDealt === 0 });
+          if (lastOutcome.myDamageDealt > 0) triggerAnim('opp', 'battle-hit');
+        }
         if (lastOutcome.myDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.oppHpDelta > 0) addLog(`💚 ${opponentName}'s skill restored ${lastOutcome.oppHpDelta} HP!`);
         if (lastOutcome.oppCleanse) addLog(`🧼 ${opponentName}'s status conditions were cleansed!`);
@@ -274,7 +302,9 @@ export default function LiveBattleScreen({
 
     const oppBeat: BattleBeat | null = oppSkillDef ? {
       actor: 'opponent',
-      message: lastOutcome.opponentParalyzed
+      message: oppCancelled
+        ? `${oppMon.def.name} fainted before it could move!`
+        : lastOutcome.opponentParalyzed
         ? `⚡ ${opponentName} is paralyzed and can't move!`
         : lastOutcome.opponentTimedOut
           ? `⏰ ${opponentName}'s attack missed! (took too long to decide)`
@@ -298,9 +328,12 @@ export default function LiveBattleScreen({
             modifiers: lastOutcome.myModifiers,
           };
         });
-        setMyDamagePopup({ key: Date.now(), value: lastOutcome.opponentDamageDealt, missed: lastOutcome.opponentDamageDealt === 0 });
-        triggerAnim('opp', 'battle-attack-left');
-        triggerAnim('my', 'battle-hit');
+        const oppActed = !lastOutcome.opponentParalyzed && !lastOutcome.opponentTimedOut && !oppCancelled;
+        if (oppActed) setOppAction(makeStageAction(oppSkillDef));
+        if (oppActed && attackClassHits(oppSkillDef.animation)) {
+          setMyDamagePopup({ key: Date.now(), value: lastOutcome.opponentDamageDealt, missed: lastOutcome.opponentDamageDealt === 0 });
+          if (lastOutcome.opponentDamageDealt > 0) triggerAnim('my', 'battle-hit');
+        }
         if (lastOutcome.opponentDamageDealt > 0) playHitThud(); else playAttackWhoosh();
         if (lastOutcome.myHpDelta > 0) addLog(`💚 Your skill restored ${lastOutcome.myHpDelta} HP!`);
         if (lastOutcome.myCleanse) addLog(`🧼 Your status conditions were cleansed!`);
@@ -343,16 +376,40 @@ export default function LiveBattleScreen({
       },
     } : null;
 
-    // Default order is me-then-opponent; when Speed broke a mutual-KO tie,
-    // play the faster side's hit first to match the "struck first" log line.
+    // Faster curio's move plays first (equal speed: mine first). A cancelled
+    // move always comes after the KO that cancelled it.
     let beats: BattleBeat[] = [myBeat, oppBeat].filter((b): b is BattleBeat => !!b);
-    if (lastOutcome.speedWinner === 'opponent' && myBeat && oppBeat) beats = [oppBeat, myBeat];
+    if ((lastOutcome.firstMover === 'opponent' || lastOutcome.speedWinner === 'opponent') && myBeat && oppBeat) beats = [oppBeat, myBeat];
     beats = [...beats, myBurnBeat, oppBurnBeat].filter((b): b is BattleBeat => !!b);
+
+    // Speed tie that met a finishing blow (lib/coinToss.ts): the coin toss
+    // plays over the stage as its own beat before the attacks.
+    let coinBeat: BattleBeat | null = null;
+    if (lastOutcome.coinToss) {
+      const iWon = lastOutcome.coinToss === 'me';
+      const resultText = coinTossResultText(iWon, (iWon ? myMon : oppMon).def.name, opponentName);
+      coinBeat = {
+        actor: iWon ? 'player' : 'opponent',
+        message: COIN_TOSS_BANNER,
+        iconSrc: null,
+        damage: null,
+        missed: false,
+        apply: () => {
+          setCoinToss({ leftSpriteUrl: curioSpriteUrl(myMon.def), rightSpriteUrl: curioSpriteUrl(oppMon.def), winner: iWon ? 'left' : 'right', resultText });
+          addLog(resultText);
+        },
+      };
+      beats = [coinBeat, ...beats];
+    }
 
     runBattleBeats(
       beats,
-      (beat) => { setBanner({ text: beat.message, iconSrc: beat.iconSrc }); addLog(beat.message); },
-      () => { setBanner(null); setBeatsDoneForRound(lastOutcome.round); },
+      (beat) => {
+        if (beat !== coinBeat) setCoinToss(null);
+        setBanner({ text: beat.message, iconSrc: beat.iconSrc });
+        addLog(beat.message);
+      },
+      () => { setCoinToss(null); setBanner(null); setBeatsDoneForRound(lastOutcome.round); },
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastOutcome]);
@@ -488,6 +545,7 @@ export default function LiveBattleScreen({
     updateMyActive(prev => ({ ...prev, currentHp: newHp, restUsed: newRestUsed }));
     sendSelfStateSync({ currentHp: newHp, restUsed: newRestUsed });
     addLog(`${myMon.def.name} used Rest and restored ${healAmount} HP!`);
+    setMyAction(makeStageAction({ animation: 'restore', element: myMon.def.element }));
     submitRoundAnswer(REST_ACTION_ID, 0, 0, false);
   };
 
@@ -848,8 +906,14 @@ export default function LiveBattleScreen({
     <BattleStage
       leftName={myDisplayName}
       rightName={opponentName}
-      leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, damagePopup: myDamagePopup, quality: myMon.userMonster?.quality }}
-      rightMon={{ name: oppMon.def.name, level: oppMon.level, def: oppMon.def, currentHp: oppMon.currentHp, maxHp: oppMon.maxHp, status: oppMon.status, animClassName: oppAnim, damagePopup: oppDamagePopup, quality: oppMon.userMonster?.quality }}
+      coinToss={coinToss}
+      // Round clock is shared — the intro's Ready button counts down and
+      // starts on its own (round 1 is extended to cover it).
+      introAutoStartMs={BATTLE_INTRO_READY_AUTOSTART_MS}
+      leftTeam={myRoster.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === myActiveIdx, spriteUrl: curioSpriteUrl(m.def) }))}
+      rightTeam={oppRoster.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === oppActiveIdx, spriteUrl: curioSpriteUrl(m.def) }))}
+      leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, action: myAction, damagePopup: myDamagePopup, quality: myMon.userMonster?.quality }}
+      rightMon={{ name: oppMon.def.name, level: oppMon.level, def: oppMon.def, currentHp: oppMon.currentHp, maxHp: oppMon.maxHp, status: oppMon.status, animClassName: oppAnim, action: oppAction, damagePopup: oppDamagePopup, quality: oppMon.userMonster?.quality }}
       roundBadge={secondsLeft !== null ? `⏱ ${secondsLeft}s` : null}
       log={log}
       banner={banner}

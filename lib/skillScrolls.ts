@@ -21,7 +21,7 @@ export interface ScrollItem {
   // damage comparison against a base element attack (always 1.0x) without
   // re-deriving it or reaching back into SKILLS itself — undefined only for
   // the Unlearn Scroll, which teaches nothing. 0 for universal "fighting
-  // skills" (Guard Up etc.), which deal no direct damage at all.
+  // skills" (Stone Stance etc.), which deal no direct damage at all.
   baseDamageMultiplier?: number;
   // Secondary stat effects (buffs/debuffs/heals) — present on Alt and
   // universal Fighting Skills, absent on the flat-damage Base Kit skills.

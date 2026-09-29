@@ -4,6 +4,8 @@
 
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { QualityTier, QUALITY_STAT_MULTIPLIER } from '@/lib/curioQuality';
+import type { CurioSize } from '@/lib/curioBody';
+import type { AttackClass } from '@/lib/attackClasses';
 
 // ─── ELEMENT SYSTEM ─────────────────────────────────────────────────────────
 
@@ -118,7 +120,7 @@ export const SELF_TARGETING_ELEMENT_STATUSES: StatusEffect[] = ['blessed'];
 
 // A secondary mechanical effect a skill applies alongside (or instead of) its
 // raw damage. `magnitude` is a decimal fraction (0.15 = 15%); negative values
-// are a downside (e.g. Berserker\'s Edge trading away some Defense). `duration`
+// are a downside (e.g. Wild Abandon trading away some Defense). `duration`
 // is a turn count, 'battle' for rest-of-battle, or 'instant' for a one-time
 // effect (heal/cleanse) applied the moment the skill lands.
 export interface SkillEffect {
@@ -143,38 +145,42 @@ export interface Skill {
   // see SCROLL_CATALOG in lib/skillScrolls.ts.
   category?: 'base' | 'alt' | 'universal' | 'legendary';
   effects?: SkillEffect[];
+  // Which battle-stage animation sequence plays when this skill is used — see
+  // lib/attackClasses.ts. Required so every new skill states how it looks.
+  // Its colors always come from THIS skill's element (not the user's).
+  animation: AttackClass;
 }
 
 export const SKILLS: Record<string, Skill> = {
   // FIRE
-  ember:         { id: 'ember',         name: 'Ember',         element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A weak but accurate fire attack.' },
-  flamethrower:  { id: 'flamethrower',  name: 'Flamethrower',  element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A sustained stream of fire.' },
-  inferno_blast: { id: 'inferno_blast', name: 'Inferno Blast',  element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A massive fire explosion. May cause Burn.' },
+  ember:         { id: 'ember',         name: 'Cinder Flick',         element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'Flicks a hot cinder at the foe. Weak, but hard to dodge.', animation: 'projectile' },
+  flamethrower:  { id: 'flamethrower',  name: 'Blaze Stream',  element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A long, steady stream of fire.', animation: 'beam' },
+  inferno_blast: { id: 'inferno_blast', name: 'Magma Crash',  element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Leaps high and crashes down in a burst of magma.', animation: 'pounce' },
 
   // WATER
-  water_gun:     { id: 'water_gun',     name: 'Water Gun',     element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A pressurized water blast.' },
-  hydro_pump:    { id: 'hydro_pump',    name: 'Hydro Pump',    element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A powerful torrent of water.' },
-  hydro_blast:   { id: 'hydro_blast',   name: 'Hydro Blast',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'An overwhelming water surge.' },
+  water_gun:     { id: 'water_gun',     name: 'Spray Shot',     element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A quick, pressurized squirt of water.', animation: 'projectile' },
+  hydro_pump:    { id: 'hydro_pump',    name: 'Torrent Jet',    element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A roaring jet of water that doesn\'t let up.', animation: 'beam' },
+  hydro_blast:   { id: 'hydro_blast',   name: 'Rogue Wave',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A giant wave rises out of nowhere and crashes down.', animation: 'wave' },
 
   // LEAF
-  vine_whip:     { id: 'vine_whip',     name: 'Vine Whip',     element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A sharp lash with vines.' },
-  razor_leaf:    { id: 'razor_leaf',    name: 'Razor Leaf',    element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A flurry of razor-sharp leaves.' },
-  solar_beam:    { id: 'solar_beam',    name: 'Solar Beam',    element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Absorbs sunlight, then fires. Restores HP.' },
+  vine_whip:     { id: 'vine_whip',     name: 'Bramble Lash',     element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A quick, stinging lash of thorny vine.', animation: 'strike' },
+  razor_leaf:    { id: 'razor_leaf',    name: 'Shredleaf Volley',    element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A rapid volley of sharp-edged leaves.', animation: 'barrage' },
+  solar_beam:    { id: 'solar_beam',    name: 'Sunroot Cannon',    element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Soaks up sunlight through its roots, then fires it as a searing green beam.', animation: 'beam' },
 
   // STORM
-  thunder_shock: { id: 'thunder_shock', name: 'Thunder Shock', element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A small electric jolt.' },
-  thunderbolt:   { id: 'thunderbolt',   name: 'Thunderbolt',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A crackling bolt of lightning.' },
-  thunder_surge: { id: 'thunder_surge', name: 'Thunder Surge', element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A storm-level discharge. May Paralyze.' },
+  thunder_shock: { id: 'thunder_shock', name: 'Static Snap', element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A small snap of static electricity.', animation: 'projectile' },
+  thunderbolt:   { id: 'thunderbolt',   name: 'Arc Lance',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A crackling lance of lightning, straight to the target.', animation: 'beam' },
+  thunder_surge: { id: 'thunder_surge', name: 'Skybreaker', element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Calls a thunderbolt down from the clouds onto the foe.', animation: 'zone' },
 
   // SHADOW
-  shadow_claw:   { id: 'shadow_claw',   name: 'Shadow Claw',  element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A slash from the darkness.' },
-  dark_pulse:    { id: 'dark_pulse',    name: 'Dark Pulse',   element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A wave of dark energy.' },
-  void_strike:   { id: 'void_strike',   name: 'Void Strike',  element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Strikes from the void. May Curse.' },
+  shadow_claw:   { id: 'shadow_claw',   name: 'Gloom Rake',  element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A raking swipe out of the dark.', animation: 'strike' },
+  dark_pulse:    { id: 'dark_pulse',    name: 'Duskwave',   element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A rolling wave of dusk-dark energy.', animation: 'wave' },
+  void_strike:   { id: 'void_strike',   name: 'Abyss Rift',  element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'Tears open a rift under the foe and lets the dark pour through.', animation: 'zone' },
 
   // LIGHT
-  flash:         { id: 'flash',         name: 'Flash',        element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A blinding burst of light.' },
-  sacred_beam:   { id: 'sacred_beam',   name: 'Sacred Beam',  element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A focused beam of holy light.' },
-  divine_burst:  { id: 'divine_burst',  name: 'Divine Burst', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A radiant explosion. May Bless.' },
+  flash:         { id: 'flash',         name: 'Glint Burst',        element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 1.0, description: 'A small, dazzling burst of light.', animation: 'projectile' },
+  sacred_beam:   { id: 'sacred_beam',   name: 'Halo Ray',  element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.5, description: 'A focused ray of bright halo-light.', animation: 'beam' },
+  divine_burst:  { id: 'divine_burst',  name: 'Dawnbreak Nova', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.0, description: 'A burst of sunrise light erupts right where the foe stands.', animation: 'zone' },
 
   // ─── LEGENDARY SKILLS ─── one per element, exclusive default tier3 move for
   // legendary monsters (wild-only legendaries, and guild companions whose
@@ -183,59 +189,59 @@ export const SKILLS: Record<string, Skill> = {
   // at 2.0x) — strictly the strongest kit in the game, but not by a swingy
   // margin. Never sold as a scroll (see skillId in lib/skillScrolls.ts) and
   // rejected server-side if taught directly (see learn_monster_skill RPC).
-  legendary_fire:    { id: 'legendary_fire',    name: 'Solar Flare',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: "A legendary wyrm\'s signature blast, hot enough to outburn any Inferno Blast." },
-  legendary_water:   { id: 'legendary_water',   name: 'Maelstrom',        element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A whirlpool with the force of a whole tide behind it.' },
-  legendary_leaf:    { id: 'legendary_leaf',    name: 'World Bloom',      element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'Every root and vine in reach answers at once.' },
-  legendary_storm:   { id: 'legendary_storm',   name: 'Tempest Fury',     element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A full storm front discharged in a single strike.' },
-  legendary_shadow:  { id: 'legendary_shadow',  name: 'Oblivion Rend',    element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A tear straight through to the void beneath the dark.' },
-  legendary_light:   { id: 'legendary_light',   name: 'Radiant Judgment', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A verdict of pure light no shadow survives.' },
+  legendary_fire:    { id: 'legendary_fire',    name: 'Starfall Inferno',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A legendary wyrm calls down a falling star of fire, hotter than any Magma Crash.', animation: 'zone' },
+  legendary_water:   { id: 'legendary_water',   name: 'Ocean\'s Wrath',        element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A wall of water with the force of a whole tide behind it.', animation: 'wave' },
+  legendary_leaf:    { id: 'legendary_leaf',    name: 'Worldroot Awakening',      element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'Every root in reach bursts up from the ground at once.', animation: 'zone' },
+  legendary_storm:   { id: 'legendary_storm',   name: 'Heavensplit Bolt',     element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A whole storm front, split open and dropped in a single bolt.', animation: 'zone' },
+  legendary_shadow:  { id: 'legendary_shadow',  name: 'Endless Eclipse',    element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'Swallows the foe in an eclipse that seems to never end.', animation: 'zone' },
+  legendary_light:   { id: 'legendary_light',   name: 'Heaven\'s Verdict', element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 2.25, category: 'legendary', description: 'A verdict of pure light that no shadow survives.', animation: 'beam' },
 
   // ─── VAULT ALT SKILLS ─── one per tier per element, trading raw damage for
   // a themed secondary effect. Damage numbers are uniform across elements at
   // a given tier (0.85x/1.15x/1.45x); only the effect differs per element.
 
   // FIRE — self Attack Up
-  fire_fang:     { id: 'fire_fang',     name: 'Fire Fang',     element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A biting flame strike that fires up the striker.', effects: [{ kind: 'self_atk_up', magnitude: 0.10, duration: 1 }] },
-  flame_wheel:   { id: 'flame_wheel',   name: 'Flame Wheel',   element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Spins through flame, building momentum.',           effects: [{ kind: 'self_atk_up', magnitude: 0.15, duration: 2 }] },
-  wildfire:      { id: 'wildfire',      name: 'Wildfire',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Scorches the field, fueling every follow-up hit.', effects: [{ kind: 'self_atk_up', magnitude: 0.20, duration: 3 }] },
+  fire_fang:     { id: 'fire_fang',     name: 'Hearthfang',     element: 'fire',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A bite warm as a hearth fire that fires up the biter.', animation: 'strike', effects: [{ kind: 'self_atk_up', magnitude: 0.10, duration: 1 }] },
+  flame_wheel:   { id: 'flame_wheel',   name: 'Blaze Tumble',   element: 'fire',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Tumbles through the foe in a ring of flame, building momentum.', animation: 'strike',           effects: [{ kind: 'self_atk_up', magnitude: 0.15, duration: 2 }] },
+  wildfire:      { id: 'wildfire',      name: 'Bonfire Frenzy',      element: 'fire',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Spreads fire across the field, fueling every follow-up hit.', animation: 'wave', effects: [{ kind: 'self_atk_up', magnitude: 0.20, duration: 3 }] },
 
   // WATER — enemy Attack Down
-  aqua_jet:      { id: 'aqua_jet',      name: 'Aqua Jet',      element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A rapid water dash that rattles the target.',      effects: [{ kind: 'enemy_atk_down', magnitude: 0.10, duration: 1 }] },
-  whirlpool:     { id: 'whirlpool',     name: 'Whirlpool',     element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Traps the foe in a swirling current.',             effects: [{ kind: 'enemy_atk_down', magnitude: 0.15, duration: 2 }] },
-  tidal_surge:   { id: 'tidal_surge',   name: 'Tidal Surge',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A crushing wave that saps the target\'s power.',   effects: [{ kind: 'enemy_atk_down', magnitude: 0.20, duration: 3 }] },
+  aqua_jet:      { id: 'aqua_jet',      name: 'Riptide Dash',      element: 'water',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A rushing dash like a riptide that rattles the target.', animation: 'strike',      effects: [{ kind: 'enemy_atk_down', magnitude: 0.10, duration: 1 }] },
+  whirlpool:     { id: 'whirlpool',     name: 'Undertow Spiral',     element: 'water',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'A spiral of undertow opens under the foe and drags it down.', animation: 'zone',             effects: [{ kind: 'enemy_atk_down', magnitude: 0.15, duration: 2 }] },
+  tidal_surge:   { id: 'tidal_surge',   name: 'Crushing Tide',   element: 'water',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A crushing tide that saps the target\'s power.', animation: 'wave',   effects: [{ kind: 'enemy_atk_down', magnitude: 0.20, duration: 3 }] },
 
   // LEAF — self Lifesteal
-  leech_vine:    { id: 'leech_vine',    name: 'Leech Vine',    element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'Drains vitality with every strike.',               effects: [{ kind: 'lifesteal', magnitude: 0.15 }] },
-  bramble_guard: { id: 'bramble_guard', name: 'Bramble Guard', element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Thorny vines that strike and mend.',                effects: [{ kind: 'lifesteal', magnitude: 0.20 }] },
-  verdant_bloom: { id: 'verdant_bloom', name: 'Verdant Bloom', element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A blossoming burst that damages and restores.',     effects: [{ kind: 'lifesteal', magnitude: 0.25 }] },
+  leech_vine:    { id: 'leech_vine',    name: 'Sapping Tendril',    element: 'leaf',   tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A tendril that drinks a little life with every hit.', animation: 'drain',               effects: [{ kind: 'lifesteal', magnitude: 0.15 }] },
+  bramble_guard: { id: 'bramble_guard', name: 'Thornbind', element: 'leaf',   tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Binds the foe in thorns that strike and mend the user.', animation: 'drain',                effects: [{ kind: 'lifesteal', magnitude: 0.20 }] },
+  verdant_bloom: { id: 'verdant_bloom', name: 'Lifebloom Siphon', element: 'leaf',   tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A blossoming burst that damages the foe and restores the user.', animation: 'drain',     effects: [{ kind: 'lifesteal', magnitude: 0.25 }] },
 
   // STORM — self Speed Up
-  static_spark:  { id: 'static_spark',  name: 'Static Spark',  element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A jolt that quickens the striker\'s reflexes.',    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 1 }] },
-  volt_charge:   { id: 'volt_charge',   name: 'Volt Charge',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Charges the striker with crackling speed.',        effects: [{ kind: 'self_speed_up', magnitude: 0.20, duration: 2 }] },
-  storm_surge:   { id: 'storm_surge',   name: 'Storm Surge',   element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A raging tempest that quickens every step.',       effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 3 }] },
+  static_spark:  { id: 'static_spark',  name: 'Zip Jolt',  element: 'storm',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A zippy jolt that quickens the user\'s reflexes.', animation: 'projectile',    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 1 }] },
+  volt_charge:   { id: 'volt_charge',   name: 'Livewire Dash',   element: 'storm',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Dashes in like a live wire, charged with crackling speed.', animation: 'strike',        effects: [{ kind: 'self_speed_up', magnitude: 0.20, duration: 2 }] },
+  storm_surge:   { id: 'storm_surge',   name: 'Cyclone Rampage',   element: 'storm',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Whirls up like a cyclone and slams down, faster with every step.', animation: 'pounce',       effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 3 }] },
 
   // SHADOW — enemy Defense Down
-  shade_bite:    { id: 'shade_bite',    name: 'Shade Bite',    element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A shadowy bite that cracks the target\'s guard.',  effects: [{ kind: 'enemy_def_down', magnitude: 0.10, duration: 1 }] },
-  umbral_grasp:  { id: 'umbral_grasp',  name: 'Umbral Grasp',  element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Dark tendrils that pry open the foe\'s defenses.', effects: [{ kind: 'enemy_def_down', magnitude: 0.15, duration: 2 }] },
-  nightfall:     { id: 'nightfall',     name: 'Nightfall',     element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'Plunges the field into darkness, weakening its guard.', effects: [{ kind: 'enemy_def_down', magnitude: 0.20, duration: 3 }] },
+  shade_bite:    { id: 'shade_bite',    name: 'Inkfang',    element: 'shadow', tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'An inky bite that cracks the target\'s guard.', animation: 'strike',  effects: [{ kind: 'enemy_def_down', magnitude: 0.10, duration: 1 }] },
+  umbral_grasp:  { id: 'umbral_grasp',  name: 'Grasping Murk',  element: 'shadow', tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'Murky hands rise under the foe and pry its defenses open.', animation: 'zone', effects: [{ kind: 'enemy_def_down', magnitude: 0.15, duration: 2 }] },
+  nightfall:     { id: 'nightfall',     name: 'Blackout Veil',     element: 'shadow', tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A veil of darkness rolls over the field, weakening the foe\'s guard.', animation: 'wave', effects: [{ kind: 'enemy_def_down', magnitude: 0.20, duration: 3 }] },
 
   // LIGHT — self Defense Up
-  piercing_ray:  { id: 'piercing_ray',  name: 'Piercing Ray',  element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A focused ray that steels the striker\'s resolve.', effects: [{ kind: 'self_def_up', magnitude: 0.10, duration: 1 }] },
-  radiant_pulse: { id: 'radiant_pulse', name: 'Radiant Pulse', element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'A radiant pulse that shields as it strikes.',      effects: [{ kind: 'self_def_up', magnitude: 0.15, duration: 2 }] },
-  sunburst:      { id: 'sunburst',      name: 'Sunburst',      element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A radiant explosion that hardens the striker\'s guard.', effects: [{ kind: 'self_def_up', magnitude: 0.20, duration: 3 }] },
+  piercing_ray:  { id: 'piercing_ray',  name: 'Lumen Needle',  element: 'light',  tier: 1, questionCount: 1, baseDamageMultiplier: 0.85, category: 'alt', description: 'A needle of light that steels the user\'s resolve.', animation: 'projectile', effects: [{ kind: 'self_def_up', magnitude: 0.10, duration: 1 }] },
+  radiant_pulse: { id: 'radiant_pulse', name: 'Aegis Pulse', element: 'light',  tier: 2, questionCount: 2, baseDamageMultiplier: 1.15, category: 'alt', description: 'A shining pulse that shields the user as it strikes.', animation: 'wave',      effects: [{ kind: 'self_def_up', magnitude: 0.15, duration: 2 }] },
+  sunburst:      { id: 'sunburst',      name: 'Solar Crest',      element: 'light',  tier: 3, questionCount: 3, baseDamageMultiplier: 1.45, category: 'alt', description: 'A crest of sunlight bursts on the foe and hardens the user\'s guard.', animation: 'zone', effects: [{ kind: 'self_def_up', magnitude: 0.20, duration: 3 }] },
 
   // ─── UNIVERSAL FIGHTING SKILLS ─── element-agnostic, zero direct damage —
   // the entire tier budget goes into effect strength since they occupy a
   // slot that would otherwise be a damage move.
-  focus_stance:     { id: 'focus_stance',     name: 'Focus Stance',     element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Softens the sting of a partial-credit answer for a few turns.', effects: [{ kind: 'accuracy_soften', magnitude: 0.15, duration: 2 }] },
-  quick_step:       { id: 'quick_step',       name: 'Quick Step',       element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'A burst of speed that helps you act first.',                    effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 2 }] },
-  guard_up:         { id: 'guard_up',         name: 'Guard Up',         element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Braces for impact, cutting incoming damage.',                    effects: [{ kind: 'self_def_up', magnitude: 0.25, duration: 2 }] },
-  intimidate:       { id: 'intimidate',       name: 'Intimidate',       element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Rattles the foe, dulling their next attacks.',                   effects: [{ kind: 'enemy_atk_down', magnitude: 0.25, duration: 3 }] },
-  guard_break:      { id: 'guard_break',      name: 'Guard Break',      element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Cracks the foe\'s defenses wide open.',                          effects: [{ kind: 'enemy_def_down', magnitude: 0.25, duration: 3 }] },
-  adrenaline_rush:  { id: 'adrenaline_rush',  name: 'Adrenaline Rush',  element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'A surge of speed and power.',                                    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 3 }, { kind: 'self_atk_up', magnitude: 0.15, duration: 3 }] },
-  iron_resolve:     { id: 'iron_resolve',     name: 'Iron Resolve',     element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Hardens your resolve for the rest of the battle.',              effects: [{ kind: 'self_def_up', magnitude: 0.35, duration: 'battle' }] },
-  berserkers_edge:  { id: 'berserkers_edge',  name: "Berserker\'s Edge", element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Trades safety for raw power, for the rest of the battle.',      effects: [{ kind: 'self_atk_up', magnitude: 0.40, duration: 'battle' }, { kind: 'self_def_up', magnitude: -0.20, duration: 'battle' }] },
-  second_wind:      { id: 'second_wind',      name: 'Second Wind',      element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Catch your breath, heal up, and shake off any status.',          effects: [{ kind: 'flat_heal', magnitude: 0.25, duration: 'instant' }, { kind: 'cleanse', duration: 'instant' }] },
+  focus_stance:     { id: 'focus_stance',     name: 'Steady Aim',     element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Softens the sting of a partial-credit answer for a few turns.', animation: 'power_up', effects: [{ kind: 'accuracy_soften', magnitude: 0.15, duration: 2 }] },
+  quick_step:       { id: 'quick_step',       name: 'Nimble Step',       element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'A burst of speed that helps you act first.', animation: 'power_up',                    effects: [{ kind: 'self_speed_up', magnitude: 0.25, duration: 2 }] },
+  guard_up:         { id: 'guard_up',         name: 'Stone Stance',         element: null, tier: 1, questionCount: 1, baseDamageMultiplier: 0, category: 'universal', description: 'Plants its feet like stone, cutting incoming damage.', animation: 'guard',                    effects: [{ kind: 'self_def_up', magnitude: 0.25, duration: 2 }] },
+  intimidate:       { id: 'intimidate',       name: 'Menacing Roar',       element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'A fearsome roar that dulls the foe\'s next attacks.', animation: 'hex',                   effects: [{ kind: 'enemy_atk_down', magnitude: 0.25, duration: 3 }] },
+  guard_break:      { id: 'guard_break',      name: 'Armor Crack',      element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'Finds the weak spot and cracks the foe\'s defenses wide open.', animation: 'hex',                          effects: [{ kind: 'enemy_def_down', magnitude: 0.25, duration: 3 }] },
+  adrenaline_rush:  { id: 'adrenaline_rush',  name: 'Fired Up',  element: null, tier: 2, questionCount: 2, baseDamageMultiplier: 0, category: 'universal', description: 'A surge of speed and power.', animation: 'power_up',                                    effects: [{ kind: 'self_speed_up', magnitude: 0.15, duration: 3 }, { kind: 'self_atk_up', magnitude: 0.15, duration: 3 }] },
+  iron_resolve:     { id: 'iron_resolve',     name: 'Unbreakable Will',     element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Hardens your resolve for the rest of the battle.', animation: 'guard',              effects: [{ kind: 'self_def_up', magnitude: 0.35, duration: 'battle' }] },
+  berserkers_edge:  { id: 'berserkers_edge',  name: 'Wild Abandon', element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Trades safety for raw power, for the rest of the battle.', animation: 'power_up',      effects: [{ kind: 'self_atk_up', magnitude: 0.40, duration: 'battle' }, { kind: 'self_def_up', magnitude: -0.20, duration: 'battle' }] },
+  second_wind:      { id: 'second_wind',      name: 'Deep Breath',      element: null, tier: 3, questionCount: 3, baseDamageMultiplier: 0, category: 'universal', description: 'Catch your breath, heal up, and shake off any status.', animation: 'restore',          effects: [{ kind: 'flat_heal', magnitude: 0.25, duration: 'instant' }, { kind: 'cleanse', duration: 'instant' }] },
 };
 
 // ─── REST SKILL ──────────────────────────────────────────────────────────────
@@ -272,6 +278,12 @@ export interface MonsterDef {
   skills: [string, string, string]; // [tier1_id, tier2_id, tier3_id]
   // Skill tier unlocks by monster level
   skillUnlocks: { tier2: number; tier3: number }; // tier1 always available at level 1
+  // Battle-stage body (see lib/curioBody.ts): how big this curio's art is drawn
+  // relative to others, and whether it hovers (bob + lifted, shrinking shadow)
+  // or stands on the ground. Required so no curio silently defaults — a baby
+  // curio must never render the same size as a hulking one.
+  size: CurioSize;
+  floats: boolean;
   isLegendary?: boolean;
   // Overrides which /public/monsters/{spriteId}.webp file MonsterImage loads,
   // when it differs from `id` (e.g. a guild companion\'s tier1 sprite file is
@@ -303,6 +315,9 @@ interface GraduationStage {
   name: string;
   emoji: string;
   spriteId?: string;
+  // New art = new body — every stage states its own size/floats (see MonsterDef).
+  size: CurioSize;
+  floats: boolean;
   description?: string;
 }
 
@@ -342,6 +357,8 @@ export function getGraduatedMonsterDisplay(monsterDef: MonsterDef, graduationTie
     name: stage.name,
     emoji: stage.emoji,
     spriteId: stage.spriteId ?? monsterDef.spriteId,
+    size: stage.size,
+    floats: stage.floats,
     description: stage.description ?? monsterDef.description,
   };
 }
@@ -372,6 +389,8 @@ interface GuildEvolutionStage {
   name: string;
   emoji: string;
   spriteId?: string;
+  size: CurioSize;
+  floats: boolean;
   isLegendary?: boolean;
   description?: string;
 }
@@ -392,102 +411,108 @@ const WILD_STAT_PRESET = { baseHp: 140, baseAttack: 26, baseDefense: 20, baseSpe
 export const MONSTERS: Record<string, MonsterDef> = {
   shadrak: {
     id: 'shadrak', name: 'Shadrak', element: 'shadow', archetype: 'glass_cannon',
+    size: 'small', floats: true,
     emoji: '👻', description: 'A cloaked phantom with hollow eyes — a fragment of the world\'s Ledger that keeps what\'s hidden or overlooked. It wove its cloak from leftover night. It doesn\'t cast a shadow — it wears one. Moves without sound and watches from doorways.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Shadeveil', emoji: '🌒', spriteId: 'shadeveil',
+        level: 20, name: 'Shadeveil', emoji: '🌒', spriteId: 'shadeveil', size: 'medium', floats: true,
         description: 'Shadrak\'s cloak has thickened into a true veil — less a garment now and more a second skin of woven night. It rarely opens its eyes in bright light anymore, preferring the clarity that comes from seeing through the dark alone.',
       },
       second: {
-        level: 32, name: 'Shadecrown', emoji: '🌑', spriteId: 'shadecrown',
+        level: 32, name: 'Shadecrown', emoji: '🌑', spriteId: 'shadecrown', size: 'large', floats: true,
         description: 'What was once a veil has hardened into something older — a crown of compressed shadow that no light touches. It no longer watches from doorways. It becomes the doorway.',
       },
     },
   },
   torrenth: {
     id: 'torrenth', name: 'Torrenth', element: 'water', archetype: 'tank',
+    size: 'medium', floats: false,
     emoji: '🐢', description: 'An armored sea turtle with a crashing shell — a fragment of the Ledger that keeps change and feeling. Each ridge on its shell holds the echo of a wave. Can tuck in and become almost immovable, like a small island.',
     ...STAT_PRESETS.tank,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Torrentide', emoji: '🌊', spriteId: 'torrentide',
+        level: 20, name: 'Torrentide', emoji: '🌊', spriteId: 'torrentide', size: 'large', floats: false,
         description: 'Torrenth\'s shell has widened and ridged further, each ridge now holding not just the echo of a wave but a living current. It can anchor itself so completely that smaller creatures shelter in its wake during storms.',
       },
       second: {
-        level: 32, name: 'Torrentitan', emoji: '🏔️', spriteId: 'torrentitan',
+        level: 32, name: 'Torrentitan', emoji: '🏔️', spriteId: 'torrentitan', size: 'huge', floats: false,
         description: 'It has grown past immovable into something that changes the water around it — a tide unto itself. Ships give it a wide berth, not out of fear, but because the sea behaves differently wherever Torrentitan rests.',
       },
     },
   },
   voltmane: {
     id: 'voltmane', name: 'Voltmane', element: 'storm', archetype: 'glass_cannon',
+    size: 'small', floats: false,
     emoji: '⚡', description: 'A wild-maned beast crackling with static — a fragment of the Ledger that keeps momentum and consequence. Its mane stands straight up from its own charge. Runs in short, blinding bursts that leave the smell of rain.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Voltzane', emoji: '🌩️', spriteId: 'voltzane',
+        level: 20, name: 'Voltzane', emoji: '🌩️', spriteId: 'voltzane', size: 'medium', floats: false,
         description: 'Voltmane\'s mane has grown out further, arcing between its own tips in constant small sparks. Its bursts are longer now, and it lingers in the smell of rain long after it has gone.',
       },
       second: {
-        level: 32, name: 'Voltzar', emoji: '⛈️', spriteId: 'voltzar',
+        level: 32, name: 'Voltzar', emoji: '⛈️', spriteId: 'voltzar', size: 'large', floats: false,
         description: 'The static has nowhere left to build — it simply is. Voltzar no longer runs in bursts. It moves at the speed of consequence, already somewhere else by the time the thunder catches up.',
       },
     },
   },
   fernix: {
     id: 'fernix', name: 'Fernix', element: 'leaf', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🦅', description: 'A bird made entirely of woven leaves and vines — a fragment of the Ledger that keeps growth and patience. Its body rustles when it flies. If it loses a feather, a small green sprout appears where it lands.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Fernox', emoji: '🍃', spriteId: 'fernox',
+        level: 20, name: 'Fernox', emoji: '🍃', spriteId: 'fernox', size: 'medium', floats: false,
         description: 'Fernix\'s woven feathers have grown denser and overlapped into something closer to bark than leaf — harder to lose, slower to rustle. The sprouts it leaves behind now take root instead of fading.',
       },
       second: {
-        level: 32, name: 'Fernthos', emoji: '🌿', spriteId: 'fernthos',
+        level: 32, name: 'Fernthos', emoji: '🌿', spriteId: 'fernthos', size: 'large', floats: true,
         description: 'It no longer flies so much as drifts on currents it chooses. Its body is all old growth now — layered vines, crossed branches — and the forest it passes through leans in for a moment before straightening again.',
       },
     },
   },
   solarch: {
     id: 'solarch', name: 'Solarch', element: 'light', archetype: 'tank',
+    size: 'small', floats: false,
     emoji: '🦁', description: 'A regal lion with a sun-disc mane — a fragment of the Ledger that keeps what\'s been proven true. The disc floats just off its fur and glows like late morning. Wakes early and lies in the highest sun it can find.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Starlune', emoji: '🌟', spriteId: 'starlune',
+        level: 20, name: 'Starlune', emoji: '🌟', spriteId: 'starlune', size: 'medium', floats: false,
         description: 'Solarch\'s sun-disc mane has widened into a halo of starlight, bright even at noon. It no longer needs to chase the sun — it carries a piece of the sky with it wherever it walks.',
       },
       second: {
-        level: 32, name: 'Stellarch', emoji: '⭐', spriteId: 'stellarch',
+        level: 32, name: 'Stellarch', emoji: '⭐', spriteId: 'stellarch', size: 'large', floats: false,
         description: 'The star-halo has expanded past Starlune\'s shoulders and begun to orbit slowly on its own. It no longer needs to find the light — wherever Stellarch stands, morning comes a little early.',
       },
     },
   },
   pyravex: {
     id: 'pyravex', name: 'Pyravex', element: 'fire', archetype: 'glass_cannon',
+    size: 'small', floats: false,
     emoji: '🦊', description: 'A grumpy dinosaur-like monster with a blazing tail — a fragment of the Ledger that keeps will and courage. The tail spins for balance when it runs. Its chest glows when it breathes in, dimming when it exhales.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Volcavor', emoji: '🌋', spriteId: 'volcavor',
+        level: 20, name: 'Volcavor', emoji: '🌋', spriteId: 'volcavor', size: 'medium', floats: false,
         description: 'Pyravex\'s tail no longer just spins — it churns, dragging heat up from somewhere deep. The chest glow no longer dims on exhale. It has stopped being grumpy and started being patient, which is somehow worse.',
       },
       second: {
-        level: 32, name: 'Magmordrax', emoji: '🐉', spriteId: 'magmordrax',
+        level: 32, name: 'Magmordrax', emoji: '🐉', spriteId: 'magmordrax', size: 'huge', floats: false,
         description: 'The patience has cooled into something geological. Magmordrax doesn\'t breathe in and out so much as it cycles — heat in, lava out — the will and courage of the Ledger distilled into its own slow geology.',
       },
     },
@@ -505,57 +530,61 @@ export const MONSTERS: Record<string, MonsterDef> = {
 export const WILD_MONSTERS: Record<string, MonsterDef> = {
   embrak: {
     id: 'embrak', name: 'Embrak', element: 'fire', archetype: 'balanced',
+    size: 'large', floats: false,
     emoji: '🦎', description: 'A stocky lizard with magma cracks on its hide — a loose fragment of the Ledger, never claimed by any watch-post. Spends days half-buried in warm mud with only nostrils showing. Its bite leaves a clean, cauterized mark.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Magmabrak', emoji: '🔥', spriteId: 'magmabrak',
+        level: 20, name: 'Magmabrak', emoji: '🔥', spriteId: 'magmabrak', size: 'large', floats: false,
         description: 'Embrak\'s magma cracks have widened and begun to glow orange-white at the edges. It no longer needs to half-bury itself in warm mud — it brings its own heat wherever it goes. The cauterized bite mark it leaves now takes twice as long to fade.',
       },
       second: {
-        level: 32, name: 'Infernabrax', emoji: '💥', spriteId: 'infernabrax',
+        level: 32, name: 'Infernabrax', emoji: '💥', spriteId: 'infernabrax', size: 'huge', floats: false,
         description: 'The mud phase is long over. Infernabrax hasn\'t cooled in years — its surface runs at a permanent simmer, the Ledger\'s fragment of will burning so steadily now that it has simply become part of how the world feels warm.',
       },
     },
   },
   coralyn: {
     id: 'coralyn', name: 'Coralyn', element: 'water', archetype: 'balanced',
+    size: 'medium', floats: true,
     emoji: '🌊', description: 'An elegant coral-horned seahorse — a fragment of the Ledger that drifted loose long ago and never found a post to guard. Her branching coral horns filter water and house tiny shrimp. She drifts slowly and guards one patch of reef fiercely.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Coralyss', emoji: '🪸', spriteId: 'coralyss',
+        level: 20, name: 'Coralyss', emoji: '🪸', spriteId: 'coralyss', size: 'large', floats: false,
         description: 'Her coral crown has bloomed into a full reef of its own, busy with shrimp and anemones she\'s long since stopped noticing. The patch of ocean she guards has grown right along with her.',
       },
       second: {
-        level: 32, name: 'Coralythia', emoji: '🌺', spriteId: 'coralythia',
+        level: 32, name: 'Coralythia', emoji: '🌺', spriteId: 'coralythia', size: 'huge', floats: false,
         description: 'The reef that grew on Coralyss has become its own ecosystem — Coralythia carries a living ocean on its back, no longer guarding a single patch but becoming the patch. The shrimp and anemones have forgotten it was ever anything else.',
       },
     },
   },
   mosshorn: {
     id: 'mosshorn', name: 'Mosshorn', element: 'leaf', archetype: 'tank',
+    size: 'small', floats: false,
     emoji: '🦌', description: 'A gentle deer with a mossy antler crown — a loose fragment of the Ledger, patient enough to wait uncaught for years. The moss on its antlers holds rainwater and tiny ferns. Sheds its antlers each year, leaving a small mossy hill behind.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Mossloft', emoji: '🌿', spriteId: 'mossloft',
+        level: 20, name: 'Mossloft', emoji: '🌿', spriteId: 'mossloft', size: 'medium', floats: false,
         description: 'Mosshorn\'s antlers have spread outward and the moss has grown past them, hanging in heavy curtains that brush the ground. Rain no longer collects in the antlers — it flows down them. The small mossy hill it leaves behind is larger every year.',
       },
       second: {
-        level: 32, name: 'Eldermoss', emoji: '🌳', spriteId: 'eldermoss',
+        level: 32, name: 'Eldermoss', emoji: '🌳', spriteId: 'eldermoss', size: 'large', floats: false,
         description: 'The antlers are fully grown over now — more forest than deer. Eldermoss moves slowly because the moss it carries is home to hundreds of things it hasn\'t quite noticed yet. The Ledger\'s patience made flesh, layered by time into something that no longer hurries for anything.',
       },
     },
   },
   galestrik: {
     id: 'galestrik', name: 'Galestrik', element: 'storm', archetype: 'glass_cannon',
+    size: 'medium', floats: false,
     emoji: '🦅', description: 'A hawk that rides and generates thunderclouds — a fragment of the Ledger that outran every post built to hold it. It surfs wind currents without flapping and drags lightning behind its wingtips when it dives.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
@@ -563,23 +592,25 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   duskral: {
     id: 'duskral', name: 'Duskral', element: 'shadow', archetype: 'glass_cannon',
+    size: 'small', floats: false,
     emoji: '🐈‍⬛', description: 'A sleek panther that melts into darkness — a loose fragment of the Ledger keeping what\'s hidden, drifting between watch-posts unclaimed. In low light its outline softens until only its eyes and crescent chest mark remain. Hunts at the edge of lamplight.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Noctral', emoji: '🌑', spriteId: 'noctral',
+        level: 20, name: 'Noctral', emoji: '🌑', spriteId: 'noctral', size: 'medium', floats: false,
         description: 'Duskral has stopped melting into the dark and become it — a panther-shaped absence with a crescent of stars where its chest mark used to be. Lamplight bends around it now instead of touching it.',
       },
       second: {
-        level: 32, name: 'Astralyx', emoji: '🌌', spriteId: 'astralyx',
+        level: 32, name: 'Astralyx', emoji: '🌌', spriteId: 'astralyx', size: 'large', floats: false,
         description: 'Noctral\'s outline has dissolved entirely into a constellation of scattered light — a void-panther whose form is defined only by the stars that frame where it isn\'t. It doesn\'t hunt in the dark anymore. It is the dark that decides where the stars sit.',
       },
     },
   },
   luminos: {
     id: 'luminos', name: 'Luminos', element: 'light', archetype: 'balanced',
+    size: 'medium', floats: false,
     emoji: '🦊', description: 'A small glowing fox with a radiant tail — a loose fragment of the Ledger, never bound to any single post. Its tail works like a lantern that dims and brightens with its breathing. Leaves faint light pawprints that fade by morning.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
@@ -587,6 +618,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   emberwyrm: {
     id: 'emberwyrm', name: 'Emberwyrm', element: 'fire', archetype: 'tank',
+    size: 'huge', floats: true,
     emoji: '🐉', description: 'A legendary wyrm wreathed in slow, eternal flame — said to be one of the oldest fragments of the Ledger, old enough to remember when the Forgetting had no name yet. Sleeps coiled around dormant volcanoes. Its flame moves so slowly you can watch it crawl across its scales over days.',
     ...WILD_STAT_PRESET,
     skills: ['ember', 'flamethrower', 'legendary_fire'],
@@ -595,6 +627,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   tidalynx: {
     id: 'tidalynx', name: 'Tidalynx', element: 'water', archetype: 'tank',
+    size: 'huge', floats: false,
     emoji: '🐋', description: 'A serene leviathan said to command the deep tides — one of the oldest fragments of the Ledger, holding more change and feeling than any single watch-post could contain. Lives along untouched coasts. Where it steps, water pulls back, leaving its pawprints filled with clear tide.',
     ...WILD_STAT_PRESET,
     skills: ['water_gun', 'hydro_pump', 'legendary_water'],
@@ -603,6 +636,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   zephyrion: {
     id: 'zephyrion', name: 'Zephyrion', element: 'storm', archetype: 'tank',
+    size: 'huge', floats: true,
     emoji: '🦅', description: 'A storm-forged raptor that rides lightning itself — one of the oldest fragments of the Ledger, carrying more momentum than any single watch-post could hold. Nests above the clouds where air is thin and stays aloft for weeks. Its shadow passing makes flags change direction.',
     ...WILD_STAT_PRESET,
     skills: ['thunder_shock', 'thunderbolt', 'legendary_storm'],
@@ -611,6 +645,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   lexiwyrm: {
     id: 'lexiwyrm', name: 'Lexiwyrm', element: 'leaf', archetype: 'tank',
+    size: 'large', floats: false,
     emoji: '📚', spriteId: 'lexiwyrm', description: 'A legendary spine of pages that never quite closes — one of the oldest fragments of the Ledger, holding more written memory than any single watch-post could shelve. It reads its own margins aloud in a voice like turning paper. Every root and vine within reach seems to lean in to listen.',
     ...WILD_STAT_PRESET,
     skills: ['vine_whip', 'razor_leaf', 'legendary_leaf'],
@@ -619,6 +654,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   nyxfang: {
     id: 'nyxfang', name: 'Nyxfang', element: 'shadow', archetype: 'tank',
+    size: 'large', floats: false,
     emoji: '🐺', description: 'A wolf woven from pure night, rarely ever seen — one of the oldest fragments of the Ledger, holding more of what\'s hidden than any single watch-post dares keep. Its fur absorbs light, so at night it looks like a wolf-shaped hole in the dark. Its howl feels like pressure more than sound.',
     ...WILD_STAT_PRESET,
     skills: ['shadow_claw', 'dark_pulse', 'legendary_shadow'],
@@ -627,6 +663,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   aureon: {
     id: 'aureon', name: 'Aureon', element: 'light', archetype: 'tank',
+    size: 'large', floats: false,
     emoji: '🦄', description: 'A radiant beast said to bring fortune to its keeper — one of the oldest fragments of the Ledger, holding more proven truth than any single watch-post could shelter. Its mane scatters light like golden dust. At dawn, the air around it glitters for minutes after it has already left.',
     ...WILD_STAT_PRESET,
     skills: ['flash', 'sacred_beam', 'legendary_light'],
@@ -635,6 +672,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   emberpaw: {
     id: 'emberpaw', name: 'Emberpaw', element: 'fire', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🐾', description: 'A loose fragment of the Ledger, found near hearths and campfires. Leaves glowing pawprints that last hours. Superstitious travelers follow them at night, but Emberpaw just likes warm stones. It sneezes embers when nervous.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
@@ -642,6 +680,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   magmarox: {
     id: 'magmarox', name: 'Magmarox', element: 'fire', archetype: 'tank',
+    size: 'large', floats: false,
     emoji: '🦏', description: 'A solitary magma rhino, a loose fragment of the Ledger that lives in cooled lava fields. Its armor is volcanic rock it coats itself in for protection, then sheds when it gets too heavy. It bathes in ash, not water.',
     ...STAT_PRESETS.tank,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
@@ -649,6 +688,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   bubbloon: {
     id: 'bubbloon', name: 'Bubbloon', element: 'water', archetype: 'balanced',
+    size: 'small', floats: true,
     emoji: '🫧', description: 'A tidepool axolotl, a loose fragment of the Ledger that stores fresh water in its cheek bubbles to survive low tide. It drifts with the current and inflates to look bigger. Its bubbles pop with a clean ping.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
@@ -656,6 +696,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   coralune: {
     id: 'coralune', name: 'Coralune', element: 'water', archetype: 'balanced',
+    size: 'small', floats: true,
     emoji: '🪸', description: 'A shy reef seahorse, a loose fragment of the Ledger that grows a small living coral crown. The coral\'s health reflects the water\'s. Coralune hums to keep the polyps calm. If water turns sour, it leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
@@ -663,6 +704,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   luminibee: {
     id: 'luminibee', name: 'Luminibee', element: 'light', archetype: 'balanced',
+    size: 'tiny', floats: true,
     emoji: '🐝', description: 'A nocturnal bee, a loose fragment of the Ledger, whose abdomen hardens into a lantern of solid light. It uses it to lure moths and to signal other Luminibee across meadows. The light never goes out, even after death.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
@@ -670,6 +712,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   solaraffe: {
     id: 'solaraffe', name: 'Solaraffe', element: 'light', archetype: 'tank',
+    size: 'large', floats: false,
     emoji: '🦒', description: 'A savanna giraffe, a loose fragment of the Ledger, with sun-like spots that hold heat through the night. It stands still for hours absorbing light, then releases it slowly to warm the grass around it in winter.',
     ...STAT_PRESETS.tank,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
@@ -677,6 +720,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   zapkit: {
     id: 'zapkit', name: 'Zapkit', element: 'storm', archetype: 'glass_cannon',
+    size: 'small', floats: false,
     emoji: '🐱', description: 'A mountain kitten, a loose fragment of the Ledger, whose fur generates static. Before a storm, its fur stands straight up and crackles. It hunts by zapping insects out of the air.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
@@ -684,6 +728,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   thundrake: {
     id: 'thundrake', name: 'Thundrake', element: 'storm', archetype: 'tank',
+    size: 'large', floats: true,
     emoji: '🐉', description: 'A serpentine dragon, a loose fragment of the Ledger, that lives inside storm clouds. It doesn\'t create thunder — it lives where thunder already is, because the vibrations help it shed old cloud-scales. Often mistaken for distant thunder.',
     ...STAT_PRESETS.tank,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
@@ -691,6 +736,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   gloombat: {
     id: 'gloombat', name: 'Gloombat', element: 'shadow', archetype: 'glass_cannon',
+    size: 'small', floats: true,
     emoji: '🦇', description: 'A small bat, a loose fragment of the Ledger, that roosts in abandoned attics and caves. Its large ears absorb sound, so it hears whispers from far rooms. It is active only when the moon is thin.',
     ...STAT_PRESETS.glass_cannon,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
@@ -698,6 +744,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   umbraven: {
     id: 'umbraven', name: 'Umbraven', element: 'shadow', archetype: 'balanced',
+    size: 'medium', floats: false,
     emoji: '🐦‍⬛', description: 'A forest raven, a loose fragment of the Ledger, whose feathers have a soft ink-like edge that blurs in dim light. It is hard to photograph because cameras can\'t focus on it. It collects shiny black stones.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
@@ -705,6 +752,7 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   darkkor: {
     id: 'darkkor', name: 'Darkkor', element: 'shadow', archetype: 'glass_cannon',
+    size: 'medium', floats: true,
     emoji: '🫥', spriteId: 'darkkor',
     description: 'A shadow that never left when the light came back — a loose fragment of the Ledger, unclaimed by any watch-post, that learned to float instead of fade. It hides in the darkest corners of the Logic Labyrinth, feeding quietly on unfinished answers.',
     ...STAT_PRESETS.glass_cannon,
@@ -712,17 +760,18 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'VoidLore', emoji: '🕳️', spriteId: 'voidlore',
+        level: 20, name: 'VoidLore', emoji: '🕳️', spriteId: 'voidlore', size: 'large', floats: true,
         description: 'Darkkor has torn wings from its own stitched shadow and learned to fly. It has no face — only two hollow yellow eyes, without pupils, that read every blank space a Trainer left behind.',
       },
       second: {
-        level: 32, name: 'Nuhilore', emoji: '🌌', spriteId: 'nuhilore',
+        level: 32, name: 'Nuhilore', emoji: '🌌', spriteId: 'nuhilore', size: 'huge', floats: true,
         description: 'It has swallowed too many blanks to still be called a shadow. Null. Nihil. Lore. It no longer hides in the Labyrinth — on a bad night, it becomes the Labyrinth, where every unfinished answer drifts to be nothing.',
       },
     },
   },
   sproutle: {
     id: 'sproutle', name: 'Sproutle', element: 'leaf', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🦌', description: 'A fawn, a loose fragment of the Ledger, that sprouts a single seed on its head at birth. The sprout grows based on soil and mood, but never roots. Sproutle eat morning dew off their own leaves.',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
@@ -730,23 +779,25 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   platydew: {
     id: 'platydew', name: 'Platydew', element: 'water', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🦆', description: 'A small, pudgy platypus, a loose fragment of the Ledger, whose bill is perpetually wet with morning dew. It naps face-down at the water\'s edge with its bill just submerged, feeling for movement. Nobody is sure when it sleeps and when it is simply very still.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Tidebill', emoji: '🌊', spriteId: 'tidebill',
+        level: 20, name: 'Tidebill', emoji: '🌊', spriteId: 'tidebill', size: 'medium', floats: false,
         description: 'Platydew\'s bill has grown longer and more sensitive, reading entire currents at once. It no longer naps at the edge — it drifts with one eye open, bill sweeping the water ahead like a slow, deliberate question.',
       },
       second: {
-        level: 32, name: 'Tideboard', emoji: '🏄', spriteId: 'tideboard',
+        level: 32, name: 'Tideboard', emoji: '🏄', spriteId: 'tideboard', size: 'medium', floats: false,
         description: 'Tidebill has grown broad and flat enough to ride its own wake — a living surfboard of a platypus that steers tides more than it follows them. The bill now reads the ocean floor from the surface. It rarely needs to submerge anymore; the water comes to it.',
       },
     },
   },
   brambleon: {
     id: 'brambleon', name: 'Brambleon', element: 'leaf', archetype: 'tank',
+    size: 'medium', floats: false,
     emoji: '🦁', description: 'A lowland lion, a loose fragment of the Ledger, with a mane of thick leaves and vines. The leaves change color with the season, but never fall out completely. It marks territory by tangling vines into knots.',
     ...STAT_PRESETS.tank,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
@@ -754,17 +805,18 @@ export const WILD_MONSTERS: Record<string, MonsterDef> = {
   },
   kasagbon: {
     id: 'kasagbon', name: 'Kasagbon', element: 'water', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🦀', description: 'A small stone crab dressed in Mamanwa gold and a raffia skirt, with wide amber eyes like the first stars after rain. Legend says the elders once stomped the river stones to thank San Nicolas de Tolentino after the year\'s first bonok, and wherever their feet landed, Kasagbon popped up clapping along. It keeps blessing droplets tucked in its skirt — let one fall on you and the day turns maradjaw, all good.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
     graduation: {
       first: {
-        level: 20, name: 'Marabon', emoji: '🪇', spriteId: 'marabon',
+        level: 20, name: 'Marabon', emoji: '🪇', spriteId: 'marabon', size: 'medium', floats: false,
         description: 'Kasagbon after its first festival — taller now, in a beaded abaca headdress, shaking twin blessed-coconut maracas. Its old raffia skirt grew into a full bahag that rattles like rain; one maraca calls the rain down, the other sends it home. Locals say catching it mid-spin, seven turns without a stumble, means a lucky year ahead.',
       },
       second: {
-        level: 32, name: 'Datubon', emoji: '👑', spriteId: 'datubon',
+        level: 32, name: 'Datubon', emoji: '👑', spriteId: 'datubon', size: 'large', floats: false,
         description: 'The procession\'s elder — shield-backed, crowned like a chieftain, leaning on a staff capped with a blue scroll. Its shell is carved with every bonok-bonok step danced in the last forty years, and the Mamanwa say it carries the spirit of the datu who first prayed for rain after the worst typhoon anyone remembers. It has stopped dancing; when its staff comes down, confetti hangs in the air like rain that forgot to fall.',
       },
     },
@@ -846,6 +898,7 @@ export const WILD_ENCOUNTER_PITY_THRESHOLD = 30;
 export const GUILD_MONSTERS: Record<string, MonsterDef> = {
   lorekeeper_familiar: {
     id: 'lorekeeper_familiar', name: 'Scryvyn', element: 'leaf', archetype: 'tank',
+    size: 'small', floats: true,
     emoji: '📜', spriteId: 'scryvyn',
     description: 'The Scroll Wyrm — the Lorekeeper watch-post\'s own fragment of the Ledger, a tiny dragon made entirely of old study scrolls, with green self-rewriting runes and a hooded cloak fused from its first master\'s robe. It lives in libraries closed too long, eating forgotten footnotes and orbiting itself with floating scrolls of memory.',
     ...STAT_PRESETS.tank,
@@ -854,17 +907,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'lorekeeper',
       tier2: {
-        level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm',
+        level: 10, name: 'Lexiwyrm', emoji: '📚', spriteId: 'lexiwyrm', size: 'large', floats: false,
         description: 'As the Lorekeeper watch-post grows stronger, the scrolls have bound themselves into a spine of pages that never quite closes. It reads its own margins aloud in a voice like turning paper, filing away everything its keeper has learned.',
       },
       tier3: {
-        level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', isLegendary: true,
+        level: 20, name: 'ChroniLex', emoji: '🌌', spriteId: 'chronilex', size: 'huge', floats: false, isLegendary: true,
         description: 'A living archive that has outgrown its shelf and started keeping the library instead — the Ledger itself, waking further with every page its keeper has sealed against the Forgetting. Its runes now trail off into the space between stars, cataloguing knowledge no one has asked for yet.',
       },
     },
   },
   spellcaster_familiar: {
     id: 'spellcaster_familiar', name: 'Inkybble', element: 'shadow', archetype: 'glass_cannon',
+    size: 'small', floats: true,
     emoji: '🖋️', spriteId: 'inkybble',
     description: 'The SpellCaster watch-post\'s own fragment of the Ledger — a tiny ink blot that spilled from an unfinished spell and learned to crawl. It hides in margins and erasures, feeding on crossed-out words and misspelled letters.',
     ...STAT_PRESETS.glass_cannon,
@@ -873,17 +927,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'spellcaster',
       tier2: {
-        level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara',
+        level: 10, name: 'Quillara', emoji: '🪶', spriteId: 'quillara', size: 'medium', floats: true,
         description: 'As the Spelling Spire\'s wards strengthen, the ink has grown a spine of quills that write faster than thought. It leaves perfect sentences in its wake, correcting typos it hasn\'t even seen yet.',
       },
       tier3: {
-        level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', isLegendary: true,
+        level: 20, name: 'Astrypta', emoji: '🌑', spriteId: 'astrypta', size: 'large', floats: true, isLegendary: true,
         description: 'A constellation of ink and eclipse, spelling out incantations no spellbook has printed — the Lexicon\'s wards made whole. Where it drifts, unfinished spells finish themselves.',
       },
     },
   },
   numberrealm_familiar: {
     id: 'numberrealm_familiar', name: 'Digitot', element: 'water', archetype: 'balanced',
+    size: 'small', floats: true,
     emoji: '🐠', spriteId: 'digitot',
     description: 'The Number Realm watch-post\'s own fragment of the Ledger — a small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
     ...STAT_PRESETS.balanced,
@@ -892,17 +947,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'number_realm',
       tier2: {
-        level: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray',
+        level: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray', size: 'medium', floats: true,
         description: 'As the Realm holds its shape more firmly, its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
       },
       tier3: {
-        level: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin', isLegendary: true,
+        level: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin', size: 'large', floats: true, isLegendary: true,
         description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail — the Realm\'s Ledger-fragment fully awake.',
       },
     },
   },
   logiclabyrinth_familiar: {
     id: 'logiclabyrinth_familiar', name: 'Quizzicube', element: 'storm', archetype: 'tank',
+    size: 'small', floats: true,
     emoji: '🧊', spriteId: 'quizzicube',
     description: 'The Logic Labyrinth watch-post\'s own fragment of the Ledger — a small cube built from shifting question-mark panels, each face humming with a different riddle. It rolls in place when stumped, waiting for the right answer to click it into shape.',
     ...STAT_PRESETS.tank,
@@ -911,17 +967,18 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'logic_labyrinth',
       tier2: {
-        level: 10, name: 'Labrynthox', emoji: '🌀', spriteId: 'labrynthox',
+        level: 10, name: 'Labrynthox', emoji: '🌀', spriteId: 'labrynthox', size: 'medium', floats: true,
         description: 'As the Endless Maze grows harder for the Forgetting to tangle, the cube has unfolded into a maze-backed beast, corridors running the length of its shell. Wrong turns echo through its body until the right path lights up on its own.',
       },
       tier3: {
-        level: 20, name: 'Infinitaze', emoji: '♾️', spriteId: 'infinitaze', isLegendary: true,
+        level: 20, name: 'Infinitaze', emoji: '♾️', spriteId: 'infinitaze', size: 'large', floats: true, isLegendary: true,
         description: 'A labyrinth given form, its passages looping back through themselves without end — the Maze\'s own fragment of the Ledger, fully awake. It doesn\'t solve puzzles anymore — it simply becomes the answer, and lets you catch up.',
       },
     },
   },
   lexiconarena_familiar: {
     id: 'lexiconarena_familiar', name: 'Pollyglyph', element: 'light', archetype: 'glass_cannon',
+    size: 'small', floats: false,
     emoji: '🦜', spriteId: 'pollyglyph',
     description: 'The Lexicon Arena watch-post\'s own fragment of the Ledger — a fledgling parrot that mimics every word it hears until each one sprouts a tiny glowing glyph on its feathers.',
     ...STAT_PRESETS.glass_cannon,
@@ -930,11 +987,11 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'lexicon_arena',
       tier2: {
-        level: 10, name: 'Squawkolar', emoji: '🦉', spriteId: 'squawkolar',
+        level: 10, name: 'Squawkolar', emoji: '🦉', spriteId: 'squawkolar', size: 'medium', floats: false,
         description: 'As the Living Dictionary wakes further, it has traded mimicry for mastery, footnoting its own squawks with etymology no one asked for.',
       },
       tier3: {
-        level: 20, name: 'Admiral Psquawk', emoji: '🦅', spriteId: 'admiral_psquawk', isLegendary: true,
+        level: 20, name: 'Admiral Psquawk', emoji: '🦅', spriteId: 'admiral_psquawk', size: 'large', floats: false, isLegendary: true,
         description: 'A decorated commander of every word ever spoken, barking corrections from a crow\'s nest built out of dictionaries — the Dictionary\'s own fragment, fully awake.',
       },
     },
@@ -949,6 +1006,7 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
 export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   tarsipling: {
     id: 'tarsipling', name: 'Tarsipling', element: 'leaf', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🐿️', description: 'A wide-eyed forest sprite, part tarsier, part sapling, that can never sit still around anything new — trainers say it only shows itself to those who keep asking questions long after the answer would\'ve been good enough. It tucks acorns, buttons, and stray answers alike into its cheeks, certain each one is worth knowing. Its ears swivel toward every rustle, every question, every "why."',
     ...STAT_PRESETS.balanced,
     skills: ['vine_whip', 'razor_leaf', 'solar_beam'],
@@ -956,6 +1014,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   tamablase: {
     id: 'tamablase', name: 'Tamablase', element: 'fire', archetype: 'balanced',
+    size: 'medium', floats: false,
     emoji: '🦎', description: 'A calm little salamander whose belly-flame only ever burns steady, never wild. It warms whatever curls up next to it and refuses to singe even the driest kindling. Trainers say it appears only when someone has kept their temper through a hard question.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
@@ -963,6 +1022,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   palalume: {
     id: 'palalume', name: 'Palalume', element: 'light', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🕊️', description: 'A dove that carries a small sun in its chest, glowing brighter with every kind thing it witnesses. It circles back to the same rooftops each dusk, dropping soft light onto whoever is still studying below.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
@@ -970,6 +1030,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   bleedune: {
     id: 'bleedune', name: 'Bleedune', element: 'shadow', archetype: 'balanced',
+    size: 'small', floats: false,
     emoji: '🦂', description: 'A quiet dune-scorpion whose shell bleeds ink-black sand from every crack, redrawing its own pattern each night — a fragment of the Ledger that only surfaces for a Trainer willing to sit with a hard problem overnight. It buries itself before sunrise and is gone by the time anyone looks twice.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
@@ -977,6 +1038,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   tawili: {
     id: 'tawili', name: 'Tawili', element: 'water', archetype: 'balanced',
+    size: 'small', floats: true,
     emoji: '🐢', description: 'A small, affectionate river turtle that grows fonder of a place the longer it stays, one lap of the current at a time. It hums when it recognizes a face, a low bubbling note that carries clean across still water.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
@@ -984,6 +1046,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   },
   bukitok: {
     id: 'bukitok', name: 'Bukitok', element: 'storm', archetype: 'balanced',
+    size: 'large', floats: false,
     emoji: '🐸', description: 'A stout hill-toad that swells up and crackles with static right before a storm breaks, croaking out warnings no one else can hear yet. Farmers say a Bukitok sighting means the weather is about to turn.',
     ...STAT_PRESETS.balanced,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
@@ -1252,7 +1315,7 @@ export function getModifierMultiplier(modifiers: ActiveModifier[] | undefined, k
 
 // Called once per turn end for each monster still carrying modifiers —
 // decrements turn-limited ones and drops any that just expired. 'battle'
-// duration modifiers (Iron Resolve, Berserker\'s Edge) never tick down.
+// duration modifiers (Unbreakable Will, Wild Abandon) never tick down.
 export function tickModifiers(modifiers: ActiveModifier[] | undefined): ActiveModifier[] {
   return (modifiers ?? [])
     .map(m => (m.turnsRemaining === 'battle' ? m : { ...m, turnsRemaining: m.turnsRemaining - 1 }))
@@ -1401,6 +1464,8 @@ export function getGuildMonsterTierDef(monsterDef: MonsterDef, tier: 1 | 2 | 3):
     name: t.name,
     emoji: t.emoji,
     spriteId: t.spriteId ?? monsterDef.spriteId,
+    size: t.size,
+    floats: t.floats,
     isLegendary: t.isLegendary ?? monsterDef.isLegendary,
     description: t.description ?? monsterDef.description,
     baseHp: Math.round(monsterDef.baseHp * growth),
@@ -1447,7 +1512,7 @@ export function calculateDamage(
   defenderElement: Element,
   isBlessed: boolean,
   defenderDefense: number = 0,
-  // Net magnitude from any active 'accuracy' modifiers (Focus Stance and
+  // Net magnitude from any active 'accuracy' modifiers (Steady Aim and
   // friends) — added onto the 0.5 partial-credit floor, e.g. 0.15 -> 0.65.
   accuracyBonus: number = 0,
 ): number {

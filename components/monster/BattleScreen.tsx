@@ -7,14 +7,18 @@ import {
   getAvailableSkillTiers, calculateDamage, getScaledStats, getEquippedSkills,
   getModifierMultiplier, tickModifiers, applySkillEffects, statusDuration, tickStatus,
   REST_BY_ELEMENT, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, STATUS_DEFINITIONS,
-  StatusEffect, NpcTrainer, getSkillIconSrc,
+  StatusEffect, NpcTrainer, getSkillIconSrc, type Skill,
 } from '@/lib/monsterConfig';
 import { SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import {
   ActiveBattleMonster, MonsterImage, BattleQuestionModal,
   BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold,
 } from '@/components/battle/shared';
-import BattleStage, { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
+import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
+import { attackClassHits } from '@/lib/attackClasses';
+import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import type { CoinTossState } from '@/components/battle/CoinToss';
+import { COIN_TOSS_BANNER, coinTossResultText, tossCoin } from '@/lib/coinToss';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import InfoTag from '@/components/InfoTag';
 
@@ -58,6 +62,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
   const [playerDamagePopup, setPlayerDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
   const [npcDamagePopup, setNpcDamagePopup] = useState<{ key: number; value: number; missed: boolean } | null>(null);
+  // The move each side is performing right now (see BattleStageMonster.action).
+  const [playerAction, setPlayerAction] = useState<BattleStageMonster['action']>(null);
+  const [coinToss, setCoinToss] = useState<CoinTossState | null>(null);
+  const [npcAction, setNpcAction] = useState<BattleStageMonster['action']>(null);
   const [confirmSurrender, setConfirmSurrender] = useState(false);
   const [battleResult, setBattleResult] = useState<{ won: boolean; exp: number; reason: 'ko' | 'surrender' } | null>(null);
   const [itemBusy, setItemBusy] = useState(false);
@@ -79,6 +87,22 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   // the NPC's counter-attack could land on the just-benched monster instead.
   const playerMonsterIdxRef = useRef(playerMonsterIdx);
   playerMonsterIdxRef.current = playerMonsterIdx;
+  // Same problem on the NPC side: after a KO, the "sends out" flow calls
+  // doNpcTurn from a closure that still holds the fainted curio's index — so
+  // the knocked-out curio used to counter-attack. Written wherever
+  // setNpcMonsterIdx is called, read by doNpcTurn.
+  const npcMonsterIdxRef = useRef(0);
+
+  // "Go, X!" / "Rival sends out X!" — a real beat (banner + wait) so the
+  // curio's entrance animation (BattleStageScene.enter) plays before anyone
+  // acts, instead of the new curio attacking the moment it appears.
+  const entranceBeat = (message: string, then: () => void) => {
+    runBattleBeats(
+      [{ actor: 'opponent', message, iconSrc: null, damage: null, missed: false, apply: () => addLog(message) }],
+      b => setBanner({ text: b.message, iconSrc: b.iconSrc }),
+      () => { setBanner(null); then(); },
+    );
+  };
 
   useEffect(() => {
     startBattleTheme();
@@ -135,9 +159,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     return SKILLS[attacker.def.skills[tier - 1]];
   };
 
-  // Shared by doNpcTurn's normal counter-attack and handleQuestionsComplete's
-  // speed-preemption check below, so the stat/defense/def_boost math can't
-  // drift between the two call sites. Uses the same calculateDamage formula
+  // The NPC's damage for its move this round (doNpcTurn — whether it moves
+  // before or after the player; see handleQuestionsComplete's turn order). Uses the same calculateDamage formula
   // as the player's own attacks and live PVP (lib/liveBattle.ts /
   // hooks/useLiveBattle.ts) — full ATK stat, the NPC's real skill multiplier,
   // elemental type, mitigated by the defender's DEF — instead of a flat
@@ -192,6 +215,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // pre-Rest HP (see playerMonstersRef's declaration comment above).
     playerMonstersRef.current = updated;
     addLog(`${playerMon.def.name} used Rest and restored ${healAmount} HP!`);
+    setPlayerAction(makeStageAction({ animation: 'restore', element: playerMon.def.element }));
     doNpcTurn();
   };
 
@@ -309,67 +333,73 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     onQuestionsAnswered?.(answeredQuestions);
     if (!pendingSkillId) return;
     const skill = SKILLS[pendingSkillId];
-    const isBlessed = playerMon.status === 'blessed';
     // Falls back to skill.questionCount when the modal wasn't able to ask
     // that many questions (e.g. a tier-3 skill wants 3 but the player's
     // unseen-question pool for that subject only had 2 left) — scoring
     // against however many were actually asked instead of the nominal tier
     // count, so a capped-down round can still register as a perfect hit.
     const askedCount = answeredQuestions.length || skill.questionCount;
-    const isPerfect = correctCount === askedCount;
 
-    // Speed determines who acts first. If the NPC is faster and its fixed
-    // counter-damage would knock the player out this round, it strikes before
-    // the player's just-chosen attack ever lands — mirroring the classic "the
-    // slower side doesn't get to move if it's already fainted" RPG rule.
-    const npcIsFaster = npcMon.currentHp > 0 && npcMon.status !== 'paralyze'
-      && getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed > getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
-    if (npcIsFaster) {
-      const preemptDamage = computeNpcDamage(npcMon, playerMon);
-      const preemptAttackVerb = `uses ${getNpcSkill(npcMon).name}`;
-      if (playerMon.currentHp - preemptDamage <= 0) {
-        let updatedPlayerAfterPreempt: ActiveBattleMonster[] = playerMonsters;
-        const beat: BattleBeat = {
-          actor: 'opponent',
-          message: `${npcMon.def.name} is faster and strikes first!`,
-          iconSrc: null,
-          damage: preemptDamage,
-          missed: false,
-          apply: () => {
-            playHitThud();
-            triggerAnim('player', 'battle-hit');
-            setPlayerDamagePopup({ key: Date.now(), value: preemptDamage, missed: false });
-            addLog(`⚡ ${npcMon.def.name} is faster and ${preemptAttackVerb} for ${preemptDamage} damage before you can move!`);
-            const newHp = Math.max(0, playerMon.currentHp - preemptDamage);
-            updatedPlayerAfterPreempt = playerMonsters.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m);
-            setPlayerMonsters(updatedPlayerAfterPreempt);
-          },
-        };
-        runBattleBeats([beat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
-          setBanner(null);
-          addLog(`${playerMon.def.name} fainted before it could attack!`);
-          const nextIdx = updatedPlayerAfterPreempt.findIndex((m, i) => i !== playerMonsterIdx && m.currentHp > 0);
-          if (nextIdx === -1) {
-            addLog('All your curios fainted! You lost!');
-            playDefeat();
-            pauseBattleTheme();
-            setBattleResult({ won: false, exp: 0, reason: 'ko' });
-            setPhase('ended');
-          } else {
-            setPlayerMonsterIdx(nextIdx);
-            playerMonsterIdxRef.current = nextIdx;
-            addLog(`Go, ${updatedPlayerAfterPreempt[nextIdx].def.name}!`);
-            setPhase('select_skill');
-          }
-        });
+    // Full speed-based turn order: the faster curio acts first, every round.
+    // A curio knocked out before its turn comes up never acts — if the NPC
+    // is faster and KOs the player's curio, the player's chosen attack is
+    // cancelled (doNpcTurn's faint path), and if the player is faster and
+    // KOs the NPC, the NPC's attack is cancelled (resolvePlayerAttack sends
+    // out the next curio, which takes the round's NPC action). A paralyzed
+    // NPC never goes first.
+    //
+    // Speed ties (lib/coinToss.ts): if neither hit would knock the other
+    // out, order doesn't matter — the player goes first and both land. If
+    // either would be a finishing blow, a coin toss (shown on stage) decides.
+    const npcFirst = () => doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false));
+    const playerFirst = () => resolvePlayerAttack(skill, correctCount, askedCount, true);
+    const npcCanAct = npcMon.currentHp > 0 && npcMon.status !== 'paralyze';
+    const npcSpeed = getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed;
+    const playerSpeed = getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
+    if (npcCanAct && npcSpeed > playerSpeed) {
+      addLog(`${npcMon.def.name} is faster and moves first!`);
+      npcFirst();
+      return;
+    }
+    if (npcCanAct && npcSpeed === playerSpeed) {
+      const playerWouldKo = npcMon.currentHp - computePlayerDamage(skill, correctCount, askedCount, playerMon, npcMon) <= 0;
+      const npcWouldKo = playerMon.currentHp - computeNpcDamage(npcMon, playerMon) <= 0;
+      if (playerWouldKo || npcWouldKo) {
+        const playerWins = tossCoin();
+        const winner = playerWins ? playerMon : npcMon;
+        runCoinToss(
+          playerWins ? 'left' : 'right',
+          coinTossResultText(playerWins, winner.def.name, opponentName),
+          playerWins ? playerFirst : npcFirst,
+        );
         return;
       }
     }
+    playerFirst();
+  };
 
+  // One battle beat: the coin toss animation over the stage (CoinToss) with
+  // the tie banner, then the round continues in the winner's order.
+  const runCoinToss = (winner: 'left' | 'right', resultText: string, then: () => void) => {
+    setCoinToss({
+      leftSpriteUrl: curioSpriteUrl(playerMon.def),
+      rightSpriteUrl: curioSpriteUrl(npcMon.def),
+      winner,
+      resultText,
+    });
+    runBattleBeats(
+      [{ actor: winner === 'left' ? 'player' : 'opponent', message: COIN_TOSS_BANNER, iconSrc: null, damage: null, missed: false, apply: () => addLog(resultText) }],
+      b => setBanner({ text: b.message, iconSrc: b.iconSrc }),
+      () => { setBanner(null); setCoinToss(null); then(); },
+    );
+  };
+
+  // The player's damage for `skill` — shared by resolvePlayerAttack and the
+  // speed-tie finishing-blow check above so they can never disagree.
+  const computePlayerDamage = (skill: Skill, correctCount: number, askedCount: number, playerMon: ActiveBattleMonster, npcMon: ActiveBattleMonster): number => {
     const atkMult = getModifierMultiplier(playerMon.modifiers, 'atk');
     const defMult = getModifierMultiplier(npcMon.modifiers, 'def');
     const accuracyBonus = getModifierMultiplier(playerMon.modifiers, 'accuracy');
-
     let damage = calculateDamage(
       skill,
       getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).attack * atkMult,
@@ -377,18 +407,29 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       askedCount,
       playerMon.def.element,
       npcMon.def.element,
-      isBlessed,
+      playerMon.status === 'blessed',
       getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).defense * defMult,
       accuracyBonus,
     );
+    if (playerMon.status === 'atk_boost') damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
+    if (playerMon.status === 'curse') damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+    return damage;
+  };
 
-    if (playerMon.status === 'atk_boost') {
-      damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
-    }
-
-    if (playerMon.status === 'curse') {
-      damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
-    }
+  // The player's attack for this round. Reads the LATEST state from refs
+  // (not this render's closure) because when the NPC was faster, it runs
+  // after the NPC's action has already changed HP/status/modifiers — the
+  // local names below deliberately shadow the component-level ones.
+  // `npcStillToAct`: false when the NPC already moved this round.
+  const resolvePlayerAttack = (skill: Skill, correctCount: number, askedCount: number, npcStillToAct: boolean) => {
+    const playerMonsterIdx = playerMonsterIdxRef.current;
+    const npcMonsterIdx = npcMonsterIdxRef.current;
+    const playerMonsters = playerMonstersRef.current;
+    const npcMonsters = npcMonstersRef.current;
+    const playerMon = playerMonsters[playerMonsterIdx];
+    const npcMon = npcMonsters[npcMonsterIdx];
+    const isPerfect = correctCount === askedCount;
+    const damage = computePlayerDamage(skill, correctCount, askedCount, playerMon, npcMon);
 
     const missed = damage === 0 && !skill.effects?.length;
     let msg: string;
@@ -431,7 +472,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       if (i !== playerMonsterIdx) return m;
       let updated = { ...m, modifiers: effectResult.casterModifiers };
       // Consume any blessed carried in from a prior turn (it just powered
-      // this attack via isBlessed above), then re-bless for the next turn if
+      // this attack via computePlayerDamage's blessed bonus), then re-bless for the next turn if
       // this hit itself earned a fresh one.
       if (updated.status === 'blessed') updated.status = null as StatusEffect;
       if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = statusDuration('blessed'); }
@@ -453,9 +494,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       missed,
       apply: () => {
         playAttackWhoosh();
-        triggerAnim('player', 'battle-attack-right');
-        if (missed) { playMiss(); } else { playHitThud(); triggerAnim('npc', 'battle-hit'); }
-        setNpcDamagePopup({ key: Date.now(), value: damage, missed });
+        setPlayerAction(makeStageAction(skill));
+        // Buffs/heals/curses (non-hitting classes) never touch the enemy — no
+        // hit reaction and no "-0" damage number over it.
+        if (attackClassHits(skill.animation)) {
+          if (missed) { playMiss(); } else { playHitThud(); triggerAnim('npc', 'battle-hit'); }
+          setNpcDamagePopup({ key: Date.now(), value: damage, missed });
+        }
         addLog(msg);
         setNpcMonsters(newNpcMonsters);
         setPlayerMonsters(newPlayerMonsters);
@@ -478,20 +523,33 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           return;
         }
         setNpcMonsterIdx(nextNpc);
-        addLog(`${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another curio'}!`);
+        npcMonsterIdxRef.current = nextNpc;
+        // The fainted curio's attack is cancelled. If it hadn't moved yet
+        // this round, its replacement takes the round's NPC action;
+        // otherwise the round is over.
+        entranceBeat(
+          `${opponentName} sends out ${npcMonsters[nextNpc]?.def.name || 'another curio'}!`,
+          npcStillToAct ? () => doNpcTurn() : () => setPhase('select_skill'),
+        );
+        return;
       }
-      doNpcTurn();
+      if (npcStillToAct) doNpcTurn();
+      else setPhase('select_skill');
     });
   };
 
-  const doNpcTurn = () => {
+  // `after`: the rest of the round when the NPC moved first (the player's
+  // own attack). Runs only if the player's curio survives; if it faints, its
+  // pending attack is cancelled.
+  const doNpcTurn = (after?: () => void) => {
     // Read the latest committed state via refs — computing everything here as
     // plain values means each setState below fires exactly once, with no side
     // effects hidden inside an updater function that React could re-invoke.
     // playerMonsterIdxRef (rather than the closure's playerMonsterIdx) is used
     // so a manual switch that happened earlier in this same tick is honored.
     const currentIdx = playerMonsterIdxRef.current;
-    const currentNpc = npcMonstersRef.current[npcMonsterIdx];
+    const npcIdx = npcMonsterIdxRef.current;
+    const currentNpc = npcMonstersRef.current[npcIdx];
     const currentPlayer = playerMonstersRef.current[currentIdx];
 
     if (currentNpc.status === 'paralyze') {
@@ -503,9 +561,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       // def_boost) down too, so those don't linger forever either.
       const [updatedPlayer, playerMsgs] = applyStatusTick(currentPlayer);
       playerMsgs.forEach(addLog);
-      setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? updatedNpc : m));
+      setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcIdx ? updatedNpc : m));
       setPlayerMonsters(playerMonstersRef.current.map((m, i) => i === currentIdx ? updatedPlayer : m));
-      setPhase('select_skill');
+      if (after) after();
+      else setPhase('select_skill');
       return;
     }
 
@@ -533,6 +592,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       damage,
       missed: false,
       apply: () => {
+        setNpcAction(makeStageAction(getNpcSkill(currentNpc)));
         playHitThud();
         triggerAnim('player', 'battle-hit');
         setPlayerDamagePopup({ key: Date.now(), value: damage, missed: false });
@@ -544,7 +604,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
             ? { ...m, currentHp: tickedPlayer.currentHp, status: tickedPlayer.status, statusTurns: tickedPlayer.statusTurns, modifiers: tickModifiers(m.modifiers) }
             : m
         );
-        const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcMonsterIdx ? tickedNpc : m);
+        const updatedNpc = npcMonstersRef.current.map((m, i) => i === npcIdx ? tickedNpc : m);
         setPlayerMonsters(updatedPlayerAfterNpc);
         setNpcMonsters(updatedNpc);
       },
@@ -553,7 +613,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     runBattleBeats([npcBeat], b => setBanner({ text: b.message, iconSrc: b.iconSrc }), () => {
       setBanner(null);
       if (tickedPlayer.currentHp <= 0) {
-        addLog(`${currentPlayer.def.name} fainted!`);
+        addLog(after ? `${currentPlayer.def.name} fainted before it could attack!` : `${currentPlayer.def.name} fainted!`);
         const nextIdx = updatedPlayerAfterNpc.findIndex((m, i) => i !== currentIdx && m.currentHp > 0);
         if (nextIdx === -1) {
           addLog('All your curios fainted! You lost!');
@@ -564,9 +624,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         } else {
           setPlayerMonsterIdx(nextIdx);
           playerMonsterIdxRef.current = nextIdx;
-          addLog(`Go, ${updatedPlayerAfterNpc[nextIdx].def.name}!`);
-          setPhase('select_skill');
+          entranceBeat(`Go, ${updatedPlayerAfterNpc[nextIdx].def.name}!`, () => setPhase('select_skill'));
         }
+      } else if (after) {
+        after();
       } else {
         setPhase('select_skill');
       }
@@ -584,11 +645,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const handleSwitchMonster = (idx: number) => {
     const target = playerMonsters[idx];
     if (!target || target.currentHp <= 0) return;
-    addLog(`You switched to ${target.def.name}!`);
     setPlayerMonsterIdx(idx);
     playerMonsterIdxRef.current = idx;
     setPhase('npc_turn');
-    doNpcTurn();
+    entranceBeat(`Go, ${target.def.name}!`, () => doNpcTurn());
   };
 
   const handleSurrender = () => {
@@ -854,8 +914,11 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     <BattleStage
       leftName={playerDisplayName}
       rightName={opponentName}
-      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, damagePopup: playerDamagePopup, quality: playerMon.userMonster?.quality }}
-      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, damagePopup: npcDamagePopup, quality: npcMon.userMonster?.quality }}
+      coinToss={coinToss}
+      leftTeam={playerMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === playerMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
+      rightTeam={npcMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === npcMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
+      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, action: playerAction, damagePopup: playerDamagePopup, quality: playerMon.userMonster?.quality }}
+      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, action: npcAction, damagePopup: npcDamagePopup, quality: npcMon.userMonster?.quality }}
       log={log}
       banner={banner}
       statusBanner={statusBanner}

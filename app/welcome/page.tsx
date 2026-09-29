@@ -668,7 +668,7 @@ export default function WelcomePage() {
                 </div>
 
                 <div className="flex-1 max-w-[150px] bg-[#ffffff] border border-slate-200 rounded-xl p-3 self-center shadow-sm">
-                  <p className="text-[10px] text-slate-600 leading-relaxed text-center">Emberwyrm used Flamethrower!</p>
+                  <p className="text-[10px] text-slate-600 leading-relaxed text-center">Emberwyrm used Blaze Stream!</p>
                 </div>
 
                 <div className="text-center flex-1">
@@ -683,7 +683,7 @@ export default function WelcomePage() {
               </div>
 
               <div className="grid grid-cols-2 gap-2 max-w-sm mx-auto">
-                {['Ember', 'Flamethrower', 'Solar Flare', 'Rest'].map((skill, i) => (
+                {['Cinder Flick', 'Blaze Stream', 'Starfall Inferno', 'Rest'].map((skill, i) => (
                   <div
                     key={skill}
                     className={`text-xs font-bold px-3 py-2 rounded-lg border text-center ${
