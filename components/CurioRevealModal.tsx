@@ -29,7 +29,7 @@ export default function CurioRevealModal({ monster, userId, onClose }: CurioReve
     <>
       <CelebrationOverlay userId={userId} trigger={burst} type="curio" />
       <div
-        className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/85 z-[95] flex items-center justify-center p-4"
         onClick={onClose}
       >
         <div

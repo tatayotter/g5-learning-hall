@@ -18,7 +18,7 @@ interface DuplicateCatchModalProps {
 export default function DuplicateCatchModal({ monsterName, goldValue, userId, onKeep, onConvert }: DuplicateCatchModalProps) {
   const isTala = userId === 'tala';
   return (
-    <div className="fixed inset-0 bg-black/85 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/85 z-[95] flex items-center justify-center p-4">
       <div
         className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
         style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
