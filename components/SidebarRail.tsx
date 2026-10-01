@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
-import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
@@ -358,29 +358,28 @@ export default function SidebarRail({
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-[#0a0807]/70 z-[80] flex items-center justify-center p-6"
           >
-            {/* Deliberately dark regardless of the shell's theme — a modal
-                scrim + confirm dialog, same treatment as the HUD bar above. */}
+            {/* Same wood-plank + gold trim + corner-nail frame as the other
+                game popups (DuplicateCatchModal etc.). */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-neutral-950 border border-amber-800 rounded-xl p-6 w-full max-w-xs text-center"
+              className="relative border-2 border-[#4a2f18] rounded-2xl p-6 w-full max-w-xs text-center"
+              style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
             >
-              <p className="text-[#ffffff] font-bold mb-1">Log out of this hero?</p>
-              <p className="text-[#8a7c66] text-xs mb-5">You'll return to the hero select screen.</p>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => { playPageFlip(); setConfirmingLogout(false); }}
-                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-[#2a2119] hover:bg-[#3d3225] text-[#c9bfae] transition-colors"
-                >
+              <Nail className="top-2 left-2" />
+              <Nail className="top-2 right-2" />
+              <Nail className="bottom-2 left-2" />
+              <Nail className="bottom-2 right-2" />
+              <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
+              <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
+              <div className="flex gap-3" style={{ fontSize: 14 }}>
+                <GameButton variant="quest" color="#57534e" className="flex-1" onClick={() => setConfirmingLogout(false)}>
                   Cancel
-                </button>
-                <button
-                  onClick={() => { playPageFlip(); setConfirmingLogout(false); onLogout(); }}
-                  className="flex-1 py-2 rounded-lg font-bold text-sm bg-amber-700 hover:bg-amber-600 text-[#ffffff] transition-colors"
-                >
+                </GameButton>
+                <GameButton variant="quest" color="#dc2626" className="flex-1" onClick={() => { setConfirmingLogout(false); onLogout(); }}>
                   Logout
-                </button>
+                </GameButton>
               </div>
             </motion.div>
           </motion.div>
