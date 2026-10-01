@@ -122,7 +122,7 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
     // joystick/drawers layered up to z-[81] on top of that — a plain z-50 here (this app's
     // default modal layer) sits BELOW all of that and would silently eat every click with no
     // visible popup (map painted right over it). 95 clears the map's whole stack but still
-    // sits under a true full-screen takeover like BossCutscene/EventPanel (z-[100]).
+    // sits under a true full-screen takeover like EventPanel (z-[100]).
     <div className="fixed inset-0 bg-black/80 z-[95] flex items-center justify-center p-4" onClick={onClose}>
       {/* Same wood-plank + gold trim + corner-nail frame as the battle screen's
           MonsterHpPanel/PostBattleSummary — this is a map-native "trainer card," the same

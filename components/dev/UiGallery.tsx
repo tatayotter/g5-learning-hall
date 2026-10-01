@@ -29,7 +29,7 @@ import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import BattleStagePlayground from '@/components/dev/BattleStagePlayground';
 import PostBattleSummary, { PostBattleSideInfo } from '@/components/battle/PostBattleSummary';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
-import { ALL_MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from '@/lib/monsterConfig';
 
 import SidebarRail from '@/components/SidebarRail';
 import MapStage from '@/components/MapStage';
@@ -44,6 +44,8 @@ import { MixedTrainerComplete } from '@/components/bonusquests/MtapMixedTrainerP
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
 import StarterSelection from '@/components/monster/StarterSelection';
+import OriginStory from '@/components/intro/OriginStory';
+import IntroTrainingQuest from '@/components/intro/IntroTrainingQuest';
 
 import Toast from '@/components/Toast';
 import AchievementToast from '@/components/AchievementToast';
@@ -60,12 +62,14 @@ import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import DuplicateCatchModal from '@/components/DuplicateCatchModal';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import BossVictoryPopup from '@/components/monster/BossVictoryPopup';
-import BossCutscene from '@/components/BossCutscene';
+import TermBossIntro from '@/components/intro/TermBossIntro';
+import TrialBoard from '@/components/monster/boss/TrialBoard';
 import BossMistOverlay from '@/components/BossMistOverlay';
 import BossPersonaFan from '@/components/monster/BossPersonaFan';
 import { BossFightBattle, BossFightLostScreen, BossFightEmptyScreen } from '@/components/monster/BossFightScreen';
 import { GauntletBattle, GauntletEmptyScreen, GauntletFinishedScreen } from '@/components/monster/MasteryGauntletScreen';
-import { BOSS_PERSONAS } from '@/lib/bossPersonas';
+import { BOSS_PERSONAS, getPersonasForGrade } from '@/lib/bossPersonas';
+import BossArena from '@/components/monster/boss/BossArena';
 import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import {
@@ -153,7 +157,7 @@ type OverlayKey =
   | 'toast' | 'achievementToast' | 'critBonusToast' | 'liveBattleInvite'
   | 'graduation' | 'growthPill' | 'eggHatch' | 'tutorSuccess' | 'tutorFail'
   | 'dailyBonus' | 'curioReveal' | 'wildEncounter' | 'eventAnnouncement'
-  | 'duplicateCatch' | 'bossVictory' | 'bossCutscene' | 'bossMist' | 'bossPersonaFan'
+  | 'duplicateCatch' | 'bossVictory' | 'termBossIntro' | 'bossMist' | 'bossPersonaFan'
   | 'guildResultsHigh' | 'guildResultsLow' | 'mtapSet' | 'mtapMixed';
 
 export default function UiGallery() {
@@ -165,6 +169,15 @@ export default function UiGallery() {
   const [celebration, setCelebration] = useState<{ type: 'levelup' | 'perfect' | 'curio'; key: number } | null>(null);
   const [activeOverlay, setActiveOverlay] = useState<OverlayKey | null>(null);
   const close = () => setActiveOverlay(null);
+  const [introPreview, setIntroPreview] = useState<'story' | 'training' | null>(null);
+  const [introGrade, setIntroGrade] = useState(5);
+  const [arenaOpen, setArenaOpen] = useState(false);
+  const [arenaSubject, setArenaSubject] = useState('Mathematics');
+  const [arenaResult, setArenaResult] = useState<string | null>(null);
+  // Trial board mockup: how many Grade 5 shadows are down, and whether the sealed Curio was claimed.
+  const [trialDown, setTrialDown] = useState(3);
+  const [trialClaimed, setTrialClaimed] = useState(false);
+  const [trialEndsAt] = useState(() => new Date(Date.now() + 6 * 86_400_000));
 
   const leftTeam = [leftMon, rightMon, thirdMon].map((def, i) => ({
     def, level: 12 - i, currentHp: i === 1 ? 0 : 40, maxHp: 60, status: null, statusTurns: 0, restUsed: 0,
@@ -222,6 +235,26 @@ export default function UiGallery() {
     { id: 'demo-boss-3', week_starting_date: '2026-08-24', grade: 5, subject: 'Mathematics', tier: 2, topic: 'Decimals', question: 'What is 0.5 as a fraction?', options: ['1/2', '1/5', '5/10th', '2/5'] },
   ];
   const bossPersona = BOSS_PERSONAS['Mathematics'];
+  // A longer pool for the arena mockup, graded locally: options[0] is the
+  // correct one (the question bank's authoring convention).
+  const arenaPool: BossQuestion[] = [
+    ['What is 3/4 + 1/4?', ['1', '1/2', '4/8', '2'], 'Fractions'],
+    ['Which fraction is equal to 1/2?', ['2/4', '1/3', '3/5', '2/3'], 'Fractions'],
+    ['What is 0.5 as a fraction?', ['1/2', '1/5', '5/1', '2/5'], 'Decimals'],
+    ['What is 12 x 4?', ['48', '44', '52', '46'], 'Multiplication'],
+    ['What is 81 divided by 9?', ['9', '8', '7', '11'], 'Division'],
+    ['Which is the largest: 0.7, 0.65, 0.09, 0.5?', ['0.7', '0.65', '0.09', '0.5'], 'Decimals'],
+    ['What is 25% of 80?', ['20', '25', '16', '40'], 'Percent'],
+    ['A rectangle is 6 cm by 4 cm. What is its area?', ['24 sq cm', '20 sq cm', '10 sq cm', '12 sq cm'], 'Area'],
+    ['What is 2/3 of 12?', ['8', '6', '4', '9'], 'Fractions'],
+    ['Round 4,678 to the nearest hundred.', ['4,700', '4,600', '5,000', '4,680'], 'Rounding'],
+    ['What is 1.2 + 3.45?', ['4.65', '4.57', '15.45', '4.47'], 'Decimals'],
+    ['How many minutes are in 2.5 hours?', ['150', '125', '250', '120'], 'Time'],
+  ].map(([question, options, topic], i) => ({
+    id: `arena-${i}`, week_starting_date: '2026-08-24', grade: 5, subject: 'Mathematics', tier: 1,
+    topic: topic as string, question: question as string, options: options as string[],
+  }));
+  const arenaGrade = async (id: string, selected: string) => arenaPool.find(q => q.id === id)?.options[0] === selected;
 
   function renderOverlay() {
     switch (activeOverlay) {
@@ -281,8 +314,9 @@ export default function UiGallery() {
         return <DuplicateCatchModal monsterName={leftMon.name} goldValue={80} userId="demo" onKeep={close} onConvert={close} />;
       case 'bossVictory':
         return <BossVictoryPopup personaName={personas[0]?.name ?? 'The Forgetting'} artUrl={personas[0]?.artUrl ?? ''} glowColor={personas[0]?.glowColor ?? '#a855f7'} xp={300} gold={100} onDismiss={close} />;
-      case 'bossCutscene':
-        return <BossCutscene personas={personas} onDismiss={close} />;
+      case 'termBossIntro':
+        // Grade 5's full roster, with Solarch standing in for the kid's Curio.
+        return <TermBossIntro personas={getPersonasForGrade(5)} curio={{ def: MONSTERS.solarch, name: 'Solarch' }} onFinish={close} onSkip={close} />;
       case 'bossMist':
         return <BossMistOverlay defeated={2} total={5} />;
       case 'bossPersonaFan':
@@ -426,6 +460,78 @@ export default function UiGallery() {
           ))}
           <ActionTile icon={<span className="text-xl">🛌</span>} title="Rest" sub="Heal 20% HP" element={null} />
         </div>
+      </Section>
+
+      <Section
+        title="Main Quest during the Term Boss (Trial board mockup)"
+        note="components/monster/boss/TrialBoard.tsx — the Main Quest page's takeover while the Term Boss event is active: story hero (shadows defeated, mist over the world, days left, the sealed Curio cracking with each defeat, Face-next-boss button, replay the story), the shadow roster, and the week's quests folded underneath. Grade 5 roster; Araling Panlipunan is mocked as not ready. Face / tap a ready card opens the arena mockup; Watch the story again opens the Term Boss intro."
+      >
+        <div className="flex flex-wrap items-center gap-3 bg-white rounded-xl p-4 mb-3">
+          <label className="text-sm font-bold text-[#3a2610]">
+            Shadows defeated{' '}
+            <select
+              value={trialDown}
+              onChange={e => { setTrialDown(Number(e.target.value)); setTrialClaimed(false); }}
+              className="ml-1 border-2 border-[#c9a87a] rounded-lg px-2 py-1 bg-[#fdf6e7]"
+            >
+              {[0, 1, 3, 6, 8, 9].map(n => <option key={n} value={n}>{n}</option>)}
+            </select>
+          </label>
+        </div>
+        <TrialBoard
+          grade={5}
+          term={2}
+          personas={getPersonasForGrade(5)}
+          defeated={new Set(getPersonasForGrade(5).slice(0, trialDown).map(p => p.subject))}
+          readySubjects={new Set(getPersonasForGrade(5).map(p => p.subject).filter(s => trialDown >= 9 || s !== 'Araling Panlipunan'))}
+          sealedCurio={ALL_MONSTERS.emberwyrm}
+          sealedCurioClaimed={trialClaimed}
+          sealedCurioLore={'**Emberwyrm, the First Flame**\n\nMost Curios are born when a page of the Ledger grows too full. Emberwyrm was never born from a page. It *is* the warmth inside the living ink.\n\nBeat every shadow of the term, and the First Flame will wake and fight beside you.'}
+          endsAt={trialEndsAt}
+          onChallenge={subject => { setArenaSubject(subject); setArenaResult(null); setArenaOpen(true); }}
+          onClaimCurio={async () => { await new Promise(r => setTimeout(r, 600)); setTrialClaimed(true); return true; }}
+          onReplayStory={() => setActiveOverlay('termBossIntro')}
+          weekQuestCount={3}
+          weekQuests={
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <QuestCard subjectName="Mathematics" completed={false} onEnter={() => {}} />
+              <QuestCard subjectName="English" completed={true} onEnter={() => {}} />
+              <QuestCard subjectName="Science" completed={false} onEnter={() => {}} />
+            </div>
+          }
+        />
+      </Section>
+
+      <Section
+        title="Term Boss arena (redesign mockup)"
+        note="components/monster/boss/BossArena.tsx — the full-screen arena redesign: your Curio vs the persona on the Phaser battle stage, VS intro, segmented boss health, hearts, combo attacks (tier 1-3 moves), boss taunts, mist that thins as the boss weakens. Pick any boss; the mock pool is always the same 12 Mathematics questions, graded locally (first option is correct). Arena art is a stand-in (the intro's Forgetting void)."
+      >
+        <div className="flex flex-wrap items-center gap-3 bg-white rounded-xl p-4">
+          <select
+            value={arenaSubject}
+            onChange={e => setArenaSubject(e.target.value)}
+            className="text-sm font-bold text-[#3a2610] border-2 border-[#c9a87a] rounded-lg px-2 py-1.5 bg-[#fdf6e7]"
+          >
+            {Object.entries(BOSS_PERSONAS)
+              .filter(([, p], i, all) => all.findIndex(([, q]) => q.id === p.id) === i)
+              .map(([subject, p]) => <option key={p.id} value={subject}>{p.name} ({subject})</option>)}
+          </select>
+          <PreviewButton label="Open Term Boss arena" onClick={() => { setArenaResult(null); setArenaOpen(true); }} />
+          {arenaResult && <span className="text-sm font-bold text-[#6b4820]">{arenaResult}</span>}
+        </div>
+        {arenaOpen && (
+          <BossArena
+            pool={arenaPool}
+            persona={BOSS_PERSONAS[arenaSubject]}
+            otherPersonas={getPersonasForGrade(5).filter(p => p.subject !== arenaSubject)}
+            curio={{ def: MONSTERS.solarch, level: 12, name: 'Solarch' }}
+            playerName="Juan"
+            gradeAnswer={arenaGrade}
+            onWon={n => { setArenaOpen(false); setArenaResult(`Won with ${n} correct.`); }}
+            onLost={() => { setArenaOpen(false); setArenaResult('Lost: out of hearts.'); }}
+            onRetreat={() => setArenaOpen(false)}
+          />
+        )}
       </Section>
 
       <Section
@@ -602,6 +708,35 @@ export default function UiGallery() {
       </Section>
 
       <Section
+        title="First-curio intro (origin story + training quest)"
+        note="components/intro/* — shown to any account with no curio: voiced origin story (lib/intro/originStory.ts) -> starter pick -> five-question training quest (lib/intro/trainingQuiz.ts). Missing art falls back to existing art; missing voice clips just show all captions. Training quiz grades locally; with this mock user the curio picker is empty and nothing is saved."
+      >
+        <div className="flex flex-wrap items-center gap-2 bg-white rounded-xl p-4">
+          <PreviewButton label="Play origin story" onClick={() => setIntroPreview('story')} />
+          <PreviewButton label="Open training quest" onClick={() => setIntroPreview('training')} />
+          <label className="text-xs text-[#6b4820] flex items-center gap-1">
+            Grade
+            <select value={introGrade} onChange={e => setIntroGrade(Number(e.target.value))} className="border border-[#c9a87a] rounded px-1 py-0.5">
+              {[2, 3, 4, 5, 6].map(g => <option key={g} value={g}>{g}</option>)}
+            </select>
+          </label>
+        </div>
+        {introPreview === 'story' && (
+          <OriginStory playerName="Juan" onFinish={() => setIntroPreview(null)} onSkip={() => setIntroPreview(null)} />
+        )}
+        {introPreview === 'training' && (
+          <IntroTrainingQuest
+            userId="mock-user-id"
+            grade={introGrade}
+            currentStats={{ level: 1, xp: 0, gold: 0 }}
+            weekStartingDate={null}
+            onRewards={() => {}}
+            onDone={() => setIntroPreview(null)}
+          />
+        )}
+      </Section>
+
+      <Section
         title="Starter curio selection"
         note="components/monster/StarterSelection.tsx — shown once for a brand-new account with no curios yet. Restyled to the parchment palette 2026-09-23 (was the old dark theme); lore moved from an always-visible paragraph into the tap-the-i-badge popup. Card selection/confirm work live in this gallery; the final &quot;Choose&quot; submit still hits a real (mock, non-existent) userId, so clicking all the way through is safe — RLS blocks the write."
       >
@@ -774,7 +909,7 @@ export default function UiGallery() {
           <PreviewButton label="EventAnnouncementPopup" onClick={() => setActiveOverlay('eventAnnouncement')} />
           <PreviewButton label="DuplicateCatchModal" onClick={() => setActiveOverlay('duplicateCatch')} />
           <PreviewButton label="BossVictoryPopup" onClick={() => setActiveOverlay('bossVictory')} />
-          <PreviewButton label="BossCutscene" onClick={() => setActiveOverlay('bossCutscene')} />
+          <PreviewButton label="TermBossIntro" onClick={() => setActiveOverlay('termBossIntro')} />
           <PreviewButton label="BossMistOverlay" onClick={() => setActiveOverlay('bossMist')} />
           <PreviewButton label="BossPersonaFan" onClick={() => setActiveOverlay('bossPersonaFan')} />
           <PreviewButton label="GuildSessionResults (3 stars)" onClick={() => setActiveOverlay('guildResultsHigh')} />

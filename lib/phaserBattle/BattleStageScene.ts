@@ -84,6 +84,10 @@ export interface StageMonster {
   floats: boolean;
   element: Element;
   fainted: boolean;
+  // Explicit on-stage height, overriding the size class — for a Term Boss that
+  // should tower over any curio (components/monster/boss/BossArena.tsx). That
+  // stage has no HP cards over it, so the usual HUD clearance is skipped too.
+  heightPx?: number;
 }
 
 // [light, mid, dark] per element. 'normal' = element-less moves (universal
@@ -887,7 +891,7 @@ export default class BattleStageScene extends Phaser.Scene {
 
   private buildSprite(a: Actor, rawKey: string) {
     const x = this.sideX[a.side];
-    const targetH = CURIO_SIZE_HEIGHT_PX[a.mon.size] * this.depth[a.side];
+    const targetH = (a.mon.heightPx ?? CURIO_SIZE_HEIGHT_PX[a.mon.size]) * this.depth[a.side];
     if (!this.textures.exists(rawKey)) {
       // Missing art — same emoji fallback MonsterImage uses in the DOM.
       const t = this.add.text(x, a.homeY, a.mon.emoji, { fontSize: `${Math.round(targetH * 0.8)}px` }).setOrigin(0.5, 1);
@@ -897,16 +901,16 @@ export default class BattleStageScene extends Phaser.Scene {
       return;
     }
     const bake = this.res * OVERSAMPLE;
-    const procKey = `curio:${a.mon.spriteUrl}@${a.mon.size}@${a.mon.floats ? 'f' : 'g'}@${this.depth[a.side]}@${bake}`;
+    const procKey = `curio:${a.mon.spriteUrl}@${a.mon.heightPx ?? a.mon.size}@${a.mon.floats ? 'f' : 'g'}@${this.depth[a.side]}@${bake}`;
     let dispW: number;
     let dispH: number;
     if (!this.textures.exists(procKey)) {
       const src = this.textures.get(rawKey).getSourceImage() as HTMLImageElement;
       const box = opaqueBounds(src);
-      const topAllowed = a.homeY - (a.mon.floats ? FLOAT_BOB_PX : 0) - HUD_CLEAR_Y;
+      const topAllowed = a.homeY - (a.mon.floats ? FLOAT_BOB_PX : 0) - (a.mon.heightPx ? 8 : HUD_CLEAR_Y);
       dispH = Math.min(targetH, topAllowed);
       dispW = dispH * (box.w / box.h);
-      const maxW = CURIO_MAX_WIDTH_PX * this.depth[a.side];
+      const maxW = (a.mon.heightPx ? a.mon.heightPx * 1.4 : CURIO_MAX_WIDTH_PX) * this.depth[a.side];
       if (dispW > maxW) { dispW = maxW; dispH = dispW * (box.h / box.w); }
       // Resample once in canvas with high-quality smoothing — WebGL has no
       // mipmaps on these, so drawing an 800px source at ~120px would shimmer.

@@ -871,6 +871,24 @@ export function startMainTheme() {
   applyMusicPlayback();
 }
 
+// Lowers the main theme under spoken voice lines (the first-curio intro) and
+// restores it after. Only touches the volume, so it's safe to call whether or
+// not the theme is currently playing.
+export function duckMainTheme(ducked: boolean) {
+  if (mainThemeAudio) mainThemeAudio.volume = ducked ? 0.1 : 0.35;
+  if (termBossThemeAudio) termBossThemeAudio.volume = ducked ? 0.1 : 0.35;
+}
+
+// Whether each track is currently set to play — lets the intro start music
+// for itself and stop only what it started (the Dashboard may already own it).
+export function isMainThemeActive() {
+  return mainThemeAudio !== null;
+}
+
+export function isTermBossThemeActive() {
+  return termBossThemeAudio !== null;
+}
+
 export function stopMainTheme() {
   if (!mainThemeAudio) return;
   mainThemeAudio.pause();

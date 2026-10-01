@@ -24,6 +24,9 @@ import {
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { startBossFightTheme, stopBossFightTheme, playHitThud, playClash } from '@/lib/sounds';
 import BossVictoryPopup from '@/components/monster/BossVictoryPopup';
+import BossArena, { type ArenaCurio } from '@/components/monster/boss/BossArena';
+import { ALL_MONSTERS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
+import type { QualityTier } from '@/lib/curioQuality';
 
 interface BossFightScreenProps {
   userId: string;
@@ -33,6 +36,8 @@ interface BossFightScreenProps {
   // in the fight backdrop as a reminder of what's left, without competing
   // with the active persona for attention.
   otherPersonas: BossPersona[];
+  // Shown on the arena's player nameplate.
+  playerName: string;
   onExit: (defeated: boolean) => void;
 }
 
@@ -275,7 +280,24 @@ export function BossFightEmptyScreen({ onExit }: { onExit: () => void }) {
   );
 }
 
-export default function BossFightScreen({ userId, grade, subject, otherPersonas, onExit }: BossFightScreenProps) {
+// The kid's active Curio (the one in their active battle slot) for the arena,
+// with level, quality and graduation tier like every other battle shows it.
+// null while loading; undefined when they own none (falls back to the classic
+// battle, which needs no Curio).
+async function fetchActiveCurio(userId: string): Promise<ArenaCurio | undefined> {
+  const [mons, state] = await Promise.all([
+    supabase.from('user_monsters').select('monster_id, nickname, slot, monster_level, graduation_tier, quality').eq('user_id', userId),
+    supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', userId).maybeSingle(),
+  ]);
+  if (!mons.data?.length) return undefined;
+  const slot = state.data?.active_monster_slot ?? 1;
+  const row = mons.data.find(m => m.slot === slot) ?? mons.data.find(m => m.slot != null) ?? mons.data[0];
+  const def = getOwnedMonsterDisplay(ALL_MONSTERS[row.monster_id], row.graduation_tier);
+  if (!def) return undefined;
+  return { def, level: row.monster_level ?? 1, name: row.nickname || def.name, quality: (row.quality ?? undefined) as QualityTier | undefined };
+}
+
+export default function BossFightScreen({ userId, grade, subject, otherPersonas, playerName, onExit }: BossFightScreenProps) {
   const persona = BOSS_PERSONAS[subject];
   const [rawPool, setRawPool] = useState<BossQuestion[] | null>(null);
   const [pool, setPool] = useState<BossQuestion[] | null>(null);
@@ -283,6 +305,13 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
   const [lost, setLost] = useState(false);
   const [victory, setVictory] = useState<{ correctCount: number; xp: number; gold: number } | null>(null);
   const [claiming, setClaiming] = useState(false);
+  const [curio, setCurio] = useState<ArenaCurio | null | undefined>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchActiveCurio(userId).then(c => { if (!cancelled) setCurio(c); });
+    return () => { cancelled = true; };
+  }, [userId]);
 
   const load = useCallback(async () => {
     const all = await fetchBossQuestionPool(grade, subject, CURRENT_TERM);
@@ -340,7 +369,7 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
     );
   }
 
-  if (!pool) {
+  if (!pool || curio === null) {
     return <p className="text-gray-500 text-sm">Summoning {persona.name}…</p>;
   }
 
@@ -354,6 +383,22 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
 
   if (claiming) {
     return <p className="text-gray-500 text-sm">Sealing the victory…</p>;
+  }
+
+  if (curio) {
+    return (
+      <BossArena
+        key={attempt}
+        pool={pool}
+        persona={persona}
+        otherPersonas={otherPersonas}
+        curio={curio}
+        playerName={playerName}
+        onWon={handleWon}
+        onLost={() => setLost(true)}
+        onRetreat={() => onExit(false)}
+      />
+    );
   }
 
   return (

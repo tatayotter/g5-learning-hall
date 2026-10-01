@@ -59,6 +59,10 @@ const SCHEDULE_BY_GRADE: Record<number, Record<string, Weekday>> = Object.fromEn
   ])
 );
 
+export function getScheduleForGrade(grade: number): Record<string, Weekday> | null {
+  return SCHEDULE_BY_GRADE[grade] ?? null;
+}
+
 // Subjects with no fixed slot (e.g. "Weekly Review") fall to Friday, the flex/review day.
 export function getScheduledDay(subject: string, grade: number = 5): Weekday {
   const schedule = SCHEDULE_BY_GRADE[grade] || GRADE_5_SCHEDULE;

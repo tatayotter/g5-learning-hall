@@ -16,8 +16,8 @@ import { trackEvent } from '@/lib/analytics';
 import GameButton from '@/components/GameButton';
 import QuestModule, { markdownComponents } from '@/components/QuestModule';
 import VisualAid from '@/components/quest/VisualAid';
-import CurioTrainingPicker, { TRAINING_EXP_SHARE, OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
-import { ALL_MONSTERS, getMonsterLevel } from '@/lib/monsterConfig';
+import CurioTrainingPicker, { OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
+import { awardCurioTrainingExp } from '@/lib/curioTraining';
 import type { TrainingResult } from '@/components/VictoryScreen';
 
 type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
@@ -57,35 +57,11 @@ export default function ActiveQuestView({
   const [trainingResult, setTrainingResult] = useState<TrainingResult | null>(null);
 
   // Awards the training curio its share of the quest XP. Runs once, on the
-  // perfect (quest-completed) submission only. Best-effort: a failure here must
-  // never block the quest reward itself.
+  // perfect (quest-completed) submission only.
   const awardTrainingExp = async (xpEarned: number) => {
     if (!trainingCurioId) return;
-    const exp = Math.floor(xpEarned * TRAINING_EXP_SHARE);
-    if (exp <= 0) return;
-    try {
-      const { data: row, error } = await supabase
-        .from('user_monsters')
-        .select('monster_id, monster_exp, monster_level')
-        .eq('id', trainingCurioId)
-        .eq('user_id', activeUserId)
-        .maybeSingle();
-      if (error || !row) return;
-      const newExp = row.monster_exp + exp;
-      const newLevel = getMonsterLevel(newExp);
-      const { error: updErr } = await supabase
-        .from('user_monsters')
-        .update({ monster_exp: newExp, monster_level: newLevel })
-        .eq('id', trainingCurioId)
-        .eq('user_id', activeUserId);
-      if (updErr) return;
-      const name = ALL_MONSTERS[row.monster_id]?.name ?? 'Your curio';
-      const leveled = newLevel > row.monster_level;
-      setTrainingResult({ monsterId: row.monster_id, name, exp, prevExp: row.monster_exp, newExp, leveledTo: leveled ? newLevel : null });
-      logAction(activeUserId, data.week_starting_date, 'quiz', `🐾 ${name} trained +${exp} Curio EXP`, exp, 0);
-    } catch (e) {
-      console.error('Curio training exp failed:', e);
-    }
+    const result = await awardCurioTrainingExp(activeUserId, trainingCurioId, xpEarned, data.week_starting_date);
+    if (result) setTrainingResult(result);
   };
 
   return (
