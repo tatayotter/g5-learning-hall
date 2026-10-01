@@ -6,6 +6,7 @@
 // requeue loops don't stall the visual.
 import { useState, useCallback, useMemo } from 'react';
 import { supabase } from './supabase';
+import { getScheduleForGrade } from './subjectSchedule';
 
 export const POOL_READY_THRESHOLD = 20;
 export const POOL_MIN = 12;
@@ -66,19 +67,25 @@ export function getMistakeBudget(poolSize: number): number {
   return Math.max(1, Math.ceil(poolSize * 0.25));
 }
 
-// One grouped query for the board's persona-list readiness check, rather than
-// a separate query per persona card. Term-scoped so Term 2 fights don't
-// include Term 1 questions in their pool counts.
+// Published questions per subject for the board's roster/readiness check.
+// Term-scoped so Term 2 fights don't include Term 1 questions in their pool
+// counts. One head-only count per subject of the grade's schedule: fetching
+// the rows and tallying them client-side silently capped at the API's
+// 1000-row limit once a term's bank grew past it, dropping whole subjects.
 export async function fetchBossPoolCounts(grade: number, term: number): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from('draft_questions_public')
-    .select('subject')
-    .eq('grade', grade)
-    .eq('term', term);
-  if (error || !data) return {};
+  const subjects = Object.keys(getScheduleForGrade(grade) ?? {});
+  const results = await Promise.all(subjects.map(async subject => {
+    const { count, error } = await supabase
+      .from('draft_questions_public')
+      .select('id', { count: 'exact', head: true })
+      .eq('grade', grade)
+      .eq('term', term)
+      .eq('subject', subject);
+    return [subject, error ? 0 : count ?? 0] as const;
+  }));
   const counts: Record<string, number> = {};
-  for (const row of data) {
-    counts[row.subject] = (counts[row.subject] || 0) + 1;
+  for (const [subject, n] of results) {
+    if (n > 0) counts[subject] = n;
   }
   return counts;
 }
