@@ -4,7 +4,9 @@ import { supabase } from '@/lib/supabase';
 import { MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import StarterClaimModal from '@/components/monster/StarterClaimModal';
-import GameButton, { CURIO_CARD_STYLES } from '@/components/GameButton';
+import GameButton, { CURIO_CARD_STYLES, questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import { WhiteNailBox } from '@/components/monster/CompendiumPanel';
 import { MonsterDef } from '@/lib/monsterConfig';
 import { playPageFlip } from '@/lib/sounds';
 
@@ -106,22 +108,34 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
           className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-4"
           onClick={() => setLoreMonster(null)}
         >
+          {/* Same wood-plank + gold trim + corner-nail frame as the other game popups. */}
           <div
-            className="bg-white border-2 border-[#8b5e2a] rounded-2xl p-6 max-w-sm w-full text-center"
+            className="relative border-2 border-[#4a2f18] rounded-2xl p-6 max-w-sm w-full text-center battle-panel-in"
+            style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
             onClick={e => e.stopPropagation()}
           >
+            <Nail className="top-2 left-2" />
+            <Nail className="top-2 right-2" />
+            <Nail className="bottom-2 left-2" />
+            <Nail className="bottom-2 right-2" />
             <div className="w-24 h-24 mx-auto mb-3">
               <MonsterImage monster={loreMonster} className="w-full h-full" />
             </div>
-            <p className="font-bold text-lg text-[#2a1505] font-display">{loreMonster.name}</p>
-            <p className="text-xs text-[#6b4820] capitalize mb-3">{loreMonster.element} · {loreMonster.archetype.replace('_', ' ')}</p>
-            <p className="text-sm text-[#3a2610] leading-relaxed mb-5">{loreMonster.description}</p>
-            <button
-              onClick={() => setLoreMonster(null)}
-              className="text-[#6b4820] hover:text-[#2a1505] font-bold text-sm"
-            >
-              Close
-            </button>
+            <p className="text-lg" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>{loreMonster.name}</span>
+                <span style={questTextStyle}>{loreMonster.name}</span>
+              </span>
+            </p>
+            <p className="text-xs text-gray-200 capitalize mb-3" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{loreMonster.element} · {loreMonster.archetype.replace('_', ' ')}</p>
+            <WhiteNailBox className="mb-5 text-left">
+              <p className="text-sm text-[#3a2610] leading-relaxed">{loreMonster.description}</p>
+            </WhiteNailBox>
+            <div style={{ fontSize: 15 }}>
+              <GameButton variant="quest" color="#57534e" className="w-full" onClick={() => setLoreMonster(null)}>
+                Close
+              </GameButton>
+            </div>
           </div>
         </div>
       )}

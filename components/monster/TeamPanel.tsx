@@ -27,6 +27,9 @@ import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import TutorRollModal from '@/components/TutorRollModal';
 import { EggChainMap, claimCurioEgg, eggReadyLevel } from '@/lib/curioEggs';
 import MissionsPanel from '@/components/monster/MissionsPanel';
+import { WhiteNailBox } from '@/components/monster/CompendiumPanel';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 const ELEMENT_STYLES: Record<Element, string> = {
   fire:   'text-orange-700 border-orange-200 bg-orange-50',
@@ -287,263 +290,296 @@ export default function TeamPanel({
     const scaled = getScaledStats(def, monster.monster_level, monster.quality);
     const glowClass = getQualityGlowClass(monster.quality);
 
+    // Small parchment chip button for inline skill-slot actions (Unlearn, Teach,
+    // pick a scroll) — too small for the full quest button.
+    const chipButton = 'text-[10px] font-bold bg-[#f0ddb8] hover:bg-[#e8c88a] border border-[#c9a87a] hover:border-[#c9781a] disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-[#6b4820] flex-shrink-0 btn-tactile';
+    const sectionLabel = 'text-[10px] text-[#7a4a0f] font-bold uppercase tracking-widest mb-1';
+    const shadowText = { textShadow: '0 1px 2px rgba(0,0,0,0.9)' };
+
     return (
       <div
         className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
         onClick={() => setDetailMonster(null)}
       >
+        {/* Same wood-plank + gold trim + corner-nail frame and white gold-trim
+            insets as CompendiumPanel's species detail modal. The frame itself
+            doesn't scroll (so the nails stay pinned to its corners) — only the
+            inner body does. */}
         <div
-          className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border border-stone-200 bg-amber-50 shadow-2xl battle-panel-in"
+          className="relative w-full max-w-xl max-h-[85vh] flex flex-col rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
           onClick={e => e.stopPropagation()}
         >
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
           <button
             onClick={() => { playPageFlip(); setDetailMonster(null); }}
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-900 text-xl leading-none btn-tactile"
+            className="absolute top-3 right-7 z-10 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
+            style={shadowText}
             aria-label="Close"
           >
             ✕
           </button>
 
-          <div className="flex flex-col sm:flex-row gap-5">
-            <div className={`w-28 h-28 mx-auto sm:mx-0 flex-shrink-0 ${glowClass}`}>
-              <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-6xl" />
-            </div>
-            <div className="flex-1 space-y-3">
-              <div>
-                <p className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                  {def.name}
-                  {def.isLegendary && <span title="Legendary">👑</span>}
-                </p>
-                <div className="flex flex-wrap items-center gap-2 mt-1">
-                  <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[def.element]}`}>
-                    <img src={ELEMENT_ICON_SRC[def.element]} alt="" className="w-3 h-3 object-contain" />
-                    {def.element}
+          <div className="flex flex-col gap-4 overflow-y-auto min-h-0 p-5">
+            <div className="flex flex-col items-center text-center gap-2">
+              <div className={`w-28 h-28 ${glowClass}`}>
+                <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-6xl" />
+              </div>
+              <p className="text-xl font-bold flex items-center justify-center gap-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                  <span aria-hidden style={questTextShadowStyle}>{def.name}</span>
+                  <span style={questTextStyle}>{def.name}</span>
+                </span>
+                {def.isLegendary && <span title="Legendary">👑</span>}
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[def.element]}`}>
+                  <img src={ELEMENT_ICON_SRC[def.element]} alt="" className="w-3 h-3 object-contain" />
+                  {def.element}
+                </span>
+                <span className="text-[10px] text-gray-200 capitalize" style={shadowText}>{def.archetype.replace('_', ' ')}</span>
+                <span className="text-[10px] text-gray-200" style={shadowText}>Lv.{monster.monster_level}{monster.graduation_tier ? ` · Graduation Tier ${monster.graduation_tier}` : ''}</span>
+                {monster.quality !== 'normal' && (
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#2a1505] ${glowClass}`}>
+                    {QUALITY_LABEL[monster.quality]}
                   </span>
-                  <span className="text-[10px] text-gray-500 capitalize">{def.archetype.replace('_', ' ')}</span>
-                  <span className="text-[10px] text-gray-500">Lv.{monster.monster_level}{monster.graduation_tier ? ` · Graduation Tier ${monster.graduation_tier}` : ''}</span>
-                  {monster.quality !== 'normal' && (
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-gray-900 ${glowClass}`}>
-                      {QUALITY_LABEL[monster.quality]}
-                    </span>
-                  )}
-                </div>
+                )}
               </div>
+            </div>
 
-              <div>
-                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Live stats</p>
-                <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-gray-900">
-                  <p className="flex items-center gap-1.5"><img src="/icons/stats/hp.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.hp} HP</p>
-                  <p className="flex items-center gap-1.5"><img src="/icons/stats/atk.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.attack} Attack</p>
-                  <p className="flex items-center gap-1.5"><img src="/icons/stats/def.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.defense} Defense</p>
-                  <p className="flex items-center gap-1.5"><img src="/icons/stats/spd.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.speed} Speed</p>
-                </div>
-                <p className="text-[10px] text-gray-600 mt-1">Reflects level, graduation, and quality — the Compendium only shows this species' unmodified base stats.</p>
+            <WhiteNailBox>
+              <p className={sectionLabel}>Live stats</p>
+              <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-[#2a1505]">
+                <p className="flex items-center gap-1.5"><img src="/icons/stats/hp.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.hp} HP</p>
+                <p className="flex items-center gap-1.5"><img src="/icons/stats/atk.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.attack} Attack</p>
+                <p className="flex items-center gap-1.5"><img src="/icons/stats/def.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.defense} Defense</p>
+                <p className="flex items-center gap-1.5"><img src="/icons/stats/spd.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.speed} Speed</p>
               </div>
+              <p className="text-[10px] text-[#6b4820] mt-1">Reflects level, graduation, and quality — the Compendium only shows this species&apos; unmodified base stats.</p>
+            </WhiteNailBox>
 
-              <div>
-                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Skills</p>
-                <div className="space-y-2">
-                  {getEquippedSkills(monster.equipped_skills, def).map((skill, i) => {
-                    const slotIndex = i + 1;
-                    const isPending = pendingSlot?.monsterRowId === monster.id && pendingSlot.slotIndex === slotIndex;
-                    const unlearnQty = inventory['unlearn_scroll'] || 0;
-                    const slotScrolls = SCROLL_CATALOG.filter(s =>
-                      s.skillId && (s.element === def.element || s.category === 'universal') && (inventory[s.key] || 0) > 0
-                    );
-                    return (
-                      <div key={i} className="border border-stone-200 bg-white rounded-lg p-2">
-                        {skill ? (
+            <WhiteNailBox>
+              <p className={sectionLabel}>Skills</p>
+              <div className="space-y-2">
+                {getEquippedSkills(monster.equipped_skills, def).map((skill, i) => {
+                  const slotIndex = i + 1;
+                  const isPending = pendingSlot?.monsterRowId === monster.id && pendingSlot.slotIndex === slotIndex;
+                  const unlearnQty = inventory['unlearn_scroll'] || 0;
+                  const slotScrolls = SCROLL_CATALOG.filter(s =>
+                    s.skillId && (s.element === def.element || s.category === 'universal') && (inventory[s.key] || 0) > 0
+                  );
+                  return (
+                    <div key={i} className="border border-[#c9a87a] bg-[#f5f0e8] rounded-lg p-2">
+                      {skill ? (
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="text-xs min-w-0">
+                            <span className="font-bold text-[#2a1505]">{skill.name}</span>
+                            <span className="text-[#6b4820]"> — {skill.description}</span>
+                          </div>
+                          <button
+                            onClick={() => handleUnlearn(monster.id, slotIndex, skill, def)}
+                            disabled={unlearnQty === 0 || actionBusy}
+                            className={chipButton}
+                          >
+                            {unlearnQty === 0 ? 'Need Unlearn Scroll' : 'Unlearn'}
+                          </button>
+                        </div>
+                      ) : (
+                        <div>
                           <div className="flex items-center justify-between gap-2">
-                            <div className="text-xs min-w-0">
-                              <span className="font-bold text-gray-900">{skill.name}</span>
-                              <span className="text-gray-500"> — {skill.description}</span>
-                            </div>
+                            <span className="text-xs text-[#6b4820] italic">Empty slot</span>
                             <button
-                              onClick={() => handleUnlearn(monster.id, slotIndex, skill, def)}
-                              disabled={unlearnQty === 0 || actionBusy}
-                              className="text-[10px] bg-stone-100 hover:bg-stone-200 disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-gray-700 flex-shrink-0"
+                              onClick={() => setPendingSlot(isPending ? null : { monsterRowId: monster.id, slotIndex })}
+                              className={chipButton}
                             >
-                              {unlearnQty === 0 ? 'Need Unlearn Scroll' : 'Unlearn'}
+                              {isPending ? 'Cancel' : 'Teach a Skill'}
                             </button>
                           </div>
-                        ) : (
-                          <div>
-                            <div className="flex items-center justify-between gap-2">
-                              <span className="text-xs text-gray-500 italic">Empty slot</span>
-                              <button
-                                onClick={() => setPendingSlot(isPending ? null : { monsterRowId: monster.id, slotIndex })}
-                                className="text-[10px] bg-amber-100 hover:bg-amber-200 px-2 py-1 rounded text-amber-800 flex-shrink-0"
-                              >
-                                {isPending ? 'Cancel' : 'Teach a Skill'}
-                              </button>
+                          {isPending && (
+                            <div className="mt-2 flex flex-wrap gap-1">
+                              {slotScrolls.length === 0 ? (
+                                <p className="text-[10px] text-[#6b4820] italic">No scrolls owned for this slot yet — buy some in the Rewards Vault.</p>
+                              ) : (
+                                slotScrolls.map(s => (
+                                  <button
+                                    key={s.key}
+                                    disabled={actionBusy}
+                                    onClick={() => handleLearn(monster.id, slotIndex, s.skillId!, s.key, def)}
+                                    className={chipButton}
+                                  >
+                                    {s.name} (x{inventory[s.key]})
+                                  </button>
+                                ))
+                              )}
                             </div>
-                            {isPending && (
-                              <div className="mt-2 flex flex-wrap gap-1">
-                                {slotScrolls.length === 0 ? (
-                                  <p className="text-[10px] text-gray-600 italic">No scrolls owned for this slot yet — buy some in the Rewards Vault.</p>
-                                ) : (
-                                  slotScrolls.map(s => (
-                                    <button
-                                      key={s.key}
-                                      disabled={actionBusy}
-                                      onClick={() => handleLearn(monster.id, slotIndex, s.skillId!, s.key, def)}
-                                      className="text-[10px] bg-stone-100 hover:bg-stone-200 disabled:opacity-40 px-2 py-1 rounded text-gray-700"
-                                    >
-                                      {s.name} (x{inventory[s.key]})
-                                    </button>
-                                  ))
-                                )}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
+            </WhiteNailBox>
 
-              {ALL_MONSTERS[monster.monster_id]?.graduation && (() => {
-                const speciesDef = ALL_MONSTERS[monster.monster_id];
-                const grad = speciesDef.graduation!;
-                const maxTier = getMaxGraduationTier(speciesDef);
-                const currentTier = monster.graduation_tier ?? 0;
-                if (currentTier >= maxTier) return null;
-                const targetTier = (currentTier + 1) as 1 | 2;
-                const stage = targetTier === 2 && grad.second ? grad.second : grad.first;
-                const requiredLevel = GRADUATION_LEVEL_REQUIREMENT[targetTier];
-                const scrollQty = inventory['graduation_scroll'] || 0;
-                const levelMet = monster.monster_level >= requiredLevel;
-                return (
-                  <div className="border border-amber-200 bg-amber-50 rounded-lg p-3">
-                    <p className="text-[10px] text-amber-700 font-bold uppercase tracking-widest mb-1">Graduation</p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-gray-900">{stage.name}</span>.
-                    </p>
-                    <button
+            {ALL_MONSTERS[monster.monster_id]?.graduation && (() => {
+              const speciesDef = ALL_MONSTERS[monster.monster_id];
+              const grad = speciesDef.graduation!;
+              const maxTier = getMaxGraduationTier(speciesDef);
+              const currentTier = monster.graduation_tier ?? 0;
+              if (currentTier >= maxTier) return null;
+              const targetTier = (currentTier + 1) as 1 | 2;
+              const stage = targetTier === 2 && grad.second ? grad.second : grad.first;
+              const requiredLevel = GRADUATION_LEVEL_REQUIREMENT[targetTier];
+              const scrollQty = inventory['graduation_scroll'] || 0;
+              const levelMet = monster.monster_level >= requiredLevel;
+              return (
+                <WhiteNailBox>
+                  <p className={sectionLabel}>Graduation</p>
+                  <p className="text-xs text-[#3a2610] mb-3">
+                    Reach Lv.{requiredLevel} and use a Graduation Scroll to graduate into <span className="font-bold text-[#2a1505]">{stage.name}</span>.
+                  </p>
+                  <div style={{ fontSize: 12 }}>
+                    <GameButton
+                      variant="quest"
+                      color="#d97706"
+                      className="w-full"
                       onClick={() => handleGraduate(monster.id, requiredLevel, targetTier, monster.monster_id, currentTier, monster.monster_level, monster.quality)}
                       disabled={!levelMet || scrollQty === 0 || actionBusy}
-                      className="text-[10px] bg-amber-700 hover:bg-amber-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
                     >
-                      {!levelMet ? `Need Lv.${requiredLevel} (currently Lv.${monster.monster_level})` : scrollQty === 0 ? 'Need Graduation Scroll' : `Graduate to ${stage.name} (x${scrollQty} Scroll)`}
-                    </button>
+                      {!levelMet ? `Need Lv.${requiredLevel} (now Lv.${monster.monster_level})` : scrollQty === 0 ? 'Need Graduation Scroll' : `Graduate to ${stage.name} (x${scrollQty})`}
+                    </GameButton>
                   </div>
-                );
-              })()}
+                </WhiteNailBox>
+              );
+            })()}
 
-              {(() => {
-                const pillQty = inventory['growth_pill'] || 0;
-                const atCap = monster.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
-                return (
-                  <div className="border border-purple-200 bg-purple-50 rounded-lg p-3">
-                    <p className="text-[10px] text-purple-700 font-bold uppercase tracking-widest mb-1">Growth Pill</p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Use a Growth Pill to instantly gain <span className="font-bold text-gray-900">5 levels</span> — works on any owned curio.
-                    </p>
-                    <button
+            {(() => {
+              const pillQty = inventory['growth_pill'] || 0;
+              const atCap = monster.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
+              return (
+                <WhiteNailBox>
+                  <p className={sectionLabel}>Growth Pill</p>
+                  <p className="text-xs text-[#3a2610] mb-3">
+                    Use a Growth Pill to instantly gain <span className="font-bold text-[#2a1505]">5 levels</span> — works on any owned curio.
+                  </p>
+                  <div style={{ fontSize: 12 }}>
+                    <GameButton
+                      variant="quest"
+                      color="#7c3aed"
+                      className="w-full"
                       onClick={() => handleUseGrowthPill(monster.id, def, monster.monster_level, monster.monster_exp, monster.quality)}
                       disabled={atCap || pillQty === 0 || actionBusy}
-                      className="text-[10px] bg-purple-700 hover:bg-purple-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
                     >
                       {atCap ? `Already Lv.${BATTLE_CONSTANTS.MONSTER_LEVEL_CAP}` : pillQty === 0 ? 'Need Growth Pill' : `Use Growth Pill (x${pillQty})`}
-                    </button>
+                    </GameButton>
                   </div>
-                );
-              })()}
+                </WhiteNailBox>
+              );
+            })()}
 
-              {(() => {
-                const tier = monster.graduation_tier as 1 | 2;
-                if (!tier || tier < 1) return null;
-                if (monster.monster_level < eggReadyLevel(tier)) return null;
-                const chain = eggChainMap[monster.monster_id];
-                if (!chain) return null;
-                if (claimedEggParentIds.has(monster.id)) return null;
-                return (
-                  <div className="border border-cyan-200 bg-cyan-50 rounded-lg p-3">
-                    <p className="text-[10px] text-cyan-700 font-bold uppercase tracking-widest mb-1">Egg</p>
-                    <p className="text-xs text-gray-600 mb-2">
-                      {def.name} is ready to lay an egg. It can only do this once.
-                    </p>
-                    <button
+            {(() => {
+              const tier = monster.graduation_tier as 1 | 2;
+              if (!tier || tier < 1) return null;
+              if (monster.monster_level < eggReadyLevel(tier)) return null;
+              const chain = eggChainMap[monster.monster_id];
+              if (!chain) return null;
+              if (claimedEggParentIds.has(monster.id)) return null;
+              return (
+                <WhiteNailBox>
+                  <p className={sectionLabel}>Egg</p>
+                  <p className="text-xs text-[#3a2610] mb-3">
+                    {def.name} is ready to lay an egg. It can only do this once.
+                  </p>
+                  <div style={{ fontSize: 12 }}>
+                    <GameButton
+                      variant="quest"
+                      color="#0d9488"
+                      className="w-full"
                       onClick={() => setConfirmingEgg({ monsterRowId: monster.id, name: def.name })}
                       disabled={actionBusy}
-                      className="text-[10px] bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 px-3 py-2 rounded text-white"
                     >
                       Claim Egg
-                    </button>
+                    </GameButton>
                   </div>
-                );
-              })()}
+                </WhiteNailBox>
+              );
+            })()}
 
-              {monster.quality !== 'perfect' && (() => {
-                const quality = monster.quality;
-                const cost = TUTOR_COST_BY_TIER[quality]!;
-                const advanceChance = totalAdvanceChance(quality);
-                const tome = getTomeForTier(quality);
-                const tomeQty = tome ? (inventory[tome.key] || 0) : 0;
-                const canUseTome = useTomeToggle && tomeQty > 0;
-                const affordable = currentGold >= cost;
-                return (
-                  <div className="border border-indigo-200 bg-indigo-50 rounded-lg p-3">
-                    <p className="text-[10px] text-indigo-700 font-bold uppercase tracking-widest mb-1">Tutor</p>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-gray-900 ${glowClass}`}>
-                        {QUALITY_LABEL[quality]}
-                      </span>
-                      <span className="text-xs text-gray-500">
-                        {(advanceChance * 100).toFixed(1)}% chance to advance
-                      </span>
-                    </div>
-                    <p className="text-xs text-gray-600 mb-2">
-                      Spend gold for a chance to permanently raise this curio's quality (boosts HP &amp; Attack). Never downgrades — a failed roll just costs the gold.
-                    </p>
-                    {/* Stat preview — shows what HP/Attack become at the next quality tier */}
-                    {(() => {
-                      const nextQuality = QUALITY_TIERS[QUALITY_TIERS.indexOf(quality) + 1];
-                      if (!nextQuality) return null;
-                      const cur = getScaledStats(def, monster.monster_level, quality);
-                      const nxt = getScaledStats(def, monster.monster_level, nextQuality);
-                      return (
-                        <div className="flex items-center gap-3 bg-white/70 border border-indigo-100 rounded-md px-3 py-2 mb-2 text-xs">
-                          <span className="text-gray-500 shrink-0">If {QUALITY_LABEL[nextQuality]}:</span>
-                          <span className="flex items-center gap-1 text-gray-700">
-                            <img src="/icons/stats/hp.svg" alt="HP" className="w-3.5 h-3.5 object-contain" />
-                            {cur.hp} <span className="text-green-600 font-bold">→ {nxt.hp}</span>
-                          </span>
-                          <span className="flex items-center gap-1 text-gray-700">
-                            <img src="/icons/stats/atk.svg" alt="ATK" className="w-3.5 h-3.5 object-contain" />
-                            {cur.attack} <span className="text-green-600 font-bold">→ {nxt.attack}</span>
-                          </span>
-                        </div>
-                      );
-                    })()}
-                    {tome && (
-                      <label className="flex items-center gap-2 text-xs text-gray-400 mb-2">
-                        <input
-                          type="checkbox"
-                          checked={canUseTome}
-                          disabled={tomeQty === 0}
-                          onChange={e => setUseTomeToggle(e.target.checked)}
-                        />
-                        Use {tome.name} (x{tomeQty}) — boosts this roll's odds
-                      </label>
-                    )}
-                    <div className="flex items-center gap-2">
-                      <button
+            {monster.quality !== 'perfect' && (() => {
+              const quality = monster.quality;
+              const cost = TUTOR_COST_BY_TIER[quality]!;
+              const advanceChance = totalAdvanceChance(quality);
+              const tome = getTomeForTier(quality);
+              const tomeQty = tome ? (inventory[tome.key] || 0) : 0;
+              const canUseTome = useTomeToggle && tomeQty > 0;
+              const affordable = currentGold >= cost;
+              return (
+                <WhiteNailBox>
+                  <p className={sectionLabel}>Tutor</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#f0ddb8] text-[#2a1505] ${glowClass}`}>
+                      {QUALITY_LABEL[quality]}
+                    </span>
+                    <span className="text-xs text-[#6b4820]">
+                      {(advanceChance * 100).toFixed(1)}% chance to advance
+                    </span>
+                  </div>
+                  <p className="text-xs text-[#3a2610] mb-2">
+                    Spend gold for a chance to permanently raise this curio&apos;s quality (boosts HP &amp; Attack). Never downgrades — a failed roll just costs the gold.
+                  </p>
+                  {/* Stat preview — shows what HP/Attack become at the next quality tier */}
+                  {(() => {
+                    const nextQuality = QUALITY_TIERS[QUALITY_TIERS.indexOf(quality) + 1];
+                    if (!nextQuality) return null;
+                    const cur = getScaledStats(def, monster.monster_level, quality);
+                    const nxt = getScaledStats(def, monster.monster_level, nextQuality);
+                    return (
+                      <div className="flex items-center gap-3 bg-[#f5f0e8] border border-[#c9a87a] rounded-md px-3 py-2 mb-2 text-xs">
+                        <span className="text-[#6b4820] shrink-0">If {QUALITY_LABEL[nextQuality]}:</span>
+                        <span className="flex items-center gap-1 text-[#3a2610]">
+                          <img src="/icons/stats/hp.svg" alt="HP" className="w-3.5 h-3.5 object-contain" />
+                          {cur.hp} <span className="text-green-700 font-bold">→ {nxt.hp}</span>
+                        </span>
+                        <span className="flex items-center gap-1 text-[#3a2610]">
+                          <img src="/icons/stats/atk.svg" alt="ATK" className="w-3.5 h-3.5 object-contain" />
+                          {cur.attack} <span className="text-green-700 font-bold">→ {nxt.attack}</span>
+                        </span>
+                      </div>
+                    );
+                  })()}
+                  {tome && (
+                    <label className="flex items-center gap-2 text-xs text-[#6b4820] mb-3">
+                      <input
+                        type="checkbox"
+                        checked={canUseTome}
+                        disabled={tomeQty === 0}
+                        onChange={e => setUseTomeToggle(e.target.checked)}
+                      />
+                      Use {tome.name} (x{tomeQty}) — boosts this roll&apos;s odds
+                    </label>
+                  )}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1" style={{ fontSize: 12 }}>
+                      <GameButton
+                        variant="quest"
+                        color="#4f46e5"
+                        className="w-full"
                         onClick={() => handleTutor(monster.id, def.name, def, monster.monster_level, canUseTome)}
                         disabled={!affordable || actionBusy}
-                        className="text-[10px] bg-indigo-700 hover:bg-indigo-600 disabled:opacity-40 disabled:cursor-not-allowed px-3 py-2 rounded text-white"
                       >
                         {!affordable ? `Need ${cost} Gold` : `Tutor (${cost} Gold)`}
-                      </button>
-                      <span className="text-[10px] text-gray-500 flex items-center gap-1">
-                        <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {currentGold} left
-                      </span>
+                      </GameButton>
                     </div>
+                    <span className="text-[10px] text-[#6b4820] flex items-center gap-1 shrink-0">
+                      <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3 h-3" /> {currentGold} left
+                    </span>
                   </div>
-                );
-              })()}
-            </div>
+                </WhiteNailBox>
+              );
+            })()}
           </div>
         </div>
       </div>
@@ -613,26 +649,23 @@ export default function TeamPanel({
           onClick={() => !eggClaimBusy && setConfirmingEgg(null)}
         >
           <div
-            className="bg-white border border-cyan-200 rounded-xl p-6 w-full max-w-xs text-center battle-panel-in"
+            className="relative border-2 border-[#4a2f18] rounded-2xl p-6 w-full max-w-xs text-center battle-panel-in"
+            style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
             onClick={e => e.stopPropagation()}
           >
-            <p className="text-gray-900 font-bold mb-1">Lay {confirmingEgg.name}'s egg?</p>
-            <p className="text-gray-500 text-xs mb-5">This can only happen once — {confirmingEgg.name} stays on your team either way.</p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setConfirmingEgg(null)}
-                disabled={eggClaimBusy}
-                className="flex-1 py-2 rounded-lg font-bold text-sm bg-stone-100 hover:bg-stone-200 disabled:opacity-40 text-gray-700 transition-colors"
-              >
+            <Nail className="top-2 left-2" />
+            <Nail className="top-2 right-2" />
+            <Nail className="bottom-2 left-2" />
+            <Nail className="bottom-2 right-2" />
+            <p className="text-white font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Lay {confirmingEgg.name}&apos;s egg?</p>
+            <p className="text-[#e8d0a0] text-xs mb-5">This can only happen once — {confirmingEgg.name} stays on your team either way.</p>
+            <div className="flex gap-3" style={{ fontSize: 14 }}>
+              <GameButton variant="quest" color="#57534e" className="flex-1" onClick={() => setConfirmingEgg(null)} disabled={eggClaimBusy}>
                 Cancel
-              </button>
-              <button
-                onClick={() => handleClaimEgg(confirmingEgg.monsterRowId)}
-                disabled={eggClaimBusy}
-                className="flex-1 py-2 rounded-lg font-bold text-sm bg-cyan-700 hover:bg-cyan-600 disabled:opacity-40 text-white transition-colors"
-              >
+              </GameButton>
+              <GameButton variant="quest" color="#0d9488" className="flex-1" onClick={() => handleClaimEgg(confirmingEgg.monsterRowId)} disabled={eggClaimBusy}>
                 {eggClaimBusy ? '...' : 'Lay Egg'}
-              </button>
+              </GameButton>
             </div>
           </div>
         </div>

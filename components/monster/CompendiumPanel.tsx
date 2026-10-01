@@ -19,7 +19,7 @@ import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing,
 // directly on the wood, the same "frame + insets" layering the dex tiles use
 // (2026-08-29). No corner nails here (kept only on the outer modal frame and
 // the dex grid tiles) — plain gold trim reads cleaner at this smaller scale.
-function WhiteNailBox({ className = '', children }: { className?: string; children: React.ReactNode }) {
+export function WhiteNailBox({ className = '', children }: { className?: string; children: React.ReactNode }) {
   return (
     <div className={`relative bg-white border-2 border-[#4a2f18] rounded-xl p-3 ${className}`} style={{ boxShadow: '0 0 0 2px #d4a017' }}>
       {children}
@@ -279,7 +279,7 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
           onClick={() => setSelectedKey(null)}
         >
           <div
-            className="relative w-full max-w-xl max-h-[85vh] overflow-y-auto p-5 rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+            className="relative w-full max-w-xl max-h-[85vh] flex flex-col rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
             style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -292,12 +292,14 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
             <Nail className="bottom-2 right-2" />
             <button
               onClick={() => { playPageFlip(); setSelectedKey(null); }}
-              className="absolute top-3 right-3 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
+              className="absolute top-3 right-7 z-10 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
               style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}
               aria-label="Close"
             >
               ✕
             </button>
+            {/* Only this body scrolls, so the frame's nails stay pinned to its corners. */}
+            <div className="overflow-y-auto min-h-0 p-5">
           {selectedKnown ? (
             <div className="flex flex-col gap-4">
               {/* Portrait through the Graduation Stream is one centered
@@ -416,6 +418,7 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
               </div>
             </div>
           )}
+            </div>
           </div>
         </div>
       )}

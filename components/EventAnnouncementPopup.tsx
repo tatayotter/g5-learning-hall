@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CustomEvent } from '@/lib/customEvents';
 import { playPageFlip } from '@/lib/sounds';
+import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 
 interface EventAnnouncementPopupProps {
   event: CustomEvent;
@@ -37,16 +39,35 @@ export default function EventAnnouncementPopup({ event, onDismiss }: EventAnnoun
             className="relative max-w-lg w-full"
           >
             {event.banner_url ? (
-              <img src={event.banner_url} alt={event.title} className="w-full h-auto rounded-2xl shadow-2xl" />
+              <img
+                src={event.banner_url}
+                alt={event.title}
+                className="w-full h-auto rounded-2xl border-2 border-[#4a2f18]"
+                style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}` }}
+              />
             ) : (
-              <div className="bg-[#1a1208] border border-amber-700 rounded-2xl shadow-2xl p-8 text-center">
-                <p className="text-xs font-bold uppercase tracking-widest text-amber-600 mb-2">Event Active!</p>
-                <h3 className="text-lg font-display font-bold text-amber-300">{event.title}</h3>
+              // Same wood-plank + gold trim + corner-nail frame as the other game popups.
+              <div
+                className="relative border-2 border-[#4a2f18] rounded-2xl p-8 text-center"
+                style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+              >
+                <Nail className="top-2 left-2" />
+                <Nail className="top-2 right-2" />
+                <Nail className="bottom-2 left-2" />
+                <Nail className="bottom-2 right-2" />
+                <p className="text-sm mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+                  <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <span aria-hidden style={questTextShadowStyle}>Event Active!</span>
+                    <span style={{ ...questTextStyle, color: '#f5c542' }}>Event Active!</span>
+                  </span>
+                </p>
+                <h3 className="text-lg font-bold text-white" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{event.title}</h3>
               </div>
             )}
             <button
               onClick={dismiss}
-              className="absolute -top-3 -right-3 bg-amber-700 hover:bg-amber-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm shadow-lg"
+              className="absolute -top-3 -right-3 bg-[#f5c542] hover:bg-[#fcd34d] border-2 border-[#4a2f18] text-[#2a1505] font-black rounded-full w-9 h-9 flex items-center justify-center text-sm btn-tactile"
+              style={{ boxShadow: questButtonDropShadow }}
               aria-label="Close"
             >
               ✕
