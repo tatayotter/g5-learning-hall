@@ -4,9 +4,11 @@
 // never break gameplay.
 import { supabase } from '@/lib/supabase';
 import { getActiveUser, USERS } from '@/lib/userSession';
+import { isIosDevice, isRunningInstalled } from '@/lib/installPrompt';
 
 const SESSION_STORAGE_KEY = 'g5_analytics_session_id';
 const ATTRIBUTION_STORAGE_KEY = 'g5_analytics_attribution';
+const LAUNCH_CONTEXT_STORAGE_KEY = 'g5_analytics_launch_context';
 const ATTRIBUTION_PARAMS = [
   'utm_source',
   'utm_medium',
@@ -59,6 +61,31 @@ export function getStoredAttribution(): Record<string, string> {
   }
 }
 
+// How this session was launched, stamped on every event so retention can be
+// split by it: 'browser' (a tab), 'installed' (home-screen web app), or 'twa'
+// (the Android app, a Trusted Web Activity — also standalone, told apart by
+// its android-app:// referrer, which only exists on the launch page load, so
+// it's resolved once and pinned for the session).
+type DisplayMode = 'browser' | 'installed' | 'twa';
+type Device = 'android' | 'ios' | 'desktop';
+
+function getLaunchContext(): { display_mode: DisplayMode; device: Device } | Record<string, never> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const cached = sessionStorage.getItem(LAUNCH_CONTEXT_STORAGE_KEY);
+    if (cached) return JSON.parse(cached);
+    const display_mode: DisplayMode = document.referrer.startsWith('android-app://')
+      ? 'twa'
+      : isRunningInstalled() ? 'installed' : 'browser';
+    const device: Device = isIosDevice() ? 'ios' : /android/i.test(navigator.userAgent) ? 'android' : 'desktop';
+    const context = { display_mode, device };
+    sessionStorage.setItem(LAUNCH_CONTEXT_STORAGE_KEY, JSON.stringify(context));
+    return context;
+  } catch {
+    return {};
+  }
+}
+
 export async function trackEvent(
   eventName: string,
   properties: Record<string, unknown> = {},
@@ -71,7 +98,7 @@ export async function trackEvent(
     user_id: userId,
     session_id: getOrCreateSessionId(),
     event_name: eventName,
-    properties: { ...getStoredAttribution(), ...properties },
+    properties: { ...getLaunchContext(), ...getStoredAttribution(), ...properties },
     is_family: USERS[userId]?.isFamily ?? false,
     app_tab: appTab ?? null,
     client_ts: new Date().toISOString(),

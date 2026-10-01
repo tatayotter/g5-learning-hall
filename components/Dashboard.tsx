@@ -54,6 +54,7 @@ import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
+import FirstCurioIntro, { isIntroTrainingPending } from '@/components/intro/FirstCurioIntro';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -70,10 +71,10 @@ import {
   fetchClaimedMonsterId,
 } from '@/lib/customEvents';
 import BossMistOverlay from '@/components/BossMistOverlay';
-import BossCutscene from '@/components/BossCutscene';
+import { TermBossIntroForUser } from '@/components/intro/TermBossIntro';
 import { useBossFightProgress } from '@/hooks/useBossFightProgress';
-import { getPersonasForGrade, isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
-import { fetchBossPoolCounts, BossQuestion } from '@/lib/bossFightEngine';
+import { isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
+import { BossQuestion } from '@/lib/bossFightEngine';
 import {
   fetchGauntletQuestionPool,
   fetchGauntletMistakes,
@@ -301,17 +302,40 @@ export default function Dashboard() {
   // Reused by both demo and real accounts (user_last_login.onboarding_completed_at)
   // so the guided tour only auto-shows once per account, ever.
   const [showOnboarding, setShowOnboarding] = useState(false);
+  // Any account without a curio gets the first-curio intro (origin story ->
+  // starter pick -> training quest) before anything else, including the board
+  // tutorial — see components/intro/FirstCurioIntro.tsx for the usage data
+  // behind it. 'training' resumes a kid who picked a curio but reloaded
+  // before finishing the training quest.
+  const [introStart, setIntroStart] = useState<'story' | 'training' | null>(null);
+  // Whether the account had a curio when it loaded (null until known) — the
+  // Term Boss intro waits for this so it never plays over the first intro.
+  const [hasCurio, setHasCurio] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (!activeUserId) return;
     (async () => {
-      const { data: row } = await supabase
-        .from('user_last_login')
-        .select('onboarding_completed_at')
-        .eq('user_id', activeUserId)
-        .maybeSingle();
+      const [{ data: row }, { count: curioCount, error: curioErr }] = await Promise.all([
+        supabase
+          .from('user_last_login')
+          .select('onboarding_completed_at')
+          .eq('user_id', activeUserId)
+          .maybeSingle(),
+        supabase
+          .from('user_monsters')
+          .select('id', { count: 'exact', head: true })
+          .eq('user_id', activeUserId),
+      ]);
       if (!row?.onboarding_completed_at) {
         setShowOnboarding(true);
+      }
+      if (curioErr) return;
+      setHasCurio((curioCount ?? 0) > 0);
+      if (curioCount === 0) {
+        setIntroStart('story');
+        trackEvent('intro_started', { new_player: !row?.onboarding_completed_at });
+      } else if (isIntroTrainingPending(activeUserId)) {
+        setIntroStart('training');
       }
     })();
   }, [activeUserId]);
@@ -333,6 +357,8 @@ export default function Dashboard() {
 
   const handleSwitchUser = () => {
     clearActiveUser();
+    setIntroStart(null);
+    setHasCurio(null);
     document.documentElement.classList.remove(...THEME_CLASSES);
     setActiveUserId(null);
   };
@@ -472,11 +498,6 @@ export default function Dashboard() {
   const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
   const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
   const bossProgress = useBossFightProgress(activeUserId ?? 'damien', bossGradeLevel);
-  const [bossPoolCounts, setBossPoolCounts] = useState<Record<string, number>>({});
-  useEffect(() => {
-    if (!isBossFightGrade(bossGradeLevel) || !bossProgress.bossFightsEnabled) return;
-    fetchBossPoolCounts(bossGradeLevel, CURRENT_TERM).then(setBossPoolCounts);
-  }, [bossGradeLevel, bossProgress.bossFightsEnabled]);
   // Term boss ambient overrides the main theme game-wide while the event is
   // active — same gate as the mist overlay. Falls back to whatever was
   // already playing (main theme) once the event ends or the player leaves.
@@ -487,18 +508,20 @@ export default function Dashboard() {
     return () => { stopTermBossTheme(); };
   }, [bossEventActive]);
 
-  // Opening cutscene — plays once per player per grade/term, the first time
-  // the event is seen active. Music already starts via the effect above at
-  // the same moment, so the reveal and the ambient track land together.
-  const [showBossCutscene, setShowBossCutscene] = useState(false);
+  // The Term Boss intro (components/intro/TermBossIntro.tsx) — plays once per
+  // player per grade/term, the first time the event is seen active, for
+  // accounts that already had a curio when they loaded (a brand-new kid gets
+  // the first-curio intro and sees this one on a later visit). The event's
+  // music is already playing via the effect above.
+  const [showBossIntro, setShowBossIntro] = useState(false);
   useEffect(() => {
     if (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM)) {
-      setShowBossCutscene(true);
+      setShowBossIntro(true);
     }
   }, [bossEventActive, bossGradeLevel]);
-  const dismissBossCutscene = () => {
+  const dismissBossIntro = () => {
     markCutsceneSeen(bossGradeLevel, CURRENT_TERM);
-    setShowBossCutscene(false);
+    setShowBossIntro(false);
   };
 
   // Forced-read countdown for the pre-quiz "Study Session" screens, sized to
@@ -732,7 +755,7 @@ export default function Dashboard() {
 
   const boardTutorial = useTutorialSequence({
     tabKey: 'board',
-    active: showOnboarding && activeTab === 'board',
+    active: showOnboarding && activeTab === 'board' && introStart === null,
     steps: boardTutorialSteps,
     onDone: () => { handleCompleteOnboarding(); },
   });
@@ -847,12 +870,35 @@ export default function Dashboard() {
       {bossEventActive && (
         <BossMistOverlay defeated={bossProgress.defeated.size} total={bossProgress.total} />
       )}
-      {showBossCutscene && (
-        <BossCutscene personas={getPersonasForGrade(bossGradeLevel)} onDismiss={dismissBossCutscene} />
+      {showBossIntro && hasCurio && introStart === null && activeUserId && (
+        <TermBossIntroForUser
+          userId={activeUserId}
+          personas={bossProgress.personas}
+          // "Face the Forgetting" lands on the board, where the boss select is.
+          onFinish={() => { dismissBossIntro(); setActiveTab('board'); setActiveQuest(null); }}
+          onSkip={dismissBossIntro}
+        />
       )}
       <div className="h-screen flex flex-col">
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
+      {introStart && data && (
+        <FirstCurioIntro
+          userId={activeUserId}
+          playerName={USERS[activeUserId]?.name ?? ''}
+          grade={gradeToNumber(USERS[activeUserId]?.grade)}
+          startAt={introStart}
+          currentStats={data.character_stats}
+          weekStartingDate={data.week_starting_date ?? null}
+          onRewards={(newStats, xpEarned, goldEarned) => {
+            // XP/Gold only: every other counter is passed through unchanged
+            // (updateStatsAndJournal's defaults), so this is a pure xp/gold delta.
+            updateStatsAndJournal(newStats, data.journal_logs);
+            logAction(activeUserId, data.week_starting_date, 'quiz', 'Completed the Keeper training quest', xpEarned, goldEarned);
+          }}
+          onFinish={() => setIntroStart(null)}
+        />
+      )}
       {boardTutorial.step && (
         <TutorialSpotlight
           key={boardTutorial.step.id}
@@ -1031,7 +1077,7 @@ export default function Dashboard() {
             bossEventActive={bossEventActive}
             bossGradeLevel={bossGradeLevel}
             bossDefeated={bossProgress.defeated}
-            bossPoolCounts={bossPoolCounts}
+            bossPoolCounts={bossProgress.poolCounts}
             onChallengeBoss={(subject) => setActiveBossFight(subject)}
             currentDayName={currentDayName}
             weekStartingDate={data.week_starting_date}
@@ -1094,6 +1140,7 @@ export default function Dashboard() {
             bossGradeLevel={bossGradeLevel}
             activeBossFight={activeBossFight}
             bossDefeated={bossProgress.defeated}
+            personas={bossProgress.personas}
             onExit={(defeated) => {
               setActiveBossFight(null);
               if (defeated) bossProgress.refresh();

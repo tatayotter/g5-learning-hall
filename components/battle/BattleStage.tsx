@@ -49,6 +49,11 @@ export interface BattleStageMonster {
   action?: { key: number; animation: AttackClass; element: Element | null } | null;
   damagePopup?: { key: number; value: number; missed: boolean } | null;
   quality?: QualityTier; // absent for NPC trainers, which have no quality tier
+  // Art for something that isn't a curio (a Term Boss persona, /bosses/*.webp);
+  // curios leave it unset and use their /monsters/ sprite.
+  spriteUrl?: string;
+  // On-stage height override (see StageMonster.heightPx) — the Term Boss.
+  heightPx?: number;
 }
 
 // Builds a BattleStageMonster.action for one use of a move (skill, or Rest

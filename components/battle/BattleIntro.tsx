@@ -30,6 +30,8 @@ export interface IntroSide {
   leadName: string;
   leadSpriteUrl: string;
   teamSize: number;
+  // Replaces the "N curios" line under the name (a Term Boss has no team).
+  caption?: string;
   element: Element;
   size: CurioSize;
 }
@@ -115,7 +117,7 @@ function Contender({ side, mirrored, slideClass }: { side: IntroSide; mirrored: 
         style={{ boxShadow: '0 0 0 2px #d4a017', ...woodTextureStyle }}
       >
         {side.trainerName}
-        <span className="ml-2 text-[#fde68a]">{side.teamSize} {side.teamSize === 1 ? 'curio' : 'curios'}</span>
+        <span className="ml-2 text-[#fde68a]">{side.caption ?? `${side.teamSize} ${side.teamSize === 1 ? 'curio' : 'curios'}`}</span>
       </div>
     </div>
   );

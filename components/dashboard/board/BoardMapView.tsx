@@ -437,7 +437,7 @@ export default function BoardMapView({
               Defeat every persona to push it back
             </p>
             <BossPersonaFan
-              personas={getPersonasForGrade(bossGradeLevel)}
+              personas={getPersonasForGrade(bossGradeLevel, bossPoolCounts)}
               defeated={bossDefeated}
               readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
               onChallenge={onChallengeBoss}

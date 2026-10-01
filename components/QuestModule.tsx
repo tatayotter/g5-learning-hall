@@ -86,11 +86,17 @@ interface QuestModuleProps {
   gradeQuiz: (selectedAnswers: Record<number, string>) => Promise<QuizGradeResult>;
   onQuizSubmit: (isPerfect: boolean, newAttempts: number, newStats: CharacterStats, xpEarned: number, goldEarned: number) => void;
   onExit: () => void;
+  // The intro's training quest (components/intro/IntroTrainingQuest.tsx): not a
+  // real daily-capped quest, so no "attempt X of N today" badge and a short
+  // retry cooldown. Everything else looks and behaves like a main quest.
+  practice?: boolean;
+  exitLabel?: string;
 }
 
 const COOLDOWN_SECONDS = 20;
+const PRACTICE_COOLDOWN_SECONDS = 5;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit, practice = false, exitLabel = 'Return to Campaign Map' }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -192,7 +198,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     } else {
       // Wrong answer(s) — lock the retry button behind a short cooldown
       // to nudge re-reading the material instead of instant re-guessing.
-      setCooldownRemaining(COOLDOWN_SECONDS);
+      setCooldownRemaining(practice ? PRACTICE_COOLDOWN_SECONDS : COOLDOWN_SECONDS);
       playClash();
     }
 
@@ -264,7 +270,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
         ]}
         actions={
           <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>
-            Return to Campaign Map
+            {exitLabel}
           </GameButton>
         }
       >
@@ -288,9 +294,11 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       `}</style>
       <div className="flex justify-between items-center border-b border-[#c9a87a] pb-4 mb-6">
         <h2 className="text-2xl font-bold text-[#7a4a0f] font-display">{questName.replace('_', ' ')}</h2>
-        <span className="bg-[#c9781a]/20 text-[#7a4a0f] text-xs font-bold px-3 py-1 rounded-full border border-[#8b5e2a]">
-          ATTEMPT {Math.min(submitted ? dailyUsedToday : dailyUsedToday + 1, MAIN_QUEST_DAILY_ATTEMPT_CAP)} OF {MAIN_QUEST_DAILY_ATTEMPT_CAP} TODAY
-        </span>
+        {!practice && (
+          <span className="bg-[#c9781a]/20 text-[#7a4a0f] text-xs font-bold px-3 py-1 rounded-full border border-[#8b5e2a]">
+            ATTEMPT {Math.min(submitted ? dailyUsedToday : dailyUsedToday + 1, MAIN_QUEST_DAILY_ATTEMPT_CAP)} OF {MAIN_QUEST_DAILY_ATTEMPT_CAP} TODAY
+          </span>
+        )}
       </div>
 
       {quiz.length > 0 ? (

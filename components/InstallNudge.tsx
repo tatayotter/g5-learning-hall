@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import type { UserId } from '@/lib/userSession';
 import { dismissInstallNudge, hasDismissedInstallNudge, isIosDevice, isRunningInstalled } from '@/lib/installPrompt';
+import { trackEvent } from '@/lib/analytics';
 
 // Nudge, not a wall — same spirit as LinkParentBanner.tsx, different corner
 // (bottom-right) so the two never stack. The Android app isn't published yet
@@ -27,6 +28,18 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [expanded, setExpanded] = useState(false);
 
+  // Fires however the install happened (our button or the browser's own menu),
+  // so it's the ground truth for "added to home screen".
+  useEffect(() => {
+    const onInstalled = () => { trackEvent('pwa_installed'); };
+    window.addEventListener('appinstalled', onInstalled);
+    return () => window.removeEventListener('appinstalled', onInstalled);
+  }, []);
+
+  useEffect(() => {
+    if (platform) trackEvent('install_nudge_shown', { platform });
+  }, [platform]);
+
   useEffect(() => {
     if (isRunningInstalled() || hasDismissedInstallNudge(userId)) return;
 
@@ -47,6 +60,7 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   if (!platform) return null;
 
   const handleDismiss = () => {
+    trackEvent('install_nudge_dismissed', { platform });
     dismissInstallNudge(userId);
     setPlatform(null);
   };
@@ -54,7 +68,8 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
     await deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
+    const { outcome } = await deferredPrompt.userChoice;
+    trackEvent('install_prompt_result', { outcome });
     // Dismiss either way — a "not now" on the native prompt shouldn't nag
     // again next session any more than accepting it should.
     dismissInstallNudge(userId);
@@ -64,7 +79,7 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   if (!expanded) {
     return (
       <button
-        onClick={() => setExpanded(true)}
+        onClick={() => { trackEvent('install_nudge_opened', { platform }); setExpanded(true); }}
         title="Add Learning Hall to your home screen"
         className="fixed bottom-4 right-4 z-40 flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg hover:bg-emerald-500 transition-colors"
       >

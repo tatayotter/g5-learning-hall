@@ -10,9 +10,10 @@ import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { callAdminApi } from '@/lib/adminApi';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { getPersonasForGrade } from '@/lib/bossPersonas';
+import { GRADE_LEVELS } from '@/lib/userSession';
 import { fetchBossPoolCounts, POOL_READY_THRESHOLD } from '@/lib/bossFightEngine';
 
-const BOSS_FIGHT_GRADES = [5, 2] as const;
+const BOSS_FIGHT_GRADES = GRADE_LEVELS;
 
 function GlobalToggle({ passcode }: { passcode: string }) {
   const [enabled, setEnabled] = useState(false);

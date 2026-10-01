@@ -13,12 +13,13 @@ import type { Side, StageMonster, StageLayout } from '@/lib/phaserBattle/BattleS
 
 function toStageMonster(mon: BattleStageMonster): StageMonster {
   return {
-    spriteUrl: curioSpriteUrl(mon.def),
+    spriteUrl: mon.spriteUrl ?? curioSpriteUrl(mon.def),
     emoji: mon.def.emoji,
     size: mon.def.size,
     floats: mon.def.floats,
     element: mon.def.element,
     fainted: mon.currentHp <= 0,
+    heightPx: mon.heightPx,
   };
 }
 
