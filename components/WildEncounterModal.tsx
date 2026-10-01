@@ -55,8 +55,12 @@ export default function WildEncounterModal({ monster, level, question, attemptsL
     }, 800);
   };
 
+  // z-[95]: the training map renders fullscreen at z-[78] (see MapStage.tsx) with
+  // joystick/drawers up to z-[81]; a plain z-50 opened this modal BEHIND the map
+  // while movementLocked froze the player — the encounter looked like it did nothing.
+  // Same layering fix as PlayerStatsPopup.
   return (
-    <div className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/85 z-[95] flex items-center justify-center p-4">
       <div className="bg-white border border-[#c9a87a] rounded-2xl p-6 sm:p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto battle-panel-in">
         <style>{QUIZ_OPTION_STYLES}</style>
         <div className="flex items-center gap-3 mb-2">
