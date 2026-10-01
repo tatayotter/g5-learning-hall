@@ -484,11 +484,12 @@ export default function UiGallery() {
           personas={getPersonasForGrade(5)}
           defeated={new Set(getPersonasForGrade(5).slice(0, trialDown).map(p => p.subject))}
           readySubjects={new Set(getPersonasForGrade(5).map(p => p.subject).filter(s => trialDown >= 9 || s !== 'Araling Panlipunan'))}
-          sealedCurio={ALL_MONSTERS.shadrak}
+          sealedCurio={ALL_MONSTERS.emberwyrm}
           sealedCurioClaimed={trialClaimed}
+          sealedCurioLore={'**Emberwyrm, the First Flame**\n\nMost Curios are born when a page of the Ledger grows too full. Emberwyrm was never born from a page. It *is* the warmth inside the living ink.\n\nBeat every shadow of the term, and the First Flame will wake and fight beside you.'}
           endsAt={trialEndsAt}
           onChallenge={subject => { setArenaSubject(subject); setArenaResult(null); setArenaOpen(true); }}
-          onClaimCurio={() => setTrialClaimed(true)}
+          onClaimCurio={async () => { await new Promise(r => setTimeout(r, 600)); setTrialClaimed(true); return true; }}
           onReplayStory={() => setActiveOverlay('termBossIntro')}
           weekQuestCount={3}
           weekQuests={

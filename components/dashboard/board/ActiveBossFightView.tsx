@@ -3,7 +3,7 @@
 // splitting Dashboard.tsx apart. No behavior change.
 'use client';
 
-import { UserId } from '@/lib/userSession';
+import { UserId, USERS } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import BossFightScreen from '@/components/monster/BossFightScreen';
 import type { BossPersona } from '@/lib/bossPersonas';
@@ -30,6 +30,7 @@ export default function ActiveBossFightView({ activeUserId, bossGradeLevel, acti
         otherPersonas={personas.filter(
           p => p.subject !== activeBossFight && !bossDefeated.has(p.subject)
         )}
+        playerName={USERS[activeUserId]?.name ?? 'Keeper'}
         onExit={onExit}
       />
     </div>

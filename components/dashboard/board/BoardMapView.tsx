@@ -17,8 +17,9 @@ import WelcomeCard from '@/components/WelcomeCard';
 import { playPageFlip } from '@/lib/sounds';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import QuestCard from '@/components/QuestCard';
-import BossPersonaFan from '@/components/monster/BossPersonaFan';
-import { getPersonasForGrade } from '@/lib/bossPersonas';
+import TrialBoard from '@/components/monster/boss/TrialBoard';
+import type { BossPersona } from '@/lib/bossPersonas';
+import type { SealedCurioReward } from '@/hooks/useBossFightProgress';
 import { POOL_READY_THRESHOLD, BossQuestion } from '@/lib/bossFightEngine';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
@@ -41,9 +42,16 @@ interface BoardMapViewProps {
 
   bossEventActive: boolean;
   bossGradeLevel: number;
+  bossTerm: number;
+  bossPersonas: BossPersona[];
   bossDefeated: Set<string>;
   bossPoolCounts: Record<string, number>;
+  bossSealedCurio: SealedCurioReward | null;
+  bossSealedCurioClaimed: boolean;
+  bossEndsAt: Date | null;
   onChallengeBoss: (subject: string) => void;
+  onClaimSealedCurio: () => Promise<boolean>;
+  onReplayBossStory: () => void;
 
   currentDayName: string;
   weekStartingDate: string;
@@ -250,9 +258,16 @@ export default function BoardMapView({
   onEnterEventQuest,
   bossEventActive,
   bossGradeLevel,
+  bossTerm,
+  bossPersonas,
   bossDefeated,
   bossPoolCounts,
+  bossSealedCurio,
+  bossSealedCurioClaimed,
+  bossEndsAt,
   onChallengeBoss,
+  onClaimSealedCurio,
+  onReplayBossStory,
   currentDayName,
   weekStartingDate,
   mainQuestPackageData,
@@ -301,51 +316,8 @@ export default function BoardMapView({
   // (not per subject row), but sourced by quest rather than by calendar day.
   const curioTrainings = useMemo(() => linkCurioTrainings(logEntries), [logEntries]);
 
-  return (
-    <div>
-      <style>{CURIO_CARD_STYLES}{DAY_CARD_STYLES}</style>
-      {/* Same Bungee/stroke/shadow text treatment as the quest
-          GameButton's label (2026-08-29), in quest gold instead of
-          the button's white. */}
-      <h1 className="text-2xl lg:text-3xl mt-4 mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-        <span style={{ position: 'relative', display: 'inline-block' }}>
-          <span aria-hidden style={questTextShadowStyle}>Active Campaign Map</span>
-          <span style={{ ...questTextStyle, color: '#f5c542' }}>Active Campaign Map</span>
-        </span>
-      </h1>
-      <p className="text-[#6b4820] mb-4 text-sm">Select an open quest card from the schedule below to begin your training.</p>
-
-      <div data-tutorial-id="board-welcome">
-        <WelcomeCard
-          playerName={USERS[activeUserId]?.name ?? activeUserId}
-          loginStreak={loginStreak}
-          totalQuests={totalQuests}
-          completedQuests={masteredQuizzes?.length ?? 0}
-        />
-      </div>
-
-      {/* Compact referral key — invite friends from the board */}
-      {dashReferralKey && (
-        <div className="mb-6 rounded-[14px] border border-[#c9a87a] bg-[#fdf6e8] px-4 py-3 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <span className="flex-none w-8 h-8 rounded-[10px] bg-[#f0ddb8] flex items-center justify-center text-[#7a4a0f]">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M10 14a5 5 0 0 0 7.07 0l2-2a5 5 0 0 0-7.07-7.07L10.5 6.4" />
-                <path d="M14 10a5 5 0 0 0-7.07 0l-2 2a5 5 0 0 0 7.07 7.07L13.5 17.6" />
-              </svg>
-            </span>
-            <div className="min-w-0">
-              <p className="text-xs font-bold text-[#7a4a0f] uppercase tracking-wider leading-tight">
-                Invite Friends
-              </p>
-              <p className="text-xs text-[#6b4820] leading-tight">Share your code — you both earn rewards</p>
-            </div>
-          </div>
-          <ReferralKeyDisplay referralKey={dashReferralKey} compact />
-        </div>
-      )}
-
-      {activeEvent && (
+  // Shown above the Trial, or in its usual place on the classic board.
+  const eventSection = activeEvent && (
         <div className="mb-10">
           <div className="relative rounded-2xl border-2 border-amber-500/70 bg-gradient-to-br from-[#1a1005] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(245,158,11,0.35)] overflow-hidden">
             {activeEvent.banner_url && (
@@ -422,31 +394,11 @@ export default function BoardMapView({
             </div>
           </div>
         </div>
-      )}
+      );
 
-      {bossEventActive && (
-        <div className="mb-10">
-          {/* overflow-hidden: BossPersonaFan fans its cards out with
-              absolute positioning, which can spill past this box's
-              edges (the source of the horizontal-scroll bug) — clip it
-              here instead of relying solely on the page-level
-              overflow-x guard in globals.css. */}
-          <div className="rounded-2xl border-2 border-purple-700/70 bg-gradient-to-br from-[#0d0512] to-black shadow-[0_0_0_2px_#000,0_0_40px_-8px_rgba(147,51,234,0.35)] p-6 overflow-hidden">
-            <h2 className="text-xl font-bold text-white font-display mb-1">Term Boss — The Forgetting</h2>
-            <p className="text-xs font-bold text-purple-400 uppercase tracking-wide mb-4">
-              Defeat every persona to push it back
-            </p>
-            <BossPersonaFan
-              personas={getPersonasForGrade(bossGradeLevel, bossPoolCounts)}
-              defeated={bossDefeated}
-              readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
-              onChallenge={onChallengeBoss}
-            />
-          </div>
-        </div>
-      )}
-
-      {WEEKDAYS.map((day) => {
+  // The week's day cards: the whole board normally, folded under the Trial
+  // while the Term Boss event runs.
+  const dayCards = WEEKDAYS.map((day) => {
         const isToday = currentDayName === day;
         const gauntletActive = activeEvent?.content_source === 'gauntlet';
         // During a live gauntlet event, that day's slice of the review
@@ -544,7 +496,85 @@ export default function BoardMapView({
             ) : null}
           </DayCard>
         );
-      })}
+      });
+
+  // The Trial of the Forgetting takes over the board while the event is on.
+  // The board tutorial spotlights a day card, so it keeps the classic board.
+  const trialActive = bossEventActive && !openTutorialDayName;
+  const weekQuestCount = WEEKDAYS.reduce((n, day) => n + Object.keys(mainQuestPackageData[day] || {}).length, 0);
+
+  if (trialActive) {
+    return (
+      <div className="pt-4">
+        <style>{CURIO_CARD_STYLES}{DAY_CARD_STYLES}</style>
+        <TrialBoard
+          grade={bossGradeLevel}
+          term={bossTerm}
+          personas={bossPersonas}
+          defeated={bossDefeated}
+          readySubjects={new Set(Object.entries(bossPoolCounts).filter(([, c]) => c >= POOL_READY_THRESHOLD).map(([s]) => s))}
+          sealedCurio={bossSealedCurio ? ALL_MONSTERS[bossSealedCurio.monsterId] ?? null : null}
+          sealedCurioClaimed={bossSealedCurioClaimed}
+          sealedCurioLore={bossSealedCurio?.loreMarkdown}
+          endsAt={bossEndsAt}
+          onChallenge={onChallengeBoss}
+          onClaimCurio={onClaimSealedCurio}
+          onReplayStory={onReplayBossStory}
+          weekQuests={<div className="space-y-4">{dayCards}</div>}
+          weekQuestCount={weekQuestCount}
+        />
+        {eventSection}
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <style>{CURIO_CARD_STYLES}{DAY_CARD_STYLES}</style>
+      {/* Same Bungee/stroke/shadow text treatment as the quest
+          GameButton's label (2026-08-29), in quest gold instead of
+          the button's white. */}
+      <h1 className="text-2xl lg:text-3xl mt-4 mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+        <span style={{ position: 'relative', display: 'inline-block' }}>
+          <span aria-hidden style={questTextShadowStyle}>Active Campaign Map</span>
+          <span style={{ ...questTextStyle, color: '#f5c542' }}>Active Campaign Map</span>
+        </span>
+      </h1>
+      <p className="text-[#6b4820] mb-4 text-sm">Select an open quest card from the schedule below to begin your training.</p>
+
+      <div data-tutorial-id="board-welcome">
+        <WelcomeCard
+          playerName={USERS[activeUserId]?.name ?? activeUserId}
+          loginStreak={loginStreak}
+          totalQuests={totalQuests}
+          completedQuests={masteredQuizzes?.length ?? 0}
+        />
+      </div>
+
+      {/* Compact referral key — invite friends from the board */}
+      {dashReferralKey && (
+        <div className="mb-6 rounded-[14px] border border-[#c9a87a] bg-[#fdf6e8] px-4 py-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="flex-none w-8 h-8 rounded-[10px] bg-[#f0ddb8] flex items-center justify-center text-[#7a4a0f]">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10 14a5 5 0 0 0 7.07 0l2-2a5 5 0 0 0-7.07-7.07L10.5 6.4" />
+                <path d="M14 10a5 5 0 0 0-7.07 0l-2 2a5 5 0 0 0 7.07 7.07L13.5 17.6" />
+              </svg>
+            </span>
+            <div className="min-w-0">
+              <p className="text-xs font-bold text-[#7a4a0f] uppercase tracking-wider leading-tight">
+                Invite Friends
+              </p>
+              <p className="text-xs text-[#6b4820] leading-tight">Share your code — you both earn rewards</p>
+            </div>
+          </div>
+          <ReferralKeyDisplay referralKey={dashReferralKey} compact />
+        </div>
+      )}
+
+      {eventSection}
+
+      {dayCards}
 
       {/* AchievementsBoard removed — accessible via Hero Profile tab */}
     </div>

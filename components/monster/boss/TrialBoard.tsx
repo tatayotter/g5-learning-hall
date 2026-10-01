@@ -19,6 +19,7 @@
 // exception (docs/STYLE_GUIDE.md), in the same Forgetting colors as the arena
 // (components/monster/boss/BossArena.tsx). The folded quests stay parchment.
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import type { CSSProperties, ReactNode } from 'react';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import GlowCta, { GLOW_CSS } from '@/components/intro/GlowCta';
@@ -42,10 +43,13 @@ interface TrialBoardProps {
   // This grade/term's sealed Curio (boss_gauntlet_rewards); null if not set up.
   sealedCurio: MonsterDef | null;
   sealedCurioClaimed?: boolean;
+  // The sealed Curio's story (boss_gauntlet_rewards.reward_lore_markdown).
+  sealedCurioLore?: string | null;
   // When the Trial ends (term boundary); omitted hides the countdown.
   endsAt?: Date | null;
   onChallenge: (subject: string) => void;
-  onClaimCurio?: () => void;
+  // Resolves true once the Curio is freed; false shows a retry message.
+  onClaimCurio?: () => Promise<boolean> | void;
   onReplayStory: () => void;
   // The week's regular day cards, shown folded under the Trial.
   weekQuests: ReactNode;
@@ -84,9 +88,20 @@ const CRACKS = [
 ];
 
 function SealedCurio({ curio, cracked, total, claimed, onClaim }: {
-  curio: MonsterDef | null; cracked: number; total: number; claimed: boolean; onClaim?: () => void;
+  curio: MonsterDef | null; cracked: number; total: number; claimed: boolean; onClaim?: () => Promise<boolean> | void;
 }) {
+  const [claiming, setClaiming] = useState(false);
+  const [claimFailed, setClaimFailed] = useState(false);
   const broken = total > 0 && cracked >= total;
+  const claim = async () => {
+    if (claiming) return;
+    playPageFlip();
+    setClaiming(true);
+    setClaimFailed(false);
+    const ok = await onClaim?.();
+    setClaiming(false);
+    if (ok === false) setClaimFailed(true);
+  };
   const shown = Math.round((cracked / Math.max(1, total)) * CRACKS.length);
   return (
     <div className="flex flex-col items-center text-center w-40 sm:w-44 flex-none">
@@ -129,12 +144,16 @@ function SealedCurio({ curio, cracked, total, claimed, onClaim }: {
         claimed ? (
           <p className="text-xs font-bold text-[#fde68a] leading-snug">{curio?.name ?? 'Your Curio'} joined your team!</p>
         ) : (
-          <button
-            onClick={() => { playPageFlip(); onClaim?.(); }}
-            className="mt-1 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wide bg-[#f5c542] text-[#2a1505] border-2 border-[#2a1505] intro-choice-glow"
-          >
-            Free {curio?.name ?? 'it'}!
-          </button>
+          <>
+            <button
+              onClick={claim}
+              disabled={claiming}
+              className="mt-1 rounded-lg px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wide bg-[#f5c542] text-[#2a1505] border-2 border-[#2a1505] intro-choice-glow disabled:opacity-70"
+            >
+              {claiming ? 'Breaking the seal...' : `Free ${curio?.name ?? 'it'}!`}
+            </button>
+            {claimFailed && <p className="mt-1 text-[11px] leading-snug text-[#fca5a5]">The seal held. Try again in a moment.</p>}
+          </>
         )
       ) : (
         <p className="text-xs text-[#e9dcff] leading-snug">Defeat all {total} shadows to break the seal.</p>
@@ -188,11 +207,12 @@ function StatusChip({ status, glow }: { status: 'ready' | 'defeated' | 'locked';
 }
 
 export default function TrialBoard({
-  grade, term, personas, defeated, readySubjects, sealedCurio, sealedCurioClaimed = false, endsAt,
+  grade, term, personas, defeated, readySubjects, sealedCurio, sealedCurioClaimed = false, sealedCurioLore, endsAt,
   onChallenge, onClaimCurio, onReplayStory, weekQuests, weekQuestCount,
 }: TrialBoardProps) {
   const [questsOpen, setQuestsOpen] = useState(false);
   const [lockedHint, setLockedHint] = useState<string | null>(null);
+  const [loreOpen, setLoreOpen] = useState(false);
 
   const total = personas.length;
   const downCount = personas.filter(p => defeated.has(p.subject)).length;
@@ -291,10 +311,26 @@ export default function TrialBoard({
             </div>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center">
             <SealedCurio curio={sealedCurio} cracked={downCount} total={total} claimed={sealedCurioClaimed} onClaim={onClaimCurio} />
+            {sealedCurioLore && (
+              <button
+                onClick={() => { playPageFlip(); setLoreOpen(o => !o); }}
+                aria-expanded={loreOpen}
+                className="mt-1.5 text-[11px] font-bold text-[#c4b5fd] hover:text-white underline underline-offset-2"
+              >
+                {loreOpen ? 'Hide the story' : 'Who is sealed inside?'}
+              </button>
+            )}
           </div>
         </div>
+
+        {/* The sealed Curio's legend, parchment on the dark hero. */}
+        {loreOpen && sealedCurioLore && (
+          <div className="relative mx-5 sm:mx-7 mb-5 sm:mb-7 rounded-xl border-2 border-[#8b5e2a] bg-[#fdf6e8] px-4 py-3 text-sm leading-relaxed text-[#2a1505] [&_p]:mb-2 [&_p:last-child]:mb-0 [&_strong]:text-[#7a4a0f]">
+            <ReactMarkdown>{sealedCurioLore}</ReactMarkdown>
+          </div>
+        )}
       </div>
 
       {/* ── The shadows ── */}

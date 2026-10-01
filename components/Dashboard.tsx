@@ -1076,9 +1076,16 @@ export default function Dashboard() {
             }}
             bossEventActive={bossEventActive}
             bossGradeLevel={bossGradeLevel}
+            bossTerm={CURRENT_TERM}
+            bossPersonas={bossProgress.personas}
             bossDefeated={bossProgress.defeated}
             bossPoolCounts={bossProgress.poolCounts}
+            bossSealedCurio={bossProgress.sealedCurio}
+            bossSealedCurioClaimed={bossProgress.sealedCurioClaimed}
+            bossEndsAt={bossProgress.endsAt}
             onChallengeBoss={(subject) => setActiveBossFight(subject)}
+            onClaimSealedCurio={bossProgress.claimSealedCurio}
+            onReplayBossStory={() => setShowBossIntro(true)}
             currentDayName={currentDayName}
             weekStartingDate={data.week_starting_date}
             mainQuestPackageData={mainQuestPackageData}
