@@ -34,39 +34,94 @@ const GAUNTLET_POOL_TARGET = QUESTIONS_PER_DAY * WEEKDAY_COUNT;
 // has no per-question topic, only subject — `topic` below is set to the
 // subject name just to satisfy BossQuestion's shape; balanceBucket (below)
 // keys on `.subject` directly for the actual balancing.
+//
+// PostgREST silently caps a single response at 1000 rows, and once every
+// content_weeks row went published a single grade has 1,400-4,200+ rows
+// before a break — an unpaged select quietly dropped everything past row
+// 1000 and skewed the review toward whatever order Postgres returned. So
+// this is two-phase: page through the whole pool with only the columns
+// buildMasteryGauntletPool actually needs (id + subject, a few hundred KB
+// at most), and let hydrateGauntletPool fetch prompt/options for just the
+// ~50 picked rows afterwards. `question`/`options` are empty until hydrated.
+const POOL_PAGE_SIZE = 1000;
+
+type PoolStubRow = Pick<BossQuestion, 'id' | 'subject' | 'grade' | 'week_starting_date'>;
+type PoolHydrateRow = { id: string; prompt: string; options: string[] };
+type AttemptRow = { content_question_id: string; correct: boolean };
+
 export async function fetchGauntletQuestionPool(grade: number, beforeDate: string): Promise<BossQuestion[]> {
-  const { data, error } = await supabase
-    .from('content_questions_public')
-    .select('id, prompt, options, subject, grade, week_starting_date, status')
-    .eq('grade', grade)
-    .eq('status', 'published')
-    .lt('week_starting_date', beforeDate);
-  if (error || !data) return [];
-  return data.map((row: any) => ({
+  const rows: PoolStubRow[] = [];
+  for (let from = 0; ; from += POOL_PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from('content_questions_public')
+      .select('id, subject, grade, week_starting_date')
+      .eq('grade', grade)
+      .eq('status', 'published')
+      .lt('week_starting_date', beforeDate)
+      // Stable order is required for offset paging — without it Postgres
+      // may return pages that overlap or skip rows.
+      .order('id')
+      .range(from, from + POOL_PAGE_SIZE - 1);
+    if (error || !data) {
+      if (error) console.error('Failed to page gauntlet pool:', error);
+      break;
+    }
+    rows.push(...data);
+    if (data.length < POOL_PAGE_SIZE) break;
+  }
+  return rows.map(row => ({
     id: row.id,
     week_starting_date: row.week_starting_date,
     grade: row.grade,
     subject: row.subject,
     tier: 0,
     topic: row.subject,
-    question: row.prompt,
-    options: row.options,
+    question: '',
+    options: [],
   }));
 }
 
-// question_id -> most recent correctness, from the Monster Arena's own
-// attempt log (already RLS read-own) — no gauntlet-specific tracking table.
-// Fetches this student's whole history rather than filtering by the pool's
-// ids up front: a single student's lifetime attempt count is small, and it
-// avoids an unbounded `.in()` list against a pool that can run into the
-// hundreds of rows for grades with several weeks of content.
-export async function fetchGauntletMistakes(userId: string): Promise<Map<string, boolean>> {
+// Fills in prompt/options for the picked pool (order preserved). Picked
+// pools are capped at GAUNTLET_POOL_TARGET, so the `.in()` list stays small.
+// Any row that fails to hydrate is dropped rather than shown blank.
+export async function hydrateGauntletPool(pool: BossQuestion[]): Promise<BossQuestion[]> {
+  if (pool.length === 0) return [];
   const { data, error } = await supabase
-    .from('player_question_attempts')
-    .select('content_question_id, correct')
-    .eq('user_id', userId);
-  if (error || !data) return new Map();
-  return new Map(data.map((row: any) => [row.content_question_id as string, row.correct as boolean]));
+    .from('content_questions_public')
+    .select('id, prompt, options')
+    .in('id', pool.map(q => q.id));
+  if (error || !data) return [];
+  const byId = new Map((data as PoolHydrateRow[]).map(row => [row.id, row]));
+  return pool
+    .filter(q => byId.has(q.id))
+    .map(q => {
+      const row = byId.get(q.id)!;
+      return { ...q, question: row.prompt, options: row.options };
+    });
+}
+
+// question_id -> most recent correctness, from the Monster Arena's own
+// attempt log (already RLS read-own, one row per user+question) — no
+// gauntlet-specific tracking table. Fetches this student's whole history
+// rather than filtering by the pool's ids up front, to avoid an unbounded
+// `.in()` list against a pool of thousands of rows. Paged for the same
+// 1000-row cap as the pool above: the most active student was already at
+// ~800 attempts on 2026-10-01, so a single select would start silently
+// dropping mistakes soon.
+export async function fetchGauntletMistakes(userId: string): Promise<Map<string, boolean>> {
+  const mistakes = new Map<string, boolean>();
+  for (let from = 0; ; from += POOL_PAGE_SIZE) {
+    const { data, error } = await supabase
+      .from('player_question_attempts')
+      .select('content_question_id, correct')
+      .eq('user_id', userId)
+      .order('content_question_id')
+      .range(from, from + POOL_PAGE_SIZE - 1);
+    if (error || !data) break;
+    for (const row of data as AttemptRow[]) mistakes.set(row.content_question_id, row.correct);
+    if (data.length < POOL_PAGE_SIZE) break;
+  }
+  return mistakes;
 }
 
 // Subject-balanced sample of up to `limit` questions from one bucket — same

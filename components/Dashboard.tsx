@@ -77,6 +77,7 @@ import { isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/b
 import { BossQuestion } from '@/lib/bossFightEngine';
 import {
   fetchGauntletQuestionPool,
+  hydrateGauntletPool,
   fetchGauntletMistakes,
   buildMasteryGauntletPool,
   splitPoolIntoDays,
@@ -597,8 +598,8 @@ export default function Dashboard() {
       fetchGauntletQuestionPool(grade, activeEvent.start_date),
       fetchGauntletMistakes(activeUserId),
       fetchGauntletDaysDone(activeUserId, activeEvent.id),
-    ]).then(([all, mistakes, daysDone]) => {
-      const pool = buildMasteryGauntletPool(all, mistakes);
+    ]).then(async ([all, mistakes, daysDone]) => {
+      const pool = await hydrateGauntletPool(buildMasteryGauntletPool(all, mistakes));
       setGauntletDayPools(splitPoolIntoDays(pool, WEEKDAYS));
       setGauntletDaysDone(daysDone);
     });
