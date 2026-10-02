@@ -9,6 +9,8 @@ import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
+import { recordPushOpenFromUrl } from '@/lib/push';
+import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
@@ -154,7 +156,15 @@ export default function ParentDashboardPage() {
     window.location.href = body.checkoutUrl;
   };
 
-  useEffect(() => { load(); }, []);
+  useEffect(() => {
+    // Parent pushes deep-link here with ?pq=<queue id>; record the open,
+    // then drop the param so a refresh doesn't count it again.
+    recordPushOpenFromUrl();
+    if (new URLSearchParams(window.location.search).has('pq')) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+    load();
+  }, []);
 
   const handleAddChild = async (e?: React.FormEvent) => {
     e?.preventDefault();
@@ -431,6 +441,14 @@ export default function ParentDashboardPage() {
             </>
           )}
         </IosGroup>
+
+        {/* Push ask — only once there's a child to report on. */}
+        {parentId && kids.length > 0 && (
+          <ParentPushOptIn
+            parentId={parentId}
+            childNames={kids.map(k => k.full_name.trim().split(/\s+/)[0])}
+          />
+        )}
 
         {/* Children */}
         <IosGroup header="Children" footer={childrenFooter}>

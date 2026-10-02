@@ -18,7 +18,7 @@ import { playPageFlip } from '@/lib/sounds';
 
 const SNOOZE_MS = 3 * 24 * 60 * 60 * 1000;
 
-type CardState = 'hidden' | 'ask' | 'ios-install';
+export type CardState = 'hidden' | 'ask' | 'ios-install';
 
 const noopSubscribe = () => () => {};
 
@@ -35,15 +35,12 @@ function isSnoozed(owner: PushOwner): boolean {
   }
 }
 
-interface PushOptInCardProps {
-  owner: PushOwner;
-  /** Called with the gold actually credited, so the Dashboard can toast it. */
-  onEnabled?: (gold: number | null) => void;
-  /** /dev/ui-gallery only: render a state regardless of this browser. */
-  previewState?: Exclude<CardState, 'hidden'>;
-}
-
-export default function PushOptInCard({ owner, onEnabled, previewState }: PushOptInCardProps) {
+/**
+ * Shared show/hide + subscribe logic for the in-app push ask (this card and
+ * the parent dashboard's ParentPushOptIn). `state` is 'hidden' when already
+ * subscribed, denied, snoozed, unsupported, or until the check finishes.
+ */
+export function usePushAsk(owner: PushOwner, previewState?: Exclude<CardState, 'hidden'>) {
   const availability = usePushAvailability();
   // Server snapshot: snoozed, so nothing renders until the client knows.
   const snoozed = useSyncExternalStore(noopSubscribe, () => isSnoozed(owner), () => true);
@@ -69,10 +66,7 @@ export default function PushOptInCard({ owner, onEnabled, previewState }: PushOp
       : availability === 'supported' && nothingToAsk === false ? 'ask'
       : 'hidden');
 
-  if (state === 'hidden') return null;
-
   function snooze() {
-    playPageFlip();
     try {
       window.localStorage.setItem(snoozeKey(owner), String(Date.now() + SNOOZE_MS));
     } catch {
@@ -81,8 +75,8 @@ export default function PushOptInCard({ owner, onEnabled, previewState }: PushOp
     setDismissed(true);
   }
 
-  async function enable() {
-    playPageFlip();
+  /** Fires the native prompt — call only from a tap. True once subscribed. */
+  async function enable(): Promise<boolean> {
     setBusy(true);
     try {
       const ok = await subscribeToPush(owner);
@@ -90,14 +84,42 @@ export default function PushOptInCard({ owner, onEnabled, previewState }: PushOp
         // Either the prompt was dismissed/denied or something failed —
         // only "denied" is permanent.
         if (Notification.permission === 'denied') setBlocked(true);
-        return;
+        return false;
       }
-      const reward = owner.kind === 'app_user' ? await claimPushGoldBonusChild(owner.id) : null;
-      onEnabled?.(reward?.gold ?? null);
       setDismissed(true);
+      return true;
     } finally {
       setBusy(false);
     }
+  }
+
+  return { state, busy, blocked, snooze, enable };
+}
+
+interface PushOptInCardProps {
+  owner: PushOwner;
+  /** Called with the gold actually credited, so the Dashboard can toast it. */
+  onEnabled?: (gold: number | null) => void;
+  /** /dev/ui-gallery only: render a state regardless of this browser. */
+  previewState?: Exclude<CardState, 'hidden'>;
+}
+
+export default function PushOptInCard({ owner, onEnabled, previewState }: PushOptInCardProps) {
+  const ask = usePushAsk(owner, previewState);
+  const { state, busy, blocked } = ask;
+
+  if (state === 'hidden') return null;
+
+  function snooze() {
+    playPageFlip();
+    ask.snooze();
+  }
+
+  async function enable() {
+    playPageFlip();
+    if (!(await ask.enable())) return;
+    const reward = owner.kind === 'app_user' ? await claimPushGoldBonusChild(owner.id) : null;
+    onEnabled?.(reward?.gold ?? null);
   }
 
   return (

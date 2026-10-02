@@ -75,6 +75,7 @@ import BossArena from '@/components/monster/boss/BossArena';
 import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import PushOptInCard from '@/components/PushOptInCard';
+import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import {
   playChime, playClash, playCoins, playBlessing, playLevelUp, playPageFlip,
   playFootstepGrass, playFootstepTown, playWallBump, playNearbyWhoosh, playMonsterAppear,
@@ -380,6 +381,10 @@ export default function UiGallery() {
         <div className="space-y-3">
           <PushOptInCard owner={{ kind: 'app_user', id: 'gallery_mock' }} previewState="ask" />
           <PushOptInCard owner={{ kind: 'app_user', id: 'gallery_mock' }} previewState="ios-install" />
+          <div className="max-w-md space-y-3 rounded-2xl bg-[#F2F2F7] p-3">
+            <ParentPushOptIn parentId="gallery_mock" childNames={['Maria', 'Jun']} previewState="ask" />
+            <ParentPushOptIn parentId="gallery_mock" childNames={['Maria']} previewState="ios-install" />
+          </div>
         </div>
       </Section>
 

@@ -137,6 +137,20 @@ export async function unsubscribeFromPush(): Promise<boolean> {
   return !error;
 }
 
+/**
+ * Records that a queued push was tapped: the service worker appends the
+ * queue row id as ?pq=. Call once on page load, before anything strips the
+ * query string. Fire-and-forget — a failed write only loses a stat.
+ */
+export function recordPushOpenFromUrl(): void {
+  if (typeof window === 'undefined') return;
+  const qid = new URLSearchParams(window.location.search).get('pq');
+  if (!qid || !/^[0-9a-f-]{36}$/i.test(qid)) return;
+  supabase.rpc('mark_push_opened', { p_queue_id: qid }).then(({ error }) => {
+    if (error) console.error('mark_push_opened failed', error);
+  });
+}
+
 /** Asks the send-push Edge Function to deliver a test notification to `owner`. */
 export async function sendTestPush(owner: PushOwner): Promise<boolean> {
   const { data, error } = await supabase.functions.invoke('send-push', {
