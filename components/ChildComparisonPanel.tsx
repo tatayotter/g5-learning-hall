@@ -119,7 +119,7 @@ export default function ChildComparisonPanel({ kids }: { kids: Kid[] }) {
       {stats.map((stat) => (
         <div key={stat.label} className="pl-4">
           <div className="ios-row-sep grid items-center gap-2 pr-4 min-h-[44px]" style={{ ...cols, ...sep }}>
-            <span className="text-[15px] truncate" style={{ color: IOS.secondary }}>{stat.label}</span>
+            <span className="text-[15px] leading-[19px] py-2" style={{ color: IOS.secondary }}>{stat.label}</span>
             {kids.map((kid) => (
               <span key={kid.id} className="text-center text-[17px] font-semibold tabular-nums">{stat.pick(rowFor(kid.id))}</span>
             ))}
