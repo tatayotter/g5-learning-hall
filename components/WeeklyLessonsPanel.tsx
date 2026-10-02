@@ -46,6 +46,17 @@ function extractBlurb(md: string): { topic: string; blurb: string } {
   return { topic, blurb: shortBlurb };
 }
 
+/**
+ * Lesson headings arrive as e.g. "🔤 English — Adverbs, Nouns…". The row
+ * already shows the subject as a colored label, so drop the leading emoji
+ * and the repeated "Subject — " prefix.
+ */
+function cleanTopic(topic: string, subject: string): string {
+  const noEmoji = topic.replace(/^[^\p{L}\p{N}]+/u, '');
+  const prefix = new RegExp(`^${subject.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[—–:-]\\s*`, 'i');
+  return noEmoji.replace(prefix, '').trim() || noEmoji;
+}
+
 interface LessonEntry {
   subject: string;
   topic: string;
@@ -94,7 +105,7 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
           if (!dayContent || Object.keys(dayContent).length === 0) continue;
           byDay[day] = Object.entries(dayContent).map(([subject, data]) => {
             const { topic, blurb } = extractBlurb(data?.summary_markdown ?? '');
-            return { subject, topic, blurb };
+            return { subject, topic: cleanTopic(topic, subject), blurb };
           });
         }
         setLessons(Object.keys(byDay).length > 0 ? byDay : null);
