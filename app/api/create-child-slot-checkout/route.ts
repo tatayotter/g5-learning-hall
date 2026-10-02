@@ -2,14 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { createClient } from '@supabase/supabase-js';
 
+// A single extra child slot for an active Premium parent — a flat ₱99 that
+// takes effect on payment and does NOT restart the Premium year or reset the
+// coin pool (contrast /api/create-checkout, which buys a whole year). See
+// supabase/migrations/20261002150000_child_slot_purchase.sql.
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
-// Buys (or renews) one Premium year. Extra child slots are a separate,
-// one-time ₱99 purchase kept forever — /api/create-child-slot-checkout — so
-// a yearly checkout never carries or re-charges them.
-const BASE_PRICE_PHP = 249;
+const CHILD_SLOT_PRICE_PHP = 99;
+const MAX_ADDON_CHILDREN = 2;
 
 export async function POST(request: NextRequest) {
   const authHeader = request.headers.get('authorization') || '';
@@ -23,28 +26,23 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, error: 'Invalid session' }, { status: 401 });
   }
 
-  const { addonChildren } = await request.json().catch(() => ({}));
-  if (addonChildren !== undefined && Number(addonChildren) !== 0) {
-    return NextResponse.json(
-      { success: false, error: 'Child slots are purchased separately — use Add a Child Slot.' },
-      { status: 400 },
-    );
+  // Checked before creating the PayMongo session so an ineligible parent never
+  // gets a payable checkout. create_child_slot_checkout re-checks it in SQL.
+  const { data: sub } = await supabaseAdmin
+    .from('subscriptions')
+    .select('status, addon_children, current_period_end')
+    .eq('parent_id', userData.user.id)
+    .maybeSingle();
+  if (!sub || sub.status !== 'active') {
+    return NextResponse.json({ success: false, error: 'An active Premium plan is required to add a child slot.' }, { status: 409 });
+  }
+  if (sub.addon_children >= MAX_ADDON_CHILDREN) {
+    return NextResponse.json({ success: false, error: 'Your account already has the maximum number of child slots.' }, { status: 409 });
   }
 
-  // Captured here (browser request context) so the Paymongo webhook —
-  // server-to-server, no cookies/IP of its own — can still attach them to
-  // the Meta CAPI event later for match-quality scoring.
-  const fbp = request.cookies.get('_fbp')?.value || null;
-  const fbc = request.cookies.get('_fbc')?.value || null;
-  const clientIp = request.headers.get('x-forwarded-for')?.split(',')[0].trim()
-    || request.headers.get('x-real-ip')
-    || null;
-  const clientUserAgent = request.headers.get('user-agent') || null;
-
-  const amountPhp = BASE_PRICE_PHP;
-  const lineItems = [
-    { currency: 'PHP', amount: BASE_PRICE_PHP * 100, name: 'Learning Hall Premium (1 year)', quantity: 1 },
-  ];
+  const until = sub.current_period_end
+    ? new Date(sub.current_period_end).toLocaleDateString('en-PH', { month: 'short', day: 'numeric', year: 'numeric' })
+    : null;
 
   const paymongoRes = await fetch('https://api.paymongo.com/v1/checkout_sessions', {
     method: 'POST',
@@ -58,12 +56,19 @@ export async function POST(request: NextRequest) {
           send_email_receipt: false,
           show_line_items: true,
           show_description: true,
-          line_items: lineItems,
+          line_items: [
+            {
+              currency: 'PHP',
+              amount: CHILD_SLOT_PRICE_PHP * 100,
+              name: until ? `Additional child slot (until ${until})` : 'Additional child slot',
+              quantity: 1,
+            },
+          ],
           payment_method_types: ['gcash', 'card', 'paymaya'],
-          description: 'Learning Hall parent subscription',
+          description: 'Learning Hall — one more child on your Premium plan',
           success_url: `${siteUrl}/parent-dashboard?checkout=success`,
           cancel_url: `${siteUrl}/parent-dashboard?checkout=cancelled`,
-          metadata: { parent_id: userData.user.id },
+          metadata: { type: 'child_slot', parent_id: userData.user.id },
         },
       },
     }),
@@ -82,18 +87,12 @@ export async function POST(request: NextRequest) {
     auth: { autoRefreshToken: false, persistSession: false },
   });
 
-  const { error: rpcError } = await supabaseAsUser.rpc('create_checkout_session', {
-    p_addon_children: 0,
-    p_amount_php: amountPhp,
+  const { error: rpcError } = await supabaseAsUser.rpc('create_child_slot_checkout', {
     p_checkout_id: checkoutId,
-    p_fbp: fbp,
-    p_fbc: fbc,
-    p_client_ip: clientIp,
-    p_client_user_agent: clientUserAgent,
+    p_amount_php: CHILD_SLOT_PRICE_PHP,
   });
-
   if (rpcError) {
-    return NextResponse.json({ success: false, error: rpcError.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: rpcError.message }, { status: 409 });
   }
 
   return NextResponse.json({ success: true, checkoutUrl });

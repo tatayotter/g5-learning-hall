@@ -41,12 +41,19 @@ export default function TermsPage() {
           <h2 className="text-lg font-bold text-white">Free plan and Premium subscription</h2>
           <p>
             The core app is free to use with one child account. Premium (currently ₱249/year per
-            account, with optional additional child slots at ₱99/year each, up to 5 children total)
-            unlocks journal viewing, gold coin rewards, weak-topic reports, and side-by-side comparison
-            between children. Premium is a <strong>one-time annual purchase, not an auto-renewing
-            subscription</strong> — no card is stored or automatically charged. Access runs for one year
-            from purchase; we&apos;ll remind you before it lapses, and you choose whether to purchase
-            another year.
+            account, including up to 3 children) unlocks journal viewing, gold coin rewards, weak-topic
+            reports, and side-by-side comparison between children. Premium is a <strong>one-time annual
+            purchase, not an auto-renewing subscription</strong> — no card is stored or automatically
+            charged. Access runs for one year from purchase; we&apos;ll remind you before it lapses, and
+            you choose whether to purchase another year.
+          </p>
+          <p>
+            Premium accounts can also buy <strong>additional child slots</strong> (currently ₱99 each,
+            up to 5 children total). A child slot is a <strong>one-time purchase that stays on your
+            account permanently</strong> — it is not charged again when you renew Premium, and it does
+            not change your Premium renewal date or coin balance. If you don&apos;t renew Premium, the
+            Premium features above are locked, but you keep your purchased slots: your account can then
+            hold one child plus one more for each slot you bought.
           </p>
         </section>
 

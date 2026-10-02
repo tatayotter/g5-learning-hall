@@ -1,29 +1,32 @@
--- Starting a Premium checkout no longer downgrades an already-active
--- subscription before the parent has paid.
+-- Premium (yearly) checkouts no longer downgrade an active subscription, and
+-- never touch the parent's child slots.
 --
--- Bug: create_checkout_session upserts the parent's single subscriptions row
+-- Bug: create_checkout_session upserted the parent's single subscriptions row
 -- with `status = 'pending'`, `addon_children = <requested>` and
--- `amount_php = <requested>` unconditionally. For a parent who is already
--- Premium (e.g. tapping "Add a Child Slot"), that immediately:
---   - flips them to 'pending', so max_children_for_parent drops to 1 and every
---     Premium feature (journal, weak topics, coin awards, compare) locks;
---   - overwrites addon_children / amount_php with a purchase that hasn't
---     happened.
--- If the checkout is abandoned, they stay downgraded indefinitely. Found
--- 2026-10-02 while testing an add-slot checkout on a test parent account.
+-- `amount_php = <requested>` unconditionally. For an already-active parent
+-- that immediately:
+--   - flipped them to 'pending', so max_children_for_parent dropped to the
+--     free limit and every Premium feature locked until they paid (forever,
+--     if they abandoned the checkout);
+--   - overwrote addon_children with whatever the checkout requested.
+-- Found 2026-10-02 while testing an add-slot checkout on a test parent account.
 --
--- Fix: the requested purchase is staged in new pending_addon_children /
--- pending_amount_php columns. An active row keeps its status, addon_children
--- and amount_php until payment; a non-active row behaves exactly as before
--- (status 'pending' + requested values written directly). The webhook then
--- applies the staged values when the payment lands — amount_php must be
--- current by then because fireParentSubscribedCapiEvent reads it for revenue.
+-- Product rules (2026-10-02): Premium is ₱249/year; extra child slots are a
+-- separate one-time ₱99 purchase the account keeps forever (see
+-- 20261002150000_child_slot_purchase.sql). So a yearly checkout only buys the
+-- year — it must never change addon_children.
 --
--- Both function signatures are unchanged, so CREATE OR REPLACE replaces them
--- in place (no overload trap) and existing grants carry over.
+-- Fix:
+--   - create_checkout_session no longer writes addon_children at all
+--     (p_addon_children is kept in the signature for compatibility and must
+--     be 0). An active row keeps its status; the new purchase amount is staged
+--     in pending_amount_php. A non-active row goes to 'pending' as before.
+--   - handle_paymongo_webhook applies the staged amount (amount_php feeds the
+--     Parent_Subscribed CAPI revenue event) and leaves addon_children alone.
+-- Signatures are unchanged, so CREATE OR REPLACE replaces in place (no
+-- overload trap) and existing grants carry over.
 
 alter table public.subscriptions
-  add column if not exists pending_addon_children integer,
   add column if not exists pending_amount_php numeric;
 
 create or replace function public.create_checkout_session(
@@ -41,8 +44,9 @@ security definer
 set search_path to 'public'
 as $function$
 begin
-  if p_addon_children < 0 or p_addon_children > 2 then
-    raise exception 'invalid addon_children';
+  -- Slots are bought separately now; a yearly checkout never carries any.
+  if p_addon_children is distinct from 0 then
+    raise exception 'child slots are purchased separately';
   end if;
 
   if not exists (select 1 from public.parents where id = auth.uid()) then
@@ -50,24 +54,18 @@ begin
   end if;
 
   insert into public.subscriptions (
-    parent_id, status, addon_children, amount_php, paymongo_checkout_id,
-    pending_addon_children, pending_amount_php,
+    parent_id, status, amount_php, pending_amount_php, paymongo_checkout_id,
     fbp, fbc, client_ip, client_user_agent
   )
   values (
-    auth.uid(), 'pending', p_addon_children, p_amount_php, p_checkout_id,
-    p_addon_children, p_amount_php,
+    auth.uid(), 'pending', p_amount_php, p_amount_php, p_checkout_id,
     p_fbp, p_fbc, p_client_ip, p_client_user_agent
   )
   on conflict (parent_id) do update
-    set -- An active Premium parent keeps everything they've paid for until
-        -- this new checkout is actually paid (see handle_paymongo_webhook).
+    set -- An active parent keeps Premium until this checkout is actually paid.
         status = case when subscriptions.status = 'active' then 'active' else 'pending' end,
-        addon_children = case when subscriptions.status = 'active'
-                              then subscriptions.addon_children else excluded.addon_children end,
         amount_php = case when subscriptions.status = 'active'
                           then subscriptions.amount_php else excluded.amount_php end,
-        pending_addon_children = excluded.pending_addon_children,
         pending_amount_php = excluded.pending_amount_php,
         paymongo_checkout_id = excluded.paymongo_checkout_id,
         fbp = excluded.fbp,
@@ -92,11 +90,8 @@ begin
       current_period_start = now(),
       current_period_end = now() + interval '1 year',
       coin_pool_balance = 10000,
-      -- Apply the purchase staged by create_checkout_session. coalesce keeps
-      -- rows staged before this migration (pending_* null) working as before.
-      addon_children = coalesce(pending_addon_children, addon_children),
+      -- coalesce keeps rows staged before this migration working as before.
       amount_php = coalesce(pending_amount_php, amount_php),
-      pending_addon_children = null,
       pending_amount_php = null,
       paymongo_payment_id = p_payment_id,
       updated_at = now()
