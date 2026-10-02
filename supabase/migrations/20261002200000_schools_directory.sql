@@ -135,7 +135,7 @@ insert into public.schools (deped_school_id, name, aliases, city, province, sour
   ('132268', 'Navarro Memorial Central Elementary School', '{}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
   ('132269', 'Quezon Elementary School', '{}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
   ('132270', 'Roxas Elementary School', '{}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
-  ('132271', 'Surigao City Central Elementary School', '{"scces"}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
+  ('132271', 'Surigao City Central Elementary School', '{"scces","succes"}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
   ('132272', 'Surigao City Pilot School', '{"scps","pilot","pilot school","surigao city pilot sch"}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
   ('132273', 'Alang-Alang Elementary School', '{}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
   ('132274', 'Alegria Elementary School', '{}', 'Surigao City', 'Surigao del Norte', 'deped_nid'),
@@ -176,7 +176,7 @@ on conflict (deped_school_id) do nothing;
 insert into public.schools (name, aliases, city, province, source) values
   ('St. Paul University Surigao', '{"spus"}', 'Surigao City', 'Surigao del Norte', 'user_entered'),
   ('Surigao Education Center', '{}', 'Surigao City', 'Surigao del Norte', 'user_entered'),
-  ('Butuan Child Academy Inc.', '{}', 'Butuan City', 'Agusan del Norte', 'user_entered'),
+  ('Butuan Child Academy Inc.', '{"bcai"}', 'Butuan City', 'Agusan del Norte', 'user_entered'),
   ('Tubajon Central Elementary School', '{}', 'Tubajon', 'Dinagat Islands', 'user_entered'),
   ('Kitcharao Central Elementary School', '{"kitcharao central es"}', 'Kitcharao', 'Agusan del Norte', 'user_entered'),
   ('Oslao Elementary School', '{}', null, null, 'user_entered'),
