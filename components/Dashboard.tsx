@@ -29,6 +29,7 @@ import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMy
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
 import PushOptInCard from '@/components/PushOptInCard';
+import { recordPushOpenFromUrl } from '@/lib/push';
 import type { GuildView } from '@/components/monster/types';
 
 // Runtime mirror of the GuildView union — needed to validate a query-param
@@ -424,6 +425,7 @@ export default function Dashboard() {
   // a URL that still says otherwise.
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    recordPushOpenFromUrl();
     const params = new URLSearchParams(window.location.search);
     const tab = params.get('tab');
     if (!tab) return;

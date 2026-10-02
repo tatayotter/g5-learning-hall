@@ -32,6 +32,7 @@ self.addEventListener('push', (event) => {
     badge: payload.badge || '/icons/icon-192.png',
     data: {
       url: payload.url || '/',
+      qid: payload.qid || null,
     },
   };
   // Same tag = the new notification replaces the old one instead of
@@ -44,7 +45,11 @@ self.addEventListener('push', (event) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
   const targetPath = event.notification.data?.url || '/';
-  const targetUrl = new URL(targetPath, self.location.origin).href;
+  const target = new URL(targetPath, self.location.origin);
+  // Queue row id, so the page can record the open (mark_push_opened).
+  const qid = event.notification.data?.qid;
+  if (qid) target.searchParams.set('pq', qid);
+  const targetUrl = target.href;
 
   event.waitUntil(
     self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(async (clients) => {

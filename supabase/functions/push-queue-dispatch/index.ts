@@ -90,7 +90,8 @@ Deno.serve(async (req: Request) => {
         // for 4 weeks, so an offline phone got stale reminders days later.
         await webpush.sendNotification(
           { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth_key } },
-          JSON.stringify({ title: item.title, body: item.body, url: item.url, tag: item.tag }),
+          // qid comes back as ?pq= on the opened page (mark_push_opened).
+          JSON.stringify({ title: item.title, body: item.body, url: item.url, tag: item.tag, qid: item.id }),
           { TTL: remainingTtl, urgency: 'normal' },
         );
         deliveredCount++;
