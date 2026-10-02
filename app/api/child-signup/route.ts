@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { verifyTurnstileToken } from '@/lib/turnstile';
 
 // Maps create_unclaimed_child_account's raw exception text to something a
 // kid can act on. Unknown errors pass through unchanged.
@@ -26,7 +27,7 @@ function friendlySignupError(message: string): string {
 // browser, and so the real client IP (unavailable to browser JS) can be
 // attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
-  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode, attribution } = await request.json();
+  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode, attribution, turnstileToken } = await request.json();
 
   if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false, error: 'missing session' }, { status: 400 });
@@ -35,6 +36,14 @@ export async function POST(request: NextRequest) {
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim()
     || request.headers.get('x-real-ip')
     || 'unknown';
+
+  const turnstile = await verifyTurnstileToken(turnstileToken, ip);
+  if (turnstile !== 'ok') {
+    const message = turnstile === 'missing'
+      ? 'Still checking that you are human. Wait a moment, then tap the button again.'
+      : 'The security check didn\'t pass. Please try again.';
+    return NextResponse.json({ success: false, error: message }, { status: 400 });
+  }
 
   const authedClient = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,

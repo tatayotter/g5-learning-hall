@@ -8,6 +8,7 @@ import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
 import GameButton from '@/components/GameButton';
 import { validateReferralCode } from '@/lib/referral';
+import TurnstileWidget from '@/components/TurnstileWidget';
 
 interface ChildSignupFormProps {
   source: 'organic';
@@ -22,6 +23,10 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
   const [data, setData] = useState<ChildFormData>(emptyChildForm());
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  // Bumped after every submit attempt: Turnstile tokens are single-use, so a
+  // retry (e.g. after "username already taken") needs a fresh widget.
+  const [turnstileKey, setTurnstileKey] = useState(0);
 
   // Referral code state — pre-filled from ?ref= URL param if provided
   const [referralCode, setReferralCode] = useState(initialReferralCode ?? '');
@@ -84,6 +89,7 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
           sessionId: getOrCreateSessionId(),
           referralCode: referralCode.trim() || null,
           attribution: getStoredAttribution(),
+          turnstileToken,
         }),
       });
       const result = await res.json();
@@ -105,6 +111,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
       router.push('/');
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
+      setTurnstileToken('');
+      setTurnstileKey((k) => k + 1);
     } finally {
       setSubmitting(false);
     }
@@ -164,6 +172,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
           </p>
         )}
       </div>
+
+      <TurnstileWidget key={turnstileKey} onToken={setTurnstileToken} />
 
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-[14px] px-3 py-2">
