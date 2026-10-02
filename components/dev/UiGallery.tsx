@@ -74,6 +74,7 @@ import { BOSS_PERSONAS, getPersonasForGrade } from '@/lib/bossPersonas';
 import BossArena from '@/components/monster/boss/BossArena';
 import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
+import PushOptInCard from '@/components/PushOptInCard';
 import {
   playChime, playClash, playCoins, playBlessing, playLevelUp, playPageFlip,
   playFootstepGrass, playFootstepTown, playWallBump, playNearbyWhoosh, playMonsterAppear,
@@ -372,6 +373,13 @@ export default function UiGallery() {
       >
         <div style={{ fontSize: 40 }}>
           <GameButton variant="quest" onClick={() => {}}>START QUEST</GameButton>
+        </div>
+      </Section>
+
+      <Section title="Push opt-in card" note="components/PushOptInCard.tsx — Board tab, shown once xp > 0. Hidden if already subscribed, denied, snoozed, or unsupported (APK WebView); iPhone Safari tab shows Add-to-Home-Screen steps instead.">
+        <div className="space-y-3">
+          <PushOptInCard owner={{ kind: 'app_user', id: 'gallery_mock' }} previewState="ask" />
+          <PushOptInCard owner={{ kind: 'app_user', id: 'gallery_mock' }} previewState="ios-install" />
         </div>
       </Section>
 

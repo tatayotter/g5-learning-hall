@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from 'react';
 import {
-  isPushSupported,
+  usePushAvailability,
   getExistingSubscription,
   subscribeToPush,
   unsubscribeFromPush,
@@ -23,19 +23,32 @@ interface PushNotificationSettingsProps {
 }
 
 export default function PushNotificationSettings({ owner, variant = 'row' }: PushNotificationSettingsProps) {
-  const [supported, setSupported] = useState(false);
+  const availability = usePushAvailability();
   const [subscribed, setSubscribed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [testStatus, setTestStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [goldReward, setGoldReward] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!isPushSupported()) return;
-    setSupported(true);
-    getExistingSubscription().then((sub) => setSubscribed(!!sub));
-  }, []);
+    if (availability === 'supported') getExistingSubscription().then((sub) => setSubscribed(!!sub));
+  }, [availability]);
 
-  if (!supported) return null;
+  if (availability === 'unsupported') return null;
+
+  // iPhone/iPad Safari: push exists only once the site is on the Home
+  // Screen. Say so instead of hiding the setting entirely.
+  if (availability === 'ios-needs-install') {
+    const hint = 'Add Learning Hall to your Home Screen first: tap Share, then Add to Home Screen, and open it from there.';
+    if (variant === 'ios') {
+      return <IosRow icon="bell" iconColor={IOS.red} title="Push Notifications" subtitle="Add to Home Screen first: tap Share, then Add to Home Screen" />;
+    }
+    return (
+      <div className={variant === 'card' ? 'rounded-xl border border-stone-200 bg-white p-4 shadow-sm' : ''}>
+        <p className="text-sm font-bold text-stone-700">Push notifications</p>
+        <p className="text-xs text-stone-500">{hint}</p>
+      </div>
+    );
+  }
 
   async function handleToggle() {
     setBusy(true);

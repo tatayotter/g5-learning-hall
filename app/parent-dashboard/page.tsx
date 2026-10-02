@@ -9,7 +9,6 @@ import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
-import { autoPromptForPush } from '@/lib/push';
 import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
@@ -108,12 +107,6 @@ export default function ParentDashboardPage() {
       return;
     }
     setParentId(user.id);
-    // Fires the browser's native permission prompt automatically (once per
-    // browser) instead of waiting for the parent to find the Notifications
-    // switch — each of their children gets a 300-gold bonus the next time
-    // they log in (see claim_push_gold_bonus_parent, claimed from
-    // components/Dashboard.tsx).
-    autoPromptForPush({ kind: 'parent', id: user.id });
     const { data: parentRow } = await supabase
       .from('parents')
       .select('status, full_name, marketing_opt_in')
