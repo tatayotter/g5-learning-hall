@@ -97,3 +97,11 @@ export function takePrefetch<T>(userId: string, key: string): Promise<T> | undef
   if (entry) cache.delete(key);
   return entry as Promise<T> | undefined;
 }
+
+// Discards a prefetched entry that a write made stale before its tab ever
+// mounted — e.g. the first-curio intro inserts the starter curio after the
+// login prefetch already captured an empty user_monsters list, which would
+// otherwise make Curio Arena's first mount offer the starter pick again.
+export function dropPrefetch(userId: string, key: string) {
+  if (cachedForUserId === userId) cache.delete(key);
+}

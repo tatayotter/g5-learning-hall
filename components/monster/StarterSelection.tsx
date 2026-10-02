@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { dropPrefetch } from '@/lib/tabPrefetch';
 import { MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
 import StarterClaimModal from '@/components/monster/StarterClaimModal';
@@ -45,6 +46,9 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
       seen_monsters: [],
       active_monster_slot: 1,
     }, { onConflict: 'user_id' });
+    // The login prefetch snapshotted user_monsters/battle state before this
+    // claim — drop it so Curio Arena's first mount refetches.
+    dropPrefetch(userId, 'monsterGuild');
     setSaving(false);
     if (!error) setClaimed(selected);
   };
