@@ -42,10 +42,13 @@ interface FirstCurioIntroProps {
   currentStats: CharacterStats;
   weekStartingDate: string | null;
   onRewards: (newStats: CharacterStats, xpEarned: number, goldEarned: number) => void;
-  onFinish: () => void;
+  /** Whether a real main quest is open for the post-training handoff. */
+  hasFirstQuest: boolean;
+  /** startFirstQuest: training was finished (not skipped) with a quest to hand off to. */
+  onFinish: (startFirstQuest: boolean) => void;
 }
 
-export default function FirstCurioIntro({ userId, playerName, grade, startAt, currentStats, weekStartingDate, onRewards, onFinish }: FirstCurioIntroProps) {
+export default function FirstCurioIntro({ userId, playerName, grade, startAt, currentStats, weekStartingDate, onRewards, hasFirstQuest, onFinish }: FirstCurioIntroProps) {
   const [stage, setStage] = useState<Stage>(startAt);
 
   if (stage === 'story') {
@@ -84,9 +87,10 @@ export default function FirstCurioIntro({ userId, playerName, grade, startAt, cu
       currentStats={currentStats}
       weekStartingDate={weekStartingDate}
       onRewards={onRewards}
-      onDone={() => {
+      hasFirstQuest={hasFirstQuest}
+      onDone={(completed) => {
         setIntroTrainingPending(userId, false);
-        onFinish();
+        onFinish(completed && hasFirstQuest);
       }}
     />
   );

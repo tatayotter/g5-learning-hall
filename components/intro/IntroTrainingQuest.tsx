@@ -31,11 +31,13 @@ interface IntroTrainingQuestProps {
   // Persists the quiz's XP/Gold (Dashboard routes it through updateStatsAndJournal).
   onRewards: (newStats: CharacterStats, xpEarned: number, goldEarned: number) => void;
   onDone: (completed: boolean) => void;
+  /** A real main quest is open to hand off to — changes the victory button. */
+  hasFirstQuest?: boolean;
 }
 
 type Phase = 'study' | 'ready' | 'quiz';
 
-export default function IntroTrainingQuest({ userId, grade, currentStats, weekStartingDate, onRewards, onDone }: IntroTrainingQuestProps) {
+export default function IntroTrainingQuest({ userId, grade, currentStats, weekStartingDate, onRewards, onDone, hasFirstQuest = false }: IntroTrainingQuestProps) {
   const questions = useMemo(() => getTrainingQuiz(grade), [grade]);
   const questData = useMemo(() => ({ quiz: questions.map(q => ({ question: q.question, options: q.options })) }), [questions]);
   const [phase, setPhase] = useState<Phase>('study');
@@ -114,7 +116,7 @@ export default function IntroTrainingQuest({ userId, grade, currentStats, weekSt
         {phase === 'quiz' && (
           <QuestModule
             practice
-            exitLabel="Go to the Campaign Map"
+            exitLabel={hasFirstQuest ? 'Start Your First Real Quest' : 'Go to the Campaign Map'}
             userId={userId}
             questName="Wake Your Curio"
             questKey="intro_training"
@@ -137,7 +139,7 @@ export default function IntroTrainingQuest({ userId, grade, currentStats, weekSt
               }
             }}
             onExit={() => {
-              trackEvent('intro_training_completed', { attempts, grade });
+              trackEvent('intro_training_completed', { attempts, grade, handoff: hasFirstQuest });
               onDone(true);
             }}
           />

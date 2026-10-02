@@ -86,6 +86,7 @@ import {
 } from '@/lib/masteryGauntletEngine';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { WEEKDAYS } from '@/lib/weekdays';
+import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
 
 // Swaps <html>'s theme class for the one tied to `themeKey` (default has
 // none). Always removes every known theme class first so switching between
@@ -712,6 +713,29 @@ export default function Dashboard() {
     return null;
   }, [mainQuestPackageData, data?.mastered_quizzes]);
 
+  // Post-intro handoff (usage data 2026-10-02): kids finished the training
+  // quest, landed on the Board via "Go to the Campaign Map", and 6 of 7
+  // stopped there. Instead the training quest's victory button opens this
+  // real quest's study notes directly — today's first open one, else the
+  // earliest open one this week (weekends have no quests of their own).
+  const introFirstQuestKey = useMemo(() => {
+    const mastered = data?.mastered_quizzes || [];
+    const attempts = (data?.daily_quest_attempts || {}) as Record<string, number>;
+    const today = format(new Date(), 'EEEE');
+    const days = [today, ...WEEKDAYS.filter(d => d !== today)];
+    for (const day of days) {
+      const subject = Object.keys(mainQuestPackageData[day] || {}).find(s =>
+        !mastered.includes(`${day}_${s}`) && (attempts[`${day}_${s}`] || 0) < MAIN_QUEST_DAILY_ATTEMPT_CAP);
+      if (subject) return `${day}_${subject}`;
+    }
+    return null;
+  }, [mainQuestPackageData, data?.mastered_quizzes, data?.daily_quest_attempts]);
+  // True while the handed-off quest is open, so the board tutorial doesn't
+  // pop its "find an open quest" spotlight over the quest they're already in.
+  // Cleared when they leave that quest (ActiveQuestView's setActiveQuest
+  // below); the tutorial then runs as normal.
+  const [introHandoffQuest, setIntroHandoffQuest] = useState(false);
+
   // Board-tab first-visit tutorial: real spotlight on real elements instead
   // of an upfront slideshow. Gated by the same server-tracked
   // showOnboarding/handleCompleteOnboarding flag the old OnboardingTour
@@ -737,7 +761,7 @@ export default function Dashboard() {
 
   const boardTutorial = useTutorialSequence({
     tabKey: 'board',
-    active: showOnboarding && activeTab === 'board' && introStart === null,
+    active: showOnboarding && activeTab === 'board' && introStart === null && !introHandoffQuest,
     steps: boardTutorialSteps,
     onDone: () => { handleCompleteOnboarding(); },
   });
@@ -878,7 +902,17 @@ export default function Dashboard() {
             updateStatsAndJournal(newStats, data.journal_logs);
             logAction(activeUserId, data.week_starting_date, 'quiz', 'Completed the Keeper training quest', xpEarned, goldEarned);
           }}
-          onFinish={() => setIntroStart(null)}
+          hasFirstQuest={introFirstQuestKey !== null}
+          onFinish={(startFirstQuest) => {
+            setIntroStart(null);
+            if (startFirstQuest && introFirstQuestKey) {
+              trackEvent('intro_first_quest_handoff', { quest: introFirstQuestKey });
+              setIntroHandoffQuest(true);
+              setActiveTab('board');
+              setActiveQuest(introFirstQuestKey);
+              setQuizPhase('study');
+            }
+          }}
         />
       )}
       {boardTutorial.step && (
@@ -1108,7 +1142,10 @@ export default function Dashboard() {
             mainQuestPackageData={mainQuestPackageData}
             quizPhase={quizPhase}
             setQuizPhase={setQuizPhase}
-            setActiveQuest={setActiveQuest}
+            setActiveQuest={(quest) => {
+              setActiveQuest(quest);
+              if (quest === null) setIntroHandoffQuest(false);
+            }}
             studyReadRemaining={studyReadRemaining}
             data={data}
             todayStr={todayStr}
