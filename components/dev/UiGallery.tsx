@@ -745,6 +745,7 @@ export default function UiGallery() {
             currentStats={{ level: 1, xp: 0, gold: 0 }}
             weekStartingDate={null}
             onRewards={() => {}}
+            hasFirstQuest
             onDone={() => setIntroPreview(null)}
           />
         )}
