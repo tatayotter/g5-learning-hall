@@ -119,6 +119,9 @@ interface TrainingMapProps {
   onEnterCurio?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
   onTradePlayer?: (targetId: string, name: string) => void;
+  // Set while the player is an unlinked child: tapping another student or
+  // bot on the map shows the parent-link gate instead of their stats card.
+  onGatedPlayerClick?: () => void;
   /** Called when the player walks within 1 tile of a trainer NPC on the map. */
   onTrainerEncounter?: (trainer: NpcTrainer) => void;
   /** Called with gold earned when the player trades trash at the Recycler NPC. */
@@ -145,7 +148,7 @@ interface TrainingMapProps {
 export default function TrainingMap({
   userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
-  activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onTrainerEncounter, onTrashTraded,
+  activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
 }: TrainingMapProps) {
@@ -650,7 +653,7 @@ export default function TrainingMap({
         trashItems={trashItems}
         collectingTrashIds={collectingTrashIds}
         recyclerTile={recyclerTile}
-        onPlayerClick={(id: string) => { playPageFlip(); setStatsTargetId(id); }}
+        onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {lockedPortalMsg && (
         <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">

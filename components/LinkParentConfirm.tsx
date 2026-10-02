@@ -33,6 +33,7 @@ export default function LinkParentConfirm() {
   const [fullName, setFullName] = useState('');
   const [error, setError] = useState('');
   const [goldAwarded, setGoldAwarded] = useState(false);
+  const [pillsAwarded, setPillsAwarded] = useState(0);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function LinkParentConfirm() {
       return;
     }
     setGoldAwarded(Boolean(data.gold_awarded));
+    setPillsAwarded(Number(data.growth_pills_awarded) || 0);
     setStage('done');
   };
 
@@ -132,8 +134,15 @@ export default function LinkParentConfirm() {
       <div className="text-center space-y-3">
         <p className="text-3xl">🎉</p>
         <p className="text-slate-800 font-bold">You&apos;re linked to {childFirstName}!</p>
-        {goldAwarded && (
-          <p className="text-amber-600 text-base font-semibold">{childFirstName} just earned a 100 gold bonus.</p>
+        {(goldAwarded || pillsAwarded > 0) && (
+          <p className="text-amber-600 text-base font-semibold">
+            {childFirstName} just earned{' '}
+            {[
+              pillsAwarded > 0 && `${pillsAwarded} Growth Pills`,
+              goldAwarded && '100 gold',
+            ].filter(Boolean).join(' and ')}{' '}
+            for bringing you in.
+          </p>
         )}
         <button
           onClick={() => router.push('/parent-dashboard')}

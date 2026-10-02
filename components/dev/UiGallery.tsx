@@ -20,6 +20,8 @@
 //
 // Not linked anywhere in the real app. Safe to extend — add a new <Section>
 // or a new overlay case for whatever screen you're about to restyle next.
+import LinkParentBanner from '@/components/LinkParentBanner';
+import LinkParentGate from '@/components/LinkParentGate';
 import { useState } from 'react';
 import QuestCard from '@/components/QuestCard';
 import VisualAid from '@/components/quest/VisualAid';
@@ -155,7 +157,7 @@ function AnswerSwatch({ state, label }: { state: 'default' | 'selected' | 'corre
 
 type OverlayKey =
   | 'toast' | 'achievementToast' | 'critBonusToast' | 'liveBattleInvite'
-  | 'graduation' | 'growthPill' | 'eggHatch' | 'tutorSuccess' | 'tutorFail'
+  | 'graduation' | 'growthPill' | 'linkParentCta' | 'linkParentGate' | 'eggHatch' | 'tutorSuccess' | 'tutorFail'
   | 'dailyBonus' | 'curioReveal' | 'wildEncounter' | 'eventAnnouncement'
   | 'duplicateCatch' | 'bossVictory' | 'termBossIntro' | 'bossMist' | 'bossPersonaFan'
   | 'guildResultsHigh' | 'guildResultsLow' | 'mtapSet' | 'mtapMixed';
@@ -317,6 +319,10 @@ export default function UiGallery() {
       case 'termBossIntro':
         // Grade 5's full roster, with Solarch standing in for the kid's Curio.
         return <TermBossIntro personas={getPersonasForGrade(5)} curio={{ def: MONSTERS.solarch, name: 'Solarch' }} onFinish={close} onSkip={close} />;
+      case 'linkParentCta':
+        return <div className="fixed inset-0 z-[80] bg-[#f5f0e8]" onClick={e => { if (e.target === e.currentTarget) close(); }}><LinkParentBanner forceShow /></div>;
+      case 'linkParentGate':
+        return <div className="fixed inset-0 z-[80] bg-black/60 flex items-center justify-center p-4 overflow-y-auto" onClick={e => { if (e.target === e.currentTarget) close(); }}><LinkParentGate feature="battles with other students" onClose={close} /></div>;
       case 'bossMist':
         return <BossMistOverlay defeated={2} total={5} />;
       case 'bossPersonaFan':
@@ -900,6 +906,8 @@ export default function UiGallery() {
           <PreviewButton label="LiveBattleInviteToast" onClick={() => setActiveOverlay('liveBattleInvite')} />
           <PreviewButton label="GraduationCeremonyModal" onClick={() => setActiveOverlay('graduation')} />
           <PreviewButton label="GrowthPillCeremonyModal" onClick={() => setActiveOverlay('growthPill')} />
+          <PreviewButton label="LinkParentBanner (Parent Quest CTA)" onClick={() => setActiveOverlay('linkParentCta')} />
+          <PreviewButton label="LinkParentGate (arena battle modal)" onClick={() => setActiveOverlay('linkParentGate')} />
           <PreviewButton label="EggHatchModal" onClick={() => setActiveOverlay('eggHatch')} />
           <PreviewButton label="TutorRollModal (success)" onClick={() => setActiveOverlay('tutorSuccess')} />
           <PreviewButton label="TutorRollModal (fail)" onClick={() => setActiveOverlay('tutorFail')} />
