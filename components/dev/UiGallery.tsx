@@ -75,6 +75,8 @@ import BossArena from '@/components/monster/boss/BossArena';
 import type { BossQuestion } from '@/lib/bossFightEngine';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import PushOptInCard from '@/components/PushOptInCard';
+import SchoolPicker from '@/components/SchoolPicker';
+import type { School } from '@/lib/schools';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import {
   playChime, playClash, playCoins, playBlessing, playLevelUp, playPageFlip,
@@ -375,6 +377,10 @@ export default function UiGallery() {
         <div style={{ fontSize: 40 }}>
           <GameButton variant="quest" onClick={() => {}}>START QUEST</GameButton>
         </div>
+      </Section>
+
+      <Section title="School picker" note="components/SchoolPicker.tsx — registration school field with directory autocomplete (lib/schools.ts). Try: scsses, pilot, special science, or a school that isn't listed. Uses a preset list here; live forms read the schools table.">
+        <GallerySchoolPicker />
       </Section>
 
       <Section title="Push opt-in card" note="components/PushOptInCard.tsx — Board tab, shown once xp > 0. Hidden if already subscribed, denied, snoozed, or unsupported (APK WebView); iPhone Safari tab shows Add-to-Home-Screen steps instead.">
@@ -953,6 +959,30 @@ export default function UiGallery() {
           </button>
         </>
       )}
+    </div>
+  );
+}
+
+const GALLERY_SCHOOLS: School[] = [
+  { id: 'g1', name: 'Surigao City Special Science Elementary School', aliases: ['scsses', 'sses', 'special science elementary school'], city: 'Surigao City', province: 'Surigao del Norte', source: 'deped_nid' },
+  { id: 'g2', name: 'Surigao City Pilot School', aliases: ['scps', 'pilot', 'pilot school'], city: 'Surigao City', province: 'Surigao del Norte', source: 'deped_nid' },
+  { id: 'g3', name: 'Surigao City Central Elementary School', aliases: ['scces'], city: 'Surigao City', province: 'Surigao del Norte', source: 'deped_nid' },
+  { id: 'g4', name: 'Surigao West Central Elementary School', aliases: ['swces'], city: 'Surigao City', province: 'Surigao del Norte', source: 'deped_nid' },
+  { id: 'g5', name: 'St. Paul University Surigao', aliases: ['spus'], city: 'Surigao City', province: 'Surigao del Norte', source: 'user_entered' },
+  { id: 'g6', name: 'Oslao Elementary School', aliases: [], city: null, province: null, source: 'user_entered' },
+];
+
+function GallerySchoolPicker() {
+  const [value, setValue] = useState('');
+  return (
+    <div className="max-w-md bg-[#f0ddb8] border border-[#8b5e2a] rounded-2xl p-4 space-y-2">
+      <SchoolPicker
+        value={value}
+        onChange={setValue}
+        presetSchools={GALLERY_SCHOOLS}
+        inputClassName="w-full rounded-[14px] bg-white border border-[#c9a87a] px-4 py-3 text-base text-[#2a1505] placeholder:text-[#8b5e2a]/60 outline-none focus:border-[#c9781a]"
+      />
+      <p className="text-xs text-[#6b4820]">Saved value: {value || '(empty)'}</p>
     </div>
   );
 }
