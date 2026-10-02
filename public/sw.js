@@ -34,6 +34,9 @@ self.addEventListener('push', (event) => {
       url: payload.url || '/',
     },
   };
+  // Same tag = the new notification replaces the old one instead of
+  // stacking (e.g. two weekly-content pushes, or a repeat reminder).
+  if (payload.tag) options.tag = payload.tag;
 
   event.waitUntil(self.registration.showNotification(title, options));
 });

@@ -32,9 +32,8 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
 };
 
-// Deliberately scoped to "send to myself" for now (plumbing phase — see
-// project memory: push triggers/broadcast are a deliberate follow-up, not
-// built here). We forward the caller's own JWT into the Supabase client
+// Deliberately scoped to "send to myself" — pushes to anyone else go
+// through push_notification_queue + push-queue-dispatch. We forward the caller's own JWT into the Supabase client
 // below instead of using the service role — so RLS on push_subscriptions
 // (owner must match auth.uid()'s bridged app_user_id or parent id) is what
 // actually stops a caller from ever reading/sending to someone else's
@@ -98,6 +97,9 @@ Deno.serve(async (req: Request) => {
           keys: { p256dh: sub.p256dh, auth: sub.auth_key },
         },
         JSON.stringify({ title: payload.title, body: payload.body, url: payload.url }),
+        // Self-pushes are immediate by nature; without a TTL web-push asks
+        // the push service to hold an undelivered one for 4 weeks.
+        { TTL: 60 * 60, urgency: 'normal' },
       );
       sent++;
     } catch (err) {

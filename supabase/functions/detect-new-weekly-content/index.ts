@@ -44,6 +44,14 @@ Deno.serve(async (req: Request) => {
   let notifiedGrades = 0;
   let queued = 0;
 
+  let subscriberIdsCache: string[] | null = null;
+  async function loadSubscriberIds(): Promise<string[]> {
+    if (subscriberIdsCache) return subscriberIdsCache;
+    const { data } = await admin.from('push_subscriptions').select('owner_id').eq('owner_kind', 'app_user');
+    subscriberIdsCache = [...new Set((data ?? []).map((s) => s.owner_id as string))];
+    return subscriberIdsCache;
+  }
+
   for (const week of weeks ?? []) {
     const { count: dayCount } = await admin
       .from('content_days')
@@ -53,19 +61,26 @@ Deno.serve(async (req: Request) => {
     if (!dayCount) continue; // week row exists but admin hasn't actually saved content yet
 
     const gradeLabel = `Grade ${week.grade}`;
-    const [{ data: children }, { data: classmates }] = await Promise.all([
-      admin.from('children').select('id').eq('grade', gradeLabel).eq('is_active', true),
-      admin.from('classmates').select('id').eq('grade', gradeLabel).eq('is_active', true),
-    ]);
+    // Only players who can actually receive it — queuing every kid in the
+    // grade meant ~97% of rows had no subscription behind them.
+    const subscriberIds = await loadSubscriberIds();
+    const [{ data: children }, { data: classmates }] = subscriberIds.length === 0
+      ? [{ data: [] }, { data: [] }]
+      : await Promise.all([
+          admin.from('children').select('id').in('id', subscriberIds).eq('grade', gradeLabel).eq('is_active', true),
+          admin.from('classmates').select('id').in('id', subscriberIds).eq('grade', gradeLabel).eq('is_active', true),
+        ]);
 
     const recipients = [...(children ?? []), ...(classmates ?? [])];
     if (recipients.length > 0) {
       const rows = recipients.map((r) => ({
         owner_kind: 'app_user' as const,
         owner_id: r.id as string,
-        title: 'New Quests This Week! 📖',
-        body: `${gradeLabel} content is ready — jump in and see what's new!`,
+        title: 'New quests are here',
+        body: `This week's ${gradeLabel} lessons are ready. Come see what's new!`,
         url: '/?tab=board',
+        ttl_seconds: 24 * 60 * 60,
+        tag: 'weekly-content',
       }));
       const { error: insertErr } = await admin.from('push_notification_queue').insert(rows);
       if (insertErr) {
