@@ -265,7 +265,7 @@ export default function FeaturesPage() {
             </p>
             <CTAButtons />
             <a
-              href="/parent-dashboard/pricing"
+              href="/welcome/pricing"
               className="inline-block mt-4 text-[12.5px] text-slate-400 hover:text-sky-500 transition-colors tracking-wide"
             >
               Free vs. Premium — See Pricing →

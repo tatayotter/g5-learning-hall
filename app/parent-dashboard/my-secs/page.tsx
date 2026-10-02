@@ -1,12 +1,19 @@
 'use client';
-// "My SECs" — a parent's owned Student Enrichment Content packs, grouped by
-// child, with anytime reviewer access (confirmed decision in
-// docs/sec-shop-design.md: "for parent, they can view the reviewer
-// anytime... they will have a tab 'my SECs'"). Sibling to /parent-dashboard/shop.
-import { useEffect, useState } from 'react';
+// "My SECs" — a parent's owned Student Enrichment Content packs, with
+// anytime reviewer access (confirmed decision in docs/sec-shop-design.md:
+// "for parent, they can view the reviewer anytime... they will have a tab
+// 'my SECs'"). Sibling to /parent-dashboard/shop. Liquid Glass styling:
+// owned packs list → pushed strand list per pack → worked-example reviewer
+// in a sheet (the reviewer itself is the same MtapReviewerPanel the child's
+// Bonus Quests tab uses).
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import MySecPackReviewer from '@/components/dashboard/MySecPackReviewer';
+import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
+import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
+import {
+  IOS, IosBarButton, IosCapsule, IosContent, IosGroup, IosNavBar, IosPushedPage, IosRow, IosScreen, IosSheet,
+} from '@/components/parent/ios';
 
 interface ChildRow {
   id: string;
@@ -33,7 +40,10 @@ export default function MySecsPage() {
   const [kids, setKids] = useState<ChildRow[]>([]);
   const [packs, setPacks] = useState<SecPack[]>([]);
   const [entitlements, setEntitlements] = useState<EntitlementRow[]>([]);
-  const [openReviewer, setOpenReviewer] = useState<{ grade: number } | null>(null);
+  // Pushed "study" page for one pack, mirrored into history so the back
+  // gesture pops it (same pattern as the parent dashboard's child page).
+  const [openPack, setOpenPack] = useState<SecPack | null>(null);
+  const [openStrand, setOpenStrand] = useState<number | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -54,17 +64,33 @@ export default function MySecsPage() {
     })();
   }, [router]);
 
-  if (loading) {
-    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Loading…</main>;
-  }
+  useEffect(() => {
+    const onPop = () => {
+      if (!(window.history.state as { secPack?: string } | null)?.secPack) setOpenPack(null);
+      setOpenStrand(null);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
-  if (openReviewer) {
+  const pushPack = (pack: SecPack) => {
+    window.history.pushState({ secPack: pack.id }, '');
+    setOpenPack(pack);
+  };
+  const popPack = () => {
+    if ((window.history.state as { secPack?: string } | null)?.secPack) window.history.back();
+    else setOpenPack(null);
+  };
+  const closeStrand = useCallback(() => setOpenStrand(null), []);
+
+  const back = <IosBarButton back onClick={() => router.push('/parent-dashboard')}>Family</IosBarButton>;
+
+  if (loading) {
     return (
-      <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4">
-        <div className="max-w-2xl mx-auto">
-          <MySecPackReviewer grade={openReviewer.grade} onClose={() => setOpenReviewer(null)} />
-        </div>
-      </main>
+      <IosScreen>
+        <IosNavBar large={false} title="My SECs" left={back} />
+        <p className="text-center text-[15px] py-16" style={{ color: IOS.secondary }}>Loading…</p>
+      </IosScreen>
     );
   }
 
@@ -74,45 +100,79 @@ export default function MySecsPage() {
     .map((e) => ({ ent: e, pack: packById.get(e.pack_id), kid: kidById.get(e.child_id) }))
     .filter((row) => row.pack && row.kid);
 
+  const strands = openPack ? MTAP_STRANDS_BY_GRADE[openPack.grade] || [] : [];
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4">
-      <div className="max-w-2xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-display font-bold text-slate-800">My SECs</h1>
-          <a href="/parent-dashboard" className="text-sm text-stone-500 hover:text-slate-700 underline">Back to dashboard</a>
-        </div>
-        <p className="text-sm text-stone-500">
-          Packs you&apos;ve bought for your kids. Play happens in their own Bonus Quests tab —
-          this page is for you to study the material anytime, no timer.
+    <IosScreen>
+      <IosNavBar title="My SECs" left={back} />
+      <IosContent>
+        <p className="px-1 -mt-3 text-[15px] leading-[20px]" style={{ color: IOS.secondary }}>
+          Packs you&apos;ve bought for your kids. They play in their own Bonus Quests tab — this is
+          where you can study the material anytime, no timer.
         </p>
 
         {owned.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-stone-300 p-8 text-center space-y-2">
-            <p className="text-stone-500 text-sm">You haven&apos;t bought any packs yet.</p>
-            <a href="/parent-dashboard/shop" className="text-orange-600 hover:text-orange-700 underline text-sm font-semibold">Visit the Shop</a>
-          </div>
+          <IosGroup footer="Quest packs are extra competition-level practice your child plays at their own pace.">
+            <IosRow icon="ticket" iconColor={IOS.indigo} title="No packs yet" />
+            <IosRow href="/parent-dashboard/shop" title="Visit the Shop" tint="blue" />
+          </IosGroup>
         ) : (
-          <div className="space-y-3">
+          <IosGroup header="Owned packs">
             {owned.map(({ ent, pack, kid }) => (
-              <div key={`${ent.child_id}-${ent.pack_id}`} className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 flex items-center justify-between gap-3 shadow-sm">
-                <div>
-                  <p className="font-bold text-slate-800">{pack!.title}</p>
-                  <p className="text-sm text-stone-500">For {kid!.full_name}</p>
-                  {ent.purchased_at && (
-                    <p className="text-xs text-stone-400 mt-0.5">Purchased {new Date(ent.purchased_at).toLocaleDateString()}</p>
-                  )}
-                </div>
-                <button
-                  onClick={() => setOpenReviewer({ grade: pack!.grade })}
-                  className="rounded-lg bg-green-600 hover:bg-green-700 text-[#ffffff] text-sm font-bold px-4 py-2 whitespace-nowrap transition-colors"
-                >
-                  Study
-                </button>
-              </div>
+              <IosRow
+                key={`${ent.child_id}-${ent.pack_id}`}
+                icon="chart"
+                iconColor={IOS.purple}
+                title={pack!.title}
+                subtitle={`For ${kid!.full_name}${ent.purchased_at ? ` · Bought ${new Date(ent.purchased_at).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}` : ''}`}
+                accessory={<IosCapsule onClick={() => pushPack(pack!)}>Study</IosCapsule>}
+                wrap
+              />
             ))}
-          </div>
+          </IosGroup>
         )}
-      </div>
-    </main>
+      </IosContent>
+
+      {openPack && (
+        <IosPushedPage>
+          <IosNavBar
+            large={false}
+            title={`Grade ${openPack.grade} Reviewer`}
+            left={<IosBarButton back onClick={popPack}>My SECs</IosBarButton>}
+          />
+          <IosContent>
+            <p className="px-1 text-[15px] leading-[20px]" style={{ color: IOS.secondary }}>
+              Pick a topic group to study the worked examples — no timer, answers shown.
+            </p>
+            <IosGroup header={openPack.title}>
+              {strands.map((strand, idx) => (
+                <IosRow
+                  key={strand.strand}
+                  title={strand.name}
+                  subtitle={`${strand.archetypes.length} topics`}
+                  onClick={() => setOpenStrand(idx)}
+                  wrap
+                />
+              ))}
+            </IosGroup>
+          </IosContent>
+
+          <IosSheet
+            open={openStrand !== null}
+            onClose={closeStrand}
+            title={openStrand !== null ? strands[openStrand]?.name ?? 'Reviewer' : 'Reviewer'}
+            closeLabel="Done"
+          >
+            {openStrand !== null && strands[openStrand] && (
+              // The reviewer is game content, so it keeps its own look on a
+              // plain white panel inside the glass sheet.
+              <div className="rounded-[22px] bg-[#ffffff] p-4">
+                <MtapReviewerPanel grade={openPack.grade} strand={strands[openStrand]} onClose={closeStrand} />
+              </div>
+            )}
+          </IosSheet>
+        </IosPushedPage>
+      )}
+    </IosScreen>
   );
 }

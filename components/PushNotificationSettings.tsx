@@ -14,11 +14,12 @@ import {
   type PushOwner,
 } from '@/lib/push';
 import { claimPushGoldBonusChild } from '@/lib/pushBonus';
+import { IOS, IosRow, IosSwitch } from '@/components/parent/ios';
 
 interface PushNotificationSettingsProps {
   owner: PushOwner;
-  /** Compact inline row (matches parent-dashboard's "More options" list) vs. a standalone card. */
-  variant?: 'row' | 'card';
+  /** Compact inline row, a standalone card, or an iOS list row + switch (parent dashboard). */
+  variant?: 'row' | 'card' | 'ios';
 }
 
 export default function PushNotificationSettings({ owner, variant = 'row' }: PushNotificationSettingsProps) {
@@ -65,6 +66,28 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
     setTestStatus('sending');
     const ok = await sendTestPush(owner);
     setTestStatus(ok ? 'sent' : 'error');
+  }
+
+  if (variant === 'ios') {
+    return (
+      <>
+        <IosRow
+          icon="bell"
+          iconColor={IOS.red}
+          title="Push Notifications"
+          subtitle={subscribed ? 'On for this device' : 'Your child gets 300 free gold'}
+          accessory={<IosSwitch checked={subscribed} onChange={handleToggle} disabled={busy} label="Push notifications" />}
+        />
+        {subscribed && (
+          <IosRow
+            title="Send a Test Notification"
+            tint="blue"
+            onClick={testStatus === 'sending' ? undefined : handleTest}
+            detail={testStatus === 'sending' ? 'Sending…' : testStatus === 'sent' ? 'Sent' : testStatus === 'error' ? 'Failed' : undefined}
+          />
+        )}
+      </>
+    );
   }
 
   if (variant === 'card') {

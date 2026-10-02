@@ -31,7 +31,7 @@ export interface EntitlementRow {
 // copy, real question/topic counts, the strand preview list), not catalog
 // data an admin edits. A future Grade 3-6 pack adds its own entry here once
 // its content module (lib/mtapGradeNContent.ts or similar) exists — same
-// per-grade-lookup pattern MySecPackReviewer.tsx and BonusQuestsTab.tsx
+// per-grade-lookup pattern the My SECs page and BonusQuestsTab.tsx
 // already use for strand data, just extended to cover the Shop's own copy.
 // Note there's no hero-image/color field here — that's derived straight from
 // the pack's own `grade`/`category` columns below, so a future pack gets a
