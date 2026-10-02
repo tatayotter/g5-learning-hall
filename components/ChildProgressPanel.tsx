@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { supabase } from '@/lib/supabase';
+import { IOS, Icon, IosCapsule, IosGroup, IosRow, IosSheet, type IconName } from '@/components/parent/ios';
 
 interface Props {
   childId: string;
@@ -18,12 +19,12 @@ interface SubclassProfile {
   lexicon_arena_lvl: number;
 }
 
-const SKILLS: { key: keyof SubclassProfile; label: string; icon: string }[] = [
-  { key: 'lorekeeper_lvl', label: 'Reading', icon: '📖' },
-  { key: 'spellcaster_lvl', label: 'Spelling', icon: '🔤' },
-  { key: 'number_realm_lvl', label: 'Math', icon: '🔢' },
-  { key: 'logic_labyrinth_lvl', label: 'Logic', icon: '🧩' },
-  { key: 'lexicon_arena_lvl', label: 'Vocabulary', icon: '📚' },
+const SKILLS: { key: keyof SubclassProfile; label: string; icon: IconName; color: string }[] = [
+  { key: 'lorekeeper_lvl', label: 'Reading', icon: 'book', color: IOS.blue },
+  { key: 'spellcaster_lvl', label: 'Spelling', icon: 'doc', color: IOS.green },
+  { key: 'number_realm_lvl', label: 'Math', icon: 'chart', color: IOS.purple },
+  { key: 'logic_labyrinth_lvl', label: 'Logic', icon: 'target', color: IOS.orange },
+  { key: 'lexicon_arena_lvl', label: 'Vocabulary', icon: 'journal', color: IOS.pink },
 ];
 
 interface JournalEntry {
@@ -64,6 +65,22 @@ function computeStreak(claimDates: string[]): number {
   return streak;
 }
 
+/** Inset row body used by the journal / weak-topic sheets (multi-line content). */
+function SheetRow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="pl-4">
+      <div className="ios-row-sep pr-4 py-2.5" style={{ borderBottom: `0.5px solid ${IOS.separator}` }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Per-child progress for the parent's child page, rendered as iOS grouped
+ * sections: summary tiles, activity, skills, Premium insights (journal +
+ * weak topics open as sheets), and coin awarding.
+ */
 export default function ChildProgressPanel({ childId, isPremium, coinBalance, onCoinsAwarded }: Props) {
   const [loading, setLoading] = useState(true);
   const [level, setLevel] = useState<number | null>(null);
@@ -87,7 +104,6 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   const [awarding, setAwarding] = useState(false);
   const [awardError, setAwardError] = useState('');
   const [awardSuccess, setAwardSuccess] = useState(false);
-  const [showCoinInfo, setShowCoinInfo] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -146,11 +162,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
     return () => { cancelled = true; };
   }, [childId]);
 
-  const handleToggleJournal = async () => {
-    if (showJournal) {
-      setShowJournal(false);
-      return;
-    }
+  const handleOpenJournal = async () => {
     setShowJournal(true);
     if (journal !== null) return;
     setJournalLoading(true);
@@ -163,11 +175,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
     setJournal((data as JournalEntry[]) ?? []);
   };
 
-  const handleToggleWeakTopics = async () => {
-    if (showWeakTopics) {
-      setShowWeakTopics(false);
-      return;
-    }
+  const handleOpenWeakTopics = async () => {
     setShowWeakTopics(true);
     if (weakTopics !== null) return;
     setWeakTopicsLoading(true);
@@ -202,178 +210,153 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   };
 
   if (loading) {
-    return <p className="text-sm text-stone-500 py-2">Loading progress…</p>;
+    return <p className="text-center text-[15px] py-6" style={{ color: IOS.secondary }}>Loading progress…</p>;
   }
 
+  const lastActiveLabel = lastActive
+    ? new Date(lastActive).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+    : 'Not yet';
+  const lockIcon = <Icon name="lock" size={16} color={IOS.tertiary} />;
+
   return (
-    <div className="space-y-3 pt-1">
-      <div className="grid grid-cols-3 gap-2 text-center">
-        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
-          <p className="text-slate-800 text-base font-bold">{level ?? '—'}</p>
-          <p className="text-xs text-stone-400 uppercase tracking-wide">Level</p>
-        </div>
-        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
-          <p className="text-slate-800 text-base font-bold">{xp ?? 0}</p>
-          <p className="text-xs text-stone-400 uppercase tracking-wide">XP</p>
-        </div>
-        <div className="rounded-lg bg-stone-50 border border-stone-200 py-2.5">
-          <p className="text-slate-800 text-base font-bold">🔥 {streak}</p>
-          <p className="text-xs text-stone-400 uppercase tracking-wide">Day streak</p>
-        </div>
+    <div className="space-y-8">
+      {/* Summary tiles — the "widget" row at the top of the child page */}
+      <div className="grid grid-cols-3 gap-2.5">
+        {([
+          { label: 'Level', value: level ?? '—', icon: 'star', color: IOS.yellow },
+          { label: 'XP', value: (xp ?? 0).toLocaleString(), icon: 'sparkle', color: IOS.purple },
+          { label: 'Day streak', value: streak, icon: 'flame', color: IOS.orange },
+        ] as const).map((t) => (
+          <div key={t.label} className="lg-glass rounded-[22px] px-3.5 py-3">
+            <Icon name={t.icon} size={18} color={t.color} />
+            <p className="mt-1.5 text-[24px] leading-[28px] font-bold tabular-nums truncate">{t.value}</p>
+            <p className="text-[13px]" style={{ color: IOS.secondary }}>{t.label}</p>
+          </div>
+        ))}
       </div>
 
+      <IosGroup header="Activity">
+        <IosRow icon="chart" iconColor={IOS.blue} title="Questions this week" detail={quizzesLast7Days} />
+        <IosRow icon="check" iconColor={IOS.green} title="Topics mastered" detail={masteryCount ?? 0} />
+        <IosRow icon="star" iconColor={IOS.yellow} title="Perfect quizzes" detail={perfectQuizzes ?? 0} />
+        <IosRow icon="calendar" iconColor={IOS.red} title="Last active" detail={lastActiveLabel} />
+      </IosGroup>
+
       {subclass && (
-        <div className="grid grid-cols-5 gap-1.5">
+        <IosGroup header="Skills">
           {SKILLS.map((s) => (
-            <div key={s.key} className="rounded-lg bg-stone-50 border border-stone-200 py-2 text-center">
-              <p className="text-sm">{s.icon}</p>
-              <p className="text-slate-800 text-xs font-bold">Lv{subclass[s.key]}</p>
-              <p className="text-[10px] text-stone-400">{s.label}</p>
-            </div>
+            <IosRow key={s.key} icon={s.icon} iconColor={s.color} title={s.label} detail={`Level ${subclass[s.key]}`} />
           ))}
-        </div>
+        </IosGroup>
       )}
 
-      <p className="text-sm text-stone-500">
-        {masteryCount ?? 0} topics mastered · {perfectQuizzes ?? 0} perfect quizzes (career) · {quizzesLast7Days} questions this week
-        {lastActive ? <> · last active {new Date(lastActive).toLocaleDateString()}</> : <> · no activity yet</>}
-      </p>
-
-      {isPremium ? (
-        <div className="flex gap-2 flex-wrap">
-          <button
-            type="button"
-            onClick={handleToggleJournal}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors ${
-              showJournal
-                ? 'bg-indigo-600 border-indigo-600 text-[#ffffff] shadow-sm'
-                : 'bg-[#ffffff] border-indigo-200 text-indigo-700 hover:bg-indigo-50'
-            }`}
-          >
-            📔 Journal
-          </button>
-          <button
-            type="button"
-            onClick={handleToggleWeakTopics}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors ${
-              showWeakTopics
-                ? 'bg-rose-600 border-rose-600 text-[#ffffff] shadow-sm'
-                : 'bg-[#ffffff] border-rose-200 text-rose-700 hover:bg-rose-50'
-            }`}
-          >
-            🎯 Weak Topics
-          </button>
-        </div>
-      ) : (
-        <p className="text-sm text-stone-400">🔒 Journal viewing &amp; weak-topic reports are Premium features.</p>
-      )}
-
-      {isPremium && showWeakTopics && (
-        <div className="rounded-xl border border-rose-200 bg-rose-50 overflow-hidden shadow-sm">
-          <div className="bg-rose-100/70 px-3.5 py-2 border-b border-rose-200">
-            <p className="text-sm font-bold text-rose-800">🎯 Weak Topics Report</p>
-            <p className="text-xs text-rose-700/70">Subjects with the highest miss-rate across every attempt logged</p>
-          </div>
-          <div className="p-3">
-            {weakTopicsLoading && <p className="text-sm text-stone-500 py-1">Loading report…</p>}
-            {!weakTopicsLoading && weakTopics?.length === 0 && (
-              <p className="text-sm text-stone-500 py-1">Not enough attempts yet to spot a pattern — check back after a few more quiz days.</p>
-            )}
-            {!weakTopicsLoading && weakTopics && weakTopics.length > 0 && (
-              <div className="space-y-2.5">
-                {weakTopics.map((t, i) => {
-                  const barColor = t.wrong_pct >= 50 ? 'bg-red-500' : t.wrong_pct >= 30 ? 'bg-amber-500' : 'bg-emerald-400';
-                  const textColor = t.wrong_pct >= 50 ? 'text-red-600' : t.wrong_pct >= 30 ? 'text-amber-600' : 'text-emerald-600';
-                  return (
-                    <div key={t.subject} className="space-y-1">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-sm text-slate-800 font-semibold flex items-center gap-1.5">
-                          <span className="w-4 h-4 rounded-full bg-rose-200 text-rose-800 text-[10px] font-bold flex items-center justify-center shrink-0">{i + 1}</span>
-                          {t.subject}
-                        </span>
-                        <span className={`text-xs font-bold whitespace-nowrap ${textColor}`}>
-                          {t.wrong_count}/{t.total_count} missed · {t.wrong_pct}%
-                        </span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-rose-100 overflow-hidden">
-                        <div className={`h-full rounded-full ${barColor}`} style={{ width: `${Math.min(100, t.wrong_pct)}%` }} />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {isPremium && showJournal && (
-        <div className="rounded-xl border border-indigo-200 bg-indigo-50 overflow-hidden shadow-sm">
-          <div className="bg-indigo-100/70 px-3.5 py-2 border-b border-indigo-200">
-            <p className="text-sm font-bold text-indigo-800">📔 Journal — last {JOURNAL_LIMIT} days</p>
-            <p className="text-xs text-indigo-700/70">What your child wrote after each day's quests</p>
-          </div>
-          <div className="p-3 space-y-2.5">
-            {journalLoading && <p className="text-sm text-stone-500 py-1">Loading journal…</p>}
-            {!journalLoading && journal?.length === 0 && (
-              <p className="text-sm text-stone-500 py-1">No journal entries yet.</p>
-            )}
-            {!journalLoading && journal?.map((entry) => (
-              <div key={entry.entry_date} className="rounded-lg bg-[#ffffff] border border-indigo-100 border-l-4 border-l-indigo-400 p-3 text-sm space-y-1 shadow-sm">
-                <p className="text-indigo-700 font-bold text-xs uppercase tracking-wide">{new Date(entry.entry_date).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</p>
-                {entry.done_today && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Did today:</span> {entry.done_today}</p>}
-                {entry.hardest_challenge && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Hardest part:</span> {entry.hardest_challenge}</p>}
-                {entry.gratitude && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Grateful for:</span> {entry.gratitude}</p>}
-                {entry.tomorrow_plan && <p className="text-slate-700"><span className="text-stone-400 font-semibold">Tomorrow:</span> {entry.tomorrow_plan}</p>}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <IosGroup
+        header="Insights"
+        footer={isPremium ? undefined : 'Journal viewing and weak-topic reports are included with Premium.'}
+      >
+        <IosRow
+          icon="journal"
+          iconColor={IOS.indigo}
+          title="Journal"
+          subtitle="What your child wrote after each day's quests"
+          onClick={isPremium ? handleOpenJournal : undefined}
+          accessory={isPremium ? undefined : lockIcon}
+        />
+        <IosRow
+          icon="target"
+          iconColor={IOS.pink}
+          title="Weak topics"
+          subtitle="Subjects with the highest miss rate"
+          onClick={isPremium ? handleOpenWeakTopics : undefined}
+          accessory={isPremium ? undefined : lockIcon}
+        />
+      </IosGroup>
 
       {isPremium && (
-        <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-3.5 space-y-2.5 shadow-sm">
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-bold text-amber-800">🪙 Award Coins</p>
-            <button
-              type="button"
-              onClick={() => setShowCoinInfo((v) => !v)}
-              aria-label="How award coins work"
-              className="w-5 h-5 rounded-full border border-amber-400 text-amber-700 text-xs font-bold leading-none flex items-center justify-center hover:bg-amber-100 transition-colors"
-            >
-              i
-            </button>
-          </div>
-
-          {showCoinInfo && (
-            <div className="rounded-lg bg-[#ffffff] border border-amber-200 px-3 py-2.5 text-xs text-stone-600 space-y-1.5">
-              <p><span className="font-semibold text-amber-700">How to use it:</span> Enter an amount and hit Award to send gold straight to your child's in-game balance — they can spend it right away in the shop on avatars, themes, and other cosmetics.</p>
-              <p><span className="font-semibold text-amber-700">Where the coins come from:</span> Every Premium subscription includes a pool of 10,000 gold per year, shared across all your children. It resets to 10,000 on each yearly renewal — unused coins don't roll over, so it's worth spending down before then.</p>
-            </div>
-          )}
-
-          <form onSubmit={handleAwardCoins} className="flex items-center gap-2">
+        <IosGroup
+          header="Award coins"
+          footer={
+            awardError ? <span style={{ color: IOS.red }}>{awardError}</span>
+            : awardSuccess ? <span style={{ color: IOS.green }}>Coins sent. They can spend them in the shop right away.</span>
+            : "Sends gold straight to your child's in-game balance. Premium includes 10,000 gold a year, shared across your children. It resets when you buy your next year, and unused coins don't roll over."
+          }
+        >
+          <IosRow icon="coins" iconColor={IOS.orange} title="Left in your pool" detail={coinBalance.toLocaleString()} />
+          <form onSubmit={handleAwardCoins} className="flex items-center gap-3 px-4 min-h-[52px]">
             <input
               type="number"
+              inputMode="numeric"
               min={1}
               value={coinAmount}
               onChange={(e) => { setCoinAmount(e.target.value); setAwardSuccess(false); }}
-              placeholder="Amount"
-              className="w-24 rounded-lg bg-[#ffffff] border border-amber-300 px-2.5 py-2 text-sm text-gray-900 font-semibold"
+              placeholder="Amount to send"
+              aria-label="Coins to award"
+              className="flex-1 min-w-0 bg-transparent text-[17px] py-[11px] outline-none placeholder:text-[#C7C7CC]"
             />
-            <button
-              type="submit"
-              disabled={awarding || coinBalance <= 0}
-              className="rounded-lg bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-4 py-2 shadow-sm transition-colors"
-            >
-              {awarding ? 'Awarding…' : 'Award'}
-            </button>
-            <span className="text-xs text-amber-700 font-semibold whitespace-nowrap ml-auto">🪙 {coinBalance} left</span>
+            <IosCapsule type="submit" filled disabled={awarding || coinBalance <= 0 || !coinAmount}>
+              {awarding ? 'Sending…' : 'Award'}
+            </IosCapsule>
           </form>
-          {awardError && <p className="text-red-500 text-sm">{awardError}</p>}
-          {awardSuccess && <p className="text-green-600 text-sm font-semibold">✓ Coins awarded!</p>}
-        </div>
+        </IosGroup>
       )}
+
+      <IosSheet open={showWeakTopics} onClose={() => setShowWeakTopics(false)} title="Weak Topics" closeLabel="Done">
+        {weakTopicsLoading && <p className="text-center text-[15px] py-6" style={{ color: IOS.secondary }}>Loading report…</p>}
+        {!weakTopicsLoading && weakTopics?.length === 0 && (
+          <p className="text-center text-[15px] py-6 px-4" style={{ color: IOS.secondary }}>
+            Not enough attempts yet to spot a pattern. Check back after a few more quiz days.
+          </p>
+        )}
+        {!weakTopicsLoading && weakTopics && weakTopics.length > 0 && (
+          <IosGroup footer="Miss rate across every attempt logged, highest first.">
+            {weakTopics.map((t) => {
+              const color = t.wrong_pct >= 50 ? IOS.red : t.wrong_pct >= 30 ? IOS.orange : IOS.green;
+              return (
+                <SheetRow key={t.subject}>
+                  <div className="space-y-2 py-0.5">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-[17px] truncate">{t.subject}</span>
+                      <span className="text-[15px] font-semibold tabular-nums shrink-0" style={{ color }}>{t.wrong_pct}%</span>
+                    </div>
+                    <div className="h-1.5 rounded-full overflow-hidden" style={{ background: '#7676801F' }}>
+                      <div className="h-full rounded-full" style={{ width: `${Math.min(100, t.wrong_pct)}%`, background: color }} />
+                    </div>
+                    <p className="text-[13px]" style={{ color: IOS.secondary }}>{t.wrong_count} of {t.total_count} missed</p>
+                  </div>
+                </SheetRow>
+              );
+            })}
+          </IosGroup>
+        )}
+      </IosSheet>
+
+      <IosSheet open={showJournal} onClose={() => setShowJournal(false)} title="Journal" closeLabel="Done">
+        {journalLoading && <p className="text-center text-[15px] py-6" style={{ color: IOS.secondary }}>Loading journal…</p>}
+        {!journalLoading && journal?.length === 0 && (
+          <p className="text-center text-[15px] py-6" style={{ color: IOS.secondary }}>No journal entries yet.</p>
+        )}
+        {!journalLoading && journal?.map((entry) => (
+          <IosGroup
+            key={entry.entry_date}
+            header={new Date(entry.entry_date).toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' })}
+          >
+            {([
+              ['Did today', entry.done_today],
+              ['Hardest part', entry.hardest_challenge],
+              ['Grateful for', entry.gratitude],
+              ['Tomorrow', entry.tomorrow_plan],
+            ] as const).filter(([, v]) => v).map(([label, v]) => (
+              <SheetRow key={label}>
+                <p className="text-[13px]" style={{ color: IOS.secondary }}>{label}</p>
+                <p className="text-[17px] leading-[22px]">{v}</p>
+              </SheetRow>
+            ))}
+          </IosGroup>
+        ))}
+        {!journalLoading && journal && journal.length > 0 && (
+          <p className="text-center text-[13px]" style={{ color: IOS.secondary }}>Showing the last {JOURNAL_LIMIT} days</p>
+        )}
+      </IosSheet>
     </div>
   );
 }

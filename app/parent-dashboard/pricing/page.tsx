@@ -1,12 +1,41 @@
 'use client';
+// Signed-in pricing page (parent area, Liquid Glass styling). The public,
+// logged-out mirror lives at app/welcome/pricing; both read their copy from
+// lib/pricingPlans.ts so they can't drift.
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
+import {
+  FREE_FEATURES, PREMIUM_FEATURES, PREMIUM_PRICE_PHP, PREMIUM_REGULAR_PRICE_PHP,
+  MONTHLY_PER_CHILD_ANCHOR_PHP, CHILD_SLOT_PRICE_PHP, type PlanFeature,
+} from '@/lib/pricingPlans';
+import {
+  IOS, Icon, IosBarButton, IosButton, IosContent, IosGroup, IosIconTile, IosNavBar, IosRow, IosScreen,
+} from '@/components/parent/ios';
 
 interface SubscriptionRow {
   status: 'none' | 'pending' | 'active' | 'expired' | 'cancelled';
   addon_children: number;
+}
+
+function FeatureRows({ features }: { features: PlanFeature[] }) {
+  return (
+    <>
+      {features.map((f) => (
+        <IosRow
+          key={f.text}
+          leading={
+            <span className="w-[30px] flex justify-center">
+              <Icon name={f.included ? 'check' : 'xmark'} size={18} color={f.included ? IOS.green : IOS.tertiary} strokeWidth={2.6} />
+            </span>
+          }
+          title={<span style={{ color: f.included ? IOS.label : IOS.secondary }}>{f.text}</span>}
+          wrap
+        />
+      ))}
+    </>
+  );
 }
 
 export default function PricingPage() {
@@ -38,14 +67,16 @@ export default function PricingPage() {
     })();
   }, [router]);
 
-  const handleSubscribe = async (addonChildren: number) => {
+  // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
+  // ₱99 slot that never touches the renewal date or coin pool.
+  const startCheckout = async (kind: 'premium' | 'childSlot') => {
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
-    const res = await fetch('/api/create-checkout', {
+    const res = await fetch(kind === 'premium' ? '/api/create-checkout' : '/api/create-child-slot-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
-      body: JSON.stringify({ addonChildren }),
+      body: JSON.stringify({}),
     });
     const body = await res.json().catch(() => ({}));
     setCheckingOut(false);
@@ -56,87 +87,88 @@ export default function PricingPage() {
     window.location.href = body.checkoutUrl;
   };
 
+  const back = <IosBarButton back onClick={() => router.push('/parent-dashboard')}>Family</IosBarButton>;
+
   if (loading) {
-    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Loading…</main>;
+    return (
+      <IosScreen>
+        <IosNavBar large={false} title="Pricing" left={back} />
+        <p className="text-center text-[15px] py-16" style={{ color: IOS.secondary }}>Loading…</p>
+      </IosScreen>
+    );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4">
-      <div className="max-w-2xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-display font-bold text-slate-800">Pricing</h1>
-          <a href="/parent-dashboard" className="text-sm text-stone-500 hover:text-slate-700 underline">Back to dashboard</a>
-        </div>
-
-        <div className="text-center space-y-1">
-          <p className="text-sm text-stone-400 line-through">₱99/month per child (₱1,188/year)</p>
-          <p className="text-base text-stone-500 line-through">Regular price: ₱599/year per account</p>
-          <p className="text-3xl font-display font-bold text-amber-600">₱249/year <span className="text-base font-normal text-stone-500">per account</span></p>
-          <p className="text-sm text-amber-700 font-semibold">🔥 Limited-time sale price — lock it in before it goes back up.</p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 space-y-2 shadow-sm">
-            <p className="text-base font-bold text-slate-800">Free</p>
-            <p className="text-sm text-stone-500">₱0</p>
-            <ul className="text-sm text-stone-500 space-y-1.5 pt-2">
-              <li>✓ 1 child account</li>
-              <li>✓ Full gameplay access</li>
-              <li>✓ Progress dashboard & PIN viewing</li>
-              <li className="text-stone-400">✕ Journal viewing</li>
-              <li className="text-stone-400">✕ Gold coin rewards</li>
-              <li className="text-stone-400">✕ Weak-topic reports</li>
-              <li className="text-stone-400">✕ Compare children side-by-side</li>
-            </ul>
-          </div>
-          <div className="rounded-xl border border-amber-300 bg-amber-50 p-4 space-y-2 shadow-sm">
-            <p className="text-base font-bold text-amber-700">⭐ Premium</p>
-            <p className="text-sm text-stone-500 line-through">₱599/year</p>
-            <p className="text-sm text-amber-700 font-bold">₱249/year</p>
-            <ul className="text-sm text-slate-700 space-y-1.5 pt-2">
-              <li>✓ 2 child accounts included</li>
-              <li>✓ Full gameplay access</li>
-              <li>✓ Journal viewing (last 30 days)</li>
-              <li>✓ Weak-topic reports — see what to review together</li>
-              <li>✓ Compare children side-by-side</li>
-              <li>✓ 10,000 gold coins/year to reward your kids</li>
-              <li>✓ +₱99/yr per extra child (up to 5 total)</li>
-            </ul>
-          </div>
-        </div>
-
-        {isNative ? (
-          <p className="text-sm text-stone-500 text-center">
-            {isPremium ? "⭐ You're already on Premium." : 'Premium subscriptions are managed outside this app.'}
+    <IosScreen>
+      <IosNavBar title="Pricing" left={back} />
+      <IosContent>
+        {/* Price hero */}
+        <div className="lg-glass rounded-[30px] px-5 py-6 text-center">
+          <div className="flex justify-center"><IosIconTile icon="star" color={IOS.yellow} size={48} /></div>
+          <p className="mt-3 text-[15px] font-semibold" style={{ color: IOS.secondary }}>Premium</p>
+          <p className="text-[44px] leading-[50px] font-bold tracking-tight">
+            ₱{PREMIUM_PRICE_PHP}<span className="text-[17px] font-medium" style={{ color: IOS.secondary }}> / year</span>
           </p>
-        ) : isPremium ? (
-          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
-            <p className="text-base text-amber-700">⭐ You're already on Premium.</p>
-            {subscription!.addon_children < 2 && (
-              <button
-                onClick={() => handleSubscribe(subscription!.addon_children + 1)}
-                disabled={checkingOut}
-                className="mt-2 w-full rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-[#ffffff] text-base font-bold py-2.5 transition-colors"
-              >
-                {checkingOut ? 'Redirecting…' : `+ Add a child slot (₱99/yr, renews at ₱${249 + (subscription!.addon_children + 1) * 99}/yr)`}
-              </button>
-            )}
+          <p className="text-[15px]" style={{ color: IOS.secondary }}>per family account</p>
+          <div className="mt-3 inline-flex flex-col gap-0.5 text-[13px]" style={{ color: IOS.secondary }}>
+            <span className="line-through">Regular price ₱{PREMIUM_REGULAR_PRICE_PHP}/year</span>
+            <span className="line-through">₱{MONTHLY_PER_CHILD_ANCHOR_PHP}/month per child elsewhere</span>
           </div>
-        ) : (
-          <button
-            onClick={() => handleSubscribe(0)}
-            disabled={checkingOut}
-            className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-lg py-3.5 shadow-lg shadow-orange-500/25 transition-colors"
-          >
-            {checkingOut ? 'Redirecting…' : 'Subscribe — ₱249/yr'}
-          </button>
-        )}
-        {checkoutError && <p className="text-red-500 text-base text-center">{checkoutError}</p>}
+          <p className="mt-3 text-[13px] font-semibold" style={{ color: IOS.orange }}>
+            Limited-time sale price — lock it in before it goes back up.
+          </p>
+        </div>
 
-        <p className="text-xs text-stone-400 text-center">
-          See our <a href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</a> for billing and refund details.
-        </p>
-      </div>
-    </main>
+        {/* Action */}
+        {isNative ? (
+          <IosGroup>
+            <IosRow
+              icon="star"
+              iconColor={IOS.yellow}
+              title={isPremium ? "You're on Premium" : 'Premium is managed outside this app'}
+            />
+          </IosGroup>
+        ) : isPremium ? (
+          <IosGroup
+            footer={
+              checkoutError ? <span style={{ color: IOS.red }}>{checkoutError}</span>
+              : subscription!.addon_children < 2
+                ? `A child slot is a one-time ₱${CHILD_SLOT_PRICE_PHP} and stays on your account for good, even if Premium lapses. It doesn't change your renewal date or coins.`
+                : undefined
+            }
+          >
+            <IosRow icon="star" iconColor={IOS.yellow} title="You're on Premium" />
+            {subscription!.addon_children < 2 && (
+              <IosRow
+                leading={<span className="w-[30px] flex justify-center"><Icon name="plus" size={22} color={IOS.blue} /></span>}
+                title={checkingOut ? 'Redirecting…' : 'Add a Child Slot'}
+                tint="blue"
+                detail={`₱${CHILD_SLOT_PRICE_PHP}`}
+                onClick={checkingOut ? undefined : () => startCheckout('childSlot')}
+              />
+            )}
+          </IosGroup>
+        ) : (
+          <div className="space-y-2">
+            <IosButton onClick={() => startCheckout('premium')} disabled={checkingOut}>
+              {checkingOut ? 'Redirecting…' : `Get Premium · ₱${PREMIUM_PRICE_PHP}/yr`}
+            </IosButton>
+            {checkoutError && <p className="text-center text-[13px]" style={{ color: IOS.red }}>{checkoutError}</p>}
+          </div>
+        )}
+
+        <IosGroup header="Premium includes">
+          <FeatureRows features={PREMIUM_FEATURES} />
+        </IosGroup>
+
+        <IosGroup header="Free plan" footer="Free stays free — no credit card needed.">
+          <FeatureRows features={FREE_FEATURES} />
+        </IosGroup>
+
+        <IosGroup footer="Billing, renewals and refunds are covered in our Terms & Conditions.">
+          <IosRow href="/terms" external icon="doc" iconColor={IOS.gray} title="Terms & Conditions" />
+        </IosGroup>
+      </IosContent>
+    </IosScreen>
   );
 }

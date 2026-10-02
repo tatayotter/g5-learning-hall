@@ -16,10 +16,12 @@ import { supabase } from '@/lib/supabase';
 import { gradeToNumber } from '@/lib/userSession';
 import {
   ChildRow, SecPack, EntitlementRow, PACK_DETAILS,
-  CATEGORY_GRADIENT_COLOR, CATEGORY_ICON, DEFAULT_GRADIENT_COLOR, DEFAULT_ICON,
+  CATEGORY_GRADIENT_COLOR, DEFAULT_GRADIENT_COLOR,
   humanizeCategory,
 } from '@/lib/shopPacks';
 import { gradeColor } from '@/lib/gradeColors';
+import { IOS, IosBarButton, IosContent, IosGroup, IosNavBar, IosRow, IosScreen } from '@/components/parent/ios';
+import PackHero from '@/components/parent/PackHero';
 
 export default function ShopPage() {
   const router = useRouter();
@@ -135,99 +137,87 @@ export default function ShopPage() {
     });
   }, [packs, searchQuery, categoryFilter]);
 
+  const back = <IosBarButton back onClick={() => router.push('/parent-dashboard')}>Family</IosBarButton>;
+
   if (loading) {
-    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Loading…</main>;
+    return (
+      <IosScreen>
+        <IosNavBar large={false} title="Shop" left={back} />
+        <p className="text-center text-[15px] py-16" style={{ color: IOS.secondary }}>Loading…</p>
+      </IosScreen>
+    );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4">
-      <div className="max-w-3xl mx-auto space-y-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-display font-bold text-slate-800">Shop</h1>
-          <a href="/parent-dashboard" className="text-sm text-stone-500 hover:text-slate-700 underline">Back to dashboard</a>
-        </div>
-        <p className="text-sm text-stone-500">
-          Extra quest packs your child plays at their own pace — on top of everything else in
-          their account. Real Gold and XP for every question, same as their regular quests.
+    <IosScreen>
+      <IosNavBar title="Shop" left={back} />
+      <IosContent>
+        <p className="px-1 -mt-3 text-[15px] leading-[20px]" style={{ color: IOS.secondary }}>
+          Extra quest packs your child plays at their own pace, on top of everything else in their
+          account. Real Gold and XP for every question, same as their regular quests.
         </p>
 
-        {checkoutBanner === 'success-confirmed' && (
-          <div className="rounded-xl border border-green-300 bg-green-50 text-green-700 text-sm font-semibold text-center py-3 px-4">
-            🎉 Purchase confirmed — the pack is unlocked and ready to play.
-          </div>
-        )}
-        {checkoutBanner === 'success-pending' && (
-          <div className="rounded-xl border border-amber-300 bg-amber-50 text-amber-700 text-sm font-semibold text-center py-3 px-4">
-            Payment received — confirming your purchase, this can take a few seconds…
-          </div>
-        )}
-        {checkoutBanner === 'cancelled' && (
-          <div className="rounded-xl border border-stone-300 bg-stone-50 text-stone-600 text-sm text-center py-3 px-4">
-            Checkout was cancelled — no charge was made. You can buy anytime below.
-          </div>
+        {checkoutBanner && (
+          <IosGroup>
+            {checkoutBanner === 'success-confirmed' && (
+              <IosRow icon="check" iconColor={IOS.green} title="Purchase confirmed" subtitle="The pack is unlocked and ready to play." wrap />
+            )}
+            {checkoutBanner === 'success-pending' && (
+              <IosRow icon="coins" iconColor={IOS.orange} title="Payment received" subtitle="Confirming your purchase — this can take a few seconds…" wrap />
+            )}
+            {checkoutBanner === 'cancelled' && (
+              <IosRow icon="xmark" iconColor={IOS.gray} title="Checkout cancelled" subtitle="No charge was made. You can buy anytime below." wrap />
+            )}
+          </IosGroup>
         )}
 
         {kids.length === 0 && (
-          <div className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 text-sm text-stone-500">
-            Add a child to your account first, then come back here to buy them a pack.
-          </div>
+          <IosGroup>
+            <IosRow icon="person" iconColor={IOS.blue} title="Add a child first" subtitle="Then come back here to buy them a pack." href="/parent-dashboard" />
+          </IosGroup>
         )}
 
-        {/* Search + category filter — only shows the filter row once there's
-            more than one category to filter, so today's math-only catalog
-            doesn't grow a pointless single-pill row; it appears on its own
-            the day a second category (English, Science, History, ...) ships. */}
+        {/* Search + category filter. The filter row only appears once there's
+            more than one category, so today's math-only catalog doesn't grow
+            a pointless single-pill row. */}
         <div className="space-y-3">
-          <div className="relative">
-            <div className="pointer-events-none absolute inset-y-0 left-3.5 flex items-center text-stone-400">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </div>
+          <label className="lg-chip flex items-center gap-2 h-11 px-4 rounded-full">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={IOS.secondary} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="11" cy="11" r="7.5" />
+              <path d="m20.5 20.5-4-4" />
+            </svg>
             <input
-              type="text"
+              type="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search packs by subject or grade..."
-              className="w-full rounded-xl border border-stone-300 bg-white pl-10 pr-4 py-2.5 text-sm text-slate-700 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400"
+              placeholder="Search packs"
+              aria-label="Search packs by subject or grade"
+              className="flex-1 min-w-0 bg-transparent text-[17px] outline-none placeholder:text-[#8A8A8E]"
             />
-          </div>
+          </label>
 
           {categories.length > 1 && (
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setCategoryFilter('all')}
-                className={`text-xs font-semibold rounded-full px-3.5 py-1.5 border transition-colors ${
-                  categoryFilter === 'all'
-                    ? 'bg-amber-500 border-amber-500 text-white'
-                    : 'bg-white border-stone-300 text-stone-600 hover:border-amber-400'
-                }`}
-              >
-                All Subjects
-              </button>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategoryFilter(cat)}
-                  className={`text-xs font-semibold rounded-full px-3.5 py-1.5 border transition-colors inline-flex items-center gap-1.5 ${
-                    categoryFilter === cat
-                      ? 'bg-amber-500 border-amber-500 text-white'
-                      : 'bg-white border-stone-300 text-stone-600 hover:border-amber-400'
-                  }`}
-                >
-                  <span>{CATEGORY_ICON[cat] ?? DEFAULT_ICON}</span>
-                  {humanizeCategory(cat)}
-                </button>
-              ))}
+            <div className="flex gap-2 overflow-x-auto -mx-4 px-4 pb-1">
+              {[{ key: 'all', label: 'All' }, ...categories.map((c) => ({ key: c, label: humanizeCategory(c) }))].map((c) => {
+                const active = categoryFilter === c.key;
+                return (
+                  <button
+                    key={c.key}
+                    type="button"
+                    onClick={() => setCategoryFilter(c.key)}
+                    className={`shrink-0 h-9 px-4 rounded-full text-[15px] font-semibold transition-transform active:scale-95 ${active ? '' : 'lg-chip'}`}
+                    style={active ? { background: IOS.label, color: '#FFFFFF' } : { color: IOS.label }}
+                  >
+                    {c.label}
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
 
         {visiblePacks.length === 0 && (
-          <p className="text-center text-sm text-stone-400 py-8">No packs match &quot;{searchQuery}&quot;.</p>
+          <p className="text-center text-[15px] py-8" style={{ color: IOS.secondary }}>No packs match &quot;{searchQuery}&quot;.</p>
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -235,7 +225,6 @@ export default function ShopPage() {
             const details = PACK_DETAILS[pack.id];
             const heroGradeColor = gradeColor(pack.grade)[400];
             const categoryColor = CATEGORY_GRADIENT_COLOR[pack.category] ?? DEFAULT_GRADIENT_COLOR;
-            const categoryIcon = CATEGORY_ICON[pack.category] ?? DEFAULT_ICON;
 
             // "Owned" here means at least one eligible child on the account
             // already has this pack active — a quick catalog-level signal;
@@ -247,49 +236,34 @@ export default function ShopPage() {
               <Link
                 key={pack.id}
                 href={`/parent-dashboard/shop/${pack.id}`}
-                className="group rounded-2xl border border-stone-200 bg-[#ffffff] shadow-sm overflow-hidden hover:shadow-md hover:border-stone-300 transition-shadow flex flex-col"
+                className="lg-glass rounded-[28px] overflow-hidden flex flex-col active:scale-[0.98] transition-transform"
               >
-                <div
-                  className="relative h-20 overflow-hidden shrink-0"
-                  style={{ background: `linear-gradient(135deg, ${heroGradeColor} 0%, ${categoryColor} 100%)` }}
-                >
-                  <span className="absolute -right-2 -bottom-4 text-6xl leading-none opacity-25 select-none pointer-events-none" aria-hidden="true">
-                    {categoryIcon}
-                  </span>
-                  <div className="absolute inset-0 flex items-end p-3">
-                    <span className="text-[10px] font-bold tracking-wide text-white bg-black/15 backdrop-blur-sm border border-white/30 rounded-full px-2.5 py-1">
-                      {details?.eyebrow || `Grade ${pack.grade} · ${pack.category.replace(/_/g, ' ')}`}
-                    </span>
-                  </div>
-                  {ownedByAny && (
-                    <span className="absolute top-2.5 right-2.5 text-[10px] font-bold tracking-wide text-green-700 bg-white/90 rounded-full px-2 py-1">
-                      ✓ Owned
-                    </span>
-                  )}
-                </div>
-                <div className="p-4 flex flex-col gap-2 flex-1">
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="text-lg font-display font-bold text-slate-800 leading-tight group-hover:text-amber-700 transition-colors">
-                      {details?.shortName || pack.title}
-                    </p>
-                    <p className="text-lg font-display font-bold text-amber-600 leading-none shrink-0">₱{pack.price_php}</p>
+                <PackHero
+                  grade={pack.grade}
+                  category={pack.category}
+                  eyebrow={details?.eyebrow || `Grade ${pack.grade} · ${humanizeCategory(pack.category)}`}
+                  from={heroGradeColor}
+                  to={categoryColor}
+                  owned={ownedByAny}
+                />
+                <div className="px-4 pt-3 pb-4 flex flex-col gap-1 flex-1">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="text-[20px] leading-[25px] font-bold">{details?.shortName || pack.title}</p>
+                    <p className="text-[17px] font-semibold shrink-0" style={{ color: IOS.blue }}>₱{pack.price_php}</p>
                   </div>
                   {details && (
-                    <p className="text-xs text-stone-500 leading-snug line-clamp-2">{details.hook}</p>
+                    <p className="text-[15px] leading-[20px] line-clamp-2" style={{ color: IOS.secondary }}>{details.hook}</p>
                   )}
-                  <span className="mt-auto text-xs font-semibold text-amber-700 group-hover:text-amber-800 inline-flex items-center gap-1">
-                    View details →
-                  </span>
                 </div>
               </Link>
             );
           })}
         </div>
 
-        <p className="text-xs text-stone-400 text-center">
-          See our <a href="/terms" target="_blank" className="text-amber-600 hover:text-amber-700 underline">Terms & Conditions</a> for the full refund policy.
-        </p>
-      </div>
-    </main>
+        <IosGroup footer="Every pack has a full refund within 7 days if unused.">
+          <IosRow href="/terms" external icon="doc" iconColor={IOS.gray} title="Terms & Conditions" />
+        </IosGroup>
+      </IosContent>
+    </IosScreen>
   );
 }

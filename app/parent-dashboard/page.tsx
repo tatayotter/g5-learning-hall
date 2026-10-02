@@ -1,15 +1,20 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
-import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
+import { ChildFormData, emptyChildForm, defaultAvatarForGender, GRADES } from '@/components/ChildAccountForm';
 import ChildProgressPanel from '@/components/ChildProgressPanel';
 import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
 import { autoPromptForPush } from '@/lib/push';
+import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
+import {
+  IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
+  IosIconTile, IosNavBar, IosPushedPage, IosRow, IosScreen, IosSegmented, IosSheet, IosSwitch,
+} from '@/components/parent/ios';
 
 interface ParentRow {
   status: 'pending' | 'approved' | 'rejected';
@@ -34,41 +39,67 @@ interface ChildRow {
   username: string;
 }
 
+type SheetKind = 'addChild' | 'compare' | 'bug' | 'delete' | 'lessons' | null;
+
+const SUPPORT_EMAIL = 'tatay@learninghallph.com';
+const FACEBOOK_GROUP_URL = 'https://www.facebook.com/groups/1403800008384313';
+const MESSENGER_URL = 'https://m.me/learninghallph';
+
 export default function ParentDashboardPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [parent, setParent] = useState<ParentRow | null>(null);
   const [kids, setKids] = useState<ChildRow[]>([]);
-  const [showAddChild, setShowAddChild] = useState(false);
   const [newChild, setNewChild] = useState<ChildFormData>(emptyChildForm());
   const [addError, setAddError] = useState('');
   const [adding, setAdding] = useState(false);
   const [togglingOptIn, setTogglingOptIn] = useState(false);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteConfirmText, setDeleteConfirmText] = useState('');
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState('');
   const [revealedPins, setRevealedPins] = useState<Record<string, string | null>>({});
   const [pinLoading, setPinLoading] = useState<string | null>(null);
-  const [expandedChild, setExpandedChild] = useState<string | null>(null);
-  const [expandedLessons, setExpandedLessons] = useState<string | null>(null);
   const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
   const [maxChildren, setMaxChildren] = useState(1);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
   const [isNative, setIsNative] = useState(false);
-  const [showBugReport, setShowBugReport] = useState(false);
   const [bugText, setBugText] = useState('');
   const [bugSent, setBugSent] = useState(false);
   const [bugSubmitting, setBugSubmitting] = useState(false);
   const [bugError, setBugError] = useState('');
   const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
-  const [showComparison, setShowComparison] = useState(false);
+  const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
   const [parentId, setParentId] = useState<string | null>(null);
+  const [sheet, setSheet] = useState<SheetKind>(null);
+  // The child whose detail page is "pushed" on top of the family list. Mirrored
+  // into history state so the phone's back gesture/button pops it like iOS.
+  const [openChildId, setOpenChildId] = useState<string | null>(null);
 
   const isPremium = subscription?.status === 'active';
+  const openChild = kids.find((k) => k.id === openChildId) ?? null;
 
   useEffect(() => { setIsNative(isNativeApp()); }, []);
+
+  useEffect(() => {
+    const onPop = (e: PopStateEvent) => {
+      setOpenChildId((e.state as { pdChild?: string } | null)?.pdChild ?? null);
+      setSheet(null);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  const pushChild = (id: string) => {
+    window.history.pushState({ pdChild: id }, '');
+    setOpenChildId(id);
+  };
+  const popChild = () => {
+    if ((window.history.state as { pdChild?: string } | null)?.pdChild) window.history.back();
+    else setOpenChildId(null);
+  };
+
+  const closeSheet = useCallback(() => setSheet(null), []);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -78,8 +109,8 @@ export default function ParentDashboardPage() {
     }
     setParentId(user.id);
     // Fires the browser's native permission prompt automatically (once per
-    // browser) instead of waiting for the parent to find the "More options"
-    // toggle — each of their children gets a 300-gold bonus the next time
+    // browser) instead of waiting for the parent to find the Notifications
+    // switch — each of their children gets a 300-gold bonus the next time
     // they log in (see claim_push_gold_bonus_parent, claimed from
     // components/Dashboard.tsx).
     autoPromptForPush({ kind: 'parent', id: user.id });
@@ -110,14 +141,16 @@ export default function ParentDashboardPage() {
     setLoading(false);
   };
 
-  const handleSubscribe = async (addonChildren: number) => {
+  // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
+  // ₱99 slot that never touches the renewal date or coin pool.
+  const startCheckout = async (kind: 'premium' | 'childSlot') => {
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
-    const res = await fetch('/api/create-checkout', {
+    const res = await fetch(kind === 'premium' ? '/api/create-checkout' : '/api/create-child-slot-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
-      body: JSON.stringify({ addonChildren }),
+      body: JSON.stringify({}),
     });
     const body = await res.json().catch(() => ({}));
     setCheckingOut(false);
@@ -130,8 +163,8 @@ export default function ParentDashboardPage() {
 
   useEffect(() => { load(); }, []);
 
-  const handleAddChild = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleAddChild = async (e?: React.FormEvent) => {
+    e?.preventDefault();
     setAddError('');
     if (!newChild.fullName.trim() || !newChild.schoolName.trim() || !newChild.username.trim() || newChild.pin.length !== 4) {
       setAddError('Please fill in every field, including a 4-digit PIN.');
@@ -153,7 +186,7 @@ export default function ParentDashboardPage() {
       return;
     }
     setNewChild(emptyChildForm());
-    setShowAddChild(false);
+    setSheet(null);
     load();
   };
 
@@ -215,7 +248,7 @@ export default function ParentDashboardPage() {
       setBugText('');
       setTimeout(() => {
         setBugSent(false);
-        setShowBugReport(false);
+        setSheet((s) => (s === 'bug' ? null : s));
       }, 2500);
     } catch {
       setBugError('Something went wrong — please try again.');
@@ -253,396 +286,434 @@ export default function ParentDashboardPage() {
     router.push('/');
   };
 
-  if (loading) {
-    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Loading…</main>;
-  }
+  /* ── Non-dashboard states ───────────────────────────────────────────── */
 
-  if (!parent) {
-    return <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center text-stone-500">Could not load your account.</main>;
-  }
+  const centered = (title: string, message?: string, withSignOut = false) => (
+    <IosScreen className="flex items-center justify-center px-8">
+      <div className="max-w-sm text-center space-y-2">
+        <p className="text-[20px] font-semibold">{title}</p>
+        {message && <p className="text-[15px]" style={{ color: IOS.secondary }}>{message}</p>}
+        {withSignOut && (
+          <div className="pt-3"><IosBarButton onClick={handleSignOut}>Sign Out</IosBarButton></div>
+        )}
+      </div>
+    </IosScreen>
+  );
 
+  if (loading) return centered('Loading…');
+  if (!parent) return centered('Could not load your account.');
   if (parent.status === 'pending') {
     // New registrations are approved automatically — this only shows for an
     // account an admin has manually parked back in review.
-    return (
-      <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center px-4">
-        <div className="max-w-sm text-center space-y-3">
-          <h1 className="text-xl font-display font-bold text-slate-800">⏳ Pending Review</h1>
-          <p className="text-stone-500 text-base">
-            Thanks for registering, {parent.full_name}! Your account is being reviewed — check back
-            shortly.
-          </p>
-          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
-        </div>
-      </main>
-    );
+    return centered('Pending Review', `Thanks for registering, ${parent.full_name}! Your account is being reviewed — check back shortly.`, true);
+  }
+  if (parent.status === 'rejected') {
+    return centered('Registration Not Approved', 'Your registration was not approved.', true);
   }
 
-  if (parent.status === 'rejected') {
-    return (
-      <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 flex items-center justify-center px-4">
-        <div className="max-w-sm text-center space-y-3">
-          <h1 className="text-xl font-display font-bold text-slate-800">Registration Rejected</h1>
-          <p className="text-stone-500 text-base">Your registration was not approved.</p>
-          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
+  /* ── Derived bits ───────────────────────────────────────────────────── */
+
+  const firstName = parent.full_name.trim().split(/\s+/)[0] || parent.full_name;
+  const atChildLimit = kids.length >= maxChildren;
+  const canBuyChildSlot = isPremium && !isNative && subscription!.addon_children < 2;
+  const renewsLabel = subscription?.current_period_end
+    ? new Date(subscription.current_period_end).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
+    : null;
+
+  const childrenFooter = (() => {
+    if (checkoutError && atChildLimit) return <span style={{ color: IOS.red }}>{checkoutError}</span>;
+    if (!atChildLimit) return undefined;
+    if (canBuyChildSlot) return `A child slot is a one-time ₱${CHILD_SLOT_PRICE_PHP} and stays on your account for good, even if Premium lapses. It doesn't change your renewal date or coins.`;
+    if (isPremium) return `You've reached your child limit (${maxChildren}).`;
+    return maxChildren > 1
+      ? `Your account holds ${maxChildren} children. Get Premium to add more.`
+      : 'Free accounts can add 1 child. Get Premium to add more.';
+  })();
+
+  /* ── Child detail (pushed page) ─────────────────────────────────────── */
+
+  const childPage = openChild && (
+    <IosPushedPage>
+      <IosNavBar
+        large={false}
+        title={openChild.full_name.split(' ')[0]}
+        left={<IosBarButton back onClick={popChild}>Family</IosBarButton>}
+      />
+      <IosContent>
+        <div className="flex flex-col items-center text-center pt-2">
+          <img src={openChild.avatar} alt="" className="w-24 h-24 object-contain" />
+          <p className="mt-2 text-[22px] leading-[28px] font-bold">{openChild.full_name}</p>
+          <p className="text-[15px]" style={{ color: IOS.secondary }}>
+            {openChild.grade} · {openChild.school_name}
+          </p>
         </div>
-      </main>
-    );
-  }
+
+        <IosGroup header="Sign-in" footer="Your child signs in with this username and 4-digit PIN.">
+          <IosRow icon="person" iconColor={IOS.blue} title="Username" detail={`@${openChild.username}`} />
+          <IosRow
+            icon="key"
+            iconColor={IOS.gray}
+            title="PIN"
+            accessory={
+              <div className="flex items-center gap-3">
+                <span className="text-[17px] tabular-nums tracking-[0.15em]" style={{ color: IOS.secondary }}>
+                  {openChild.id in revealedPins ? (revealedPins[openChild.id] ?? 'Unavailable') : '••••'}
+                </span>
+                <IosCapsule onClick={() => handleTogglePin(openChild.id)} disabled={pinLoading === openChild.id}>
+                  {pinLoading === openChild.id ? '…' : openChild.id in revealedPins ? 'Hide' : 'Show'}
+                </IosCapsule>
+              </div>
+            }
+          />
+        </IosGroup>
+
+        <IosGroup header="School week">
+          <IosRow
+            icon="calendar"
+            iconColor={IOS.red}
+            title="This Week's Lessons"
+            subtitle={`What ${openChild.full_name.split(' ')[0]} is learning in ${openChild.grade}`}
+            onClick={() => setSheet('lessons')}
+          />
+        </IosGroup>
+
+        <ChildProgressPanel
+          key={openChild.id}
+          childId={openChild.id}
+          isPremium={isPremium}
+          coinBalance={subscription?.coin_pool_balance ?? 0}
+          onCoinsAwarded={(amount) =>
+            setSubscription((prev) => (prev ? { ...prev, coin_pool_balance: prev.coin_pool_balance - amount } : prev))
+          }
+        />
+      </IosContent>
+
+      <IosSheet open={sheet === 'lessons'} onClose={closeSheet} title="This Week" closeLabel="Done">
+        <WeeklyLessonsPanel grade={openChild.grade} />
+      </IosSheet>
+    </IosPushedPage>
+  );
+
+  /* ── Family (home) ──────────────────────────────────────────────────── */
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50 py-10 px-4 pb-20">
-      <div className="max-w-2xl mx-auto space-y-5">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-display font-bold text-slate-800">Welcome, {parent.full_name}</h1>
-          <button onClick={handleSignOut} className="text-sm text-stone-500 hover:text-slate-700 underline">Sign out</button>
-        </div>
-
-        <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 flex items-center justify-between gap-3 shadow-sm">
+    <IosScreen>
+      <IosNavBar title={`Hi, ${firstName}`} />
+      <IosContent>
+        {/* Plan */}
+        <IosGroup
+          footer={checkoutError && !atChildLimit ? <span style={{ color: IOS.red }}>{checkoutError}</span> : undefined}
+        >
           {isPremium ? (
             <>
-              <span className="text-base text-amber-700 font-semibold">⭐ Premium · 🪙 {subscription!.coin_pool_balance} coins left</span>
-              {subscription!.current_period_end && (
-                <span className="text-xs text-stone-500 whitespace-nowrap">
-                  renews {new Date(subscription!.current_period_end).toLocaleDateString()}
-                </span>
-              )}
+              <IosRow
+                icon="star"
+                iconColor={IOS.yellow}
+                title="Premium"
+                subtitle={renewsLabel ? `Active until ${renewsLabel}` : 'Active'}
+              />
+              <IosRow icon="coins" iconColor={IOS.orange} title="Coin pool" detail={subscription!.coin_pool_balance.toLocaleString()} />
             </>
-          ) : isNative ? (
-            <span className="text-base text-stone-600">Free plan — Premium unlocks journal viewing & coin rewards.</span>
-          ) : kids.length >= maxChildren ? (
-            // Already at the free child limit — the more contextual "Subscribe to
-            // add more" CTA below covers this, so don't repeat the same button here.
-            <span className="text-base text-stone-600">Free plan — journal viewing & coin rewards are Premium.</span>
           ) : (
             <>
-              <span className="text-base text-stone-600">Free plan — journal viewing & coin rewards are Premium.</span>
-              <button
-                onClick={() => handleSubscribe(0)}
-                disabled={checkingOut}
-                className="rounded-lg bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-sm font-bold px-3 py-1.5 whitespace-nowrap transition-colors"
-              >
-                {checkingOut ? 'Redirecting…' : 'Subscribe ₱249/yr'}
-              </button>
+              <div className="p-4 space-y-3.5">
+                <div className="flex items-center gap-3">
+                  <IosIconTile icon="star" color={IOS.yellow} size={40} />
+                  <div className="min-w-0">
+                    <p className="text-[17px] font-semibold">Free Plan</p>
+                    <p className="text-[15px] leading-[20px]" style={{ color: IOS.secondary }}>
+                      Premium adds the journal, weak-topic reports, coin rewards and more child slots.
+                    </p>
+                  </div>
+                </div>
+                {!isNative && (
+                  <IosButton onClick={() => startCheckout('premium')} disabled={checkingOut}>
+                    {checkingOut ? 'Redirecting…' : 'Get Premium · ₱249/yr'}
+                  </IosButton>
+                )}
+              </div>
+              {!isNative && (
+                <IosRow href="/parent-dashboard/pricing" title="See Pricing Details" tint="blue" />
+              )}
             </>
           )}
-        </div>
-        {!isPremium && !isNative && (
-          <a href="/parent-dashboard/pricing" className="block text-center text-sm text-amber-700 hover:text-amber-800 underline">
-            See full pricing details
-          </a>
-        )}
-        {!isNative && (
-          <div className="flex items-center justify-center gap-4 text-sm">
-            <a href="/parent-dashboard/shop" className="text-orange-700 hover:text-orange-800 underline">🛍️ Shop — extra quest packs</a>
-            <a href="/parent-dashboard/my-secs" className="text-orange-700 hover:text-orange-800 underline">📚 My SECs</a>
-          </div>
-        )}
-        {checkoutError && !isPremium && kids.length < maxChildren && <p className="text-red-500 text-sm">{checkoutError}</p>}
+        </IosGroup>
+
+        {/* Children */}
+        <IosGroup header="Children" footer={childrenFooter}>
+          {kids.length === 0 && (
+            <IosRow title="No children added yet" subtitle="Add your child to start tracking progress." />
+          )}
+          {kids.map((kid) => (
+            <IosRow
+              key={kid.id}
+              leading={<img src={kid.avatar} alt="" className="w-11 h-11 object-contain shrink-0" />}
+              title={kid.full_name}
+              subtitle={`${kid.grade} · ${kid.school_name}`}
+              onClick={() => pushChild(kid.id)}
+            />
+          ))}
+          {!atChildLimit ? (
+            <IosRow
+              leading={<span className="w-11 flex justify-center"><Icon name="plus" size={22} color={IOS.blue} /></span>}
+              title="Add Child"
+              tint="blue"
+              onClick={() => { setAddError(''); setSheet('addChild'); }}
+            />
+          ) : canBuyChildSlot ? (
+            <IosRow
+              leading={<span className="w-11 flex justify-center"><Icon name="plus" size={22} color={IOS.blue} /></span>}
+              title={checkingOut ? 'Redirecting…' : 'Add a Child Slot'}
+              tint="blue"
+              detail={`₱${CHILD_SLOT_PRICE_PHP}`}
+              onClick={checkingOut ? undefined : () => startCheckout('childSlot')}
+            />
+          ) : null}
+        </IosGroup>
 
         {kids.length > 1 && (
-          isPremium ? (
-            <div className="space-y-2">
-              <button
-                type="button"
-                onClick={() => setShowComparison((v) => !v)}
-                className="text-sm text-amber-700 hover:text-amber-800 underline"
-              >
-                {showComparison ? 'Hide comparison ▲' : 'Compare children ▼'}
-              </button>
-              {showComparison && <ChildComparisonPanel kids={kids} />}
-            </div>
-          ) : (
-            <p className="text-sm text-stone-400">🔒 Comparing children side-by-side is a Premium feature.</p>
-          )
+          <IosGroup footer={isPremium ? undefined : 'Comparing children side by side is a Premium feature.'}>
+            <IosRow
+              icon="compare"
+              iconColor={IOS.teal}
+              title="Compare Children"
+              onClick={isPremium ? () => setSheet('compare') : undefined}
+              accessory={isPremium ? undefined : <Icon name="lock" size={16} color={IOS.tertiary} />}
+            />
+          </IosGroup>
         )}
 
-        <div className="space-y-3">
-          {kids.length === 0 && <p className="text-stone-500 text-base">No children added yet.</p>}
-          {kids.map((kid) => (
-            <div key={kid.id} className="bg-[#ffffff] border border-stone-200 rounded-xl p-4 space-y-3 shadow-sm">
-              <div className="flex items-center gap-3">
-                <img src={kid.avatar} alt="" className="w-12 h-12 rounded-lg object-cover border border-stone-200" />
-                <div className="flex-1">
-                  <p className="text-slate-800 text-base font-bold">{kid.full_name}</p>
-                  <p className="text-stone-500 text-sm">{kid.grade} · {kid.school_name} · @{kid.username}</p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => handleTogglePin(kid.id)}
-                  disabled={pinLoading === kid.id}
-                  className="text-sm text-amber-700 hover:text-amber-800 underline disabled:opacity-50 whitespace-nowrap"
-                >
-                  {pinLoading === kid.id
-                    ? '…'
-                    : kid.id in revealedPins
-                      ? (revealedPins[kid.id] ?? 'PIN unavailable — reset it')
-                      : 'Show PIN'}
-                </button>
-              </div>
-              <div className="flex gap-4">
-                <button
-                  type="button"
-                  onClick={() => setExpandedLessons(expandedLessons === kid.id ? null : kid.id)}
-                  className="text-sm text-stone-500 hover:text-slate-800 underline"
-                >
-                  {expandedLessons === kid.id ? 'Hide lessons ▲' : "This week's lessons ▼"}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setExpandedChild(expandedChild === kid.id ? null : kid.id)}
-                  className="text-sm text-stone-500 hover:text-slate-800 underline"
-                >
-                  {expandedChild === kid.id ? 'Hide progress ▲' : 'View progress ▼'}
-                </button>
-              </div>
-
-              {expandedLessons === kid.id && (
-                <WeeklyLessonsPanel grade={kid.grade} />
-              )}
-
-              {expandedChild === kid.id && (
-                <ChildProgressPanel
-                  childId={kid.id}
-                  isPremium={isPremium}
-                  coinBalance={subscription?.coin_pool_balance ?? 0}
-                  onCoinsAwarded={(amount) =>
-                    setSubscription((prev) => (prev ? { ...prev, coin_pool_balance: prev.coin_pool_balance - amount } : prev))
-                  }
-                />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {kids.length >= maxChildren ? (
-          <div className="rounded-xl border border-dashed border-amber-300 bg-amber-50 p-4 space-y-2 text-center">
-            <p className="text-base text-amber-700">
-              {isPremium
-                ? `You've reached your child limit (${maxChildren}).`
-                : `Free accounts can add 1 child. Subscribe to add more.`}
-            </p>
-            {isNative ? null : isPremium && subscription!.addon_children < 2 ? (
-              <button
-                onClick={() => handleSubscribe(subscription!.addon_children + 1)}
-                disabled={checkingOut}
-                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-base font-bold py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
-              >
-                {checkingOut ? 'Redirecting…' : `+ Add a child slot (₱99/yr, renews at ₱${249 + (subscription!.addon_children + 1) * 99}/yr)`}
-              </button>
-            ) : !isPremium ? (
-              <button
-                onClick={() => handleSubscribe(0)}
-                disabled={checkingOut}
-                className="w-full rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] text-base font-bold py-2.5 shadow-lg shadow-orange-500/25 transition-colors"
-              >
-                {checkingOut ? 'Redirecting…' : 'Subscribe — ₱249/yr'}
-              </button>
-            ) : null}
-            {checkoutError && <p className="text-red-500 text-sm">{checkoutError}</p>}
-          </div>
-        ) : showAddChild ? (
-          <form onSubmit={handleAddChild} className="space-y-3">
-            <div className="bg-[#ffffff] border border-stone-200 rounded-2xl p-5 shadow-sm">
-              <ChildAccountForm theme="light" label="New Child" data={newChild} onChange={setNewChild} />
-            </div>
-            {addError && (
-              <div className="bg-red-50 border border-red-200 rounded-xl px-3 py-2">
-                <p className="text-base text-red-600">{addError}</p>
-              </div>
-            )}
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={() => { setShowAddChild(false); setAddError(''); }}
-                className="flex-1 rounded-xl border border-stone-300 text-stone-500 hover:text-slate-800 hover:border-stone-400 font-bold text-base py-3 transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={adding}
-                className="flex-1 rounded-xl bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-[#ffffff] font-bold text-base py-3 shadow-lg shadow-orange-500/25 transition-colors"
-              >
-                {adding ? 'Adding…' : 'Add Child'}
-              </button>
-            </div>
-          </form>
-        ) : (
-          <button
-            onClick={() => setShowAddChild(true)}
-            className="w-full rounded-xl border border-dashed border-stone-300 py-3 text-base text-stone-500 hover:text-amber-700 hover:border-amber-300 transition-colors"
-          >
-            + Add a child
-          </button>
+        {/* Store — web only (Play billing rules) */}
+        {!isNative && (
+          <IosGroup header="Store">
+            <IosRow href="/parent-dashboard/shop" icon="bag" iconColor={IOS.purple} title="Quest Packs" subtitle="Extra bonus quests for your child" />
+            <IosRow href="/parent-dashboard/my-secs" icon="ticket" iconColor={IOS.indigo} title="My SECs" />
+          </IosGroup>
         )}
 
-        {/* ── Parent Facebook group ── */}
-        <a
-          href="https://www.facebook.com/groups/1403800008384313"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 rounded-xl border border-sky-200 bg-sky-50 hover:bg-sky-100 hover:border-sky-300 px-4 py-3 shadow-sm transition-colors group"
-        >
-          <span className="w-9 h-9 rounded-full bg-[#1877F2] text-[#ffffff] flex items-center justify-center text-lg shrink-0">f</span>
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-bold text-sky-800">Join our Parent Facebook Group</p>
-            <p className="text-xs text-sky-700/70">Swap tips, ask questions, and connect with other Learning Hall parents</p>
-          </div>
-          <span className="text-sky-600 group-hover:translate-x-0.5 transition-transform shrink-0">→</span>
-        </a>
+        {/* Community */}
+        <IosGroup header="Community">
+          <IosRow
+            href={FACEBOOK_GROUP_URL}
+            external
+            icon="people"
+            iconColor="#1877F2"
+            title="Parent Facebook Group"
+            subtitle="Swap tips and ask questions with other parents"
+          />
+        </IosGroup>
 
-        {/* ── Blog resources ── */}
         {kids.length > 0 && (
           <ParentBlogResources
             grades={[...new Set(kids.map(k => parseInt(k.grade.replace(/\D/g, ''), 10)).filter(Boolean))]}
           />
         )}
 
-        {/* ── Danger zone — pushed far from main content ── */}
-        <div className="mt-16 pt-8 border-t border-stone-200 space-y-3">
-          <p className="text-xs uppercase tracking-widest text-stone-400 select-none">More options</p>
-
-          {/* Push notifications on this device */}
-          {parentId && <PushNotificationSettings owner={{ kind: 'parent', id: parentId }} />}
-
-          {/* Email updates opt-in/out */}
-          {!showOptOutConfirm ? (
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-sm text-stone-500">
-                📧 Email updates — progress tips &amp; news
-                {!parent.marketing_opt_in && <span className="text-amber-700"> · get 250 free gold 🪙</span>}
-              </span>
-              {parent.marketing_opt_in ? (
-                <button
-                  type="button"
-                  onClick={() => setShowOptOutConfirm(true)}
-                  disabled={togglingOptIn}
-                  className="text-xs text-stone-500 hover:text-stone-700 underline disabled:opacity-50"
-                >
-                  Unsubscribe
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleToggleOptIn}
-                  disabled={togglingOptIn}
-                  className="text-xs text-amber-700 hover:text-amber-800 underline disabled:opacity-50"
-                >
-                  {togglingOptIn ? '…' : 'Subscribe'}
-                </button>
-              )}
-            </div>
-          ) : (
-            <div className="rounded-xl border border-stone-200 bg-[#ffffff] p-4 space-y-2 shadow-sm">
-              <p className="text-sm text-slate-700">Stop receiving email updates from Learning Hall?</p>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setShowOptOutConfirm(false)}
-                  className="flex-1 rounded-lg border border-stone-300 text-stone-500 py-2 text-sm"
-                >
-                  Keep me subscribed
-                </button>
-                <button
-                  type="button"
-                  onClick={async () => { await handleToggleOptIn(); setShowOptOutConfirm(false); }}
-                  disabled={togglingOptIn}
-                  className="flex-1 rounded-lg bg-stone-200 hover:bg-stone-300 disabled:opacity-50 text-stone-700 text-sm py-2"
-                >
-                  {togglingOptIn ? '…' : 'Yes, unsubscribe'}
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* Bug report */}
-          {!showBugReport ? (
-            <button
-              onClick={() => { setShowBugReport(true); setBugSent(false); setBugError(''); }}
-              className="block text-sm text-amber-600 hover:text-amber-700 underline"
-            >
-              🐛 Report a bug
-            </button>
-          ) : (
-            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 space-y-3">
-              <p className="text-base text-amber-800 font-semibold">🐛 Report a Bug</p>
-              <p className="text-sm text-stone-500">Describe what happened and we'll look into it.</p>
-              {bugSent ? (
-                <p className="text-base text-green-600">✓ Thanks! Your report is on its way.</p>
-              ) : (
-                <>
-                  <textarea
-                    value={bugText}
-                    onChange={(e) => setBugText(e.target.value)}
-                    rows={4}
-                    placeholder="e.g. The progress panel doesn't load for my child…"
-                    className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 resize-none placeholder:text-stone-400 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition-all"
-                  />
-                  {bugError && <p className="text-sm text-red-600">{bugError}</p>}
-                  <div className="flex gap-3">
-                    <button
-                      type="button"
-                      onClick={() => { setShowBugReport(false); setBugText(''); setBugError(''); }}
-                      className="flex-1 rounded-xl border border-stone-300 text-stone-500 py-3 text-base"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleBugReport}
-                      disabled={!bugText.trim() || bugSubmitting}
-                      className="flex-1 rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-40 text-[#ffffff] font-bold py-3 text-base transition-colors"
-                    >
-                      {bugSubmitting ? 'Sending…' : 'Send Report'}
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
-          )}
-
-          {/* Account deletion */}
-          {!showDeleteConfirm ? (
-            <button
-              onClick={() => setShowDeleteConfirm(true)}
-              className="block text-sm text-red-500/70 hover:text-red-600 underline"
-            >
-              Delete my account
-            </button>
-          ) : (
-            <div className="rounded-xl border border-red-200 bg-red-50 p-4 space-y-3">
-              <p className="text-base text-red-700 font-semibold">This permanently deletes your account and every child's progress. This cannot be undone.</p>
-              <p className="text-sm text-stone-500">Type DELETE below to confirm.</p>
-              <input
-                type="text"
-                value={deleteConfirmText}
-                onChange={(e) => setDeleteConfirmText(e.target.value)}
-                className="w-full rounded-xl bg-[#ffffff] border border-stone-300 px-4 py-3 text-base text-gray-900 outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all"
-                placeholder="DELETE"
+        {/* Notifications */}
+        <IosGroup header="Notifications">
+          {parentId && <PushNotificationSettings owner={{ kind: 'parent', id: parentId }} variant="ios" />}
+          <IosRow
+            icon="mail"
+            iconColor={IOS.blue}
+            title="Email Updates"
+            subtitle={parent.marketing_opt_in ? 'Progress tips and news' : 'Turn on to get 250 free gold'}
+            accessory={
+              <IosSwitch
+                checked={parent.marketing_opt_in}
+                disabled={togglingOptIn}
+                label="Email updates"
+                onChange={(on) => (on ? handleToggleOptIn() : setShowOptOutConfirm(true))}
               />
-              {deleteError && <p className="text-red-500 text-base">{deleteError}</p>}
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => { setShowDeleteConfirm(false); setDeleteConfirmText(''); setDeleteError(''); }}
-                  className="flex-1 rounded-xl border border-stone-300 text-stone-500 py-3 text-base"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="button"
-                  onClick={handleDeleteAccount}
-                  disabled={deleteConfirmText !== 'DELETE' || deleting}
-                  className="flex-1 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-[#ffffff] font-bold py-3 text-base transition-colors"
-                >
-                  {deleting ? 'Deleting…' : 'Permanently Delete'}
-                </button>
-              </div>
+            }
+          />
+        </IosGroup>
+
+        {/* Support */}
+        <IosGroup header="Support">
+          <IosRow
+            icon="ladybug"
+            iconColor={IOS.green}
+            title="Report a Problem"
+            onClick={() => { setBugSent(false); setBugError(''); setSheet('bug'); }}
+          />
+          <IosRow
+            href={MESSENGER_URL}
+            external
+            icon="chat"
+            iconColor="#0084FF"
+            title="Message Us"
+            subtitle="Chat with us on Facebook Messenger"
+          />
+          <IosRow href={`mailto:${SUPPORT_EMAIL}`} external icon="mail" iconColor={IOS.gray} title="Contact Support" detail="Email" />
+        </IosGroup>
+
+        <IosGroup>
+          <IosRow title="Sign Out" tint="red" center onClick={() => setShowSignOutConfirm(true)} />
+        </IosGroup>
+
+        <IosGroup footer="Permanently removes your account and every child's progress.">
+          <IosRow
+            title="Delete Account"
+            tint="red"
+            center
+            onClick={() => { setDeleteConfirmText(''); setDeleteError(''); setSheet('delete'); }}
+          />
+        </IosGroup>
+      </IosContent>
+
+      {childPage}
+
+      {/* ── Sheets ── */}
+
+      <IosSheet
+        open={sheet === 'addChild'}
+        onClose={closeSheet}
+        title="Add Child"
+        action={{ label: adding ? 'Adding…' : 'Add', onClick: () => handleAddChild(), disabled: adding }}
+      >
+        <form onSubmit={handleAddChild} className="space-y-8">
+          <div className="flex flex-col items-center gap-3 pt-1">
+            <img src={newChild.avatar} alt="" className="w-24 h-24 object-contain" />
+            <div className="w-full max-w-[240px]">
+              <IosSegmented
+                value={newChild.gender}
+                onChange={(gender) => setNewChild({ ...newChild, gender, avatar: defaultAvatarForGender(gender) })}
+                options={[{ value: 'boy', label: 'Boy' }, { value: 'girl', label: 'Girl' }]}
+              />
             </div>
-          )}
+          </div>
+
+          <IosGroup>
+            <IosField
+              placeholder="Full name"
+              value={newChild.fullName}
+              onChange={(e) => setNewChild({ ...newChild, fullName: e.target.value })}
+              autoComplete="off"
+            />
+            <IosField
+              placeholder="School name"
+              value={newChild.schoolName}
+              onChange={(e) => setNewChild({ ...newChild, schoolName: e.target.value })}
+              autoComplete="off"
+            />
+          </IosGroup>
+
+          <IosGroup header="Grade">
+            {GRADES.map((g) => (
+              <IosRow
+                key={g}
+                title={g}
+                onClick={() => setNewChild({ ...newChild, grade: g })}
+                accessory={newChild.grade === g ? <Icon name="check" size={20} color={IOS.blue} /> : <span />}
+              />
+            ))}
+          </IosGroup>
+
+          <IosGroup
+            header="Sign-in"
+            footer={addError ? <span style={{ color: IOS.red }}>{addError}</span> : 'Your child signs in with this username and a 4-digit PIN. You can view the PIN here anytime.'}
+          >
+            <IosField
+              label="Username"
+              placeholder="Required"
+              value={newChild.username}
+              onChange={(e) => setNewChild({ ...newChild, username: e.target.value })}
+              autoCapitalize="none"
+              autoCorrect="off"
+              autoComplete="off"
+            />
+            <IosField
+              label="PIN"
+              placeholder="4 digits"
+              type="password"
+              inputMode="numeric"
+              value={newChild.pin}
+              onChange={(e) => setNewChild({ ...newChild, pin: e.target.value.replace(/\D/g, '').slice(0, 4) })}
+              autoComplete="new-password"
+            />
+          </IosGroup>
+
+          <IosButton type="submit" disabled={adding}>{adding ? 'Adding…' : 'Add Child'}</IosButton>
+        </form>
+      </IosSheet>
+
+      <IosSheet open={sheet === 'compare'} onClose={closeSheet} title="Compare" closeLabel="Done">
+        <ChildComparisonPanel kids={kids} />
+      </IosSheet>
+
+      <IosSheet
+        open={sheet === 'bug'}
+        onClose={closeSheet}
+        title="Report a Problem"
+        action={bugSent ? undefined : { label: bugSubmitting ? 'Sending…' : 'Send', onClick: handleBugReport, disabled: !bugText.trim() || bugSubmitting }}
+      >
+        {bugSent ? (
+          <div className="flex flex-col items-center text-center gap-2 py-8">
+            <IosIconTile icon="check" color={IOS.green} size={48} />
+            <p className="text-[17px] font-semibold">Thanks! Your report is on its way.</p>
+          </div>
+        ) : (
+          <IosGroup
+            footer={bugError ? <span style={{ color: IOS.red }}>{bugError}</span> : "Describe what happened and we'll look into it."}
+          >
+            <textarea
+              value={bugText}
+              onChange={(e) => setBugText(e.target.value)}
+              rows={6}
+              autoFocus
+              placeholder="e.g. The progress page doesn't load for my child…"
+              className="block w-full bg-transparent px-4 py-3 text-[17px] leading-[22px] resize-none outline-none placeholder:text-[#C7C7CC]"
+            />
+          </IosGroup>
+        )}
+      </IosSheet>
+
+      <IosSheet open={sheet === 'delete'} onClose={closeSheet} title="Delete Account">
+        <div className="flex flex-col items-center text-center gap-2 pt-2">
+          <IosIconTile icon="trash" color={IOS.red} size={48} />
+          <p className="text-[17px] font-semibold">This can&apos;t be undone</p>
+          <p className="text-[15px]" style={{ color: IOS.secondary }}>
+            Your account and every child&apos;s progress will be permanently deleted.
+          </p>
         </div>
-      </div>
-    </main>
+        <IosGroup
+          header="Type DELETE to confirm"
+          footer={deleteError ? <span style={{ color: IOS.red }}>{deleteError}</span> : undefined}
+        >
+          <IosField
+            placeholder="DELETE"
+            value={deleteConfirmText}
+            onChange={(e) => setDeleteConfirmText(e.target.value)}
+            autoCapitalize="characters"
+            autoCorrect="off"
+            autoComplete="off"
+          />
+        </IosGroup>
+        <IosButton color={IOS.red} onClick={handleDeleteAccount} disabled={deleteConfirmText !== 'DELETE' || deleting}>
+          {deleting ? 'Deleting…' : 'Permanently Delete'}
+        </IosButton>
+      </IosSheet>
+
+      {/* ── Alerts ── */}
+
+      <IosAlert
+        open={showOptOutConfirm}
+        title="Turn Off Email Updates?"
+        message="You'll stop getting progress tips and news from Learning Hall."
+        confirmLabel="Turn Off"
+        destructive
+        busy={togglingOptIn}
+        onCancel={() => setShowOptOutConfirm(false)}
+        onConfirm={async () => { await handleToggleOptIn(); setShowOptOutConfirm(false); }}
+      />
+      <IosAlert
+        open={showSignOutConfirm}
+        title="Sign Out?"
+        confirmLabel="Sign Out"
+        destructive
+        onCancel={() => setShowSignOutConfirm(false)}
+        onConfirm={handleSignOut}
+      />
+    </IosScreen>
   );
 }
