@@ -181,6 +181,19 @@ export async function POST(request: NextRequest) {
       if (activated) {
         await fireSecPurchasedCapiEvent(checkoutId);
       }
+    } else if (metadataType === 'child_slot') {
+      // ₱99 extra child slot on an active Premium plan — adds one slot and
+      // leaves the billing date and coin pool alone (see
+      // 20261002150000_child_slot_purchase.sql). Must be its own branch: the
+      // default branch below would treat it as a whole new Premium year.
+      const { error } = await supabaseAdmin.rpc('handle_child_slot_webhook', {
+        p_checkout_id: checkoutId,
+        p_payment_id: paymentId,
+      });
+
+      if (error) {
+        return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+      }
     } else {
       const { data: activated, error } = await supabaseAdmin.rpc('handle_paymongo_webhook', {
         p_checkout_id: checkoutId,
