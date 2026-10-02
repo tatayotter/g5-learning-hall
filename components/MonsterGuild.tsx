@@ -207,6 +207,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // loading) = don't gate.
   const linked = useLinkedStatus();
   const isGatedUnlinked = linked === false;
+  // Shown instead of starting a real-student PvP challenge while unlinked.
+  const [showPvpParentGate, setShowPvpParentGate] = useState(false);
   // Set by a map sprite's "Trade" button (handleTradePlayer below) so the
   // Trade tab it switches to can skip its own player search — see
   // TradePanel's presetTarget prop. Cleared on any manual nav-tab click.
@@ -755,6 +757,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handleChallengePlayer = async (opponentId: UserId, opponentName: string) => {
+    // Battling anyone — real students AND bot classmates — requires a linked
+    // parent. For real PvP, trg_pvp_requires_linked_parent on live_battles is
+    // the actual enforcement (createInvite below hits the DB directly); bot
+    // battles are purely client-side, so this check is their only gate.
+    if (isGatedUnlinked) {
+      setShowPvpParentGate(true);
+      return;
+    }
     // Bot players are not in Supabase — bypass the real invite flow and launch
     // a local bot battle directly, the same way the challenge toast does.
     if (BOT_IDS.has(opponentId)) {
@@ -768,14 +778,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setLiveBattleTeams({ mine: myTeam, opp: oppTeam });
       setLiveBattleBotAccuracy(bot.accuracy);
       setView('live_battle');
-      return;
-    }
-    // Real PvP (not bots — see BOT_IDS.has above) requires a linked parent.
-    // This client check just gives a clear message; trg_pvp_requires_linked_parent
-    // on live_battles is the actual enforcement, since createInvite below
-    // hits the DB directly.
-    if (isGatedUnlinked) {
-      showNotification('Link a parent to challenge other players — tap "Link a Parent" in the corner to start.');
       return;
     }
     if (!liveBattleInbox.onlinePlayerIds.has(opponentId)) {
@@ -1028,6 +1030,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   return (
     <div>
+      {/* PvP parent-link gate — z-[95] so it sits above the fullscreen map (z-[78]). */}
+      {showPvpParentGate && (
+        <div
+          className="fixed inset-0 z-[95] bg-black/60 flex items-center justify-center p-4 overflow-y-auto"
+          onClick={(e) => { if (e.target === e.currentTarget) setShowPvpParentGate(false); }}
+        >
+          <LinkParentGate feature="battles with other students" onClose={() => setShowPvpParentGate(false)} />
+        </div>
+      )}
       {/* Notification */}
       {notification && (
         <div className="fixed top-6 right-6 z-50 bg-amber-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg">
@@ -1193,6 +1204,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}
           onChallengePlayer={handleChallengePlayer}
+          onGatedPlayerClick={isGatedUnlinked ? () => setShowPvpParentGate(true) : undefined}
           onTradePlayer={handleTradePlayer}
           liveBattleInbox={liveBattleInbox}
           mapPresence={mergedMapPresence}
@@ -1352,6 +1364,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onAccept={() => {
             const bot = pendingBotChallenge;
             setPendingBotChallenge(null);
+            if (isGatedUnlinked) {
+              setShowPvpParentGate(true);
+              return;
+            }
             const myTeam = buildPlayerTeam();
             const oppTeam = buildBotTeam(bot);
             const fakeId = `${bot.id}_${Date.now()}`;

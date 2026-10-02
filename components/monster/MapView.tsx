@@ -30,6 +30,7 @@ interface MapViewProps {
   onTrashTraded: (gold: number) => void;
   onChallengePlayer: (opponentId: UserId, opponentName: string) => void;
   onTradePlayer: (opponentId: UserId, opponentName: string) => void;
+  onGatedPlayerClick?: () => void;
   liveBattleInbox: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked: boolean;
@@ -57,6 +58,7 @@ export default function MapView({
   onTrashTraded,
   onChallengePlayer,
   onTradePlayer,
+  onGatedPlayerClick,
   liveBattleInbox,
   mapPresence,
   movementLocked,
@@ -85,6 +87,7 @@ export default function MapView({
       onTrashTraded={onTrashTraded}
       onChallengePlayer={(targetId, name) => onChallengePlayer(targetId as UserId, name)}
       onTradePlayer={(targetId, name) => onTradePlayer(targetId as UserId, name)}
+      onGatedPlayerClick={onGatedPlayerClick}
       liveBattleInbox={liveBattleInbox}
       mapPresence={mapPresence}
       movementLocked={movementLocked}
