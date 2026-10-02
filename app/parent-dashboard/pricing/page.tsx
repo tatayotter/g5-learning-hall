@@ -131,7 +131,7 @@ export default function PricingPage() {
             footer={
               checkoutError ? <span style={{ color: IOS.red }}>{checkoutError}</span>
               : subscription!.addon_children < 2
-                ? `Each extra slot is ₱${CHILD_SLOT_PRICE_PHP}/yr. Your plan would renew at ₱${premiumRenewalPrice(subscription!.addon_children + 1)}/yr.`
+                ? `Each extra slot is ₱${CHILD_SLOT_PRICE_PHP}/yr, making your yearly price ₱${premiumRenewalPrice(subscription!.addon_children + 1)}.`
                 : undefined
             }
           >

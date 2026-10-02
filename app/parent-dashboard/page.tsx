@@ -321,7 +321,7 @@ export default function ParentDashboardPage() {
     if (checkoutError && atChildLimit) return <span style={{ color: IOS.red }}>{checkoutError}</span>;
     if (!atChildLimit) return undefined;
     if (canBuyChildSlot) {
-      return `Each extra child slot is ₱99/yr. Your plan would renew at ₱${249 + (subscription!.addon_children + 1) * 99}/yr.`;
+      return `Each extra child slot is ₱99/yr, making your yearly price ₱${249 + (subscription!.addon_children + 1) * 99}.`;
     }
     if (isPremium) return `You've reached your child limit (${maxChildren}).`;
     return 'Free accounts can add 1 child. Subscribe to Premium to add more.';
@@ -407,7 +407,7 @@ export default function ParentDashboardPage() {
                 icon="star"
                 iconColor={IOS.yellow}
                 title="Premium"
-                subtitle={renewsLabel ? `Renews ${renewsLabel}` : 'Active'}
+                subtitle={renewsLabel ? `Active until ${renewsLabel}` : 'Active'}
               />
               <IosRow icon="coins" iconColor={IOS.orange} title="Coin pool" detail={subscription!.coin_pool_balance.toLocaleString()} />
             </>

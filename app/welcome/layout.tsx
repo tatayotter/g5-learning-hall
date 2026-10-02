@@ -49,7 +49,7 @@ const FAQ_JSON_LD = {
       name: 'Is this actually free?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — Learning Hall is free while it is in Early Access, no credit card required. Pricing for a wider release has not been locked in yet, but Early Access families will hear about any change before it happens.',
+        text: 'Yes — the core game is free, forever, for one child: full gameplay, all five Learning Guilds, curio battles, and the progress dashboard. A ₱249/year Premium plan is available if you want to add more children under one account, view your child’s journal entries, and earn gold coins to stock the Rewards Vault — but nothing about the actual learning is ever paywalled.',
       },
     },
     {

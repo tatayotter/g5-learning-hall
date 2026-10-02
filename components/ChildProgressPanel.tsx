@@ -278,7 +278,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
           footer={
             awardError ? <span style={{ color: IOS.red }}>{awardError}</span>
             : awardSuccess ? <span style={{ color: IOS.green }}>Coins sent. They can spend them in the shop right away.</span>
-            : "Sends gold straight to your child's in-game balance. Premium includes 10,000 gold a year, shared across your children. It resets on renewal, and unused coins don't roll over."
+            : "Sends gold straight to your child's in-game balance. Premium includes 10,000 gold a year, shared across your children. It resets when you buy your next year, and unused coins don't roll over."
           }
         >
           <IosRow icon="coins" iconColor={IOS.orange} title="Left in your pool" detail={coinBalance.toLocaleString()} />
