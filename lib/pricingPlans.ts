@@ -2,19 +2,15 @@
 // marketing page (app/welcome/pricing) and the signed-in parent page
 // (app/parent-dashboard/pricing), so a price or feature change can't drift
 // between them. Actual billing amounts are set server-side in
-// /api/create-checkout; keep these numbers in sync with it. Child limits
-// mirror public.max_children_for_parent: Free = 1, Premium = 3 included +
-// up to 2 extra slots (least(5, 3 + addon_children)), checkout caps addons at 2.
+// /api/create-checkout (₱249/yr Premium) and /api/create-child-slot-checkout
+// (₱99 one-time slot); keep these numbers in sync with them. Child limits
+// mirror public.max_children_for_parent: Premium = least(5, 3 + slots);
+// lapsed/free = 1 + slots. Slots are kept forever and never re-charged.
 
 export const PREMIUM_PRICE_PHP = 249;
 export const PREMIUM_REGULAR_PRICE_PHP = 599;
 export const MONTHLY_PER_CHILD_ANCHOR_PHP = 99; // "₱99/month per child" comparison anchor
-export const CHILD_SLOT_PRICE_PHP = 99;
-
-/** Yearly Premium price with `addonChildren` extra slots (one-time yearly purchase, not auto-renewing). */
-export function premiumRenewalPrice(addonChildren: number): number {
-  return PREMIUM_PRICE_PHP + addonChildren * CHILD_SLOT_PRICE_PHP;
-}
+export const CHILD_SLOT_PRICE_PHP = 99; // one-time per slot, kept forever
 
 export interface PlanFeature {
   text: string;
@@ -38,5 +34,5 @@ export const PREMIUM_FEATURES: PlanFeature[] = [
   { text: 'Weak-topic reports — see what to review together', included: true },
   { text: 'Compare children side by side', included: true },
   { text: '10,000 gold coins a year to reward your kids', included: true },
-  { text: `+₱${CHILD_SLOT_PRICE_PHP}/yr per extra child (up to 5 total)`, included: true },
+  { text: `Extra child slots: ₱${CHILD_SLOT_PRICE_PHP} one-time each, yours to keep (up to 5 children)`, included: true },
 ];

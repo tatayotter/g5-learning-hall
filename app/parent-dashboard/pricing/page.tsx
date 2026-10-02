@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
 import {
   FREE_FEATURES, PREMIUM_FEATURES, PREMIUM_PRICE_PHP, PREMIUM_REGULAR_PRICE_PHP,
-  MONTHLY_PER_CHILD_ANCHOR_PHP, CHILD_SLOT_PRICE_PHP, premiumRenewalPrice, type PlanFeature,
+  MONTHLY_PER_CHILD_ANCHOR_PHP, CHILD_SLOT_PRICE_PHP, type PlanFeature,
 } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosBarButton, IosButton, IosContent, IosGroup, IosIconTile, IosNavBar, IosRow, IosScreen,
@@ -67,14 +67,16 @@ export default function PricingPage() {
     })();
   }, [router]);
 
-  const handleSubscribe = async (addonChildren: number) => {
+  // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
+  // ₱99 slot that never touches the renewal date or coin pool.
+  const startCheckout = async (kind: 'premium' | 'childSlot') => {
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
-    const res = await fetch('/api/create-checkout', {
+    const res = await fetch(kind === 'premium' ? '/api/create-checkout' : '/api/create-child-slot-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
-      body: JSON.stringify({ addonChildren }),
+      body: JSON.stringify({}),
     });
     const body = await res.json().catch(() => ({}));
     setCheckingOut(false);
@@ -131,7 +133,7 @@ export default function PricingPage() {
             footer={
               checkoutError ? <span style={{ color: IOS.red }}>{checkoutError}</span>
               : subscription!.addon_children < 2
-                ? `Each extra slot is ₱${CHILD_SLOT_PRICE_PHP}/yr, making your yearly price ₱${premiumRenewalPrice(subscription!.addon_children + 1)}.`
+                ? `A child slot is a one-time ₱${CHILD_SLOT_PRICE_PHP} and stays on your account for good, even if Premium lapses. It doesn't change your renewal date or coins.`
                 : undefined
             }
           >
@@ -141,14 +143,14 @@ export default function PricingPage() {
                 leading={<span className="w-[30px] flex justify-center"><Icon name="plus" size={22} color={IOS.blue} /></span>}
                 title={checkingOut ? 'Redirecting…' : 'Add a Child Slot'}
                 tint="blue"
-                detail={`₱${CHILD_SLOT_PRICE_PHP}/yr`}
-                onClick={checkingOut ? undefined : () => handleSubscribe(subscription!.addon_children + 1)}
+                detail={`₱${CHILD_SLOT_PRICE_PHP}`}
+                onClick={checkingOut ? undefined : () => startCheckout('childSlot')}
               />
             )}
           </IosGroup>
         ) : (
           <div className="space-y-2">
-            <IosButton onClick={() => handleSubscribe(0)} disabled={checkingOut}>
+            <IosButton onClick={() => startCheckout('premium')} disabled={checkingOut}>
               {checkingOut ? 'Redirecting…' : `Get Premium · ₱${PREMIUM_PRICE_PHP}/yr`}
             </IosButton>
             {checkoutError && <p className="text-center text-[13px]" style={{ color: IOS.red }}>{checkoutError}</p>}

@@ -10,6 +10,7 @@ import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
 import { autoPromptForPush } from '@/lib/push';
+import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
   IosIconTile, IosNavBar, IosPushedPage, IosRow, IosScreen, IosSegmented, IosSheet, IosSwitch,
@@ -140,14 +141,16 @@ export default function ParentDashboardPage() {
     setLoading(false);
   };
 
-  const handleSubscribe = async (addonChildren: number) => {
+  // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
+  // ₱99 slot that never touches the renewal date or coin pool.
+  const startCheckout = async (kind: 'premium' | 'childSlot') => {
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
-    const res = await fetch('/api/create-checkout', {
+    const res = await fetch(kind === 'premium' ? '/api/create-checkout' : '/api/create-child-slot-checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token || ''}` },
-      body: JSON.stringify({ addonChildren }),
+      body: JSON.stringify({}),
     });
     const body = await res.json().catch(() => ({}));
     setCheckingOut(false);
@@ -320,11 +323,11 @@ export default function ParentDashboardPage() {
   const childrenFooter = (() => {
     if (checkoutError && atChildLimit) return <span style={{ color: IOS.red }}>{checkoutError}</span>;
     if (!atChildLimit) return undefined;
-    if (canBuyChildSlot) {
-      return `Each extra child slot is ₱99/yr, making your yearly price ₱${249 + (subscription!.addon_children + 1) * 99}.`;
-    }
+    if (canBuyChildSlot) return `A child slot is a one-time ₱${CHILD_SLOT_PRICE_PHP} and stays on your account for good, even if Premium lapses. It doesn't change your renewal date or coins.`;
     if (isPremium) return `You've reached your child limit (${maxChildren}).`;
-    return 'Free accounts can add 1 child. Subscribe to Premium to add more.';
+    return maxChildren > 1
+      ? `Your account holds ${maxChildren} children. Get Premium to add more.`
+      : 'Free accounts can add 1 child. Get Premium to add more.';
   })();
 
   /* ── Child detail (pushed page) ─────────────────────────────────────── */
@@ -424,7 +427,7 @@ export default function ParentDashboardPage() {
                   </div>
                 </div>
                 {!isNative && (
-                  <IosButton onClick={() => handleSubscribe(0)} disabled={checkingOut}>
+                  <IosButton onClick={() => startCheckout('premium')} disabled={checkingOut}>
                     {checkingOut ? 'Redirecting…' : 'Get Premium · ₱249/yr'}
                   </IosButton>
                 )}
@@ -462,8 +465,8 @@ export default function ParentDashboardPage() {
               leading={<span className="w-11 flex justify-center"><Icon name="plus" size={22} color={IOS.blue} /></span>}
               title={checkingOut ? 'Redirecting…' : 'Add a Child Slot'}
               tint="blue"
-              detail="₱99/yr"
-              onClick={checkingOut ? undefined : () => handleSubscribe(subscription!.addon_children + 1)}
+              detail={`₱${CHILD_SLOT_PRICE_PHP}`}
+              onClick={checkingOut ? undefined : () => startCheckout('childSlot')}
             />
           ) : null}
         </IosGroup>
