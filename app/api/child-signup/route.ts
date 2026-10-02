@@ -1,6 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Maps create_unclaimed_child_account's raw exception text to something a
+// kid can act on. Unknown errors pass through unchanged.
+function friendlySignupError(message: string): string {
+  if (message.includes('signup rate limit exceeded')) {
+    return 'Lots of accounts are being made on this network right now. Please wait a few minutes and try again.';
+  }
+  if (message.includes('username already taken')) {
+    return 'That username is already taken. Try adding a number or your initials.';
+  }
+  if (message.includes('invalid username')) {
+    return 'Usernames can only use letters, numbers, and underscores.';
+  }
+  if (message.includes('pin must be 4 digits')) {
+    return 'Your PIN must be exactly 4 numbers.';
+  }
+  return message;
+}
+
 // Child self-registration (no parent required yet) — see
 // docs/parent-child-linking-design.md. The client establishes its own
 // anonymous session and passes the access token here so
@@ -36,7 +54,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 400 });
+    return NextResponse.json({ success: false, error: friendlySignupError(error.message) }, { status: 400 });
   }
 
   const row = Array.isArray(data) ? data[0] : data;
