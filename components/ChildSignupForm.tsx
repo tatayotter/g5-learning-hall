@@ -1,4 +1,5 @@
 'use client';
+import { checkSignupNames } from '@/lib/nameFilter';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
@@ -67,6 +68,12 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
 
     setSubmitting(true);
     try {
+      const nameProblem = await checkSignupNames(data.username, data.fullName, data.schoolName);
+      if (nameProblem) {
+        setError(nameProblem);
+        return;
+      }
+
       const authUid = await ensureAnonymousSession();
       if (!authUid) throw new Error('Could not start a session. Check your connection and try again.');
 

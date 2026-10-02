@@ -12,6 +12,7 @@ import PushNotificationSettings from '@/components/PushNotificationSettings';
 import { recordPushOpenFromUrl } from '@/lib/push';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import SchoolPicker from '@/components/SchoolPicker';
+import { checkSignupNames, friendlyNameError } from '@/lib/nameFilter';
 import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
@@ -175,6 +176,12 @@ export default function ParentDashboardPage() {
       return;
     }
     setAdding(true);
+    const nameProblem = await checkSignupNames(newChild.username, newChild.fullName, newChild.schoolName);
+    if (nameProblem) {
+      setAdding(false);
+      setAddError(nameProblem);
+      return;
+    }
     const { error } = await supabase.rpc('create_child_account', {
       p_username: newChild.username,
       p_pin: newChild.pin,
@@ -186,7 +193,7 @@ export default function ParentDashboardPage() {
     });
     setAdding(false);
     if (error) {
-      setAddError(error.message);
+      setAddError(friendlyNameError(error.message) ?? error.message);
       return;
     }
     setNewChild(emptyChildForm());
