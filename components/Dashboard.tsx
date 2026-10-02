@@ -28,7 +28,7 @@ import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
-import { autoPromptForPush, sendPushToSelf } from '@/lib/push';
+import { autoPromptForPush } from '@/lib/push';
 import type { GuildView } from '@/components/monster/types';
 
 // Runtime mirror of the GuildView union — needed to validate a query-param
@@ -209,21 +209,6 @@ export default function Dashboard() {
               const speciesName = ALL_MONSTERS[h.species_id]?.name ?? h.species_id;
               logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
             });
-            // Self-notification — the hatch is already visible in-session via
-            // EggHatchModal, but a push also confirms it landed on other
-            // devices/tabs and matches the other event types below. Purely
-            // client-triggered (no cron needed): hatching only ever happens
-            // during a session, unlike mission completion.
-            const firstSpecies = ALL_MONSTERS[result.hatched[0].species_id]?.name ?? result.hatched[0].species_id;
-            const title = result.hatched.length > 1 ? 'Eggs Hatched! 🐣' : 'Egg Hatched! 🐣';
-            const body = result.hatched.length > 1
-              ? `${result.hatched.length} eggs hatched, including a ${firstSpecies}!`
-              : `Your egg hatched into a ${firstSpecies}!`;
-            // '/play' is a static marketing landing page, never the actual
-            // game (that's root '/', which Dashboard itself renders) —
-            // every push notification's url was wrongly pointing at '/play'
-            // until this was caught. Deep-links straight to the Hatchery.
-            sendPushToSelf({ kind: 'app_user', id: activeUserId }, title, body, '/?tab=monster&view=hatchery');
           }
         });
         fetchUserEggs(activeUserId).then(eggs => {

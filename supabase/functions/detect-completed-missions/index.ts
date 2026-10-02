@@ -41,9 +41,11 @@ Deno.serve(async (req: Request) => {
     const { error: insertErr } = await admin.from('push_notification_queue').insert({
       owner_kind: 'app_user',
       owner_id: mission.user_id,
-      title: 'Mission Complete! 🎒',
-      body: `"${mission.mission_name}" is done — come collect your curio's reward.`,
+      title: 'Mission complete',
+      body: `"${mission.mission_name}" is done. Come collect your curio's reward.`,
       url: '/?tab=monster&view=team',
+      ttl_seconds: 12 * 60 * 60,
+      tag: `mission-${mission.id}`,
     });
     if (insertErr) {
       console.error('detect-completed-missions: failed to queue', mission.id, insertErr);

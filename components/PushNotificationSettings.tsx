@@ -1,7 +1,7 @@
 // components/PushNotificationSettings.tsx
-// Plumbing-phase UI: subscribe/unsubscribe this browser to Web Push, and a
-// "send me a test" button to prove the pipe works end-to-end. No real
-// triggers wired up yet (see lib/push.ts) — that's a deliberate follow-up.
+// Subscribe/unsubscribe this browser to Web Push, plus a "send me a test"
+// button. The pushes themselves are queued server-side (see
+// supabase/functions/push-queue-dispatch).
 'use client';
 
 import { useEffect, useState } from 'react';

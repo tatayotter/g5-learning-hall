@@ -30,7 +30,7 @@ Deno.serve(async (req: Request) => {
 
   const { data: pending, error } = await admin
     .from('push_notification_queue')
-    .select('id, owner_kind, owner_id, title, body, url, attempts')
+    .select('id, owner_kind, owner_id, title, body, url, attempts, created_at, ttl_seconds, tag')
     .is('sent_at', null)
     .lt('attempts', MAX_ATTEMPTS)
     .order('created_at', { ascending: true })
@@ -44,8 +44,21 @@ Deno.serve(async (req: Request) => {
   let sent = 0;
   let failed = 0;
   let skippedNoSubscription = 0;
+  let skippedExpired = 0;
 
   for (const item of pending ?? []) {
+    // Sat in the queue past its own TTL (dispatcher outage, retries) — a
+    // "before the day ends" reminder delivered tomorrow is worse than none.
+    const ageSeconds = (Date.now() - new Date(item.created_at).getTime()) / 1000;
+    const remainingTtl = Math.floor(item.ttl_seconds - ageSeconds);
+    if (remainingTtl <= 0) {
+      await admin.from('push_notification_queue')
+        .update({ sent_at: new Date().toISOString(), skipped_reason: 'expired' })
+        .eq('id', item.id);
+      skippedExpired++;
+      continue;
+    }
+
     const { data: subs, error: subsErr } = await admin
       .from('push_subscriptions')
       .select('id, endpoint, p256dh, auth_key')
@@ -63,19 +76,24 @@ Deno.serve(async (req: Request) => {
       // Owner never enabled push (or unsubscribed since). Mark sent so this
       // row stops being retried — there's nothing to deliver to, and that's
       // not a transient failure that a retry would ever fix.
-      await admin.from('push_notification_queue').update({ sent_at: new Date().toISOString() }).eq('id', item.id);
+      await admin.from('push_notification_queue')
+        .update({ sent_at: new Date().toISOString(), skipped_reason: 'no_subscription' })
+        .eq('id', item.id);
       skippedNoSubscription++;
       continue;
     }
 
-    let anySent = false;
+    let deliveredCount = 0;
     for (const sub of subs) {
       try {
+        // TTL: without it web-push asks the push service to hold the message
+        // for 4 weeks, so an offline phone got stale reminders days later.
         await webpush.sendNotification(
           { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth_key } },
-          JSON.stringify({ title: item.title, body: item.body, url: item.url }),
+          JSON.stringify({ title: item.title, body: item.body, url: item.url, tag: item.tag }),
+          { TTL: remainingTtl, urgency: 'normal' },
         );
-        anySent = true;
+        deliveredCount++;
       } catch (err) {
         const status = (err as { statusCode?: number }).statusCode;
         if (status === 404 || status === 410) {
@@ -86,8 +104,10 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    if (anySent) {
-      await admin.from('push_notification_queue').update({ sent_at: new Date().toISOString() }).eq('id', item.id);
+    if (deliveredCount > 0) {
+      await admin.from('push_notification_queue')
+        .update({ sent_at: new Date().toISOString(), delivered_count: deliveredCount })
+        .eq('id', item.id);
       sent++;
     } else {
       await admin.from('push_notification_queue').update({ attempts: item.attempts + 1 }).eq('id', item.id);
@@ -96,7 +116,7 @@ Deno.serve(async (req: Request) => {
   }
 
   return new Response(
-    JSON.stringify({ sent, failed, skippedNoSubscription, total: pending?.length ?? 0 }),
+    JSON.stringify({ sent, failed, skippedNoSubscription, skippedExpired, total: pending?.length ?? 0 }),
     { status: 200, headers: { 'Content-Type': 'application/json' } },
   );
 });
