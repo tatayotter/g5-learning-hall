@@ -1,5 +1,6 @@
 'use client';
 import type { RefObject } from 'react';
+import SchoolPicker from '@/components/SchoolPicker';
 import { CURIO_CARD_STYLES } from '@/components/GameButton';
 
 export interface ChildFormData {
@@ -121,12 +122,11 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
           })}
         </div>
 
-        <input
-          type="text"
-          placeholder="School name"
+        <SchoolPicker
           value={data.schoolName}
-          onChange={(e) => set('schoolName', e.target.value)}
-          className={INPUT_CLASS}
+          onChange={(name) => set('schoolName', name)}
+          inputClassName={INPUT_CLASS}
+          tone="parchment"
           required
         />
 
@@ -198,12 +198,11 @@ export default function ChildAccountForm({ data, onChange, onRemove, label, them
         </select>
       </div>
 
-      <input
-        type="text"
-        placeholder="School name"
+      <SchoolPicker
         value={data.schoolName}
-        onChange={(e) => set('schoolName', e.target.value)}
-        className="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+        onChange={(name) => set('schoolName', name)}
+        inputClassName="w-full rounded-lg bg-neutral-950 border border-neutral-700 px-3 py-2 text-sm text-white"
+        tone="dark"
         required
       />
 

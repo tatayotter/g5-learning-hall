@@ -11,6 +11,8 @@ import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
 import { recordPushOpenFromUrl } from '@/lib/push';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
+import SchoolPicker from '@/components/SchoolPicker';
+import { checkSignupNames, friendlyNameError } from '@/lib/nameFilter';
 import { CHILD_SLOT_PRICE_PHP } from '@/lib/pricingPlans';
 import {
   IOS, Icon, IosAlert, IosBarButton, IosButton, IosCapsule, IosContent, IosField, IosGroup,
@@ -174,6 +176,12 @@ export default function ParentDashboardPage() {
       return;
     }
     setAdding(true);
+    const nameProblem = await checkSignupNames(newChild.username, newChild.fullName, newChild.schoolName);
+    if (nameProblem) {
+      setAdding(false);
+      setAddError(nameProblem);
+      return;
+    }
     const { error } = await supabase.rpc('create_child_account', {
       p_username: newChild.username,
       p_pin: newChild.pin,
@@ -185,7 +193,7 @@ export default function ParentDashboardPage() {
     });
     setAdding(false);
     if (error) {
-      setAddError(error.message);
+      setAddError(friendlyNameError(error.message) ?? error.message);
       return;
     }
     setNewChild(emptyChildForm());
@@ -601,12 +609,15 @@ export default function ParentDashboardPage() {
               onChange={(e) => setNewChild({ ...newChild, fullName: e.target.value })}
               autoComplete="off"
             />
-            <IosField
-              placeholder="School name"
-              value={newChild.schoolName}
-              onChange={(e) => setNewChild({ ...newChild, schoolName: e.target.value })}
-              autoComplete="off"
-            />
+            {/* Same layout as IosField, with directory autocomplete. */}
+            <div className="pl-4 pr-4">
+              <SchoolPicker
+                value={newChild.schoolName}
+                onChange={(schoolName) => setNewChild({ ...newChild, schoolName })}
+                inputClassName="w-full bg-transparent text-[17px] py-[12px] outline-none placeholder:text-[#AEAEB2]"
+                tone="ios"
+              />
+            </div>
           </IosGroup>
 
           <IosGroup header="Grade">

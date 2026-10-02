@@ -1,4 +1,5 @@
 'use client';
+import { checkSignupNames, friendlyNameError } from '@/lib/nameFilter';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
@@ -69,6 +70,16 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
 
     setSubmitting(true);
     try {
+      // Before creating the parent login: a child name rejected after that
+      // point would leave a half-registered parent.
+      for (const child of children) {
+        const nameProblem = await checkSignupNames(child.username, child.fullName, child.schoolName);
+        if (nameProblem) {
+          setError(children.length > 1 ? `${child.fullName || 'A child'}: ${nameProblem}` : nameProblem);
+          return;
+        }
+      }
+
       const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
@@ -119,7 +130,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
           p_avatar: child.avatar,
         });
         if (childError) {
-          setError(`Account created, but adding ${child.fullName || 'a child'} failed: ${childError.message}. You can add them again from your dashboard.`);
+          setError(`Account created, but adding ${child.fullName || 'a child'} failed: ${friendlyNameError(childError.message) ?? childError.message} You can add them again from your dashboard.`);
           childFailed = true;
           break;
         }

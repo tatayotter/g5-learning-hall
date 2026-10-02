@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { verifyTurnstileToken } from '@/lib/turnstile';
+import { friendlyNameError } from '@/lib/nameFilter';
 
 // Maps create_unclaimed_child_account's raw exception text to something a
 // kid can act on. Unknown errors pass through unchanged.
 function friendlySignupError(message: string): string {
+  const nameError = friendlyNameError(message);
+  if (nameError) return nameError;
   if (message.includes('signup rate limit exceeded')) {
     return 'Lots of accounts are being made on this network right now. Please wait a few minutes and try again.';
   }
