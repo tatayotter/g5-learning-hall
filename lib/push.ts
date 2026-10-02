@@ -9,6 +9,7 @@
 //   - 'parent': a real Supabase Auth parent session, identified by auth.uid()
 //     itself (parents.id = auth.uid()).
 
+import { useSyncExternalStore } from 'react';
 import { supabase } from './supabase';
 
 export type PushOwner =
@@ -21,6 +22,34 @@ export function isPushSupported(): boolean {
     'serviceWorker' in navigator &&
     'PushManager' in window
   );
+}
+
+export type PushAvailability = 'supported' | 'ios-needs-install' | 'unsupported';
+
+/**
+ * iOS/iPadOS only exposes Web Push to a site added to the Home Screen
+ * (Safari 16.4+) — in a normal Safari tab PushManager simply doesn't exist,
+ * so isPushSupported() alone can't tell "never possible here" from "possible
+ * once installed". Android's Capacitor WebView (the APK) has no Web Push at
+ * all and lands on 'unsupported'.
+ */
+export function getPushAvailability(): PushAvailability {
+  if (typeof window === 'undefined') return 'unsupported';
+  if (isPushSupported()) return 'supported';
+  const ua = navigator.userAgent;
+  const isIos = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  const standalone =
+    window.matchMedia?.('(display-mode: standalone)').matches ||
+    (navigator as Navigator & { standalone?: boolean }).standalone === true;
+  if (isIos && !standalone) return 'ios-needs-install';
+  return 'unsupported';
+}
+
+const noopSubscribe = () => () => {};
+
+/** getPushAvailability() as a hook — 'unsupported' during SSR, so hydration matches. */
+export function usePushAvailability(): PushAvailability {
+  return useSyncExternalStore(noopSubscribe, getPushAvailability, () => 'unsupported');
 }
 
 function urlBase64ToUint8Array(base64String: string): Uint8Array {
@@ -106,43 +135,6 @@ export async function unsubscribeFromPush(): Promise<boolean> {
   await subscription.unsubscribe();
   const { error } = await supabase.from('push_subscriptions').delete().eq('endpoint', endpoint);
   return !error;
-}
-
-const AUTO_PROMPT_KEY_PREFIX = 'g5_push_auto_prompted_';
-
-/**
- * Fires the browser's native permission prompt automatically, once per
- * browser per owner — used so kids/parents don't have to find the manual
- * toggle first (there's a 300-gold bonus for enabling, see lib/pushBonus.ts).
- * No-ops if unsupported, already decided (granted/denied), already
- * subscribed, or already attempted once in this browser — browsers won't
- * re-show a dismissed prompt anyway, and calling subscribe() repeatedly on
- * a 'default' permission that keeps getting silently dismissed would just
- * nag every page load.
- */
-export async function autoPromptForPush(owner: PushOwner): Promise<boolean> {
-  if (!isPushSupported()) return false;
-  if (Notification.permission !== 'default') return false;
-
-  const flagKey = `${AUTO_PROMPT_KEY_PREFIX}${owner.kind}_${owner.id}`;
-  if (typeof window !== 'undefined' && window.localStorage.getItem(flagKey)) return false;
-
-  const existing = await getExistingSubscription();
-  if (existing) return false;
-
-  try {
-    window.localStorage.setItem(flagKey, '1');
-  } catch {
-    // Storage unavailable (private mode, etc.) — proceed anyway, worst case
-    // this prompts again next load.
-  }
-
-  // Resolves only once the user has actually answered the native prompt
-  // (or it's been silently suppressed) — callers that award a bonus for
-  // subscribing should wait on this rather than checking state immediately,
-  // since the prompt itself can sit open for several seconds while a human
-  // reads and taps it.
-  return subscribeToPush(owner);
 }
 
 /** Asks the send-push Edge Function to deliver a test notification to `owner`. */

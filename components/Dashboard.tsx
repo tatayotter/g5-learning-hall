@@ -28,7 +28,7 @@ import { prefetchAllTabs } from '@/lib/tabPrefetch';
 import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMyReferralKey, PlayerNotification } from '@/lib/referral';
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
-import { autoPromptForPush } from '@/lib/push';
+import PushOptInCard from '@/components/PushOptInCard';
 import type { GuildView } from '@/components/monster/types';
 
 // Runtime mirror of the GuildView union — needed to validate a query-param
@@ -238,23 +238,17 @@ export default function Dashboard() {
           }
         });
 
-        // Push notifications: fire the browser's native permission prompt
-        // automatically (once per browser) instead of waiting for the kid to
-        // find the Profile tab's manual toggle, then claim the self-opt-in
-        // bonus — chained after the prompt settles, not fired in parallel:
-        // the native dialog can sit open for several seconds while a human
-        // reads and taps it, and claiming immediately raced the subscription
-        // write every time (confirmed live — the RPC ran ~4s before the
-        // subscription row existed, so it always found nothing to award).
-        autoPromptForPush({ kind: 'app_user', id: activeUserId }).then(() => {
-          claimPushGoldBonusChild(activeUserId).then(reward => {
-            if (reward) {
-              setToast({
-                show: true,
-                message: `🔔 Notifications on! +${reward.gold} Gold added to your account!`,
-              });
-            }
-          });
+        // Push self-opt-in bonus, for a subscription made on another device
+        // or tab. The ask itself is PushOptInCard on the Board tab — the
+        // native prompt only reliably shows from a tap, so it no longer
+        // fires on page load.
+        claimPushGoldBonusChild(activeUserId).then(reward => {
+          if (reward) {
+            setToast({
+              show: true,
+              message: `🔔 Notifications on! +${reward.gold} Gold added to your account!`,
+            });
+          }
         });
         // The parent-opt-in bonus doesn't depend on anything happening in
         // this page load (it's the parent's own subscription, from their own
@@ -1039,6 +1033,21 @@ export default function Dashboard() {
         >
 
         {/* --- TAB A: QUEST BOARD --- */}
+        {/* Ask only after the kid has played once — a cold ask before
+            they care about anything in the game is the one most likely
+            to get a permanent "Block". */}
+        {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null
+          && (data.character_stats?.xp ?? 0) > 0 && (
+          <div className="px-3 pt-3">
+            <PushOptInCard
+              owner={{ kind: 'app_user', id: activeUserId }}
+              onEnabled={gold => setToast({
+                show: true,
+                message: gold ? `Alerts on! +${gold} Gold added to your account!` : 'Alerts on!',
+              })}
+            />
+          </div>
+        )}
         {activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
           <BoardMapView
             activeUserId={activeUserId}
