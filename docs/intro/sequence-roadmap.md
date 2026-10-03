@@ -5,15 +5,16 @@ Learning Hall teaches its game systems through voiced, interactive story sequenc
 a manual. This file tracks which features each sequence covers, which features nothing teaches
 yet, and candidate sequences ranked by how much they should move the usage numbers.
 
-Last updated 2026-10-03, after battle training was built.
+Last updated 2026-10-03, after the Keeper's Egg was built.
 
-## The three sequences we have
+## The sequences we have
 
 | Sequence | Who sees it, when | Production sheet |
 |---|---|---|
 | **First-curio intro** (origin story, starter pick, training quest) | Any account with no curio, before anything else | `docs/intro/first-curio-intro.md` |
 | **Battle training** (Tatay's challenge, element lesson, Training Dummy) | First Curio Arena visit until finished; replayable from Trainers | `docs/intro/battle-training.md` |
 | **Term Boss intro** ("The Trial of the Forgetting") | Once per player, grade and term, when the Term Boss event goes live | `docs/intro/term-boss-intro.md` |
+| **Keeper's Egg** ("come back tomorrow") | After the first win, at the next calm moment on the Board; a short scene on day two | `docs/intro/keeper-egg.md` |
 
 Plus lighter **first-visit spotlight tutorials** (`TutorialSpotlight`, no voice) on the board,
 guilds and Curio Arena tabs (the Arena one now waits until battle training closes).
@@ -22,37 +23,40 @@ guilds and Curio Arena tabs (the Arena one now waits until battle training close
 
 ✔ = taught by acting it out, ○ = mentioned only, blank = not taught.
 
-| Feature | First-curio intro | Battle training | Term Boss intro |
-|---|:-:|:-:|:-:|
-| Lore: the Ledger, Keepers, the Forgetting, why learning matters | ✔ | ○ | ✔ |
-| The five Guilds exist (one per subject area) | ✔ | | |
-| Choosing a first curio | ✔ | | |
-| Main quest flow: study notes, then quiz, all correct to win | ✔ | | |
-| Rewards: XP, Gold, curio EXP from quests | ✔ | ○ | |
-| Weekly quests on the Campaign Map / Board | ○ | | |
-| Battle basics: skills ask questions, more questions = stronger | | ✔ | ○ |
-| Perfect hits, partial damage on some wrong answers | | ✔ | ✔ |
-| Skip a question for gold | | ✔ | |
-| Simultaneous turns, speed decides who strikes first | | ✔ | |
-| HP, fainting, losing when the whole team faints | | ✔ | ○ |
-| Rest, Items, Switch | | ✔ | |
-| Skills unlock by curio level ("Unlocks at Lv.X") | | ✔ | |
-| Elements and matchups (the element chart) | | ✔ | |
-| Losing is normal; come back stronger | | ✔ | ✔ |
-| Challenging other Keepers (PvP) and the Training Dummy | | ○ | |
-| Term-end review: one shadow per subject | | | ✔ |
-| Hearts, combos, studying and retrying after running out | | | ✔ |
-| Freeing a sealed rare curio by clearing all shadows | | | ✔ |
+| Feature | First-curio intro | Battle training | Term Boss intro | Keeper's Egg |
+|---|:-:|:-:|:-:|:-:|
+| Lore: the Ledger, Keepers, the Forgetting, why learning matters | ✔ | ○ | ✔ | ○ |
+| The five Guilds exist (one per subject area) | ✔ | | | |
+| Choosing a first curio | ✔ | | | |
+| Main quest flow: study notes, then quiz, all correct to win | ✔ | | | |
+| Rewards: XP, Gold, curio EXP from quests | ✔ | ○ | | ○ |
+| Weekly quests on the Campaign Map / Board | ○ | | | |
+| Battle basics: skills ask questions, more questions = stronger | | ✔ | ○ | |
+| Perfect hits, partial damage on some wrong answers | | ✔ | ✔ | |
+| Skip a question for gold | | ✔ | | |
+| Simultaneous turns, speed decides who strikes first | | ✔ | | |
+| HP, fainting, losing when the whole team faints | | ✔ | ○ | |
+| Rest, Items, Switch | | ✔ | | |
+| Skills unlock by curio level ("Unlocks at Lv.X") | | ✔ | | |
+| Elements and matchups (the element chart) | | ✔ | | |
+| Losing is normal; come back stronger | | ✔ | ✔ | |
+| Challenging other Keepers (PvP) and the Training Dummy | | ○ | | |
+| Term-end review: one shadow per subject | | | ✔ | |
+| Hearts, combos, studying and retrying after running out | | | ✔ | |
+| Freeing a sealed rare curio by clearing all shadows | | | ✔ | |
+| Coming back daily; eggs hatch from check-in days | | | | ✔ |
+| Push reminders (and their gold bonus) | | | | ✔ |
+| How curios level up (quests, battles, map scrolls) | | | | ✔ |
+| Graduation (level 20 + Graduation Scroll) | | | | ✔ |
+| Laying an egg (3 levels after graduating, 5-day hatch) | | | | ✔ |
+| The daily checklist and its streak gold | | | | ○ |
 
 ## Features nothing teaches yet
 
 Grouped by where they live. Each is a candidate for a sequence or, if small, a coach tip.
 
-**Coming back every day (the retention loop)**
-- Daily checklist on the To-Do tab, its streak and the streak's gold
-- Curio eggs: the check-in streak advances eggs and hatches new curios (Hatchery,
-  `docs/curio-egg-mechanism-design.md`)
-- Push notifications (opt-in card on the Board)
+**Coming back every day:** now covered by the Keeper's Egg (the daily checklist itself is
+introduced there and taught by the To-Do tab's spotlight).
 
 **The family loop**
 - Linking a parent (Parent Quest: 2 Growth Pills + 100 gold), the parent dashboard, the parent
@@ -65,7 +69,8 @@ Grouped by where they live. Each is a candidate for a sequence or, if small, a c
 **Growing curios**
 - Team slots vs. benched curios; Missions (idle expeditions for benched curios)
 - Teaching and unlearning skills in the Compendium
-- Growth Pills, curio quality tiers and Tutoring (Tomes of Knowledge), graduation tiers
+- Growth Pills, curio quality tiers and Tutoring (Tomes of Knowledge); how to actually graduate
+  in the Compendium (the Keeper's Egg only explains the rule)
 - Duplicate catches: keep as a spare or convert to gold
 
 **Exploring and catching**
@@ -94,18 +99,9 @@ most kids who finish the training quest stop on the Board right after.
 UI), not in narration, because most kids skip narration. And end every sequence by dropping the
 kid into the next real action.
 
-### 1. "Come Back Tomorrow" (the daily loop): highest priority
-- **Goal:** fix day-2 return (6%).
-- **When:** the end of the kid's first real session (after the first main quest, or on leaving
-  the Board the first time).
-- **Teaches:** the daily checklist and its streak gold, the egg that hatches if they come back,
-  and turning on reminders.
-- **Shape:** short (3 beats). The Lorekeeper hands the kid a **curio egg** that "needs a Keeper
-  who returns": the kid taps to warm it, sees a 3-day streak meter with day 1 already lit, and
-  is asked to turn on reminders ("so your egg doesn't go cold"). A day-2 mini-scene on the next
-  login: the egg cracks a little, day 2 lights up, and today's checklist opens.
-- **Needs:** an egg grant tied to the intro (check `docs/curio-egg-mechanism-design.md` for how
-  eggs are granted today), plus the existing push opt-in.
+### 1. "Come Back Tomorrow": BUILT as the Keeper's Egg (2026-10-03)
+See `docs/intro/keeper-egg.md`. Check day-2 return about a week after it ships (baseline ~6%),
+using `keeper_egg_*` events against returning sessions.
 
 ### 2. "Show Your Parent" (the Parent Quest)
 - **Goal:** more parent links (about 7x retention; zero child-initiated links so far).
@@ -159,6 +155,30 @@ kid into the next real action.
 ### Smaller: coach tips, not full stories
 - Trading and the Recycler, the Journal, the Codex, Profile and achievements, Bonus Quests.
   These are easy to understand from the UI; a first-visit spotlight tip is enough.
+
+## Improvement spots found while building
+
+Things noticed in passing that are outside a sequence's own scope. Fixed ones are marked.
+
+1. **Only Solarch can ever lay an egg among the starters.** `curio_egg_chains` has 4 entries
+   (Coralyn, Darkkor, Duskral, Solarch), each hatching its own species rather than an earlier one
+   as `docs/curio-egg-mechanism-design.md` intended. 5 of the 6 starters can never lay an egg.
+   Content fix via the admin egg-chain tool; the Keeper's Egg script says "some Curios" until then.
+2. **Egg days use UTC, the rest of the app uses Manila days.** `sync_egg_progress` counts days at
+   UTC midnight (8 am in the Philippines), while checklists use `manilaToday()`. A kid who plays at
+   7 am and 9 am gets two egg days in one morning; evening play then early-morning play counts as
+   one. Worth moving eggs to the Manila day (the Keeper's Egg kept UTC to match today's eggs).
+3. **Hatched curios go to the bench silently.** Hatchlings land with no team slot even when the
+   team has room, so a kid may never field them. The hatch ceremony could offer "Add to team".
+4. **The Hatchery still uses the old dark panel look**, not the parchment style in
+   `docs/STYLE_GUIDE.md`.
+5. **Graduation eggs are harsh on a missed day:** progress resets to 0 and growth stops until the
+   kid finds the Hatchery and presses Incubate. The Keeper's Egg's "it waits" rule could apply to
+   them too (a design call).
+6. FIXED: the Dashboard read eggs at the same time as the daily egg sync instead of after it, so
+   the Hatchery badge could show yesterday's state.
+7. FIXED: turning on reminders from the Board card granted 300 gold on the server, but the gold
+   shown on screen didn't update until a reload.
 
 ## The reusable kit (how a new sequence gets built)
 

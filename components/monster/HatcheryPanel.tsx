@@ -17,18 +17,17 @@ interface HatcheryPanelProps {
   onEggsChanged: () => void;
 }
 
-const DAYS_TO_HATCH = 5;
 
 // Live countdown to the FULL hatch, not just today's check-in window: the
 // time left on today's deadline (last_progress_date + 1 day) plus one more
 // full day for every remaining check-in after today's. A warning, not
 // itself the trigger — the actual stall/hatch happens server-side in
 // sync_egg_progress on the next session, not client-side when this hits 0.
-function useTimeToHatch(lastProgressDate: string, streakProgress: number): string {
+function useTimeToHatch(lastProgressDate: string, streakProgress: number, daysToHatch: number): string {
   const [label, setLabel] = useState('');
   useEffect(() => {
     const nextDeadline = new Date(lastProgressDate + 'T00:00:00Z').getTime() + 24 * 60 * 60 * 1000;
-    const checkInsRemaining = DAYS_TO_HATCH - streakProgress; // includes today's
+    const checkInsRemaining = daysToHatch - streakProgress; // includes today's
     const tick = () => {
       const msUntilNextDeadline = Math.max(0, nextDeadline - Date.now());
       const msTotal = msUntilNextDeadline + Math.max(0, checkInsRemaining - 1) * 24 * 60 * 60 * 1000;
@@ -46,7 +45,7 @@ function useTimeToHatch(lastProgressDate: string, streakProgress: number): strin
     tick();
     const id = setInterval(tick, 60_000);
     return () => clearInterval(id);
-  }, [lastProgressDate, streakProgress]);
+  }, [lastProgressDate, streakProgress, daysToHatch]);
   return label;
 }
 
@@ -66,22 +65,34 @@ function HatchlingPreview({ speciesId }: { speciesId: string }) {
   );
 }
 
+// The Keeper's Egg (lib/intro/keeperEgg.ts) is a surprise random starter and
+// never expires: a missed day just pauses it, so there's no deadline to count.
 function IncubatingEggCard({ egg }: { egg: CurioEgg }) {
-  const timeToHatch = useTimeToHatch(egg.last_progress_date, egg.streak_progress);
+  const isKeeper = egg.kind === 'keeper';
+  const timeToHatch = useTimeToHatch(egg.last_progress_date, egg.streak_progress, egg.hatch_days);
   return (
     <div className="p-4 rounded-xl border border-cyan-900 bg-cyan-900/10 flex items-center gap-4">
       <img src={EGG_SPRITE_SRC[egg.element]} alt="" className="w-16 h-16 object-contain flex-shrink-0" />
       <span className="text-gray-600 text-lg flex-shrink-0">→</span>
-      <HatchlingPreview speciesId={egg.egg_species_id} />
+      {isKeeper ? (
+        <div className="flex flex-col items-center gap-1 flex-shrink-0">
+          <div className="w-12 h-12 flex items-center justify-center text-3xl font-black text-cyan-300">?</div>
+          <p className="text-[9px] text-gray-500 text-center leading-tight">Surprise</p>
+        </div>
+      ) : (
+        <HatchlingPreview speciesId={egg.egg_species_id} />
+      )}
       <div className="flex-1">
-        <p className="font-bold text-white capitalize">{egg.element} Egg</p>
+        <p className="font-bold text-white capitalize">{isKeeper ? "Keeper's Egg" : `${egg.element} Egg`}</p>
         <div className="w-full bg-neutral-800 rounded-full h-1.5 mt-1.5 max-w-xs">
           <div
             className="h-1.5 rounded-full bg-cyan-400 transition-all"
-            style={{ width: `${(egg.streak_progress / DAYS_TO_HATCH) * 100}%` }}
+            style={{ width: `${(egg.streak_progress / egg.hatch_days) * 100}%` }}
           />
         </div>
-        <p className="text-xs text-gray-400 mt-1">{egg.streak_progress} / {DAYS_TO_HATCH} days · {timeToHatch}</p>
+        <p className="text-xs text-gray-400 mt-1">
+          {egg.streak_progress} / {egg.hatch_days} days · {isKeeper ? 'Check in tomorrow. It waits if you miss a day.' : timeToHatch}
+        </p>
       </div>
     </div>
   );

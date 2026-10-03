@@ -22,6 +22,10 @@ export interface CurioEgg {
   claimed_at: string;
   hatched_at: string | null;
   hatched_user_monster_id: string | null;
+  // 'graduation' = laid by a graduated curio (5 days, stalls on a missed day);
+  // 'keeper' = the Keeper's Egg gift (lib/intro/keeperEgg.ts: 3 days, waits).
+  kind: 'graduation' | 'keeper';
+  hatch_days: number;
 }
 
 // species_id -> what it hatches into, admin-authored via the EggChainsSection
@@ -35,6 +39,17 @@ export type EggChainMap = Record<string, { predecessorSpeciesId: string; element
 // the RPC re-validates independently.
 export function eggReadyLevel(tier: 1 | 2): number {
   return GRADUATION_LEVEL_REQUIREMENT[tier as 1 | 2] + 3;
+}
+
+// Gives this player their one Keeper's Egg (idempotent; the server picks a
+// random starter they don't own yet). Null on failure.
+export async function grantKeeperEgg(): Promise<{ granted: boolean; egg_id: string; element: Element; status: EggStatus; streak_progress: number; hatch_days: number } | null> {
+  const { data, error } = await supabase.rpc('grant_keeper_egg');
+  if (error || !data?.egg_id) {
+    console.error('grant_keeper_egg error:', error);
+    return null;
+  }
+  return data;
 }
 
 export async function fetchUserEggs(userId: string): Promise<CurioEgg[]> {
@@ -130,6 +145,8 @@ export interface HatchedEgg {
   user_monster_id: string;
   species_id: string;
   quality: QualityTier;
+  // Missing from servers older than the Keeper's Egg migration: treat as 'graduation'.
+  kind?: 'graduation' | 'keeper';
 }
 
 export interface SyncEggProgressResult {

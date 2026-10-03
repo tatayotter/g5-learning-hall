@@ -79,6 +79,7 @@ import SchoolPicker from '@/components/SchoolPicker';
 import type { School } from '@/lib/schools';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import BattleTraining from '@/components/monster/BattleTraining';
+import KeeperEggSequence, { KeeperEggReturn } from '@/components/intro/KeeperEggSequence';
 import { getCounterElement, getScaledStats, type NpcTrainer } from '@/lib/monsterConfig';
 import type { ActiveBattleMonster } from '@/components/battle/shared';
 import {
@@ -164,7 +165,7 @@ function AnswerSwatch({ state, label }: { state: 'default' | 'selected' | 'corre
 
 type OverlayKey =
   | 'toast' | 'achievementToast' | 'critBonusToast' | 'liveBattleInvite'
-  | 'graduation' | 'growthPill' | 'linkParentCta' | 'linkParentGate' | 'eggHatch' | 'tutorSuccess' | 'tutorFail'
+  | 'graduation' | 'growthPill' | 'linkParentCta' | 'linkParentGate' | 'eggHatch' | 'eggHatchKeeper' | 'tutorSuccess' | 'tutorFail'
   | 'dailyBonus' | 'curioReveal' | 'wildEncounter' | 'eventAnnouncement'
   | 'duplicateCatch' | 'bossVictory' | 'termBossIntro' | 'bossMist' | 'bossPersonaFan'
   | 'guildResultsHigh' | 'guildResultsLow' | 'mtapSet' | 'mtapMixed';
@@ -180,6 +181,8 @@ export default function UiGallery() {
   const close = () => setActiveOverlay(null);
   const [introPreview, setIntroPreview] = useState<'story' | 'training' | null>(null);
   const [battleTrainingPreview, setBattleTrainingPreview] = useState(false);
+  const [keeperEggPreview, setKeeperEggPreview] = useState<'story' | 'return' | null>(null);
+  const [keeperEggElement, setKeeperEggElement] = useState<keyof typeof ELEMENT_ICON_SRC>('water');
   const [battleTrainingStarter, setBattleTrainingStarter] = useState(Object.keys(MONSTERS)[0]);
   const [introGrade, setIntroGrade] = useState(5);
   const [arenaOpen, setArenaOpen] = useState(false);
@@ -290,7 +293,10 @@ export default function UiGallery() {
       case 'growthPill':
         return <GrowthPillCeremonyModal def={leftMon} fromLevel={15} toLevel={20} quality="normal" userId="demo" onDismiss={close} />;
       case 'eggHatch':
-        return <EggHatchModal speciesId={leftMon.id} element={leftMon.element} quality="outstanding" userId="demo" onClose={close} />;
+        return <EggHatchModal speciesId={leftMon.id} element={leftMon.element} quality="outstanding" userId="demo" onClose={close} onViewTeam={() => {}} />;
+      case 'eggHatchKeeper':
+        // A different curio than the plain preview, so one shows a floater and one a grounded curio.
+        return <EggHatchModal speciesId={rightMon.id} element={rightMon.element} quality="normal" kind="keeper" userId="demo" onClose={close} onViewTeam={() => {}} />;
       case 'tutorSuccess':
         return (
           <TutorRollModal
@@ -768,6 +774,28 @@ export default function UiGallery() {
       </Section>
 
       <Section
+        title="Keeper's Egg (come back tomorrow)"
+        note="components/intro/KeeperEggSequence.tsx — after a player's first win, at the next calm moment on the Board: warm the egg, the 3-day meter, the reminder ask (only shown where this device can ask), the level-up / graduate / lay-an-egg path, then the daily checklist. The day-two scene shows once on the next day's visit. Preview skips the real grant (lib/intro/keeperEgg.ts)."
+      >
+        <div className="flex flex-wrap items-center gap-2 bg-white rounded-xl p-4">
+          <PreviewButton label="Play Keeper's Egg" onClick={() => setKeeperEggPreview('story')} />
+          <PreviewButton label="Day-two scene" onClick={() => setKeeperEggPreview('return')} />
+          <label className="text-xs text-[#6b4820] flex items-center gap-1">
+            Egg
+            <select value={keeperEggElement} onChange={e => setKeeperEggElement(e.target.value as keyof typeof ELEMENT_ICON_SRC)} className="border border-[#c9a87a] rounded px-1 py-0.5">
+              {(['fire', 'water', 'leaf', 'storm', 'light', 'shadow'] as const).map(el => <option key={el} value={el}>{el}</option>)}
+            </select>
+          </label>
+        </div>
+        {keeperEggPreview === 'story' && (
+          <KeeperEggSequence userId="mock-user-id" previewElement={keeperEggElement} onDone={() => setKeeperEggPreview(null)} />
+        )}
+        {keeperEggPreview === 'return' && (
+          <KeeperEggReturn element={keeperEggElement} progress={2} hatchDays={3} onClose={() => setKeeperEggPreview(null)} />
+        )}
+      </Section>
+
+      <Section
         title="Battle training (Tatay + Training Dummy)"
         note="components/monster/BattleTraining.tsx — first Curio Arena visit: Tatay's invite, Lorekeeper story, coached Tatay fight (he warms up for two rounds, then wins), element lesson, Dummy fight, victory. Shown here as a replay (no invite). Answers can't be graded with this mock user, so use Skip (mocked gold) to land hits on the Dummy. The final reward call fails harmlessly here."
       >
@@ -989,6 +1017,7 @@ export default function UiGallery() {
           <PreviewButton label="LinkParentBanner (Parent Quest CTA)" onClick={() => setActiveOverlay('linkParentCta')} />
           <PreviewButton label="LinkParentGate (arena battle modal)" onClick={() => setActiveOverlay('linkParentGate')} />
           <PreviewButton label="EggHatchModal" onClick={() => setActiveOverlay('eggHatch')} />
+          <PreviewButton label="EggHatchModal (Keeper's Egg)" onClick={() => setActiveOverlay('eggHatchKeeper')} />
           <PreviewButton label="TutorRollModal (success)" onClick={() => setActiveOverlay('tutorSuccess')} />
           <PreviewButton label="TutorRollModal (fail)" onClick={() => setActiveOverlay('tutorFail')} />
           <PreviewButton label="DailyBonusModal" onClick={() => setActiveOverlay('dailyBonus')} />

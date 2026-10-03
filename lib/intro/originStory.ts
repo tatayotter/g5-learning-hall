@@ -48,7 +48,13 @@ export type BeatInteraction =
   | { kind: 'strike'; choices: string[]; answer: string; hearts: number; retry: VoiceLine }
   | { kind: 'partner'; label: string }
   // Battle training (lib/intro/battleTraining.ts): tap the element your Curio beats.
-  | { kind: 'elements'; retry: VoiceLine };
+  | { kind: 'elements'; retry: VoiceLine }
+  // Keeper's Egg (lib/intro/keeperEgg.ts): warm the egg, see the 3-day
+  // meter, turn on reminders, tap through the level-up / graduate / lay path.
+  | { kind: 'warm' }
+  | { kind: 'days' }
+  | { kind: 'remind' }
+  | { kind: 'grow' };
 
 export interface Beat {
   id: string;
