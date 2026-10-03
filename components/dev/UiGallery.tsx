@@ -78,6 +78,9 @@ import PushOptInCard from '@/components/PushOptInCard';
 import SchoolPicker from '@/components/SchoolPicker';
 import type { School } from '@/lib/schools';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
+import BattleTraining from '@/components/monster/BattleTraining';
+import { getCounterElement, getScaledStats, type NpcTrainer } from '@/lib/monsterConfig';
+import type { ActiveBattleMonster } from '@/components/battle/shared';
 import {
   playChime, playClash, playCoins, playBlessing, playLevelUp, playPageFlip,
   playFootstepGrass, playFootstepTown, playWallBump, playNearbyWhoosh, playMonsterAppear,
@@ -176,6 +179,8 @@ export default function UiGallery() {
   const [activeOverlay, setActiveOverlay] = useState<OverlayKey | null>(null);
   const close = () => setActiveOverlay(null);
   const [introPreview, setIntroPreview] = useState<'story' | 'training' | null>(null);
+  const [battleTrainingPreview, setBattleTrainingPreview] = useState(false);
+  const [battleTrainingStarter, setBattleTrainingStarter] = useState(Object.keys(MONSTERS)[0]);
   const [introGrade, setIntroGrade] = useState(5);
   const [arenaOpen, setArenaOpen] = useState(false);
   const [arenaSubject, setArenaSubject] = useState('Mathematics');
@@ -760,6 +765,61 @@ export default function UiGallery() {
             onDone={() => setIntroPreview(null)}
           />
         )}
+      </Section>
+
+      <Section
+        title="Battle training (Tatay + Training Dummy)"
+        note="components/monster/BattleTraining.tsx — first Curio Arena visit: Tatay's invite, Lorekeeper story, coached Tatay fight (he warms up for two rounds, then wins), element lesson, Dummy fight, victory. Shown here as a replay (no invite). Answers can't be graded with this mock user, so use Skip (mocked gold) to land hits on the Dummy. The final reward call fails harmlessly here."
+      >
+        <div className="flex flex-wrap items-center gap-2 bg-white rounded-xl p-4">
+          <PreviewButton label="Play battle training" onClick={() => setBattleTrainingPreview(true)} />
+          <label className="text-xs text-[#6b4820] flex items-center gap-1">
+            Lead curio
+            <select value={battleTrainingStarter} onChange={e => setBattleTrainingStarter(e.target.value)} className="border border-[#c9a87a] rounded px-1 py-0.5">
+              {Object.values(MONSTERS).map(m => <option key={m.id} value={m.id}>{m.name} ({m.element})</option>)}
+            </select>
+          </label>
+        </div>
+        {battleTrainingPreview && (() => {
+          const level = 3;
+          const mon = (id: string, owner: string, i: number): ActiveBattleMonster => {
+            const def = ALL_MONSTERS[id];
+            const { hp } = getScaledStats(def, level, 'normal');
+            return {
+              def, level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0, modifiers: [],
+              userMonster: { id: `${owner}_${i}`, user_id: owner, monster_id: id, nickname: null, monster_exp: 200, monster_level: level, slot: i + 1, rest_used: 0, equipped_skills: [null, null, null], graduation_tier: 0, quality: 'normal' },
+            };
+          };
+          const counter = Object.values(MONSTERS).find(m => m.element === getCounterElement(ALL_MONSTERS[battleTrainingStarter].element));
+          const dummy: NpcTrainer = {
+            id: 'training_tester', name: 'Training Dummy', element: 'mixed', levelRequirement: 0,
+            monsters: [{ monsterId: counter?.id ?? battleTrainingStarter, level }], reward: { exp: 10, gold: 0 }, emoji: '', intro: '',
+          };
+          // Mock questions don't exist server-side, so they're graded locally
+          // (gradeOverride below); the correct option is always `answer`.
+          const mockQuestions = Array.from({ length: 12 }, (_, i) => ({
+            id: `mock-q-${i}`, question: `Mock question ${i + 1}: what is ${i + 2} + ${i + 3}?`, options: [`${2 * i + 5}`, `${2 * i + 6}`, `${2 * i + 4}`, `${2 * i + 7}`], answer: `${2 * i + 5}`,
+          }));
+          return (
+            <BattleTraining
+              userId="mock-user-id"
+              replay
+              buildPlayerTeam={() => [mon(battleTrainingStarter, 'mock-user-id', 0)]}
+              buildTrainingDummy={() => dummy}
+              questions={mockQuestions}
+              inventory={{}}
+              onUseItem={async () => false}
+              gold={999}
+              onSpendGold={async () => true}
+              onTatayResult={() => {}}
+              onDummyResult={async () => {}}
+              onBonusPaid={() => {}}
+              onImmersiveChange={() => {}}
+              gradeOverride={(q, selected) => ({ correct: selected === q.answer, correctAnswer: q.answer })}
+              onClose={() => setBattleTrainingPreview(false)}
+            />
+          );
+        })()}
       </Section>
 
       <Section

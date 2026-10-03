@@ -27,6 +27,8 @@ interface TrainersViewProps {
   handleChallengePlayer: (opponentId: UserId, opponentName: string) => void;
   handleDummyBattle: () => void;
   handleTrainerBattle: (trainer: NpcTrainer) => void;
+  // Replays battle training (components/monster/BattleTraining.tsx).
+  onReplayBattleTraining: () => void;
 }
 
 export default function TrainersView({
@@ -39,6 +41,7 @@ export default function TrainersView({
   handleChallengePlayer,
   handleDummyBattle,
   handleTrainerBattle,
+  onReplayBattleTraining,
 }: TrainersViewProps) {
   return (
     <div className="space-y-4">
@@ -185,6 +188,16 @@ export default function TrainersView({
             Battle!
           </GameButton>
         </div>
+      </div>
+      <div className="p-4 rounded-2xl border-2 border-[#c9a87a] bg-[#f0ddb8] flex items-center gap-4">
+        <img src="/npcs/lorekeeper.png" alt="" className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 object-contain" />
+        <div className="flex-1 min-w-0">
+          <p className="font-bold text-[#2a1505]">Battle Training</p>
+          <p className="text-xs text-[#6b4820]">Replay the Lorekeeper&apos;s lesson: Tatay&apos;s challenge, then the Training Dummy.</p>
+        </div>
+        <GameButton variant="quest" color="#7c3aed" onClick={() => { playPageFlip(); onReplayBattleTraining(); }} style={{ fontSize: 13 }}>
+          Replay
+        </GameButton>
       </div>
       {NPC_TRAINERS.map(trainer => {
         const defeated = battleState.defeated_trainers.includes(trainer.id);

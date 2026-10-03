@@ -26,9 +26,13 @@ interface LiveBattleInviteToastProps {
   onAccept: () => void;
   onDecline: () => void;
   onExpire?: () => void;
+  // Battle training's invite from Tatay waits for an answer instead of expiring.
+  noExpiry?: boolean;
+  // Replaces the "{fromName} wants to battle!" headline.
+  headline?: string;
 }
 
-export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, onExpire }: LiveBattleInviteToastProps) {
+export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, onExpire, noExpiry, headline }: LiveBattleInviteToastProps) {
   // Drives the countdown bar's width via inline style rather than a CSS
   // transition kicked off post-mount — starting the width transition from
   // the very first paint (see the `useEffect` below) keeps the bar and the
@@ -37,6 +41,7 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, o
 
   useEffect(() => {
     playPvpChallenge();
+    if (noExpiry) return;
     // Two rAFs so the browser commits the 100%-width initial paint before
     // the transition to 0% starts — otherwise the two states can collapse
     // into one and the bar never visibly animates.
@@ -91,8 +96,8 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, o
                 style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
               >
                 <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <span aria-hidden style={questTextShadowStyle}>{fromName} wants to battle!</span>
-                  <span style={questTextStyle}>{fromName} wants to battle!</span>
+                  <span aria-hidden style={questTextShadowStyle}>{headline ?? `${fromName} wants to battle!`}</span>
+                  <span style={questTextStyle}>{headline ?? `${fromName} wants to battle!`}</span>
                 </span>
               </h3>
             </div>
@@ -109,7 +114,7 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, o
           {/* Expiry countdown — a slim gold bar that drains over
               INVITE_EXPIRY_MS so the "this closes on its own" behavior is
               visible, not just a silent timer. */}
-          <div className="absolute left-0 right-0 bottom-0 h-1 bg-black/30">
+          {!noExpiry && <div className="absolute left-0 right-0 bottom-0 h-1 bg-black/30">
             <div
               className="h-full bg-[#f5c542]"
               style={{
@@ -117,7 +122,7 @@ export default function LiveBattleInviteToast({ fromName, onAccept, onDecline, o
                 transition: expiring ? `width ${INVITE_EXPIRY_MS}ms linear` : 'none',
               }}
             />
-          </div>
+          </div>}
         </div>
       </motion.div>
     </AnimatePresence>
