@@ -306,7 +306,7 @@ export interface MonsterDef {
   // user_monsters.graduation_tier (0 = ungraduated, matches no `graduation`).
   graduation?: {
     first: GraduationStage;
-    second?: GraduationStage; // no species defines this yet
+    second?: GraduationStage;
   };
 }
 
@@ -947,11 +947,11 @@ export const GUILD_MONSTERS: Record<string, MonsterDef> = {
     guildEvolution: {
       guildKey: 'number_realm',
       tier2: {
-        level: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray', size: 'medium', floats: true,
-        description: 'As the Realm holds its shape more firmly, its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
+        level: 10, name: 'Sumray', emoji: '🐟', spriteId: 'sumray', size: 'medium', floats: true,
+        description: 'As the Realm holds its shape more firmly, its tally-mark scales have spread into wide gliding wings, a ledger of sums whose seams flare orange whenever a calculation comes up short.',
       },
       tier3: {
-        level: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin', size: 'large', floats: true, isLegendary: true,
+        level: 20, name: 'Infinifin', emoji: '🐉', spriteId: 'infinifin', size: 'large', floats: true, isLegendary: true,
         description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail — the Realm\'s Ledger-fragment fully awake.',
       },
     },
@@ -1015,7 +1015,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   tamablase: {
     id: 'tamablase', name: 'Tamablase', element: 'fire', archetype: 'balanced',
     size: 'medium', floats: false,
-    emoji: '🦎', description: 'A calm little salamander whose belly-flame only ever burns steady, never wild. It warms whatever curls up next to it and refuses to singe even the driest kindling. Trainers say it appears only when someone has kept their temper through a hard question.',
+    emoji: '🐃', description: 'A calm young tamaraw whose horns burn with a steady flame, never wild. Its kind is known for fierce tempers, but Tamablase only ever warms whatever curls up next to it. Trainers say it appears only when someone has kept their temper through a hard question.',
     ...STAT_PRESETS.balanced,
     skills: ['ember', 'flamethrower', 'inferno_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -1023,7 +1023,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   palalume: {
     id: 'palalume', name: 'Palalume', element: 'light', archetype: 'balanced',
     size: 'small', floats: false,
-    emoji: '🕊️', description: 'A dove that carries a small sun in its chest, glowing brighter with every kind thing it witnesses. It circles back to the same rooftops each dusk, dropping soft light onto whoever is still studying below.',
+    emoji: '🦚', description: 'A small peacock-pheasant whose wing eye-spots are tiny stars, glowing brighter with every kind thing it witnesses. It circles back to the same rooftops each dusk, dropping soft light onto whoever is still studying below.',
     ...STAT_PRESETS.balanced,
     skills: ['flash', 'sacred_beam', 'divine_burst'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -1031,7 +1031,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   bleedune: {
     id: 'bleedune', name: 'Bleedune', element: 'shadow', archetype: 'balanced',
     size: 'small', floats: false,
-    emoji: '🦂', description: 'A quiet dune-scorpion whose shell bleeds ink-black sand from every crack, redrawing its own pattern each night — a fragment of the Ledger that only surfaces for a Trainer willing to sit with a hard problem overnight. It buries itself before sunrise and is gone by the time anyone looks twice.',
+    emoji: '🕊️', description: 'A quiet ground dove with a red heart mark on its chest — a fragment of the Ledger that only comes out for a Trainer willing to sit with a hard problem overnight. It walks the dark forest floor, coos softly, and is gone by the time anyone looks twice.',
     ...STAT_PRESETS.balanced,
     skills: ['shadow_claw', 'dark_pulse', 'void_strike'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -1039,7 +1039,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   tawili: {
     id: 'tawili', name: 'Tawili', element: 'water', archetype: 'balanced',
     size: 'small', floats: true,
-    emoji: '🐢', description: 'A small, affectionate river turtle that grows fonder of a place the longer it stays, one lap of the current at a time. It hums when it recognizes a face, a low bubbling note that carries clean across still water.',
+    emoji: '🐟', description: 'A small, affectionate tawilis, a silver freshwater sardine found in only one lake, that grows fonder of its waters the longer it stays, one lap of the current at a time. It hums when it recognizes a face, a low bubbling note that carries clean across still water.',
     ...STAT_PRESETS.balanced,
     skills: ['water_gun', 'hydro_pump', 'hydro_blast'],
     skillUnlocks: { tier2: 18, tier3: 30 },
@@ -1047,7 +1047,7 @@ export const EVENT_MONSTERS: Record<string, MonsterDef> = {
   bukitok: {
     id: 'bukitok', name: 'Bukitok', element: 'storm', archetype: 'balanced',
     size: 'large', floats: false,
-    emoji: '🐸', description: 'A stout hill-toad that swells up and crackles with static right before a storm breaks, croaking out warnings no one else can hear yet. Farmers say a Bukitok sighting means the weather is about to turn.',
+    emoji: '🐊', description: 'A stout storm crocodile with a mane of thundercloud that swells and crackles right before a storm breaks. It rumbles out warnings no one else can hear yet, and river farmers say a Bukitok sighting means the weather is about to turn.',
     ...STAT_PRESETS.balanced,
     skills: ['thunder_shock', 'thunderbolt', 'thunder_surge'],
     skillUnlocks: { tier2: 18, tier3: 30 },
