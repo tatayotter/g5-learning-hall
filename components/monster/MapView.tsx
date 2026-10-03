@@ -23,8 +23,8 @@ interface MapViewProps {
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
   onQuestionsAnswered: (questions: any[]) => void;
-  onWildEncounterRoll: () => void;
-  activeCurio: { id: number; monsterId: string; quality: QualityTier } | null;
+  onWildEncounterRoll: (pity: boolean) => void;
+  activeCurio: { id: number; monsterId: string; quality: QualityTier; attemptsLeft: number } | null;
   onEnterCurio: () => void;
   onTrainerEncounter: (trainer: NpcTrainer) => void;
   onTrashTraded: (gold: number) => void;

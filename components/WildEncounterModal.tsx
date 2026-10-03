@@ -23,7 +23,8 @@ function shuffle<T>(arr: T[]): T[] {
   return result;
 }
 
-interface WildEncounterQuestion {
+export interface WildEncounterQuestion {
+  id: string;
   question: string;
   passage?: string | null;
   choice_a: string;

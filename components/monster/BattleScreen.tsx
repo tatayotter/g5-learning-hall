@@ -45,8 +45,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
-    const hp = getScaledStats(def, tm.level).hp;
-    return { def, level: tm.level, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0 };
+    const hp = getScaledStats(def, tm.level, tm.quality).hp;
+    return { def, level: tm.level, quality: tm.quality, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0 };
   }) || [];
   const [playerMonsterIdx, setPlayerMonsterIdx] = useState(0);
   const [npcMonsterIdx, setNpcMonsterIdx] = useState(0);
@@ -177,13 +177,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const defMult = getModifierMultiplier(defender.modifiers, 'def');
     let dmg = calculateDamage(
       skill,
-      getScaledStats(attacker.def, attacker.level, attacker.userMonster?.quality).attack * atkMult,
+      getScaledStats(attacker.def, attacker.level, attacker.quality ?? attacker.userMonster?.quality).attack * atkMult,
       BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.correct,
       BATTLE_CONSTANTS.NPC_COUNTER_ACCURACY.total,
       attacker.def.element,
       defender.def.element,
       attacker.status === 'blessed',
-      getScaledStats(defender.def, defender.level, defender.userMonster?.quality).defense * defMult,
+      getScaledStats(defender.def, defender.level, defender.quality ?? defender.userMonster?.quality).defense * defMult,
     );
     if (attacker.status === 'atk_boost') dmg *= BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER;
     if (attacker.status === 'curse') dmg *= (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION);
@@ -356,8 +356,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const npcFirst = () => doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false));
     const playerFirst = () => resolvePlayerAttack(skill, correctCount, askedCount, true);
     const npcCanAct = npcMon.currentHp > 0 && npcMon.status !== 'paralyze';
-    const npcSpeed = getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).speed;
-    const playerSpeed = getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).speed;
+    const npcSpeed = getScaledStats(npcMon.def, npcMon.level, npcMon.quality ?? npcMon.userMonster?.quality).speed;
+    const playerSpeed = getScaledStats(playerMon.def, playerMon.level, playerMon.quality ?? playerMon.userMonster?.quality).speed;
     if (npcCanAct && npcSpeed > playerSpeed) {
       addLog(`${npcMon.def.name} is faster and moves first!`);
       npcFirst();
@@ -404,13 +404,13 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const accuracyBonus = getModifierMultiplier(playerMon.modifiers, 'accuracy');
     let damage = calculateDamage(
       skill,
-      getScaledStats(playerMon.def, playerMon.level, playerMon.userMonster?.quality).attack * atkMult,
+      getScaledStats(playerMon.def, playerMon.level, playerMon.quality ?? playerMon.userMonster?.quality).attack * atkMult,
       correctCount,
       askedCount,
       playerMon.def.element,
       npcMon.def.element,
       playerMon.status === 'blessed',
-      getScaledStats(npcMon.def, npcMon.level, npcMon.userMonster?.quality).defense * defMult,
+      getScaledStats(npcMon.def, npcMon.level, npcMon.quality ?? npcMon.userMonster?.quality).defense * defMult,
       accuracyBonus,
     );
     if (playerMon.status === 'atk_boost') damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
@@ -924,8 +924,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       coinToss={coinToss}
       leftTeam={playerMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === playerMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
       rightTeam={npcMonsters.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === npcMonsterIdx, spriteUrl: curioSpriteUrl(m.def) }))}
-      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, action: playerAction, damagePopup: playerDamagePopup, quality: playerMon.userMonster?.quality }}
-      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, action: npcAction, damagePopup: npcDamagePopup, quality: npcMon.userMonster?.quality }}
+      leftMon={{ name: playerMon.def.name, level: playerMon.level, def: playerMon.def, currentHp: playerMon.currentHp, maxHp: playerMon.maxHp, status: playerMon.status, animClassName: playerAnim, action: playerAction, damagePopup: playerDamagePopup, quality: playerMon.quality ?? playerMon.userMonster?.quality }}
+      rightMon={{ name: npcMon.def.name, level: npcMonsters[npcMonsterIdx].level, def: npcMon.def, currentHp: npcMon.currentHp, maxHp: npcMon.maxHp, status: npcMon.status, animClassName: npcAnim, action: npcAction, damagePopup: npcDamagePopup, quality: npcMon.quality ?? npcMon.userMonster?.quality }}
       log={log}
       banner={banner}
       statusBanner={statusBanner}

@@ -36,6 +36,9 @@ export interface ActiveBattleMonster {
   restUsed: number;
   userMonster?: UserMonster;
   modifiers?: ActiveModifier[];
+  // Quality for a monster with no userMonster row (a wild curio fights with
+  // the quality it spawned with). Owned monsters use userMonster.quality.
+  quality?: QualityTier;
 }
 
 // Small gold "Legendary" badge overlaid on the top-right corner of a

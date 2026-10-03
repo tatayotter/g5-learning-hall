@@ -27,4 +27,20 @@ export interface BattleState {
   last_pvp_win: string | null;
   last_wild_encounter_win: string | null;
   questions_since_wild_encounter: number;
+  // The wild curio the player found but hasn't resolved yet (caught, or out
+  // of tries). Saved so it survives map switches, tab switches and reloads,
+  // and follows the player between maps. Null when there's none.
+  pending_wild_curio?: PendingWildCurio | null;
+}
+
+export interface PendingWildCurio {
+  monster_id: string;
+  level: number;
+  quality: QualityTier;
+  // Shared between encounter questions and battles: a wrong answer or a
+  // battle start each use one; at zero after a miss or a lost battle, it flees.
+  attempts_left: number;
+  question_id: string | null;
+  region: string | null; // where it spawned (analytics only; it follows the player)
+  spawned_at: string;
 }

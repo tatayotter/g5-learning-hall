@@ -1,29 +1,46 @@
 'use client';
 // Wild curio encounter dialogue — shown by TrainingMap.tsx when the player
 // steps onto the curio tile (pendingCurioChallenge). Battle! enters the
-// encounter; Run Away lets the player walk away (curio stays on the map).
+// encounter; Run Away lets the player walk away (the curio stays, and keeps
+// following them between maps until it's caught or out of tries).
 import { MonsterImage } from '@/components/battle/shared';
 import type { MonsterDef } from '@/lib/monsterConfig';
-import type { QualityTier } from '@/lib/curioQuality';
+import { QUALITY_LABEL, type QualityTier } from '@/lib/curioQuality';
 import { playPageFlip } from '@/lib/sounds';
 
 interface CurioEncounterPanelProps {
   curioDef: MonsterDef;
   quality: QualityTier;
+  attemptsLeft: number;
   onBattle: () => void;
   onRunAway: () => void;
 }
 
-export default function CurioEncounterPanel({ curioDef, quality, onBattle, onRunAway }: CurioEncounterPanelProps) {
+const QUALITY_TEXT: Record<QualityTier, string> = {
+  normal: 'text-gray-400',
+  good: 'text-green-300',
+  outstanding: 'text-cyan-300',
+  perfect: 'text-orange-300',
+};
+
+export default function CurioEncounterPanel({ curioDef, quality, attemptsLeft, onBattle, onRunAway }: CurioEncounterPanelProps) {
+  const rare = quality !== 'normal';
   return (
     <div className="w-full max-w-sm bg-neutral-900 border border-emerald-700 rounded-2xl p-4 battle-panel-in">
       <div className="flex items-start gap-3 mb-4">
         <MonsterImage monster={curioDef} className="w-14 h-14 flex-shrink-0" />
         <div className="min-w-0">
           <p className="font-bold text-emerald-300 text-sm leading-tight">{curioDef.name} appeared!</p>
-          <p className="text-gray-400 text-xs mt-0.5 capitalize">{quality} · {curioDef.element} type</p>
-          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            "A wild curio is challenging you!"
+          <p className="text-gray-400 text-xs mt-0.5 capitalize">
+            <span className={`font-bold ${QUALITY_TEXT[quality]}`}>{QUALITY_LABEL[quality]}</span> · {curioDef.element} type
+          </p>
+          <p className="text-gray-300 text-sm mt-1 leading-snug">
+            {rare
+              ? `A ${QUALITY_LABEL[quality]} curio is tougher: more HP and Attack. Win and you get more EXP, and you keep it at ${QUALITY_LABEL[quality]}.`
+              : 'A wild curio is challenging you!'}
+          </p>
+          <p className="text-gray-400 text-xs mt-1">
+            {attemptsLeft} {attemptsLeft === 1 ? 'try' : 'tries'} left. A wrong answer or a lost battle uses one.
           </p>
         </div>
       </div>
@@ -33,7 +50,7 @@ export default function CurioEncounterPanel({ curioDef, quality, onBattle, onRun
                      text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
           onClick={() => { playPageFlip(); onBattle(); }}
         >
-          ⚔️ Battle!
+          Battle!
         </button>
         <button
           className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
@@ -41,7 +58,7 @@ export default function CurioEncounterPanel({ curioDef, quality, onBattle, onRun
                      transition-colors"
           onClick={() => { playPageFlip(); onRunAway(); }}
         >
-          🏃 Run Away!
+          Not yet
         </button>
       </div>
     </div>
