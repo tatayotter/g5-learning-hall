@@ -237,11 +237,11 @@ export const GUILDS: GuildEntry[] = [
         description: 'A small fish whose scales are etched with tally marks. It counts its own bubbles as it swims.',
       },
       tier2: {
-        guildLevel: 10, name: 'Sumray', emoji: '🐡', spriteId: 'sumray',
-        description: 'Its tally-mark scales have multiplied into a puffed-up ledger of sums, bristling whenever a calculation comes up short.',
+        guildLevel: 10, name: 'Sumray', emoji: '🐟', spriteId: 'sumray',
+        description: 'Its tally-mark scales have spread into wide gliding wings, a ledger of sums whose seams flare orange whenever a calculation comes up short.',
       },
       tier3: {
-        guildLevel: 20, name: 'Infinifin', emoji: '🐋', spriteId: 'infinifin',
+        guildLevel: 20, name: 'Infinifin', emoji: '🐉', spriteId: 'infinifin',
         description: 'A leviathan built from every number it has ever counted, so vast that some digits are still catching up to its tail.',
       },
     },
