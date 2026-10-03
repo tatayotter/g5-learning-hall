@@ -14,7 +14,7 @@
 // existing art shown until that file exists.
 import type { Cue } from '@/lib/intro/introCues';
 
-export type Speaker = 'narrator' | 'tala' | 'damien' | 'forgetting';
+export type Speaker = 'narrator' | 'tala' | 'damien' | 'forgetting' | 'tatay';
 
 export interface VoiceLine {
   id: string;
@@ -46,7 +46,9 @@ export type BeatInteraction =
   | { kind: 'refuse'; give: string; refuse: string; scold: VoiceLine }
   | { kind: 'shadows' }
   | { kind: 'strike'; choices: string[]; answer: string; hearts: number; retry: VoiceLine }
-  | { kind: 'partner'; label: string };
+  | { kind: 'partner'; label: string }
+  // Battle training (lib/intro/battleTraining.ts): tap the element your Curio beats.
+  | { kind: 'elements'; retry: VoiceLine };
 
 export interface Beat {
   id: string;
@@ -73,6 +75,8 @@ export const SPEAKERS: Record<Speaker, { name: string; color: string; portrait: 
   damien: { name: 'Damien', color: '#7dd3fc', portrait: '/intro/portrait_damien.png' },
   // Never seen, only heard: its portrait is its mark (see BossArena's ForgettingMark).
   forgetting: { name: 'The Forgetting', color: '#d8c8ff', portrait: '/intro/portrait_forgetting.svg' },
+  // Battle training (lib/intro/battleTraining.ts): the creator of Learning Hall.
+  tatay: { name: 'Tatay', color: '#fb923c', portrait: '/tatay sprite.webp' },
 };
 
 export const voiceSrc = (id: string) => `/sounds/voice/intro/${id}.mp3`;

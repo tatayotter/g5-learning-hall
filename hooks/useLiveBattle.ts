@@ -134,8 +134,10 @@ export function useLiveBattle(
   side: 'challenger' | 'opponent',
   skills: Record<string, Skill>,
   /** When defined the hook runs in local bot mode: no Supabase channel,
-   *  opponent answers are auto-generated with this accuracy (0–1). */
-  botAccuracy?: number,
+   *  opponent answers are auto-generated with this accuracy (0–1). A
+   *  function gets the round number, so a scripted bot (battle training's
+   *  Tatay) can change how well it plays as the fight goes on. */
+  botAccuracy?: number | ((round: number) => number),
 ) {
   const isBotMode = botAccuracy !== undefined;
   const [phase, setPhase] = useState<BattlePhase>('waiting_for_opponent');
@@ -572,7 +574,8 @@ export function useLiveBattle(
         const botSkillId = botSkillIds[Math.min(tierIdx, botSkillIds.length - 1)];
 
         // Randomise correct count around the bot's accuracy — clamp to [0, total].
-        const raw = Math.round((botAccuracy ?? 0.5) * totalQuestions + (Math.random() - 0.5));
+        const accuracy = typeof botAccuracy === 'function' ? botAccuracy(round) : (botAccuracy ?? 0.5);
+        const raw = Math.round(accuracy * totalQuestions + (Math.random() - 0.5));
         const botCorrect = Math.max(0, Math.min(totalQuestions, raw));
         const botAnswer: RoundAnswer = {
           round,

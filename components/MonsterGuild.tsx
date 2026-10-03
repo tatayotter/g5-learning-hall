@@ -50,6 +50,7 @@ import MapView from '@/components/monster/MapView';
 import TeamView from '@/components/monster/TeamView';
 import BattleViews from '@/components/monster/BattleViews';
 import TrainersView from '@/components/monster/TrainersView';
+import BattleTraining from '@/components/monster/BattleTraining';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -169,6 +170,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // Single step, since the arena's own sub-nav (map/team/trainers/...) lives
   // behind this FAB+drawer rather than being always-visible tiles like
   // board/guilds — that's the one thing worth teaching up front.
+  // Battle training (components/monster/BattleTraining.tsx): offered on each
+  // Arena visit until finished, replayable from the Trainers list.
+  // `immersive` = its story or a fight is on screen, so the arena steps aside.
+  const [battleTraining, setBattleTraining] = useState<{ replay: boolean } | null>(null);
+  const [trainingImmersive, setTrainingImmersive] = useState(false);
+  const battleTrainingOpenRef = useRef(false);
+  battleTrainingOpenRef.current = battleTraining !== null;
+  const trainingOfferedRef = useRef(false);
   const [monsterTutorialActive, setMonsterTutorialActive] = useState(() => !hasSeenTabTutorial('monster', userId));
   const monsterTutorialSteps: TutorialStep[] = useMemo(() => [{
     id: 'monster-open-menu',
@@ -178,7 +187,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }], [arenaNavOpen]);
   const monsterTutorial = useTutorialSequence({
     tabKey: 'monster',
-    active: monsterTutorialActive,
+    active: monsterTutorialActive && !battleTraining,
     steps: monsterTutorialSteps,
     onDone: () => {
       markTabTutorialSeen('monster', userId);
@@ -391,6 +400,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   useEffect(() => { loadData(); }, [userId, eggRefreshSignal]);
 
+  // Offer battle training once per Arena visit (BattleTraining checks whether
+  // it's already finished and closes itself if so).
+  useEffect(() => {
+    if (loading || trainingOfferedRef.current || userMonsters.length === 0) return;
+    trainingOfferedRef.current = true;
+    setBattleTraining({ replay: false });
+  }, [loading, userMonsters.length]);
+
   // Chain map is admin-authored content, not per-user — fetch once.
   useEffect(() => { fetchEggChainMap().then(setEggChainMap); }, []);
 
@@ -489,8 +506,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (view === 'live_battle') return;
     const delay = 20_000 + Math.random() * 40_000;
     const timer = setTimeout(() => {
-      // Don't interrupt an active battle or a real incoming invite.
-      if (liveBattleInbox.incomingInvite) return;
+      // Don't interrupt an active battle, a real incoming invite, or battle training.
+      if (liveBattleInbox.incomingInvite || battleTrainingOpenRef.current) return;
       const bot = BOT_PROFILES[Math.floor(Math.random() * BOT_PROFILES.length)];
       setPendingBotChallenge(bot);
     }, delay);
@@ -595,7 +612,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }, [activeRegion]);
 
   const handleWildEncounterRoll = async () => {
-    if (curio || wildEncounter || view === 'battle') return; // don't stack encounters
+    if (curio || wildEncounter || view === 'battle' || battleTrainingOpenRef.current) return; // don't stack encounters
     const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
     if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
     // More legendary species already caught nudges the odds of finding
@@ -875,6 +892,38 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }));
   };
 
+  // Shared by the Trainers-list Dummy fight and battle training's Dummy fight.
+  const recordDummyResult = async (won: boolean, expEarned: number) => {
+    const today = new Date().toISOString().split('T')[0];
+    if (won) {
+      if (expEarned > 0) {
+        const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+        if (activeMonster) {
+          await handleMonsterExpGained(activeMonster.id, expEarned);
+          const newExp = activeMonster.monster_exp + expEarned;
+          await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
+        }
+      }
+      showNotification('🥊 You bullied the Training Dummy!');
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'win', monster_exp_earned: expEarned });
+      logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Curio EXP`, expEarned, 0);
+      onBattleWon('dummy');
+    } else {
+      showNotification('💀 Even the dummy got you this time...');
+      await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'loss', monster_exp_earned: 0 });
+      logAction(userId, today, 'battle', '💀 Lost to the Training Dummy', 0, 0);
+    }
+  };
+
+  // Battle training's Tatay fight: logged like a Tatay trainer battle, so it
+  // counts toward the Tatay achievements, but never marks him defeated.
+  const recordTrainingTatayResult = (won: boolean) => {
+    const today = new Date().toISOString().split('T')[0];
+    void supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'tatay', result: won ? 'win' : 'loss', monster_exp_earned: 0 });
+    logAction(userId, today, 'battle', won ? '🏆 Beat Tatay in battle training' : '💀 Lost to Tatay in battle training', 0, 0);
+    onTatayBattleResult?.(won);
+  };
+
   const handleBattleEnd = async (won: boolean, expEarned: number) => {
     const today = new Date().toISOString().split('T')[0];
 
@@ -919,24 +968,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }
 
     if (isDummyBattle && activeBattle) {
-      if (won) {
-        if (expEarned > 0) {
-          const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
-          if (activeMonster) {
-            await handleMonsterExpGained(activeMonster.id, expEarned);
-            const newExp = activeMonster.monster_exp + expEarned;
-            await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
-          }
-        }
-        showNotification('🥊 You bullied the Training Dummy!');
-        await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'win', monster_exp_earned: expEarned });
-        logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Curio EXP`, expEarned, 0);
-        onBattleWon('dummy');
-      } else {
-        showNotification('💀 Even the dummy got you this time...');
-        await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'loss', monster_exp_earned: 0 });
-        logAction(userId, today, 'battle', '💀 Lost to the Training Dummy', 0, 0);
-      }
+      await recordDummyResult(won, expEarned);
       setIsDummyBattle(false);
       setActiveBattle(null);
       setView('map');
@@ -1073,7 +1105,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         return (
           <>
             {/* Floating FAB — Curio Arena icon, sits above the main compass */}
-            <button
+            {!trainingImmersive && <button
               onClick={() => { playPageFlip(); setArenaNavOpen(true); }}
               className="arena-fab hover:-translate-y-1 hover:drop-shadow-lg active:translate-y-0 active:scale-95 transition-all duration-150 ease-out"
               aria-label="Open Curio Arena menu"
@@ -1085,7 +1117,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                 alt=""
                 className={isDesktop ? 'w-24 h-24 object-contain' : 'w-20 h-20 object-contain'}
               />
-            </button>
+            </button>}
 
             {/* Drawer overlay */}
             <AnimatePresence>
@@ -1180,7 +1212,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       })()}
 
       {/* Map view — World Map region picker, or the selected region's Training Map. */}
-      {view === 'map' && battleState && (
+      {view === 'map' && battleState && !trainingImmersive && (
         <MapView
           // TrainingMap's map-loading effect runs once per mount (empty deps
           // — see its own comment) on the assumption that changing regions
@@ -1285,6 +1317,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           botOnlinePlayers={botOnlinePlayers}
           handleChallengePlayer={handleChallengePlayer}
           handleDummyBattle={handleDummyBattle}
+          onReplayBattleTraining={() => setBattleTraining({ replay: true })}
           handleTrainerBattle={handleTrainerBattle}
         />
       )}
@@ -1358,7 +1391,34 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       {/* Bot challenge toast — shown when a simulated classmate sends a challenge */}
-      {pendingBotChallenge && !liveBattleInbox.incomingInvite && (
+      {battleTraining && (
+        <BattleTraining
+          key={battleTraining.replay ? 'replay' : 'first'}
+          userId={userId}
+          replay={battleTraining.replay}
+          buildPlayerTeam={buildPlayerTeam}
+          buildTrainingDummy={buildTrainingDummy}
+          questions={questions}
+          inventory={inventory}
+          onUseItem={handleUseItem}
+          gold={currentGold}
+          onSpendGold={handleSpendGoldForSkip}
+          onTatayResult={recordTrainingTatayResult}
+          onDummyResult={recordDummyResult}
+          onBonusPaid={stats => {
+            onGoldSynced(stats);
+            showNotification('+100 Gold for finishing battle training!');
+          }}
+          onImmersiveChange={setTrainingImmersive}
+          onClose={() => {
+            setBattleTraining(null);
+            setTrainingImmersive(false);
+            loadData();
+          }}
+        />
+      )}
+
+      {pendingBotChallenge && !liveBattleInbox.incomingInvite && !battleTraining && (
         <LiveBattleInviteToast
           fromName={pendingBotChallenge.fullName}
           onAccept={() => {

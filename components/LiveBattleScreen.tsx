@@ -14,7 +14,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
-import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
+import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, type BattleQuestionProps, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
 import { attackClassHits } from '@/lib/attackClasses';
 import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
@@ -52,17 +52,36 @@ interface LiveBattleScreenProps {
   onBattleEnd: (won: boolean) => void;
   onBattleResultKnown?: (won: boolean) => void;
   /** When defined, the battle runs in local bot mode (no Supabase channel).
-   *  Value is the bot's answer accuracy (0–1). */
-  botAccuracy?: number;
+   *  Value is the bot's answer accuracy (0–1), or a per-round function. */
+  botAccuracy?: number | ((round: number) => number);
   // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
   // private to this player, never broadcast to the opponent.
   gold: number;
   onSpendGold: (amount: number) => Promise<boolean>;
+  // Battle training (components/monster/BattleTraining.tsx): no round clock,
+  // so a coaching tip can sit on screen without the round timing out.
+  untimed?: boolean;
+  // Battle training listens for these to time its coaching tips.
+  onCoachMoment?: (moment: BattleCoachMoment) => void;
+  // Opponents that aren't in USERS (Tatay, the Training Dummy) for the summary.
+  opponentAvatarSrc?: string;
+  // Dev previews only: see BattleQuestionModal's gradeOverride.
+  gradeOverride?: BattleQuestionProps['gradeOverride'];
 }
+
+export type BattleCoachMoment =
+  // My turn to act: pick a skill, rest, item or switch.
+  | { kind: 'select'; round: number; myHp: number; myMaxHp: number; oppHp: number; oppMaxHp: number }
+  // A skill was picked and its questions are showing.
+  | { kind: 'question'; round: number }
+  // A round finished playing out.
+  | { kind: 'resolved'; round: number; myDamageDealt: number; opponentDamageDealt: number; myAttackMissed: boolean }
+  // The summary screen is up.
+  | { kind: 'ended'; won: boolean };
 
 export default function LiveBattleScreen({
   battleId, myUserId, opponentId, opponentName, side, myTeam, opponentTeam, questions, gradingUserId, inventory, onUseItem, onBattleEnd,
-  onBattleResultKnown, botAccuracy, gold, onSpendGold,
+  onBattleResultKnown, botAccuracy, gold, onSpendGold, untimed, onCoachMoment, opponentAvatarSrc, gradeOverride,
 }: LiveBattleScreenProps) {
   const [myRoster, setMyRoster] = useState<ActiveBattleMonster[]>(myTeam);
   const [myActiveIdx, setMyActiveIdx] = useState(0);
@@ -152,7 +171,7 @@ export default function LiveBattleScreen({
   // instead of leaving the round stuck waiting forever. Guarded by round so
   // it fires at most once per round even though `now` keeps ticking after.
   useEffect(() => {
-    if (phase !== 'select_skill' || answering) return;
+    if (untimed || phase !== 'select_skill' || answering) return;
     if (!deadlineAt || now < deadlineAt) return;
     if (timedOutRoundRef.current === round) return;
     timedOutRoundRef.current = round;
@@ -511,6 +530,35 @@ export default function LiveBattleScreen({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [battleEnded]);
 
+  // Coaching moments for battle training (onCoachMoment). The ref keeps each
+  // one to a single report per round, however often the screen re-renders.
+  const onCoachMomentRef = useRef(onCoachMoment);
+  onCoachMomentRef.current = onCoachMoment;
+  const coachReportedRef = useRef(new Set<string>());
+  // The first tip waits for the battle intro (VS screen) to lift.
+  const [introDone, setIntroDone] = useState(false);
+  const reportCoachMoment = (key: string, moment: BattleCoachMoment) => {
+    if (!onCoachMomentRef.current || coachReportedRef.current.has(key)) return;
+    coachReportedRef.current.add(key);
+    onCoachMomentRef.current(moment);
+  };
+  useEffect(() => {
+    if (introDone && phase === 'select_skill' && !answering && !showItemMenu && !showSwitchMenu) {
+      reportCoachMoment(`select:${round}`, { kind: 'select', round, myHp: myMon.currentHp, myMaxHp: myMon.maxHp, oppHp: oppMon.currentHp, oppMaxHp: oppMon.maxHp });
+    }
+    if (answering) reportCoachMoment(`question:${round}`, { kind: 'question', round });
+    if (phase === 'ended' && battleEnded) reportCoachMoment('ended', { kind: 'ended', won: battleEnded.winnerId === myUserId });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, round, answering, battleEnded, introDone]);
+  useEffect(() => {
+    if (!lastOutcome || beatsDoneForRound !== lastOutcome.round) return;
+    reportCoachMoment(`resolved:${lastOutcome.round}`, {
+      kind: 'resolved', round: lastOutcome.round, myDamageDealt: lastOutcome.myDamageDealt,
+      opponentDamageDealt: lastOutcome.opponentDamageDealt, myAttackMissed: lastOutcome.myAttackMissed,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [beatsDoneForRound]);
+
   const handleSkillSelect = (skillId: string) => {
     setPendingSkillId(skillId);
     setAnswering(true);
@@ -676,7 +724,7 @@ export default function LiveBattleScreen({
 
   const availableTiers = getAvailableSkillTiers(myMon.level, myMon.def);
   const equippedSkills = getEquippedSkills(myMon.userMonster?.equipped_skills, myMon.def);
-  const secondsLeft = deadlineAt ? Math.max(0, Math.ceil((deadlineAt - now) / 1000)) : null;
+  const secondsLeft = deadlineAt && !untimed ? Math.max(0, Math.ceil((deadlineAt - now) / 1000)) : null;
 
   if (phase === 'ended' && battleEnded) {
     const iWon = battleEnded.winnerId === myUserId;
@@ -694,7 +742,7 @@ export default function LiveBattleScreen({
         outcome={isDraw ? 'draw' : iWon ? 'win' : 'loss'}
         reasonLabel={reasonLabel}
         left={{ avatarSrc: me?.avatar || '/userpics/userpics_premium/ssb3.png', name: me?.fullName ?? myUserId, mon: myMon, team: myRoster, isWinner: iWon }}
-        right={{ avatarSrc: opponent?.avatar || '/userpics/userpics_premium/ssb3.png', name: opponent?.fullName ?? opponentName, mon: oppMon, team: oppRoster, isWinner: !iWon && !isDraw }}
+        right={{ avatarSrc: opponentAvatarSrc || opponent?.avatar || '/userpics/userpics_premium/ssb3.png', name: opponent?.fullName ?? opponentName, mon: oppMon, team: oppRoster, isWinner: !iWon && !isDraw }}
         log={log}
         onContinue={() => onBattleEnd(iWon)}
       />
@@ -704,12 +752,13 @@ export default function LiveBattleScreen({
   const myDisplayName = USERS[myUserId]?.fullName ?? 'You';
 
   const overlay = answering && pendingSkillId ? (
-    <div className="w-full max-w-xl bg-white border border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
+    <div data-tutorial-id="battle-question" className="w-full max-w-xl bg-white border border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
       <BattleQuestionModal
         questions={questions}
         count={SKILLS[pendingSkillId].questionCount}
         embedded
         gradingUserId={gradingUserId}
+        gradeOverride={gradeOverride}
         onComplete={handleQuestionsComplete}
         canSkip={canSkip}
         skipCost={skipCost}
@@ -839,7 +888,7 @@ export default function LiveBattleScreen({
 
   const actionPanel = phase === 'select_skill' ? (
     <div>
-      <div className="bstage-moves">
+      <div className="bstage-moves" data-tutorial-id="battle-moves">
         {([1, 2, 3] as const).map(tier => {
           const equippedSkill = equippedSkills[tier - 1];
           const { isLocked, requiredLevel } = getSkillSlotLock(myMon.userMonster?.equipped_skills, myMon.def, tier, availableTiers);
@@ -863,7 +912,7 @@ export default function LiveBattleScreen({
         })}
       </div>
 
-      <div className="bstage-utils mt-[7px]">
+      <div className="bstage-utils mt-[7px]" data-tutorial-id="battle-utils">
         <ActionTile
           variant="quest"
           onClick={handleRest}
@@ -914,7 +963,9 @@ export default function LiveBattleScreen({
       coinToss={coinToss}
       // Round clock is shared — the intro's Ready button counts down and
       // starts on its own (round 1 is extended to cover it).
-      introAutoStartMs={BATTLE_INTRO_READY_AUTOSTART_MS}
+      // Untimed (battle training): no clock, so the kid taps Ready themselves.
+      introAutoStartMs={untimed ? undefined : BATTLE_INTRO_READY_AUTOSTART_MS}
+      onIntroDone={() => setIntroDone(true)}
       leftTeam={myRoster.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === myActiveIdx, spriteUrl: curioSpriteUrl(m.def) }))}
       rightTeam={oppRoster.map((m, i) => ({ fainted: m.currentHp <= 0, active: i === oppActiveIdx, spriteUrl: curioSpriteUrl(m.def) }))}
       leftMon={{ name: myMon.def.name, level: myMon.level, def: myMon.def, currentHp: myMon.currentHp, maxHp: myMon.maxHp, status: myMon.status, animClassName: myAnim, action: myAction, damagePopup: myDamagePopup, quality: myMon.userMonster?.quality }}

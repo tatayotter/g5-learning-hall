@@ -215,6 +215,9 @@ export interface BattleQuestionProps {
   // content_questions_public (correct_answer stripped), so correctness has to be checked
   // server-side via grade_content_question, keyed by each question's stable id.
   gradingUserId: string;
+  // Dev previews only (/dev/ui-gallery): grade mock questions locally, since
+  // they don't exist server-side. Real battles never pass this.
+  gradeOverride?: (question: any, selected: string) => { correct: boolean; correctAnswer: string | null };
   onComplete: (correctCount: number, answeredQuestions: any[]) => void;
   // "Skip for gold" — omit entirely to disable the skip button (e.g. nowhere
   // currently does this, but keeps the prop optional for any other caller of
@@ -233,7 +236,7 @@ export interface BattleQuestionProps {
   maxGoldPerBattle?: number;
 }
 
-export function BattleQuestionModal({ questions, count, embedded, gradingUserId, onComplete, canSkip, skipCost, onSkip, goldSpentThisBattle, maxGoldPerBattle }: BattleQuestionProps) {
+export function BattleQuestionModal({ questions, count, embedded, gradingUserId, gradeOverride, onComplete, canSkip, skipCost, onSkip, goldSpentThisBattle, maxGoldPerBattle }: BattleQuestionProps) {
   // A skill can ask for more questions than are actually available (e.g. a
   // tier-3 skill needs 3, but the player's unseen-question pool for that
   // subject has only 2 left) — capping to the pool's own length here, and
@@ -277,7 +280,9 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
     playPageFlip();
     setSelected(opt);
     setGrading(true);
-    const { correct: isCorrect, correctAnswer } = await gradeMonsterQuestion(gradingUserId, current.id, opt);
+    const { correct: isCorrect, correctAnswer } = gradeOverride
+      ? gradeOverride(current, opt)
+      : await gradeMonsterQuestion(gradingUserId, current.id, opt);
     setGrading(false);
     setRevealedCorrect(correctAnswer);
     if (isCorrect) playChime(); else playClash();
