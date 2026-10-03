@@ -13,7 +13,7 @@ import { useBotPresence } from '@/hooks/useBotPresence';
 import { BOT_PROFILES, BOT_IDS, buildBotTeam, type BotProfile } from '@/lib/botProfiles';
 import { Nail } from '@/components/battle/MonsterHpPanel';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
-import WildEncounterModal from '@/components/WildEncounterModal';
+import WildEncounterModal, { type WildEncounterQuestion } from '@/components/WildEncounterModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import DuplicateCatchModal from '@/components/DuplicateCatchModal';
 import {
@@ -23,7 +23,7 @@ import {
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
 import { fetchInventory, useInventoryItem, spendGold, InventoryMap } from '@/lib/inventory';
-import { rollFreshQualityTier, type QualityTier } from '@/lib/curioQuality';
+import { rollFreshQualityTier, QUALITY_STAT_MULTIPLIER, type QualityTier } from '@/lib/curioQuality';
 import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
   fetchQuestionPool, markQuestionsCompleted,
@@ -40,7 +40,8 @@ import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import WorldMap from '@/components/WorldMap';
 import { REGIONS } from '@/lib/regions';
-import { CaughtMonster, BattleState, GuildView } from '@/components/monster/types';
+import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
+import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import StarterSelection from '@/components/monster/StarterSelection';
 import HatcheryPanel from '@/components/monster/HatcheryPanel';
@@ -99,6 +100,12 @@ interface MonsterGuildProps {
 // owned (active team or uncollected inbox) — converted instead of stacking.
 const DUPLICATE_CATCH_GOLD = 100;
 
+// Tries a found wild curio gives, shared by its questions and battles: a
+// wrong answer uses one, and so does starting a battle (so reloading
+// mid-battle can't dodge a loss). It flees when a miss or a lost battle
+// leaves none.
+const WILD_ENCOUNTER_TRIES = 3;
+
 // ─── QUESTION HELPERS ─────────────────────────────────────────────────────────
 
 function extractQuestions(packageData: any): any[] {
@@ -147,6 +154,8 @@ interface CurioState {
   // map marker's ground-glow color before the player ever engages it, and
   // carried onto the caught monster's row if they win the catch.
   quality: QualityTier;
+  region: string | null; // where it spawned; it follows the player between maps
+  spawnedAt: string;
 }
 
 export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
@@ -264,7 +273,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const pendingChallengeIdRef = useRef<string | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
   const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
-  const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string } | null>(null);
+  const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string; quality: QualityTier } | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
   const [subclassProfile, setSubclassProfile] = useState<SubclassProfile | null>(null);
@@ -603,16 +612,68 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const gradeLevel = gradeToNumber(USERS[userId]?.grade);
 
-  // Region change (including leaving to the World Map hub) drops any curio
-  // left over from the previous map — TrainingMap.tsx resets its own
-  // scroll/curioPos state on regionId change too, but curio's identity
-  // lives here and wouldn't otherwise know a region change happened.
-  useEffect(() => {
-    setCurio(null);
-  }, [activeRegion]);
+  // A found curio is saved on user_battle_state.pending_wild_curio until it's
+  // caught or out of tries, so map switches, tab switches and reloads don't
+  // lose it (they used to, after the guaranteed-spawn counter had already
+  // reset). It follows the player between maps: TrainingMap re-places it
+  // next to them on whichever map they're on.
+  const savePendingCurio = async (next: CurioState | null) => {
+    const pending: PendingWildCurio | null = next ? {
+      monster_id: next.monsterId,
+      level: next.level,
+      quality: next.quality,
+      attempts_left: next.attemptsLeft,
+      question_id: next.question?.id ?? null,
+      region: next.region,
+      spawned_at: next.spawnedAt,
+    } : null;
+    setBattleState(prev => prev ? { ...prev, pending_wild_curio: pending } : prev);
+    await supabase.from('user_battle_state').update({ pending_wild_curio: pending }).eq('user_id', userId);
+  };
 
-  const handleWildEncounterRoll = async () => {
-    if (curio || wildEncounter || view === 'battle' || battleTrainingOpenRef.current) return; // don't stack encounters
+  const pickWildQuestion = async (): Promise<WildEncounterQuestion | null> => {
+    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+    return pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
+  };
+
+  // Brings back a saved curio after a reload or a return to this tab. Its
+  // question is reloaded by id when it's still unanswered; otherwise (none
+  // saved, e.g. after a lost battle, or no longer active) a fresh one is drawn.
+  const restoredSpawnRef = useRef<string | null>(null);
+  const pendingCurio = battleState?.pending_wild_curio ?? null;
+  useEffect(() => {
+    if (!pendingCurio || curio || wildEncounter || isWildEncounterBattle) return;
+    if (restoredSpawnRef.current === pendingCurio.spawned_at) return;
+    restoredSpawnRef.current = pendingCurio.spawned_at;
+    (async () => {
+      if (!WILD_MONSTERS[pendingCurio.monster_id]) { await savePendingCurio(null); return; }
+      let question: WildEncounterQuestion | null = null;
+      if (pendingCurio.question_id) {
+        const { data } = await supabase.from('sq_wild_encounter').select('*').eq('id', pendingCurio.question_id).eq('is_active', true).maybeSingle();
+        question = data ?? null;
+      }
+      if (!question) question = await pickWildQuestion();
+      if (!question) return; // no wild questions for this grade right now; keep it saved for later
+      const restored: CurioState = {
+        id: ++curioIdRef.current,
+        monsterId: pendingCurio.monster_id,
+        level: pendingCurio.level,
+        question,
+        attemptsLeft: pendingCurio.attempts_left,
+        quality: pendingCurio.quality,
+        region: pendingCurio.region,
+        spawnedAt: pendingCurio.spawned_at,
+      };
+      setCurio(restored);
+      if (restored.question.id !== pendingCurio.question_id) savePendingCurio(restored);
+      logWildEncounterEvent(userId, 'restored', { region: activeRegion, monsterId: restored.monsterId, quality: restored.quality, level: restored.level, attemptsLeft: restored.attemptsLeft });
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingCurio?.spawned_at, curio, wildEncounter, isWildEncounterBattle]);
+
+  const handleWildEncounterRoll = async (pity = false) => {
+    // Don't stack encounters (a saved curio still being restored counts too).
+    if (curio || wildEncounter || battleState?.pending_wild_curio || view === 'battle' || battleTrainingOpenRef.current) return;
     const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
     if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
     // More legendary species already caught nudges the odds of finding
@@ -638,7 +699,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // the map instead (species art shown immediately via MonsterImage,
     // since it's already known here). handleEnterCurio is what actually
     // opens the modal, once the player walks onto the curio's tile.
-    setCurio({ id: ++curioIdRef.current, monsterId, level, question, attemptsLeft: 3, quality });
+    const spawned: CurioState = {
+      id: ++curioIdRef.current, monsterId, level, question, attemptsLeft: WILD_ENCOUNTER_TRIES, quality,
+      region: activeRegion ?? null, spawnedAt: new Date().toISOString(),
+    };
+    restoredSpawnRef.current = spawned.spawnedAt;
+    setCurio(spawned);
+    savePendingCurio(spawned);
+    logWildEncounterEvent(userId, 'spawned', { region: activeRegion, monsterId, quality, level, attemptsLeft: WILD_ENCOUNTER_TRIES, pity });
 
     // The species is revealed to the player the moment the curio appears on
     // the map — regardless of catch outcome, so mark it seen here for the
@@ -653,28 +721,47 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // Fires when the player walks onto the curio's map tile (see
   // TrainingMap.tsx's handleTileEnter) — promotes the "known but not yet
   // engaged" curio into an actual open WildEncounterModal.
-  const handleEnterCurio = () => {
+  const handleEnterCurio = async () => {
     if (!curio || wildEncounter) return;
-    setWildEncounter({ monsterId: curio.monsterId, level: curio.level, question: curio.question, attemptsLeft: curio.attemptsLeft, quality: curio.quality });
+    let question = curio.question;
+    if (!question) {
+      question = await pickWildQuestion();
+      if (!question) { showNotification('No wild curio questions right now. Try again later!'); return; }
+      const next = { ...curio, question };
+      setCurio(next);
+      savePendingCurio(next);
+    }
+    setWildEncounter({ monsterId: curio.monsterId, level: curio.level, question, attemptsLeft: curio.attemptsLeft, quality: curio.quality });
   };
 
   const handleWildEncounterCorrect = () => {
-    if (!wildEncounter) return;
+    if (!wildEncounter || !curio) return;
     markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
     const monster = WILD_MONSTERS[wildEncounter.monsterId];
+    const quality = wildEncounter.quality;
+    // Starting the battle uses a try up front, so reloading mid-battle can't
+    // dodge a loss; winning catches it, so the try only matters on a loss.
+    // The question is spent, so none is saved: a retry draws a fresh one.
+    const attemptsLeft = wildEncounter.attemptsLeft - 1;
+    const reserved: CurioState = { ...curio, attemptsLeft, question: null };
+    setCurio(reserved);
+    savePendingCurio(reserved);
+    logWildEncounterEvent(userId, 'question_answered', { region: activeRegion, monsterId: monster.id, quality, level: wildEncounter.level, attemptsLeft: wildEncounter.attemptsLeft, correct: true });
+    logWildEncounterEvent(userId, 'battle_started', { region: activeRegion, monsterId: monster.id, quality, level: wildEncounter.level, attemptsLeft });
     const trainer: NpcTrainer = {
       id: `wild-${wildEncounter.monsterId}-${Date.now()}`,
       name: monster.name,
       element: monster.element,
       levelRequirement: 0,
-      monsters: [{ monsterId: wildEncounter.monsterId, level: wildEncounter.level }],
-      reward: { exp: BATTLE_CONSTANTS.MONSTER_EXP_PER_BATTLE_WIN, gold: 0 },
+      // A wild curio fights with the quality it spawned with (more HP and
+      // Attack for rarer tiers), and beating a tougher one is worth more EXP.
+      monsters: [{ monsterId: wildEncounter.monsterId, level: wildEncounter.level, quality }],
+      reward: { exp: Math.round(BATTLE_CONSTANTS.MONSTER_EXP_PER_BATTLE_WIN * QUALITY_STAT_MULTIPLIER[quality]), gold: 0 },
       emoji: monster.emoji,
       intro: `A wild ${monster.name} blocks your path!`,
     };
-    setActiveWildQuality(wildEncounter.quality);
+    setActiveWildQuality(quality);
     setWildEncounter(null);
-    setCurio(null); // caught/engaged — clear the map sprite
     setIsWildEncounterBattle(true);
     setActiveBattle(trainer);
     setView('battle');
@@ -696,23 +783,36 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }, []);
 
   const handleWildEncounterWrong = async () => {
-    if (!wildEncounter) return;
+    if (!wildEncounter || !curio) return;
     lockWalkingFor10Seconds();
     markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
     const attemptsLeft = wildEncounter.attemptsLeft - 1;
+    logWildEncounterEvent(userId, 'question_answered', { region: activeRegion, monsterId: wildEncounter.monsterId, quality: wildEncounter.quality, level: wildEncounter.level, attemptsLeft: wildEncounter.attemptsLeft, correct: false });
     if (attemptsLeft <= 0) {
-      showNotification(`💨 The wild ${WILD_MONSTERS[wildEncounter.monsterId].name} fled...`);
-      setWildEncounter(null);
-      setCurio(null); // fled — despawn the map sprite
+      curioFled(wildEncounter.monsterId);
       return;
     }
-    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
-    if (pool.length === 0) {
+    const question = await pickWildQuestion();
+    const next: CurioState = { ...curio, attemptsLeft, question };
+    setCurio(next);
+    savePendingCurio(next);
+    if (!question) {
+      // No questions left for this grade right now: close the modal, the
+      // curio stays saved with its remaining tries.
       setWildEncounter(null);
       return;
     }
-    const question = pool[Math.floor(Math.random() * pool.length)];
     setWildEncounter(prev => prev ? { ...prev, question, attemptsLeft } : prev);
+  };
+
+  // Out of tries: the curio leaves for good.
+  const curioFled = (monsterId: string) => {
+    const name = WILD_MONSTERS[monsterId]?.name ?? 'curio';
+    showNotification(`The wild ${name} ran off...`);
+    logWildEncounterEvent(userId, 'fled', { region: activeRegion, monsterId, quality: curio?.quality, level: curio?.level, attemptsLeft: 0 });
+    setWildEncounter(null);
+    setCurio(null);
+    savePendingCurio(null);
   };
 
   const handlePromoteCaughtMonster = async (caught: CaughtMonster, slot: number) => {
@@ -738,15 +838,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const handleDuplicateKeep = async () => {
     if (!pendingDuplicate) return;
-    const { monsterId, level, name } = pendingDuplicate;
+    const { monsterId, level, name, quality } = pendingDuplicate;
     const today = new Date().toISOString().split('T')[0];
     // Same exp-seeding as a fresh wild catch (see handleBattleEnd above) —
     // monster_exp must stay consistent with monster_level under
-    // getMonsterLevel's exp/100+1 formula.
+    // getMonsterLevel's exp/100+1 formula. The spare keeps the quality the
+    // player actually beat.
     await supabase.from('user_caught_monsters').insert({
       user_id: userId, monster_id: monsterId, monster_level: level,
       monster_exp: (level - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
+      quality,
     });
+    logWildEncounterEvent(userId, 'duplicate_kept', { region: activeRegion, monsterId, quality, level });
     showNotification(`📥 ${name} added to your Catch Inbox as a spare!`);
     logAction(userId, today, 'battle', `📥 Kept duplicate ${name} in the Catch Inbox`, 0, 0);
     setPendingDuplicate(null);
@@ -755,8 +858,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const handleDuplicateConvert = () => {
     if (!pendingDuplicate) return;
-    const { name } = pendingDuplicate;
+    const { name, monsterId, quality, level } = pendingDuplicate;
     const today = new Date().toISOString().split('T')[0];
+    logWildEncounterEvent(userId, 'duplicate_gold', { region: activeRegion, monsterId, quality, level });
     onGoldAwarded(DUPLICATE_CATCH_GOLD);
     showNotification(`✨ Converted duplicate ${name} to ${DUPLICATE_CATCH_GOLD} gold!`);
     logAction(userId, today, 'battle', `✨ ${name} was a duplicate — converted to ${DUPLICATE_CATCH_GOLD} gold`, 0, DUPLICATE_CATCH_GOLD);
@@ -892,18 +996,21 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }));
   };
 
+  // Grants battle EXP to the active curio (local state + its row).
+  const awardActiveMonsterExp = async (expEarned: number) => {
+    if (expEarned <= 0) return;
+    const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+    if (!activeMonster) return;
+    await handleMonsterExpGained(activeMonster.id, expEarned);
+    const newExp = activeMonster.monster_exp + expEarned;
+    await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
+  };
+
   // Shared by the Trainers-list Dummy fight and battle training's Dummy fight.
   const recordDummyResult = async (won: boolean, expEarned: number) => {
     const today = new Date().toISOString().split('T')[0];
     if (won) {
-      if (expEarned > 0) {
-        const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
-        if (activeMonster) {
-          await handleMonsterExpGained(activeMonster.id, expEarned);
-          const newExp = activeMonster.monster_exp + expEarned;
-          await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
-        }
-      }
+      await awardActiveMonsterExp(expEarned);
       showNotification('🥊 You bullied the Training Dummy!');
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'training_tester', result: 'win', monster_exp_earned: expEarned });
       logAction(userId, today, 'battle', `🥊 Beat the Training Dummy — +${expEarned} Curio EXP`, expEarned, 0);
@@ -930,7 +1037,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (isWildEncounterBattle && activeBattle) {
       const wildMonsterId = activeBattle.monsters[0].monsterId;
       const wildLevel = activeBattle.monsters[0].level;
+      const wildQuality = activeWildQuality;
+      const logFields = { region: activeRegion, monsterId: wildMonsterId, quality: wildQuality, level: wildLevel, attemptsLeft: curio?.attemptsLeft };
       if (won) {
+        logWildEncounterEvent(userId, 'battle_won', logFields);
+        // The results screen promised this EXP; wild wins used to skip it.
+        await awardActiveMonsterExp(expEarned);
         const wasNew = !userMonsters.some(m => m.monster_id === wildMonsterId)
           && !caughtMonsters.some(m => m.monster_id === wildMonsterId);
         if (wasNew) {
@@ -941,12 +1053,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           // back to 1 the instant it earned any EXP after being promoted.
           await supabase.from('user_caught_monsters').insert({
             user_id: userId, monster_id: wildMonsterId, monster_level: wildLevel, monster_exp: (wildLevel - 1) * BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL,
-            quality: activeWildQuality,
+            quality: wildQuality,
           });
+          logWildEncounterEvent(userId, 'caught', logFields);
           if (ALL_MONSTERS[wildMonsterId]?.isLegendary) onLegendaryCaught?.();
         }
         await supabase.from('user_battle_state').update({ last_wild_encounter_win: today }).eq('user_id', userId);
         setBattleState(prev => prev ? { ...prev, last_wild_encounter_win: today } : prev);
+        setCurio(null);
+        await savePendingCurio(null);
         if (wasNew) {
           setRevealMonster(ALL_MONSTERS[wildMonsterId]);
           logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
@@ -954,11 +1069,22 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           // Already own this species (active or in the catch inbox) — let
           // the player choose to keep it as a spare (see DuplicateCatchModal)
           // instead of always auto-converting to gold.
-          setPendingDuplicate({ monsterId: wildMonsterId, level: wildLevel, name: activeBattle.name });
+          setPendingDuplicate({ monsterId: wildMonsterId, level: wildLevel, name: activeBattle.name, quality: wildQuality });
         }
       } else {
-        showNotification(`💨 ${activeBattle.name} broke free and fled...`);
+        logWildEncounterEvent(userId, 'battle_lost', logFields);
         logAction(userId, today, 'battle', `💨 Failed to capture wild ${activeBattle.name}`, 0, 0);
+        if (!curio || curio.attemptsLeft <= 0) {
+          curioFled(wildMonsterId);
+        } else {
+          // The battle already used its try; the curio waits nearby with
+          // the rest, and the next walk-up asks a fresh question.
+          const question = await pickWildQuestion();
+          const next: CurioState = { ...curio, question };
+          setCurio(next);
+          await savePendingCurio(next);
+          showNotification(`${activeBattle.name} is still nearby. ${curio.attemptsLeft} ${curio.attemptsLeft === 1 ? 'try' : 'tries'} left!`);
+        }
       }
       setIsWildEncounterBattle(false);
       setActiveBattle(null);
@@ -981,14 +1107,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
       setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
 
-      if (expEarned > 0) {
-        const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
-        if (activeMonster) {
-          await handleMonsterExpGained(activeMonster.id, expEarned);
-          const newExp = activeMonster.monster_exp + expEarned;
-          await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
-        }
-      }
+      await awardActiveMonsterExp(expEarned);
       showNotification(`🏆 You defeated ${activeBattle.name}!`);
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
       logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Curio EXP`, expEarned, 0);
@@ -1358,6 +1477,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {pendingDuplicate && (
         <DuplicateCatchModal
           monster={ALL_MONSTERS[pendingDuplicate.monsterId]}
+          quality={pendingDuplicate.quality}
           monsterName={pendingDuplicate.name}
           goldValue={DUPLICATE_CATCH_GOLD}
           userId={userId}

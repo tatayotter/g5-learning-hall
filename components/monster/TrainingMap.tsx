@@ -27,6 +27,7 @@ import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
 import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
+import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { TRASH_DEFS, RECYCLER_TILES } from '@/lib/trashConfig';
 import { BOT_IDS } from '@/lib/botProfiles';
@@ -109,13 +110,14 @@ interface TrainingMapProps {
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
   onQuestionsAnswered?: (questions: any[]) => void;
-  onWildEncounterRoll?: () => void;
+  // pity: forced by the guaranteed-spawn counter rather than the 5% roll.
+  onWildEncounterRoll?: (pity: boolean) => void;
   // The curio MonsterGuild picked (species/level/question) once a scroll
   // roll succeeds — TrainingMap only owns WHERE it renders (curioPos,
   // picked adjacent to the player); MonsterGuild owns WHAT it is and the
   // actual battle-entry flow (WildEncounterModal). Walking onto curioPos's
   // tile calls onEnterCurio, which is what actually opens that modal.
-  activeCurio?: { id: number; monsterId: string; quality: QualityTier } | null;
+  activeCurio?: { id: number; monsterId: string; quality: QualityTier; attemptsLeft: number } | null;
   onEnterCurio?: () => void;
   onChallengePlayer?: (targetId: string, name: string) => void;
   onTradePlayer?: (targetId: string, name: string) => void;
@@ -390,19 +392,21 @@ export default function TrainingMap({
   }, [regionId]);
 
   // curioPos tracks activeCurio's lifecycle exactly: picked the moment a
-  // curio identity arrives from MonsterGuild, cleared the moment it's gone
-  // (caught, fled, or a region change) — single source of truth, no
-  // MonsterGuild-side position bookkeeping needed.
+  // curio identity arrives from MonsterGuild (or, since a found curio follows
+  // the player, once a newly entered map has loaded), cleared the moment
+  // it's gone (caught or fled) — single source of truth, no MonsterGuild-side
+  // position bookkeeping needed.
   useEffect(() => {
     if (!activeCurio) {
       setCurioPos(null);
       return;
     }
+    if (!mapReady) return;
     const occupied = [...scrolls, { x: posX, y: posY }];
     const tile = pickAdjacentOpenTile(map, activeRegion.mapWidth, activeRegion.mapHeight, posX, posY, occupied, foliage);
     setCurioPos(tile);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeCurio?.id]);
+  }, [activeCurio?.id, mapReady]);
 
   // Restarts a CSS keyframe animation on repeat triggers (toggling the same
   // boolean twice in a row wouldn't otherwise re-fire the animation).
@@ -472,6 +476,7 @@ export default function TrainingMap({
     }
     if (curioPos && curioPos.x === newX && curioPos.y === newY) {
       setPendingCurioChallenge(true);
+      if (activeCurio) logWildEncounterEvent(userId, 'approached', { region: regionId, monsterId: activeCurio.monsterId, quality: activeCurio.quality });
       return;
     }
 
@@ -502,7 +507,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -525,6 +530,9 @@ export default function TrainingMap({
     setActiveScroll(null);
     if (correctCount > 0) playChime(); else playClash();
     onQuestionsAnswered?.(answeredQuestions);
+    // Map scroll answers get their own funnel record: their completed-question
+    // rows share quest_type 'monster_arena' with arena battle questions.
+    logWildEncounterEvent(userId, 'scroll_answered', { region: regionId, correct: correctCount > 0 });
     if (correctCount > 0 && activeMonster) {
       const expGain = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
       onMonsterExpGained(activeMonster.id, expGain);
@@ -577,6 +585,7 @@ export default function TrainingMap({
     // owned (see getWildEncounterChance's header comment).
     const wildEncounterChance = getWildEncounterChance();
     let encountered = correctCount > 0 && !activeCurio && Math.random() < wildEncounterChance;
+    let pity = false;
 
     // Pity timer: always active (see WILD_ENCOUNTER_PITY_THRESHOLD's header
     // comment) — forces an encounter once this many correct answers pass
@@ -586,6 +595,7 @@ export default function TrainingMap({
     let questionsSinceEncounter = battleState.questions_since_wild_encounter + correctCount;
     if (!encountered && !activeCurio && questionsSinceEncounter >= WILD_ENCOUNTER_PITY_THRESHOLD) {
       encountered = true;
+      pity = true;
     }
     questionsSinceEncounter = encountered ? 0 : questionsSinceEncounter;
     stateUpdates.questions_since_wild_encounter = questionsSinceEncounter;
@@ -593,7 +603,7 @@ export default function TrainingMap({
     await supabase.from('user_battle_state').update(stateUpdates).eq('user_id', userId);
     onBattleStateChange({ ...battleState, ...stateUpdates });
 
-    if (encountered) onWildEncounterRoll?.();
+    if (encountered) onWildEncounterRoll?.(pity);
   };
 
   const leftTag = (
@@ -736,8 +746,12 @@ export default function TrainingMap({
     <CurioEncounterPanel
       curioDef={curioDef}
       quality={activeCurio.quality}
+      attemptsLeft={activeCurio.attemptsLeft}
       onBattle={() => { setPendingCurioChallenge(false); onEnterCurio?.(); }}
-      onRunAway={() => setPendingCurioChallenge(false)}
+      onRunAway={() => {
+        setPendingCurioChallenge(false);
+        logWildEncounterEvent(userId, 'walked_away', { region: regionId, monsterId: activeCurio.monsterId, quality: activeCurio.quality });
+      }}
     />
   ) : pendingTrainerChallenge ? (
     <TrainerChallengePanel

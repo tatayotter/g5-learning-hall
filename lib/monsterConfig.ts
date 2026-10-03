@@ -1064,6 +1064,8 @@ export const ALL_MONSTERS: Record<string, MonsterDef> = { ...MONSTERS, ...WILD_M
 export interface TrainerMonster {
   monsterId: string;
   level: number;
+  // Only wild curios set this (the quality they spawned with); trainers' curios are Normal.
+  quality?: QualityTier;
 }
 
 export interface NpcTrainer {
