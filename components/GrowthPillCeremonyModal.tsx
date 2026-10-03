@@ -1,20 +1,18 @@
 'use client';
 // Full-screen "Growth Pill consumed" ceremony — fired from TeamPanel's
 // Growth Pill action once the use_growth_pill RPC has already succeeded.
-// Deliberately mirrors GraduationCeremonyModal.tsx's shell and phase
-// structure beat-for-beat (backdrop/panel/theming/CelebrationOverlay, a
-// scripted animation before the stat reveal) per "just like graduation" —
-// the one real difference is there's no sprite/form change here, so the
-// flicker phase pulses a glow on the same sprite instead of alternating
-// between two different monster images.
+// Same ritual as GraduationCeremonyModal: the pill is thrown and caught, the
+// curio surges with light (no form change, so it glows instead of
+// flickering between two sprites), then it lands under its element's rays
+// on the shared curio event stage (components/curio/CurioEventKit.tsx) with
+// the level jump and stat comparison underneath.
 import { useEffect, useState } from 'react';
 import { MonsterDef, getScaledStats } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
-import { playGrowthPillGulp, playCurioLevelUp } from '@/lib/sounds';
-import { MonsterImage } from '@/components/battle/shared';
+import { playGrowthPillGulp, playCurioLevelUp, playPageFlip } from '@/lib/sounds';
 import CelebrationOverlay from '@/components/CelebrationOverlay';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
-import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import GameButton from '@/components/GameButton';
+import { CurioEventFrame, CurioSpotlight, CurioIdentity, ChargeOrb, RevealFlash, StatChanges } from '@/components/curio/CurioEventKit';
 
 interface GrowthPillCeremonyModalProps {
   def: MonsterDef;
@@ -25,162 +23,74 @@ interface GrowthPillCeremonyModalProps {
   onDismiss: () => void;
 }
 
-type Phase = 'throw' | 'flicker' | 'reveal';
+type Phase = 'throw' | 'surge' | 'reveal';
 
-// Toggle points (ms after entering the flicker phase) alternating the glow
-// on/off — same cadence as GraduationCeremonyModal's FLICKER_TOGGLES so the
-// two ceremonies feel like the same ritual.
-const FLICKER_TOGGLES = [0, 130, 250, 360, 460, 550, 630, 700];
-
-const STAT_ROWS: { label: string; key: 'hp' | 'attack' | 'defense' | 'speed' }[] = [
-  { label: 'HP', key: 'hp' },
-  { label: 'Attack', key: 'attack' },
-  { label: 'Defense', key: 'defense' },
-  { label: 'Speed', key: 'speed' },
-];
+const PILL_RGB = '192,132,252';
 
 export default function GrowthPillCeremonyModal({ def, fromLevel, toLevel, quality, userId, onDismiss }: GrowthPillCeremonyModalProps) {
-  const isTala = userId === 'tala';
   const [phase, setPhase] = useState<Phase>('throw');
-  const [glowOn, setGlowOn] = useState(false);
-  const [caught, setCaught] = useState(false);
   const [burst, setBurst] = useState(false);
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
-
     playGrowthPillGulp();
-    timers.push(setTimeout(() => setCaught(true), 700));
-    timers.push(setTimeout(() => setPhase('flicker'), 900));
-
-    FLICKER_TOGGLES.forEach((t, i) => {
-      timers.push(setTimeout(() => setGlowOn(i % 2 === 1), 900 + t));
-    });
-
+    timers.push(setTimeout(() => setPhase('surge'), 700));
     timers.push(setTimeout(() => {
-      setGlowOn(false);
       setPhase('reveal');
       playCurioLevelUp();
       setBurst(true);
-    }, 900 + FLICKER_TOGGLES[FLICKER_TOGGLES.length - 1] + 150));
-
+    }, 1750));
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  const handleBackdropClick = () => {
-    if (phase === 'reveal') onDismiss();
-  };
+  const revealed = phase === 'reveal';
+  const close = () => { playPageFlip(); onDismiss(); };
 
   return (
     <>
       <CelebrationOverlay userId={userId} trigger={burst} type="curio" />
-      <div
-        className="fixed inset-0 bg-black/85 z-[60] flex items-center justify-center p-4"
-        onClick={handleBackdropClick}
-      >
-        <div
-          className="relative border-2 border-[#4a2f18] rounded-2xl p-6 sm:p-8 max-w-sm w-full text-center battle-panel-in"
-          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
-          onClick={e => e.stopPropagation()}
+      <CurioEventFrame title="Growth Surge" titleColor="#d8b4fe" onBackdropClick={revealed ? close : undefined}>
+        <CurioSpotlight
+          key={revealed ? 'reveal' : 'pre'}
+          def={def}
+          size="md"
+          rays={revealed}
+          land={revealed}
+          curioClassName={phase === 'surge' ? 'ce-surge' : ''}
+          curioStyle={{ ['--ce-surge' as string]: `rgb(${PILL_RGB})` }}
         >
-          {/* Same wood-plank + gold trim + corner-nail frame as the battle
-              screen's MonsterHpPanel/PostBattleSummary, reusing its exported
-              style pieces rather than re-deriving them. */}
-          <Nail className="top-2 left-2" />
-          <Nail className="top-2 right-2" />
-          <Nail className="bottom-2 left-2" />
-          <Nail className="bottom-2 right-2" />
-          <p
-            className="text-sm tracking-wide mb-4"
-            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
-          >
-            <span style={{ position: 'relative', display: 'inline-block' }}>
-              <span aria-hidden style={questTextShadowStyle}>GROWTH SURGE</span>
-              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#d8b4fe' }}>GROWTH SURGE</span>
+          {phase === 'throw' && (
+            <span className="graduation-scroll-throw block">
+              <ChargeOrb rgb={PILL_RGB} className="w-14 h-14" />
             </span>
-          </p>
-
-          <div className="relative w-28 h-28 mx-auto mb-4">
-            {(phase === 'reveal' || glowOn) && (
-              <div
-                className={`absolute inset-0 rounded-full graduation-glow-flash ${isTala ? 'bg-pink-400' : 'bg-purple-400'}`}
-              />
-            )}
-            <div className={`relative w-full h-full ${caught ? 'graduation-catch-pulse' : ''}`}>
-              <div className={`absolute inset-0 w-full h-full ${phase === 'reveal' ? '' : 'battle-float'}`}>
-                <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-8xl" />
-              </div>
-            </div>
-            {phase === 'throw' && (
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 w-1/2 h-1/2 m-auto graduation-scroll-throw text-4xl flex items-center justify-center"
-              >
-                💊
-              </span>
-            )}
-          </div>
-
-          {phase !== 'reveal' ? (
-            <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
-              {def.name}...
-            </p>
-          ) : (
-            <div className="space-y-4">
-              <div>
-                <p
-                  className="text-2xl"
-                  style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
-                >
-                  <span style={{ position: 'relative', display: 'inline-block' }}>
-                    <span aria-hidden style={questTextShadowStyle}>Congratulations!</span>
-                    <span style={questTextStyle}>Congratulations!</span>
-                  </span>
-                </p>
-                <p className="text-sm mt-1 text-[#f5f0e8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
-                  <span className="font-bold text-white">{def.name}</span> surged from Lv.{fromLevel} to{' '}
-                  <span className={`font-bold ${isTala ? 'text-pink-300' : 'text-purple-300'}`}>Lv.{toLevel}</span>!
-                </p>
-              </div>
-
-              <div className="space-y-1.5 text-left max-w-[200px] mx-auto">
-                {(() => {
-                  const fromScaled = getScaledStats(def, fromLevel, quality);
-                  const toScaled = getScaledStats(def, toLevel, quality);
-                  return STAT_ROWS.map((row, i) => {
-                    const from = fromScaled[row.key];
-                    const to = toScaled[row.key];
-                    return (
-                      <div
-                        key={row.key}
-                        className="flex items-center justify-between text-xs battle-panel-in"
-                        style={{ animationDelay: `${i * 120}ms`, animationFillMode: 'backwards' }}
-                      >
-                        <span className="text-[#e8d0a0]">{row.label}</span>
-                        <span className="text-white" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
-                          {from} <span className="text-[#c9a87a]">→</span>{' '}
-                          <span className="text-green-400 font-bold">{to}</span>{' '}
-                          <span className="text-green-400 text-[10px]">(+{to - from})</span>
-                        </span>
-                      </div>
-                    );
-                  });
-                })()}
-              </div>
-
-              <GameButton
-                variant="quest"
-                color={isTala ? '#db2777' : '#9333ea'}
-                onClick={onDismiss}
-                className="w-full battle-panel-in"
-                style={{ fontSize: 15, animationDelay: `${STAT_ROWS.length * 120}ms`, animationFillMode: 'backwards' }}
-              >
-                Continue
-              </GameButton>
-            </div>
           )}
-        </div>
-      </div>
+          {revealed && <RevealFlash />}
+        </CurioSpotlight>
+
+        {!revealed ? (
+          <p className="text-white font-bold text-lg mt-2" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
+            {def.name}...
+          </p>
+        ) : (
+          <div className="ce-rise space-y-3 mt-1">
+            <CurioIdentity
+              def={def}
+              lead="A Growth Pill powered up"
+              quality={quality}
+              lore={false}
+              extraPill={
+                <span className="inline-flex items-center text-[11px] font-bold px-2 py-0.5 rounded-full border bg-purple-600/30 border-purple-400 text-purple-100">
+                  Lv.{fromLevel} &rarr; Lv.{toLevel}
+                </span>
+              }
+            />
+            <StatChanges from={getScaledStats(def, fromLevel, quality)} to={getScaledStats(def, toLevel, quality)} />
+            <GameButton variant="quest" color="#9333ea" onClick={onDismiss} className="w-full" style={{ fontSize: 15 }}>
+              Continue
+            </GameButton>
+          </div>
+        )}
+      </CurioEventFrame>
     </>
   );
 }

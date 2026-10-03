@@ -165,6 +165,27 @@ and `text-amber-900` text. Subjects without a `SUBJECT_STYLE` entry fall through
 2026-08-29 there is only one card style, not a real/fallback split, so there's nothing to avoid
 copying here.
 
+## Curio event modals: `components/curio/CurioEventKit.tsx`
+
+Any modal that puts a curio center stage (hatch, new curio, starter, graduation, Growth Pill,
+Tutor, duplicate catch, wild encounter) is built from this kit, which came from the egg hatch reveal
+(`EggHatchModal.tsx`). Don't hand-roll a small `w-28` sprite in a wood panel again.
+
+- `CurioEventFrame`: dark backdrop, wood panel, gold ring, corner nails, Bungee title. Pass
+  `zClass="z-[95]"` if the modal can open over the fullscreen map.
+- `CurioSpotlight`: the stage. The curio is big, sits on a ground shadow and idles like it does in
+  battle (it breathes, or bobs if it floats). Turn on `rays` and `land` for a reward moment. Leave
+  both off for a decision, like a duplicate catch. Pass `def={null}` plus children (an egg or a
+  `ChargeOrb`) for the build-up beat.
+- `CurioIdentity`: a short lead line, the name, the element and quality pills, and the first
+  sentence of the curio's lore.
+- `StatChanges`: before-and-after stat tiles. A higher stat shows green and a lower one red.
+- Rays use the curio's element color (`ELEMENT_RGB`). A Tutor success uses the new tier's color
+  (`QUALITY_RGB`) instead.
+- A modal that also asks a question (the wild encounter) uses `size="sm"` and puts the question on
+  a white quiz card inside the wood panel, with the usual `qopt` answer buttons. The quiz stays on
+  the content layer even though the frame around it is the event look.
+
 ## Checklist before shipping a new quest/quiz/battle-adjacent screen
 
 1. Is this an everyday quest/quiz/review screen, or a deliberately atmospheric set-piece like

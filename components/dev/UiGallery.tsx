@@ -56,6 +56,7 @@ import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import GraduationCeremonyModal from '@/components/GraduationCeremonyModal';
 import GrowthPillCeremonyModal from '@/components/GrowthPillCeremonyModal';
 import EggHatchModal from '@/components/EggHatchModal';
+import StarterClaimModal from '@/components/monster/StarterClaimModal';
 import TutorRollModal from '@/components/TutorRollModal';
 import DailyBonusModal from '@/components/DailyBonusModal';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -165,7 +166,7 @@ function AnswerSwatch({ state, label }: { state: 'default' | 'selected' | 'corre
 
 type OverlayKey =
   | 'toast' | 'achievementToast' | 'critBonusToast' | 'liveBattleInvite'
-  | 'graduation' | 'growthPill' | 'linkParentCta' | 'linkParentGate' | 'eggHatch' | 'eggHatchKeeper' | 'tutorSuccess' | 'tutorFail'
+  | 'graduation' | 'growthPill' | 'linkParentCta' | 'linkParentGate' | 'eggHatch' | 'eggHatchKeeper' | 'starterClaim' | 'tutorSuccess' | 'tutorFail'
   | 'dailyBonus' | 'curioReveal' | 'wildEncounter' | 'eventAnnouncement'
   | 'duplicateCatch' | 'bossVictory' | 'termBossIntro' | 'bossMist' | 'bossPersonaFan'
   | 'guildResultsHigh' | 'guildResultsLow' | 'mtapSet' | 'mtapMixed';
@@ -234,6 +235,7 @@ export default function UiGallery() {
 
   const mockQuestion = {
     id: 'demo-q1',
+    question: 'Lena has 7 mangoes. Her lola gives her 7 more. How many mangoes does Lena have now?',
     choice_a: '12', choice_b: '14', choice_c: '16', choice_d: '18',
     correct_choice: 'b',
   };
@@ -297,6 +299,8 @@ export default function UiGallery() {
       case 'eggHatchKeeper':
         // A different curio than the plain preview, so one shows a floater and one a grounded curio.
         return <EggHatchModal speciesId={rightMon.id} element={rightMon.element} quality="normal" kind="keeper" userId="demo" onClose={close} onViewTeam={() => {}} />;
+      case 'starterClaim':
+        return <StarterClaimModal monster={rightMon} userId="demo" onComplete={close} />;
       case 'tutorSuccess':
         return (
           <TutorRollModal
@@ -324,11 +328,11 @@ export default function UiGallery() {
       case 'curioReveal':
         return <CurioRevealModal monster={leftMon} userId="demo" onClose={close} />;
       case 'wildEncounter':
-        return <WildEncounterModal monster={leftMon} level={5} question={mockQuestion} attemptsLeft={2} onCorrect={close} onWrong={close} />;
+        return <WildEncounterModal monster={leftMon} level={5} quality="outstanding" question={mockQuestion} attemptsLeft={3} onCorrect={close} onWrong={close} />;
       case 'eventAnnouncement':
         return <EventAnnouncementPopup event={mockEvent} onDismiss={close} />;
       case 'duplicateCatch':
-        return <DuplicateCatchModal monsterName={leftMon.name} goldValue={80} userId="demo" onKeep={close} onConvert={close} />;
+        return <DuplicateCatchModal monster={leftMon} monsterName={leftMon.name} goldValue={80} userId="demo" onKeep={close} onConvert={close} />;
       case 'bossVictory':
         return <BossVictoryPopup personaName={personas[0]?.name ?? 'The Forgetting'} artUrl={personas[0]?.artUrl ?? ''} glowColor={personas[0]?.glowColor ?? '#a855f7'} xp={300} gold={100} onDismiss={close} />;
       case 'termBossIntro':
@@ -1018,6 +1022,7 @@ export default function UiGallery() {
           <PreviewButton label="LinkParentGate (arena battle modal)" onClick={() => setActiveOverlay('linkParentGate')} />
           <PreviewButton label="EggHatchModal" onClick={() => setActiveOverlay('eggHatch')} />
           <PreviewButton label="EggHatchModal (Keeper's Egg)" onClick={() => setActiveOverlay('eggHatchKeeper')} />
+          <PreviewButton label="StarterClaimModal" onClick={() => setActiveOverlay('starterClaim')} />
           <PreviewButton label="TutorRollModal (success)" onClick={() => setActiveOverlay('tutorSuccess')} />
           <PreviewButton label="TutorRollModal (fail)" onClick={() => setActiveOverlay('tutorFail')} />
           <PreviewButton label="DailyBonusModal" onClick={() => setActiveOverlay('dailyBonus')} />

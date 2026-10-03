@@ -1357,6 +1357,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
       {pendingDuplicate && (
         <DuplicateCatchModal
+          monster={ALL_MONSTERS[pendingDuplicate.monsterId]}
           monsterName={pendingDuplicate.name}
           goldValue={DUPLICATE_CATCH_GOLD}
           userId={userId}
@@ -1370,6 +1371,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           key={wildEncounter.question.id}
           monster={WILD_MONSTERS[wildEncounter.monsterId]}
           level={wildEncounter.level}
+          quality={wildEncounter.quality}
           question={wildEncounter.question}
           attemptsLeft={wildEncounter.attemptsLeft}
           onCorrect={handleWildEncounterCorrect}
