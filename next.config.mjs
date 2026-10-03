@@ -21,6 +21,19 @@ const nextConfig = {
         destination: '/welcome',
         permanent: false,
       },
+      // Short, trackable links for Facebook Page posts. lib/analytics.ts pins
+      // the utm_* params on landing and attaches them to the signup events.
+      // /fb/<post-name> tags a specific post via utm_content.
+      {
+        source: '/fb',
+        destination: '/child-signup?utm_source=facebook&utm_medium=social&utm_campaign=page_post',
+        permanent: false,
+      },
+      {
+        source: '/fb/:post',
+        destination: '/child-signup?utm_source=facebook&utm_medium=social&utm_campaign=page_post&utm_content=:post',
+        permanent: false,
+      },
     ];
   },
 };
