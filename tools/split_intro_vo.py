@@ -4,7 +4,7 @@ per-line clips at public/sounds/voice/intro/<id>.mp3, and verify each clip.
     python tools/split_intro_vo.py <take.mp3> <id1> <id2> ... [--dry]
 
 The ids must be in the order they were read. Line text comes from
-lib/intro/originStory.ts, lib/intro/termBossStory.ts and lib/intro/battleTraining.ts
+lib/intro/originStory.ts, termBossStory.ts, battleTraining.ts and keeperEgg.ts
 (tags like [whispering] are stripped before matching).
 
 How: faster-whisper transcribes the take with word timestamps; the words are
@@ -24,7 +24,7 @@ LEAD_S, TAIL_S = 0.12, 0.30
 
 def script_lines():
     src = ''.join(open(os.path.join(ROOT, 'lib', 'intro', f), encoding='utf-8').read()
-                  for f in ('originStory.ts', 'termBossStory.ts', 'battleTraining.ts'))
+                  for f in ('originStory.ts', 'termBossStory.ts', 'battleTraining.ts', 'keeperEgg.ts'))
     pat = re.compile(r"\{ id: '([a-z_0-9]+)', speaker: '\w+'(?: as const)?, text: '((?:[^'\\]|\\.)*)' \}")
     return {i: t.replace("\\'", "'") for i, t in pat.findall(src)}
 

@@ -59,7 +59,9 @@ import FirstCurioIntro, { isIntroTrainingPending } from '@/components/intro/Firs
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
-import { syncEggProgress, fetchUserEggs, HatchedEgg } from '@/lib/curioEggs';
+import { syncEggProgress, fetchUserEggs, HatchedEgg, type CurioEgg } from '@/lib/curioEggs';
+import KeeperEggSequence, { KeeperEggReturn } from '@/components/intro/KeeperEggSequence';
+import { hasSeenReturnToday, markReturnSeen } from '@/lib/intro/keeperEgg';
 import EggHatchModal from '@/components/EggHatchModal';
 import {
   CustomEvent,
@@ -168,6 +170,12 @@ export default function Dashboard() {
   // show up in My Team until an unrelated reload happened to refresh it.
   const [eggRefreshSignal, setEggRefreshSignal] = useState(0);
   const [hasStalledEgg, setHasStalledEgg] = useState(false);
+  // Keeper's Egg (components/intro/KeeperEggSequence.tsx): undefined until
+  // loaded, null when this player hasn't been given one yet.
+  const [keeperEgg, setKeeperEgg] = useState<CurioEgg | null | undefined>(undefined);
+  const [showKeeperEgg, setShowKeeperEgg] = useState(false);
+  const [showKeeperEggReturn, setShowKeeperEggReturn] = useState(false);
+  const keeperEggOfferedRef = useRef(false);
   // Set by MonsterGuild once it's loaded userMonsters + the egg chain map —
   // whether any owned curio has crossed its egg-ready threshold but hasn't
   // claimed yet. Combined with hasStalledEgg/pendingEggHatches below for the
@@ -203,6 +211,8 @@ export default function Dashboard() {
         // session finds it already loaded instead of showing each tab's own
         // plain "Loading..." placeholder — see lib/tabPrefetch.ts.
         prefetchAllTabs(activeUserId, USERS[activeUserId].grade);
+        setKeeperEgg(undefined);
+        keeperEggOfferedRef.current = false;
         syncEggProgress(activeUserId).then(result => {
           if (result?.hatched?.length) {
             setPendingEggHatches(prev => [...prev, ...result.hatched]);
@@ -212,9 +222,12 @@ export default function Dashboard() {
               logAction(activeUserId, today, 'egg', `🐣 An egg hatched into ${speciesName}!`, 0, 0);
             });
           }
-        });
-        fetchUserEggs(activeUserId).then(eggs => {
+          // Read eggs only after the sync has advanced/stalled them (these
+          // used to race, so the badge could reflect yesterday's state).
+          return fetchUserEggs(activeUserId);
+        }).then(eggs => {
           setHasStalledEgg(eggs.some(e => e.status === 'stalled'));
+          setKeeperEgg(eggs.find(e => e.kind === 'keeper') ?? null);
         });
         // Referral: claim registrant welcome reward (idempotent — no-ops if
         // already claimed or no referral was used). Show a reward toast if
@@ -766,6 +779,32 @@ export default function Dashboard() {
     onDone: () => { handleCompleteOnboarding(); },
   });
 
+  // Keeper's Egg: offered after the player's first win (any XP), at the next
+  // calm moment on the Board, so it rides the win and lands before they leave
+  // (most new kids stop on the Board right after their first win). "Calm" =
+  // nothing else open: no quest, intro, tutorial, boss intro or hatch reveal.
+  // On a later day, a short scene shows the egg growing (the hatch itself is
+  // EggHatchModal). Both wait a moment so they don't pop the instant the
+  // Board appears.
+  const boardIsCalm = activeTab === 'board' && activeQuest === null && activeEventQuest === null
+    && activeBossFight === null && activeGauntletDay === null && introStart === null && !introHandoffQuest
+    && !showOnboarding && !showBossIntro && pendingEggHatches.length === 0 && hasCurio !== null;
+  const hasWon = (data?.character_stats?.xp ?? 0) > 0;
+  useEffect(() => {
+    if (!activeUserId || !boardIsCalm || showKeeperEgg || showKeeperEggReturn || keeperEgg === undefined) return;
+    if (keeperEgg === null) {
+      if (!hasWon || keeperEggOfferedRef.current) return;
+      const t = setTimeout(() => { keeperEggOfferedRef.current = true; setShowKeeperEgg(true); }, 1200);
+      return () => clearTimeout(t);
+    }
+    const utcToday = new Date().toISOString().slice(0, 10); // same day boundary as sync_egg_progress
+    const grewToday = keeperEgg.kind === 'keeper' && keeperEgg.status === 'incubating'
+      && keeperEgg.last_progress_date === utcToday && keeperEgg.streak_progress >= 2;
+    if (!grewToday || hasSeenReturnToday(activeUserId, utcToday)) return;
+    const t = setTimeout(() => { markReturnSeen(activeUserId, utcToday); setShowKeeperEggReturn(true); }, 1200);
+    return () => clearTimeout(t);
+  }, [activeUserId, boardIsCalm, hasWon, keeperEgg, showKeeperEgg, showKeeperEggReturn]);
+
   // Guilds-tab first-visit tutorial — same spotlight pattern as board's, but
   // gated by localStorage (lib/tutorial.ts) since this tab has no DB column
   // tracking it. Only shows on the guild-picker screen (activeGuild ===
@@ -973,17 +1012,44 @@ export default function Dashboard() {
       <div className="app-content flex-1 min-h-0 flex flex-col">
         <div className="h-full bg-[#ffffff] text-[#2a1505]">
       {/* Floating nav — fixed-position, no layout impact */}
+      {showKeeperEgg && activeUserId && (
+        <KeeperEggSequence
+          userId={activeUserId}
+          onRemindersOn={gold => {
+            setToast({ show: true, message: gold ? `Reminders on! +${gold} Gold added to your account!` : 'Reminders on!' });
+            if (gold) syncCharacterStats();
+          }}
+          onDone={openChecklist => {
+            setShowKeeperEgg(false);
+            if (activeUserId) fetchUserEggs(activeUserId).then(eggs => setKeeperEgg(eggs.find(e => e.kind === 'keeper') ?? null));
+            if (openChecklist) setActiveTab('todo');
+          }}
+        />
+      )}
+      {showKeeperEggReturn && keeperEgg && (
+        <KeeperEggReturn
+          element={keeperEgg.element}
+          progress={keeperEgg.streak_progress}
+          hatchDays={keeperEgg.hatch_days}
+          onClose={openChecklist => {
+            setShowKeeperEggReturn(false);
+            if (openChecklist) setActiveTab('todo');
+          }}
+        />
+      )}
       {pendingEggHatches[0] && (
         <EggHatchModal
           speciesId={pendingEggHatches[0].species_id}
           element={ALL_MONSTERS[pendingEggHatches[0].species_id]?.element || 'fire'}
           quality={pendingEggHatches[0].quality}
+          kind={pendingEggHatches[0].kind}
           userId={activeUserId}
           onClose={() => {
             setPendingEggHatches(prev => prev.slice(1));
             setEggRefreshSignal(n => n + 1);
             bumpCounters({ eggs_hatched: 1 });
           }}
+          onViewTeam={() => { setGuildInitialView('team'); setActiveTab('monster'); }}
         />
       )}
 
@@ -1077,10 +1143,14 @@ export default function Dashboard() {
           <div className="px-3 pt-3">
             <PushOptInCard
               owner={{ kind: 'app_user', id: activeUserId }}
-              onEnabled={gold => setToast({
-                show: true,
-                message: gold ? `Alerts on! +${gold} Gold added to your account!` : 'Alerts on!',
-              })}
+              onEnabled={gold => {
+                setToast({
+                  show: true,
+                  message: gold ? `Alerts on! +${gold} Gold added to your account!` : 'Alerts on!',
+                });
+                // The bonus is granted server-side; refresh the cached gold.
+                if (gold) syncCharacterStats();
+              }}
             />
           </div>
         )}
