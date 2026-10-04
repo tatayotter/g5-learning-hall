@@ -31,6 +31,10 @@ export default function BlogEditor({ passcode, initial, onClose }: {
   const [scheduleAt, setScheduleAt] = useState(() => toManilaInput(initial.publishedAt));
   const [jsonOpen, setJsonOpen] = useState(false);
   const [sectionPhotoOpen, setSectionPhotoOpen] = useState<Set<number>>(new Set());
+  // Two-click confirm for destructive actions instead of window.confirm(), which some embedded
+  // browsers suppress (it returns false instantly, so the button silently did nothing). The first
+  // click arms the button and relabels it; a second click within 4 seconds goes ahead.
+  const [armed, setArmed] = useState<string | null>(null);
 
   const template = getTemplate(post.template);
   const status = displayStatus(post.status, post.publishedAt);
@@ -56,6 +60,17 @@ export default function BlogEditor({ passcode, initial, onClose }: {
     window.addEventListener('beforeunload', warn);
     return () => window.removeEventListener('beforeunload', warn);
   }, [dirty]);
+
+  useEffect(() => {
+    if (!armed) return;
+    const t = setTimeout(() => setArmed(null), 4000);
+    return () => clearTimeout(t);
+  }, [armed]);
+  const confirmed = (key: string) => {
+    if (armed === key) { setArmed(null); return true; }
+    setArmed(key);
+    return false;
+  };
 
   useEffect(() => {
     if (!flash) return;
@@ -102,7 +117,7 @@ export default function BlogEditor({ passcode, initial, onClose }: {
 
   const remove = async () => {
     if (!post.id) return onClose();
-    if (!confirm(`Delete "${post.title || 'this post'}" permanently? This can't be undone.`)) return;
+    if (!confirmed('delete')) return;
     setBusy(true);
     const result = await callAdminApi('/api/admin-blog', { passcode, action: 'delete', id: post.id });
     setBusy(false);
@@ -111,7 +126,7 @@ export default function BlogEditor({ passcode, initial, onClose }: {
   };
 
   const close = () => {
-    if (dirty && !confirm('You have unsaved changes. Leave without saving?')) return;
+    if (dirty && !confirmed('close')) return;
     onClose();
   };
 
@@ -132,7 +147,9 @@ export default function BlogEditor({ passcode, initial, onClose }: {
     <div>
       {/* Header */}
       <div className="mb-5 flex flex-wrap items-center gap-3">
-        <Button variant="ghost" size="sm" icon={ArrowLeft} onClick={close}>All posts</Button>
+        <Button variant="ghost" size="sm" icon={ArrowLeft} onClick={close}>
+          {armed === 'close' ? 'Discard unsaved changes?' : 'All posts'}
+        </Button>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="truncate text-lg font-semibold text-[var(--a-ink)]">{post.title || 'Untitled post'}</h1>
@@ -214,12 +231,16 @@ export default function BlogEditor({ passcode, initial, onClose }: {
                       <Button size="sm" variant="ghost" icon={ArrowUp} aria-label="Move up" disabled={i === 0} onClick={() => moveSection(i, -1)} />
                       <Button size="sm" variant="ghost" icon={ArrowDown} aria-label="Move down" disabled={i === post.sections.length - 1} onClick={() => moveSection(i, 1)} />
                       <Button
-                        size="sm" variant="ghost" icon={Trash2} aria-label="Delete section"
+                        size="sm" variant="ghost" icon={Trash2}
+                        aria-label={armed === `section-${i}` ? 'Click again to delete this section' : 'Delete section'}
+                        className={armed === `section-${i}` ? 'text-[var(--a-critical)]' : undefined}
                         onClick={() => {
-                          if ((section.heading || section.body) && !confirm('Delete this section?')) return;
+                          if ((section.heading || section.body) && !confirmed(`section-${i}`)) return;
                           setPost((p) => ({ ...p, sections: p.sections.filter((_, j) => j !== i) }));
                         }}
-                      />
+                      >
+                        {armed === `section-${i}` ? 'Delete?' : null}
+                      </Button>
                     </>
                   }
                 >
@@ -400,8 +421,12 @@ export default function BlogEditor({ passcode, initial, onClose }: {
           </Card>
 
           {post.id && (
-            <Button variant="ghost" className="w-full text-[var(--a-critical)]" icon={Trash2} disabled={busy} onClick={remove}>
-              Delete post
+            <Button
+              variant={armed === 'delete' ? 'danger' : 'ghost'}
+              className={cx('w-full', armed !== 'delete' && 'text-[var(--a-critical)]')}
+              icon={Trash2} disabled={busy} onClick={remove}
+            >
+              {armed === 'delete' ? 'Click again to delete permanently' : 'Delete post'}
             </Button>
           )}
         </div>
