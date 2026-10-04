@@ -7,6 +7,12 @@ Before styling or restyling any quest, quiz, battle, or event-facing screen, rea
 content panels) that's easy to get backwards by copying an older component — that file has the
 exact tokens and a checklist.
 
+## Blog posts
+
+Blog posts live in the `blog_posts` table, not in code. Before writing or editing one, read
+`docs/blog/README.md` only: it has the templates, house rules, the JSON format and how to insert a
+draft. Don't read old posts to learn the format.
+
 ## Database migrations & deployment
 
 Before adding or editing anything in `supabase/migrations/`, read `docs/database-migrations.md`

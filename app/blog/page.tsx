@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getBlogIndexPage, getBlogIndexPageCount, getSciencePosts, SCIENCE_POST_SLUGS } from '@/lib/blogPosts';
+import { SCIENCE_POST_SLUGS } from '@/lib/blogPosts';
+import { getBlogIndexPage, getBlogIndexPageCount, getSciencePosts } from '@/lib/blogData';
 import BlogHeader from '@/components/BlogHeader';
 import BlogPostList from '@/components/BlogPostList';
 import BlogPagination from '@/components/BlogPagination';
 import BlogFooter from '@/components/BlogFooter';
+
+// Matches BLOG_REVALIDATE_SECONDS in lib/blogData.ts: scheduled posts appear within this window.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: 'Parent Guides — Learning Hall Blog',
@@ -28,12 +32,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
+export default async function BlogIndexPage() {
   // Page 1 excludes the 5 science posts below — they're already surfaced in
   // their own featured section instead of appearing twice on the same page.
-  const posts = getBlogIndexPage(1).filter((p) => !(SCIENCE_POST_SLUGS as readonly string[]).includes(p.slug));
-  const totalPages = getBlogIndexPageCount();
-  const sciencePosts = getSciencePosts();
+  const posts = (await getBlogIndexPage(1)).filter((p) => !(SCIENCE_POST_SLUGS as readonly string[]).includes(p.slug));
+  const totalPages = await getBlogIndexPageCount();
+  const sciencePosts = await getSciencePosts();
 
   return (
     <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
