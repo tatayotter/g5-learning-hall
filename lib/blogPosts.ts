@@ -1,16 +1,32 @@
+/** A photo shown inside a section, below its paragraphs (e.g. event photos on a press-release post). */
+export type BlogSectionImage = {
+  url: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+};
+
 export type BlogSection = {
   heading: string;
   paragraphs: string[];
+  image?: BlogSectionImage;
 };
 
-/** A photographic hero/thumbnail image, self-hosted under /public/blog-images after being sourced from a free-license stock site. */
+/**
+ * A photographic hero/thumbnail image, self-hosted under /public/blog-images. Usually sourced
+ * from a free-license stock site; `source: 'Learning Hall PH'` marks a photo we took ourselves
+ * (e.g. at a school event), which needs no outbound credit link.
+ */
 export type BlogPostImage = {
   url: string;
   /** Descriptive, keyword-relevant alt text — also used as the OG/Twitter image alt. */
   alt: string;
   width: number;
   height: number;
-  credit: { name: string; source: 'Pexels' | 'Unsplash' | 'Pixabay'; sourceUrl: string };
+  credit:
+    | { name: string; source: 'Pexels' | 'Unsplash' | 'Pixabay'; sourceUrl: string }
+    | { source: 'Learning Hall PH' };
 };
 
 export type BlogPost = {
@@ -3152,6 +3168,13 @@ export const BLOG_POSTS: BlogPost[] = [
           "Learning Hall turns each week's lessons into quests and quizzes that pupils play through as a game, with battles, collectible creatures called curios, and daily streaks. The content is generated from the MATATAG curriculum and paced to the school calendar, so what a Grade 4 pupil sees this week lines up with what Grade 4 is covering this week.",
           "We walked the faculty through a pupil's day in the game, from the weekly board to a quiz and a battle. We also showed the parent dashboard, where a parent can follow their child's progress and daily streaks. We covered the safety side too: children log in with a 4-digit PIN and no email address, and sensitive Science topics are deliberately softened and left to parents' discretion.",
         ],
+        image: {
+          url: '/blog-images/scsses-founder-quiz-demo.webp',
+          alt: 'Learning Hall founder Rowil Ruelo explaining an in-game quiz shown on the classroom TV screen',
+          width: 720,
+          height: 1061,
+          caption: 'Walking the faculty through a live quiz during a battle.',
+        },
       },
       {
         heading: 'Teachers tried it on the spot',
@@ -3159,6 +3182,13 @@ export const BLOG_POSTS: BlogPost[] = [
           "The part we liked best came after the slides. Several teachers made accounts during the session and played quests for the grade levels they teach, from Grade 2 up to Grade 6. Seeing the game through a teacher's eyes, on the questions for their own grade, told us more than any slide could.",
           "One thing didn't go smoothly. Once a room full of people tried to sign up at the same time on the school Wi-Fi, they ran into a safety limit we had set on how many accounts can be created from one internet connection. That limit was built to stop spam. It wasn't built for a school, where everyone shares one connection. We raised it that same evening, so pupils signing up from school won't hit it.",
         ],
+        image: {
+          url: '/blog-images/scsses-faculty-audience.webp',
+          alt: 'Surigao City Special Science Elementary School teachers seated in a classroom during the Learning Hall presentation',
+          width: 1200,
+          height: 750,
+          caption: 'SCSSES faculty during the presentation on October 2, 2026.',
+        },
       },
       {
         heading: 'What the faculty agreed to',
@@ -3202,6 +3232,13 @@ export const BLOG_POSTS: BlogPost[] = [
       { label: 'How to install Learning Hall on a phone or computer', url: '/blog/how-to-install-learning-hall-phone-computer' },
       { label: 'See the full curriculum, grade by grade', url: '/curriculum' },
     ],
+    image: {
+      url: '/blog-images/scsses-faculty-presentation-title-slide.webp',
+      alt: 'Learning Hall founder Rowil Ruelo presenting to the SCSSES faculty, with the title slide on the classroom TV',
+      width: 1200,
+      height: 675,
+      credit: { source: 'Learning Hall PH' },
+    },
   },
 ];
 
