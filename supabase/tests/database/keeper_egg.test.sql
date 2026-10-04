@@ -9,7 +9,8 @@ select plan(14);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
-       'pgtap_ke_' || substr(md5(random()::text), 1, 8) as kid;
+       -- Fixed name, not random hex: the children name filter reads digits as letters.
+       'pgtap_ke_kid' as kid;
 
 insert into children (id, username, pin_hash, full_name, grade, school_name, avatar, referral_key)
 select kid, kid, 'x', 'PGTAP Egg Kid', 'Grade 3', 'Test School', 'default', substr(md5(random()::text), 1, 10) from fx;

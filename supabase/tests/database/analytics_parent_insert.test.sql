@@ -12,7 +12,8 @@ select gen_random_uuid() as parent_id,
        gen_random_uuid() as other_parent_id,
        gen_random_uuid() as stray_auth,
        gen_random_uuid() as kid_auth,
-       'pgtap_ae_' || substr(md5(random()::text), 1, 8) as kid;
+       -- Fixed name, not random hex: the children name filter reads digits as letters.
+       'pgtap_ae_kid' as kid;
 grant select on fx to authenticated;
 
 insert into auth.users (id, is_sso_user, is_anonymous, email)

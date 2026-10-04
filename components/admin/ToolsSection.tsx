@@ -36,13 +36,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
     // see docs/weekly-progress-redesign-plan.md Phase 4 Waves 1 & 4. Only damien (Grade 5) and
     // tala (Grade 2) ever reach this admin tool, so the grade map below is fine hardcoded.
     const grade = id === 'tala' ? 2 : 5;
-    const { data: progress } = await supabase
-      .from('player_progress')
-      .select('level, xp, gold')
-      .eq('user_id', id)
-      .maybeSingle();
-    if (progress) {
-      setStats(progress as CharacterStats);
+    const progressResult = await callAdminApi<{ characterStats: CharacterStats | null }>('/api/admin-weekly', {
+      passcode, action: 'get_progress_stats', userId: id,
+    });
+    if (progressResult.characterStats) {
+      setStats(progressResult.characterStats);
     }
     const { data: week } = await supabase
       .from('content_weeks')
@@ -51,14 +49,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       .eq('week_starting_date', currentSunday)
       .maybeSingle();
     if (week) {
-      const { data } = await supabase
-        .from('player_weekly_journal')
-        .select('*')
-        .eq('user_id', id)
-        .eq('content_week_id', week.id)
-        .maybeSingle();
-      if (data) {
-        setToolData(data as WeeklyData);
+      const journalResult = await callAdminApi<{ journal: WeeklyData | null }>('/api/admin-weekly', {
+        passcode, action: 'get_weekly_journal', userId: id, contentWeekId: week.id,
+      });
+      if (journalResult.journal) {
+        setToolData(journalResult.journal);
       }
     }
     const { data: claimsData } = await supabase
