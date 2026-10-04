@@ -17,7 +17,7 @@ any screen a child uses. Vercel Analytics and GA load only on the adult marketin
 | `user_id` | Child: `children.id` (the app user id). Parent: `parents.id::text` (auth uid). |
 | `session_id` | Random per browser tab session (`sessionStorage`). |
 | `event_name` | `object_action`, snake_case. |
-| `properties` | Event fields, plus on every client event: `display_mode` (browser / installed / twa), `device` (android / ios / desktop) and first-touch `utm_*` / `fbclid` when present. |
+| `properties` | Event fields, plus on every client event: `display_mode` (browser / installed / app; `app` = the Google Play app, plus `app_build` = its versionCode once known. Rows before 2026-10-05 say `twa`, which was a mis-detection: treat it as browser), `device` (android / ios / desktop) and first-touch `utm_*` / `fbclid` when present. |
 | `app_tab` | Kid tab the event happened on, `'parent'` for parent events, null otherwise. |
 | `is_family` | True for the founder's family accounts. **Exclude these from every analysis.** |
 | `client_ts` / `created_at` | Device time / server time. Use `created_at`, bucketed in `Asia/Manila`. |

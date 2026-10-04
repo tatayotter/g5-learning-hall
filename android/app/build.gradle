@@ -13,8 +13,13 @@ android {
         applicationId "com.tatayotter.learninghall"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        // Bump versionCode by 1 for every build uploaded to Play Console (any
+        // track) — Play rejects a code it has already seen. versionName is the
+        // human label shown on the store: MAJOR.MINOR.PATCH, MINOR for new
+        // native features (plugins, permissions), PATCH for shell-only fixes.
+        // Web-only changes ship through Vercel and need no new build.
+        versionCode 2
+        versionName "1.1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
