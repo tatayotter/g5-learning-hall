@@ -6,10 +6,12 @@
 // ('battle-attack-*' / 'battle-hit') and damagePopup (keyed per hit) are the
 // same signals the old CSS keyframes consumed, so BattleScreen and
 // LiveBattleScreen drive this without any changes to their phase logic.
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { BattleStageMonster } from '@/components/battle/BattleStage';
 import type BattleStageScene from '@/lib/phaserBattle/BattleStageScene';
 import type { Side, StageMonster, StageLayout } from '@/lib/phaserBattle/BattleStageScene';
+import { trackEvent } from '@/lib/analytics';
+import { CURIO_SIZE_HEIGHT_PX, FLOAT_LIFT_PX } from '@/lib/curioBody';
 
 function toStageMonster(mon: BattleStageMonster): StageMonster {
   return {
@@ -25,6 +27,31 @@ function toStageMonster(mon: BattleStageMonster): StageMonster {
 
 export function curioSpriteUrl(def: { id: string; spriteId?: string }): string {
   return `/monsters/${def.spriteId ?? def.id}.webp`;
+}
+
+// Per attempt; Phaser retries a timed-out file twice more.
+const CURIO_LOAD_TIMEOUT_MS = 12000;
+
+// Phaser is a big download; on a flaky connection its chunk can fail once,
+// which would leave the stage empty for the whole battle.
+async function importWithRetry<T>(load: () => Promise<T>, attempts = 3): Promise<T> {
+  for (let i = 1; ; i++) {
+    try {
+      return await load();
+    } catch (e) {
+      if (i >= attempts) throw e;
+      await new Promise(r => setTimeout(r, 1500 * i));
+    }
+  }
+}
+
+// Once per page per issue, so a flaky battle can't flood analytics.
+const reportedIssues = new Set<string>();
+function reportAssetIssue(reason: string, url: string) {
+  const key = `${reason}:${url}`;
+  if (reportedIssues.has(key)) return;
+  reportedIssues.add(key);
+  void trackEvent('asset_load_slow', { where: 'battle', reason, url: url.slice(0, 300) });
 }
 
 // next/font exposes Bungee only as a CSS variable holding its generated
@@ -53,6 +80,9 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
   onPlayerHurt?: (fraction: number, knockout: boolean) => void;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  // Phaser couldn't be loaded even after retries: show the curios as plain
+  // images instead of an empty stage (no animations, but the fight is playable).
+  const [phaserFailed, setPhaserFailed] = useState(false);
   const gameRef = useRef<import('phaser').Game | null>(null);
   const sceneRef = useRef<BattleStageScene | null>(null);
   // Latest stage state per side, written by the sync effects below — game
@@ -74,11 +104,23 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
     let destroyed = false;
     (async () => {
       const family = resolveBungeeFamily();
-      const [{ default: Phaser }, sceneMod] = await Promise.all([
-        import('phaser'),
-        import('@/lib/phaserBattle/BattleStageScene'),
-        document.fonts.load(`36px ${family}`).catch(() => undefined),
-      ]);
+      let loaded;
+      try {
+        loaded = await Promise.all([
+          importWithRetry(() => import('phaser')),
+          importWithRetry(() => import('@/lib/phaserBattle/BattleStageScene')),
+          document.fonts.load(`36px ${family}`).catch(() => undefined),
+        ]);
+      } catch (e) {
+        // No stage this battle; the intro's own cutoff still lets it start.
+        reportAssetIssue('phaser_import', e instanceof Error ? e.message : String(e));
+        if (!destroyed) {
+          setPhaserFailed(true);
+          onAssetsReadyRef.current?.();
+        }
+        return;
+      }
+      const [{ default: Phaser }, sceneMod] = loaded;
       if (destroyed || !containerRef.current) return;
       const res = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
       // clientWidth/Height are layout pixels, unaffected by the stage's CSS
@@ -97,12 +139,20 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
         roundPixels: true,
         scale: { mode: Phaser.Scale.NONE },
         banner: false,
+        // Phaser's default is no timeout: a download that stalls on mobile data
+        // never finishes or fails, and the curio is never drawn (not even its
+        // emoji). A timeout turns the stall into an error, which is retried
+        // (maxRetries, default 2) and then falls back to the emoji.
+        loader: { timeout: CURIO_LOAD_TIMEOUT_MS },
         scene: [scene],
       });
       const canvas = gameRef.current.canvas;
       canvas.style.width = '100%';
       canvas.style.height = '100%';
+      // iOS Safari drops WebGL under memory pressure; record it when it does.
+      canvas.addEventListener('webglcontextlost', () => reportAssetIssue('webgl_lost', ''));
       scene.onPlayerHurt = (fraction, knockout) => onPlayerHurtRef.current?.(fraction, knockout);
+      scene.onAssetIssue = reportAssetIssue;
       await scene.whenReady;
       await scene.preloadCurios(preloadRef.current ?? []);
       if (destroyed) return;
@@ -147,7 +197,39 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
   useDamageSignal('left', leftMon.damagePopup, leftMon.maxHp, sceneRef);
   useDamageSignal('right', rightMon.damagePopup, rightMon.maxHp, sceneRef);
 
-  return <div ref={containerRef} aria-hidden className="absolute inset-0 pointer-events-none" />;
+  return (
+    <div ref={containerRef} aria-hidden className="absolute inset-0 pointer-events-none">
+      {phaserFailed && ready && (
+        <>
+          <FallbackCurio mon={leftStage} side="left" layout={layout} />
+          <FallbackCurio mon={rightStage} side="right" layout={layout} />
+        </>
+      )}
+    </div>
+  );
+}
+
+// Plain-image stand-in for a curio when Phaser failed to load, placed where
+// BattleStageScene would stand it (same ground lines, x positions and
+// portrait depth; see its constructor).
+function FallbackCurio({ mon, side, layout }: { mon: StageMonster; side: Side; layout: StageLayout }) {
+  const back = layout === 'portrait' && side === 'right';
+  const depth = back ? 0.8 : 1;
+  const heightPx = (mon.heightPx ?? CURIO_SIZE_HEIGHT_PX[mon.size]) * depth;
+  const lift = mon.floats ? FLOAT_LIFT_PX * depth : 0;
+  const style: React.CSSProperties = {
+    position: 'absolute',
+    height: heightPx,
+    width: 'auto',
+    // Front ground line is 57px off the bottom (platform 75 tall, 16 up, feet sunk 34).
+    bottom: back ? `calc(50% + ${lift}px)` : 57 + lift,
+    transform: `translateX(-50%)${side === 'right' ? ' scaleX(-1)' : ''}`,
+    opacity: mon.fainted ? 0.35 : 1,
+    filter: mon.fainted ? 'grayscale(1)' : undefined,
+  };
+  if (layout === 'portrait') style.left = side === 'left' ? '26%' : '70%';
+  else style.left = side === 'left' ? 157.5 : 'calc(100% - 157.5px)';
+  return <img src={mon.spriteUrl} alt="" style={style} />;
 }
 
 // The callers reset animClassName to '' and then set it again (double rAF)

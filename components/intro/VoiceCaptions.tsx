@@ -9,8 +9,9 @@
 // The last line stays up after the run finishes, so a question ("How many
 // steps is that?") is still on screen while the kid answers it.
 import { useEffect, useRef, useState } from 'react';
-import { SPEAKERS, VoiceLine, voiceSrc } from '@/lib/intro/originStory';
-import { duckMainTheme, isSfxEnabled } from '@/lib/sounds';
+import { SPEAKERS, VoiceLine, voiceSrc, voiceUrl } from '@/lib/intro/originStory';
+import { createVoiceAudio, duckMainTheme, isVoiceEnabled } from '@/lib/sounds';
+import { preloadAudio } from '@/lib/assetPreload';
 
 const GAP_MS = 350;
 
@@ -50,6 +51,12 @@ export default function VoiceCaptions({ lines, onDone, personalize, startDelayMs
   const nextRef = useRef(next);
   useEffect(() => { nextRef.current = next; });
 
+  // Fetch the later lines while the first one plays (StoryPlayer has usually
+  // done this already; the egg screens and hatch modal haven't).
+  useEffect(() => {
+    if (isVoiceEnabled()) for (const l of lines) void preloadAudio(voiceSrc(l.id));
+  }, [lines]);
+
   useEffect(() => {
     if (lines.length === 0) {
       const t = setTimeout(() => nextRef.current(), 0);
@@ -71,10 +78,9 @@ export default function VoiceCaptions({ lines, onDone, personalize, startDelayMs
 
     const start = () => {
       if (cancelled) return;
-      if (isSfxEnabled()) {
+      if (isVoiceEnabled()) {
         duckMainTheme(true);
-        audio = new Audio(voiceSrc(line.id));
-        audio.volume = 0.95;
+        audio = createVoiceAudio(voiceUrl(line.id));
         audio.onended = () => { timer = setTimeout(advance, GAP_MS); };
         audio.onerror = fallBackToReading;
         audio.play().catch(fallBackToReading);

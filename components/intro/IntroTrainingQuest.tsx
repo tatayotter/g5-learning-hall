@@ -17,9 +17,10 @@ import CurioTrainingPicker, { OwnedCurio } from '@/components/dashboard/board/Cu
 import type { TrainingResult } from '@/components/VictoryScreen';
 import type { CharacterStats } from '@/hooks/useWeeklyData';
 import { getTrainingQuiz, TRAINING_NOTES } from '@/lib/intro/trainingQuiz';
-import { SPEAKERS, TRAINING_LINES, VoiceLine, voiceSrc } from '@/lib/intro/originStory';
+import { SPEAKERS, TRAINING_LINES, VoiceLine, voiceSrc, voiceUrl } from '@/lib/intro/originStory';
 import { awardCurioTrainingExp } from '@/lib/curioTraining';
-import { duckMainTheme, isSfxEnabled } from '@/lib/sounds';
+import { createVoiceAudio, duckMainTheme, isVoiceEnabled } from '@/lib/sounds';
+import { preloadAudio } from '@/lib/assetPreload';
 import { trackEvent } from '@/lib/analytics';
 import { playCue } from '@/lib/intro/introCues';
 
@@ -48,6 +49,8 @@ export default function IntroTrainingQuest({ userId, grade, currentStats, weekSt
   useSpokenLine(phase === 'study' ? TRAINING_LINES.notes : null);
   const [victoryLine, setVictoryLine] = useState<VoiceLine | null>(null);
   useSpokenLine(victoryLine);
+  // Have the victory line on the phone before the quiz is done.
+  useEffect(() => { if (isVoiceEnabled()) void preloadAudio(voiceSrc(TRAINING_LINES.victory.id)); }, []);
 
   const gradeQuiz = async (selected: Record<number, string>): Promise<QuizGradeResult> => {
     const correctCount = questions.filter((q, i) => selected[i] === q.answer).length;
@@ -170,9 +173,8 @@ function useSpokenLine(line: VoiceLine | null) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const id = line?.id;
   useEffect(() => {
-    if (!id || !isSfxEnabled()) return;
-    const audio = new Audio(voiceSrc(id));
-    audio.volume = 0.95;
+    if (!id || !isVoiceEnabled()) return;
+    const audio = createVoiceAudio(voiceUrl(id));
     audioRef.current = audio;
     duckMainTheme(true);
     const restore = () => duckMainTheme(false);

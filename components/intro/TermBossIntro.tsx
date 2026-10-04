@@ -17,9 +17,9 @@ import GameButton from '@/components/GameButton';
 import GlowCta from '@/components/intro/GlowCta';
 import { MonsterImage } from '@/components/battle/shared';
 import { TERM_BOSS_BEATS } from '@/lib/intro/termBossStory';
-import { voiceSrc, type Beat, type VoiceLine } from '@/lib/intro/originStory';
+import { voiceUrl, type Beat, type VoiceLine } from '@/lib/intro/originStory';
 import { playCue, startTermBossIntroMusic, stopIntroMusic } from '@/lib/intro/introCues';
-import { isSfxEnabled, playPageFlip } from '@/lib/sounds';
+import { createVoiceAudio, isVoiceEnabled, playPageFlip } from '@/lib/sounds';
 import { supabase } from '@/lib/supabase';
 import { ALL_MONSTERS, getOwnedMonsterDisplay, type MonsterDef } from '@/lib/monsterConfig';
 import type { BossPersona } from '@/lib/bossPersonas';
@@ -124,9 +124,8 @@ export function TermBossIntroForUser({ userId, ...rest }: Omit<TermBossIntroProp
 }
 
 function playLine(line: VoiceLine) {
-  if (!isSfxEnabled()) return;
-  const a = new Audio(voiceSrc(line.id));
-  a.volume = 0.95;
+  if (!isVoiceEnabled()) return;
+  const a = createVoiceAudio(voiceUrl(line.id));
   a.play().catch(() => {});
 }
 

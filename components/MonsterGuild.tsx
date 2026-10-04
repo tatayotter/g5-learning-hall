@@ -52,6 +52,7 @@ import TeamView from '@/components/monster/TeamView';
 import BattleViews from '@/components/monster/BattleViews';
 import TrainersView from '@/components/monster/TrainersView';
 import BattleTraining from '@/components/monster/BattleTraining';
+import { prefetchBattleStage } from '@/lib/phaserBattle/prefetch';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 
@@ -169,6 +170,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const liveBattleInbox = useLiveBattleInbox(userId, selfProfile?.name || userId, selfProfile?.grade);
   // Arena sub-nav drawer + responsive state (mirrors SidebarRail hooks)
   const [arenaNavOpen, setArenaNavOpen] = useState(false);
+
+  // Fetch the battle stage (Phaser + its scene) while the kid looks around,
+  // so the first battle's intro isn't waiting on it. A moment after opening,
+  // so the arena's own map and data load first.
+  useEffect(() => {
+    const t = setTimeout(prefetchBattleStage, 1500);
+    return () => clearTimeout(t);
+  }, []);
 
   // First-visit tutorial for this tab (see components/Dashboard.tsx for the
   // board/guilds equivalents). This component mounts fresh each time the

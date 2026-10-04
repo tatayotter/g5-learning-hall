@@ -1,19 +1,67 @@
-// Web Push service worker. Deliberately minimal for now — plumbing only,
-// no offline caching (see docs/STYLE_GUIDE.md-adjacent decision: this app
-// leans on Vercel/Next HTTP caching + a separate Capacitor native wrapper
-// for "installed app" reliability, not a full offline cache layer).
+// Service worker: Web Push, plus a cache for game art and voice clips.
 //
-// Registered from lib/push.ts at scope '/'.
+// Registered at startup in production (instrumentation-client.ts) and from
+// lib/push.ts at scope '/'.
+//
+// Asset cache (2026-10-04): public/ files have no content hash in their
+// names and Next serves them with max-age=0, so without this every visit
+// re-requested every image and voice clip — slow on mobile data. Art and
+// voice under ASSET_PREFIXES are served from the cache straight away and
+// refreshed in the background (stale-while-revalidate), so a replaced file
+// shows up on the visit after next. Pages, scripts and API calls are never
+// touched, and neither are Range requests (<audio> streaming music asks for
+// byte ranges; answering those from a whole cached file breaks iOS playback).
+// Bump ASSET_CACHE to drop everything cached.
+const ASSET_CACHE = 'lh-assets-v1';
+const ASSET_PREFIXES = [
+  '/intro/', '/monsters/', '/battleui/', '/bosses/', '/npcs/', '/eggs/', '/elements/', '/items/',
+  '/icons/', '/main ui/', '/main%20ui/', '/guilds/', '/codex/', '/subjects/', '/event/', '/sidequests/',
+  '/sprite/', '/tap_npc_sprites/', '/tiles/', '/tilesets/', '/maps/', '/maps-tiled/', '/maps-tiled-art/',
+  '/sounds/',
+];
+const ASSET_EXT = /\.(webp|png|jpe?g|gif|svg|mp3|ogg|m4a)$/i;
 
 self.addEventListener('install', () => {
-  // Activate immediately instead of waiting for old tabs to close — there's
-  // no cached content here that an old worker needs to keep serving.
+  // Activate immediately instead of waiting for old tabs to close — cached
+  // assets are interchangeable between worker versions.
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil((async () => {
+    for (const key of await caches.keys()) {
+      if (key.startsWith('lh-assets-') && key !== ASSET_CACHE) await caches.delete(key);
+    }
+    await self.clients.claim();
+  })());
 });
+
+self.addEventListener('fetch', (event) => {
+  const req = event.request;
+  if (req.method !== 'GET' || req.headers.has('range')) return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;
+  // Images and audio only — map/data JSON can change together with the code
+  // that reads it, so a stale copy could break the page.
+  if (!ASSET_EXT.test(url.pathname) || !ASSET_PREFIXES.some(p => url.pathname.startsWith(p))) return;
+  event.respondWith(staleWhileRevalidate(event, req));
+});
+
+async function staleWhileRevalidate(event, req) {
+  const cache = await caches.open(ASSET_CACHE);
+  const cached = await cache.match(req);
+  const refresh = fetch(req)
+    .then((res) => {
+      if (res.status === 200 && res.type === 'basic') void cache.put(req, res.clone());
+      return res;
+    })
+    .catch(() => null);
+  if (cached) {
+    event.waitUntil(refresh);
+    return cached;
+  }
+  return (await refresh) ?? Response.error();
+}
 
 self.addEventListener('push', (event) => {
   if (!event.data) return;

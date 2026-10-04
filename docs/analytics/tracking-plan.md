@@ -74,6 +74,7 @@ data yet).
 | `tab_view` | Kid tab becomes active (`app_tab` = tab) | - | 834 / 110 |
 | `screen_time` | A screen is left, hidden or closed | `screen`, `duration_ms` | new |
 | `client_error` | Uncaught error, rejected promise, or render crash | `source` (window / promise / boundary / global_boundary), `message`, `name`, `stack`, `path`, `digest` | new |
+| `asset_load_slow` | Art/voice/sprites didn't load in time and the screen went ahead without them | `where` (story / battle), story: `beat`, `index`, `waited_ms`; battle: `reason` (phaser_import / curios_timeout / curio_failed / webgl_lost), `url` | new |
 
 `screen_time.screen` for kids: the tab key (`board`, `todo`, `journal`, `monster`, `profile`,
 `codex`, `guilds`, `vault`, `bonus_quests`, ...) or `quest_study` / `quest_ready` / `quest_quiz`
@@ -86,7 +87,7 @@ while a main quest is open. For parents: `parent_home`, `parent_child`, `parent_
 |---|---|---|---|
 | `child_self_registration_submitted` | Kid self-registers (server) | source, attribution | 99 / 99 |
 | `intro_started` | New player with no curio enters the intro | `new_player` | 48 / 45 |
-| `intro_beat_viewed` | Each story beat shown | `beat`, `index` | 239 / 45 |
+| `intro_beat_viewed` | Each story beat shown (once its art and voice have loaded, or the wait timed out) | `beat`, `index` | 239 / 45 |
 | `intro_skipped` | Story skipped | `at_beat`, `index` | 27 / 27 |
 | `intro_story_completed` | Story finished | - | 14 / 14 |
 | `starter_curio_claimed` | First curio picked | `source` | 36 / 36 |

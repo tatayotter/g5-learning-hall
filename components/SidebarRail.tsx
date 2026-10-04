@@ -8,6 +8,7 @@ import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLe
 import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
+import SoundSettings from '@/components/SoundSettings';
 
 function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -60,10 +61,6 @@ interface SidebarRailProps {
   // hatch (see docs/curio-egg-mechanism-design.md). Keyed by RailTabId so
   // other tabs could reuse it later without a new prop.
   railBadges?: Partial<Record<RailTabId, boolean>>;
-  sfxOn?: boolean;
-  musicOn?: boolean;
-  onToggleSfx?: () => void;
-  onToggleMusic?: () => void;
   // HUD stat bar
   playerName?: string;
   playerGrade?: string;
@@ -129,10 +126,6 @@ export default function SidebarRail({
   onNavigate,
   onLogout,
   railBadges,
-  sfxOn,
-  musicOn,
-  onToggleSfx,
-  onToggleMusic,
   playerName = 'Hero',
   playerGrade,
   playerLevel = 1,
@@ -314,35 +307,16 @@ export default function SidebarRail({
                 })}
               </div>
 
-              {/* Bottom row: logout left · sound toggles right */}
-              <div className="mt-4 pt-4 border-t border-stone-200 flex items-center justify-between">
+              {/* Volume sliders, then logout */}
+              <div className="mt-4 pt-4 border-t border-stone-200 flex flex-col gap-2">
+                <SoundSettings />
                 <button
                   onClick={() => { playPageFlip(); setIsOpen(false); setConfirmingLogout(true); }}
-                  className="flex items-center gap-2 py-2 px-2 rounded-xl transition-all duration-150 ease-out hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95"
+                  className="self-start flex items-center gap-2 py-2 px-2 rounded-xl transition-all duration-150 ease-out hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95"
                 >
                   <img src="/main ui/logout.png" alt="" className="w-8 h-8 object-contain" />
                   <span className="text-[10px] font-bold uppercase tracking-wide text-gray-500">Logout</span>
                 </button>
-
-                {/* Sound toggles */}
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => { playPageFlip(); onToggleMusic?.(); }}
-                    title={musicOn ? 'Mute music' : 'Unmute music'}
-                    className="w-9 h-9 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center justify-center
-                      transition-all duration-150 ease-out hover:-translate-y-1 active:translate-y-0 active:scale-95"
-                  >
-                    <span className="text-sm leading-none">{musicOn ? '🎵' : '🔇'}</span>
-                  </button>
-                  <button
-                    onClick={() => { playPageFlip(); onToggleSfx?.(); }}
-                    title={sfxOn ? 'Mute sound effects' : 'Unmute sound effects'}
-                    className="w-9 h-9 rounded-xl bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center justify-center
-                      transition-all duration-150 ease-out hover:-translate-y-1 active:translate-y-0 active:scale-95"
-                  >
-                    <span className="text-sm leading-none">{sfxOn ? '🔊' : '🔈'}</span>
-                  </button>
-                </div>
               </div>
             </motion.div>
           </motion.div>

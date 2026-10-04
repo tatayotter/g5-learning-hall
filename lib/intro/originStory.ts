@@ -13,6 +13,7 @@
 // Beat art lives at /intro/<name>.webp (generated separately); `fallback` is
 // existing art shown until that file exists.
 import type { Cue } from '@/lib/intro/introCues';
+import { audioUrl } from '@/lib/assetPreload';
 
 export type Speaker = 'narrator' | 'tala' | 'damien' | 'forgetting' | 'tatay';
 
@@ -86,6 +87,29 @@ export const SPEAKERS: Record<Speaker, { name: string; color: string; portrait: 
 };
 
 export const voiceSrc = (id: string) => `/sounds/voice/intro/${id}.mp3`;
+// For playback: the preloaded copy if lib/assetPreload.ts has fetched it.
+export const voiceUrl = (id: string) => audioUrl(voiceSrc(id));
+
+// Everything a beat shows or says — StoryPlayer preloads these before the
+// beat opens. Fallback art is left out (it's only used if the real art fails).
+export function beatAssets(beat: Beat): { images: string[]; audio: string[] } {
+  const it = beat.interaction;
+  const lines = [
+    ...beat.lines,
+    ...(beat.after ?? []),
+    ...('retry' in it ? [it.retry] : []),
+    ...('scold' in it ? [it.scold] : []),
+  ];
+  const images = [
+    beat.art.src, beat.artAfter?.src,
+    ...lines.map(l => SPEAKERS[l.speaker].portrait),
+    ...(it.kind === 'guilds' ? GUILDS.map(g => g.npc) : []),
+  ];
+  return {
+    images: [...new Set(images.filter((s): s is string => !!s))],
+    audio: [...new Set(lines.map(l => voiceSrc(l.id)))],
+  };
+}
 
 export const GUILDS = [
   { key: 'lorekeeper', name: 'Lorekeeper', subject: 'Reading and grammar', line: 'Where the stories of the world are kept.', color: '#34d399', npc: '/npcs/lorekeeper.png' },
