@@ -71,7 +71,11 @@ if you ever see something that looks odd in `supabase/migrations/`.
   at the existing three files for the pattern: self-contained fixtures (fresh random test
   identities, never real user data), `plan(N)` matching the actual assertion count, and
   `set_config('request.jwt.claims', ...)` to simulate an authenticated session when testing
-  RLS.
+  RLS. For rows in `children`/`classmates`, use fixed `username`/`full_name`/`school_name` values
+  like `'pgtap_kid_a'`, never random hex: the blocked-name trigger reads digits as letters
+  (`5`→`s`, `4`→`a`, …), so a random suffix is occasionally rejected and the suite flakes.
+  Check new names with `select public.contains_blocked_term('...')`. Random `gen_random_uuid()`
+  auth ids are fine; those columns aren't filtered.
 
 ## The two workflows
 

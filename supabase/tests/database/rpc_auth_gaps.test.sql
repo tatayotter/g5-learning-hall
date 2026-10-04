@@ -19,8 +19,10 @@ select plan(12);
 create temp table fx as
 select
   gen_random_uuid() as parent_a, gen_random_uuid() as parent_b, gen_random_uuid() as child_a_auth,
-  'pgtap_kid_a_' || substr(md5(random()::text), 1, 8) as child_a,
-  'pgtap_kid_b_' || substr(md5(random()::text), 1, 8) as child_b;
+  -- Fixed names, not random hex: the children name filter reads digits as letters,
+  -- so a random suffix can be rejected (NAME_NOT_ALLOWED). Rolled back, so no collision.
+  'pgtap_kid_a' as child_a,
+  'pgtap_kid_b' as child_b;
 
 insert into auth.users (id, is_sso_user, is_anonymous, email)
 select parent_a, false, false, 'pgtap-parent-a-' || substr(md5(random()::text), 1, 8) || '@test.invalid' from fx
