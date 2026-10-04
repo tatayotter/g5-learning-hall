@@ -9,6 +9,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { trackParentEvent } from '@/lib/analytics';
+import { useScreenTime } from '@/hooks/useScreenTime';
 import { gradeToNumber } from '@/lib/userSession';
 import {
   ChildRow, SecPack, EntitlementRow, PACK_DETAILS,
@@ -33,6 +35,10 @@ export default function ShopProductPage() {
   const router = useRouter();
   const params = useParams<{ packId: string }>();
   const packId = params.packId;
+  useEffect(() => {
+    trackParentEvent('parent_page_viewed', { page: 'parent_shop_pack', pack_id: packId });
+  }, [packId]);
+  useScreenTime('parent_shop_pack', trackParentEvent);
 
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
@@ -87,6 +93,7 @@ export default function ShopProductPage() {
       setCheckoutError('Pick which child this pack is for first.');
       return;
     }
+    trackParentEvent('parent_checkout_started', { kind: 'sec_pack', pack_id: pack.id, from: 'shop' });
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();

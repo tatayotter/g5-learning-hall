@@ -9,6 +9,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { useParentPage } from '@/hooks/useScreenTime';
 import { MTAP_STRANDS_BY_GRADE } from '@/lib/mtapContent';
 import MtapReviewerPanel from '@/components/bonusquests/MtapReviewerPanel';
 import {
@@ -36,6 +37,7 @@ interface EntitlementRow {
 
 export default function MySecsPage() {
   const router = useRouter();
+  useParentPage('parent_my_secs');
   const [loading, setLoading] = useState(true);
   const [kids, setKids] = useState<ChildRow[]>([]);
   const [packs, setPacks] = useState<SecPack[]>([]);
