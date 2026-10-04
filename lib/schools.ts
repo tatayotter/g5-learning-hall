@@ -72,6 +72,29 @@ export function searchSchools(schools: School[], query: string, limit = 6): Scho
     .map((s) => s.school);
 }
 
+const SHORT_WORDS = new Set(['es', 'elem', 'hs', 'nhs', 'shs', 'sch', 'schl', 'natl', "nat'l", 'mem', 'univ', 'acad', 'inst', 'intl', 'ctr']);
+const SCHOOL_TYPE_WORD = /^(schools?|academy|college|university|institute|cent(er|re)|montessori|homeschool(ing)?|seminary|kindergarten|preschool|daycare)$/;
+
+/**
+ * A school typed outside the directory has to be a full name: 2+ words,
+ * one of them a school word (School, Academy, Center, ...), and no initials
+ * ("CES", "XU Ateneo") or shortened words ("ES", "Elem"). Mirrors the DB's
+ * is_full_school_name() (migration 20261004210000), which is the real check.
+ */
+export function looksLikeFullSchoolName(name: string): boolean {
+  const words = name.split(/[^A-Za-z0-9']+/).filter(Boolean);
+  if (words.length < 2) return false;
+  // All caps is shouting, not initials, so skip the initials check then.
+  const shouting = !/[a-z]/.test(name);
+  let hasType = false;
+  for (const w of words) {
+    if (SHORT_WORDS.has(w.toLowerCase())) return false;
+    if (!shouting && /^[A-Z]{2,}$/.test(w) && !/^[IVX]+$/.test(w)) return false;
+    if (SCHOOL_TYPE_WORD.test(w.toLowerCase())) hasType = true;
+  }
+  return hasType;
+}
+
 export function schoolPlace(school: School): string | null {
   return [school.city, school.province].filter(Boolean).join(', ') || null;
 }
