@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
 import { supabase } from '@/lib/supabase';
+import { trackParentEvent } from '@/lib/analytics';
 import { IOS, Icon, IosCapsule, IosGroup, IosRow, IosSheet, type IconName } from '@/components/parent/ios';
 
 interface Props {
@@ -163,6 +164,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   }, [childId]);
 
   const handleOpenJournal = async () => {
+    trackParentEvent('parent_insight_opened', { insight: 'journal', child_id: childId });
     setShowJournal(true);
     if (journal !== null) return;
     setJournalLoading(true);
@@ -176,6 +178,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
   };
 
   const handleOpenWeakTopics = async () => {
+    trackParentEvent('parent_insight_opened', { insight: 'weak_topics', child_id: childId });
     setShowWeakTopics(true);
     if (weakTopics !== null) return;
     setWeakTopicsLoading(true);
@@ -204,6 +207,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
       setAwardError(error.message);
       return;
     }
+    trackParentEvent('parent_coins_awarded', { amount, child_id: childId });
     setCoinAmount('');
     setAwardSuccess(true);
     onCoinsAwarded(amount);
@@ -259,7 +263,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
           iconColor={IOS.indigo}
           title="Journal"
           subtitle="What your child wrote after each day's quests"
-          onClick={isPremium ? handleOpenJournal : undefined}
+          onClick={isPremium ? handleOpenJournal : () => trackParentEvent('parent_locked_feature_tapped', { feature: 'journal' })}
           accessory={isPremium ? undefined : lockIcon}
         />
         <IosRow
@@ -267,7 +271,7 @@ export default function ChildProgressPanel({ childId, isPremium, coinBalance, on
           iconColor={IOS.pink}
           title="Weak topics"
           subtitle="Subjects with the highest miss rate"
-          onClick={isPremium ? handleOpenWeakTopics : undefined}
+          onClick={isPremium ? handleOpenWeakTopics : () => trackParentEvent('parent_locked_feature_tapped', { feature: 'weak_topics' })}
           accessory={isPremium ? undefined : lockIcon}
         />
       </IosGroup>

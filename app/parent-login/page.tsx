@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
+import { trackParentEvent } from '@/lib/analytics';
 
 export default function ParentLoginPage() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function ParentLoginPage() {
       setError('Incorrect email or password.');
       return;
     }
+    trackParentEvent('parent_login');
     router.push('/parent-dashboard');
   };
 

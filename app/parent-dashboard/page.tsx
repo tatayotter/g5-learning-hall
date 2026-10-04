@@ -10,6 +10,8 @@ import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
 import { recordPushOpenFromUrl } from '@/lib/push';
+import { trackParentEvent } from '@/lib/analytics';
+import { useScreenTime } from '@/hooks/useScreenTime';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
 import SchoolPicker from '@/components/SchoolPicker';
 import { checkSignupNames, friendlyNameError } from '@/lib/nameFilter';
@@ -94,6 +96,7 @@ export default function ParentDashboardPage() {
   }, []);
 
   const pushChild = (id: string) => {
+    trackParentEvent('parent_child_opened', { child_id: id });
     window.history.pushState({ pdChild: id }, '');
     setOpenChildId(id);
   };
@@ -103,6 +106,14 @@ export default function ParentDashboardPage() {
   };
 
   const closeSheet = useCallback(() => setSheet(null), []);
+
+  useScreenTime(
+    loading || parent?.status !== 'approved' ? null : openChildId ? 'parent_child' : 'parent_home',
+    (name, props, options) => trackParentEvent(name, props, options)
+  );
+  useEffect(() => {
+    if (sheet) trackParentEvent('parent_sheet_opened', { sheet });
+  }, [sheet]);
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -118,6 +129,7 @@ export default function ParentDashboardPage() {
       .single();
     setParent(parentRow as ParentRow);
 
+    let viewStats: { children: number; premium: boolean } | null = null;
     if (parentRow?.status === 'approved') {
       const [{ data: children }, { data: subRow }, { data: maxKids }] = await Promise.all([
         supabase
@@ -134,13 +146,16 @@ export default function ParentDashboardPage() {
       setKids((children as ChildRow[]) || []);
       setSubscription((subRow as SubscriptionRow) ?? null);
       setMaxChildren((maxKids as number) ?? 1);
+      viewStats = { children: children?.length ?? 0, premium: (subRow as SubscriptionRow | null)?.status === 'active' };
     }
     setLoading(false);
+    return viewStats;
   };
 
   // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
   // ₱99 slot that never touches the renewal date or coin pool.
   const startCheckout = async (kind: 'premium' | 'childSlot') => {
+    trackParentEvent('parent_checkout_started', { kind, from: 'dashboard' });
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
@@ -165,7 +180,9 @@ export default function ParentDashboardPage() {
     if (new URLSearchParams(window.location.search).has('pq')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    load();
+    load().then((viewStats) => {
+      if (viewStats) trackParentEvent('parent_dashboard_viewed', viewStats);
+    });
   }, []);
 
   const handleAddChild = async (e?: React.FormEvent) => {
@@ -196,6 +213,7 @@ export default function ParentDashboardPage() {
       setAddError(friendlyNameError(error.message) ?? error.message);
       return;
     }
+    trackParentEvent('parent_child_added', { grade: newChild.grade });
     setNewChild(emptyChildForm());
     setSheet(null);
     load();
@@ -212,6 +230,7 @@ export default function ParentDashboardPage() {
       return;
     }
     setParent({ ...parent, marketing_opt_in: nextValue });
+    trackParentEvent('parent_email_optin_changed', { opted_in: nextValue });
     if (nextValue) {
       supabase.functions.invoke('sendfox-sync').then(({ error: syncError }) => {
         if (syncError) console.error('Failed to sync SendFox contact:', syncError);
@@ -236,6 +255,7 @@ export default function ParentDashboardPage() {
       return;
     }
     setRevealedPins((prev) => ({ ...prev, [childId]: data ?? null }));
+    trackParentEvent('parent_pin_revealed', { child_id: childId });
   };
 
   const handleBugReport = async () => {
@@ -257,6 +277,7 @@ export default function ParentDashboardPage() {
       }
       setBugSent(true);
       setBugText('');
+      trackParentEvent('parent_bug_report_sent');
       setTimeout(() => {
         setBugSent(false);
         setSheet((s) => (s === 'bug' ? null : s));
@@ -269,6 +290,7 @@ export default function ParentDashboardPage() {
   };
 
   const handleSignOut = async () => {
+    await trackParentEvent('parent_signed_out');
     await supabase.auth.signOut();
     router.push('/parent-login');
   };
@@ -496,7 +518,7 @@ export default function ParentDashboardPage() {
               icon="compare"
               iconColor={IOS.teal}
               title="Compare Children"
-              onClick={isPremium ? () => setSheet('compare') : undefined}
+              onClick={isPremium ? () => setSheet('compare') : () => trackParentEvent('parent_locked_feature_tapped', { feature: 'compare_children' })}
               accessory={isPremium ? undefined : <Icon name="lock" size={16} color={IOS.tertiary} />}
             />
           </IosGroup>
@@ -519,6 +541,7 @@ export default function ParentDashboardPage() {
             iconColor="#1877F2"
             title="Parent Facebook Group"
             subtitle="Swap tips and ask questions with other parents"
+            onClick={() => trackParentEvent('parent_link_clicked', { target: 'facebook_group' })}
           />
         </IosGroup>
 
@@ -562,8 +585,9 @@ export default function ParentDashboardPage() {
             iconColor="#0084FF"
             title="Message Us"
             subtitle="Chat with us on Facebook Messenger"
+            onClick={() => trackParentEvent('parent_link_clicked', { target: 'messenger' })}
           />
-          <IosRow href={`mailto:${SUPPORT_EMAIL}`} external icon="mail" iconColor={IOS.gray} title="Contact Support" detail="Email" />
+          <IosRow href={`mailto:${SUPPORT_EMAIL}`} external icon="mail" iconColor={IOS.gray} title="Contact Support" detail="Email" onClick={() => trackParentEvent('parent_link_clicked', { target: 'support_email' })} />
         </IosGroup>
 
         <IosGroup>

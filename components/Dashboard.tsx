@@ -16,6 +16,7 @@ import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
+import { useScreenTime } from '@/hooks/useScreenTime';
 import MonsterGuild from '@/components/MonsterGuild';
 import CodexPanel from '@/components/CodexPanel';
 import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
@@ -463,6 +464,12 @@ export default function Dashboard() {
     }
   }, [activeTab]);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
+  // Active time per tab, with an open quest split out by phase so study-note
+  // reading and quiz answering are measured separately from browsing the board.
+  useScreenTime(
+    activeUserId ? (activeQuest ? `quest_${quizPhase}` : activeTab) : null,
+    (name, props, options) => trackEvent(name, props, activeTab, options)
+  );
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
   const [notifications, setNotifications] = useState<PlayerNotification[]>([]);

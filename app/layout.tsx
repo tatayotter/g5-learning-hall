@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ContentProtection from "@/components/ContentProtection";
 import FacebookPixel from "@/components/FacebookPixel";
+import ClientErrorReporter from "@/components/ClientErrorReporter";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -103,6 +104,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <ContentProtection />
         <FacebookPixel />
+        <ClientErrorReporter />
         {children}
         <Analytics />
       </body>

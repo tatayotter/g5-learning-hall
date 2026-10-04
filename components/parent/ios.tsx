@@ -314,11 +314,11 @@ export function IosRow({
 
   const cls = `block w-full text-left select-none ${disabled ? 'pointer-events-none' : ''}`;
   if (href) {
-    if (href.startsWith('mailto:')) return <a href={href} className={cls}>{inner}</a>;
+    if (href.startsWith('mailto:')) return <a href={href} onClick={onClick} className={cls}>{inner}</a>;
     return external ? (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+      <a href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={cls}>{inner}</a>
     ) : (
-      <Link href={href} className={cls}>{inner}</Link>
+      <Link href={href} onClick={onClick} className={cls}>{inner}</Link>
     );
   }
   if (onClick) {
