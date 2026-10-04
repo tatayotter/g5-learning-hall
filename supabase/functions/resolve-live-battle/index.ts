@@ -140,7 +140,7 @@ Deno.serve(async (req: Request) => {
       // so a live PvP win never actually paid out despite the toast/log
       // saying it did. apply_progress_deltas lets service-role calls past its
       // "own account only" check and its daily player cap
-      // (20261004170000_daily_reward_caps), which is safe here since winnerId
+      // (20261004180000_daily_reward_caps), which is safe here since winnerId
       // is already constrained to one of this battle's two validated
       // participants above.
       if (goldReward > 0) {

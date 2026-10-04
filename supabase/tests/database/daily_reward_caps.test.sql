@@ -1,4 +1,4 @@
--- pgTAP tests for 20261004170000_daily_reward_caps: player-session gold/XP/item
+-- pgTAP tests for 20261004180000_daily_reward_caps: player-session gold/XP/item
 -- gains are clamped to the daily allowance (never rejected), spending is never
 -- capped, a direct inventory write can't sidestep the cap, server-side
 -- (owner / service-role) grants aren't capped, live-battle gold via the
