@@ -1,11 +1,17 @@
 'use client';
-import { useState, useEffect, useMemo } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
+import { KeyRound, Link2, Link2Off, Plus, RefreshCw, Repeat, UserX, Users } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADES } from '@/components/ChildAccountForm';
+import {
+  Badge, Button, Card, ErrorBanner, Field, Input, PageHeader, Pagination, SearchInput, Segmented, Select, Skeleton,
+  StatTile, Switch, Table, Td, Th, useToast,
+} from '@/components/admin/ui';
+import { AdminSignInCard, useAdminAccount, WrongAccountNotice } from '@/components/admin/AdminAccountGate';
 
 const DEFAULT_SCHOOL = 'Surigao City Special Science Elementary School';
-const ADMIN_EMAIL = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
+const PAGE_SIZE = 50;
 
 interface Classmate {
   id: string;
@@ -36,21 +42,36 @@ type Person =
   | { source: 'classmate'; data: Classmate }
   | { source: 'child'; data: AdminChild };
 
+type KindFilter = 'all' | 'linked' | 'unlinked' | 'classmate';
+
+const kindOf = (p: Person): Exclude<KindFilter, 'all'> =>
+  p.source === 'classmate' ? 'classmate' : p.data.parent_id ? 'linked' : 'unlinked';
+
+const KIND_BADGE = {
+  linked: { tone: 'good', label: 'Parent-linked' },
+  unlinked: { tone: 'warning', label: 'Unlinked' },
+  classmate: { tone: 'neutral', label: 'Classmate' },
+} as const;
+
+const fmtDate = (ts: string) => new Date(ts).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+
 export default function ChildrenSection({ passcode }: { passcode: string }) {
-  const [classmates, setClassmates] = useState<Classmate[]>([]);
+  const account = useAdminAccount();
+  const toast = useToast();
+
+  const [classmates, setClassmates] = useState<Classmate[] | null>(null);
   const [children, setChildren] = useState<AdminChild[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const [userEmail, setUserEmail] = useState<string | null | undefined>(undefined);
-  const [loginEmail, setLoginEmail] = useState('');
-  const [loginPassword, setLoginPassword] = useState('');
-  const [loginError, setLoginError] = useState('');
-  const [loggingIn, setLoggingIn] = useState(false);
   const [childrenError, setChildrenError] = useState('');
+  const [reloadTick, setReloadTick] = useState(0);
 
+  const [search, setSearch] = useState('');
+  const [kind, setKind] = useState<KindFilter>('all');
   const [schoolFilter, setSchoolFilter] = useState('All');
   const [gradeFilter, setGradeFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [page, setPage] = useState(0);
 
+  const [showAdd, setShowAdd] = useState(false);
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -60,61 +81,38 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
   const [usernameTouched, setUsernameTouched] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
-  const [resetTargetId, setResetTargetId] = useState<string | null>(null);
-  const [resetPassword, setResetPassword] = useState('');
 
-  const [reassignTargetId, setReassignTargetId] = useState<string | null>(null);
+  // One inline panel open at a time: reset a classmate's password, or
+  // request a parent reassignment for a parent-registered child.
+  const [panel, setPanel] = useState<{ kind: 'reset' | 'reassign'; id: string } | null>(null);
+  const [resetPassword, setResetPassword] = useState('');
   const [reassignEmail, setReassignEmail] = useState('');
   const [reassignReason, setReassignReason] = useState('');
   const [reassignSubmitting, setReassignSubmitting] = useState(false);
-  const [reassignMessage, setReassignMessage] = useState('');
+  const [busyId, setBusyId] = useState<string | null>(null);
 
-  const loadClassmates = async () => {
-    // classmates denies all direct client reads (RLS) — username isn't safe
-    // to expose through a public view, so this goes through a passcode-
-    // gated route instead, same pattern as every write below.
-    const result = await callAdminApi<{ classmates: Classmate[] }>('/api/classmate-admin', { passcode, action: 'list' });
-    setClassmates(result.success ? result.classmates || [] : []);
-  };
-
-  const loadSession = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
-    setUserEmail(user?.email || null);
-  };
-
-  const loadChildren = async () => {
-    setChildrenError('');
-    const { data, error } = await supabase.rpc('admin_list_children');
-    if (error) {
-      setChildrenError(error.message);
-      return;
-    }
-    setChildren((data as AdminChild[]) || []);
-  };
+  // classmates denies all direct client reads (RLS) — username isn't safe to
+  // expose through a public view, so this goes through a passcode-gated route.
+  useEffect(() => {
+    let cancelled = false;
+    callAdminApi<{ classmates: Classmate[] }>('/api/classmate-admin', { passcode, action: 'list' }).then((result) => {
+      if (!cancelled) setClassmates(result.success ? result.classmates || [] : []);
+    });
+    return () => { cancelled = true; };
+  }, [passcode, reloadTick]);
 
   useEffect(() => {
-    (async () => {
-      await Promise.all([loadClassmates(), loadSession()]);
-      setLoading(false);
-    })();
-  }, []);
+    if (account.status !== 'admin') return;
+    let cancelled = false;
+    supabase.rpc('admin_list_children').then(({ data, error: rpcError }) => {
+      if (cancelled) return;
+      if (rpcError) setChildrenError(rpcError.message);
+      else { setChildrenError(''); setChildren((data as AdminChild[]) || []); }
+    });
+    return () => { cancelled = true; };
+  }, [account.status, reloadTick]);
 
-  useEffect(() => {
-    if (userEmail && userEmail === ADMIN_EMAIL) loadChildren();
-  }, [userEmail]);
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoginError('');
-    setLoggingIn(true);
-    const { error } = await supabase.auth.signInWithPassword({ email: loginEmail, password: loginPassword });
-    setLoggingIn(false);
-    if (error) {
-      setLoginError('Incorrect email or password.');
-      return;
-    }
-    loadSession();
-  };
+  const reload = () => setReloadTick((t) => t + 1);
 
   const suggestUsername = (name: string) =>
     name.replace(/[^a-zA-Z ]/g, '').split(' ').filter(Boolean)
@@ -134,294 +132,309 @@ export default function ChildrenSection({ passcode }: { passcode: string }) {
     setSubmitting(true);
     setError('');
     const result = await callAdminApi('/api/classmate-admin', { passcode, username, fullName, grade, gender, password: newPassword, schoolName });
+    setSubmitting(false);
     if (!result.success) {
       setError(result.error || 'Failed to add classmate.');
-    } else {
-      setFullName('');
-      setUsername('');
-      setNewPassword('');
-      setGender('boy');
-      setUsernameTouched(false);
-      loadClassmates();
+      return;
     }
-    setSubmitting(false);
+    toast(`Added ${fullName}.`);
+    setFullName('');
+    setUsername('');
+    setNewPassword('');
+    setGender('boy');
+    setUsernameTouched(false);
+    reload();
   };
 
-  const handleToggleActive = async (c: Classmate) => {
-    const result = await callAdminApi('/api/classmate-admin', { passcode, id: c.id, username: c.username, fullName: c.full_name, grade: c.grade, gender: c.gender, isActive: !c.is_active });
-    if (result.success) loadClassmates();
-    else alert(result.error || 'Failed to update.');
-  };
-
-  const handleToggleGender = async (c: Classmate) => {
-    const result = await callAdminApi('/api/classmate-admin', { passcode, id: c.id, username: c.username, fullName: c.full_name, grade: c.grade, gender: c.gender === 'girl' ? 'boy' : 'girl' });
-    if (result.success) loadClassmates();
-    else alert(result.error || 'Failed to update.');
+  const updateClassmate = async (c: Classmate, changes: Record<string, unknown>, done: string) => {
+    setBusyId(c.id);
+    const result = await callAdminApi('/api/classmate-admin', {
+      passcode, id: c.id, username: c.username, fullName: c.full_name, grade: c.grade, gender: c.gender, ...changes,
+    });
+    setBusyId(null);
+    if (!result.success) { toast(result.error || 'Failed to update.', 'error'); return false; }
+    toast(`${c.full_name}: ${done}.`);
+    reload();
+    return true;
   };
 
   const handleResetPassword = async (c: Classmate) => {
     if (!resetPassword.trim()) return;
-    const result = await callAdminApi('/api/classmate-admin', { passcode, id: c.id, username: c.username, fullName: c.full_name, grade: c.grade, gender: c.gender, password: resetPassword });
-    if (result.success) {
-      alert(`✅ Password updated for ${c.full_name}.`);
-      setResetTargetId(null);
+    if (await updateClassmate(c, { password: resetPassword }, 'password updated')) {
+      setPanel(null);
       setResetPassword('');
-    } else {
-      alert(result.error || 'Failed to reset password.');
     }
   };
 
   const handleToggleChildActive = async (c: AdminChild) => {
-    const { error } = await supabase.rpc('admin_set_child_active', { p_child_id: c.id, p_is_active: !c.is_active });
-    if (error) alert(error.message);
-    else loadChildren();
+    setBusyId(c.id);
+    const { error: rpcError } = await supabase.rpc('admin_set_child_active', { p_child_id: c.id, p_is_active: !c.is_active });
+    setBusyId(null);
+    if (rpcError) { toast(rpcError.message, 'error'); return; }
+    toast(`${c.full_name}: ${c.is_active ? 'deactivated' : 'activated'}.`);
+    reload();
   };
 
   const handleReassign = async (c: AdminChild) => {
     if (!reassignEmail.trim() || !reassignReason.trim()) return;
     setReassignSubmitting(true);
-    setReassignMessage('');
     const result = await callAdminApi('/api/admin-child-reassignment', {
       passcode, childId: c.id, newParentEmail: reassignEmail.trim(), reason: reassignReason.trim(),
     });
     setReassignSubmitting(false);
-    if (result.success) {
-      setReassignMessage('✅ Reassignment requested — both parents have been notified. It takes effect in 48 hours unless the current parent cancels it.');
-      setReassignEmail('');
-      setReassignReason('');
-    } else {
-      setReassignMessage(`❌ ${result.error || 'Failed to request reassignment.'}`);
-    }
+    if (!result.success) { toast(result.error || 'Failed to request reassignment.', 'error'); return; }
+    toast('Reassignment requested. Both parents were notified; it takes effect in 48 hours unless the current parent cancels.');
+    setPanel(null);
+    setReassignEmail('');
+    setReassignReason('');
+  };
+
+  const openPanel = (kindName: 'reset' | 'reassign', id: string) => {
+    setPanel((cur) => (cur?.kind === kindName && cur.id === id ? null : { kind: kindName, id }));
+    setResetPassword('');
+    setReassignEmail('');
+    setReassignReason('');
   };
 
   const people: Person[] = useMemo(() => [
-    ...classmates.map((data): Person => ({ source: 'classmate', data })),
+    ...(classmates ?? []).map((data): Person => ({ source: 'classmate', data })),
     ...children.map((data): Person => ({ source: 'child', data })),
   ], [classmates, children]);
 
-  const schools = useMemo(() => {
-    const set = new Set(people.map(p => p.data.school_name).filter(Boolean));
-    return Array.from(set).sort();
-  }, [people]);
-
-  const filtered = people.filter(p =>
-    (schoolFilter === 'All' || p.data.school_name === schoolFilter) &&
-    (gradeFilter === 'All' || p.data.grade === gradeFilter)
+  const schools = useMemo(
+    () => Array.from(new Set(people.map(p => p.data.school_name).filter(Boolean))).sort(),
+    [people],
   );
 
-  const grouped = useMemo(() => {
-    const bySchool = new Map<string, Map<string, Person[]>>();
-    for (const p of filtered) {
-      const school = p.data.school_name || 'Unknown School';
-      if (!bySchool.has(school)) bySchool.set(school, new Map());
-      const byGrade = bySchool.get(school)!;
-      const grade = p.data.grade || 'Unknown Grade';
-      if (!byGrade.has(grade)) byGrade.set(grade, []);
-      byGrade.get(grade)!.push(p);
-    }
-    return bySchool;
-  }, [filtered]);
+  const counts = useMemo(() => {
+    const c = { all: people.length, linked: 0, unlinked: 0, classmate: 0, inactive: 0 };
+    for (const p of people) { c[kindOf(p)]++; if (!p.data.is_active) c.inactive++; }
+    return c;
+  }, [people]);
+
+  const filtered = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return people
+      .filter(p =>
+        (kind === 'all' || kindOf(p) === kind) &&
+        (schoolFilter === 'All' || p.data.school_name === schoolFilter) &&
+        (gradeFilter === 'All' || p.data.grade === gradeFilter) &&
+        (activeFilter === 'all' || (activeFilter === 'active') === p.data.is_active) &&
+        (!q || p.data.full_name.toLowerCase().includes(q) || p.data.username.toLowerCase().includes(q) ||
+          (p.source === 'child' && (p.data.parent_email ?? '').toLowerCase().includes(q))),
+      )
+      // Newest parent-registered first; classmates (no signup date) after.
+      .sort((a, b) =>
+        (b.source === 'child' ? b.data.created_at : '').localeCompare(a.source === 'child' ? a.data.created_at : '') ||
+        a.data.full_name.localeCompare(b.data.full_name));
+  }, [people, kind, schoolFilter, gradeFilter, activeFilter, search]);
+
+  const pageRows = filtered.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  const resetPage = <T,>(set: (v: T) => void) => (v: T) => { set(v); setPage(0); };
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Children</h2>
-      <p className="text-[#8a7c66] text-sm mb-6">
-        Every child account — legacy classmates and parent-registered kids alike — organized by school and grade.
-      </p>
+      <PageHeader
+        title="Children"
+        description="Every child account: parent-registered, self-registered and legacy classmates."
+        actions={
+          <>
+            <Button icon={Plus} variant={showAdd ? 'secondary' : 'primary'} onClick={() => setShowAdd((s) => !s)}>
+              {showAdd ? 'Close form' : 'Add classmate'}
+            </Button>
+            <Button icon={RefreshCw} onClick={reload}>Refresh</Button>
+          </>
+        }
+      />
 
-      {/* Add classmate */}
-      <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
-        <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Add Classmate</p>
-        <form onSubmit={handleAdd} className="grid grid-cols-2 gap-4 mb-4">
-          <div className="col-span-2">
-            <label className="text-xs text-[#8a7c66] block mb-1">Full Name</label>
-            <input type="text" placeholder="e.g. Juan Dela Cruz" value={fullName} onChange={e => handleFullNameChange(e.target.value)}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500" />
-          </div>
-          <div>
-            <label className="text-xs text-[#8a7c66] block mb-1">Username (login)</label>
-            <input type="text" placeholder="FirstNameLastname" value={username} onChange={e => { setUsername(e.target.value); setUsernameTouched(true); }}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500" />
-          </div>
-          <div>
-            <label className="text-xs text-[#8a7c66] block mb-1">Password</label>
-            <input type="text" placeholder="Set their password" value={newPassword} onChange={e => setNewPassword(e.target.value)}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500" />
-          </div>
-          <div>
-            <label className="text-xs text-[#8a7c66] block mb-1">Grade</label>
-            <select value={grade} onChange={e => setGrade(e.target.value)}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500">
-              {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
-            </select>
-          </div>
-          <div>
-            <label className="text-xs text-[#8a7c66] block mb-1">Gender (sprite)</label>
-            <select value={gender} onChange={e => setGender(e.target.value as 'boy' | 'girl')}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500">
-              <option value="boy">Boy</option>
-              <option value="girl">Girl</option>
-            </select>
-          </div>
-          <div className="col-span-2">
-            <label className="text-xs text-[#8a7c66] block mb-1">School</label>
-            <input type="text" value={schoolName} onChange={e => setSchoolName(e.target.value)}
-              className="w-full bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] focus:outline-none focus:border-neutral-500" />
-          </div>
-          <div className="col-span-2">
-            {error && <p className="text-[#e0605a] text-xs mb-3">{error}</p>}
-            <button type="submit" disabled={submitting} className="bg-[#3f6428] hover:bg-[#4d7a32] disabled:opacity-40 text-[#ede4d3] font-bold px-6 py-2 rounded-lg transition-colors">
-              {submitting ? 'Adding...' : '➕ Add Classmate'}
-            </button>
-          </div>
-        </form>
+      <div className="mb-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <StatTile label="Accounts" icon={Users} value={counts.all.toLocaleString()} hint={account.status === 'admin' ? 'All account types' : 'Sign in to see all'} loading={!classmates} />
+        <StatTile label="Parent-linked" icon={Link2} value={counts.linked.toLocaleString()} hint={counts.linked + counts.unlinked ? `${Math.round((counts.linked / (counts.linked + counts.unlinked)) * 100)}% of registered kids` : undefined} loading={!classmates} />
+        <StatTile label="Unlinked" icon={Link2Off} value={counts.unlinked.toLocaleString()} hint="Self-registered, no parent" loading={!classmates} />
+        <StatTile label="Inactive" icon={UserX} value={counts.inactive.toLocaleString()} hint="Can't sign in" loading={!classmates} />
       </div>
 
-      {/* Parent-registered children note / login gate */}
-      {userEmail === null && (
-        <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 mb-6">
-          <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-3">Parent-Registered Children</p>
-          <p className="text-[#8a7c66] text-sm mb-4">Sign in with the admin account to also see and manage parent-registered children here.</p>
-          <form onSubmit={handleLogin} className="max-w-sm space-y-3">
-            <input type="email" placeholder="Admin email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}
-              className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]" required />
-            <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
-              className="w-full rounded-lg bg-neutral-950 border border-[#3d3225] px-3 py-2 text-sm text-[#ede4d3]" required />
-            {loginError && <p className="text-[#e0605a] text-xs">{loginError}</p>}
-            <button type="submit" disabled={loggingIn} className="w-full rounded-lg bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-[#ede4d3] font-bold py-2.5">
-              {loggingIn ? 'Logging in…' : 'Log In'}
-            </button>
+      {showAdd && (
+        <Card title="Add classmate" description="Legacy classmate accounts sign in with a username and password." className="mb-4">
+          <form onSubmit={handleAdd} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field label="Full name" className="sm:col-span-2">
+              <Input placeholder="e.g. Juan Dela Cruz" value={fullName} onChange={e => handleFullNameChange(e.target.value)} />
+            </Field>
+            <Field label="Username (login)">
+              <Input mono placeholder="FirstNameLastname" value={username} onChange={e => { setUsername(e.target.value); setUsernameTouched(true); }} />
+            </Field>
+            <Field label="Password">
+              <Input mono placeholder="Set their password" value={newPassword} onChange={e => setNewPassword(e.target.value)} />
+            </Field>
+            <Field label="Grade">
+              <Select value={grade} onChange={e => setGrade(e.target.value)}>
+                {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
+              </Select>
+            </Field>
+            <Field label="Character" group>
+              <Segmented ariaLabel="Character" value={gender} onChange={setGender}
+                options={[{ value: 'boy', label: 'Boy' }, { value: 'girl', label: 'Girl' }]} />
+            </Field>
+            <Field label="School" className="sm:col-span-2">
+              <Input value={schoolName} onChange={e => setSchoolName(e.target.value)} />
+            </Field>
+            <div className="sm:col-span-2 flex items-center gap-3">
+              <Button type="submit" variant="primary" disabled={submitting}>{submitting ? 'Adding...' : 'Add classmate'}</Button>
+              {error && <p className="text-xs text-[var(--a-critical)]">{error}</p>}
+            </div>
           </form>
+        </Card>
+      )}
+
+      {account.status === 'signed_out' && (
+        <div className="mb-4">
+          <AdminSignInCard purpose="also see and manage parent-registered children" onSignedIn={account.refresh} />
         </div>
       )}
-      {userEmail && userEmail !== ADMIN_EMAIL && (
-        <p className="text-[#8a7c66] text-sm mb-6">Signed in as {userEmail}, which isn&apos;t the admin account, so parent-registered children aren&apos;t shown.</p>
-      )}
-      {childrenError && <p className="text-[#e0605a] text-sm mb-4">{childrenError}</p>}
+      {account.status === 'wrong_account' && <div className="mb-4"><WrongAccountNotice email={account.email} /></div>}
+      {childrenError && <div className="mb-4"><ErrorBanner message={childrenError} onRetry={reload} /></div>}
 
-      {/* Filters */}
-      <div className="flex gap-3 mb-4">
-        <select value={schoolFilter} onChange={e => setSchoolFilter(e.target.value)}
-          className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]">
-          <option value="All">All Schools</option>
+      <div className="mb-3 flex flex-wrap items-center gap-3">
+        <SearchInput value={search} onChange={resetPage(setSearch)} placeholder="Search name, username or parent email" className="min-w-[240px] flex-1" />
+        <Segmented
+          ariaLabel="Account type"
+          value={kind}
+          onChange={resetPage(setKind)}
+          options={[
+            { value: 'all', label: `All ${counts.all}` },
+            { value: 'linked', label: `Linked ${counts.linked}` },
+            { value: 'unlinked', label: `Unlinked ${counts.unlinked}` },
+            { value: 'classmate', label: `Classmates ${counts.classmate}` },
+          ]}
+        />
+      </div>
+      <div className="mb-3 flex flex-wrap items-center gap-3">
+        <Select value={schoolFilter} onChange={e => resetPage(setSchoolFilter)(e.target.value)} aria-label="School" className="w-auto max-w-[320px]">
+          <option value="All">All schools</option>
           {schools.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
-        <select value={gradeFilter} onChange={e => setGradeFilter(e.target.value)}
-          className="bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-2 text-sm text-[#ede4d3]">
-          <option value="All">All Grades</option>
+        </Select>
+        <Select value={gradeFilter} onChange={e => resetPage(setGradeFilter)(e.target.value)} aria-label="Grade" className="w-auto">
+          <option value="All">All grades</option>
           {GRADES.map(g => <option key={g} value={g}>{g}</option>)}
-        </select>
+        </Select>
+        <Select value={activeFilter} onChange={e => resetPage(setActiveFilter)(e.target.value as typeof activeFilter)} aria-label="Status" className="w-auto">
+          <option value="all">Active and inactive</option>
+          <option value="active">Active only</option>
+          <option value="inactive">Inactive only</option>
+        </Select>
+        <span className="ml-auto text-xs text-[var(--a-muted)]">{filtered.length.toLocaleString()} shown</span>
       </div>
 
-      {/* List */}
-      {loading ? (
-        <p className="text-[#8a7c66] text-sm animate-pulse">Loading...</p>
-      ) : grouped.size === 0 ? (
-        <p className="text-gray-600 text-sm">No children match these filters.</p>
+      {!classmates ? (
+        <Skeleton className="h-64 w-full" />
       ) : (
-        Array.from(grouped.entries()).map(([school, byGrade]) => (
-          <div key={school} className="mb-6">
-            <p className="text-sm font-bold text-indigo-300 mb-3">{school}</p>
-            {Array.from(byGrade.entries()).sort(([a], [b]) => a.localeCompare(b)).map(([gradeName, list]) => (
-              <div key={gradeName} className="mb-4">
-                <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-2">{gradeName} · {list.length}</p>
-                <div className="space-y-2">
-                  {list.map(p => p.source === 'classmate' ? (
-                    <div key={`classmate-${p.data.id}`} className="bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-[#ede4d3] font-medium text-sm">{p.data.full_name} <span className="text-gray-600 text-xs font-normal">· classmate</span></p>
-                          <p className="text-xs text-[#8a7c66] font-mono">{p.data.username}</p>
+        <>
+          <Table minWidth={980}>
+            <thead>
+              <tr>
+                <Th>Child</Th>
+                <Th>Grade</Th>
+                <Th>School</Th>
+                <Th>Account</Th>
+                <Th>Joined</Th>
+                <Th>Active</Th>
+                <Th align="right">Actions</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {pageRows.length === 0 && (
+                <tr><Td colSpan={7} className="py-10 text-center text-[var(--a-muted)]">No children match these filters.</Td></tr>
+              )}
+              {pageRows.map((p) => {
+                const k = kindOf(p);
+                const open = panel?.id === p.data.id ? panel.kind : null;
+                return (
+                  <Fragment key={`${p.source}-${p.data.id}`}>
+                    <tr className="hover:bg-[var(--a-surface-2)]/60">
+                      <Td>
+                        <p className="font-medium text-[var(--a-ink)]">{p.data.full_name}</p>
+                        <p className="font-mono text-xs text-[var(--a-muted)]">@{p.data.username}</p>
+                      </Td>
+                      <Td className="whitespace-nowrap">{p.data.grade}</Td>
+                      <Td className="max-w-[240px]"><span className="line-clamp-2 text-xs">{p.data.school_name || 'Not set'}</span></Td>
+                      <Td>
+                        <Badge tone={KIND_BADGE[k].tone}>{KIND_BADGE[k].label}</Badge>
+                        {p.source === 'child' && p.data.parent_email && (
+                          <p className="mt-1 max-w-[220px] truncate text-xs text-[var(--a-muted)]">{p.data.parent_email}</p>
+                        )}
+                      </Td>
+                      <Td className="whitespace-nowrap text-xs">{p.source === 'child' ? fmtDate(p.data.created_at) : '-'}</Td>
+                      <Td>
+                        <Switch
+                          checked={p.data.is_active}
+                          disabled={busyId === p.data.id}
+                          label={p.data.is_active ? 'On' : 'Off'}
+                          onChange={() => p.source === 'classmate'
+                            ? updateClassmate(p.data, { isActive: !p.data.is_active }, p.data.is_active ? 'deactivated' : 'activated')
+                            : handleToggleChildActive(p.data)}
+                        />
+                      </Td>
+                      <Td align="right">
+                        <div className="flex justify-end gap-2">
+                          {p.source === 'classmate' ? (
+                            <>
+                              <Button size="sm" variant="ghost" disabled={busyId === p.data.id} title="Switch character sprite"
+                                onClick={() => updateClassmate(p.data, { gender: p.data.gender === 'girl' ? 'boy' : 'girl' }, 'character switched')}>
+                                {p.data.gender === 'girl' ? 'Girl' : 'Boy'}
+                              </Button>
+                              <Button size="sm" icon={KeyRound} onClick={() => openPanel('reset', p.data.id)}>Reset password</Button>
+                            </>
+                          ) : p.data.parent_id ? (
+                            <Button size="sm" icon={Repeat} onClick={() => openPanel('reassign', p.data.id)}>Reassign parent</Button>
+                          ) : null}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <button onClick={() => handleToggleGender(p.data)}
-                            className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors" title="Toggle sprite gender">
-                            {p.data.gender === 'girl' ? '👧 Girl' : '👦 Boy'}
-                          </button>
-                          <button onClick={() => { setResetTargetId(resetTargetId === p.data.id ? null : p.data.id); setResetPassword(''); }}
-                            className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
-                            🔑 Reset Password
-                          </button>
-                          <button onClick={() => handleToggleActive(p.data)}
-                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f] hover:bg-[#4a0e0c]/50 hover:text-[#e0605a] hover:border-[#6e1512]' : 'bg-[#2a2119] text-[#8a7c66] border border-[#3d3225] hover:bg-[#223616]/50 hover:text-[#7fae52]'}`}>
-                            {p.data.is_active ? '✅ Active' : '⛔ Inactive'}
-                          </button>
-                        </div>
-                      </div>
-                      {resetTargetId === p.data.id && (
-                        <div className="mt-3 flex gap-2">
-                          <input type="text" placeholder="New password" value={resetPassword} onChange={e => setResetPassword(e.target.value)}
-                            className="flex-1 bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm font-mono focus:outline-none focus:border-neutral-500" />
-                          <button onClick={() => handleResetPassword(p.data)}
-                            className="bg-[#a8620f] hover:bg-[#c9781a] text-[#ede4d3] text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
-                            Save
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <div key={`child-${p.data.id}`} className="bg-neutral-950 border border-[#2a2119] rounded-lg px-4 py-3">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="text-[#ede4d3] font-medium text-sm">
-                            {p.data.full_name}{' '}
-                            <span className="text-gray-600 text-xs font-normal">
-                              · {p.data.parent_id ? 'parent-registered' : 'self-registered, unlinked'}
-                            </span>
+                      </Td>
+                    </tr>
+                    {open === 'reset' && p.source === 'classmate' && (
+                      <tr>
+                        <Td colSpan={7} className="bg-[var(--a-surface-2)]/50">
+                          <div className="flex flex-wrap items-end gap-3">
+                            <Field label={`New password for ${p.data.full_name}`} className="min-w-[240px] flex-1">
+                              <Input mono value={resetPassword} onChange={e => setResetPassword(e.target.value)} autoFocus />
+                            </Field>
+                            <Button variant="primary" disabled={!resetPassword.trim() || busyId === p.data.id} onClick={() => handleResetPassword(p.data)}>Save password</Button>
+                            <Button variant="ghost" onClick={() => setPanel(null)}>Cancel</Button>
+                          </div>
+                        </Td>
+                      </tr>
+                    )}
+                    {open === 'reassign' && p.source === 'child' && (
+                      <tr>
+                        <Td colSpan={7} className="bg-[var(--a-surface-2)]/50">
+                          <p className="mb-3 max-w-2xl text-xs text-[var(--a-muted)]">
+                            Moves this child to a different, already-registered parent account. Takes effect in 48 hours:
+                            the current parent gets a cancel link and the new parent gets a heads-up. A written reason is
+                            required for the audit trail.
                           </p>
-                          <p className="text-xs text-[#8a7c66] font-mono">
-                            {p.data.username}{' '}
-                            {p.data.parent_id
-                              ? `· parent: ${p.data.parent_email}`
-                              : <span className="text-amber-500">· no parent linked yet</span>}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg bg-[#2a2119]">
-                            {p.data.gender === 'girl' ? '👧 Girl' : '👦 Boy'}
-                          </span>
-                          {p.data.parent_id && (
-                            <button onClick={() => {
-                              setReassignTargetId(reassignTargetId === p.data.id ? null : p.data.id);
-                              setReassignEmail(''); setReassignReason(''); setReassignMessage('');
-                            }}
-                              className="bg-[#2a2119] hover:bg-[#3d3225] text-[#ede4d3] text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
-                              🔁 Reassign Parent
-                            </button>
-                          )}
-                          <button onClick={() => handleToggleChildActive(p.data)}
-                            className={`text-xs font-bold px-3 py-1.5 rounded-lg transition-colors ${p.data.is_active ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f] hover:bg-[#4a0e0c]/50 hover:text-[#e0605a] hover:border-[#6e1512]' : 'bg-[#2a2119] text-[#8a7c66] border border-[#3d3225] hover:bg-[#223616]/50 hover:text-[#7fae52]'}`}>
-                            {p.data.is_active ? '✅ Active' : '⛔ Inactive'}
-                          </button>
-                        </div>
-                      </div>
-                      {reassignTargetId === p.data.id && (
-                        <div className="mt-3 space-y-2 border-t border-[#2a2119] pt-3">
-                          <p className="text-xs text-[#8a7c66]">
-                            Moves this child to a different (already-registered) parent account. Takes effect in
-                            48 hours — the current parent gets a cancel link, the new parent gets a heads-up.
-                            Requires a written reason for the audit trail.
-                          </p>
-                          <input type="email" placeholder="New parent's email (must already have an account)"
-                            value={reassignEmail} onChange={e => setReassignEmail(e.target.value)}
-                            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm focus:outline-none focus:border-neutral-500" />
-                          <input type="text" placeholder="Reason (required, e.g. support ticket #)"
-                            value={reassignReason} onChange={e => setReassignReason(e.target.value)}
-                            className="w-full bg-[#1c1611] border border-[#3d3225] rounded-lg px-3 py-1.5 text-[#ede4d3] text-sm focus:outline-none focus:border-neutral-500" />
-                          {reassignMessage && <p className="text-xs">{reassignMessage}</p>}
-                          <button onClick={() => handleReassign(p.data)} disabled={reassignSubmitting}
-                            className="bg-amber-700 hover:bg-amber-600 disabled:opacity-40 text-[#ede4d3] text-xs font-bold px-4 py-1.5 rounded-lg transition-colors">
-                            {reassignSubmitting ? 'Requesting…' : 'Request Reassignment'}
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))
+                          <div className="grid gap-3 sm:grid-cols-2">
+                            <Field label="New parent's email">
+                              <Input type="email" placeholder="Must already have an account" value={reassignEmail} onChange={e => setReassignEmail(e.target.value)} autoFocus />
+                            </Field>
+                            <Field label="Reason">
+                              <Input placeholder="e.g. support ticket number" value={reassignReason} onChange={e => setReassignReason(e.target.value)} />
+                            </Field>
+                          </div>
+                          <div className="mt-3 flex gap-2">
+                            <Button variant="primary" disabled={reassignSubmitting || !reassignEmail.trim() || !reassignReason.trim()} onClick={() => handleReassign(p.data)}>
+                              {reassignSubmitting ? 'Requesting...' : 'Request reassignment'}
+                            </Button>
+                            <Button variant="ghost" onClick={() => setPanel(null)}>Cancel</Button>
+                          </div>
+                        </Td>
+                      </tr>
+                    )}
+                  </Fragment>
+                );
+              })}
+            </tbody>
+          </Table>
+          <Pagination page={page} pageSize={PAGE_SIZE} total={filtered.length} onPage={setPage} />
+        </>
       )}
     </div>
   );
