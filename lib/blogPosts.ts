@@ -3132,6 +3132,77 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'learning-hall-scsses-faculty-presentation',
+    title: 'Learning Hall Presents to the Faculty of Surigao City Special Science Elementary School',
+    description:
+      'On October 2, 2026, Learning Hall PH presented its free MATATAG-based learning game to the SCSSES faculty. Teachers tried it on the spot and agreed to share it with pupils and parents ahead of a school-wide start on October 5.',
+    guildKey: 'resources',
+    guildName: 'Resources',
+    skill: 'Resources',
+    grade: 'all',
+    publishedAt: '2026-10-04',
+    updatedAt: '2026-10-04',
+    intro:
+      'SURIGAO CITY, October 4, 2026. Learning Hall PH, a free web-based learning game for Grades 2 to 6, presented to the faculty of Surigao City Special Science Elementary School (SCSSES) on Friday, October 2. It was our first time presenting to a group of teachers. The session ran about 20 minutes plus open Q&A, and by the end the faculty had agreed to recommend Learning Hall to their pupils and parents. SCSSES pupils start using it school-wide on Monday, October 5.',
+    sections: [
+      {
+        heading: 'What we showed',
+        paragraphs: [
+          "Learning Hall turns each week's lessons into quests and quizzes that pupils play through as a game, with battles, collectible creatures called curios, and daily streaks. The content is generated from the MATATAG curriculum and paced to the school calendar, so what a Grade 4 pupil sees this week lines up with what Grade 4 is covering this week.",
+          "We walked the faculty through a pupil's day in the game, from the weekly board to a quiz and a battle. We also showed the parent dashboard, where a parent can follow their child's progress and daily streaks. We covered the safety side too: children log in with a 4-digit PIN and no email address, and sensitive Science topics are deliberately softened and left to parents' discretion.",
+        ],
+      },
+      {
+        heading: 'Teachers tried it on the spot',
+        paragraphs: [
+          "The part we liked best came after the slides. Several teachers made accounts during the session and played quests for the grade levels they teach, from Grade 2 up to Grade 6. Seeing the game through a teacher's eyes, on the questions for their own grade, told us more than any slide could.",
+          "One thing didn't go smoothly. Once a room full of people tried to sign up at the same time on the school Wi-Fi, they ran into a safety limit we had set on how many accounts can be created from one internet connection. That limit was built to stop spam. It wasn't built for a school, where everyone shares one connection. We raised it that same evening, so pupils signing up from school won't hit it.",
+        ],
+      },
+      {
+        heading: 'What the faculty agreed to',
+        paragraphs: [
+          'The feedback from the faculty was good, and the teachers agreed to the following:',
+          '1. Tell their pupils and parents about Learning Hall, and post QR code posters in classrooms that link straight to the sign-up page.',
+          "2. Fill out a short feedback survey after one month of active pupil use. A few randomly chosen pupils per class will also answer a short anonymous survey, in English with Filipino. That way we hear what's working, and what isn't, from the people using it.",
+          'On our side, we are preparing a sticker giveaway for SCSSES pupils and a special curio available only to SCSSES players to mark the launch.',
+        ],
+      },
+      {
+        heading: 'A word from the founder',
+        paragraphs: [
+          '"Learning Hall started as a small home project. I never planned to share it. Standing in front of teachers was a different kind of test, because they know what a good lesson looks like better than anyone. I\'m grateful they gave it twenty minutes of a Friday afternoon and then actually tried it. It\'s a supplementary tool, not a replacement for what they do in class. If it helps pupils keep pace with the lessons at home, that\'s the whole point. We\'ll be listening closely this first month," said Rowil Ruelo, founder of Learning Hall PH.',
+        ],
+      },
+      {
+        heading: 'For SCSSES parents',
+        paragraphs: [
+          "Your child can sign up at learninghallph.com without an email address. They just need a username and a 4-digit PIN. Then link your own parent account so you can follow their progress from the parent dashboard. A child's first account is free forever. Premium, at ₱249 a year, adds slots for siblings, journal viewing and coin rewards.",
+          'Learning Hall runs in any phone, tablet or computer browser, and you can install it as an app icon (see our install guide below). If anything doesn\'t work, email us at tatay@learninghallph.com. We read every message.',
+        ],
+      },
+      {
+        heading: 'About Learning Hall PH',
+        paragraphs: [
+          'Learning Hall PH is a learning game for Filipino Grade 2 to 6 pupils, built in Surigao City by Rowil Ruelo and co-founder Raphaelle Julien Ruelo. It turns the weekly MATATAG lessons into quests, quizzes and battles, and gives parents a dashboard to follow along. Learning Hall is free to start at learninghallph.com.',
+          'Media and school inquiries: tatay@learninghallph.com',
+        ],
+      },
+    ],
+    takeaways: [
+      'Learning Hall PH presented to the Surigao City Special Science Elementary School faculty on October 2, 2026, its first presentation to teachers.',
+      'Teachers made accounts and played quests for Grades 2 to 6 during the session.',
+      'The faculty agreed to share Learning Hall with pupils and parents, post sign-up QR codes in classrooms, and give feedback after one month.',
+      'SCSSES pupils start using Learning Hall school-wide on Monday, October 5, 2026.',
+    ],
+    externalLinks: [
+      { label: 'Sign up as a pupil', url: '/child-signup' },
+      { label: 'Create a parent account', url: '/register' },
+      { label: 'How to install Learning Hall on a phone or computer', url: '/blog/how-to-install-learning-hall-phone-computer' },
+      { label: 'See the full curriculum, grade by grade', url: '/curriculum' },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
