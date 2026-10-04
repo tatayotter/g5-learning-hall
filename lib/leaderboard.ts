@@ -215,8 +215,9 @@ export interface ReactionCounts {
   [toUserId: string]: number;
 }
 
-// Read-only aggregate — RLS on leaderboard_reactions allows select to everyone
-// (small trusted family/classmate roster), same pattern as user_completed_questions.
+// Read-only aggregate — RLS on leaderboard_reactions allows select to any
+// signed-in player, but only on to_user_id/emoji/created_at (from_user_id is
+// column-revoked), so select just to_user_id here, never '*'.
 export async function fetchReactionCounts(): Promise<ReactionCounts> {
   const { data } = await supabase.from('leaderboard_reactions').select('to_user_id');
   const counts: ReactionCounts = {};
