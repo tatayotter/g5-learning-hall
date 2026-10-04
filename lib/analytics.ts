@@ -5,6 +5,7 @@
 import { supabase } from '@/lib/supabase';
 import { getActiveUser, USERS } from '@/lib/userSession';
 import { isIosDevice, isRunningInstalled } from '@/lib/installPrompt';
+import { getNativeAppBuild, isNativeApp } from '@/lib/platform';
 
 const SESSION_STORAGE_KEY = 'g5_analytics_session_id';
 const ATTRIBUTION_STORAGE_KEY = 'g5_analytics_attribution';
@@ -62,24 +63,37 @@ export function getStoredAttribution(): Record<string, string> {
 }
 
 // How this session was launched, stamped on every event so retention can be
-// split by it: 'browser' (a tab), 'installed' (home-screen web app), or 'twa'
-// (the Android app, a Trusted Web Activity — also standalone, told apart by
-// its android-app:// referrer, which only exists on the launch page load, so
-// it's resolved once and pinned for the session).
-type DisplayMode = 'browser' | 'installed' | 'twa';
+// split by it: 'browser' (a tab), 'installed' (home-screen web app), or 'app'
+// (the Google Play app, a Capacitor WebView). Resolved once and pinned for the
+// session. Rows before 2026-10-05 have 'twa' instead of 'app': that came from
+// an android-app:// referrer check, which the Capacitor app never sends — it
+// actually caught links opened from other Android apps (Facebook, Gmail), so
+// read old 'twa' rows as 'browser'.
+type DisplayMode = 'browser' | 'installed' | 'app';
 type Device = 'android' | 'ios' | 'desktop';
+type LaunchContext = { display_mode: DisplayMode; device: Device; app_build?: string };
 
-function getLaunchContext(): { display_mode: DisplayMode; device: Device } | Record<string, never> {
+function getLaunchContext(): LaunchContext | Record<string, never> {
   if (typeof window === 'undefined') return {};
   try {
     const cached = sessionStorage.getItem(LAUNCH_CONTEXT_STORAGE_KEY);
     if (cached) return JSON.parse(cached);
-    const display_mode: DisplayMode = document.referrer.startsWith('android-app://')
-      ? 'twa'
+    const display_mode: DisplayMode = isNativeApp()
+      ? 'app'
       : isRunningInstalled() ? 'installed' : 'browser';
     const device: Device = isIosDevice() ? 'ios' : /android/i.test(navigator.userAgent) ? 'android' : 'desktop';
-    const context = { display_mode, device };
+    const context: LaunchContext = { display_mode, device };
     sessionStorage.setItem(LAUNCH_CONTEXT_STORAGE_KEY, JSON.stringify(context));
+    // The app's versionCode is async — fold it into the pinned context once
+    // known, so later events say which native shell the player is on.
+    if (display_mode === 'app') {
+      void getNativeAppBuild().then((app_build) => {
+        if (!app_build) return;
+        try {
+          sessionStorage.setItem(LAUNCH_CONTEXT_STORAGE_KEY, JSON.stringify({ ...context, app_build }));
+        } catch {}
+      });
+    }
     return context;
   } catch {
     return {};
