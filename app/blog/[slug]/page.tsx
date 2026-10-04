@@ -164,11 +164,17 @@ export default async function BlogPostPage({
                     />
                   </div>
                   <p className="text-[10px] text-[#948975] mt-1.5 text-right">
-                    Photo by{' '}
-                    <a href={photo.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#5c5245]">
-                      {photo.credit.name}
-                    </a>{' '}
-                    on {photo.credit.source}
+                    {photo.credit.source === 'Learning Hall PH' ? (
+                      'Photo: Learning Hall PH'
+                    ) : (
+                      <>
+                        Photo by{' '}
+                        <a href={photo.credit.sourceUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-[#5c5245]">
+                          {photo.credit.name}
+                        </a>{' '}
+                        on {photo.credit.source}
+                      </>
+                    )}
                   </p>
                 </div>
               );
@@ -218,6 +224,25 @@ export default async function BlogPostPage({
                   {paragraph}
                 </p>
               ))}
+              {section.image && (
+                <figure className="mt-5">
+                  <Image
+                    src={section.image.url}
+                    alt={section.image.alt}
+                    width={section.image.width}
+                    height={section.image.height}
+                    sizes="(max-width: 672px) 100vw, 672px"
+                    className={`block h-auto rounded-xl border border-[#eee3ce] shadow-sm ${
+                      section.image.height > section.image.width ? 'w-full max-w-sm mx-auto' : 'w-full'
+                    }`}
+                  />
+                  {section.image.caption && (
+                    <figcaption className="text-xs text-[#948975] mt-2 text-center">
+                      {section.image.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
           ))}
 
