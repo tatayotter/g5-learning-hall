@@ -27,10 +27,12 @@ export const getAllPosts = unstable_cache(
       .order('published_at', { ascending: false })
       .range(0, 999);
     if (error) {
-      // Don't take the whole site down over the blog. An empty list renders the listing pages
-      // and 404s posts; the next revalidation retries.
+      // Throw rather than return []: unstable_cache would store an empty list for the whole
+      // revalidate window, emptying the blog and 404ing every post. A throw caches nothing, so
+      // ISR keeps serving the last good render, a build fails instead of shipping an empty blog,
+      // and the next request retries.
       console.error('[blog] failed to load posts:', error.message);
-      return [];
+      throw new Error(`[blog] failed to load posts: ${error.message}`);
     }
     return sortNewestFirst((data ?? []).map(rowToPost));
   },
