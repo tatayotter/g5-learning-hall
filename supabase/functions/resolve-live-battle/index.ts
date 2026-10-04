@@ -138,9 +138,10 @@ Deno.serve(async (req: Request) => {
       // wrote a player_log entry claiming "+50 Gold" (an append-only activity
       // log, not a mutable balance) without ever touching the real balance,
       // so a live PvP win never actually paid out despite the toast/log
-      // saying it did. apply_progress_deltas trusts p_user_id directly (no
-      // auth.uid() check inside), which is safe here since winnerId is
-      // already constrained to one of this battle's two validated
+      // saying it did. apply_progress_deltas lets service-role calls past its
+      // "own account only" check and its daily player cap
+      // (20261004180000_daily_reward_caps), which is safe here since winnerId
+      // is already constrained to one of this battle's two validated
       // participants above.
       if (goldReward > 0) {
         await admin.rpc('apply_progress_deltas', { p_user_id: winnerId, p_xp_delta: 0, p_gold_delta: goldReward });
