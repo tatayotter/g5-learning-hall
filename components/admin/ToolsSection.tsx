@@ -49,14 +49,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       .eq('week_starting_date', currentSunday)
       .maybeSingle();
     if (week) {
-      const { data } = await supabase
-        .from('player_weekly_journal')
-        .select('*')
-        .eq('user_id', id)
-        .eq('content_week_id', week.id)
-        .maybeSingle();
-      if (data) {
-        setToolData(data as WeeklyData);
+      const journalResult = await callAdminApi<{ journal: WeeklyData | null }>('/api/admin-weekly', {
+        passcode, action: 'get_weekly_journal', userId: id, contentWeekId: week.id,
+      });
+      if (journalResult.journal) {
+        setToolData(journalResult.journal);
       }
     }
     const { data: claimsData } = await supabase
