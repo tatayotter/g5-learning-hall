@@ -2,82 +2,93 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { callAdminApi } from '@/lib/adminApi';
+import { Badge, Button, Card, Field, Input, PageHeader, Skeleton, Switch, useToast } from '@/components/admin/ui';
 
 // Site-wide settings that apply across the whole app, not just one grade/week/user — currently
 // just the Facebook Pixel ID. Read is a plain public-table select (public.app_settings has an
 // open SELECT policy — see the migration); write goes through admin-app-settings, which is
 // passcode-gated the same way as every other admin action.
+//
+// The pixel switch is "loaded on every page or not": off saves an empty ID (the pixel stops
+// loading), on saves whatever ID is in the field. The field keeps the last ID while this page
+// is open so switching back on doesn't need it retyped.
 export default function SiteSettingsSection({ passcode }: { passcode: string }) {
+  const toast = useToast();
   const [pixelId, setPixelId] = useState('');
   const [savedPixelId, setSavedPixelId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    (async () => {
-      const { data } = await supabase.from('app_settings').select('facebook_pixel_id').eq('id', 1).maybeSingle();
+    let cancelled = false;
+    supabase.from('app_settings').select('facebook_pixel_id').eq('id', 1).maybeSingle().then(({ data }) => {
+      if (cancelled) return;
       const id = data?.facebook_pixel_id || '';
       setPixelId(id);
       setSavedPixelId(id || null);
       setLoading(false);
-    })();
+    });
+    return () => { cancelled = true; };
   }, []);
 
-  const handleSave = async () => {
+  const save = async (value: string) => {
     setSaving(true);
-    const result = await callAdminApi('/api/admin-app-settings', {
-      passcode,
-      action: 'set_facebook_pixel_id',
-      pixelId: pixelId.trim(),
-    });
+    const result = await callAdminApi('/api/admin-app-settings', { passcode, action: 'set_facebook_pixel_id', pixelId: value });
     setSaving(false);
     if (!result.success) {
-      alert(`❌ ${result.error || 'Failed to save Facebook Pixel ID.'}`);
+      toast(result.error || 'Failed to save the Facebook Pixel ID.', 'error');
       return;
     }
-    setSavedPixelId(pixelId.trim() || null);
-    alert(pixelId.trim() ? '✅ Facebook Pixel saved — it will load on every page.' : '✅ Facebook Pixel cleared.');
+    setSavedPixelId(value || null);
+    toast(value ? 'Facebook Pixel is on. It loads on every page.' : 'Facebook Pixel is off.');
   };
+
+  const trimmed = pixelId.trim();
+  const enabled = !!savedPixelId;
+  const dirty = enabled && trimmed !== savedPixelId;
+  const validId = /^\d{6,20}$/.test(trimmed);
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Site Settings</h2>
-      <p className="text-[#8a7c66] text-sm mb-6">App-wide settings that apply across every page.</p>
+      <PageHeader title="Site settings" description="App-wide settings that apply across every page." />
 
-      <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5 max-w-xl">
-        <div className="flex items-center justify-between mb-4">
-          <p className="text-xs text-[#8a7c66] uppercase tracking-widest">📘 Facebook Pixel</p>
-          {savedPixelId ? (
-            <span className="text-xs font-bold text-[#7fae52] bg-[#223616]/40 border border-[#33501f] px-2 py-0.5 rounded-full">Active</span>
-          ) : (
-            <span className="text-xs font-bold text-[#8a7c66] bg-[#2a2119] border border-[#3d3225] px-2 py-0.5 rounded-full">Not Set</span>
-          )}
-        </div>
-        <p className="text-[#8a7c66] text-xs mb-3">
-          Paste your Pixel ID (the numeric ID from Meta Events Manager — not the full script). Once saved,
-          it loads automatically on every page of the app and site, and tracks a PageView on every navigation.
-        </p>
+      <Card
+        className="max-w-2xl"
+        title="Facebook Pixel"
+        description="Meta's tracking pixel for ad reporting. Loads on every page and records a page view on each navigation."
+        actions={loading ? undefined : <Badge tone={enabled ? 'good' : 'neutral'}>{enabled ? 'On' : 'Off'}</Badge>}
+      >
         {loading ? (
-          <p className="text-gray-600 text-sm animate-pulse">Loading...</p>
+          <Skeleton className="h-24 w-full" />
         ) : (
-          <div className="flex gap-3">
-            <input
-              type="text"
-              placeholder="Insert Facebook Pixel ID here (e.g. 1234567890123456)"
-              value={pixelId}
-              onChange={e => setPixelId(e.target.value)}
-              className="flex-1 bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500"
+          <div className="space-y-5">
+            <Switch
+              checked={enabled}
+              disabled={saving || (!enabled && !validId)}
+              onChange={(on) => save(on ? trimmed : '')}
+              label="Load the pixel on every page"
+              description={!enabled && !validId ? 'Enter a Pixel ID below to turn this on.' : 'Turning it off stops the pixel loading straight away.'}
             />
-            <button
-              onClick={handleSave}
-              disabled={saving}
-              className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-40 text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
-            >
-              {saving ? 'Saving...' : 'Save'}
-            </button>
+            <Field label="Pixel ID" hint="The numeric ID from Meta Events Manager, not the full script.">
+              <div className="flex gap-2">
+                <Input
+                  mono
+                  inputMode="numeric"
+                  placeholder="e.g. 1234567890123456"
+                  value={pixelId}
+                  onChange={(e) => setPixelId(e.target.value)}
+                />
+                {enabled && (
+                  <Button variant="primary" disabled={saving || !dirty || !validId} onClick={() => save(trimmed)}>
+                    {saving ? 'Saving...' : 'Save'}
+                  </Button>
+                )}
+              </div>
+            </Field>
+            {trimmed && !validId && <p className="text-xs text-[var(--a-serious)]">A Pixel ID is digits only.</p>}
           </div>
         )}
-      </div>
+      </Card>
     </div>
   );
 }

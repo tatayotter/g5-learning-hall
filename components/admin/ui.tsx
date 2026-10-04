@@ -6,8 +6,11 @@
 // remaps blue/gray/green/neutral/red/yellow to the game's dungeon palette.
 // Values come from the dataviz reference palette's dark mode, so charts and
 // chrome share one validated set.
-import type { CSSProperties, ReactNode } from 'react';
-import { TrendingDown, TrendingUp, type LucideIcon } from 'lucide-react';
+import {
+  createContext, useCallback, useContext, useRef, useState,
+  type CSSProperties, type InputHTMLAttributes, type ReactNode, type SelectHTMLAttributes, type TextareaHTMLAttributes,
+} from 'react';
+import { CircleAlert, CircleCheck, Search, TrendingDown, TrendingUp, X, type LucideIcon } from 'lucide-react';
 
 export const ADMIN_THEME = {
   '--a-page': '#0d0d0d',
@@ -251,5 +254,173 @@ export function ErrorBanner({ message, onRetry }: { message: string; onRetry?: (
       <span>{message}</span>
       {onRetry && <Button size="sm" onClick={onRetry}>Retry</Button>}
     </div>
+  );
+}
+
+/* ── Form fields ────────────────────────────────────────────────────────── */
+
+// No width here: Input/Textarea default to full width, Select only when the
+// caller doesn't size it (filter bars want natural-width selects).
+const fieldBase =
+  'rounded-lg border border-[var(--a-border-strong)] bg-[var(--a-page)] text-sm text-[var(--a-ink)] ' +
+  'placeholder:text-[var(--a-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--a-accent)] focus:border-transparent ' +
+  'disabled:opacity-50';
+
+/** `group` renders a div instead of a <label>, for button groups (a label
+ *  around several buttons would forward clicks on its text to the first). */
+export function Field({ label, hint, children, className, group }: {
+  label: string; hint?: ReactNode; children: ReactNode; className?: string; group?: boolean;
+}) {
+  const Tag = group ? 'div' : 'label';
+  return (
+    <Tag className={cx('block', className)} {...(group ? { role: 'group', 'aria-label': label } : {})}>
+      <span className="mb-1.5 block text-xs font-medium text-[var(--a-ink-2)]">{label}</span>
+      {children}
+      {hint && <span className="mt-1 block text-xs text-[var(--a-muted)]">{hint}</span>}
+    </Tag>
+  );
+}
+
+export function Input({ className, mono, ...rest }: InputHTMLAttributes<HTMLInputElement> & { mono?: boolean }) {
+  return <input {...rest} className={cx(fieldBase, 'h-9 w-full px-3', mono && 'font-mono', className)} />;
+}
+
+export function Select({ className, children, ...rest }: SelectHTMLAttributes<HTMLSelectElement>) {
+  return (
+    <select {...rest} className={cx(fieldBase, 'h-9 px-2.5 pr-8', /(^|\s)w-/.test(className ?? '') ? null : 'w-full', className)}>
+      {children}
+    </select>
+  );
+}
+
+export function Textarea({ className, ...rest }: TextareaHTMLAttributes<HTMLTextAreaElement>) {
+  return <textarea {...rest} className={cx(fieldBase, 'w-full px-3 py-2 resize-y', className)} />;
+}
+
+export function SearchInput({ value, onChange, placeholder = 'Search', className }: {
+  value: string; onChange: (v: string) => void; placeholder?: string; className?: string;
+}) {
+  return (
+    <div className={cx('relative', className)}>
+      <Search size={15} className="pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--a-muted)]" aria-hidden />
+      <input
+        type="search"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        aria-label={placeholder}
+        className={cx(fieldBase, 'h-9 w-full pl-8 pr-3')}
+      />
+    </div>
+  );
+}
+
+/* ── Table ──────────────────────────────────────────────────────────────── */
+
+export function Table({ children, minWidth = 720 }: { children: ReactNode; minWidth?: number }) {
+  return (
+    <div className="overflow-x-auto rounded-xl border border-[var(--a-border)] bg-[var(--a-surface)]">
+      <table className="w-full text-sm" style={{ minWidth }}>{children}</table>
+    </div>
+  );
+}
+
+export function Th({ children, align = 'left', className }: { children?: ReactNode; align?: 'left' | 'right' | 'center'; className?: string }) {
+  return (
+    <th
+      className={cx(
+        'whitespace-nowrap border-b border-[var(--a-border)] bg-[var(--a-surface-2)] px-4 py-2.5 text-xs font-medium text-[var(--a-muted)]',
+        align === 'right' ? 'text-right' : align === 'center' ? 'text-center' : 'text-left',
+        className,
+      )}
+    >
+      {children}
+    </th>
+  );
+}
+
+export function Td({ children, align = 'left', className, colSpan }: {
+  children?: ReactNode; align?: 'left' | 'right' | 'center'; className?: string; colSpan?: number;
+}) {
+  return (
+    <td
+      colSpan={colSpan}
+      className={cx(
+        'border-b border-[var(--a-border)] px-4 py-3 align-middle text-[var(--a-ink-2)]',
+        align === 'right' ? 'text-right' : align === 'center' ? 'text-center' : 'text-left',
+        className,
+      )}
+    >
+      {children}
+    </td>
+  );
+}
+
+/** "Showing 1-50 of 306" plus prev/next. */
+export function Pagination({ page, pageSize, total, onPage }: { page: number; pageSize: number; total: number; onPage: (p: number) => void }) {
+  if (total <= pageSize) return null;
+  const pages = Math.ceil(total / pageSize);
+  const from = page * pageSize + 1;
+  const to = Math.min(total, (page + 1) * pageSize);
+  return (
+    <div className="mt-3 flex items-center justify-between gap-3 text-xs text-[var(--a-muted)]">
+      <span>Showing {from.toLocaleString()} to {to.toLocaleString()} of {total.toLocaleString()}</span>
+      <div className="flex gap-2">
+        <Button size="sm" disabled={page === 0} onClick={() => onPage(page - 1)}>Previous</Button>
+        <Button size="sm" disabled={page >= pages - 1} onClick={() => onPage(page + 1)}>Next</Button>
+      </div>
+    </div>
+  );
+}
+
+/* ── Toasts ─────────────────────────────────────────────────────────────── */
+
+type ToastTone = 'success' | 'error' | 'info';
+interface ToastItem { id: number; tone: ToastTone; message: string }
+
+const ToastContext = createContext<(message: string, tone?: ToastTone) => void>(() => {});
+
+/** Replaces alert(): a short message in the corner that clears itself. */
+export function useToast() {
+  return useContext(ToastContext);
+}
+
+export function ToastProvider({ children }: { children: ReactNode }) {
+  const [toasts, setToasts] = useState<ToastItem[]>([]);
+  const nextId = useRef(0);
+  const dismiss = useCallback((id: number) => setToasts((t) => t.filter((x) => x.id !== id)), []);
+  const push = useCallback((message: string, tone: ToastTone = 'success') => {
+    const id = ++nextId.current;
+    setToasts((t) => [...t.slice(-3), { id, tone, message }]);
+    setTimeout(() => dismiss(id), tone === 'error' ? 7000 : 4000);
+  }, [dismiss]);
+
+  return (
+    <ToastContext.Provider value={push}>
+      {children}
+      <div className="pointer-events-none fixed bottom-4 right-4 z-[60] flex w-[min(360px,calc(100vw-2rem))] flex-col gap-2" aria-live="polite">
+        {toasts.map((t) => {
+          const Icon = t.tone === 'error' ? CircleAlert : CircleCheck;
+          return (
+            <div
+              key={t.id}
+              role={t.tone === 'error' ? 'alert' : 'status'}
+              className="pointer-events-auto flex items-start gap-2.5 rounded-lg border border-[var(--a-border-strong)] bg-[var(--a-surface-2)] px-3.5 py-3 text-sm text-[var(--a-ink)] shadow-xl"
+            >
+              <Icon
+                size={18}
+                className="mt-px shrink-0"
+                style={{ color: t.tone === 'error' ? 'var(--a-critical)' : t.tone === 'success' ? 'var(--a-good)' : 'var(--a-accent)' }}
+                aria-hidden
+              />
+              <span className="flex-1">{t.message}</span>
+              <button onClick={() => dismiss(t.id)} className="text-[var(--a-muted)] hover:text-[var(--a-ink)]" aria-label="Dismiss">
+                <X size={16} />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </ToastContext.Provider>
   );
 }

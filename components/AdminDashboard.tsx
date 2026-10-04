@@ -6,7 +6,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { WeeklyData } from '@/hooks/useWeeklyData';
-import { ADMIN_THEME, Button, cx } from '@/components/admin/ui';
+import { ADMIN_THEME, Button, cx, ToastProvider } from '@/components/admin/ui';
 import OverviewSection from '@/components/admin/OverviewSection';
 import WeeklyPackageBuilder from '@/components/admin/PackagesSection';
 import QuestionBankImporter from '@/components/admin/QuestionBankSection';
@@ -260,77 +260,79 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
     // Fixed-height frame with its own scroll column: page-level overflow
     // rules in globals.css would otherwise defeat a sticky sidebar.
     <div style={ADMIN_THEME} className="flex h-dvh overflow-hidden bg-[var(--a-page)] font-sans text-[var(--a-ink)]">
-      {/* Desktop sidebar */}
-      <aside className="hidden h-full w-60 shrink-0 border-r border-[var(--a-border)] bg-[var(--a-surface)] lg:block">
-        {sidebar}
-      </aside>
+      <ToastProvider>
+        {/* Desktop sidebar */}
+        <aside className="hidden h-full w-60 shrink-0 border-r border-[var(--a-border)] bg-[var(--a-surface)] lg:block">
+          {sidebar}
+        </aside>
 
-      {/* Mobile drawer */}
-      {navOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-[#000000]/60" onClick={() => setNavOpen(false)} aria-hidden />
-          <aside className="absolute inset-y-0 left-0 w-64 border-r border-[var(--a-border)] bg-[var(--a-surface)] shadow-2xl">
-            {sidebar}
-          </aside>
-        </div>
-      )}
-
-      <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-[var(--a-border)] bg-[var(--a-page)]/85 px-4 backdrop-blur lg:px-8">
-          <button
-            className="rounded-md p-1.5 text-[var(--a-ink-2)] hover:bg-[var(--a-surface-2)] lg:hidden"
-            onClick={() => setNavOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={20} />
-          </button>
-          <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1.5 text-sm">
-            <span className="text-[var(--a-muted)]">Admin</span>
-            <ChevronRight size={14} className="text-[var(--a-muted)]" aria-hidden />
-            <span className="hidden text-[var(--a-muted)] sm:inline">{activeGroup?.heading}</span>
-            <ChevronRight size={14} className="hidden text-[var(--a-muted)] sm:inline" aria-hidden />
-            <span className="truncate font-medium text-[var(--a-ink)]">{activeItem?.label}</span>
-          </nav>
-          <div className="ml-auto">
-            <Button size="sm" variant="ghost" icon={Lock} onClick={handleLock}>Lock</Button>
+        {/* Mobile drawer */}
+        {navOpen && (
+          <div className="fixed inset-0 z-50 lg:hidden">
+            <div className="absolute inset-0 bg-[#000000]/60" onClick={() => setNavOpen(false)} aria-hidden />
+            <aside className="absolute inset-y-0 left-0 w-64 border-r border-[var(--a-border)] bg-[var(--a-surface)] shadow-2xl">
+              {sidebar}
+            </aside>
           </div>
-        </header>
+        )}
 
-        <main className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 lg:px-8 lg:py-8">
-          {section === 'overview' && <OverviewSection passcode={password} />}
-          {section === 'packages' && (
-            <WeeklyPackageBuilder
-              currentData={currentData}
-              currentSunday={currentSunday}
-              onUpdateStats={onUpdateStats}
-              passcode={password}
-              onNavigateToDrafts={() => setSection('draft_questions')}
-            />
-          )}
-          {section === 'questions' && <QuestionBankImporter />}
-          {section === 'children' && <ChildrenSection passcode={password} />}
-          {section === 'parents' && <ParentsSection />}
-          {section === 'events' && <EventsSection passcode={password} />}
-          {section === 'boss_fights' && <BossFightSection passcode={password} />}
-          {section === 'egg_chains' && <EggChainsSection passcode={password} />}
-          {section === 'vouchers' && <VouchersSection passcode={password} />}
-          {section === 'sec_packs' && <SecPacksSection passcode={password} />}
-          {section === 'sec_refunds' && <SecRefundsSection passcode={password} />}
-          {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
-          {section === 'analytics' && <AnalyticsSection />}
-          {section === 'bug_reports' && <BugReportsSection passcode={password} />}
-          {section === 'tools' && (
-            <ToolsSection
-              currentData={currentData}
-              currentSunday={currentSunday}
-              onUpdateStats={onUpdateStats}
-              passcode={password}
-            />
-          )}
-          {section === 'content_matrix' && <ContentMatrixSection passcode={password} />}
-          {section === 'site_settings' && <SiteSettingsSection passcode={password} />}
-        </main>
-      </div>
+        <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
+          <header className="sticky top-0 z-30 flex h-14 items-center gap-3 border-b border-[var(--a-border)] bg-[var(--a-page)]/85 px-4 backdrop-blur lg:px-8">
+            <button
+              className="rounded-md p-1.5 text-[var(--a-ink-2)] hover:bg-[var(--a-surface-2)] lg:hidden"
+              onClick={() => setNavOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu size={20} />
+            </button>
+            <nav aria-label="Breadcrumb" className="flex min-w-0 items-center gap-1.5 text-sm">
+              <span className="text-[var(--a-muted)]">Admin</span>
+              <ChevronRight size={14} className="text-[var(--a-muted)]" aria-hidden />
+              <span className="hidden text-[var(--a-muted)] sm:inline">{activeGroup?.heading}</span>
+              <ChevronRight size={14} className="hidden text-[var(--a-muted)] sm:inline" aria-hidden />
+              <span className="truncate font-medium text-[var(--a-ink)]">{activeItem?.label}</span>
+            </nav>
+            <div className="ml-auto">
+              <Button size="sm" variant="ghost" icon={Lock} onClick={handleLock}>Lock</Button>
+            </div>
+          </header>
+
+          <main className="mx-auto w-full max-w-[1400px] flex-1 px-4 py-6 lg:px-8 lg:py-8">
+            {section === 'overview' && <OverviewSection passcode={password} />}
+            {section === 'packages' && (
+              <WeeklyPackageBuilder
+                currentData={currentData}
+                currentSunday={currentSunday}
+                onUpdateStats={onUpdateStats}
+                passcode={password}
+                onNavigateToDrafts={() => setSection('draft_questions')}
+              />
+            )}
+            {section === 'questions' && <QuestionBankImporter />}
+            {section === 'children' && <ChildrenSection passcode={password} />}
+            {section === 'parents' && <ParentsSection />}
+            {section === 'events' && <EventsSection passcode={password} />}
+            {section === 'boss_fights' && <BossFightSection passcode={password} />}
+            {section === 'egg_chains' && <EggChainsSection passcode={password} />}
+            {section === 'vouchers' && <VouchersSection passcode={password} />}
+            {section === 'sec_packs' && <SecPacksSection passcode={password} />}
+            {section === 'sec_refunds' && <SecRefundsSection passcode={password} />}
+            {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
+            {section === 'analytics' && <AnalyticsSection />}
+            {section === 'bug_reports' && <BugReportsSection passcode={password} />}
+            {section === 'tools' && (
+              <ToolsSection
+                currentData={currentData}
+                currentSunday={currentSunday}
+                onUpdateStats={onUpdateStats}
+                passcode={password}
+              />
+            )}
+            {section === 'content_matrix' && <ContentMatrixSection passcode={password} />}
+            {section === 'site_settings' && <SiteSettingsSection passcode={password} />}
+          </main>
+        </div>
+      </ToastProvider>
     </div>
   );
 }
