@@ -5,6 +5,14 @@ const nextConfig = {
   },
   images: {
     qualities: [20, 75],
+    // Photos uploaded from the admin Blog editor live in the public `blog-images` bucket.
+    remotePatterns: process.env.NEXT_PUBLIC_SUPABASE_URL
+      ? [{
+          protocol: 'https',
+          hostname: new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname,
+          pathname: '/storage/v1/object/public/blog-images/**',
+        }]
+      : [],
   },
   // Server source maps were ~32 MB of every deployment's ~52 MB server output, and
   // Vercel stores a full copy of each deployment (Hobby storage limit). They only

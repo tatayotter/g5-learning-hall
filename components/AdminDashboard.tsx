@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import {
   ArrowLeft, ChartColumn, ChevronRight, Egg, FilePenLine, Grid3x3, KeyRound, LayoutDashboard, Library, Lock, Menu,
-  Package, Settings, ShoppingBag, Swords, Ticket, Undo2, UserRound, Users, Wrench, X, Bug, CalendarDays,
+  Newspaper, Package, Settings, ShoppingBag, Swords, Ticket, Undo2, UserRound, Users, Wrench, X, Bug, CalendarDays,
   type LucideIcon,
 } from 'lucide-react';
 import { WeeklyData } from '@/hooks/useWeeklyData';
@@ -24,6 +24,7 @@ import BossFightSection from '@/components/admin/BossFightSection';
 import SiteSettingsSection from '@/components/admin/SiteSettingsSection';
 import BugReportsSection from '@/components/admin/BugReportsSection';
 import VouchersSection from '@/components/admin/VouchersSection';
+import BlogSection from '@/components/admin/BlogSection';
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface AdminDashboardProps {
@@ -33,7 +34,7 @@ interface AdminDashboardProps {
   onBack: () => void;
 }
 
-type AdminSection = 'overview' | 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'vouchers' | 'sec_packs' | 'sec_refunds' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings' | 'bug_reports';
+type AdminSection = 'overview' | 'packages' | 'draft_questions' | 'questions' | 'children' | 'parents' | 'events' | 'boss_fights' | 'egg_chains' | 'vouchers' | 'sec_packs' | 'sec_refunds' | 'analytics' | 'tools' | 'content_matrix' | 'site_settings' | 'bug_reports' | 'blog';
 
 const NAV_GROUPS: { heading: string; items: { id: AdminSection; label: string; icon: LucideIcon }[] }[] = [
   {
@@ -50,6 +51,7 @@ const NAV_GROUPS: { heading: string; items: { id: AdminSection; label: string; i
       { id: 'draft_questions', label: 'Draft Questions', icon: FilePenLine },
       { id: 'questions',       label: 'Question Bank',   icon: Library },
       { id: 'content_matrix',  label: 'Content Matrix',  icon: Grid3x3 },
+      { id: 'blog',            label: 'Blog',            icon: Newspaper },
     ],
   },
   {
@@ -330,6 +332,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             )}
             {section === 'content_matrix' && <ContentMatrixSection passcode={password} />}
             {section === 'site_settings' && <SiteSettingsSection passcode={password} />}
+            {section === 'blog' && <BlogSection passcode={password} />}
           </main>
         </div>
       </ToastProvider>

@@ -1,9 +1,13 @@
 import type { MetadataRoute } from 'next';
-import { BLOG_POSTS, BLOG_TOPICS, getBlogIndexPageCount } from '@/lib/blogPosts';
+import { BLOG_POSTS_PER_PAGE, BLOG_TOPICS } from '@/lib/blogPosts';
+import { getAllPosts } from '@/lib/blogData';
 import { CURRICULUM_GRADES } from '@/lib/curriculum';
 import { GUILD_SLUGS } from '@/lib/guilds';
 
 const BASE_URL = 'https://learninghallph.com';
+
+// Posts come from the database now, so the sitemap refreshes on the blog's schedule.
+export const revalidate = 300;
 
 /**
  * Most-recent `updatedAt` across all posts, used as `lastModified` for
@@ -13,12 +17,17 @@ const BASE_URL = 'https://learninghallph.com';
  * timestamp on every entry tells Google everything changes on every deploy,
  * which is both inaccurate and undersells pages that are genuinely stable.
  */
-const latestBlogUpdate = BLOG_POSTS.reduce<Date | null>((latest, post) => {
-  const updated = new Date(post.updatedAt);
-  return !latest || updated > latest ? updated : latest;
-}, null);
+function latestUpdate(posts: Awaited<ReturnType<typeof getAllPosts>>) {
+  return posts.reduce<Date | null>((latest, post) => {
+    const updated = new Date(post.updatedAt);
+    return !latest || updated > latest ? updated : latest;
+  }, null);
+}
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts();
+  const latestBlogUpdate = latestUpdate(posts);
+  const blogPageCount = Math.max(1, Math.ceil(posts.length / BLOG_POSTS_PER_PAGE));
   return [
     {
       url: BASE_URL,
@@ -81,13 +90,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-    ...Array.from({ length: Math.max(0, getBlogIndexPageCount() - 1) }, (_, i) => ({
+    ...Array.from({ length: Math.max(0, blogPageCount - 1) }, (_, i) => ({
       url: `${BASE_URL}/blog/page/${i + 2}`,
       lastModified: latestBlogUpdate ?? undefined,
       changeFrequency: 'weekly' as const,
       priority: 0.4,
     })),
-    ...BLOG_POSTS.map((post) => ({
+    ...posts.map((post) => ({
       url: `${BASE_URL}/blog/${post.slug}`,
       lastModified: new Date(post.updatedAt),
       changeFrequency: 'monthly' as const,

@@ -2,9 +2,13 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { BLOG_TOPICS, getGuildImage, getPostsByTopic, type BlogPost } from '@/lib/blogPosts';
+import { BLOG_TOPICS, getGuildImage, type BlogPost } from '@/lib/blogPosts';
+import { getPostsByTopic } from '@/lib/blogData';
 import BlogHeader from '@/components/BlogHeader';
 import BlogFooter from '@/components/BlogFooter';
+
+// Matches BLOG_REVALIDATE_SECONDS in lib/blogData.ts: scheduled posts appear within this window.
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return Object.keys(BLOG_TOPICS).map((topic) => ({ topic }));
@@ -52,9 +56,7 @@ export default async function BlogTopicPage({
   const info = BLOG_TOPICS[topic as BlogPost['guildKey']];
   if (!info) notFound();
 
-  const posts = getPostsByTopic(topic as BlogPost['guildKey']).sort((a, b) =>
-    a.publishedAt < b.publishedAt ? 1 : -1
-  );
+  const posts = await getPostsByTopic(topic as BlogPost['guildKey']);
 
   return (
     <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">

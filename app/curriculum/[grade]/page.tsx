@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import BlogHeader from '@/components/BlogHeader';
 import BlogFooter from '@/components/BlogFooter';
 import { CURRICULUM_GRADES, SSES_SUBJECTS, getBudgetOfWork, getCitedSources, type CurriculumGrade } from '@/lib/curriculum';
-import { BLOG_POSTS } from '@/lib/blogPosts';
+import { getAllPosts } from '@/lib/blogData';
 
 // Always fetch fresh from Supabase — BOW content is edited live via admin tools.
 export const dynamic = 'force-dynamic';
@@ -73,7 +73,7 @@ export default async function CurriculumGradePage({
   if (entries.length === 0) notFound();
 
   const sources = getCitedSources(entries);
-  const relatedPosts = BLOG_POSTS.filter((p) => p.grade === grade).sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+  const relatedPosts = (await getAllPosts()).filter((p) => p.grade === grade);
 
   const jsonLd = {
     '@context': 'https://schema.org',

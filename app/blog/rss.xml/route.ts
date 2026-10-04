@@ -1,4 +1,7 @@
-import { BLOG_POSTS } from '@/lib/blogPosts';
+import { stripInline } from '@/lib/blogPosts';
+import { getAllPosts } from '@/lib/blogData';
+
+export const revalidate = 300;
 
 const BASE_URL = 'https://learninghallph.com';
 
@@ -11,8 +14,8 @@ function escapeXml(value: string): string {
     .replace(/'/g, '&apos;');
 }
 
-export function GET() {
-  const posts = [...BLOG_POSTS].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
+export async function GET() {
+  const posts = await getAllPosts();
 
   const items = posts
     .map(
@@ -21,7 +24,7 @@ export function GET() {
       <title>${escapeXml(post.title)}</title>
       <link>${BASE_URL}/blog/${post.slug}</link>
       <guid>${BASE_URL}/blog/${post.slug}</guid>
-      <description>${escapeXml(post.description)}</description>
+      <description>${escapeXml(stripInline(post.description))}</description>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
     </item>`
     )

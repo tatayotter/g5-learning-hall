@@ -5,7 +5,10 @@ import BlogHeader from '@/components/BlogHeader';
 import BlogFooter from '@/components/BlogFooter';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
 import { GUILDS, GUILD_SLUGS, getGuild } from '@/lib/guilds';
-import { BLOG_POSTS } from '@/lib/blogPosts';
+import { getAllPosts } from '@/lib/blogData';
+
+// Related posts come from the database; refresh on the blog's schedule (lib/blogData.ts).
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return GUILD_SLUGS.map((guild) => ({ guild }));
@@ -43,9 +46,7 @@ export default async function GuildDetailPage({
   const prevGuild = index > 0 ? GUILDS[index - 1] : null;
   const nextGuild = index < GUILDS.length - 1 ? GUILDS[index + 1] : null;
 
-  const relatedPosts = BLOG_POSTS.filter((p) => p.guildKey === guild.blogTopicKey)
-    .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1))
-    .slice(0, 5);
+  const relatedPosts = (await getAllPosts()).filter((p) => p.guildKey === guild.blogTopicKey).slice(0, 5);
 
   const jsonLd = {
     '@context': 'https://schema.org',

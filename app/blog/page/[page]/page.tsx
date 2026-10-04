@@ -1,13 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getBlogIndexPage, getBlogIndexPageCount } from '@/lib/blogPosts';
+import { getBlogIndexPage, getBlogIndexPageCount } from '@/lib/blogData';
 import BlogHeader from '@/components/BlogHeader';
 import BlogPostList from '@/components/BlogPostList';
 import BlogPagination from '@/components/BlogPagination';
 import BlogFooter from '@/components/BlogFooter';
 
-export function generateStaticParams() {
-  const totalPages = getBlogIndexPageCount();
+// Matches BLOG_REVALIDATE_SECONDS in lib/blogData.ts: scheduled posts appear within this window.
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const totalPages = await getBlogIndexPageCount();
   return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
     page: String(i + 2),
   }));
@@ -38,13 +41,13 @@ export default async function BlogIndexPaginatedPage({
 }) {
   const { page } = await params;
   const pageNumber = Number(page);
-  const totalPages = getBlogIndexPageCount();
+  const totalPages = await getBlogIndexPageCount();
 
   if (!Number.isInteger(pageNumber) || pageNumber < 2 || pageNumber > totalPages) {
     notFound();
   }
 
-  const posts = getBlogIndexPage(pageNumber);
+  const posts = await getBlogIndexPage(pageNumber);
 
   return (
     <div className="min-h-screen bg-[#faf7f1] text-[#2b2417] font-[Inter,system-ui,sans-serif]">
