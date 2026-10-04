@@ -96,6 +96,14 @@ end $$;
 
 -- Public bucket for editor uploads. Public buckets serve objects by URL without a SELECT policy;
 -- no INSERT/UPDATE/DELETE policies, so only the service role can write.
-insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
-values ('blog-images', 'blog-images', true, 4194304, array['image/webp', 'image/jpeg', 'image/png'])
-on conflict (id) do nothing;
+-- Guarded because CI's local stack runs with storage disabled (supabase/config.toml), so the
+-- storage schema doesn't exist there; production always has it.
+do $$
+begin
+  if to_regclass('storage.buckets') is not null then
+    insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+    values ('blog-images', 'blog-images', true, 4194304, array['image/webp', 'image/jpeg', 'image/png'])
+    on conflict (id) do nothing;
+  end if;
+end
+$$;
