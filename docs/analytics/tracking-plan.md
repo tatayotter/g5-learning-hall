@@ -125,7 +125,7 @@ while a main quest is open. For parents: `parent_home`, `parent_child`, `parent_
 | `keeper_egg_beat_viewed` / `_skipped` | Egg story beats | `beat` / `at_beat` | 9 / 3, 1 / 1 |
 | `keeper_egg_reminders` | Reminder opt-in answered | `enabled` | 0 |
 | `keeper_egg_return_viewed` | Egg progress seen on return | `progress` | 0 |
-| `keeper_egg_completed` | Egg hatched | - | 2 / 2 |
+| `keeper_egg_completed` | Egg story watched to the end (not a hatch; hatches are `curio_eggs` rows with `kind = 'keeper'` and `status = 'hatched'`) | - | 2 / 2 |
 | `shop_purchase_attempt` | Curio shop buy | `item_key`, `cost`, `success` | 35 / 3 |
 | `shop_purchase_blocked_insufficient_gold` | Buy blocked: not enough gold | `item_key`, `cost`, `short_by` | 0 |
 
@@ -199,7 +199,7 @@ Two exceptions:
 | Guilds | `tab_view` guilds, `guild_quiz_start` | `guild_quiz_complete` / start, correct rate, days per user | Is optional practice used beyond the main quest? |
 | Curios / monster tab | `tab_view` monster | battle training completion, shop purchases, arena battles | Does collecting drive return visits? (returners used it 69% vs 18% in the 09-30 funnel) |
 | Battle training | `battle_training_started` vs `_declined` | `_completed`, tip time | Is the coached fight worth its length? |
-| Keeper's Egg | `keeper_egg_granted` | `keeper_egg_return_viewed`, `_completed`, D1/D2 return | Does "come back tomorrow" bring kids back? |
+| Keeper's Egg | `keeper_egg_granted` | `keeper_egg_completed` (story finished), `keeper_egg_return_viewed`, D1/D2 return, hatched keeper eggs in `curio_eggs` | Does "come back tomorrow" bring kids back? |
 | Todo / journal / codex / vault / profile | `tab_view` per tab | days per visitor, `screen_time` | Each tab on the adoption x repeat grid |
 | Bonus quests / SEC packs | `tab_view` bonus_quests; `parent_page_viewed` shop | `parent_checkout_started` sec_pack | Is anyone buying or using enrichment packs? |
 | Install nudge | `install_nudge_shown` | opened, `pwa_installed`, D7 by `display_mode` | Does installing raise retention? |
