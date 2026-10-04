@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 import { supabase } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { requireAdminPasscode } from '@/lib/adminAuth';
 import { schoolWeekFromDate, weekToTermInfo } from '@/lib/promptBuilder';
 
@@ -19,6 +20,21 @@ export async function POST(request: NextRequest) {
 
   const authError = requireAdminPasscode(passcode);
   if (authError) return authError;
+
+  // player_progress is only readable by signed-in players and a child's own parent
+  // (20261004150000_narrow_player_progress_read), and the admin browser may be neither.
+  if (action === 'get_progress_stats') {
+    if (typeof userId !== 'string' || !userId.trim()) {
+      return NextResponse.json({ success: false, error: 'userId is required' }, { status: 400 });
+    }
+    const { data, error } = await supabaseAdmin
+      .from('player_progress')
+      .select('level, xp, gold')
+      .eq('user_id', userId)
+      .maybeSingle();
+    if (error) return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: true, characterStats: data });
+  }
 
   if (action === 'set_progress_stats') {
     if (typeof userId !== 'string' || !userId.trim()) {
