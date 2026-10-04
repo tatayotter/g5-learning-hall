@@ -1,4 +1,4 @@
--- pgTAP tests for 20261004160000_blog_posts: anon/authenticated see a post only once it is
+-- pgTAP tests for 20261004170000_blog_posts: anon/authenticated see a post only once it is
 -- published and its publish time has passed (drafts and scheduled posts stay hidden), and
 -- neither role can write posts directly.
 
