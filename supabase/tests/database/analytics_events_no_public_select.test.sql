@@ -8,7 +8,8 @@ select plan(6);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
-       'pgtap_aes_' || substr(md5(random()::text), 1, 8) as kid;
+       -- Fixed name, not random hex: the children name filter reads digits as letters.
+       'pgtap_aes_kid' as kid;
 grant select on fx to anon, authenticated;
 
 insert into children (id, username, pin_hash, full_name, grade, school_name, avatar, referral_key)
