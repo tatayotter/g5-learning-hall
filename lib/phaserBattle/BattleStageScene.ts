@@ -66,6 +66,9 @@ const ELEMENT_SFX: Partial<Record<Element | 'normal' | 'neutral', BattleSfx>> = 
   fire: 'el_fire', water: 'el_water', leaf: 'el_leaf', storm: 'el_storm', shadow: 'el_shadow', light: 'el_light',
 };
 const KO_SFX_PEAK_MS = 220;
+// Longest preloadCurios waits on the battle's curio art before letting the
+// curios be placed anyway (the battle intro's own cutoff is 10s).
+const CURIO_PRELOAD_MAX_MS = 12000;
 const PLATFORM_W = 210;
 const PLATFORM_H = 75;
 
@@ -139,6 +142,8 @@ export default class BattleStageScene extends Phaser.Scene {
   // max HP, and whether it was knocked out. BattleStage shows the red
   // damage vignette from this.
   onPlayerHurt: ((fraction: number, knockout: boolean) => void) | null = null;
+  // A curio's art failed or is very late — BattleCanvas reports it.
+  onAssetIssue: ((reason: 'curio_failed' | 'curios_timeout', url: string) => void) | null = null;
   // Resolves once create() has run — BattleCanvas waits on this before
   // preloading the battle's curio art (see preloadCurios).
   private resolveReady!: () => void;
@@ -272,7 +277,12 @@ export default class BattleStageScene extends Phaser.Scene {
       build();
     } else {
       const onFile = (key: string) => { if (key === rawKey) { cleanup(); build(); } };
-      const onError = (file: Phaser.Loader.File) => { if (file.key === rawKey) { cleanup(); build(); } };
+      const onError = (file: Phaser.Loader.File) => {
+        if (file.key !== rawKey) return;
+        this.onAssetIssue?.('curio_failed', mon.spriteUrl);
+        cleanup();
+        build();
+      };
       const cleanup = () => {
         this.load.off(Phaser.Loader.Events.FILE_COMPLETE, onFile);
         this.load.off(Phaser.Loader.Events.FILE_LOAD_ERROR, onError);
@@ -289,12 +299,31 @@ export default class BattleStageScene extends Phaser.Scene {
   // send-out mid-battle never waits on the network. Called behind the battle
   // intro screen (components/battle/BattleIntro.tsx). Missing files resolve
   // too — buildSprite falls back to the emoji.
+  //
+  // Resolves after CURIO_PRELOAD_MAX_MS at the latest, so a stalled download
+  // can't hold up placing the curios (each one still appears, or falls back
+  // to its emoji, when its own load finishes or fails — see setMonster).
   preloadCurios(urls: string[]): Promise<void> {
     const missing = [...new Set(urls)].filter(u => !this.textures.exists(`curio-raw:${u}`));
     if (missing.length === 0) return Promise.resolve();
     return new Promise(resolve => {
+      const keys = new Set(missing.map(u => `curio-raw:${u}`));
+      const onError = (file: Phaser.Loader.File) => {
+        if (keys.has(file.key)) this.onAssetIssue?.('curio_failed', String(file.url));
+      };
+      const finish = () => {
+        clearTimeout(cap);
+        this.load.off(Phaser.Loader.Events.FILE_LOAD_ERROR, onError);
+        this.load.off(Phaser.Loader.Events.COMPLETE, finish);
+        resolve();
+      };
+      const cap = setTimeout(() => {
+        this.onAssetIssue?.('curios_timeout', missing.filter(u => !this.textures.exists(`curio-raw:${u}`)).join(','));
+        finish();
+      }, CURIO_PRELOAD_MAX_MS);
+      this.load.on(Phaser.Loader.Events.FILE_LOAD_ERROR, onError);
+      this.load.once(Phaser.Loader.Events.COMPLETE, finish);
       for (const u of missing) this.load.image(`curio-raw:${u}`, u);
-      this.load.once(Phaser.Loader.Events.COMPLETE, () => resolve());
       if (!this.load.isLoading()) this.load.start();
     });
   }

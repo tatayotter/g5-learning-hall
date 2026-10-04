@@ -19,7 +19,7 @@ import { trackEvent } from '@/lib/analytics';
 import { useScreenTime } from '@/hooks/useScreenTime';
 import MonsterGuild from '@/components/MonsterGuild';
 import CodexPanel from '@/components/CodexPanel';
-import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme, isSfxEnabled, isMusicEnabled, setSfxEnabled, setMusicEnabled } from '@/lib/sounds';
+import { playShopPurchase, playPageFlip, startMainTheme, stopMainTheme, startTermBossTheme, stopTermBossTheme } from '@/lib/sounds';
 import Toast from '@/components/Toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import AchievementToast from '@/components/AchievementToast';
@@ -57,6 +57,7 @@ import InstallNudge from '@/components/InstallNudge';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import FirstCurioIntro, { isIntroTrainingPending } from '@/components/intro/FirstCurioIntro';
+import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -141,22 +142,6 @@ export default function Dashboard() {
     startMainTheme();
     return () => stopMainTheme();
   }, [activeUserId]);
-
-  // Volume toggles surfaced next to the Replay Tutorial button — local state
-  // just mirrors lib/sounds.ts's module-level flags so the icons update
-  // immediately on click; the flags themselves persist to localStorage.
-  const [sfxOn, setSfxOn] = useState(() => isSfxEnabled());
-  const [musicOn, setMusicOn] = useState(() => isMusicEnabled());
-  const toggleSfx = () => {
-    const next = !sfxOn;
-    setSfxEnabled(next);
-    setSfxOn(next);
-  };
-  const toggleMusic = () => {
-    const next = !musicOn;
-    setMusicEnabled(next);
-    setMusicOn(next);
-  };
 
   // Curio egg mechanism (see docs/curio-egg-mechanism-design.md). Hatches
   // reveal here (not scoped to MonsterGuild) so the ceremony still plays
@@ -328,6 +313,9 @@ export default function Dashboard() {
       if (curioErr) return;
       setHasCurio((curioCount ?? 0) > 0);
       if (curioCount === 0) {
+        // The intro also waits for the week's data — use that time to fetch
+        // the story's opening art and voice.
+        prefetchOriginStoryStart();
         setIntroStart('story');
         trackEvent('intro_started', { new_player: !row?.onboarding_completed_at });
       } else if (isIntroTrainingPending(activeUserId)) {
@@ -1086,10 +1074,6 @@ export default function Dashboard() {
           setActiveBossFight(null);
         }}
         onLogout={handleSwitchUser}
-        sfxOn={sfxOn}
-        musicOn={musicOn}
-        onToggleSfx={toggleSfx}
-        onToggleMusic={toggleMusic}
         playerName={activeUserId ? USERS[activeUserId]?.name : undefined}
         playerGrade={activeUserId ? USERS[activeUserId]?.grade : undefined}
         playerLevel={data?.character_stats.level}

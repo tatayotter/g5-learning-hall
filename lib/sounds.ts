@@ -2,17 +2,49 @@
 let audioCtx: AudioContext | null = null;
 let ambienceNodes: { source: AudioBufferSourceNode; gain: GainNode } | null = null;
 
-// --- Audio settings: sound-effects / music toggles, persisted per device ---
-const SFX_KEY = 'g5_sfx_enabled';
-const MUSIC_KEY = 'g5_music_enabled';
+// --- Audio settings: music / voice / effects volume (0..1), persisted per device ---
+// Replaced the old on/off toggles (g5_music_enabled / g5_sfx_enabled); an old
+// "off" carries over as volume 0. Voice lines used to follow the effects
+// toggle, so voice inherits that one.
+const VOLUME_KEYS = { music: 'g5_music_volume', voice: 'g5_voice_volume', sfx: 'g5_sfx_volume' } as const;
+export type VolumeChannel = keyof typeof VOLUME_KEYS;
+const LEGACY_TOGGLE_KEYS: Record<VolumeChannel, string> = { music: 'g5_music_enabled', voice: 'g5_sfx_enabled', sfx: 'g5_sfx_enabled' };
 
-function readSetting(key: string): boolean {
-  if (typeof window === 'undefined') return true;
-  return localStorage.getItem(key) !== '0';
+function readVolume(ch: VolumeChannel): number {
+  if (typeof window === 'undefined') return 1;
+  try {
+    const v = localStorage.getItem(VOLUME_KEYS[ch]);
+    if (v !== null) {
+      const n = Number(v);
+      return Number.isFinite(n) ? Math.min(1, Math.max(0, n)) : 1;
+    }
+    return localStorage.getItem(LEGACY_TOGGLE_KEYS[ch]) === '0' ? 0 : 1;
+  } catch {
+    return 1;
+  }
 }
 
-let sfxEnabled = readSetting(SFX_KEY);
-let musicEnabled = readSetting(MUSIC_KEY);
+const volumes: Record<VolumeChannel, number> = { music: readVolume('music'), voice: readVolume('voice'), sfx: readVolume('sfx') };
+let sfxEnabled = volumes.sfx > 0;
+let musicEnabled = volumes.music > 0;
+
+export function getVolume(ch: VolumeChannel) {
+  return volumes[ch];
+}
+
+export function setVolume(ch: VolumeChannel, value: number) {
+  const v = Math.min(1, Math.max(0, value));
+  volumes[ch] = v;
+  try { localStorage.setItem(VOLUME_KEYS[ch], String(Math.round(v * 100) / 100)); } catch { /* private mode */ }
+  const b = buses[ch];
+  if (b) rampParam(b.gain, v, 0.03);
+  if (ch === 'sfx') sfxEnabled = v > 0;
+  if (ch === 'music') {
+    musicEnabled = v > 0;
+    for (const a of [mainThemeAudio, battleThemeAudio, termBossThemeAudio, bossFightThemeAudio]) setMusicLevel(a, true);
+    applyMusicPlayback();
+  }
+}
 
 export function isSfxEnabled() {
   return sfxEnabled;
@@ -22,15 +54,9 @@ export function isMusicEnabled() {
   return musicEnabled;
 }
 
-export function setSfxEnabled(on: boolean) {
-  sfxEnabled = on;
-  if (typeof window !== 'undefined') localStorage.setItem(SFX_KEY, on ? '1' : '0');
-}
-
-export function setMusicEnabled(on: boolean) {
-  musicEnabled = on;
-  if (typeof window !== 'undefined') localStorage.setItem(MUSIC_KEY, on ? '1' : '0');
-  applyMusicPlayback();
+// Gate for spoken lines (createVoiceAudio).
+export function isVoiceEnabled() {
+  return volumes.voice > 0;
 }
 
 function getContext() {
@@ -41,6 +67,21 @@ function getContext() {
     audioCtx.resume();
   }
   return audioCtx;
+}
+
+// The AudioContext starts suspended until a tap, and iOS suspends it again
+// after a call or a trip to the background; music the browser refused to
+// autoplay (musicBlocked) also stays paused. Retry both on the next tap or key
+// press (pointerup / touchend / keydown are the events browsers count as a gesture).
+let musicBlocked = false;
+if (typeof window !== 'undefined') {
+  const unlock = () => {
+    if (audioCtx && audioCtx.state !== 'running') void audioCtx.resume();
+    if (musicBlocked) applyMusicPlayback();
+  };
+  for (const ev of ['pointerup', 'touchend', 'keydown'] as const) {
+    window.addEventListener(ev, unlock, { capture: true, passive: true });
+  }
 }
 
 // --- Triumphant chime for quest completion ---
@@ -59,7 +100,7 @@ export function playChime() {
     gain.gain.linearRampToValueAtTime(0.25, start + 0.02);
     gain.gain.exponentialRampToValueAtTime(0.001, start + 0.6);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(start);
     osc.stop(start + 0.65);
   });
@@ -80,7 +121,7 @@ export function playClash() {
     gain.gain.setValueAtTime(0.15, now);
     gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(now);
     osc.stop(now + 0.3);
   });
@@ -102,7 +143,7 @@ export function playClash() {
   noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
   noise.connect(bandpass);
   bandpass.connect(noiseGain);
-  noiseGain.connect(ctx.destination);
+  noiseGain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -121,7 +162,7 @@ export function playCoins() {
     gain.gain.setValueAtTime(0.12, start);
     gain.gain.exponentialRampToValueAtTime(0.001, start + 0.2);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(start);
     osc.stop(start + 0.22);
   });
@@ -143,7 +184,7 @@ export function playBlessing() {
     gain.gain.linearRampToValueAtTime(0.2, start + 0.03);
     gain.gain.exponentialRampToValueAtTime(0.001, start + 0.9);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(start);
     osc.stop(start + 1);
   });
@@ -169,7 +210,7 @@ export function playLevelUp() {
     filter.frequency.value = 2500;
     osc.connect(filter);
     filter.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(start);
     osc.stop(start + 0.75);
   });
@@ -214,7 +255,7 @@ export function playPageFlip() {
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
   noise.connect(bandpass);
   bandpass.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -239,7 +280,7 @@ export function playFootstepGrass() {
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
   noise.connect(lowpass);
   lowpass.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -256,7 +297,7 @@ export function playFootstepTown() {
   gain.gain.setValueAtTime(0.1, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
   osc.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   osc.start(now);
   osc.stop(now + 0.12);
 }
@@ -274,7 +315,7 @@ export function playWallBump() {
   gain.gain.setValueAtTime(0.18, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
   osc.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   osc.start(now);
   osc.stop(now + 0.14);
 }
@@ -302,7 +343,7 @@ export function playNearbyWhoosh() {
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
   noise.connect(bandpass);
   bandpass.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -322,7 +363,7 @@ export function playMonsterAppear() {
   alertGain.gain.linearRampToValueAtTime(0.18, now + 0.05);
   alertGain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
   alert.connect(alertGain);
-  alertGain.connect(ctx.destination);
+  alertGain.connect(sfxOut());
   alert.start(now);
   alert.stop(now + 0.22);
 
@@ -340,7 +381,7 @@ export function playMonsterAppear() {
   growlFilter.frequency.value = 500;
   growl.connect(growlFilter);
   growlFilter.connect(growlGain);
-  growlGain.connect(ctx.destination);
+  growlGain.connect(sfxOut());
   growl.start(now + 0.1);
   growl.stop(now + 0.55);
 }
@@ -370,7 +411,7 @@ export function startAmbience() {
 
   source.connect(filter);
   filter.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   source.start();
 
   ambienceNodes = { source, gain };
@@ -452,18 +493,40 @@ const BATTLE_SFX = {
 export type BattleSfx = keyof typeof BATTLE_SFX;
 export const BATTLE_SFX_NAMES = Object.keys(BATTLE_SFX) as BattleSfx[];
 
-const battleSfxBuffers = new Map<BattleSfx, Promise<AudioBuffer | null>>();
+// Recorded clips, decoded once and cached by URL (battle SFX and the one-off
+// fanfares below).
+const clipBuffers = new Map<string, Promise<AudioBuffer | null>>();
 
-function loadBattleSfx(name: BattleSfx): Promise<AudioBuffer | null> {
-  let p = battleSfxBuffers.get(name);
+function loadClip(src: string): Promise<AudioBuffer | null> {
+  let p = clipBuffers.get(src);
   if (!p) {
-    p = fetch(BATTLE_SFX[name].src)
+    p = fetch(src)
       .then(r => r.arrayBuffer())
       .then(b => getContext().decodeAudioData(b))
       .catch(() => null);
-    battleSfxBuffers.set(name, p);
+    clipBuffers.set(src, p);
   }
   return p;
+}
+
+function loadBattleSfx(name: BattleSfx): Promise<AudioBuffer | null> {
+  return loadClip(BATTLE_SFX[name].src);
+}
+
+// A one-off recorded effect through the effects bus (not an <audio> element,
+// whose volume iOS ignores).
+function playSfxClip(src: string, volume: number) {
+  if (!sfxEnabled) return;
+  const ctx = getContext();
+  void loadClip(src).then(buf => {
+    if (!buf || !sfxEnabled) return;
+    const node = ctx.createBufferSource();
+    node.buffer = buf;
+    const gain = ctx.createGain();
+    gain.gain.value = volume;
+    node.connect(gain).connect(sfxOut());
+    node.start();
+  });
 }
 
 // Call when a battle opens, so the first sounds aren't late while they
@@ -492,7 +555,7 @@ export function playBattleSfx(name: BattleSfx, { delayMs = 0, offsetMs = 0 }: { 
     gain.gain.setValueAtTime(volume, t0 + playFor - fade);
     gain.gain.linearRampToValueAtTime(0, t0 + playFor);
     src.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     src.start(t0, offset);
     src.stop(t0 + playFor + 0.01);
   });
@@ -521,7 +584,7 @@ export function playAttackWhoosh() {
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
   noise.connect(bandpass);
   bandpass.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -538,7 +601,7 @@ export function playHitThud() {
   gain.gain.setValueAtTime(0.4, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
   osc.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   osc.start(now);
   osc.stop(now + 0.25);
   const bufferSize = ctx.sampleRate * 0.1;
@@ -553,7 +616,7 @@ export function playHitThud() {
   noiseGain.gain.setValueAtTime(0.2, now);
   noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
   noise.connect(noiseGain);
-  noiseGain.connect(ctx.destination);
+  noiseGain.connect(sfxOut());
   noise.start(now);
 }
 
@@ -570,7 +633,7 @@ export function playMiss() {
   gain.gain.setValueAtTime(0.15, now);
   gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
   osc.connect(gain);
-  gain.connect(ctx.destination);
+  gain.connect(sfxOut());
   osc.start(now);
   osc.stop(now + 0.35);
 }
@@ -591,7 +654,7 @@ export function playVictory() {
     gain.gain.setValueAtTime(0.15, t);
     gain.gain.exponentialRampToValueAtTime(0.001, t + durations[i]);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(t);
     osc.stop(t + durations[i] + 0.05);
     t += durations[i];
@@ -600,146 +663,92 @@ export function playVictory() {
 
 // --- New curio obtained: recorded fanfare clip (original AI-generated, replaces a Pokémon-derived clip) ---
 export function playCurioCaught() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/curio_caught.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/curio_caught.mp3', 0.6);
 }
 
 // --- Curio leveled up: recorded fanfare clip (original AI-generated, replaces a Pokémon-derived clip) ---
 export function playCurioLevelUp() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/curio_level_up.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/curio_level_up.mp3', 0.6);
 }
 
 // --- Curio graduated into its next form: recorded fanfare clip ---
 export function playCurioGraduation() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/curio_graduation.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/curio_graduation.mp3', 0.6);
 }
 
 // --- Achievement unlocked: recorded fanfare clip ---
 export function playAchievementUnlock() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/achievement.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/achievement.mp3', 0.6);
 }
 
 // --- Cheer reaction sent on the leaderboard: recorded clip ---
 export function playCheer() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/cheer.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/cheer.mp3', 0.6);
 }
 
 // --- Battle item consumed: recorded clip ---
 export function playItemUse() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/item_use.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/item_use.mp3', 0.6);
 }
 
 // --- Incoming live-battle challenge: recorded clip ---
 export function playPvpChallenge() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/pvp_challenge.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/pvp_challenge.mp3', 0.6);
 }
 
 // --- Gold spent on a shop/vault purchase: recorded clip ---
 export function playShopPurchase() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/shop_purchase.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/shop_purchase.mp3', 0.6);
 }
 
 // --- Daily journal entry sealed: recorded clip ---
 export function playTeachingScroll() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/teaching_scroll.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/teaching_scroll.mp3', 0.6);
 }
 
 // --- Trade accepted/completed: recorded clip ---
 export function playTradeAccept() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/trade_accept.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/trade_accept.mp3', 0.6);
 }
 
 // --- Trade declined: recorded clip ---
 export function playTradeDecline() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/trade_decline.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/trade_decline.mp3', 0.6);
 }
 
 // --- Egg cracking open: recorded clip ---
 export function playEggCrack() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/egg_crack.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/egg_crack.mp3', 0.6);
 }
 
 // --- Growth Pill consumed: recorded clip ---
 export function playGrowthPillGulp() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/growth_pill_gulp.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/growth_pill_gulp.mp3', 0.6);
 }
 
 // --- New skill inscribed onto a curio: recorded clip ---
 export function playSkillInscribe() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/skill_inscribe.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/skill_inscribe.mp3', 0.6);
 }
 
 // --- Skill unlearned/forgotten: recorded clip ---
 export function playSkillForget() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/skill_forget.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/skill_forget.mp3', 0.6);
 }
 
 // --- Tutor reroll spin: recorded clip ---
 export function playRerollSpin() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/reroll_spin.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/reroll_spin.mp3', 0.6);
 }
 
 // --- Live-battle challenge accepted: recorded clip ---
 export function playPvpAccept() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/pvp_accept.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/pvp_accept.mp3', 0.6);
 }
 
 // --- Live-battle challenge declined: recorded clip ---
 export function playPvpDecline() {
-  if (!sfxEnabled) return;
-  const audio = new Audio('/sounds/pvp_decline.mp3');
-  audio.volume = 0.6;
-  audio.play().catch(() => {});
+  playSfxClip('/sounds/pvp_decline.mp3', 0.6);
 }
 
 // --- Sidequest guardian defeat voice line: recorded clip, randomly picked among numbered variants ---
@@ -756,14 +765,12 @@ const GUARDIAN_DEFEAT_VOICE_PREFIX: Record<string, string> = {
 };
 
 export function playGuardianDefeatVoice(guild: string) {
-  if (!sfxEnabled) return;
+  if (!isVoiceEnabled()) return;
   const count = GUARDIAN_DEFEAT_VOICE_COUNT[guild];
   if (!count) return;
   const prefix = GUARDIAN_DEFEAT_VOICE_PREFIX[guild] ?? guild;
   const variant = Math.floor(Math.random() * count) + 1;
-  const audio = new Audio(`/sounds/voice/${prefix}_defeat_${variant}.mp3`);
-  audio.volume = 0.7;
-  audio.play().catch(() => {});
+  createVoiceAudio(`/sounds/voice/${prefix}_defeat_${variant}.mp3`).play().catch(() => {});
 }
 
 // --- Music: main theme + battle theme, mutually exclusive looping tracks ---
@@ -789,29 +796,239 @@ function applyMusicPlayback() {
     bossFightThemeAudio?.pause();
     return;
   }
+  musicBlocked = false;
   if (bossMusicLayer === 'boss_fight') {
     mainThemeAudio?.pause();
     battleThemeAudio?.pause();
     termBossThemeAudio?.pause();
-    bossFightThemeAudio?.play().catch(() => {});
+    playMusic(bossFightThemeAudio);
     return;
   }
   if (bossMusicLayer === 'term_boss') {
     mainThemeAudio?.pause();
     battleThemeAudio?.pause();
     bossFightThemeAudio?.pause();
-    termBossThemeAudio?.play().catch(() => {});
+    playMusic(termBossThemeAudio);
     return;
   }
   termBossThemeAudio?.pause();
   bossFightThemeAudio?.pause();
   if (activeMusicTrack === 'battle') {
     mainThemeAudio?.pause();
-    battleThemeAudio?.play().catch(() => {});
+    playMusic(battleThemeAudio);
   } else if (activeMusicTrack === 'main') {
     battleThemeAudio?.pause();
-    mainThemeAudio?.play().catch(() => {});
+    playMusic(mainThemeAudio);
   }
+}
+
+function playMusic(audio: HTMLAudioElement | null) {
+  audio?.play().catch(e => { if (e?.name === 'NotAllowedError') musicBlocked = true; });
+}
+
+// --- Mix: music, voice and effects, tuned for phone and tablet speakers ---
+// Everything plays through Web Audio, not <audio>.volume, which iOS Safari
+// ignores (every track used to play at full level there, music louder than
+// the voices, and ducking did nothing). Three channels, each with its own
+// player volume (setVolume):
+//   music   track gain -> music bus -> duck EQ -> bass cut (phones) -> out
+//   voice   leveler (createVoiceAudio) -> voice bus -> out
+//   effects every SFX / recorded clip -> effects bus -> out
+// While anyone speaks, music dips (DUCK_TO) and the duck EQ also carves out
+// the band where speech lives, so the voice cuts through without the music
+// disappearing. Phone/tablet speakers have no bass and little range: there
+// music sits a little lower, loses the bass those speakers only distort on,
+// dips further, and voice gets a little extra presence.
+const SMALL_SPEAKERS = typeof window !== 'undefined' && !!window.matchMedia?.('(pointer: coarse)').matches;
+const MUSIC_TRIM = SMALL_SPEAKERS ? 0.8 : 1;
+// Share of a track's level it keeps while someone is speaking.
+const DUCK_TO = SMALL_SPEAKERS ? 0.25 : 0.35;
+// How deep the duck EQ cuts the speech band (dB) while someone is speaking.
+const DUCK_EQ_DB = -7;
+// Music waits this long after a line before coming back up, so it doesn't
+// swell in the gap between two lines.
+const DUCK_RELEASE_MS = 600;
+
+const buses: Partial<Record<VolumeChannel, GainNode>> = {};
+let duckEq: BiquadFilterNode | null = null;
+
+// The channel's bus, built on first use. The music bus feeds the duck EQ
+// (and the phone bass cut); the others go straight out.
+function busFor(ch: VolumeChannel): GainNode {
+  const ctx = getContext();
+  let b = buses[ch];
+  if (!b) {
+    b = ctx.createGain();
+    b.gain.value = volumes[ch];
+    if (ch === 'music') {
+      duckEq = ctx.createBiquadFilter();
+      duckEq.type = 'peaking';
+      duckEq.frequency.value = 2500;
+      duckEq.Q.value = 0.8;
+      duckEq.gain.value = ducked ? DUCK_EQ_DB : 0;
+      let tail: AudioNode = duckEq;
+      if (SMALL_SPEAKERS) {
+        const bass = ctx.createBiquadFilter();
+        bass.type = 'lowshelf';
+        bass.frequency.value = 160;
+        bass.gain.value = -6;
+        duckEq.connect(bass);
+        tail = bass;
+      }
+      b.connect(duckEq);
+      tail.connect(ctx.destination);
+    } else {
+      b.connect(ctx.destination);
+    }
+    buses[ch] = b;
+  }
+  return b;
+}
+
+// Where every sound effect connects (instead of ctx.destination).
+function sfxOut(): AudioNode {
+  return busFor('sfx');
+}
+
+function rampParam(p: AudioParam, value: number, timeConstant: number) {
+  const t = audioCtx?.currentTime ?? 0;
+  if (typeof p.cancelAndHoldAtTime === 'function') p.cancelAndHoldAtTime(t);
+  else { p.cancelScheduledValues(t); p.setValueAtTime(p.value, t); }
+  p.setTargetAtTime(value, t, timeConstant);
+}
+
+const musicNodes = new WeakMap<HTMLAudioElement, { base: number; source: MediaElementAudioSourceNode | null; gain: GainNode | null }>();
+let manualDuck = false;
+let activeVoices = 0;
+let ducked = false;
+let unduckTimer: ReturnType<typeof setTimeout> | undefined;
+
+function createMusic(src: string, base: number): HTMLAudioElement {
+  const audio = new Audio(src);
+  audio.loop = true;
+  let source: MediaElementAudioSourceNode | null = null;
+  let gain: GainNode | null = null;
+  try {
+    const ctx = getContext();
+    source = ctx.createMediaElementSource(audio);
+    gain = ctx.createGain();
+    source.connect(gain).connect(busFor('music'));
+  } catch {
+    source = gain = null; // no Web Audio: fall back to .volume
+  }
+  musicNodes.set(audio, { base, source, gain });
+  setMusicLevel(audio, true);
+  return audio;
+}
+
+function releaseMusic(audio: HTMLAudioElement) {
+  const m = musicNodes.get(audio);
+  m?.source?.disconnect();
+  m?.gain?.disconnect();
+  musicNodes.delete(audio);
+}
+
+function setMusicLevel(audio: HTMLAudioElement | null, instant = false) {
+  const m = audio && musicNodes.get(audio);
+  if (!audio || !m) return;
+  const level = m.base * MUSIC_TRIM * (ducked ? DUCK_TO : 1);
+  if (!m.gain) {
+    // Fallback path has no bus, so the player's music volume applies here.
+    audio.volume = Math.min(1, level * volumes.music);
+    return;
+  }
+  if (instant) {
+    const t = m.gain.context.currentTime;
+    m.gain.gain.cancelScheduledValues(t);
+    m.gain.gain.setValueAtTime(level, t);
+    return;
+  }
+  // Dip fast (~0.2s), come back slowly (~0.75s).
+  rampParam(m.gain.gain, level, ducked ? 0.07 : 0.25);
+}
+
+function refreshDuck() {
+  const want = manualDuck || activeVoices > 0;
+  clearTimeout(unduckTimer);
+  if (want === ducked) return;
+  const apply = (d: boolean) => {
+    ducked = d;
+    for (const a of [mainThemeAudio, battleThemeAudio, termBossThemeAudio, bossFightThemeAudio]) setMusicLevel(a);
+    if (duckEq) rampParam(duckEq.gain, d ? DUCK_EQ_DB : 0, d ? 0.07 : 0.25);
+  };
+  if (want) apply(true);
+  else unduckTimer = setTimeout(() => apply(false), DUCK_RELEASE_MS);
+}
+
+// Voice lines: the files are already mastered to one loudness
+// (scripts/optimize-assets.mjs); this evens out what's left (measured within
+// ~1 dB across the intro clips), cuts low rumble, adds a little presence on
+// phones and catches peaks. Tuned offline with OfflineAudioContext.
+let voiceInput: AudioNode | null = null;
+function getVoiceInput(ctx: AudioContext): AudioNode {
+  if (!voiceInput) {
+    const hp = ctx.createBiquadFilter();
+    hp.type = 'highpass';
+    hp.frequency.value = SMALL_SPEAKERS ? 120 : 80;
+    const presence = ctx.createBiquadFilter();
+    presence.type = 'peaking';
+    presence.frequency.value = 3000;
+    presence.Q.value = 0.9;
+    presence.gain.value = SMALL_SPEAKERS ? 3 : 0;
+    const comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -24;
+    comp.knee.value = 10;
+    comp.ratio.value = 3;
+    comp.attack.value = 0.003;
+    comp.release.value = 0.25;
+    const limiter = ctx.createDynamicsCompressor();
+    limiter.threshold.value = -3;
+    limiter.knee.value = 0;
+    limiter.ratio.value = 20;
+    limiter.attack.value = 0.001;
+    limiter.release.value = 0.1;
+    hp.connect(presence).connect(comp).connect(limiter).connect(busFor('voice'));
+    voiceInput = hp;
+  }
+  return voiceInput;
+}
+
+// Use for every spoken line instead of `new Audio()` (and gate it on
+// isVoiceEnabled()). One play per element: it's unhooked from the mix once it
+// ends, errors or is paused. Music dips while it plays.
+export function createVoiceAudio(src: string): HTMLAudioElement {
+  const audio = new Audio(src);
+  let source: MediaElementAudioSourceNode | null = null;
+  // Only through Web Audio while it's running — a suspended context would
+  // play the clip silently while its captions moved on.
+  if (audioCtx?.state === 'running') {
+    try {
+      source = audioCtx.createMediaElementSource(audio);
+      source.connect(getVoiceInput(audioCtx));
+    } catch {
+      source = null;
+    }
+  }
+  if (!source) audio.volume = Math.min(1, 0.95 * volumes.voice);
+  let speaking = false;
+  audio.addEventListener('play', () => {
+    if (speaking) return;
+    speaking = true;
+    activeVoices += 1;
+    refreshDuck();
+  });
+  const done = () => {
+    if (speaking) {
+      speaking = false;
+      activeVoices -= 1;
+      refreshDuck();
+    }
+    source?.disconnect();
+  };
+  audio.addEventListener('pause', done);
+  audio.addEventListener('ended', done);
+  audio.addEventListener('error', done);
+  return audio;
 }
 
 // --- Term boss ambient: plays game-wide (replacing the main theme) for as
@@ -819,10 +1036,7 @@ function applyMusicPlayback() {
 // already playing is a no-op rather than restarting the track.
 export function startTermBossTheme() {
   if (!termBossThemeAudio) {
-    const audio = new Audio('/sounds/term_boss_bgm.mp3');
-    audio.loop = true;
-    audio.volume = 0.35;
-    termBossThemeAudio = audio;
+    termBossThemeAudio = createMusic('/sounds/term_boss_bgm.mp3', 0.35);
   }
   if (bossMusicLayer !== 'boss_fight') bossMusicLayer = 'term_boss';
   applyMusicPlayback();
@@ -832,6 +1046,7 @@ export function stopTermBossTheme() {
   if (!termBossThemeAudio) return;
   termBossThemeAudio.pause();
   termBossThemeAudio.currentTime = 0;
+  releaseMusic(termBossThemeAudio);
   termBossThemeAudio = null;
   if (bossMusicLayer === 'term_boss') bossMusicLayer = null;
   applyMusicPlayback();
@@ -843,10 +1058,7 @@ export function stopTermBossTheme() {
 // still active.
 export function startBossFightTheme() {
   if (bossFightThemeAudio) return;
-  const audio = new Audio('/sounds/term_boss_fight.mp3');
-  audio.loop = true;
-  audio.volume = 0.4;
-  bossFightThemeAudio = audio;
+  bossFightThemeAudio = createMusic('/sounds/term_boss_fight.mp3', 0.4);
   bossMusicLayer = 'boss_fight';
   applyMusicPlayback();
 }
@@ -855,6 +1067,7 @@ export function stopBossFightTheme() {
   if (!bossFightThemeAudio) return;
   bossFightThemeAudio.pause();
   bossFightThemeAudio.currentTime = 0;
+  releaseMusic(bossFightThemeAudio);
   bossFightThemeAudio = null;
   bossMusicLayer = termBossThemeAudio ? 'term_boss' : null;
   applyMusicPlayback();
@@ -863,20 +1076,18 @@ export function stopBossFightTheme() {
 // --- Main theme: looping background track, plays for the whole session except during battle ---
 export function startMainTheme() {
   if (mainThemeAudio) return;
-  const audio = new Audio('/sounds/learninghall_maintheme.mp3');
-  audio.loop = true;
-  audio.volume = 0.35;
-  mainThemeAudio = audio;
+  mainThemeAudio = createMusic('/sounds/learninghall_maintheme.mp3', 0.35);
   activeMusicTrack = 'main';
   applyMusicPlayback();
 }
 
-// Lowers the main theme under spoken voice lines (the first-curio intro) and
-// restores it after. Only touches the volume, so it's safe to call whether or
-// not the theme is currently playing.
+// Holds the music down (see DUCK_TO) for a run of voice lines and lets it
+// back up after, so it doesn't swell between lines. Every track, not just the
+// main theme. Lines from createVoiceAudio also duck on their own while they
+// play. Only touches levels, so it's safe whether or not music is playing.
 export function duckMainTheme(ducked: boolean) {
-  if (mainThemeAudio) mainThemeAudio.volume = ducked ? 0.1 : 0.35;
-  if (termBossThemeAudio) termBossThemeAudio.volume = ducked ? 0.1 : 0.35;
+  manualDuck = ducked;
+  refreshDuck();
 }
 
 // Whether each track is currently set to play — lets the intro start music
@@ -893,6 +1104,7 @@ export function stopMainTheme() {
   if (!mainThemeAudio) return;
   mainThemeAudio.pause();
   mainThemeAudio.currentTime = 0;
+  releaseMusic(mainThemeAudio);
   mainThemeAudio = null;
   if (activeMusicTrack === 'main') activeMusicTrack = null;
 }
@@ -900,10 +1112,7 @@ export function stopMainTheme() {
 // --- Battle theme: looping track that takes over from the main theme for the duration of a fight ---
 export function startBattleTheme() {
   if (battleThemeAudio) return;
-  const audio = new Audio('/sounds/learninghall_battle.mp3');
-  audio.loop = true;
-  audio.volume = 0.4;
-  battleThemeAudio = audio;
+  battleThemeAudio = createMusic('/sounds/learninghall_battle.mp3', 0.4);
   activeMusicTrack = 'battle';
   applyMusicPlayback();
 }
@@ -912,6 +1121,7 @@ export function stopBattleTheme() {
   if (!battleThemeAudio) return;
   battleThemeAudio.pause();
   battleThemeAudio.currentTime = 0;
+  releaseMusic(battleThemeAudio);
   battleThemeAudio = null;
   activeMusicTrack = mainThemeAudio ? 'main' : null;
   applyMusicPlayback();
@@ -938,7 +1148,7 @@ export function playDefeat() {
     gain.gain.setValueAtTime(0.15, t);
     gain.gain.exponentialRampToValueAtTime(0.001, t + durations[i]);
     osc.connect(gain);
-    gain.connect(ctx.destination);
+    gain.connect(sfxOut());
     osc.start(t);
     osc.stop(t + durations[i] + 0.05);
     t += durations[i];

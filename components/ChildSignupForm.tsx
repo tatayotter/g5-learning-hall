@@ -10,6 +10,7 @@ import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/Ch
 import GameButton from '@/components/GameButton';
 import { validateReferralCode } from '@/lib/referral';
 import TurnstileWidget from '@/components/TurnstileWidget';
+import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
 
 interface ChildSignupFormProps {
   source: 'organic';
@@ -56,6 +57,13 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
       }
     }, 500);
   }, [referralCode]);
+
+  const storyPrefetched = useRef(false);
+  const prefetchStoryOnce = () => {
+    if (storyPrefetched.current) return;
+    storyPrefetched.current = true;
+    prefetchOriginStoryStart();
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,7 +134,9 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    // The origin story is the next screen after signup: start downloading its
+    // opening once the kid starts typing (lib/intro/storyPrefetch.ts).
+    <form onSubmit={handleSubmit} onFocusCapture={prefetchStoryOnce} className="space-y-5">
       <ChildAccountForm label="Your hero details" data={data} onChange={setData} theme="light" />
 
       {/* Referral code */}

@@ -15,18 +15,19 @@
 // The player itself (StoryPlayer) is shared with the Term Boss intro
 // (components/intro/TermBossIntro.tsx), which brings its own beats and its
 // own interactions through renderInteraction / renderOverlay.
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
-import { Beat, BeatArt, GUILDS, ORIGIN_BEATS, VoiceLine, voiceSrc } from '@/lib/intro/originStory';
+import { Beat, BeatArt, GUILDS, ORIGIN_BEATS, VoiceLine, beatAssets, voiceUrl } from '@/lib/intro/originStory';
 import VoiceCaptions from '@/components/intro/VoiceCaptions';
 import GameButton from '@/components/GameButton';
 import GlowCta, { GLOW_CSS } from '@/components/intro/GlowCta';
 import { MONSTERS } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
-import { isSfxEnabled, playPageFlip } from '@/lib/sounds';
+import { createVoiceAudio, isVoiceEnabled, playPageFlip } from '@/lib/sounds';
 import IntroFx from '@/components/intro/IntroFx';
 import { playCue, playGuildCue, startIntroMusic, stopIntroMusic, ScreenPoint } from '@/lib/intro/introCues';
 import { trackEvent } from '@/lib/analytics';
+import { preloadAudio, preloadImage } from '@/lib/assetPreload';
 
 const INTRO_CSS = `
 @keyframes intro-kenburns { from { transform: scale(1.02); } to { transform: scale(1.12); } }
@@ -84,20 +85,75 @@ export interface StoryPlayerProps {
   onSkip: () => void;
 }
 
+// Asset loading (lib/assetPreload.ts): the story opens once its first
+// FIRST_GATE beats' art and voice are in, keeps LOOKAHEAD beats ahead loading
+// while it plays, and a later beat that still isn't ready shows the loading
+// bar instead of a black screen. A beat never waits past MAX_WAIT_MS — the
+// art/voice fallbacks take over from there.
+const FIRST_GATE = 2;
+const LOOKAHEAD = 2;
+const MAX_WAIT_MS = { first: 12000, later: 6000 };
+const SOLARCH_SRC = `/monsters/${MONSTERS.solarch.spriteId ?? MONSTERS.solarch.id}.webp`;
+
+function useBeatAssets(beats: Beat[], index: number): { ready: boolean; progress: number } {
+  const assets = useMemo(() => {
+    const voice = isVoiceEnabled();
+    return beats.map(b => {
+      const a = beatAssets(b);
+      return [...a.images, ...(b.solarch ? [SOLARCH_SRC] : []), ...(voice ? a.audio : [])];
+    });
+  }, [beats]);
+  const [loaded, setLoaded] = useState<ReadonlySet<string>>(() => new Set());
+  const [gaveUpAt, setGaveUpAt] = useState(-1);
+
+  useEffect(() => {
+    let live = true;
+    const last = Math.min(beats.length - 1, index + LOOKAHEAD);
+    for (let i = index; i <= last; i++) {
+      for (const src of assets[i]) {
+        const load = src.endsWith('.mp3') ? preloadAudio(src) : preloadImage(src);
+        void load.then(() => { if (live) setLoaded(prev => (prev.has(src) ? prev : new Set(prev).add(src))); });
+      }
+    }
+    return () => { live = false; };
+  }, [assets, index, beats.length]);
+
+  const need = (index === 0 ? assets.slice(0, FIRST_GATE) : [assets[index]]).flat();
+  const done = need.filter(src => loaded.has(src)).length;
+  const ready = done === need.length || gaveUpAt === index;
+
+  useEffect(() => {
+    if (ready) return;
+    const waitMs = index === 0 ? MAX_WAIT_MS.first : MAX_WAIT_MS.later;
+    const t = setTimeout(() => {
+      setGaveUpAt(index);
+      trackEvent('asset_load_slow', { where: 'story', beat: beats[index].id, index, waited_ms: waitMs });
+    }, waitMs);
+    return () => clearTimeout(t);
+  }, [ready, index, beats]);
+
+  return { ready, progress: need.length ? done / need.length : 1 };
+}
+
 export function StoryPlayer({
   beats, events, music, skipLabel, personalize = l => l.text, renderInteraction, renderOverlay, onFinish, onSkip,
 }: StoryPlayerProps) {
   const [index, setIndex] = useState(0);
   const beat = beats[index];
+  const { ready, progress } = useBeatAssets(beats, index);
+  // Music waits for the first beat so it isn't competing with the art and
+  // voice for a slow connection. Never flips back once true.
+  const started = index > 0 || ready;
 
   useEffect(() => {
-    trackEvent(events.beat, { beat: beat.id, index });
-  }, [events, beat.id, index]);
+    if (ready) trackEvent(events.beat, { beat: beat.id, index });
+  }, [events, beat.id, index, ready]);
 
   useEffect(() => {
+    if (!started) return;
     music.start();
     return () => music.stop();
-  }, [music]);
+  }, [music, started]);
 
   const next = () => {
     if (index + 1 >= beats.length) onFinish();
@@ -112,7 +168,9 @@ export function StoryPlayer({
   return (
     <div className="fixed inset-0 z-[95] bg-[#120c05] text-white overflow-hidden select-none">
       <style>{INTRO_CSS + GLOW_CSS}</style>
-      <BeatView key={beat.id} beat={beat} onNext={next} personalize={personalize} renderInteraction={renderInteraction} renderOverlay={renderOverlay} />
+      {ready
+        ? <BeatView key={beat.id} beat={beat} onNext={next} personalize={personalize} renderInteraction={renderInteraction} renderOverlay={renderOverlay} />
+        : <StoryLoading progress={progress} />}
       {/* Effects over the art, under the dialogue (which is z-10). */}
       <div className="absolute inset-0 z-[5] pointer-events-none"><IntroFx /></div>
 
@@ -133,6 +191,24 @@ export function StoryPlayer({
           {skipLabel}
         </button>
       </div>
+    </div>
+  );
+}
+
+// Shown while a beat's art and voice download. Fades in after a moment, so a
+// beat that's already loaded (or nearly) never flashes it.
+function StoryLoading({ progress }: { progress: number }) {
+  return (
+    <div
+      role="status"
+      aria-label="Loading the story"
+      className="intro-rise absolute inset-0 flex flex-col items-center justify-center gap-3 px-8"
+      style={{ animationDelay: '400ms' }}
+    >
+      <div className="w-full max-w-[220px] h-1.5 rounded-full bg-white/15 overflow-hidden">
+        <div className="h-full rounded-full bg-[#f5c542] transition-[width] duration-300" style={{ width: `${Math.round(progress * 100)}%` }} />
+      </div>
+      <p className="text-[11px] font-bold uppercase tracking-wider text-[#e8d0a0]/80">Loading the story</p>
     </div>
   );
 }
@@ -225,6 +301,8 @@ function BeatView({ beat, onNext, personalize, renderInteraction, renderOverlay 
 
 function ArtLayer({ art }: { art: BeatArt }) {
   const [failed, setFailed] = useState(false);
+  // Hidden until fully loaded, so a slow image never paints in strips.
+  const [shown, setShown] = useState(false);
   const src = failed ? art.fallback : art.src;
   const contain = failed && art.fallbackFit === 'contain';
   const filter = art.drained ? 'grayscale(0.85) brightness(0.75)' : undefined;
@@ -240,11 +318,12 @@ function ArtLayer({ art }: { art: BeatArt }) {
       <img
         src={src}
         alt=""
+        onLoad={() => setShown(true)}
         onError={() => { if (!failed) setFailed(true); }}
         className={contain
           ? 'absolute inset-x-0 top-12 bottom-[48%] mx-auto h-[40%] sm:h-[45%] w-auto object-contain battle-float'
           : 'absolute inset-0 w-full h-full object-cover intro-kenburns'}
-        style={{ filter, transition: 'filter 1.2s ease-out', objectPosition: failed ? undefined : art.focus }}
+        style={{ filter, opacity: shown ? 1 : 0, transition: 'filter 1.2s ease-out', objectPosition: failed ? undefined : art.focus }}
       />
       {art.drained && (
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
@@ -437,9 +516,8 @@ function CountStairs({ choices, answer, retry, onComplete }: { choices: number[]
     }
     playCue('stairsWrong');
     setMissed(n);
-    if (isSfxEnabled()) {
-      const a = new Audio(voiceSrc(retry.id));
-      a.volume = 0.95;
+    if (isVoiceEnabled()) {
+      const a = createVoiceAudio(voiceUrl(retry.id));
       a.play().catch(() => {});
     }
   };

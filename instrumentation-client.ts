@@ -5,3 +5,12 @@
 import { getOrCreateSessionId } from '@/lib/analytics';
 
 getOrCreateSessionId();
+
+// The service worker (public/sw.js) caches game art and voice clips, so every
+// player gets it, not only those who turned on push notifications. Production
+// only: in dev it would serve stale copies of art being worked on.
+if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  const register = () => { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {}); };
+  if (document.readyState === 'complete') register();
+  else window.addEventListener('load', register, { once: true });
+}

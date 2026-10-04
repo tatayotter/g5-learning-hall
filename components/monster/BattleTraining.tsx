@@ -30,9 +30,9 @@ import {
   INVITE_BEATS, TATAY_AVATAR, TATAY_TIPS, defeatBeats, loadResumeAtDummy, saveResumeAtDummy,
   tatayAccuracy, victoryBeats, type CoachTip,
 } from '@/lib/intro/battleTraining';
-import { voiceSrc, type Beat } from '@/lib/intro/originStory';
+import { voiceUrl, type Beat } from '@/lib/intro/originStory';
 import { playCue, startIntroMusic, stopIntroMusic } from '@/lib/intro/introCues';
-import { isSfxEnabled, playPageFlip } from '@/lib/sounds';
+import { createVoiceAudio, isVoiceEnabled, playPageFlip } from '@/lib/sounds';
 import { supabase } from '@/lib/supabase';
 import { trackEvent } from '@/lib/analytics';
 import type { InventoryMap } from '@/lib/inventory';
@@ -371,9 +371,8 @@ function ElementQuiz({ element, retry, onCorrect, onComplete }: {
     }
     playCue('stairsWrong');
     setMissed(el);
-    if (isSfxEnabled()) {
-      const a = new Audio(voiceSrc(retry.id));
-      a.volume = 0.95;
+    if (isVoiceEnabled()) {
+      const a = createVoiceAudio(voiceUrl(retry.id));
       a.play().catch(() => {});
     }
   };

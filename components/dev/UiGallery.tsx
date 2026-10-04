@@ -701,9 +701,6 @@ export default function UiGallery() {
           activeTab="board"
           onNavigate={() => {}}
           onLogout={() => {}}
-          sfxOn musicOn
-          onToggleSfx={() => {}}
-          onToggleMusic={() => {}}
           playerName="Hero"
           playerGrade="Grade 5"
           playerLevel={12}
