@@ -13,6 +13,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { useParentPage } from '@/hooks/useScreenTime';
 import { gradeToNumber } from '@/lib/userSession';
 import {
   ChildRow, SecPack, EntitlementRow, PACK_DETAILS,
@@ -25,6 +26,7 @@ import PackHero from '@/components/parent/PackHero';
 
 export default function ShopPage() {
   const router = useRouter();
+  useParentPage('parent_shop');
   const [loading, setLoading] = useState(true);
   const [kids, setKids] = useState<ChildRow[]>([]);
   const [packs, setPacks] = useState<SecPack[]>([]);

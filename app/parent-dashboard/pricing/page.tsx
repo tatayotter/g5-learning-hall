@@ -5,6 +5,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { useParentPage } from '@/hooks/useScreenTime';
+import { trackParentEvent } from '@/lib/analytics';
 import { isNativeApp } from '@/lib/platform';
 import {
   FREE_FEATURES, PREMIUM_FEATURES, PREMIUM_PRICE_PHP, PREMIUM_REGULAR_PRICE_PHP,
@@ -40,6 +42,7 @@ function FeatureRows({ features }: { features: PlanFeature[] }) {
 
 export default function PricingPage() {
   const router = useRouter();
+  useParentPage('parent_pricing');
   const [loading, setLoading] = useState(true);
   const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
   const [checkingOut, setCheckingOut] = useState(false);
@@ -70,6 +73,7 @@ export default function PricingPage() {
   // 'premium' buys/renews the ₱249 year; 'childSlot' is the separate one-time
   // ₱99 slot that never touches the renewal date or coin pool.
   const startCheckout = async (kind: 'premium' | 'childSlot') => {
+    trackParentEvent('parent_checkout_started', { kind, from: 'pricing' });
     setCheckoutError('');
     setCheckingOut(true);
     const { data: { session } } = await supabase.auth.getSession();
