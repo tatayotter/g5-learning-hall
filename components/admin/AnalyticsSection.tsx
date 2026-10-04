@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { callAdminApi } from '@/lib/adminApi';
 
 interface AnalyticsEventRow {
   user_id: string;
@@ -17,28 +17,29 @@ const RANGE_OPTIONS: { id: '7' | '30' | '90'; label: string }[] = [
   { id: '90', label: 'Last 90 days' },
 ];
 
-export default function AnalyticsSection() {
+export default function AnalyticsSection({ passcode }: { passcode: string }) {
   const [rangeDays, setRangeDays] = useState<'7' | '30' | '90'>('30');
   const [allRows, setAllRows] = useState<AnalyticsEventRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState('');
 
   useEffect(() => {
     async function fetchAnalytics() {
       setLoading(true);
-      const sinceDate = new Date(Date.now() - Number(rangeDays) * 86400 * 1000);
-      const since = sinceDate.toISOString();
-      const { data } = await supabase
-        .from('analytics_events')
-        .select('user_id, event_name, properties, is_family, session_id, created_at')
-        .gte('created_at', since)
-        .order('created_at', { ascending: false });
-      setAllRows(data || []);
+      setLoadError('');
+      const result = await callAdminApi<{ rows: AnalyticsEventRow[] }>('/api/admin-analytics', {
+        passcode,
+        rangeDays: Number(rangeDays),
+      });
+      if (!result.success) setLoadError(result.error || 'Failed to load analytics');
+      setAllRows(result.rows || []);
       setLoading(false);
     }
     fetchAnalytics();
-  }, [rangeDays]);
+  }, [rangeDays, passcode]);
 
   if (loading) return <p className="text-[#8a7c66] animate-pulse">Loading analytics...</p>;
+  if (loadError) return <p className="text-[#e0605a]">{loadError}</p>;
 
   const rows = allRows;
 

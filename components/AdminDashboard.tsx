@@ -317,7 +317,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
           {section === 'sec_packs' && <SecPacksSection passcode={password} />}
           {section === 'sec_refunds' && <SecRefundsSection passcode={password} />}
           {section === 'draft_questions' && <DraftQuestionsSection passcode={password} />}
-          {section === 'analytics' && <AnalyticsSection />}
+          {section === 'analytics' && <AnalyticsSection passcode={password} />}
           {section === 'bug_reports' && <BugReportsSection passcode={password} />}
           {section === 'tools' && (
             <ToolsSection
