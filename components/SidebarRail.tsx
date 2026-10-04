@@ -303,7 +303,7 @@ export default function SidebarRail({
                       <span className="relative w-14 h-14 flex items-center justify-center shrink-0">
                         <img src={item.icon} alt="" className={`w-14 h-14 object-contain${isActive ? ' nav-icon-active' : ''}`} />
                         {railBadges?.[item.target] && (
-                          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-red-500 border-2 border-white animate-pulse" />
+                          <img src="/icons/red_alert.png" alt="" className="absolute -top-2 -right-2 w-6 h-6 object-contain animate-pulse pointer-events-none" />
                         )}
                       </span>
                       <span className="text-[9px] font-bold uppercase tracking-wide text-gray-500 text-center leading-tight">
