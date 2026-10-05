@@ -201,30 +201,36 @@ async function unsubscribeNative(): Promise<boolean> {
   return ok;
 }
 
-let nativeListenersAdded = false;
+let tapListenerAdded = false;
+
+/**
+ * Opens the screen a tapped notification points to. Called at startup from
+ * instrumentation-client.ts, before anyone is signed in: the plugin holds a
+ * tap (including the one that cold-started the app) until this listener
+ * exists, so registering it only after login lost taps on the login screen.
+ * No-op on the web and on Play app builds without the push plugin.
+ */
+export function listenForNotificationTaps(): void {
+  if (!isNativePush() || tapListenerAdded) return;
+  tapListenerAdded = true;
+  void PushNotifications.addListener('pushNotificationActionPerformed', (action: ActionPerformed) => {
+    const data = (action.notification.data ?? {}) as { url?: string; qid?: string };
+    const target = new URL(data.url || '/', window.location.origin);
+    if (target.origin !== window.location.origin) return;
+    // Same ?pq= the web service worker adds, so recordPushOpenFromUrl counts it.
+    if (data.qid) target.searchParams.set('pq', data.qid);
+    window.location.assign(target.pathname + target.search + target.hash);
+  });
+}
 
 /**
  * Call once a page knows who is signed in (Dashboard, parent dashboard).
- * Opens the screen a tapped notification points to, and re-saves the device
- * token for the same owner in case Firebase rotated it. No-op on the web
- * and on Play app builds without the push plugin.
+ * Re-saves the device token for the same owner in case Firebase rotated it.
+ * No-op on the web and on Play app builds without the push plugin.
  */
 export function initNativePush(owner: PushOwner): void {
   if (!isNativePush()) return;
-
-  if (!nativeListenersAdded) {
-    nativeListenersAdded = true;
-    // The plugin holds taps until this listener exists, including the tap
-    // that cold-started the app.
-    void PushNotifications.addListener('pushNotificationActionPerformed', (action: ActionPerformed) => {
-      const data = (action.notification.data ?? {}) as { url?: string; qid?: string };
-      const target = new URL(data.url || '/', window.location.origin);
-      if (target.origin !== window.location.origin) return;
-      // Same ?pq= the web service worker adds, so recordPushOpenFromUrl counts it.
-      if (data.qid) target.searchParams.set('pq', data.qid);
-      window.location.assign(target.pathname + target.search + target.hash);
-    });
-  }
+  listenForNotificationTaps();
 
   void (async () => {
     if (readStored(FCM_OWNER_KEY) !== ownerKey(owner)) return;
