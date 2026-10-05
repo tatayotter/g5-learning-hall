@@ -220,22 +220,24 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     setLoading(false);
   };
 
-  const handleDailyClaim = async () => {
-    const claimed = await claimDailyItems(userId);
-    if (claimed) {
-      setClaimedToday(true);
-      await loadInventory();
-    } else {
-      setClaimedToday(true); // already claimed
-    }
-  };
-
-  const loadForUser = useEffectEvent(() => {
-    loadInventory();
-    if (isFamily) handleDailyClaim();
+  const applyInventory = useEffectEvent((inv: InventoryMap) => {
+    setInventory(inv);
+    setLoading(false);
   });
+  const markClaimedToday = useEffectEvent(() => setClaimedToday(true));
+  const isFamilyNow = useEffectEvent(() => isFamily);
   useEffect(() => {
-    loadForUser();
+    let cancelled = false;
+    const showInventory = (inv: InventoryMap) => { if (!cancelled) applyInventory(inv); };
+    fetchInventory(userId).then(showInventory);
+    if (isFamilyNow()) {
+      claimDailyItems(userId).then(claimed => {
+        if (cancelled) return;
+        markClaimedToday(); // claimed now, or already claimed earlier today
+        if (claimed) fetchInventory(userId).then(showInventory);
+      });
+    }
+    return () => { cancelled = true; };
   }, [userId]);
 
   const handleBuy = async (key: string, cost: number, name: string) => {

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { playBattleSfx, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
@@ -76,18 +76,28 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const playerMon = playerMonsters[playerMonsterIdx];
   const npcMon = npcMonsters[npcMonsterIdx];
 
+  // Battle consumables only (Graduation Scrolls are used from the team screen).
+  const battleItems = Object.entries(inventory).filter(([key, qty]) => {
+    if (!qty || qty <= 0) return false;
+    const itemData = SHOP_CATALOG.find(i => i.key === key);
+    return !!itemData && itemData.effect !== 'graduate_monster';
+  });
+
   // Mirrors of the latest committed state, read by doNpcTurn's setTimeout callback
   // so it never has to nest a setState call inside another setState's updater.
   const playerMonstersRef = useRef(playerMonsters);
-  playerMonstersRef.current = playerMonsters;
   const npcMonstersRef = useRef(npcMonsters);
-  npcMonstersRef.current = npcMonsters;
   // A manual monster switch changes playerMonsterIdx and calls doNpcTurn() in
   // the same tick — doNpcTurn's setTimeout closure would otherwise capture the
   // pre-switch index (state updates aren't visible until the next render), so
   // the NPC's counter-attack could land on the just-benched monster instead.
   const playerMonsterIdxRef = useRef(playerMonsterIdx);
-  playerMonsterIdxRef.current = playerMonsterIdx;
+  // Synced right after each commit, well before doNpcTurn's delayed callback reads them.
+  useLayoutEffect(() => {
+    playerMonstersRef.current = playerMonsters;
+    npcMonstersRef.current = npcMonsters;
+    playerMonsterIdxRef.current = playerMonsterIdx;
+  });
   // Same problem on the NPC side: after a KO, the "sends out" flow calls
   // doNpcTurn from a closure that still holds the fainted curio's index — so
   // the knocked-out curio used to counter-attack. Written wherever
@@ -727,38 +737,31 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           skill scrolls, the Compendium-only graduation scroll) — only show
           entries that are actual battle consumables, not just anything the
           player owns. */}
-      {(() => {
-        const battleItems = Object.entries(inventory).filter(([key, qty]) => {
-          if (!qty || qty <= 0) return false;
-          const itemData = SHOP_CATALOG.find(i => i.key === key);
-          return !!itemData && itemData.effect !== 'graduate_monster';
-        });
+      {battleItems.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
+      ) : (
+          battleItems.map(([key, qty]) => {
+            const itemData = SHOP_CATALOG.find(i => i.key === key)!;
+            const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
 
-        if (battleItems.length === 0) {
-          return <p className="text-gray-500 text-sm text-center">No items in inventory.</p>;
-        }
-
-        return battleItems.map(([key, qty]) => {
-          const itemData = SHOP_CATALOG.find(i => i.key === key)!;
-          const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
-
-          return (
-            <button
-              key={key}
-              onClick={() => { playPageFlip(); handleItemUse(key); }}
-              disabled={itemBusy || noReviveTargets}
-              className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-            >
-              <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
-              <div className="flex-1">
-                <p className="text-white font-bold text-sm capitalize">{itemData.name}</p>
-                <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</p>
-              </div>
-              <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
-            </button>
-          );
-        });
-      })()}
+            return (
+              <button
+                key={key}
+                // eslint-disable-next-line react-hooks/refs -- click handler; its double-use ref guard is only read on click
+                onClick={() => { playPageFlip(); handleItemUse(key); }}
+                disabled={itemBusy || noReviveTargets}
+                className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+              >
+                <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-white font-bold text-sm capitalize">{itemData.name}</p>
+                  <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</p>
+                </div>
+                <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
+              </button>
+            );
+          })
+      )}
       <button
         onClick={() => { playPageFlip(); setPhase('select_skill'); }}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"

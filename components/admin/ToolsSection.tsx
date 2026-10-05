@@ -19,18 +19,18 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
   const [deedName, setDeedName] = useState('');
   const [deedGold, setDeedGold] = useState('');
   const [claims, setClaims] = useState<RewardClaim[]>([]);
-  const [loadingData, setLoadingData] = useState(false);
+  const [loadingData, setLoadingData] = useState(true);
   const [protectedIds, setProtectedIds] = useState<Set<string>>(new Set());
   const [loginPassword, setLoginPassword] = useState('');
   const [savingPassword, setSavingPassword] = useState(false);
 
-  const loadProtectedIds = async () => {
+  const fetchProtectedIds = async () => {
     const { data } = await supabase.from('family_credentials').select('id');
-    setProtectedIds(new Set((data || []).map((r) => r.id)));
+    return new Set<string>((data || []).map((r) => r.id));
   };
+  const loadProtectedIds = async () => setProtectedIds(await fetchProtectedIds());
 
-  const loadUserData = async (id: 'damien' | 'tala') => {
-    setLoadingData(true);
+  const fetchUserData = async (id: 'damien' | 'tala') => {
     // Level/xp/gold live on player_progress (lifetime, no week key); journal_logs/counters/
     // quiz_attempts/mastered_quizzes live on player_weekly_journal, keyed by content_week_id —
     // see docs/weekly-progress-redesign-plan.md Phase 4 Waves 1 & 4. Only damien (Grade 5) and
@@ -39,9 +39,7 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
     const progressResult = await callAdminApi<{ characterStats: CharacterStats | null }>('/api/admin-weekly', {
       passcode, action: 'get_progress_stats', userId: id,
     });
-    if (progressResult.characterStats) {
-      setStats(progressResult.characterStats);
-    }
+    let journal: WeeklyData | null = null;
     const { data: week } = await supabase
       .from('content_weeks')
       .select('id')
@@ -52,21 +50,41 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
       const journalResult = await callAdminApi<{ journal: WeeklyData | null }>('/api/admin-weekly', {
         passcode, action: 'get_weekly_journal', userId: id, contentWeekId: week.id,
       });
-      if (journalResult.journal) {
-        setToolData(journalResult.journal);
-      }
+      journal = journalResult.journal ?? null;
     }
     const { data: claimsData } = await supabase
       .from('reward_claims')
       .select('*')
       .eq('app_user_id', id)
       .order('created_at', { ascending: false });
-    if (claimsData) setClaims(claimsData);
+    return { characterStats: progressResult.characterStats, journal, claims: claimsData as RewardClaim[] | null };
+  };
+  const applyUserData = (loaded: Awaited<ReturnType<typeof fetchUserData>>) => {
+    if (loaded.characterStats) setStats(loaded.characterStats);
+    if (loaded.journal) setToolData(loaded.journal);
+    if (loaded.claims) setClaims(loaded.claims);
     setLoadingData(false);
   };
+  const loadUserData = async (id: 'damien' | 'tala') => {
+    setLoadingData(true);
+    applyUserData(await fetchUserData(id));
+  };
+  const selectUser = (id: 'damien' | 'tala') => {
+    setUserId(id);
+    loadUserData(id);
+  };
 
-  const loadForUser = useEffectEvent((id: typeof userId) => { loadUserData(id); loadProtectedIds(); });
-  useEffect(() => { loadForUser(userId); }, [userId]);
+  // First load only — later user switches go through selectUser.
+  const fetchInitial = useEffectEvent(() => Promise.all([fetchUserData(userId), fetchProtectedIds()]));
+  const applyInitial = useEffectEvent(([loaded, ids]: [Awaited<ReturnType<typeof fetchUserData>>, Set<string>]) => {
+    applyUserData(loaded);
+    setProtectedIds(ids);
+  });
+  useEffect(() => {
+    let cancelled = false;
+    fetchInitial().then(result => { if (!cancelled) applyInitial(result); });
+    return () => { cancelled = true; };
+  }, []);
 
   const handleSetLoginPassword = async () => {
     if (!loginPassword.trim()) return;
@@ -141,7 +159,7 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
         {(['damien', 'tala'] as const).map(id => (
           <button
             key={id}
-            onClick={() => setUserId(id)}
+            onClick={() => selectUser(id)}
             className={`px-5 py-2 rounded-lg font-bold text-sm transition-all ${
               userId === id
                 ? id === 'damien' ? 'bg-amber-600 text-[#ede4d3]' : 'bg-pink-600 text-[#ede4d3]'

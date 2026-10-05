@@ -1,7 +1,7 @@
 ﻿'use client';
-import { useState, useEffect, useEffectEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
@@ -75,7 +75,44 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
 
   const isTala = userId === 'tala';
   const timeLimit = isTala ? 120 : 60;
-  const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit);
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
+    setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'logic_labyrinth', summary.completedQuestionIds);
+    if (profile) {
+      const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, summary.totalXpEarned);
+      await updateSubclassProfile(userId, {
+ logic_labyrinth_lvl: level, logic_labyrinth_xp: xp });
+      if (profile.logic_labyrinth_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        const grantedId = await ensureGuildMonsterGranted(userId, 'logic_labyrinth');
+        if (grantedId) setNewCurioId(grantedId);
+      } else if (profile.logic_labyrinth_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        const tierCrossed = getCompanionTierCrossed('logic_labyrinth', profile.logic_labyrinth_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('logic_labyrinth') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'logic_labyrinth');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+        }
+      }
+    }
+    // Record the session even when it earned no gold (a session with no answers isn't a session).
+    if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
+      const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
+    }
+    if (summary.totalGoldEarned > 0) {
+      logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
+    }
+  };
+
+  const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
 
   useEffect(() => {
     async function loadPool() {
@@ -104,15 +141,6 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     loadPool();
   }, [userId]);
 
-  // Effect Event: reads the latest screen/handleSessionEnd without re-running
-  // the effect, which must fire only on the phase change itself.
-  const onPhaseEnded = useEffectEvent(() => {
-    if (screen === 'playing') handleSessionEnd();
-  });
-  useEffect(() => {
-    if (engine.phase === 'ended') onPhaseEnded();
-  }, [engine.phase]);
-
   const handleSelect = (optionId: string) => {
     if (selectedOption || !engine.currentQuestion) return;
     const isCorrect = optionId === engine.currentQuestion.correct_option_id;
@@ -125,41 +153,6 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       setSelectedOption(null);
       setFlashResult(null);
     }, 500);
-  };
-
-  const handleSessionEnd = async () => {
-    setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'logic_labyrinth', engine.completedQuestionIds);
-    if (profile) {
-      const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, engine.totalXpEarned);
-      await updateSubclassProfile(userId, {
- logic_labyrinth_lvl: level, logic_labyrinth_xp: xp });
-      if (profile.logic_labyrinth_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        const grantedId = await ensureGuildMonsterGranted(userId, 'logic_labyrinth');
-        if (grantedId) setNewCurioId(grantedId);
-      } else if (profile.logic_labyrinth_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
-        const tierCrossed = getCompanionTierCrossed('logic_labyrinth', profile.logic_labyrinth_lvl, level);
-        const speciesDef = tierCrossed ? getCompanionSpeciesDef('logic_labyrinth') : undefined;
-        if (tierCrossed && speciesDef) {
-          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'logic_labyrinth');
-          setCompanionGraduation({
-            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
-            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
-            monsterLevel,
-            quality,
-          });
-        }
-      }
-    }
-    // Record the session even when it earned no gold (a session with no answers isn't a session).
-    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
-      const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
-    }
-    if (engine.totalGoldEarned > 0) {
-      logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
-    }
   };
 
   if (screen === 'loading') {

@@ -157,7 +157,10 @@ export default function TrainingMap({
 }: TrainingMapProps) {
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
-  const [curioPos, setCurioPos] = useState<{ x: number; y: number } | null>(null);
+  // Tagged with the curio it was picked for, so a new curio never flashes
+  // at the previous one's tile before its own spot is picked.
+  const [pickedCurioPos, setPickedCurioPos] = useState<{ curioId: number; pos: { x: number; y: number } | null } | null>(null);
+  const curioPos = activeCurio && pickedCurioPos?.curioId === activeCurio.id ? pickedCurioPos.pos : null;
   // Trainer NPC that has spawned on the map — null when none is present.
   // Spawns on a correct scroll answer; cleared when the player walks within
   // 1 tile (dialogue triggered) or when the region changes.
@@ -255,57 +258,6 @@ export default function TrainingMap({
 
   const [mapRecycler, setMapRecycler] = useState<{ x: number; y: number } | null>(null);
   const recyclerTile = mapRecycler ?? RECYCLER_TILES[activeRegion.id] ?? null;
-  useEffect(() => {
-    let cancelled = false;
-    if (activeRegion.tileArtPath) {
-      loadTiledArtMap(activeRegion.tileArtPath).then(parsed => {
-        if (cancelled) return;
-        setRegionMap(parsed.layout);
-        setMapReady(true);
-        setBackground({
-          type: 'tilemap',
-          key: activeRegion.tileArtPath!,
-          mapJson: parsed.mapJson,
-          tilesetImages: parsed.tilesetImages,
-          tileSize: parsed.tileSize,
-          belowPlayerLayers: parsed.belowPlayerLayers,
-          abovePlayerLayers: parsed.abovePlayerLayers,
-          layerOpacity: parsed.layerOpacity,
-        });
-        setPortals(parsed.portals);
-        setMapRecycler(parsed.recycler);
-        setFoliage(parsed.foliage);
-        // Ledger's Heart persists position to the DB, so a player whose saved
-        // spot no longer exists on a re-authored map (out of bounds, or now
-        // sitting inside a fence/tree) needs to be nudged back to the map's
-        // own spawn point rather than getting stuck or rendering off-map.
-        if (isLedgersHeart) {
-          const { x, y } = { x: battleState.map_x, y: battleState.map_y };
-          const outOfBounds = x < 0 || x >= parsed.mapWidth || y < 0 || y >= parsed.mapHeight;
-          const blocked = !outOfBounds && parsed.layout[y][x].type === 'wall';
-          if (outOfBounds || blocked) {
-            const newState = { ...battleState, map_x: parsed.spawn.x, map_y: parsed.spawn.y };
-            onBattleStateChange(newState);
-            supabase.from('user_battle_state')
-              .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
-              .eq('user_id', userId);
-            contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
-          }
-        }
-      });
-    } else {
-      loadTiledMap(activeRegion.tiledMapPath).then(parsed => {
-        if (cancelled) return;
-        setRegionMap(parsed.layout);
-        setMapReady(true);
-        setBackground({ type: 'image', src: activeRegion.mapImage });
-      });
-    }
-    return () => { cancelled = true; };
-    // Component remounts when regionId changes (see the localPos comment
-    // below), so this only ever needs to run once per mount.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   const map = regionMap;
 
   // Walkable (grass) tiles excluding foliage canopy — same eligibility rules
@@ -372,24 +324,10 @@ export default function TrainingMap({
       if (!tile) break; // fewer than SCROLL_POOL_SIZE grass tiles fit — spawn as many as we can
       spawned.push({ id: scrollIdRef.current++, x: tile.x, y: tile.y });
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- random placement can't run during render; triggered by the map finishing loading
     if (spawned.length > 0) setScrolls(spawned);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mapReady]);
-
-  // Defensive reset if this TrainingMap instance ever persists across a
-  // regionId change (e.g. a portal transition that doesn't force a full
-  // remount) — without this, a stale scroll pool from the previous map
-  // could linger at coordinates that no longer make sense on the new one.
-  useEffect(() => {
-    setScrolls([]);
-    setActiveScroll(null);
-    setCurioPos(null);
-    setActiveMapTrainer(null);
-    setPendingTrainerChallenge(null);
-    setPendingCurioChallenge(false);
-    setPendingRecyclerTrade(false);
-    setCollectingTrashIds(new Set());
-  }, [regionId]);
 
   // curioPos tracks activeCurio's lifecycle exactly: picked the moment a
   // curio identity arrives from MonsterGuild (or, since a found curio follows
@@ -397,14 +335,11 @@ export default function TrainingMap({
   // it's gone (caught or fled) — single source of truth, no MonsterGuild-side
   // position bookkeeping needed.
   useEffect(() => {
-    if (!activeCurio) {
-      setCurioPos(null);
-      return;
-    }
-    if (!mapReady) return;
+    if (!activeCurio || !mapReady) return;
     const occupied = [...scrolls, { x: posX, y: posY }];
     const tile = pickAdjacentOpenTile(map, activeRegion.mapWidth, activeRegion.mapHeight, posX, posY, occupied, foliage);
-    setCurioPos(tile);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- random placement can't run during render; triggered by the curio arriving
+    setPickedCurioPos({ curioId: activeCurio.id, pos: tile });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCurio?.id, mapReady]);
 
@@ -524,6 +459,59 @@ export default function TrainingMap({
     onBlocked: handleBlocked,
     extraBlockedTiles: recyclerTile ? [recyclerTile] : undefined,
   });
+
+  // Loads this region's map (declared after contMove, which it resets).
+  useEffect(() => {
+    let cancelled = false;
+    if (activeRegion.tileArtPath) {
+      loadTiledArtMap(activeRegion.tileArtPath).then(parsed => {
+        if (cancelled) return;
+        setRegionMap(parsed.layout);
+        setMapReady(true);
+        setBackground({
+          type: 'tilemap',
+          key: activeRegion.tileArtPath!,
+          mapJson: parsed.mapJson,
+          tilesetImages: parsed.tilesetImages,
+          tileSize: parsed.tileSize,
+          belowPlayerLayers: parsed.belowPlayerLayers,
+          abovePlayerLayers: parsed.abovePlayerLayers,
+          layerOpacity: parsed.layerOpacity,
+        });
+        setPortals(parsed.portals);
+        setMapRecycler(parsed.recycler);
+        setFoliage(parsed.foliage);
+        // Ledger's Heart persists position to the DB, so a player whose saved
+        // spot no longer exists on a re-authored map (out of bounds, or now
+        // sitting inside a fence/tree) needs to be nudged back to the map's
+        // own spawn point rather than getting stuck or rendering off-map.
+        if (isLedgersHeart) {
+          const { x, y } = { x: battleState.map_x, y: battleState.map_y };
+          const outOfBounds = x < 0 || x >= parsed.mapWidth || y < 0 || y >= parsed.mapHeight;
+          const blocked = !outOfBounds && parsed.layout[y][x].type === 'wall';
+          if (outOfBounds || blocked) {
+            const newState = { ...battleState, map_x: parsed.spawn.x, map_y: parsed.spawn.y };
+            onBattleStateChange(newState);
+            supabase.from('user_battle_state')
+              .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
+              .eq('user_id', userId);
+            contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
+          }
+        }
+      });
+    } else {
+      loadTiledMap(activeRegion.tiledMapPath).then(parsed => {
+        if (cancelled) return;
+        setRegionMap(parsed.layout);
+        setMapReady(true);
+        setBackground({ type: 'image', src: activeRegion.mapImage });
+      });
+    }
+    return () => { cancelled = true; };
+    // Component remounts when regionId changes (see the localPos comment
+    // below), so this only ever needs to run once per mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleScrollAnswer = async (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     const answered = activeScroll!;

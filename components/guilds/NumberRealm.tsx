@@ -1,7 +1,7 @@
 ﻿'use client';
-import { useState, useEffect, useRef, useEffectEvent } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
@@ -81,7 +81,43 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
 
   const isTala = userId === 'tala';
   const timeLimit = isTala ? 120 : 60;
-  const engine = useTimeAttack<NumberRealmQuestion>(questions, timeLimit)
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
+    setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'number_realm', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'number_realm', summary.completedQuestionIds);
+    if (profile) {
+      const { level, xp } = applyLevelUp(profile.number_realm_lvl, profile.number_realm_xp, summary.totalXpEarned);
+      await updateSubclassProfile(userId, { number_realm_lvl: level, number_realm_xp: xp });
+      if (profile.number_realm_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        const grantedId = await ensureGuildMonsterGranted(userId, 'number_realm');
+        if (grantedId) setNewCurioId(grantedId);
+      } else if (profile.number_realm_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        const tierCrossed = getCompanionTierCrossed('number_realm', profile.number_realm_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('number_realm') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'number_realm');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+        }
+      }
+    }
+    // Record the session even when it earned no gold (a session with no answers isn't a session).
+    if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
+      const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
+    }
+    if (summary.totalGoldEarned > 0) {
+      logAction(userId, weekStartingDate, 'side_quest', `Number Realm session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
+    }
+  };
+
+  const engine = useTimeAttack<NumberRealmQuestion>(questions, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
 
   useEffect(() => {
     async function loadPool() {
@@ -97,15 +133,6 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     }
     loadPool();
   }, [userId]);
-
-  // Effect Event: reads the latest screen/handleSessionEnd without re-running
-  // the effect, which must fire only on the phase change itself.
-  const onPhaseEnded = useEffectEvent(() => {
-    if (screen === 'playing') handleSessionEnd();
-  });
-  useEffect(() => {
-    if (engine.phase === 'ended') onPhaseEnded();
-  }, [engine.phase]);
 
   // Auto-focus first input whenever question changes
   useEffect(() => {
@@ -147,40 +174,6 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     engine.submitResult(isCorrect, q.id, gradeStageIndex(q.grade_level));
     clearInputs();
     setTimeout(() => setFlashResult(null), 300);
-  };
-
-  const handleSessionEnd = async () => {
-    setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'number_realm', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'number_realm', engine.completedQuestionIds);
-    if (profile) {
-      const { level, xp } = applyLevelUp(profile.number_realm_lvl, profile.number_realm_xp, engine.totalXpEarned);
-      await updateSubclassProfile(userId, { number_realm_lvl: level, number_realm_xp: xp });
-      if (profile.number_realm_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        const grantedId = await ensureGuildMonsterGranted(userId, 'number_realm');
-        if (grantedId) setNewCurioId(grantedId);
-      } else if (profile.number_realm_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
-        const tierCrossed = getCompanionTierCrossed('number_realm', profile.number_realm_lvl, level);
-        const speciesDef = tierCrossed ? getCompanionSpeciesDef('number_realm') : undefined;
-        if (tierCrossed && speciesDef) {
-          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'number_realm');
-          setCompanionGraduation({
-            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
-            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
-            monsterLevel,
-            quality,
-          });
-        }
-      }
-    }
-    // Record the session even when it earned no gold (a session with no answers isn't a session).
-    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
-      const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
-    }
-    if (engine.totalGoldEarned > 0) {
-      logAction(userId, weekStartingDate, 'side_quest', `Number Realm session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
-    }
   };
 
   const renderInputLayout = (q: NumberRealmQuestion) => {

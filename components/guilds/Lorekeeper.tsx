@@ -1,8 +1,8 @@
 ﻿// components/guilds/Lorekeeper.tsx
 'use client';
-import { useState, useEffect, useEffectEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
@@ -37,6 +37,12 @@ function shuffle<T>(arr: T[]): T[] {
   return result;
 }
 
+// Answer order is shuffled once per question at load — without this, choices
+// rendered in fixed a/b/c/d order, so whichever slot the seed data put
+// correct_choice in (e.g. "b") was correct for nearly every question,
+// making spam-clicking that slot a free win.
+type ShuffledQuestion = LorekeeperQuestion & { choices: { key: string; text: string }[] };
+
 interface LorekeeperQuestion {
   id: string;
   passage: string | null;
@@ -61,7 +67,7 @@ type ScreenState = 'loading' | 'ready' | 'playing' | 'results';
 
 export default function Lorekeeper({ userId, weekStartingDate, currentStats, onGoldEarned, onExit }: LorekeeperProps) {
   const [screen, setScreen] = useState<ScreenState>('loading');
-  const [questions, setQuestions] = useState<LorekeeperQuestion[]>([]);
+  const [questions, setQuestions] = useState<ShuffledQuestion[]>([]);
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [flashResult, setFlashResult] = useState<'correct' | 'wrong' | null>(null);
@@ -69,75 +75,16 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   const [companionGraduation, setCompanionGraduation] = useState<{
     fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
   } | null>(null);
-  const [shuffledChoices, setShuffledChoices] = useState<{ key: string; text: string }[]>([]);
 
   const isTala = userId === 'tala';
   const timeLimit = isTala ? 120 : 60;
-  const engine = useTimeAttack<LorekeeperQuestion>(questions, timeLimit);
-
-  useEffect(() => {
-    async function loadPool() {
-      try {
-        const [pool, subProfile] = await Promise.all([
-          takePrefetch<LorekeeperQuestion[]>(userId, 'guildPool:lorekeeper')
-            ?? fetchQuestionPool<LorekeeperQuestion>(userId, 'sq_lorekeeper', 'lorekeeper'),
-          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
-            ?? fetchSubclassProfile(userId)
-        ]);
-        setQuestions(shuffle(pool));
-        setProfile(subProfile);
-        setScreen('ready');
-      } catch (err) {
-        console.error('Failed to load Lorekeeper data:', err);
-      }
-    }
-    loadPool();
-  }, [userId]);
-
-  // Effect Event: reads the latest screen/handleSessionEnd without re-running
-  // the effect, which must fire only on the phase change itself.
-  const onPhaseEnded = useEffectEvent(() => {
-    if (screen === 'playing') handleSessionEnd();
-  });
-  useEffect(() => {
-    if (engine.phase === 'ended') onPhaseEnded();
-  }, [engine.phase]);
-
-  // Re-shuffle answer order each time the question changes — without this,
-  // choices always rendered in fixed a/b/c/d order, so whichever slot the
-  // seed data happened to put correct_choice in (e.g. "b") was correct for
-  // nearly every question, making spam-clicking that slot a free win.
-  useEffect(() => {
-    if (!engine.currentQuestion) return;
-    const q = engine.currentQuestion;
-    setShuffledChoices(shuffle([
-      { key: 'a', text: q.choice_a },
-      { key: 'b', text: q.choice_b },
-      { key: 'c', text: q.choice_c },
-      { key: 'd', text: q.choice_d },
-    ]));
-  }, [engine.currentQuestion]);
-
-  const handleAnswer = (choice: string) => {
-    if (!engine.currentQuestion) return;
-    setSelectedChoice(choice);
-    const isCorrect = choice.toLowerCase() === engine.currentQuestion.correct_choice.toLowerCase();
-    setFlashResult(isCorrect ? 'correct' : 'wrong');
-    if (isCorrect) playChime(); else playClash();
-    setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
-      setSelectedChoice(null);
-      setFlashResult(null);
-    }, 400);
-  };
-
-  const handleSessionEnd = async () => {
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
     setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'lorekeeper', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'lorekeeper', engine.completedQuestionIds);
+    trackEvent('guild_quiz_complete', { guild_key: 'lorekeeper', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'lorekeeper', summary.completedQuestionIds);
 
     if (profile) {
-      const { level, xp } = applyLevelUp(profile.lorekeeper_lvl, profile.lorekeeper_xp, engine.totalXpEarned);
+      const { level, xp } = applyLevelUp(profile.lorekeeper_lvl, profile.lorekeeper_xp, summary.totalXpEarned);
       await updateSubclassProfile(userId, { lorekeeper_lvl: level, lorekeeper_xp: xp });
       if (profile.lorekeeper_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
         const grantedId = await ensureGuildMonsterGranted(userId, 'lorekeeper');
@@ -161,13 +108,59 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     }
 
     // Record the session even when it earned no gold (a session with no answers isn't a session).
-    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
-      const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
+    if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
+      const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
     }
-    if (engine.totalGoldEarned > 0) {
-      logAction(userId, weekStartingDate, 'side_quest', `Lorekeeper session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
+    if (summary.totalGoldEarned > 0) {
+      logAction(userId, weekStartingDate, 'side_quest', `Lorekeeper session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
     }
+  };
+
+  const engine = useTimeAttack<ShuffledQuestion>(questions, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
+
+  useEffect(() => {
+    async function loadPool() {
+      try {
+        const [pool, subProfile] = await Promise.all([
+          takePrefetch<LorekeeperQuestion[]>(userId, 'guildPool:lorekeeper')
+            ?? fetchQuestionPool<LorekeeperQuestion>(userId, 'sq_lorekeeper', 'lorekeeper'),
+          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+            ?? fetchSubclassProfile(userId)
+        ]);
+        setQuestions(shuffle(pool).map(q => ({
+          ...q,
+          choices: shuffle([
+            { key: 'a', text: q.choice_a },
+            { key: 'b', text: q.choice_b },
+            { key: 'c', text: q.choice_c },
+            { key: 'd', text: q.choice_d },
+          ]),
+        })));
+        setProfile(subProfile);
+        setScreen('ready');
+      } catch (err) {
+        console.error('Failed to load Lorekeeper data:', err);
+      }
+    }
+    loadPool();
+  }, [userId]);
+
+  const shuffledChoices = engine.currentQuestion?.choices ?? [];
+
+  const handleAnswer = (choice: string) => {
+    if (!engine.currentQuestion) return;
+    setSelectedChoice(choice);
+    const isCorrect = choice.toLowerCase() === engine.currentQuestion.correct_choice.toLowerCase();
+    setFlashResult(isCorrect ? 'correct' : 'wrong');
+    if (isCorrect) playChime(); else playClash();
+    setTimeout(() => {
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
+      setSelectedChoice(null);
+      setFlashResult(null);
+    }, 400);
   };
 
   if (screen === 'loading') {

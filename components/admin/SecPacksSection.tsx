@@ -5,7 +5,7 @@
 // shape (inline create/edit form + list below). No delete: unpublishing via
 // the Active toggle is the only removal path, since sec_packs.id is FK'd
 // from real purchase history in sec_entitlements.
-import { useEffect, useState, useEffectEvent } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { callAdminApi } from '@/lib/adminApi';
 
 interface SecPack {
@@ -34,15 +34,24 @@ export default function SecPacksSection({ passcode }: { passcode: string }) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
 
-  const reload = async () => {
-    setLoading(true);
-    const result = await callAdminApi<{ packs: SecPack[] }>('/api/admin-sec-packs', { passcode, action: 'list_packs' });
+  const fetchPacks = useCallback(
+    () => callAdminApi<{ packs: SecPack[] }>('/api/admin-sec-packs', { passcode, action: 'list_packs' }),
+    [passcode],
+  );
+  const applyPacks = useCallback((result: Awaited<ReturnType<typeof fetchPacks>>) => {
     if (result.success) setPacks(result.packs || []);
     setLoading(false);
+  }, []);
+  const reload = async () => {
+    setLoading(true);
+    applyPacks(await fetchPacks());
   };
 
-  const reloadOnMount = useEffectEvent(() => { reload(); });
-  useEffect(() => { reloadOnMount(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetchPacks().then(result => { if (!cancelled) applyPacks(result); });
+    return () => { cancelled = true; };
+  }, [fetchPacks, applyPacks]);
 
   // Editing an existing pack loads its row into the form (id becomes
   // read-only via the disabled input below — id is the primary key AND the

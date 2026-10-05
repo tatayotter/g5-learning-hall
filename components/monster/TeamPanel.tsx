@@ -282,7 +282,7 @@ export default function TeamPanel({
     ? userMonsters.find(m => m.id === detailMonster.id) ?? detailMonster
     : null;
 
-  function renderDetailModal() {
+  const detailModal = (() => {
     if (!liveDetailMonster) return null;
     const monster = liveDetailMonster;
     const def = getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier);
@@ -446,6 +446,7 @@ export default function TeamPanel({
                       variant="quest"
                       color="#d97706"
                       className="w-full"
+                      // eslint-disable-next-line react-hooks/refs -- GameButton's onClick only runs on click; the handler's double-click ref guard isn't read during render
                       onClick={() => handleGraduate(monster.id, requiredLevel, targetTier, monster.monster_id, currentTier, monster.monster_level, monster.quality)}
                       disabled={!levelMet || scrollQty === 0 || actionBusy}
                     >
@@ -567,6 +568,7 @@ export default function TeamPanel({
                         variant="quest"
                         color="#4f46e5"
                         className="w-full"
+                        // eslint-disable-next-line react-hooks/refs -- GameButton's onClick only runs on click; the handler's double-click ref guard isn't read during render
                         onClick={() => handleTutor(monster.id, def.name, def, monster.monster_level, canUseTome)}
                         disabled={!affordable || actionBusy}
                       >
@@ -584,13 +586,13 @@ export default function TeamPanel({
         </div>
       </div>
     );
-  }
+  })();
 
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-bold text-gray-900">Your Team</h3>
 
-      {renderDetailModal()}
+      {detailModal}
 
       {ceremony && (
         <GraduationCeremonyModal

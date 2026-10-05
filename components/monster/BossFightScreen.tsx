@@ -6,7 +6,7 @@
 // BattleStage's MonsterDef/MonsterHpPanel machinery onto a persona that isn't
 // a real Curio — reuses the genuinely shared pieces (ActionTile,
 // AttackBanner, DamageNumber, runBattleBeats/BattleBeat) directly.
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { CSSProperties } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { AttackBanner, DamageNumber, runBattleBeats, BattleBeat } from '@/components/battle/shared';
@@ -313,13 +313,15 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
     return () => { cancelled = true; };
   }, [userId]);
 
-  const load = useCallback(async () => {
-    const all = await fetchBossQuestionPool(grade, subject, CURRENT_TERM);
-    setRawPool(all);
-    setPool(buildBossQuestionPool(all));
+  useEffect(() => {
+    let cancelled = false;
+    fetchBossQuestionPool(grade, subject, CURRENT_TERM).then(all => {
+      if (cancelled) return;
+      setRawPool(all);
+      setPool(buildBossQuestionPool(all));
+    });
+    return () => { cancelled = true; };
   }, [grade, subject]);
-
-  useEffect(() => { load(); }, [load]);
 
   // Persona fight theme takes over for the whole challenge session (loading,
   // battle, loss/retry, victory popup) — stopping it on unmount falls back

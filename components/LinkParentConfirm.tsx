@@ -25,7 +25,8 @@ export default function LinkParentConfirm() {
   const searchParams = useSearchParams();
   const token = searchParams.get('token') || '';
 
-  const [stage, setStage] = useState<Stage>('loading');
+  const [loadedStage, setStage] = useState<Stage>('loading');
+  const stage: Stage = token ? loadedStage : 'invalid';
   const [childFirstName, setChildFirstName] = useState('');
   const [mode, setMode] = useState<AuthMode>('signup');
   const [email, setEmail] = useState('');
@@ -41,10 +42,7 @@ export default function LinkParentConfirm() {
   }, [stage, mode]);
 
   useEffect(() => {
-    if (!token) {
-      setStage('invalid');
-      return;
-    }
+    if (!token) return;
     supabase.rpc('preview_parent_link', { p_token: token }).then(({ data, error }) => {
       if (error || !data || !data[0]) {
         setStage('invalid');

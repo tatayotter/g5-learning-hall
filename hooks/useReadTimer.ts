@@ -17,20 +17,19 @@ function computeReadSeconds(content: string | null | undefined): number {
 // that changes whenever a *different* quest's notes are shown (e.g. the quest
 // id) so the countdown restarts instead of carrying over a stale value.
 export function useReadTimer(content: string | null | undefined, resetKey: string): number {
-  const [remaining, setRemaining] = useState(() => computeReadSeconds(content));
-
-  useEffect(() => {
-    setRemaining(computeReadSeconds(content));
-    // Only re-run when we're looking at a genuinely different quest's notes —
-    // `content` itself is included so it still recomputes when data first
-    // arrives async under the same key.
-  }, [resetKey, content]);
+  // The countdown is tagged with the quest (resetKey) and content it belongs
+  // to; a different quest — or content arriving async under the same key —
+  // starts over from that content's full read time.
+  const [tick, setTick] = useState<{ resetKey: string; content: string | null | undefined; remaining: number } | null>(null);
+  const remaining = tick && tick.resetKey === resetKey && tick.content === content
+    ? tick.remaining
+    : computeReadSeconds(content);
 
   useEffect(() => {
     if (remaining <= 0) return;
-    const timer = setTimeout(() => setRemaining((r) => r - 1), 1000);
+    const timer = setTimeout(() => setTick({ resetKey, content, remaining: remaining - 1 }), 1000);
     return () => clearTimeout(timer);
-  }, [remaining]);
+  }, [remaining, resetKey, content]);
 
   return remaining;
 }

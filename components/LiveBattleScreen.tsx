@@ -11,9 +11,9 @@
 // A player only ever mutates their own roster's active slot directly; the
 // opponent's mirror is kept in sync purely via broadcasts (round outcomes,
 // self_state_sync, monster_switch) — never written to speculatively.
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useLayoutEffect, useEffectEvent } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
-import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
+import { useLiveBattle, TIMEOUT_ACTION_ID, type LiveBattleEvents } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
 import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, type BattleQuestionProps, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
@@ -120,18 +120,17 @@ export default function LiveBattleScreen({
   const oppMon = oppRoster[oppActiveIdx];
 
   const myMonRef = useRef(myMon);
-  myMonRef.current = myMon;
   const oppMonRef = useRef(oppMon);
-  oppMonRef.current = oppMon;
+  useLayoutEffect(() => {
+    myMonRef.current = myMon;
+    oppMonRef.current = oppMon;
+  });
 
   const {
     phase, round, deadlineAt, lastOutcome, forfeitedByOpponent, battleEnded,
-    incomingStatusEffect, incomingSelfSync, incomingSwitch, incomingBenchRevive,
     submitRoundAnswer, advanceToNextRound, declareBattleEnd, registerMonsterGetters,
-    sendStatusEffectToOpponent, clearIncomingStatusEffect,
-    sendSelfStateSync, clearIncomingSelfSync,
-    sendMonsterSwitch, clearIncomingSwitch,
-    sendBenchRevive, clearIncomingBenchRevive,
+    sendStatusEffectToOpponent, sendSelfStateSync, sendMonsterSwitch, sendBenchRevive,
+    onBattleEvent,
   } = useLiveBattle(battleId, myUserId, side, SKILLS, botAccuracy);
   const timedOutRoundRef = useRef<number | null>(null);
 
@@ -182,32 +181,27 @@ export default function LiveBattleScreen({
   // A cross-effect item the opponent used against me (currently only
   // Poison Fang's inflict_curse) arrives here instead of through the normal
   // round-resolution path, since it's not tied to either side's skill pick.
-  useEffect(() => {
-    if (!incomingStatusEffect) return;
-    updateMyActive(prev => ({ ...prev, status: incomingStatusEffect.status, statusTurns: incomingStatusEffect.statusTurns }));
-    addLog(`${opponentName} inflicted ${incomingStatusEffect.status} on ${myMon.def.name}!`);
-    clearIncomingStatusEffect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [incomingStatusEffect]);
+  const onStatusEffect = useEffectEvent((incoming: LiveBattleEvents['statusEffect']) => {
+    updateMyActive(prev => ({ ...prev, status: incoming.status, statusTurns: incoming.statusTurns }));
+    addLog(`${opponentName} inflicted ${incoming.status} on ${myMon.def.name}!`);
+  });
+  useEffect(() => onBattleEvent('statusEffect', e => onStatusEffect(e)), [onBattleEvent]);
 
   // Mirrors the opponent's self-only Rest/item changes onto my view of their
   // active monster — without this, their HP/status badge on my screen goes
   // stale and our two clients' independent round-damage math can diverge.
-  useEffect(() => {
-    if (!incomingSelfSync) return;
+  const onSelfSync = useEffectEvent((patch: LiveBattleEvents['selfSync']) => {
     // Only Rest sends restUsed — play the opponent's Rest on my screen too.
-    if (incomingSelfSync.restUsed !== undefined) setOppAction(makeStageAction({ animation: 'restore', element: oppMon.def.element }));
-    updateOppActive(prev => ({ ...prev, ...incomingSelfSync }));
-    clearIncomingSelfSync();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [incomingSelfSync]);
+    if (patch.restUsed !== undefined) setOppAction(makeStageAction({ animation: 'restore', element: oppMon.def.element }));
+    updateOppActive(prev => ({ ...prev, ...patch }));
+  });
+  useEffect(() => onBattleEvent('selfSync', p => onSelfSync(p)), [onBattleEvent]);
 
   // The opponent switched their active monster (manually, or forced by a
   // faint) — mirror the index locally. oppRoster[idx] already holds that
   // monster's correct last-known HP/status since bench members never change
   // state while inactive, so no extra data needs to travel with the switch.
-  useEffect(() => {
-    if (!incomingSwitch) return;
+  const onMonsterSwitch = useEffectEvent((incomingSwitch: LiveBattleEvents['monsterSwitch']) => {
     const newMon = oppRoster[incomingSwitch.idx];
     setOppActiveIdx(incomingSwitch.idx);
     if (newMon) {
@@ -215,22 +209,18 @@ export default function LiveBattleScreen({
         ? `${oppMon.def.name} fainted! ${opponentName} sends out ${newMon.def.name}!`
         : `${opponentName} switched to ${newMon.def.name}!`);
     }
-    clearIncomingSwitch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [incomingSwitch]);
+  });
+  useEffect(() => onBattleEvent('monsterSwitch', s => onMonsterSwitch(s)), [onBattleEvent]);
 
   // The opponent revived a fainted bench monster — unlike self_state_sync,
   // this writes directly to that roster slot rather than whichever monster
   // is currently active, since the revived monster usually isn't.
-  useEffect(() => {
-    if (!incomingBenchRevive) return;
-    const { idx, newHp } = incomingBenchRevive;
+  const onBenchRevive = useEffectEvent(({ idx, newHp }: LiveBattleEvents['benchRevive']) => {
     setOppRoster(prev => prev.map((m, i) => (i === idx ? { ...m, currentHp: newHp } : m)));
     const revived = oppRoster[idx];
     if (revived) addLog(`${opponentName} revived ${revived.def.name}!`);
-    clearIncomingBenchRevive();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [incomingBenchRevive]);
+  });
+  useEffect(() => onBattleEvent('benchRevive', r => onBenchRevive(r)), [onBattleEvent]);
 
   useEffect(() => {
     registerMonsterGetters(() => myMonRef.current, () => oppMonRef.current);
@@ -248,6 +238,7 @@ export default function LiveBattleScreen({
   // solo BattleScreen, so a PvP hit is never just an instant, silent HP dip.
   useEffect(() => {
     if (!lastOutcome) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- starts the resolved round's timed attack beats; the outcome arrives from the battle engine
     setBanner(null);
 
     // A coin-toss round's speedWinner won the toss, not a speed race (the
@@ -456,6 +447,7 @@ export default function LiveBattleScreen({
     if (myFainted && !myWiped) {
       const nextIdx = myRoster.findIndex((m, i) => i !== myActiveIdx && m.currentHp > 0);
       if (nextIdx !== -1) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- auto-switch after a KO, once that round's beats have finished playing
         addLog(`${myMon.def.name} fainted! Go, ${myRoster[nextIdx].def.name}!`);
         setMyActiveIdx(nextIdx);
         sendMonsterSwitch(nextIdx, true);
@@ -534,7 +526,7 @@ export default function LiveBattleScreen({
   // Coaching moments for battle training (onCoachMoment). The ref keeps each
   // one to a single report per round, however often the screen re-renders.
   const onCoachMomentRef = useRef(onCoachMoment);
-  onCoachMomentRef.current = onCoachMoment;
+  useLayoutEffect(() => { onCoachMomentRef.current = onCoachMoment; });
   const coachReportedRef = useRef(new Set<string>());
   // The first tip waits for the battle intro (VS screen) to lift.
   const [introDone, setIntroDone] = useState(false);
@@ -784,6 +776,7 @@ export default function LiveBattleScreen({
           return (
             <button
               key={key}
+              // eslint-disable-next-line react-hooks/refs -- click handler; its double-use ref guard is only read on click
               onClick={() => { playPageFlip(); handleUseItem(key); }}
               disabled={itemBusy || noReviveTargets}
               className="w-full flex items-center justify-between bg-black/30 hover:bg-black/50 rounded-lg px-4 py-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"

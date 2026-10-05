@@ -8,7 +8,8 @@
 // the old CSS grid used) since canvas text/rounded-rect primitives would
 // only regress that polish's fidelity for no gameplay benefit — see the
 // scene file's header comment for the full rationale.
-import { useEffect, useRef, useContext, useState } from 'react';
+import { useEffect, useRef, useContext, useState, useCallback } from 'react';
+import { useClientValue } from '@/hooks/useClientValue';
 import { MapScaleContext } from '@/components/MapStage';
 import { USERS } from '@/lib/userSession';
 import { GMBadge, MonsterImage } from '@/components/battle/shared';
@@ -57,6 +58,15 @@ function pctFromTransform(t: Transform) {
 // painted-image backgrounds, which have no camera pan at all). Real markers
 // only ever show this for a single frame before getTransform() below takes
 // over, so it doesn't need to match the scene's clamp-at-map-edges behavior.
+function readSavedZoom(): number | null {
+  try {
+    const saved = Number(localStorage.getItem('mapZoom'));
+    return saved >= TILE_ART_ZOOM_MIN && saved <= TILE_ART_ZOOM_MAX ? saved : null;
+  } catch {
+    return null; // storage unavailable — keep default
+  }
+}
+
 function naiveInitialTransform(mapWidth: number, mapHeight: number, background: MapBackground, selfX: number, selfY: number, zoom: number): Transform {
   if (background.type === 'image') {
     return { tileW: CANVAS_WIDTH / mapWidth, tileH: CANVAS_HEIGHT / mapHeight, offsetX: 0, offsetY: 0 };
@@ -128,22 +138,19 @@ export default function MapCanvas({
   const rootRef = useRef<HTMLDivElement>(null);
 
   // Player-adjustable camera zoom (tile-art maps only), remembered per device.
-  const [zoom, setZoom] = useState(TILE_ART_ZOOM);
-  useEffect(() => {
-    try {
-      const saved = Number(localStorage.getItem('mapZoom'));
-      if (saved >= TILE_ART_ZOOM_MIN && saved <= TILE_ART_ZOOM_MAX) setZoom(saved);
-    } catch { /* storage unavailable — keep default */ }
-  }, []);
-  const changeZoom = (delta: number) => {
-    setZoom(z => {
-      const next = Math.min(TILE_ART_ZOOM_MAX, Math.max(TILE_ART_ZOOM_MIN, Math.round((z + delta) / TILE_ART_ZOOM_STEP) * TILE_ART_ZOOM_STEP));
+  // The saved zoom is read straight from storage; the player's own choice
+  // this session (chosenZoom) wins over it once they zoom.
+  const savedZoom = useClientValue(readSavedZoom, null);
+  const [chosenZoom, setChosenZoom] = useState<number | null>(null);
+  const zoom = chosenZoom ?? savedZoom ?? TILE_ART_ZOOM;
+  const changeZoom = useCallback((delta: number) => {
+    setChosenZoom(z => {
+      const base = z ?? savedZoom ?? TILE_ART_ZOOM;
+      const next = Math.min(TILE_ART_ZOOM_MAX, Math.max(TILE_ART_ZOOM_MIN, Math.round((base + delta) / TILE_ART_ZOOM_STEP) * TILE_ART_ZOOM_STEP));
       try { localStorage.setItem('mapZoom', String(next)); } catch { /* ignore */ }
       return next;
     });
-  };
-  const changeZoomRef = useRef(changeZoom);
-  changeZoomRef.current = changeZoom;
+  }, [savedZoom]);
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
@@ -153,11 +160,11 @@ export default function MapCanvas({
       const now = performance.now();
       if (now - lastWheel < 120) return; // one step per wheel "notch"
       lastWheel = now;
-      changeZoomRef.current(e.deltaY < 0 ? TILE_ART_ZOOM_STEP : -TILE_ART_ZOOM_STEP);
+      changeZoom(e.deltaY < 0 ? TILE_ART_ZOOM_STEP : -TILE_ART_ZOOM_STEP);
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, []);
+  }, [changeZoom]);
   const gameRef = useRef<import('phaser').Game | null>(null);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
   // Direct DOM target for the self name-tag/status-icon wrapper — positioned
@@ -217,7 +224,7 @@ export default function MapCanvas({
   // visually obvious. Same imperative-ref pattern as selfWrapRef, keyed so
   // each marker's own tile position is known at reposition time.
   const markerElsRef = useRef<Map<string, { el: HTMLDivElement; x: number; y: number }>>(new Map());
-  const registerMarker = (key: string, x: number, y: number) => (el: HTMLDivElement | null) => {
+  const registerMarker = (key: string, x: number, y: number, el: HTMLDivElement | null) => {
     if (el) markerElsRef.current.set(key, { el, x, y });
     else markerElsRef.current.delete(key);
   };
@@ -354,6 +361,7 @@ export default function MapCanvas({
   // every marker's actual position every frame once the scene exists) — used
   // for markers' initial style before the first rAF tick.
   const { tileWPct, tileHPct, leftPct, topPct } = pctFromTransform(
+// eslint-disable-next-line react-hooks/refs -- deliberate render-time fallback for a new marker's first frame; the rAF loop above repositions every marker imperatively
     sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, posX, posY, zoom)
   );
 
@@ -434,7 +442,7 @@ export default function MapCanvas({
 
       {townMarkerTile && (
         <div
-          ref={registerMarker('town', townMarkerTile.x, townMarkerTile.y)}
+          ref={el => registerMarker('town', townMarkerTile.x, townMarkerTile.y, el)}
           className="absolute pointer-events-none flex items-center justify-center"
           style={{
             left: `${leftPct(townMarkerTile.x)}%`, top: `${topPct(townMarkerTile.y)}%`,
@@ -456,7 +464,7 @@ export default function MapCanvas({
         return (
           <div
             key={`${portal.x},${portal.y}`}
-            ref={registerMarker(`portal:${portal.x},${portal.y}`, portal.x, portal.y)}
+            ref={el => registerMarker(`portal:${portal.x},${portal.y}`, portal.x, portal.y, el)}
             className={`absolute pointer-events-none ${portal.locked ? 'opacity-50 grayscale' : ''}`}
             style={{
               left: `${leftPct(portal.x)}%`, top: `${topPct(portal.y)}%`,
@@ -489,7 +497,7 @@ export default function MapCanvas({
       {scrollMarkers?.map(scroll => (
         <div
           key={scroll.id}
-          ref={registerMarker(`scroll:${scroll.id}`, scroll.x, scroll.y)}
+          ref={el => registerMarker(`scroll:${scroll.id}`, scroll.x, scroll.y, el)}
           className="absolute pointer-events-none flex items-center justify-center"
           style={{
             left: `${leftPct(scroll.x)}%`, top: `${topPct(scroll.y)}%`,
@@ -510,7 +518,7 @@ export default function MapCanvas({
 
       {curioMarker && (
         <div
-          ref={registerMarker('curio', curioMarker.x, curioMarker.y)}
+          ref={el => registerMarker('curio', curioMarker.x, curioMarker.y, el)}
           className="absolute pointer-events-none flex items-end justify-center"
           style={{
             left: `${leftPct(curioMarker.x)}%`, top: `${topPct(curioMarker.y)}%`,
@@ -537,7 +545,7 @@ export default function MapCanvas({
           repositions it every frame as the camera pans. */}
       {trainerMarker && (
         <div
-          ref={registerMarker(`trainer:${trainerMarker.id}`, trainerMarker.x, trainerMarker.y)}
+          ref={el => registerMarker(`trainer:${trainerMarker.id}`, trainerMarker.x, trainerMarker.y, el)}
           className="absolute pointer-events-none"
           style={{
             left: `${leftPct(trainerMarker.x)}%`, top: `${topPct(trainerMarker.y)}%`,
@@ -622,7 +630,7 @@ export default function MapCanvas({
           player (depth 10) always appears in front. Only the name tag stays DOM. */}
       {recyclerTile && (
         <div
-          ref={registerMarker('recycler', recyclerTile.x, recyclerTile.y)}
+          ref={el => registerMarker('recycler', recyclerTile.x, recyclerTile.y, el)}
           className="absolute pointer-events-none"
           style={{
             left: `${leftPct(recyclerTile.x)}%`,

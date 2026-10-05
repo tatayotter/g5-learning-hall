@@ -53,7 +53,9 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
   const [playersInBattle, setPlayersInBattle] = useState<Set<string>>(new Set());
   const [battleResultFlashes, setBattleResultFlashes] = useState<Record<string, boolean>>({});
   const [incomingInvite, setIncomingInvite] = useState<IncomingInvite | null>(null);
-  const [inviteResponse, setInviteResponse] = useState<InviteResponse | null>(null);
+  // Challenger-side listeners for accept/decline/expire, called straight from
+  // the realtime handler (see subscribeInviteResponse).
+  const inviteListenersRef = useRef(new Set<(response: InviteResponse) => void>());
   const channelRef = useRef<RealtimeChannel | null>(null);
   const lobbyRef = useRef<RealtimeChannel | null>(null);
   const inBattleRef = useRef(false);
@@ -144,7 +146,8 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
 
     channel.on('broadcast', { event: 'invite_response' }, ({ payload }) => {
       if (!payload?.battleId) return;
-      setInviteResponse({ battleId: payload.battleId, accepted: !!payload.accepted, expired: !!payload.expired });
+      const response = { battleId: payload.battleId, accepted: !!payload.accepted, expired: !!payload.expired };
+      inviteListenersRef.current.forEach(listener => listener(response));
     });
 
     channel.subscribe();
@@ -199,7 +202,12 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
   };
 
   const clearIncomingInvite = () => setIncomingInvite(null);
-  const clearInviteResponse = () => setInviteResponse(null);
+  // Returns an unsubscribe function, for use as an effect's cleanup.
+  const subscribeInviteResponse = useCallback((listener: (response: InviteResponse) => void) => {
+    const listeners = inviteListenersRef.current;
+    listeners.add(listener);
+    return () => { listeners.delete(listener); };
+  }, []);
 
   // Re-reads the lobby's presence state on demand — presence normally updates
   // live via the 'sync' event above, but this gives the UI a manual "Refresh"
@@ -216,9 +224,9 @@ export function useLiveBattleInbox(userId: string, name: string, grade?: string)
   }, []);
 
   return {
-    onlinePlayerIds, playersInBattle, battleResultFlashes, incomingInvite, inviteResponse,
+    onlinePlayerIds, playersInBattle, battleResultFlashes, incomingInvite,
     sendInvite, cancelInvite, sendInviteResponse,
-    clearIncomingInvite, clearInviteResponse,
+    clearIncomingInvite, subscribeInviteResponse,
     setInBattleStatus, sendBattleResultFlash, refreshPresence,
   };
 }

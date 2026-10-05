@@ -100,28 +100,32 @@ export default function DailyChecklist({
     last_wild_encounter_win: null,
     guilds_played_today: [],
   });
-  const [loading, setLoading] = useState(true);
+  // Which user/day the flags were last loaded for; anything else is loading.
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
+  const flagsKey = `${userId}|${todayKey}`;
+  const loading = loadedKey !== flagsKey;
   const [claimed, setClaimed] = useState(false);
   const [claiming, setClaiming] = useState(false);
   const [streakInfo, setStreakInfo] = useState<ChecklistStreakInfo | null>(null);
   const [bonusEvent, setBonusEvent] = useState<{ streak: number; gold: number } | null>(null);
 
-  const loadFlags = useCallback(async (isInitial = false) => {
-    if (isInitial) setLoading(true);
-    const [flags, claimedToday, streak] = await Promise.all([
-      fetchChecklistBattleFlags(userId, todayKey),
-      hasClaimedChecklistBonus(userId, todayKey),
-      fetchDailyChecklistStreak(userId, todayKey),
-    ]);
+  const fetchFlags = useCallback(() => Promise.all([
+    fetchChecklistBattleFlags(userId, todayKey),
+    hasClaimedChecklistBonus(userId, todayKey),
+    fetchDailyChecklistStreak(userId, todayKey),
+  ]), [userId, todayKey]);
+  const applyFlags = useCallback(([flags, claimedToday, streak]: Awaited<ReturnType<typeof fetchFlags>>) => {
     setBattleFlags(flags);
     setClaimed(claimedToday);
     setStreakInfo(streak);
-    if (isInitial) setLoading(false);
-  }, [userId, todayKey]);
+    setLoadedKey(flagsKey);
+  }, [flagsKey]);
 
   useEffect(() => {
-    loadFlags(true);
-  }, [loadFlags]);
+    let cancelled = false;
+    fetchFlags().then(result => { if (!cancelled) applyFlags(result); });
+    return () => { cancelled = true; };
+  }, [fetchFlags, applyFlags]);
 
   const journalDone = !!journalLogs?.[todayKey];
   // A live 'gauntlet' event (Topic Mastery Gauntlet) substitutes the normal
@@ -202,7 +206,7 @@ export default function DailyChecklist({
       await logAction(userId, currentSunday, 'daily_checklist_bonus', 'Completed all daily to-dos', 0, gold);
       trackEvent('daily_checklist_bonus_claimed', { gold_earned: gold, streak });
       setBonusEvent({ streak, gold });
-      loadFlags(false);
+      fetchFlags().then(applyFlags);
     }
     setClaiming(false);
   };

@@ -13,7 +13,7 @@
 // Multiplayer note: other players are NOT driven by this hook — they stay on
 // the existing snap-on-presence-update path (see MapCanvas.tsx/TrainingMapScene.ts).
 // This hook only ever represents the local player.
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { MapTile } from '@/lib/regions';
 
 export type Direction = 'up' | 'down' | 'left' | 'right';
@@ -211,7 +211,8 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
     // Started once — reads everything else via refs above.
   }, []);
 
-  const handleRef = useRef<ContinuousMovementHandle>({
+  // Created once; its methods read the refs when called, never during render.
+  const [handle] = useState<ContinuousMovementHandle>(() => ({
     getFloatPos: () => ({ x: posRef.current.x, y: posRef.current.y }),
     isMoving: () => isMovingRef.current,
     isFacingRight: () => facingRightRef.current,
@@ -222,7 +223,7 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
       isMovingRef.current = false;
       wasBlockedRef.current = false;
     },
-  });
+  }));
 
-  return handleRef.current;
+  return handle;
 }

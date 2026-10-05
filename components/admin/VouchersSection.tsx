@@ -6,7 +6,7 @@
 // voucher_codes has no client SELECT policy (a public read would let anyone
 // browse every code), so even the list below goes through the passcode-
 // gated admin_list_voucher_codes RPC, same as every other write here.
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { SHOP_CATALOG } from '@/lib/inventory';
 import { callAdminApi } from '@/lib/adminApi';
@@ -56,14 +56,24 @@ export default function VouchersSection({ passcode }: { passcode: string }) {
   const [expiresAt, setExpiresAt] = useState('');
   const [isActive, setIsActive] = useState(true);
 
-  const reload = async () => {
-    setLoading(true);
-    const result = await callAdminApi<{ vouchers: VoucherRow[] }>('/api/admin-vouchers', { passcode, action: 'list' });
+  const fetchVouchers = useCallback(
+    () => callAdminApi<{ vouchers: VoucherRow[] }>('/api/admin-vouchers', { passcode, action: 'list' }),
+    [passcode],
+  );
+  const applyVouchers = useCallback((result: Awaited<ReturnType<typeof fetchVouchers>>) => {
     setVouchers(result.success && result.vouchers ? result.vouchers : []);
     setLoading(false);
+  }, []);
+  const reload = async () => {
+    setLoading(true);
+    applyVouchers(await fetchVouchers());
   };
 
-  useEffect(() => { reload(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    let cancelled = false;
+    fetchVouchers().then(result => { if (!cancelled) applyVouchers(result); });
+    return () => { cancelled = true; };
+  }, [fetchVouchers, applyVouchers]);
 
   const resetForm = () => {
     setCode('');

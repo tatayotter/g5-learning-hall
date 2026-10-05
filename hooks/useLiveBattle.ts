@@ -129,6 +129,14 @@ export interface SelfStatePatch {
 const ROUND_DURATION_MS = 30_000;
 const FORFEIT_GRACE_MS = 20_000;
 
+// Opponent-initiated changes the battle screen applies to its own view.
+export interface LiveBattleEvents {
+  statusEffect: { status: StatusEffect; statusTurns: number };
+  selfSync: SelfStatePatch;
+  monsterSwitch: { idx: number; forced: boolean };
+  benchRevive: { idx: number; newHp: number };
+}
+
 export function useLiveBattle(
   battleId: string,
   userId: string,
@@ -147,10 +155,9 @@ export function useLiveBattle(
   const [lastOutcome, setLastOutcome] = useState<RoundOutcome | null>(null);
   const [forfeitedByOpponent, setForfeitedByOpponent] = useState(false);
   const [battleEnded, setBattleEnded] = useState<{ winnerId: string | null; reason: NonNullable<LiveBattleEndReason> } | null>(null);
-  const [incomingStatusEffect, setIncomingStatusEffect] = useState<{ status: StatusEffect; statusTurns: number } | null>(null);
-  const [incomingSelfSync, setIncomingSelfSync] = useState<SelfStatePatch | null>(null);
-  const [incomingSwitch, setIncomingSwitch] = useState<{ idx: number; forced: boolean } | null>(null);
-  const [incomingBenchRevive, setIncomingBenchRevive] = useState<{ idx: number; newHp: number } | null>(null);
+  // Opponent-initiated changes, delivered straight from the realtime handlers
+  // to whichever listener the battle screen registered (see onBattleEvent).
+  const battleListenersRef = useRef<{ [K in keyof LiveBattleEvents]?: (payload: LiveBattleEvents[K]) => void }>({});
 
   const channelRef = useRef<RealtimeChannel | null>(null);
   const myAnswerRef = useRef<RoundAnswer | null>(null);
@@ -505,7 +512,7 @@ export function useLiveBattle(
     // receiving side applies it to its own monster.
     channel.on('broadcast', { event: 'status_effect' }, ({ payload }) => {
       if (!payload || payload.from === userId) return;
-      setIncomingStatusEffect({ status: payload.status, statusTurns: payload.statusTurns });
+      battleListenersRef.current.statusEffect?.({ status: payload.status, statusTurns: payload.statusTurns });
     });
 
     // Mirrors a self-only HP/status change (Rest, self-buff/heal/cure/revive)
@@ -513,7 +520,7 @@ export function useLiveBattle(
     channel.on('broadcast', { event: 'self_state_sync' }, ({ payload }) => {
       if (!payload || payload.from === userId) return;
       const { from, ...patch } = payload;
-      setIncomingSelfSync(patch);
+      battleListenersRef.current.selfSync?.(patch);
     });
 
     // The opponent switched their active monster (manually or forced by a
@@ -522,7 +529,7 @@ export function useLiveBattle(
     // members never change state while inactive.
     channel.on('broadcast', { event: 'monster_switch' }, ({ payload }) => {
       if (!payload || payload.from === userId) return;
-      setIncomingSwitch({ idx: payload.idx, forced: !!payload.forced });
+      battleListenersRef.current.monsterSwitch?.({ idx: payload.idx, forced: !!payload.forced });
     });
 
     // A Revive Stone can target a benched (non-active) monster, which
@@ -532,7 +539,7 @@ export function useLiveBattle(
     // specific bench slot gets the revive HP even though it never became active.
     channel.on('broadcast', { event: 'bench_revive' }, ({ payload }) => {
       if (!payload || payload.from === userId) return;
-      setIncomingBenchRevive({ idx: payload.idx, newHp: payload.newHp });
+      battleListenersRef.current.benchRevive?.({ idx: payload.idx, newHp: payload.newHp });
     });
 
     channel.on('broadcast', { event: 'battle_end' }, ({ payload }) => {
@@ -634,18 +641,18 @@ export function useLiveBattle(
     if (!isBotMode) channelRef.current?.send({ type: 'broadcast', event: 'bench_revive', payload: { idx, newHp, from: userId } });
   }, [userId, isBotMode]);
 
-  const clearIncomingStatusEffect = useCallback(() => setIncomingStatusEffect(null), []);
-  const clearIncomingSelfSync = useCallback(() => setIncomingSelfSync(null), []);
-  const clearIncomingSwitch = useCallback(() => setIncomingSwitch(null), []);
-  const clearIncomingBenchRevive = useCallback(() => setIncomingBenchRevive(null), []);
+  // Registers the screen's handler for one kind of opponent event; returns an
+  // unsubscribe function for use as an effect's cleanup.
+  const onBattleEvent = useCallback(<K extends keyof LiveBattleEvents>(kind: K, listener: (payload: LiveBattleEvents[K]) => void) => {
+    const listeners = battleListenersRef.current as { [P in keyof LiveBattleEvents]?: (payload: LiveBattleEvents[P]) => void };
+    listeners[kind] = listener as never;
+    return () => { if (listeners[kind] === (listener as never)) delete listeners[kind]; };
+  }, []);
 
   return {
     phase, round, deadlineAt, lastOutcome, forfeitedByOpponent, battleEnded,
-    incomingStatusEffect, incomingSelfSync, incomingSwitch, incomingBenchRevive,
     submitRoundAnswer, advanceToNextRound, declareBattleEnd, registerMonsterGetters,
-    sendStatusEffectToOpponent, clearIncomingStatusEffect,
-    sendSelfStateSync, clearIncomingSelfSync,
-    sendMonsterSwitch, clearIncomingSwitch,
-    sendBenchRevive, clearIncomingBenchRevive,
+    sendStatusEffectToOpponent, sendSelfStateSync, sendMonsterSwitch, sendBenchRevive,
+    onBattleEvent,
   };
 }

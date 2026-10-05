@@ -48,11 +48,14 @@ export function useBossFightProgress(userId: string, grade: number, term: number
   const [sealedCurioClaimed, setSealedCurioClaimed] = useState(false);
   const [endsAt, setEndsAt] = useState<Date | null>(null);
   const [bossFightsEnabled, setBossFightsEnabled] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // Loading until data for this exact user/grade/term lands, or while a
+  // manual refresh is in flight.
+  const progressKey = `${userId}|${grade}|${term}`;
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const loading = refreshing || loadedKey !== progressKey;
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    const [statusRes, defeatsRes, counts, rewardRes, claimRes, lastWeekRes] = await Promise.all([
+  const fetchAll = useCallback(() => Promise.all([
       supabase.from('boss_fights_status').select('boss_fights_enabled').maybeSingle(),
       supabase.from('boss_persona_defeats').select('subject')
         .eq('user_id', userId).eq('grade', grade).eq('term', term),
@@ -64,7 +67,9 @@ export function useBossFightProgress(userId: string, grade: number, term: number
       supabase.from('draft_questions_public').select('week_starting_date')
         .eq('grade', grade).eq('term', term)
         .order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
-    ]);
+  ]), [userId, grade, term]);
+
+  const apply = useCallback(([statusRes, defeatsRes, counts, rewardRes, claimRes, lastWeekRes]: Awaited<ReturnType<typeof fetchAll>>) => {
     setBossFightsEnabled(!!statusRes.data?.boss_fights_enabled);
     setDefeated(new Set((defeatsRes.data || []).map(r => r.subject as string)));
     setPoolCounts(counts);
@@ -74,10 +79,20 @@ export function useBossFightProgress(userId: string, grade: number, term: number
     setSealedCurioClaimed(!!claimRes.data);
     const lastWeek = lastWeekRes.data?.week_starting_date as string | undefined;
     setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
-    setLoading(false);
-  }, [userId, grade, term]);
+    setLoadedKey(progressKey);
+    setRefreshing(false);
+  }, [progressKey]);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchAll().then(result => { if (!cancelled) apply(result); });
+    return () => { cancelled = true; };
+  }, [fetchAll, apply]);
+
+  const refresh = useCallback(() => {
+    setRefreshing(true);
+    fetchAll().then(apply);
+  }, [fetchAll, apply]);
 
   const claimSealedCurio = useCallback(async () => {
     const { data, error } = await supabase.rpc('claim_boss_gauntlet_reward', {
@@ -96,6 +111,6 @@ export function useBossFightProgress(userId: string, grade: number, term: number
   return {
     defeated, personas, poolCounts, total: personas.length,
     sealedCurio, sealedCurioClaimed, endsAt,
-    bossFightsEnabled, loading, refresh: load, claimSealedCurio,
+    bossFightsEnabled, loading, refresh, claimSealedCurio,
   };
 }

@@ -44,7 +44,15 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetchEggChainList().then(list => {
+      if (cancelled) return;
+      setChains(list);
+      setLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   // Predecessor's element defaults to match its species — the admin can
   // still override, but this saves a click for the common case.

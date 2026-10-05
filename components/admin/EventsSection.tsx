@@ -361,6 +361,15 @@ function EventManager({ events, questCounts, onReload, passcode }: {
   );
 }
 
+const NO_QUESTS: EventQuest[] = [];
+
+async function fetchEventsWithCounts() {
+  const all = await fetchAllEvents();
+  const counts: Record<string, number> = {};
+  await Promise.all(all.map(async ev => { counts[ev.id] = await countEventQuests(ev.id); }));
+  return { all, counts };
+}
+
 // One pasted event subject; validated in handleParse before it can be saved.
 interface AuthoredEventSubject {
   subject_name?: string;
@@ -376,15 +385,22 @@ function EventQuestEditor({ events, onReload, passcode }: {
 }) {
   const [selectedEventId, setSelectedEventId] = useState('');
   const [gradeLevel, setGradeLevel] = useState<number>(5);
-  const [existingQuests, setExistingQuests] = useState<EventQuest[]>([]);
+  // Tagged with the event they were fetched for, so switching events never
+  // shows the previous event's quests.
+  const [questsFor, setQuestsFor] = useState<{ eventId: string; quests: EventQuest[] } | null>(null);
+  const existingQuests = selectedEventId && questsFor?.eventId === selectedEventId ? questsFor.quests : NO_QUESTS;
   const [jsonInput, setJsonInput] = useState('');
   const [parsed, setParsed] = useState<{ data: AuthoredEventSubject[]; warnings: string[] } | null>(null);
   const [parseError, setParseError] = useState('');
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!selectedEventId) { setExistingQuests([]); return; }
-    fetchEventQuests(selectedEventId).then(setExistingQuests);
+    if (!selectedEventId) return;
+    let cancelled = false;
+    fetchEventQuests(selectedEventId).then(quests => {
+      if (!cancelled) setQuestsFor({ eventId: selectedEventId, quests });
+    });
+    return () => { cancelled = true; };
   }, [selectedEventId]);
 
   const handleParse = () => {
@@ -432,7 +448,7 @@ function EventQuestEditor({ events, onReload, passcode }: {
     } else {
       setParsed(null);
       setJsonInput('');
-      fetchEventQuests(selectedEventId).then(setExistingQuests);
+      fetchEventQuests(selectedEventId).then(quests => setQuestsFor({ eventId: selectedEventId, quests }));
       onReload();
       alert('✅ Event quests saved!');
     }
@@ -551,16 +567,23 @@ export default function EventsSection({ passcode }: { passcode: string }) {
   const [questCounts, setQuestCounts] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
 
-  const reload = async () => {
-    const all = await fetchAllEvents();
+  const reload = async () => applyEvents(await fetchEventsWithCounts());
+  const applyEvents = ({ all, counts }: Awaited<ReturnType<typeof fetchEventsWithCounts>>) => {
     setEvents(all);
-    const counts: Record<string, number> = {};
-    await Promise.all(all.map(async ev => { counts[ev.id] = await countEventQuests(ev.id); }));
     setQuestCounts(counts);
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetchEventsWithCounts().then(({ all, counts }) => {
+      if (cancelled) return;
+      setEvents(all);
+      setQuestCounts(counts);
+      setLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   if (loading) return <p className="text-[#8a7c66]">Loading events...</p>;
 

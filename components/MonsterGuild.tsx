@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef, useMemo, useEffectEvent } from 'react';
+import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect } from 'react';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -40,7 +40,7 @@ import { useLinkedStatus } from '@/hooks/useLinkedStatus';
 import TradePanel from '@/components/trade/TradePanel';
 import { PlayerSearchResult } from '@/lib/trades';
 import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
-import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
+import { useLiveBattleInbox, type InviteResponse } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { REGIONS } from '@/lib/regions';
 import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
@@ -202,7 +202,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [battleTraining, setBattleTraining] = useState<{ replay: boolean } | null>(null);
   const [trainingImmersive, setTrainingImmersive] = useState(false);
   const battleTrainingOpenRef = useRef(false);
-  battleTrainingOpenRef.current = battleTraining !== null;
+  useLayoutEffect(() => { battleTrainingOpenRef.current = battleTraining !== null; });
   const trainingOfferedRef = useRef(false);
   const [monsterTutorialActive, setMonsterTutorialActive] = useState(() => !hasSeenTabTutorial('monster', userId));
   const monsterTutorialSteps: TutorialStep[] = useMemo(() => [{
@@ -289,6 +289,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // no-op (id mismatch) instead of expiring the wrong battle.
   const pendingChallengeIdRef = useRef<string | null>(null);
   const [notification, setNotification] = useState<string | null>(null);
+  const showNotification = (msg: string) => {
+    setNotification(msg);
+    setTimeout(() => setNotification(null), 3000);
+  };
   const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
   const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string; quality: QualityTier } | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
@@ -299,14 +303,6 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [userEggs, setUserEggs] = useState<CurioEgg[]>([]);
   const loadEggs = async () => {
     setUserEggs(await fetchUserEggs(userId));
-  };
-  // Claiming happens from inside TeamPanel's curio detail modal — jump the
-  // player straight to the Hatchery so the new egg is immediately visible,
-  // rather than leaving them on My Team to go find it themselves.
-  const handleEggClaimed = () => {
-    loadEggs();
-    setView('hatchery');
-    showNotification('Claimed 1 egg 🥚');
   };
 
   // ALL_MONSTERS, but with each guild companion swapped for the display tier
@@ -340,22 +336,19 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         return unseen.length > 0 ? unseen : allQuestions;
       })();
 
-  useEffect(() => {
-    if (allQuestions.length === 0 || answeredArenaIds.size === 0) return;
-    const stillUnseen = allQuestions.some(q => !answeredArenaIds.has(q.id));
-    if (!stillUnseen) {
-      setAnsweredArenaIds(new Set());
-      resetArenaHistory(userId);
-    }
-  }, [allQuestions, answeredArenaIds, userId]);
+  // Once every arena question has been seen, the cycle starts over.
+  const withCycleReset = (ids: Set<string>) => {
+    if (allQuestions.length === 0 || ids.size === 0) return ids;
+    if (allQuestions.some(q => !ids.has(q.id))) return ids;
+    resetArenaHistory(userId);
+    return new Set<string>();
+  };
 
   const handleQuestionsAnswered = (usedQuestions: BattleQuestion[]) => {
     if (usedQuestions.length === 0) return;
-    setAnsweredArenaIds(prev => {
-      const next = new Set(prev);
-      usedQuestions.forEach(q => next.add(q.id));
-      return next;
-    });
+    const next = new Set(answeredArenaIds);
+    usedQuestions.forEach(q => next.add(q.id));
+    setAnsweredArenaIds(withCycleReset(next));
     markArenaQuestionsCompleted(userId, usedQuestions);
   };
 
@@ -368,7 +361,11 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }
 
     setLoading(true);
+    applyGuildData(await fetchGuildData());
+  };
 
+  // Everything the arena needs for this user.
+  const fetchGuildData = async (): Promise<MonsterGuildPrefetch> => {
     // user_monsters is RLS-scoped to current_app_user_id(), which resolves
     // through the anon-auth identity link (see lib/userSession.ts's
     // linkIdentity) — without waiting for a session here, a query fired
@@ -382,14 +379,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // and only fall through to a fresh Promise.all when there's no prefetch
     // (later reloads, or a login that skipped prefetch).
     const prefetched = await takePrefetch<MonsterGuildPrefetch>(userId, 'monsterGuild');
-    if (prefetched) {
-      setUserMonsters(prefetched.userMonsters);
-      setBattleState(prefetched.battleState);
-      setInventory(prefetched.inventory);
-      setAnsweredArenaIds(prefetched.answeredArenaIds);
-      setCaughtMonsters(prefetched.caughtMonsters);
-      setSubclassProfile(prefetched.subclassProfile);
-    } else {
+    if (prefetched) return prefetched;
+    {
       await ensureAnonymousSession();
 
       const [monstersRes, stateRes, invData, answeredIds, caughtRes, subProfile] = await Promise.all([
@@ -400,13 +391,24 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
         fetchSubclassProfile(userId),
       ]);
-      setUserMonsters(monstersRes.data || []);
-      setBattleState(stateRes.data || null);
-      setInventory(invData || {});
-      setAnsweredArenaIds(answeredIds);
-      setCaughtMonsters(caughtRes.data || []);
-      setSubclassProfile(subProfile);
+      return {
+        userMonsters: monstersRes.data || [],
+        battleState: stateRes.data || null,
+        inventory: invData || {},
+        answeredArenaIds: answeredIds,
+        caughtMonsters: caughtRes.data || [],
+        subclassProfile: subProfile,
+      };
     }
+  };
+
+  const applyGuildData = (data: MonsterGuildPrefetch) => {
+    setUserMonsters(data.userMonsters);
+    setBattleState(data.battleState);
+    setInventory(data.inventory);
+    setAnsweredArenaIds(withCycleReset(data.answeredArenaIds));
+    setCaughtMonsters(data.caughtMonsters);
+    setSubclassProfile(data.subclassProfile);
     setLoading(false);
     loadEggs();
   };
@@ -424,8 +426,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setInventory(invData || {});
   };
 
-  const reloadData = useEffectEvent(() => { loadData(); });
-  useEffect(() => { reloadData(); }, [userId, eggRefreshSignal]);
+  const fetchOnLoad = useEffectEvent(() => fetchGuildData());
+  const applyOnLoad = useEffectEvent((data: MonsterGuildPrefetch) => applyGuildData(data));
+  useEffect(() => {
+    let cancelled = false;
+    fetchOnLoad().then(data => { if (!cancelled) applyOnLoad(data); });
+    return () => { cancelled = true; };
+  }, [userId, eggRefreshSignal]);
 
   // Offer battle training once per Arena visit (BattleTraining checks whether
   // it's already finished and closes itself if so).
@@ -544,9 +551,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   // Challenger's side: if the invitee declines (or the invite times out),
   // back out of the waiting screen.
-  useEffect(() => {
-    const resp = liveBattleInbox.inviteResponse;
-    if (!resp || resp.battleId !== liveBattleId) return;
+  const onInviteResponse = useEffectEvent((resp: InviteResponse) => {
+    if (resp.battleId !== liveBattleId) return;
     if (pendingChallengeIdRef.current === resp.battleId) pendingChallengeIdRef.current = null;
     if (!resp.accepted) {
       showNotification(
@@ -560,13 +566,20 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setLiveBattleBotAccuracy(undefined);
       setView('trainers');
     }
-    liveBattleInbox.clearInviteResponse();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [liveBattleInbox.inviteResponse]);
+  });
+  const { subscribeInviteResponse } = liveBattleInbox;
+  useEffect(
+    () => subscribeInviteResponse(resp => onInviteResponse(resp)),
+    [subscribeInviteResponse],
+  );
 
-  const showNotification = (msg: string) => {
-    setNotification(msg);
-    setTimeout(() => setNotification(null), 3000);
+  // Claiming happens from inside TeamPanel's curio detail modal — jump the
+  // player straight to the Hatchery so the new egg is immediately visible,
+  // rather than leaving them on My Team to go find it themselves.
+  const handleEggClaimed = () => {
+    loadEggs();
+    setView('hatchery');
+    showNotification('Claimed 1 egg 🥚');
   };
 
   const handleTrainerBattle = (trainer: NpcTrainer) => {

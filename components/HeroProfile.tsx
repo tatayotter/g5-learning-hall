@@ -70,10 +70,17 @@ export default function HeroProfile({ userId, data, onViewAchievements }: HeroPr
   const [avatarTick, setAvatarTick] = useState(0);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [switchingAvatar, setSwitchingAvatar] = useState<string | null>(null);
-  const [battleView, setBattleView] = useState<'week' | 'lifetime'>('week');
-  const [lifetimeStats, setLifetimeStats] = useState<LifetimeBattleStats | null>(null);
-  const [lifetimeLoading, setLifetimeLoading] = useState(false);
-  const [progress, setProgress] = useState<PlayerProgress | null>(null);
+  // Per-account state is tagged with the userId it belongs to — switching
+  // accounts (e.g. an admin/parent flipping between kids) must not show the
+  // previous user's numbers or toggle while the new fetch is pending.
+  const [battleViewFor, setBattleViewFor] = useState<{ userId: string; view: 'week' | 'lifetime' } | null>(null);
+  const battleView = battleViewFor?.userId === userId ? battleViewFor.view : 'week';
+  const setBattleView = (view: 'week' | 'lifetime') => setBattleViewFor({ userId, view });
+  const [lifetimeFor, setLifetimeFor] = useState<{ userId: string; stats: LifetimeBattleStats } | null>(null);
+  const lifetimeStats = lifetimeFor?.userId === userId ? lifetimeFor.stats : null;
+  const lifetimeLoading = lifetimeStats === null;
+  const [progressFor, setProgressFor] = useState<{ userId: string; progress: PlayerProgress | null } | null>(null);
+  const progress = progressFor?.userId === userId ? progressFor.progress : null;
   const [currentStreak, setCurrentStreak] = useState(0);
   const [activeCurios, setActiveCurios] = useState<ActiveCurio[]>([]);
   const [ownedCuriosCount, setOwnedCuriosCount] = useState(0);
@@ -194,21 +201,14 @@ export default function HeroProfile({ userId, data, onViewAchievements }: HeroPr
     curioDisplayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
   }
 
-  // Cached lifetime totals belong to whichever account fetched them —
-  // switching accounts (e.g. an admin/parent flipping between kids) must
-  // not show the previous user's numbers while the new fetch is pending.
-  useEffect(() => {
-    setLifetimeStats(null);
-    setBattleView('week');
-    setProgress(null);
-  }, [userId]);
-
   // Fetched eagerly (not gated behind the This Week/Lifetime toggle like lifetimeStats below)
   // because achievement criteria (isEarned, below) need lifetime counters/level/xp/gold
   // regardless of which battle-record view is showing — see
   // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2.
   useEffect(() => {
-    fetchPlayerProgress(userId).then(setProgress);
+    let cancelled = false;
+    fetchPlayerProgress(userId).then(p => { if (!cancelled) setProgressFor({ userId, progress: p }); });
+    return () => { cancelled = true; };
   }, [userId]);
 
   // Fetch this player's referral key via RPC (children RLS blocks direct reads).
@@ -221,13 +221,12 @@ export default function HeroProfile({ userId, data, onViewAchievements }: HeroPr
   // weekly_packages row — fetched eagerly now so the Trainer Card stat panel
   // always shows lifetime totals without needing a toggle click.
   useEffect(() => {
-    if (lifetimeStats) return;
-    setLifetimeLoading(true);
+    let cancelled = false;
     fetchLifetimeBattleStats(userId).then(stats => {
-      setLifetimeStats(stats);
-      setLifetimeLoading(false);
+      if (!cancelled) setLifetimeFor({ userId, stats });
     });
-  }, [userId, lifetimeStats]);
+    return () => { cancelled = true; };
+  }, [userId]);
 
   useEffect(() => {
     const today = new Date().toISOString().slice(0, 10);

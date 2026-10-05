@@ -101,6 +101,9 @@ function applyThemeClass(themeKey: string) {
   if (cls) document.documentElement.classList.add(cls);
 }
 
+const NO_DAY_POOLS: Record<string, BossQuestion[]> = {};
+const NO_DAYS_DONE: Set<string> = new Set();
+
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -174,6 +177,10 @@ export default function Dashboard() {
   // sidebar's Curio Arena badge.
   const [hasEggReadyCurio, setHasEggReadyCurio] = useState(false);
   const eggBadge = hasEggReadyCurio || hasStalledEgg || pendingEggHatches.length > 0;
+
+  const [toast, setToast] = useState({ show: false, message: '' });
+  const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
+  const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
 
   useEffect(() => {
     if (!hydrated) return;
@@ -369,9 +376,11 @@ export default function Dashboard() {
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
-  const [activeTab, setActiveTab] = useState(() =>
-    (typeof window !== 'undefined' && sessionStorage.getItem('activeTab')) || 'board'
-  );
+  // A push deep link's `?tab=` wins over the tab remembered for this session.
+  const [activeTab, setActiveTabState] = useState(() => {
+    if (typeof window === 'undefined') return 'board';
+    return new URLSearchParams(window.location.search).get('tab') || sessionStorage.getItem('activeTab') || 'board';
+  });
   useEffect(() => {
     sessionStorage.setItem('activeTab', activeTab);
   }, [activeTab]);
@@ -435,11 +444,8 @@ export default function Dashboard() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     recordPushOpenFromUrl();
-    const params = new URLSearchParams(window.location.search);
-    const tab = params.get('tab');
-    if (!tab) return;
-    setActiveTab(tab);
-    if (params.has('view') || params.has('tab')) {
+    // The tab itself was already read by activeTab's initializer.
+    if (new URLSearchParams(window.location.search).has('tab')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
   }, []);
@@ -449,14 +455,13 @@ export default function Dashboard() {
     fetchSubclassProfile(activeUserId).then(setGuildProfile);
   }, [activeTab, activeUserId]);
 
-  // One-shot: MonsterGuild reads guildInitialView only at mount, so clear it
-  // right after so a later manual tab visit defaults back to the map view.
-  const clearGuildInitialView = useEffectEvent(() => {
-    if (guildInitialView) setGuildInitialView(undefined);
-  });
-  useEffect(() => {
-    if (activeTab === 'monster') clearGuildInitialView();
-  }, [activeTab]);
+  // MonsterGuild reads guildInitialView only at mount, so it's cleared as the
+  // player switches to any other tab — a later manual visit to the Arena then
+  // defaults back to the map view.
+  const setActiveTab = useCallback((tab: string) => {
+    if (tab !== 'monster') setGuildInitialView(undefined);
+    setActiveTabState(tab);
+  }, []);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   // Active time per tab, with an open quest split out by phase so study-note
   // reading and quiz answering are measured separately from browsing the board.
@@ -465,9 +470,6 @@ export default function Dashboard() {
     (name, props, options) => trackEvent(name, props, activeTab, options)
   );
   const [myClaims, setMyClaims] = useState<RewardClaim[]>([]);
-  const [toast, setToast] = useState({ show: false, message: '' });
-  const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
-  const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
 
   // --- Custom Events ---
@@ -487,8 +489,9 @@ export default function Dashboard() {
   // than sitting alongside it — the full-week pool is built once and split
   // into 5 daily chunks so each weekday's card opens just its own slice.
   // See project_term_break_special_content_plan memory.
-  const [gauntletDayPools, setGauntletDayPools] = useState<Record<string, BossQuestion[]>>({});
-  const [gauntletDaysDone, setGauntletDaysDone] = useState<Set<string>>(new Set());
+  // Built per user + gauntlet event; anything else (no event, an authored
+  // event, a different user) reads as empty.
+  const [gauntlet, setGauntlet] = useState<{ key: string; dayPools: Record<string, BossQuestion[]>; daysDone: Set<string> } | null>(null);
   const [activeGauntletDay, setActiveGauntletDay] = useState<string | null>(null);
 
   // --- Term Exam Boss Fight ---
@@ -510,12 +513,10 @@ export default function Dashboard() {
   // accounts that already had a curio when they loaded (a brand-new kid gets
   // the first-curio intro and sees this one on a later visit). The event's
   // music is already playing via the effect above.
-  const [showBossIntro, setShowBossIntro] = useState(false);
-  useEffect(() => {
-    if (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM)) {
-      setShowBossIntro(true);
-    }
-  }, [bossEventActive, bossGradeLevel]);
+  // null = automatic (show while the event is active and the intro unseen);
+  // true/false once the player replays or dismisses it.
+  const [bossIntroOverride, setShowBossIntro] = useState<boolean | null>(null);
+  const showBossIntro = bossIntroOverride ?? (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM));
   const dismissBossIntro = () => {
     markCutsceneSeen(bossGradeLevel, CURRENT_TERM);
     setShowBossIntro(false);
@@ -541,8 +542,7 @@ export default function Dashboard() {
   const activeEventQuestForTimer = eventQuests.find(q => q.id === activeEventQuest);
   const eventStudyReadRemaining = useReadTimer(activeEventQuestForTimer?.summary_markdown, activeEventQuest || '');
 
-  const loadEventData = async (userId: UserId) => {
-    const ev = await fetchActiveEvent();
+  const applyActiveEvent = async (userId: UserId, ev: Awaited<ReturnType<typeof fetchActiveEvent>>) => {
     setActiveEvent(ev);
     if (!ev) {
       setEventQuests([]);
@@ -571,9 +571,13 @@ export default function Dashboard() {
     }
   };
 
+  const loadEventData = async (userId: UserId) => applyActiveEvent(userId, await fetchActiveEvent());
+  const applyEventOnLoad = useEffectEvent(applyActiveEvent);
   useEffect(() => {
     if (!activeUserId) return;
-    loadEventData(activeUserId);
+    let cancelled = false;
+    fetchActiveEvent().then(ev => { if (!cancelled) applyEventOnLoad(activeUserId, ev); });
+    return () => { cancelled = true; };
   }, [activeUserId]);
 
   // Builds the gauntlet's full-week pool once per active event and splits
@@ -583,12 +587,18 @@ export default function Dashboard() {
   // grade's own weekly lessons from before the event started — rather than
   // a term-scoped authored bank, so this works for every grade, not just
   // the two that ever had draft_questions content.
+  const gauntletKey = activeUserId && activeEvent?.content_source === 'gauntlet'
+    ? `${activeUserId}|${activeEvent.id}|${activeEvent.start_date}`
+    : null;
+  const currentGauntlet = gauntletKey && gauntlet?.key === gauntletKey ? gauntlet : null;
+  const gauntletDayPools = currentGauntlet?.dayPools ?? NO_DAY_POOLS;
+  const gauntletDaysDone = currentGauntlet?.daysDone ?? NO_DAYS_DONE;
+  const setGauntletDaysDone = useCallback<React.Dispatch<React.SetStateAction<Set<string>>>>(update => {
+    setGauntlet(g => g && { ...g, daysDone: typeof update === 'function' ? update(g.daysDone) : update });
+  }, []);
   useEffect(() => {
-    if (!activeUserId || !activeEvent || activeEvent.content_source !== 'gauntlet') {
-      setGauntletDayPools({});
-      setGauntletDaysDone(new Set());
-      return;
-    }
+    if (!gauntletKey || !activeUserId || !activeEvent) return;
+    let cancelled = false;
     const grade = gradeToNumber(USERS[activeUserId]?.grade);
     Promise.all([
       fetchGauntletQuestionPool(grade, activeEvent.start_date),
@@ -596,10 +606,10 @@ export default function Dashboard() {
       fetchGauntletDaysDone(activeUserId, activeEvent.id),
     ]).then(async ([all, mistakes, daysDone]) => {
       const pool = await hydrateGauntletPool(buildMasteryGauntletPool(all, mistakes));
-      setGauntletDayPools(splitPoolIntoDays(pool, WEEKDAYS));
-      setGauntletDaysDone(daysDone);
+      if (!cancelled) setGauntlet({ key: gauntletKey, dayPools: splitPoolIntoDays(pool, WEEKDAYS), daysDone });
     });
-  }, [activeUserId, activeEvent?.id, activeEvent?.content_source, activeEvent?.start_date]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => { cancelled = true; };
+  }, [gauntletKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleDismissEventPopup = () => {
     setShowEventPopup(false);
@@ -621,7 +631,15 @@ export default function Dashboard() {
 
   const onClaimsChanged = useEffectEvent(() => { fetchMyClaims(); });
   useEffect(() => {
-    onClaimsChanged();
+    if (!activeUserId) return;
+    let cancelled = false;
+    supabase
+      .from('reward_claims')
+      .select('*')
+      .eq('app_user_id', activeUserId)
+      .order('created_at', { ascending: false })
+      .then(({ data }) => { if (!cancelled && data) setMyClaims(data); });
+    return () => { cancelled = true; };
   }, [activeUserId]);
 
   // Live-refresh claimed rewards so the claimable-hours total updates as

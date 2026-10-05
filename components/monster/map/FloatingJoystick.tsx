@@ -14,6 +14,7 @@
 // exact same setDirectionPressed(dir, pressed) API — useContinuousMovement
 // needed zero changes.
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useHasMounted } from '@/hooks/useClientValue';
 import { createPortal } from 'react-dom';
 import type { Direction } from '@/hooks/useContinuousMovement';
 
@@ -55,8 +56,7 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   // `left/top: e.clientX/clientY` always lines up with the actual finger
   // position. Needs a mount flag since document.body isn't available
   // during SSR.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useHasMounted();
 
   const clearAll = useCallback(() => {
     activeRef.current.forEach(dir => setDirectionPressed(dir, false));

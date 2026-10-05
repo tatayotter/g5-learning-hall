@@ -1,7 +1,7 @@
 // components/dev/QuestModuleSandbox.tsx
 // DEV-ONLY FORK of components/QuestModule.tsx — edit freely here; the live quest screen is untouched.
 // Rendered by /dev/quest-quiz with mock data. When happy, port the changes back to QuestModule.tsx.
-import { useState, useEffect, useEffectEvent } from 'react';
+import { useState, useEffect } from 'react';
 import type { Components } from 'react-markdown';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -99,7 +99,10 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [grading, setGrading] = useState(false);
-  const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>({});
+  const quiz: QuizQuestion[] = questData?.quiz || [];
+  // Option order is shuffled on entry and again on every submit/retry.
+  const shuffleAllOptions = () => Object.fromEntries(quiz.map((q, i) => [i, shuffleArray(q.options)])) as Record<number, string[]>;
+  const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>(shuffleAllOptions);
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [lastResult, setLastResult] = useState<{ isPerfect: boolean; score: number; total: number; xp: number; gold: number; attemptNumber: number } | null>(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
@@ -120,19 +123,6 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
     const timer = setTimeout(() => setCooldownRemaining(c => c - 1), 1000);
     return () => clearTimeout(timer);
   }, [cooldownRemaining]);
-
-  const reshuffleOptions = useEffectEvent(() => {
-    const newShuffled: Record<number, string[]> = {};
-    quiz.forEach((q, i) => {
-      newShuffled[i] = shuffleArray(q.options);
-    });
-    setShuffledOptions(newShuffled);
-  });
-  useEffect(() => {
-    reshuffleOptions();
-  }, [submitted]);
-
-  const quiz: QuizQuestion[] = questData?.quiz || [];
 
   const handleSelect = (qIndex: number, option: string) => {
     if (submitted) return;
@@ -164,6 +154,7 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
     if (graded.locked) {
       setAlreadyLockedOnEntry(true);
       setSubmitted(true);
+      setShuffledOptions(shuffleAllOptions());
       return;
     }
 
@@ -203,6 +194,7 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
 
     setCorrectAnswers(gradedAnswers || []);
     setSubmitted(true);
+    setShuffledOptions(shuffleAllOptions());
     setLastResult({ isPerfect, score: correctCount, total, xp: reward.xp, gold: reward.gold, attemptNumber: newAttempts });
     onQuizSubmit(isPerfect, newAttempts, newStats, reward.xp, reward.gold);
   };
@@ -211,6 +203,7 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
     if (cooldownRemaining > 0) return;
     setSelectedAnswers({});
     setSubmitted(false);
+    setShuffledOptions(shuffleAllOptions());
     setLastResult(null);
   };
 

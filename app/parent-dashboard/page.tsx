@@ -1,5 +1,7 @@
 'use client';
 import { useCallback, useEffect, useState, useEffectEvent } from 'react';
+import type { User } from '@supabase/supabase-js';
+import { useClientValue } from '@/hooks/useClientValue';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
@@ -68,7 +70,7 @@ export default function ParentDashboardPage() {
   const [maxChildren, setMaxChildren] = useState(1);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
-  const [isNative, setIsNative] = useState(false);
+  const isNative = useClientValue(isNativeApp, false);
   const [bugText, setBugText] = useState('');
   const [bugSent, setBugSent] = useState(false);
   const [bugSubmitting, setBugSubmitting] = useState(false);
@@ -84,7 +86,6 @@ export default function ParentDashboardPage() {
   const isPremium = subscription?.status === 'active';
   const openChild = kids.find((k) => k.id === openChildId) ?? null;
 
-  useEffect(() => { setIsNative(isNativeApp()); }, []);
 
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
@@ -117,6 +118,10 @@ export default function ParentDashboardPage() {
 
   const load = async () => {
     const { data: { user } } = await supabase.auth.getUser();
+    return loadForUser(user);
+  };
+
+  const loadForUser = async (user: User | null) => {
     if (!user) {
       router.push('/parent-login');
       return;
@@ -178,8 +183,8 @@ export default function ParentDashboardPage() {
     if (parentId) initNativePush({ kind: 'parent', id: parentId });
   }, [parentId]);
 
-  const loadOnMount = useEffectEvent(() => {
-    load().then((viewStats) => {
+  const loadOnMount = useEffectEvent((user: User | null) => {
+    loadForUser(user).then((viewStats) => {
       if (viewStats) trackParentEvent('parent_dashboard_viewed', viewStats);
     });
   });
@@ -190,7 +195,9 @@ export default function ParentDashboardPage() {
     if (new URLSearchParams(window.location.search).has('pq')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    loadOnMount();
+    let cancelled = false;
+    supabase.auth.getUser().then(({ data: { user } }) => { if (!cancelled) loadOnMount(user); });
+    return () => { cancelled = true; };
   }, []);
 
   const handleAddChild = async (e?: React.FormEvent) => {

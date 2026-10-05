@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useEffectEvent } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADE_LEVELS } from '@/lib/userSession';
@@ -401,26 +401,38 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
   const [drafts, setDrafts] = useState<DraftQuestion[]>([]);
   const [summaries, setSummaries] = useState<DraftSummary[]>([]);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [loading, setLoading] = useState(true);
+  // Loading until drafts for the current grade/status filter land, or while
+  // a manual reload is in flight.
+  const filterKey = `${grade}|${statusFilter}`;
+  const [loadedFilter, setLoadedFilter] = useState<string | null>(null);
+  const [reloading, setReloading] = useState(false);
+  const loading = reloading || loadedFilter !== filterKey;
 
-  const reload = async () => {
-    setLoading(true);
-    // draft_questions/draft_summaries deny all direct client reads (RLS) —
-    // correct_answer for content still pending review shouldn't be readable
-    // by anyone holding the public anon key. Routed through the same
-    // passcode-gated, service-role admin API every mutation here already uses.
-    const result = await callAdminApi<{ questions: DraftQuestion[]; summaries: DraftSummary[] }>(
-      '/api/admin-draft-questions',
-      { passcode, action: 'list_drafts', grade, statuses: [statusFilter] }
-    );
+  // draft_questions/draft_summaries deny all direct client reads (RLS) —
+  // correct_answer for content still pending review shouldn't be readable
+  // by anyone holding the public anon key. Routed through the same
+  // passcode-gated, service-role admin API every mutation here already uses.
+  const fetchDrafts = useCallback(() => callAdminApi<{ questions: DraftQuestion[]; summaries: DraftSummary[] }>(
+    '/api/admin-draft-questions',
+    { passcode, action: 'list_drafts', grade, statuses: [statusFilter] }
+  ), [passcode, grade, statusFilter]);
+  const applyDrafts = useCallback((result: Awaited<ReturnType<typeof fetchDrafts>>) => {
     setDrafts(result.success ? result.questions || [] : []);
     setSummaries(result.success ? result.summaries || [] : []);
     setSelectedIds(new Set());
-    setLoading(false);
+    setLoadedFilter(filterKey);
+    setReloading(false);
+  }, [filterKey]);
+  const reload = async () => {
+    setReloading(true);
+    applyDrafts(await fetchDrafts());
   };
 
-  const reloadOnFilter = useEffectEvent(() => { reload(); });
-  useEffect(() => { reloadOnFilter(); }, [grade, statusFilter]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchDrafts().then(result => { if (!cancelled) applyDrafts(result); });
+    return () => { cancelled = true; };
+  }, [fetchDrafts, applyDrafts]);
 
   const toggleSelect = (id: string) => {
     setSelectedIds(prev => {

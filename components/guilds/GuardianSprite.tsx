@@ -19,11 +19,11 @@ interface GuardianSpriteProps {
 }
 
 export default function GuardianSprite({ guild, pose, className = '', animate = true }: GuardianSpriteProps) {
-  const [failed, setFailed] = useState(false);
   const src = `/sidequests/${guild}${POSE_SUFFIX[pose]}.webp`;
-
-  // Reset the broken-image fallback whenever we switch sprite source
-  useEffect(() => setFailed(false), [src]);
+  // Broken-image fallback, tied to the source that failed so switching
+  // sprites tries the new one.
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  const failed = failedSrc === src;
 
   // Play a random defeat voice line the moment the guardian's pose becomes "defeated"
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function GuardianSprite({ guild, pose, className = '', animate = 
       src={src}
       alt={`${guild} guardian — ${pose}`}
       className={`object-contain ${poseClass} ${className}`}
-      onError={() => setFailed(true)}
+      onError={() => setFailedSrc(src)}
     />
   );
 }

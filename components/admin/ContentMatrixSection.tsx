@@ -313,21 +313,32 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
   const [importResult, setImportResult] = useState<{ ok: number; fail: number } | null>(null);
 
   // Load status on mount
-  const loadStatus = useCallback(async () => {
-    setLoading(true);
+  // Resolves to null on failure (silent — empty state).
+  const fetchStatus = useCallback(async (): Promise<{ files?: string[]; imported?: Record<string, string> } | null> => {
     try {
       const res = await fetch(`/api/admin-content-status?passcode=${encodeURIComponent(passcode)}`);
-      const data = await res.json();
-      setFiles(new Set(data.files ?? []));
-      setImported(data.imported ?? {});
+      return await res.json();
     } catch {
-      // silent — empty state
-    } finally {
-      setLoading(false);
+      return null;
     }
   }, [passcode]);
+  const applyStatus = useCallback((data: Awaited<ReturnType<typeof fetchStatus>>) => {
+    if (data) {
+      setFiles(new Set(data.files ?? []));
+      setImported(data.imported ?? {});
+    }
+    setLoading(false);
+  }, []);
+  const loadStatus = async () => {
+    setLoading(true);
+    applyStatus(await fetchStatus());
+  };
 
-  useEffect(() => { loadStatus(); }, [loadStatus]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchStatus().then(data => { if (!cancelled) applyStatus(data); });
+    return () => { cancelled = true; };
+  }, [fetchStatus, applyStatus]);
 
   // Mark a cell as saved in local state after modal save
   function onCellSaved(key: string) {

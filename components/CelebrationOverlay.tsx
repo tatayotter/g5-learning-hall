@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState, useEffectEvent } from 'react';
+import { useEffect, useRef, useEffectEvent } from 'react';
 
 interface Particle {
   id: number;
@@ -127,7 +127,6 @@ function drawStar(ctx: CanvasRenderingContext2D, p: Particle) {
 export default function CelebrationOverlay({ userId, trigger, type, onComplete }: CelebrationOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef   = useRef<number>(0);
-  const [active, setActive] = useState(false);
 
   const isTala    = userId === 'tala';
   const particle_type: 'ember' | 'star' = isTala ? 'star' : 'ember';
@@ -135,10 +134,10 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
   const COUNT = type === 'perfect' ? 40 : 80;
 
   // Effect Event: the burst starts only when `trigger` changes, using the
-  // props (type, onComplete) current at that moment.
+  // props (type, onComplete) current at that moment. The canvas is rendered
+  // whenever `trigger` is on, so it already exists when this runs (it used to
+  // mount one render later, so the first burst found no canvas and never drew).
   const startBurst = useEffectEvent(() => {
-    setActive(true);
-
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -194,7 +193,6 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
       });
 
       if (allDead) {
-        setActive(false);
         onComplete?.();
         return;
       }
@@ -211,7 +209,7 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
     return () => cancelAnimationFrame(animRef.current);
   }, [trigger]);
 
-  if (!active) return null;
+  if (!trigger) return null;
 
   return (
     <canvas

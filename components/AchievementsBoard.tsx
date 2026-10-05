@@ -18,15 +18,19 @@ const PAGE_SIZE = 12;
 export default function AchievementsBoard({ data, userId }: AchievementsBoardProps) {
   const [expanded, setExpanded] = useState(false);
   const [page, setPage] = useState(0);
-  const [progress, setProgress] = useState<PlayerProgress | null>(null);
+  // Tagged with the userId it was fetched for, so switching users shows
+  // nothing (not the previous user's progress) until the new fetch lands.
+  const [loaded, setLoaded] = useState<{ userId: string; progress: PlayerProgress | null } | null>(null);
+  const progress = userId && loaded?.userId === userId ? loaded.progress : null;
 
   // Criteria checked against lifetime totals (player_progress), not the current week's
   // weekly-reset counters — thresholds unchanged, only the data source moved (Phase 4 Wave 2,
   // see docs/weekly-progress-redesign-plan.md). Mirrors the same fetch in HeroProfile.tsx.
   useEffect(() => {
     if (!userId) return;
-    setProgress(null);
-    fetchPlayerProgress(userId).then(setProgress);
+    let cancelled = false;
+    fetchPlayerProgress(userId).then(p => { if (!cancelled) setLoaded({ userId, progress: p }); });
+    return () => { cancelled = true; };
   }, [userId]);
 
   if (!data) return null;

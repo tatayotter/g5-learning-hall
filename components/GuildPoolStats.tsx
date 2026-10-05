@@ -26,6 +26,41 @@ interface PoolStat {
   prestigeWarning: boolean;
 }
 
+// Per-guild pool size vs. how many of those this user has already answered.
+async function fetchPoolStats(userId: string, gradeLevel: number) {
+  const results = await Promise.all(
+    GUILDS.map(async (guild) => {
+      // Count only questions for this user's grade level
+      const { count: total } = await supabase
+        .from(guild.tableName)
+        .select('*', { count: 'exact', head: true })
+        .eq('term_id', CURRENT_TERM)
+        .eq('is_active', true)
+        .eq('grade_level', gradeLevel);
+
+      // Count only questions this specific user has answered
+      const { count: answered } = await supabase
+        .from('user_completed_questions')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .eq('quest_type', guild.questType);
+
+      const totalQ = total || 0;
+      const answeredQ = answered || 0;
+      const remaining = Math.max(0, totalQ - answeredQ);
+
+      return {
+        questType: guild.questType,
+        totalQuestions: totalQ,
+        answeredQuestions: answeredQ,
+        remaining,
+        prestigeWarning: remaining <= 5 && totalQ > 0
+      };
+    })
+  );
+  return results;
+}
+
 export default function GuildPoolStats({ userId }: { userId: string }) {
   const [stats, setStats] = useState<PoolStat[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,45 +69,22 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
   const userProfile = USERS[userId as keyof typeof USERS] || USERS['damien'];
   const gradeLevel = gradeToNumber(userProfile.grade);
 
-  async function fetchStats() {
-    setLoading(true);
-    const results = await Promise.all(
-      GUILDS.map(async (guild) => {
-        // Count only questions for this user's grade level
-        const { count: total } = await supabase
-          .from(guild.tableName)
-          .select('*', { count: 'exact', head: true })
-          .eq('term_id', CURRENT_TERM)
-          .eq('is_active', true)
-          .eq('grade_level', gradeLevel);
-
-        // Count only questions this specific user has answered
-        const { count: answered } = await supabase
-          .from('user_completed_questions')
-          .select('*', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .eq('quest_type', guild.questType);
-
-        const totalQ = total || 0;
-        const answeredQ = answered || 0;
-        const remaining = Math.max(0, totalQ - answeredQ);
-
-        return {
-          questType: guild.questType,
-          totalQuestions: totalQ,
-          answeredQuestions: answeredQ,
-          remaining,
-          prestigeWarning: remaining <= 5 && totalQ > 0
-        };
-      })
-    );
+  const applyStats = (results: Awaited<ReturnType<typeof fetchPoolStats>>) => {
     setStats(results);
     setLastRefreshed(new Date());
     setLoading(false);
+  };
+  async function fetchStats() {
+    setLoading(true);
+    applyStats(await fetchPoolStats(userId, gradeLevel));
   }
 
-  const loadStats = useEffectEvent(() => { fetchStats(); });
-  useEffect(() => { loadStats(); }, [userId]);
+  const applyOnLoad = useEffectEvent(applyStats);
+  useEffect(() => {
+    let cancelled = false;
+    fetchPoolStats(userId, gradeLevel).then(results => { if (!cancelled) applyOnLoad(results); });
+    return () => { cancelled = true; };
+  }, [userId, gradeLevel]);
 
   return (
     <div className="bg-[#111] border border-[#333] p-6 rounded-xl">

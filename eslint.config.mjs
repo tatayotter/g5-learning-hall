@@ -32,15 +32,6 @@ const eslintConfig = defineConfig([
         destructuredArrayIgnorePattern: "^_",
         ignoreRestSiblings: true,
       }],
-      // React Compiler compatibility rules. The compiler isn't enabled
-      // (next.config has no reactCompiler), and most hits are deliberate
-      // patterns: latest-value refs assigned during render, reading
-      // window/isNativeApp() after mount, effects calling handlers declared
-      // further down. Kept visible as warnings; promote back to errors if the
-      // compiler is ever turned on.
-      "react-hooks/set-state-in-effect": "warn",
-      "react-hooks/refs": "warn",
-      "react-hooks/immutability": "warn",
     },
   },
   {

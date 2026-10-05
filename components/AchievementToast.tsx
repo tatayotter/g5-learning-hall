@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Achievement } from '@/lib/achievements';
 import { playAchievementUnlock, playPageFlip } from '@/lib/sounds';
 
+const NONE: Achievement[] = [];
+
 interface AchievementToastProps {
   userId: string;
   newlyUnlocked: Achievement[];
@@ -11,17 +13,18 @@ interface AchievementToastProps {
 }
 
 export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }: AchievementToastProps) {
-  const [visible, setVisible] = useState<Achievement[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Position in the current batch, tagged with the batch it belongs to so a
+  // new newlyUnlocked list starts over at its first achievement.
+  const [progress, setProgress] = useState<{ batch: Achievement[]; index: number; dismissed: boolean } | null>(null);
+  const batchProgress = progress?.batch === newlyUnlocked ? progress : null;
+  const visible = batchProgress?.dismissed ? NONE : newlyUnlocked;
+  const currentIndex = batchProgress?.index ?? 0;
+  const dismiss = () => setProgress({ batch: newlyUnlocked, index: currentIndex, dismissed: true });
 
   const isTala = userId === 'tala';
 
   useEffect(() => {
-    if (newlyUnlocked.length > 0) {
-      setVisible(newlyUnlocked);
-      setCurrentIndex(0);
-      playAchievementUnlock();
-    }
+    if (newlyUnlocked.length > 0) playAchievementUnlock();
   }, [newlyUnlocked]);
 
   const dismissAll = useEffectEvent(() => onDismissAll());
@@ -30,9 +33,9 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
     // Auto-advance to next achievement after 4 seconds
     const timer = setTimeout(() => {
       if (currentIndex < visible.length - 1) {
-        setCurrentIndex(i => i + 1);
+        setProgress({ batch: visible, index: currentIndex + 1, dismissed: false });
       } else {
-        setVisible([]);
+        setProgress({ batch: visible, index: currentIndex, dismissed: true });
         dismissAll();
       }
     }, 4000);
@@ -94,7 +97,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
                 </h3>
               </div>
               <button
-                onClick={() => { playPageFlip(); setVisible([]); onDismissAll(); }}
+                onClick={() => { playPageFlip(); dismiss(); onDismissAll(); }}
                 className={`text-xs mt-1 transition-colors ${colors.dismiss}`}
               >
                 ✕

@@ -1,7 +1,7 @@
 'use client';
-import { useState, useEffect, useEffectEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
@@ -36,6 +36,8 @@ function shuffle<T>(arr: T[]): T[] {
   return result;
 }
 
+type ShuffledWord = LexiconWord & { choices: string[] };
+
 interface LexiconWord {
   id: string;
   language: string;
@@ -59,11 +61,10 @@ type ScreenState = 'loading' | 'ready' | 'playing' | 'results';
 
 export default function LexiconArena({ userId, weekStartingDate, currentStats, onGoldEarned, onExit }: LexiconArenaProps) {
   const [screen, setScreen] = useState<ScreenState>('loading');
-  const [words, setWords] = useState<LexiconWord[]>([]);
+  const [words, setWords] = useState<ShuffledWord[]>([]);
   const [profile, setProfile] = useState<SubclassProfile | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
-  const [choices, setChoices] = useState<string[]>([]);
   const [newCurioId, setNewCurioId] = useState<string | null>(null);
   const [companionGraduation, setCompanionGraduation] = useState<{
     fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
@@ -71,77 +72,13 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
   const isTala = userId === 'tala';
   const timeLimit = isTala ? 120 : 60;
-  const engine = useTimeAttack<LexiconWord>(words, timeLimit);
-
-  // Theme colors
-  const accent = isTala ? 'text-pink-600' : 'text-amber-600';
-  const langBadge = isTala
-    ? 'bg-pink-50 text-pink-700 border border-pink-200'
-    : 'bg-blue-50 text-blue-700 border border-blue-200';
-
-  // Load words — routed through the shared guild engine so Lexicon Arena
-  // gets the same no-repeat completion tracking and grade-stage
-  // progression/prestige as the other 4 guilds, instead of re-serving the
-  // full pool every session.
-  useEffect(() => {
-    async function loadPool() {
-      try {
-        const [pool, subProfile] = await Promise.all([
-          takePrefetch<LexiconWord[]>(userId, 'guildPool:lexicon_arena')
-            ?? fetchQuestionPool<LexiconWord>(userId, 'sq_lexicon_arena', 'lexicon_arena'),
-          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
-            ?? fetchSubclassProfile(userId)
-        ]);
-        setWords(shuffle(pool));
-        setProfile(subProfile);
-        setScreen('ready');
-      } catch (err) {
-        console.error('Failed to load Lexicon Arena data:', err);
-      }
-    }
-    loadPool();
-  }, [userId]);
-
-  // Effect Event: reads the latest screen/handleSessionEnd without re-running
-  // the effect, which must fire only on the phase change itself.
-  const onPhaseEnded = useEffectEvent(() => {
-    if (screen === 'playing') handleSessionEnd();
-  });
-  useEffect(() => {
-    if (engine.phase === 'ended') onPhaseEnded();
-  }, [engine.phase]);
-
-  // Re-shuffle the 4 spelling choices each time the word changes — otherwise
-  // correct_spelling would sit in a fixed slot across words (same class of
-  // bug fixed in the other 4 guilds).
-  useEffect(() => {
-    if (!engine.currentQuestion) return;
-    const w = engine.currentQuestion;
-    setChoices(shuffle([w.correct_spelling, w.wrong_a, w.wrong_b, w.wrong_c]));
-    setSelected(null);
-    setFeedback(null);
-  }, [engine.currentQuestion]);
-
-  const handleChoice = (choice: string) => {
-    if (selected || !engine.currentQuestion) return;
-    const isCorrect = choice === engine.currentQuestion.correct_spelling;
-    setSelected(choice);
-    setFeedback(isCorrect ? 'correct' : 'wrong');
-    if (isCorrect) playChime(); else playClash();
-    setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
-      setSelected(null);
-      setFeedback(null);
-    }, 400);
-  };
-
-  const handleSessionEnd = async () => {
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
     setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'lexicon_arena', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'lexicon_arena', engine.completedQuestionIds);
+    trackEvent('guild_quiz_complete', { guild_key: 'lexicon_arena', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'lexicon_arena', summary.completedQuestionIds);
 
     if (profile) {
-      const { level, xp } = applyLevelUp(profile.lexicon_arena_lvl, profile.lexicon_arena_xp, engine.totalXpEarned);
+      const { level, xp } = applyLevelUp(profile.lexicon_arena_lvl, profile.lexicon_arena_xp, summary.totalXpEarned);
       await updateSubclassProfile(userId, { lexicon_arena_lvl: level, lexicon_arena_xp: xp });
       if (profile.lexicon_arena_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
         const grantedId = await ensureGuildMonsterGranted(userId, 'lexicon_arena');
@@ -164,7 +101,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     // Lexicon Arena is unique among the 5 guilds in also feeding the
     // player's overall character XP/level (not just Subclass XP) — preserved
     // as-is from before this guild was unified onto useTimeAttack.
-    let newXp = currentStats.xp + engine.totalXpEarned;
+    let newXp = currentStats.xp + summary.totalXpEarned;
     let newLevel = currentStats.level;
     while (newXp >= (500 + newLevel * 100)) {
       newXp -= (500 + newLevel * 100);
@@ -177,12 +114,62 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
     const newStats: CharacterStats = {
       ...currentStats,
-      gold: currentStats.gold + engine.totalGoldEarned,
+      gold: currentStats.gold + summary.totalGoldEarned,
       xp: newXp,
       level: newLevel,
     };
-    onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
-    logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${engine.correctCount} correct, ${engine.wrongCount} wrong, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
+    onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
+    logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${summary.correctCount} correct, ${summary.wrongCount} wrong, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
+  };
+
+  const engine = useTimeAttack<ShuffledWord>(words, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
+
+  // Theme colors
+  const accent = isTala ? 'text-pink-600' : 'text-amber-600';
+  const langBadge = isTala
+    ? 'bg-pink-50 text-pink-700 border border-pink-200'
+    : 'bg-blue-50 text-blue-700 border border-blue-200';
+
+  // Load words — routed through the shared guild engine so Lexicon Arena
+  // gets the same no-repeat completion tracking and grade-stage
+  // progression/prestige as the other 4 guilds, instead of re-serving the
+  // full pool every session.
+  useEffect(() => {
+    async function loadPool() {
+      try {
+        const [pool, subProfile] = await Promise.all([
+          takePrefetch<LexiconWord[]>(userId, 'guildPool:lexicon_arena')
+            ?? fetchQuestionPool<LexiconWord>(userId, 'sq_lexicon_arena', 'lexicon_arena'),
+          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+            ?? fetchSubclassProfile(userId)
+        ]);
+        // Each word's 4 spellings are shuffled once here, so correct_spelling
+        // never sits in a fixed slot across words.
+        setWords(shuffle(pool).map(w => ({ ...w, choices: shuffle([w.correct_spelling, w.wrong_a, w.wrong_b, w.wrong_c]) })));
+        setProfile(subProfile);
+        setScreen('ready');
+      } catch (err) {
+        console.error('Failed to load Lexicon Arena data:', err);
+      }
+    }
+    loadPool();
+  }, [userId]);
+
+  const choices = engine.currentQuestion?.choices ?? [];
+
+  const handleChoice = (choice: string) => {
+    if (selected || !engine.currentQuestion) return;
+    const isCorrect = choice === engine.currentQuestion.correct_spelling;
+    setSelected(choice);
+    setFeedback(isCorrect ? 'correct' : 'wrong');
+    if (isCorrect) playChime(); else playClash();
+    setTimeout(() => {
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
+      setSelected(null);
+      setFeedback(null);
+    }, 400);
   };
 
   if (screen === 'loading') {
