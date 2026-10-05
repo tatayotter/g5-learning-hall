@@ -3,8 +3,12 @@
 // (getActiveUser()) isn't resolved yet at this point; that happens in the
 // app/page.tsx hydration effect once the active user is known.
 import { getOrCreateSessionId } from '@/lib/analytics';
+import { listenForNotificationTaps } from '@/lib/push';
 
 getOrCreateSessionId();
+
+// Play app: route notification taps from the very first page, signed in or not.
+listenForNotificationTaps();
 
 // The service worker (public/sw.js) caches game art and voice clips, so every
 // player gets it, not only those who turned on push notifications. Production
