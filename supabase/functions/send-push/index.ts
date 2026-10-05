@@ -1,5 +1,6 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 import webpush from 'npm:web-push@3.6.7';
+import { isFcmConfigured, sendFcm } from '../_shared/fcm.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SUPABASE_ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY')!;
@@ -74,7 +75,7 @@ Deno.serve(async (req: Request) => {
 
   const { data: subs, error } = await supabase
     .from('push_subscriptions')
-    .select('id, endpoint, p256dh, auth_key')
+    .select('id, kind, endpoint, p256dh, auth_key')
     .eq('owner_kind', payload.owner_kind)
     .eq('owner_id', payload.owner_id);
 
@@ -90,6 +91,21 @@ Deno.serve(async (req: Request) => {
   let failed = 0;
 
   for (const sub of subs ?? []) {
+    // Google Play app: FCM device token instead of a browser endpoint.
+    if (sub.kind === 'fcm') {
+      if (!isFcmConfigured()) { failed++; continue; }
+      const result = await sendFcm(sub.endpoint, {
+        title: payload.title, body: payload.body, url: payload.url, ttlSeconds: 60 * 60,
+      });
+      if (result.ok) {
+        sent++;
+      } else {
+        failed++;
+        if (result.dead) await supabase.from('push_subscriptions').delete().eq('id', sub.id);
+        else console.error('send-push: fcm send failed', result.status, result.detail);
+      }
+      continue;
+    }
     try {
       await webpush.sendNotification(
         {

@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-2xl mx-auto space-y-8 text-gray-300 text-sm leading-relaxed">
         <div>
           <h1 className="text-2xl font-display font-bold text-white mb-1">Privacy Policy</h1>
-          <p className="text-gray-500 text-xs">Last updated July 30, 2026</p>
+          <p className="text-gray-500 text-xs">Last updated October 5, 2026</p>
         </div>
 
         <section className="space-y-2">
@@ -56,6 +56,7 @@ export default function PrivacyPolicyPage() {
             <li>In-app currency, inventory, monster collection, and battle history</li>
             <li>Optional free-text journal entries the child writes (e.g. "what I learned today")</li>
             <li>Login timestamps and basic usage events (which screens/features are used)</li>
+            <li>If push notifications are turned on: a notification token for that device, so reminders can reach it</li>
           </ul>
         </section>
 
@@ -76,6 +77,7 @@ export default function PrivacyPolicyPage() {
             <li><strong>Supabase</strong> — our database and authentication provider, which stores all account and gameplay data.</li>
             <li><strong>Google Analytics (GA4)</strong> — used only on our public marketing pages (Welcome, Blog, Register) to understand traffic. It is not used inside the logged-in gameplay experience.</li>
             <li><strong>SendFox</strong> — our email service, used only to send updates to parents who explicitly opt in to marketing emails.</li>
+            <li><strong>Push delivery services</strong> — only if push notifications are turned on. Google Firebase Cloud Messaging delivers them to our Android app, and your browser’s own push service delivers them on the web. They receive the device’s notification token and the notification text, nothing else.</li>
           </ul>
           <p>We do not share data with any other third party.</p>
         </section>

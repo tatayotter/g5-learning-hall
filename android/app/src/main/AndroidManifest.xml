@@ -26,6 +26,19 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="false" />
 
+        <!-- Push notifications (FCM). The small icon must be a white
+             silhouette or Android draws a grey square; the channel id must
+             match the one lib/push.ts creates and _shared/fcm.ts sends to. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_notify" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/notification_accent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="learninghall_default" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

@@ -7,7 +7,7 @@
 import { useEffect, useState } from 'react';
 import {
   usePushAvailability,
-  getExistingSubscription,
+  isSubscribedOnThisDevice,
   subscribeToPush,
   unsubscribeFromPush,
   sendTestPush,
@@ -30,7 +30,7 @@ export default function PushNotificationSettings({ owner, variant = 'row' }: Pus
   const [goldReward, setGoldReward] = useState<number | null>(null);
 
   useEffect(() => {
-    if (availability === 'supported') getExistingSubscription().then((sub) => setSubscribed(!!sub));
+    if (availability === 'supported') isSubscribedOnThisDevice().then(setSubscribed);
   }, [availability]);
 
   if (availability === 'unsupported') return null;
