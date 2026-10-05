@@ -9,7 +9,7 @@ import ChildComparisonPanel from '@/components/ChildComparisonPanel';
 import WeeklyLessonsPanel from '@/components/WeeklyLessonsPanel';
 import ParentBlogResources from '@/components/ParentBlogResources';
 import PushNotificationSettings from '@/components/PushNotificationSettings';
-import { recordPushOpenFromUrl } from '@/lib/push';
+import { initNativePush, recordPushOpenFromUrl } from '@/lib/push';
 import { trackParentEvent } from '@/lib/analytics';
 import { useScreenTime } from '@/hooks/useScreenTime';
 import ParentPushOptIn from '@/components/parent/ParentPushOptIn';
@@ -172,6 +172,11 @@ export default function ParentDashboardPage() {
     }
     window.location.href = body.checkoutUrl;
   };
+
+  // Play app: route notification taps and keep this device's push token fresh.
+  useEffect(() => {
+    if (parentId) initNativePush({ kind: 'parent', id: parentId });
+  }, [parentId]);
 
   useEffect(() => {
     // Parent pushes deep-link here with ?pq=<queue id>; record the open,

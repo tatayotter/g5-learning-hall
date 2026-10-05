@@ -1,6 +1,11 @@
 // lib/push.ts
-// Web Push plumbing: register the service worker, subscribe/unsubscribe this
-// browser, and persist the subscription in push_subscriptions. Two owner
+// Push plumbing: subscribe/unsubscribe this device and persist it in
+// push_subscriptions. Browsers use Web Push (service worker + VAPID, kind
+// 'web'); the Google Play app has no Web Push in its WebView, so it registers
+// a Firebase Cloud Messaging token instead (kind 'fcm', see
+// supabase/functions/_shared/fcm.ts). Callers don't care which: use
+// usePushAvailability / isSubscribedOnThisDevice / isPushBlocked /
+// subscribeToPush / unsubscribeFromPush. Two owner
 // shapes match every other RLS-scoped table in this app —
 // see supabase/migrations/20260904020000_push_subscriptions_infra.sql:
 //   - 'app_user': a child/classmate gameplay login, identified by its
@@ -10,7 +15,9 @@
 //     itself (parents.id = auth.uid()).
 
 import { useSyncExternalStore } from 'react';
+import { PushNotifications, type ActionPerformed, type Token } from '@capacitor/push-notifications';
 import { supabase } from './supabase';
+import { hasNativePlugin } from './platform';
 
 export type PushOwner =
   | { kind: 'app_user'; id: string }
@@ -27,15 +34,23 @@ export function isPushSupported(): boolean {
 export type PushAvailability = 'supported' | 'ios-needs-install' | 'unsupported';
 
 /**
+ * True inside a Play app build that ships the push plugin. Older installed
+ * builds (versionCode 2 and below) don't have it and stay 'unsupported'.
+ */
+function isNativePush(): boolean {
+  return typeof window !== 'undefined' && hasNativePlugin('PushNotifications');
+}
+
+/**
  * iOS/iPadOS only exposes Web Push to a site added to the Home Screen
  * (Safari 16.4+) — in a normal Safari tab PushManager simply doesn't exist,
  * so isPushSupported() alone can't tell "never possible here" from "possible
- * once installed". Android's Capacitor WebView (the APK) has no Web Push at
- * all and lands on 'unsupported'.
+ * once installed". The Play app uses native push (FCM) when its build has
+ * the plugin.
  */
 export function getPushAvailability(): PushAvailability {
   if (typeof window === 'undefined') return 'unsupported';
-  if (isPushSupported()) return 'supported';
+  if (isNativePush() || isPushSupported()) return 'supported';
   const ua = navigator.userAgent;
   const isIos = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   const standalone =
@@ -75,13 +90,177 @@ export async function getExistingSubscription(): Promise<PushSubscription | null
   return registration.pushManager.getSubscription();
 }
 
+// ── Native (Google Play app, FCM) ──────────────────────────────────────────
+// The token and the owner it was saved for are kept on the device, so the
+// toggle can show "on" without a round trip and app start can refresh a
+// rotated token for the same owner.
+const FCM_TOKEN_KEY = 'lh_fcm_token';
+const FCM_OWNER_KEY = 'lh_fcm_owner';
+// Must match ANDROID_CHANNEL_ID in supabase/functions/_shared/fcm.ts and the
+// default channel in AndroidManifest.xml.
+const ANDROID_CHANNEL_ID = 'learninghall_default';
+
+function ownerKey(owner: PushOwner): string {
+  return `${owner.kind}:${owner.id}`;
+}
+
+function readStored(key: string): string | null {
+  try { return window.localStorage.getItem(key); } catch { return null; }
+}
+
+function writeStored(key: string, value: string | null): void {
+  try {
+    if (value === null) window.localStorage.removeItem(key);
+    else window.localStorage.setItem(key, value);
+  } catch {
+    // Storage unavailable — the toggle just won't remember until next save.
+  }
+}
+
+async function nativePermission(): Promise<'granted' | 'denied' | 'prompt'> {
+  const { receive } = await PushNotifications.checkPermissions();
+  return receive === 'granted' || receive === 'denied' ? receive : 'prompt';
+}
+
+async function ensureChannel(): Promise<void> {
+  await PushNotifications.createChannel({
+    id: ANDROID_CHANNEL_ID,
+    name: 'Learning Hall',
+    description: 'Reminders and game updates',
+    importance: 3,
+    visibility: 1,
+  }).catch(() => {});
+}
+
+/** register() answers through events, not its promise; wait for the first one. */
+function fetchFcmToken(): Promise<string | null> {
+  return new Promise((resolve) => {
+    let settled = false;
+    const handles: Promise<{ remove: () => Promise<void> }>[] = [];
+    const finish = (token: string | null) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      handles.forEach((h) => h.then((x) => x.remove()).catch(() => {}));
+      resolve(token);
+    };
+    const timer = setTimeout(() => finish(null), 15000);
+    handles.push(PushNotifications.addListener('registration', (t: Token) => finish(t.value)));
+    handles.push(PushNotifications.addListener('registrationError', (err) => {
+      console.error('FCM registration failed', err);
+      finish(null);
+    }));
+    PushNotifications.register().catch(() => finish(null));
+  });
+}
+
+async function saveFcmToken(owner: PushOwner, token: string): Promise<boolean> {
+  const { error } = await supabase.from('push_subscriptions').upsert(
+    {
+      owner_kind: owner.kind,
+      owner_id: owner.id,
+      kind: 'fcm',
+      endpoint: token,
+      p256dh: null,
+      auth_key: null,
+      user_agent: navigator.userAgent,
+    },
+    { onConflict: 'endpoint' },
+  );
+  if (error) {
+    console.error('subscribeToPush: failed to save FCM token', error);
+    return false;
+  }
+  writeStored(FCM_TOKEN_KEY, token);
+  writeStored(FCM_OWNER_KEY, ownerKey(owner));
+  return true;
+}
+
+async function subscribeNative(owner: PushOwner): Promise<boolean> {
+  let permission = await nativePermission();
+  if (permission === 'prompt') {
+    const { receive } = await PushNotifications.requestPermissions();
+    permission = receive === 'granted' ? 'granted' : 'denied';
+  }
+  if (permission !== 'granted') return false;
+  await ensureChannel();
+  const token = await fetchFcmToken();
+  return token ? saveFcmToken(owner, token) : false;
+}
+
+async function unsubscribeNative(): Promise<boolean> {
+  const token = readStored(FCM_TOKEN_KEY);
+  let ok = true;
+  if (token) {
+    const { error } = await supabase.from('push_subscriptions').delete().eq('endpoint', token);
+    ok = !error;
+  }
+  await PushNotifications.unregister().catch(() => {});
+  writeStored(FCM_TOKEN_KEY, null);
+  writeStored(FCM_OWNER_KEY, null);
+  return ok;
+}
+
+let nativeListenersAdded = false;
+
 /**
- * Requests notification permission (if needed), subscribes this browser to
+ * Call once a page knows who is signed in (Dashboard, parent dashboard).
+ * Opens the screen a tapped notification points to, and re-saves the device
+ * token for the same owner in case Firebase rotated it. No-op on the web
+ * and on Play app builds without the push plugin.
+ */
+export function initNativePush(owner: PushOwner): void {
+  if (!isNativePush()) return;
+
+  if (!nativeListenersAdded) {
+    nativeListenersAdded = true;
+    // The plugin holds taps until this listener exists, including the tap
+    // that cold-started the app.
+    void PushNotifications.addListener('pushNotificationActionPerformed', (action: ActionPerformed) => {
+      const data = (action.notification.data ?? {}) as { url?: string; qid?: string };
+      const target = new URL(data.url || '/', window.location.origin);
+      if (target.origin !== window.location.origin) return;
+      // Same ?pq= the web service worker adds, so recordPushOpenFromUrl counts it.
+      if (data.qid) target.searchParams.set('pq', data.qid);
+      window.location.assign(target.pathname + target.search + target.hash);
+    });
+  }
+
+  void (async () => {
+    if (readStored(FCM_OWNER_KEY) !== ownerKey(owner)) return;
+    if ((await nativePermission()) !== 'granted') return;
+    await ensureChannel();
+    const token = await fetchFcmToken();
+    if (!token) return;
+    const previous = readStored(FCM_TOKEN_KEY);
+    if ((await saveFcmToken(owner, token)) && previous && previous !== token) {
+      await supabase.from('push_subscriptions').delete().eq('endpoint', previous);
+    }
+  })().catch((err) => console.error('initNativePush failed', err));
+}
+
+/** Whether this device currently has push on (either kind). */
+export async function isSubscribedOnThisDevice(): Promise<boolean> {
+  if (isNativePush()) {
+    return !!readStored(FCM_TOKEN_KEY) && (await nativePermission()) === 'granted';
+  }
+  return !!(await getExistingSubscription());
+}
+
+/** True once the user has blocked notifications — only device settings can undo it. */
+export async function isPushBlocked(): Promise<boolean> {
+  if (isNativePush()) return (await nativePermission()) === 'denied';
+  return typeof Notification !== 'undefined' && Notification.permission === 'denied';
+}
+
+/**
+ * Requests notification permission (if needed), subscribes this device to
  * push, and upserts the subscription row for `owner`. Returns false on any
  * failure (permission denied, unsupported browser, RLS rejection, etc.) —
  * callers should treat that as "stay unsubscribed" rather than throw.
  */
 export async function subscribeToPush(owner: PushOwner): Promise<boolean> {
+  if (isNativePush()) return subscribeNative(owner);
   if (!isPushSupported()) return false;
 
   const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
@@ -126,8 +305,9 @@ export async function subscribeToPush(owner: PushOwner): Promise<boolean> {
   return true;
 }
 
-/** Unsubscribes this browser and removes its row from push_subscriptions. */
+/** Unsubscribes this device and removes its row from push_subscriptions. */
 export async function unsubscribeFromPush(): Promise<boolean> {
+  if (isNativePush()) return unsubscribeNative();
   const subscription = await getExistingSubscription();
   if (!subscription) return true;
 
@@ -138,8 +318,8 @@ export async function unsubscribeFromPush(): Promise<boolean> {
 }
 
 /**
- * Records that a queued push was tapped: the service worker appends the
- * queue row id as ?pq=. Call once on page load, before anything strips the
+ * Records that a queued push was tapped: the service worker (web) or
+ * initNativePush's tap handler (Play app) appends the queue row id as ?pq=. Call once on page load, before anything strips the
  * query string. Fire-and-forget — a failed write only loses a stat.
  */
 export function recordPushOpenFromUrl(): void {

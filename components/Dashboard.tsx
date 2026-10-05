@@ -30,7 +30,7 @@ import { claimRegistrantReward, fetchNotifications, markNotificationsRead, getMy
 import { claimMarketingGoldBonus } from '@/lib/marketingBonus';
 import { claimPushGoldBonusChild, claimPushGoldBonusParent } from '@/lib/pushBonus';
 import PushOptInCard from '@/components/PushOptInCard';
-import { recordPushOpenFromUrl } from '@/lib/push';
+import { initNativePush, recordPushOpenFromUrl } from '@/lib/push';
 import type { GuildView } from '@/components/monster/types';
 
 // Runtime mirror of the GuildView union — needed to validate a query-param
@@ -132,6 +132,12 @@ export default function Dashboard() {
     const onOnline = () => { void flushPendingGuildSessions(activeUserId); };
     window.addEventListener('online', onOnline);
     return () => window.removeEventListener('online', onOnline);
+  }, [activeUserId]);
+
+  // Play app: open the screen a tapped notification points to, and keep this
+  // device's push token fresh. No-op on the web.
+  useEffect(() => {
+    if (activeUserId) initNativePush({ kind: 'app_user', id: activeUserId });
   }, [activeUserId]);
 
   // Main theme plays for the whole logged-in session; BattleScreen and

@@ -1,5 +1,6 @@
 import { createClient } from 'jsr:@supabase/supabase-js@2';
 import webpush from 'npm:web-push@3.6.7';
+import { isFcmConfigured, sendFcm } from '../_shared/fcm.ts';
 
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
@@ -61,7 +62,7 @@ Deno.serve(async (req: Request) => {
 
     const { data: subs, error: subsErr } = await admin
       .from('push_subscriptions')
-      .select('id, endpoint, p256dh, auth_key')
+      .select('id, kind, endpoint, p256dh, auth_key')
       .eq('owner_kind', item.owner_kind)
       .eq('owner_id', item.owner_id);
 
@@ -85,6 +86,21 @@ Deno.serve(async (req: Request) => {
 
     let deliveredCount = 0;
     for (const sub of subs) {
+      // Google Play app: FCM device token instead of a browser endpoint.
+      if (sub.kind === 'fcm') {
+        if (!isFcmConfigured()) continue;
+        const result = await sendFcm(sub.endpoint, {
+          title: item.title, body: item.body, url: item.url, tag: item.tag, qid: item.id, ttlSeconds: remainingTtl,
+        });
+        if (result.ok) {
+          deliveredCount++;
+        } else if (result.dead) {
+          await admin.from('push_subscriptions').delete().eq('id', sub.id);
+        } else {
+          console.error('push-queue-dispatch: fcm send failed', item.owner_id, result.status, result.detail);
+        }
+        continue;
+      }
       try {
         // TTL: without it web-push asks the push service to hold the message
         // for 4 weeks, so an offline phone got stale reminders days later.

@@ -12,6 +12,13 @@ const config: CapacitorConfig = {
   android: {
     allowMixedContent: false,
   },
+  plugins: {
+    PushNotifications: {
+      // Show notifications while the app is open too. Without this, Android
+      // only shows them when the app is in the background.
+      presentationOptions: ['alert', 'sound'],
+    },
+  },
 };
 
 export default config;

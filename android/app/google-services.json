@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652988653076",
+    "project_id": "learning-hall-ph",
+    "storage_bucket": "learning-hall-ph.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652988653076:android:4ef2a52ec83d540bad9101",
+        "android_client_info": {
+          "package_name": "com.tatayotter.learninghall"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDngzOD4ecOh5QsoTFDVWELBu9Ldhuqz1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

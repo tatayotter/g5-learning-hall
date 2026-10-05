@@ -12,7 +12,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import GameButton from '@/components/GameButton';
-import { getExistingSubscription, subscribeToPush, usePushAvailability, type PushOwner } from '@/lib/push';
+import { isPushBlocked, isSubscribedOnThisDevice, subscribeToPush, usePushAvailability, type PushOwner } from '@/lib/push';
 import { claimPushGoldBonusChild } from '@/lib/pushBonus';
 import { playPageFlip } from '@/lib/sounds';
 
@@ -54,8 +54,8 @@ export function usePushAsk(owner: PushOwner, previewState?: Exclude<CardState, '
   useEffect(() => {
     if (previewState || availability !== 'supported') return;
     let live = true;
-    getExistingSubscription().then((sub) => {
-      if (live) setNothingToAsk(!!sub || Notification.permission === 'denied');
+    Promise.all([isSubscribedOnThisDevice(), isPushBlocked()]).then(([subscribed, blocked]) => {
+      if (live) setNothingToAsk(subscribed || blocked);
     });
     return () => { live = false; };
   }, [availability, previewState]);
@@ -83,7 +83,7 @@ export function usePushAsk(owner: PushOwner, previewState?: Exclude<CardState, '
       if (!ok) {
         // Either the prompt was dismissed/denied or something failed —
         // only "denied" is permanent.
-        if (Notification.permission === 'denied') setBlocked(true);
+        if (await isPushBlocked()) setBlocked(true);
         return false;
       }
       setDismissed(true);
