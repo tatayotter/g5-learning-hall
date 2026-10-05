@@ -6,6 +6,7 @@
 'use client';
 
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import ReactMarkdown from 'react-markdown';
 import { UserId, USERS } from '@/lib/userSession';
 import { WEEKDAYS } from '@/lib/weekdays';
@@ -55,7 +56,7 @@ interface BoardMapViewProps {
 
   currentDayName: string;
   weekStartingDate: string;
-  mainQuestPackageData: any;
+  mainQuestPackageData: WeeklyPackageData;
   gauntletDayPools: Record<string, BossQuestion[]>;
   gauntletDaysDone: Set<string>;
   onEnterGauntletDay: (day: string) => void;

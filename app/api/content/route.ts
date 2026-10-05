@@ -27,8 +27,8 @@ async function loadGradeContent(grade: number, weekStartingDate: string) {
     .order('sort_order');
   if (error || !rows) return { content: {}, contentWeekId: week.id };
 
-  const byDay: Record<string, Record<string, { summary_markdown?: string; visual_aid?: unknown; quiz: any[] }>> = {};
-  rows.forEach((r: any) => {
+  const byDay: Record<string, Record<string, { summary_markdown?: string; visual_aid?: unknown; quiz: { id: string; question: string; options: unknown }[] }>> = {};
+  rows.forEach((r) => {
     if (!byDay[r.weekday]) byDay[r.weekday] = {};
     if (!byDay[r.weekday][r.subject]) {
       byDay[r.weekday][r.subject] = {

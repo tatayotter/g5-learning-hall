@@ -447,7 +447,7 @@ export default function HeroProfile({ userId, data, onViewAchievements }: HeroPr
               { icon: '/icons/stats/atk.svg', label: 'PvP Wins', value: lifetimeLoading ? '…' : (lifetimeStats?.liveBattleWins ?? data.sibling_battles_won ?? 0) },
               { icon: '/icons/stats/stat_up.svg', label: 'Current Streak', value: `${currentStreak}d` },
               { icon: '/icons/rewards/gem.svg', label: 'Achievements', value: `${unlockedAchievements.length} / ${ACHIEVEMENTS.length}` },
-              { icon: '/icons/rewards/package.svg', label: 'Lifetime Trades', value: (progress as any)?.trades_completed ?? 0 },
+              { icon: '/icons/rewards/package.svg', label: 'Lifetime Trades', value: progress?.trades_completed_total ?? 0 },
             ].map(({ icon, label, value, gold: isGold }) => (
               <div key={label} className="flex items-center gap-2.5">
                 {typeof icon === 'string' && icon.startsWith('/') ? (

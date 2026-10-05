@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { WeeklyData } from '@/hooks/useWeeklyData';
+import type { AuthoredWeek } from '@/lib/weeklyPackage';
 import { format, startOfWeek } from 'date-fns';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
@@ -14,10 +14,11 @@ const WEEK_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 // mistakes. MonsterGuild's extractQuestions() accepts either a `quiz` or `questions` array per
 // subject, so both shapes must be checked here — validating only `quiz` let unvalidated
 // `questions` arrays flow straight into live Monster Arena battles.
-function validateWeekDays(obj: any, grade: number): string[] {
+function validateWeekDays(obj: AuthoredWeek | null | undefined, grade: number): string[] {
   const warnings: string[] = [];
-  Object.keys(obj || {}).forEach(day => {
-    const subjects = obj[day];
+  const week = obj || {};
+  Object.keys(week).forEach(day => {
+    const subjects = week[day];
     Object.keys(subjects).forEach(subject => {
       const s = subjects[subject];
       const scheduledDay = getScheduledDay(subject, grade);
@@ -28,7 +29,7 @@ function validateWeekDays(obj: any, grade: number): string[] {
       if (!key) {
         warnings.push(`${day} / ${subject}: missing quiz/questions array`);
       } else {
-        s[key].forEach((q: any, i: number) => {
+        (s[key] ?? []).forEach((q, i: number) => {
           if (!q.correct_answer) {
             warnings.push(`${day} / ${subject} ${key}[${i + 1}]: missing correct_answer`);
           }
@@ -70,7 +71,7 @@ function WeeklyPackageHistory({ grade }: { grade: number }) {
         .from('content_days')
         .select('content_week_id')
         .in('content_week_id', weekIds);
-      const weeksWithContent = new Set((dayRows || []).map((d: any) => d.content_week_id));
+      const weeksWithContent = new Set((dayRows || []).map((d) => d.content_week_id));
 
       setWeeks(weekRows.map(w => ({
         week_starting_date: w.week_starting_date,
@@ -111,7 +112,7 @@ function WeeklyPackageHistory({ grade }: { grade: number }) {
 interface BulkWeekEntry {
   grade: number;
   week_starting_date: string;
-  days: any;
+  days: AuthoredWeek;
   warnings: string[];
 }
 
@@ -131,7 +132,7 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
     try {
       const arr = JSON.parse(bulkInput);
       if (!Array.isArray(arr)) throw new Error('Top-level JSON must be an array of {grade, week_starting_date, days}');
-      const parsed: BulkWeekEntry[] = arr.map((entry: any, i: number) => {
+      const parsed: BulkWeekEntry[] = arr.map((entry, i: number) => {
         if (typeof entry.grade !== 'number') throw new Error(`Entry ${i + 1}: missing/invalid "grade"`);
         if (typeof entry.week_starting_date !== 'string') throw new Error(`Entry ${i + 1}: missing/invalid "week_starting_date"`);
         if (typeof entry.days !== 'object' || entry.days === null) throw new Error(`Entry ${i + 1}: missing "days" object`);
@@ -143,8 +144,8 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
         };
       });
       setEntries(parsed);
-    } catch (e: any) {
-      setParseError(`JSON parse error: ${e.message}`);
+    } catch (e) {
+      setParseError(`JSON parse error: ${e instanceof Error ? e.message : String(e)}`);
     }
   };
 
@@ -232,9 +233,7 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
 // ─── SINGLE-WEEK EDITOR ─────────────────────────────────────────────────────
 
 export default function WeeklyPackageBuilder({ currentSunday, passcode, onNavigateToDrafts }: {
-  currentData: WeeklyData;
   currentSunday: string;
-  onUpdateStats: (...args: any[]) => void;
   passcode: string;
   onNavigateToDrafts: () => void;
 }) {
@@ -244,7 +243,7 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
   const [selectedWeek, setSelectedWeek] = useState(currentSunday);
   const [weekHasRow, setWeekHasRow] = useState(false);
   const [jsonInput, setJsonInput] = useState('');
-  const [parsed, setParsed] = useState<any>(null);
+  const [parsed, setParsed] = useState<{ data: AuthoredWeek; warnings: string[] } | null>(null);
   const [parseError, setParseError] = useState('');
   const [editingQuestion, setEditingQuestion] = useState<{ day: string; subject: string; idx: number } | null>(null);
   const [saving, setSaving] = useState(false);
@@ -293,8 +292,8 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
     try {
       const obj = JSON.parse(jsonInput);
       setParsed({ data: obj, warnings: validateWeekDays(obj, grade) });
-    } catch (e: any) {
-      setParseError(`JSON parse error: ${e.message}`);
+    } catch (e) {
+      setParseError(`JSON parse error: ${e instanceof Error ? e.message : String(e)}`);
     }
   };
 
@@ -315,10 +314,12 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
     setSaving(false);
   };
 
-  const updateQuestion = (day: string, subject: string, idx: number, field: string, value: string) => {
+  const updateQuestion = (day: string, subject: string, idx: number, field: 'question' | 'options' | 'correct_answer', value: string | string[]) => {
     if (!parsed) return;
     const updated = { ...parsed.data };
-    updated[day][subject].quiz[idx][field] = value;
+    const quiz = updated[day][subject].quiz;
+    if (!quiz) return;
+    quiz[idx] = { ...quiz[idx], [field]: value };
     setParsed({ ...parsed, data: updated });
   };
 
@@ -479,7 +480,7 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
                           <div key={subject} className="bg-neutral-950 rounded-xl p-4">
                             <p className="font-bold text-amber-400 mb-3">{subject}</p>
                             <div className="space-y-2">
-                              {(s.quiz || []).map((q: any, idx: number) => {
+                              {(s.quiz || []).map((q, idx: number) => {
                                 const isEditing = editingQuestion?.day === day && editingQuestion?.subject === subject && editingQuestion?.idx === idx;
                                 return (
                                   <div key={idx} className="bg-[#1c1611] rounded-lg p-3 border border-[#2a2119]">
@@ -499,7 +500,7 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
                                           onChange={e => updateQuestion(day, subject, idx, 'question', e.target.value)}
                                           className="w-full bg-[#0a0807] border border-[#3d3225] rounded p-2 text-sm text-[#ede4d3]"
                                         />
-                                        {q.options.map((opt: string, oi: number) => (
+                                        {(q.options ?? []).map((opt: string, oi: number) => (
                                           <div key={oi} className="flex items-center gap-2">
                                             <span className={`text-xs font-mono w-4 ${q.correct_answer === opt ? 'text-[#7fae52]' : 'text-gray-600'}`}>
                                               {q.correct_answer === opt ? '✓' : '○'}
@@ -507,10 +508,10 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
                                             <input
                                               value={opt}
                                               onChange={e => {
-                                                const newOpts = [...q.options];
+                                                const newOpts = [...(q.options ?? [])];
                                                 const wasCorrect = q.correct_answer === opt;
                                                 newOpts[oi] = e.target.value;
-                                                updateQuestion(day, subject, idx, 'options', newOpts as any);
+                                                updateQuestion(day, subject, idx, 'options', newOpts);
                                                 if (wasCorrect) updateQuestion(day, subject, idx, 'correct_answer', e.target.value);
                                               }}
                                               className="flex-1 bg-[#0a0807] border border-[#3d3225] rounded p-1.5 text-xs text-[#ede4d3]"
@@ -528,7 +529,7 @@ export default function WeeklyPackageBuilder({ currentSunday, passcode, onNaviga
                                       <div>
                                         <p className="text-sm text-gray-200 mb-2">{q.question}</p>
                                         <div className="flex flex-wrap gap-2">
-                                          {q.options.map((opt: string, oi: number) => (
+                                          {(q.options ?? []).map((opt: string, oi: number) => (
                                             <span
                                               key={oi}
                                               className={`text-xs px-2 py-0.5 rounded-full ${opt === q.correct_answer ? 'bg-[#223616]/50 text-[#7fae52] border border-[#33501f]' : 'bg-[#2a2119] text-[#a89c86]'}`}

@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
@@ -66,7 +67,7 @@ export async function fetchChecklistBattleFlags(userId: string, today: string): 
 
 export function isQuestDayDone(
   dayName: string,
-  packageData: any,
+  packageData: WeeklyPackageData,
   masteredQuizzes: string[]
 ): boolean {
   const subjects = Object.keys(packageData?.[dayName] || {});

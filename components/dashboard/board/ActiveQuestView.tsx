@@ -6,6 +6,7 @@
 'use client';
 
 import { useState } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { UserId } from '@/lib/userSession';
@@ -25,7 +26,7 @@ type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
 interface ActiveQuestViewProps {
   activeUserId: UserId;
   activeQuest: string; // `${day}_${subject}`
-  mainQuestPackageData: any;
+  mainQuestPackageData: WeeklyPackageData;
   quizPhase: 'study' | 'ready' | 'quiz';
   setQuizPhase: (phase: 'study' | 'ready' | 'quiz') => void;
   setActiveQuest: (quest: string | null) => void;
@@ -155,7 +156,7 @@ export default function ActiveQuestView({
               correct_count: graded.correct_count,
               total: graded.total,
               is_perfect: graded.is_perfect,
-              correct_answers: (graded.results || []).map((r: any) => r.correct_answer),
+              correct_answers: (graded.results || []).map((r: { correct_answer: string }) => r.correct_answer),
             };
           }}
           onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {

@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
@@ -462,7 +463,7 @@ export default function Dashboard() {
     activeUserId ? (activeQuest ? `quest_${quizPhase}` : activeTab) : null,
     (name, props, options) => trackEvent(name, props, activeTab, options)
   );
-  const [myClaims, setMyClaims] = useState<any[]>([]);
+  const [myClaims, setMyClaims] = useState<RewardClaim[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
   const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
   const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);

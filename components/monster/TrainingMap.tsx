@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
 import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip } from '@/lib/sounds';
@@ -104,12 +105,12 @@ interface TrainingMapProps {
   battleState: BattleState;
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
-  questions: any[];
+  questions: BattleQuestion[];
   gradingUserId: string;
   onBattleStateChange: (state: BattleState) => void;
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
-  onQuestionsAnswered?: (questions: any[]) => void;
+  onQuestionsAnswered?: (questions: BattleQuestion[]) => void;
   // pity: forced by the guaranteed-spawn counter rather than the 5% roll.
   onWildEncounterRoll?: (pity: boolean) => void;
   // The curio MonsterGuild picked (species/level/question) once a scroll
@@ -524,7 +525,7 @@ export default function TrainingMap({
     extraBlockedTiles: recyclerTile ? [recyclerTile] : undefined,
   });
 
-  const handleScrollAnswer = async (correctCount: number, answeredQuestions: any[]) => {
+  const handleScrollAnswer = async (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     const answered = activeScroll!;
     setActiveScroll(null);
     if (correctCount > 0) playChime(); else playClash();

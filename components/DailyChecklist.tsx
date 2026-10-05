@@ -1,5 +1,6 @@
 // components/DailyChecklist.tsx
 import { useState, useEffect, useCallback } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { manilaToday } from '@/lib/appDay';
 import {
   fetchChecklistBattleFlags,
@@ -43,7 +44,7 @@ interface DailyChecklistProps {
   grade: number;
   currentSunday: string;
   currentDayName: string;
-  packageData: any;
+  packageData: WeeklyPackageData;
   journalLogs: Record<string, unknown> | undefined | null;
   masteredQuizzes: string[] | undefined;
   onGoldAwarded: (amount: number) => void;

@@ -61,7 +61,7 @@ export function isVoiceEnabled() {
 
 function getContext() {
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    audioCtx = new (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext!)();
   }
   if (audioCtx.state === 'suspended') {
     audioCtx.resume();

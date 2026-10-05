@@ -47,7 +47,7 @@ Deno.serve(async (req: Request) => {
   });
   if (listRes.ok) {
     const listBody = await listRes.json();
-    const already = (listBody?.data ?? []).some((c: any) => c.title === campaignTitle);
+    const already = (listBody?.data ?? []).some((c: { title?: string }) => c.title === campaignTitle);
     if (already) {
       return new Response(JSON.stringify({ skipped: true, reason: 'already sent for this week' }), {
         status: 200,

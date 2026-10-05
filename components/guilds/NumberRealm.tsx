@@ -86,12 +86,12 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   useEffect(() => {
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
-        takePrefetch<any[]>(userId, 'guildPool:number_realm')
-          ?? fetchQuestionPool(userId, 'sq_number_realm', 'number_realm'),
+        takePrefetch<NumberRealmQuestion[]>(userId, 'guildPool:number_realm')
+          ?? fetchQuestionPool<NumberRealmQuestion>(userId, 'sq_number_realm', 'number_realm'),
         takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
           ?? fetchSubclassProfile(userId)
       ]);
-      setQuestions(shuffle(pool as NumberRealmQuestion[]));
+      setQuestions(shuffle(pool));
       setProfile(subProfile);
       setScreen('ready');
     }

@@ -87,12 +87,12 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          takePrefetch<any[]>(userId, 'guildPool:lexicon_arena')
-            ?? fetchQuestionPool(userId, 'sq_lexicon_arena', 'lexicon_arena'),
+          takePrefetch<LexiconWord[]>(userId, 'guildPool:lexicon_arena')
+            ?? fetchQuestionPool<LexiconWord>(userId, 'sq_lexicon_arena', 'lexicon_arena'),
           takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
             ?? fetchSubclassProfile(userId)
         ]);
-        setWords(shuffle(pool as LexiconWord[]));
+        setWords(shuffle(pool));
         setProfile(subProfile);
         setScreen('ready');
       } catch (err) {

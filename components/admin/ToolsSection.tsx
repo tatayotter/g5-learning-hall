@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { supabase } from '@/lib/supabase';
 import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
@@ -10,7 +11,6 @@ import { callAdminApi } from '@/lib/adminApi';
 export default function ToolsSection({ currentData, currentSunday, passcode }: {
   currentData: WeeklyData;
   currentSunday: string;
-  onUpdateStats: (...args: any[]) => void;
   passcode: string;
 }) {
   const [userId, setUserId] = useState<'damien' | 'tala'>(currentData.user_id as 'damien' | 'tala');
@@ -18,7 +18,7 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
   const [stats, setStats] = useState<CharacterStats>(currentData.character_stats);
   const [deedName, setDeedName] = useState('');
   const [deedGold, setDeedGold] = useState('');
-  const [claims, setClaims] = useState<any[]>([]);
+  const [claims, setClaims] = useState<RewardClaim[]>([]);
   const [loadingData, setLoadingData] = useState(false);
   const [protectedIds, setProtectedIds] = useState<Set<string>>(new Set());
   const [loginPassword, setLoginPassword] = useState('');
@@ -26,7 +26,7 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
 
   const loadProtectedIds = async () => {
     const { data } = await supabase.from('family_credentials').select('id');
-    setProtectedIds(new Set((data || []).map((r: any) => r.id)));
+    setProtectedIds(new Set((data || []).map((r) => r.id)));
   };
 
   const loadUserData = async (id: 'damien' | 'tala') => {

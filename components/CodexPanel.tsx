@@ -137,7 +137,7 @@ function ElementWheel() {
   const iconSize = 100;
   const iconHalf = iconSize / 2;
 
-  const positions: Record<Element, { x: number; y: number }> = {} as any;
+  const positions = {} as Record<Element, { x: number; y: number }>;
   ELEMENTS.forEach((el, i) => {
     const angle = (i / ELEMENTS.length) * 2 * Math.PI - Math.PI / 2;
     positions[el] = { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };

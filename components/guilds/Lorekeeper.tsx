@@ -79,12 +79,12 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          takePrefetch<any[]>(userId, 'guildPool:lorekeeper')
-            ?? fetchQuestionPool(userId, 'sq_lorekeeper', 'lorekeeper'),
+          takePrefetch<LorekeeperQuestion[]>(userId, 'guildPool:lorekeeper')
+            ?? fetchQuestionPool<LorekeeperQuestion>(userId, 'sq_lorekeeper', 'lorekeeper'),
           takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
             ?? fetchSubclassProfile(userId)
         ]);
-        setQuestions(shuffle(pool as LorekeeperQuestion[]));
+        setQuestions(shuffle(pool));
         setProfile(subProfile);
         setScreen('ready');
       } catch (err) {

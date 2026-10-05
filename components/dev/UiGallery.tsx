@@ -178,6 +178,7 @@ export default function UiGallery() {
   const [outcome, setOutcome] = useState<'win' | 'loss' | 'draw'>('win');
   const [celebration, setCelebration] = useState<{ type: 'levelup' | 'perfect' | 'curio'; key: number } | null>(null);
   const [activeOverlay, setActiveOverlay] = useState<OverlayKey | null>(null);
+  const [critNonce] = useState(() => Date.now());
   const close = () => setActiveOverlay(null);
   const [introPreview, setIntroPreview] = useState<'story' | 'training' | null>(null);
   const [battleTrainingPreview, setBattleTrainingPreview] = useState(false);
@@ -286,7 +287,7 @@ export default function UiGallery() {
       case 'achievementToast':
         return <AchievementToast userId="demo" newlyUnlocked={mockAchievements} onDismissAll={close} />;
       case 'critBonusToast':
-        return <CritBonusToast event={{ bonus: 25, nonce: Date.now() }} />;
+        return <CritBonusToast event={{ bonus: 25, nonce: critNonce }} />;
       case 'liveBattleInvite':
         return <LiveBattleInviteToast fromName="Miguel" onAccept={close} onDecline={close} />;
       case 'graduation':
@@ -843,7 +844,7 @@ export default function UiGallery() {
               onDummyResult={async () => {}}
               onBonusPaid={() => {}}
               onImmersiveChange={() => {}}
-              gradeOverride={(q, selected) => ({ correct: selected === q.answer, correctAnswer: q.answer })}
+              gradeOverride={(q, selected) => ({ correct: selected === q.answer, correctAnswer: typeof q.answer === 'string' ? q.answer : null })}
               onClose={() => setBattleTrainingPreview(false)}
             />
           );

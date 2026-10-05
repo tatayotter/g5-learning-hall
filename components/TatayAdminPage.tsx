@@ -5,7 +5,7 @@ import AdminDashboard from '@/components/AdminDashboard';
 
 export default function TatayAdminPage() {
   const router = useRouter();
-  const { data, loading, updateStatsAndJournal, currentSunday } = useWeeklyData('damien');
+  const { data, loading, currentSunday } = useWeeklyData('damien');
 
   if (loading || !data) {
     return (
@@ -19,7 +19,6 @@ export default function TatayAdminPage() {
     <AdminDashboard
       currentData={data}
       currentSunday={currentSunday}
-      onUpdateStats={updateStatsAndJournal}
       onBack={() => router.push('/')}
     />
   );

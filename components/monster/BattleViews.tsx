@@ -5,6 +5,7 @@
 'use client';
 
 import { UserId } from '@/lib/userSession';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { NpcTrainer } from '@/lib/monsterConfig';
 import { InventoryMap } from '@/lib/inventory';
 import { ActiveBattleMonster } from '@/components/battle/shared';
@@ -18,10 +19,10 @@ type LiveBattleInbox = ReturnType<typeof useLiveBattleInbox>;
 interface BattleViewsProps {
   view: GuildView;
   userId: string;
-  questions: any[];
+  questions: BattleQuestion[];
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
-  handleQuestionsAnswered: (usedQuestions: any[]) => void;
+  handleQuestionsAnswered: (usedQuestions: BattleQuestion[]) => void;
   buildPlayerTeam: () => ActiveBattleMonster[];
 
   // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —

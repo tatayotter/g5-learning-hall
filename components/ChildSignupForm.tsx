@@ -124,8 +124,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
       setActiveUser(result.id);
       await recordLastLogin(result.id);
       router.push('/');
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
+    } catch (err) {
+      setError((err instanceof Error && err.message) || 'Something went wrong. Please try again.');
       setTurnstileToken('');
       setTurnstileKey((k) => k + 1);
     } finally {

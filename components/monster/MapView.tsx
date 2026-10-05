@@ -5,6 +5,7 @@
 'use client';
 
 import { UserId } from '@/lib/userSession';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import { NpcTrainer, MonsterDef } from '@/lib/monsterConfig';
@@ -18,11 +19,11 @@ interface MapViewProps {
   battleState: BattleState;
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
-  questions: any[];
+  questions: BattleQuestion[];
   onBattleStateChange: (state: BattleState) => void;
   onMonsterExpGained: (monsterId: string, exp: number) => void;
   onHeal: () => void;
-  onQuestionsAnswered: (questions: any[]) => void;
+  onQuestionsAnswered: (questions: BattleQuestion[]) => void;
   onWildEncounterRoll: (pity: boolean) => void;
   activeCurio: { id: number; monsterId: string; quality: QualityTier; attemptsLeft: number } | null;
   onEnterCurio: () => void;

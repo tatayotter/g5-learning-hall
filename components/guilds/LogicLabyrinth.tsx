@@ -7,6 +7,7 @@ import {
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
   gradeStageIndex, gradeStageStars, MIN_GRADE_STAGE,
+  type GuildQuestionRow,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -80,7 +81,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     async function loadPool() {
       try {
         const [pool, subProfile] = await Promise.all([
-          takePrefetch<any[]>(userId, 'guildPool:logic_labyrinth')
+          takePrefetch<GuildQuestionRow[]>(userId, 'guildPool:logic_labyrinth')
             ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth'),
           takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
             ?? fetchSubclassProfile(userId)
@@ -89,7 +90,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
         // tends to sit in the same array slot across puzzles (same class of
         // bug fixed in Lorekeeper: a fixed answer position lets a kid win
         // every round by spam-clicking that slot instead of solving anything).
-        const parsed = (pool as any[]).map(q => ({
+        const parsed = pool.map(q => ({
           ...q,
           options_array: shuffle(typeof q.options_array === 'string' ? JSON.parse(q.options_array) : q.options_array)
         }));

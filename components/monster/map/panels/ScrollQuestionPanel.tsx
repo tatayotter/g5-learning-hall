@@ -6,14 +6,15 @@
 // (handleScrollAnswer) since they touch battleState, monster exp, and the
 // scroll respawn/trainer-spawn/wild-encounter rolls together.
 import { MonsterImage, BattleQuestionModal } from '@/components/battle/shared';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { BATTLE_CONSTANTS, type MonsterDef } from '@/lib/monsterConfig';
 
 interface ScrollQuestionPanelProps {
   activeMonsterDef?: MonsterDef;
   activeMonsterExpToNext: number | null;
-  questions: any[];
+  questions: BattleQuestion[];
   gradingUserId: string;
-  onComplete: (correctCount: number, answeredQuestions: any[]) => void;
+  onComplete: (correctCount: number, answeredQuestions: BattleQuestion[]) => void;
 }
 
 export default function ScrollQuestionPanel({ activeMonsterDef, activeMonsterExpToNext, questions, gradingUserId, onComplete }: ScrollQuestionPanelProps) {

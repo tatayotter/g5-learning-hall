@@ -12,6 +12,7 @@
 // opponent's mirror is kept in sync purely via broadcasts (round outcomes,
 // self_state_sync, monster_switch) — never written to speculatively.
 import { useEffect, useRef, useState } from 'react';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { useLiveBattle, TIMEOUT_ACTION_ID } from '@/hooks/useLiveBattle';
 import { resolveBattle } from '@/lib/liveBattle';
 import { ActiveBattleMonster, BattleBeat, BattleQuestionModal, type BattleQuestionProps, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold } from '@/components/battle/shared';
@@ -45,7 +46,7 @@ interface LiveBattleScreenProps {
   side: 'challenger' | 'opponent';
   myTeam: ActiveBattleMonster[];
   opponentTeam: ActiveBattleMonster[];
-  questions: any[];
+  questions: BattleQuestion[];
   gradingUserId: string;
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
@@ -521,7 +522,7 @@ export default function LiveBattleScreen({
       : battleEnded.winnerId === opponentId
         ? oppRoster[oppActiveIdx]?.userMonster?.id
         : undefined;
-    resolveBattle(battleId, battleEnded.winnerId, battleEnded.reason as any, winnerMonsterId);
+    resolveBattle(battleId, battleEnded.winnerId, battleEnded.reason, winnerMonsterId);
     // Fires the instant the result is known, rather than waiting for this
     // player to click "Continue" on the summary screen below — otherwise
     // onlookers' training maps keep showing a blinking "in battle" badge
@@ -570,7 +571,7 @@ export default function LiveBattleScreen({
     return ok;
   };
 
-  const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
+  const handleQuestionsComplete = (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     setAnswering(false);
     if (!pendingSkillId) return;
     const skill = SKILLS[pendingSkillId];

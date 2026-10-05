@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { playBattleSfx, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
@@ -28,12 +29,12 @@ interface BattleScreenProps {
   trainer?: NpcTrainer;
   siblingTeam?: ActiveBattleMonster[];
   siblingName?: string;
-  questions: any[];
+  questions: BattleQuestion[];
   gradingUserId: string;
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
-  onQuestionsAnswered?: (questions: any[]) => void;
+  onQuestionsAnswered?: (questions: BattleQuestion[]) => void;
   // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
   // gold is the player's live balance, onSpendGold does the actual atomic
   // server-side debit and resolves to whether it succeeded.
@@ -43,7 +44,7 @@ interface BattleScreenProps {
 
 export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
-  const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
+  const opponentTeam = siblingTeam || trainer?.monsters.map((tm) => {
     const def = ALL_MONSTERS[tm.monsterId];
     const hp = getScaledStats(def, tm.level, tm.quality).hp;
     return { def, level: tm.level, quality: tm.quality, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0 };
@@ -330,7 +331,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     return ok;
   };
 
-  const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
+  const handleQuestionsComplete = (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     setPhase('npc_turn');
     onQuestionsAnswered?.(answeredQuestions);
     if (!pendingSkillId) return;

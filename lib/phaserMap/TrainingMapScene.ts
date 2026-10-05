@@ -1119,8 +1119,11 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  pixelArt:true setting. Safe to call repeatedly — no-ops once set. */
   private setLinearFilter(key: string) {
     try {
-      // Phaser stores FilterMode as integer: NEAREST=0, LINEAR=1.
-      this.textures.get(key).setFilter(1 as any);
+      // NOTE: Phaser's FilterMode is LINEAR=0, NEAREST=1, so this has always
+      // applied NEAREST (the raw `1` it used to pass) despite the name. Kept
+      // that way so the map's current look doesn't change; use
+      // FilterMode.LINEAR here to get the bilinear filtering described above.
+      this.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
     } catch {
       // Silently ignore if the API differs in this Phaser build.
     }

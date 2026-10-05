@@ -70,12 +70,12 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   useEffect(() => {
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
-        takePrefetch<any[]>(userId, 'guildPool:spellcaster')
-          ?? fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster'),
+        takePrefetch<SpellCasterQuestion[]>(userId, 'guildPool:spellcaster')
+          ?? fetchQuestionPool<SpellCasterQuestion>(userId, 'sq_spellcaster', 'spellcaster'),
         takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
           ?? fetchSubclassProfile(userId)
       ]);
-      setQuestions(shuffle(pool as SpellCasterQuestion[]));
+      setQuestions(shuffle(pool));
       setProfile(subProfile);
       setScreen('ready');
     }

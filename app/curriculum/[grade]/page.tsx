@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import BlogHeader from '@/components/BlogHeader';
 import BlogFooter from '@/components/BlogFooter';
@@ -42,22 +42,22 @@ export async function generateMetadata({
   };
 }
 
-const markdownComponents = {
-  h1: (props: any) => <h1 className="text-xl font-display font-black text-[#2b2417] mt-6 mb-3 first:mt-0" {...props} />,
-  h2: (props: any) => <h2 className="text-lg font-display font-bold text-[#a3610c] mt-6 mb-3 first:mt-0" {...props} />,
-  h3: (props: any) => <h3 className="text-base font-display font-bold text-[#c9781a] mt-5 mb-2 first:mt-0" {...props} />,
-  p: (props: any) => <p className="text-[#5c5245] leading-relaxed mb-3" {...props} />,
-  strong: (props: any) => <strong className="text-[#2b2417] font-bold" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
-  li: (props: any) => <li className="pl-1" {...props} />,
+const markdownComponents: Components = {
+  h1: (props) => <h1 className="text-xl font-display font-black text-[#2b2417] mt-6 mb-3 first:mt-0" {...props} />,
+  h2: (props) => <h2 className="text-lg font-display font-bold text-[#a3610c] mt-6 mb-3 first:mt-0" {...props} />,
+  h3: (props) => <h3 className="text-base font-display font-bold text-[#c9781a] mt-5 mb-2 first:mt-0" {...props} />,
+  p: (props) => <p className="text-[#5c5245] leading-relaxed mb-3" {...props} />,
+  strong: (props) => <strong className="text-[#2b2417] font-bold" {...props} />,
+  ul: (props) => <ul className="list-disc list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
+  ol: (props) => <ol className="list-decimal list-outside pl-5 mb-3 space-y-1 text-[#5c5245]" {...props} />,
+  li: (props) => <li className="pl-1" {...props} />,
   hr: () => <hr className="border-[#eee3ce] my-5" />,
-  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#948975] my-4" {...props} />,
-  table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
-  thead: (props: any) => <thead className="text-[#2b2417]" {...props} />,
-  tr: (props: any) => <tr className="border-b border-[#eee3ce]" {...props} />,
-  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#eee3ce]" {...props} />,
-  td: (props: any) => <td className="py-2 px-3 text-[#5c5245]" {...props} />,
+  blockquote: (props) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#948975] my-4" {...props} />,
+  table: (props) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
+  thead: (props) => <thead className="text-[#2b2417]" {...props} />,
+  tr: (props) => <tr className="border-b border-[#eee3ce]" {...props} />,
+  th: (props) => <th className="text-left font-bold py-2 px-3 border-b border-[#eee3ce]" {...props} />,
+  td: (props) => <td className="py-2 px-3 text-[#5c5245]" {...props} />,
 };
 
 export default async function CurriculumGradePage({

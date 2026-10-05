@@ -3,6 +3,7 @@
 // rounds" — see plan). Modeled on hooks/useMapPresence.ts's presence+broadcast
 // pattern, extended with join/leave handling for forfeit detection.
 import { BATTLE_INTRO_PVP_GRACE_MS } from '@/lib/battleIntro';
+import type { LiveBattleEndReason } from '@/lib/liveBattle';
 import { seededCoinFlip, tossCoin } from '@/lib/coinToss';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
@@ -145,7 +146,7 @@ export function useLiveBattle(
   const [deadlineAt, setDeadlineAt] = useState<number | null>(null);
   const [lastOutcome, setLastOutcome] = useState<RoundOutcome | null>(null);
   const [forfeitedByOpponent, setForfeitedByOpponent] = useState(false);
-  const [battleEnded, setBattleEnded] = useState<{ winnerId: string | null; reason: string } | null>(null);
+  const [battleEnded, setBattleEnded] = useState<{ winnerId: string | null; reason: NonNullable<LiveBattleEndReason> } | null>(null);
   const [incomingStatusEffect, setIncomingStatusEffect] = useState<{ status: StatusEffect; statusTurns: number } | null>(null);
   const [incomingSelfSync, setIncomingSelfSync] = useState<SelfStatePatch | null>(null);
   const [incomingSwitch, setIncomingSwitch] = useState<{ idx: number; forced: boolean } | null>(null);
@@ -608,7 +609,7 @@ export function useLiveBattle(
     }
   }, [round, side, isBotMode, startNextRound]);
 
-  const declareBattleEnd = useCallback((winnerId: string | null, reason: string) => {
+  const declareBattleEnd = useCallback((winnerId: string | null, reason: NonNullable<LiveBattleEndReason>) => {
     // In bot mode there's no channel — just update local state.
     if (!isBotMode) {
       channelRef.current?.send({ type: 'broadcast', event: 'battle_end', payload: { winnerId, reason } });

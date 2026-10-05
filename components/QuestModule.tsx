@@ -1,5 +1,6 @@
 // components/QuestModule.tsx
 import { useState, useEffect } from 'react';
+import type { Components } from 'react-markdown';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
@@ -24,25 +25,25 @@ function shuffleArray<T>(arr: T[]): T[] {
 // Exported so other screens that render the same summary_markdown (e.g. the
 // pre-quest "Study Session" screens in app/page.tsx) can match this styling
 // instead of falling back to plain/unstyled markdown.
-export const markdownComponents = {
-  h1: (props: any) => <h1 className="text-2xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
-  h2: (props: any) => <h2 className="text-xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
-  h3: (props: any) => <h3 className="text-lg font-bold font-display text-[#7a4a0f] mt-6 mb-2 first:mt-0" {...props} />,
-  p: (props: any) => <p className="text-[#3a2610] leading-relaxed mb-4" {...props} />,
-  strong: (props: any) => <strong className="text-[#1a0d05] font-bold" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
-  li: (props: any) => <li className="pl-1" {...props} />,
+export const markdownComponents: Components = {
+  h1: (props) => <h1 className="text-2xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h2: (props) => <h2 className="text-xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h3: (props) => <h3 className="text-lg font-bold font-display text-[#7a4a0f] mt-6 mb-2 first:mt-0" {...props} />,
+  p: (props) => <p className="text-[#3a2610] leading-relaxed mb-4" {...props} />,
+  strong: (props) => <strong className="text-[#1a0d05] font-bold" {...props} />,
+  ul: (props) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
+  ol: (props) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
+  li: (props) => <li className="pl-1" {...props} />,
   hr: () => <hr className="border-[#c9a87a] my-6" />,
-  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#6b4820] my-4" {...props} />,
+  blockquote: (props) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#6b4820] my-4" {...props} />,
   // GFM tables (needs remarkPlugins={[remarkGfm]} passed alongside this map —
   // plain react-markdown doesn't parse table syntax at all, it just falls
   // through as a literal pipe-delimited paragraph).
-  table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
-  thead: (props: any) => <thead className="text-[#2a1505]" {...props} />,
-  tr: (props: any) => <tr className="border-b border-[#c9a87a]" {...props} />,
-  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#c9a87a]" {...props} />,
-  td: (props: any) => <td className="py-2 px-3 text-[#3a2610]" {...props} />,
+  table: (props) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
+  thead: (props) => <thead className="text-[#2a1505]" {...props} />,
+  tr: (props) => <tr className="border-b border-[#c9a87a]" {...props} />,
+  th: (props) => <th className="text-left font-bold py-2 px-3 border-b border-[#c9a87a]" {...props} />,
+  td: (props) => <td className="py-2 px-3 text-[#3a2610]" {...props} />,
 };
 
 interface QuizQuestion {
@@ -67,7 +68,7 @@ interface QuestModuleProps {
   userId: string;
   questName: string;
   questKey: string;
-  questData: any;
+  questData: { quiz?: QuizQuestion[] } | undefined;
   currentStats: CharacterStats;
   attemptsSoFar: number;
   // How many of today's MAIN_QUEST_DAILY_ATTEMPT_CAP attempts are already

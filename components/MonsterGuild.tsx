@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef, useMemo } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
@@ -11,6 +12,9 @@ import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useBotPresence } from '@/hooks/useBotPresence';
 import { BOT_PROFILES, BOT_IDS, buildBotTeam, type BotProfile } from '@/lib/botProfiles';
+
+// Local-only id for a bot battle; called from event handlers, never during render.
+const newBotBattleId = (botId: string) => `${botId}_${Date.now()}`;
 import { Nail } from '@/components/battle/MonsterHpPanel';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 import WildEncounterModal, { type WildEncounterQuestion } from '@/components/WildEncounterModal';
@@ -29,7 +33,7 @@ import {
   fetchQuestionPool, markQuestionsCompleted,
   fetchSubclassProfile, guildLevelForKey, SubclassProfile,
 } from '@/lib/guildEngine';
-import { UserMonster, ActiveBattleMonster } from '@/components/battle/shared';
+import { UserMonster, ActiveBattleMonster, type BattleQuestion } from '@/components/battle/shared';
 import LeaderboardPanel from '@/components/LeaderboardPanel';
 import LinkParentGate from '@/components/LinkParentGate';
 import { useLinkedStatus } from '@/hooks/useLinkedStatus';
@@ -59,7 +63,7 @@ interface MonsterGuildProps {
   userId: string;
   playerLevel: number;
   currentGold: number;
-  packageData: any;
+  packageData: WeeklyPackageData;
   // Used by TeamPanel's Tutor-Curio gold sync, unrelated to question grading
   // (grading now just needs userId — see the gradeMonsterQuestion call sites below).
   weekStartingDate: string;
@@ -108,20 +112,25 @@ const WILD_ENCOUNTER_TRIES = 3;
 
 // ─── QUESTION HELPERS ─────────────────────────────────────────────────────────
 
-function extractQuestions(packageData: any): any[] {
+// sq_wild_encounter rows carry the lorekeeper-style choice columns WildEncounterModal reads.
+async function fetchWildPool(userId: string, gradeLevel?: number): Promise<WildEncounterQuestion[]> {
+  return fetchQuestionPool<WildEncounterQuestion>(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+}
+
+function extractQuestions(packageData: WeeklyPackageData | undefined): BattleQuestion[] {
   if (!packageData) return [];
-  const questions: any[] = [];
-  Object.values(packageData).forEach((day: any) => {
+  const questions: BattleQuestion[] = [];
+  Object.values(packageData).forEach((day) => {
     if (typeof day === 'object' && day !== null) {
       // Object.entries (not values) so each question can be tagged with the
       // subject key it was nested under — the raw quiz/questions items carry
       // no subject field of their own, and BattleQuestionModal needs one to
       // show players which subject a battle question is testing.
-      Object.entries(day).forEach(([subjectName, subject]: [string, any]) => {
+      Object.entries(day).forEach(([subjectName, subject]) => {
         if (subject?.quiz) {
-          questions.push(...subject.quiz.map((q: any) => ({ ...q, subject: subjectName })));
+          questions.push(...subject.quiz.map((q) => ({ ...q, subject: subjectName })));
         } else if (subject?.questions) {
-          questions.push(...subject.questions.map((q: any) => ({ ...q, subject: subjectName })));
+          questions.push(...subject.questions.map((q) => ({ ...q, subject: subjectName })));
         }
       });
     }
@@ -134,7 +143,7 @@ function extractQuestions(packageData: any): any[] {
 interface WildEncounterState {
   monsterId: string;
   level: number;
-  question: any;
+  question: WildEncounterQuestion;
   attemptsLeft: number;
   quality: QualityTier;
 }
@@ -148,7 +157,7 @@ interface CurioState {
   id: number;
   monsterId: string;
   level: number;
-  question: any;
+  question: WildEncounterQuestion | null;
   attemptsLeft: number;
   // Rolled fresh at spawn time (see rollFreshQualityTier) — shown as the
   // map marker's ground-glow color before the player ever engages it, and
@@ -340,7 +349,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }
   }, [allQuestions, answeredArenaIds, userId]);
 
-  const handleQuestionsAnswered = (usedQuestions: any[]) => {
+  const handleQuestionsAnswered = (usedQuestions: BattleQuestion[]) => {
     if (usedQuestions.length === 0) return;
     setAnsweredArenaIds(prev => {
       const next = new Set(prev);
@@ -640,7 +649,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const pickWildQuestion = async (): Promise<WildEncounterQuestion | null> => {
-    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+    const pool = await fetchWildPool(userId, gradeLevel);
     return pool.length > 0 ? pool[Math.floor(Math.random() * pool.length)] : null;
   };
 
@@ -673,7 +682,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         spawnedAt: pendingCurio.spawned_at,
       };
       setCurio(restored);
-      if (restored.question.id !== pendingCurio.question_id) savePendingCurio(restored);
+      if (question.id !== pendingCurio.question_id) savePendingCurio(restored);
       logWildEncounterEvent(userId, 'restored', { region: activeRegion, monsterId: restored.monsterId, quality: restored.quality, level: restored.level, attemptsLeft: restored.attemptsLeft });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -682,7 +691,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const handleWildEncounterRoll = async (pity = false) => {
     // Don't stack encounters (a saved curio still being restored counts too).
     if (curio || wildEncounter || battleState?.pending_wild_curio || view === 'battle' || battleTrainingOpenRef.current) return;
-    const pool = await fetchQuestionPool(userId, 'sq_wild_encounter', 'wild_encounter', gradeLevel);
+    const pool = await fetchWildPool(userId, gradeLevel);
     if (pool.length === 0) return; // admin hasn't added any wild-encounter questions yet
     // More legendary species already caught nudges the odds of finding
     // another legendary a bit further (see pickRandomWildMonsterId).
@@ -901,7 +910,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       if (!bot) return;
       const myTeam = buildPlayerTeam();
       const oppTeam = buildBotTeam(bot);
-      setLiveBattleId(`${bot.id}_${Date.now()}`);
+      setLiveBattleId(newBotBattleId(bot.id));
       setLiveBattleOpponent({ id: bot.id as UserId, name: bot.fullName });
       setLiveBattleSide('challenger');
       setLiveBattleTeams({ mine: myTeam, opp: oppTeam });
@@ -936,7 +945,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // above (graduation and guildEvolution are mutually exclusive per
     // species, so applying both here is never a double-boost).
     const opponentSubclassProfile = await fetchSubclassProfile(opponentId);
-    const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um: any) => {
+    const opponentTeam: ActiveBattleMonster[] = opponentMonsters.map((um) => {
       const baseDef = ALL_MONSTERS[um.monster_id];
       const guildDef = baseDef.guildEvolution
         ? getGuildMonsterDisplay(baseDef, guildLevelForKey(opponentSubclassProfile, baseDef.guildEvolution.guildKey))

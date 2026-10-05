@@ -71,6 +71,15 @@ const classmateIds: Set<UserId> = new Set();
 // stops it from silently truncating until scoping (Phase 1+) lands.
 const ROSTER_PAGE_SIZE = 1000;
 
+// Public roster columns shared by classmates_public and children_public.
+interface RosterRow {
+  id: string;
+  full_name: string;
+  grade: string;
+  gender: string | null;
+  school_name: string | null;
+}
+
 async function fetchAllRows<T>(
   table: string,
   columns: string,
@@ -101,9 +110,9 @@ export async function loadClassmates(): Promise<void> {
   // safe-column view is the only public read path for the account-select
   // roster; the admin dashboard's need for username goes through a
   // separate passcode-gated route instead (see classmate-admin/route.ts).
-  const data = await fetchAllRows<any>('classmates_public', 'id, full_name, grade, gender, school_name');
+  const data = await fetchAllRows<RosterRow>('classmates_public', 'id, full_name, grade, gender, school_name');
 
-  (data || []).forEach((c: any) => {
+  (data || []).forEach((c) => {
     const gender = c.gender === 'girl' ? 'girl' : 'boy';
     USERS[c.id] = {
       id: c.id,
@@ -144,9 +153,9 @@ export async function loadChildren(): Promise<void> {
   // pin_plain/pin_hash/username live there and shouldn't be readable
   // outside that. This safe-column view (already scoped to active children
   // of approved parents) is the public account-select roster's read path.
-  const data = await fetchAllRows<any>('children_public', 'id, full_name, grade, gender, avatar, school_name');
+  const data = await fetchAllRows<RosterRow & { avatar: string | null }>('children_public', 'id, full_name, grade, gender, avatar, school_name');
 
-  (data || []).forEach((c: any) => {
+  (data || []).forEach((c) => {
     const gender = c.gender === 'girl' ? 'girl' : 'boy';
     const defaultAvatar = gender === 'girl'
       ? '/userpics/userpics_premium/ssg3.png'
@@ -180,7 +189,7 @@ let avatarsLoaded = false;
 export async function loadAvatarOverrides(): Promise<void> {
   if (avatarsLoaded) return;
   const { data } = await supabase.from('user_avatars').select('user_id, avatar');
-  (data || []).forEach((row: any) => {
+  (data || []).forEach((row) => {
     if (USERS[row.user_id]) USERS[row.user_id].avatar = row.avatar;
   });
   avatarsLoaded = true;
@@ -204,7 +213,7 @@ let themesLoaded = false;
 export async function loadThemeOverrides(): Promise<void> {
   if (themesLoaded) return;
   const { data } = await supabase.from('user_themes').select('user_id, theme_key');
-  (data || []).forEach((row: any) => {
+  (data || []).forEach((row) => {
     if (USERS[row.user_id]) USERS[row.user_id].theme = row.theme_key;
   });
   themesLoaded = true;
@@ -228,7 +237,7 @@ let familyProtectionLoaded = false;
 export async function loadFamilyProtection(): Promise<void> {
   if (familyProtectionLoaded) return;
   const { data } = await supabase.from('family_credentials').select('id');
-  protectedFamilyIds = new Set((data || []).map((row: any) => row.id));
+  protectedFamilyIds = new Set((data || []).map((row) => row.id));
   familyProtectionLoaded = true;
 }
 

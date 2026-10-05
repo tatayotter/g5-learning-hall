@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import type { AuthoredQuestion } from '@/lib/weeklyPackage';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import {
   CustomEvent,
@@ -47,8 +48,8 @@ function EventManager({ events, questCounts, onReload, passcode }: {
       const result = await res.json();
       if (!res.ok || !result.success) throw new Error(result.error || 'Upload failed');
       setForm(f => ({ ...f, banner_url: result.url }));
-    } catch (e: any) {
-      setUploadError(`❌ Upload failed: ${e.message}`);
+    } catch (e) {
+      setUploadError(`❌ Upload failed: ${e instanceof Error ? e.message : String(e)}`);
     }
     setUploadingPoster(false);
   };
@@ -360,6 +361,13 @@ function EventManager({ events, questCounts, onReload, passcode }: {
   );
 }
 
+// One pasted event subject; validated in handleParse before it can be saved.
+interface AuthoredEventSubject {
+  subject_name?: string;
+  summary_markdown?: string;
+  quiz?: AuthoredQuestion[];
+}
+
 function EventQuestEditor({ events, onReload, passcode }: {
   events: CustomEvent[];
   questCounts: Record<string, number>;
@@ -370,7 +378,7 @@ function EventQuestEditor({ events, onReload, passcode }: {
   const [gradeLevel, setGradeLevel] = useState<number>(5);
   const [existingQuests, setExistingQuests] = useState<EventQuest[]>([]);
   const [jsonInput, setJsonInput] = useState('');
-  const [parsed, setParsed] = useState<{ data: any[]; warnings: string[] } | null>(null);
+  const [parsed, setParsed] = useState<{ data: AuthoredEventSubject[]; warnings: string[] } | null>(null);
   const [parseError, setParseError] = useState('');
   const [saving, setSaving] = useState(false);
 
@@ -383,15 +391,16 @@ function EventQuestEditor({ events, onReload, passcode }: {
     setParseError('');
     setParsed(null);
     try {
-      const arr = JSON.parse(jsonInput);
+      const arr: unknown = JSON.parse(jsonInput);
       if (!Array.isArray(arr)) throw new Error('Expected a JSON array of subjects');
+      const subjects = arr as AuthoredEventSubject[];
       const warnings: string[] = [];
-      arr.forEach((subj: any, si: number) => {
+      subjects.forEach((subj, si: number) => {
         if (!subj.subject_name) warnings.push(`Item ${si + 1}: missing subject_name`);
         if (!Array.isArray(subj.quiz) || subj.quiz.length === 0) {
           warnings.push(`${subj.subject_name || `Item ${si + 1}`}: missing quiz array`);
         } else {
-          subj.quiz.forEach((q: any, qi: number) => {
+          subj.quiz.forEach((q, qi: number) => {
             if (!q.correct_answer) warnings.push(`${subj.subject_name} quiz[${qi + 1}]: missing correct_answer`);
             if (!Array.isArray(q.options) || q.options.length < 2) {
               warnings.push(`${subj.subject_name} quiz[${qi + 1}]: needs at least 2 options`);
@@ -401,16 +410,16 @@ function EventQuestEditor({ events, onReload, passcode }: {
           });
         }
       });
-      setParsed({ data: arr, warnings });
-    } catch (e: any) {
-      setParseError(`JSON parse error: ${e.message}`);
+      setParsed({ data: subjects, warnings });
+    } catch (e) {
+      setParseError(`JSON parse error: ${e instanceof Error ? e.message : String(e)}`);
     }
   };
 
   const handleSave = async () => {
     if (!parsed || parsed.warnings.length > 0 || !selectedEventId) return;
     setSaving(true);
-    const rows = parsed.data.map((subj: any, i: number) => ({
+    const rows = parsed.data.map((subj, i: number) => ({
       subject_name: subj.subject_name,
       summary_markdown: subj.summary_markdown || null,
       quiz: subj.quiz,

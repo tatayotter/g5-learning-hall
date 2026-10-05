@@ -1,5 +1,6 @@
 // hooks/useWeeklyData.ts
 import { useState, useEffect, useRef } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
@@ -42,7 +43,7 @@ function totalXpForLevelState(level: number, xp: number): number {
 // every visitor should re-fetch it individually. See app/api/content/route.ts.
 // Also returns the resolved content_weeks.id (null if the admin hasn't authored this grade/week
 // yet) — Wave 4 keys player_weekly_journal off it instead of a week_starting_date column.
-async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: any; contentWeekId: string | null }> {
+async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: WeeklyPackageData; contentWeekId: string | null }> {
   try {
     const res = await fetch(`/api/content?grade=${grade}&week=${weekStartingDate}`);
     if (!res.ok) return { content: {}, contentWeekId: null };
@@ -94,7 +95,7 @@ export interface WeeklyData {
   purchased_items: number;
   honor_grants: number;
   achievements: Record<string, boolean>;
-  package_data?: any;
+  package_data?: WeeklyPackageData | string;
   quiz_attempts?: Record<string, number>;
   mastered_quizzes?: string[];
   // Real-calendar-day attempt counts for the board's main quests, keyed
@@ -212,7 +213,7 @@ export function useWeeklyData(userId: string | null) {
       // are always read live from player_progress (lifetime, no week dimension to carry
       // forward at all). This eliminates the fetch-error/carry-forward bug class for these
       // fields entirely, the same way Wave 1 eliminated it for xp/gold/level.
-      let journalRow: Record<string, any> | null = null;
+      let journalRow: Record<string, unknown> | null = null;
       if (weekId) {
         const { data: journal, error: journalError } = await supabase
           .from('player_weekly_journal')
