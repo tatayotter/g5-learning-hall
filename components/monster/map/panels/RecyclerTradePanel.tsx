@@ -38,7 +38,7 @@ export default function RecyclerTradePanel({ trashInventory, canTrade, pendingTr
             </span>
           </p>
           <p className="text-[#6b4820] text-sm italic mt-1 leading-snug">
-            "Got trash? I'll give you gold for it!"
+            &quot;Got trash? I&apos;ll give you gold for it!&quot;
           </p>
         </div>
       </div>

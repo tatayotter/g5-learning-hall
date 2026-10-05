@@ -263,7 +263,9 @@ export async function fetchQuestionPool(userId: string, tableName: string, quest
   }
 
   const startStage = (profile?.[stageField] as number | undefined) ?? MIN_GRADE_STAGE;
-  let { pool: stagePool, stage: currentStage } = await fetchNonEmptyPoolFrom(startStage);
+  const startPool = await fetchNonEmptyPoolFrom(startStage);
+  const currentStage = startPool.stage;
+  let stagePool = startPool.pool;
   // Absolute fallback: nothing authored anywhere from startStage through
   // grade 6 (e.g. a brand-new guild with no content yet) — serve whatever
   // exists across all grades rather than an empty pool.

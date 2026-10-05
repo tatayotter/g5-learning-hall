@@ -45,8 +45,8 @@ export default function GuildsHubPage() {
           <section className="mb-10">
             <h2 className="font-display text-xl font-black mb-3">How the difficulty ladder works</h2>
             <p className="text-[#5c5245] leading-relaxed mb-3">
-              Every guild uses the same ladder, independent of a child's real grade level. A brand-new player —
-              whether they're in Grade 2 or Grade 6 — starts at Grade 2-level questions in every guild and climbs one
+              Every guild uses the same ladder, independent of a child&apos;s real grade level. A brand-new player —
+              whether they&apos;re in Grade 2 or Grade 6 — starts at Grade 2-level questions in every guild and climbs one
               grade at a time, in the same sequence covered on our{' '}
               <Link href="/curriculum" className="text-[#a3610c] hover:text-[#c9781a] underline">
                 DepEd Curriculum Alignment
@@ -54,10 +54,10 @@ export default function GuildsHubPage() {
               pages.
             </p>
             <p className="text-[#5c5245] leading-relaxed">
-              A child only advances to the next grade's questions once they've answered <strong>every question in
-              the current grade's pool correctly at least once</strong>. Getting one wrong doesn't skip it — it just
-              comes back around later in that same grade until they get it right. Each round is a timed "Time
-              Attack": answer as many as you can before the clock runs out, with a streak bonus for consecutive
+              A child only advances to the next grade&apos;s questions once they&apos;ve answered <strong>every question in
+              the current grade&apos;s pool correctly at least once</strong>. Getting one wrong doesn&apos;t skip it — it just
+              comes back around later in that same grade until they get it right. Each round is a timed &quot;Time
+              Attack&quot;: answer as many as you can before the clock runs out, with a streak bonus for consecutive
               correct answers, earning XP and gold along the way.
             </p>
           </section>

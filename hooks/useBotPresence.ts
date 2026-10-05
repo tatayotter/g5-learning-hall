@@ -21,7 +21,7 @@ function pickSessionBots(): typeof BOT_PROFILES {
 
 export function useBotPresence(): Record<string, OnlinePlayer> {
   // Fixed bot subset for this session
-  const sessionBots = useMemo(pickSessionBots, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const sessionBots = useMemo(pickSessionBots, []);
 
   // Positions keyed by bot id — each bot moves independently
   const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>(() =>

@@ -382,7 +382,7 @@ export default function QuestionBankImporter() {
   return (
     <div>
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Question Bank Importer</h2>
-      <p className="text-[#8a7c66] text-sm mb-6">Bulk-import questions into any guild's question pool.</p>
+      <p className="text-[#8a7c66] text-sm mb-6">Bulk-import questions into any guild&apos;s question pool.</p>
 
       <PoolCountPanel key={refreshPool} />
 
@@ -466,7 +466,7 @@ export default function QuestionBankImporter() {
           <div className="flex justify-between items-center mb-3">
             <p className="text-[#ede4d3] font-bold">
               {preview.length} questions parsed
-              {invalidCount > 0 && <span className="text-[#e0605a]"> · {invalidCount} invalid (won't be imported)</span>}
+              {invalidCount > 0 && <span className="text-[#e0605a]"> · {invalidCount} invalid (won&apos;t be imported)</span>}
             </p>
             <p className="text-xs text-[#8a7c66]">{GUILD_LABELS[guild]} · Grade {gradeLevel}</p>
           </div>

@@ -236,7 +236,6 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     const choices = shuffledChoices;
     const difficultyStars = gradeStageStars(q.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
-    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-emerald-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (

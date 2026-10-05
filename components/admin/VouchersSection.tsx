@@ -140,7 +140,7 @@ export default function VouchersSection({ passcode }: { passcode: string }) {
     <div>
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">🎟️ Vouchers</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
-        A code any player can redeem once from the Shop's "Have a Code?" box, for an instant curio,
+        A code any player can redeem once from the Shop&apos;s &quot;Have a Code?&quot; box, for an instant curio,
         item, or gold reward. Leave Max Redemptions blank for unlimited (e.g. a public event code).
       </p>
 

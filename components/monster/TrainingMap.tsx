@@ -148,7 +148,7 @@ interface TrainingMapProps {
 }
 
 export default function TrainingMap({
-  userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
+  userId, battleState, userMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
@@ -388,7 +388,6 @@ export default function TrainingMap({
     setPendingCurioChallenge(false);
     setPendingRecyclerTrade(false);
     setCollectingTrashIds(new Set());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
   // curioPos tracks activeCurio's lifecycle exactly: picked the moment a

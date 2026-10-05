@@ -272,7 +272,7 @@ export function BossFightLostScreen({ personaName, onRetry, onExit }: { personaN
 export function BossFightEmptyScreen({ onExit }: { onExit: () => void }) {
   return (
     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 text-center">
-      <p className="text-gray-400 text-sm mb-4">This boss isn't ready to be fought yet — not enough published questions.</p>
+      <p className="text-gray-400 text-sm mb-4">This boss isn&apos;t ready to be fought yet — not enough published questions.</p>
       <GameButton variant="quest" color="#57534e" onClick={onExit} style={{ fontSize: 15 }}>
         Back
       </GameButton>

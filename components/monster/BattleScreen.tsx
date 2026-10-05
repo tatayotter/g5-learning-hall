@@ -56,7 +56,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'select_switch' | 'select_revive_target' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
   const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(1);
-  const [expEarned, setExpEarned] = useState(0);
+  const [, setExpEarned] = useState(0);
   const [playerAnim, setPlayerAnim] = useState('');
   const [npcAnim, setNpcAnim] = useState('');
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
@@ -133,7 +133,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
   const applyStatusTick = (mon: ActiveBattleMonster): [ActiveBattleMonster, string[]] => {
     const msgs: string[] = [];
-    let updated = { ...mon };
+    const updated = { ...mon };
     if (updated.status === 'burn') {
       updated.currentHp = Math.max(0, updated.currentHp - BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN);
       msgs.push(`${updated.def.name} takes ${BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN} burn damage!`);
@@ -441,8 +441,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
     }
 
-    let newNpcMonsters = [...npcMonsters];
-    let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
+    const newNpcMonsters = [...npcMonsters];
+    const newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
 
     // A perfect hit's ELEMENT_STATUS effect is either a debuff (burn/paralyze/
     // curse — applied to whoever got hit) or a buff (blessed — applied to the
@@ -470,9 +470,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
     newNpcMonsters[npcMonsterIdx] = newNpcMon;
 
-    let newPlayerMonsters = playerMonsters.map((m, i) => {
+    const newPlayerMonsters = playerMonsters.map((m, i) => {
       if (i !== playerMonsterIdx) return m;
-      let updated = { ...m, modifiers: effectResult.casterModifiers };
+      const updated = { ...m, modifiers: effectResult.casterModifiers };
       // Consume any blessed carried in from a prior turn (it just powered
       // this attack via computePlayerDamage's blessed bonus), then re-bless for the next turn if
       // this hit itself earned a fresh one.
@@ -831,7 +831,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   ) : confirmSurrender ? (
     <div className="w-full max-w-sm bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3 battle-panel-in">
       <p className="text-white font-bold">Surrender the battle?</p>
-      <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
+      <p className="text-xs text-gray-400">You&apos;ll earn no Curio EXP.</p>
       <div className="flex gap-2">
         <button
           onClick={() => { playPageFlip(); setConfirmSurrender(false); }}

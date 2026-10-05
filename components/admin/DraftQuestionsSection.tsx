@@ -33,7 +33,7 @@ interface DraftQuestion {
 
 const DRAFT_GRADES = GRADE_LEVELS.map(grade => ({ grade, label: `Grade ${grade}` }));
 
-const WEEKDAYS_FOR_PUBLISH = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const;
+type PublishWeekday = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday';
 
 const DRAFT_STATUS_COLORS: Record<DraftQuestion['status'], string> = {
   pending_review: 'bg-[#2a2119] text-[#a89c86] border-[#3d3225]',
@@ -195,7 +195,7 @@ function DraftSummaryCard({ summary, onReload, passcode, publishDay, publishWeek
   summary: DraftSummary;
   onReload: () => void;
   passcode: string;
-  publishDay: typeof WEEKDAYS_FOR_PUBLISH[number];
+  publishDay: PublishWeekday;
   publishWeek: string;
 }) {
   const [editing, setEditing] = useState(false);
@@ -455,7 +455,7 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">📝 Draft Questions</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         AI-generated Main Quest questions and lesson summaries, tiered and topic-tagged, awaiting review
-        before publishing into a grade's shared weekly content. Publishing does not touch the 5 Guilds.
+        before publishing into a grade&apos;s shared weekly content. Publishing does not touch the 5 Guilds.
       </p>
 
       <div className="flex items-center gap-4 mb-6">

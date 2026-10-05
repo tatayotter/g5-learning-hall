@@ -24,7 +24,6 @@ export function useReadTimer(content: string | null | undefined, resetKey: strin
     // Only re-run when we're looking at a genuinely different quest's notes —
     // `content` itself is included so it still recomputes when data first
     // arrives async under the same key.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resetKey, content]);
 
   useEffect(() => {

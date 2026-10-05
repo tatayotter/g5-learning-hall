@@ -13,7 +13,7 @@ import AvatarPicker from '@/components/AvatarPicker';
 import { supabase } from '@/lib/supabase';
 import {
   ALL_MONSTERS, GUILD_MONSTERS, MonsterDef,
-  getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
+  getGuildMonsterDisplay, getOwnedMonsterDisplay,
 } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
@@ -65,7 +65,7 @@ interface HeroProfileProps {
   onViewAchievements?: () => void;
 }
 
-export default function HeroProfile({ userId, data, currentDay, onViewAchievements }: HeroProfileProps) {
+export default function HeroProfile({ userId, data, onViewAchievements }: HeroProfileProps) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [avatarTick, setAvatarTick] = useState(0);
   const [inventory, setInventory] = useState<InventoryMap>({});
@@ -77,7 +77,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const [currentStreak, setCurrentStreak] = useState(0);
   const [activeCurios, setActiveCurios] = useState<ActiveCurio[]>([]);
   const [ownedCuriosCount, setOwnedCuriosCount] = useState(0);
-  const [activeSlot, setActiveSlot] = useState<number | null>(null);
+  const [, setActiveSlot] = useState<number | null>(null);
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
   const [referralKey, setReferralKey] = useState<string | null>(null);
   const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
@@ -232,7 +232,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   useEffect(() => {
     const today = new Date().toISOString().slice(0, 10);
     fetchDailyChecklistStreak(userId, today).then(info => setCurrentStreak(info.currentStreak));
-  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [userId]);
 
   const stats = data.character_stats;
   const level = stats?.level || 1;

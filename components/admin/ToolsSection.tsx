@@ -7,7 +7,7 @@ import { playBlessing } from '@/lib/sounds';
 import DeedHistory from '@/components/DeedHistory';
 import { callAdminApi } from '@/lib/adminApi';
 
-export default function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
+export default function ToolsSection({ currentData, currentSunday, passcode }: {
   currentData: WeeklyData;
   currentSunday: string;
   onUpdateStats: (...args: any[]) => void;
@@ -168,7 +168,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
               )}
             </div>
             <p className="text-[#8a7c66] text-xs mb-3">
-              Once set, {userId === 'damien' ? 'Damien' : 'Tala'} will need this password to open their dashboard from the splash screen — classmates won't be able to click into it.
+              Once set, {userId === 'damien' ? 'Damien' : 'Tala'} will need this password to open their dashboard from the splash screen — classmates won&apos;t be able to click into it.
             </p>
             <div className="flex gap-3">
               <input

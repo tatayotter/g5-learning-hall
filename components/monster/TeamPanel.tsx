@@ -10,7 +10,7 @@ import {
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import { playPageFlip } from '@/lib/sounds';
 import { graduateMonster } from '@/lib/monsterGraduation';
-import { useGrowthPill } from '@/lib/growthPill';
+import { consumeGrowthPill } from '@/lib/growthPill';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
 import {
@@ -218,7 +218,7 @@ export default function TeamPanel({
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
-      const ok = await useGrowthPill(userId, monsterRowId);
+      const ok = await consumeGrowthPill(userId, monsterRowId);
       if (ok) {
         // Display-only projection of the RPC's own +500 exp / level-cap
         // clamp — the server is still the source of truth for what actually

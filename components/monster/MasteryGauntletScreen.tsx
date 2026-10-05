@@ -57,7 +57,7 @@ function ProgressBar({ pct }: { pct: number }) {
 export function GauntletEmptyScreen({ day, onExit }: { day: string; onExit: () => void }) {
   return (
     <div className="bg-[#f0ddb8] border border-[#8b5e2a] rounded-2xl p-6 text-center">
-      <p className="text-[#6b4820] text-sm mb-4">No review questions landed on {day} — try another day's card.</p>
+      <p className="text-[#6b4820] text-sm mb-4">No review questions landed on {day} — try another day&apos;s card.</p>
       <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
         Back
       </GameButton>
@@ -116,7 +116,7 @@ export default function MasteryGauntletScreen({
 // components/dev/UiGallery.tsx can preview the real battle UI with a mock
 // pool instead of a static JSX copy.
 export function GauntletBattle({
-  pool, eventTitle, userId, grade, term, onFinished,
+  pool, eventTitle, userId, onFinished,
 }: {
   pool: BossQuestion[];
   eventTitle: string;

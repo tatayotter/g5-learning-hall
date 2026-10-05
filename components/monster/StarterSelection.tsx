@@ -61,7 +61,7 @@ export default function StarterSelection({ userId, onComplete }: StarterSelectio
     <div className="max-w-4xl mx-auto">
       <style>{CURIO_CARD_STYLES}</style>
       <h2 className="text-3xl font-display font-bold text-[#7a4a0f] mb-2">Choose Your Starter</h2>
-      <p className="text-[#6b4820] mb-8">Pick your first curio. Choose wisely — you'll unlock more as you level up!</p>
+      <p className="text-[#6b4820] mb-8">Pick your first curio. Choose wisely — you&apos;ll unlock more as you level up!</p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
         {starters.map(monster => {
           const isSelected = selected === monster.id;

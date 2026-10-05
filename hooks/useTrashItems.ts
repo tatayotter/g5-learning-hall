@@ -96,7 +96,6 @@ export function useTrashItems(
       if (timerRef.current) clearTimeout(timerRef.current);
       if (tickRef.current)  clearInterval(tickRef.current);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
   /** Remove item from the map and add to inventory. */

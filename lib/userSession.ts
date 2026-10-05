@@ -60,7 +60,7 @@ export function gradeToNumber(grade: string | number | undefined): number {
 // into USERS once so every existing USERS[id] lookup across the app keeps
 // working synchronously without an async refactor.
 let classmatesLoaded = false;
-let classmateIds: Set<UserId> = new Set();
+const classmateIds: Set<UserId> = new Set();
 
 // Supabase caps a single select response at 1000 rows by default — fine for
 // today's handful of classmates, but a silent, hard-to-notice truncation
@@ -136,7 +136,7 @@ export function getClassmateIds(): UserId[] {
 // table. Loaded into USERS once so every existing USERS[id] lookup across
 // the app keeps working synchronously without an async refactor.
 let childrenLoaded = false;
-let childIds: Set<UserId> = new Set();
+const childIds: Set<UserId> = new Set();
 
 export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;

@@ -638,7 +638,7 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private buildTilemap(bg: Extract<MapBackground, { type: 'tilemap' }>) {
     const mapDataKey = `tilemapdata:${bg.key}`;
-    const imageKeys = Object.entries(bg.tilesetImages).map(([name, url]) => [name, `tileset:${bg.key}:${name}`] as const);
+    const imageKeys = Object.entries(bg.tilesetImages).map(([name]) => [name, `tileset:${bg.key}:${name}`] as const);
 
     let pending = imageKeys.length;
     const tryBuild = () => {
@@ -996,7 +996,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // foliage layers at depth 12+. Called from applyState (once per tile crossed);
   // updateTrashPositions() repositions them every rAF frame as the camera pans.
 
-  private applyTrashItems(state: MapCanvasSyncState, t: Transform) {
+  private applyTrashItems(state: MapCanvasSyncState, _t: Transform) {
     const items = state.trashItems ?? [];
     const collecting = new Set(state.collectingTrashIds ?? []);
 

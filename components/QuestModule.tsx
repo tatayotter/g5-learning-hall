@@ -96,7 +96,7 @@ interface QuestModuleProps {
 const COOLDOWN_SECONDS = 20;
 const PRACTICE_COOLDOWN_SECONDS = 5;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit, practice = false, exitLabel = 'Return to Campaign Map' }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit, practice = false, exitLabel = 'Return to Campaign Map' }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
@@ -171,7 +171,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     const { correct_count: correctCount, total, is_perfect: isPerfect, correct_answers: gradedAnswers } = graded;
     const newAttempts = safeAttemptsSoFar + 1;
 
-    let newStats = { ...currentStats };
+    const newStats = { ...currentStats };
     let reward = { xp: 0, gold: 0 };
 
     if (isPerfect) {
@@ -250,7 +250,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       <div className="bg-amber-50 border border-amber-600 p-8 rounded-xl text-center">
         <h2 className="text-3xl font-bold text-amber-700 mb-4 font-display">🔒 Quest Locked</h2>
         <p className="text-[#6b4820] mb-6">
-          You've already used both attempts for {questName.replace('_', ' ')} today. Come back tomorrow for 2 fresh attempts!
+          You&apos;ve already used both attempts for {questName.replace('_', ' ')} today. Come back tomorrow for 2 fresh attempts!
         </p>
         <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map

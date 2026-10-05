@@ -169,7 +169,7 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
   return (
     <div className="space-y-3">
       <p className="text-[#8a7c66] text-xs">
-        Paste an array of weeks: <code className="text-[#a89c86]">[{'{'}"grade": 5, "week_starting_date": "2026-09-06", "days": {'{'}...{'}'}{'}'}, ...]</code>
+        Paste an array of weeks: <code className="text-[#a89c86]">[{'{'}&quot;grade&quot;: 5, &quot;week_starting_date&quot;: &quot;2026-09-06&quot;, &quot;days&quot;: {'{'}...{'}'}{'}'}, ...]</code>
       </p>
       <textarea
         value={bulkInput}
@@ -231,7 +231,7 @@ function BulkImportPanel({ passcode }: { passcode: string }) {
 
 // ─── SINGLE-WEEK EDITOR ─────────────────────────────────────────────────────
 
-export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpdateStats, passcode, onNavigateToDrafts }: {
+export default function WeeklyPackageBuilder({ currentSunday, passcode, onNavigateToDrafts }: {
   currentData: WeeklyData;
   currentSunday: string;
   onUpdateStats: (...args: any[]) => void;
@@ -325,7 +325,7 @@ export default function WeeklyPackageBuilder({ currentData, currentSunday, onUpd
   const toggleDay = (day: string) => {
     setExpandedDays(prev => {
       const next = new Set(prev);
-      next.has(day) ? next.delete(day) : next.add(day);
+      if (next.has(day)) next.delete(day); else next.add(day);
       return next;
     });
   };

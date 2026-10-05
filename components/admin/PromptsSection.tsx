@@ -168,7 +168,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
         <span className="text-2xl">⚡</span>
         <div>
           <p className="text-[#ede4d3] font-bold">Prompt Builder</p>
-          <p className="text-[#8a7c66] text-xs">Assembles a lean AI prompt from the current week's BOW only — no full-year noise.</p>
+          <p className="text-[#8a7c66] text-xs">Assembles a lean AI prompt from the current week&apos;s BOW only — no full-year noise.</p>
         </div>
         {result && savings !== null && (
           <span className="ml-auto bg-emerald-900/60 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-700/50">

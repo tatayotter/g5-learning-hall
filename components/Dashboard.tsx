@@ -7,12 +7,11 @@ import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
-import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { GuildKey, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
-import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
@@ -54,7 +53,7 @@ import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
-import SidebarRail, { RailTabId } from '@/components/SidebarRail';
+import SidebarRail from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import FirstCurioIntro, { isIntroTrainingPending } from '@/components/intro/FirstCurioIntro';
 import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
@@ -365,7 +364,7 @@ export default function Dashboard() {
   // activeUserId directly (null until hydration resolves it) means there's
   // nothing to fetch or flash during that window — the existing
   // !hydrated/loading/!data guards below already render a loading screen for it.
-  const { data, loading, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
+  const { data, loading, updateStatsAndJournal, currentSunday, todayStr, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -442,7 +441,6 @@ export default function Dashboard() {
     if (params.has('view') || params.has('tab')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

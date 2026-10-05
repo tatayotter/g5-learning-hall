@@ -36,7 +36,7 @@ interface Props {
   onSelect: (curio: OwnedCurio) => void;
 }
 
-export default function CurioTrainingPickerSandbox({ userId, selectedId, onSelect }: Props) {
+export default function CurioTrainingPickerSandbox({ selectedId, onSelect }: Props) {
   const curios: OwnedCurio[] = MOCK_CURIOS;
   const activeSlot = 1;
 

@@ -62,7 +62,6 @@ function PickButton({ busy, hasPhoto, onFile }: { busy: boolean; hasPhoto: boole
 
 function Thumb({ url }: { url: string }) {
   // Plain <img>: the admin preview shouldn't depend on the image optimizer's allow-list.
-  // eslint-disable-next-line @next/next/no-img-element
   return <img src={url} alt="" className="max-h-44 w-full rounded-lg border border-[var(--a-border)] object-contain bg-[var(--a-page)]" />;
 }
 

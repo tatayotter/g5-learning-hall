@@ -36,7 +36,6 @@ import { ALL_MONSTERS, MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from 
 import SidebarRail from '@/components/SidebarRail';
 import MapStage from '@/components/MapStage';
 import OfflineUnavailable from '@/components/OfflineUnavailable';
-import CodexPanel from '@/components/CodexPanel';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import WelcomeCard from '@/components/WelcomeCard';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
@@ -358,7 +357,7 @@ export default function UiGallery() {
         <p className="text-[#6b4820] text-sm mt-1 max-w-2xl">
           Real components fed mock props, for restyling without a live session. Read{' '}
           <code className="text-[#7a4a0f]">docs/STYLE_GUIDE.md</code> first — this page mirrors the
-          real shell's current default (light, as of 2026-08-28) so it looks the way the real app does.
+          real shell&apos;s current default (light, as of 2026-08-28) so it looks the way the real app does.
         </p>
       </header>
 

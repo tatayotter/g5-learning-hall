@@ -9,7 +9,6 @@ import { REGIONS, ELEMENT_COLOR, REGION_BY_ELEMENT } from '@/lib/regions';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
 import {
   XP_PER_CORRECT, GOLD_PER_CORRECT, SUBCLASS_XP_PER_LEVEL, CRIT_CHANCE,
-  getStreakMultiplier, getTierRewardMultiplier,
 } from '@/lib/guildConfig';
 import { TITLE_TIERS } from '@/lib/titles';
 import { ACHIEVEMENTS } from '@/lib/achievements';
@@ -260,17 +259,17 @@ function LedgerSection() {
           living record that remembered everything worth remembering: every story, every word, every number, every path, every true
           thing. The Ledger never sat still in one place. It broke apart and hid itself inside small sleeping creatures called{' '}
           <b className="text-gray-900">curios</b> — so every curio you catch, raise, or battle with is really a tiny piece of that memory,
-          waking up because you're paying attention to it.
+          waking up because you&apos;re paying attention to it.
         </p>
         <p>
-          The Ledger has one enemy, and it isn't a monster. It's called the <b className="text-gray-900">Forgetting</b> — and it's just
-          what happens naturally when nobody practices, nobody reads, nobody keeps going. It doesn't attack. It just quietly erases
+          The Ledger has one enemy, and it isn&apos;t a monster. It&apos;s called the <b className="text-gray-900">Forgetting</b> — and it&apos;s just
+          what happens naturally when nobody practices, nobody reads, nobody keeps going. It doesn&apos;t attack. It just quietly erases
           things that go unused. Left alone, curios go quiet, guild halls fall silent, and whole subjects blur back into blank pages.
         </p>
         <p>
           The five guilds are watch-posts, built exactly where the Ledger runs thinnest and the Forgetting pushes hardest. Every
-          player is a keeper-in-training — and there's only one way keepers have ever held the Forgetting back: doing the remembering
-          themselves. Every correct answer is a line re-inked in the Ledger. That's the whole game.
+          player is a keeper-in-training — and there&apos;s only one way keepers have ever held the Forgetting back: doing the remembering
+          themselves. Every correct answer is a line re-inked in the Ledger. That&apos;s the whole game.
         </p>
       </div>
     </div>
@@ -304,8 +303,8 @@ function ElementsSection() {
         })}
       </div>
       <p className="text-xs text-gray-500 mt-3">
-        The arrows above show which element is strong against which in battle — a curio's element decides both what it remembers
-        and what it's best at fighting.
+        The arrows above show which element is strong against which in battle — a curio&apos;s element decides both what it remembers
+        and what it&apos;s best at fighting.
       </p>
     </div>
   );
@@ -316,11 +315,11 @@ function WorldMapSection() {
   return (
     <div>
       <SectionTitle>The World Map</SectionTitle>
-      <TLDR>Explore The Ledger's Heart from the start, or unlock an elemental region at Player Level 10 to hunt one kind of curio at a time.</TLDR>
+      <TLDR>Explore The Ledger&apos;s Heart from the start, or unlock an elemental region at Player Level 10 to hunt one kind of curio at a time.</TLDR>
       <p className="text-sm text-gray-700 max-w-2xl mb-4">
-        The World Map is where wild encounters happen. <b className="text-gray-900">The Ledger's Heart</b> holds every element mixed
+        The World Map is where wild encounters happen. <b className="text-gray-900">The Ledger&apos;s Heart</b> holds every element mixed
         together, same as it always has. Each of the other 6 regions is tuned to a single element — every curio you meet there
-        shares that region's element, nothing else.
+        shares that region&apos;s element, nothing else.
       </p>
       <div className="grid sm:grid-cols-2 gap-3 max-w-2xl">
         <RegionCard region={REGIONS.ledgers_heart} />
@@ -385,7 +384,7 @@ function GrowthSection() {
       <TLDR>Correct answers are the only currency here — XP, gold, and every unlock trace straight back to them.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm">
         <Fact label="XP & Gold per correct answer" value={`+${XP_PER_CORRECT} XP, +${GOLD_PER_CORRECT} gold`}>
-          Every correct answer in a guild adds to your Ledger — that's your XP.
+          Every correct answer in a guild adds to your Ledger — that&apos;s your XP.
         </Fact>
         <Fact label="Guild leveling" value={`${SUBCLASS_XP_PER_LEVEL} XP per level`}>
           Flat curve — every guild level costs exactly the same amount of XP as the last.
@@ -417,11 +416,11 @@ function DailySection() {
       <TLDR>Two short daily habits — a to-do checklist and a journal entry — each pay their own gold and stack on top of everything else.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm">
         <Fact label="Daily To-Dos streak ladder" value={STREAK_GOLD_LADDER.map(g => `${g}g`).join(' → ')}>
-          Clear every task in a day to claim that day's gold — the payout climbs each consecutive day, capping at a{' '}
+          Clear every task in a day to claim that day&apos;s gold — the payout climbs each consecutive day, capping at a{' '}
           {STREAK_GOLD_LADDER.length}-day streak. Miss a day and the ladder resets to the first rung.
         </Fact>
         <Fact label="Journal entry" value="+50 XP, +50 Gold">
-          One submission per day — done today, tomorrow's plan, hardest challenge, and one thing you're grateful for. Flat
+          One submission per day — done today, tomorrow&apos;s plan, hardest challenge, and one thing you&apos;re grateful for. Flat
           reward, no streak involved.
         </Fact>
         <Fact label="Deeds" value="Gold only, no XP">
@@ -441,9 +440,9 @@ function TutoringSection() {
       <TLDR>Every curio has a hidden Quality Tier — a permanent stat boost you can only raise by spending gold at the Tutor.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Open any owned curio's detail screen in <b className="text-gray-900">My Team</b> and, once it's not still climbing
+          Open any owned curio&apos;s detail screen in <b className="text-gray-900">My Team</b> and, once it&apos;s not still climbing
           levels for its next Graduation, a <b className="text-gray-900">Tutor</b> option appears. Spend gold and roll — a
-          roll only ever holds a curio's tier or bumps it up one step. It can never make a curio worse.
+          roll only ever holds a curio&apos;s tier or bumps it up one step. It can never make a curio worse.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
           <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
@@ -470,12 +469,12 @@ function TutoringSection() {
         <p>
           Roll odds are the same every attempt regardless of current tier: <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.fail * 100)}%</b> no
           change, <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.good * 100)}%</b> Good, <b className="text-gray-900">{Math.round(TUTOR_ROLL_TABLE.outstanding * 100)}%</b> Outstanding,{' '}
-          <b className="text-gray-900">{(TUTOR_ROLL_TABLE.perfect * 100).toFixed(1)}%</b> Perfect — only the outcomes ranked above a curio's
+          <b className="text-gray-900">{(TUTOR_ROLL_TABLE.perfect * 100).toFixed(1)}%</b> Perfect — only the outcomes ranked above a curio&apos;s
           current tier actually count as an upgrade.
         </p>
         <p>
           A <b className="text-gray-900">Tome of Knowledge</b> (bought in the Vault, {TOME_CATALOG.length} tiers) boosts the odds on
-          one specific attempt, consumed automatically the moment it's used. Each tome is matched to the tier it helps a
+          one specific attempt, consumed automatically the moment it&apos;s used. Each tome is matched to the tier it helps a
           curio climb past — a Tome of Novice Knowledge only helps a Normal-quality roll, and so on up the ladder.
         </p>
       </div>
@@ -491,7 +490,7 @@ function EggsSection() {
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
           Once a curio has graduated and reached <b className="text-gray-900">Graduation level + 3</b> (Tier 1 → Lv.{eggReadyLevel(1)},
-          Tier 2 → Lv.{eggReadyLevel(2)}), a "Claim Egg" prompt appears on its card in My Team. Claiming is one-time and
+          Tier 2 → Lv.{eggReadyLevel(2)}), a &quot;Claim Egg&quot; prompt appears on its card in My Team. Claiming is one-time and
           permanent — the parent curio itself is untouched, staying exactly where it was.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
@@ -505,19 +504,19 @@ function EggsSection() {
           <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
             <p className="font-bold text-gray-900 text-sm">Stalled</p>
             <p className="text-xs text-gray-400 mt-1">
-              Missing a day resets progress to 0 and pauses it — nothing is lost, but growth won't resume until you press{' '}
+              Missing a day resets progress to 0 and pauses it — nothing is lost, but growth won&apos;t resume until you press{' '}
               <b className="text-gray-900">Incubate</b> in the Hatchery.
             </p>
           </div>
         </div>
         <p>
           At 5 days, the egg hatches into an admin-defined <b className="text-gray-900">predecessor species</b> — an earlier
-          curio in that species' own line, not another copy of the parent — starting at level 1, ungraduated, benched and
+          curio in that species&apos; own line, not another copy of the parent — starting at level 1, ungraduated, benched and
           ready to raise. It also gets a free quality-tier roll on the spot, using the same odds as a Tutor attempt.
         </p>
         <p className="text-xs text-gray-500">
-          Not every species has a predecessor assigned yet — chains are added over time, so a "no egg content configured"
-          message just means that curio's line hasn't been authored in yet.
+          Not every species has a predecessor assigned yet — chains are added over time, so a &quot;no egg content configured&quot;
+          message just means that curio&apos;s line hasn&apos;t been authored in yet.
         </p>
       </div>
     </div>
@@ -531,7 +530,7 @@ function TradingSection() {
       <TLDR>Offer a curio (and optionally gold) to another player; they can accept, decline, or counter — nothing moves until both sides agree.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Trading lives in the Curio Arena's <b className="text-gray-900">Trade</b> tab. Search for another player, build an
+          Trading lives in the Curio Arena&apos;s <b className="text-gray-900">Trade</b> tab. Search for another player, build an
           offer from your own team/bench, and send it. They can accept it outright, decline it, or send back a counter-offer
           — every back-and-forth on the same deal is kept together as one negotiation thread.
         </p>
@@ -551,13 +550,13 @@ function FamilySection() {
       <TLDR>A self-registered child can link a parent from inside the app — it unlocks leaderboards and PvP, and pays a one-time gold bonus.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Kids who sign themselves up start unlinked. A small "Link a Parent" prompt lets them send their parent's email
+          Kids who sign themselves up start unlinked. A small &quot;Link a Parent&quot; prompt lets them send their parent&apos;s email
           an invite; once the parent confirms it, the two accounts are connected. Linking unlocks leaderboards and PvP
           challenges, and rewards the child <b className="text-gray-900">100 gold</b> for finishing the link.
         </p>
         <p>
-          Parents get their own dashboard to follow a linked child's progress, streaks, and journal entries, and can view
-          — never change — that child's login PIN if it's ever forgotten.
+          Parents get their own dashboard to follow a linked child&apos;s progress, streaks, and journal entries, and can view
+          — never change — that child&apos;s login PIN if it&apos;s ever forgotten.
         </p>
       </div>
     </div>
@@ -583,15 +582,15 @@ function CuriosSection() {
       <TLDR>Curios are fragments of the Ledger — some grow with their guild, some graduate on their own, and the rarest are barely ever found at all.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
-          Every curio is a small piece of the world's memory, sorted by element and by where it was found. Want to browse every
-          species in the game, one by one? That's what the <b className="text-gray-900">Compendium</b> tab (inside Curio Arena) is for
+          Every curio is a small piece of the world&apos;s memory, sorted by element and by where it was found. Want to browse every
+          species in the game, one by one? That&apos;s what the <b className="text-gray-900">Compendium</b> tab (inside Curio Arena) is for
           — the Codex only covers the systems, not each individual curio.
         </p>
         <div className="grid sm:grid-cols-2 gap-3">
           <div className="bg-stone-50 border border-stone-200 rounded-lg p-3">
             <p className="font-bold text-gray-900 text-sm">Guild Evolution</p>
             <p className="text-xs text-gray-400 mt-1">
-              Free, and tied to your guild's level — not the curio's own level. Each guild has one dedicated familiar that changes
+              Free, and tied to your guild&apos;s level — not the curio&apos;s own level. Each guild has one dedicated familiar that changes
               shape as its guild grows stronger.
             </p>
           </div>
@@ -599,7 +598,7 @@ function CuriosSection() {
             <p className="font-bold text-gray-900 text-sm">Graduation</p>
             <p className="text-xs text-gray-400 mt-1">
               A permanent, purchased upgrade for a regular curio — needs Level {GRADUATION_LEVEL_REQUIREMENT[1]} and a{' '}
-              {GRADUATION_SCROLL_COST}-gold Graduation Scroll. Tied to the curio's own level, unrelated to any guild.
+              {GRADUATION_SCROLL_COST}-gold Graduation Scroll. Tied to the curio&apos;s own level, unrelated to any guild.
             </p>
           </div>
         </div>
@@ -609,7 +608,7 @@ function CuriosSection() {
           already own.
         </p>
         <p>
-          Two more permanent upgrades live outside leveling entirely: a curio's <b className="text-gray-900">Quality Tier</b> (see{' '}
+          Two more permanent upgrades live outside leveling entirely: a curio&apos;s <b className="text-gray-900">Quality Tier</b> (see{' '}
           <b className="text-gray-900">Tutoring & Quality</b>) is a separate stat boost bought with gold, and a graduated curio
           can eventually lay a one-time <b className="text-gray-900">Egg</b> (see <b className="text-gray-900">Eggs & The Hatchery</b>)
           that hatches into a whole new curio of its own.
@@ -680,7 +679,7 @@ function ItemsSection() {
 
       <p className="text-sm font-bold text-gray-900 mb-2 mt-6">Tomes of Knowledge</p>
       <p className="text-xs text-gray-500 mb-3 max-w-2xl">
-        Also bought in the Vault — a one-time boost to a single Tutor roll's odds, consumed the moment it's used. See{' '}
+        Also bought in the Vault — a one-time boost to a single Tutor roll&apos;s odds, consumed the moment it&apos;s used. See{' '}
         <b className="text-gray-300">Tutoring & Quality</b> for the full mechanic.
       </p>
       <div className="grid sm:grid-cols-3 gap-2 max-w-2xl">
@@ -723,7 +722,7 @@ function TrainersSection() {
           <p className="text-xs text-gray-500 leading-relaxed">
             Every correct answer in a guild has a chance to spawn a <b className="text-gray-900">Trainer</b> on the World Map near
             you. Trainers appear as standee sprites with a ⚔️ badge. Walk within one tile and a short dialogue pops up — you can{' '}
-            <b className="text-gray-900">Accept</b> the challenge or <b className="text-gray-900">Run Away</b>. Accept, and it's a
+            <b className="text-gray-900">Accept</b> the challenge or <b className="text-gray-900">Run Away</b>. Accept, and it&apos;s a
             standard curio battle with the same rules as any other fight. The trainer disappears once the battle is resolved.
           </p>
         </div>
@@ -738,7 +737,7 @@ function TrashSection() {
   return (
     <div>
       <SectionTitle>Trash &amp; Recycling</SectionTitle>
-      <TLDR>Litter spawns on every region's map. Pick it up, bring a full bundle to the Recycler NPC, and turn garbage into gold.</TLDR>
+      <TLDR>Litter spawns on every region&apos;s map. Pick it up, bring a full bundle to the Recycler NPC, and turn garbage into gold.</TLDR>
       <div className="space-y-3 max-w-2xl text-sm text-gray-700">
         <p>
           Up to <b className="text-gray-900">{TRASH_SPAWN_COUNT} trash items</b> scatter across the grass tiles of each
@@ -784,7 +783,7 @@ function AchievementsSection() {
   return (
     <div>
       <SectionTitle>Achievements & Titles</SectionTitle>
-      <TLDR>Titles and achievements are the world's own record of how reliable a keeper you've become.</TLDR>
+      <TLDR>Titles and achievements are the world&apos;s own record of how reliable a keeper you&apos;ve become.</TLDR>
       <div className="max-w-2xl space-y-4">
         <div>
           <p className="text-sm text-gray-700 mb-2">

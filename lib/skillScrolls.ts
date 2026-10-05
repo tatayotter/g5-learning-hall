@@ -77,7 +77,7 @@ export const SCROLL_CATALOG: ScrollItem[] = [
 // slotIndex is 1-3 (matches the 1-based Postgres array index used by both
 // RPCs against user_monsters.equipped_skills). Both return false (no scroll
 // spent) if the precondition fails — wrong slot state or no scroll owned —
-// rather than throwing, mirroring lib/inventory.ts's useInventoryItem.
+// rather than throwing, mirroring lib/inventory.ts's spendInventoryItem.
 export async function unlearnMonsterSkill(userId: string, monsterRowId: string, slotIndex: number): Promise<boolean> {
   const { data, error } = await supabase.rpc('unlearn_monster_skill', {
     p_user_id: userId,

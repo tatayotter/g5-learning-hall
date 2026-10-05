@@ -20,11 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RegisterPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ ref?: string }>;
-}) {
+export default async function RegisterPage() {
   const source = 'organic';
 
   return (

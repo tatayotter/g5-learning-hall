@@ -130,7 +130,7 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
     e.preventDefault();
 
     const newLogs = { ...journalLogs, [todayKey]: formData };
-    let newStats = { ...stats };
+    const newStats = { ...stats };
 
     const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
     const { error: archiveError } = await supabase.from('journal_entries').insert({

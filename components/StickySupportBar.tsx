@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Persistent bottom CTA bar, same idea as a Kickstarter campaign's sticky
 // pledge box — but since the real donation form already lives inline in the

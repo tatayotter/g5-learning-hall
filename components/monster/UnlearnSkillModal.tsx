@@ -19,8 +19,7 @@ interface UnlearnSkillModalProps {
   onClose: () => void;
 }
 
-export default function UnlearnSkillModal({ monster, skill, userId, onClose }: UnlearnSkillModalProps) {
-  const isTala = userId === 'tala';
+export default function UnlearnSkillModal({ monster, skill, onClose }: UnlearnSkillModalProps) {
   const [dissolved, setDissolved] = useState(false);
 
   useEffect(() => {

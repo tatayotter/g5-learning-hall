@@ -22,7 +22,7 @@ import {
   pickRandomWildMonsterId, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
-import { fetchInventory, useInventoryItem, spendGold, InventoryMap } from '@/lib/inventory';
+import { fetchInventory, spendInventoryItem, spendGold, InventoryMap } from '@/lib/inventory';
 import { rollFreshQualityTier, QUALITY_STAT_MULTIPLIER, type QualityTier } from '@/lib/curioQuality';
 import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
@@ -38,7 +38,6 @@ import { PlayerSearchResult } from '@/lib/trades';
 import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
-import WorldMap from '@/components/WorldMap';
 import { REGIONS } from '@/lib/regions';
 import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -602,7 +601,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // identical inline closures. `true` skips loadData's full reset since a
   // full reload would unmount the in-progress battle screen mid-fight.
   const handleUseItem = async (key: string) => {
-    const ok = await useInventoryItem(userId, key);
+    const ok = await spendInventoryItem(userId, key);
     if (ok) await loadData(true);
     return ok;
   };
@@ -1133,7 +1132,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     loadData();
   };
 
-  const handlePvpBattleEnd = async (won: boolean, expEarned: number) => {
+  const handlePvpBattleEnd = async (won: boolean, _expEarned: number) => {
     const today = new Date().toISOString().split('T')[0];
     const opponent = pvpOpponent!;
     if (won) {

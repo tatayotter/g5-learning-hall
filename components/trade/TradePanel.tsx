@@ -340,7 +340,7 @@ function CounterOfferFlow({
 }
 
 function NewTradeFlow({
-  userId, userMonsters, onCreated, initialTarget,
+  userMonsters, onCreated, initialTarget,
 }: {
   userId: UserId;
   userMonsters: UserMonster[];
@@ -495,7 +495,7 @@ function OfferBuilder({
       </div>
 
       <div className="rounded-lg bg-amber-50 border border-amber-300 px-4 py-3 text-sm text-amber-800">
-        Estimated fee you'll pay if accepted: <span className="font-bold">{fee} gold</span>
+        Estimated fee you&apos;ll pay if accepted: <span className="font-bold">{fee} gold</span>
         {' '}(250 per curio moved + 8% of any gold you send, min 1). Final fee is confirmed by the server when the trade is accepted.
       </div>
 

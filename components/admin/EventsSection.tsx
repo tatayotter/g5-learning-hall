@@ -128,7 +128,7 @@ function EventManager({ events, questCounts, onReload, passcode }: {
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">🎪 Event Manager</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         Create a Custom Event now — title, banner, details, curio reward, and dates. Quests can be added
-        later in the Event Quest Editor below (an event can't be scheduled or activated until it has at
+        later in the Event Quest Editor below (an event can&apos;t be scheduled or activated until it has at
         least one quest).
       </p>
 
@@ -360,7 +360,7 @@ function EventManager({ events, questCounts, onReload, passcode }: {
   );
 }
 
-function EventQuestEditor({ events, questCounts, onReload, passcode }: {
+function EventQuestEditor({ events, onReload, passcode }: {
   events: CustomEvent[];
   questCounts: Record<string, number>;
   onReload: () => void;
@@ -435,7 +435,7 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">📜 Event Quest Editor</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         Paste per-subject quest content for an event. This is independent of the Event Manager above —
-        create the event first, then come back and paste subjects here whenever they're ready (typically
+        create the event first, then come back and paste subjects here whenever they&apos;re ready (typically
         the Sunday before the event starts).
       </p>
 

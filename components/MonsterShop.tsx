@@ -232,7 +232,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   useEffect(() => {
     loadInventory();
-    if (isFamily) handleDailyClaim(); // eslint-disable-line react-hooks/exhaustive-deps
+    if (isFamily) handleDailyClaim();
   }, [userId]);
 
   const handleBuy = async (key: string, cost: number, name: string) => {

@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
           <p>
             Children cannot sign up on their own. A parent registers with their own email address,
             creates a username and PIN for each child, and an admin reviews the parent account before
-            it's activated. There is no public sign-up form for minors, no stranger contact, no chat with
+            it&apos;s activated. There is no public sign-up form for minors, no stranger contact, no chat with
             other users outside of pre-set battle/leaderboard interactions with usernames, and no
             third-party advertising.
           </p>
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside space-y-1">
             <li>Quiz answers, scores, and quest/mastery progress</li>
             <li>In-app currency, inventory, monster collection, and battle history</li>
-            <li>Optional free-text journal entries the child writes (e.g. "what I learned today")</li>
+            <li>Optional free-text journal entries the child writes (e.g. &quot;what I learned today&quot;)</li>
             <li>Login timestamps and basic usage events (which screens/features are used)</li>
             <li>If push notifications are turned on: a notification token for that device, so reminders can reach it</li>
           </ul>
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-lg font-bold text-white">How we use it</h2>
           <ul className="list-disc list-inside space-y-1">
             <li>To operate the app: authenticate accounts, save progress, and run gameplay features</li>
-            <li>To let parents review their child's activity and journal entries from their dashboard</li>
+            <li>To let parents review their child&apos;s activity and journal entries from their dashboard</li>
             <li>To send account-related notices, and — only if a parent opts in — occasional email updates</li>
             <li>To understand feature usage in aggregate, so we can fix bugs and improve the app</li>
           </ul>
@@ -99,17 +99,17 @@ export default function PrivacyPolicyPage() {
           <p>
             Passwords and child PINs are stored using one-way cryptographic hashing — we cannot see or
             recover them. Data is protected with row-level security so that a parent can only ever access
-            their own children's data.
+            their own children&apos;s data.
           </p>
         </section>
 
         <section className="space-y-2">
-          <h2 className="text-lg font-bold text-white">Children's privacy</h2>
+          <h2 className="text-lg font-bold text-white">Children&apos;s privacy</h2>
           <p>
             Learning Hall is designed for use by children under parental supervision. All child accounts
-            are created and managed by a parent, who can view, edit, or delete their child's data at any
+            are created and managed by a parent, who can view, edit, or delete their child&apos;s data at any
             time from the parent dashboard. We do not knowingly collect information directly from a child
-            without a parent first creating and controlling that child's account.
+            without a parent first creating and controlling that child&apos;s account.
           </p>
         </section>
 

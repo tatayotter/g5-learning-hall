@@ -7,7 +7,7 @@ import { seededCoinFlip, tossCoin } from '@/lib/coinToss';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { RealtimeChannel } from '@supabase/supabase-js';
 import { supabase } from '@/lib/supabase';
-import { Skill, calculateDamage, getElementMultiplier, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects, BATTLE_CONSTANTS, statusDuration, tickStatus } from '@/lib/monsterConfig';
+import { Skill, calculateDamage, getScaledStats, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, StatusEffect, ActiveModifier, getModifierMultiplier, tickModifiers, applySkillEffects, BATTLE_CONSTANTS, statusDuration, tickStatus } from '@/lib/monsterConfig';
 import { ActiveBattleMonster } from '@/components/battle/shared';
 
 export type BattlePhase = 'waiting_for_opponent' | 'select_skill' | 'awaiting_opponent' | 'round_resolved' | 'ended';

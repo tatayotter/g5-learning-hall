@@ -21,7 +21,6 @@ import { playPageFlip } from '@/lib/sounds';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
 import type { ContinuousMovementHandle } from '@/hooks/useContinuousMovement';
 import type { TrashItem } from '@/hooks/useTrashItems';
-import { TRASH_DEFS } from '@/lib/trashConfig';
 
 function spriteSrcFor(userId: string, userpicOverride?: string): string {
   // Bot userpic takes highest priority — set explicitly in BotProfile.
@@ -263,7 +262,6 @@ export default function MapCanvas({
       sceneRef.current = null;
     };
     // Game is created once; all subsequent updates flow through sync() below.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

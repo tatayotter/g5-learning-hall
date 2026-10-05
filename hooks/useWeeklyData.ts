@@ -259,7 +259,7 @@ export function useWeeklyData(userId: string | null) {
     newHonorGrants: number = data?.honor_grants || 0,
     newQuizAttempts: Record<string, number> = data?.quiz_attempts || {},
     newMasteredQuizzes: string[] = data?.mastered_quizzes || [],
-    newHonorGrantsCount: number = data?.honor_grants || 0,
+    _newHonorGrantsCount: number = data?.honor_grants || 0,
     newGuildSessionsCount: number = data?.guild_sessions_count || 0,
     newMonsterBattlesWon: number = data?.monster_battles_won || 0,
     newSiblingBattlesWon: number = data?.sibling_battles_won || 0,

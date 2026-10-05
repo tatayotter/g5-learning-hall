@@ -112,10 +112,10 @@ export default async function CurriculumGradePage({
           </h1>
 
           <p className="text-[#5c5245] leading-relaxed mb-6">
-            This is the same source material Learning Hall's own Grade {grade} quests are built from — every subject
-            DepEd's MATATAG curriculum covers this year, broken down term by term. It's here for two reasons: so a
-            parent can see exactly what "DepEd-aligned" means for Grade {grade} in concrete terms, and so Learning
-            Hall itself stays honest about what it's actually teaching against.
+            This is the same source material Learning Hall&apos;s own Grade {grade} quests are built from — every subject
+            DepEd&apos;s MATATAG curriculum covers this year, broken down term by term. It&apos;s here for two reasons: so a
+            parent can see exactly what &quot;DepEd-aligned&quot; means for Grade {grade} in concrete terms, and so Learning
+            Hall itself stays honest about what it&apos;s actually teaching against.
           </p>
 
           <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 mb-8">

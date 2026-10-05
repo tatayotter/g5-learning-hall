@@ -44,7 +44,7 @@ const cache = new Map<string, Promise<any>>();
 let cachedForUserId: string | null = null;
 
 // Fire-and-forget — call once right after login resolves.
-export function prefetchAllTabs(userId: string, grade: string | number | undefined) {
+export function prefetchAllTabs(userId: string, _grade: string | number | undefined) {
   cache.clear();
   cachedForUserId = userId;
 

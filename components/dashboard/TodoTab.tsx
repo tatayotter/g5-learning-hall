@@ -75,7 +75,7 @@ export default function TodoTab({
           </span>
         )}
       </div>
-      <p className="text-gray-500 mb-6">Clear today's checklist to claim your daily bonus gold.</p>
+      <p className="text-gray-500 mb-6">Clear today&apos;s checklist to claim your daily bonus gold.</p>
       <DailyChecklist
         userId={activeUserId}
         grade={gradeToNumber(USERS[activeUserId]?.grade)}

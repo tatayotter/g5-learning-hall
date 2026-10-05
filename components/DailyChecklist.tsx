@@ -78,7 +78,6 @@ interface ChecklistItem {
 
 export default function DailyChecklist({
   userId,
-  grade,
   currentSunday,
   currentDayName,
   packageData,
@@ -92,8 +91,6 @@ export default function DailyChecklist({
   onCountChange,
   activeEvent,
   eventClaimed,
-  eventQuests,
-  eventProgress,
   gauntletDaysDone,
   onGoToEvent,
 }: DailyChecklistProps) {

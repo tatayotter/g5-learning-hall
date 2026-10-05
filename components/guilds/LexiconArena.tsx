@@ -303,7 +303,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
 
                 {/* Definition */}
                 <p className="text-base text-gray-800 leading-relaxed mb-4 text-center font-medium">
-                  "{w.definition}"
+                  &quot;{w.definition}&quot;
                 </p>
 
                 {/* Choices */}

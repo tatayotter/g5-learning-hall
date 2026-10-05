@@ -24,7 +24,7 @@ export default function TrainerChallengePanel({ trainer, onAccept, onRunAway }: 
         <div className="min-w-0">
           <p className="font-bold text-amber-300 text-sm leading-tight">{trainer.name}</p>
           <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            "{trainer.intro}"
+            &quot;{trainer.intro}&quot;
           </p>
         </div>
       </div>

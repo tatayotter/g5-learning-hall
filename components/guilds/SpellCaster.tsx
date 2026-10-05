@@ -244,7 +244,6 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   if (screen === 'playing' && engine.currentQuestion) {
     const difficultyStars = gradeStageStars(engine.currentQuestion.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
-    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-violet-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (

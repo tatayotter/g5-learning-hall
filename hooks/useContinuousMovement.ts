@@ -209,7 +209,6 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
     rafRef.current = requestAnimationFrame(tick);
     return () => { if (rafRef.current !== null) cancelAnimationFrame(rafRef.current); };
     // Started once — reads everything else via refs above.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRef = useRef<ContinuousMovementHandle>({
