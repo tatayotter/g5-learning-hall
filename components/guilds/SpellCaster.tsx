@@ -1,5 +1,5 @@
 ﻿'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useEffectEvent } from 'react';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
@@ -80,12 +80,15 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
       setScreen('ready');
     }
     loadPool();
-  }, []);
+  }, [userId]);
 
+  // Effect Event: reads the latest screen/handleSessionEnd without re-running
+  // the effect, which must fire only on the phase change itself.
+  const onPhaseEnded = useEffectEvent(() => {
+    if (screen === 'playing') handleSessionEnd();
+  });
   useEffect(() => {
-    if (engine.phase === 'ended' && screen === 'playing') {
-      handleSessionEnd();
-    }
+    if (engine.phase === 'ended') onPhaseEnded();
   }, [engine.phase]);
 
   // Auto-focus input when playing starts. The input is never remounted

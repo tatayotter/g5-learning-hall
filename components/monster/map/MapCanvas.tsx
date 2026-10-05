@@ -348,7 +348,7 @@ export default function MapCanvas({
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [movement, mapWidth, mapHeight, background, visibleCanvasW]);
+  }, [movement, mapWidth, mapHeight, background, visibleCanvasW, zoom]);
 
   // Render-time-only fallback (the rAF loop above imperatively overwrites
   // every marker's actual position every frame once the scene exists) — used

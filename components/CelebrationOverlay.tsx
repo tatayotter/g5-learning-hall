@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useEffectEvent } from 'react';
 
 interface Particle {
   id: number;
@@ -134,8 +134,9 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
 
   const COUNT = type === 'perfect' ? 40 : 80;
 
-  useEffect(() => {
-    if (!trigger) return;
+  // Effect Event: the burst starts only when `trigger` changes, using the
+  // props (type, onComplete) current at that moment.
+  const startBurst = useEffectEvent(() => {
     setActive(true);
 
     const canvas = canvasRef.current;
@@ -202,7 +203,11 @@ export default function CelebrationOverlay({ userId, trigger, type, onComplete }
     }
 
     animRef.current = requestAnimationFrame(tick);
+  });
 
+  useEffect(() => {
+    if (!trigger) return;
+    startBurst();
     return () => cancelAnimationFrame(animRef.current);
   }, [trigger]);
 

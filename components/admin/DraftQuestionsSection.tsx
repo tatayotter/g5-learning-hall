@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffectEvent } from 'react';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADE_LEVELS } from '@/lib/userSession';
@@ -419,7 +419,8 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, [grade, statusFilter]);
+  const reloadOnFilter = useEffectEvent(() => { reload(); });
+  useEffect(() => { reloadOnFilter(); }, [grade, statusFilter]);
 
   const toggleSelect = (id: string) => {
     setSelectedIds(prev => {

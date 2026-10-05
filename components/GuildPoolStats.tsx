@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useEffectEvent } from 'react';
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { USERS, gradeToNumber } from '@/lib/userSession';
@@ -71,7 +71,8 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
     setLoading(false);
   }
 
-  useEffect(() => { fetchStats(); }, [userId]);
+  const loadStats = useEffectEvent(() => { fetchStats(); });
+  useEffect(() => { loadStats(); }, [userId]);
 
   return (
     <div className="bg-[#111] border border-[#333] p-6 rounded-xl">

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useEffectEvent } from 'react';
 import { UserId, USERS } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -230,9 +230,12 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     }
   };
 
-  useEffect(() => {
+  const loadForUser = useEffectEvent(() => {
     loadInventory();
     if (isFamily) handleDailyClaim();
+  });
+  useEffect(() => {
+    loadForUser();
   }, [userId]);
 
   const handleBuy = async (key: string, cost: number, name: string) => {

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useEffectEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Achievement } from '@/lib/achievements';
 import { playAchievementUnlock, playPageFlip } from '@/lib/sounds';
@@ -24,6 +24,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
     }
   }, [newlyUnlocked]);
 
+  const dismissAll = useEffectEvent(() => onDismissAll());
   useEffect(() => {
     if (visible.length === 0) return;
     // Auto-advance to next achievement after 4 seconds
@@ -32,7 +33,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
         setCurrentIndex(i => i + 1);
       } else {
         setVisible([]);
-        onDismissAll();
+        dismissAll();
       }
     }, 4000);
     return () => clearTimeout(timer);

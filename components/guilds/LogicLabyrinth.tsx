@@ -1,5 +1,5 @@
 ﻿'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffectEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import {
@@ -102,10 +102,15 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       }
     }
     loadPool();
-  }, []);
+  }, [userId]);
 
+  // Effect Event: reads the latest screen/handleSessionEnd without re-running
+  // the effect, which must fire only on the phase change itself.
+  const onPhaseEnded = useEffectEvent(() => {
+    if (screen === 'playing') handleSessionEnd();
+  });
   useEffect(() => {
-    if (engine.phase === 'ended' && screen === 'playing') handleSessionEnd();
+    if (engine.phase === 'ended') onPhaseEnded();
   }, [engine.phase]);
 
   const handleSelect = (optionId: string) => {

@@ -177,7 +177,7 @@ export default function LiveBattleScreen({
     if (timedOutRoundRef.current === round) return;
     timedOutRoundRef.current = round;
     submitRoundAnswer(TIMEOUT_ACTION_ID, 0, 0, false);
-  }, [now, deadlineAt, phase, answering, round, submitRoundAnswer]);
+  }, [untimed, now, deadlineAt, phase, answering, round, submitRoundAnswer]);
 
   // A cross-effect item the opponent used against me (currently only
   // Poison Fang's inflict_curse) arrives here instead of through the normal

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffectEvent } from 'react';
 import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { supabase } from '@/lib/supabase';
 import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
@@ -65,7 +65,8 @@ export default function ToolsSection({ currentData, currentSunday, passcode }: {
     setLoadingData(false);
   };
 
-  useEffect(() => { loadUserData(userId); loadProtectedIds(); }, [userId]);
+  const loadForUser = useEffectEvent((id: typeof userId) => { loadUserData(id); loadProtectedIds(); });
+  useEffect(() => { loadForUser(userId); }, [userId]);
 
   const handleSetLoginPassword = async () => {
     if (!loginPassword.trim()) return;

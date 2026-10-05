@@ -5,7 +5,7 @@
 // shape (inline create/edit form + list below). No delete: unpublishing via
 // the Active toggle is the only removal path, since sec_packs.id is FK'd
 // from real purchase history in sec_entitlements.
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useEffectEvent } from 'react';
 import { callAdminApi } from '@/lib/adminApi';
 
 interface SecPack {
@@ -41,7 +41,8 @@ export default function SecPacksSection({ passcode }: { passcode: string }) {
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, []);
+  const reloadOnMount = useEffectEvent(() => { reload(); });
+  useEffect(() => { reloadOnMount(); }, []);
 
   // Editing an existing pack loads its row into the form (id becomes
   // read-only via the disabled input below — id is the primary key AND the

@@ -250,7 +250,7 @@ export function useWeeklyData(userId: string | null) {
     }
     fetchData();
     return () => { cancelled = true; };
-  }, [currentSunday, userId, grade]);
+  }, [currentSunday, userId, grade, todayStr]);
 
   const updateStatsAndJournal = async (
     newStats: CharacterStats,

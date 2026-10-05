@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useEffectEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { isNativeApp } from '@/lib/platform';
@@ -178,6 +178,11 @@ export default function ParentDashboardPage() {
     if (parentId) initNativePush({ kind: 'parent', id: parentId });
   }, [parentId]);
 
+  const loadOnMount = useEffectEvent(() => {
+    load().then((viewStats) => {
+      if (viewStats) trackParentEvent('parent_dashboard_viewed', viewStats);
+    });
+  });
   useEffect(() => {
     // Parent pushes deep-link here with ?pq=<queue id>; record the open,
     // then drop the param so a refresh doesn't count it again.
@@ -185,9 +190,7 @@ export default function ParentDashboardPage() {
     if (new URLSearchParams(window.location.search).has('pq')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    load().then((viewStats) => {
-      if (viewStats) trackParentEvent('parent_dashboard_viewed', viewStats);
-    });
+    loadOnMount();
   }, []);
 
   const handleAddChild = async (e?: React.FormEvent) => {

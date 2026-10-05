@@ -1,7 +1,7 @@
 ﻿// components/Dashboard.tsx
 'use client';
 
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, useEffectEvent } from 'react';
 import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
@@ -451,10 +451,11 @@ export default function Dashboard() {
 
   // One-shot: MonsterGuild reads guildInitialView only at mount, so clear it
   // right after so a later manual tab visit defaults back to the map view.
+  const clearGuildInitialView = useEffectEvent(() => {
+    if (guildInitialView) setGuildInitialView(undefined);
+  });
   useEffect(() => {
-    if (activeTab === 'monster' && guildInitialView) {
-      setGuildInitialView(undefined);
-    }
+    if (activeTab === 'monster') clearGuildInitialView();
   }, [activeTab]);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   // Active time per tab, with an open quest split out by phase so study-note
@@ -618,8 +619,9 @@ export default function Dashboard() {
     if (claimsData) setMyClaims(claimsData);
   };
 
+  const onClaimsChanged = useEffectEvent(() => { fetchMyClaims(); });
   useEffect(() => {
-    fetchMyClaims();
+    onClaimsChanged();
   }, [activeUserId]);
 
   // Live-refresh claimed rewards so the claimable-hours total updates as
@@ -632,7 +634,7 @@ export default function Dashboard() {
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'reward_claims', filter: `app_user_id=eq.${activeUserId}` },
-        () => fetchMyClaims()
+        () => onClaimsChanged()
       )
       .subscribe();
     return () => {
@@ -691,12 +693,12 @@ export default function Dashboard() {
 
   // These memos must sit above every early return so the hook call order
   // stays stable across renders (Rules of Hooks).
+  const rawPackageData = data?.package_data;
   const packageData = useMemo(() => {
-    if (!data) return {};
-    return typeof data.package_data === 'string' && data.package_data.trim() !== ''
-      ? JSON.parse(data.package_data)
-      : (data.package_data || {});
-  }, [data?.package_data]);
+    return typeof rawPackageData === 'string' && rawPackageData.trim() !== ''
+      ? JSON.parse(rawPackageData)
+      : (rawPackageData || {});
+  }, [rawPackageData]);
   // Main Quest board shows Friday as one auto-built "Weekly Review" quest
   // instead of whatever's stored under Friday — the Monster Arena question
   // pool (which reads `packageData` directly) is left untouched.

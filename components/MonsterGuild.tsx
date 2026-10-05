@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useEffectEvent } from 'react';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -424,7 +424,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setInventory(invData || {});
   };
 
-  useEffect(() => { loadData(); }, [userId, eggRefreshSignal]);
+  const reloadData = useEffectEvent(() => { loadData(); });
+  useEffect(() => { reloadData(); }, [userId, eggRefreshSignal]);
 
   // Offer battle training once per Arena visit (BattleTraining checks whether
   // it's already finished and closes itself if so).

@@ -1,5 +1,5 @@
 ﻿'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useEffectEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTimeAttack } from '@/hooks/useTimeAttack';
 import {
@@ -96,10 +96,15 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
       setScreen('ready');
     }
     loadPool();
-  }, []);
+  }, [userId]);
 
+  // Effect Event: reads the latest screen/handleSessionEnd without re-running
+  // the effect, which must fire only on the phase change itself.
+  const onPhaseEnded = useEffectEvent(() => {
+    if (screen === 'playing') handleSessionEnd();
+  });
   useEffect(() => {
-    if (engine.phase === 'ended' && screen === 'playing') handleSessionEnd();
+    if (engine.phase === 'ended') onPhaseEnded();
   }, [engine.phase]);
 
   // Auto-focus first input whenever question changes

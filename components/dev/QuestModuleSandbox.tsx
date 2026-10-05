@@ -1,7 +1,7 @@
 // components/dev/QuestModuleSandbox.tsx
 // DEV-ONLY FORK of components/QuestModule.tsx — edit freely here; the live quest screen is untouched.
 // Rendered by /dev/quest-quiz with mock data. When happy, port the changes back to QuestModule.tsx.
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffectEvent } from 'react';
 import type { Components } from 'react-markdown';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -121,12 +121,15 @@ export default function QuestModuleSandbox({ userId, questName, questData, curre
     return () => clearTimeout(timer);
   }, [cooldownRemaining]);
 
-  useEffect(() => {
+  const reshuffleOptions = useEffectEvent(() => {
     const newShuffled: Record<number, string[]> = {};
     quiz.forEach((q, i) => {
       newShuffled[i] = shuffleArray(q.options);
     });
     setShuffledOptions(newShuffled);
+  });
+  useEffect(() => {
+    reshuffleOptions();
   }, [submitted]);
 
   const quiz: QuizQuestion[] = questData?.quiz || [];
