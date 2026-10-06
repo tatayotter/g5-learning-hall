@@ -76,6 +76,7 @@ export default function ParentDashboardPage() {
   const [showOptOutConfirm, setShowOptOutConfirm] = useState(false);
   const [showSignOutConfirm, setShowSignOutConfirm] = useState(false);
   const [parentId, setParentId] = useState<string | null>(null);
+  const [parentEmail, setParentEmail] = useState('');
   const [sheet, setSheet] = useState<SheetKind>(null);
   // The child whose detail page is "pushed" on top of the family list. Mirrored
   // into history state so the phone's back gesture/button pops it like iOS.
@@ -122,6 +123,7 @@ export default function ParentDashboardPage() {
       return;
     }
     setParentId(user.id);
+    setParentEmail(user.email ?? '');
     const { data: parentRow } = await supabase
       .from('parents')
       .select('status, full_name, marketing_opt_in')
@@ -516,6 +518,30 @@ export default function ParentDashboardPage() {
             />
           ) : null}
         </IosGroup>
+
+        {/* Linking is child-initiated (docs/parent-child-linking-design.md), so
+            this only explains the steps. It needs a free slot: confirming a
+            link counts against the same child limit as Add Child. */}
+        {!atChildLimit && (
+          <IosGroup
+            header="Child already plays?"
+            footer={
+              <>
+                On your child&apos;s Learning Hall account, they tap <b>Show a parent</b> and
+                enter {parentEmail ? <b>{parentEmail}</b> : 'your email'}. Open the email we send
+                you and confirm, and your child appears here.
+              </>
+            }
+          >
+            <IosRow
+              icon="link"
+              iconColor={IOS.indigo}
+              title="Link their existing account"
+              subtitle="No new account needed. Their progress stays."
+              wrap
+            />
+          </IosGroup>
+        )}
 
         {kids.length > 1 && (
           <IosGroup footer={isPremium ? undefined : 'Comparing children side by side is a Premium feature.'}>
