@@ -11,6 +11,7 @@ import { isOffline, loadOfflineProfile, saveOfflineProfile } from '@/lib/offline
 import OfflineBanner from '@/components/OfflineBanner';
 import { flushQuestOutbox, offlinePlayEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
 import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuildSession } from '@/lib/offlineGuilds';
+import { flushMapOutbox, pendingMapEntries, playingMapOffline } from '@/lib/offlineMap';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -530,17 +531,24 @@ export default function Dashboard() {
   useEffect(() => {
     if (!activeUserId) return;
     const sync = () => {
-      if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0) return;
+      if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0
+        && pendingMapEntries(activeUserId).length === 0) return;
       void (async () => {
+        const hadMapEntries = pendingMapEntries(activeUserId).length > 0;
         const quests = await flushQuestOutbox(activeUserId);
         const guilds = await flushGuildOutbox(activeUserId);
-        if (quests.length === 0 && guilds.length === 0) return;
+        const map = await flushMapOutbox(activeUserId);
+        // The Curio Arena reloads its curios so the server's EXP replaces the device's.
+        if (hadMapEntries) setEggRefreshSignal(n => n + 1);
+        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0) return;
         achievementCheckAfterRef.current = dataRef.current;
         refresh();
-        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0);
+        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold;
         const parts = [
           quests.length > 0 && `${quests.length} quest${quests.length === 1 ? '' : 's'}`,
           guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,
+          map.answers > 0 && `${map.answers} map scroll${map.answers === 1 ? '' : 's'}`,
+          map.answers === 0 && map.gold > 0 && 'your trash trades',
         ].filter(Boolean).join(' and ');
         setToast({
           show: true,
@@ -1507,10 +1515,13 @@ export default function Dashboard() {
               data.perfect_quizzes || 0,
               (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
             )}
-            onGoldAwarded={(amount) => updateStatsAndJournal(
-              { ...data.character_stats, gold: data.character_stats.gold + amount },
-              data.journal_logs
-            )}
+            onGoldAwarded={(amount) => playingMapOffline(activeUserId)
+              // Offline (recycler trades on the map): shown now, paid by sync_offline_map.
+              ? setCharacterStatsDirect({ ...data.character_stats, gold: data.character_stats.gold + amount })
+              : updateStatsAndJournal(
+                { ...data.character_stats, gold: data.character_stats.gold + amount },
+                data.journal_logs
+              )}
             onGoldSynced={setCharacterStatsDirect}
             onProgressSynced={syncCharacterStats}
             onEggBadgeChange={setHasEggReadyCurio}

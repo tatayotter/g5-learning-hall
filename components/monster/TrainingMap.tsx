@@ -31,6 +31,9 @@ import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { TRASH_DEFS, RECYCLER_TILES } from '@/lib/trashConfig';
 import { BOT_IDS } from '@/lib/botProfiles';
+import {
+  playingMapOffline, offlineScrollQuestions, gradeScrollOffline, queueScrollAnswer, queueTrash, queuePosition,
+} from '@/lib/offlineMap';
 import { fetchMyFriendData, respondToFriendRequest, cancelFriendRequest, removeFriend, type FriendData } from '@/lib/friends';
 
 // The training map is a single painted background image (public/maps/map-1.webp)
@@ -183,6 +186,11 @@ export default function TrainingMap({
   // Recreated naturally on remount (component remounts on regionId change, see below).
   const positionWriteThrottleRef = useRef(
     createTrailingThrottle((newX: number, newY: number) => {
+      // Offline (lib/offlineMap.ts) the tile is kept on the device and sent on reconnect.
+      if (playingMapOffline(userId)) {
+        queuePosition(userId, newX, newY);
+        return;
+      }
       supabase.from('user_battle_state')
         .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
         .eq('user_id', userId);
@@ -285,9 +293,13 @@ export default function TrainingMap({
           if (outOfBounds || blocked) {
             const newState = { ...battleState, map_x: parsed.spawn.x, map_y: parsed.spawn.y };
             onBattleStateChange(newState);
-            supabase.from('user_battle_state')
-              .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
-              .eq('user_id', userId);
+            if (playingMapOffline(userId)) {
+              queuePosition(userId, parsed.spawn.x, parsed.spawn.y);
+            } else {
+              supabase.from('user_battle_state')
+                .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
+                .eq('user_id', userId);
+            }
             contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
           }
         }
@@ -470,6 +482,11 @@ export default function TrainingMap({
     // "40% chance while stepping on any grass tile" random roll entirely.
     const scrollHere = scrolls.find(s => s.x === newX && s.y === newY);
     if (scrollHere) {
+      // Offline, scrolls can only ask what the downloaded answer key covers.
+      if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
+        alert("📡 You're offline, and this week's scroll questions haven't been downloaded yet. Reconnect once and they'll work offline too.");
+        return;
+      }
       playMonsterAppear();
       setActiveScroll(scrollHere);
       return;
@@ -490,7 +507,8 @@ export default function TrainingMap({
         setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
         // Persist to player_progress for achievement tracking; skip for bots.
         if (!BOT_IDS.has(userId)) {
-          supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 1, p_gold: 0 });
+          if (playingMapOffline(userId)) queueTrash(userId, 1, 0);
+          else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 1, p_gold: 0 });
         }
       }, 450);
     }
@@ -507,7 +525,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, onEnterCurio, activeMapTrainer, pendingTrainerChallenge, pendingCurioChallenge, onTrainerEncounter, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, questions]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -525,21 +543,36 @@ export default function TrainingMap({
     extraBlockedTiles: recyclerTile ? [recyclerTile] : undefined,
   });
 
+  // Offline the scroll is graded on the device (lib/offlineMap.ts) and the answer queued right
+  // away for the server to re-grade on reconnect.
+  const scrollGradeOverride = playingMapOffline(userId)
+    ? (question: any, selected: string) => {
+        const result = gradeScrollOffline(userId, question.id, selected);
+        queueScrollAnswer(userId, activeMonster?.id ?? null, question.id, selected, result.correct);
+        return result;
+      }
+    : undefined;
+
   const handleScrollAnswer = async (correctCount: number, answeredQuestions: any[]) => {
     const answered = activeScroll!;
     setActiveScroll(null);
     if (correctCount > 0) playChime(); else playClash();
     onQuestionsAnswered?.(answeredQuestions);
+    // Offline: EXP shows now, everything else is queued for sync_offline_map, and no
+    // trainer or wild curio appears (those battles need the server).
+    const offlineMap = playingMapOffline(userId);
     // Map scroll answers get their own funnel record: their completed-question
     // rows share quest_type 'monster_arena' with arena battle questions.
-    logWildEncounterEvent(userId, 'scroll_answered', { region: regionId, correct: correctCount > 0 });
+    if (!offlineMap) logWildEncounterEvent(userId, 'scroll_answered', { region: regionId, correct: correctCount > 0 });
     if (correctCount > 0 && activeMonster) {
       const expGain = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
       onMonsterExpGained(activeMonster.id, expGain);
       const newExp = activeMonster.monster_exp + expGain;
-      await supabase.from('user_monsters')
-        .update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) })
-        .eq('id', activeMonster.id);
+      if (!offlineMap) {
+        await supabase.from('user_monsters')
+          .update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) })
+          .eq('id', activeMonster.id);
+      }
     }
     // Daily checklist's "training map" item is satisfied by any correct grass
     // question — it no longer requires actually winning a wild encounter battle.
@@ -565,7 +598,7 @@ export default function TrainingMap({
     // answer if no trainer is already present. Eligible trainers are those
     // whose levelRequirement the player has met. Spawned on a random grass
     // tile far enough from the player that the battle isn't instant.
-    if (correctCount > 0 && !activeMapTrainer && mapReady) {
+    if (correctCount > 0 && !offlineMap && !activeMapTrainer && mapReady) {
       const eligibleTrainers = NPC_TRAINERS.filter(t => playerLevel >= t.levelRequirement);
       if (eligibleTrainers.length > 0) {
         const trainer = eligibleTrainers[Math.floor(Math.random() * eligibleTrainers.length)];
@@ -584,7 +617,7 @@ export default function TrainingMap({
     // refunded. Flat rate, no scaling by trainers defeated or monsters
     // owned (see getWildEncounterChance's header comment).
     const wildEncounterChance = getWildEncounterChance();
-    let encountered = correctCount > 0 && !activeCurio && Math.random() < wildEncounterChance;
+    let encountered = !offlineMap && correctCount > 0 && !activeCurio && Math.random() < wildEncounterChance;
     let pity = false;
 
     // Pity timer: always active (see WILD_ENCOUNTER_PITY_THRESHOLD's header
@@ -593,14 +626,14 @@ export default function TrainingMap({
     // every correct answer even while capped by an already-active curio —
     // only the encounter is suppressed then, not the progress toward pity.
     let questionsSinceEncounter = battleState.questions_since_wild_encounter + correctCount;
-    if (!encountered && !activeCurio && questionsSinceEncounter >= WILD_ENCOUNTER_PITY_THRESHOLD) {
+    if (!offlineMap && !encountered && !activeCurio && questionsSinceEncounter >= WILD_ENCOUNTER_PITY_THRESHOLD) {
       encountered = true;
       pity = true;
     }
     questionsSinceEncounter = encountered ? 0 : questionsSinceEncounter;
     stateUpdates.questions_since_wild_encounter = questionsSinceEncounter;
 
-    await supabase.from('user_battle_state').update(stateUpdates).eq('user_id', userId);
+    if (!offlineMap) await supabase.from('user_battle_state').update(stateUpdates).eq('user_id', userId);
     onBattleStateChange({ ...battleState, ...stateUpdates });
 
     if (encountered) onWildEncounterRoll?.(pity);
@@ -735,7 +768,8 @@ export default function TrainingMap({
           setTimeout(() => setGoldEarnedFlash(null), 1800);
           // Persist gold-from-recycling counter for achievements; skip for bots.
           if (!BOT_IDS.has(userId)) {
-            supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
+            if (playingMapOffline(userId)) queueTrash(userId, 0, gold);
+            else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
           }
         }
         setPendingRecyclerTrade(false);
@@ -771,8 +805,9 @@ export default function TrainingMap({
     <ScrollQuestionPanel
       activeMonsterDef={activeMonster ? monsterDisplay[activeMonster.monster_id] : undefined}
       activeMonsterExpToNext={activeMonsterExpToNext}
-      questions={questions}
+      questions={scrollGradeOverride ? offlineScrollQuestions(userId, questions) : questions}
       gradingUserId={gradingUserId}
+      gradeOverride={scrollGradeOverride}
       onComplete={handleScrollAnswer}
     />
   ) : null;

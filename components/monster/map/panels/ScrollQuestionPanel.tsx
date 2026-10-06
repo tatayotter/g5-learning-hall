@@ -13,10 +13,12 @@ interface ScrollQuestionPanelProps {
   activeMonsterExpToNext: number | null;
   questions: any[];
   gradingUserId: string;
+  // Offline, the map grades from the downloaded answer key (lib/offlineMap.ts).
+  gradeOverride?: (question: any, selected: string) => { correct: boolean; correctAnswer: string | null };
   onComplete: (correctCount: number, answeredQuestions: any[]) => void;
 }
 
-export default function ScrollQuestionPanel({ activeMonsterDef, activeMonsterExpToNext, questions, gradingUserId, onComplete }: ScrollQuestionPanelProps) {
+export default function ScrollQuestionPanel({ activeMonsterDef, activeMonsterExpToNext, questions, gradingUserId, gradeOverride, onComplete }: ScrollQuestionPanelProps) {
   return (
     <div className="w-full max-w-xl bg-[#f5e8c8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in">
       <div className="flex items-center gap-3 mb-3 bg-amber-100 border border-amber-300 rounded-xl px-3 py-2">
@@ -40,6 +42,7 @@ export default function ScrollQuestionPanel({ activeMonsterDef, activeMonsterExp
         count={1}
         embedded={true}
         gradingUserId={gradingUserId}
+        gradeOverride={gradeOverride}
         onComplete={onComplete}
       />
     </div>

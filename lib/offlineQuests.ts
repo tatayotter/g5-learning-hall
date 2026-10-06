@@ -62,6 +62,13 @@ function answerKey(userId: string): Record<string, string> {
   return read<StoredAnswerKey | null>(KEY_STORE(userId), null)?.answers ?? {};
 }
 
+// One question's answer from the downloaded key, for questions graded one at a time (the
+// Training Map's scrolls, lib/offlineMap.ts). Undefined when the key doesn't have it.
+export function offlineAnswerFor(userId: string, questionId: string): string | undefined {
+  if (!offlinePlayEnabled(userId)) return undefined;
+  return answerKey(userId)[questionId];
+}
+
 export function canAnswerOffline(userId: string, questionIds: string[]): boolean {
   if (!offlinePlayEnabled(userId) || questionIds.length === 0) return false;
   const key = answerKey(userId);

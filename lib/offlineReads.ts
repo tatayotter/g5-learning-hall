@@ -79,3 +79,10 @@ export function needsConnection(): boolean {
 export function hasOfflineCopy(userId: string, name: string): boolean {
   return load<unknown>(userId, name) !== undefined;
 }
+
+// Changes the device copy in place, so something done offline (curio EXP from a map scroll)
+// still shows after reopening offline. Does nothing when there's no copy.
+export function updateOfflineCopy<T>(userId: string, name: string, change: (value: T) => T) {
+  const current = load<T>(userId, name);
+  if (current !== undefined) save(userId, name, change(current));
+}

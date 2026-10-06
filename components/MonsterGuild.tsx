@@ -230,7 +230,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }, []);
   const [loading, setLoading] = useState(true);
   // Offline, with offline play on, the team, Hatchery and Compendium open from the copy kept on
-  // the device (lib/curioCollection.ts); the map, trainers, trade and leaderboard need the server.
+  // the device (lib/curioCollection.ts) and the Training Map can be walked alone, scrolls and
+  // trash included (lib/offlineMap.ts); trainers, trade and the leaderboard need the server.
   const offline = useIsOffline();
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
@@ -476,9 +477,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const botOnlinePlayers = useBotPresence();
   // Merge bots into onlinePlayers so TrainingMap's Online tab, sprite renderer,
   // and 🟢 count all include them automatically — no other changes needed.
+  // Offline the player walks the map alone: no classmates, bots included.
   const mergedMapPresence = {
     ...mapPresence,
-    onlinePlayers: { ...mapPresence.onlinePlayers, ...botOnlinePlayers },
+    onlinePlayers: offline ? {} : { ...mapPresence.onlinePlayers, ...botOnlinePlayers },
   };
 
   // The invitee accepts/declines from LiveBattleInviteToast, rendered below
@@ -574,6 +576,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handleTrainerBattle = (trainer: NpcTrainer) => {
+    if (needsConnection()) return;
     setActiveBattle(trainer);
     setView('battle');
   };
@@ -664,7 +667,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const restoredSpawnRef = useRef<string | null>(null);
   const pendingCurio = battleState?.pending_wild_curio ?? null;
   useEffect(() => {
-    if (!pendingCurio || curio || wildEncounter || isWildEncounterBattle) return;
+    // Offline the curio waits on its saved row; it comes back once the connection does.
+    if (!pendingCurio || curio || wildEncounter || isWildEncounterBattle || offline) return;
     if (restoredSpawnRef.current === pendingCurio.spawned_at) return;
     restoredSpawnRef.current = pendingCurio.spawned_at;
     (async () => {
@@ -691,7 +695,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       logWildEncounterEvent(userId, 'restored', { region: activeRegion, monsterId: restored.monsterId, quality: restored.quality, level: restored.level, attemptsLeft: restored.attemptsLeft });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pendingCurio?.spawned_at, curio, wildEncounter, isWildEncounterBattle]);
+  }, [pendingCurio?.spawned_at, curio, wildEncounter, isWildEncounterBattle, offline]);
 
   const handleWildEncounterRoll = async (pity = false) => {
     // Don't stack encounters (a saved curio still being restored counts too).
@@ -745,6 +749,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // engaged" curio into an actual open WildEncounterModal.
   const handleEnterCurio = async () => {
     if (!curio || wildEncounter) return;
+    if (needsConnection()) return;
     let question = curio.question;
     if (!question) {
       question = await pickWildQuestion();
@@ -1218,7 +1223,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }
 
   const ONLINE_ONLY_VIEWS: Partial<Record<GuildView, string>> = {
-    map: 'The Training Map', trainers: 'Trainer battles', trade: 'Trading', leaderboard: 'The leaderboard',
+    trainers: 'Trainer battles', trade: 'Trading', leaderboard: 'The leaderboard',
   };
   const offlineBlockedFeature = offline ? ONLINE_ONLY_VIEWS[view] : undefined;
 
@@ -1228,7 +1233,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         <div className="py-6 max-w-xl mx-auto px-4">
           <OfflineUnavailable
             feature={offlineBlockedFeature}
-            reason="Your team, Hatchery and Compendium still open offline from your last visit. Reconnect to battle, trade or see the leaderboard."
+            reason="Your team, Hatchery, Compendium and the Training Map still work offline. Reconnect to battle trainers, trade or see the leaderboard."
             action={{ label: 'Open My Team', onClick: () => { playPageFlip(); setView('team'); } }}
           />
         </div>
@@ -1384,7 +1389,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       })()}
 
       {/* Map view — World Map region picker, or the selected region's Training Map. */}
-      {view === 'map' && !offlineBlockedFeature && battleState && !trainingImmersive && (
+      {view === 'map' && battleState && !trainingImmersive && (
         <MapView
           // TrainingMap's map-loading effect runs once per mount (empty deps
           // — see its own comment) on the assumption that changing regions
@@ -1403,7 +1408,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onHeal={handleHeal}
           onQuestionsAnswered={handleQuestionsAnswered}
           onWildEncounterRoll={handleWildEncounterRoll}
-          activeCurio={curio}
+          activeCurio={offline ? null : curio}
           onEnterCurio={handleEnterCurio}
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}

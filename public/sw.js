@@ -52,7 +52,13 @@ const ASSET_EXT = /\.(webp|png|jpe?g|gif|svg|mp3|ogg|m4a)$/i;
 
 // Art and voice under ASSET_PREFIXES, plus the handful of top-level public/
 // images (loading screens, the menu compass).
+// The Training Map's Tiled files (map layouts and tilesets), so the map also opens offline
+// (lib/offlineMap.ts).
+const MAP_DATA_PREFIXES = ['/maps-tiled/', '/maps-tiled-art/'];
+const MAP_DATA_EXT = /\.(json|tmx|tsx)$/i;
+
 function isAsset(url) {
+  if (MAP_DATA_EXT.test(url.pathname) && MAP_DATA_PREFIXES.some(p => url.pathname.startsWith(p))) return true;
   if (!ASSET_EXT.test(url.pathname)) return false;
   return url.pathname.lastIndexOf('/') === 0 || ASSET_PREFIXES.some(p => url.pathname.startsWith(p));
 }
