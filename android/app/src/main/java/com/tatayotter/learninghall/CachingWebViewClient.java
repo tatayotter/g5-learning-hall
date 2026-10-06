@@ -103,8 +103,14 @@ public class CachingWebViewClient extends BridgeWebViewClient {
         MIME_TYPES.put("css", "text/css");
     }
 
+    // How long a failed offline page load gets for the service worker's saved
+    // copy to show before NoConnectionActivity takes over (onReceivedError).
+    private static final long OFFLINE_LOAD_GRACE_MS = 3000;
+    private static final String APP_PAGE_SHOWN_JS = "document.querySelector('script[src*=\"/_next/\"]') !== null";
+
     private final Bridge bridge;
     private final File cacheRoot;
+    private boolean offlineCheckPending = false;
     private final ExecutorService backgroundFetchExecutor = Executors.newFixedThreadPool(2);
 
     public CachingWebViewClient(Bridge bridge) {
@@ -123,14 +129,24 @@ public class CachingWebViewClient extends BridgeWebViewClient {
     // before (see MainActivity). If the service worker has no saved page for
     // it after all (cleared storage, an old install), the main frame fails:
     // show NoConnectionActivity, as before, instead of WebView's error page.
+    // The first try at the page reports that same main-frame error even when
+    // the service worker then shows its saved copy a moment later, so wait,
+    // then only give up if the app's own page (its Next.js scripts) never
+    // showed up.
     @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
         super.onReceivedError(view, request, error);
         if (!request.isForMainFrame() || MainActivity.isOnline(view.getContext())) return;
-        Activity activity = bridge.getActivity();
-        if (activity == null || activity.isFinishing()) return;
-        activity.startActivity(new Intent(activity, NoConnectionActivity.class));
-        activity.finish();
+        if (offlineCheckPending) return;
+        offlineCheckPending = true;
+        view.postDelayed(() -> view.evaluateJavascript(APP_PAGE_SHOWN_JS, shown -> {
+            offlineCheckPending = false;
+            if ("true".equals(shown)) return;
+            Activity activity = bridge.getActivity();
+            if (activity == null || activity.isFinishing()) return;
+            activity.startActivity(new Intent(activity, NoConnectionActivity.class));
+            activity.finish();
+        }), OFFLINE_LOAD_GRACE_MS);
     }
 
     @Override

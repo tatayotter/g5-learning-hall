@@ -1223,7 +1223,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }
 
   const ONLINE_ONLY_VIEWS: Partial<Record<GuildView, string>> = {
-    trainers: 'Trainer battles', trade: 'Trading', leaderboard: 'The leaderboard',
+    trainers: 'Battling trainers', trade: 'Trading', leaderboard: 'The leaderboard',
   };
   const offlineBlockedFeature = offline ? ONLINE_ONLY_VIEWS[view] : undefined;
 
