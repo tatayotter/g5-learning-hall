@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
-// Shown instead of MainActivity whenever the device has no connection at
-// cold start (see MainActivity.onCreate) — this app is online-only, so
-// there is no local webDir fallback to show. "Try Again" just re-checks
+// Shown instead of MainActivity when the device has no connection at cold
+// start and the app has never finished loading online on this phone, or
+// when the saved offline page fails to load (see MainActivity.onCreate and
+// CachingWebViewClient.onReceivedError), since there is no local webDir
+// fallback to show. "Try Again" just re-checks
 // connectivity and, once online, hands off to MainActivity as normal.
 public class NoConnectionActivity extends Activity {
 

@@ -1,6 +1,9 @@
 package com.tatayotter.learninghall;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
@@ -100,12 +103,34 @@ public class CachingWebViewClient extends BridgeWebViewClient {
         MIME_TYPES.put("css", "text/css");
     }
 
+    private final Bridge bridge;
     private final File cacheRoot;
     private final ExecutorService backgroundFetchExecutor = Executors.newFixedThreadPool(2);
 
     public CachingWebViewClient(Bridge bridge) {
         super(bridge);
+        this.bridge = bridge;
         this.cacheRoot = new File(bridge.getContext().getCacheDir(), CACHE_ROOT_DIR_NAME);
+    }
+
+    @Override
+    public void onPageFinished(WebView view, String url) {
+        super.onPageFinished(view, url);
+        if (MainActivity.isOnline(view.getContext())) MainActivity.markLoadedOnline(view.getContext());
+    }
+
+    // An offline cold start opens the WebView when the app has loaded online
+    // before (see MainActivity). If the service worker has no saved page for
+    // it after all (cleared storage, an old install), the main frame fails:
+    // show NoConnectionActivity, as before, instead of WebView's error page.
+    @Override
+    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+        super.onReceivedError(view, request, error);
+        if (!request.isForMainFrame() || MainActivity.isOnline(view.getContext())) return;
+        Activity activity = bridge.getActivity();
+        if (activity == null || activity.isFinishing()) return;
+        activity.startActivity(new Intent(activity, NoConnectionActivity.class));
+        activity.finish();
     }
 
     @Override
