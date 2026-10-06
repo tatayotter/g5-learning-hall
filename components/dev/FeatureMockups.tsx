@@ -122,7 +122,7 @@ export default function FeatureMockups() {
   } else if (scene === 'journal') {
     body = <JournalTab activeUserId={MOCK_USER} journalLogs={journalLogs} characterStats={STATS} weekStartingDate={WEEK} onSave={noop as never} />;
   } else if (scene === 'parent') {
-    body = <ChildProgressPanel childId={MOCK_USER} isPremium coinBalance={500} onCoinsAwarded={noop} />;
+    body = <ChildProgressPanel childId={MOCK_USER} grade="Grade 5" isPremium coinBalance={500} onCoinsAwarded={noop} />;
   } else {
     body = pkg && <BoardMapView activeUserId={MOCK_USER} loginStreak={12} totalQuests={48} masteredQuizzes={['Monday_Mathematics', 'Monday_English', 'Tuesday_Filipino', 'Tuesday_Science']}
       dailyQuestAttempts={{}} dashReferralKey={null} activeEvent={null} eventClaimed={false} claimedMonsterId={null}
