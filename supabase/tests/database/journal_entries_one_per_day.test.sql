@@ -8,8 +8,8 @@ select plan(3);
 
 select has_index('public', 'journal_entries', 'journal_entries_user_day_key', 'one-entry-per-day index exists');
 
-insert into journal_entries (user_id, entry_date, done_today) values ('pgtap_kid_journal', '2030-01-01', 'first');
-insert into journal_entries (user_id, entry_date, done_today) values ('pgtap_kid_journal', '2030-01-01', 'again')
+insert into journal_entries (user_id, entry_date, week_starting_date, done_today) values ('pgtap_kid_journal', '2030-01-01', '2029-12-30', 'first');
+insert into journal_entries (user_id, entry_date, week_starting_date, done_today) values ('pgtap_kid_journal', '2030-01-01', '2029-12-30', 'again')
   on conflict (user_id, entry_date) do nothing;
 
 select is(
