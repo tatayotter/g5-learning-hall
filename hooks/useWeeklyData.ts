@@ -1,5 +1,5 @@
 // hooks/useWeeklyData.ts
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
@@ -7,6 +7,8 @@ import { logAction } from '@/lib/playerlog';
 import { USERS, gradeToNumber } from '@/lib/userSession';
 import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
 import { isOffline, loadOfflineWeekly, saveOfflineWeekly } from '@/lib/offlineSnapshot';
+import { refreshFeatureFlags } from '@/lib/featureFlags';
+import { refreshAnswerKey } from '@/lib/offlineQuests';
 
 export interface CharacterStats {
   level: number;
@@ -274,18 +276,23 @@ export function useWeeklyData(userId: string | null) {
       setData(loaded);
       setOffline(false);
       setLoading(false);
+      // Keeps the remembered flags and, where offline quests are on, this week's answer key
+      // current for the next time the device has no connection (lib/offlineQuests.ts).
+      void refreshFeatureFlags(userId).then(() => {
+        if (weekId) return refreshAnswerKey(userId, [weekId]);
+      });
     }
     fetchData();
     return () => { cancelled = true; };
   }, [currentSunday, userId, grade, reloadKey]);
 
-  // Keeps the offline copy current with every successful load and save (saves update `data`
-  // in place), so offline opening shows the latest gold/xp rather than the session's first load.
+  // Keeps the offline copy current with every load and save (saves update `data` in place),
+  // including quests answered offline, so reopening offline shows the latest gold/xp.
   useEffect(() => {
-    if (!offline && userId && data && data.user_id === userId) {
+    if (userId && data && data.user_id === userId) {
       saveOfflineWeekly(userId, { data, progress, contentWeekId });
     }
-  }, [offline, userId, data, progress, contentWeekId]);
+  }, [userId, data, progress, contentWeekId]);
 
   const updateStatsAndJournal = async (
     newStats: CharacterStats,
@@ -630,5 +637,27 @@ export function useWeeklyData(userId: string | null) {
     setProgress(prev => prev ? { ...prev, level: stats.level, xp: stats.xp, gold: stats.gold } : prev);
   };
 
-  return { data, loading, offline, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
+  // Refetches everything from the server, e.g. after queued offline quests synced (the server's
+  // result replaces the phone's copy).
+  const refresh = useCallback(() => setReloadKey(k => k + 1), []);
+
+  // A main quest answered offline (lib/offlineQuests.ts): shows the result right away, the
+  // same as the online submit would after saving. Nothing is sent from here; the queued answers
+  // are re-graded and the reward applied server-side on sync, and `refresh` then replaces this.
+  const applyOfflineQuestResult = (questKey: string, isPerfect: boolean, newAttempts: number, newStats: CharacterStats) => {
+    setData(prev => {
+      if (!prev) return prev;
+      const next = { ...prev, quiz_attempts: { ...(prev.quiz_attempts || {}), [questKey]: newAttempts } };
+      if (!isPerfect) return next;
+      return {
+        ...next,
+        character_stats: newStats,
+        mastered_quizzes: [...(prev.mastered_quizzes || []), questKey],
+        mastery_count: (prev.mastery_count || 0) + 1,
+        perfect_quizzes: (prev.perfect_quizzes || 0) + 1,
+      };
+    });
+  };
+
+  return { data, loading, offline, refresh, applyOfflineQuestResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
 }

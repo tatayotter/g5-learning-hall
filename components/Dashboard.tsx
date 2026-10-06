@@ -9,6 +9,7 @@ import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import { isOffline, loadOfflineProfile, saveOfflineProfile } from '@/lib/offlineSnapshot';
 import OfflineBanner from '@/components/OfflineBanner';
+import { flushQuestOutbox, offlineQuestsEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -419,7 +420,7 @@ export default function Dashboard() {
   // activeUserId directly (null until hydration resolves it) means there's
   // nothing to fetch or flash during that window — the existing
   // !hydrated/loading/!data guards below already render a loading screen for it.
-  const { data, loading, offline: showingOfflineCopy, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
+  const { data, loading, offline: showingOfflineCopy, refresh, applyOfflineQuestResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -520,6 +521,46 @@ export default function Dashboard() {
   );
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
+
+  // Main quests answered offline (lib/offlineQuests.ts) go to the server on load, on
+  // reconnect and every few minutes. The server re-grades them and pays the reward; the
+  // refetch then replaces the phone's copy with the server's.
+  useEffect(() => {
+    if (!activeUserId) return;
+    const sync = () => {
+      if (pendingQuestEntries(activeUserId).length === 0) return;
+      void flushQuestOutbox(activeUserId).then(synced => {
+        if (synced.length === 0) return;
+        achievementCheckAfterRef.current = dataRef.current;
+        refresh();
+        const gold = synced.reduce((sum, q) => sum + q.gold, 0);
+        setToast({
+          show: true,
+          message: `📡 Saved ${synced.length} quest${synced.length === 1 ? '' : 's'} played offline${gold > 0 ? ` · +${gold} Gold` : ''}`,
+        });
+      });
+    };
+    sync();
+    window.addEventListener('online', sync);
+    const timer = setInterval(sync, 3 * 60 * 1000);
+    return () => {
+      window.removeEventListener('online', sync);
+      clearInterval(timer);
+    };
+  }, [activeUserId, refresh]);
+
+  // The sync pays the quest reward but doesn't check achievements (those are worked out on the
+  // device, in updateStatsAndJournal). Once the refetched data arrives, a zero-change save runs
+  // that check, so e.g. a first mastery earned offline unlocks its achievement as it would have
+  // online. Keyed on the data object from before the refetch, so it waits for the fresh copy.
+  const achievementCheckAfterRef = useRef<typeof data | undefined>(undefined);
+  const dataRef = useRef(data);
+  useEffect(() => {
+    dataRef.current = data;
+    if (achievementCheckAfterRef.current === undefined || !data || data === achievementCheckAfterRef.current || showingOfflineCopy) return;
+    achievementCheckAfterRef.current = undefined;
+    void bumpCounters({});
+  }, [data, showingOfflineCopy, bumpCounters]);
   const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
   const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
@@ -991,7 +1032,7 @@ export default function Dashboard() {
         />
       )}
       <div className="h-screen flex flex-col">
-      {(showingOfflineCopy || !online) && <OfflineBanner />}
+      {(showingOfflineCopy || !online) && <OfflineBanner questsWork={offlineQuestsEnabled(activeUserId)} />}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
       {introStart && data && (
@@ -1282,8 +1323,10 @@ export default function Dashboard() {
             studyReadRemaining={studyReadRemaining}
             data={data}
             todayStr={todayStr}
+            contentWeekId={contentWeekId}
             updateStatsAndJournal={updateStatsAndJournal}
             bumpDailyQuestAttempt={bumpDailyQuestAttempt}
+            applyOfflineQuestResult={applyOfflineQuestResult}
           />
         )}
 
