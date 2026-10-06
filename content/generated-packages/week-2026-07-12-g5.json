@@ -3,7 +3,7 @@
   "week_starting_date": "2026-07-12",
   "days": {
     "Monday": {
-      "Math": {
+      "Mathematics": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Multi-Step Fraction Problems:** Solve word problems requiring multiple steps using the **4-Step Model**: **Understand** (facts and goals), **Plan** (strategy), **Solve** (computation), and **Look Back** (checking reasonableness).\n* **Keyword Signal:** The word **'of'** in fraction problems usually signals the **multiplication** operation (e.g., finding 1/2 of 3/4).\n* **Budgeting Example:** If Rita earns ₱18,000 and spends 1/6 on rent and 1/3 on food, you multiply each fraction by 18,000 first (₱3,000 and ₱6,000) then add them to find total expenses (₱9,000).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Geometry Foundations:** We will begin identifying the **height and area** of parallelograms and triangles using grid models.",
         "quiz": [
           {
@@ -159,7 +159,7 @@
       }
     },
     "Tuesday": {
-      "EPP/TLE": {
+      "EPP (ICT)": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Netiquette:** Ang etiketa o tamang asal sa internet, tulad ng paggamit ng **magalang na salita** at pagprotekta sa **privacy** (huwag ibahagi ang password).\n* **Web Browser:** Programang ginagamit upang makapasok sa internet; ang URL ay tina-type sa **Address Bar**.\n* **Search Engines:** Nakakatulong sa paghahanap ng impormasyon; gumamit ng mga angkop na **keywords** para sa mas mabilis at tamang resulta.\n* **Information Verification:** Bago maniwala, dapat **i-verify** muna ang katotohanan ng impormasyong nahanap online.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Safe E-mailing:** Pag-aaralan natin ang tamang pagpapadala ng **attachments** at ang gamit ng **CC at BCC**.",
         "quiz": [
           {
@@ -729,7 +729,7 @@
           }
         ]
       },
-      "Values Education": {
+      "GMRC": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Pananampalataya:** Ito ay ang malalim na **tiwala at pananalig sa Diyos** na nagsisilbing gabay sa wastong asal.\n* **Banal na Aklat:** Mga sagradong kasulatan na naglalaman ng aral at gabay; halimbawa: **Bibliya** (Kristiyanismo), **Quran** (Islam), **Vedas** (Hinduismo), **Tripitaka** (Budismo), at **Torah** (Judaismo).\n* **Paggalang:** Mahalagang igalang ang Banal na Aklat ng iba bilang tanda ng mabuting pagkatao at pagkilala sa kanilang karapatan.\n* **Paghubog ng Karakter:** Ang pananampalataya ay nagbibigay ng lakas at pag-asa sa oras ng pagsubok.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Masinop na Pamumuhay:** Pag-uusapan natin ang pagiging **masinop** (prudent) sa pamamagitan ng tamang pagreresiklo ng technological waste.",
         "quiz": [
           {
