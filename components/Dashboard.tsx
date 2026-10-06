@@ -9,7 +9,8 @@ import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import { isOffline, loadOfflineProfile, saveOfflineProfile } from '@/lib/offlineSnapshot';
 import OfflineBanner from '@/components/OfflineBanner';
-import { flushQuestOutbox, offlineQuestsEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
+import { flushQuestOutbox, offlinePlayEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
+import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuildSession } from '@/lib/offlineGuilds';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -420,7 +421,7 @@ export default function Dashboard() {
   // activeUserId directly (null until hydration resolves it) means there's
   // nothing to fetch or flash during that window — the existing
   // !hydrated/loading/!data guards below already render a loading screen for it.
-  const { data, loading, offline: showingOfflineCopy, refresh, applyOfflineQuestResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
+  const { data, loading, offline: showingOfflineCopy, refresh, applyOfflineQuestResult, applyOfflineGuildResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -522,23 +523,30 @@ export default function Dashboard() {
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
 
-  // Main quests answered offline (lib/offlineQuests.ts) go to the server on load, on
-  // reconnect and every few minutes. The server re-grades them and pays the reward; the
-  // refetch then replaces the phone's copy with the server's.
+  // Main quests and guild sessions played offline (lib/offlineQuests.ts,
+  // lib/offlineGuilds.ts) go to the server on load, on reconnect and every few minutes. The
+  // server re-grades quests, clamps guild rewards and pays once; the refetch then replaces
+  // the phone's copy with the server's.
   useEffect(() => {
     if (!activeUserId) return;
     const sync = () => {
-      if (pendingQuestEntries(activeUserId).length === 0) return;
-      void flushQuestOutbox(activeUserId).then(synced => {
-        if (synced.length === 0) return;
+      if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0) return;
+      void (async () => {
+        const quests = await flushQuestOutbox(activeUserId);
+        const guilds = await flushGuildOutbox(activeUserId);
+        if (quests.length === 0 && guilds.length === 0) return;
         achievementCheckAfterRef.current = dataRef.current;
         refresh();
-        const gold = synced.reduce((sum, q) => sum + q.gold, 0);
+        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0);
+        const parts = [
+          quests.length > 0 && `${quests.length} quest${quests.length === 1 ? '' : 's'}`,
+          guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,
+        ].filter(Boolean).join(' and ');
         setToast({
           show: true,
-          message: `📡 Saved ${synced.length} quest${synced.length === 1 ? '' : 's'} played offline${gold > 0 ? ` · +${gold} Gold` : ''}`,
+          message: `📡 Saved ${parts} played offline${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
         });
-      });
+      })();
     };
     sync();
     window.addEventListener('online', sync);
@@ -1002,6 +1010,21 @@ export default function Dashboard() {
   // activeGuild already identifies that from closure.
   const handleGuildGoldEarned = (newStats: CharacterStats, score: GuildSessionScore) => {
     if (!activeGuild) return;
+    // Offline: queue it for sync_offline_guild_session (which also records the session, so
+    // markGuildSessionToday is skipped) and show the gold straight away.
+    if (playingGuildsOffline(activeUserId)) {
+      queueGuildSession(activeUserId, {
+        guildKey: activeGuild,
+        contentWeekId: contentWeekId ?? null,
+        questionIds: score.completedIds ?? [],
+        questionsAnswered: score.questionsAnswered,
+        correctCount: score.correctCount,
+        gold: newStats.gold - data.character_stats.gold,
+        subclassXp: score.subclassXp ?? 0,
+      });
+      applyOfflineGuildResult(newStats);
+      return;
+    }
     void markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'), score);
     updateStatsAndJournal(
       newStats, data.journal_logs,
@@ -1032,7 +1055,7 @@ export default function Dashboard() {
         />
       )}
       <div className="h-screen flex flex-col">
-      {(showingOfflineCopy || !online) && <OfflineBanner questsWork={offlineQuestsEnabled(activeUserId)} />}
+      {(showingOfflineCopy || !online) && <OfflineBanner questsWork={offlinePlayEnabled(activeUserId)} />}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
       {introStart && data && (

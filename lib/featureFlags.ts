@@ -1,12 +1,12 @@
 // lib/featureFlags.ts
 //
 // Hidden rollout switches (feature_flags table, my_feature_flags RPC — see
-// supabase/migrations/20261006070000_offline_main_quests.sql). Fetched on
+// supabase/migrations/20261006070000_offline_play.sql). Fetched on
 // every online load and remembered per player, so a flag that's on keeps
 // working offline. Unknown or never-fetched flags read as off.
 import { supabase } from '@/lib/supabase';
 
-export type FeatureFlag = 'offline_main_quests';
+export type FeatureFlag = 'offline_play';
 
 const KEY = (userId: string) => `lh_flags_${userId}`;
 

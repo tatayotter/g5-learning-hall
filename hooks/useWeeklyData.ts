@@ -659,5 +659,15 @@ export function useWeeklyData(userId: string | null) {
     });
   };
 
-  return { data, loading, offline, refresh, applyOfflineQuestResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
+  // A guild session queued offline (lib/offlineGuilds.ts): its gold and the week's session
+  // count, on the device only until it syncs.
+  const applyOfflineGuildResult = (newStats: CharacterStats) => {
+    setData(prev => prev && {
+      ...prev,
+      character_stats: newStats,
+      guild_sessions_count: (prev.guild_sessions_count || 0) + 1,
+    });
+  };
+
+  return { data, loading, offline, refresh, applyOfflineQuestResult, applyOfflineGuildResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
 }

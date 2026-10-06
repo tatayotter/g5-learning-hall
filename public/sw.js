@@ -45,6 +45,9 @@ const ASSET_PREFIXES = [
   '/sprite/', '/tap_npc_sprites/', '/tiles/', '/tilesets/', '/maps/', '/maps-tiled/', '/maps-tiled-art/',
   '/sounds/', '/userpics/',
 ];
+// Art an offline screen can need before it has ever been shown online: the reward icons on
+// every quest and guild result screen.
+const PRECACHE_ASSETS = ['/icons/stats/star.png', '/icons/rewards/gold_coin.svg'];
 const ASSET_EXT = /\.(webp|png|jpe?g|gif|svg|mp3|ogg|m4a)$/i;
 
 // Art and voice under ASSET_PREFIXES, plus the handful of top-level public/
@@ -62,7 +65,10 @@ self.addEventListener('install', (event) => {
   // registered this worker loaded before it could see any requests. Done
   // here, not in activate, because page loads wait on an activating worker
   // but not on an installing one. Best-effort: a failure mustn't stop push.
-  event.waitUntil(refreshShell().catch(() => {}));
+  event.waitUntil(Promise.all([
+    refreshShell().catch(() => {}),
+    caches.open(ASSET_CACHE).then(cache => cache.addAll(PRECACHE_ASSETS)).catch(() => {}),
+  ]));
 });
 
 self.addEventListener('activate', (event) => {

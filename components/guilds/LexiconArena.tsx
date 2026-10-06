@@ -173,7 +173,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
       xp: newXp,
       level: newLevel,
     };
-    onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
+    onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount, completedIds: engine.completedQuestionIds, subclassXp: engine.totalXpEarned });
     logAction(userId, weekStartingDate, 'side_quest', `Lexicon Arena session: ${engine.correctCount} correct, ${engine.wrongCount} wrong, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
   };
 

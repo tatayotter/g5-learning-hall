@@ -1,10 +1,10 @@
--- pgTAP tests for 20261006070000_offline_main_quests.sql: the feature flag gate, the
--- login-required answer key, and sync_offline_main_quest's re-grading, one-time reward and
--- claimed-time window.
+-- pgTAP tests for 20261006070000_offline_play.sql: the feature flag gate, the
+-- login-required answer key, sync_offline_main_quest's re-grading, one-time reward and
+-- claimed-time window, and sync_offline_guild_session's clamping, level-up and replay.
 
 begin;
 create extension if not exists pgtap;
-select plan(22);
+select plan(35);
 
 -- ── Fixture ──────────────────────────────────────────────────────────────────
 create temp table fx as
@@ -46,7 +46,7 @@ update fx set
             where d.weekday = 'Tuesday' and cq.prompt = '2+3?' and d.content_week_id = (select id from content_weeks where grade = 5 and week_starting_date = '2030-02-03'));
 
 update feature_flags set mode = 'allowlist', allowlist = array[(select user_a from fx)]
-where key = 'offline_main_quests';
+where key = 'offline_play';
 
 create or replace function pg_temp.login_as(p_auth_uid uuid) returns void as $$
 begin
@@ -76,7 +76,7 @@ select pg_temp.login_as(auth_b) from fx;
 select is(public.my_feature_flags((select user_b from fx)), '{}'::text[], 'a kid not on the allowlist has no flags');
 select throws_ok(
   format('select get_answer_key(%L, array[%L]::uuid[])', (select user_b from fx), (select week_id from fx)),
-  'P0001', 'offline main quests are not enabled for this account',
+  'P0001', 'offline play is not enabled for this account',
   'the answer key needs the flag'
 );
 select throws_ok(
@@ -86,7 +86,7 @@ select throws_ok(
 );
 
 select pg_temp.login_as(auth_a) from fx;
-select is(public.my_feature_flags((select user_a from fx)), '{offline_main_quests}'::text[], 'an allowlisted kid sees the flag');
+select is(public.my_feature_flags((select user_a from fx)), '{offline_play}'::text[], 'an allowlisted kid sees the flag');
 select is(
   public.get_answer_key((select user_a from fx), array[(select week_id from fx)]),
   (select jsonb_build_object(mon_q1, '4', mon_q2, '5', tue_q1, '4', tue_q2, '5') from fx),
@@ -176,6 +176,87 @@ select throws_ok(
     (select user_b from fx), (select week_id from fx), 'Monday', 'Mathematics', '[]'),
   'P0001', 'not authorized',
   'a kid cannot sync for someone else'
+);
+
+-- ── Guild sessions ───────────────────────────────────────────────────────────
+
+select pg_temp.login_as(auth_a) from fx;
+insert into user_subclass_profiles (user_id, number_realm_lvl, number_realm_xp)
+select user_a, 4, 450 from fx;
+
+create temp table g1 as
+select public.sync_offline_guild_session(user_a, '00000000-0000-0000-0000-0000000000c1', 'number_realm', week_id,
+  array['00000000-0000-0000-0000-0000000000d1', '00000000-0000-0000-0000-0000000000d2']::uuid[],
+  3, 2, 30, 100, now() - interval '2 days') as res from fx;
+
+select is((select (res ->> 'gold')::int from g1), 30, 'a guild session pays the gold it earned');
+select is(
+  (select gold from player_progress where user_id = (select user_a from fx)), 80,
+  'the guild gold lands in player_progress'
+);
+select is(
+  (select array[number_realm_lvl, number_realm_xp] from user_subclass_profiles where user_id = (select user_a from fx)),
+  array[5, 50],
+  'subclass xp is added to the server''s level and rolls over at 500'
+);
+select ok(
+  exists (select 1 from user_caught_monsters where user_id = (select user_a from fx) and monster_id = 'numberrealm_familiar'),
+  'reaching level 5 grants the guild companion'
+);
+select is(
+  (select array[sessions_played, questions_answered, correct_count] from guild_sessions
+   where user_id = (select user_a from fx) and guild_key = 'number_realm'
+     and played_on = ((now() - interval '2 days') at time zone 'Asia/Manila')::date),
+  array[1, 3, 2],
+  'the session is recorded on the day it was played'
+);
+select is(
+  (select count(*)::int from user_completed_questions where user_id = (select user_a from fx) and quest_type = 'number_realm'),
+  2,
+  'the correctly answered questions are marked completed'
+);
+
+select is(
+  (select (public.sync_offline_guild_session(user_a, '00000000-0000-0000-0000-0000000000c1', 'number_realm', week_id,
+    array[]::uuid[], 3, 2, 30, 100, now()) ->> 'replayed')::boolean from fx),
+  true,
+  'retrying the same guild entry returns the stored result'
+);
+select is(
+  (select array[gold, guild_sessions_count_total] from player_progress where user_id = (select user_a from fx)),
+  array[80, 1],
+  'the retry pays and counts nothing more'
+);
+
+select is(
+  (select (public.sync_offline_guild_session(user_a, '00000000-0000-0000-0000-0000000000c2', 'number_realm', week_id,
+    array[]::uuid[], 1, 1, 10000, 10000, now()) ->> 'gold')::int from fx),
+  53,
+  'gold is clamped to what the correct answers could have earned'
+);
+select is(
+  (select array[number_realm_lvl, number_realm_xp] from user_subclass_profiles where user_id = (select user_a from fx)),
+  array[5, 100],
+  'subclass xp is clamped too'
+);
+select is(
+  (select guild_sessions_count from player_weekly_journal
+   where user_id = (select user_a from fx) and content_week_id = (select week_id from fx)),
+  2,
+  'each session counts toward the week''s guild sessions'
+);
+
+select throws_ok(
+  format('select sync_offline_guild_session(%L, gen_random_uuid(), %L, null, null, 1, 1, 1, 1, now())',
+    (select user_b from fx), 'number_realm'),
+  'P0001', 'not authorized',
+  'a kid cannot sync a guild session for someone else'
+);
+select throws_ok(
+  format('select sync_offline_guild_session(%L, gen_random_uuid(), %L, null, null, 1, 1, 1, 1, now())',
+    (select user_a from fx), 'monster_arena'),
+  'P0001', 'unknown guild key: monster_arena',
+  'only the five side quest guilds sync this way'
 );
 
 select * from finish();

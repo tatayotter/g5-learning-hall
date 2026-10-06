@@ -11,14 +11,15 @@ that require internet." Anything that lowers gold is online-only; using items is
 |---|---|
 | App opens offline (shell, scripts, art, this week's content cached) | `public/sw.js` |
 | Last-loaded profile and progress kept on the device; no sign-out offline | `lib/offlineSnapshot.ts`, `components/Dashboard.tsx` |
-| Main quests offline: instant grading from a downloaded answer key, queued answers, server re-grade and one-time reward on reconnect | `lib/offlineQuests.ts`, `supabase/migrations/20261006070000_offline_main_quests.sql` |
-| Hidden rollout flag (`feature_flags`, off / allowlist / everyone) | same migration, `lib/featureFlags.ts` |
+| Main quests offline: instant grading from a downloaded answer key, queued answers, server re-grade and one-time reward on reconnect | `lib/offlineQuests.ts`, `supabase/migrations/20261006070000_offline_play.sql` |
+| Side quest guilds offline: each guild's last question batch and the subclass profile kept on the device, finished sessions queued, reward clamped and applied once on reconnect (gold, guild level, completed questions, the level-5 companion) | `lib/offlineGuilds.ts`, `lib/guildEngine.ts`, same migration |
+| Hidden rollout flag (`feature_flags`, off / allowlist / everyone), one key `offline_play` for all of the above | same migration, `lib/featureFlags.ts` |
 
-Turn offline main quests on for chosen kids:
+Turn offline play on for chosen kids:
 
 ```sql
 update feature_flags set mode = 'allowlist', allowlist = '{<child id>,<child id>}'
-where key = 'offline_main_quests';
+where key = 'offline_play';
 ```
 
 ## Decisions (Rowil's answers)
@@ -59,6 +60,9 @@ where key = 'offline_main_quests';
 
 - Battle rewards stay calculated on the phone, so devtools can still create gold within the daily caps. Gold can't become spending power, because every spend is online and parent-link checked.
 - Offline PIN hashes are only safe on personal devices.
+- Guild sessions played offline replay the device's last batch of questions (fresh ones first), so a long offline stretch repeats questions; online play moves on to new ones and to the next grade stage.
+- The level-5 guild companion and companion evolutions earned offline arrive on sync (the toast says so), not on the result screen.
+- If a guild is opened online before an offline session has synced, its online save writes the level it saw, which can drop that session's guild xp. Same race as two devices today; the sync runs on load, so the window is short.
 
 ## Not decided yet
 

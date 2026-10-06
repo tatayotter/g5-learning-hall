@@ -1,7 +1,7 @@
 // lib/offlineQuests.ts
 //
 // Main quests with no connection (docs/offline-mode-plan.md, first slice).
-// On the installed app, for players with the 'offline_main_quests' flag:
+// On the installed app, for players with the 'offline_play' flag:
 // - the week's answer key is downloaded while online (get_answer_key RPC,
 //   login-required, never through the public /api/content cache), so an
 //   offline quiz is graded the moment it's submitted, same as online;
@@ -20,8 +20,8 @@ import { isOffline } from '@/lib/offlineSnapshot';
 const KEY_STORE = (userId: string) => `lh_answer_key_${userId}`;
 const OUTBOX = (userId: string) => `lh_quest_outbox_${userId}`;
 
-export function offlineQuestsEnabled(userId: string): boolean {
-  return (isNativeApp() || isRunningInstalled()) && hasFeatureFlag(userId, 'offline_main_quests');
+export function offlinePlayEnabled(userId: string): boolean {
+  return (isNativeApp() || isRunningInstalled()) && hasFeatureFlag(userId, 'offline_play');
 }
 
 function read<T>(key: string, fallback: T): T {
@@ -49,7 +49,7 @@ interface StoredAnswerKey {
 }
 
 export async function refreshAnswerKey(userId: string, weekIds: string[]): Promise<void> {
-  if (!offlineQuestsEnabled(userId) || weekIds.length === 0) return;
+  if (!offlinePlayEnabled(userId) || weekIds.length === 0) return;
   const { data, error } = await supabase.rpc('get_answer_key', {
     p_user_id: userId,
     p_content_week_ids: weekIds,
@@ -63,7 +63,7 @@ function answerKey(userId: string): Record<string, string> {
 }
 
 export function canAnswerOffline(userId: string, questionIds: string[]): boolean {
-  if (!offlineQuestsEnabled(userId) || questionIds.length === 0) return false;
+  if (!offlinePlayEnabled(userId) || questionIds.length === 0) return false;
   const key = answerKey(userId);
   return questionIds.every(id => id in key);
 }

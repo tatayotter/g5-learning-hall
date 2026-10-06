@@ -3,8 +3,8 @@
 // Shown by Dashboard while there's no connection. The realm still opens from
 // the cached shell and the player's last-loaded progress (public/sw.js,
 // lib/offlineSnapshot.ts), but anything that saves needs the server, so this
-// says so up front instead of letting a quiz end in a failed save. With offline
-// main quests on (lib/offlineQuests.ts) those do save, on the device.
+// says so up front instead of letting a quiz end in a failed save. With offline play
+// on (lib/offlineQuests.ts, lib/offlineGuilds.ts) quests and guilds do save, on the device.
 export default function OfflineBanner({ questsWork = false }: { questsWork?: boolean }) {
   return (
     <div
@@ -13,7 +13,7 @@ export default function OfflineBanner({ questsWork = false }: { questsWork?: boo
     >
       <span aria-hidden>📡</span>
       <span>{questsWork
-        ? 'Offline: main quests save on this device and sync when you reconnect.'
+        ? 'Offline: quests and guilds save on this device and sync when you reconnect.'
         : 'Offline: showing your last saved progress. Reconnect to save.'}</span>
     </div>
   );
