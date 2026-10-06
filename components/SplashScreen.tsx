@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
+import { useIsOffline } from '@/hooks/useIsOffline';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
@@ -64,6 +65,7 @@ function RosterAvatar({
 export default function SplashScreen({ onSelect }: SplashScreenProps) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
+  const offline = useIsOffline();
   const [loginTarget, setLoginTarget] = useState<{ id: UserId; name: string } | null>(null);
   const [passwordInput, setPasswordInput] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -266,7 +268,13 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
           <div className="flex-1 min-h-0 relative">
             <div className="h-full overflow-y-auto pr-1 -mr-1 custom-scrollbar pb-4">
               {visibleIds.length === 0 && (
-                <p className="text-center text-blue-100/60 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
+                <p className="text-center text-blue-100/60 text-sm py-6">
+                  {searchQuery.trim()
+                    ? <>No players match &quot;{searchQuery}&quot;</>
+                    : offline
+                      ? 'Connect to the internet to see players.'
+                      : 'No players yet.'}
+                </p>
               )}
               <div className="grid grid-cols-2 gap-2.5">
                 {visibleIds.map((id, i) => {
