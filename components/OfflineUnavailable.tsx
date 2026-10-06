@@ -1,21 +1,31 @@
 // components/OfflineUnavailable.tsx
 //
-// Placeholder shown in the Android offline shell for tabs that are
-// inherently online-only (live multiplayer, server-validated purchases,
-// server-only grading) — see the Phase 3 plan doc for why each one qualifies.
+// Shown in place of a screen that is inherently online-only (live multiplayer,
+// server-validated purchases, server-only grading) while the device is offline,
+// e.g. the Curio Arena's Training Map, Trainers, Trade and Leaderboard. Uses the
+// parchment "pending" panel from docs/STYLE_GUIDE.md.
 interface OfflineUnavailableProps {
   feature: string;
   reason?: string;
+  action?: { label: string; onClick: () => void };
 }
 
-export default function OfflineUnavailable({ feature, reason }: OfflineUnavailableProps) {
+export default function OfflineUnavailable({ feature, reason, action }: OfflineUnavailableProps) {
   return (
-    <div className="bg-[#111] border border-[#333] p-10 rounded-xl shadow-2xl mb-6 text-center">
-      <div className="text-4xl mb-4">📡</div>
-      <h2 className="text-xl font-bold text-gray-300 mb-2 font-display">{feature} needs an internet connection</h2>
-      <p className="text-gray-500 text-sm max-w-md mx-auto">
+    <div className="bg-[#f0ddb8] border-2 border-[#8b5e2a] p-8 rounded-xl shadow-lg mb-6 text-center">
+      <div className="text-4xl mb-3" aria-hidden>📡</div>
+      <h2 className="text-xl font-bold text-[#2a1505] mb-2">{feature} needs an internet connection</h2>
+      <p className="text-[#3a2610] text-sm max-w-md mx-auto">
         {reason || `Reconnect to Wi-Fi or mobile data to use ${feature}. Your offline practice progress is safe and will sync automatically once you're back online.`}
       </p>
+      {action && (
+        <button
+          onClick={action.onClick}
+          className="mt-5 px-5 py-2 rounded-lg font-bold bg-[#8b5e2a] hover:bg-[#6b4820] text-white active:scale-95 transition-all"
+        >
+          {action.label}
+        </button>
+      )}
     </div>
   );
 }

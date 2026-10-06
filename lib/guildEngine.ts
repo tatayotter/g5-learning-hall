@@ -4,6 +4,7 @@ import { PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
+import { cachedRead } from '@/lib/offlineReads';
 import {
   playingGuildsOffline, saveGuildPool, loadGuildPool, saveSubclassProfile, loadSubclassProfile, updateSavedSubclassProfile,
 } from '@/lib/offlineGuilds';
@@ -358,12 +359,16 @@ export async function markQuestionsCompleted(userId: string, questType: string, 
 export const MONSTER_ARENA_QUEST_TYPE = 'monster_arena';
 
 export async function fetchAnsweredArenaQuestionIds(userId: string): Promise<Set<string>> {
-  const { data } = await supabase
-    .from('user_completed_questions')
-    .select('question_id')
-    .eq('user_id', userId)
-    .eq('quest_type', MONSTER_ARENA_QUEST_TYPE);
-  return new Set((data || []).map((row: any) => row.question_id));
+  const ids = await cachedRead(userId, 'arenaAnswered', async () => {
+    const { data, error } = await supabase
+      .from('user_completed_questions')
+      .select('question_id')
+      .eq('user_id', userId)
+      .eq('quest_type', MONSTER_ARENA_QUEST_TYPE);
+    if (error) throw error;
+    return (data || []).map((row: any) => row.question_id as string);
+  }, [] as string[]);
+  return new Set(ids);
 }
 
 export async function markArenaQuestionsCompleted(userId: string, questions: any[]) {

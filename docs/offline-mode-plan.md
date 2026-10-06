@@ -13,6 +13,7 @@ that require internet." Anything that lowers gold is online-only; using items is
 | Last-loaded profile and progress kept on the device; no sign-out offline | `lib/offlineSnapshot.ts`, `components/Dashboard.tsx` |
 | Main quests offline: instant grading from a downloaded answer key, queued answers, server re-grade and one-time reward on reconnect | `lib/offlineQuests.ts`, `supabase/migrations/20261006070000_offline_play.sql` |
 | Side quest guilds offline: each guild's last question batch and the subclass profile kept on the device, finished sessions queued, reward clamped and applied once on reconnect (gold, guild level, completed questions, the level-5 companion) | `lib/offlineGuilds.ts`, `lib/guildEngine.ts`, same migration |
+| Read-only screens offline: the profile, achievements and the Curio Arena's team, Hatchery and Compendium open from the last copy seen online; the Training Map, Trainers, Trade and Leaderboard show "needs an internet connection", and team, skill and egg buttons say to reconnect | `lib/offlineReads.ts`, `lib/curioCollection.ts`, `components/MonsterGuild.tsx` |
 | Hidden rollout flag (`feature_flags`, off / allowlist / everyone), one key `offline_play` for all of the above | same migration, `lib/featureFlags.ts` |
 
 Turn offline play on for chosen kids:

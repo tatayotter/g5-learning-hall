@@ -7,10 +7,11 @@ import { saveAvatar } from '@/lib/userSession';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
 import { ACHIEVEMENTS } from '@/lib/achievements';
-import { fetchLifetimeBattleStats, LifetimeBattleStats, fetchPlayerProgress, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
+import { fetchLifetimeBattleStats, LifetimeBattleStats, fetchPlayerProgressForDisplay, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
 import { fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import AvatarPicker from '@/components/AvatarPicker';
-import { supabase } from '@/lib/supabase';
+import { fetchCurioCollection } from '@/lib/curioCollection';
+import { cachedRead } from '@/lib/offlineReads';
 import {
   ALL_MONSTERS, GUILD_MONSTERS, MonsterDef,
   getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
@@ -161,22 +162,26 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     fetchInventory(userId).then(setInventory);
   }, [userId, avatarTick]);
 
-  // Team roster for the Trainer Card — same fetch shape as PlayerStatsPopup's
+  // Team roster for the Trainer Card — same rows as PlayerStatsPopup's
   // "Team" section, so a guild companion or graduated species displays
-  // identically here as it does when a classmate looks this player up.
+  // identically here as it does when a classmate looks this player up. Read
+  // through the Curio Arena's collection so it also opens offline
+  // (lib/curioCollection.ts).
   useEffect(() => {
     let cancelled = false;
     async function loadTeam() {
-      const [stateRes, monstersRes, ownedRes, subProfile] = await Promise.all([
-        supabase.from('user_battle_state').select('active_monster_slot').eq('user_id', userId).single(),
-        supabase.from('user_monsters').select('slot, monster_id, nickname, monster_level, graduation_tier').eq('user_id', userId).not('slot', 'is', null).order('slot'),
-        supabase.from('user_monsters').select('id', { count: 'exact', head: true }).eq('user_id', userId),
+      const [collection, subProfile] = await Promise.all([
+        fetchCurioCollection(userId),
         fetchSubclassProfile(userId),
       ]);
       if (cancelled) return;
-      setActiveSlot(stateRes.data?.active_monster_slot ?? null);
-      setActiveCurios(monstersRes.data || []);
-      setOwnedCuriosCount(ownedRes.count ?? 0);
+      setActiveSlot(collection.battleState?.active_monster_slot ?? null);
+      setActiveCurios(
+        collection.userMonsters
+          .filter(m => m.slot !== null && m.slot !== undefined)
+          .sort((a, b) => a.slot - b.slot),
+      );
+      setOwnedCuriosCount(collection.userMonsters.length);
       setSubclassProfile(subProfile);
     }
     loadTeam();
@@ -212,12 +217,16 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   // regardless of which battle-record view is showing — see
   // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2.
   useEffect(() => {
-    fetchPlayerProgress(userId).then(setProgress);
+    fetchPlayerProgressForDisplay(userId).then(setProgress);
   }, [userId]);
 
   // Fetch this player's referral key via RPC (children RLS blocks direct reads).
   useEffect(() => {
-    getMyReferralKey().then(key => { if (key) setReferralKey(key); });
+    cachedRead(userId, 'referralKey', async () => {
+      const key = await getMyReferralKey();
+      if (!key) throw new Error('no referral key');
+      return key;
+    }, null as string | null).then(key => { if (key) setReferralKey(key); });
   }, [userId]);
 
   // guild_sessions_count/monster_battles_won/etc. reset every week (see

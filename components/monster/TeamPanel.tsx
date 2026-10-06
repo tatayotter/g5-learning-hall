@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { needsConnection } from '@/lib/offlineReads';
 import {
   ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS, Element, ELEMENT_ICON_SRC,
   getUnlockedMonsterSlots, getScaledStats, getEquippedSkills,
@@ -106,6 +107,7 @@ export default function TeamPanel({
   const [missionLockedIds, setMissionLockedIds] = useState<Set<string>>(new Set());
 
   const handleClaimEgg = async (monsterRowId: string) => {
+    if (needsConnection()) return;
     setEggClaimBusy(true);
     try {
       const result = await claimCurioEgg(userId, monsterRowId);
@@ -136,6 +138,7 @@ export default function TeamPanel({
     // two rows of the same species at once (kept a duplicate catch while the
     // original was already on the team), so looking the row up by species
     // alone is ambiguous and previously errored out silently.
+    if (needsConnection()) return;
     const { error } = await supabase.rpc('set_team_slot', {
       p_user_id: userId, p_monster_id: monsterId, p_slot: slot, p_monster_row_id: monsterRowId,
     });
@@ -148,6 +151,7 @@ export default function TeamPanel({
 
   const handleUnlearn = async (monsterRowId: string, slotIndex: number, skill: Skill, monsterDef: MonsterDef) => {
     if (actionBusyRef.current) return;
+    if (needsConnection()) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
@@ -166,6 +170,7 @@ export default function TeamPanel({
 
   const handleLearn = async (monsterRowId: string, slotIndex: number, skillId: string, scrollKey: string, monsterDef: MonsterDef) => {
     if (actionBusyRef.current) return;
+    if (needsConnection()) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
@@ -186,6 +191,7 @@ export default function TeamPanel({
 
   const handleGraduate = async (monsterRowId: string, requiredLevel: number, targetTier: 1 | 2, speciesId: string, currentTier: number, monsterLevel: number, quality: QualityTier) => {
     if (actionBusyRef.current) return;
+    if (needsConnection()) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
@@ -215,6 +221,7 @@ export default function TeamPanel({
 
   const handleUseGrowthPill = async (monsterRowId: string, def: MonsterDef, currentLevel: number, currentExp: number, quality: QualityTier) => {
     if (actionBusyRef.current) return;
+    if (needsConnection()) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {
@@ -238,6 +245,7 @@ export default function TeamPanel({
 
   const handleTutor = async (monsterRowId: string, monsterName: string, def: MonsterDef, monsterLevel: number, useTome: boolean) => {
     if (actionBusyRef.current) return;
+    if (needsConnection()) return;
     actionBusyRef.current = true;
     setActionBusy(true);
     try {

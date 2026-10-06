@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { cachedRead } from './offlineReads';
 
 export type GuildKey = 'lorekeeper' | 'spellcaster' | 'number_realm' | 'logic_labyrinth' | 'lexicon_arena';
 
@@ -107,22 +108,25 @@ export interface ChecklistStreakInfo {
 // Preview of the streak ladder — how many consecutive days the player is
 // on, and what claiming today would earn — so the To-Dos panel can show
 // this before the claim button is even pressed.
+// Offline (lib/offlineReads.ts) this is the last streak seen online, kept per day so an old
+// "claimed today" never carries over to a new day.
 export async function fetchDailyChecklistStreak(userId: string, today: string): Promise<ChecklistStreakInfo> {
-  const { data, error } = await supabase.rpc('get_daily_checklist_streak', {
-    p_user_id: userId,
-    p_today: today,
-  });
+  const empty: ChecklistStreakInfo = { claimedToday: false, currentStreak: 0, nextStreak: 1, todayGold: null, nextGold: STREAK_GOLD_LADDER[0] };
+  return cachedRead(userId, `checklistStreak_${today}`, async () => {
+    const { data, error } = await supabase.rpc('get_daily_checklist_streak', {
+      p_user_id: userId,
+      p_today: today,
+    });
 
-  if (error || !data) {
-    return { claimedToday: false, currentStreak: 0, nextStreak: 1, todayGold: null, nextGold: STREAK_GOLD_LADDER[0] };
-  }
-  return {
-    claimedToday: !!data.claimedToday,
-    currentStreak: data.currentStreak ?? 0,
-    nextStreak: data.nextStreak ?? 1,
-    todayGold: data.todayGold ?? null,
-    nextGold: data.nextGold ?? STREAK_GOLD_LADDER[0],
-  };
+    if (error || !data) throw error ?? new Error('no streak');
+    return {
+      claimedToday: !!data.claimedToday,
+      currentStreak: data.currentStreak ?? 0,
+      nextStreak: data.nextStreak ?? 1,
+      todayGold: data.todayGold ?? null,
+      nextGold: data.nextGold ?? STREAK_GOLD_LADDER[0],
+    };
+  }, empty);
 }
 
 export interface ChecklistClaimResult {

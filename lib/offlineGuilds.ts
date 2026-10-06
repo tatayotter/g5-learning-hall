@@ -9,9 +9,8 @@
 // - sync_offline_guild_session on reconnect, which clamps the reward to what the correct
 //   answers could have earned and applies the session once per entry id.
 import { supabase } from '@/lib/supabase';
-import { isRunningInstalled } from '@/lib/installPrompt';
-import { isNativeApp } from '@/lib/platform';
 import { isOffline } from '@/lib/offlineSnapshot';
+import { keepsOfflineCopies } from '@/lib/offlineReads';
 import { offlinePlayEnabled } from '@/lib/offlineQuests';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import type { SubclassProfile } from '@/lib/guildEngine';
@@ -41,12 +40,6 @@ function write(key: string, value: unknown) {
 // True when a guild call should use the device copy instead of the network.
 export function playingGuildsOffline(userId: string): boolean {
   return isOffline() && offlinePlayEnabled(userId);
-}
-
-// Saved on the installed app whatever the flag says, so a kid whose flag is turned on
-// already has questions the next time they're offline.
-function keepsOfflineCopies(): boolean {
-  return typeof window !== 'undefined' && (isNativeApp() || isRunningInstalled());
 }
 
 // ── Question batches and profile ────────────────────────────────────────────
