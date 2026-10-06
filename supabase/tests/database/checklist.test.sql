@@ -41,7 +41,7 @@ select week_id, 5, (select week_start from fx), 'published' from content_fx;
 insert into content_days (id, content_week_id, weekday)
 select day_id, week_id, other_weekday from content_fx;
 insert into content_quizzes (id, content_day_id, subject)
-select quiz_id, day_id, 'TestSubject' from content_fx;
+select quiz_id, day_id, 'Science' from content_fx;
 insert into content_questions (content_quiz_id, prompt, options, correct_answer)
 select quiz_id, 'placeholder question', '["a","b"]'::jsonb, 'a' from content_fx;
 
