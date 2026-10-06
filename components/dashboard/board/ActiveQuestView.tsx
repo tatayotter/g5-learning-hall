@@ -5,7 +5,7 @@
 // change.
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { UserId } from '@/lib/userSession';
@@ -19,6 +19,9 @@ import VisualAid from '@/components/quest/VisualAid';
 import CurioTrainingPicker, { OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
 import { awardCurioTrainingExp } from '@/lib/curioTraining';
 import type { TrainingResult } from '@/components/VictoryScreen';
+import { isOffline } from '@/lib/offlineSnapshot';
+import { canAnswerOffline, gradeOffline, queueQuestAnswers } from '@/lib/offlineQuests';
+import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
 
 type UseWeeklyDataReturn = ReturnType<typeof useWeeklyData>;
 
@@ -32,8 +35,10 @@ interface ActiveQuestViewProps {
   studyReadRemaining: number;
   data: WeeklyData;
   todayStr: string;
+  contentWeekId: string | null;
   updateStatsAndJournal: UseWeeklyDataReturn['updateStatsAndJournal'];
   bumpDailyQuestAttempt: UseWeeklyDataReturn['bumpDailyQuestAttempt'];
+  applyOfflineQuestResult: UseWeeklyDataReturn['applyOfflineQuestResult'];
 }
 
 export default function ActiveQuestView({
@@ -46,8 +51,10 @@ export default function ActiveQuestView({
   studyReadRemaining,
   data,
   todayStr,
+  contentWeekId,
   updateStatsAndJournal,
   bumpDailyQuestAttempt,
+  applyOfflineQuestResult,
 }: ActiveQuestViewProps) {
   const [day, subject] = activeQuest.split('_');
   const questData = mainQuestPackageData[day]?.[subject];
@@ -55,6 +62,9 @@ export default function ActiveQuestView({
   const [trainingCurio, setTrainingCurio] = useState<OwnedCurio | undefined>(undefined);
   const trainingCurioId = trainingCurio?.id;
   const [trainingResult, setTrainingResult] = useState<TrainingResult | null>(null);
+  // Whether the submission just graded was graded on the device (no connection), so
+  // onQuizSubmit shows it locally instead of saving to the server.
+  const gradedOfflineRef = useRef(false);
 
   // Awards the training curio its share of the quest XP. Runs once, on the
   // perfect (quest-completed) submission only.
@@ -137,6 +147,21 @@ export default function ActiveQuestView({
               question_id: q.id,
               selected: selectedAnswers[i],
             }));
+            const questionIds = quizQuestions.map(q => q.id);
+            gradedOfflineRef.current = false;
+            // No connection: grade from the downloaded answer key and queue the answers for
+            // the server to re-grade on reconnect (lib/offlineQuests.ts). The daily cap is
+            // checked locally here and again by the server at sync.
+            if (isOffline() && contentWeekId && canAnswerOffline(activeUserId, questionIds)) {
+              if (dailyAttemptsUsed >= MAIN_QUEST_DAILY_ATTEMPT_CAP) {
+                return { locked: true, attempts_used_today: dailyAttemptsUsed, correct_count: 0, total: 0, is_perfect: false, correct_answers: [] };
+              }
+              const result = gradeOffline(activeUserId, questionIds, selectedAnswers);
+              queueQuestAnswers(activeUserId, { contentWeekId, weekday: day, subject, answers });
+              bumpDailyQuestAttempt(day, subject, dailyAttemptsUsed + 1);
+              gradedOfflineRef.current = true;
+              return { ...result, locked: false, attempts_used_today: dailyAttemptsUsed + 1, queued_offline: true };
+            }
             const { data: graded, error } = await supabase.rpc('grade_content_quiz', {
               p_user_id: activeUserId,
               p_answers: answers,
@@ -159,6 +184,10 @@ export default function ActiveQuestView({
             };
           }}
           onQuizSubmit={(isPerfect, newAttempts, newStats, xpEarned, goldEarned) => {
+            if (gradedOfflineRef.current) {
+              applyOfflineQuestResult(activeQuest, isPerfect, newAttempts, newStats);
+              return;
+            }
             const newQuizAttempts = { ...(data.quiz_attempts || {}), [activeQuest]: newAttempts };
             if (isPerfect) {
               const newMasteredQuizzes = [...(data.mastered_quizzes || []), activeQuest];

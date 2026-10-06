@@ -159,7 +159,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
     // Record the session even when it earned no gold (a session with no answers isn't a session).
     if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount });
+      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount, completedIds: engine.completedQuestionIds, subclassXp: engine.totalXpEarned });
     }
     if (engine.totalGoldEarned > 0) {
       logAction(userId, weekStartingDate, 'side_quest', `Lorekeeper session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);

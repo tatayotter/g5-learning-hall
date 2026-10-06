@@ -19,6 +19,10 @@ import type { GuildKey } from './dailyChecklist';
 export interface GuildSessionScore {
   questionsAnswered: number;
   correctCount: number;
+  // Only used when the session is queued offline (lib/offlineGuilds.ts); online, the guild
+  // saves these itself.
+  completedIds?: string[];
+  subclassXp?: number;
 }
 
 interface PendingSession {

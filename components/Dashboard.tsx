@@ -7,6 +7,11 @@ import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
+import { isOffline, loadOfflineProfile, saveOfflineProfile } from '@/lib/offlineSnapshot';
+import OfflineBanner from '@/components/OfflineBanner';
+import { flushQuestOutbox, offlinePlayEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
+import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuildSession } from '@/lib/offlineGuilds';
+import { flushMapOutbox, pendingMapEntries, playingMapOffline } from '@/lib/offlineMap';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -104,14 +109,41 @@ function applyThemeClass(themeKey: string) {
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
   const [hydrated, setHydrated] = useState(false);
+  // Tracks the connection so the server-side startup work below can wait for
+  // it instead of failing (and, for linkIdentity, signing the player out).
+  const [online, setOnline] = useState(() => !isOffline());
+  useEffect(() => {
+    const update = () => setOnline(!isOffline());
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
+    return () => {
+      window.removeEventListener('online', update);
+      window.removeEventListener('offline', update);
+    };
+  }, []);
 
   useEffect(() => {
     async function hydrate() {
       // Classmates/children/etc. must be populated into USERS before
       // anything reads USERS[savedUserId] below.
-      await loadAllUsersData();
+      // Offline the roster can't load (and Supabase's retries would hold the
+      // loading screen for several seconds trying), so the signed-in player's
+      // profile comes from the copy saved on their last online visit instead
+      // of treating them as a removed account and signing them out. The
+      // roster loads once the connection is back.
+      const startedOffline = isOffline();
+      if (startedOffline) {
+        window.addEventListener('online', () => { void loadAllUsersData(); }, { once: true });
+      } else {
+        await loadAllUsersData();
+      }
       const saved = getActiveUser();
+      if (saved && !USERS[saved] && startedOffline) {
+        const cached = loadOfflineProfile(saved);
+        if (cached) USERS[saved] = cached;
+      }
       if (saved && USERS[saved]) {
+        if (!startedOffline) saveOfflineProfile(USERS[saved]);
         setActiveUserId(saved);
         applyThemeClass(USERS[saved].theme);
       } else if (saved) {
@@ -175,10 +207,20 @@ export default function Dashboard() {
   const [hasEggReadyCurio, setHasEggReadyCurio] = useState(false);
   const eggBadge = hasEggReadyCurio || hasStalledEgg || pendingEggHatches.length > 0;
 
+  // The player this startup work last ran for, so reconnecting doesn't
+  // repeat it (the claims are idempotent, but the toasts and prefetch aren't
+  // worth redoing).
+  const startedForRef = useRef<UserId | null>(null);
   useEffect(() => {
     if (!hydrated) return;
+    // Signed out (or switched): the next sign-in, even as the same player,
+    // runs it again, as before.
+    if (!activeUserId) startedForRef.current = null;
     if (activeUserId) {
       applyThemeClass(USERS[activeUserId].theme);
+      // Everything below needs the server; it runs once the connection is back.
+      if (!online || startedForRef.current === activeUserId) return;
+      startedForRef.current = activeUserId;
       // linkIdentity must resolve first — analytics_events/player_log RLS now
       // requires the user_identity_map row it writes, so firing trackEvent
       // before it lands would silently drop the session_start event.
@@ -193,6 +235,12 @@ export default function Dashboard() {
           // everything (inventory, monsters, gold, etc.). Force back to the
           // splash screen so the user re-enters their password once and
           // linkIdentity re-runs with a credential — at which point it works.
+          // Lost the connection mid-call: not a rotated session, so keep the
+          // player signed in and try again when it's back.
+          if (isOffline()) {
+            startedForRef.current = null;
+            return;
+          }
           clearActiveUser();
           setActiveUserId(null);
           return;
@@ -284,7 +332,7 @@ export default function Dashboard() {
         }
       })();
     }
-  }, [activeUserId, hydrated]);
+  }, [activeUserId, hydrated, online]);
 
   // Reused by both demo and real accounts (user_last_login.onboarding_completed_at)
   // so the guided tour only auto-shows once per account, ever.
@@ -299,10 +347,15 @@ export default function Dashboard() {
   // Term Boss intro waits for this so it never plays over the first intro.
   const [hasCurio, setHasCurio] = useState<boolean | null>(null);
 
+  // Offline both reads fail, which would look like a brand-new player and
+  // start the tour, so this waits for a connection and runs once per player.
+  const introCheckedForRef = useRef<UserId | null>(null);
   useEffect(() => {
-    if (!activeUserId) return;
+    if (!activeUserId) introCheckedForRef.current = null;
+    if (!activeUserId || !online || introCheckedForRef.current === activeUserId) return;
+    introCheckedForRef.current = activeUserId;
     (async () => {
-      const [{ data: row }, { count: curioCount, error: curioErr }] = await Promise.all([
+      const [{ data: row, error: rowErr }, { count: curioCount, error: curioErr }] = await Promise.all([
         supabase
           .from('user_last_login')
           .select('onboarding_completed_at')
@@ -313,10 +366,14 @@ export default function Dashboard() {
           .select('id', { count: 'exact', head: true })
           .eq('user_id', activeUserId),
       ]);
-      if (!row?.onboarding_completed_at) {
+      if (rowErr || curioErr) {
+        // Retry on the next reconnect rather than guessing.
+        if (isOffline()) introCheckedForRef.current = null;
+        if (curioErr) return;
+      }
+      if (!rowErr && !row?.onboarding_completed_at) {
         setShowOnboarding(true);
       }
-      if (curioErr) return;
       setHasCurio((curioCount ?? 0) > 0);
       if (curioCount === 0) {
         // The intro also waits for the week's data — use that time to fetch
@@ -328,7 +385,7 @@ export default function Dashboard() {
         setIntroStart('training');
       }
     })();
-  }, [activeUserId]);
+  }, [activeUserId, online]);
 
   const handleCompleteOnboarding = async () => {
     setShowOnboarding(false);
@@ -365,7 +422,7 @@ export default function Dashboard() {
   // activeUserId directly (null until hydration resolves it) means there's
   // nothing to fetch or flash during that window — the existing
   // !hydrated/loading/!data guards below already render a loading screen for it.
-  const { data, loading, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
+  const { data, loading, offline: showingOfflineCopy, refresh, applyOfflineQuestResult, applyOfflineGuildResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect } = useWeeklyData(activeUserId);
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
@@ -466,6 +523,60 @@ export default function Dashboard() {
   );
   const [myClaims, setMyClaims] = useState<any[]>([]);
   const [toast, setToast] = useState({ show: false, message: '' });
+
+  // Main quests and guild sessions played offline (lib/offlineQuests.ts,
+  // lib/offlineGuilds.ts) go to the server on load, on reconnect and every few minutes. The
+  // server re-grades quests, clamps guild rewards and pays once; the refetch then replaces
+  // the phone's copy with the server's.
+  useEffect(() => {
+    if (!activeUserId) return;
+    const sync = () => {
+      if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0
+        && pendingMapEntries(activeUserId).length === 0) return;
+      void (async () => {
+        const hadMapEntries = pendingMapEntries(activeUserId).length > 0;
+        const quests = await flushQuestOutbox(activeUserId);
+        const guilds = await flushGuildOutbox(activeUserId);
+        const map = await flushMapOutbox(activeUserId);
+        // The Curio Arena reloads its curios so the server's EXP replaces the device's.
+        if (hadMapEntries) setEggRefreshSignal(n => n + 1);
+        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0) return;
+        achievementCheckAfterRef.current = dataRef.current;
+        refresh();
+        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold;
+        const parts = [
+          quests.length > 0 && `${quests.length} quest${quests.length === 1 ? '' : 's'}`,
+          guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,
+          map.answers > 0 && `${map.answers} map scroll${map.answers === 1 ? '' : 's'}`,
+          map.answers === 0 && map.gold > 0 && 'your trash trades',
+        ].filter(Boolean).join(' and ');
+        setToast({
+          show: true,
+          message: `📡 Saved ${parts} played offline${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
+        });
+      })();
+    };
+    sync();
+    window.addEventListener('online', sync);
+    const timer = setInterval(sync, 3 * 60 * 1000);
+    return () => {
+      window.removeEventListener('online', sync);
+      clearInterval(timer);
+    };
+  }, [activeUserId, refresh]);
+
+  // The sync pays the quest reward but doesn't check achievements (those are worked out on the
+  // device, in updateStatsAndJournal). Once the refetched data arrives, a zero-change save runs
+  // that check, so e.g. a first mastery earned offline unlocks its achievement as it would have
+  // online. Keyed on the data object from before the refetch, so it waits for the fresh copy.
+  const achievementCheckAfterRef = useRef<typeof data | undefined>(undefined);
+  const dataRef = useRef(data);
+  useEffect(() => {
+    dataRef.current = data;
+    if (achievementCheckAfterRef.current === undefined || !data || data === achievementCheckAfterRef.current || showingOfflineCopy) return;
+    achievementCheckAfterRef.current = undefined;
+    void bumpCounters({});
+  }, [data, showingOfflineCopy, bumpCounters]);
   const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
   const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
@@ -880,6 +991,17 @@ export default function Dashboard() {
     return <LoadingScreen message="Loading realm..." />;
   }
 
+  if (!data && showingOfflineCopy) {
+    return (
+      <div className="min-h-screen bg-[#ffffff] text-[#2a1505] flex items-center justify-center p-6">
+        <div className="text-center max-w-sm">
+          <h1 className="text-2xl font-bold mb-2">📡 You&apos;re offline</h1>
+          <p className="text-[#6b4820]">This device hasn&apos;t loaded your progress yet. Connect to the internet once, and next time the realm will open even without a connection.</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!data) {
     return (
       <div className="min-h-screen bg-[#ffffff] text-[#2a1505] flex items-center justify-center">
@@ -896,6 +1018,21 @@ export default function Dashboard() {
   // activeGuild already identifies that from closure.
   const handleGuildGoldEarned = (newStats: CharacterStats, score: GuildSessionScore) => {
     if (!activeGuild) return;
+    // Offline: queue it for sync_offline_guild_session (which also records the session, so
+    // markGuildSessionToday is skipped) and show the gold straight away.
+    if (playingGuildsOffline(activeUserId)) {
+      queueGuildSession(activeUserId, {
+        guildKey: activeGuild,
+        contentWeekId: contentWeekId ?? null,
+        questionIds: score.completedIds ?? [],
+        questionsAnswered: score.questionsAnswered,
+        correctCount: score.correctCount,
+        gold: newStats.gold - data.character_stats.gold,
+        subclassXp: score.subclassXp ?? 0,
+      });
+      applyOfflineGuildResult(newStats);
+      return;
+    }
     void markGuildSessionToday(activeUserId, activeGuild, format(new Date(), 'yyyy-MM-dd'), score);
     updateStatsAndJournal(
       newStats, data.journal_logs,
@@ -926,6 +1063,7 @@ export default function Dashboard() {
         />
       )}
       <div className="h-screen flex flex-col">
+      {(showingOfflineCopy || !online) && <OfflineBanner questsWork={offlinePlayEnabled(activeUserId)} />}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
       {introStart && data && (
@@ -1216,8 +1354,10 @@ export default function Dashboard() {
             studyReadRemaining={studyReadRemaining}
             data={data}
             todayStr={todayStr}
+            contentWeekId={contentWeekId}
             updateStatsAndJournal={updateStatsAndJournal}
             bumpDailyQuestAttempt={bumpDailyQuestAttempt}
+            applyOfflineQuestResult={applyOfflineQuestResult}
           />
         )}
 
@@ -1375,10 +1515,13 @@ export default function Dashboard() {
               data.perfect_quizzes || 0,
               (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
             )}
-            onGoldAwarded={(amount) => updateStatsAndJournal(
-              { ...data.character_stats, gold: data.character_stats.gold + amount },
-              data.journal_logs
-            )}
+            onGoldAwarded={(amount) => playingMapOffline(activeUserId)
+              // Offline (recycler trades on the map): shown now, paid by sync_offline_map.
+              ? setCharacterStatsDirect({ ...data.character_stats, gold: data.character_stats.gold + amount })
+              : updateStatsAndJournal(
+                { ...data.character_stats, gold: data.character_stats.gold + amount },
+                data.journal_logs
+              )}
             onGoldSynced={setCharacterStatsDirect}
             onProgressSynced={syncCharacterStats}
             onEggBadgeChange={setHasEggReadyCurio}

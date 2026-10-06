@@ -1,6 +1,9 @@
 // lib/lifetimeStats.ts
 import { supabase } from './supabase';
 import type { WeeklyData } from '@/hooks/useWeeklyData';
+import type { UserId } from '@/lib/userSession';
+import { loadOfflineWeekly } from '@/lib/offlineSnapshot';
+import { readingOffline } from '@/lib/offlineReads';
 
 // Phase 4 Wave 2 of the weekly-progress redesign (see docs/weekly-progress-redesign-plan.md):
 // player_progress now stores these as true lifetime-cumulative columns, kept in sync by a DB
@@ -39,6 +42,14 @@ export async function fetchPlayerProgress(userId: string): Promise<PlayerProgres
     .maybeSingle();
   if (error || !data) return null;
   return data as PlayerProgress;
+}
+
+// For screens that only show progress (profile, achievements). Offline (lib/offlineReads.ts)
+// it's the copy saved with the dashboard's last load. Not for code that writes stats back
+// (syncCharacterStats): an old copy there would undo what was earned offline.
+export async function fetchPlayerProgressForDisplay(userId: string): Promise<PlayerProgress | null> {
+  if (readingOffline(userId)) return loadOfflineWeekly<unknown, PlayerProgress>(userId as UserId)?.progress ?? null;
+  return fetchPlayerProgress(userId);
 }
 
 // Overlays player_progress's lifetime totals onto a WeeklyData-shaped object, for feeding
@@ -93,7 +104,7 @@ const EMPTY_STATS: LifetimeBattleStats = {
 // "Lifetime" toggle needs no changes at all — same function name, same return shape, just a
 // single-row read instead of summing every historical weekly_packages row.
 export async function fetchLifetimeBattleStats(userId: string): Promise<LifetimeBattleStats> {
-  const progress = await fetchPlayerProgress(userId);
+  const progress = await fetchPlayerProgressForDisplay(userId);
   if (!progress) return EMPTY_STATS;
   return {
     guildSessions: progress.guild_sessions_count_total,

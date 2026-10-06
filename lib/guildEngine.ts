@@ -4,6 +4,10 @@ import { PREFETCH_BATCH_SIZE, MIN_SESSION_POOL_SIZE } from '@/lib/guildConfig';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { GUILD_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
+import { cachedRead } from '@/lib/offlineReads';
+import {
+  playingGuildsOffline, saveGuildPool, loadGuildPool, saveSubclassProfile, loadSubclassProfile, updateSavedSubclassProfile,
+} from '@/lib/offlineGuilds';
 
 // Guild level at which a player is rewarded their guild's companion monster.
 export const GUILD_MONSTER_GRANT_LEVEL = 5;
@@ -59,6 +63,7 @@ const GUILD_GRADE_STAGE_FIELD: Partial<Record<string, keyof SubclassProfile>> = 
 };
 
 export async function fetchSubclassProfile(userId: string): Promise<SubclassProfile | null> {
+  if (playingGuildsOffline(userId)) return loadSubclassProfile(userId);
   const USER_ID = userId;
   const { data, error } = await supabase
     .from('user_subclass_profiles')
@@ -69,10 +74,15 @@ export async function fetchSubclassProfile(userId: string): Promise<SubclassProf
     console.error('Failed to fetch subclass profile:', error);
     return null;
   }
+  saveSubclassProfile(userId, data as SubclassProfile | null);
   return data as SubclassProfile | null;
 }
 
+// Offline, the change lands on the device copy only; the queued session (lib/offlineGuilds.ts)
+// carries the xp, and the server adds it to its own level on sync.
 export async function updateSubclassProfile(userId: string, fields: Partial<SubclassProfile>) {
+  updateSavedSubclassProfile(userId, fields);
+  if (playingGuildsOffline(userId)) return;
   const USER_ID = userId;
   const { error } = await supabase
     .from('user_subclass_profiles')
@@ -115,6 +125,8 @@ export function guildLevelForKey(profile: SubclassProfile | null | undefined, gu
 export async function ensureGuildMonsterGranted(userId: string, guildKey: GuildKey): Promise<string | null> {
   const monsterId = GUILD_MONSTER_ID[guildKey];
   if (!monsterId || !GUILD_MONSTERS[monsterId]) return null;
+  // Offline, the server grants it when the session syncs.
+  if (playingGuildsOffline(userId)) return null;
 
   const [{ data: owned }, { data: caught }] = await Promise.all([
     supabase.from('user_monsters').select('id').eq('user_id', userId).eq('monster_id', monsterId).limit(1),
@@ -168,7 +180,7 @@ export function getCompanionTierCrossed(guildKey: GuildKey, oldLevel: number, ne
 export async function fetchCompanionInstanceStats(userId: string, guildKey: GuildKey): Promise<{ level: number; quality: QualityTier }> {
   const monsterId = GUILD_MONSTER_ID[guildKey];
   const fallback = { level: 1, quality: 'normal' as QualityTier };
-  if (!monsterId) return fallback;
+  if (!monsterId || playingGuildsOffline(userId)) return fallback;
 
   const [{ data: owned }, { data: caught }] = await Promise.all([
     supabase.from('user_monsters').select('monster_level, quality').eq('user_id', userId).eq('monster_id', monsterId).limit(1).maybeSingle(),
@@ -199,6 +211,15 @@ export async function fetchCompanionInstanceStats(userId: string, guildKey: Guil
 // stage ahead has any content) do we fall back to the old "prestige"
 // behavior: wipe history for this guild and recycle the pool we landed on.
 export async function fetchQuestionPool(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
+  // The five grade-staged guilds also play offline, from the batch saved on the last fetch.
+  if (!GUILD_GRADE_STAGE_FIELD[questType]) return fetchQuestionPoolOnline(userId, tableName, questType, gradeLevel);
+  if (playingGuildsOffline(userId)) return loadGuildPool(userId, questType);
+  const pool = await fetchQuestionPoolOnline(userId, tableName, questType, gradeLevel);
+  saveGuildPool(userId, questType, pool);
+  return pool;
+}
+
+async function fetchQuestionPoolOnline(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
   const USER_ID = userId;
   const stageField = GUILD_GRADE_STAGE_FIELD[questType];
 
@@ -318,7 +339,8 @@ async function insertCompletedQuestions(rows: { user_id: string; quest_type: str
 }
 
 export async function markQuestionsCompleted(userId: string, questType: string, questionIds: string[]) {
-  if (questionIds.length === 0) return;
+  // Offline, the ids travel with the queued session instead.
+  if (questionIds.length === 0 || playingGuildsOffline(userId)) return;
 
   const error = await insertCompletedQuestions(
     questionIds.map((id: string) => ({ user_id: userId, quest_type: questType, question_id: id })),
@@ -337,12 +359,16 @@ export async function markQuestionsCompleted(userId: string, questType: string, 
 export const MONSTER_ARENA_QUEST_TYPE = 'monster_arena';
 
 export async function fetchAnsweredArenaQuestionIds(userId: string): Promise<Set<string>> {
-  const { data } = await supabase
-    .from('user_completed_questions')
-    .select('question_id')
-    .eq('user_id', userId)
-    .eq('quest_type', MONSTER_ARENA_QUEST_TYPE);
-  return new Set((data || []).map((row: any) => row.question_id));
+  const ids = await cachedRead(userId, 'arenaAnswered', async () => {
+    const { data, error } = await supabase
+      .from('user_completed_questions')
+      .select('question_id')
+      .eq('user_id', userId)
+      .eq('quest_type', MONSTER_ARENA_QUEST_TYPE);
+    if (error) throw error;
+    return (data || []).map((row: any) => row.question_id as string);
+  }, [] as string[]);
+  return new Set(ids);
 }
 
 export async function markArenaQuestionsCompleted(userId: string, questions: any[]) {

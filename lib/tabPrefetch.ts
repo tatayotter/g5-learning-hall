@@ -17,7 +17,7 @@
 // for correctness, only for perceived speed.
 import { fetchQuestionPool, fetchSubclassProfile, fetchAnsweredArenaQuestionIds, SubclassProfile } from '@/lib/guildEngine';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
-import { supabase, ensureAnonymousSession } from '@/lib/supabase';
+import { fetchCurioCollection } from '@/lib/curioCollection';
 import { loadTiledArtMap } from '@/lib/tiledArtMap';
 import { REGIONS } from '@/lib/regions';
 
@@ -59,21 +59,16 @@ export function prefetchAllTabs(userId: string, grade: string | number | undefin
 
   // Curio Guild (MonsterGuild.tsx) — same fetch set as its own loadData().
   cache.set('monsterGuild', (async (): Promise<MonsterGuildPrefetch> => {
-    await ensureAnonymousSession();
-    const [monstersRes, stateRes, invData, answeredIds, caughtRes, subclassProfile] = await Promise.all([
-      supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
-      supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
+    const [collection, invData, answeredIds, subclassProfile] = await Promise.all([
+      fetchCurioCollection(userId),
       fetchInventory(userId),
       fetchAnsweredArenaQuestionIds(userId),
-      supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
       subclassProfilePromise,
     ]);
     return {
-      userMonsters: monstersRes.data || [],
-      battleState: stateRes.data || null,
+      ...collection,
       inventory: invData || {},
       answeredArenaIds: answeredIds,
-      caughtMonsters: caughtRes.data || [],
       subclassProfile,
     };
   })());

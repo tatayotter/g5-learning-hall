@@ -4,7 +4,12 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
-import { supabase, ensureAnonymousSession } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
+import { fetchCurioCollection } from '@/lib/curioCollection';
+import { hasOfflineCopy, needsConnection, readingOffline } from '@/lib/offlineReads';
+import { isOffline } from '@/lib/offlineSnapshot';
+import { useIsOffline } from '@/hooks/useIsOffline';
+import OfflineUnavailable from '@/components/OfflineUnavailable';
 import { playCurioLevelUp, playPageFlip } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
@@ -224,6 +229,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     return () => window.removeEventListener('resize', check);
   }, []);
   const [loading, setLoading] = useState(true);
+  // Offline, with offline play on, the team, Hatchery and Compendium open from the copy kept on
+  // the device (lib/curioCollection.ts) and the Training Map can be walked alone, scrolls and
+  // trash included (lib/offlineMap.ts); trainers, trade and the leaderboard need the server.
+  const offline = useIsOffline();
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
   const [view, setView] = useState<GuildView>(initialView ?? 'map');
@@ -382,21 +391,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setCaughtMonsters(prefetched.caughtMonsters);
       setSubclassProfile(prefetched.subclassProfile);
     } else {
-      await ensureAnonymousSession();
-
-      const [monstersRes, stateRes, invData, answeredIds, caughtRes, subProfile] = await Promise.all([
-        supabase.from('user_monsters').select('*').eq('user_id', userId).order('slot'),
-        supabase.from('user_battle_state').select('*').eq('user_id', userId).single(),
+      // Offline this is the copy kept on the device (lib/curioCollection.ts).
+      const [collection, invData, answeredIds, subProfile] = await Promise.all([
+        fetchCurioCollection(userId),
         fetchInventory(userId),
         fetchAnsweredArenaQuestionIds(userId),
-        supabase.from('user_caught_monsters').select('*').eq('user_id', userId).order('caught_at', { ascending: false }),
         fetchSubclassProfile(userId),
       ]);
-      setUserMonsters(monstersRes.data || []);
-      setBattleState(stateRes.data || null);
+      setUserMonsters(collection.userMonsters);
+      setBattleState(collection.battleState);
       setInventory(invData || {});
       setAnsweredArenaIds(answeredIds);
-      setCaughtMonsters(caughtRes.data || []);
+      setCaughtMonsters(collection.caughtMonsters);
       setSubclassProfile(subProfile);
     }
     setLoading(false);
@@ -418,16 +424,24 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   useEffect(() => { loadData(); }, [userId, eggRefreshSignal]);
 
+  // Back online: swap the device copy for the server's.
+  const wasOfflineRef = useRef(offline);
+  useEffect(() => {
+    if (wasOfflineRef.current && !offline) loadData();
+    wasOfflineRef.current = offline;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [offline]);
+
   // Offer battle training once per Arena visit (BattleTraining checks whether
   // it's already finished and closes itself if so).
   useEffect(() => {
-    if (loading || trainingOfferedRef.current || userMonsters.length === 0) return;
+    if (loading || offline || trainingOfferedRef.current || userMonsters.length === 0) return;
     trainingOfferedRef.current = true;
     setBattleTraining({ replay: false });
-  }, [loading, userMonsters.length]);
+  }, [loading, offline, userMonsters.length]);
 
   // Chain map is admin-authored content, not per-user — fetch once.
-  useEffect(() => { fetchEggChainMap().then(setEggChainMap); }, []);
+  useEffect(() => { fetchEggChainMap(userId).then(setEggChainMap); }, [userId]);
 
   // Sidebar badge: any owned curio (team or bench) that's graduated,
   // crossed its egg-ready level threshold, has a defined chain, and hasn't
@@ -463,9 +477,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const botOnlinePlayers = useBotPresence();
   // Merge bots into onlinePlayers so TrainingMap's Online tab, sprite renderer,
   // and 🟢 count all include them automatically — no other changes needed.
+  // Offline the player walks the map alone: no classmates, bots included.
   const mergedMapPresence = {
     ...mapPresence,
-    onlinePlayers: { ...mapPresence.onlinePlayers, ...botOnlinePlayers },
+    onlinePlayers: offline ? {} : { ...mapPresence.onlinePlayers, ...botOnlinePlayers },
   };
 
   // The invitee accepts/declines from LiveBattleInviteToast, rendered below
@@ -525,7 +540,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     const delay = 20_000 + Math.random() * 40_000;
     const timer = setTimeout(() => {
       // Don't interrupt an active battle, a real incoming invite, or battle training.
-      if (liveBattleInbox.incomingInvite || battleTrainingOpenRef.current) return;
+      if (liveBattleInbox.incomingInvite || battleTrainingOpenRef.current || isOffline()) return;
       const bot = BOT_PROFILES[Math.floor(Math.random() * BOT_PROFILES.length)];
       setPendingBotChallenge(bot);
     }, delay);
@@ -561,6 +576,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handleTrainerBattle = (trainer: NpcTrainer) => {
+    if (needsConnection()) return;
     setActiveBattle(trainer);
     setView('battle');
   };
@@ -651,7 +667,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const restoredSpawnRef = useRef<string | null>(null);
   const pendingCurio = battleState?.pending_wild_curio ?? null;
   useEffect(() => {
-    if (!pendingCurio || curio || wildEncounter || isWildEncounterBattle) return;
+    // Offline the curio waits on its saved row; it comes back once the connection does.
+    if (!pendingCurio || curio || wildEncounter || isWildEncounterBattle || offline) return;
     if (restoredSpawnRef.current === pendingCurio.spawned_at) return;
     restoredSpawnRef.current = pendingCurio.spawned_at;
     (async () => {
@@ -678,7 +695,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       logWildEncounterEvent(userId, 'restored', { region: activeRegion, monsterId: restored.monsterId, quality: restored.quality, level: restored.level, attemptsLeft: restored.attemptsLeft });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pendingCurio?.spawned_at, curio, wildEncounter, isWildEncounterBattle]);
+  }, [pendingCurio?.spawned_at, curio, wildEncounter, isWildEncounterBattle, offline]);
 
   const handleWildEncounterRoll = async (pity = false) => {
     // Don't stack encounters (a saved curio still being restored counts too).
@@ -732,6 +749,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // engaged" curio into an actual open WildEncounterModal.
   const handleEnterCurio = async () => {
     if (!curio || wildEncounter) return;
+    if (needsConnection()) return;
     let question = curio.question;
     if (!question) {
       question = await pickWildQuestion();
@@ -825,6 +843,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handlePromoteCaughtMonster = async (caught: CaughtMonster, slot: number) => {
+    if (needsConnection()) return;
     // Bumped monster isn't lost — set_team_slot benches it (slot -> NULL) in
     // place, keeping its own row (and level/exp/equipped_skills) untouched,
     // so it comes back exactly as it was if it's ever slotted in again. The
@@ -1176,6 +1195,21 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     });
   };
 
+  // Offline with nothing saved to show (offline play off, or never opened here while
+  // connected): without this the empty list below would offer a starter pick.
+  if (offline && !(readingOffline(userId) && hasOfflineCopy(userId, 'curioCollection'))) {
+    return (
+      <div className="py-10 max-w-xl mx-auto px-4">
+        <OfflineUnavailable
+          feature="The Curio Arena"
+          reason={readingOffline(userId)
+            ? "This device doesn't have your curios saved yet. Open the Curio Arena once while connected, and next time it will open offline too."
+            : undefined}
+        />
+      </div>
+    );
+  }
+
   if (loading) {
     return <div className="text-center py-20 text-gray-500 animate-pulse">Loading Curio Guild...</div>;
   }
@@ -1188,8 +1222,23 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     );
   }
 
+  const ONLINE_ONLY_VIEWS: Partial<Record<GuildView, string>> = {
+    trainers: 'Trainer battles', trade: 'Trading', leaderboard: 'The leaderboard',
+  };
+  const offlineBlockedFeature = offline ? ONLINE_ONLY_VIEWS[view] : undefined;
+
   return (
     <div>
+      {offlineBlockedFeature && (
+        <div className="py-6 max-w-xl mx-auto px-4">
+          <OfflineUnavailable
+            feature={offlineBlockedFeature}
+            reason="Your team, Hatchery, Compendium and the Training Map still work offline. Reconnect to battle trainers, trade or see the leaderboard."
+            action={{ label: 'Open My Team', onClick: () => { playPageFlip(); setView('team'); } }}
+          />
+        </div>
+      )}
+
       {/* PvP parent-link gate — z-[95] so it sits above the fullscreen map (z-[78]). */}
       {showPvpParentGate && (
         <div
@@ -1359,7 +1408,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onHeal={handleHeal}
           onQuestionsAnswered={handleQuestionsAnswered}
           onWildEncounterRoll={handleWildEncounterRoll}
-          activeCurio={curio}
+          activeCurio={offline ? null : curio}
           onEnterCurio={handleEnterCurio}
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}
@@ -1417,7 +1466,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         />
       )}
 
-      {view === 'trade' && (
+      {view === 'trade' && !offlineBlockedFeature && (
         <TradePanel
           userId={userId as UserId}
           userMonsters={userMonsters}
@@ -1428,14 +1477,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         />
       )}
 
-      {view === 'leaderboard' && (
+      {view === 'leaderboard' && !offlineBlockedFeature && (
         isGatedUnlinked
           ? <LinkParentGate feature="the leaderboard" />
           : <LeaderboardPanel userId={userId} />
       )}
 
       {/* Trainers view */}
-      {view === 'trainers' && battleState && (
+      {view === 'trainers' && !offlineBlockedFeature && battleState && (
         <TrainersView
           userId={userId}
           battleState={battleState}
