@@ -17,34 +17,15 @@ export interface UserProfile {
   // it with whatever's actually saved in user_themes once that resolves.
   theme: string;
   gender: 'boy' | 'girl';
-  isFamily: boolean;
-  // children.school_name / classmates.school_name — undefined for the two
-  // hardcoded family profiles below, which aren't enrolled anywhere.
+  // GM crown next to the name, plus the Gold Token Rewards Vault in place of
+  // the shop. From children.show_crown; false for everyone else.
+  showCrown: boolean;
+  // children.school_name / classmates.school_name.
   school?: string;
 }
 
-export const USERS: Record<UserId, UserProfile> = {
-  damien: {
-    id: 'damien',
-    name: 'Damien',
-    fullName: 'Damien Zamir Ruelo',
-    grade: 'Grade 5',
-    avatar: '/userpics/userpics_premium/ssb3.png',
-    theme: 'theme_default',
-    gender: 'boy',
-    isFamily: true,
-  },
-  tala: {
-    id: 'tala',
-    name: 'Tala',
-    fullName: 'Tala Ruelo',
-    grade: 'Grade 2',
-    avatar: '/tala-avatar.png',
-    theme: 'theme_tala',
-    gender: 'girl',
-    isFamily: true,
-  },
-};
+// Filled at runtime by loadClassmates()/loadChildren()/loginReturningChild().
+export const USERS: Record<UserId, UserProfile> = {};
 
 // Extracts the numeric grade level out of a "Grade N" string (or a bare
 // number). Falls back to 5 for anything unparseable so old data/typos degrade
@@ -56,7 +37,7 @@ export function gradeToNumber(grade: string | number | undefined): number {
 }
 
 // Classmates are admin-managed (Admin Dashboard → Classmates) and login with a
-// username/password, unlike the two family profiles above. This loads them
+// username/password. This loads them
 // into USERS once so every existing USERS[id] lookup across the app keeps
 // working synchronously without an async refactor.
 let classmatesLoaded = false;
@@ -115,7 +96,7 @@ export async function loadClassmates(): Promise<void> {
         : '/userpics/userpics_premium/ssb3.png',
       theme: 'theme_default',
       gender,
-      isFamily: false,
+      showCrown: false,
       school: c.school_name || undefined,
     };
     classmateIds.add(c.id);
@@ -123,10 +104,9 @@ export async function loadClassmates(): Promise<void> {
   classmatesLoaded = true;
 }
 
-// Filtered against classmateIds (not just `!isFamily`) because children are
-// also non-family — without this, a child loaded via loadChildren() would be
-// swept into this list too (isFamily: false on both), duplicating them
-// alongside getChildIds() wherever both are combined into one roster.
+// Tracked separately from children so a child loaded via loadChildren() is
+// never swept into this list too, which would duplicate them alongside
+// getChildIds() wherever both are combined into one roster.
 export function getClassmateIds(): UserId[] {
   return Array.from(classmateIds);
 }
@@ -144,7 +124,9 @@ export async function loadChildren(): Promise<void> {
   // pin_plain/pin_hash/username live there and shouldn't be readable
   // outside that. This safe-column view (already scoped to active children
   // of approved parents) is the public account-select roster's read path.
-  const data = await fetchAllRows<any>('children_public', 'id, full_name, grade, gender, avatar, school_name');
+  // '*' rather than a column list so this keeps working whether or not the
+  // view has the show_crown column yet (it's added by a later migration).
+  const data = await fetchAllRows<any>('children_public', '*');
 
   (data || []).forEach((c: any) => {
     const gender = c.gender === 'girl' ? 'girl' : 'boy';
@@ -159,7 +141,7 @@ export async function loadChildren(): Promise<void> {
       avatar: c.avatar || defaultAvatar,
       theme: 'theme_default',
       gender,
-      isFamily: false,
+      showCrown: c.show_crown === true,
       school: c.school_name || undefined,
     };
     childIds.add(c.id);
@@ -198,7 +180,7 @@ export async function saveAvatar(userId: UserId, avatar: string): Promise<boolea
 // Equipped color theme (Curio Arena Shop → Themes tab) is purchased/owned
 // like a userpic but, unlike avatars, only takes effect once explicitly
 // equipped — see saveTheme. Falls back to each profile's built-in default
-// (currently only Tala defaults to non-default) until a choice is saved.
+// until a choice is saved.
 let themesLoaded = false;
 
 export async function loadThemeOverrides(): Promise<void> {
@@ -219,27 +201,10 @@ export async function saveTheme(userId: UserId, themeKey: string): Promise<boole
   return true;
 }
 
-// Damien and Tala only need a password once one has been set from the Admin
-// Dashboard — until then their splash-screen cards log in instantly like
-// before, so this never locks anyone out on its own.
-let protectedFamilyIds: Set<UserId> = new Set();
-let familyProtectionLoaded = false;
-
-export async function loadFamilyProtection(): Promise<void> {
-  if (familyProtectionLoaded) return;
-  const { data } = await supabase.from('family_credentials').select('id');
-  protectedFamilyIds = new Set((data || []).map((row: any) => row.id));
-  familyProtectionLoaded = true;
-}
-
-export function isFamilyProtected(id: UserId): boolean {
-  return protectedFamilyIds.has(id);
-}
-
-// Populates USERS (classmates, children, family protection, avatar/theme
+// Populates USERS (classmates, children, avatar/theme
 // overrides) the way Dashboard needs at hydration time.
 export async function loadAllUsersData(): Promise<void> {
-  await Promise.all([loadClassmates(), loadChildren(), loadFamilyProtection()]);
+  await Promise.all([loadClassmates(), loadChildren()]);
   await Promise.all([loadAvatarOverrides(), loadThemeOverrides()]);
 }
 
@@ -311,7 +276,7 @@ export function registerChildUser(profile: {
     avatar: profile.avatar,
     theme: 'theme_default',
     gender: profile.gender,
-    isFamily: false,
+    showCrown: false,
   };
   childIds.add(profile.id);
 }
@@ -353,7 +318,7 @@ export function loginReturningChild(profile: {
     avatar: profile.avatar,
     theme: 'theme_default',
     gender: profile.gender,
-    isFamily: false,
+    showCrown: false,
     school: profile.school,
   };
   childIds.add(profile.id);

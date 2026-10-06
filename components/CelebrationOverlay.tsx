@@ -124,13 +124,14 @@ function drawStar(ctx: CanvasRenderingContext2D, p: Particle) {
   ctx.restore();
 }
 
-export default function CelebrationOverlay({ userId, trigger, type, onComplete }: CelebrationOverlayProps) {
+export default function CelebrationOverlay({ trigger, type, onComplete }: CelebrationOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef   = useRef<number>(0);
   const [active, setActive] = useState(false);
 
-  const isTala    = userId === 'tala';
-  const particle_type: 'ember' | 'star' = isTala ? 'star' : 'ember';
+  // Every account gets embers now. Stars were a per-account variant; the
+  // 'star' branches below stay so another variant can reuse them.
+  const particle_type = 'ember' as 'ember' | 'star';
 
   const COUNT = type === 'perfect' ? 40 : 80;
 

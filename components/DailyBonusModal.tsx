@@ -22,7 +22,6 @@ interface DailyBonusModalProps {
 type Phase = 'charge' | 'reveal';
 
 export default function DailyBonusModal({ streak, gold, userId, onClose }: DailyBonusModalProps) {
-  const isTala = userId === 'tala';
   const [phase, setPhase] = useState<Phase>('charge');
   const [burst, setBurst] = useState(false);
 
@@ -66,16 +65,16 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
           >
             <span style={{ position: 'relative', display: 'inline-block' }}>
               <span aria-hidden style={questTextShadowStyle}>DAILY BONUS CLAIMED</span>
-              <span style={{ ...questTextStyle, color: isTala ? '#f9a8d4' : '#f5c542' }}>DAILY BONUS CLAIMED</span>
+              <span style={{ ...questTextStyle, color: '#f5c542' }}>DAILY BONUS CLAIMED</span>
             </span>
           </p>
 
           <div className="relative w-24 h-24 mx-auto mb-2 flex items-center justify-center">
             {phase === 'charge' && (
-              <div className={`absolute inset-0 rounded-full claim-orb-pulse ${isTala ? 'bg-pink-500/60' : 'bg-amber-500/60'}`} />
+              <div className={`absolute inset-0 rounded-full claim-orb-pulse ${'bg-amber-500/60'}`} />
             )}
             {phase === 'reveal' && (
-              <div className={`absolute inset-0 rounded-full graduation-glow-flash ${isTala ? 'bg-pink-400' : 'bg-amber-400'}`} />
+              <div className={`absolute inset-0 rounded-full graduation-glow-flash ${'bg-amber-400'}`} />
             )}
             <img
               src="/icons/rewards/gold_coin.svg"
@@ -92,7 +91,7 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
             <div className="space-y-4">
               <div>
                 <p className="text-white font-bold text-2xl" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>+{gold} Gold</p>
-                <p className={`text-sm font-bold mt-1 ${isTala ? 'text-pink-300' : 'text-amber-300'}`} style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+                <p className={`text-sm font-bold mt-1 ${'text-amber-300'}`} style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
                   {streak}-day streak{isMaxed ? ' · MAX' : ''}
                 </p>
               </div>
@@ -106,9 +105,7 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
                       <div
                         className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold border ${
                           reached
-                            ? isTala
-                              ? 'bg-pink-600 border-pink-400 text-white'
-                              : 'bg-amber-600 border-amber-400 text-white'
+                            ? 'bg-amber-600 border-amber-400 text-white'
                             : 'bg-black/25 border-[#8a6a3a] text-[#c9a87a]'
                         }`}
                       >
@@ -125,7 +122,7 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
                   : `Come back tomorrow for a ${goldForStreak(streak + 1)}-gold streak day. Miss a day and it resets to 50.`}
               </p>
 
-              <GameButton variant="quest" color={isTala ? '#db2777' : '#d97706'} onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
+              <GameButton variant="quest" color={'#d97706'} onClick={onClose} className="w-full" style={{ fontSize: 15 }}>
                 Sweet!
               </GameButton>
             </div>

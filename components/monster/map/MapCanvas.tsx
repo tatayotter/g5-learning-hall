@@ -367,7 +367,7 @@ export default function MapCanvas({
     return (
       <p className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-center gap-1 text-[10px] map-name-tag bg-[#0a0807]/60 px-1 rounded whitespace-nowrap">
         {label}
-        {profile?.isFamily && <GMBadge />}
+        {profile?.showCrown && <GMBadge />}
       </p>
     );
   };

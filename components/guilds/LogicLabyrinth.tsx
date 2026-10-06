@@ -72,8 +72,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
   } | null>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit);
 
   useEffect(() => {
@@ -201,7 +200,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#0e7490'}
+              color={'#0e7490'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'logic_labyrinth' }); }}
               style={{ fontSize: 17 }}
             >

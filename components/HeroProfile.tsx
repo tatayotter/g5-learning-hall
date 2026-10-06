@@ -2,7 +2,7 @@
 import { WeeklyData } from '@/hooks/useWeeklyData';
 import { useEffect, useRef, useState } from 'react';
 import { getTitleForLevel, getNextTitleTier } from '@/lib/titles';
-import { USERS } from '@/lib/userSession';
+import { USERS, type UserProfile } from '@/lib/userSession';
 import { saveAvatar } from '@/lib/userSession';
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { USERPIC_CATALOG, userpicPath } from '@/lib/userpicShop';
@@ -80,7 +80,11 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   const [activeSlot, setActiveSlot] = useState<number | null>(null);
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
   const [referralKey, setReferralKey] = useState<string | null>(null);
-  const activeUser = USERS[userId as keyof typeof USERS] ?? USERS['damien'];
+  // Placeholder only until the roster finishes loading this account.
+  const activeUser: UserProfile = USERS[userId] ?? {
+    id: userId, name: '', fullName: '', grade: '', avatar: userpicPath('ssb3.png'),
+    theme: 'theme_default', gender: 'boy', showCrown: false,
+  };
 
   // Scene editor
   const [sceneLayout, setSceneLayout] = useState<Record<string, number>>(() => {

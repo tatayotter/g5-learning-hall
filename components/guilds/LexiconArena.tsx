@@ -69,15 +69,12 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
     fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
   } | null>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const engine = useTimeAttack<LexiconWord>(words, timeLimit);
 
   // Theme colors
-  const accent = isTala ? 'text-pink-600' : 'text-amber-600';
-  const langBadge = isTala
-    ? 'bg-pink-50 text-pink-700 border border-pink-200'
-    : 'bg-blue-50 text-blue-700 border border-blue-200';
+  const accent = 'text-amber-600';
+  const langBadge = 'bg-blue-50 text-blue-700 border border-blue-200';
 
   // Load words — routed through the shared guild engine so Lexicon Arena
   // gets the same no-repeat completion tracking and grade-stage
@@ -204,7 +201,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           <h2 className="text-2xl mb-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
             <span style={{ position: 'relative', display: 'inline-block' }}>
               <span aria-hidden style={questTextShadowStyle}>Lexicon Arena</span>
-              <span style={{ ...questTextStyle, color: isTala ? '#f472b6' : '#818cf8' }}>Lexicon Arena</span>
+              <span style={{ ...questTextStyle, color: '#818cf8' }}>Lexicon Arena</span>
             </span>
           </h2>
           <p className="text-gray-500 italic text-sm mb-3 max-w-md mx-auto">{GUILDS.find(g => g.key === 'lexicon_arena')?.lore}</p>
@@ -234,7 +231,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#d97706'}
+              color={'#d97706'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lexicon_arena' }); }}
               style={{ fontSize: 17 }}
             >
@@ -252,7 +249,7 @@ export default function LexiconArena({ userId, weekStartingDate, currentStats, o
   if (screen === 'playing' && engine.currentQuestion) {
     const w = engine.currentQuestion;
     const timerPct = (engine.timeLeft / timeLimit) * 100;
-    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : isTala ? 'bg-pink-500' : 'bg-amber-500';
+    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-amber-500';
 
     return (
       <div className="fixed inset-0 font-serif flex flex-col lg:flex-row lg:items-center lg:justify-center lg:bg-blue-900" style={{ zIndex: 80 }}>

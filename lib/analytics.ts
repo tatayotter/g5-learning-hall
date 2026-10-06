@@ -109,7 +109,7 @@ export interface TrackOptions {
 
 async function insertEvent(
   userId: string,
-  isFamily: boolean,
+  showCrown: boolean,
   eventName: string,
   properties: Record<string, unknown>,
   appTab: string | null,
@@ -120,7 +120,7 @@ async function insertEvent(
     session_id: getOrCreateSessionId(),
     event_name: eventName,
     properties: { ...getLaunchContext(), ...getStoredAttribution(), ...properties },
-    is_family: isFamily,
+    is_family: showCrown,
     app_tab: appTab,
     client_ts: new Date().toISOString(),
   };
@@ -160,7 +160,7 @@ export async function trackEvent(
 ) {
   const userId = getActiveUser();
   if (!userId) return; // no-op before login — nothing meaningful to attribute yet
-  await insertEvent(userId, USERS[userId]?.isFamily ?? false, eventName, properties, appTab ?? null, options);
+  await insertEvent(userId, USERS[userId]?.showCrown ?? false, eventName, properties, appTab ?? null, options);
 }
 
 // Parent-side events. Parents sign in with real Supabase Auth and have no
@@ -215,7 +215,7 @@ export async function trackClientError(
     }
     const userId = getActiveUser();
     if (userId) {
-      await insertEvent(userId, USERS[userId]?.isFamily ?? false, 'client_error', properties, null, {});
+      await insertEvent(userId, USERS[userId]?.showCrown ?? false, 'client_error', properties, null, {});
     }
   } catch {
     // never let error reporting itself throw
