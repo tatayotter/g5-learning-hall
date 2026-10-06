@@ -1,5 +1,5 @@
 // components/GuildJournal.tsx
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { format } from 'date-fns';
 import { CharacterStats, JournalEntry } from '@/hooks/useWeeklyData';
 import { logAction } from '@/lib/playerlog';
@@ -113,6 +113,11 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
     hardest_challenge: '',
     gratitude: ''
   });
+  // A double tap (or Enter plus a tap) used to submit twice before the first
+  // save re-rendered, archiving the entry twice and logging the reward twice.
+  // The ref blocks the second call immediately; the state disables the button.
+  const submittingRef = useRef(false);
+  const [submitting, setSubmitting] = useState(false);
 
   // --- LOADING GUARD ---
   if (!journalLogs) {
@@ -128,47 +133,65 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
   // --- SUBMISSION HANDLER ---
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submittingRef.current) return;
+    submittingRef.current = true;
+    setSubmitting(true);
+    try {
+      const newLogs = { ...journalLogs, [todayKey]: formData };
+      const newStats = { ...stats };
 
-    const newLogs = { ...journalLogs, [todayKey]: formData };
-    let newStats = { ...stats };
-
-    const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
-    const { error: archiveError } = await supabase.from('journal_entries').insert({
-      user_id: userId,
-      entry_date: todayKey,
-      week_starting_date: weekStart,
-      done_today: formData.done_today,
-      tomorrow_plan: formData.tomorrow_plan,
-      hardest_challenge: formData.hardest_challenge,
-      gratitude: formData.gratitude
-    });
-    if (archiveError) {
-      console.error('Failed to archive journal entry:', archiveError);
-    }
-
-    if (!hasEntryToday) {
-      newStats.gold += 50;
-      newStats.xp += 50;
-
-      let currentXp = newStats.xp;
-      let currentLvl = newStats.level;
-      while (currentXp >= (500 + currentLvl * 100)) {
-        currentXp -= (500 + currentLvl * 100);
-        currentLvl += 1;
+      const weekStart = format(new Date(new Date().setDate(new Date().getDate() - new Date().getDay())), 'yyyy-MM-dd');
+      const entry = {
+        user_id: userId,
+        entry_date: todayKey,
+        week_starting_date: weekStart,
+        done_today: formData.done_today,
+        tomorrow_plan: formData.tomorrow_plan,
+        hardest_challenge: formData.hardest_challenge,
+        gratitude: formData.gratitude
+      };
+      // One entry per child per day (unique index): a repeat save is ignored
+      // rather than archived again.
+      let { error: archiveError } = await supabase.from('journal_entries')
+        .upsert(entry, { onConflict: 'user_id,entry_date', ignoreDuplicates: true });
+      // Fallback to a plain insert if the upsert is refused, e.g. before the
+      // unique index's migration is approved (42P10). Once the index exists, a
+      // duplicate (23505) just means today's entry is already archived.
+      if (archiveError) {
+        ({ error: archiveError } = await supabase.from('journal_entries').insert(entry));
+        if (archiveError?.code === '23505') archiveError = null;
       }
-      newStats.xp = currentXp;
-      newStats.level = currentLvl;
-
-      if (currentLvl > stats.level) {
-        playLevelUp();
-      } else {
-        playTeachingScroll();
+      if (archiveError) {
+        console.error('Failed to archive journal entry:', archiveError);
       }
 
-      await logAction(userId, currentSunday, 'journal', `Submitted daily journal entry for ${todayKey}`, 50, 50);
-    }
+      if (!hasEntryToday) {
+        newStats.gold += 50;
+        newStats.xp += 50;
 
-    onSave(newStats, newLogs);
+        let currentXp = newStats.xp;
+        let currentLvl = newStats.level;
+        while (currentXp >= (500 + currentLvl * 100)) {
+          currentXp -= (500 + currentLvl * 100);
+          currentLvl += 1;
+        }
+        newStats.xp = currentXp;
+        newStats.level = currentLvl;
+
+        if (currentLvl > stats.level) {
+          playLevelUp();
+        } else {
+          playTeachingScroll();
+        }
+
+        await logAction(userId, currentSunday, 'journal', `Submitted daily journal entry for ${todayKey}`, 50, 50);
+      }
+
+      onSave(newStats, newLogs);
+    } finally {
+      submittingRef.current = false;
+      setSubmitting(false);
+    }
   };
 
   // --- RENDER: ALREADY SUBMITTED ---
@@ -233,8 +256,8 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
         </p>
 
         <div className="pt-1 flex justify-center">
-          <GameButton type="submit" variant="quest" style={{ fontSize: 22 }}>
-            Seal Journal Entry
+          <GameButton type="submit" variant="quest" disabled={submitting} style={{ fontSize: 22 }}>
+            {submitting ? 'Sealing…' : 'Seal Journal Entry'}
           </GameButton>
         </div>
       </form>
