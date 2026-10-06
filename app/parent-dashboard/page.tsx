@@ -420,6 +420,7 @@ export default function ParentDashboardPage() {
         <ChildProgressPanel
           key={openChild.id}
           childId={openChild.id}
+          grade={openChild.grade}
           isPremium={isPremium}
           coinBalance={subscription?.coin_pool_balance ?? 0}
           onCoinsAwarded={(amount) =>
