@@ -10,11 +10,23 @@ getOrCreateSessionId();
 // Play app: route notification taps from the very first page, signed in or not.
 listenForNotificationTaps();
 
-// The service worker (public/sw.js) caches game art and voice clips, so every
+// The service worker (public/sw.js) caches game art, voice clips and the
+// offline app shell, so every
 // player gets it, not only those who turned on push notifications. Production
 // only: in dev it would serve stale copies of art being worked on.
 if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-  const register = () => { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {}); };
+  const register = () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    // Hand the worker everything this page already loaded, so the art and
+    // scripts fetched before it took control still work offline. A few
+    // seconds in, to catch the dashboard's first screen.
+    void navigator.serviceWorker.ready.then((reg) => {
+      setTimeout(() => {
+        const urls = performance.getEntriesByType('resource').map((e) => e.name);
+        reg.active?.postMessage({ type: 'cache-loaded-assets', urls });
+      }, 5000);
+    });
+  };
   if (document.readyState === 'complete') register();
   else window.addEventListener('load', register, { once: true });
 }
