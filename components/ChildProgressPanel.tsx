@@ -71,6 +71,13 @@ function topicStatus(rightPct: number, answered: number): TopicStatus {
   return { level: band.level, label: band.label, color: band.color };
 }
 
+// "Weekly Review" is the Friday quest that mixes questions from every subject,
+// so it can't be rated as one subject and is left out of the check-up.
+const NOT_A_SUBJECT = new Set(['weekly review']);
+function onlyRealSubjects(topics: WeakTopic[]): WeakTopic[] {
+  return topics.filter((t) => !NOT_A_SUBJECT.has(t.subject.trim().toLowerCase()));
+}
+
 function joinSubjects(names: string[]): string {
   if (names.length <= 1) return names[0] ?? '';
   return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
@@ -236,7 +243,7 @@ export default function ChildProgressPanel({ childId, grade, isPremium, coinBala
       console.error('Failed to load weak topics:', error);
       return;
     }
-    setWeakTopics((data as WeakTopic[]) ?? []);
+    setWeakTopics(onlyRealSubjects((data as WeakTopic[]) ?? []));
   };
 
   const handleAwardCoins = async (e: React.FormEvent) => {

@@ -3,7 +3,7 @@
   "week_starting_date": "2026-07-19",
   "days": {
     "Monday": {
-      "Math": {
+      "Mathematics": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Concept of Area:** Area is the amount of flat space inside a two-dimensional shape, measured in **square units** (e.g., cm² or m²). Example: Calculating the number of tiles needed to cover a floor involves finding the area.\n* **Parallelograms:** The area is calculated using the formula **A = b × h** (Base times perpendicular Height). Example: A garden with a base of 9m and height of 5m has an area of 45m².\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Fraction Division:** We will transition from geometry back to numbers to explore how to **divide fractions** using models.",
         "quiz": [
           {
@@ -158,7 +158,7 @@
       }
     },
     "Tuesday": {
-      "EPP/TLE": {
+      "EPP (ICT)": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Search Engine Mastery:** Tools like Google and Bing help us find information online. Using specific **keywords** leads to faster results.\n* **Netiquette:** Practice polite internet behavior, such as keeping **passwords private** to protect accounts.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Email Attachments:** We will learn how to safely attach files to emails and the difference between **CC and BCC**.",
         "quiz": [
           {
@@ -390,7 +390,7 @@
           }
         ]
       },
-      "Social Studies": {
+      "Araling Panlipunan": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Kalinangang Bayan:** This refers to the collective culture of ancient Filipinos, including **material culture** (artifacts like the Manunggul Jar) and **di-materyal** (beliefs/language).\n* **Indigenous Beliefs:** Our ancestors practiced **Animismo** (belief in nature spirits) and **Politeismo** (belief in many gods like Bathala).\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Spanish Colonization:** We will begin exploring why Spain was interested in colonizing the Philippines.",
         "quiz": [
           {
@@ -702,7 +702,7 @@
           }
         ]
       },
-      "Values Education": {
+      "GMRC": {
         "summary_markdown": "### 🎯 Today's Focus\n* **Pagiging Masinop (Prudence):** Being masinop means using resources responsibly. It includes managing **E-waste** (sirang gadgets) correctly.\n* **Data Privacy:** Before disposing of gadgets, you must **erase personal data** with adult help.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Obedience:** Next week, we will learn about **Obedience** regarding traffic rules and community laws.",
         "quiz": [
           {
@@ -781,7 +781,7 @@
       }
     },
     "Friday": {
-      "Math": {
+      "Mathematics": {
         "summary_markdown": "### 📊 Weekly Review: Geometry\nWe reviewed **Area Formulas** for parallelograms ($A=bh$), triangles ($A=bh/2$), and trapezoids ($A=[(b1+b2)h]/2$). Area measures the **space inside** a flat shape in square units.",
         "quiz": [
           {
@@ -934,7 +934,7 @@
           }
         ]
       },
-      "EPP/TLE": {
+      "EPP (ICT)": {
         "summary_markdown": "### 💻 Weekly Review: Digital Literacy\nLearners practiced being **Digital Detectives** by verifying online info. We reviewed **Netiquette** (polite internet use) and identifying **Browser Parts** like the address bar.",
         "quiz": [
           {
@@ -1240,7 +1240,7 @@
           }
         ]
       },
-      "Social Studies": {
+      "Araling Panlipunan": {
         "summary_markdown": "### 🌏 Weekly Review: Philippine Culture\nWe explored **Kalinangang Bayan**, distinguishing material artifacts from non-material habits. We also reviewed ancient beliefs in **Animismo** and the **Spread of Islam** via trade.",
         "quiz": [
           {
@@ -1317,7 +1317,7 @@
           }
         ]
       },
-      "Values Education": {
+      "GMRC": {
         "summary_markdown": "### 🌱 Weekly Review: Pagiging Masinop\nNatutunan ang pagiging **Masinop** (Prudent) sa pamamagitan ng wastong pamamahala ng **E-waste**. Priority ang **Reduce** bago ang Reuse at Recycle.",
         "quiz": [
           {

@@ -3,6 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import { supabase } from '@/lib/supabase';
 import { requireAdminPasscode } from '@/lib/adminAuth';
+import { ALL_SUBJECTS_BY_GRADE } from '@/lib/promptBuilder';
+import { WEEKLY_REVIEW_SUBJECT } from '@/lib/weeklyReview';
 
 /**
  * POST /api/admin-content-save
@@ -29,6 +31,21 @@ export async function POST(request: NextRequest) {
   }
   if (!days || typeof days !== 'object') {
     return NextResponse.json({ success: false, error: 'Missing days object' }, { status: 400 });
+  }
+
+  // Only this grade's official subjects (lib/promptBuilder.ts). A misspelled or
+  // old name ("Math", "Social Studies") used to save fine and then showed up as
+  // a separate subject in parent reports. The database also rejects names
+  // outside the official list (content_quizzes_subject_known).
+  const allowed = new Set([...ALL_SUBJECTS_BY_GRADE[grade], WEEKLY_REVIEW_SUBJECT]);
+  const unknown = [...new Set(Object.values(days as Record<string, Record<string, unknown>>)
+    .flatMap((day) => (day && typeof day === 'object' ? Object.keys(day) : []))
+    .filter((subject) => !allowed.has(subject)))];
+  if (unknown.length > 0) {
+    return NextResponse.json({
+      success: false,
+      error: `Unknown subject for Grade ${grade}: ${unknown.join(', ')}. Use one of: ${ALL_SUBJECTS_BY_GRADE[grade].join(', ')}.`,
+    }, { status: 400 });
   }
 
   const filename     = `week-${weekStartingDate}-g${grade}.json`;
