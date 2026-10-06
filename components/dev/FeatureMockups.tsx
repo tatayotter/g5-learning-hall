@@ -76,7 +76,7 @@ function patchSupabase() {
   // Public players are registered into USERS at login (lib/userSession.ts); do the same for the mock one.
   // Skip the first-visit tab tutorials (spotlight + dim overlay) so captures show the plain screen.
   for (const tab of ['board', 'todo', 'guilds', 'vault', 'journal', 'monster', 'codex', 'profile']) markTabTutorialSeen(tab, MOCK_USER);
-  USERS[MOCK_USER] = { id: MOCK_USER, name: 'Juan', fullName: 'Juan Dela Cruz', grade: 'Grade 5', avatar: AVATAR, theme: 'theme_default', gender: 'boy', isFamily: false };
+  USERS[MOCK_USER] = { id: MOCK_USER, name: 'Juan', fullName: 'Juan Dela Cruz', grade: 'Grade 5', avatar: AVATAR, theme: 'theme_default', gender: 'boy', showCrown: false };
   const s = supabase as unknown as Record<string, unknown>;
   s.from = (table: string) => chain({ data: TABLES[table] ?? null, error: null, count: table === 'user_completed_questions' ? 64 : 0 });
   s.rpc = (fn: string) => chain({ data: RPCS[fn] ?? null, error: null });
@@ -117,7 +117,7 @@ export default function FeatureMockups() {
       journalLogs={journalLogs} masteredQuizzes={['Monday_Mathematics', 'Monday_English']} applyGoldDelta={noop as never}
       todoCount={{ done: 3, total: 5 }} onTodoCountChange={noop} setActiveTab={noop} setActiveGuild={noop} setActiveQuest={noop} />;
   } else if (scene === 'vault') {
-    body = <VaultTab activeUserId={MOCK_USER} isFamily={false} characterStats={STATS} onSpendGold={noop} onThemeChange={noop}
+    body = <VaultTab activeUserId={MOCK_USER} showCrown={false} characterStats={STATS} onSpendGold={noop} onThemeChange={noop}
       handleClaimReward={noop} claimingKey={null} myClaims={[]} />;
   } else if (scene === 'journal') {
     body = <JournalTab activeUserId={MOCK_USER} journalLogs={journalLogs} characterStats={STATS} weekStartingDate={WEEK} onSave={noop as never} />;

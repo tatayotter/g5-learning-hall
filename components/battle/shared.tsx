@@ -409,7 +409,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   );
 }
 
-// Perk badge for Tatay's kids — Damien and Tala are always USERS[id].isFamily.
+// GM crown shown next to the name of accounts with children.show_crown set.
 export function GMBadge() {
   return <span title="GM" className="text-xs leading-none">👑</span>;
 }

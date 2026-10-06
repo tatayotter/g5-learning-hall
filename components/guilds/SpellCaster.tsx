@@ -63,8 +63,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   } | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const engine = useTimeAttack<SpellCasterQuestion>(questions, timeLimit)
 
   useEffect(() => {
@@ -226,7 +225,7 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#9333ea'}
+              color={'#9333ea'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'spellcaster' }); }}
               style={{ fontSize: 17 }}
             >

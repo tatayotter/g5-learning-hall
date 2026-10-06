@@ -71,8 +71,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
   } | null>(null);
   const [shuffledChoices, setShuffledChoices] = useState<{ key: string; text: string }[]>([]);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const engine = useTimeAttack<LorekeeperQuestion>(questions, timeLimit);
 
   useEffect(() => {
@@ -216,7 +215,7 @@ export default function Lorekeeper({ userId, weekStartingDate, currentStats, onG
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#047857'}
+              color={'#047857'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'lorekeeper' }); }}
               style={{ fontSize: 17 }}
             >

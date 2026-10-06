@@ -2,15 +2,13 @@
 import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, isFamilyProtected, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
+import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
 
 interface SplashScreenProps {
   onSelect: (id: UserId) => void;
 }
-
-const FAMILY_IDS: UserId[] = ['damien', 'tala'];
 
 // Cosmetic variety for the roster tiles — cycled by roster position so
 // colors stay stable regardless of search filtering. Light pastel chips to
@@ -80,11 +78,11 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   const [returningLogin, setReturningLogin] = useState(false);
   const [usernameInput, setUsernameInput] = useState('');
 
-  // Single unified roster — family and classmates together, alphabetical.
+  // Single unified roster — classmates and children together, alphabetical.
   // By the time SplashScreen mounts, the parent has already awaited
   // loadClassmates()/loadAvatarOverrides(), so USERS is fully populated.
   const allIds = useMemo(
-    () => [...FAMILY_IDS, ...getClassmateIds(), ...getChildIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
+    () => [...getClassmateIds(), ...getChildIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
     []
   );
 
@@ -106,13 +104,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   };
 
   const handleRowClick = (id: UserId) => {
-    const user = USERS[id];
-    if (FAMILY_IDS.includes(id)) {
-      if (isFamilyProtected(id)) openLogin(id, user.name);
-      else handleSelect(id);
-    } else {
-      openLogin(id, user.name);
-    }
+    openLogin(id, USERS[id].name);
   };
 
   const handlePasswordSubmit = async (e: React.FormEvent) => {
@@ -121,11 +113,9 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     setLoggingIn(true);
     setLoginError('');
     try {
-      const endpoint = FAMILY_IDS.includes(loginTarget.id)
-        ? '/api/family-login'
-        : getChildIds().includes(loginTarget.id)
-          ? '/api/child-login'
-          : '/api/classmate-login';
+      const endpoint = getChildIds().includes(loginTarget.id)
+        ? '/api/child-login'
+        : '/api/classmate-login';
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

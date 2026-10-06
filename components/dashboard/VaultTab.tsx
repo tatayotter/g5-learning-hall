@@ -40,7 +40,7 @@ interface RewardClaim {
 
 interface VaultTabProps {
   activeUserId: UserId;
-  isFamily: boolean;
+  showCrown: boolean;
   characterStats: CharacterStats;
   onSpendGold: (stats: CharacterStats) => void;
   onThemeChange: (themeKey: string) => void;
@@ -51,7 +51,7 @@ interface VaultTabProps {
 
 export default function VaultTab({
   activeUserId,
-  isFamily,
+  showCrown,
   characterStats,
   onSpendGold,
   onThemeChange,
@@ -59,7 +59,7 @@ export default function VaultTab({
   claimingKey,
   myClaims,
 }: VaultTabProps) {
-  if (!isFamily) {
+  if (!showCrown) {
     return (
       <MonsterShop
         userId={activeUserId}

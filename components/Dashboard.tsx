@@ -1275,7 +1275,7 @@ export default function Dashboard() {
         {activeTab === 'vault' && (
           <VaultTab
             activeUserId={activeUserId}
-            isFamily={USERS[activeUserId].isFamily}
+            showCrown={USERS[activeUserId].showCrown}
             characterStats={data.character_stats}
             onSpendGold={setCharacterStatsDirect}
             onThemeChange={handleThemeChange}

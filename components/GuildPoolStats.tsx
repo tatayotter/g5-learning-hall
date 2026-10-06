@@ -31,8 +31,7 @@ export default function GuildPoolStats({ userId }: { userId: string }) {
   const [loading, setLoading] = useState(true);
   const [lastRefreshed, setLastRefreshed] = useState<Date>(new Date());
 
-  const userProfile = USERS[userId as keyof typeof USERS] || USERS['damien'];
-  const gradeLevel = gradeToNumber(userProfile.grade);
+  const gradeLevel = gradeToNumber(USERS[userId]?.grade);
 
   async function fetchStats() {
     setLoading(true);

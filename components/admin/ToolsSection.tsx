@@ -20,15 +20,6 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
   const [deedGold, setDeedGold] = useState('');
   const [claims, setClaims] = useState<any[]>([]);
   const [loadingData, setLoadingData] = useState(false);
-  const [protectedIds, setProtectedIds] = useState<Set<string>>(new Set());
-  const [loginPassword, setLoginPassword] = useState('');
-  const [savingPassword, setSavingPassword] = useState(false);
-
-  const loadProtectedIds = async () => {
-    const { data } = await supabase.from('family_credentials').select('id');
-    setProtectedIds(new Set((data || []).map((r: any) => r.id)));
-  };
-
   const loadUserData = async (id: 'damien' | 'tala') => {
     setLoadingData(true);
     // Level/xp/gold live on player_progress (lifetime, no week key); journal_logs/counters/
@@ -65,21 +56,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
     setLoadingData(false);
   };
 
-  useEffect(() => { loadUserData(userId); loadProtectedIds(); }, [userId]);
-
-  const handleSetLoginPassword = async () => {
-    if (!loginPassword.trim()) return;
-    setSavingPassword(true);
-    const result = await callAdminApi('/api/family-admin', { passcode, id: userId, password: loginPassword });
-    if (result.success) {
-      alert(`✅ Login password set for ${userId === 'damien' ? 'Damien' : 'Tala'}.`);
-      setLoginPassword('');
-      loadProtectedIds();
-    } else {
-      alert(result.error || 'Failed to set password.');
-    }
-    setSavingPassword(false);
-  };
+  useEffect(() => { loadUserData(userId); }, [userId]);
 
   // NOTE: these act on `userId` (the Damien/Tala picker above), not necessarily the
   // account currently logged into this browser tab — they used to go through
@@ -157,36 +134,6 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       ) : (
         <div className="space-y-6">
 
-          {/* Login password */}
-          <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-xs text-[#8a7c66] uppercase tracking-widest">🔒 Login Password</p>
-              {protectedIds.has(userId) ? (
-                <span className="text-xs font-bold text-[#7fae52] bg-[#223616]/40 border border-[#33501f] px-2 py-0.5 rounded-full">Protected</span>
-              ) : (
-                <span className="text-xs font-bold text-[#8a7c66] bg-[#2a2119] border border-[#3d3225] px-2 py-0.5 rounded-full">Not Set — instant login</span>
-              )}
-            </div>
-            <p className="text-[#8a7c66] text-xs mb-3">
-              Once set, {userId === 'damien' ? 'Damien' : 'Tala'} will need this password to open their dashboard from the splash screen — classmates won't be able to click into it.
-            </p>
-            <div className="flex gap-3">
-              <input
-                type="text"
-                placeholder="Set or change password"
-                value={loginPassword}
-                onChange={e => setLoginPassword(e.target.value)}
-                className="flex-1 bg-neutral-950 border border-[#3d3225] rounded-lg px-3 py-2 text-[#ede4d3] font-mono focus:outline-none focus:border-neutral-500"
-              />
-              <button
-                onClick={handleSetLoginPassword}
-                disabled={savingPassword || !loginPassword.trim()}
-                className="bg-[#a8620f] hover:bg-[#c9781a] disabled:opacity-40 text-[#ede4d3] font-bold px-5 py-2 rounded-lg transition-colors"
-              >
-                {savingPassword ? 'Saving...' : 'Save'}
-              </button>
-            </div>
-          </div>
 
           {/* Current stats display */}
           <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">

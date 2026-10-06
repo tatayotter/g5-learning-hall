@@ -10,11 +10,10 @@ interface AchievementToastProps {
   onDismissAll: () => void;
 }
 
-export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }: AchievementToastProps) {
+export default function AchievementToast({ newlyUnlocked, onDismissAll }: AchievementToastProps) {
   const [visible, setVisible] = useState<Achievement[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const isTala = userId === 'tala';
 
   useEffect(() => {
     if (newlyUnlocked.length > 0) {
@@ -40,18 +39,8 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
 
   const current = visible[currentIndex];
 
-  // Theme colors based on active user — both are light/parchment now, just
-  // a different accent hue (pink for Tala, gold for everyone else).
-  const colors = isTala ? {
-    bg: 'bg-pink-50 border-pink-300',
-    title: 'text-pink-700',
-    sub: 'text-pink-500',
-    xp: 'text-pink-600',
-    gold: 'text-pink-500',
-    bar: 'bg-pink-400',
-    dismiss: 'text-pink-400 hover:text-pink-600',
-    counter: 'text-pink-400',
-  } : {
+  // Light/parchment card with a gold accent.
+  const colors = {
     bg: 'bg-[#f0ddb8] border-amber-600',
     title: 'text-amber-800',
     sub: 'text-amber-700',
@@ -86,7 +75,7 @@ export default function AchievementToast({ userId, newlyUnlocked, onDismissAll }
             <div className="flex items-start justify-between mb-3">
               <div>
                 <p className={`text-xs font-bold uppercase tracking-widest ${colors.sub}`}>
-                  {isTala ? '✨ Achievement Unlocked!' : '⚔️ Achievement Unlocked!'}
+                  {'⚔️ Achievement Unlocked!'}
                 </p>
                 <h3 className={`text-lg font-display font-bold leading-tight ${colors.title}`}>
                   {current.title}

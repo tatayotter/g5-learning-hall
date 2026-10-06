@@ -79,8 +79,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   const minutesRef = useRef<HTMLInputElement>(null);
   const standardRef = useRef<HTMLInputElement>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const engine = useTimeAttack<NumberRealmQuestion>(questions, timeLimit)
 
   useEffect(() => {
@@ -266,7 +265,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#b45309'}
+              color={'#b45309'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'number_realm' }); }}
               style={{ fontSize: 17 }}
             >

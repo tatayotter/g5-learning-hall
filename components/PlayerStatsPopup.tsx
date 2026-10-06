@@ -148,7 +148,7 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
               className="w-10 h-10 rounded-full object-contain bg-[#0a0807] border-2 border-[#d4a017]"
             />
           ) : (
-            <span className="text-3xl">{profile?.isFamily ? '⚔️' : '🎮'}</span>
+            <span className="text-3xl">{profile?.showCrown ? '⚔️' : '🎮'}</span>
           )}
           <div>
             <p
@@ -159,9 +159,9 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
                 <span aria-hidden style={questTextShadowStyle}>{displayName}</span>
                 <span style={questTextStyle}>{displayName}</span>
               </span>
-              {profile?.isFamily && <GMBadge />}
+              {profile?.showCrown && <GMBadge />}
             </p>
-            <p className="text-xs text-[#e8d0a0]">{profile?.grade}{profile && !profile.isFamily && ' · Classmate'}</p>
+            <p className="text-xs text-[#e8d0a0]">{profile?.grade}{profile && !profile.showCrown && ' · Classmate'}</p>
           </div>
         </div>
 
