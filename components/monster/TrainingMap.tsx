@@ -547,7 +547,7 @@ export default function TrainingMap({
   // away for the server to re-grade on reconnect.
   const scrollGradeOverride = playingMapOffline(userId)
     ? (question: any, selected: string) => {
-        const result = gradeScrollOffline(userId, question.id, selected);
+        const result = gradeScrollOffline(userId, question, selected);
         queueScrollAnswer(userId, activeMonster?.id ?? null, question.id, selected, result.correct);
         return result;
       }

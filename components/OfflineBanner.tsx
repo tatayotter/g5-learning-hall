@@ -4,8 +4,18 @@
 // the cached shell and the player's last-loaded progress (public/sw.js,
 // lib/offlineSnapshot.ts), but anything that saves needs the server, so this
 // says so up front instead of letting a quiz end in a failed save. With offline play
-// on (lib/offlineQuests.ts, lib/offlineGuilds.ts) quests and guilds do save, on the device.
-export default function OfflineBanner({ questsWork = false }: { questsWork?: boolean }) {
+// on (lib/offlineQuests.ts, lib/offlineGuilds.ts) quests and guilds do save, on the device, and
+// `countWaiting` counts what's saved there and not yet synced (re-read every few seconds, since
+// the outboxes live in localStorage, outside React state).
+import { useEffect, useState } from 'react';
+
+export default function OfflineBanner({ questsWork = false, countWaiting }: { questsWork?: boolean; countWaiting?: () => number }) {
+  const [waiting, setWaiting] = useState(() => countWaiting?.() ?? 0);
+  useEffect(() => {
+    if (!countWaiting) return;
+    const timer = setInterval(() => setWaiting(countWaiting()), 2000);
+    return () => clearInterval(timer);
+  }, [countWaiting]);
   return (
     <div
       role="status"
@@ -14,7 +24,8 @@ export default function OfflineBanner({ questsWork = false }: { questsWork?: boo
       <span aria-hidden>📡</span>
       <span>{questsWork
         ? 'Offline: quests, guilds, the Training Map and trainer battles save on this device and sync when you reconnect.'
-        : 'Offline: showing your last saved progress. Reconnect to save.'}</span>
+        : 'Offline: showing your last saved progress. Reconnect to save.'}
+        {questsWork && waiting > 0 && ` ${waiting} waiting to sync.`}</span>
     </div>
   );
 }

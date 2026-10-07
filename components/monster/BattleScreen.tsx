@@ -263,7 +263,6 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     }
 
     playItemUse();
-    onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null });
 
     switch (item.effect) {
       case 'heal_30':
@@ -278,6 +277,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         if (result.healAmount !== undefined) {
           const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + result.healAmount);
           setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m));
+          onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null, hpBefore: playerMon.currentHp, hpAfter: newHp });
         } else if (result.selfStatus) {
           const { status, statusTurns } = result.selfStatus;
           setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status, statusTurns } : m));
@@ -285,10 +285,12 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           const { status, statusTurns } = result.opponentStatus;
           setNpcMonsters(prev => prev.map((m, i) => i === npcMonsterIdx ? { ...m, status, statusTurns } : m));
         }
+        if (result.healAmount === undefined) onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null });
         addLog(result.logMessage);
         break;
       }
       default:
+        onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null });
         addLog(`Used ${item.name}!`);
         break;
     }
@@ -318,9 +320,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     }
 
     playItemUse();
-    onBattleEvent?.({ t: 'item', key: 'revive_stone', curio: target.userMonster?.id ?? null });
 
     const revivedHp = Math.round(target.maxHp * 0.75);
+    onBattleEvent?.({ t: 'item', key: 'revive_stone', curio: target.userMonster?.id ?? null, hpBefore: target.currentHp, hpAfter: revivedHp });
     setPlayerMonsters(prev => prev.map((m, i) => i === idx ? { ...m, currentHp: revivedHp } : m));
     addLog(`🔄 Used Revive Stone: ${target.def.name} revived!`);
 
@@ -583,6 +585,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const currentPlayer = playerMonstersRef.current[currentIdx];
 
     if (currentNpc.status === 'paralyze') {
+      onBattleEvent?.({ t: 'npc_skip', npc: npcIdx });
       addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
       playBattleSfx('paralyze');
       const [updatedNpc, msgs] = applyStatusTick(currentNpc);

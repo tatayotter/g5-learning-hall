@@ -12,6 +12,11 @@ name: Database tests
       - "supabase/tests/**"
       - "supabase/config.toml"
       - ".github/workflows/database-tests.yml"
+      # The battle numbers the offline trainer battle check uses come from these
+      # (scripts/battle-stats.mjs), so a balance change re-runs the drift check below.
+      - "lib/monsterConfig.ts"
+      - "lib/curioQuality.ts"
+      - "scripts/battle-stats.mjs"
   workflow_dispatch: {}
 
 jobs:
@@ -50,6 +55,21 @@ jobs:
 
       - name: Run pgTAP database tests
         run: supabase test db
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The battle_* tables sync_offline_trainer_battle checks offline battle logs against
+      # must match lib/monsterConfig.ts, or real offline wins stop counting (or fake ones
+      # pass). Fix a failure with `node scripts/battle-stats.mjs --write` and commit the
+      # migration it writes.
+      - name: Check battle stats match the game
+        run: node scripts/battle-stats.mjs --check
 
       - name: Stop local Supabase stack
         if: always()

@@ -16,7 +16,10 @@ export type BattleLogEvent =
   // Skill effects that heal the player's own curio (lifesteal and friends).
   | { t: 'heal'; curio: string | null; hpBefore: number; hpAfter: number; source: string }
   | { t: 'rest'; curio: string | null; hpBefore: number; hpAfter: number }
-  | { t: 'item'; key: string; curio: string | null }
+  // An item; heals and the Revive Stone carry the curio's HP before and after.
+  | { t: 'item'; key: string; curio: string | null; hpBefore?: number; hpAfter?: number }
+  // The trainer curio skipping its turn (paralyzed).
+  | { t: 'npc_skip'; npc: number }
   | { t: 'switch'; curio: string | null }
   | { t: 'toss'; playerFirst: boolean }
   | { t: 'surrender' };

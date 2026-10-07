@@ -361,9 +361,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   // Offline trainer battles grade from the downloaded answer key, and keep each answer for the
   // server to re-grade on reconnect.
-  const gradeTrainerAnswerOffline = (question: { id: string }, selected: string) => {
+  const gradeTrainerAnswerOffline = (question: { id: string; options?: unknown }, selected: string) => {
     offlineBattleAnswersRef.current.push({ questionId: question.id, selected });
-    return gradeScrollOffline(userId, question.id, selected);
+    return gradeScrollOffline(userId, question, selected);
   };
 
   const handleQuestionsAnswered = (usedQuestions: any[]) => {

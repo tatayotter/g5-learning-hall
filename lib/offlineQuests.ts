@@ -16,6 +16,7 @@ import { hasFeatureFlag } from '@/lib/featureFlags';
 import { isRunningInstalled } from '@/lib/installPrompt';
 import { isNativeApp } from '@/lib/platform';
 import { isOffline } from '@/lib/offlineSnapshot';
+import { md5 } from '@/lib/md5';
 
 const KEY_STORE = (userId: string) => `lh_answer_key_${userId}`;
 const OUTBOX = (userId: string) => `lh_quest_outbox_${userId}`;
@@ -142,11 +143,43 @@ function answerKey(userId: string): Record<string, string> {
   return read<StoredAnswerKey | null>(KEY_STORE(userId), null)?.answers ?? {};
 }
 
-// One question's answer from the downloaded key, for questions graded one at a time (the
-// Training Map's scrolls, lib/offlineMap.ts). Undefined when the key doesn't have it.
-export function offlineAnswerFor(userId: string, questionId: string): string | undefined {
-  if (!offlinePlayEnabled(userId)) return undefined;
-  return answerKey(userId)[questionId];
+// The key holds md5('lh-key:' || question id || ':' || answer) per question (get_answer_key), so
+// a whole term of answers on the device can't simply be read off it. A plain answer (a key
+// downloaded before the key was hashed) still works.
+const HASHED = /^[0-9a-f]{32}$/;
+function matchesKey(entry: string | undefined, questionId: string, answer: string | undefined | null): boolean {
+  if (entry === undefined || answer === undefined || answer === null) return false;
+  return HASHED.test(entry) ? md5(`lh-key:${questionId}:${answer}`) === entry : entry === answer;
+}
+
+export interface KeyedQuestion {
+  id: string;
+  options?: unknown;
+}
+
+// The right option for a question, found by checking each option against the key; undefined
+// when the key doesn't cover it.
+function correctOption(key: Record<string, string>, question: KeyedQuestion): string | undefined {
+  const entry = key[question.id];
+  if (entry === undefined) return undefined;
+  if (!HASHED.test(entry)) return entry;
+  const options = Array.isArray(question.options) ? (question.options as unknown[]).map(String) : [];
+  return options.find(o => matchesKey(entry, question.id, o));
+}
+
+// Whether the downloaded key covers a question, for questions graded one at a time (the
+// Training Map's scrolls, lib/offlineMap.ts, and offline trainer battles).
+export function hasOfflineAnswer(userId: string, questionId: string): boolean {
+  return offlinePlayEnabled(userId) && questionId in answerKey(userId);
+}
+
+// One question graded from the downloaded key, with the right option to show.
+export function gradeQuestionOffline(userId: string, question: KeyedQuestion, selected: string) {
+  const key = offlinePlayEnabled(userId) ? answerKey(userId) : {};
+  return {
+    correct: matchesKey(key[question.id], question.id, selected),
+    correctAnswer: correctOption(key, question) ?? null,
+  };
 }
 
 export function canAnswerOffline(userId: string, questionIds: string[]): boolean {
@@ -155,10 +188,11 @@ export function canAnswerOffline(userId: string, questionIds: string[]): boolean
   return questionIds.every(id => id in key);
 }
 
-export function gradeOffline(userId: string, questionIds: string[], selected: Record<number, string>) {
+export function gradeOffline(userId: string, questions: KeyedQuestion[], selected: Record<number, string>) {
   const key = answerKey(userId);
-  const correctAnswers = questionIds.map(id => key[id]);
-  const correctCount = questionIds.filter((id, i) => selected[i] === key[id]).length;
+  const questionIds = questions.map(q => q.id);
+  const correctAnswers = questions.map(q => correctOption(key, q) ?? '');
+  const correctCount = questions.filter((q, i) => matchesKey(key[q.id], q.id, selected[i])).length;
   return {
     correct_count: correctCount,
     total: questionIds.length,

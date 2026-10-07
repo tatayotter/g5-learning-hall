@@ -559,11 +559,17 @@ export default function Dashboard() {
         });
       })();
     };
+    // Coming back to the app (the installed app reopened, or its tab shown again) syncs
+    // straight away too, so what was played offline spends as little time on the device as
+    // possible.
+    const onVisible = () => { if (document.visibilityState === 'visible') sync(); };
     sync();
     window.addEventListener('online', sync);
+    document.addEventListener('visibilitychange', onVisible);
     const timer = setInterval(sync, 3 * 60 * 1000);
     return () => {
       window.removeEventListener('online', sync);
+      document.removeEventListener('visibilitychange', onVisible);
       clearInterval(timer);
     };
   }, [activeUserId, refresh]);
@@ -1066,7 +1072,14 @@ export default function Dashboard() {
         />
       )}
       <div className="h-screen flex flex-col">
-      {(showingOfflineCopy || !online) && <OfflineBanner questsWork={offlinePlayEnabled(activeUserId)} />}
+      {(showingOfflineCopy || !online) && (
+        <OfflineBanner
+          questsWork={offlinePlayEnabled(activeUserId)}
+          countWaiting={() => pendingQuestEntries(activeUserId).length + pendingGuildEntries(activeUserId).length
+            + pendingMapEntries(activeUserId).filter(e => e.kind !== 'position').length
+            + pendingTrainerBattles(activeUserId).length}
+        />
+      )}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
       {introStart && data && (
