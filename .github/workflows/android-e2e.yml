@@ -17,6 +17,12 @@ jobs:
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 75
+    # The emulator itself died as the game screen opened (Phaser's WebGL) with the host-side
+    # SwiftShader renderer, so try the two other software GPUs side by side.
+    strategy:
+      fail-fast: false
+      matrix:
+        gpu: [swangle_indirect, guest]
     steps:
       - uses: actions/checkout@v7
 
@@ -95,7 +101,7 @@ jobs:
           heap-size: 512M
           # Not -noaudio: the emulator died the moment the game started its music. A silent
           # audio driver (QEMU_AUDIO_DRV=none below) still gives the app a device to play to.
-          emulator-options: -no-window -gpu swiftshader_indirect -no-boot-anim -no-snapshot
+          emulator-options: -no-window -gpu ${{ matrix.gpu }} -no-boot-anim -no-snapshot
           # Each script line runs in its own shell, so the logcat capture and the test share one.
           script: |
             adb install -r android/app/build/outputs/apk/debug/app-debug.apk
@@ -114,7 +120,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: android-e2e
+          name: android-e2e-${{ matrix.gpu }}
           path: |
             e2e-android-shots/
             next.log

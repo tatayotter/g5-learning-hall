@@ -9,10 +9,14 @@ non-zero if any fail; screenshots go to `e2e-android-shots/`.
 Everything runs against a local Supabase and a local `next start`, so production is never touched.
 The emulator reaches them on its own `localhost` through `adb reverse`.
 
+No Docker or emulator on your machine? `.github/workflows/android-e2e.yml` does all of the steps
+below on a GitHub runner; its screenshots and logs are uploaded as the run's artifacts.
+
 ## Steps
 
 1. Local Supabase (Docker running):
-   - Temporarily set `enable_anonymous_sign_ins = true` under `[auth]` in `supabase/config.toml`.
+   - Temporarily add the line `enable_anonymous_sign_ins = true` right under `[auth]` in
+     `supabase/config.toml` (the file has no such line yet, so there's nothing to edit).
    - `npx supabase start -x studio,imgproxy,inbucket,edge-runtime,logflare,vector,realtime,storage-api,postgres-meta,supavisor`
    - `npx supabase db reset`
    - Load the fixture: `docker exec -i supabase_db_<project> psql -U postgres < e2e/android/seed.sql`
