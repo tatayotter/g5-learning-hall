@@ -4,7 +4,7 @@
 
 begin;
 create extension if not exists pgtap;
-select plan(41);
+select plan(42);
 
 -- ── Fixture ──────────────────────────────────────────────────────────────────
 create temp table fx as
@@ -313,10 +313,15 @@ select is(
   'the item comes off the inventory'
 );
 select is(
-  (select (pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(4, 0), '["pgtap_potion"]',
-    pg_temp.win_log('tide_watcher', curio_a, p_item => 'pgtap_potion')) ->> 'won')::boolean from fx),
-  false,
-  'a win with an item the player no longer has doesn''t count'
+  (select pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(4, 0), '["pgtap_potion"]',
+    pg_temp.win_log('tide_watcher', curio_a, p_item => 'pgtap_potion')) ->> 'items_ok' from fx),
+  'false',
+  'an item already used up (say on another device) is noted'
+);
+select is(
+  (select won from offline_battle_logs where user_id = (select user_a from fx) order by id desc limit 1),
+  true,
+  'and the win still counts'
 );
 select is(
   (select quantity from player_inventory where app_user_id = (select user_a from fx) and item_key = 'pgtap_potion'),

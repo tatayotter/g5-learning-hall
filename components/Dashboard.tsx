@@ -590,9 +590,14 @@ export default function Dashboard() {
           map.answers === 0 && map.gold > 0 && 'your trash trades',
           trainers.battles > 0 && `${trainers.battles} trainer battle${trainers.battles === 1 ? '' : 's'}`,
         ].filter(Boolean).join(' and ');
+        // A quest finished on two devices pays once; the one that synced second says why its
+        // reward didn't come (the refetch may lower the gold this device showed).
+        const doneBefore = quests.filter(q => q.alreadyDone).map(q => q.quest.replace('_', "'s "));
+        const alreadyDone = doneBefore.length === 0 ? ''
+          : ` · You already got the reward for ${doneBefore.join(' and ')}, so ${doneBefore.length === 1 ? 'it' : 'they'} didn't pay again.`;
         setToast({
           show: true,
-          message: `✅ Saved to your account: ${parts}${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
+          message: `✅ Saved to your account: ${parts}${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}${alreadyDone}`,
         });
       } catch {
         // Whatever didn't go stays queued on the device for the next try.

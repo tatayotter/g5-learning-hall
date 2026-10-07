@@ -521,7 +521,9 @@ begin
   select level into v_player_level from public.player_progress where user_id = p_user_id;
   v_allowed := coalesce(v_player_level, 1) >= v_level_req;
 
-  -- Same atomic decrement as consume_inventory_item.
+  -- Same atomic decrement as consume_inventory_item. An item that's already gone (most often
+  -- used up by the same player on another device before this one synced) just isn't taken
+  -- again; the battle still counts, so a kid playing on two devices doesn't lose a fair win.
   for v_item in select * from jsonb_array_elements_text(p_items) loop
     update public.player_inventory
     set quantity = quantity - 1, updated_at = now()
@@ -559,7 +561,7 @@ begin
 
   v_log_problem := public.check_offline_battle_log(p_user_id, p_trainer_id, p_log, v_graded, p_items, coalesce(p_won, false));
 
-  v_won := coalesce(p_won, false) and v_allowed and v_items_ok and v_log_problem is null
+  v_won := coalesce(p_won, false) and v_allowed and v_log_problem is null
     and v_right >= v_curios and v_right * 2 >= v_asked;
 
   insert into public.user_battle_state (user_id) values (p_user_id) on conflict (user_id) do nothing;

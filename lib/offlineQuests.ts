@@ -230,6 +230,8 @@ export interface SyncedQuest {
   is_perfect: boolean;
   xp: number;
   gold: number;
+  // Already mastered by the time this synced (most often on another device), so it paid nothing.
+  alreadyDone: boolean;
 }
 
 const flushing = new Map<string, Promise<SyncedQuest[]>>();
@@ -263,7 +265,7 @@ export function flushQuestOutbox(userId: string): Promise<SyncedQuest[]> {
       }
       write(OUTBOX(userId), remaining.filter(e => e.id !== entry.id));
       if (!data.replayed) {
-        synced.push({ quest: data.quest, is_perfect: !!data.is_perfect, xp: data.xp ?? 0, gold: data.gold ?? 0 });
+        synced.push({ quest: data.quest, is_perfect: !!data.is_perfect, xp: data.xp ?? 0, gold: data.gold ?? 0, alreadyDone: !!data.already_mastered });
       }
     }
     return synced;
