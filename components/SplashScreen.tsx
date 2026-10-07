@@ -310,7 +310,9 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                 <p className="text-center text-blue-100/60 text-sm py-6">No one can log in without internet here yet. Connect to the internet to log in.</p>
               )}
               {!offline && visibleIds.length === 0 && (
-                <p className="text-center text-blue-100/60 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
+                <p className="text-center text-blue-100/60 text-sm py-6">
+                  {searchQuery.trim() ? <>No players match &quot;{searchQuery}&quot;</> : 'No players yet.'}
+                </p>
               )}
               <div className="grid grid-cols-2 gap-2.5">
                 {visibleIds.map((id, i) => {

@@ -61,7 +61,10 @@ jobs:
           name: g5-learning-hall-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
 
+      # Only main's build replaces the public APK; a manual run on a PR
+      # branch is a test build, downloaded from the run's artifact instead.
       - name: Publish APK to a public Release
+        if: github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v3
         with:
           tag_name: latest-apk
