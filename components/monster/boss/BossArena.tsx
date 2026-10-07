@@ -226,6 +226,7 @@ export default function BossArena({
   const [locked, setLocked] = useState(false);
   const [combo, setCombo] = useState(0);
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
+  const [connectionHiccup, setConnectionHiccup] = useState(false);
   const [taunt, setTaunt] = useState<{ key: number; text: string } | null>(null);
   const [brokenHeart, setBrokenHeart] = useState<{ index: number; key: number } | null>(null);
   const [hurt, setHurt] = useState<{ key: number; fraction: number; knockout: boolean } | null>(null);
@@ -329,14 +330,14 @@ export default function BossArena({
     setLocked(true);
     setGrading(true);
     setPicked({ opt, result: 'pending' });
-    setBanner(null);
+    setConnectionHiccup(false);
     const isCorrect = await gradeAnswer(current.id, opt);
     setGrading(false);
     if (isCorrect === null) {
       // Couldn't reach the server: no heart lost, the question stays up.
       setPicked(null);
       setLocked(false);
-      setBanner({ text: "📡 Couldn't reach the server. Tap your answer again.", iconSrc: null });
+      setConnectionHiccup(true);
       return;
     }
     setPicked({ opt, result: isCorrect ? 'correct' : 'wrong' });
@@ -608,6 +609,9 @@ export default function BossArena({
                       Question {Math.min(correctCount + 1, originalPoolSize)} of {originalPoolSize}{current.topic ? ` · ${current.topic}` : ''}
                     </p>
                     <p className="fcard-q">{current.question}</p>
+                    {connectionHiccup && (
+                      <p className="fcard-meta" style={{ color: '#b45309', marginTop: 4 }}>📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+                    )}
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
