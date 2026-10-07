@@ -89,13 +89,16 @@ jobs:
           target: google_apis
           arch: x86_64
           disable-animations: true
+          ram-size: 4096M
+          heap-size: 512M
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          # Each script line runs in its own shell, so the logcat capture and the test share one.
           script: |
             adb install -r android/app/build/outputs/apk/debug/app-debug.apk
             adb shell pm clear com.tatayotter.learninghall
             adb reverse tcp:3000 tcp:3000
             adb reverse tcp:54321 tcp:54321
-            node e2e/android/run.cjs
+            adb logcat -c; (adb logcat -v time > logcat.txt &); node e2e/android/run.cjs
 
       - name: Upload screenshots and logs
         if: always()
@@ -105,4 +108,5 @@ jobs:
           path: |
             e2e-android-shots/
             next.log
+            logcat.txt
           if-no-files-found: ignore
