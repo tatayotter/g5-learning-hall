@@ -58,6 +58,86 @@ export async function refreshAnswerKey(userId: string, weekIds: string[]): Promi
   write(KEY_STORE(userId), { weekIds, answers: data as Record<string, string> } satisfies StoredAnswerKey);
 }
 
+// ── The rest of the term ────────────────────────────────────────────────────
+//
+// Offline trainer battles (lib/offlineTrainers.ts) ask questions from every week that has
+// content, from this week on: this week through the end of the term (and into the next term
+// once its weeks are authored, since the list is whatever content_weeks has). The questions
+// come through the same answer-stripped /api/content route the weekly screen uses, and the
+// answer key covers the same weeks. Under 1 MB for a whole term. Re-downloaded at most every
+// few hours, or straight away when this week isn't in the stored copy yet.
+
+const POOL_STORE = (userId: string) => `lh_term_questions_${userId}`;
+const POOL_REFRESH_MS = 6 * 60 * 60 * 1000;
+// get_answer_key takes at most 20 weeks.
+const POOL_MAX_WEEKS = 20;
+
+export interface PoolQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  subject: string;
+}
+
+interface StoredPool {
+  weekIds: string[];
+  fetchedAt: number;
+  questions: PoolQuestion[];
+}
+
+function storedPool(userId: string): StoredPool | null {
+  return read<StoredPool | null>(POOL_STORE(userId), null);
+}
+
+// Keeps the answer key, and where offline play is on the rest of the term's questions, current
+// for the next time the device has no connection. `weekId` is this week's content week.
+export async function refreshOfflineContent(userId: string, grade: number, weekStartingDate: string, weekId: string) {
+  if (!offlinePlayEnabled(userId)) return;
+  const stored = storedPool(userId);
+  if (stored && stored.weekIds.includes(weekId) && Date.now() - stored.fetchedAt < POOL_REFRESH_MS) return;
+
+  const { data: weeks, error } = await supabase
+    .from('content_weeks')
+    .select('id, week_starting_date')
+    .eq('grade', grade)
+    .gte('week_starting_date', weekStartingDate)
+    .order('week_starting_date')
+    .limit(POOL_MAX_WEEKS);
+  if (error || !weeks?.length) {
+    // Without the list, this week's key is still worth having.
+    await refreshAnswerKey(userId, [weekId]);
+    return;
+  }
+
+  const questions: PoolQuestion[] = [];
+  const weekIds: string[] = [];
+  for (const week of weeks) {
+    try {
+      const res = await fetch(`/api/content?grade=${grade}&week=${week.week_starting_date}`);
+      if (!res.ok) continue;
+      const { content } = await res.json();
+      for (const day of Object.values(content ?? {}) as Record<string, { quiz?: { id: string; question: string; options: string[] }[] }>[]) {
+        for (const [subject, entry] of Object.entries(day ?? {})) {
+          for (const q of entry?.quiz ?? []) questions.push({ id: q.id, question: q.question, options: q.options, subject });
+        }
+      }
+      weekIds.push(week.id);
+    } catch {
+      // A week that didn't download is left out; the next refresh tries again.
+    }
+  }
+  if (!weekIds.includes(weekId)) weekIds.unshift(weekId);
+  await refreshAnswerKey(userId, weekIds);
+  write(POOL_STORE(userId), { weekIds, fetchedAt: Date.now(), questions } satisfies StoredPool);
+}
+
+// The downloaded questions the answer key covers, for battles with no connection.
+export function offlineTermQuestions(userId: string): PoolQuestion[] {
+  if (!offlinePlayEnabled(userId)) return [];
+  const key = answerKey(userId);
+  return (storedPool(userId)?.questions ?? []).filter(q => q.id in key);
+}
+
 function answerKey(userId: string): Record<string, string> {
   return read<StoredAnswerKey | null>(KEY_STORE(userId), null)?.answers ?? {};
 }

@@ -1,15 +1,18 @@
--- Offline trainer battles (docs/offline-mode-plan.md). With no connection a kid can battle the
--- Arena trainers they have already faced online. The battle plays on the phone: questions come
--- from this week's main quest content, graded from the answer key the phone already downloads
--- (get_answer_key), and the curio EXP shows straight away. On reconnect each battle comes here
+-- Offline trainer battles (docs/offline-mode-plan.md). With no connection a kid can battle any
+-- Arena trainer their level allows. The battle plays on the phone: questions come from the rest
+-- of the term's main quest content, graded from the answer key the phone downloads with it
+-- (get_answer_key), items come off the phone's copy of the inventory, and the curio EXP shows
+-- straight away. On reconnect each battle comes here
 -- once, keyed by the phone's entry id like the other offline syncs
 -- (20261006070000_offline_play.sql, 20261006090000_offline_map.sql). Additive only: one widened
 -- CHECK and one new function.
 --
 -- The battle itself (HP, damage, turn order) runs only on the phone, so it can't be replayed
 -- here. What this checks instead:
--- - the trainer is one of the Arena trainers (NPC_TRAINERS in lib/monsterConfig.ts), the player
---   meets its level and has battled it online before (a monster_battle_log row);
+-- - the trainer is one of the Arena trainers (NPC_TRAINERS in lib/monsterConfig.ts) and the
+--   player meets its level;
+-- - every item used comes off the real inventory; one the player no longer has means the
+--   claimed win doesn't count (the items they did have are still used up);
 -- - every answer is re-graded; a win needs at least as many correct answers as the trainer has
 --   curios (each needs one landed hit, and a skill with no correct answer misses), and at least
 --   half of the answers right;
@@ -33,6 +36,7 @@ create or replace function public.sync_offline_trainer_battle(
   p_trainer_id text,
   p_monster_row_id uuid,
   p_answers jsonb,
+  p_items jsonb,
   p_won boolean,
   p_played_at timestamptz
 )
@@ -52,6 +56,8 @@ declare
   v_player_level int;
   v_allowed boolean;
   v_answer jsonb;
+  v_item text;
+  v_items_ok boolean := true;
   v_qid uuid;
   v_selected text;
   v_key text;
@@ -75,6 +81,12 @@ begin
   -- A long battle asks a few dozen questions at most.
   if jsonb_array_length(p_answers) > 60 then
     raise exception 'too many answers';
+  end if;
+  if p_items is null or jsonb_typeof(p_items) <> 'array' then
+    raise exception 'items must be an array';
+  end if;
+  if jsonb_array_length(p_items) > 30 then
+    raise exception 'too many items';
   end if;
 
   perform pg_advisory_xact_lock(hashtext('sync_offline_trainer_battle:' || p_user_id));
@@ -114,11 +126,17 @@ begin
   v_day := (v_played at time zone 'Asia/Manila')::date;
 
   select level into v_player_level from public.player_progress where user_id = p_user_id;
-  v_allowed := coalesce(v_player_level, 1) >= v_level_req
-    and exists (
-      select 1 from public.monster_battle_log
-      where user_id = p_user_id and opponent = p_trainer_id
-    );
+  v_allowed := coalesce(v_player_level, 1) >= v_level_req;
+
+  -- Same atomic decrement as consume_inventory_item.
+  for v_item in select * from jsonb_array_elements_text(p_items) loop
+    update public.player_inventory
+    set quantity = quantity - 1, updated_at = now()
+    where app_user_id = p_user_id and item_key = v_item and quantity > 0;
+    if not found then
+      v_items_ok := false;
+    end if;
+  end loop;
 
   for v_answer in select * from jsonb_array_elements(p_answers) loop
     v_qid := nullif(v_answer ->> 'question_id', '')::uuid;
@@ -143,7 +161,7 @@ begin
     on conflict (user_id, quest_type, question_id) do nothing;
   end loop;
 
-  v_won := coalesce(p_won, false) and v_allowed
+  v_won := coalesce(p_won, false) and v_allowed and v_items_ok
     and v_right >= v_curios and v_right * 2 >= v_asked;
 
   insert into public.user_battle_state (user_id) values (p_user_id) on conflict (user_id) do nothing;
@@ -188,6 +206,8 @@ begin
     'claimed_win', coalesce(p_won, false),
     'won', v_won,
     'allowed', v_allowed,
+    'items', jsonb_array_length(p_items),
+    'items_ok', v_items_ok,
     'answered', v_asked,
     'correct', v_right,
     'exp', v_exp,
@@ -202,5 +222,5 @@ begin
 end;
 $$;
 
-revoke all on function public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, boolean, timestamptz) from public, anon;
-grant execute on function public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, boolean, timestamptz) to authenticated, service_role;
+revoke all on function public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, jsonb, boolean, timestamptz) from public, anon;
+grant execute on function public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, jsonb, boolean, timestamptz) to authenticated, service_role;

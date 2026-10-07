@@ -1,22 +1,22 @@
 // lib/offlineTrainers.ts
 //
 // Arena trainer battles with no connection (docs/offline-mode-plan.md). For players with the
-// 'offline_play' flag on the installed app, a trainer they have already battled online can be
-// battled offline:
-// - the questions are this week's main quest questions the downloaded answer key covers
-//   (lib/offlineQuests.ts), graded on the device;
+// 'offline_play' flag on the installed app, any trainer their level allows can be battled offline:
+// - the questions are the rest of the term's main quest questions, downloaded with their answer
+//   key (lib/offlineQuests.ts), graded on the device;
+// - items come off the device's copy of the inventory;
 // - a win shows the curio EXP and the trainer as defeated straight away;
 // - each battle goes into a per-player outbox, and on reconnect to sync_offline_trainer_battle
 //   once, which re-grades every answer and decides the win and the EXP itself.
 import { supabase } from '@/lib/supabase';
 import { isOffline } from '@/lib/offlineSnapshot';
-import { offlinePlayEnabled } from '@/lib/offlineQuests';
-import { cachedRead, updateOfflineCopy } from '@/lib/offlineReads';
+import { offlinePlayEnabled, offlineTermQuestions, type PoolQuestion } from '@/lib/offlineQuests';
+import { updateOfflineCopy } from '@/lib/offlineReads';
+import type { InventoryMap } from '@/lib/inventory';
 import type { CurioCollection } from '@/lib/curioCollection';
-import { getMonsterLevel, NPC_TRAINERS } from '@/lib/monsterConfig';
+import { getMonsterLevel } from '@/lib/monsterConfig';
 
 const OUTBOX = (userId: string) => `lh_trainer_outbox_${userId}`;
-const NPC_IDS = new Set(NPC_TRAINERS.map(t => t.id));
 
 function read<T>(key: string, fallback: T): T {
   try {
@@ -40,18 +40,24 @@ export function battlingTrainersOffline(userId: string): boolean {
   return isOffline() && offlinePlayEnabled(userId);
 }
 
-// Arena trainers this player has battled online (won or lost), the ones allowed offline. Kept on
-// the device like the other read-only screens, so it's there when the connection isn't.
-export async function fetchFacedTrainerIds(userId: string): Promise<string[]> {
-  return cachedRead(userId, 'facedTrainers', async () => {
-    const { data, error } = await supabase
-      .from('monster_battle_log')
-      .select('opponent')
-      .eq('user_id', userId)
-      .in('opponent', [...NPC_IDS]);
-    if (error) throw error;
-    return [...new Set((data ?? []).map(r => r.opponent as string))];
-  }, []);
+// The questions an offline battle asks: the rest of the term's downloaded questions
+// (lib/offlineQuests.ts), the ones not asked yet first, like the online Arena.
+export function offlineArenaQuestions(userId: string, answeredIds: Set<string>): PoolQuestion[] {
+  const pool = offlineTermQuestions(userId);
+  const unseen = pool.filter(q => !answeredIds.has(q.id));
+  return unseen.length > 0 ? unseen : pool;
+}
+
+// An item used in an offline battle: taken off the device's copy of the inventory straight away,
+// and off the real one when the battle syncs. False when the device copy has none left.
+export function spendItemOffline(userId: string, key: string): boolean {
+  let used = false;
+  updateOfflineCopy<InventoryMap>(userId, 'inventory', inv => {
+    if ((inv[key] ?? 0) <= 0) return inv;
+    used = true;
+    return { ...inv, [key]: (inv[key] ?? 0) - 1 };
+  });
+  return used;
 }
 
 // ── Outbox ──────────────────────────────────────────────────────────────────
@@ -66,6 +72,8 @@ export interface TrainerOutboxEntry {
   trainerId: string;
   monsterRowId: string | null;
   answers: OfflineBattleAnswer[];
+  // Item keys used, one per use.
+  items: string[];
   won: boolean;
   playedAt: string;
   // Server rejections (not network failures) so far; kept for a look, never dropped.
@@ -78,10 +86,10 @@ export function pendingTrainerBattles(userId: string): TrainerOutboxEntry[] {
 
 export function queueTrainerBattle(
   userId: string, trainerId: string, monsterRowId: string | null,
-  answers: OfflineBattleAnswer[], won: boolean, exp: number,
+  answers: OfflineBattleAnswer[], items: string[], won: boolean, exp: number,
 ) {
   const entry: TrainerOutboxEntry = {
-    id: crypto.randomUUID(), trainerId, monsterRowId, answers, won,
+    id: crypto.randomUUID(), trainerId, monsterRowId, answers, items, won,
     playedAt: new Date().toISOString(), failures: 0,
   };
   write(OUTBOX(userId), [...pendingTrainerBattles(userId), entry]);
@@ -126,6 +134,7 @@ export function flushTrainerOutbox(userId: string): Promise<SyncedTrainerBattles
         p_trainer_id: entry.trainerId,
         p_monster_row_id: entry.monsterRowId,
         p_answers: entry.answers.map(a => ({ question_id: a.questionId, selected: a.selected })),
+        p_items: entry.items ?? [],
         p_won: entry.won,
         p_played_at: entry.playedAt,
       });

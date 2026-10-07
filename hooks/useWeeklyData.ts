@@ -8,7 +8,7 @@ import { USERS, gradeToNumber } from '@/lib/userSession';
 import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
 import { isOffline, loadOfflineWeekly, saveOfflineWeekly } from '@/lib/offlineSnapshot';
 import { refreshFeatureFlags } from '@/lib/featureFlags';
-import { refreshAnswerKey } from '@/lib/offlineQuests';
+import { refreshOfflineContent } from '@/lib/offlineQuests';
 
 export interface CharacterStats {
   level: number;
@@ -276,10 +276,11 @@ export function useWeeklyData(userId: string | null) {
       setData(loaded);
       setOffline(false);
       setLoading(false);
-      // Keeps the remembered flags and, where offline quests are on, this week's answer key
-      // current for the next time the device has no connection (lib/offlineQuests.ts).
+      // Keeps the remembered flags and, where offline play is on, the answer key and the rest of
+      // the term's questions current for the next time the device has no connection
+      // (lib/offlineQuests.ts).
       void refreshFeatureFlags(userId).then(() => {
-        if (weekId) return refreshAnswerKey(userId, [weekId]);
+        if (weekId) return refreshOfflineContent(userId, grade, currentSunday, weekId);
       });
     }
     fetchData();
