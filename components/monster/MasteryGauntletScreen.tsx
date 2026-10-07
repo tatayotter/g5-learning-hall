@@ -130,6 +130,7 @@ export function GauntletBattle({
   const [grading, setGrading] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
+  const [connectionHiccup, setConnectionHiccup] = useState(false);
 
   useEffect(() => {
     if (status === 'won') onFinished(originalPoolSize);
@@ -139,8 +140,15 @@ export function GauntletBattle({
     if (grading || selected || !current) return;
     setSelected(opt);
     setGrading(true);
-    const { correct: isCorrect } = await gradeMonsterQuestion(userId, current.id, opt);
+    const { correct: isCorrect, failed } = await gradeMonsterQuestion(userId, current.id, opt);
     setGrading(false);
+    if (failed) {
+      // Couldn't reach the server: keep the question up instead of requeueing it as wrong.
+      setSelected(null);
+      setConnectionHiccup(true);
+      return;
+    }
+    setConnectionHiccup(false);
     setFeedback(isCorrect ? 'correct' : 'wrong');
     setTimeout(() => {
       setFeedback(null);
@@ -166,6 +174,9 @@ export function GauntletBattle({
           <p className={`text-sm font-bold mb-2 ${feedback === 'correct' ? 'text-green-700' : 'text-[#7a4a0f]'}`}>
             {feedback === 'correct' ? '✅ Correct!' : '↺ Not quite — you\'ll see this one again.'}
           </p>
+        )}
+        {connectionHiccup && !feedback && (
+          <p className="text-sm font-bold mb-2 text-[#7a4a0f]">📡 Couldn&apos;t reach the server. Tap your answer again.</p>
         )}
         <p className="text-[11px] text-[#6b4820] mb-1 uppercase tracking-wide font-bold">{current.subject}</p>
         <p className="text-[#2a1505] font-bold mb-3 leading-snug">{current.question}</p>
