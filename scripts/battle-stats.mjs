@@ -53,6 +53,13 @@ export function computeBattleStats() {
   return {
     stat_growth: mc.BATTLE_CONSTANTS.STAT_GROWTH_PER_LEVEL,
     burn_damage: mc.BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN,
+    // The biggest heal one skill gives (lifesteal of the damage, or flat of the curio's full HP),
+    // and the biggest and most frequent Rest of any element.
+    heal_fraction: Math.max(0, ...Object.values(mc.SKILLS).map(s => (s.effects ?? [])
+      .filter(e => e.kind === 'lifesteal' || e.kind === 'flat_heal')
+      .reduce((sum, e) => sum + (e.magnitude ?? 0), 0))),
+    rest_fraction: Math.max(...Object.values(mc.REST_BY_ELEMENT).map(r => r.hpRestorePercent)),
+    rest_uses: Math.max(...Object.values(mc.REST_BY_ELEMENT).map(r => r.maxUsesPerBattle)),
     qualities: { ...QUALITY_STAT_MULTIPLIER },
     species, skills, trainers,
   };

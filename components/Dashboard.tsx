@@ -555,6 +555,9 @@ export default function Dashboard() {
   const syncingRef = useRef<Promise<void> | null>(null);
   const syncNowRef = useRef<() => Promise<void>>(async () => {});
   useEffect(() => {
+    // Until this hero is linked, Save now and the logout save have nothing to run (never the
+    // previous hero's sync).
+    syncNowRef.current = async () => {};
     if (!activeUserId || linkedUserId !== activeUserId) return;
     const hasPending = () => pendingQuestEntries(activeUserId).length > 0 || pendingGuildEntries(activeUserId).length > 0
       || pendingMapEntries(activeUserId).length > 0 || pendingTrainerBattles(activeUserId).length > 0;
@@ -576,7 +579,10 @@ export default function Dashboard() {
         const quests = await flushQuestOutbox(activeUserId);
         const guilds = await flushGuildOutbox(activeUserId);
         const map = await flushMapOutbox(activeUserId);
-        const trainers = await flushTrainerOutbox(activeUserId);
+        // Battles after the map walks: a battle is checked against the curio's level there, so
+        // the EXP walked before it goes in first.
+        const trainers = pendingMapEntries(activeUserId).length === 0
+          ? await flushTrainerOutbox(activeUserId) : { battles: 0, wins: 0 };
         // The Curio Arena reloads its curios so the server's EXP replaces the device's.
         if (hadMapEntries) setEggRefreshSignal(n => n + 1);
         if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0 && trainers.battles === 0) return;

@@ -13,7 +13,8 @@
 -- - the trainer is an Arena trainer and the player meets its level;
 -- - every answer is re-graded; a win needs at least as many correct answers as the trainer has
 --   curios and at least half right;
--- - every item used comes off the real inventory; one the player no longer has voids the win;
+-- - every item used comes off the real inventory (one already used up elsewhere is noted, not
+--   held against the win);
 -- - the log, trainer side: each answer powers at most one attack, an attack only does damage
 --   when one of its answers is right, no hit is bigger than the attacking curio could do (its
 --   species, level, quality and skill, with every boost stacked), each trainer curio starts at
@@ -22,8 +23,9 @@
 -- - the log, player side: the trainer takes its turn every round (paralysis aside, which needs a
 --   perfect hit to cause), its hits are at least what the weakest possible version of them
 --   would do, each of the player's curios starts at most at its full HP and only goes up through
---   logged heals, rests and items, a knocked-out curio doesn't attack, and the items logged are
---   the items sent;
+--   logged items, rests (no more often or bigger than any element's Rest) and skill heals (right
+--   after that curio's healing attack, no bigger than any skill's heal), burns take exactly what
+--   they say, a knocked-out curio doesn't attack, and the items logged are the items sent;
 -- - the curio EXP is the trainer's own reward, never the phone's number, on the player's own
 --   curio, as a delta.
 -- A claimed win that fails these is recorded as a loss. Each log is kept in offline_battle_logs
@@ -33,16 +35,19 @@
 -- added to defeated_trainers (once), the curio EXP, a monster_battle_log row, the
 -- monster_battles_won counter (and Tatay's own counters), and each question marked done for the
 -- Arena. Achievements are checked by the client's save after the sync, as for the other offline
--- syncs. Additive apart from get_answer_key now returning hashed answers.
+-- syncs. A question that no longer exists counts as wrong, and an absurdly long battle as a loss,
+-- so no battle is stuck on the phone unsaved. Additive: the hashed answer key is a new function,
+-- get_answer_key_hashed, and get_answer_key stays as it was for apps that haven't updated yet.
 
 -- ── Hashed answer key ─────────────────────────────────────────────────────────
 -- The phone now downloads the rest of the term's answers, not just this week's, so the key no
 -- longer carries them in plain text: each entry is md5('lh-key:' || question id || ':' || answer).
 -- The phone grades by hashing the chosen option the same way (lib/md5.ts, lib/offlineQuests.ts)
 -- and finds the right option to show by hashing each one. Not secret (there are only a few
--- options to try), but no longer readable at a glance. Same signature, checks and grants as
--- 20261006070000_offline_play.sql.
-create or replace function public.get_answer_key(p_user_id text, p_content_week_ids uuid[])
+-- options to try), but no longer readable at a glance. Same checks and grants as get_answer_key
+-- (20261006070000_offline_play.sql), which stays for apps still running an older copy: they
+-- compare the chosen option with the key directly and would mark every answer wrong.
+create or replace function public.get_answer_key_hashed(p_user_id text, p_content_week_ids uuid[])
 returns jsonb
 language plpgsql
 stable
@@ -71,8 +76,8 @@ begin
 end;
 $$;
 
-revoke all on function public.get_answer_key(text, uuid[]) from public, anon;
-grant execute on function public.get_answer_key(text, uuid[]) to authenticated, service_role;
+revoke all on function public.get_answer_key_hashed(text, uuid[]) from public, anon;
+grant execute on function public.get_answer_key_hashed(text, uuid[]) to authenticated, service_role;
 
 -- ── Offline trainer battles ───────────────────────────────────────────────────
 
@@ -127,7 +132,10 @@ begin
 
   insert into public.battle_stat_constants (key, value) values
     ('stat_growth', (p_stats ->> 'stat_growth')::numeric),
-    ('burn_damage', (p_stats ->> 'burn_damage')::numeric);
+    ('burn_damage', (p_stats ->> 'burn_damage')::numeric),
+    ('heal_fraction', (p_stats ->> 'heal_fraction')::numeric),
+    ('rest_fraction', (p_stats ->> 'rest_fraction')::numeric),
+    ('rest_uses', (p_stats ->> 'rest_uses')::numeric);
   insert into public.battle_qualities (quality, multiplier)
   select key, value::numeric from jsonb_each_text(p_stats -> 'qualities');
   insert into public.battle_species (monster_id, base_hp, base_attack, base_defense)
@@ -156,6 +164,9 @@ as $$
   select jsonb_build_object(
     'stat_growth', (select value from public.battle_stat_constants where key = 'stat_growth'),
     'burn_damage', (select value from public.battle_stat_constants where key = 'burn_damage'),
+    'heal_fraction', (select value from public.battle_stat_constants where key = 'heal_fraction'),
+    'rest_fraction', (select value from public.battle_stat_constants where key = 'rest_fraction'),
+    'rest_uses', (select value from public.battle_stat_constants where key = 'rest_uses'),
     'qualities', (select coalesce(jsonb_object_agg(quality, multiplier), '{}') from public.battle_qualities),
     'species', (select coalesce(jsonb_object_agg(monster_id, jsonb_build_object(
         'hp', base_hp, 'attack', base_attack, 'defense', base_defense)), '{}') from public.battle_species),
@@ -210,6 +221,11 @@ as $$
 declare
   v_growth numeric := (select value from public.battle_stat_constants where key = 'stat_growth');
   v_burn int := (select value from public.battle_stat_constants where key = 'burn_damage')::int;
+  v_heal numeric := (select value from public.battle_stat_constants where key = 'heal_fraction');
+  v_rest numeric := (select value from public.battle_stat_constants where key = 'rest_fraction');
+  v_rest_uses int := (select value from public.battle_stat_constants where key = 'rest_uses')::int;
+  v_prev jsonb;                   -- the entry before this one
+  v_rests jsonb := '{}'::jsonb;   -- curio id -> rests so far
   v_npc record;
   v_npc_count int;
   v_npc_hp int[];
@@ -236,7 +252,7 @@ declare
   v_items text[] := '{}';
 begin
   select count(*) into v_npc_count from public.battle_trainer_curios where trainer_id = p_trainer_id;
-  if v_npc_count = 0 or v_growth is null then
+  if v_npc_count = 0 or v_growth is null or v_heal is null or v_rest is null or v_rest_uses is null then
     return 'no battle stats for this trainer';
   end if;
   v_npc_hp := array_fill(null::int, array[v_npc_count]);
@@ -255,8 +271,10 @@ begin
       return 'unreadable log entry';
     end if;
 
-    -- The player's curio this entry is about: its full HP, attack and defense at its level now
-    -- (never below the level it battled at).
+    -- The player's curio this entry is about: its full HP, attack and defense up to 3 levels above
+    -- its level here. The phone can be a little ahead: its copy already has the EXP of earlier
+    -- offline battles and map walks, and one of those can still be waiting to save or have been
+    -- turned down here, so a battle played after it would otherwise fail through no fault of its own.
     v_curio := v_ev ->> 'curio';
     v_c := null;
     if v_t in ('attack', 'npc_hit', 'heal', 'rest', 'switch') or (v_t = 'burn' and v_ev ->> 'side' = 'player')
@@ -264,9 +282,9 @@ begin
       if not (v_player ? coalesce(v_curio, '')) then
         select jsonb_build_object(
           'hp', null,
-          'max_hp', round(s.base_hp * (1 + (um.monster_level - 1) * v_growth) * coalesce(q.multiplier, 1.4)),
-          'attack', round(s.base_attack * (1 + (um.monster_level - 1) * v_growth) * coalesce(q.multiplier, 1.4)),
-          'defense', round(s.base_defense * (1 + (um.monster_level - 1) * v_growth)))
+          'max_hp', round(s.base_hp * (1 + (um.monster_level + 2) * v_growth) * coalesce(q.multiplier, 1.4)),
+          'attack', round(s.base_attack * (1 + (um.monster_level + 2) * v_growth) * coalesce(q.multiplier, 1.4)),
+          'defense', round(s.base_defense * (1 + (um.monster_level + 2) * v_growth)))
         into v_c
         from public.user_monsters um
         join public.battle_species s on s.monster_id = um.monster_id
@@ -371,14 +389,30 @@ begin
     when 'burn' then
       if v_dmg is null or v_dmg > v_burn then
         return 'burn too big';
+      elsif v_ev ->> 'side' = 'player' and v_after <> greatest(0, v_before - v_dmg) then
+        return 'a player curio''s HP doesn''t match the burn';
       end if;
-    when 'heal', 'rest' then
+    when 'heal' then
+      -- Only from a healing skill (lifesteal, Deep Breath) in the attack just logged, by the
+      -- same curio, and at most the biggest heal any skill gives.
+      if v_prev ->> 't' is distinct from 'attack' or v_prev ->> 'curio' is distinct from v_curio
+         or v_prev ->> 'skill' is distinct from v_ev ->> 'source' then
+        return 'a heal with no healing skill';
+      elsif v_after < v_before then
+        return 'a heal lowered HP';
+      elsif v_after - v_before > ceil(v_heal * greatest((v_prev ->> 'damage')::int, (v_c ->> 'max_hp')::int)) + 1 then
+        return 'a heal too big';
+      end if;
+    when 'rest' then
+      v_rests := v_rests || jsonb_build_object(v_curio, coalesce((v_rests ->> v_curio)::int, 0) + 1);
       if v_after < v_before then
         return 'a heal lowered HP';
+      elsif (v_rests ->> v_curio)::int > v_rest_uses then
+        return 'too many rests';
+      elsif v_after - v_before > ceil(v_rest * (v_c ->> 'max_hp')::int) + 1 then
+        return 'a rest healed too much';
       end if;
-      if v_t = 'rest' then
-        v_player_turns := v_player_turns + 1;
-      end if;
+      v_player_turns := v_player_turns + 1;
     when 'item' then
       v_items := v_items || (v_ev ->> 'key');
       v_player_turns := v_player_turns + 1;
@@ -397,6 +431,7 @@ begin
     if v_c is not null and v_after is not null and v_t <> 'attack' then
       v_player := jsonb_set(v_player, array[v_curio, 'hp'], to_jsonb(v_after));
     end if;
+    v_prev := v_ev;
   end loop;
 
   if p_claimed_win then
@@ -464,6 +499,7 @@ declare
   v_won boolean := false;
   v_exp int := 0;
   v_monster_level int := null;
+  v_too_long boolean;
   v_out jsonb;
 begin
   if p_user_id is distinct from current_app_user_id() then
@@ -475,22 +511,16 @@ begin
   if p_answers is null or jsonb_typeof(p_answers) <> 'array' then
     raise exception 'answers must be an array';
   end if;
-  -- A long battle asks a few dozen questions at most.
-  if jsonb_array_length(p_answers) > 60 then
-    raise exception 'too many answers';
-  end if;
   if p_items is null or jsonb_typeof(p_items) <> 'array' then
     raise exception 'items must be an array';
-  end if;
-  if jsonb_array_length(p_items) > 30 then
-    raise exception 'too many items';
   end if;
   if p_log is null or jsonb_typeof(p_log) <> 'array' then
     raise exception 'log must be an array';
   end if;
-  if jsonb_array_length(p_log) > 1000 then
-    raise exception 'log too long';
-  end if;
+  -- Far longer than any real battle (the longest ask a few dozen questions). Recorded as a loss
+  -- rather than turned down, so it doesn't sit on the phone as "not saved" forever.
+  v_too_long := jsonb_array_length(p_answers) > 300 or jsonb_array_length(p_items) > 50
+    or jsonb_array_length(p_log) > 3000;
 
   perform pg_advisory_xact_lock(hashtext('sync_offline_trainer_battle:' || p_user_id));
 
@@ -524,7 +554,7 @@ begin
   -- Same atomic decrement as consume_inventory_item. An item that's already gone (most often
   -- used up by the same player on another device before this one synced) just isn't taken
   -- again; the battle still counts, so a kid playing on two devices doesn't lose a fair win.
-  for v_item in select * from jsonb_array_elements_text(p_items) loop
+  for v_item in select * from jsonb_array_elements_text(p_items) limit 50 loop
     update public.player_inventory
     set quantity = quantity - 1, updated_at = now()
     where app_user_id = p_user_id and item_key = v_item and quantity > 0;
@@ -533,12 +563,23 @@ begin
     end if;
   end loop;
 
-  for v_answer in select * from jsonb_array_elements(p_answers) loop
-    v_qid := nullif(v_answer ->> 'question_id', '')::uuid;
+  for v_answer in select * from jsonb_array_elements(p_answers) where not v_too_long loop
+    begin
+      v_qid := nullif(v_answer ->> 'question_id', '')::uuid;
+    exception when others then
+      v_qid := null;
+    end;
     v_selected := v_answer ->> 'selected';
+    -- A question that's gone (its week re-saved since the phone downloaded it) counts as wrong
+    -- rather than blocking the battle from ever saving.
     select correct_answer into v_key from public.content_questions where id = v_qid;
     if not found then
-      raise exception 'no such content question: %', v_qid;
+      v_asked := v_asked + 1;
+      if v_qid is not null then
+        v_graded := v_graded || jsonb_build_object(v_qid::text,
+          coalesce(v_graded -> v_qid::text, '[]'::jsonb) || to_jsonb(false));
+      end if;
+      continue;
     end if;
     v_correct := v_selected is not null and v_selected = v_key;
     v_asked := v_asked + 1;
@@ -559,7 +600,8 @@ begin
     on conflict (user_id, quest_type, question_id) do nothing;
   end loop;
 
-  v_log_problem := public.check_offline_battle_log(p_user_id, p_trainer_id, p_log, v_graded, p_items, coalesce(p_won, false));
+  v_log_problem := case when v_too_long then 'battle too long to check'
+    else public.check_offline_battle_log(p_user_id, p_trainer_id, p_log, v_graded, p_items, coalesce(p_won, false)) end;
 
   v_won := coalesce(p_won, false) and v_allowed and v_log_problem is null
     and v_right >= v_curios and v_right * 2 >= v_asked;
@@ -620,7 +662,8 @@ begin
   values (p_user_id, 'trainer_offline', v_played, v_out, v_idem);
 
   insert into public.offline_battle_logs (user_id, entry_id, trainer_id, claimed_win, won, problem, log, played_at)
-  values (p_user_id, p_entry_id, p_trainer_id, coalesce(p_won, false), v_won, v_log_problem, p_log, v_played);
+  values (p_user_id, p_entry_id, p_trainer_id, coalesce(p_won, false), v_won, v_log_problem,
+          case when v_too_long then '[]'::jsonb else p_log end, v_played);
 
   return v_out || jsonb_build_object('replayed', false);
 end;

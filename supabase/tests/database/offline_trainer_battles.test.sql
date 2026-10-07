@@ -4,7 +4,7 @@
 
 begin;
 create extension if not exists pgtap;
-select plan(42);
+select plan(49);
 
 -- ── Fixture ──────────────────────────────────────────────────────────────────
 create temp table fx as
@@ -299,6 +299,62 @@ select is(
   'too many skipped trainer turns',
   'the trainer only skips turns after perfect hits'
 );
+-- Index 1 of win_log is the trainer's first hit (the curio at 490 after it), index 2 the next attack.
+create or replace function pg_temp.with_entries(p_log jsonb, p_at int, p_entries jsonb) returns jsonb as $$
+  select (select jsonb_agg(e order by i) from jsonb_array_elements(p_log) with ordinality as x(e, i) where i <= p_at)
+    || p_entries
+    || (select jsonb_agg(e order by i) from jsonb_array_elements(p_log) with ordinality as x(e, i) where i > p_at);
+$$ language sql;
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.with_entries(pg_temp.win_log('forest_scout', curio_a), 2, jsonb_build_array(jsonb_build_object(
+      't', 'heal', 'curio', curio_a, 'hpBefore', 490, 'hpAfter', 500, 'source', 'shadow_claw')))) ->> 'log_problem' from fx),
+  'a heal with no healing skill',
+  'a heal has to come from the attack just before it'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.with_entries(pg_temp.win_log('forest_scout', curio_a), 1, jsonb_build_array(jsonb_build_object(
+      't', 'heal', 'curio', curio_a, 'hpBefore', 1, 'hpAfter', 6000, 'source', 'shadow_claw')))) ->> 'log_problem' from fx),
+  'a player curio went above its full HP',
+  'a heal can''t go past full HP'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.with_entries(pg_temp.win_log('forest_scout', curio_a), 1, jsonb_build_array(jsonb_build_object(
+      't', 'heal', 'curio', curio_a, 'hpBefore', 1, 'hpAfter', 400, 'source', 'shadow_claw')))) ->> 'log_problem' from fx),
+  'a heal too big',
+  'a heal is no bigger than any skill heals'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.with_entries(pg_temp.win_log('forest_scout', curio_a), 2, jsonb_build_array(
+      jsonb_build_object('t', 'rest', 'curio', curio_a, 'hpBefore', 490, 'hpAfter', 490),
+      jsonb_build_object('t', 'rest', 'curio', curio_a, 'hpBefore', 490, 'hpAfter', 490),
+      jsonb_build_object('t', 'rest', 'curio', curio_a, 'hpBefore', 490, 'hpAfter', 490)))) ->> 'log_problem' from fx),
+  'too many rests',
+  'a curio can only rest as often as Rest allows'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.with_entries(pg_temp.win_log('forest_scout', curio_a), 2, jsonb_build_array(jsonb_build_object(
+      't', 'burn', 'side', 'player', 'curio', curio_a, 'damage', 5, 'hpBefore', 490, 'hpAfter', 490)))) ->> 'log_problem' from fx),
+  'a player curio''s HP doesn''t match the burn',
+  'a burn on the player''s curio takes what it says'
+);
+select is(
+  (select (pg_temp.sync('forest_scout', curio_a,
+    pg_temp.answers(4, 0) || jsonb_build_array(jsonb_build_object('question_id', gen_random_uuid(), 'selected', '2')),
+    '[]', pg_temp.win_log('forest_scout', curio_a)) ->> 'answered')::int from fx),
+  5,
+  'a question that''s gone since (its week re-saved) counts as wrong instead of blocking the save'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.cycle_answers(301), '[]',
+    pg_temp.win_log('forest_scout', curio_a)) ->> 'log_problem' from fx),
+  'battle too long to check',
+  'an impossibly long battle is saved as a loss instead of being turned down'
+);
 
 -- ── Items ────────────────────────────────────────────────────────────────────
 select is(
@@ -350,7 +406,7 @@ select is(
 
 select is(
   (select count(*)::int from player_events where user_id = (select user_a from fx) and event_type = 'trainer_offline'),
-  22,
+  29,
   'each synced battle is recorded once'
 );
 select is(
