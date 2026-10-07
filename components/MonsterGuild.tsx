@@ -1177,7 +1177,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           setBattleState(prev => prev ? { ...prev, defeated_trainers: [...defeated, activeBattle.id] } : prev);
         }
         if (activeMonster && expEarned > 0) await handleMonsterExpGained(activeMonster.id, expEarned);
-        showNotification(`🏆 You defeated ${activeBattle.name}! Saved on this device.`);
+        showNotification(`🏆 You defeated ${activeBattle.name}! Saved here for now.`);
       } else {
         showNotification('💀 You lost the battle...');
       }
@@ -1259,7 +1259,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         <OfflineUnavailable
           feature="The Curio Arena"
           reason={readingOffline(userId)
-            ? "This device doesn't have your curios saved yet. Open the Curio Arena once while connected, and next time it will open offline too."
+            ? "Your curios aren't saved here yet. Open the Curio Arena once with internet, and next time it will work without internet too."
             : undefined}
         />
       </div>
@@ -1291,7 +1291,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         <div className="py-6 max-w-xl mx-auto px-4">
           <OfflineUnavailable
             feature={offlineBlockedFeature}
-            reason="Your team, Hatchery, Compendium and the Training Map still work offline. Reconnect to battle trainers, trade or see the leaderboard."
+            reason={battlingTrainersOffline(userId)
+              ? 'Your team, the Hatchery, the Compendium, the Training Map and trainer battles still work without internet.'
+              : 'Your team, the Hatchery, the Compendium and the Training Map still work without internet.'}
             action={{ label: 'Open My Team', onClick: () => { playPageFlip(); setView('team'); } }}
           />
         </div>

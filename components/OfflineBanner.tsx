@@ -16,9 +16,9 @@ export default function OfflineBanner({ questsWork = false, waiting = 0 }: { que
     >
       <span aria-hidden>📡</span>
       <span>{questsWork
-        ? 'Offline: quests, battles and the Training Map save on this device and sync when you reconnect.'
-        : 'Offline: showing your last saved progress. Reconnect to save.'}
-        {questsWork && waiting > 0 && ` ${waiting} waiting to sync.`}</span>
+        ? 'No internet, but you can still play quests, battles and the Training Map!'
+        : 'No internet. You can look around, but saving needs internet.'}
+        {questsWork && waiting > 0 && ` ${waiting} waiting to save.`}</span>
     </div>
   );
 }

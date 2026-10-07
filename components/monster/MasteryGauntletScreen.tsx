@@ -176,7 +176,7 @@ export function GauntletBattle({
           </p>
         )}
         {connectionHiccup && !feedback && (
-          <p className="text-sm font-bold mb-2 text-[#7a4a0f]">📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+          <p className="text-sm font-bold mb-2 text-[#7a4a0f]">📡 The internet hiccuped. Tap your answer again!</p>
         )}
         <p className="text-[11px] text-[#6b4820] mb-1 uppercase tracking-wide font-bold">{current.subject}</p>
         <p className="text-[#2a1505] font-bold mb-3 leading-snug">{current.question}</p>

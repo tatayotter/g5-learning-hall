@@ -610,7 +610,7 @@ export default function BossArena({
                     </p>
                     <p className="fcard-q">{current.question}</p>
                     {connectionHiccup && (
-                      <p className="fcard-meta" style={{ color: '#b45309', marginTop: 4 }}>📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+                      <p className="fcard-meta" style={{ color: '#b45309', marginTop: 4 }}>📡 The internet hiccuped. Tap your answer again!</p>
                     )}
                   </div>
                 </div>

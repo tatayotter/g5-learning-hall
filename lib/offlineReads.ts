@@ -67,7 +67,7 @@ export async function cachedRead<T>(userId: string, name: string, fetch: () => P
 
 // For buttons on those screens that save (team changes, skills, eggs): offline they would fail
 // with a misleading "make sure you have a scroll" message, so they stop here instead.
-export const NEEDS_CONNECTION_MESSAGE = "📡 You're offline. This needs a connection, so reconnect and try again.";
+export const NEEDS_CONNECTION_MESSAGE = "📡 No internet. This needs internet, so try again when it's back.";
 
 export function needsConnection(): boolean {
   if (!isOffline()) return false;

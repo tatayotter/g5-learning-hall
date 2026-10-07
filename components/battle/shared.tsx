@@ -348,7 +348,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
         </div>
         <p className="text-base font-bold text-[#2a1505] mb-3 leading-snug">{current.question || current.problem_prompt}</p>
         {connectionHiccup && (
-          <p className="text-xs font-bold text-[#7a4a0f] mb-2">📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+          <p className="text-xs font-bold text-[#7a4a0f] mb-2">📡 The internet hiccuped. Tap your answer again!</p>
         )}
         <div className="space-y-2">
         {(current.options || []).map((opt: any, optIdx: number) => {

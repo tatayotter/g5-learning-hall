@@ -94,6 +94,7 @@ export interface SaveStatus {
   lastSyncedAt: number | null;
 }
 
+// Written for Grade 5 players: "internet" and "your account" rather than online/offline/sync.
 const waitingLabel = (n: number) => `${n} ${n === 1 ? 'thing' : 'things'}`;
 
 // Everything is saved on the device as it happens, so there's nothing for a "save" to do; what
@@ -115,16 +116,16 @@ function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: 
 
   let icon: string, title: string, detail: string, tone: string;
   if (syncing) {
-    icon = '🔄'; title = 'Syncing…'; detail = 'Sending what you played offline.'; tone = 'text-sky-700';
+    icon = '🔄'; title = 'Saving to your account…'; detail = 'Hang on a sec!'; tone = 'text-sky-700';
   } else if (!online && waiting > 0) {
-    icon = '📱'; title = 'Saved on this device'; detail = `${waitingLabel(waiting)} will sync when you're back online.`; tone = 'text-amber-700';
+    icon = '📱'; title = 'Saved here for now'; detail = `${waitingLabel(waiting)} will save to your account when the internet is back.`; tone = 'text-amber-700';
   } else if (!online) {
-    icon = '📡'; title = 'Offline'; detail = 'Anything you play now saves on this device.'; tone = 'text-stone-600';
+    icon = '📡'; title = 'No internet'; detail = "Keep playing! We'll keep it safe here."; tone = 'text-stone-600';
   } else if (waiting > 0) {
-    icon = failed ? '⚠️' : '⏳'; title = failed ? "Couldn't sync yet" : `${waitingLabel(waiting)} waiting to sync`;
-    detail = failed ? `${waitingLabel(waiting)} still on this device. Tap Sync now to try again.` : 'Tap Sync now to send it.'; tone = failed ? 'text-red-700' : 'text-amber-700';
+    icon = failed ? '⚠️' : '⏳'; title = failed ? 'Not saved yet' : `${waitingLabel(waiting)} waiting to save`;
+    detail = failed ? 'Tap Save now to try again.' : 'Tap Save now!'; tone = failed ? 'text-red-700' : 'text-amber-700';
   } else {
-    icon = '✅'; title = 'All progress saved'; detail = syncedAgo ? `Synced ${syncedAgo}` : 'Up to date'; tone = 'text-emerald-700';
+    icon = '✅'; title = 'Everything is saved!'; detail = syncedAgo ? `Last saved ${syncedAgo}` : 'All up to date'; tone = 'text-emerald-700';
   }
   const canSync = online && !syncing;
 
@@ -135,7 +136,7 @@ function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: 
         <p className={`text-xs font-bold leading-tight ${tone}`}>{title}</p>
         <p className="text-[10px] text-stone-500 leading-tight mt-0.5">{detail}</p>
         {waiting > 0 && !syncing && (
-          <p className="text-[10px] text-stone-500 leading-tight mt-0.5">Don&apos;t uninstall the app or clear its data until this syncs.</p>
+          <p className="text-[10px] text-stone-500 leading-tight mt-0.5">Don&apos;t delete the app until this is saved!</p>
         )}
       </div>
       <button
@@ -144,7 +145,7 @@ function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: 
         onClick={() => { playPageFlip(); onSyncNow?.(); }}
         className="shrink-0 rounded-lg border-2 border-[#4a2f18] bg-[#f5c542] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2a1505] transition-all duration-150 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:cursor-not-allowed disabled:border-stone-300 disabled:bg-stone-200 disabled:text-stone-400 disabled:hover:translate-y-0"
       >
-        {syncing ? 'Syncing' : 'Sync now'}
+        {syncing ? 'Saving…' : 'Save now'}
       </button>
     </div>
   );
@@ -427,12 +428,12 @@ export default function SidebarRail({
               <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
               {!online && (
                 <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
-                  You&apos;re offline. Only heroes who have played on this device can log in until you&apos;re back online.
+                  No internet! Until it&apos;s back, only heroes who&apos;ve played here before can log in.
                 </p>
               )}
               {saveStatus && saveStatus.waiting > 0 && (
                 <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
-                  {waitingLabel(saveStatus.waiting)} played offline {saveStatus.waiting === 1 ? "hasn't" : "haven't"} synced yet. {saveStatus.waiting === 1 ? 'It stays on this device and syncs' : 'They stay on this device and sync'} the next time this hero logs in here.
+                  {waitingLabel(saveStatus.waiting)} you played {saveStatus.waiting === 1 ? "isn't" : "aren't"} saved to your account yet. Don&apos;t worry, {saveStatus.waiting === 1 ? "it's" : "they're"} safe here and will save the next time you log in on this device.
                 </p>
               )}
               <div className="flex gap-3" style={{ fontSize: 14 }}>

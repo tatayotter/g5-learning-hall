@@ -484,7 +484,7 @@ export default function TrainingMap({
     if (scrollHere) {
       // Offline, scrolls can only ask what the downloaded answer key covers.
       if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
-        alert("📡 You're offline, and this week's scroll questions haven't been downloaded yet. Reconnect once and they'll work offline too.");
+        alert("📡 No internet, and this week's scroll questions aren't saved here yet. Open the map once with internet, and they'll work without it too.");
         return;
       }
       playMonsterAppear();

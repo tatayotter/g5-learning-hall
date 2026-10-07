@@ -591,7 +591,7 @@ export default function Dashboard() {
         ].filter(Boolean).join(' and ');
         setToast({
           show: true,
-          message: `📡 Saved ${parts} played offline${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
+          message: `✅ Saved to your account: ${parts}${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
         });
       } catch {
         // Whatever didn't go stays queued on the device for the next try.

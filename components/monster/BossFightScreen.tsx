@@ -236,7 +236,7 @@ export function BossFightBattle({
             </p>
             <p className="text-white font-bold mb-3 leading-snug">{current.question}</p>
             {connectionHiccup && (
-              <p className="text-amber-300 text-sm font-bold mb-2">📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+              <p className="text-amber-300 text-sm font-bold mb-2">📡 The internet hiccuped. Tap your answer again!</p>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {shuffledOptions.map(opt => (
