@@ -142,7 +142,7 @@ export default function ActiveQuestView({
             // client-side by lib/weeklyReview.ts from real questions pulled out of the
             // rest of the week) grades through the exact same id-keyed path as a normal
             // day/subject quiz now, no more bespoke text-matching RPC needed.
-            const quizQuestions: { id: string }[] = questData?.quiz || [];
+            const quizQuestions: { id: string; options?: unknown }[] = questData?.quiz || [];
             const answers = quizQuestions.map((q, i) => ({
               question_id: q.id,
               selected: selectedAnswers[i],
@@ -156,7 +156,7 @@ export default function ActiveQuestView({
               if (dailyAttemptsUsed >= MAIN_QUEST_DAILY_ATTEMPT_CAP) {
                 return { locked: true, attempts_used_today: dailyAttemptsUsed, correct_count: 0, total: 0, is_perfect: false, correct_answers: [] };
               }
-              const result = gradeOffline(activeUserId, questionIds, selectedAnswers);
+              const result = gradeOffline(activeUserId, quizQuestions, selectedAnswers);
               queueQuestAnswers(activeUserId, { contentWeekId, weekday: day, subject, answers });
               bumpDailyQuestAttempt(day, subject, dailyAttemptsUsed + 1);
               gradedOfflineRef.current = true;

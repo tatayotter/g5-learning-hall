@@ -14,9 +14,9 @@ export default function OfflineUnavailable({ feature, reason, action }: OfflineU
   return (
     <div className="bg-[#f0ddb8] border-2 border-[#8b5e2a] p-8 rounded-xl shadow-lg mb-6 text-center">
       <div className="text-4xl mb-3" aria-hidden>📡</div>
-      <h2 className="text-xl font-bold text-[#2a1505] mb-2">{feature} needs an internet connection</h2>
+      <h2 className="text-xl font-bold text-[#2a1505] mb-2">{feature} needs internet</h2>
       <p className="text-[#3a2610] text-sm max-w-md mx-auto">
-        {reason || `Reconnect to Wi-Fi or mobile data to use ${feature}. Your offline practice progress is safe and will sync automatically once you're back online.`}
+        {reason || `Connect to Wi-Fi or mobile data to use ${feature}. Anything you played without internet is safe and saves to your account when it's back.`}
       </p>
       {action && (
         <button

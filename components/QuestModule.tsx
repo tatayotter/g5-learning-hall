@@ -100,7 +100,7 @@ interface QuestModuleProps {
 function OfflineQueuedNote() {
   return (
     <p className="mt-3 text-xs font-bold text-[#6b4820]">
-      📡 Saved on this device. It syncs when you&apos;re back online.
+      📡 Saved here for now. It saves to your account when the internet is back.
     </p>
   );
 }
@@ -163,7 +163,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       console.error('Failed to grade quiz:', err);
       setGrading(false);
       alert(isOffline()
-        ? "📡 You're offline, and this quest needs a connection. Your answers are still here; reconnect and submit again."
+        ? "📡 No internet, and this quest needs it. Your answers are still here, so tap Submit again when the internet is back."
         : '⚠️ Could not grade your quiz — please try again.');
       return;
     }

@@ -55,7 +55,11 @@ const RAIL_ITEMS: RailItem[] = [
 interface SidebarRailProps {
   activeTab: string;
   onNavigate: (tab: RailTabId) => void;
-  onLogout: () => void;
+  // May return a promise (Dashboard syncs the hero's offline play first); the dialog waits.
+  onLogout: () => void | Promise<void>;
+  // Logging out needs the server to log anyone back in, unless they can log in offline on
+  // this device (lib/deviceHeroes.ts); the confirmation says so.
+  online?: boolean;
   // Small notification dot on a rail icon — currently only used by Curio
   // Arena for an egg-ready-to-claim curio, a stalled egg, or an unrevealed
   // hatch (see docs/curio-egg-mechanism-design.md). Keyed by RailTabId so
@@ -75,6 +79,76 @@ interface SidebarRailProps {
   // still renders (just badge-less) if a caller doesn't wire it up.
   notifications?: PlayerNotification[];
   onMarkNotificationsRead?: () => void;
+  // Offline play only (lib/offlineQuests.ts): how much is saved on the device and not yet on
+  // the server, shown in the menu with a Sync now button, and on the logout confirmation.
+  saveStatus?: SaveStatus;
+  onSyncNow?: () => void;
+}
+
+export interface SaveStatus {
+  waiting: number;
+  syncing: boolean;
+  online: boolean;
+  // The last sync attempt left something queued while online.
+  failed: boolean;
+  lastSyncedAt: number | null;
+}
+
+// Written for Grade 5 players: "internet" and "your account" rather than online/offline/sync.
+const waitingLabel = (n: number) => `${n} ${n === 1 ? 'thing' : 'things'}`;
+
+// Everything is saved on the device as it happens, so there's nothing for a "save" to do; what
+// can fail is getting it to the server. This row says where the player's progress is, and
+// Sync now sends what's waiting straight away instead of on the next automatic try.
+function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: () => void }) {
+  const { waiting, syncing, online, failed, lastSyncedAt } = status;
+  // "Synced N min ago" moves on while the menu stays open.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), 30000);
+    return () => clearInterval(t);
+  }, []);
+  const syncedAgo = (() => {
+    if (!lastSyncedAt) return null;
+    const mins = Math.floor((Math.max(now, lastSyncedAt) - lastSyncedAt) / 60000);
+    return mins < 1 ? 'just now' : mins < 60 ? `${mins} min ago` : new Date(lastSyncedAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  })();
+
+  let icon: string, title: string, detail: string, tone: string;
+  if (syncing) {
+    icon = '🔄'; title = 'Saving to your account…'; detail = 'Hang on a sec!'; tone = 'text-sky-700';
+  } else if (!online && waiting > 0) {
+    icon = '📱'; title = 'Saved here for now'; detail = `${waitingLabel(waiting)} will save to your account when the internet is back.`; tone = 'text-amber-700';
+  } else if (!online) {
+    icon = '📡'; title = 'No internet'; detail = "Keep playing! We'll keep it safe here."; tone = 'text-stone-600';
+  } else if (waiting > 0) {
+    icon = failed ? '⚠️' : '⏳'; title = failed ? 'Not saved yet' : `${waitingLabel(waiting)} waiting to save`;
+    detail = failed ? 'Tap Save now to try again.' : 'Tap Save now!'; tone = failed ? 'text-red-700' : 'text-amber-700';
+  } else {
+    icon = '✅'; title = 'Everything is saved!'; detail = syncedAgo ? `Last saved ${syncedAgo}` : 'All up to date'; tone = 'text-emerald-700';
+  }
+  const canSync = online && !syncing;
+
+  return (
+    <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 px-3 py-2">
+      <span aria-hidden className={`text-xl leading-none${syncing ? ' animate-spin' : ''}`}>{icon}</span>
+      <div className="flex-1 min-w-0">
+        <p className={`text-xs font-bold leading-tight ${tone}`}>{title}</p>
+        <p className="text-[10px] text-stone-500 leading-tight mt-0.5">{detail}</p>
+        {waiting > 0 && !syncing && (
+          <p className="text-[10px] text-stone-500 leading-tight mt-0.5">Don&apos;t delete the app until this is saved!</p>
+        )}
+      </div>
+      <button
+        type="button"
+        disabled={!canSync}
+        onClick={() => { playPageFlip(); onSyncNow?.(); }}
+        className="shrink-0 rounded-lg border-2 border-[#4a2f18] bg-[#f5c542] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2a1505] transition-all duration-150 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:cursor-not-allowed disabled:border-stone-300 disabled:bg-stone-200 disabled:text-stone-400 disabled:hover:translate-y-0"
+      >
+        {syncing ? 'Saving…' : 'Save now'}
+      </button>
+    </div>
+  );
 }
 
 // Player name label — reuses the GameButton quest variant's Bungee/stroke/
@@ -135,11 +209,15 @@ export default function SidebarRail({
   weekLabel,
   notifications = [],
   onMarkNotificationsRead,
+  saveStatus,
+  onSyncNow,
+  online = true,
 }: SidebarRailProps) {
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   const [isOpen, setIsOpen] = useState(false);
   const [confirmingLogout, setConfirmingLogout] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
   const isLandscape = useIsLandscape();
   const isDesktop = useIsDesktop();
 
@@ -307,8 +385,9 @@ export default function SidebarRail({
                 })}
               </div>
 
-              {/* Volume sliders, then logout */}
+              {/* Save status, volume sliders, then logout */}
               <div className="mt-4 pt-4 border-t border-stone-200 flex flex-col gap-2">
+                {saveStatus && <SaveStatusRow status={saveStatus} onSyncNow={onSyncNow} />}
                 <SoundSettings />
                 <button
                   onClick={() => { playPageFlip(); setIsOpen(false); setConfirmingLogout(true); }}
@@ -347,12 +426,31 @@ export default function SidebarRail({
               <Nail className="bottom-2 right-2" />
               <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
               <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
+              {!online && (
+                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                  No internet! Until it&apos;s back, only heroes who&apos;ve played here before can log in.
+                </p>
+              )}
+              {saveStatus && saveStatus.waiting > 0 && (
+                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                  {waitingLabel(saveStatus.waiting)} you played {saveStatus.waiting === 1 ? "isn't" : "aren't"} saved to your account yet. Don&apos;t worry, {saveStatus.waiting === 1 ? "it's" : "they're"} safe here and will save the next time you log in on this device.
+                </p>
+              )}
               <div className="flex gap-3" style={{ fontSize: 14 }}>
-                <GameButton variant="quest" color="#57534e" className="flex-1" onClick={() => setConfirmingLogout(false)}>
+                <GameButton variant="quest" color="#57534e" className="flex-1" disabled={loggingOut} onClick={() => setConfirmingLogout(false)}>
                   Cancel
                 </GameButton>
-                <GameButton variant="quest" color="#dc2626" className="flex-1" onClick={() => { setConfirmingLogout(false); onLogout(); }}>
-                  Logout
+                <GameButton
+                  variant="quest"
+                  color="#dc2626"
+                  className="flex-1"
+                  disabled={loggingOut}
+                  onClick={async () => {
+                    setLoggingOut(true);
+                    try { await onLogout(); } finally { setLoggingOut(false); setConfirmingLogout(false); }
+                  }}
+                >
+                  {loggingOut ? 'Saving…' : 'Logout'}
                 </GameButton>
               </div>
             </motion.div>

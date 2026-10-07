@@ -12,7 +12,7 @@
 //   the trash), keyed by the entry id so a retry can't pay twice.
 import { supabase } from '@/lib/supabase';
 import { isOffline } from '@/lib/offlineSnapshot';
-import { offlineAnswerFor, offlinePlayEnabled } from '@/lib/offlineQuests';
+import { gradeQuestionOffline, hasOfflineAnswer, offlinePlayEnabled, type KeyedQuestion } from '@/lib/offlineQuests';
 import { updateOfflineCopy } from '@/lib/offlineReads';
 import type { CurioCollection } from '@/lib/curioCollection';
 import { BATTLE_CONSTANTS, getMonsterLevel } from '@/lib/monsterConfig';
@@ -45,12 +45,11 @@ export function playingMapOffline(userId: string): boolean {
 
 // Only questions the downloaded key covers can be asked offline.
 export function offlineScrollQuestions<T extends { id: string }>(userId: string, questions: T[]): T[] {
-  return questions.filter(q => offlineAnswerFor(userId, q.id) !== undefined);
+  return questions.filter(q => hasOfflineAnswer(userId, q.id));
 }
 
-export function gradeScrollOffline(userId: string, questionId: string, selected: string) {
-  const correctAnswer = offlineAnswerFor(userId, questionId) ?? null;
-  return { correct: correctAnswer !== null && selected === correctAnswer, correctAnswer };
+export function gradeScrollOffline(userId: string, question: KeyedQuestion, selected: string) {
+  return gradeQuestionOffline(userId, question, selected);
 }
 
 // ── Outbox ──────────────────────────────────────────────────────────────────

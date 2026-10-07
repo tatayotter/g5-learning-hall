@@ -12,7 +12,7 @@ import {
 import { SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import {
   ActiveBattleMonster, MonsterImage, BattleQuestionModal,
-  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold,
+  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold, type BattleQuestionProps,
 } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
 import { attackClassHits } from '@/lib/attackClasses';
@@ -21,6 +21,7 @@ import type { CoinTossState } from '@/components/battle/CoinToss';
 import { COIN_TOSS_BANNER, coinTossResultText, tossCoin } from '@/lib/coinToss';
 import PostBattleSummary from '@/components/battle/PostBattleSummary';
 import InfoTag from '@/components/InfoTag';
+import type { BattleLogger } from '@/lib/battleLog';
 
 interface BattleScreenProps {
   userId: string;
@@ -30,6 +31,8 @@ interface BattleScreenProps {
   siblingName?: string;
   questions: any[];
   gradingUserId: string;
+  // Grades on the device instead of the server (offline trainer battles, lib/offlineTrainers.ts).
+  gradeOverride?: BattleQuestionProps['gradeOverride'];
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
@@ -39,9 +42,11 @@ interface BattleScreenProps {
   // server-side debit and resolves to whether it succeeded.
   gold: number;
   onSpendGold: (amount: number) => Promise<boolean>;
+  // The hidden turn-by-turn log (lib/battleLog.ts), for offline trainer battles.
+  onBattleEvent?: BattleLogger;
 }
 
-export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
+export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, gradeOverride, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold, onBattleEvent }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
@@ -216,6 +221,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // too keeps that same-tick read from clobbering the heal with stale,
     // pre-Rest HP (see playerMonstersRef's declaration comment above).
     playerMonstersRef.current = updated;
+    onBattleEvent?.({ t: 'rest', curio: playerMon.userMonster?.id ?? null, hpBefore: playerMon.currentHp, hpAfter: newHp });
     addLog(`${playerMon.def.name} used Rest and restored ${healAmount} HP!`);
     setPlayerAction(makeStageAction({ animation: 'restore', element: playerMon.def.element }));
     doNpcTurn();
@@ -271,6 +277,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         if (result.healAmount !== undefined) {
           const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + result.healAmount);
           setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m));
+          onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null, hpBefore: playerMon.currentHp, hpAfter: newHp });
         } else if (result.selfStatus) {
           const { status, statusTurns } = result.selfStatus;
           setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, status, statusTurns } : m));
@@ -278,10 +285,12 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           const { status, statusTurns } = result.opponentStatus;
           setNpcMonsters(prev => prev.map((m, i) => i === npcMonsterIdx ? { ...m, status, statusTurns } : m));
         }
+        if (result.healAmount === undefined) onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null });
         addLog(result.logMessage);
         break;
       }
       default:
+        onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null });
         addLog(`Used ${item.name}!`);
         break;
     }
@@ -313,6 +322,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     playItemUse();
 
     const revivedHp = Math.round(target.maxHp * 0.75);
+    onBattleEvent?.({ t: 'item', key: 'revive_stone', curio: target.userMonster?.id ?? null, hpBefore: target.currentHp, hpAfter: revivedHp });
     setPlayerMonsters(prev => prev.map((m, i) => i === idx ? { ...m, currentHp: revivedHp } : m));
     addLog(`🔄 Used Revive Stone: ${target.def.name} revived!`);
 
@@ -341,6 +351,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // against however many were actually asked instead of the nominal tier
     // count, so a capped-down round can still register as a perfect hit.
     const askedCount = answeredQuestions.length || skill.questionCount;
+    const questionIds = answeredQuestions.map(q => q?.id).filter(Boolean);
 
     // Full speed-based turn order: the faster curio acts first, every round.
     // A curio knocked out before its turn comes up never acts — if the NPC
@@ -353,8 +364,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // Speed ties (lib/coinToss.ts): if neither hit would knock the other
     // out, order doesn't matter — the player goes first and both land. If
     // either would be a finishing blow, a coin toss (shown on stage) decides.
-    const npcFirst = () => doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false));
-    const playerFirst = () => resolvePlayerAttack(skill, correctCount, askedCount, true);
+    const npcFirst = () => doNpcTurn(() => resolvePlayerAttack(skill, correctCount, askedCount, false, questionIds));
+    const playerFirst = () => resolvePlayerAttack(skill, correctCount, askedCount, true, questionIds);
     const npcCanAct = npcMon.currentHp > 0 && npcMon.status !== 'paralyze';
     const npcSpeed = getScaledStats(npcMon.def, npcMon.level, npcMon.quality ?? npcMon.userMonster?.quality).speed;
     const playerSpeed = getScaledStats(playerMon.def, playerMon.level, playerMon.quality ?? playerMon.userMonster?.quality).speed;
@@ -368,6 +379,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       const npcWouldKo = playerMon.currentHp - computeNpcDamage(npcMon, playerMon) <= 0;
       if (playerWouldKo || npcWouldKo) {
         const playerWins = tossCoin();
+        onBattleEvent?.({ t: 'toss', playerFirst: playerWins });
         const winner = playerWins ? playerMon : npcMon;
         runCoinToss(
           playerWins ? 'left' : 'right',
@@ -423,7 +435,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   // after the NPC's action has already changed HP/status/modifiers — the
   // local names below deliberately shadow the component-level ones.
   // `npcStillToAct`: false when the NPC already moved this round.
-  const resolvePlayerAttack = (skill: Skill, correctCount: number, askedCount: number, npcStillToAct: boolean) => {
+  const resolvePlayerAttack = (skill: Skill, correctCount: number, askedCount: number, npcStillToAct: boolean, questionIds: string[]) => {
     const playerMonsterIdx = playerMonsterIdxRef.current;
     const npcMonsterIdx = npcMonsterIdxRef.current;
     const playerMonsters = playerMonstersRef.current;
@@ -469,6 +481,10 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     newNpcMon.modifiers = effectResult.targetModifiers;
 
     newNpcMonsters[npcMonsterIdx] = newNpcMon;
+    onBattleEvent?.({
+      t: 'attack', curio: playerMon.userMonster?.id ?? null, skill: skill.id, questions: questionIds, damage,
+      npc: npcMonsterIdx, hpBefore: npcMon.currentHp, hpAfter: newNpcMon.currentHp,
+    });
 
     let newPlayerMonsters = playerMonsters.map((m, i) => {
       if (i !== playerMonsterIdx) return m;
@@ -479,7 +495,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       if (updated.status === 'blessed') updated.status = null as StatusEffect;
       if (selfBlessed) { updated.status = 'blessed' as StatusEffect; updated.statusTurns = statusDuration('blessed'); }
       if (effectResult.casterHpDelta !== 0) {
+        const hpBefore = updated.currentHp;
         updated.currentHp = Math.max(0, Math.min(updated.maxHp, updated.currentHp + effectResult.casterHpDelta));
+        onBattleEvent?.({ t: 'heal', curio: m.userMonster?.id ?? null, hpBefore, hpAfter: updated.currentHp, source: skill.id });
       }
       if (effectResult.cleanseCaster) {
         updated.status = null;
@@ -541,6 +559,17 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     });
   };
 
+  // Burn ticks at the end of the NPC's turn, for the hidden battle log.
+  const logBurns = (npcIdx: number, npcBefore: number, npcAfter: number, player: ActiveBattleMonster, playerBefore: number, playerAfter: number) => {
+    if (!onBattleEvent) return;
+    if (npcAfter < npcBefore) {
+      onBattleEvent({ t: 'burn', side: 'npc', npc: npcIdx, damage: npcBefore - npcAfter, hpBefore: npcBefore, hpAfter: npcAfter });
+    }
+    if (playerAfter < playerBefore) {
+      onBattleEvent({ t: 'burn', side: 'player', curio: player.userMonster?.id ?? null, damage: playerBefore - playerAfter, hpBefore: playerBefore, hpAfter: playerAfter });
+    }
+  };
+
   // `after`: the rest of the round when the NPC moved first (the player's
   // own attack). Runs only if the player's curio survives; if it faints, its
   // pending attack is cancelled.
@@ -556,6 +585,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     const currentPlayer = playerMonstersRef.current[currentIdx];
 
     if (currentNpc.status === 'paralyze') {
+      onBattleEvent?.({ t: 'npc_skip', npc: npcIdx });
       addLog(`${currentNpc.def.name} is paralyzed and can't move!`);
       playBattleSfx('paralyze');
       const [updatedNpc, msgs] = applyStatusTick(currentNpc);
@@ -565,6 +595,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       // def_boost) down too, so those don't linger forever either.
       const [updatedPlayer, playerMsgs] = applyStatusTick(currentPlayer);
       playerMsgs.forEach(addLog);
+      logBurns(npcIdx, currentNpc.currentHp, updatedNpc.currentHp, currentPlayer, currentPlayer.currentHp, updatedPlayer.currentHp);
       setNpcMonsters(npcMonstersRef.current.map((m, i) => i === npcIdx ? updatedNpc : m));
       setPlayerMonsters(playerMonstersRef.current.map((m, i) => i === currentIdx ? updatedPlayer : m));
       if (after) after();
@@ -585,6 +616,11 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // this round too — mirrors the NPC's own tick above, so a one-turn item
     // buff can't stay active turn after turn.
     const [tickedPlayer, playerTickMsgs] = applyStatusTick({ ...currentPlayer, currentHp: newHp });
+    onBattleEvent?.({
+      t: 'npc_hit', npc: npcIdx, curio: currentPlayer.userMonster?.id ?? null, damage,
+      hpBefore: currentPlayer.currentHp, hpAfter: newHp,
+    });
+    logBurns(npcIdx, currentNpc.currentHp, tickedNpc.currentHp, currentPlayer, newHp, tickedPlayer.currentHp);
 
     const npcAttackVerb = `uses ${getNpcSkill(currentNpc).name}`;
 
@@ -652,6 +688,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const handleSwitchMonster = (idx: number) => {
     const target = playerMonsters[idx];
     if (!target || target.currentHp <= 0) return;
+    onBattleEvent?.({ t: 'switch', curio: target.userMonster?.id ?? null });
     setPlayerMonsterIdx(idx);
     playerMonsterIdxRef.current = idx;
     setPhase('npc_turn');
@@ -660,6 +697,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
   const handleSurrender = () => {
     setConfirmSurrender(false);
+    onBattleEvent?.({ t: 'surrender' });
     addLog('You surrendered the battle.');
     playBattleSfx('defeat');
     pauseBattleTheme();
@@ -709,6 +747,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         count={questionCount}
         embedded={true}
         gradingUserId={gradingUserId}
+        gradeOverride={gradeOverride}
         onComplete={handleQuestionsComplete}
         canSkip={canSkip}
         skipCost={skipCost}

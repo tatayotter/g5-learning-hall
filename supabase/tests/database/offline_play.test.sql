@@ -4,7 +4,7 @@
 
 begin;
 create extension if not exists pgtap;
-select plan(35);
+select plan(36);
 
 -- ── Fixture ──────────────────────────────────────────────────────────────────
 create temp table fx as
@@ -91,6 +91,13 @@ select is(
   public.get_answer_key((select user_a from fx), array[(select week_id from fx)]),
   (select jsonb_build_object(mon_q1, '4', mon_q2, '5', tue_q1, '4', tue_q2, '5') from fx),
   'the key maps every question of the week to its answer'
+);
+select is(
+  public.get_answer_key_hashed((select user_a from fx), array[(select week_id from fx)]),
+  (select jsonb_build_object(
+     mon_q1, md5('lh-key:' || mon_q1 || ':4'), mon_q2, md5('lh-key:' || mon_q2 || ':5'),
+     tue_q1, md5('lh-key:' || tue_q1 || ':4'), tue_q2, md5('lh-key:' || tue_q2 || ':5')) from fx),
+  'the hashed key maps every question of the week to its hashed answer (20261007000000_offline_trainer_battles.sql)'
 );
 select throws_ok(
   format('select get_answer_key(%L, %L::uuid[])', (select user_a from fx),

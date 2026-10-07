@@ -2,7 +2,7 @@
 //
 // Main quests with no connection (docs/offline-mode-plan.md, first slice).
 // On the installed app, for players with the 'offline_play' flag:
-// - the week's answer key is downloaded while online (get_answer_key RPC,
+// - the week's answer key is downloaded while online (get_answer_key_hashed RPC,
 //   login-required, never through the public /api/content cache), so an
 //   offline quiz is graded the moment it's submitted, same as online;
 // - the answers go into a per-player outbox on the device;
@@ -16,6 +16,7 @@ import { hasFeatureFlag } from '@/lib/featureFlags';
 import { isRunningInstalled } from '@/lib/installPrompt';
 import { isNativeApp } from '@/lib/platform';
 import { isOffline } from '@/lib/offlineSnapshot';
+import { md5 } from '@/lib/md5';
 
 const KEY_STORE = (userId: string) => `lh_answer_key_${userId}`;
 const OUTBOX = (userId: string) => `lh_quest_outbox_${userId}`;
@@ -50,7 +51,7 @@ interface StoredAnswerKey {
 
 export async function refreshAnswerKey(userId: string, weekIds: string[]): Promise<void> {
   if (!offlinePlayEnabled(userId) || weekIds.length === 0) return;
-  const { data, error } = await supabase.rpc('get_answer_key', {
+  const { data, error } = await supabase.rpc('get_answer_key_hashed', {
     p_user_id: userId,
     p_content_week_ids: weekIds,
   });
@@ -58,15 +59,150 @@ export async function refreshAnswerKey(userId: string, weekIds: string[]): Promi
   write(KEY_STORE(userId), { weekIds, answers: data as Record<string, string> } satisfies StoredAnswerKey);
 }
 
+// ── The rest of the term ────────────────────────────────────────────────────
+//
+// Offline trainer battles (lib/offlineTrainers.ts) ask questions from every week that has
+// content, from this week on: this week through the end of the term (and into the next term
+// once its weeks are authored, since the list is whatever content_weeks has). The questions
+// come through the same answer-stripped /api/content route the weekly screen uses, and the
+// answer key covers the same weeks. Under 1 MB for a whole term. Re-downloaded at most every
+// few hours, or straight away when this week isn't in the stored copy yet.
+
+const POOL_STORE = (userId: string) => `lh_term_questions_${userId}`;
+const POOL_REFRESH_MS = 6 * 60 * 60 * 1000;
+// get_answer_key_hashed takes at most 20 weeks.
+const POOL_MAX_WEEKS = 20;
+
+export interface PoolQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  subject: string;
+}
+
+interface StoredPool {
+  weekIds: string[];
+  fetchedAt: number;
+  questions: PoolQuestion[];
+}
+
+// The term's questions are the biggest thing kept for each hero (up to about 1 MB). On a phone
+// several siblings share, storage can fill up, and then the outboxes, which hold play that isn't
+// saved anywhere else yet, couldn't be written either. So when this hero's questions don't fit,
+// the other heroes' copies make room: they download again the next time those heroes log in.
+function writePool(userId: string, pool: StoredPool) {
+  const json = JSON.stringify(pool);
+  try {
+    localStorage.setItem(POOL_STORE(userId), json);
+    return;
+  } catch { /* full: make room below */ }
+  try {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+      const key = localStorage.key(i);
+      if (key?.startsWith('lh_term_questions_') && key !== POOL_STORE(userId)) localStorage.removeItem(key);
+    }
+    localStorage.setItem(POOL_STORE(userId), json);
+  } catch {
+    // Still no room: battles with no internet just won't have questions.
+  }
+}
+
+function storedPool(userId: string): StoredPool | null {
+  return read<StoredPool | null>(POOL_STORE(userId), null);
+}
+
+// Keeps the answer key, and where offline play is on the rest of the term's questions, current
+// for the next time the device has no connection. `weekId` is this week's content week.
+export async function refreshOfflineContent(userId: string, grade: number, weekStartingDate: string, weekId: string) {
+  if (!offlinePlayEnabled(userId)) return;
+  const stored = storedPool(userId);
+  if (stored && stored.weekIds.includes(weekId) && Date.now() - stored.fetchedAt < POOL_REFRESH_MS) return;
+
+  const { data: weeks, error } = await supabase
+    .from('content_weeks')
+    .select('id, week_starting_date')
+    .eq('grade', grade)
+    .gte('week_starting_date', weekStartingDate)
+    .order('week_starting_date')
+    .limit(POOL_MAX_WEEKS);
+  if (error || !weeks?.length) {
+    // Without the list, this week's key is still worth having.
+    await refreshAnswerKey(userId, [weekId]);
+    return;
+  }
+
+  // All weeks at once; a week that didn't download is left out and the next refresh tries again.
+  const downloaded = await Promise.all(weeks.map(async week => {
+    try {
+      const res = await fetch(`/api/content?grade=${grade}&week=${week.week_starting_date}`);
+      if (!res.ok) return null;
+      const { content } = await res.json();
+      const questions: PoolQuestion[] = [];
+      for (const day of Object.values(content ?? {}) as Record<string, { quiz?: { id: string; question: string; options: string[] }[] }>[]) {
+        for (const [subject, entry] of Object.entries(day ?? {})) {
+          for (const q of entry?.quiz ?? []) questions.push({ id: q.id, question: q.question, options: q.options, subject });
+        }
+      }
+      return { weekId: week.id, questions };
+    } catch {
+      return null;
+    }
+  }));
+  const questions = downloaded.flatMap(d => d?.questions ?? []);
+  const weekIds = downloaded.flatMap(d => d ? [d.weekId] : []);
+  if (!weekIds.includes(weekId)) weekIds.unshift(weekId);
+  await refreshAnswerKey(userId, weekIds);
+  writePool(userId, { weekIds, fetchedAt: Date.now(), questions });
+}
+
+// The downloaded questions the answer key covers, for battles with no connection.
+export function offlineTermQuestions(userId: string): PoolQuestion[] {
+  if (!offlinePlayEnabled(userId)) return [];
+  const key = answerKey(userId);
+  return (storedPool(userId)?.questions ?? []).filter(q => q.id in key);
+}
+
 function answerKey(userId: string): Record<string, string> {
   return read<StoredAnswerKey | null>(KEY_STORE(userId), null)?.answers ?? {};
 }
 
-// One question's answer from the downloaded key, for questions graded one at a time (the
-// Training Map's scrolls, lib/offlineMap.ts). Undefined when the key doesn't have it.
-export function offlineAnswerFor(userId: string, questionId: string): string | undefined {
-  if (!offlinePlayEnabled(userId)) return undefined;
-  return answerKey(userId)[questionId];
+// The key holds md5('lh-key:' || question id || ':' || answer) per question (get_answer_key_hashed), so
+// a whole term of answers on the device can't simply be read off it. A plain answer (a key
+// downloaded before the key was hashed) still works.
+const HASHED = /^[0-9a-f]{32}$/;
+function matchesKey(entry: string | undefined, questionId: string, answer: string | undefined | null): boolean {
+  if (entry === undefined || answer === undefined || answer === null) return false;
+  return HASHED.test(entry) ? md5(`lh-key:${questionId}:${answer}`) === entry : entry === answer;
+}
+
+export interface KeyedQuestion {
+  id: string;
+  options?: unknown;
+}
+
+// The right option for a question, found by checking each option against the key; undefined
+// when the key doesn't cover it.
+function correctOption(key: Record<string, string>, question: KeyedQuestion): string | undefined {
+  const entry = key[question.id];
+  if (entry === undefined) return undefined;
+  if (!HASHED.test(entry)) return entry;
+  const options = Array.isArray(question.options) ? (question.options as unknown[]).map(String) : [];
+  return options.find(o => matchesKey(entry, question.id, o));
+}
+
+// Whether the downloaded key covers a question, for questions graded one at a time (the
+// Training Map's scrolls, lib/offlineMap.ts, and offline trainer battles).
+export function hasOfflineAnswer(userId: string, questionId: string): boolean {
+  return offlinePlayEnabled(userId) && questionId in answerKey(userId);
+}
+
+// One question graded from the downloaded key, with the right option to show.
+export function gradeQuestionOffline(userId: string, question: KeyedQuestion, selected: string) {
+  const key = offlinePlayEnabled(userId) ? answerKey(userId) : {};
+  return {
+    correct: matchesKey(key[question.id], question.id, selected),
+    correctAnswer: correctOption(key, question) ?? null,
+  };
 }
 
 export function canAnswerOffline(userId: string, questionIds: string[]): boolean {
@@ -75,10 +211,11 @@ export function canAnswerOffline(userId: string, questionIds: string[]): boolean
   return questionIds.every(id => id in key);
 }
 
-export function gradeOffline(userId: string, questionIds: string[], selected: Record<number, string>) {
+export function gradeOffline(userId: string, questions: KeyedQuestion[], selected: Record<number, string>) {
   const key = answerKey(userId);
-  const correctAnswers = questionIds.map(id => key[id]);
-  const correctCount = questionIds.filter((id, i) => selected[i] === key[id]).length;
+  const questionIds = questions.map(q => q.id);
+  const correctAnswers = questions.map(q => correctOption(key, q) ?? '');
+  const correctCount = questions.filter((q, i) => matchesKey(key[q.id], q.id, selected[i])).length;
   return {
     correct_count: correctCount,
     total: questionIds.length,
@@ -116,6 +253,8 @@ export interface SyncedQuest {
   is_perfect: boolean;
   xp: number;
   gold: number;
+  // Already mastered by the time this synced (most often on another device), so it paid nothing.
+  alreadyDone: boolean;
 }
 
 const flushing = new Map<string, Promise<SyncedQuest[]>>();
@@ -149,7 +288,7 @@ export function flushQuestOutbox(userId: string): Promise<SyncedQuest[]> {
       }
       write(OUTBOX(userId), remaining.filter(e => e.id !== entry.id));
       if (!data.replayed) {
-        synced.push({ quest: data.quest, is_perfect: !!data.is_perfect, xp: data.xp ?? 0, gold: data.gold ?? 0 });
+        synced.push({ quest: data.quest, is_perfect: !!data.is_perfect, xp: data.xp ?? 0, gold: data.gold ?? 0, alreadyDone: !!data.already_mastered });
       }
     }
     return synced;
