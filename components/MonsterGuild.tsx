@@ -10,6 +10,7 @@ import { hasOfflineCopy, needsConnection, readingOffline } from '@/lib/offlineRe
 import { isOffline } from '@/lib/offlineSnapshot';
 import { battlingTrainersOffline, offlineArenaQuestions, queueTrainerBattle, spendItemOffline, type OfflineBattleAnswer } from '@/lib/offlineTrainers';
 import { gradeScrollOffline } from '@/lib/offlineMap';
+import type { BattleLogEvent } from '@/lib/battleLog';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import OfflineUnavailable from '@/components/OfflineUnavailable';
 import { playCurioLevelUp, playPageFlip } from '@/lib/sounds';
@@ -236,9 +237,11 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // trash included (lib/offlineMap.ts), and trainers can be battled (lib/offlineTrainers.ts);
   // trade and the leaderboard need the server.
   const offline = useIsOffline();
-  // The answers and items of an offline trainer battle in progress, sent with it on reconnect.
+  // The answers, items and hidden turn-by-turn log (lib/battleLog.ts) of an offline trainer
+  // battle in progress, sent with it on reconnect.
   const offlineBattleAnswersRef = useRef<OfflineBattleAnswer[]>([]);
   const offlineBattleItemsRef = useRef<string[]>([]);
+  const offlineBattleLogRef = useRef<BattleLogEvent[]>([]);
   const [userMonsters, setUserMonsters] = useState<UserMonster[]>([]);
   const [battleState, setBattleState] = useState<BattleState | null>(null);
   const [view, setView] = useState<GuildView>(initialView ?? 'map');
@@ -594,6 +597,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (!offlineOk && needsConnection()) return;
     offlineBattleAnswersRef.current = [];
     offlineBattleItemsRef.current = [];
+    offlineBattleLogRef.current = [];
     setActiveBattle(trainer);
     setView('battle');
   };
@@ -1163,9 +1167,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (activeBattle && battlingTrainersOffline(userId)) {
       const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
       queueTrainerBattle(userId, activeBattle.id, activeMonster?.id ?? null, offlineBattleAnswersRef.current,
-        offlineBattleItemsRef.current, won, won ? expEarned : 0);
+        offlineBattleItemsRef.current, offlineBattleLogRef.current, won, won ? expEarned : 0);
       offlineBattleAnswersRef.current = [];
       offlineBattleItemsRef.current = [];
+      offlineBattleLogRef.current = [];
       if (won) {
         const defeated = battleState?.defeated_trainers || [];
         if (!defeated.includes(activeBattle.id)) {
@@ -1558,6 +1563,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         userId={userId}
         questions={battlingTrainersOffline(userId) ? offlineArenaQuestions(userId, answeredArenaIds) : questions}
         npcGradeOverride={battlingTrainersOffline(userId) ? gradeTrainerAnswerOffline : undefined}
+        onNpcBattleEvent={battlingTrainersOffline(userId) ? (e => { offlineBattleLogRef.current.push(e); }) : undefined}
         inventory={inventory}
         onUseItem={handleUseItem}
         handleQuestionsAnswered={handleQuestionsAnswered}

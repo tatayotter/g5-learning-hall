@@ -1,10 +1,10 @@
 -- pgTAP tests for 20261007000000_offline_trainer_battles.sql: sync_offline_trainer_battle's
--- re-grading, the checks on the trainer, level and items used, the win threshold, the reward
--- EXP on the player's own curio, and one-time apply per entry id.
+-- re-grading, the checks on the trainer, level, items used and the hidden battle log, the win
+-- threshold, the reward EXP on the player's own curio, and one-time apply per entry id.
 
 begin;
 create extension if not exists pgtap;
-select plan(23);
+select plan(36);
 
 -- ── Fixture ──────────────────────────────────────────────────────────────────
 create temp table fx as
@@ -69,8 +69,44 @@ begin
 end;
 $$ language plpgsql;
 
+-- A battle log (lib/battleLog.ts) that knocks out each trainer curio of `p_hp` with hits of at
+-- most `p_hit`, one question per hit, using q1, q2, ... in order.
+create or replace function pg_temp.win_log(p_hp int[], p_curio uuid, p_hit int default 700) returns jsonb as $$
+declare
+  v_log jsonb := '[]'::jsonb;
+  v_q int := 1;
+  v_hp int;
+  v_dmg int;
+begin
+  for i in 1..cardinality(p_hp) loop
+    v_hp := p_hp[i];
+    while v_hp > 0 loop
+      v_dmg := least(p_hit, v_hp);
+      v_log := v_log || jsonb_build_array(jsonb_build_object(
+        't', 'attack', 'curio', p_curio, 'skill', 'shadow_claw',
+        'questions', jsonb_build_array((select id from qs where n = v_q)),
+        'damage', v_dmg, 'npc', i - 1, 'hpBefore', v_hp, 'hpAfter', v_hp - v_dmg));
+      v_hp := v_hp - v_dmg;
+      v_q := v_q + 1;
+    end loop;
+  end loop;
+  return v_log;
+end;
+$$ language plpgsql;
+
+create or replace function pg_temp.sync(p_trainer text, p_curio uuid, p_answers jsonb, p_items jsonb, p_log jsonb,
+  p_entry uuid default gen_random_uuid(), p_won boolean default true, p_at timestamptz default now()) returns jsonb as $$
+  select public.sync_offline_trainer_battle((select user_a from fx), p_entry, p_trainer, p_curio, p_answers, p_items, p_log, p_won, p_at);
+$$ language sql;
+
+create temp table hp (trainer text primary key, hp int[]);
+insert into hp values
+  ('forest_scout', array[130, 116, 124]),
+  ('tide_watcher', array[140, 178, 156]),
+  ('tatay', array[1249, 1249, 1249]);
+
 select ok(
-  not has_function_privilege('anon', 'public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, jsonb, boolean, timestamptz)', 'execute'),
+  not has_function_privilege('anon', 'public.sync_offline_trainer_battle(text, uuid, text, uuid, jsonb, jsonb, jsonb, boolean, timestamptz)', 'execute'),
   'anon cannot call sync_offline_trainer_battle'
 );
 
@@ -78,11 +114,13 @@ select pg_temp.login_as(auth_a) from fx;
 
 -- ── A real win ───────────────────────────────────────────────────────────────
 create temp table w1 as
-select public.sync_offline_trainer_battle(user_a, '00000000-0000-0000-0000-0000000000e1', 'forest_scout', curio_a,
-  pg_temp.answers(3, 1), '[]'::jsonb, true, now() - interval '1 hour') as res
+select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(3, 1), '[]',
+  pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_a),
+  '00000000-0000-0000-0000-0000000000e1', true, now() - interval '1 hour') as res
 from fx;
 
-select is((select (res ->> 'won')::boolean from w1), true, 'three right out of four beats a three-curio trainer');
+select is((select (res ->> 'won')::boolean from w1), true, 'three right out of four, with a log that adds up, beats a three-curio trainer');
+select is((select res ->> 'log_problem' from w1), null, 'the log has no problem');
 select is((select (res ->> 'exp')::int from w1), 50, 'the EXP is the trainer''s own reward');
 select is(
   (select array[monster_exp, monster_level] from user_monsters where id = (select curio_a from fx)),
@@ -104,13 +142,21 @@ select is(
   4,
   'every question asked is marked done for the Arena'
 );
+select is(
+  (select jsonb_array_length(log) from offline_battle_logs where entry_id = '00000000-0000-0000-0000-0000000000e1'),
+  3,
+  'the log is kept'
+);
 
 -- ── Replay ───────────────────────────────────────────────────────────────────
+create temp table r1 as
+select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(3, 1), '[]', '[]', '00000000-0000-0000-0000-0000000000e1') as res
+from fx;
+select is((select (res ->> 'replayed')::boolean from r1), true, 'retrying the same battle returns the stored result');
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, '00000000-0000-0000-0000-0000000000e1', 'forest_scout', curio_a,
-    pg_temp.answers(3, 1), '[]'::jsonb, true, now()) ->> 'replayed')::boolean from fx),
-  true,
-  'retrying the same battle returns the stored result'
+  (select count(*)::int from offline_battle_logs where entry_id = '00000000-0000-0000-0000-0000000000e1'),
+  1,
+  'a retried battle keeps one log'
 );
 select is(
   (select monster_exp from user_monsters where id = (select curio_a from fx)),
@@ -119,7 +165,8 @@ select is(
 );
 
 -- ── A second win over the same trainer ───────────────────────────────────────
-select public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'forest_scout', curio_a, pg_temp.answers(4, 0), '[]'::jsonb, true, now()) from fx;
+select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+  pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_a)) from fx;
 select is(
   (select defeated_trainers from user_battle_state where user_id = (select user_a from fx)),
   array['forest_scout'],
@@ -128,34 +175,80 @@ select is(
 
 -- ── Claimed wins that don't hold up ──────────────────────────────────────────
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tide_watcher', curio_a,
-    pg_temp.answers(2, 0), '[]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(2, 0), '[]',
+    pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'won')::boolean from fx),
   false,
   'two right answers can''t beat three curios'
 );
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tide_watcher', curio_a,
-    pg_temp.answers(3, 4), '[]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(3, 4), '[]',
+    pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'won')::boolean from fx),
   false,
   'a win needs at least half the answers right'
 );
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'ember_acolyte', curio_a,
-    pg_temp.answers(4, 0), '[]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('ember_acolyte', curio_a, pg_temp.answers(4, 0), '[]', '[]') ->> 'won')::boolean from fx),
   false,
   'a trainer above the player''s level is never a win'
 );
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tatay', curio_a,
-    pg_temp.answers(4, 0), '[]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('tatay', curio_a, pg_temp.answers(6, 0), '[]',
+    pg_temp.win_log((select hp from hp where trainer = 'tatay'), curio_a)) ->> 'won')::boolean from fx),
   true,
   'a trainer never battled online can be beaten offline'
 );
 
+-- ── The battle log ───────────────────────────────────────────────────────────
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]', '[]') ->> 'log_problem' from fx),
+  'trainer curio 0 wasn''t knocked out',
+  'a claimed win with no log doesn''t count'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(3, 3), '[]',
+    -- q4 (the first wrong answer) as the first hit's question.
+    jsonb_set(pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_a),
+      '{0,questions}', jsonb_build_array((select id from qs where n = 4)))) ->> 'log_problem' from fx),
+  'damage with no correct answer',
+  'a hit needs a right answer'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    jsonb_set(pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_a),
+      '{1,questions}', jsonb_build_array((select id from qs where n = 1)))) ->> 'log_problem' from fx),
+  'one answer used for two attacks',
+  'one answer can''t power two hits'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.win_log(array[5000, 116, 124], curio_a, 5000)) ->> 'log_problem' from fx),
+  'hit too big for the curio''s level',
+  'a hit bigger than the curio could do doesn''t count'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    pg_temp.win_log(array[60, 116, 124], curio_a)) ->> 'log_problem' from fx),
+  'trainer curio 0 started below its full HP',
+  'a trainer curio can''t start the battle hurt'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_a, pg_temp.answers(4, 0), '[]',
+    jsonb_set(pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_a), '{1,hpAfter}', '10')) ->> 'log_problem' from fx),
+  'trainer curio 1 HP doesn''t match the damage',
+  'the HP has to go down by the damage'
+);
+select is(
+  (select pg_temp.sync('forest_scout', curio_b, pg_temp.answers(4, 0), '[]',
+    pg_temp.win_log((select hp from hp where trainer = 'forest_scout'), curio_b)) ->> 'log_problem' from fx),
+  'attack by a curio that isn''t the player''s',
+  'the attacks have to come from the player''s own curios'
+);
+
 -- ── Items ────────────────────────────────────────────────────────────────────
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tide_watcher', curio_a,
-    pg_temp.answers(4, 0), '["pgtap_potion"]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(4, 0), '["pgtap_potion"]',
+    jsonb_build_array(jsonb_build_object('t', 'item', 'key', 'pgtap_potion', 'curio', curio_a))
+      || pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'won')::boolean from fx),
   true,
   'a win with an item the player has counts'
 );
@@ -165,8 +258,9 @@ select is(
   'the item comes off the inventory'
 );
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tide_watcher', curio_a,
-    pg_temp.answers(4, 0), '["pgtap_potion"]'::jsonb, true, now()) ->> 'won')::boolean from fx),
+  (select (pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(4, 0), '["pgtap_potion"]',
+    jsonb_build_array(jsonb_build_object('t', 'item', 'key', 'pgtap_potion', 'curio', curio_a))
+      || pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'won')::boolean from fx),
   false,
   'a win with an item the player no longer has doesn''t count'
 );
@@ -176,8 +270,17 @@ select is(
   'the inventory never goes below zero'
 );
 select is(
-  (select (public.sync_offline_trainer_battle(user_a, gen_random_uuid(), 'tide_watcher', curio_b,
-    pg_temp.answers(4, 0), '[]'::jsonb, true, now()) ->> 'exp')::int from fx),
+  (select pg_temp.sync('tide_watcher', curio_a, pg_temp.answers(4, 0), '[]',
+    jsonb_build_array(jsonb_build_object('t', 'item', 'key', 'pgtap_potion', 'curio', curio_a))
+      || pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'log_problem' from fx),
+  'items don''t match the log',
+  'the items logged have to be the items sent'
+);
+
+-- ── Someone else's curio ─────────────────────────────────────────────────────
+select is(
+  (select (pg_temp.sync('tide_watcher', curio_b, pg_temp.answers(4, 0), '[]',
+    pg_temp.win_log((select hp from hp where trainer = 'tide_watcher'), curio_a)) ->> 'exp')::int from fx),
   0,
   'a win can''t level another kid''s curio'
 );
@@ -189,20 +292,29 @@ select is(
 
 select is(
   (select count(*)::int from player_events where user_id = (select user_a from fx) and event_type = 'trainer_offline'),
-  9,
+  17,
   'each synced battle is recorded once'
+);
+select is(
+  (select problem from offline_battle_logs where user_id = (select user_a from fx) and problem like 'hit too big%'),
+  'hit too big for the curio''s level',
+  'a log''s problem is kept with it'
+);
+select ok(
+  not has_table_privilege('authenticated', 'public.offline_battle_logs', 'select'),
+  'players can''t read the battle logs'
 );
 
 -- ── Not an Arena trainer, and someone else ───────────────────────────────────
 select throws_ok(
-  format('select sync_offline_trainer_battle(%L, gen_random_uuid(), %L, null, %L::jsonb, ''[]''::jsonb, true, now())',
-    (select user_a from fx), 'training_tester', '[]'),
+  format('select sync_offline_trainer_battle(%L, gen_random_uuid(), %L, null, ''[]''::jsonb, ''[]''::jsonb, ''[]''::jsonb, true, now())',
+    (select user_a from fx), 'training_tester'),
   'P0001', 'not an arena trainer: training_tester',
   'only Arena trainers can be synced'
 );
 select throws_ok(
-  format('select sync_offline_trainer_battle(%L, gen_random_uuid(), %L, null, %L::jsonb, ''[]''::jsonb, true, now())',
-    (select user_b from fx), 'forest_scout', '[]'),
+  format('select sync_offline_trainer_battle(%L, gen_random_uuid(), %L, null, ''[]''::jsonb, ''[]''::jsonb, ''[]''::jsonb, true, now())',
+    (select user_b from fx), 'forest_scout'),
   'P0001', 'not authorized',
   'a kid cannot sync a battle for someone else'
 );

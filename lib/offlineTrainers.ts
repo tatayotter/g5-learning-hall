@@ -6,13 +6,15 @@
 //   key (lib/offlineQuests.ts), graded on the device;
 // - items come off the device's copy of the inventory;
 // - a win shows the curio EXP and the trainer as defeated straight away;
-// - each battle goes into a per-player outbox, and on reconnect to sync_offline_trainer_battle
-//   once, which re-grades every answer and decides the win and the EXP itself.
+// - each battle goes into a per-player outbox with its hidden turn-by-turn log (lib/battleLog.ts),
+//   and on reconnect to sync_offline_trainer_battle once, which re-grades every answer, checks the
+//   log adds up, and decides the win and the EXP itself.
 import { supabase } from '@/lib/supabase';
 import { isOffline } from '@/lib/offlineSnapshot';
 import { offlinePlayEnabled, offlineTermQuestions, type PoolQuestion } from '@/lib/offlineQuests';
 import { updateOfflineCopy } from '@/lib/offlineReads';
 import type { InventoryMap } from '@/lib/inventory';
+import type { BattleLogEvent } from '@/lib/battleLog';
 import type { CurioCollection } from '@/lib/curioCollection';
 import { getMonsterLevel } from '@/lib/monsterConfig';
 
@@ -74,6 +76,8 @@ export interface TrainerOutboxEntry {
   answers: OfflineBattleAnswer[];
   // Item keys used, one per use.
   items: string[];
+  // The hidden turn-by-turn log (lib/battleLog.ts) the server checks the win against.
+  log: BattleLogEvent[];
   won: boolean;
   playedAt: string;
   // Server rejections (not network failures) so far; kept for a look, never dropped.
@@ -86,10 +90,10 @@ export function pendingTrainerBattles(userId: string): TrainerOutboxEntry[] {
 
 export function queueTrainerBattle(
   userId: string, trainerId: string, monsterRowId: string | null,
-  answers: OfflineBattleAnswer[], items: string[], won: boolean, exp: number,
+  answers: OfflineBattleAnswer[], items: string[], log: BattleLogEvent[], won: boolean, exp: number,
 ) {
   const entry: TrainerOutboxEntry = {
-    id: crypto.randomUUID(), trainerId, monsterRowId, answers, items, won,
+    id: crypto.randomUUID(), trainerId, monsterRowId, answers, items, log, won,
     playedAt: new Date().toISOString(), failures: 0,
   };
   write(OUTBOX(userId), [...pendingTrainerBattles(userId), entry]);
@@ -135,6 +139,7 @@ export function flushTrainerOutbox(userId: string): Promise<SyncedTrainerBattles
         p_monster_row_id: entry.monsterRowId,
         p_answers: entry.answers.map(a => ({ question_id: a.questionId, selected: a.selected })),
         p_items: entry.items ?? [],
+        p_log: entry.log ?? [],
         p_won: entry.won,
         p_played_at: entry.playedAt,
       });
