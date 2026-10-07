@@ -1,0 +1,108 @@
+name: Android offline e2e
+
+# Runs e2e/android/run.cjs (see e2e/android/README.md) in the real Android app on an emulator,
+# against a local Supabase and `next start` on this runner, so production is never touched.
+# The README's temporary edits (anonymous sign-ins, a localhost cleartext APK) are made to this
+# runner's checkout only. Screenshots and the web server log are uploaded as an artifact.
+"on":
+  workflow_dispatch: {}
+  # A manual run needs this file on main, so the branch it's developed on runs it on push too.
+  push:
+    branches: [claude/android-e2e]
+    paths:
+      - "e2e/android/**"
+      - ".github/workflows/android-e2e.yml"
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm i --no-save playwright
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.117.0
+
+      - name: Start local Supabase with the fixture
+        run: |
+          sed -i '/^\[auth\]$/a enable_anonymous_sign_ins = true' supabase/config.toml
+          grep -n -A2 '^\[auth\]' supabase/config.toml
+          supabase start -x studio,imgproxy,inbucket,edge-runtime,logflare,vector,realtime,storage-api,postgres-meta,supavisor
+          supabase db reset
+          db=$(docker ps --format '{{.Names}}' | grep '^supabase_db_')
+          docker exec -i "$db" psql -v ON_ERROR_STOP=1 -U postgres < e2e/android/seed.sql
+          echo "DB_CONTAINER=$db" >> "$GITHUB_ENV"
+          eval "$(supabase status -o env)"
+          echo "NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=$ANON_KEY" >> "$GITHUB_ENV"
+          echo "SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY" >> "$GITHUB_ENV"
+
+      - name: Build and start the web app
+        run: |
+          npx next build
+          nohup npx next start -p 3000 > next.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf -o /dev/null http://localhost:3000 && break; sleep 2; done
+          curl -sf -o /dev/null http://localhost:3000
+
+      - name: Point the APK at the local web app
+        run: |
+          sed -i "s#url: 'https://learninghall.vercel.app'#url: 'http://localhost:3000'#; s#cleartext: false#cleartext: true#" capacitor.config.ts
+          sed -i 's#<application#<application android:usesCleartextTraffic="true"#' android/app/src/main/AndroidManifest.xml
+          grep -n "url:\|cleartext" capacitor.config.ts
+          grep -n "usesCleartextTraffic" android/app/src/main/AndroidManifest.xml
+          mkdir -p www
+          echo "<!doctype html><title>Learning Hall</title>" > www/index.html
+          npx cap sync android
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Build debug APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Run the offline test on an emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -no-snapshot
+          script: |
+            adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+            adb shell pm clear com.tatayotter.learninghall
+            adb reverse tcp:3000 tcp:3000
+            adb reverse tcp:54321 tcp:54321
+            node e2e/android/run.cjs
+
+      - name: Upload screenshots and logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: android-e2e
+          path: |
+            e2e-android-shots/
+            next.log
+          if-no-files-found: ignore
