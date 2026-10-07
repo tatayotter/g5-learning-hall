@@ -115,3 +115,18 @@ export function takeRelinkRequest(): UserId | null {
   try { sessionStorage.removeItem(RELINK); } catch { /* best-effort */ }
   return id;
 }
+
+/** Whether this hero can already log in here with no connection. */
+export function heroReadyOffline(id: UserId): boolean {
+  return !!read<Verifier>(VERIFIER(id));
+}
+
+// Heroes who logged in before offline logins existed have no PIN check saved here yet. They're
+// asked once (Dashboard's OfflineLoginSetup) to type it; "Not now" waits until the next visit.
+const SETUP_SNOOZE = (id: string) => `lh_offline_login_setup_snoozed_${id}`;
+export function offlineLoginSetupSnoozed(id: UserId): boolean {
+  try { return sessionStorage.getItem(SETUP_SNOOZE(id)) === '1'; } catch { return false; }
+}
+export function snoozeOfflineLoginSetup(id: UserId) {
+  try { sessionStorage.setItem(SETUP_SNOOZE(id), '1'); } catch { /* best-effort */ }
+}

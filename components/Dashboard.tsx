@@ -14,7 +14,8 @@ import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuild
 import { flushMapOutbox, pendingMapEntries, playingMapOffline } from '@/lib/offlineMap';
 import { flushTrainerOutbox, pendingTrainerBattles } from '@/lib/offlineTrainers';
 import { countUnsynced } from '@/lib/offlineOutbox';
-import { askToRelink, rememberHeroOnDevice } from '@/lib/deviceHeroes';
+import { askToRelink, heroReadyOffline, offlineLoginSetupSnoozed, rememberHeroOnDevice } from '@/lib/deviceHeroes';
+import OfflineLoginSetup from '@/components/OfflineLoginSetup';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -618,6 +619,21 @@ export default function Dashboard() {
     };
   }, [activeUserId, linkedUserId, refresh, countWaiting]);
 
+  // A hero with offline play who has no PIN check saved here (logged in before offline logins
+  // existed) is asked once to type their password, so they can log in here with no internet
+  // (components/OfflineLoginSetup.tsx). Checked a few seconds after linking, once the remembered
+  // feature flags have been refreshed.
+  const [offlineSetupFor, setOfflineSetupFor] = useState<UserId | null>(null);
+  useEffect(() => {
+    if (!activeUserId || linkedUserId !== activeUserId) return;
+    const t = setTimeout(() => {
+      if (offlinePlayEnabled(activeUserId) && !heroReadyOffline(activeUserId) && !offlineLoginSetupSnoozed(activeUserId)) {
+        setOfflineSetupFor(activeUserId);
+      }
+    }, 6000);
+    return () => clearTimeout(t);
+  }, [activeUserId, linkedUserId]);
+
   // The queues live in localStorage, outside React state, so the count is re-read every few
   // seconds for the menu's save status and the offline banner, linked to the server or not.
   useEffect(() => {
@@ -1134,6 +1150,9 @@ export default function Dashboard() {
           questsWork={offlinePlayEnabled(activeUserId)}
           waiting={saveStatus.waiting}
         />
+      )}
+      {offlineSetupFor === activeUserId && online && activeTab === 'board' && !activeQuest && !introStart && !showKeeperEgg && pendingEggHatches.length === 0 && (
+        <OfflineLoginSetup userId={activeUserId} onClose={() => setOfflineSetupFor(null)} />
       )}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
