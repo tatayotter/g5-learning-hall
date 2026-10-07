@@ -75,6 +75,75 @@ interface SidebarRailProps {
   // still renders (just badge-less) if a caller doesn't wire it up.
   notifications?: PlayerNotification[];
   onMarkNotificationsRead?: () => void;
+  // Offline play only (lib/offlineQuests.ts): how much is saved on the device and not yet on
+  // the server, shown in the menu with a Sync now button, and on the logout confirmation.
+  saveStatus?: SaveStatus;
+  onSyncNow?: () => void;
+}
+
+export interface SaveStatus {
+  waiting: number;
+  syncing: boolean;
+  online: boolean;
+  // The last sync attempt left something queued while online.
+  failed: boolean;
+  lastSyncedAt: number | null;
+}
+
+const waitingLabel = (n: number) => `${n} ${n === 1 ? 'thing' : 'things'}`;
+
+// Everything is saved on the device as it happens, so there's nothing for a "save" to do; what
+// can fail is getting it to the server. This row says where the player's progress is, and
+// Sync now sends what's waiting straight away instead of on the next automatic try.
+function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: () => void }) {
+  const { waiting, syncing, online, failed, lastSyncedAt } = status;
+  // "Synced N min ago" moves on while the menu stays open.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const t = setInterval(() => setNow(Date.now()), 30000);
+    return () => clearInterval(t);
+  }, []);
+  const syncedAgo = (() => {
+    if (!lastSyncedAt) return null;
+    const mins = Math.floor((Math.max(now, lastSyncedAt) - lastSyncedAt) / 60000);
+    return mins < 1 ? 'just now' : mins < 60 ? `${mins} min ago` : new Date(lastSyncedAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  })();
+
+  let icon: string, title: string, detail: string, tone: string;
+  if (syncing) {
+    icon = '🔄'; title = 'Syncing…'; detail = 'Sending what you played offline.'; tone = 'text-sky-700';
+  } else if (!online && waiting > 0) {
+    icon = '📱'; title = 'Saved on this device'; detail = `${waitingLabel(waiting)} will sync when you're back online.`; tone = 'text-amber-700';
+  } else if (!online) {
+    icon = '📡'; title = 'Offline'; detail = 'Anything you play now saves on this device.'; tone = 'text-stone-600';
+  } else if (waiting > 0) {
+    icon = failed ? '⚠️' : '⏳'; title = failed ? "Couldn't sync yet" : `${waitingLabel(waiting)} waiting to sync`;
+    detail = failed ? `${waitingLabel(waiting)} still on this device. Tap Sync now to try again.` : 'Tap Sync now to send it.'; tone = failed ? 'text-red-700' : 'text-amber-700';
+  } else {
+    icon = '✅'; title = 'All progress saved'; detail = syncedAgo ? `Synced ${syncedAgo}` : 'Up to date'; tone = 'text-emerald-700';
+  }
+  const canSync = online && !syncing;
+
+  return (
+    <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-xl border border-stone-200 bg-stone-50 px-3 py-2">
+      <span aria-hidden className={`text-xl leading-none${syncing ? ' animate-spin' : ''}`}>{icon}</span>
+      <div className="flex-1 min-w-0">
+        <p className={`text-xs font-bold leading-tight ${tone}`}>{title}</p>
+        <p className="text-[10px] text-stone-500 leading-tight mt-0.5">{detail}</p>
+        {waiting > 0 && !syncing && (
+          <p className="text-[10px] text-stone-500 leading-tight mt-0.5">Don&apos;t uninstall the app or clear its data until this syncs.</p>
+        )}
+      </div>
+      <button
+        type="button"
+        disabled={!canSync}
+        onClick={() => { playPageFlip(); onSyncNow?.(); }}
+        className="shrink-0 rounded-lg border-2 border-[#4a2f18] bg-[#f5c542] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-[#2a1505] transition-all duration-150 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95 disabled:cursor-not-allowed disabled:border-stone-300 disabled:bg-stone-200 disabled:text-stone-400 disabled:hover:translate-y-0"
+      >
+        {syncing ? 'Syncing' : 'Sync now'}
+      </button>
+    </div>
+  );
 }
 
 // Player name label — reuses the GameButton quest variant's Bungee/stroke/
@@ -135,6 +204,8 @@ export default function SidebarRail({
   weekLabel,
   notifications = [],
   onMarkNotificationsRead,
+  saveStatus,
+  onSyncNow,
 }: SidebarRailProps) {
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
@@ -307,8 +378,9 @@ export default function SidebarRail({
                 })}
               </div>
 
-              {/* Volume sliders, then logout */}
+              {/* Save status, volume sliders, then logout */}
               <div className="mt-4 pt-4 border-t border-stone-200 flex flex-col gap-2">
+                {saveStatus && <SaveStatusRow status={saveStatus} onSyncNow={onSyncNow} />}
                 <SoundSettings />
                 <button
                   onClick={() => { playPageFlip(); setIsOpen(false); setConfirmingLogout(true); }}
@@ -347,6 +419,11 @@ export default function SidebarRail({
               <Nail className="bottom-2 right-2" />
               <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
               <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
+              {saveStatus && saveStatus.waiting > 0 && (
+                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                  {waitingLabel(saveStatus.waiting)} played offline {saveStatus.waiting === 1 ? "hasn't" : "haven't"} synced yet. {saveStatus.waiting === 1 ? 'It stays on this device and syncs' : 'They stay on this device and sync'} the next time this hero logs in here.
+                </p>
+              )}
               <div className="flex gap-3" style={{ fontSize: 14 }}>
                 <GameButton variant="quest" color="#57534e" className="flex-1" onClick={() => setConfirmingLogout(false)}>
                   Cancel

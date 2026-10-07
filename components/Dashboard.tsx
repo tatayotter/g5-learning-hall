@@ -526,15 +526,32 @@ export default function Dashboard() {
   const [toast, setToast] = useState({ show: false, message: '' });
 
   // Main quests and guild sessions played offline (lib/offlineQuests.ts,
-  // lib/offlineGuilds.ts) go to the server on load, on reconnect and every few minutes. The
-  // server re-grades quests, clamps guild rewards and pays once; the refetch then replaces
-  // the phone's copy with the server's.
+  // lib/offlineGuilds.ts) go to the server on load, on reconnect, when the app comes back to the
+  // front, every few minutes, and when the player taps Sync now in the menu. The server
+  // re-grades quests, clamps guild rewards and pays once; the refetch then replaces the phone's
+  // copy with the server's.
+  const countWaiting = useCallback(() => !activeUserId ? 0
+    : pendingQuestEntries(activeUserId).length + pendingGuildEntries(activeUserId).length
+      + pendingMapEntries(activeUserId).filter(e => e.kind !== 'position').length
+      + pendingTrainerBattles(activeUserId).length, [activeUserId]);
+  const [saveStatus, setSaveStatus] = useState<{ waiting: number; syncing: boolean; failed: boolean; lastSyncedAt: number | null }>(
+    { waiting: 0, syncing: false, failed: false, lastSyncedAt: null });
+  const syncingRef = useRef(false);
+  const syncNowRef = useRef<() => Promise<void>>(async () => {});
   useEffect(() => {
     if (!activeUserId) return;
-    const sync = () => {
-      if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0
-        && pendingMapEntries(activeUserId).length === 0 && pendingTrainerBattles(activeUserId).length === 0) return;
-      void (async () => {
+    const hasPending = () => pendingQuestEntries(activeUserId).length > 0 || pendingGuildEntries(activeUserId).length > 0
+      || pendingMapEntries(activeUserId).length > 0 || pendingTrainerBattles(activeUserId).length > 0;
+    const sync = async () => {
+      // One run at a time: the reconnect, the timer and a tap can all land together.
+      if (syncingRef.current || isOffline()) return;
+      if (!hasPending()) {
+        setSaveStatus(s => ({ ...s, waiting: 0, failed: false, lastSyncedAt: s.lastSyncedAt ?? Date.now() }));
+        return;
+      }
+      syncingRef.current = true;
+      setSaveStatus(s => ({ ...s, syncing: true, failed: false }));
+      try {
         const hadMapEntries = pendingMapEntries(activeUserId).length > 0 || pendingTrainerBattles(activeUserId).length > 0;
         const quests = await flushQuestOutbox(activeUserId);
         const guilds = await flushGuildOutbox(activeUserId);
@@ -557,22 +574,38 @@ export default function Dashboard() {
           show: true,
           message: `📡 Saved ${parts} played offline${gold > 0 ? ` · +${gold} Gold` : ''}${guilds.some(g => g.grantedMonster) ? ' · A guild companion joined you!' : ''}`,
         });
-      })();
+      } catch {
+        // Whatever didn't go stays queued on the device for the next try.
+      } finally {
+        syncingRef.current = false;
+        const waiting = countWaiting();
+        // Anything still queued while online means the server didn't take it this time.
+        setSaveStatus(s => ({ waiting, syncing: false, failed: waiting > 0 && !isOffline(), lastSyncedAt: waiting === 0 ? Date.now() : s.lastSyncedAt }));
+      }
     };
+    syncNowRef.current = sync;
     // Coming back to the app (the installed app reopened, or its tab shown again) syncs
     // straight away too, so what was played offline spends as little time on the device as
     // possible.
-    const onVisible = () => { if (document.visibilityState === 'visible') sync(); };
-    sync();
-    window.addEventListener('online', sync);
+    const onVisible = () => { if (document.visibilityState === 'visible') void sync(); };
+    const onOnline = () => { void sync(); };
+    void sync();
+    window.addEventListener('online', onOnline);
     document.addEventListener('visibilitychange', onVisible);
-    const timer = setInterval(sync, 3 * 60 * 1000);
+    const timer = setInterval(() => void sync(), 3 * 60 * 1000);
+    // The queues live in localStorage, outside React state, so the count is re-read every few
+    // seconds for the menu's save status and the offline banner.
+    const poll = setInterval(() => setSaveStatus(s => {
+      const waiting = countWaiting();
+      return waiting === s.waiting ? s : { ...s, waiting, failed: s.failed && waiting > 0 };
+    }), 2000);
     return () => {
-      window.removeEventListener('online', sync);
+      window.removeEventListener('online', onOnline);
       document.removeEventListener('visibilitychange', onVisible);
       clearInterval(timer);
+      clearInterval(poll);
     };
-  }, [activeUserId, refresh]);
+  }, [activeUserId, refresh, countWaiting]);
 
   // The sync pays the quest reward but doesn't check achievements (those are worked out on the
   // device, in updateStatsAndJournal). Once the refetched data arrives, a zero-change save runs
@@ -1075,9 +1108,7 @@ export default function Dashboard() {
       {(showingOfflineCopy || !online) && (
         <OfflineBanner
           questsWork={offlinePlayEnabled(activeUserId)}
-          countWaiting={() => pendingQuestEntries(activeUserId).length + pendingGuildEntries(activeUserId).length
-            + pendingMapEntries(activeUserId).filter(e => e.kind !== 'position').length
-            + pendingTrainerBattles(activeUserId).length}
+          waiting={saveStatus.waiting}
         />
       )}
       <LinkParentBanner />
@@ -1247,6 +1278,8 @@ export default function Dashboard() {
           const weekNum = Math.floor((new Date(currentSunday).getTime() - SY_START) / (7 * 24 * 60 * 60 * 1000)) + 1;
           return weekNum > 0 ? `Week ${weekNum}` : undefined;
         })()}
+        saveStatus={offlinePlayEnabled(activeUserId) ? { ...saveStatus, online } : undefined}
+        onSyncNow={() => void syncNowRef.current()}
         notifications={notifications}
         onMarkNotificationsRead={() => {
           if (!activeUserId) return;
