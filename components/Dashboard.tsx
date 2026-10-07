@@ -12,6 +12,7 @@ import OfflineBanner from '@/components/OfflineBanner';
 import { flushQuestOutbox, offlinePlayEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
 import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuildSession } from '@/lib/offlineGuilds';
 import { flushMapOutbox, pendingMapEntries, playingMapOffline } from '@/lib/offlineMap';
+import { flushTrainerOutbox, pendingTrainerBattles } from '@/lib/offlineTrainers';
 import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -532,15 +533,16 @@ export default function Dashboard() {
     if (!activeUserId) return;
     const sync = () => {
       if (pendingQuestEntries(activeUserId).length === 0 && pendingGuildEntries(activeUserId).length === 0
-        && pendingMapEntries(activeUserId).length === 0) return;
+        && pendingMapEntries(activeUserId).length === 0 && pendingTrainerBattles(activeUserId).length === 0) return;
       void (async () => {
-        const hadMapEntries = pendingMapEntries(activeUserId).length > 0;
+        const hadMapEntries = pendingMapEntries(activeUserId).length > 0 || pendingTrainerBattles(activeUserId).length > 0;
         const quests = await flushQuestOutbox(activeUserId);
         const guilds = await flushGuildOutbox(activeUserId);
         const map = await flushMapOutbox(activeUserId);
+        const trainers = await flushTrainerOutbox(activeUserId);
         // The Curio Arena reloads its curios so the server's EXP replaces the device's.
         if (hadMapEntries) setEggRefreshSignal(n => n + 1);
-        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0) return;
+        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0 && trainers.battles === 0) return;
         achievementCheckAfterRef.current = dataRef.current;
         refresh();
         const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold;
@@ -549,6 +551,7 @@ export default function Dashboard() {
           guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,
           map.answers > 0 && `${map.answers} map scroll${map.answers === 1 ? '' : 's'}`,
           map.answers === 0 && map.gold > 0 && 'your trash trades',
+          trainers.battles > 0 && `${trainers.battles} trainer battle${trainers.battles === 1 ? '' : 's'}`,
         ].filter(Boolean).join(' and ');
         setToast({
           show: true,

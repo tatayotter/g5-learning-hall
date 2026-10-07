@@ -27,6 +27,9 @@ interface TrainersViewProps {
   handleChallengePlayer: (opponentId: UserId, opponentName: string) => void;
   handleDummyBattle: () => void;
   handleTrainerBattle: (trainer: NpcTrainer) => void;
+  // Offline (lib/offlineTrainers.ts): the trainers this player has battled online, the only ones
+  // that can be battled with no connection. Null while online.
+  offlineTrainerIds?: string[] | null;
   // Replays battle training (components/monster/BattleTraining.tsx).
   onReplayBattleTraining: () => void;
 }
@@ -42,6 +45,7 @@ export default function TrainersView({
   handleDummyBattle,
   handleTrainerBattle,
   onReplayBattleTraining,
+  offlineTrainerIds = null,
 }: TrainersViewProps) {
   return (
     <div className="space-y-4">
@@ -206,6 +210,7 @@ export default function TrainersView({
       {NPC_TRAINERS.map(trainer => {
         const defeated = battleState.defeated_trainers.includes(trainer.id);
         const locked = playerLevel < trainer.levelRequirement;
+        const needsOnline = !defeated && !locked && offlineTrainerIds !== null && !offlineTrainerIds.includes(trainer.id);
         return (
           <div
             key={trainer.id}
@@ -228,14 +233,16 @@ export default function TrainersView({
               {/* Defeated/locked are short status text — fine inline at
                   any width. Only the real Battle! CTA needs the
                   duplicated-below-on-mobile treatment. */}
-              {(defeated || locked) && (
+              {(defeated || locked || needsOnline) && (
                 <div className="flex-shrink-0">
                   {defeated
                     ? <span className="text-green-700 text-sm font-bold">✅ Defeated</span>
-                    : <span className="text-[#6b4820] text-sm">🔒 Locked</span>}
+                    : locked
+                      ? <span className="text-[#6b4820] text-sm">🔒 Locked</span>
+                      : <span className="text-[#6b4820] text-sm text-right block">📡 Battle online first</span>}
                 </div>
               )}
-              {!defeated && !locked && (
+              {!defeated && !locked && !needsOnline && (
                 <div className="hidden sm:block flex-shrink-0">
                   <GameButton variant="quest" color="#2563eb" onClick={() => handleTrainerBattle(trainer)} style={{ fontSize: 13 }}>
                     Battle!
@@ -251,7 +258,7 @@ export default function TrainersView({
                 </span>
               ))}
             </div>
-            {!defeated && !locked && (
+            {!defeated && !locked && !needsOnline && (
               <div className="sm:hidden mt-3">
                 <GameButton variant="quest" color="#2563eb" onClick={() => handleTrainerBattle(trainer)} className="w-full" style={{ fontSize: 13 }}>
                   Battle!

@@ -12,7 +12,7 @@ import {
 import { SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
 import {
   ActiveBattleMonster, MonsterImage, BattleQuestionModal,
-  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold,
+  BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold, type BattleQuestionProps,
 } from '@/components/battle/shared';
 import BattleStage, { ActionTile, PlaceholderTile, type BattleStageMonster, makeStageAction } from '@/components/battle/BattleStage';
 import { attackClassHits } from '@/lib/attackClasses';
@@ -30,6 +30,8 @@ interface BattleScreenProps {
   siblingName?: string;
   questions: any[];
   gradingUserId: string;
+  // Grades on the device instead of the server (offline trainer battles, lib/offlineTrainers.ts).
+  gradeOverride?: BattleQuestionProps['gradeOverride'];
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
@@ -41,7 +43,7 @@ interface BattleScreenProps {
   onSpendGold: (amount: number) => Promise<boolean>;
 }
 
-export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
+export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, gradeOverride, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
   const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
     const def = ALL_MONSTERS[tm.monsterId];
@@ -709,6 +711,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         count={questionCount}
         embedded={true}
         gradingUserId={gradingUserId}
+        gradeOverride={gradeOverride}
         onComplete={handleQuestionsComplete}
         canSkip={canSkip}
         skipCost={skipCost}

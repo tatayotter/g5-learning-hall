@@ -13,7 +13,7 @@ export default function OfflineBanner({ questsWork = false }: { questsWork?: boo
     >
       <span aria-hidden>📡</span>
       <span>{questsWork
-        ? 'Offline: quests, guilds and the Training Map save on this device and sync when you reconnect.'
+        ? 'Offline: quests, guilds, the Training Map and trainer battles save on this device and sync when you reconnect.'
         : 'Offline: showing your last saved progress. Reconnect to save.'}</span>
     </div>
   );
