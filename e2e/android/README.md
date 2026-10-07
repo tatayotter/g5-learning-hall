@@ -1,4 +1,4 @@
-# Android offline test (local emulator)
+# Android offline test (emulator)
 
 `run.cjs` plays offline in the real Android app on an emulator and checks the server afterwards:
 two players log in online, one plays a main quest and a trainer battle (with a potion) offline,
@@ -9,8 +9,9 @@ non-zero if any fail; screenshots go to `e2e-android-shots/`.
 Everything runs against a local Supabase and a local `next start`, so production is never touched.
 The emulator reaches them on its own `localhost` through `adb reverse`.
 
-No Docker or emulator on your machine? `.github/workflows/android-e2e.yml` does all of the steps
-below on a GitHub runner; its screenshots and logs are uploaded as the run's artifacts.
+`.github/workflows/android-e2e.yml` does all of the steps below on a GitHub runner for every pull
+request that changes the app (or from the Actions tab), and uploads the screenshots and logs as
+the run's artifacts. The steps here are for running it on your own machine instead.
 
 ## Steps
 

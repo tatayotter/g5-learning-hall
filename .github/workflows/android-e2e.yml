@@ -6,12 +6,27 @@ name: Android offline e2e
 # runner's checkout only. Screenshots and the web server log are uploaded as an artifact.
 "on":
   workflow_dispatch: {}
-  # A manual run needs this file on main, so the branch it's developed on runs it on push too.
-  push:
-    branches: [claude/android-e2e]
+  # Every pull request that changes what the Android app runs: its native shell, the web app
+  # it loads, or the database it saves to.
+  pull_request:
+    branches: [main]
     paths:
+      - "android/**"
+      - "app/**"
+      - "components/**"
+      - "hooks/**"
+      - "lib/**"
+      - "public/sw.js"
+      - "supabase/migrations/**"
+      - "capacitor.config.ts"
+      - "next.config.mjs"
+      - "package-lock.json"
       - "e2e/android/**"
       - ".github/workflows/android-e2e.yml"
+
+concurrency:
+  group: android-e2e-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   e2e:
