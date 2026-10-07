@@ -10,8 +10,8 @@ insert into public.parents (id, full_name, status, approved_at) values ('0000000
 insert into public.children (id, parent_id, username, pin_hash, full_name, grade, gender, school_name, avatar)
 values ('playerone', '00000000-0000-0000-0000-0000000000a1', 'playerone', extensions.crypt('1234', extensions.gen_salt('bf')), 'Alpha Player', 'Grade 5', 'boy', 'Sample School', '/userpics/boy1.png')
 on conflict do nothing;
-insert into public.feature_flags (key, mode, allowlist) values ('offline_play', 'allowlist', array['playerone'])
-on conflict (key) do update set mode = 'allowlist', allowlist = array['playerone'];
+insert into public.feature_flags (key, mode, allowlist) values ('offline_play', 'allowlist', array['playerone', 'playertwo'])
+on conflict (key) do update set mode = 'allowlist', allowlist = array['playerone', 'playertwo'];
 
 -- Content: this week (Mathematics every weekday) and next week (Science on Tuesday).
 insert into public.content_weeks (id, grade, week_starting_date, status) values

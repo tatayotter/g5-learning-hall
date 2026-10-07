@@ -19,6 +19,7 @@ const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const sh = (cmd) => execSync(cmd, { stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
 const sql = (q) => sh(`docker exec ${process.env.DB_CONTAINER} psql -U postgres -At -c "${q.replace(/"/g, '\\"')}"`);
 let failed = 0;
+let onCrash = async () => {};
 const check = (ok, label, detail = '') => {
   console.log(`${ok ? 'PASS' : 'FAIL'} ${label}${detail ? ` (${detail})` : ''}`);
   if (!ok) failed++;
@@ -29,6 +30,11 @@ const check = (ok, label, detail = '') => {
   if (!device) throw new Error('no emulator');
   let page;
   const shot = async (name) => { try { await page.screenshot({ path: `${SHOTS}/${name}.png` }); } catch { /* best-effort */ } };
+  // A step that throws leaves a screenshot and what this device has saved, for the artifact.
+  onCrash = async () => {
+    await shot('zz-crash');
+    console.error('saved here:', await page.evaluate(() => Object.keys(localStorage).sort().join(' ')).catch(() => 'page gone'));
+  };
   const body = async () => (await page.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ');
   const attach = async () => {
     const webview = await device.webView({ pkg: PKG }, { timeout: 120000 });
@@ -195,4 +201,4 @@ const check = (ok, label, detail = '') => {
 
   console.log(failed ? `${failed} check(s) failed` : 'All checks passed');
   process.exit(failed ? 1 : 0);
-})().catch(async (e) => { console.error(e); process.exit(1); });
+})().catch(async (e) => { console.error(e); await onCrash(); process.exit(1); });
