@@ -160,8 +160,15 @@ export function BossFightBattle({
     if (grading || selected || !current) return;
     setSelected(opt);
     setGrading(true);
+    setBanner(null);
     const isCorrect = await gradeBossQuestion(current.id, opt);
     setGrading(false);
+    if (isCorrect === null) {
+      // Couldn't reach the server: no heart lost, the question stays up.
+      setSelected(null);
+      setBanner({ text: "📡 Couldn't reach the server. Tap your answer again.", iconSrc: null });
+      return;
+    }
 
     const beat: BattleBeat = {
       actor: isCorrect ? 'player' : 'opponent',

@@ -50,7 +50,7 @@ interface BossArenaProps {
   arenaArt?: string;
   // Defaults to the server check (grade_boss_question). The /dev/ui-gallery
   // mockup passes a local grader.
-  gradeAnswer?: (questionId: string, selected: string) => Promise<boolean>;
+  gradeAnswer?: (questionId: string, selected: string) => Promise<boolean | null>;
   onWon: (correctCount: number) => void;
   onLost: () => void;
   onRetreat: () => void;
@@ -329,8 +329,16 @@ export default function BossArena({
     setLocked(true);
     setGrading(true);
     setPicked({ opt, result: 'pending' });
+    setBanner(null);
     const isCorrect = await gradeAnswer(current.id, opt);
     setGrading(false);
+    if (isCorrect === null) {
+      // Couldn't reach the server: no heart lost, the question stays up.
+      setPicked(null);
+      setLocked(false);
+      setBanner({ text: "📡 Couldn't reach the server. Tap your answer again.", iconSrc: null });
+      return;
+    }
     setPicked({ opt, result: isCorrect ? 'correct' : 'wrong' });
 
     let beat: BattleBeat;
