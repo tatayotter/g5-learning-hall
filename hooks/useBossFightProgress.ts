@@ -10,7 +10,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { BossPersona, getPersonasForGrade } from '@/lib/bossPersonas';
-import { fetchBossPoolCounts } from '@/lib/bossFightEngine';
+import { getScheduleForGrade } from '@/lib/subjectSchedule';
+import { bankLatestWeek, bankPoolCounts, readBossBank, syncBossBank } from '@/lib/bossQuestionBank';
 
 export interface SealedCurioReward {
   monsterId: string;
@@ -52,28 +53,35 @@ export function useBossFightProgress(userId: string, grade: number, term: number
 
   const load = useCallback(async () => {
     setLoading(true);
-    const [statusRes, defeatsRes, counts, rewardRes, claimRes, lastWeekRes] = await Promise.all([
+    // The term's boss questions live on the device (lib/bossQuestionBank.ts): a
+    // cached copy answers the roster/readiness counts at once while the sync
+    // checks for changes in the background, even before the event is switched on.
+    const isBossGrade = !!getScheduleForGrade(grade);
+    const cachedBank = isBossGrade ? readBossBank(grade, term) : null;
+    const bankSync = isBossGrade ? syncBossBank(grade, term) : Promise.resolve(null);
+    const [statusRes, defeatsRes, bank, rewardRes, claimRes] = await Promise.all([
       supabase.from('boss_fights_status').select('boss_fights_enabled').maybeSingle(),
       supabase.from('boss_persona_defeats').select('subject')
         .eq('user_id', userId).eq('grade', grade).eq('term', term),
-      fetchBossPoolCounts(grade, term),
+      cachedBank ?? bankSync,
       supabase.from('boss_gauntlet_rewards').select('reward_monster_id, reward_lore_markdown')
         .eq('grade', grade).eq('term', term).maybeSingle(),
       supabase.from('boss_gauntlet_claims').select('id')
         .eq('user_id', userId).eq('grade', grade).eq('term', term).maybeSingle(),
-      supabase.from('draft_questions_public').select('week_starting_date')
-        .eq('grade', grade).eq('term', term)
-        .order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
     ]);
+    const applyBank = (b: typeof bank) => {
+      setPoolCounts(b ? bankPoolCounts(b) : {});
+      const lastWeek = b ? bankLatestWeek(b) : null;
+      setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
+    };
     setBossFightsEnabled(!!statusRes.data?.boss_fights_enabled);
     setDefeated(new Set((defeatsRes.data || []).map(r => r.subject as string)));
-    setPoolCounts(counts);
+    applyBank(bank);
+    if (cachedBank) bankSync.then(fresh => { if (fresh && fresh !== cachedBank) applyBank(fresh); });
     setSealedCurio(rewardRes.data
       ? { monsterId: rewardRes.data.reward_monster_id as string, loreMarkdown: (rewardRes.data.reward_lore_markdown as string | null) ?? null }
       : null);
     setSealedCurioClaimed(!!claimRes.data);
-    const lastWeek = lastWeekRes.data?.week_starting_date as string | undefined;
-    setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
     setLoading(false);
   }, [userId, grade, term]);
 

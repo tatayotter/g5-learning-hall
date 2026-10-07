@@ -25,6 +25,7 @@ import { CURRENT_TERM } from '@/lib/guildConfig';
 import { startBossFightTheme, stopBossFightTheme, playHitThud, playClash } from '@/lib/sounds';
 import BossVictoryPopup from '@/components/monster/BossVictoryPopup';
 import BossArena, { type ArenaCurio } from '@/components/monster/boss/BossArena';
+import { bankSubjectQuestions, readBossBank, takeBossPool } from '@/lib/bossQuestionBank';
 import { ALL_MONSTERS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import type { QualityTier } from '@/lib/curioQuality';
 
@@ -128,6 +129,7 @@ export function BossFightBattle({
   const [grading, setGrading] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
+  const [connectionHiccup, setConnectionHiccup] = useState(false);
   const [playerDamagePopup, setPlayerDamagePopup] = useState<{ key: number; missed: boolean } | null>(null);
   const [personaDamagePopup, setPersonaDamagePopup] = useState<{ key: number; missed: boolean } | null>(null);
   // Persona sprite's hurt flash — same .battle-hit class/timing curio battles
@@ -160,8 +162,15 @@ export function BossFightBattle({
     if (grading || selected || !current) return;
     setSelected(opt);
     setGrading(true);
+    setConnectionHiccup(false);
     const isCorrect = await gradeBossQuestion(current.id, opt);
     setGrading(false);
+    if (isCorrect === null) {
+      // Couldn't reach the server: no heart lost, the question stays up.
+      setSelected(null);
+      setConnectionHiccup(true);
+      return;
+    }
 
     const beat: BattleBeat = {
       actor: isCorrect ? 'player' : 'opponent',
@@ -226,6 +235,9 @@ export function BossFightBattle({
               {correctCount} correct so far
             </p>
             <p className="text-white font-bold mb-3 leading-snug">{current.question}</p>
+            {connectionHiccup && (
+              <p className="text-amber-300 text-sm font-bold mb-2">📡 Couldn&apos;t reach the server. Tap your answer again.</p>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {shuffledOptions.map(opt => (
                 <ActionTile
@@ -314,6 +326,16 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
   }, [userId]);
 
   const load = useCallback(async () => {
+    // Pre-downloaded on the dashboard (lib/bossQuestionBank.ts), with this
+    // fight's questions already picked, so the fight opens with no wait.
+    // Falls back to the network when the device has no copy.
+    const bank = readBossBank(grade, CURRENT_TERM);
+    const prepicked = bank ? takeBossPool(grade, CURRENT_TERM, subject) : null;
+    if (bank && prepicked) {
+      setRawPool(bankSubjectQuestions(bank, subject));
+      setPool(prepicked);
+      return;
+    }
     const all = await fetchBossQuestionPool(grade, subject, CURRENT_TERM);
     setRawPool(all);
     setPool(buildBossQuestionPool(all));

@@ -385,21 +385,25 @@ export async function markArenaQuestionsCompleted(userId: string, questions: any
 // server-side, by stable question id — replaces the old text-matching grade_monster_question
 // RPC. The `questions` fed into BattleQuestionModal come from content_questions_public, which
 // strips correct_answer out of every question, so correctness can't be checked client-side.
+// Retries once on a failed call; if that fails too it reports `failed` rather than a wrong
+// answer, so a dropped connection never costs the kid the question — callers keep the
+// question up and let them tap again.
 export async function gradeMonsterQuestion(
   userId: string,
   questionId: string,
   selected: string
-): Promise<{ correct: boolean; correctAnswer: string | null }> {
-  const { data, error } = await supabase.rpc('grade_content_question', {
-    p_user_id: userId,
-    p_question_id: questionId,
-    p_selected: selected,
-  });
-  if (error || !data) {
+): Promise<{ correct: boolean; correctAnswer: string | null; failed?: boolean }> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt > 0) await new Promise(r => setTimeout(r, 600));
+    const { data, error } = await supabase.rpc('grade_content_question', {
+      p_user_id: userId,
+      p_question_id: questionId,
+      p_selected: selected,
+    });
+    if (!error && data) return { correct: !!data.correct, correctAnswer: data.correct_answer ?? null };
     console.error('Failed to grade monster question:', error);
-    return { correct: false, correctAnswer: null };
   }
-  return { correct: !!data.correct, correctAnswer: data.correct_answer ?? null };
+  return { correct: false, correctAnswer: null, failed: true };
 }
 
 // Prestige: wipe a player's Monster Arena history so a fresh round starts
