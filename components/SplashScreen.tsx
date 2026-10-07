@@ -1,13 +1,18 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, linkIdentity, usernameToChildId, loginReturningChild } from '@/lib/userSession';
 import GameButton from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
+import { isOffline } from '@/lib/offlineSnapshot';
+import { loadOfflineHeroes, offlineHeroIds, offlineLockoutMinutes, takeRelinkRequest, unlockHeroOffline } from '@/lib/deviceHeroes';
+import { countUnsynced } from '@/lib/offlineOutbox';
 
 interface SplashScreenProps {
-  onSelect: (id: UserId) => void;
+  // `pin` is passed when the server just accepted it, so the hero can be remembered for
+  // logging in on this device offline (lib/deviceHeroes.ts).
+  onSelect: (id: UserId, pin?: string) => void;
 }
 
 // Cosmetic variety for the roster tiles — cycled by roster position so
@@ -81,10 +86,19 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   // Single unified roster — classmates and children together, alphabetical.
   // By the time SplashScreen mounts, the parent has already awaited
   // loadClassmates()/loadAvatarOverrides(), so USERS is fully populated.
-  const allIds = useMemo(
-    () => [...getClassmateIds(), ...getChildIds()].sort((a, b) => USERS[a].name.localeCompare(USERS[b].name)),
-    []
-  );
+  // Offline the roster can't load, so it's the heroes who can log in here without a connection
+  // (logged in on this device before, offline play on), from their saved profiles. Online,
+  // those heroes come first, so siblings sharing a device don't have to search for each other.
+  const [offline] = useState(() => isOffline());
+  const allIds = useMemo(() => {
+    if (offline) return loadOfflineHeroes();
+    const onDevice = new Set(offlineHeroIds());
+    return [...getClassmateIds(), ...getChildIds()].sort((a, b) =>
+      Number(onDevice.has(b)) - Number(onDevice.has(a)) || USERS[a].name.localeCompare(USERS[b].name));
+  }, [offline]);
+  // Play saved on this device and not yet synced, per hero: it only syncs while that hero is
+  // logged in, so their card says so.
+  const unsynced = useMemo(() => Object.fromEntries(allIds.map(id => [id, countUnsynced(id)])), [allIds]);
 
   const visibleIds = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
@@ -92,10 +106,19 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     return allIds.filter(id => USERS[id].name.toLowerCase().includes(q));
   }, [allIds, searchQuery]);
 
-  const handleSelect = (id: UserId) => {
+  const handleSelect = (id: UserId, pin?: string) => {
     setActiveUser(id);
-    onSelect(id);
+    onSelect(id, pin);
   };
+
+  // Back from an offline login: the server needs this hero's PIN once before their offline
+  // play can sync (lib/deviceHeroes.ts), so open straight on their prompt.
+  const [relinkNote, setRelinkNote] = useState(false);
+  useEffect(() => {
+    const id = takeRelinkRequest();
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sessionStorage is only readable after mount
+    if (id && USERS[id]) { setLoginTarget({ id, name: USERS[id].name }); setRelinkNote(true); }
+  }, []);
 
   const openLogin = (id: UserId, name: string) => {
     setLoginTarget({ id, name });
@@ -112,6 +135,15 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     if (!loginTarget) return;
     setLoggingIn(true);
     setLoginError('');
+    if (isOffline()) {
+      const result = await unlockHeroOffline(loginTarget.id, passwordInput);
+      if (result === 'ok') handleSelect(loginTarget.id);
+      else setLoginError(result === 'wrong' ? '❌ Incorrect password. Try again.'
+        : result === 'locked' ? `🔒 Too many tries. Try again in ${offlineLockoutMinutes(loginTarget.id)} min, or when you're online.`
+        : "📡 You're offline. This hero can log in once you're back online.");
+      setLoggingIn(false);
+      return;
+    }
     try {
       const endpoint = getChildIds().includes(loginTarget.id)
         ? '/api/child-login'
@@ -132,7 +164,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
           setLoggingIn(false);
           return;
         }
-        handleSelect(loginTarget.id);
+        handleSelect(loginTarget.id, passwordInput);
       } else {
         setLoginError('❌ Incorrect password. Try again.');
       }
@@ -161,6 +193,10 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
       setLoginError('❌ Enter your username.');
       return;
     }
+    if (isOffline()) {
+      setLoginError("📡 You're offline. Logging in with a username needs a connection.");
+      return;
+    }
     setLoggingIn(true);
     setLoginError('');
     try {
@@ -186,7 +222,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
           school: body.schoolName || undefined,
         });
         setReturningLogin(false);
-        handleSelect(id);
+        handleSelect(id, passwordInput);
       } else {
         setLoginError('❌ Incorrect username or PIN. Try again.');
       }
@@ -265,7 +301,15 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
         {!loginTarget && !returningLogin && (
           <div className="flex-1 min-h-0 relative">
             <div className="h-full overflow-y-auto pr-1 -mr-1 custom-scrollbar pb-4">
-              {visibleIds.length === 0 && (
+              {offline && (
+                <p className="text-center text-blue-100/80 text-xs font-medium mb-3 px-2">
+                  📡 You&apos;re offline. Heroes who&apos;ve played on this device can still log in.
+                </p>
+              )}
+              {offline && allIds.length === 0 && (
+                <p className="text-center text-blue-100/60 text-sm py-6">No one can log in offline on this device yet. Connect to the internet to log in.</p>
+              )}
+              {!offline && visibleIds.length === 0 && (
                 <p className="text-center text-blue-100/60 text-sm py-6">No players match &quot;{searchQuery}&quot;</p>
               )}
               <div className="grid grid-cols-2 gap-2.5">
@@ -296,6 +340,11 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                             {user.school}
                           </span>
                         )}
+                        {unsynced[id] > 0 && (
+                          <span className="mt-1 self-center rounded-full bg-[#fdf3e0] border border-[#e8c88a] px-2 py-0.5 text-[9.5px] font-bold text-[#a5701a]">
+                            📱 {unsynced[id]} waiting to sync
+                          </span>
+                        )}
                       </div>
                     </motion.button>
                   );
@@ -322,7 +371,10 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                   size={64}
                 />
                 <h2 className="text-lg font-bold text-[#2a1505] mt-3 mb-1">{loginTarget.name}</h2>
-                <p className="text-[#6b4820] text-sm">Enter your password to continue.</p>
+                <p className="text-[#6b4820] text-sm">
+                  {relinkNote ? "You're back online. Enter your password once to save what you played offline."
+                    : 'Enter your password to continue.'}
+                </p>
               </div>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <input

@@ -55,7 +55,11 @@ const RAIL_ITEMS: RailItem[] = [
 interface SidebarRailProps {
   activeTab: string;
   onNavigate: (tab: RailTabId) => void;
-  onLogout: () => void;
+  // May return a promise (Dashboard syncs the hero's offline play first); the dialog waits.
+  onLogout: () => void | Promise<void>;
+  // Logging out needs the server to log anyone back in, unless they can log in offline on
+  // this device (lib/deviceHeroes.ts); the confirmation says so.
+  online?: boolean;
   // Small notification dot on a rail icon — currently only used by Curio
   // Arena for an egg-ready-to-claim curio, a stalled egg, or an unrevealed
   // hatch (see docs/curio-egg-mechanism-design.md). Keyed by RailTabId so
@@ -206,11 +210,13 @@ export default function SidebarRail({
   onMarkNotificationsRead,
   saveStatus,
   onSyncNow,
+  online = true,
 }: SidebarRailProps) {
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   const [isOpen, setIsOpen] = useState(false);
   const [confirmingLogout, setConfirmingLogout] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
   const isLandscape = useIsLandscape();
   const isDesktop = useIsDesktop();
 
@@ -419,17 +425,31 @@ export default function SidebarRail({
               <Nail className="bottom-2 right-2" />
               <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
               <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
+              {!online && (
+                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                  You&apos;re offline. Only heroes who have played on this device can log in until you&apos;re back online.
+                </p>
+              )}
               {saveStatus && saveStatus.waiting > 0 && (
                 <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
                   {waitingLabel(saveStatus.waiting)} played offline {saveStatus.waiting === 1 ? "hasn't" : "haven't"} synced yet. {saveStatus.waiting === 1 ? 'It stays on this device and syncs' : 'They stay on this device and sync'} the next time this hero logs in here.
                 </p>
               )}
               <div className="flex gap-3" style={{ fontSize: 14 }}>
-                <GameButton variant="quest" color="#57534e" className="flex-1" onClick={() => setConfirmingLogout(false)}>
+                <GameButton variant="quest" color="#57534e" className="flex-1" disabled={loggingOut} onClick={() => setConfirmingLogout(false)}>
                   Cancel
                 </GameButton>
-                <GameButton variant="quest" color="#dc2626" className="flex-1" onClick={() => { setConfirmingLogout(false); onLogout(); }}>
-                  Logout
+                <GameButton
+                  variant="quest"
+                  color="#dc2626"
+                  className="flex-1"
+                  disabled={loggingOut}
+                  onClick={async () => {
+                    setLoggingOut(true);
+                    try { await onLogout(); } finally { setLoggingOut(false); setConfirmingLogout(false); }
+                  }}
+                >
+                  {loggingOut ? 'Saving…' : 'Logout'}
                 </GameButton>
               </div>
             </motion.div>
