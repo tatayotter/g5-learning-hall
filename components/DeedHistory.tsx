@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { callAdminApi } from '@/lib/adminApi';
 import { format } from 'date-fns';
 
 interface DeedEntry {
@@ -16,20 +16,19 @@ interface MonthGroup {
   totalGold: number;
 }
 
-export default function DeedHistory({ userId }: { userId: string }) {
+// Admin-only (components/admin/ToolsSection): player_log is owner-only to read, so this goes
+// through the passcode-gated admin route instead of a direct table read.
+export default function DeedHistory({ userId, passcode }: { userId: string; passcode: string }) {
   const [groups, setGroups] = useState<MonthGroup[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchDeeds() {
-      const { data, error } = await supabase
-        .from('player_log')
-        .select('*')
-        .eq('user_id', userId)
-        .eq('action_type', 'deed')
-        .order('created_at', { ascending: false });
+      const { success, deeds: data } = await callAdminApi<{ deeds: DeedEntry[] }>('/api/admin-weekly', {
+        passcode, action: 'get_deeds', userId,
+      });
 
-      if (!error && data) {
+      if (success && data) {
         const byMonth: Record<string, DeedEntry[]> = {};
         (data as DeedEntry[]).forEach((entry) => {
           const monthLabel = format(new Date(entry.created_at), 'MMMM yyyy');
@@ -48,7 +47,7 @@ export default function DeedHistory({ userId }: { userId: string }) {
       setLoading(false);
     }
     fetchDeeds();
-  }, [userId]);
+  }, [userId, passcode]);
 
   if (loading) {
     return <div className="text-gray-500 animate-pulse">Loading deed history...</div>;
