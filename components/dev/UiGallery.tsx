@@ -29,6 +29,7 @@ import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextS
 import InfoTag from '@/components/InfoTag';
 import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import BattleStagePlayground from '@/components/dev/BattleStagePlayground';
+import NavRedesignMockup from '@/components/dev/NavRedesignMockup';
 import PostBattleSummary, { PostBattleSideInfo } from '@/components/battle/PostBattleSummary';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { ALL_MONSTERS, MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from '@/lib/monsterConfig';
@@ -691,6 +692,10 @@ export default function UiGallery() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="Navigation redesign (MOCKUP)" note="components/dev/NavRedesignMockup.tsx: proposed replacement for the compass drawer below and the Curio Arena's second menu, built from real play history. Today (To-Do + Main Quests) is home, with tabs for Side Quests, Curios, Journal and Vault. The To-Do is pinned on desktop, and Curios opens on the map. Switch between phone, tablet and desktop. Not wired into the app.">
+        <NavRedesignMockup />
       </Section>
 
       <Section title="Navigation drawer" note="components/SidebarRail.tsx — the game's hamburger menu. Click the compass to open it (bottom-center portrait / left-middle landscape). Includes the inline logout-confirm dialog (Logout → confirm).">
