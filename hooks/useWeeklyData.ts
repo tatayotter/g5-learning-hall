@@ -332,7 +332,7 @@ export function useWeeklyData(userId: string | null) {
     let addedGold = 0;
 
     const newUnlocked = { ...currentAchievements };
-    const newlyUnlockedTitles: { title: string; xp: number; gold: number }[] = [];
+    const newlyUnlockedTitles: { id: string; title: string; xp: number; gold: number }[] = [];
     const newlyUnlockedIds: string[] = [];
 
     // Achievement criteria now check LIFETIME totals (player_progress), not the current
@@ -382,7 +382,7 @@ export function useWeeklyData(userId: string | null) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
         addedGold += ach.goldReward;
-        newlyUnlockedTitles.push({ title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
+        newlyUnlockedTitles.push({ id: ach.id, title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
         newlyUnlockedIds.push(ach.id);
       }
     });
@@ -390,10 +390,6 @@ export function useWeeklyData(userId: string | null) {
     // Claim synchronously, BEFORE the awaits below, so an overlapping save can't also unlock
     // these — see claimedAchievementsRef. Rolled back if the RPC fails.
     newlyUnlockedIds.forEach(id => { claimedAchievementsRef.current[id] = true; });
-
-    newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
-      logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
-    });
 
     // xp/gold/level are applied server-side as atomic deltas (not written as
     // an absolute snapshot of local state) so that two saves firing close
@@ -497,34 +493,59 @@ export function useWeeklyData(userId: string | null) {
       p_honor_grants_delta: counterDeltas.honor,
     };
 
-    let { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
+    // The reward folded into xpDelta/goldDelta for each id above. The server takes it back out
+    // for any id the account already owns (migration 20261011120000_achievement_award_dedupe):
+    // a second tab or device holds an older achievements list and would otherwise re-pay them.
+    const achievementRewards = Object.fromEntries(
+      newlyUnlockedTitles.map(({ id, xp, gold }) => [id, { xp, gold }])
+    );
+
+    let { data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
       ...progressArgs,
       ...lifetimeDeltaArgs,
+      p_achievement_rewards: achievementRewards,
     });
 
     // This client can go live before the migration above is approved and applied (Vercel
     // deploys on merge; deploy-migrations.yml waits for a manual approval click). Against a
-    // DB that doesn't have the *_delta params yet PostgREST answers PGRST202 ("function not
-    // found in the schema cache") and applies nothing, so retry once without them: xp, gold
-    // and every other counter still save, and the 3 lifetime counters simply don't move until
-    // the migration lands (omitting the old absolute params leaves them untouched there —
-    // COALESCE(NULL, current)).
+    // DB without p_achievement_rewards PostgREST answers PGRST202 ("function not found in the
+    // schema cache") and applies nothing, so retry once without it: everything saves exactly
+    // as before the dedupe, and the result just lacks new_achievement_ids (handled below).
     if (statsError?.code === 'PGRST202') {
-      ({ data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', progressArgs));
+      ({ data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
+        ...progressArgs,
+        ...lifetimeDeltaArgs,
+      }));
     }
 
-    if (statsError || !finalStats) {
+    if (statsError || !rpcResult) {
       console.error('Failed to apply progress update:', statsError);
       newlyUnlockedIds.forEach(id => { delete claimedAchievementsRef.current[id]; });
       alert(isOffline() ? OFFLINE_SAVE_MESSAGE : `⚠️ Save failed: ${statsError?.message}`);
       return;
     }
 
+    const { new_achievement_ids: confirmedIds, achievements: serverAchievements, ...finalStats } = rpcResult as CharacterStats & {
+      new_achievement_ids?: string[];
+      achievements?: Record<string, boolean>;
+    };
+
+    // Logged only after the save lands, and only for ids the server confirmed as new (all of
+    // them against the pre-dedupe DB, which doesn't report any).
+    const awardedIds = new Set(Array.isArray(confirmedIds) ? confirmedIds : newlyUnlockedIds);
+    newlyUnlockedTitles.forEach(({ id, title, xp, gold }) => {
+      if (awardedIds.has(id)) {
+        logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
+      }
+    });
+
     // Functional update, and achievements MERGED into whatever is there now rather than
     // overwritten from this call's stale closure — `{ ...data, achievements: newUnlocked }`
     // could write an older unlocked-list back over a newer one from an overlapping save.
+    // The server's full map is merged in too, so a stale tab catches up on achievements
+    // another tab or device unlocked and stops trying to re-award them.
     setData(prev => prev
-      ? { ...prev, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked } }
+      ? { ...prev, character_stats: finalStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked, ...(serverAchievements || {}) } }
       : prev);
 
     // journal_logs/counters are this-week-only content, not lifetime — written directly via a
