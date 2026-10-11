@@ -65,7 +65,7 @@ import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
 import SidebarRail, { RailTabId } from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
-import FirstCurioIntro, { isIntroTrainingPending } from '@/components/intro/FirstCurioIntro';
+import FirstCurioIntro, { isIntroTrainingPending, TRAINING_QUEST_LOG } from '@/components/intro/FirstCurioIntro';
 import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import { useTabTutorialGate } from '@/hooks/useTabTutorialGate';
@@ -1175,11 +1175,21 @@ export default function Dashboard() {
           startAt={introStart}
           currentStats={data.character_stats}
           weekStartingDate={data.week_starting_date ?? null}
-          onRewards={(newStats, xpEarned, goldEarned) => {
+          onRewards={async (newStats, xpEarned, goldEarned) => {
+            // Paid once per account. The training-pending flag is per-device
+            // localStorage, so a reload or a second tab could replay the quest
+            // (4 accounts were paid twice by 2026-10-11); the log row is the
+            // account-wide record. A failed lookup still pays, never blocks.
+            const { count } = await supabase
+              .from('player_log')
+              .select('id', { count: 'exact', head: true })
+              .eq('user_id', activeUserId)
+              .eq('description', TRAINING_QUEST_LOG);
+            if ((count ?? 0) > 0) return;
             // XP/Gold only: every other counter is passed through unchanged
             // (updateStatsAndJournal's defaults), so this is a pure xp/gold delta.
             updateStatsAndJournal(newStats, data.journal_logs);
-            logAction(activeUserId, data.week_starting_date, 'quiz', 'Completed the Keeper training quest', xpEarned, goldEarned);
+            logAction(activeUserId, data.week_starting_date, 'quiz', TRAINING_QUEST_LOG, xpEarned, goldEarned);
           }}
           hasFirstQuest={introFirstQuestKey !== null}
           onFinish={(startFirstQuest) => {
