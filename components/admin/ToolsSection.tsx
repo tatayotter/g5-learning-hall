@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
-import { logAction } from '@/lib/playerlog';
 import { playBlessing } from '@/lib/sounds';
 import DeedHistory from '@/components/DeedHistory';
 import { callAdminApi } from '@/lib/adminApi';
@@ -18,6 +17,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
   const [stats, setStats] = useState<CharacterStats>(currentData.character_stats);
   const [deedName, setDeedName] = useState('');
   const [deedGold, setDeedGold] = useState('');
+  const [deedVersion, setDeedVersion] = useState(0);
   const [claims, setClaims] = useState<any[]>([]);
   const [loadingData, setLoadingData] = useState(false);
   const loadUserData = async (id: 'damien' | 'tala') => {
@@ -70,12 +70,15 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       alert('Enter a deed name and valid gold amount.');
       return;
     }
-    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'award_progress_gold', userId, amount });
+    const result = await callAdminApi('/api/admin-weekly', {
+      passcode, action: 'award_progress_gold', userId, amount,
+      deedName, weekStartingDate: currentSunday,
+    });
     if (!result.success) {
       alert(`❌ ${result.error || 'Failed to award gold.'}`);
       return;
     }
-    logAction(userId, currentSunday, 'deed', deedName, 0, amount);
+    setDeedVersion(v => v + 1);
     playBlessing();
     alert(`✅ Awarded 🪙 ${amount} Gold for: ${deedName}`);
     setDeedName('');
@@ -193,7 +196,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
           {/* Deed history */}
           <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
             <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Deed History</p>
-            <DeedHistory userId={userId} />
+            <DeedHistory key={`${userId}-${deedVersion}`} userId={userId} passcode={passcode} />
           </div>
 
           {/* Reward queue */}

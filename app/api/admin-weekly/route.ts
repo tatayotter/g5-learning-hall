@@ -52,6 +52,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, journal: data });
   }
 
+  // player_log is owner-only to read (20261011130000_narrow_player_log_read).
+  if (action === 'get_deeds') {
+    if (typeof userId !== 'string' || !userId.trim()) {
+      return NextResponse.json({ success: false, error: 'userId is required' }, { status: 400 });
+    }
+    const { data, error } = await supabaseAdmin
+      .from('player_log')
+      .select('id, description, gold_change, created_at')
+      .eq('user_id', userId)
+      .eq('action_type', 'deed')
+      .order('created_at', { ascending: false });
+    if (error) return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: true, deeds: data });
+  }
+
   if (action === 'set_progress_stats') {
     if (typeof userId !== 'string' || !userId.trim()) {
       return NextResponse.json({ success: false, error: 'userId is required' }, { status: 400 });
@@ -79,6 +94,20 @@ export async function POST(request: NextRequest) {
       p_amount: amount,
     });
     if (error) return NextResponse.json({ success: false, error: error.message }, { status: 409 });
+    // A deed's history row is written here, as the service role: player_log only accepts
+    // browser inserts for the signed-in player's own rows, so the admin tab's old
+    // client-side logAction for the child silently failed (no deed rows after 2026-07-27).
+    if (typeof body.deedName === 'string' && body.deedName.trim() && typeof weekStartingDate === 'string') {
+      const { error: logError } = await supabaseAdmin.from('player_log').insert({
+        user_id: userId,
+        week_starting_date: weekStartingDate,
+        action_type: 'deed',
+        description: body.deedName.trim(),
+        xp_change: 0,
+        gold_change: amount,
+      });
+      if (logError) console.error('Failed to log deed:', logError);
+    }
     return NextResponse.json({ success: true, characterStats: data });
   }
 
