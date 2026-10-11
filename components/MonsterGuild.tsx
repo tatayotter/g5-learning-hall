@@ -712,6 +712,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     restoredSpawnRef.current = pendingCurio.spawned_at;
     (async () => {
       if (!WILD_MONSTERS[pendingCurio.monster_id]) { await savePendingCurio(null); return; }
+      // Its last try went on a battle that never finished (reload or leaving
+      // mid-fight), which counts as the loss: it's gone, not a free retry.
+      if (pendingCurio.attempts_left <= 0) {
+        showNotification(`The wild ${WILD_MONSTERS[pendingCurio.monster_id].name} ran off...`);
+        logWildEncounterEvent(userId, 'fled', { region: activeRegion, monsterId: pendingCurio.monster_id, quality: pendingCurio.quality, level: pendingCurio.level, attemptsLeft: 0 });
+        await savePendingCurio(null);
+        return;
+      }
       let question: WildEncounterQuestion | null = null;
       if (pendingCurio.question_id) {
         const { data } = await supabase.from('sq_wild_encounter').select('*').eq('id', pendingCurio.question_id).eq('is_active', true).maybeSingle();
@@ -776,9 +784,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     // The species is revealed to the player the moment the curio appears on
     // the map — regardless of catch outcome, so mark it seen here for the
     // Compendium (only if not already recorded).
+    // Functional update: this closure's battleState predates the scroll answer
+    // that spawned the curio, so spreading it would put back the old
+    // questions_since_wild_encounter (forcing an early pity spawn on the next
+    // answer) and drop the pending_wild_curio just saved above.
     if (battleState && !battleState.seen_monsters.includes(monsterId)) {
       const newSeen = [...battleState.seen_monsters, monsterId];
-      setBattleState({ ...battleState, seen_monsters: newSeen });
+      setBattleState(prev => prev ? { ...prev, seen_monsters: newSeen } : prev);
       await supabase.from('user_battle_state').update({ seen_monsters: newSeen }).eq('user_id', userId);
     }
   };
@@ -789,6 +801,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const handleEnterCurio = async () => {
     if (!curio || wildEncounter) return;
     if (needsConnection()) return;
+    // Same rule as the restore above, for a curio still in memory: no tries
+    // left (its last battle was abandoned) means it has run off.
+    if (curio.attemptsLeft <= 0) { curioFled(curio.monsterId); return; }
     let question = curio.question;
     if (!question) {
       question = await pickWildQuestion();
@@ -1101,7 +1116,17 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     onTatayBattleResult?.(won);
   };
 
+  // One result per battle: a double tap on the results screen's Continue used
+  // to run this twice (two catches and double EXP for one wild win, seen live
+  // 2026-10-08). Re-armed whenever a new battle starts.
+  const battleEndHandledRef = useRef(false);
+  useEffect(() => {
+    if (activeBattle) battleEndHandledRef.current = false;
+  }, [activeBattle]);
+
   const handleBattleEnd = async (won: boolean, expEarned: number) => {
+    if (battleEndHandledRef.current) return;
+    battleEndHandledRef.current = true;
     const today = new Date().toISOString().split('T')[0];
 
     if (isWildEncounterBattle && activeBattle) {

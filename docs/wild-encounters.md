@@ -17,11 +17,14 @@ How wild curios work on the training maps, and how to measure them. Code:
    (Normal 68.9%, Good 25%, Outstanding 5%, Perfect 1.1%) and shown as the map glow.
 4. **It stays until it's resolved.** The curio is saved on
    `user_battle_state.pending_wild_curio` and follows the player between maps, tabs and
-   reloads. It only goes away when it's caught or runs out of tries.
+   reloads. It only goes away when it's caught or runs out of tries. It appears next to the
+   player; after "Not yet" it steps 2-4 walkable tiles away so the player doesn't keep bumping
+   into it.
 5. **Three tries, shared.** A wrong encounter answer uses a try. A right answer starts the
    battle, which also uses a try up front (so a reload mid-battle can't dodge a loss). Winning
    catches it. Losing with tries left keeps it nearby; the next walk-up asks a fresh question.
-   At zero tries after a miss or a loss, it runs off.
+   At zero tries after a miss or a loss, it runs off. Leaving a battle unfinished (reload, tab
+   switch) on the last try counts as the loss: it runs off when it next comes back.
 6. **Quality is real in battle.** The wild curio fights with its quality's HP and Attack boost
    (×1.10 / ×1.22 / ×1.40), and the win EXP scales the same way (25 / 28 / 31 / 35).
 7. **Catch.** A new species goes to the Catch Inbox at its level and quality. A species the
@@ -70,3 +73,15 @@ from wild_encounter_events
 where event in ('battle_won', 'battle_lost')
 group by quality;
 ```
+
+## Reading older data
+
+Before the fixes of 2026-10-11, three bugs skewed the events. When comparing weeks, start
+after that deploy or allow for them:
+
+- Pity spawns could fire a few answers after the previous spawn (an old copy of the battle state
+  put the guaranteed-spawn counter back), so `pity` share ran high (35% vs ~21% in week one).
+- A double tap on the results screen's Continue could log `battle_won` + `caught` twice and
+  insert two catches (one case, 2026-10-08).
+- A curio whose last try went on an abandoned battle came back with tries at 0 or below instead
+  of running off (`attempts_left` = -1 in one row).

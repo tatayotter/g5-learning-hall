@@ -102,6 +102,37 @@ function pickAdjacentOpenTile(
   return null;
 }
 
+// After "Not yet" the curio steps a few tiles away instead of staying next to
+// the player, where every step back bumped into it and reopened the prompt
+// (one player dismissed it 13 times in a week). Walking distance, not a
+// straight line, so it never lands behind a wall the player can't get around.
+function pickNearbyReachableTile(
+  map: MapTile[][], mapWidth: number, mapHeight: number,
+  playerX: number, playerY: number, occupied: { x: number; y: number }[], foliage: boolean[][] | null,
+  minSteps = 2, maxSteps = 4,
+): { x: number; y: number } | null {
+  const dist = new Map<number, number>([[playerY * mapWidth + playerX, 0]]);
+  const queue: { x: number; y: number }[] = [{ x: playerX, y: playerY }];
+  const candidates: { x: number; y: number }[] = [];
+  while (queue.length > 0) {
+    const cur = queue.shift()!;
+    const d = dist.get(cur.y * mapWidth + cur.x)!;
+    if (d >= minSteps && !foliage?.[cur.y]?.[cur.x] && !occupied.some(o => o.x === cur.x && o.y === cur.y)) {
+      candidates.push(cur);
+    }
+    if (d === maxSteps) continue;
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const x = cur.x + dx, y = cur.y + dy;
+      if (x < 0 || x >= mapWidth || y < 0 || y >= mapHeight) continue;
+      if (map[y]?.[x]?.type === 'wall' || dist.has(y * mapWidth + x)) continue;
+      dist.set(y * mapWidth + x, d + 1);
+      queue.push({ x, y });
+    }
+  }
+  if (candidates.length === 0) return null;
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
+
 interface TrainingMapProps {
   userId: string;
   battleState: BattleState;
@@ -784,6 +815,9 @@ export default function TrainingMap({
       onBattle={() => { setPendingCurioChallenge(false); onEnterCurio?.(); }}
       onRunAway={() => {
         setPendingCurioChallenge(false);
+        const occupied = [...scrolls, ...trashItems, ...portals, ...(activeMapTrainer ? [activeMapTrainer] : []), ...(recyclerTile ? [recyclerTile] : [])];
+        const hop = pickNearbyReachableTile(map, activeRegion.mapWidth, activeRegion.mapHeight, posX, posY, occupied, foliage);
+        if (hop) setCurioPos(hop);
         logWildEncounterEvent(userId, 'walked_away', { region: regionId, monsterId: activeCurio.monsterId, quality: activeCurio.quality });
       }}
     />
