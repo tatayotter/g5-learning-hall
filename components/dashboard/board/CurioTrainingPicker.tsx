@@ -11,7 +11,7 @@ import { ALL_MONSTERS, BATTLE_CONSTANTS, GUILD_MONSTERS, MonsterDef, getGuildMon
 import { fetchCurioCollection } from '@/lib/curioCollection';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
-import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
+import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
 
 export const TRAINING_EXP_SHARE = 1 / 3;
@@ -90,6 +90,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
 
   // Default the selection to the trainable curio above, once, until they choose.
   const defaulted = useRef(false);
+  const [showAll, setShowAll] = useState(false);
   useEffect(() => {
     if (defaulted.current || selectedId !== undefined || !defaultCurio) return;
     defaulted.current = true;
@@ -99,6 +100,13 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
   if (curios === null) return <p className="text-sm text-[#6b4820] mb-6">Loading your curios…</p>;
   if (!trainable || trainable.length === 0) return null; // nothing left to train — step disappears
 
+  // Team curios first; the bench and Catch Inbox wait behind "Show all" so a
+  // big collection doesn't turn this step into a long scroll. The picked curio
+  // always stays visible, and if no team curio can train, everything shows.
+  const shortList = trainable.filter(c => c.slot != null || c.id === selectedId);
+  const visible = showAll || shortList.length === 0 ? trainable : shortList;
+  const hiddenCount = trainable.length - shortList.length;
+
   return (
     <div className="mb-8 text-left">
       <style>{CURIO_CARD_STYLES}</style>
@@ -107,7 +115,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
         Your active curio is picked by default — tap another to switch. The trainee earns {Math.round(TRAINING_EXP_SHARE * 100)}% of the XP you earn when you complete this quest.
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-        {trainable.map(c => {
+        {visible.map(c => {
           const def = c.display;
           const selected = selectedId === c.id;
           return (
@@ -137,6 +145,18 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
           );
         })}
       </div>
+      {shortList.length > 0 && hiddenCount > 0 && (
+        <div className="flex justify-center mt-4">
+          <GameButton
+            variant="quest"
+            color="#d4d4d4"
+            onClick={() => { playPageFlip(); setShowAll(v => !v); }}
+            style={{ fontSize: 13 }}
+          >
+            {showAll ? 'Show only my team' : `Show all my curios (+${hiddenCount})`}
+          </GameButton>
+        </div>
+      )}
     </div>
   );
 }
