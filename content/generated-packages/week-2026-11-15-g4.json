@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎭 MAPEH — Teatro at Sayaw ng Alamat; Karapatan sa Kalusugan\n\nGrade 4, Linggo 23! Alamin natin ang teatro na kaugnay ng alamat at ang ating karapatan sa kalusugan. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dance exercise at movement exploration.\n\n## 🎭 Teatro at Sayaw ng Alamat\nMaraming lokal na sayaw at teatro ang inspirado sa mga **alamat at kuwentong-bayan**, na nagpapakita ng kwento sa pamamagitan ng galaw at pananamit.\n\n## ⚖️ Karapatan sa Kalusugan ng Bata\nBilang bata, may karapatan kang:\n- Magkaroon ng access sa **malinis na pagkain at tubig**\n- Makatanggap ng **pangangalagang medikal**\n- Mabuhay sa **ligtas na kapaligiran**\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-unawa sa ating karapatan sa kalusugan ay tumutulong maprotektahan ang ating kagalingan.\n\n**Mahahalagang salita:** teatro, alamat, karapatan sa kalusugan, kagalingan",
+        "summary_markdown": "# 🎭 MAPEH — Theater and Dances of Legends; The Right to Health\n\nGrade 4, Week 23! Let's learn about theater linked to legends and about our right to health. 🎭\n\n## 🔄 Review\nWe learned about dance exercise and movement exploration.\n\n## 🎭 Theater and Dances of Legends\nMany local dances and plays are inspired by **legends and folktales**. They tell a story through movement and costumes.\n\n## ⚖️ A Child's Right to Health\nAs a child, you have the right to:\n- Have access to **clean food and water**\n- Get **medical care**\n- Live in a **safe environment**\n\n## 💡 Why Is It Important?\nUnderstanding our right to health helps protect our well-being.\n\n**Key words:** theater, legend, right to health, well-being",
         "quiz": [
           {
-            "question": "Saan hango ang maraming lokal na sayaw at teatro?",
+            "question": "Where do many local dances and plays come from?",
             "options": [
-              "Alamat at kuwentong-bayan",
-              "Modernong teknolohiya",
-              "Batas komersyo",
-              "Uri ng pagkain"
+              "Legends and folktales",
+              "Modern technology",
+              "Business laws",
+              "Kinds of food"
             ],
-            "correct_answer": "Alamat at kuwentong-bayan"
+            "correct_answer": "Legends and folktales"
           },
           {
-            "question": "Anong karapatan sa kalusugan mayroon ang isang bata?",
+            "question": "What right to health does a child have?",
             "options": [
-              "Access sa malinis na pagkain at tubig",
-              "Karapatang huwag pumasok sa paaralan",
-              "Karapatang huwag matulog",
-              "Walang karapatan"
+              "Access to clean food and water",
+              "The right to skip school",
+              "The right not to sleep",
+              "No rights"
             ],
-            "correct_answer": "Access sa malinis na pagkain at tubig"
+            "correct_answer": "Access to clean food and water"
           },
           {
-            "question": "Ano pang karapatan sa kalusugan ng bata?",
+            "question": "What is another right to health of a child?",
             "options": [
-              "Pangangalagang medikal",
-              "Walang karapatan sa kalusugan",
-              "Karapatang magtrabaho lamang",
-              "Karapatang huwag kumain"
+              "Medical care",
+              "No right to health",
+              "Only the right to work",
+              "The right not to eat"
             ],
-            "correct_answer": "Pangangalagang medikal"
+            "correct_answer": "Medical care"
           },
           {
-            "question": "Ano ang ipinapakita ng teatro at sayaw na inspirado sa alamat?",
+            "question": "What do plays and dances inspired by legends show?",
             "options": [
-              "Kuwento sa pamamagitan ng galaw at pananamit",
-              "Walang kuwento",
-              "Modernong teknolohiya lamang",
-              "Batas komersyo"
+              "A story through movement and costumes",
+              "No story",
+              "Only modern technology",
+              "Business laws"
             ],
-            "correct_answer": "Kuwento sa pamamagitan ng galaw at pananamit"
+            "correct_answer": "A story through movement and costumes"
           },
           {
-            "question": "Bakit mahalaga ang ligtas na kapaligiran para sa bata?",
+            "question": "Why is a safe environment important for children?",
             "options": [
-              "Nakakatulong ito sa kanilang kaligtasan at kalusugan",
-              "Walang kahalagahan",
-              "Hindi na ito kailangan",
-              "Para sa matatanda lamang"
+              "It helps keep them safe and healthy",
+              "It has no value",
+              "It is no longer needed",
+              "Only for adults"
             ],
-            "correct_answer": "Nakakatulong ito sa kanilang kaligtasan at kalusugan"
+            "correct_answer": "It helps keep them safe and healthy"
           },
           {
-            "question": "Bakit mahalagang malaman ng bata ang kanilang karapatan sa kalusugan?",
+            "question": "Why is it important for children to know their right to health?",
             "options": [
-              "Tumutulong itong protektahan ang kanilang kagalingan",
-              "Walang kahalagahan",
-              "Hindi na ito kailangan",
-              "Para sa matatanda lamang"
+              "It helps protect their well-being",
+              "It has no value",
+              "It is no longer needed",
+              "Only for adults"
             ],
-            "correct_answer": "Tumutulong itong protektahan ang kanilang kagalingan"
+            "correct_answer": "It helps protect their well-being"
           },
           {
-            "question": "Bakit itinuturo ang alamat sa pamamagitan ng sayaw at teatro?",
+            "question": "Why are legends taught through dance and theater?",
             "options": [
-              "Nagpapanatili ito ng kuwento at kultura sa isang masining na paraan",
-              "Walang layunin ito",
-              "Hindi ito kaugnay ng kultura",
-              "Ito ay bagong likha lamang"
+              "It keeps the story and culture alive in an artistic way",
+              "It has no purpose",
+              "It is not linked to culture",
+              "It is just a new creation"
             ],
-            "correct_answer": "Nagpapanatili ito ng kuwento at kultura sa isang masining na paraan"
+            "correct_answer": "It keeps the story and culture alive in an artistic way"
           },
           {
-            "question": "Sino ang may pananagutang tiyakin ang karapatan sa kalusugan ng bata?",
+            "question": "Who is responsible for making sure a child's right to health is met?",
             "options": [
-              "Pamilya, komunidad, at pamahalaan",
-              "Walang sinuman",
-              "Ang bata na lamang",
-              "Estranghero lamang"
+              "Family, community, and government",
+              "No one",
+              "Only the child",
+              "Only strangers"
             ],
-            "correct_answer": "Pamilya, komunidad, at pamahalaan"
+            "correct_answer": "Family, community, and government"
           },
           {
-            "question": "Ano ang koneksyon ng sayaw ng alamat sa kulturang Pilipino?",
+            "question": "How are legend dances linked to Filipino culture?",
             "options": [
-              "Ipinapakita nito ang mayamang tradisyon ng pagkukwento ng mga Pilipino",
-              "Walang koneksyon ito sa kultura",
-              "Ito ay galing sa ibang bansa",
-              "Hindi ito bahagi ng kultura"
+              "They show the rich storytelling tradition of Filipinos",
+              "They have no link to culture",
+              "They come from another country",
+              "They are not part of the culture"
             ],
-            "correct_answer": "Ipinapakita nito ang mayamang tradisyon ng pagkukwento ng mga Pilipino"
+            "correct_answer": "They show the rich storytelling tradition of Filipinos"
           },
           {
-            "question": "Bakit mahalagang matutong pahalagahan ang sariling karapatan?",
+            "question": "Why is it important to learn to value your own rights?",
             "options": [
-              "Upang malaman kung kailan kailangan humingi ng tulong",
-              "Hindi na kailangan malaman ito",
-              "Para sa matatanda lamang",
-              "Walang epekto ito"
+              "To know when you need to ask for help",
+              "There is no need to know this",
+              "Only for adults",
+              "It has no effect"
             ],
-            "correct_answer": "Upang malaman kung kailan kailangan humingi ng tulong"
+            "correct_answer": "To know when you need to ask for help"
           },
           {
-            "question": "Ano ang mangyayari kung hindi natutugunan ang karapatan sa kalusugan ng bata?",
+            "question": "What happens if a child's right to health is not met?",
             "options": [
-              "Maaaring maapektuhan ang kanilang kagalingan at pag-unlad",
-              "Walang mangyayari",
-              "Palaging maayos ang lahat",
-              "Awtomatikong protektado sila"
+              "Their well-being and growth may be affected",
+              "Nothing will happen",
+              "Everything is always fine",
+              "They are automatically protected"
             ],
-            "correct_answer": "Maaaring maapektuhan ang kanilang kagalingan at pag-unlad"
+            "correct_answer": "Their well-being and growth may be affected"
           },
           {
-            "question": "Bakit isinasama ang mga alamat sa likhang-sining sa halip na basahin lamang bilang teksto?",
+            "question": "Why are legends included in artworks instead of only being read as text?",
             "options": [
-              "Nagbibigay ito ng ibang paraan ng pagpapahalaga sa kuwento",
-              "Walang dahilan",
-              "Hindi na kailangan basahin ang alamat",
-              "Mas mahirap intindihin sa pamamagitan ng sining"
+              "It gives another way to appreciate the story",
+              "No reason",
+              "There is no need to read legends",
+              "It is harder to understand through art"
             ],
-            "correct_answer": "Nagbibigay ito ng ibang paraan ng pagpapahalaga sa kuwento"
+            "correct_answer": "It gives another way to appreciate the story"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Teatro ng alamat at karapatan sa kalusugan\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Legend theater and the right to health\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Saan hango ang lokal na sayaw at teatro?",
+            "question": "Where do local dances and plays come from?",
             "options": [
-              "Alamat at kuwentong-bayan",
-              "Modernong teknolohiya",
-              "Batas komersyo",
-              "Uri ng pagkain"
+              "Legends and folktales",
+              "Modern technology",
+              "Business laws",
+              "Kinds of food"
             ],
-            "correct_answer": "Alamat at kuwentong-bayan"
+            "correct_answer": "Legends and folktales"
           },
           {
-            "question": "Karapatan sa kalusugan ng bata?",
+            "question": "A child's right to health?",
             "options": [
-              "Access sa malinis na pagkain at tubig",
-              "Karapatang huwag pumasok",
-              "Karapatang huwag matulog",
-              "Wala"
+              "Access to clean food and water",
+              "The right to skip school",
+              "The right not to sleep",
+              "None"
             ],
-            "correct_answer": "Access sa malinis na pagkain at tubig"
+            "correct_answer": "Access to clean food and water"
           },
           {
-            "question": "Isa pang karapatan sa kalusugan?",
+            "question": "Another right to health?",
             "options": [
-              "Pangangalagang medikal",
-              "Wala",
-              "Karapatang magtrabaho",
-              "Karapatang huwag kumain"
+              "Medical care",
+              "None",
+              "The right to work",
+              "The right not to eat"
             ],
-            "correct_answer": "Pangangalagang medikal"
+            "correct_answer": "Medical care"
           },
           {
-            "question": "Ipinapakita ng teatro at sayaw ng alamat?",
+            "question": "What do legend plays and dances show?",
             "options": [
-              "Kuwento sa galaw at pananamit",
-              "Walang kuwento",
-              "Modernong teknolohiya lamang",
-              "Batas komersyo"
+              "A story through movement and costumes",
+              "No story",
+              "Only modern technology",
+              "Business laws"
             ],
-            "correct_answer": "Kuwento sa galaw at pananamit"
+            "correct_answer": "A story through movement and costumes"
           },
           {
-            "question": "Bakit mahalaga ang ligtas na kapaligiran?",
+            "question": "Why is a safe environment important?",
             "options": [
-              "Kaligtasan at kalusugan",
-              "Walang kahalagahan",
-              "Hindi kailangan",
-              "Para sa matatanda lamang"
+              "Safety and health",
+              "It has no value",
+              "It is not needed",
+              "Only for adults"
             ],
-            "correct_answer": "Kaligtasan at kalusugan"
+            "correct_answer": "Safety and health"
           },
           {
-            "question": "Bakit malaman ng bata ang karapatan sa kalusugan?",
+            "question": "Why should children know their right to health?",
             "options": [
-              "Protektahan ang kagalingan",
-              "Walang kahalagahan",
-              "Hindi kailangan",
-              "Para sa matatanda lamang"
+              "To protect their well-being",
+              "It has no value",
+              "It is not needed",
+              "Only for adults"
             ],
-            "correct_answer": "Protektahan ang kagalingan"
+            "correct_answer": "To protect their well-being"
           },
           {
-            "question": "Bakit sayaw at teatro ginagamit para sa alamat?",
+            "question": "Why are dance and theater used for legends?",
             "options": [
-              "Panatilihin ang kuwento sa masining na paraan",
-              "Walang layunin",
-              "Hindi kaugnay ng kultura",
-              "Bagong likha lamang"
+              "To keep the story alive in an artistic way",
+              "No purpose",
+              "Not linked to culture",
+              "Just a new creation"
             ],
-            "correct_answer": "Panatilihin ang kuwento sa masining na paraan"
+            "correct_answer": "To keep the story alive in an artistic way"
           },
           {
-            "question": "Sino may pananagutan sa karapatan sa kalusugan ng bata?",
+            "question": "Who is responsible for a child's right to health?",
             "options": [
-              "Pamilya, komunidad, pamahalaan",
-              "Walang sinuman",
-              "Bata na lamang",
-              "Estranghero lamang"
+              "Family, community, government",
+              "No one",
+              "Only the child",
+              "Only strangers"
             ],
-            "correct_answer": "Pamilya, komunidad, pamahalaan"
+            "correct_answer": "Family, community, government"
           },
           {
-            "question": "Koneksyon ng sayaw ng alamat sa kultura?",
+            "question": "Link between legend dances and culture?",
             "options": [
-              "Ipinapakita ang tradisyon ng pagkukwento",
-              "Walang koneksyon",
-              "Galing sa ibang bansa",
-              "Hindi bahagi ng kultura"
+              "They show the tradition of storytelling",
+              "No link",
+              "They come from another country",
+              "Not part of the culture"
             ],
-            "correct_answer": "Ipinapakita ang tradisyon ng pagkukwento"
+            "correct_answer": "They show the tradition of storytelling"
           },
           {
-            "question": "Bakit matutong pahalagahan ang karapatan?",
+            "question": "Why learn to value your rights?",
             "options": [
-              "Malaman kailan humingi ng tulong",
-              "Hindi kailangan malaman",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To know when to ask for help",
+              "No need to know",
+              "Only for adults",
+              "No effect"
             ],
-            "correct_answer": "Malaman kailan humingi ng tulong"
+            "correct_answer": "To know when to ask for help"
           },
           {
-            "question": "Mangyayari kung hindi natutugunan ang karapatan sa kalusugan?",
+            "question": "What happens if the right to health is not met?",
             "options": [
-              "Maaapektuhan ang kagalingan at pag-unlad",
-              "Walang mangyayari",
-              "Palaging maayos",
-              "Awtomatikong protektado"
+              "Well-being and growth will be affected",
+              "Nothing will happen",
+              "Always fine",
+              "Automatically protected"
             ],
-            "correct_answer": "Maaapektuhan ang kagalingan at pag-unlad"
+            "correct_answer": "Well-being and growth will be affected"
           },
           {
-            "question": "Bakit isinasama ang alamat sa likhang-sining?",
+            "question": "Why are legends included in artworks?",
             "options": [
-              "Ibang paraan ng pagpapahalaga sa kuwento",
-              "Walang dahilan",
-              "Hindi kailangan basahin",
-              "Mas mahirap intindihin"
+              "Another way to appreciate the story",
+              "No reason",
+              "No need to read them",
+              "Harder to understand"
             ],
-            "correct_answer": "Ibang paraan ng pagpapahalaga sa kuwento"
+            "correct_answer": "Another way to appreciate the story"
           }
         ]
       },

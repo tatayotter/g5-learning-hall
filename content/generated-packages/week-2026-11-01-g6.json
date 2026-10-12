@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🏥 MAPEH — Kalusugan: Karaniwang Nakakahawang Sakit\n\nGrade 6, Linggo 21! Simulan natin ang bagong yunit tungkol sa kalusugan at pag-iwas sa sakit! 🏥\n\n## 🔄 Balik-Aral\nNatapos natin ang term review sa Musika, Sining, at PE.\n\n## 🦠 Karaniwang Nakakahawang Sakit\nAng mga **nakakahawang sakit** (communicable diseases) ay kumakalat mula sa isang tao patungo sa isa pa, tulad ng trangkaso, tigdas, at bulutong-tubig.\n\n## 🔗 Chain of Infection\nAng **chain of infection** ay ang proseso kung paano kumakalat ang sakit: pinagmumulan → daanan ng paglabas → paraan ng paghawa → daanan ng pagpasok → bagong inaangkin na katawan.\n\n## 💉 Bakuna\nAng **bakuna** ay tumutulong protektahan ang katawan mula sa mga partikular na sakit sa pamamagitan ng pagbuo ng imyunidad.\n\n**Mahahalagang salita:** nakakahawang sakit, chain of infection, bakuna, imyunidad",
+        "summary_markdown": "# 🏥 MAPEH — Health: Common Communicable Diseases\n\nGrade 6, Week 21! Let's start a new unit about health and preventing disease! 🏥\n\n## 🔄 Review\nWe finished the term review of Music, Arts, and PE.\n\n## 🦠 Common Communicable Diseases\n**Communicable diseases** spread from one person to another, like the flu, measles, and chickenpox.\n\n## 🔗 Chain of Infection\nThe **chain of infection** is the process of how a disease spreads: source → way out (portal of exit) → way it is passed on (mode of transmission) → way in (portal of entry) → new host body.\n\n## 💉 Vaccines\nA **vaccine** helps protect the body from certain diseases by building immunity.\n\n**Key words:** communicable disease, chain of infection, vaccine, immunity",
         "quiz": [
           {
-            "question": "Ano ang nakakahawang sakit?",
+            "question": "What is a communicable disease?",
             "options": [
-              "Sakit na kumakalat mula sa isang tao patungo sa isa pa",
-              "Sakit na hindi kailanman kumakalat",
-              "Isang uri ng bitamina",
-              "Isang uri ng ehersisyo"
+              "A disease that spreads from one person to another",
+              "A disease that never spreads",
+              "A kind of vitamin",
+              "A kind of exercise"
             ],
-            "correct_answer": "Sakit na kumakalat mula sa isang tao patungo sa isa pa"
+            "correct_answer": "A disease that spreads from one person to another"
           },
           {
-            "question": "Ano ang chain of infection?",
+            "question": "What is the chain of infection?",
             "options": [
-              "Ang proseso kung paano kumakalat ang sakit",
-              "Isang uri ng gamot",
-              "Isang uri ng ehersisyo",
-              "Isang bakuna"
+              "The process of how a disease spreads",
+              "A kind of medicine",
+              "A kind of exercise",
+              "A vaccine"
             ],
-            "correct_answer": "Ang proseso kung paano kumakalat ang sakit"
+            "correct_answer": "The process of how a disease spreads"
           },
           {
-            "question": "Ano ang ginagawa ng bakuna sa katawan?",
+            "question": "What does a vaccine do to the body?",
             "options": [
-              "Tumutulong bumuo ng imyunidad laban sa sakit",
-              "Nagdudulot ng sakit sa katawan",
-              "Walang epekto sa katawan",
-              "Pinapahina ang immune system"
+              "It helps build immunity against disease",
+              "It causes disease in the body",
+              "It has no effect on the body",
+              "It weakens the immune system"
             ],
-            "correct_answer": "Tumutulong bumuo ng imyunidad laban sa sakit"
+            "correct_answer": "It helps build immunity against disease"
           },
           {
-            "question": "Anong halimbawa ng nakakahawang sakit?",
+            "question": "Which is an example of a communicable disease?",
             "options": [
-              "Trangkaso",
+              "Flu",
               "Diabetes",
               "Osteoporosis",
-              "Hika"
+              "Asthma"
             ],
-            "correct_answer": "Trangkaso"
+            "correct_answer": "Flu"
           },
           {
-            "question": "Bakit mahalagang maunawaan ang chain of infection?",
+            "question": "Why is it important to understand the chain of infection?",
             "options": [
-              "Tumutulong ito maiwasan ang pagkalat ng sakit",
-              "Walang gamit ito",
-              "Hindi na kailangang unawain ito",
-              "Ito ay tungkol lamang sa mga hayop"
+              "It helps prevent the spread of disease",
+              "It has no use",
+              "There's no need to understand it",
+              "It is only about animals"
             ],
-            "correct_answer": "Tumutulong ito maiwasan ang pagkalat ng sakit"
+            "correct_answer": "It helps prevent the spread of disease"
           },
           {
-            "question": "Ano ang isang paraan para maputol ang chain of infection?",
+            "question": "What is one way to break the chain of infection?",
             "options": [
-              "Regular na paghuhugas ng kamay",
-              "Kawalang pakialam sa kalinisan",
-              "Pagsasama-sama nang walang proteksyon",
-              "Pagkalimot na magbakuna"
+              "Washing hands regularly",
+              "Not caring about cleanliness",
+              "Gathering together with no protection",
+              "Forgetting to get vaccinated"
             ],
-            "correct_answer": "Regular na paghuhugas ng kamay"
+            "correct_answer": "Washing hands regularly"
           },
           {
-            "question": "Bakit mahalagang magpabakuna?",
+            "question": "Why is it important to get vaccinated?",
             "options": [
-              "Nagbibigay ito ng proteksyon laban sa partikular na sakit",
-              "Walang benepisyo ito",
-              "Nagdudulot lamang ito ng sakit",
-              "Hindi na ito kailangan"
+              "It gives protection against certain diseases",
+              "It has no benefit",
+              "It only causes disease",
+              "It is no longer needed"
             ],
-            "correct_answer": "Nagbibigay ito ng proteksyon laban sa partikular na sakit"
+            "correct_answer": "It gives protection against certain diseases"
           },
           {
-            "question": "Ano ang epekto ng hindi pagsunod sa mga hakbang laban sa nakakahawang sakit?",
+            "question": "What happens if people don't follow the steps against communicable diseases?",
             "options": [
-              "Mas mabilis kumalat ang sakit",
-              "Walang epekto ito",
-              "Mas mabuti ang lahat",
-              "Awtomatikong nawawala ang sakit"
+              "The disease spreads faster",
+              "It has no effect",
+              "Everything gets better",
+              "The disease goes away by itself"
             ],
-            "correct_answer": "Mas mabilis kumalat ang sakit"
+            "correct_answer": "The disease spreads faster"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito bilang bahagi ng Health sa MAPEH?",
+            "question": "Why is this topic taught as part of Health in MAPEH?",
             "options": [
-              "Upang maging responsable sa pag-iwas ng sakit at proteksyon ng kalusugan",
-              "Walang layunin ito",
-              "Ito ay para sa matatanda lamang",
-              "Hindi ito kaugnay ng edukasyon"
+              "To be responsible in preventing disease and protecting health",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to education"
             ],
-            "correct_answer": "Upang maging responsable sa pag-iwas ng sakit at proteksyon ng kalusugan"
+            "correct_answer": "To be responsible in preventing disease and protecting health"
           },
           {
-            "question": "Ano ang unang bahagi ng chain of infection?",
+            "question": "What is the first part of the chain of infection?",
             "options": [
-              "Pinagmumulan ng sakit",
-              "Bagong inaangkin na katawan",
-              "Bakuna",
-              "Daanan ng pagpasok"
+              "The source of the disease",
+              "A new host body",
+              "A vaccine",
+              "The way in (portal of entry)"
             ],
-            "correct_answer": "Pinagmumulan ng sakit"
+            "correct_answer": "The source of the disease"
           },
           {
-            "question": "Bakit mahalaga ang imyunidad ng katawan?",
+            "question": "Why is the body's immunity important?",
             "options": [
-              "Tumutulong itong labanan ang mga sakit",
-              "Walang gamit ito",
-              "Nagdudulot lamang ito ng sakit",
-              "Hindi ito totoong konsepto"
+              "It helps fight off diseases",
+              "It has no use",
+              "It only causes disease",
+              "It is not a real idea"
             ],
-            "correct_answer": "Tumutulong itong labanan ang mga sakit"
+            "correct_answer": "It helps fight off diseases"
           },
           {
-            "question": "Bakit itinuturing na mahalagang paksa ang pag-iwas sa sakit sa komunidad?",
+            "question": "Why is preventing disease in the community an important topic?",
             "options": [
-              "Nakakatulong ito protektahan ang kalusugan ng lahat",
-              "Wala itong epekto sa komunidad",
-              "Ito ay isyu lamang ng indibidwal",
-              "Hindi kaugnay sa kalusugan pangkomunidad"
+              "It helps protect everyone's health",
+              "It has no effect on the community",
+              "It is only a personal issue",
+              "It is not related to community health"
             ],
-            "correct_answer": "Nakakatulong ito protektahan ang kalusugan ng lahat"
+            "correct_answer": "It helps protect everyone's health"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🏥 Friday Review — MAPEH (Grade 6)\n\n- Karaniwang nakakahawang sakit\n\nMagaling sa Health! 🌟",
+        "summary_markdown": "# 🏥 Friday Review — MAPEH (Grade 6)\n\n- Common communicable (contagious) diseases\n\nGreat job in Health! 🌟",
         "quiz": [
           {
-            "question": "Ano ang nakakahawang sakit?",
+            "question": "What is a communicable disease?",
             "options": [
-              "Sakit na kumakalat sa mga tao",
-              "Sakit na hindi kumakalat",
-              "Uri ng bitamina",
-              "Uri ng ehersisyo"
+              "A disease that spreads among people",
+              "A disease that does not spread",
+              "A kind of vitamin",
+              "A kind of exercise"
             ],
-            "correct_answer": "Sakit na kumakalat sa mga tao"
+            "correct_answer": "A disease that spreads among people"
           },
           {
-            "question": "Ano ang chain of infection?",
+            "question": "What is the chain of infection?",
             "options": [
-              "Proseso ng pagkalat ng sakit",
-              "Uri ng gamot",
-              "Uri ng ehersisyo",
-              "Bakuna"
+              "The process of how disease spreads",
+              "A kind of medicine",
+              "A kind of exercise",
+              "A vaccine"
             ],
-            "correct_answer": "Proseso ng pagkalat ng sakit"
+            "correct_answer": "The process of how disease spreads"
           },
           {
-            "question": "Ano ang ginagawa ng bakuna?",
+            "question": "What does a vaccine do?",
             "options": [
-              "Bumubuo ng imyunidad",
-              "Nagdudulot ng sakit",
-              "Walang epekto",
-              "Pinapahina ang immune system"
+              "Builds immunity",
+              "Causes disease",
+              "Has no effect",
+              "Weakens the immune system"
             ],
-            "correct_answer": "Bumubuo ng imyunidad"
+            "correct_answer": "Builds immunity"
           },
           {
-            "question": "Halimbawa ng nakakahawang sakit?",
+            "question": "An example of a communicable disease?",
             "options": [
-              "Trangkaso",
+              "Flu",
               "Diabetes",
               "Osteoporosis",
-              "Hika"
+              "Asthma"
             ],
-            "correct_answer": "Trangkaso"
+            "correct_answer": "Flu"
           },
           {
-            "question": "Bakit maunawaan ang chain of infection?",
+            "question": "Why understand the chain of infection?",
             "options": [
-              "Maiwasan ang pagkalat ng sakit",
-              "Walang gamit",
-              "Hindi kailangan",
-              "Tungkol lamang sa hayop"
+              "To prevent the spread of disease",
+              "It has no use",
+              "It is not needed",
+              "It is only about animals"
             ],
-            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+            "correct_answer": "To prevent the spread of disease"
           },
           {
-            "question": "Paraan para maputol ang chain of infection?",
+            "question": "A way to break the chain of infection?",
             "options": [
-              "Paghuhugas ng kamay",
-              "Kawalang pakialam",
-              "Walang proteksyon",
-              "Kalimutan magbakuna"
+              "Washing hands",
+              "Not caring",
+              "No protection",
+              "Forgetting to get vaccinated"
             ],
-            "correct_answer": "Paghuhugas ng kamay"
+            "correct_answer": "Washing hands"
           },
           {
-            "question": "Bakit magpabakuna?",
+            "question": "Why get vaccinated?",
             "options": [
-              "Proteksyon laban sa sakit",
-              "Walang benepisyo",
-              "Nagdudulot ng sakit",
-              "Hindi na kailangan"
+              "Protection against disease",
+              "No benefit",
+              "It causes disease",
+              "It is no longer needed"
             ],
-            "correct_answer": "Proteksyon laban sa sakit"
+            "correct_answer": "Protection against disease"
           },
           {
-            "question": "Epekto ng hindi pagsunod sa hakbang laban sa sakit?",
+            "question": "What happens if you don't follow steps against disease?",
             "options": [
-              "Mas mabilis kumalat",
-              "Walang epekto",
-              "Mas mabuti",
-              "Nawawala agad"
+              "It spreads faster",
+              "No effect",
+              "It's better",
+              "It goes away right away"
             ],
-            "correct_answer": "Mas mabilis kumalat"
+            "correct_answer": "It spreads faster"
           },
           {
-            "question": "Bakit itinuro ang paksang ito?",
+            "question": "Why is this topic taught?",
             "options": [
-              "Responsable sa pag-iwas ng sakit",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay"
+              "To be responsible in preventing disease",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related"
             ],
-            "correct_answer": "Responsable sa pag-iwas ng sakit"
+            "correct_answer": "To be responsible in preventing disease"
           },
           {
-            "question": "Unang bahagi ng chain of infection?",
+            "question": "First part of the chain of infection?",
             "options": [
-              "Pinagmumulan ng sakit",
-              "Bagong katawan",
-              "Bakuna",
-              "Daanan ng pagpasok"
+              "The source of the disease",
+              "A new host body",
+              "A vaccine",
+              "The way in (portal of entry)"
             ],
-            "correct_answer": "Pinagmumulan ng sakit"
+            "correct_answer": "The source of the disease"
           },
           {
-            "question": "Bakit mahalaga ang imyunidad?",
+            "question": "Why is immunity important?",
             "options": [
-              "Labanan ang mga sakit",
-              "Walang gamit",
-              "Nagdudulot ng sakit",
-              "Hindi totoong konsepto"
+              "To fight off diseases",
+              "It has no use",
+              "It causes disease",
+              "It is not a real idea"
             ],
-            "correct_answer": "Labanan ang mga sakit"
+            "correct_answer": "To fight off diseases"
           },
           {
-            "question": "Bakit mahalaga ang pag-iwas sa sakit sa komunidad?",
+            "question": "Why is preventing disease in the community important?",
             "options": [
-              "Protektahan ang kalusugan ng lahat",
-              "Walang epekto",
-              "Isyu ng indibidwal lamang",
-              "Hindi kaugnay"
+              "To protect everyone's health",
+              "No effect",
+              "Only a personal issue",
+              "Not related"
             ],
-            "correct_answer": "Protektahan ang kalusugan ng lahat"
+            "correct_answer": "To protect everyone's health"
           }
         ]
       },

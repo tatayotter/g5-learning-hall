@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💃 MAPEH — Dance Exercise at Movement Exploration\n\nGrade 4, Linggo 22! Galawin natin ang buong katawan sa pamamagitan ng sayaw! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa melodiya at malusog na pagkain.\n\n## 💃 Ano ang Dance Exercise?\nAng **dance exercise** ay isang paraan ng pag-eehersisyo gamit ang mga simpleng galaw ng sayaw kasabay ng musika.\n\n## 🤸 Movement Exploration\nAng **movement exploration** ay ang pagsubok ng iba't ibang galaw ng katawan — pagyuko, pag-ikot, paglukso — upang tuklasin kung ano ang kaya ng iyong katawan.\n\n## 🎯 Bakit Mahalaga Ito?\nAng dance exercise ay nagpapalakas ng katawan habang **nasisiyahan** tayo sa musika at galaw.\n\n**Mahahalagang salita:** dance exercise, movement exploration, ehersisyo, galaw",
+        "summary_markdown": "# 💃 MAPEH — Dance Exercise and Movement Exploration\n\nGrade 4, Week 22! Let's move our whole body through dance! 💃\n\n## 🔄 Review\nWe learned about melody and healthy food.\n\n## 💃 What Is Dance Exercise?\n**Dance exercise** is a way of exercising using simple dance moves along with music.\n\n## 🤸 Movement Exploration\n**Movement exploration** means trying out different body movements — bending, turning, jumping — to find out what your body can do.\n\n## 🎯 Why Is It Important?\nDance exercise makes the body strong while we **have fun** with music and movement.\n\n**Key words:** dance exercise, movement exploration, exercise, movement",
         "quiz": [
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Pag-eehersisyo gamit ang simpleng galaw ng sayaw",
-              "Isang uri ng pagkain",
-              "Isang uri ng laro sa telepono",
-              "Isang uri ng pagguhit"
+              "Exercising using simple dance moves",
+              "A kind of food",
+              "A kind of phone game",
+              "A kind of drawing"
             ],
-            "correct_answer": "Pag-eehersisyo gamit ang simpleng galaw ng sayaw"
+            "correct_answer": "Exercising using simple dance moves"
           },
           {
-            "question": "Ano ang movement exploration?",
+            "question": "What is movement exploration?",
             "options": [
-              "Pagsubok ng iba't ibang galaw ng katawan",
-              "Isang uri ng pagkain",
-              "Isang uri ng awit",
-              "Isang uri ng laruan"
+              "Trying out different body movements",
+              "A kind of food",
+              "A kind of song",
+              "A kind of toy"
             ],
-            "correct_answer": "Pagsubok ng iba't ibang galaw ng katawan"
+            "correct_answer": "Trying out different body movements"
           },
           {
-            "question": "Anong halimbawa ng galaw sa movement exploration?",
+            "question": "What is an example of movements in movement exploration?",
             "options": [
-              "Pagyuko, pag-ikot, paglukso",
-              "Pagkain, pag-inom, pagtulog",
-              "Pagsulat, pagbasa, pagguhit",
-              "Panonood ng TV"
+              "Bending, turning, jumping",
+              "Eating, drinking, sleeping",
+              "Writing, reading, drawing",
+              "Watching TV"
             ],
-            "correct_answer": "Pagyuko, pag-ikot, paglukso"
+            "correct_answer": "Bending, turning, jumping"
           },
           {
-            "question": "Bakit mahalaga ang dance exercise?",
+            "question": "Why is dance exercise important?",
             "options": [
-              "Nagpapalakas ng katawan habang nasisiyahan sa musika",
-              "Walang kahalagahan",
-              "Nakakapagod lamang nang walang benepisyo",
-              "Hindi ito bahagi ng PE"
+              "It makes the body strong while enjoying music",
+              "It has no value",
+              "It is only tiring with no benefit",
+              "It is not part of PE"
             ],
-            "correct_answer": "Nagpapalakas ng katawan habang nasisiyahan sa musika"
+            "correct_answer": "It makes the body strong while enjoying music"
           },
           {
-            "question": "Ano ang layunin ng movement exploration?",
+            "question": "What is the goal of movement exploration?",
             "options": [
-              "Tuklasin kung ano ang kaya ng katawan",
-              "Palakasin lamang ang boses",
-              "Matuto ng matematika",
-              "Matuto ng pagsulat"
+              "To find out what the body can do",
+              "Only to make the voice stronger",
+              "To learn math",
+              "To learn writing"
             ],
-            "correct_answer": "Tuklasin kung ano ang kaya ng katawan"
+            "correct_answer": "To find out what the body can do"
           },
           {
-            "question": "Ano ang kasamang bahagi ng dance exercise?",
+            "question": "What goes along with dance exercise?",
             "options": [
-              "Musika",
-              "Aklat",
-              "Kompyuter",
-              "Lapis"
+              "Music",
+              "Book",
+              "Computer",
+              "Pencil"
             ],
-            "correct_answer": "Musika"
+            "correct_answer": "Music"
           },
           {
-            "question": "Bakit itinuturo ang movement exploration sa PE?",
+            "question": "Why is movement exploration taught in PE?",
             "options": [
-              "Upang matulungan ang mga bata magtiwala sa sariling katawan",
-              "Walang layunin ito",
-              "Para lamang libangin ang guro",
-              "Hindi ito bahagi ng kurikulum"
+              "To help kids trust their own bodies",
+              "It has no purpose",
+              "Only to entertain the teacher",
+              "It is not part of the curriculum"
             ],
-            "correct_answer": "Upang matulungan ang mga bata magtiwala sa sariling katawan"
+            "correct_answer": "To help kids trust their own bodies"
           },
           {
-            "question": "Ano ang pisikal na benepisyo ng dance exercise?",
+            "question": "What is a physical benefit of dance exercise?",
             "options": [
-              "Pagpapalakas ng katawan at koordinasyon",
-              "Walang benepisyo",
-              "Pinapahina ang katawan",
-              "Pinipigilan ang paggalaw"
+              "A stronger body and better coordination",
+              "No benefit",
+              "It makes the body weaker",
+              "It stops you from moving"
             ],
-            "correct_answer": "Pagpapalakas ng katawan at koordinasyon"
+            "correct_answer": "A stronger body and better coordination"
           },
           {
-            "question": "Bakit gumagamit ng musika sa dance exercise?",
+            "question": "Why is music used in dance exercise?",
             "options": [
-              "Nagbibigay ito ng tempo at kasiyahan sa paggalaw",
-              "Walang gamit ang musika",
-              "Ginagawa lamang nitong mas mahirap ang ehersisyo",
-              "Hindi kailangan ang musika"
+              "It gives tempo and makes moving fun",
+              "Music has no use",
+              "It only makes the exercise harder",
+              "Music is not needed"
             ],
-            "correct_answer": "Nagbibigay ito ng tempo at kasiyahan sa paggalaw"
+            "correct_answer": "It gives tempo and makes moving fun"
           },
           {
-            "question": "Bakit mahalaga ang paglukso sa movement exploration?",
+            "question": "Why is jumping important in movement exploration?",
             "options": [
-              "Isa itong halimbawa ng paggalaw na sinusubok ng katawan",
-              "Wala itong kaugnayan sa PE",
-              "Ito ay hindi tunay na galaw",
-              "Hindi ito kasama sa PE"
+              "It is an example of a movement the body tries out",
+              "It is not linked to PE",
+              "It is not a real movement",
+              "It is not included in PE"
             ],
-            "correct_answer": "Isa itong halimbawa ng paggalaw na sinusubok ng katawan"
+            "correct_answer": "It is an example of a movement the body tries out"
           },
           {
-            "question": "Paano naiiba ang movement exploration sa isang tradisyunal na sayaw?",
+            "question": "How is movement exploration different from a traditional dance?",
             "options": [
-              "Mas malaya at pagsubok ng bagong galaw kaysa sa itinakdang mga hakbang",
-              "Magkatulad lamang sila",
-              "Walang pagkakaiba",
-              "Movement exploration ay laging may partikular na hakbang"
+              "It is freer and tries new moves instead of set steps",
+              "They are just the same",
+              "There is no difference",
+              "Movement exploration always has specific steps"
             ],
-            "correct_answer": "Mas malaya at pagsubok ng bagong galaw kaysa sa itinakdang mga hakbang"
+            "correct_answer": "It is freer and tries new moves instead of set steps"
           },
           {
-            "question": "Ano ang koneksyon ng dance exercise sa pisikal na kalusugan?",
+            "question": "How is dance exercise linked to physical health?",
             "options": [
-              "Parehong tumutulong sa pisikal na kalusugan ng katawan",
-              "Walang koneksyon",
-              "Dance exercise ay tungkol lamang sa musika",
-              "Walang epekto sa kalusugan"
+              "Both help the body's physical health",
+              "No link",
+              "Dance exercise is only about music",
+              "No effect on health"
             ],
-            "correct_answer": "Parehong tumutulong sa pisikal na kalusugan ng katawan"
+            "correct_answer": "Both help the body's physical health"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Dance exercise at movement exploration\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Dance exercise and movement exploration\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Pag-eehersisyo gamit ang galaw ng sayaw",
-              "Uri ng pagkain",
-              "Uri ng laro sa telepono",
-              "Uri ng pagguhit"
+              "Exercising using dance moves",
+              "A kind of food",
+              "A kind of phone game",
+              "A kind of drawing"
             ],
-            "correct_answer": "Pag-eehersisyo gamit ang galaw ng sayaw"
+            "correct_answer": "Exercising using dance moves"
           },
           {
-            "question": "Ano ang movement exploration?",
+            "question": "What is movement exploration?",
             "options": [
-              "Pagsubok ng iba't ibang galaw ng katawan",
-              "Uri ng pagkain",
-              "Uri ng awit",
-              "Uri ng laruan"
+              "Trying out different body movements",
+              "A kind of food",
+              "A kind of song",
+              "A kind of toy"
             ],
-            "correct_answer": "Pagsubok ng iba't ibang galaw ng katawan"
+            "correct_answer": "Trying out different body movements"
           },
           {
-            "question": "Halimbawa ng galaw sa movement exploration?",
+            "question": "Example of movements in movement exploration?",
             "options": [
-              "Pagyuko, pag-ikot, paglukso",
-              "Pagkain, pag-inom",
-              "Pagsulat, pagbasa",
-              "Panonood ng TV"
+              "Bending, turning, jumping",
+              "Eating, drinking",
+              "Writing, reading",
+              "Watching TV"
             ],
-            "correct_answer": "Pagyuko, pag-ikot, paglukso"
+            "correct_answer": "Bending, turning, jumping"
           },
           {
-            "question": "Bakit mahalaga ang dance exercise?",
+            "question": "Why is dance exercise important?",
             "options": [
-              "Nagpapalakas ng katawan habang nasisiyahan",
-              "Walang kahalagahan",
-              "Nakakapagod lamang",
-              "Hindi bahagi ng PE"
+              "It makes the body strong while having fun",
+              "It has no value",
+              "It is only tiring",
+              "It is not part of PE"
             ],
-            "correct_answer": "Nagpapalakas ng katawan habang nasisiyahan"
+            "correct_answer": "It makes the body strong while having fun"
           },
           {
-            "question": "Layunin ng movement exploration?",
+            "question": "Goal of movement exploration?",
             "options": [
-              "Tuklasin kaya ng katawan",
-              "Palakasin ang boses",
-              "Matuto ng matematika",
-              "Matuto ng pagsulat"
+              "Find out what the body can do",
+              "Make the voice stronger",
+              "Learn math",
+              "Learn writing"
             ],
-            "correct_answer": "Tuklasin kaya ng katawan"
+            "correct_answer": "Find out what the body can do"
           },
           {
-            "question": "Kasamang bahagi ng dance exercise?",
+            "question": "What goes along with dance exercise?",
             "options": [
-              "Musika",
-              "Aklat",
-              "Kompyuter",
-              "Lapis"
+              "Music",
+              "Book",
+              "Computer",
+              "Pencil"
             ],
-            "correct_answer": "Musika"
+            "correct_answer": "Music"
           },
           {
-            "question": "Bakit ituro ang movement exploration?",
+            "question": "Why teach movement exploration?",
             "options": [
-              "Magtiwala sa sariling katawan",
-              "Walang layunin",
-              "Libangin ang guro",
-              "Hindi bahagi ng kurikulum"
+              "To trust your own body",
+              "It has no purpose",
+              "To entertain the teacher",
+              "It is not part of the curriculum"
             ],
-            "correct_answer": "Magtiwala sa sariling katawan"
+            "correct_answer": "To trust your own body"
           },
           {
-            "question": "Pisikal na benepisyo ng dance exercise?",
+            "question": "Physical benefit of dance exercise?",
             "options": [
-              "Palakas ng katawan at koordinasyon",
-              "Walang benepisyo",
-              "Pinapahina",
-              "Pinipigilan ang paggalaw"
+              "Stronger body and coordination",
+              "No benefit",
+              "It makes you weaker",
+              "It stops you from moving"
             ],
-            "correct_answer": "Palakas ng katawan at koordinasyon"
+            "correct_answer": "Stronger body and coordination"
           },
           {
-            "question": "Bakit gumagamit ng musika?",
+            "question": "Why use music?",
             "options": [
-              "Tempo at kasiyahan sa paggalaw",
-              "Walang gamit",
-              "Mas mahirap lang ang ehersisyo",
-              "Hindi kailangan"
+              "Tempo and fun while moving",
+              "It has no use",
+              "It just makes exercise harder",
+              "It is not needed"
             ],
-            "correct_answer": "Tempo at kasiyahan sa paggalaw"
+            "correct_answer": "Tempo and fun while moving"
           },
           {
-            "question": "Bakit mahalaga ang paglukso?",
+            "question": "Why is jumping important?",
             "options": [
-              "Halimbawa ng paggalaw na sinusubok",
-              "Walang kaugnayan sa PE",
-              "Hindi tunay na galaw",
-              "Hindi kasama sa PE"
+              "It is an example of a movement to try",
+              "It is not linked to PE",
+              "It is not a real movement",
+              "It is not included in PE"
             ],
-            "correct_answer": "Halimbawa ng paggalaw na sinusubok"
+            "correct_answer": "It is an example of a movement to try"
           },
           {
-            "question": "Pagkakaiba nito sa tradisyunal na sayaw?",
+            "question": "How is it different from a traditional dance?",
             "options": [
-              "Mas malaya kaysa itinakdang hakbang",
-              "Magkatulad lamang",
-              "Walang pagkakaiba",
-              "Laging may partikular na hakbang"
+              "It is freer than set steps",
+              "They are just the same",
+              "There is no difference",
+              "It always has specific steps"
             ],
-            "correct_answer": "Mas malaya kaysa itinakdang hakbang"
+            "correct_answer": "It is freer than set steps"
           },
           {
-            "question": "Koneksyon ng dance exercise sa kalusugan?",
+            "question": "Link between dance exercise and health?",
             "options": [
-              "Parehong tumutulong sa pisikal na kalusugan",
-              "Walang koneksyon",
-              "Tungkol lamang sa musika",
-              "Walang epekto"
+              "Both help physical health",
+              "No link",
+              "It is only about music",
+              "No effect"
             ],
-            "correct_answer": "Parehong tumutulong sa pisikal na kalusugan"
+            "correct_answer": "Both help physical health"
           }
         ]
       },

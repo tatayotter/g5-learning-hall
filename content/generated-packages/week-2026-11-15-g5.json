@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💊 MAPEH — Proper Medicine Use vs. Misuse\n\nGrade 5, Linggo 23! Alamin natin ang tamang paggamit ng gamot. 💊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **social dance mixer**.\n\n## 💊 Tamang Paggamit ng Gamot\n- Inumin lamang ang gamot na **inireseta o inirekomenda** ng doktor o magulang\n- Sundin ang tamang **dosis** at oras ng pag-inom\n- Basahin ang **label** bago uminom\n- Huwag kailanman uminom ng gamot ng ibang tao\n\n## ⚠️ Maling Paggamit (Misuse)\nAng **maling paggamit** ay nangyayari kapag:\n- Uminom nang higit sa itinakdang dosis\n- Uminom nang walang pahintulot ng may sapat na gulang\n- Ginagamit ang gamot para sa hindi tamang layunin\n\nAng maling paggamit ng gamot ay maaaring magdulot ng **malalang pinsala sa katawan** kahit ang gamot mismo ay ligtas kapag ginamit nang tama.\n\n**Mahahalagang salita:** reseta, dosis, label, maling paggamit",
+        "summary_markdown": "# 💊 MAPEH — Proper Medicine Use vs. Misuse\n\nGrade 5, Week 23! Let's learn how to use medicine the right way. 💊\n\n## 🔄 Review\nWe learned about the **social dance mixer**.\n\n## 💊 Proper Use of Medicine\n- Only take medicine that a doctor or parent has **prescribed or recommended**\n- Follow the right **dose** and the right time to take it\n- Read the **label** before taking it\n- Never take medicine that belongs to someone else\n\n## ⚠️ Misuse\n**Misuse** happens when you:\n- Take more than the set dose\n- Take medicine without an adult's permission\n- Use medicine for the wrong purpose\n\nMisusing medicine can cause **serious harm to the body**, even if the medicine itself is safe when used correctly.\n\n**Key words:** prescription, dose, label, misuse",
         "quiz": [
           {
-            "question": "Sino ang dapat magrereseta o magrekomenda ng gamot?",
+            "question": "Who should prescribe or recommend medicine?",
             "options": [
-              "Doktor o magulang",
-              "Kaibigan lamang",
-              "Sinuman sa paaralan",
-              "Walang kailangang pahintulot"
+              "A doctor or parent",
+              "Only a friend",
+              "Anyone at school",
+              "No permission is needed"
             ],
-            "correct_answer": "Doktor o magulang"
+            "correct_answer": "A doctor or parent"
           },
           {
-            "question": "Ano ang dosis?",
+            "question": "What is a dose?",
             "options": [
-              "Ang tamang bilang o dami ng gamot na iinumin",
-              "Ang pangalan ng gamot",
-              "Ang kulay ng gamot",
-              "Ang presyo ng gamot"
+              "The right number or amount of medicine to take",
+              "The name of the medicine",
+              "The color of the medicine",
+              "The price of the medicine"
             ],
-            "correct_answer": "Ang tamang bilang o dami ng gamot na iinumin"
+            "correct_answer": "The right number or amount of medicine to take"
           },
           {
-            "question": "Bakit mahalagang basahin ang label ng gamot bago ito inumin?",
+            "question": "Why is it important to read a medicine's label before taking it?",
             "options": [
-              "Para malaman ang tamang paggamit at dosis nito",
-              "Hindi kailangang basahin ang label",
-              "Ang label ay para lamang palamuti",
-              "Ang label ay para lamang sa matatanda"
+              "To know how to use it correctly and its dose",
+              "You don't need to read the label",
+              "The label is only decoration",
+              "The label is only for grown-ups"
             ],
-            "correct_answer": "Para malaman ang tamang paggamit at dosis nito"
+            "correct_answer": "To know how to use it correctly and its dose"
           },
           {
-            "question": "Ano ang maling paggamit (misuse) ng gamot?",
+            "question": "What is misuse of medicine?",
             "options": [
-              "Pag-inom nang higit sa itinakdang dosis o walang pahintulot",
-              "Pag-inom ayon sa reseta ng doktor",
-              "Pagsunod sa tamang oras ng pag-inom",
-              "Pagbasa ng label bago uminom"
+              "Taking more than the set dose or without permission",
+              "Taking it as the doctor prescribed",
+              "Taking it at the right time",
+              "Reading the label before taking it"
             ],
-            "correct_answer": "Pag-inom nang higit sa itinakdang dosis o walang pahintulot"
+            "correct_answer": "Taking more than the set dose or without permission"
           },
           {
-            "question": "Bakit hindi dapat uminom ng gamot ng ibang tao?",
+            "question": "Why shouldn't you take someone else's medicine?",
             "options": [
-              "Maaaring hindi ito angkop o ligtas para sa iyong kondisyon",
-              "Walang epekto ito kahit kanino",
-              "Palaging ligtas ang gamot ng iba",
-              "Kinakailangan ito para gumaling agad"
+              "It might not be right or safe for your condition",
+              "It has no effect on anyone",
+              "Other people's medicine is always safe",
+              "You need it to get better right away"
             ],
-            "correct_answer": "Maaaring hindi ito angkop o ligtas para sa iyong kondisyon"
+            "correct_answer": "It might not be right or safe for your condition"
           },
           {
-            "question": "Ano ang maaaring idulot ng maling paggamit ng gamot?",
+            "question": "What can misusing medicine cause?",
             "options": [
-              "Malalang pinsala sa katawan",
-              "Palaging positibong epekto",
-              "Walang epekto kailanman",
-              "Awtomatikong paggaling"
+              "Serious harm to the body",
+              "Always a good effect",
+              "Never any effect",
+              "Getting better automatically"
             ],
-            "correct_answer": "Malalang pinsala sa katawan"
+            "correct_answer": "Serious harm to the body"
           },
           {
-            "question": "Bakit itinuturing na ligtas ang gamot kapag ginamit nang tama?",
+            "question": "Why is medicine considered safe when used correctly?",
             "options": [
-              "Sapagkat ginagamit ito ayon sa tamang dosis at layunin",
-              "Sapagkat lahat ng gamot ay ligtas kahit paano gamitin",
-              "Sapagkat walang epekto ang gamot",
-              "Sapagkat gamot ay hindi kailangang subaybayan"
+              "Because it is used with the right dose and for the right purpose",
+              "Because all medicine is safe no matter how it is used",
+              "Because medicine has no effect",
+              "Because medicine doesn't need to be watched"
             ],
-            "correct_answer": "Sapagkat ginagamit ito ayon sa tamang dosis at layunin"
+            "correct_answer": "Because it is used with the right dose and for the right purpose"
           },
           {
-            "question": "Anong dapat gawin ng isang bata bago uminom ng anumang gamot?",
+            "question": "What should a child do before taking any medicine?",
             "options": [
-              "Humingi ng pahintulot at gabay sa magulang o doktor",
-              "Uminom agad nang walang tanong",
-              "Sumangguni sa kaibigan lamang",
-              "Sumunod lamang sa TV commercial"
+              "Ask a parent or doctor for permission and guidance",
+              "Take it right away without asking",
+              "Ask only a friend",
+              "Just follow a TV commercial"
             ],
-            "correct_answer": "Humingi ng pahintulot at gabay sa magulang o doktor"
+            "correct_answer": "Ask a parent or doctor for permission and guidance"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa MAPEH?",
+            "question": "Why is this topic taught in MAPEH?",
             "options": [
-              "Bahagi ito ng pag-aalaga sa kalusugan at kaligtasan",
-              "Wala itong kaugnayan sa kalusugan",
-              "Ito ay tungkol lamang sa musika",
-              "Ito ay tungkol lamang sa sayaw"
+              "It is part of taking care of your health and safety",
+              "It has nothing to do with health",
+              "It is only about music",
+              "It is only about dance"
             ],
-            "correct_answer": "Bahagi ito ng pag-aalaga sa kalusugan at kaligtasan"
+            "correct_answer": "It is part of taking care of your health and safety"
           },
           {
-            "question": "Alin sa mga sumusunod ang HALIMBAWA ng tamang paggamit ng gamot?",
+            "question": "Which of the following is an EXAMPLE of proper medicine use?",
             "options": [
-              "Pag-inom ayon sa reseta ng doktor sa tamang oras",
-              "Pag-inom ng dagdag na dosis para mabilis gumaling",
-              "Pag-inom ng gamot ng kapatid",
-              "Pag-inom nang walang pagbasa ng label"
+              "Taking it as the doctor prescribed at the right time",
+              "Taking an extra dose to get better faster",
+              "Taking a sibling's medicine",
+              "Taking it without reading the label"
             ],
-            "correct_answer": "Pag-inom ayon sa reseta ng doktor sa tamang oras"
+            "correct_answer": "Taking it as the doctor prescribed at the right time"
           },
           {
-            "question": "Ano ang gagawin mo kung nakalimutan mong uminom ng gamot sa tamang oras?",
+            "question": "What would you do if you forgot to take your medicine at the right time?",
             "options": [
-              "Magtanong sa magulang o doktor kung ano ang dapat gawin",
-              "Uminom ng dobleng dosis kaagad",
-              "Kalimutan na lang ang pag-inom",
-              "Uminom ng ibang gamot na kapareho ang kulay"
+              "Ask a parent or doctor what to do",
+              "Take a double dose right away",
+              "Just forget about taking it",
+              "Take a different medicine with the same color"
             ],
-            "correct_answer": "Magtanong sa magulang o doktor kung ano ang dapat gawin"
+            "correct_answer": "Ask a parent or doctor what to do"
           },
           {
-            "question": "Bakit dapat ipagbawal ang pag-inom ng gamot nang walang pahintulot ng may sapat na gulang?",
+            "question": "Why should taking medicine without an adult's permission not be allowed?",
             "options": [
-              "Maaaring hindi alam ng bata ang tamang dosis o epekto nito",
-              "Walang panganib dito",
-              "Palaging alam ng bata ang tamang gamot",
-              "Hindi na kailangan ng pahintulot"
+              "The child might not know the right dose or its effects",
+              "There is no danger in it",
+              "Children always know the right medicine",
+              "Permission is not needed"
             ],
-            "correct_answer": "Maaaring hindi alam ng bata ang tamang dosis o epekto nito"
+            "correct_answer": "The child might not know the right dose or its effects"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💊 Friday Review — MAPEH (Grade 5)\n\n- Proper medicine use vs. misuse\n\nMagaling! 🌟",
+        "summary_markdown": "# 💊 Friday Review — MAPEH (Grade 5)\n\n- Proper medicine use vs. misuse\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Sino ang dapat magrereseta ng gamot?",
+            "question": "Who should prescribe medicine?",
             "options": [
-              "Doktor o magulang",
-              "Kaibigan lamang",
-              "Sinuman",
-              "Walang kailangang pahintulot"
+              "A doctor or parent",
+              "Only a friend",
+              "Anyone",
+              "No permission is needed"
             ],
-            "correct_answer": "Doktor o magulang"
+            "correct_answer": "A doctor or parent"
           },
           {
-            "question": "Ano ang dosis?",
+            "question": "What is a dose?",
             "options": [
-              "Tamang bilang o dami ng gamot",
-              "Pangalan ng gamot",
-              "Kulay ng gamot",
-              "Presyo ng gamot"
+              "The right number or amount of medicine",
+              "The name of the medicine",
+              "The color of the medicine",
+              "The price of the medicine"
             ],
-            "correct_answer": "Tamang bilang o dami ng gamot"
+            "correct_answer": "The right number or amount of medicine"
           },
           {
-            "question": "Bakit basahin ang label bago uminom ng gamot?",
+            "question": "Why read the label before taking medicine?",
             "options": [
-              "Para malaman ang tamang paggamit",
-              "Hindi kailangan basahin",
-              "Para lamang palamuti",
-              "Para sa matatanda lamang"
+              "To know how to use it correctly",
+              "You don't need to read it",
+              "It is only decoration",
+              "It is only for grown-ups"
             ],
-            "correct_answer": "Para malaman ang tamang paggamit"
+            "correct_answer": "To know how to use it correctly"
           },
           {
-            "question": "Ano ang maling paggamit ng gamot?",
+            "question": "What is misuse of medicine?",
             "options": [
-              "Pag-inom nang higit sa dosis o walang pahintulot",
-              "Pag-inom ayon sa reseta",
-              "Pagsunod sa oras",
-              "Pagbasa ng label"
+              "Taking more than the dose or without permission",
+              "Taking it as prescribed",
+              "Following the schedule",
+              "Reading the label"
             ],
-            "correct_answer": "Pag-inom nang higit sa dosis o walang pahintulot"
+            "correct_answer": "Taking more than the dose or without permission"
           },
           {
-            "question": "Bakit hindi dapat uminom ng gamot ng iba?",
+            "question": "Why shouldn't you take someone else's medicine?",
             "options": [
-              "Baka hindi ito angkop para sa iyong kondisyon",
-              "Walang epekto ito",
-              "Palaging ligtas ito",
-              "Kailangan ito para gumaling"
+              "It might not be right for your condition",
+              "It has no effect",
+              "It is always safe",
+              "You need it to get better"
             ],
-            "correct_answer": "Baka hindi ito angkop para sa iyong kondisyon"
+            "correct_answer": "It might not be right for your condition"
           },
           {
-            "question": "Ano ang idudulot ng maling paggamit ng gamot?",
+            "question": "What can misusing medicine cause?",
             "options": [
-              "Malalang pinsala sa katawan",
-              "Palaging positibong epekto",
-              "Walang epekto",
-              "Awtomatikong paggaling"
+              "Serious harm to the body",
+              "Always a good effect",
+              "No effect",
+              "Getting better automatically"
             ],
-            "correct_answer": "Malalang pinsala sa katawan"
+            "correct_answer": "Serious harm to the body"
           },
           {
-            "question": "Bakit ligtas ang gamot kapag tama ang paggamit?",
+            "question": "Why is medicine safe when used correctly?",
             "options": [
-              "Sapagkat ginamit ayon sa tamang dosis at layunin",
-              "Lahat ng gamot ay ligtas kahit paano",
-              "Walang epekto ang gamot",
-              "Hindi na kailangang subaybayan"
+              "Because it is used with the right dose and for the right purpose",
+              "All medicine is safe no matter what",
+              "Medicine has no effect",
+              "It doesn't need to be watched"
             ],
-            "correct_answer": "Sapagkat ginamit ayon sa tamang dosis at layunin"
+            "correct_answer": "Because it is used with the right dose and for the right purpose"
           },
           {
-            "question": "Anong dapat gawin bago uminom ng anumang gamot?",
+            "question": "What should you do before taking any medicine?",
             "options": [
-              "Humingi ng pahintulot sa magulang o doktor",
-              "Uminom agad",
-              "Sumangguni sa kaibigan lamang",
-              "Sumunod sa TV commercial"
+              "Ask permission from a parent or doctor",
+              "Take it right away",
+              "Ask only a friend",
+              "Follow a TV commercial"
             ],
-            "correct_answer": "Humingi ng pahintulot sa magulang o doktor"
+            "correct_answer": "Ask permission from a parent or doctor"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa MAPEH?",
+            "question": "Why is this topic taught in MAPEH?",
             "options": [
-              "Bahagi ito ng pag-aalaga sa kalusugan",
-              "Walang kaugnayan sa kalusugan",
-              "Tungkol lamang ito sa musika",
-              "Tungkol lamang ito sa sayaw"
+              "It is part of taking care of your health",
+              "It has nothing to do with health",
+              "It is only about music",
+              "It is only about dance"
             ],
-            "correct_answer": "Bahagi ito ng pag-aalaga sa kalusugan"
+            "correct_answer": "It is part of taking care of your health"
           },
           {
-            "question": "Alin ang HALIMBAWA ng tamang paggamit?",
+            "question": "Which is an EXAMPLE of proper use?",
             "options": [
-              "Pag-inom ayon sa reseta sa tamang oras",
-              "Dagdag na dosis para mabilis gumaling",
-              "Pag-inom ng gamot ng kapatid",
-              "Pag-inom nang walang pagbasa ng label"
+              "Taking it as prescribed at the right time",
+              "Taking an extra dose to get better faster",
+              "Taking a sibling's medicine",
+              "Taking it without reading the label"
             ],
-            "correct_answer": "Pag-inom ayon sa reseta sa tamang oras"
+            "correct_answer": "Taking it as prescribed at the right time"
           },
           {
-            "question": "Ano ang gagawin kung nakalimutan ang oras ng pag-inom?",
+            "question": "What should you do if you forgot the time to take your medicine?",
             "options": [
-              "Magtanong sa magulang o doktor",
-              "Uminom ng dobleng dosis",
-              "Kalimutan na lang",
-              "Uminom ng ibang gamot"
+              "Ask a parent or doctor",
+              "Take a double dose",
+              "Just forget about it",
+              "Take a different medicine"
             ],
-            "correct_answer": "Magtanong sa magulang o doktor"
+            "correct_answer": "Ask a parent or doctor"
           },
           {
-            "question": "Bakit ipinagbawal ang pag-inom nang walang pahintulot ng may sapat na gulang?",
+            "question": "Why is taking medicine without an adult's permission not allowed?",
             "options": [
-              "Baka hindi alam ng bata ang tamang dosis o epekto",
-              "Walang panganib dito",
-              "Palaging alam ng bata ang tamang gamot",
-              "Hindi na kailangan ng pahintulot"
+              "The child might not know the right dose or its effects",
+              "There is no danger in it",
+              "Children always know the right medicine",
+              "Permission is not needed"
             ],
-            "correct_answer": "Baka hindi alam ng bata ang tamang dosis o epekto"
+            "correct_answer": "The child might not know the right dose or its effects"
           }
         ]
       },

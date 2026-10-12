@@ -635,60 +635,60 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🕺 MAPEH — Dance Exercise\n\nGrade 6, Linggo 23! Simulan natin ang bagong yunit sa PE — Dance Exercise! 🕺\n\n## 🔄 Balik-Aral\nNatutuhan natin ang kalusugang pangkapaligiran (One Health).\n\n## 🕺 Ano ang Dance Exercise?\nAng **dance exercise** ay isang uri ng ehersisyo na gumagamit ng mga hakbang sa sayaw upang mapabuti ang **cardiovascular fitness** habang nagsasaya.\n\n## 💃 Mga Benepisyo\n- Pinapabuti ang lakas ng puso at baga\n- Nagpapahusay ng koordinasyon at balanse\n- Nagbibigay-saya habang nag-eehersisyo\n\n## 🎶 Halimbawa ng Dance Exercise\n- Zumba-inspired na kilos\n- Aerobic dance sa musikang Pilipino\n\n## 🎯 Bakit Mahalaga Ito?\nAng dance exercise ay isang masayang paraan upang manatiling aktibo at malusog ang katawan.\n\n**Mahahalagang salita:** dance exercise, cardiovascular fitness, koordinasyon, balanse",
+        "summary_markdown": "# 🕺 MAPEH — Dance Exercise\n\nGrade 6, Week 23! Let's start a new PE unit — Dance Exercise! 🕺\n\n## 🔄 Review\nWe learned about environmental health (One Health).\n\n## 🕺 What Is Dance Exercise?\n**Dance exercise** is a kind of exercise that uses dance steps to improve **cardiovascular fitness** (heart and lung strength) while having fun.\n\n## 💃 Benefits\n- Makes the heart and lungs stronger\n- Improves coordination and balance\n- Makes exercising fun\n\n## 🎶 Examples of Dance Exercise\n- Zumba-inspired moves\n- Aerobic dance to Filipino music\n\n## 🎯 Why Does It Matter?\nDance exercise is a fun way to keep your body active and healthy.\n\n**Key words:** dance exercise, cardiovascular fitness, coordination, balance",
         "quiz": [
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Ehersisyong gumagamit ng hakbang sa sayaw",
-              "Isang uri ng laro lamang",
-              "Isang uri ng pagkain",
-              "Isang bantas"
+              "Exercise that uses dance steps",
+              "Only a kind of game",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+            "correct_answer": "Exercise that uses dance steps"
           },
           {
-            "question": "Ano ang cardiovascular fitness?",
+            "question": "What is cardiovascular fitness?",
             "options": [
-              "Lakas ng puso at baga",
-              "Lakas ng braso lamang",
-              "Bilis ng pagtakbo lamang",
-              "Timbang ng katawan"
+              "Strength of the heart and lungs",
+              "Only arm strength",
+              "Only running speed",
+              "Body weight"
             ],
-            "correct_answer": "Lakas ng puso at baga"
+            "correct_answer": "Strength of the heart and lungs"
           },
           {
-            "question": "Anong benepisyo ang ibinibigay ng dance exercise?",
+            "question": "What benefit does dance exercise give?",
             "options": [
-              "Pinapabuti ang koordinasyon at balanse",
-              "Walang benepisyo",
-              "Pinapahina ang katawan",
-              "Nagdudulot lamang ng pagod"
+              "It improves coordination and balance",
+              "No benefit",
+              "It weakens the body",
+              "It only makes you tired"
             ],
-            "correct_answer": "Pinapabuti ang koordinasyon at balanse"
+            "correct_answer": "It improves coordination and balance"
           },
           {
-            "question": "Anong halimbawa ng dance exercise?",
+            "question": "Which is an example of dance exercise?",
             "options": [
-              "Zumba-inspired na kilos",
+              "Zumba-inspired moves",
               "Chess",
               "Puzzle games",
-              "Pagbabasa ng libro"
+              "Reading a book"
             ],
-            "correct_answer": "Zumba-inspired na kilos"
+            "correct_answer": "Zumba-inspired moves"
           },
           {
-            "question": "Bakit mahalagang gawin ang dance exercise?",
+            "question": "Why is it important to do dance exercise?",
             "options": [
-              "Nagbibigay-saya habang nagpapanatiling aktibo at malusog",
-              "Walang kahalagahan ito",
-              "Hindi ito totoong ehersisyo",
-              "Nagpapahina ito ng katawan"
+              "It's fun while keeping you active and healthy",
+              "It's not important",
+              "It's not real exercise",
+              "It makes the body weaker"
             ],
-            "correct_answer": "Nagbibigay-saya habang nagpapanatiling aktibo at malusog"
+            "correct_answer": "It's fun while keeping you active and healthy"
           },
           {
-            "question": "Anong bagong yunit ang sinimulan ngayong linggo sa PE?",
+            "question": "What new PE unit started this week?",
             "options": [
               "Dance Exercise",
               "Sports Officiating",
@@ -698,64 +698,64 @@
             "correct_answer": "Dance Exercise"
           },
           {
-            "question": "Bakit mas masaya ang dance exercise kaysa sa karaniwang ehersisyo?",
+            "question": "Why is dance exercise more fun than regular exercise?",
             "options": [
-              "Kombinasyon ito ng musika at galaw",
-              "Walang pagkakaiba ito sa iba",
-              "Mas mahirap ito kaysa iba",
-              "Hindi ito ehersisyo"
+              "It combines music and movement",
+              "It's no different from others",
+              "It's harder than others",
+              "It's not exercise"
             ],
-            "correct_answer": "Kombinasyon ito ng musika at galaw"
+            "correct_answer": "It combines music and movement"
           },
           {
-            "question": "Anong bahagi ng katawan ang pinapahusay ng dance exercise?",
+            "question": "What parts of the body does dance exercise make stronger?",
             "options": [
-              "Puso, baga, at kalamnan",
-              "Buhok lamang",
-              "Kuko lamang",
-              "Wala sa mga nabanggit"
+              "Heart, lungs, and muscles",
+              "Only hair",
+              "Only nails",
+              "None of these"
             ],
-            "correct_answer": "Puso, baga, at kalamnan"
+            "correct_answer": "Heart, lungs, and muscles"
           },
           {
-            "question": "Bakit itinuturo ang dance exercise sa MAPEH?",
+            "question": "Why is dance exercise taught in MAPEH?",
             "options": [
-              "Upang itaguyod ang pisikal na kalusugan sa masayang paraan",
-              "Walang layunin ito",
-              "Para sa matatanda lamang ito",
-              "Hindi kaugnay ng PE"
+              "To support physical health in a fun way",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to PE"
             ],
-            "correct_answer": "Upang itaguyod ang pisikal na kalusugan sa masayang paraan"
+            "correct_answer": "To support physical health in a fun way"
           },
           {
-            "question": "Paano nakakatulong ang dance exercise sa koordinasyon?",
+            "question": "How does dance exercise help coordination?",
             "options": [
-              "Kinakailangan sumabay sa mga hakbang at tempo ng musika",
-              "Hindi kailangan ng koordinasyon dito",
-              "Walang kaugnayan sa koordinasyon",
-              "Basta na lang tumayo"
+              "You need to keep up with the steps and tempo of the music",
+              "Coordination is not needed here",
+              "It has nothing to do with coordination",
+              "You just stand there"
             ],
-            "correct_answer": "Kinakailangan sumabay sa mga hakbang at tempo ng musika"
+            "correct_answer": "You need to keep up with the steps and tempo of the music"
           },
           {
-            "question": "Bakit isinama ang musikang Pilipino sa ilang halimbawa ng dance exercise?",
+            "question": "Why is Filipino music included in some dance exercise examples?",
             "options": [
-              "Nagpapahalaga ito sa kulturang Pilipino habang nag-eehersisyo",
-              "Walang kaugnayan ang musika",
-              "Ipinagbabawal ang musikang Pilipino",
-              "Basta random na pinili lamang"
+              "It helps us value Filipino culture while exercising",
+              "The music doesn't matter",
+              "Filipino music is banned",
+              "It was just picked at random"
             ],
-            "correct_answer": "Nagpapahalaga ito sa kulturang Pilipino habang nag-eehersisyo"
+            "correct_answer": "It helps us value Filipino culture while exercising"
           },
           {
-            "question": "Ano ang kaugnayan ng dance exercise sa kalusugang pangkapaligiran na natutunan noon?",
+            "question": "How is dance exercise related to the environmental health we learned before?",
             "options": [
-              "Magkaiba ang paksa pero pareho tumatalakay sa pangkalahatang kalusugan",
-              "Walang koneksyon ang dalawa",
-              "Parehong tungkol sa agham lamang",
-              "Parehong tungkol sa matematika"
+              "The topics are different, but both are about overall health",
+              "The two have no connection",
+              "Both are only about science",
+              "Both are about math"
             ],
-            "correct_answer": "Magkaiba ang paksa pero pareho tumatalakay sa pangkalahatang kalusugan"
+            "correct_answer": "The topics are different, but both are about overall health"
           }
         ]
       },
@@ -1637,60 +1637,60 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🕺 Friday Review — MAPEH (Grade 6)\n\n- Dance Exercise\n\nMagaling sa PE! 🌟",
+        "summary_markdown": "# 🕺 Friday Review — MAPEH (Grade 6)\n\n- Dance Exercise\n\nGreat job in PE! 🌟",
         "quiz": [
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Ehersisyong gumagamit ng hakbang sa sayaw",
-              "Uri ng laro lamang",
-              "Uri ng pagkain",
-              "Bantas"
+              "Exercise that uses dance steps",
+              "Only a kind of game",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+            "correct_answer": "Exercise that uses dance steps"
           },
           {
-            "question": "Ano ang cardiovascular fitness?",
+            "question": "What is cardiovascular fitness?",
             "options": [
-              "Lakas ng puso at baga",
-              "Lakas ng braso lamang",
-              "Bilis ng pagtakbo",
-              "Timbang ng katawan"
+              "Strength of the heart and lungs",
+              "Only arm strength",
+              "Running speed",
+              "Body weight"
             ],
-            "correct_answer": "Lakas ng puso at baga"
+            "correct_answer": "Strength of the heart and lungs"
           },
           {
-            "question": "Benepisyo ng dance exercise?",
+            "question": "A benefit of dance exercise?",
             "options": [
-              "Pinapabuti ang koordinasyon at balanse",
-              "Walang benepisyo",
-              "Pinapahina ang katawan",
-              "Nagdudulot ng pagod"
+              "Improves coordination and balance",
+              "No benefit",
+              "Weakens the body",
+              "Makes you tired"
             ],
-            "correct_answer": "Pinapabuti ang koordinasyon at balanse"
+            "correct_answer": "Improves coordination and balance"
           },
           {
-            "question": "Halimbawa ng dance exercise?",
+            "question": "An example of dance exercise?",
             "options": [
-              "Zumba-inspired na kilos",
+              "Zumba-inspired moves",
               "Chess",
               "Puzzle games",
-              "Pagbabasa"
+              "Reading"
             ],
-            "correct_answer": "Zumba-inspired na kilos"
+            "correct_answer": "Zumba-inspired moves"
           },
           {
-            "question": "Bakit gawin ang dance exercise?",
+            "question": "Why do dance exercise?",
             "options": [
-              "Nagbibigay-saya at nagpapanatiling aktibo",
-              "Walang kahalagahan",
-              "Hindi totoong ehersisyo",
-              "Nagpapahina"
+              "It's fun and keeps you active",
+              "It's not important",
+              "It's not real exercise",
+              "It makes you weaker"
             ],
-            "correct_answer": "Nagbibigay-saya at nagpapanatiling aktibo"
+            "correct_answer": "It's fun and keeps you active"
           },
           {
-            "question": "Bagong yunit ngayong linggo sa PE?",
+            "question": "New PE unit this week?",
             "options": [
               "Dance Exercise",
               "Sports Officiating",
@@ -1700,64 +1700,64 @@
             "correct_answer": "Dance Exercise"
           },
           {
-            "question": "Bakit mas masaya ang dance exercise?",
+            "question": "Why is dance exercise more fun?",
             "options": [
-              "Kombinasyon ng musika at galaw",
-              "Walang pagkakaiba",
-              "Mas mahirap ito",
-              "Hindi ito ehersisyo"
+              "It combines music and movement",
+              "No difference",
+              "It's harder",
+              "It's not exercise"
             ],
-            "correct_answer": "Kombinasyon ng musika at galaw"
+            "correct_answer": "It combines music and movement"
           },
           {
-            "question": "Bahagi ng katawan na pinapahusay?",
+            "question": "Body parts it makes stronger?",
             "options": [
-              "Puso, baga, kalamnan",
-              "Buhok lamang",
-              "Kuko lamang",
-              "Wala"
+              "Heart, lungs, muscles",
+              "Only hair",
+              "Only nails",
+              "None"
             ],
-            "correct_answer": "Puso, baga, kalamnan"
+            "correct_answer": "Heart, lungs, muscles"
           },
           {
-            "question": "Bakit itinuro ang dance exercise?",
+            "question": "Why is dance exercise taught?",
             "options": [
-              "Itaguyod ang pisikal na kalusugan",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng PE"
+              "To support physical health",
+              "It has no purpose",
+              "Only for older people",
+              "Not related to PE"
             ],
-            "correct_answer": "Itaguyod ang pisikal na kalusugan"
+            "correct_answer": "To support physical health"
           },
           {
-            "question": "Paano nakakatulong sa koordinasyon?",
+            "question": "How does it help coordination?",
             "options": [
-              "Sumabay sa hakbang at tempo",
-              "Hindi kailangan ng koordinasyon",
-              "Walang kaugnayan",
-              "Basta tumayo lamang"
+              "You keep up with the steps and tempo",
+              "Coordination is not needed",
+              "Not related",
+              "You just stand there"
             ],
-            "correct_answer": "Sumabay sa hakbang at tempo"
+            "correct_answer": "You keep up with the steps and tempo"
           },
           {
-            "question": "Bakit isinama ang musikang Pilipino?",
+            "question": "Why was Filipino music included?",
             "options": [
-              "Pahalagahan ang kultura habang nag-eehersisyo",
-              "Walang kaugnayan",
-              "Ipinagbabawal ito",
-              "Random na pinili lamang"
+              "To value our culture while exercising",
+              "Not related",
+              "It is banned",
+              "It was just picked at random"
             ],
-            "correct_answer": "Pahalagahan ang kultura habang nag-eehersisyo"
+            "correct_answer": "To value our culture while exercising"
           },
           {
-            "question": "Kaugnayan sa kalusugang pangkapaligiran?",
+            "question": "How is it related to environmental health?",
             "options": [
-              "Pareho tumatalakay sa pangkalahatang kalusugan",
-              "Walang koneksyon",
-              "Parehong agham lamang",
-              "Parehong matematika"
+              "Both are about overall health",
+              "No connection",
+              "Both are only science",
+              "Both are math"
             ],
-            "correct_answer": "Pareho tumatalakay sa pangkalahatang kalusugan"
+            "correct_answer": "Both are about overall health"
           }
         ]
       },

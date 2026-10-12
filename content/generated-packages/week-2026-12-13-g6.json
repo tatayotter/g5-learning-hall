@@ -635,40 +635,40 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎓 MAPEH — Term Review: Sining, Kultura, at Kalusugan\n\nGrade 6, Linggo 27! Balikan natin ang lahat ng natutuhan sa MAPEH ngayong term. 🎨\n\n## 🔄 Balik-Aral: Kalusugan\nKaraniwang nakakahawang sakit, chain of infection, at kalusugang pangkapaligiran (One Health).\n\n## 🔄 Balik-Aral: PE\nDance exercise, at mga lokal na street dance festival (Sinulog, Ati-Atihan, Dinagyang).\n\n## 🔄 Balik-Aral: Sayaw at Sining\nTradisyunal na sayaw (Tinikling, Singkil, Pandanggo sa Ilaw) at kontemporanyong pagkakakilanlang Pilipino.\n\n## 🎯 Pagsasama-sama ng Natutuhan\nIpinapakita ng buong termong ito kung paano pinapanatili ng mga Pilipino ang kalusugan ng katawan at pagpapahalaga sa kultura sa parehong oras.\n\n**Mahahalagang salita:** One Health, dance exercise, street dance, tradisyunal na sayaw, kontemporanyong sining",
+        "summary_markdown": "# 🎓 MAPEH — Term Review: Arts, Culture, and Health\n\nGrade 6, Week 27! Let's look back at everything we learned in MAPEH this term. 🎨\n\n## 🔄 Review: Health\nCommon communicable diseases, the chain of infection, and environmental health (One Health).\n\n## 🔄 Review: PE\nDance exercise, and local street dance festivals (Sinulog, Ati-Atihan, Dinagyang).\n\n## 🔄 Review: Dance and Arts\nTraditional dances (Tinikling, Singkil, Pandanggo sa Ilaw) and contemporary Filipino identity.\n\n## 🎯 Putting It All Together\nThis whole term shows how Filipinos take care of their bodies and value their culture at the same time.\n\n**Key words:** One Health, dance exercise, street dance, traditional dance, contemporary art",
         "quiz": [
           {
-            "question": "Ano ang One Health?",
+            "question": "What is One Health?",
             "options": [
-              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
-              "Uri ng bakuna",
-              "Uri ng ehersisyo",
-              "Uri ng gamot"
+              "The health of people, animals, and the environment are connected",
+              "A kind of vaccine",
+              "A kind of exercise",
+              "A kind of medicine"
             ],
-            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+            "correct_answer": "The health of people, animals, and the environment are connected"
           },
           {
-            "question": "Ano ang chain of infection?",
+            "question": "What is the chain of infection?",
             "options": [
-              "Ang proseso kung paano kumakalat ang sakit",
-              "Isang uri ng gamot",
-              "Isang uri ng ehersisyo",
-              "Isang bakuna"
+              "The process of how a disease spreads",
+              "A kind of medicine",
+              "A kind of exercise",
+              "A vaccine"
             ],
-            "correct_answer": "Ang proseso kung paano kumakalat ang sakit"
+            "correct_answer": "The process of how a disease spreads"
           },
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Ehersisyong gumagamit ng hakbang sa sayaw",
-              "Isang uri ng laro lamang",
-              "Isang uri ng pagkain",
-              "Isang bantas"
+              "Exercise that uses dance steps",
+              "Only a kind of game",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+            "correct_answer": "Exercise that uses dance steps"
           },
           {
-            "question": "Saan ginaganap ang Sinulog?",
+            "question": "Where is the Sinulog held?",
             "options": [
               "Cebu",
               "Aklan",
@@ -678,84 +678,84 @@
             "correct_answer": "Cebu"
           },
           {
-            "question": "Anong kagamitan ginagamit sa Tinikling?",
+            "question": "What props are used in the Tinikling?",
             "options": [
-              "Kawayan",
-              "Payong",
-              "Ilawan",
-              "Baso"
+              "Bamboo poles",
+              "Umbrella",
+              "Oil lamp",
+              "Glass"
             ],
-            "correct_answer": "Kawayan"
+            "correct_answer": "Bamboo poles"
           },
           {
-            "question": "Sino gumagawa ng Singkil?",
+            "question": "Who performs the Singkil?",
             "options": [
-              "Mga Maranao",
-              "Mga Ilokano",
-              "Mga Bisaya",
-              "Mga Tagalog"
+              "The Maranao",
+              "The Ilokano",
+              "The Bisaya",
+              "The Tagalog"
             ],
-            "correct_answer": "Mga Maranao"
+            "correct_answer": "The Maranao"
           },
           {
-            "question": "Ano ang OPM?",
+            "question": "What is OPM?",
             "options": [
               "Original Pilipino Music",
-              "Isang uri ng sayaw",
-              "Isang bansa",
-              "Isang uri ng pagkain"
+              "A kind of dance",
+              "A country",
+              "A kind of food"
             ],
             "correct_answer": "Original Pilipino Music"
           },
           {
-            "question": "Ano ang 8Rs?",
+            "question": "What are the 8Rs?",
             "options": [
-              "Mga paraan para bawasan ang basura sa kapaligiran",
-              "Walong bagong sakit",
-              "Walong bakuna",
-              "Walong uri ng ehersisyo"
+              "Ways to cut down on trash in the environment",
+              "Eight new diseases",
+              "Eight vaccines",
+              "Eight kinds of exercise"
             ],
-            "correct_answer": "Mga paraan para bawasan ang basura sa kapaligiran"
+            "correct_answer": "Ways to cut down on trash in the environment"
           },
           {
-            "question": "Bakit mahalagang mapanatili ang tradisyunal na sayaw?",
+            "question": "Why is it important to keep traditional dances alive?",
             "options": [
-              "Bahagi ito ng ating pambansang pagkakakilanlan",
-              "Walang kahalagahan ito",
-              "Hindi na kailangan ito ngayon",
-              "Ito ay hindi bahagi ng kultura"
+              "They are part of our national identity",
+              "They are not important",
+              "They are no longer needed today",
+              "They are not part of the culture"
             ],
-            "correct_answer": "Bahagi ito ng ating pambansang pagkakakilanlan"
+            "correct_answer": "They are part of our national identity"
           },
           {
-            "question": "Paano ipinapakita ng buong termong ito ang balanse ng kalusugan at kultura?",
+            "question": "How does this whole term show a balance of health and culture?",
             "options": [
-              "Sinasama nito ang pisikal na kalusugan at pagpapahalaga sa sining",
-              "Isa lamang sa mga ito ang mahalaga",
-              "Walang koneksyon ang dalawa",
-              "Hindi ito totoong tema ng MAPEH"
+              "It brings together physical health and valuing the arts",
+              "Only one of them matters",
+              "The two have no connection",
+              "It is not a real MAPEH theme"
             ],
-            "correct_answer": "Sinasama nito ang pisikal na kalusugan at pagpapahalaga sa sining"
+            "correct_answer": "It brings together physical health and valuing the arts"
           },
           {
-            "question": "Bakit itinuturing na mahalagang bahagi ng MAPEH ang pagpapahalaga sa kultura?",
+            "question": "Why is valuing culture seen as an important part of MAPEH?",
             "options": [
-              "Tumutulong itong mapanatili ang pagkakakilanlan ng Pilipino",
-              "Walang kaugnayan ito",
-              "Ito ay hiwalay na paksa lamang",
-              "Hindi ito bahagi ng edukasyon"
+              "It helps keep Filipino identity alive",
+              "It is not related",
+              "It is just a separate topic",
+              "It is not part of education"
             ],
-            "correct_answer": "Tumutulong itong mapanatili ang pagkakakilanlan ng Pilipino"
+            "correct_answer": "It helps keep Filipino identity alive"
           },
           {
-            "question": "Ano ang kabuuang aral ng buong Term 2 sa MAPEH?",
+            "question": "What is the big lesson of all of Term 2 in MAPEH?",
             "options": [
-              "Ang kahalagahan ng kalusugan at kulturang Pilipino sa pang-araw-araw na buhay",
-              "Walang partikular na aral",
-              "Tungkol lamang sa isport",
-              "Tungkol lamang sa musika"
+              "The importance of health and Filipino culture in everyday life",
+              "No particular lesson",
+              "Only about sports",
+              "Only about music"
             ],
-            "correct_answer": "Ang kahalagahan ng kalusugan at kulturang Pilipino sa pang-araw-araw na buhay"
+            "correct_answer": "The importance of health and Filipino culture in everyday life"
           }
         ]
       },
@@ -1637,40 +1637,40 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎓 Friday Review — MAPEH (Grade 6)\n\n- Buong term review: sining, kultura, kalusugan\n\nMagaling na term sa MAPEH! 🌟",
+        "summary_markdown": "# 🎓 Friday Review — MAPEH (Grade 6)\n\n- Full term review: arts, culture, health\n\nGreat term in MAPEH! 🌟",
         "quiz": [
           {
-            "question": "Ano ang One Health?",
+            "question": "What is One Health?",
             "options": [
-              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
-              "Uri ng bakuna",
-              "Uri ng ehersisyo",
-              "Uri ng gamot"
+              "The health of people, animals, and the environment are connected",
+              "A kind of vaccine",
+              "A kind of exercise",
+              "A kind of medicine"
             ],
-            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+            "correct_answer": "The health of people, animals, and the environment are connected"
           },
           {
-            "question": "Ano ang chain of infection?",
+            "question": "What is the chain of infection?",
             "options": [
-              "Proseso ng pagkalat ng sakit",
-              "Uri ng gamot",
-              "Uri ng ehersisyo",
-              "Bakuna"
+              "The process of how disease spreads",
+              "A kind of medicine",
+              "A kind of exercise",
+              "A vaccine"
             ],
-            "correct_answer": "Proseso ng pagkalat ng sakit"
+            "correct_answer": "The process of how disease spreads"
           },
           {
-            "question": "Ano ang dance exercise?",
+            "question": "What is dance exercise?",
             "options": [
-              "Ehersisyong gumagamit ng hakbang sa sayaw",
-              "Uri ng laro lamang",
-              "Uri ng pagkain",
-              "Bantas"
+              "Exercise that uses dance steps",
+              "Only a kind of game",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Ehersisyong gumagamit ng hakbang sa sayaw"
+            "correct_answer": "Exercise that uses dance steps"
           },
           {
-            "question": "Saan ginaganap ang Sinulog?",
+            "question": "Where is the Sinulog held?",
             "options": [
               "Cebu",
               "Aklan",
@@ -1680,84 +1680,84 @@
             "correct_answer": "Cebu"
           },
           {
-            "question": "Kagamitan sa Tinikling?",
+            "question": "Props used in the Tinikling?",
             "options": [
-              "Kawayan",
-              "Payong",
-              "Ilawan",
-              "Baso"
+              "Bamboo poles",
+              "Umbrella",
+              "Oil lamp",
+              "Glass"
             ],
-            "correct_answer": "Kawayan"
+            "correct_answer": "Bamboo poles"
           },
           {
-            "question": "Sino gumagawa ng Singkil?",
+            "question": "Who performs the Singkil?",
             "options": [
-              "Mga Maranao",
-              "Mga Ilokano",
-              "Mga Bisaya",
-              "Mga Tagalog"
+              "The Maranao",
+              "The Ilokano",
+              "The Bisaya",
+              "The Tagalog"
             ],
-            "correct_answer": "Mga Maranao"
+            "correct_answer": "The Maranao"
           },
           {
-            "question": "Ano ang OPM?",
+            "question": "What is OPM?",
             "options": [
               "Original Pilipino Music",
-              "Uri ng sayaw",
-              "Bansa",
-              "Uri ng pagkain"
+              "A kind of dance",
+              "A country",
+              "A kind of food"
             ],
             "correct_answer": "Original Pilipino Music"
           },
           {
-            "question": "Ano ang 8Rs?",
+            "question": "What are the 8Rs?",
             "options": [
-              "Paraan para bawasan ang basura",
-              "Walong bagong sakit",
-              "Walong bakuna",
-              "Walong ehersisyo"
+              "Ways to cut down on trash",
+              "Eight new diseases",
+              "Eight vaccines",
+              "Eight exercises"
             ],
-            "correct_answer": "Paraan para bawasan ang basura"
+            "correct_answer": "Ways to cut down on trash"
           },
           {
-            "question": "Bakit mapanatili ang tradisyunal na sayaw?",
+            "question": "Why keep traditional dances alive?",
             "options": [
-              "Bahagi ng pambansang pagkakakilanlan",
-              "Walang kahalagahan",
-              "Hindi kailangan ngayon",
-              "Hindi bahagi ng kultura"
+              "Part of our national identity",
+              "They are not important",
+              "Not needed today",
+              "Not part of the culture"
             ],
-            "correct_answer": "Bahagi ng pambansang pagkakakilanlan"
+            "correct_answer": "Part of our national identity"
           },
           {
-            "question": "Paano ipinapakita ng term ang balanse ng kalusugan at kultura?",
+            "question": "How does the term show a balance of health and culture?",
             "options": [
-              "Sinasama ang pisikal na kalusugan at sining",
-              "Isa lamang mahalaga",
-              "Walang koneksyon",
-              "Hindi totoong tema"
+              "It brings together physical health and the arts",
+              "Only one matters",
+              "No connection",
+              "Not a real theme"
             ],
-            "correct_answer": "Sinasama ang pisikal na kalusugan at sining"
+            "correct_answer": "It brings together physical health and the arts"
           },
           {
-            "question": "Bakit mahalaga ang pagpapahalaga sa kultura sa MAPEH?",
+            "question": "Why is valuing culture important in MAPEH?",
             "options": [
-              "Mapanatili ang pagkakakilanlan ng Pilipino",
-              "Walang kaugnayan",
-              "Hiwalay na paksa",
-              "Hindi bahagi ng edukasyon"
+              "To keep Filipino identity alive",
+              "Not related",
+              "A separate topic",
+              "Not part of education"
             ],
-            "correct_answer": "Mapanatili ang pagkakakilanlan ng Pilipino"
+            "correct_answer": "To keep Filipino identity alive"
           },
           {
-            "question": "Kabuuang aral ng Term 2 sa MAPEH?",
+            "question": "The big lesson of Term 2 in MAPEH?",
             "options": [
-              "Kahalagahan ng kalusugan at kulturang Pilipino",
-              "Walang partikular na aral",
-              "Tungkol lamang sa isport",
-              "Tungkol lamang sa musika"
+              "The importance of health and Filipino culture",
+              "No particular lesson",
+              "Only about sports",
+              "Only about music"
             ],
-            "correct_answer": "Kahalagahan ng kalusugan at kulturang Pilipino"
+            "correct_answer": "The importance of health and Filipino culture"
           }
         ]
       },

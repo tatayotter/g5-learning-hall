@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 👨‍👩‍👧‍👦 MAPEH — Pagpaplano ng Gawaing Pangkalusugan ng Pamilya\n\nGrade 6, Linggo 19! Pagsamahin natin ang natutuhan tungkol sa larong pisikal at kalusugan. 🏃‍♀️\n\n## 🔄 Balik-Aral\nNatutuhan na natin ang **striking/fielding at net/wall games**, gayundin ang mga **konsepto ng agility, balance, at coordination**.\n\n## 📅 Pagpaplano ng Family Wellness Day\nNgayong linggo, magplano tayo ng isang **araw ng gawaing pangkalusugan** para sa buong pamilya, gamit ang mga larong natutuhan.\n\n## 📋 Mga Elemento ng Isang Magandang Plano\n| Elemento | Paliwanag |\n|---|---|\n| **Pagpili ng laro** | pumili ng modipikadong laro na angkop sa lahat ng edad |\n| **Iskedyul** | magtakda ng tiyak na oras at araw |\n| **Kagamitan** | ihanda ang mga kailangang kagamitan (bola, lubid, atbp.) |\n| **Kaligtasan** | tiyakin na ligtas ang lugar at gawain para sa lahat |\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?*\n- Upang **magamit ito ng lahat ng edad**, mula bata hanggang matanda.\n\n## 🧠 Halimbawa 2\n*Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?*\n- Upang **maiwasan ang aksidente** at masiguro na masaya at ligtas ang lahat ng kalahok.\n\n## 💡 Kahalagahan\nAng pagpaplano ng gawaing pangkalusugan ng pamilya ay nagpapatibay ng **samahan at kalusugan** ng buong sambahayan.\n\nMagaling! 🌟",
+        "summary_markdown": "# 👨‍👩‍👧‍👦 MAPEH — Planning a Family Health Activity\n\nGrade 6, Week 19! Let's put together what we learned about physical games and health. 🏃‍♀️\n\n## 🔄 Review\nWe already learned about **striking/fielding and net/wall games**, and the **ideas of agility, balance, and coordination**.\n\n## 📅 Planning a Family Wellness Day\nThis week, let's plan a **day of healthy activities** for the whole family, using the games we learned.\n\n## 📋 Parts of a Good Plan\n| Part | Meaning |\n|---|---|\n| **Choosing a game** | pick a modified game that fits all ages |\n| **Schedule** | set an exact time and day |\n| **Equipment** | get the things you need ready (ball, rope, etc.) |\n| **Safety** | make sure the place and activity are safe for everyone |\n\n## 🧠 Example 1\n*Why is it important to choose a modified game for the family wellness day?*\n- So **people of all ages can play**, from kids to grown-ups.\n\n## 🧠 Example 2\n*Why should safety be thought about when planning the activity?*\n- To **prevent accidents** and make sure everyone who joins is happy and safe.\n\n## 💡 Why It Matters\nPlanning a family health activity makes the whole household's **bonds and health** stronger.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Anong dalawang uri ng laro ang natutuhan natin sa nakaraang mga linggo?",
+            "question": "What two kinds of games did we learn in the past weeks?",
             "options": [
-              "Striking/fielding at net/wall games",
-              "Board games at card games lamang",
-              "Video games lamang",
-              "Larong walang anumang kilos"
+              "Striking/fielding and net/wall games",
+              "Only board games and card games",
+              "Only video games",
+              "Games with no movement at all"
             ],
-            "correct_answer": "Striking/fielding at net/wall games"
+            "correct_answer": "Striking/fielding and net/wall games"
           },
           {
-            "question": "Ano ang family wellness day?",
+            "question": "What is a family wellness day?",
             "options": [
-              "Isang araw ng gawaing pangkalusugan para sa buong pamilya",
-              "Isang araw na gugugulin sa pamimili lamang",
-              "Isang araw na gugugulin sa pagtulog lamang",
-              "Isang araw na gugugulin sa panonood ng TV"
+              "A day of healthy activities for the whole family",
+              "A day spent only shopping",
+              "A day spent only sleeping",
+              "A day spent watching TV"
             ],
-            "correct_answer": "Isang araw ng gawaing pangkalusugan para sa buong pamilya"
+            "correct_answer": "A day of healthy activities for the whole family"
           },
           {
-            "question": "Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?",
+            "question": "Why is it important to choose a modified game for the family wellness day?",
             "options": [
-              "Upang magamit ito ng lahat ng edad",
-              "Upang para lamang sa mga bata",
-              "Upang para lamang sa mga matatanda",
-              "Walang dahilan ito talaga"
+              "So people of all ages can play",
+              "So it is only for children",
+              "So it is only for older people",
+              "There is really no reason"
             ],
-            "correct_answer": "Upang magamit ito ng lahat ng edad"
+            "correct_answer": "So people of all ages can play"
           },
           {
-            "question": "Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?",
+            "question": "Why should safety be thought about when planning the activity?",
             "options": [
-              "Upang maiwasan ang aksidente at masigurong ligtas ang lahat",
-              "Wala itong kaugnayan sa gawain",
-              "Upang mapabilis lamang ang laro",
-              "Upang hindi na kailangan pang magplano"
+              "To prevent accidents and make sure everyone is safe",
+              "It has nothing to do with the activity",
+              "Only to make the game faster",
+              "So there is no need to plan anymore"
             ],
-            "correct_answer": "Upang maiwasan ang aksidente at masigurong ligtas ang lahat"
+            "correct_answer": "To prevent accidents and make sure everyone is safe"
           },
           {
-            "question": "Ano ang isa sa mga elemento ng magandang plano para sa wellness day?",
+            "question": "What is one part of a good plan for a wellness day?",
             "options": [
-              "Pagpili ng laro na angkop sa lahat ng edad",
-              "Pagtakbo nang walang plano",
-              "Pagbibigay ng gawain nang walang iskedyul",
-              "Pag-iwas sa lahat ng kagamitan"
+              "Choosing a game that fits all ages",
+              "Running around with no plan",
+              "Giving out tasks with no schedule",
+              "Avoiding all equipment"
             ],
-            "correct_answer": "Pagpili ng laro na angkop sa lahat ng edad"
+            "correct_answer": "Choosing a game that fits all ages"
           },
           {
-            "question": "Bakit kailangang maghanda ng kagamitan bago ang wellness day?",
+            "question": "Why do you need to get equipment ready before the wellness day?",
             "options": [
-              "Upang maging maayos at handa ang gawain",
-              "Wala itong kabuluhan sa gawain",
-              "Upang mapabilis lamang ang oras",
-              "Hindi kailangang maghanda ng anuman"
+              "So the activity is orderly and ready",
+              "It doesn't matter for the activity",
+              "Only to make time go faster",
+              "You don't need to prepare anything"
             ],
-            "correct_answer": "Upang maging maayos at handa ang gawain"
+            "correct_answer": "So the activity is orderly and ready"
           },
           {
-            "question": "Ano ang layunin ng pagtatakda ng tiyak na iskedyul para sa wellness day?",
+            "question": "What is the goal of setting an exact schedule for the wellness day?",
             "options": [
-              "Upang lahat ay handa at nakaayos sa tamang oras",
-              "Upang malito ang lahat ng kasapi ng pamilya",
-              "Walang layunin ang pagtatakda ng iskedyul",
-              "Upang bawasan ang bilang ng kalahok"
+              "So everyone is ready and organized at the right time",
+              "To confuse all the family members",
+              "Setting a schedule has no goal",
+              "To lower the number of people joining"
             ],
-            "correct_answer": "Upang lahat ay handa at nakaayos sa tamang oras"
+            "correct_answer": "So everyone is ready and organized at the right time"
           },
           {
-            "question": "Ano ang idinudulot ng pagpaplano ng gawaing pangkalusugan ng pamilya?",
+            "question": "What does planning a family health activity bring?",
             "options": [
-              "Nagpapatibay ito ng samahan at kalusugan ng sambahayan",
-              "Nagpapahina lamang ito ng samahan ng pamilya",
-              "Wala itong anumang benepisyo sa buong pamilya",
-              "Nagdudulot lamang ito ng away sa tahanan"
+              "It makes the household's bonds and health stronger",
+              "It only weakens family bonds",
+              "It has no benefit for the whole family",
+              "It only causes fights at home"
             ],
-            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan ng sambahayan"
+            "correct_answer": "It makes the household's bonds and health stronger"
           },
           {
-            "question": "Anong konsepto ang natutuhan natin na tumutulong sa mabilis na paggalaw?",
+            "question": "What idea did we learn that helps with moving fast?",
             "options": [
               "Agility",
-              "Kahirapan",
-              "Kalungkutan",
-              "Kapabayaan"
+              "Hardship",
+              "Sadness",
+              "Carelessness"
             ],
             "correct_answer": "Agility"
           },
           {
-            "question": "Anong konsepto ang tumutulong sa pananatiling matatag habang gumagalaw?",
+            "question": "What idea helps you stay steady while moving?",
             "options": [
               "Balance",
-              "Kalungkutan",
-              "Kapabayaan",
-              "Kahirapan"
+              "Sadness",
+              "Carelessness",
+              "Hardship"
             ],
             "correct_answer": "Balance"
           },
           {
-            "question": "Bakit mahalagang isama ang buong pamilya sa gawaing pangkalusugan?",
+            "question": "Why is it important to include the whole family in health activities?",
             "options": [
-              "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan",
-              "Wala itong kabuluhan kung sama-sama ang lahat",
-              "Mas mainam na mag-isa lamang gawin ito",
-              "Hindi na kailangan ang pamilya sa gawaing ito"
+              "It makes bonds stronger while improving health",
+              "It is pointless if everyone is together",
+              "It is better to do it alone",
+              "The family is not needed for this activity"
             ],
-            "correct_answer": "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan"
+            "correct_answer": "It makes bonds stronger while improving health"
           },
           {
-            "question": "Ano ang unang hakbang sa pagpaplano ng family wellness day?",
+            "question": "What is the first step in planning a family wellness day?",
             "options": [
-              "Pagpili ng laro na angkop sa lahat",
-              "Direktang pagsisimula ng laro",
-              "Pagbibigay ng gantimpala agad",
-              "Pagtatapos ng gawain agad"
+              "Choosing a game that fits everyone",
+              "Starting the game right away",
+              "Giving prizes right away",
+              "Ending the activity right away"
             ],
-            "correct_answer": "Pagpili ng laro na angkop sa lahat"
+            "correct_answer": "Choosing a game that fits everyone"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 👨‍👩‍👧‍👦 Friday Review — MAPEH (Grade 6)\n\n- Pagpaplano ng family wellness day gamit ang natutuhang laro\n\nMagaling! 🌟",
+        "summary_markdown": "# 👨‍👩‍👧‍👦 Friday Review — MAPEH (Grade 6)\n\n- Planning a family wellness day using the games we learned\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Anong dalawang uri ng laro ang natutuhan natin sa nakaraang mga linggo?",
+            "question": "What two kinds of games did we learn in the past weeks?",
             "options": [
-              "Striking/fielding at net/wall games",
-              "Board games at card games lamang",
-              "Video games lamang",
-              "Larong walang anumang kilos"
+              "Striking/fielding and net/wall games",
+              "Only board games and card games",
+              "Only video games",
+              "Games with no movement at all"
             ],
-            "correct_answer": "Striking/fielding at net/wall games"
+            "correct_answer": "Striking/fielding and net/wall games"
           },
           {
-            "question": "Ano ang family wellness day?",
+            "question": "What is a family wellness day?",
             "options": [
-              "Isang araw ng gawaing pangkalusugan para sa buong pamilya",
-              "Isang araw na gugugulin sa pamimili lamang",
-              "Isang araw na gugugulin sa pagtulog lamang",
-              "Isang araw na gugugulin sa panonood ng TV"
+              "A day of healthy activities for the whole family",
+              "A day spent only shopping",
+              "A day spent only sleeping",
+              "A day spent watching TV"
             ],
-            "correct_answer": "Isang araw ng gawaing pangkalusugan para sa buong pamilya"
+            "correct_answer": "A day of healthy activities for the whole family"
           },
           {
-            "question": "Bakit mahalagang pumili ng modipikadong laro para sa family wellness day?",
+            "question": "Why is it important to choose a modified game for the family wellness day?",
             "options": [
-              "Upang magamit ito ng lahat ng edad",
-              "Upang para lamang sa mga bata",
-              "Upang para lamang sa mga matatanda",
-              "Walang dahilan ito talaga"
+              "So people of all ages can play",
+              "So it is only for children",
+              "So it is only for older people",
+              "There is really no reason"
             ],
-            "correct_answer": "Upang magamit ito ng lahat ng edad"
+            "correct_answer": "So people of all ages can play"
           },
           {
-            "question": "Bakit dapat isaalang-alang ang kaligtasan sa pagpaplano ng gawain?",
+            "question": "Why should safety be thought about when planning the activity?",
             "options": [
-              "Upang maiwasan ang aksidente at masigurong ligtas ang lahat",
-              "Wala itong kaugnayan sa gawain",
-              "Upang mapabilis lamang ang laro",
-              "Upang hindi na kailangan pang magplano"
+              "To prevent accidents and make sure everyone is safe",
+              "It has nothing to do with the activity",
+              "Only to make the game faster",
+              "So there is no need to plan anymore"
             ],
-            "correct_answer": "Upang maiwasan ang aksidente at masigurong ligtas ang lahat"
+            "correct_answer": "To prevent accidents and make sure everyone is safe"
           },
           {
-            "question": "Ano ang isa sa mga elemento ng magandang plano para sa wellness day?",
+            "question": "What is one part of a good plan for a wellness day?",
             "options": [
-              "Pagpili ng laro na angkop sa lahat ng edad",
-              "Pagtakbo nang walang plano",
-              "Pagbibigay ng gawain nang walang iskedyul",
-              "Pag-iwas sa lahat ng kagamitan"
+              "Choosing a game that fits all ages",
+              "Running around with no plan",
+              "Giving out tasks with no schedule",
+              "Avoiding all equipment"
             ],
-            "correct_answer": "Pagpili ng laro na angkop sa lahat ng edad"
+            "correct_answer": "Choosing a game that fits all ages"
           },
           {
-            "question": "Bakit kailangang maghanda ng kagamitan bago ang wellness day?",
+            "question": "Why do you need to get equipment ready before the wellness day?",
             "options": [
-              "Upang maging maayos at handa ang gawain",
-              "Wala itong kabuluhan sa gawain",
-              "Upang mapabilis lamang ang oras",
-              "Hindi kailangang maghanda ng anuman"
+              "So the activity is orderly and ready",
+              "It doesn't matter for the activity",
+              "Only to make time go faster",
+              "You don't need to prepare anything"
             ],
-            "correct_answer": "Upang maging maayos at handa ang gawain"
+            "correct_answer": "So the activity is orderly and ready"
           },
           {
-            "question": "Ano ang layunin ng pagtatakda ng tiyak na iskedyul para sa wellness day?",
+            "question": "What is the goal of setting an exact schedule for the wellness day?",
             "options": [
-              "Upang lahat ay handa at nakaayos sa tamang oras",
-              "Upang malito ang lahat ng kasapi ng pamilya",
-              "Walang layunin ang pagtatakda ng iskedyul",
-              "Upang bawasan ang bilang ng kalahok"
+              "So everyone is ready and organized at the right time",
+              "To confuse all the family members",
+              "Setting a schedule has no goal",
+              "To lower the number of people joining"
             ],
-            "correct_answer": "Upang lahat ay handa at nakaayos sa tamang oras"
+            "correct_answer": "So everyone is ready and organized at the right time"
           },
           {
-            "question": "Ano ang idinudulot ng pagpaplano ng gawaing pangkalusugan ng pamilya?",
+            "question": "What does planning a family health activity bring?",
             "options": [
-              "Nagpapatibay ito ng samahan at kalusugan ng sambahayan",
-              "Nagpapahina lamang ito ng samahan ng pamilya",
-              "Wala itong anumang benepisyo sa buong pamilya",
-              "Nagdudulot lamang ito ng away sa tahanan"
+              "It makes the household's bonds and health stronger",
+              "It only weakens family bonds",
+              "It has no benefit for the whole family",
+              "It only causes fights at home"
             ],
-            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan ng sambahayan"
+            "correct_answer": "It makes the household's bonds and health stronger"
           },
           {
-            "question": "Anong konsepto ang natutuhan natin na tumutulong sa mabilis na paggalaw?",
+            "question": "What idea did we learn that helps with moving fast?",
             "options": [
               "Agility",
-              "Kahirapan",
-              "Kalungkutan",
-              "Kapabayaan"
+              "Hardship",
+              "Sadness",
+              "Carelessness"
             ],
             "correct_answer": "Agility"
           },
           {
-            "question": "Anong konsepto ang tumutulong sa pananatiling matatag habang gumagalaw?",
+            "question": "What idea helps you stay steady while moving?",
             "options": [
               "Balance",
-              "Kalungkutan",
-              "Kapabayaan",
-              "Kahirapan"
+              "Sadness",
+              "Carelessness",
+              "Hardship"
             ],
             "correct_answer": "Balance"
           },
           {
-            "question": "Bakit mahalagang isama ang buong pamilya sa gawaing pangkalusugan?",
+            "question": "Why is it important to include the whole family in health activities?",
             "options": [
-              "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan",
-              "Wala itong kabuluhan kung sama-sama ang lahat",
-              "Mas mainam na mag-isa lamang gawin ito",
-              "Hindi na kailangan ang pamilya sa gawaing ito"
+              "It makes bonds stronger while improving health",
+              "It is pointless if everyone is together",
+              "It is better to do it alone",
+              "The family is not needed for this activity"
             ],
-            "correct_answer": "Nagpapalakas ito ng ugnayan habang nagpapataas ng kalusugan"
+            "correct_answer": "It makes bonds stronger while improving health"
           },
           {
-            "question": "Ano ang unang hakbang sa pagpaplano ng family wellness day?",
+            "question": "What is the first step in planning a family wellness day?",
             "options": [
-              "Pagpili ng laro na angkop sa lahat",
-              "Direktang pagsisimula ng laro",
-              "Pagbibigay ng gantimpala agad",
-              "Pagtatapos ng gawain agad"
+              "Choosing a game that fits everyone",
+              "Starting the game right away",
+              "Giving prizes right away",
+              "Ending the activity right away"
             ],
-            "correct_answer": "Pagpili ng laro na angkop sa lahat"
+            "correct_answer": "Choosing a game that fits everyone"
           }
         ]
       },

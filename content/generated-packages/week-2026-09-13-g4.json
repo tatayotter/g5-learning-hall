@@ -635,80 +635,80 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎵 MAPEH — Rhythm, Family Health, at Invasion Games\n\nSimula ng Termino 2! Marami tayong bagong matutunan. 🎶\n\n## 🥁 Music: Rhythm at Tempo\nAng **rhythm** (indayog) ay ang pattern ng tunog at katahimikan sa isang awitin. Ang **tempo** ay ang **bilis** ng musika.\n- **Mabilis na tempo** — masiglang musika\n- **Mabagal na tempo** — kalmadong musika\n\n## 🎭 Arts (Theater/Dance): Rhythm at Movement\nAng mga **lokal na ritwal** at **sayaw na panrelihiyon** ay gumagamit ng **paulit-ulit na galaw** (rhythmic pattern) upang ipakita ang kahulugan ng seremonya.\n\n## 🎨 Visual Arts: Rhythm at Pattern\nSa sining biswal, ang **rhythm** ay nilikha sa pamamagitan ng **paulit-ulit na hugis, kulay, o linya**.\n\n## 👨‍👩‍👧‍👦 Family Health: Katangian ng Malusog na Pamilya\nAng isang **malusog na pamilya** ay may:\n- **Paggalang** sa opinyon ng bawat kasapi\n- **Patas na tuntunin** para sa lahat\n- **Bukas na komunikasyon**\n\n**Aktibidad na nagpapabuti ng kalusugan ng pamilya:** sayawan, ehersisyo, magluto nang sama-sama, at paghahalaman.\n\n## ⚽ PE — Invasion Games\nSa **invasion games**, layunin mong **pumasok sa espasyo** ng kalaban (attacking) habang **iniiwasan** naman na makapasok ang kalaban sa sarili mong espasyo (defending).\n\n**Mga Larong Pilipino:**\n- **Agawan Base** — pag-agaw ng base ng kalaban\n- **Patintero** — pagtawid sa mga guhit nang hindi nahuhuli\n- **Langit-Lupa** — pag-iwas sa taggu habang tumatalon sa itaas o ibaba\n\n## 🧠 Halimbawa\n*Bakit invasion game ang Patintero?* Dahil sinusubukan mong **tumawid sa espasyo** ng mga taggu (attacking) nang hindi nahuhuli (defending laban sa taggu).\n\nMagaling sa MAPEH! 🌟\n",
+        "summary_markdown": "# 🎵 MAPEH — Rhythm, Family Health, and Invasion Games\n\nTerm 2 begins! We have lots of new things to learn. 🎶\n\n## 🥁 Music: Rhythm and Tempo\n**Rhythm** is the pattern of sound and silence in a song. **Tempo** is the **speed** of the music.\n- **Fast tempo** — lively music\n- **Slow tempo** — calm music\n\n## 🎭 Arts (Theater/Dance): Rhythm and Movement\n**Local rituals** and **religious dances** use **repeated movements** (rhythmic patterns) to show the meaning of the ceremony.\n\n## 🎨 Visual Arts: Rhythm and Pattern\nIn visual arts, **rhythm** is made by **repeating shapes, colors, or lines**.\n\n## 👨‍👩‍👧‍👦 Family Health: Traits of a Healthy Family\nA **healthy family** has:\n- **Respect** for each member's opinion\n- **Fair rules** for everyone\n- **Open communication**\n\n**Activities that improve family health:** dancing, exercising, cooking together, and gardening.\n\n## ⚽ PE — Invasion Games\nIn **invasion games**, your goal is to **get into the other team's space** (attacking) while **stopping** the other team from getting into your own space (defending).\n\n**Filipino Games:**\n- **Agawan Base** — capturing the other team's base\n- **Patintero** — crossing the lines without getting caught\n- **Langit-Lupa** — dodging the tagger while jumping up high or staying low\n\n## 🧠 Example\n*Why is Patintero an invasion game?* Because you try to **cross the space** guarded by the taggers (attacking) without getting caught (defending against the taggers).\n\nGreat job in MAPEH! 🌟\n",
         "quiz": [
           {
-            "question": "Ano ang tempo sa musika?",
+            "question": "What is tempo in music?",
             "options": [
-              "Ang bilis ng musika",
-              "Ang lakas ng tunog",
-              "Ang haba ng kanta",
-              "Ang pangalan ng kompositor"
+              "The speed of the music",
+              "The loudness of the sound",
+              "The length of the song",
+              "The name of the composer"
             ],
-            "correct_answer": "Ang bilis ng musika"
+            "correct_answer": "The speed of the music"
           },
           {
-            "question": "Ano ang rhythm o indayog?",
+            "question": "What is rhythm?",
             "options": [
-              "Ang pattern ng tunog at katahimikan",
-              "Ang kulay ng instrumento",
-              "Ang lugar ng konsyerto",
-              "Ang bilang ng manonood"
+              "The pattern of sound and silence",
+              "The color of the instrument",
+              "The place of the concert",
+              "The number of people watching"
             ],
-            "correct_answer": "Ang pattern ng tunog at katahimikan"
+            "correct_answer": "The pattern of sound and silence"
           },
           {
-            "question": "Paano nililikha ang rhythm sa visual arts?",
+            "question": "How is rhythm created in visual arts?",
             "options": [
-              "Sa pamamagitan ng paulit-ulit na hugis o kulay",
-              "Sa pamamagitan ng malakas na tunog",
-              "Sa pamamagitan ng mabilis na sayaw lamang",
-              "Sa pamamagitan ng mahabang pelikula"
+              "By repeating shapes or colors",
+              "By making loud sounds",
+              "Only by dancing fast",
+              "By making a long movie"
             ],
-            "correct_answer": "Sa pamamagitan ng paulit-ulit na hugis o kulay"
+            "correct_answer": "By repeating shapes or colors"
           },
           {
-            "question": "Ano ang isang katangian ng malusog na pamilya?",
+            "question": "What is one trait of a healthy family?",
             "options": [
-              "Bukas na komunikasyon",
-              "Walang pakikipag-usap sa isa't isa",
-              "Palaging nag-aaway",
-              "Walang sinusunod na tuntunin"
+              "Open communication",
+              "Not talking to each other",
+              "Always fighting",
+              "Not following any rules"
             ],
-            "correct_answer": "Bukas na komunikasyon"
+            "correct_answer": "Open communication"
           },
           {
-            "question": "Alin ang halimbawa ng aktibidad na nagpapabuti ng kalusugan ng pamilya?",
+            "question": "Which is an example of an activity that improves family health?",
             "options": [
-              "Sama-samang paghahalaman",
-              "Pagtingin sa telebisyon nang mag-isa",
-              "Pag-iwas sa lahat ng kapamilya",
-              "Pagtulog buong araw"
+              "Gardening together",
+              "Watching television alone",
+              "Avoiding all family members",
+              "Sleeping all day"
             ],
-            "correct_answer": "Sama-samang paghahalaman"
+            "correct_answer": "Gardening together"
           },
           {
-            "question": "Ano ang layunin sa invasion games?",
+            "question": "What is the goal in invasion games?",
             "options": [
-              "Pumasok sa espasyo ng kalaban habang nagtatanggol",
-              "Manatiling nakatayo sa isang lugar",
-              "Maghintay lamang sa gilid ng laruan",
-              "Umupo habang naglalaro"
+              "Get into the other team's space while defending",
+              "Stay standing in one place",
+              "Just wait at the side of the play area",
+              "Sit while playing"
             ],
-            "correct_answer": "Pumasok sa espasyo ng kalaban habang nagtatanggol"
+            "correct_answer": "Get into the other team's space while defending"
           },
           {
-            "question": "Sa Patintero, ano ang ginagawa ng manlalaro?",
+            "question": "In Patintero, what does a player do?",
             "options": [
-              "Tumatawid sa mga guhit nang hindi nahuhuli",
-              "Naghahagis ng bola sa kalaban",
-              "Tumatakbo palayo sa laruan",
-              "Umuupo sa gitna ng guhit"
+              "Crosses the lines without getting caught",
+              "Throws a ball at the other team",
+              "Runs away from the play area",
+              "Sits in the middle of a line"
             ],
-            "correct_answer": "Tumatawid sa mga guhit nang hindi nahuhuli"
+            "correct_answer": "Crosses the lines without getting caught"
           },
           {
-            "question": "Alin ang larong Pilipino na invasion game?",
+            "question": "Which Filipino game is an invasion game?",
             "options": [
               "Agawan Base",
               "Tumbang Preso",
@@ -718,44 +718,44 @@
             "correct_answer": "Agawan Base"
           },
           {
-            "question": "Sa Langit-Lupa, paano umiiwas ang manlalaro sa taggu?",
+            "question": "In Langit-Lupa, how does a player avoid the tagger?",
             "options": [
-              "Tumatalon sa itaas o ibaba ng linya",
-              "Tumatakbo nang napakalayo",
-              "Umuupo lamang sa lupa",
-              "Nagtatago sa likod ng puno"
+              "Jumps above or below the line",
+              "Runs very far away",
+              "Just sits on the ground",
+              "Hides behind a tree"
             ],
-            "correct_answer": "Tumatalon sa itaas o ibaba ng linya"
+            "correct_answer": "Jumps above or below the line"
           },
           {
-            "question": "Bakit gumagamit ng rhythmic pattern ang mga sayaw na panrelihiyon?",
+            "question": "Why do religious dances use rhythmic patterns?",
             "options": [
-              "Upang ipakita ang kahulugan ng seremonya",
-              "Upang mapabilis lamang ang oras",
-              "Upang mahirapan ang mananayaw",
-              "Upang walang saysay ang sayaw"
+              "To show the meaning of the ceremony",
+              "Just to make time go faster",
+              "To make it hard for the dancer",
+              "To make the dance meaningless"
             ],
-            "correct_answer": "Upang ipakita ang kahulugan ng seremonya"
+            "correct_answer": "To show the meaning of the ceremony"
           },
           {
-            "question": "Paano nakatutulong ang patas na tuntunin sa kalusugan ng pamilya?",
+            "question": "How do fair rules help family health?",
             "options": [
-              "Nagbibigay ito ng respeto at katatagan sa tahanan",
-              "Nagpapahirap ito sa mga bata",
-              "Wala itong kaugnayan sa kalusugan",
-              "Nagiging sanhi ito ng away"
+              "It brings respect and stability to the home",
+              "It makes life hard for children",
+              "It has nothing to do with health",
+              "It causes fights"
             ],
-            "correct_answer": "Nagbibigay ito ng respeto at katatagan sa tahanan"
+            "correct_answer": "It brings respect and stability to the home"
           },
           {
-            "question": "Sa Agawan Base, mahina ang depensa ng isang koponan kaya laging naaagaw ang kanilang base. Ano ang dapat nilang pagbutihin?",
+            "question": "In Agawan Base, one team has weak defense, so their base keeps getting captured. What should they improve?",
             "options": [
-              "Pagtatanggol sa kanilang espasyo",
-              "Pag-awit habang naglalaro",
-              "Pagguhit ng bagong laruan",
-              "Pag-iwas sa buong laro"
+              "Defending their space",
+              "Singing while playing",
+              "Drawing a new play area",
+              "Avoiding the whole game"
             ],
-            "correct_answer": "Pagtatanggol sa kanilang espasyo"
+            "correct_answer": "Defending their space"
           }
         ]
       },
@@ -1637,70 +1637,70 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 4)\n\n- **Tempo** = bilis ng musika; **Rhythm** = pattern ng tunog\n- **Visual arts rhythm** = paulit-ulit na hugis, kulay, o linya\n- **Malusog na pamilya** = may paggalang, patas na tuntunin, bukas na komunikasyon\n- **Invasion games** = pumasok sa espasyo ng kalaban habang nagtatanggol\n- **Halimbawa:** Agawan Base, Patintero, Langit-Lupa\n\nMagaling sa Termino 2! 🌟\n",
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 4)\n\n- **Tempo** = the speed of music; **Rhythm** = the pattern of sounds\n- **Visual arts rhythm** = repeated shapes, colors, or lines\n- **Healthy family** = respect, fair rules, open communication\n- **Invasion games** = get into the other team's space while defending your own\n- **Examples:** Agawan Base, Patintero, Langit-Lupa\n\nGreat job in Term 2! 🌟\n",
         "quiz": [
           {
-            "question": "Ano ang tempo?",
+            "question": "What is tempo?",
             "options": [
-              "Bilis ng musika",
-              "Lakas ng tunog",
-              "Haba ng kanta",
-              "Pangalan ng awitin"
+              "Speed of the music",
+              "Loudness of the sound",
+              "Length of the song",
+              "Name of the song"
             ],
-            "correct_answer": "Bilis ng musika"
+            "correct_answer": "Speed of the music"
           },
           {
-            "question": "Ano ang rhythm?",
+            "question": "What is rhythm?",
             "options": [
-              "Pattern ng tunog at katahimikan",
-              "Kulay ng instrumento",
-              "Lugar ng konsyerto",
-              "Bilang ng manonood"
+              "Pattern of sound and silence",
+              "Color of the instrument",
+              "Place of the concert",
+              "Number of people watching"
             ],
-            "correct_answer": "Pattern ng tunog at katahimikan"
+            "correct_answer": "Pattern of sound and silence"
           },
           {
-            "question": "Paano nililikha ang rhythm sa visual arts?",
+            "question": "How is rhythm created in visual arts?",
             "options": [
-              "Sa pamamagitan ng paulit-ulit na hugis o kulay",
-              "Sa pamamagitan ng malakas na tunog",
-              "Sa pamamagitan ng mabilis na sayaw lamang",
-              "Sa pamamagitan ng mahabang pelikula"
+              "By repeating shapes or colors",
+              "By making loud sounds",
+              "Only by dancing fast",
+              "By making a long movie"
             ],
-            "correct_answer": "Sa pamamagitan ng paulit-ulit na hugis o kulay"
+            "correct_answer": "By repeating shapes or colors"
           },
           {
-            "question": "Ano ang katangian ng malusog na pamilya?",
+            "question": "What is a trait of a healthy family?",
             "options": [
-              "Bukas na komunikasyon",
-              "Walang pakikipag-usap",
-              "Palaging nag-aaway",
-              "Walang tuntunin"
+              "Open communication",
+              "Not talking to each other",
+              "Always fighting",
+              "No rules"
             ],
-            "correct_answer": "Bukas na komunikasyon"
+            "correct_answer": "Open communication"
           },
           {
-            "question": "Ano ang layunin sa invasion games?",
+            "question": "What is the goal in invasion games?",
             "options": [
-              "Pumasok sa espasyo ng kalaban habang nagtatanggol",
-              "Manatili sa isang lugar",
-              "Umupo lamang sa gilid",
-              "Maghintay lamang"
+              "Get into the other team's space while defending",
+              "Stay in one place",
+              "Just sit on the side",
+              "Just wait"
             ],
-            "correct_answer": "Pumasok sa espasyo ng kalaban habang nagtatanggol"
+            "correct_answer": "Get into the other team's space while defending"
           },
           {
-            "question": "Sa Patintero, ano ang ginagawa ng manlalaro?",
+            "question": "In Patintero, what does a player do?",
             "options": [
-              "Tumatawid sa mga guhit nang hindi nahuhuli",
-              "Naghahagis ng bola sa kalaban",
-              "Tumatakbo palayo sa laruan",
-              "Umuupo sa gitna ng guhit"
+              "Crosses the lines without getting caught",
+              "Throws a ball at the other team",
+              "Runs away from the play area",
+              "Sits in the middle of a line"
             ],
-            "correct_answer": "Tumatawid sa mga guhit nang hindi nahuhuli"
+            "correct_answer": "Crosses the lines without getting caught"
           },
           {
-            "question": "Alin ang larong invasion game?",
+            "question": "Which game is an invasion game?",
             "options": [
               "Agawan Base",
               "Tumbang Preso",
@@ -1710,54 +1710,54 @@
             "correct_answer": "Agawan Base"
           },
           {
-            "question": "Sa Langit-Lupa, paano umiiwas ang manlalaro sa taggu?",
+            "question": "In Langit-Lupa, how does a player avoid the tagger?",
             "options": [
-              "Tumatalon sa itaas o ibaba ng linya",
-              "Tumatakbo nang napakalayo",
-              "Umuupo lamang sa lupa",
-              "Nagtatago sa likod ng puno"
+              "Jumps above or below the line",
+              "Runs very far away",
+              "Just sits on the ground",
+              "Hides behind a tree"
             ],
-            "correct_answer": "Tumatalon sa itaas o ibaba ng linya"
+            "correct_answer": "Jumps above or below the line"
           },
           {
-            "question": "Bakit gumagamit ng rhythmic pattern ang mga sayaw na panrelihiyon?",
+            "question": "Why do religious dances use rhythmic patterns?",
             "options": [
-              "Upang ipakita ang kahulugan ng seremonya",
-              "Upang mapabilis lamang ang oras",
-              "Upang mahirapan ang mananayaw",
-              "Upang walang saysay ang sayaw"
+              "To show the meaning of the ceremony",
+              "Just to make time go faster",
+              "To make it hard for the dancer",
+              "To make the dance meaningless"
             ],
-            "correct_answer": "Upang ipakita ang kahulugan ng seremonya"
+            "correct_answer": "To show the meaning of the ceremony"
           },
           {
-            "question": "Alin ang halimbawa ng aktibidad na nagpapabuti ng kalusugan ng pamilya?",
+            "question": "Which is an example of an activity that improves family health?",
             "options": [
-              "Sama-samang paghahalaman",
-              "Panonood ng TV nang mag-isa",
-              "Pag-iwas sa kapamilya",
-              "Pagtulog buong araw"
+              "Gardening together",
+              "Watching TV alone",
+              "Avoiding family members",
+              "Sleeping all day"
             ],
-            "correct_answer": "Sama-samang paghahalaman"
+            "correct_answer": "Gardening together"
           },
           {
-            "question": "Paano nakatutulong ang patas na tuntunin sa kalusugan ng pamilya?",
+            "question": "How do fair rules help family health?",
             "options": [
-              "Nagbibigay ito ng respeto at katatagan sa tahanan",
-              "Nagpapahirap ito sa mga bata",
-              "Wala itong kaugnayan sa kalusugan",
-              "Nagiging sanhi ito ng away"
+              "It brings respect and stability to the home",
+              "It makes life hard for children",
+              "It has nothing to do with health",
+              "It causes fights"
             ],
-            "correct_answer": "Nagbibigay ito ng respeto at katatagan sa tahanan"
+            "correct_answer": "It brings respect and stability to the home"
           },
           {
-            "question": "Sa Agawan Base, mahina ang depensa ng isang koponan kaya laging naaagaw ang kanilang base. Ano ang dapat nilang pagbutihin?",
+            "question": "In Agawan Base, one team has weak defense, so their base keeps getting captured. What should they improve?",
             "options": [
-              "Pagtatanggol sa kanilang espasyo",
-              "Pag-awit habang naglalaro",
-              "Pagguhit ng bagong laruan",
-              "Pag-iwas sa buong laro"
+              "Defending their space",
+              "Singing while playing",
+              "Drawing a new play area",
+              "Avoiding the whole game"
             ],
-            "correct_answer": "Pagtatanggol sa kanilang espasyo"
+            "correct_answer": "Defending their space"
           }
         ]
       },

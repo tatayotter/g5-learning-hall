@@ -6,8 +6,11 @@
 // of time. Only questions are stored: draft_questions_public has no answers,
 // and grading stays server-side (grade_boss_question).
 //
-// Freshness: one head-only count per load. A changed count, a cache older than
-// BANK_MAX_AGE_MS, or no cache at all re-downloads the bank.
+// Freshness: one head-only count and one signature (boss_bank_signature, a hash
+// of the questions' text) per load. A changed count or signature, a cache older
+// than BANK_MAX_AGE_MS, or no cache at all re-downloads the bank. The signature
+// catches questions reworded in place (an edit or a translation), which keep
+// the count the same but would otherwise be graded against the new answers.
 import { supabase } from './supabase';
 import { buildBossQuestionPool, type BossQuestion } from './bossFightEngine';
 
@@ -16,6 +19,7 @@ const PAGE_SIZE = 1000; // PostgREST's default max rows per request
 
 interface StoredBank {
   fetchedAt: number;
+  signature?: string;
   questions: BossQuestion[];
 }
 
@@ -71,14 +75,20 @@ export function syncBossBank(grade: number, term: number): Promise<BossQuestion[
   if (running) return running;
   const sync = (async () => {
     const stored = read<StoredBank>(bankKey(grade, term));
-    const { count, error } = await supabase
-      .from('draft_questions_public')
-      .select('id', { count: 'exact', head: true })
-      .eq('grade', grade)
-      .eq('term', term);
+    const [{ count, error }, sig] = await Promise.all([
+      supabase
+        .from('draft_questions_public')
+        .select('id', { count: 'exact', head: true })
+        .eq('grade', grade)
+        .eq('term', term),
+      supabase.rpc('boss_bank_signature', { p_grade: grade, p_term: term }),
+    ]);
     if (error || count === null) return stored?.questions ?? null;
+    // No signature (the call failed): judge by count and age alone.
+    const signature = !sig.error && typeof sig.data === 'string' ? sig.data : undefined;
     const fresh = stored
       && stored.questions.length === count
+      && (signature === undefined || stored.signature === signature)
       && Date.now() - stored.fetchedAt < BANK_MAX_AGE_MS;
     if (fresh) {
       fillMissingPools(grade, term, stored.questions);
@@ -86,7 +96,7 @@ export function syncBossBank(grade: number, term: number): Promise<BossQuestion[
     }
     const questions = await downloadBank(grade, term);
     if (!questions) return stored?.questions ?? null;
-    write(bankKey(grade, term), { fetchedAt: Date.now(), questions } satisfies StoredBank);
+    write(bankKey(grade, term), { fetchedAt: Date.now(), signature, questions } satisfies StoredBank);
     // New bank: every subject's pre-picked fight may hold retired questions.
     write(poolsKey(grade, term), {});
     fillMissingPools(grade, term, questions);

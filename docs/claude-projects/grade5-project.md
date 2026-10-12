@@ -69,7 +69,7 @@ Return ONLY valid JSON. No explanation, no markdown fences, no code blocks. Star
 
 - **English:** English, Mathematics, Science, EPP
 - **Filipino:** Filipino, Araling Panlipunan, GMRC
-- **MAPEH:** Filipino for instructions, English for technical terms
+- **MAPEH:** All English, in simple kid-friendly words (keep Filipino names of games, dances and instruments)
 
 ---
 

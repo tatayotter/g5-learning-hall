@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎉 MAPEH — Pagsasagawa ng Aming Family Wellness Activity\n\nGrade 5, Linggo 20! Isagawa natin ang wellness activity na pinlano natin. 💃\n\n## 🔄 Balik-Aral\nNoong nakaraang linggo, nagplano tayo ng isang **dance-for-health session** na may kasamang biswal na sining.\n\n## 🎉 Pagsasagawa ng Aktibidad\nNgayong linggo, aktwal na **isasagawa** ang plano — pagsasanay ng sayaw bilang ehersisyo, at pagpapakita ng ginawang poster tungkol sa kalusugan.\n\n## 💭 Pagninilay Matapos ang Aktibidad\nMatapos gawin ang aktibidad, mag-isip tungkol sa: *Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?*\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?*\n- Upang **maranasan** natin ang tunay na benepisyo ng ehersisyo at malaman kung epektibo ang plano.\n\n## 🧠 Halimbawa 2\n*Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?*\n- Ang **kaligtasan** ng lahat ng kalahok.\n\n## 💡 Kongklusyon\nAng pagsasagawa ng wellness activity ay nagpapakita kung paano natin **inilalapat** ang natutuhan sa totoong buhay.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎉 MAPEH — Doing Our Family Wellness Activity\n\nGrade 5, Week 20! Let's do the wellness activity we planned. 💃\n\n## 🔄 Review\nLast week, we planned a **dance-for-health session** with visual art.\n\n## 🎉 Doing the Activity\nThis week, we will actually **carry out** the plan — practicing dance as exercise, and showing the poster we made about health.\n\n## 💭 Reflecting After the Activity\nAfter the activity, think about: *What did I learn from combining dance, health, and art?*\n\n## 🧠 Example 1\n*Why is it important to actually carry out the plan, not just plan it?*\n- So we can **experience** the real benefits of exercise and find out if the plan works.\n\n## 🧠 Example 2\n*What should we keep in mind while doing the activity?*\n- The **safety** of everyone taking part.\n\n## 💡 Conclusion\nDoing a wellness activity shows how we **apply** what we learned in real life.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang ginawa nating plano noong nakaraang linggo?",
+            "question": "What did we plan last week?",
             "options": [
-              "Dance-for-health session na may biswal na sining",
-              "Isang eksamen sa matematika",
-              "Isang liham sa magulang at all",
-              "Isang gawain sa agrikultura"
+              "A dance-for-health session with visual art",
+              "A math exam",
+              "A letter to a parent",
+              "A farming activity"
             ],
-            "correct_answer": "Dance-for-health session na may biswal na sining"
+            "correct_answer": "A dance-for-health session with visual art"
           },
           {
-            "question": "Ano ang gagawin natin ngayong linggo tungkol sa aktibidad?",
+            "question": "What will we do with the activity this week?",
             "options": [
-              "Aktwal na isasagawa ang plano",
-              "Kalimutan na lamang ang plano",
-              "Simulan ulit ang pagpaplano",
-              "Huwag na ituloy ang aktibidad"
+              "Actually carry out the plan",
+              "Just forget the plan",
+              "Start planning all over again",
+              "Stop the activity"
             ],
-            "correct_answer": "Aktwal na isasagawa ang plano"
+            "correct_answer": "Actually carry out the plan"
           },
           {
-            "question": "Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?",
+            "question": "Why is it important to actually carry out the plan, not just plan it?",
             "options": [
-              "Upang maranasan ang tunay na benepisyo ng ehersisyo",
-              "Sapat na ang pagpaplano lamang",
-              "Wala itong dagdag na benepisyo",
-              "Ang pagpaplano lamang ang mahalaga"
+              "To experience the real benefits of exercise",
+              "Planning alone is enough",
+              "It has no extra benefit",
+              "Only the planning matters"
             ],
-            "correct_answer": "Upang maranasan ang tunay na benepisyo ng ehersisyo"
+            "correct_answer": "To experience the real benefits of exercise"
           },
           {
-            "question": "Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?",
+            "question": "What should we keep in mind while doing the activity?",
             "options": [
-              "Ang kaligtasan ng lahat ng kalahok",
-              "Ang presyo lamang ng kagamitan",
-              "Ang oras lamang ng pagtatapos",
-              "Wala, walang dapat isaalang-alang"
+              "The safety of everyone taking part",
+              "Only the price of the equipment",
+              "Only the time it ends",
+              "Nothing, there is nothing to think about"
             ],
-            "correct_answer": "Ang kaligtasan ng lahat ng kalahok"
+            "correct_answer": "The safety of everyone taking part"
           },
           {
-            "question": "Ano ang tanong na dapat sagutin sa pagninilay pagkatapos ng aktibidad?",
+            "question": "What question should you answer when you reflect after the activity?",
             "options": [
-              "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?",
-              "Ano ang paborito kong kulay sa gawaing ito?",
-              "Ilang taon na ako ngayon dito?",
-              "Ano ang gusto kong kainin ngayon?"
+              "What did I learn from combining dance, health, and art?",
+              "What is my favorite color in this activity?",
+              "How old am I now?",
+              "What do I want to eat right now?"
             ],
-            "correct_answer": "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?"
+            "correct_answer": "What did I learn from combining dance, health, and art?"
           },
           {
-            "question": "Ano ang idudulot ng pagsasagawa ng aktibidad kaysa pagpaplano lamang?",
+            "question": "What do we gain from doing the activity instead of only planning it?",
             "options": [
-              "Tunay na karanasan at natutuhang aral",
-              "Kawalan ng kabuluhan",
-              "Nagpapabagal lamang ito ng gawain",
-              "Walang dagdag na natutuhan"
+              "Real experience and lessons learned",
+              "Nothing meaningful",
+              "It only slows down the work",
+              "Nothing new is learned"
             ],
-            "correct_answer": "Tunay na karanasan at natutuhang aral"
+            "correct_answer": "Real experience and lessons learned"
           },
           {
-            "question": "Ano ang ipinapakita ng biswal na sining na kasama sa aktibidad?",
+            "question": "What does the visual art in the activity show?",
             "options": [
-              "Ipinapaalala nito ang kahalagahan ng kalusugan",
-              "Wala itong tunay na layunin",
-              "Ginagawa lamang ito bilang palamuti",
-              "Hindi ito bahagi ng aktibidad"
+              "It reminds us why health is important",
+              "It has no real purpose",
+              "It is only a decoration",
+              "It is not part of the activity"
             ],
-            "correct_answer": "Ipinapaalala nito ang kahalagahan ng kalusugan"
+            "correct_answer": "It reminds us why health is important"
           },
           {
-            "question": "Bakit mahalagang isali ang buong pamilya sa aktibidad?",
+            "question": "Why is it important to include the whole family in the activity?",
             "options": [
-              "Nagpapatibay ito ng samahan at kalusugan",
-              "Wala itong benepisyo sa pamilya",
-              "Mas mainam gawin ito nang mag-isa",
-              "Hindi kailangan ang pamilya sa gawaing ito"
+              "It makes family bonds and health stronger",
+              "It has no benefit for the family",
+              "It is better to do it alone",
+              "Family is not needed for this activity"
             ],
-            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan"
+            "correct_answer": "It makes family bonds and health stronger"
           },
           {
-            "question": "Ano ang layunin ng pagninilay pagkatapos gawin ang aktibidad?",
+            "question": "What is the goal of reflecting after doing the activity?",
             "options": [
-              "Pagtibayin ang natutuhan mula sa karanasan",
-              "Kalimutan agad ang natutuhan",
-              "Isara ang paksa nang walang pag-iisip",
-              "Bumuo ng bagong aktibidad agad"
+              "To make what we learned from the experience stick",
+              "To forget what we learned right away",
+              "To close the topic without thinking",
+              "To make a new activity right away"
             ],
-            "correct_answer": "Pagtibayin ang natutuhan mula sa karanasan"
+            "correct_answer": "To make what we learned from the experience stick"
           },
           {
-            "question": "Bakit mahalagang isaalang-alang ang kaligtasan sa isang wellness activity?",
+            "question": "Why is it important to think about safety in a wellness activity?",
             "options": [
-              "Upang maiwasan ang aksidente sa gawain",
-              "Wala itong kaugnayan sa gawain",
-              "Upang mapabilis lamang ang aktibidad",
-              "Hindi na kailangang isaalang-alang ito"
+              "To avoid accidents during the activity",
+              "It has nothing to do with the activity",
+              "Just to make the activity faster",
+              "There is no need to think about it"
             ],
-            "correct_answer": "Upang maiwasan ang aksidente sa gawain"
+            "correct_answer": "To avoid accidents during the activity"
           },
           {
-            "question": "Ano ang pangkalahatang aral ng buong yunit na ito tungkol sa sayaw, kalusugan, at sining?",
+            "question": "What is the big lesson of this whole unit about dance, health, and art?",
             "options": [
-              "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan",
-              "Ang mga ito ay hindi konektado sa isa't isa",
-              "Isa lamang sa mga ito ang mahalaga sa gawaing ito",
-              "Wala itong tunay na kaugnayan dito ngayon"
+              "They are connected and work together to support well-being",
+              "They are not connected to each other",
+              "Only one of them matters in this activity",
+              "They have no real connection here now"
             ],
-            "correct_answer": "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan"
+            "correct_answer": "They are connected and work together to support well-being"
           },
           {
-            "question": "Isang pamilya ang nagsagawa ng dance-for-health session tuwing Sabado. Ano ang ipinapakita nito?",
+            "question": "A family held a dance-for-health session every Saturday. What does this show?",
             "options": [
-              "Pagpapahalaga sa kalusugan at samahan ng pamilya",
-              "Kawalan ng interes sa kalusugan",
-              "Kapabayaan sa gawain",
-              "Kawalang-halaga ng ehersisyo"
+              "They value health and family bonding",
+              "No interest in health",
+              "Neglecting the activity",
+              "Exercise has no value"
             ],
-            "correct_answer": "Pagpapahalaga sa kalusugan at samahan ng pamilya"
+            "correct_answer": "They value health and family bonding"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 5)\n\n- Pagsasagawa ng family wellness activity\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 5)\n\n- Doing a family wellness activity\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang ginawa nating plano noong nakaraang linggo?",
+            "question": "What did we plan last week?",
             "options": [
-              "Dance-for-health session na may biswal na sining",
-              "Isang eksamen sa matematika",
-              "Isang liham sa magulang at all",
-              "Isang gawain sa agrikultura"
+              "A dance-for-health session with visual art",
+              "A math exam",
+              "A letter to a parent",
+              "A farming activity"
             ],
-            "correct_answer": "Dance-for-health session na may biswal na sining"
+            "correct_answer": "A dance-for-health session with visual art"
           },
           {
-            "question": "Ano ang gagawin natin ngayong linggo tungkol sa aktibidad?",
+            "question": "What will we do with the activity this week?",
             "options": [
-              "Aktwal na isasagawa ang plano",
-              "Kalimutan na lamang ang plano",
-              "Simulan ulit ang pagpaplano",
-              "Huwag na ituloy ang aktibidad"
+              "Actually carry out the plan",
+              "Just forget the plan",
+              "Start planning all over again",
+              "Stop the activity"
             ],
-            "correct_answer": "Aktwal na isasagawa ang plano"
+            "correct_answer": "Actually carry out the plan"
           },
           {
-            "question": "Bakit mahalagang aktwal na isagawa ang plano, hindi lang basta magplano?",
+            "question": "Why is it important to actually carry out the plan, not just plan it?",
             "options": [
-              "Upang maranasan ang tunay na benepisyo ng ehersisyo",
-              "Sapat na ang pagpaplano lamang",
-              "Wala itong dagdag na benepisyo",
-              "Ang pagpaplano lamang ang mahalaga"
+              "To experience the real benefits of exercise",
+              "Planning alone is enough",
+              "It has no extra benefit",
+              "Only the planning matters"
             ],
-            "correct_answer": "Upang maranasan ang tunay na benepisyo ng ehersisyo"
+            "correct_answer": "To experience the real benefits of exercise"
           },
           {
-            "question": "Ano ang dapat isaalang-alang habang isinasagawa ang aktibidad?",
+            "question": "What should we keep in mind while doing the activity?",
             "options": [
-              "Ang kaligtasan ng lahat ng kalahok",
-              "Ang presyo lamang ng kagamitan",
-              "Ang oras lamang ng pagtatapos",
-              "Wala, walang dapat isaalang-alang"
+              "The safety of everyone taking part",
+              "Only the price of the equipment",
+              "Only the time it ends",
+              "Nothing, there is nothing to think about"
             ],
-            "correct_answer": "Ang kaligtasan ng lahat ng kalahok"
+            "correct_answer": "The safety of everyone taking part"
           },
           {
-            "question": "Ano ang tanong na dapat sagutin sa pagninilay pagkatapos ng aktibidad?",
+            "question": "What question should you answer when you reflect after the activity?",
             "options": [
-              "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?",
-              "Ano ang paborito kong kulay sa gawaing ito?",
-              "Ilang taon na ako ngayon dito?",
-              "Ano ang gusto kong kainin ngayon?"
+              "What did I learn from combining dance, health, and art?",
+              "What is my favorite color in this activity?",
+              "How old am I now?",
+              "What do I want to eat right now?"
             ],
-            "correct_answer": "Ano ang natutuhan ko sa pagsasanib ng sayaw, kalusugan, at sining?"
+            "correct_answer": "What did I learn from combining dance, health, and art?"
           },
           {
-            "question": "Ano ang idudulot ng pagsasagawa ng aktibidad kaysa pagpaplano lamang?",
+            "question": "What do we gain from doing the activity instead of only planning it?",
             "options": [
-              "Tunay na karanasan at natutuhang aral",
-              "Kawalan ng kabuluhan",
-              "Nagpapabagal lamang ito ng gawain",
-              "Walang dagdag na natutuhan"
+              "Real experience and lessons learned",
+              "Nothing meaningful",
+              "It only slows down the work",
+              "Nothing new is learned"
             ],
-            "correct_answer": "Tunay na karanasan at natutuhang aral"
+            "correct_answer": "Real experience and lessons learned"
           },
           {
-            "question": "Ano ang ipinapakita ng biswal na sining na kasama sa aktibidad?",
+            "question": "What does the visual art in the activity show?",
             "options": [
-              "Ipinapaalala nito ang kahalagahan ng kalusugan",
-              "Wala itong tunay na layunin",
-              "Ginagawa lamang ito bilang palamuti",
-              "Hindi ito bahagi ng aktibidad"
+              "It reminds us why health is important",
+              "It has no real purpose",
+              "It is only a decoration",
+              "It is not part of the activity"
             ],
-            "correct_answer": "Ipinapaalala nito ang kahalagahan ng kalusugan"
+            "correct_answer": "It reminds us why health is important"
           },
           {
-            "question": "Bakit mahalagang isali ang buong pamilya sa aktibidad?",
+            "question": "Why is it important to include the whole family in the activity?",
             "options": [
-              "Nagpapatibay ito ng samahan at kalusugan",
-              "Wala itong benepisyo sa pamilya",
-              "Mas mainam gawin ito nang mag-isa",
-              "Hindi kailangan ang pamilya sa gawaing ito"
+              "It makes family bonds and health stronger",
+              "It has no benefit for the family",
+              "It is better to do it alone",
+              "Family is not needed for this activity"
             ],
-            "correct_answer": "Nagpapatibay ito ng samahan at kalusugan"
+            "correct_answer": "It makes family bonds and health stronger"
           },
           {
-            "question": "Ano ang layunin ng pagninilay pagkatapos gawin ang aktibidad?",
+            "question": "What is the goal of reflecting after doing the activity?",
             "options": [
-              "Pagtibayin ang natutuhan mula sa karanasan",
-              "Kalimutan agad ang natutuhan",
-              "Isara ang paksa nang walang pag-iisip",
-              "Bumuo ng bagong aktibidad agad"
+              "To make what we learned from the experience stick",
+              "To forget what we learned right away",
+              "To close the topic without thinking",
+              "To make a new activity right away"
             ],
-            "correct_answer": "Pagtibayin ang natutuhan mula sa karanasan"
+            "correct_answer": "To make what we learned from the experience stick"
           },
           {
-            "question": "Bakit mahalagang isaalang-alang ang kaligtasan sa isang wellness activity?",
+            "question": "Why is it important to think about safety in a wellness activity?",
             "options": [
-              "Upang maiwasan ang aksidente sa gawain",
-              "Wala itong kaugnayan sa gawain",
-              "Upang mapabilis lamang ang aktibidad",
-              "Hindi na kailangang isaalang-alang ito"
+              "To avoid accidents during the activity",
+              "It has nothing to do with the activity",
+              "Just to make the activity faster",
+              "There is no need to think about it"
             ],
-            "correct_answer": "Upang maiwasan ang aksidente sa gawain"
+            "correct_answer": "To avoid accidents during the activity"
           },
           {
-            "question": "Ano ang pangkalahatang aral ng buong yunit na ito tungkol sa sayaw, kalusugan, at sining?",
+            "question": "What is the big lesson of this whole unit about dance, health, and art?",
             "options": [
-              "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan",
-              "Ang mga ito ay hindi konektado sa isa't isa",
-              "Isa lamang sa mga ito ang mahalaga sa gawaing ito",
-              "Wala itong tunay na kaugnayan dito ngayon"
+              "They are connected and work together to support well-being",
+              "They are not connected to each other",
+              "Only one of them matters in this activity",
+              "They have no real connection here now"
             ],
-            "correct_answer": "Ang mga ito ay konektado at magkatuwang na nagtataguyod ng kagalingan"
+            "correct_answer": "They are connected and work together to support well-being"
           },
           {
-            "question": "Isang pamilya ang nagsagawa ng dance-for-health session tuwing Sabado. Ano ang ipinapakita nito?",
+            "question": "A family held a dance-for-health session every Saturday. What does this show?",
             "options": [
-              "Pagpapahalaga sa kalusugan at samahan ng pamilya",
-              "Kawalan ng interes sa kalusugan",
-              "Kapabayaan sa gawain",
-              "Kawalang-halaga ng ehersisyo"
+              "They value health and family bonding",
+              "No interest in health",
+              "Neglecting the activity",
+              "Exercise has no value"
             ],
-            "correct_answer": "Pagpapahalaga sa kalusugan at samahan ng pamilya"
+            "correct_answer": "They value health and family bonding"
           }
         ]
       },

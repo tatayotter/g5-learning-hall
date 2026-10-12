@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎨 MAPEH — Term Review: Music, Arts, at PE\n\nGrade 4, Linggo 20! Balikan natin ang lahat ng natutuhan sa MAPEH ngayong term. 🎭\n\n## 🔄 Balik-Aral: Musika\nNatutuhan natin ang **rhythm at tempo**, gamit ang lokal na musikang may kaugnayan sa paniniwala at pananampalataya.\n\n## 🔄 Balik-Aral: Sining (Teatro/Sayaw)\nNatutuhan natin ang mga elemento ng komposisyon — **rhythm/pattern at galaw** — na makikita sa katutubong ritwal.\n\n## 🔄 Balik-Aral: Visual Arts\nNatutuhan natin ang biswal na elemento ng **rhythm at pattern**.\n\n## 🔄 Balik-Aral: Family Health\nNatutuhan natin ang katangian ng **malusog na pamilya** at mga gawaing pangkalusugan.\n\n## 🔄 Balik-Aral: PE — Invasion Games\nNatutuhan natin ang **agility, balance, at coordination** gamit ang mga larong Pilipino tulad ng Patintero at Agawan Base.\n\n## 🧠 Halimbawa 1\n*Anong konsepto ang ipinakita ng rhythm at tempo sa musika?*\n- Ang **bilis at padron** ng tunog.\n\n## 🧠 Halimbawa 2\n*Alin sa mga natutuhan natin ang may kaugnayan sa kalusugan ng pamilya?*\n- Ang mga **katangian ng malusog na pamilya** at gawaing pangkalusugan.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbabalik-aral sa mga aralin sa MAPEH ay tumutulong upang **maalala at maiugnay** ang lahat ng natutuhang konsepto.\n\nMagaling sa MAPEH! 🌟",
+        "summary_markdown": "# 🎨 MAPEH — Term Review: Music, Arts, and PE\n\nGrade 4, Week 20! Let's look back at everything we learned in MAPEH this term. 🎭\n\n## 🔄 Review: Music\nWe learned about **rhythm and tempo**, using local music linked to beliefs and faith.\n\n## 🔄 Review: Arts (Theater/Dance)\nWe learned the elements of composition — **rhythm/pattern and movement** — seen in native rituals.\n\n## 🔄 Review: Visual Arts\nWe learned the visual elements of **rhythm and pattern**.\n\n## 🔄 Review: Family Health\nWe learned the traits of a **healthy family** and healthy activities.\n\n## 🔄 Review: PE — Invasion Games\nWe learned about **agility, balance, and coordination** through Filipino games like Patintero and Agawan Base.\n\n## 🧠 Example 1\n*What idea do rhythm and tempo show in music?*\n- The **speed and pattern** of sound.\n\n## 🧠 Example 2\n*Which of the things we learned is linked to family health?*\n- The **traits of a healthy family** and healthy activities.\n\n## 💡 Why Is This Important?\nReviewing our MAPEH lessons helps us **remember and connect** all the ideas we learned.\n\nGreat job in MAPEH! 🌟",
         "quiz": [
           {
-            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "question": "What did we learn about music this term?",
             "options": [
-              "Rhythm at tempo",
-              "Kasaysayan ng kompyuter lamang",
-              "Matematika lamang",
-              "Wala tayong natutuhan"
+              "Rhythm and tempo",
+              "Only the history of computers",
+              "Only math",
+              "We learned nothing"
             ],
-            "correct_answer": "Rhythm at tempo"
+            "correct_answer": "Rhythm and tempo"
           },
           {
-            "question": "Anong elemento ng komposisyon ang natutuhan natin sa sining?",
+            "question": "What element of composition did we learn in arts?",
             "options": [
-              "Rhythm/pattern at galaw",
-              "Kulay lamang",
-              "Presyo lamang",
-              "Timbang lamang"
+              "Rhythm/pattern and movement",
+              "Only color",
+              "Only price",
+              "Only weight"
             ],
-            "correct_answer": "Rhythm/pattern at galaw"
+            "correct_answer": "Rhythm/pattern and movement"
           },
           {
-            "question": "Anong elemento ng visual arts ang natutuhan natin?",
+            "question": "What element of visual arts did we learn?",
             "options": [
-              "Rhythm at pattern",
-              "Bilang lamang",
-              "Panahon lamang",
-              "Kasaysayan lamang"
+              "Rhythm and pattern",
+              "Only numbers",
+              "Only weather",
+              "Only history"
             ],
-            "correct_answer": "Rhythm at pattern"
+            "correct_answer": "Rhythm and pattern"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa malusog na pamilya?",
+            "question": "What did we learn about a healthy family?",
             "options": [
-              "Mga katangian at gawaing pangkalusugan",
-              "Kasaysayan ng bansa lamang",
-              "Matematika lamang",
-              "Agham lamang"
+              "Its traits and healthy activities",
+              "Only the country's history",
+              "Only math",
+              "Only science"
             ],
-            "correct_answer": "Mga katangian at gawaing pangkalusugan"
+            "correct_answer": "Its traits and healthy activities"
           },
           {
-            "question": "Anong konsepto ang natutuhan natin sa PE — Invasion Games?",
+            "question": "What concept did we learn in PE — Invasion Games?",
             "options": [
-              "Agility, balance, at coordination",
-              "Kasaysayan lamang",
-              "Matematika lamang",
-              "Wala tayong natutuhan"
+              "Agility, balance, and coordination",
+              "Only history",
+              "Only math",
+              "We learned nothing"
             ],
-            "correct_answer": "Agility, balance, at coordination"
+            "correct_answer": "Agility, balance, and coordination"
           },
           {
-            "question": "Alin ang halimbawa ng larong Pilipino na natutuhan natin?",
+            "question": "Which is an example of a Filipino game we learned?",
             "options": [
-              "Patintero at Agawan Base",
-              "Chess at Checkers",
-              "Basketball at Baseball",
-              "Golf at Tennis"
+              "Patintero and Agawan Base",
+              "Chess and Checkers",
+              "Basketball and Baseball",
+              "Golf and Tennis"
             ],
-            "correct_answer": "Patintero at Agawan Base"
+            "correct_answer": "Patintero and Agawan Base"
           },
           {
-            "question": "Anong konsepto ang ipinakita ng rhythm at tempo sa musika?",
+            "question": "What idea do rhythm and tempo show in music?",
             "options": [
-              "Ang bilis at padron ng tunog",
-              "Ang presyo ng instrumento",
-              "Ang kulay ng damit",
-              "Ang laki ng entablado"
+              "The speed and pattern of sound",
+              "The price of an instrument",
+              "The color of clothes",
+              "The size of the stage"
             ],
-            "correct_answer": "Ang bilis at padron ng tunog"
+            "correct_answer": "The speed and pattern of sound"
           },
           {
-            "question": "Alin sa mga natutuhan natin ang may kaugnayan sa kalusugan ng pamilya?",
+            "question": "Which of the things we learned is linked to family health?",
             "options": [
-              "Ang mga katangian ng malusog na pamilya",
-              "Ang kasaysayan lamang ng ating bansa",
-              "Ang mga tuntunin lamang sa matematika",
-              "Ang balitang ipinapakita sa telebisyon"
+              "The traits of a healthy family",
+              "Only the history of our country",
+              "Only the rules in math",
+              "The news shown on television"
             ],
-            "correct_answer": "Ang mga katangian ng malusog na pamilya"
+            "correct_answer": "The traits of a healthy family"
           },
           {
-            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "question": "Why is it important to review what we learned in MAPEH this term?",
             "options": [
-              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
-              "Wala itong anumang kabuluhan sa ating pag-aaral",
-              "Ginagawa lamang ito upang makakuha ng marka",
-              "Nakakalito lamang ito sa isang mag-aaral"
+              "It helps us remember and connect the ideas",
+              "It has no meaning for our learning",
+              "It is done only to get a grade",
+              "It only confuses a student"
             ],
-            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+            "correct_answer": "It helps us remember and connect the ideas"
           },
           {
-            "question": "Ano ang layunin ng pagsasagawa ng mga larong Pilipino sa PE?",
+            "question": "What is the goal of playing Filipino games in PE?",
             "options": [
-              "Paunlarin ang kasanayang pisikal habang pinahahalagahan ang kultura",
-              "Upang maglaro lamang nang walang tunay na layunin",
-              "Wala talagang layunin ang gawaing ito",
-              "Upang matapos lamang agad ang buong klase"
+              "To build physical skills while valuing our culture",
+              "Just to play with no real goal",
+              "This activity has no real goal",
+              "Just to finish the whole class quickly"
             ],
-            "correct_answer": "Paunlarin ang kasanayang pisikal habang pinahahalagahan ang kultura"
+            "correct_answer": "To build physical skills while valuing our culture"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa sining at ritwal noong panahon ng ating mga ninuno?",
+            "question": "What did we learn about the art and rituals of our ancestors?",
             "options": [
-              "Rhythm/pattern at galaw na makikita sa katutubong ritwal",
-              "Wala talagang natutuhan tungkol dito ngayon",
-              "Isang uri lamang ng laro sa labas",
-              "Isang uri lamang ng pagkaing niluto"
+              "Rhythm/pattern and movement seen in native rituals",
+              "We really learned nothing about it",
+              "Just one kind of outdoor game",
+              "Just one kind of cooked food"
             ],
-            "correct_answer": "Rhythm/pattern at galaw na makikita sa katutubong ritwal"
+            "correct_answer": "Rhythm/pattern and movement seen in native rituals"
           },
           {
-            "question": "Bakit mahalagang pag-aralan ang buong saklaw ng MAPEH — musika, sining, at PE?",
+            "question": "Why is it important to study all parts of MAPEH — music, arts, and PE?",
             "options": [
-              "Tumutulong ito upang maunawaan ang koneksyon ng sining, kalusugan, at kultura",
-              "Isa na lamang dapat ang totoong pinag-aaralan sa mga ito",
-              "Wala talagang kabuluhan ito sa ating buong buhay",
-              "Ginagawa lamang ito bilang isang uri lamang ng libangan"
+              "It helps us understand how art, health, and culture are connected",
+              "We should really study only one of them",
+              "It has no meaning in our whole life",
+              "It is done only as a kind of fun"
             ],
-            "correct_answer": "Tumutulong ito upang maunawaan ang koneksyon ng sining, kalusugan, at kultura"
+            "correct_answer": "It helps us understand how art, health, and culture are connected"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 4)\n\n- Term review: musika, sining, visual arts, family health, PE\n\nMagaling sa MAPEH! 🌟",
+        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 4)\n\n- Term review: music, arts, visual arts, family health, PE\n\nGreat job in MAPEH! 🌟",
         "quiz": [
           {
-            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "question": "What did we learn about music this term?",
             "options": [
-              "Rhythm at tempo",
-              "Kasaysayan ng kompyuter lamang",
-              "Matematika lamang",
-              "Wala tayong natutuhan"
+              "Rhythm and tempo",
+              "Only the history of computers",
+              "Only math",
+              "We learned nothing"
             ],
-            "correct_answer": "Rhythm at tempo"
+            "correct_answer": "Rhythm and tempo"
           },
           {
-            "question": "Anong elemento ng komposisyon ang natutuhan natin sa sining?",
+            "question": "What element of composition did we learn in arts?",
             "options": [
-              "Rhythm/pattern at galaw",
-              "Kulay lamang",
-              "Presyo lamang",
-              "Timbang lamang"
+              "Rhythm/pattern and movement",
+              "Only color",
+              "Only price",
+              "Only weight"
             ],
-            "correct_answer": "Rhythm/pattern at galaw"
+            "correct_answer": "Rhythm/pattern and movement"
           },
           {
-            "question": "Anong elemento ng visual arts ang natutuhan natin?",
+            "question": "What element of visual arts did we learn?",
             "options": [
-              "Rhythm at pattern",
-              "Bilang lamang",
-              "Panahon lamang",
-              "Kasaysayan lamang"
+              "Rhythm and pattern",
+              "Only numbers",
+              "Only weather",
+              "Only history"
             ],
-            "correct_answer": "Rhythm at pattern"
+            "correct_answer": "Rhythm and pattern"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa malusog na pamilya?",
+            "question": "What did we learn about a healthy family?",
             "options": [
-              "Mga katangian at gawaing pangkalusugan",
-              "Kasaysayan ng bansa lamang",
-              "Matematika lamang",
-              "Agham lamang"
+              "Its traits and healthy activities",
+              "Only the country's history",
+              "Only math",
+              "Only science"
             ],
-            "correct_answer": "Mga katangian at gawaing pangkalusugan"
+            "correct_answer": "Its traits and healthy activities"
           },
           {
-            "question": "Anong konsepto ang natutuhan natin sa PE — Invasion Games?",
+            "question": "What concept did we learn in PE — Invasion Games?",
             "options": [
-              "Agility, balance, at coordination",
-              "Kasaysayan lamang",
-              "Matematika lamang",
-              "Wala tayong natutuhan"
+              "Agility, balance, and coordination",
+              "Only history",
+              "Only math",
+              "We learned nothing"
             ],
-            "correct_answer": "Agility, balance, at coordination"
+            "correct_answer": "Agility, balance, and coordination"
           },
           {
-            "question": "Alin ang halimbawa ng larong Pilipino na natutuhan natin?",
+            "question": "Which is an example of a Filipino game we learned?",
             "options": [
-              "Patintero at Agawan Base",
-              "Chess at Checkers",
-              "Basketball at Baseball",
-              "Golf at Tennis"
+              "Patintero and Agawan Base",
+              "Chess and Checkers",
+              "Basketball and Baseball",
+              "Golf and Tennis"
             ],
-            "correct_answer": "Patintero at Agawan Base"
+            "correct_answer": "Patintero and Agawan Base"
           },
           {
-            "question": "Anong konsepto ang ipinakita ng rhythm at tempo sa musika?",
+            "question": "What idea do rhythm and tempo show in music?",
             "options": [
-              "Ang bilis at padron ng tunog",
-              "Ang presyo ng instrumento",
-              "Ang kulay ng damit",
-              "Ang laki ng entablado"
+              "The speed and pattern of sound",
+              "The price of an instrument",
+              "The color of clothes",
+              "The size of the stage"
             ],
-            "correct_answer": "Ang bilis at padron ng tunog"
+            "correct_answer": "The speed and pattern of sound"
           },
           {
-            "question": "Alin sa mga natutuhan natin ang may kaugnayan sa kalusugan ng pamilya?",
+            "question": "Which of the things we learned is linked to family health?",
             "options": [
-              "Ang mga katangian ng malusog na pamilya",
-              "Ang kasaysayan lamang ng ating bansa",
-              "Ang mga tuntunin lamang sa matematika",
-              "Ang balitang ipinapakita sa telebisyon"
+              "The traits of a healthy family",
+              "Only the history of our country",
+              "Only the rules in math",
+              "The news shown on television"
             ],
-            "correct_answer": "Ang mga katangian ng malusog na pamilya"
+            "correct_answer": "The traits of a healthy family"
           },
           {
-            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "question": "Why is it important to review what we learned in MAPEH this term?",
             "options": [
-              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
-              "Wala itong anumang kabuluhan sa ating pag-aaral",
-              "Ginagawa lamang ito upang makakuha ng marka",
-              "Nakakalito lamang ito sa isang mag-aaral"
+              "It helps us remember and connect the ideas",
+              "It has no meaning for our learning",
+              "It is done only to get a grade",
+              "It only confuses a student"
             ],
-            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+            "correct_answer": "It helps us remember and connect the ideas"
           },
           {
-            "question": "Ano ang layunin ng pagsasagawa ng mga larong Pilipino sa PE?",
+            "question": "What is the goal of playing Filipino games in PE?",
             "options": [
-              "Paunlarin ang kasanayang pisikal habang pinahahalagahan ang kultura",
-              "Upang maglaro lamang nang walang tunay na layunin",
-              "Wala talagang layunin ang gawaing ito",
-              "Upang matapos lamang agad ang buong klase"
+              "To build physical skills while valuing our culture",
+              "Just to play with no real goal",
+              "This activity has no real goal",
+              "Just to finish the whole class quickly"
             ],
-            "correct_answer": "Paunlarin ang kasanayang pisikal habang pinahahalagahan ang kultura"
+            "correct_answer": "To build physical skills while valuing our culture"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa sining at ritwal noong panahon ng ating mga ninuno?",
+            "question": "What did we learn about the art and rituals of our ancestors?",
             "options": [
-              "Rhythm/pattern at galaw na makikita sa katutubong ritwal",
-              "Wala talagang natutuhan tungkol dito ngayon",
-              "Isang uri lamang ng laro sa labas",
-              "Isang uri lamang ng pagkaing niluto"
+              "Rhythm/pattern and movement seen in native rituals",
+              "We really learned nothing about it",
+              "Just one kind of outdoor game",
+              "Just one kind of cooked food"
             ],
-            "correct_answer": "Rhythm/pattern at galaw na makikita sa katutubong ritwal"
+            "correct_answer": "Rhythm/pattern and movement seen in native rituals"
           },
           {
-            "question": "Bakit mahalagang pag-aralan ang buong saklaw ng MAPEH — musika, sining, at PE?",
+            "question": "Why is it important to study all parts of MAPEH — music, arts, and PE?",
             "options": [
-              "Tumutulong ito upang maunawaan ang koneksyon ng sining, kalusugan, at kultura",
-              "Isa na lamang dapat ang totoong pinag-aaralan sa mga ito",
-              "Wala talagang kabuluhan ito sa ating buong buhay",
-              "Ginagawa lamang ito bilang isang uri lamang ng libangan"
+              "It helps us understand how art, health, and culture are connected",
+              "We should really study only one of them",
+              "It has no meaning in our whole life",
+              "It is done only as a kind of fun"
             ],
-            "correct_answer": "Tumutulong ito upang maunawaan ang koneksyon ng sining, kalusugan, at kultura"
+            "correct_answer": "It helps us understand how art, health, and culture are connected"
           }
         ]
       },

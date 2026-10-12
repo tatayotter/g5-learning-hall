@@ -635,125 +635,125 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎨 MAPEH — Visual Arts: Rhythm at Pattern\n\nGrade 4, Linggo 17! Alamin natin ang biswal na sining. 🎨\n\n## 🎨 Rhythm sa Visual Arts\nSa sining, ang **rhythm** ay ang **paulit-ulit na elemento** — hugis, kulay, o linya — na lumilikha ng **daloy** sa isang larawan.\n\n**Halimbawa:** paulit-ulit na tuldok sa isang disenyo, o paulit-ulit na guhit sa isang habi.\n\n## 🔷 Pattern (Padron)\nAng **pattern** ay ang **regular na pag-uulit** ng disenyo.\n\n**Uri ng pattern:**\n- **Regular pattern** — parehong laki at pagitan (hal. checkerboard)\n- **Random pattern** — walang tiyak na ayos (hal. natural na batik ng bato)\n\n## 🏃 Movement sa Visual Arts\nAng **movement** ay ang paraan kung paano **ginagabayan ng sining** ang mata ng manonood — mula sa isang bahagi papunta sa iba.\n\n**Paano ito nagagawa:**\n- Gamit ang mga **linya** na humahantong sa isang direksiyon\n- Gamit ang **paulit-ulit na hugis** na lumilikha ng daloy\n\n## 🧠 Halimbawa 1\n*Isang habing may paulit-ulit na tatsulok. Ano ang ipinapakita nito?*\n- **Rhythm at pattern** — ang paulit-ulit na hugis ay lumilikha ng regular na daloy.\n\n## 🧠 Halimbawa 2\n*Isang larawan ng ilog na may mga linyang humahantong sa isang bundok. Ano ang tinutukoy nito?*\n- **Movement** — ginagabayan ng mga linya ang mata ng manonood papunta sa bundok.\n\n## 🎯 Bakit Mahalaga ang mga Elementong Ito?\nGinagamit ang **rhythm, pattern, at movement** upang gawing **kawili-wili** at **organisado** ang isang gawang sining.\n\n## 🧵 Halimbawa sa Katutubong Sining\nMaraming **tradisyonal na habi** at **anyo** ng Pilipinas ang gumagamit ng paulit-ulit na pattern — nagpapakita ito ng **kahusayan** ng ating ninuno.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎨 MAPEH — Visual Arts: Rhythm and Pattern\n\nGrade 4, Week 17! Let's learn about visual arts. 🎨\n\n## 🎨 Rhythm in Visual Arts\nIn art, **rhythm** is a **repeated element** — a shape, color, or line — that creates a **flow** in a picture.\n\n**Example:** repeated dots in a design, or repeated stripes in a woven cloth.\n\n## 🔷 Pattern\nA **pattern** is the **regular repeating** of a design.\n\n**Types of patterns:**\n- **Regular pattern** — same size and spacing (e.g., a checkerboard)\n- **Random pattern** — no set order (e.g., natural spots on a stone)\n\n## 🏃 Movement in Visual Arts\n**Movement** is how **an artwork guides** the viewer's eye — from one part to another.\n\n**How it is done:**\n- Using **lines** that lead in one direction\n- Using **repeated shapes** that create a flow\n\n## 🧠 Example 1\n*A woven cloth has repeated triangles. What does it show?*\n- **Rhythm and pattern** — the repeated shapes create a regular flow.\n\n## 🧠 Example 2\n*A picture of a river has lines leading to a mountain. What does this show?*\n- **Movement** — the lines guide the viewer's eye toward the mountain.\n\n## 🎯 Why Are These Elements Important?\n**Rhythm, pattern, and movement** are used to make an artwork **interesting** and **organized**.\n\n## 🧵 Examples in Native Art\nMany **traditional weavings** and **designs** of the Philippines use repeated patterns — they show the **skill** of our ancestors.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang rhythm sa visual arts?",
+            "question": "What is rhythm in visual arts?",
             "options": [
-              "Paulit-ulit na elemento sa isang gawa",
-              "Uri ng kulay na ginagamit lamang",
-              "Bilang lamang ng mga manonood",
-              "Sukat lamang ng papel"
+              "Repeated elements in an artwork",
+              "Only the type of color used",
+              "Only the number of viewers",
+              "Only the size of the paper"
             ],
-            "correct_answer": "Paulit-ulit na elemento sa isang gawa"
+            "correct_answer": "Repeated elements in an artwork"
           },
           {
-            "question": "Ano ang pattern?",
+            "question": "What is a pattern?",
             "options": [
-              "Regular na pag-uulit ng disenyo",
-              "Isang solong kulay",
-              "Isang tuldok lamang",
-              "Isang linya lamang"
+              "A regular repeating of a design",
+              "A single color",
+              "Just one dot",
+              "Just one line"
             ],
-            "correct_answer": "Regular na pag-uulit ng disenyo"
+            "correct_answer": "A regular repeating of a design"
           },
           {
-            "question": "Ano ang movement sa visual arts?",
+            "question": "What is movement in visual arts?",
             "options": [
-              "Paraan ng paggabay sa mata ng manonood",
-              "Bilis lamang ng paggawa ng sining",
-              "Tunog lamang na naririnig",
-              "Presyo lamang ng gawa"
+              "A way of guiding the viewer's eye",
+              "Only how fast the art is made",
+              "Only the sound you hear",
+              "Only the price of the artwork"
             ],
-            "correct_answer": "Paraan ng paggabay sa mata ng manonood"
+            "correct_answer": "A way of guiding the viewer's eye"
           },
           {
-            "question": "Alin ang halimbawa ng regular pattern?",
+            "question": "Which is an example of a regular pattern?",
             "options": [
               "Checkerboard design",
-              "Random na batik ng bato",
-              "Isang tuldok lamang",
-              "Walang disenyo"
+              "Random spots on a stone",
+              "Just one dot",
+              "No design"
             ],
             "correct_answer": "Checkerboard design"
           },
           {
-            "question": "Isang habing may paulit-ulit na tatsulok. Ano ang ipinapakita nito?",
+            "question": "A woven cloth has repeated triangles. What does it show?",
             "options": [
-              "Rhythm at pattern",
-              "Wala itong disenyo",
-              "Isang solong hugis lamang",
-              "Isang random na guhit"
+              "Rhythm and pattern",
+              "It has no design",
+              "Just a single shape",
+              "A random line"
             ],
-            "correct_answer": "Rhythm at pattern"
+            "correct_answer": "Rhythm and pattern"
           },
           {
-            "question": "Isang larawan na may linyang humahantong sa isang bundok. Ano ang tinutukoy nito?",
+            "question": "A picture has lines leading to a mountain. What does this show?",
             "options": [
               "Movement",
-              "Rhythm lamang",
-              "Pattern lamang",
-              "Kulay lamang"
+              "Only rhythm",
+              "Only pattern",
+              "Only color"
             ],
             "correct_answer": "Movement"
           },
           {
-            "question": "Paano lumilikha ng movement ang mga linya sa isang larawan?",
+            "question": "How do lines create movement in a picture?",
             "options": [
-              "Ginagabayan nila ang mata sa isang direksiyon",
-              "Ginagawang mas maitim ang larawan",
-              "Binabawasan ang kulay ng larawan",
-              "Wala silang epekto sa larawan"
+              "They guide the eye in one direction",
+              "They make the picture darker",
+              "They take color away from the picture",
+              "They have no effect on the picture"
             ],
-            "correct_answer": "Ginagabayan nila ang mata sa isang direksiyon"
+            "correct_answer": "They guide the eye in one direction"
           },
           {
-            "question": "Bakit mahalaga ang rhythm, pattern, at movement sa sining?",
+            "question": "Why are rhythm, pattern, and movement important in art?",
             "options": [
-              "Ginagawang kawili-wili at organisado ang gawa",
-              "Wala itong kabuluhan sa sining",
-              "Pinapahirap lamang nito ang paggawa",
-              "Ginagamit lamang ito sa palakasan"
+              "They make the artwork interesting and organized",
+              "They have no meaning in art",
+              "They only make the work harder",
+              "They are only used in sports"
             ],
-            "correct_answer": "Ginagawang kawili-wili at organisado ang gawa"
+            "correct_answer": "They make the artwork interesting and organized"
           },
           {
-            "question": "Ano ang ipinapakita ng paulit-ulit na pattern sa tradisyonal na habi?",
+            "question": "What do repeated patterns in traditional weaving show?",
             "options": [
-              "Kahusayan ng ating ninuno",
-              "Kawalan ng talento",
-              "Basta random na disenyo",
-              "Wala itong kahulugan"
+              "The skill of our ancestors",
+              "A lack of talent",
+              "Just random designs",
+              "They have no meaning"
             ],
-            "correct_answer": "Kahusayan ng ating ninuno"
+            "correct_answer": "The skill of our ancestors"
           },
           {
-            "question": "Alin ang halimbawa ng random pattern?",
+            "question": "Which is an example of a random pattern?",
             "options": [
-              "Natural na batik ng bato",
+              "Natural spots on a stone",
               "Checkerboard design",
-              "Paulit-ulit na tatsulok sa habi",
-              "Regular na guhit sa tela"
+              "Repeated triangles in weaving",
+              "Regular stripes on cloth"
             ],
-            "correct_answer": "Natural na batik ng bato"
+            "correct_answer": "Natural spots on a stone"
           },
           {
-            "question": "Ano ang layunin ng pag-aaral ng visual elements ng rhythm at pattern?",
+            "question": "What is the goal of studying rhythm and pattern as visual elements?",
             "options": [
-              "Kahusayan ng sining ng ninuno",
-              "Kawalan lamang ng talento",
-              "Basta random na disenyo lang",
-              "Wala itong kahulugan dito"
+              "To see the skill in our ancestors' art",
+              "Only to see a lack of talent",
+              "Just to make random designs",
+              "It has no meaning here"
             ],
-            "correct_answer": "Kahusayan ng sining ng ninuno"
+            "correct_answer": "To see the skill in our ancestors' art"
           },
           {
-            "question": "Isang mag-aaral ang gumawa ng disenyo gamit ang paulit-ulit na bilog sa parehong laki at pagitan. Ano ang ginamit niya?",
+            "question": "A student made a design using repeated circles of the same size and spacing. What did the student use?",
             "options": [
               "Regular pattern",
               "Random pattern",
-              "Walang disenyo",
-              "Isang linya lamang"
+              "No design",
+              "Just one line"
             ],
             "correct_answer": "Regular pattern"
           }
@@ -1637,125 +1637,125 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎨 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Rhythm** = paulit-ulit na elemento | **Pattern** = regular na pag-uulit | **Movement** = ginagabayan ang mata\n- Regular pattern (checkerboard) vs random pattern (batik ng bato)\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 4)\n\n- **Rhythm** = repeated elements | **Pattern** = regular repeating | **Movement** = guides the eye\n- Regular pattern (checkerboard) vs random pattern (spots on a stone)\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang rhythm sa visual arts?",
+            "question": "What is rhythm in visual arts?",
             "options": [
-              "Paulit-ulit na elemento sa isang gawa",
-              "Uri ng kulay na ginagamit lamang",
-              "Bilang lamang ng mga manonood",
-              "Sukat lamang ng papel"
+              "Repeated elements in an artwork",
+              "Only the type of color used",
+              "Only the number of viewers",
+              "Only the size of the paper"
             ],
-            "correct_answer": "Paulit-ulit na elemento sa isang gawa"
+            "correct_answer": "Repeated elements in an artwork"
           },
           {
-            "question": "Ano ang pattern?",
+            "question": "What is a pattern?",
             "options": [
-              "Regular na pag-uulit ng disenyo",
-              "Isang solong kulay",
-              "Isang tuldok lamang",
-              "Isang linya lamang"
+              "A regular repeating of a design",
+              "A single color",
+              "Just one dot",
+              "Just one line"
             ],
-            "correct_answer": "Regular na pag-uulit ng disenyo"
+            "correct_answer": "A regular repeating of a design"
           },
           {
-            "question": "Ano ang movement sa visual arts?",
+            "question": "What is movement in visual arts?",
             "options": [
-              "Paraan ng paggabay sa mata ng manonood",
-              "Bilis lamang ng paggawa ng sining",
-              "Tunog lamang na naririnig",
-              "Presyo lamang ng gawa"
+              "A way of guiding the viewer's eye",
+              "Only how fast the art is made",
+              "Only the sound you hear",
+              "Only the price of the artwork"
             ],
-            "correct_answer": "Paraan ng paggabay sa mata ng manonood"
+            "correct_answer": "A way of guiding the viewer's eye"
           },
           {
-            "question": "Alin ang halimbawa ng regular pattern?",
+            "question": "Which is an example of a regular pattern?",
             "options": [
               "Checkerboard design",
-              "Random na batik ng bato",
-              "Isang tuldok lamang",
-              "Walang disenyo"
+              "Random spots on a stone",
+              "Just one dot",
+              "No design"
             ],
             "correct_answer": "Checkerboard design"
           },
           {
-            "question": "Isang habing may paulit-ulit na tatsulok. Ano ang ipinapakita nito?",
+            "question": "A woven cloth has repeated triangles. What does it show?",
             "options": [
-              "Rhythm at pattern",
-              "Wala itong disenyo",
-              "Isang solong hugis lamang",
-              "Isang random na guhit"
+              "Rhythm and pattern",
+              "It has no design",
+              "Just a single shape",
+              "A random line"
             ],
-            "correct_answer": "Rhythm at pattern"
+            "correct_answer": "Rhythm and pattern"
           },
           {
-            "question": "Isang larawan na may linyang humahantong sa isang bundok. Ano ang tinutukoy nito?",
+            "question": "A picture has lines leading to a mountain. What does this show?",
             "options": [
               "Movement",
-              "Rhythm lamang",
-              "Pattern lamang",
-              "Kulay lamang"
+              "Only rhythm",
+              "Only pattern",
+              "Only color"
             ],
             "correct_answer": "Movement"
           },
           {
-            "question": "Paano lumilikha ng movement ang mga linya sa isang larawan?",
+            "question": "How do lines create movement in a picture?",
             "options": [
-              "Ginagabayan nila ang mata sa isang direksiyon",
-              "Ginagawang mas maitim ang larawan",
-              "Binabawasan ang kulay ng larawan",
-              "Wala silang epekto sa larawan"
+              "They guide the eye in one direction",
+              "They make the picture darker",
+              "They take color away from the picture",
+              "They have no effect on the picture"
             ],
-            "correct_answer": "Ginagabayan nila ang mata sa isang direksiyon"
+            "correct_answer": "They guide the eye in one direction"
           },
           {
-            "question": "Bakit mahalaga ang rhythm, pattern, at movement sa sining?",
+            "question": "Why are rhythm, pattern, and movement important in art?",
             "options": [
-              "Ginagawang kawili-wili at organisado ang gawa",
-              "Wala itong kabuluhan sa sining",
-              "Pinapahirap lamang nito ang paggawa",
-              "Ginagamit lamang ito sa palakasan"
+              "They make the artwork interesting and organized",
+              "They have no meaning in art",
+              "They only make the work harder",
+              "They are only used in sports"
             ],
-            "correct_answer": "Ginagawang kawili-wili at organisado ang gawa"
+            "correct_answer": "They make the artwork interesting and organized"
           },
           {
-            "question": "Ano ang ipinapakita ng paulit-ulit na pattern sa tradisyonal na habi?",
+            "question": "What do repeated patterns in traditional weaving show?",
             "options": [
-              "Kahusayan ng ating ninuno",
-              "Kawalan ng talento",
-              "Basta random na disenyo",
-              "Wala itong kahulugan"
+              "The skill of our ancestors",
+              "A lack of talent",
+              "Just random designs",
+              "They have no meaning"
             ],
-            "correct_answer": "Kahusayan ng ating ninuno"
+            "correct_answer": "The skill of our ancestors"
           },
           {
-            "question": "Alin ang halimbawa ng random pattern?",
+            "question": "Which is an example of a random pattern?",
             "options": [
-              "Natural na batik ng bato",
+              "Natural spots on a stone",
               "Checkerboard design",
-              "Paulit-ulit na tatsulok sa habi",
-              "Regular na guhit sa tela"
+              "Repeated triangles in weaving",
+              "Regular stripes on cloth"
             ],
-            "correct_answer": "Natural na batik ng bato"
+            "correct_answer": "Natural spots on a stone"
           },
           {
-            "question": "Ano ang layunin ng pag-aaral ng visual elements ng rhythm at pattern?",
+            "question": "What is the goal of studying rhythm and pattern as visual elements?",
             "options": [
-              "Kahusayan ng sining ng ninuno",
-              "Kawalan lamang ng talento",
-              "Basta random na disenyo lang",
-              "Wala itong kahulugan dito"
+              "To see the skill in our ancestors' art",
+              "Only to see a lack of talent",
+              "Just to make random designs",
+              "It has no meaning here"
             ],
-            "correct_answer": "Kahusayan ng sining ng ninuno"
+            "correct_answer": "To see the skill in our ancestors' art"
           },
           {
-            "question": "Isang mag-aaral ang gumawa ng disenyo gamit ang paulit-ulit na bilog sa parehong laki at pagitan. Ano ang ginamit niya?",
+            "question": "A student made a design using repeated circles of the same size and spacing. What did the student use?",
             "options": [
               "Regular pattern",
               "Random pattern",
-              "Walang disenyo",
-              "Isang linya lamang"
+              "No design",
+              "Just one line"
             ],
             "correct_answer": "Regular pattern"
           }

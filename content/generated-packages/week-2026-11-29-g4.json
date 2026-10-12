@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🛍️ MAPEH — Karapatan at Pananagutan bilang Konsumer\n\nGrade 4, Linggo 25! Alamin natin ang ating karapatan bilang mamimili. 🛍️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang teatro ng alamat at karapatan sa kalusugan.\n\n## 🛍️ Mga Karapatan ng Konsumer\n- Karapatang **malaman** ang tunay na presyo at kalidad ng produkto\n- Karapatang **piliin** ang gustong bilhin\n- Karapatang **magreklamo** kung may sira o mali sa produkto\n\n## 📋 Pananagutan ng Konsumer\n- Basahin ang **label** bago bumili\n- Suriin ang **petsa ng expiry**\n- Maging **matalinong mamimili** — huwag basta paniwalaan ang lahat ng anunsyo\n\n## 💡 Bakit Mahalaga Ito?\nAng pagiging matalinong konsumer ay nakakatulong protektahan tayo mula sa **panloloko o mababang kalidad** na produkto.\n\n**Mahahalagang salita:** konsumer, karapatan, pananagutan, matalinong mamimili",
+        "summary_markdown": "# 🛍️ MAPEH — Rights and Responsibilities as a Consumer\n\nGrade 4, Week 25! Let's learn about our rights as shoppers. 🛍️\n\n## 🔄 Review\nWe learned about theater of legends and the right to health.\n\n## 🛍️ Consumer Rights\n- The right to **know** the true price and quality of a product\n- The right to **choose** what you want to buy\n- The right to **complain** if a product is damaged or wrong\n\n## 📋 Consumer Responsibilities\n- Read the **label** before buying\n- Check the **expiry date**\n- Be a **smart shopper** — don't just believe every ad\n\n## 💡 Why Is It Important?\nBeing a smart consumer helps protect us from **being cheated or getting poor-quality** products.\n\n**Key words:** consumer, rights, responsibilities, smart shopper",
         "quiz": [
           {
-            "question": "Anong karapatan mayroon ang isang konsumer?",
+            "question": "What right does a consumer have?",
             "options": [
-              "Karapatang malaman ang tunay na presyo at kalidad",
-              "Walang karapatan",
-              "Karapatang tanggapin lamang ang lahat",
-              "Karapatang magbayad nang sobra"
+              "The right to know the true price and quality",
+              "No rights",
+              "The right to just accept everything",
+              "The right to pay too much"
             ],
-            "correct_answer": "Karapatang malaman ang tunay na presyo at kalidad"
+            "correct_answer": "The right to know the true price and quality"
           },
           {
-            "question": "Anong pananagutan mayroon ang isang konsumer?",
+            "question": "What responsibility does a consumer have?",
             "options": [
-              "Basahin ang label bago bumili",
-              "Wala, ang tindera lamang ang may pananagutan",
-              "Basta bumili nang walang pag-iisip",
-              "Huwag suriin ang produkto"
+              "Read the label before buying",
+              "None, only the seller is responsible",
+              "Just buy without thinking",
+              "Don't check the product"
             ],
-            "correct_answer": "Basahin ang label bago bumili"
+            "correct_answer": "Read the label before buying"
           },
           {
-            "question": "Bakit dapat suriin ang petsa ng expiry?",
+            "question": "Why should you check the expiry date?",
             "options": [
-              "Para matiyak na ligtas gamitin ang produkto",
-              "Walang kahalagahan",
-              "Hindi mahalaga ang petsa",
-              "Basta't binili na, okay na"
+              "To make sure the product is safe to use",
+              "It has no value",
+              "The date doesn't matter",
+              "Once it's bought, it's okay"
             ],
-            "correct_answer": "Para matiyak na ligtas gamitin ang produkto"
+            "correct_answer": "To make sure the product is safe to use"
           },
           {
-            "question": "Ano ang karapatang magreklamo ng konsumer?",
+            "question": "What is a consumer's right to complain?",
             "options": [
-              "Kung may sira o mali sa produkto",
-              "Kahit walang dahilan",
-              "Hindi ito karapatan",
-              "Para lamang sa negosyante"
+              "When a product is damaged or wrong",
+              "Even with no reason",
+              "It is not a right",
+              "Only for business owners"
             ],
-            "correct_answer": "Kung may sira o mali sa produkto"
+            "correct_answer": "When a product is damaged or wrong"
           },
           {
-            "question": "Bakit mahalagang maging matalinong mamimili?",
+            "question": "Why is it important to be a smart shopper?",
             "options": [
-              "Nakakaiwas ito sa panloloko o mababang kalidad na produkto",
-              "Wala itong kahalagahan",
-              "Basta bumili lamang nang walang pag-iisip",
-              "Hindi ito mahalaga"
+              "It helps you avoid being cheated or buying poor-quality products",
+              "It has no value",
+              "Just buy without thinking",
+              "It doesn't matter"
             ],
-            "correct_answer": "Nakakaiwas ito sa panloloko o mababang kalidad na produkto"
+            "correct_answer": "It helps you avoid being cheated or buying poor-quality products"
           },
           {
-            "question": "Bakit hindi dapat basta paniwalaan ang lahat ng anunsyo?",
+            "question": "Why shouldn't you just believe every ad?",
             "options": [
-              "Hindi lahat ng anunsyo ay tumpak o totoo",
-              "Lahat ng anunsyo ay palaging tama",
-              "Walang dahilan",
-              "Ang anunsyo ay hindi mahalaga"
+              "Not all ads are accurate or true",
+              "All ads are always right",
+              "No reason",
+              "Ads are not important"
             ],
-            "correct_answer": "Hindi lahat ng anunsyo ay tumpak o totoo"
+            "correct_answer": "Not all ads are accurate or true"
           },
           {
-            "question": "Ano ang karapatang piliin ng konsumer?",
+            "question": "What is a consumer's right to choose?",
             "options": [
-              "Piliin ang gustong bilhin",
-              "Wala silang karapatang pumili",
-              "Dapat lamang bumili ng isang produkto",
-              "Hindi ito karapatan"
+              "To choose what you want to buy",
+              "They have no right to choose",
+              "They should buy only one product",
+              "It is not a right"
             ],
-            "correct_answer": "Piliin ang gustong bilhin"
+            "correct_answer": "To choose what you want to buy"
           },
           {
-            "question": "Bakit itinuturo ang consumer health sa MAPEH?",
+            "question": "Why is consumer health taught in MAPEH?",
             "options": [
-              "Upang matutong protektahan ang sarili bilang mamimili",
-              "Walang layunin ito",
-              "Hindi kaugnay ng kalusugan",
-              "Para sa matatanda lamang"
+              "To learn to protect yourself as a shopper",
+              "It has no purpose",
+              "It is not related to health",
+              "Only for adults"
             ],
-            "correct_answer": "Upang matutong protektahan ang sarili bilang mamimili"
+            "correct_answer": "To learn to protect yourself as a shopper"
           },
           {
-            "question": "Ano ang mangyayari kung hindi susuriin ang label bago bumili?",
+            "question": "What happens if you don't check the label before buying?",
             "options": [
-              "Maaaring makabili ng maling o hindi angkop na produkto",
-              "Walang mangyayari",
-              "Palaging tama ang produkto",
-              "Mas mabilis lamang ang pamimili"
+              "You might buy a wrong or unsuitable product",
+              "Nothing will happen",
+              "The product is always right",
+              "Shopping is just faster"
             ],
-            "correct_answer": "Maaaring makabili ng maling o hindi angkop na produkto"
+            "correct_answer": "You might buy a wrong or unsuitable product"
           },
           {
-            "question": "Bakit mahalagang malaman ang karapatan at pananagutan bilang konsumer?",
+            "question": "Why is it important to know your rights and responsibilities as a consumer?",
             "options": [
-              "Tumutulong itong maging responsable at protektado sa pamimili",
-              "Walang kahalagahan",
-              "Para sa matatanda lamang ito",
-              "Walang epekto ito"
+              "It helps you be responsible and protected when shopping",
+              "It has no value",
+              "It is only for adults",
+              "It has no effect"
             ],
-            "correct_answer": "Tumutulong itong maging responsable at protektado sa pamimili"
+            "correct_answer": "It helps you be responsible and protected when shopping"
           },
           {
-            "question": "Sino ang may pananagutan sa pagbabasa ng label bago bumili?",
+            "question": "Who is responsible for reading the label before buying?",
             "options": [
-              "Ang mamimili mismo",
-              "Ang tindera lamang",
-              "Walang sinuman",
-              "Ang gumawa ng produkto lamang"
+              "The shopper",
+              "Only the seller",
+              "No one",
+              "Only the product maker"
             ],
-            "correct_answer": "Ang mamimili mismo"
+            "correct_answer": "The shopper"
           },
           {
-            "question": "Ano ang koneksyon ng food literacy sa consumer health?",
+            "question": "How is food literacy linked to consumer health?",
             "options": [
-              "Parehong tumutulong sa matalino at malusog na pagpili",
-              "Walang koneksyon",
-              "Food literacy ay tungkol lamang sa lasa",
-              "Consumer health ay hindi kaugnay ng pagkain"
+              "Both help with smart and healthy choices",
+              "No link",
+              "Food literacy is only about taste",
+              "Consumer health is not related to food"
             ],
-            "correct_answer": "Parehong tumutulong sa matalino at malusog na pagpili"
+            "correct_answer": "Both help with smart and healthy choices"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🛍️ Friday Review — MAPEH (Grade 4)\n\n- Karapatan at pananagutan bilang konsumer\n\nMagaling! 🌟",
+        "summary_markdown": "# 🛍️ Friday Review — MAPEH (Grade 4)\n\n- Rights and responsibilities as a consumer\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Karapatan ng konsumer?",
+            "question": "A consumer's right?",
             "options": [
-              "Malaman ang presyo at kalidad",
-              "Walang karapatan",
-              "Tanggapin lamang lahat",
-              "Magbayad nang sobra"
+              "To know the price and quality",
+              "No rights",
+              "Just accept everything",
+              "Pay too much"
             ],
-            "correct_answer": "Malaman ang presyo at kalidad"
+            "correct_answer": "To know the price and quality"
           },
           {
-            "question": "Pananagutan ng konsumer?",
+            "question": "A consumer's responsibility?",
             "options": [
-              "Basahin ang label bago bumili",
-              "Tindera lamang may pananagutan",
-              "Bumili nang walang pag-iisip",
-              "Huwag suriin"
+              "Read the label before buying",
+              "Only the seller is responsible",
+              "Buy without thinking",
+              "Don't check"
             ],
-            "correct_answer": "Basahin ang label bago bumili"
+            "correct_answer": "Read the label before buying"
           },
           {
-            "question": "Bakit suriin ang petsa ng expiry?",
+            "question": "Why check the expiry date?",
             "options": [
-              "Matiyak na ligtas gamitin",
-              "Walang kahalagahan",
-              "Hindi mahalaga",
-              "Okay na kahit expired"
+              "To make sure it is safe to use",
+              "It has no value",
+              "It doesn't matter",
+              "It's okay even if expired"
             ],
-            "correct_answer": "Matiyak na ligtas gamitin"
+            "correct_answer": "To make sure it is safe to use"
           },
           {
-            "question": "Karapatang magreklamo ng konsumer?",
+            "question": "A consumer's right to complain?",
             "options": [
-              "Kung may sira sa produkto",
-              "Kahit walang dahilan",
-              "Hindi ito karapatan",
-              "Para sa negosyante lamang"
+              "If the product is damaged",
+              "Even with no reason",
+              "It is not a right",
+              "Only for business owners"
             ],
-            "correct_answer": "Kung may sira sa produkto"
+            "correct_answer": "If the product is damaged"
           },
           {
-            "question": "Bakit maging matalinong mamimili?",
+            "question": "Why be a smart shopper?",
             "options": [
-              "Iwasan ang panloloko o mababang kalidad",
-              "Walang kahalagahan",
-              "Bumili lamang walang pag-iisip",
-              "Hindi mahalaga"
+              "To avoid being cheated or getting poor quality",
+              "It has no value",
+              "Just buy without thinking",
+              "It doesn't matter"
             ],
-            "correct_answer": "Iwasan ang panloloko o mababang kalidad"
+            "correct_answer": "To avoid being cheated or getting poor quality"
           },
           {
-            "question": "Bakit hindi paniwalaan ang lahat ng anunsyo?",
+            "question": "Why not believe every ad?",
             "options": [
-              "Hindi lahat ay tumpak o totoo",
-              "Lahat palaging tama",
-              "Walang dahilan",
-              "Anunsyo hindi mahalaga"
+              "Not all are accurate or true",
+              "All are always right",
+              "No reason",
+              "Ads are not important"
             ],
-            "correct_answer": "Hindi lahat ay tumpak o totoo"
+            "correct_answer": "Not all are accurate or true"
           },
           {
-            "question": "Karapatang piliin ng konsumer?",
+            "question": "A consumer's right to choose?",
             "options": [
-              "Piliin ang gustong bilhin",
-              "Walang karapatang pumili",
-              "Bumili lamang ng isa",
-              "Hindi ito karapatan"
+              "Choose what you want to buy",
+              "No right to choose",
+              "Buy only one",
+              "It is not a right"
             ],
-            "correct_answer": "Piliin ang gustong bilhin"
+            "correct_answer": "Choose what you want to buy"
           },
           {
-            "question": "Bakit ituro ang consumer health?",
+            "question": "Why teach consumer health?",
             "options": [
-              "Protektahan ang sarili bilang mamimili",
-              "Walang layunin",
-              "Hindi kaugnay ng kalusugan",
-              "Para sa matatanda lamang"
+              "To protect yourself as a shopper",
+              "No purpose",
+              "Not related to health",
+              "Only for adults"
             ],
-            "correct_answer": "Protektahan ang sarili bilang mamimili"
+            "correct_answer": "To protect yourself as a shopper"
           },
           {
-            "question": "Mangyayari kung hindi susuriin ang label?",
+            "question": "What happens if you don't check the label?",
             "options": [
-              "Makabili ng maling produkto",
-              "Walang mangyayari",
-              "Palaging tama",
-              "Mas mabilis ang pamimili"
+              "You might buy the wrong product",
+              "Nothing will happen",
+              "Always correct",
+              "Shopping is faster"
             ],
-            "correct_answer": "Makabili ng maling produkto"
+            "correct_answer": "You might buy the wrong product"
           },
           {
-            "question": "Bakit malaman ang karapatan at pananagutan?",
+            "question": "Why know your rights and responsibilities?",
             "options": [
-              "Maging responsable sa pamimili",
-              "Walang kahalagahan",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To be responsible when shopping",
+              "It has no value",
+              "Only for adults",
+              "No effect"
             ],
-            "correct_answer": "Maging responsable sa pamimili"
+            "correct_answer": "To be responsible when shopping"
           },
           {
-            "question": "Sino may pananagutan sa pagbabasa ng label?",
+            "question": "Who is responsible for reading the label?",
             "options": [
-              "Ang mamimili mismo",
-              "Tindera lamang",
-              "Walang sinuman",
-              "Gumawa ng produkto lamang"
+              "The shopper",
+              "Only the seller",
+              "No one",
+              "Only the product maker"
             ],
-            "correct_answer": "Ang mamimili mismo"
+            "correct_answer": "The shopper"
           },
           {
-            "question": "Koneksyon ng food literacy sa consumer health?",
+            "question": "Link between food literacy and consumer health?",
             "options": [
-              "Parehong tumutulong sa matalinong pagpili",
-              "Walang koneksyon",
-              "Tungkol lamang sa lasa",
-              "Hindi kaugnay ng pagkain"
+              "Both help with smart choices",
+              "No link",
+              "Only about taste",
+              "Not related to food"
             ],
-            "correct_answer": "Parehong tumutulong sa matalinong pagpili"
+            "correct_answer": "Both help with smart choices"
           }
         ]
       },

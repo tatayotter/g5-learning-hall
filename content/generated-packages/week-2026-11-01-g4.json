@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎭 MAPEH — Melodiya at Malusog na Pagkain\n\nGrade 4, Linggo 21! Alamin natin ang melodiya sa musika at ang kahalagahan ng malusog na pagkain. 🎭\n\n## 🔄 Balik-Aral\nNatutuhan natin ang rhythm at tempo sa musika ng pananampalataya.\n\n## 🎵 Ano ang Melodiya?\nAng **melodiya** ay ang serye ng mga tunog na tumataas o bumababa na bumubuo ng \"tono\" ng isang awit — madalas na ito ang bahaging madaling kantahin o alalahanin.\n\n## 🍎 Malusog na Pagkain\nAng **balanseng pagkain** ay may kasamang:\n- Karbohidrat (kanin, tinapay)\n- Protina (isda, itlog)\n- Gulay at prutas\n- Tubig\n\nMahalagang kumain ng iba't ibang uri ng pagkain para sa isang **malusog na katawan**.\n\n**Mahahalagang salita:** melodiya, tono, balanseng pagkain, nutrisyon",
+        "summary_markdown": "# 🎭 MAPEH — Melody and Healthy Food\n\nGrade 4, Week 21! Let's learn about melody in music and why healthy food matters. 🎭\n\n## 🔄 Review\nWe learned about rhythm and tempo in music of faith.\n\n## 🎵 What Is Melody?\n**Melody** is a series of sounds that go up or down and form the \"tune\" of a song — it is often the part that is easy to sing or remember.\n\n## 🍎 Healthy Food\nA **balanced meal** includes:\n- Carbohydrates (rice, bread)\n- Protein (fish, eggs)\n- Vegetables and fruits\n- Water\n\nIt is important to eat different kinds of food for a **healthy body**.\n\n**Key words:** melody, tune, balanced meal, nutrition",
         "quiz": [
           {
-            "question": "Ano ang melodiya?",
+            "question": "What is melody?",
             "options": [
-              "Serye ng tunog na bumubuo ng tono ng awit",
-              "Bilis ng isang awit",
-              "Lakas ng tunog",
-              "Instrumentong ginagamit"
+              "A series of sounds that forms the tune of a song",
+              "The speed of a song",
+              "The loudness of the sound",
+              "The instrument used"
             ],
-            "correct_answer": "Serye ng tunog na bumubuo ng tono ng awit"
+            "correct_answer": "A series of sounds that forms the tune of a song"
           },
           {
-            "question": "Ano ang balanseng pagkain?",
+            "question": "What is a balanced meal?",
             "options": [
-              "Pagkaing may karbohidrat, protina, gulay, at prutas",
-              "Kanin lamang",
-              "Matamis na pagkain lamang",
-              "Isang uri ng inumin lamang"
+              "A meal with carbohydrates, protein, vegetables, and fruits",
+              "Only rice",
+              "Only sweet food",
+              "Only one kind of drink"
             ],
-            "correct_answer": "Pagkaing may karbohidrat, protina, gulay, at prutas"
+            "correct_answer": "A meal with carbohydrates, protein, vegetables, and fruits"
           },
           {
-            "question": "Alin ang halimbawa ng karbohidrat?",
+            "question": "Which is an example of a carbohydrate?",
             "options": [
-              "Kanin",
-              "Isda",
-              "Gulay",
-              "Tubig lamang"
+              "Rice",
+              "Fish",
+              "Vegetables",
+              "Only water"
             ],
-            "correct_answer": "Kanin"
+            "correct_answer": "Rice"
           },
           {
-            "question": "Alin ang halimbawa ng protina?",
+            "question": "Which is an example of a protein?",
             "options": [
-              "Isda o itlog",
-              "Kanin",
-              "Prutas lamang",
-              "Tubig lamang"
+              "Fish or eggs",
+              "Rice",
+              "Only fruit",
+              "Only water"
             ],
-            "correct_answer": "Isda o itlog"
+            "correct_answer": "Fish or eggs"
           },
           {
-            "question": "Bakit mahalagang kumain ng iba't ibang uri ng pagkain?",
+            "question": "Why is it important to eat different kinds of food?",
             "options": [
-              "Para sa malusog na katawan",
-              "Walang kahalagahan",
-              "Basta't marami lang, okay na",
-              "Hindi mahalaga ang iba't ibang uri"
+              "For a healthy body",
+              "It has no value",
+              "As long as it's a lot, it's okay",
+              "Different kinds don't matter"
             ],
-            "correct_answer": "Para sa malusog na katawan"
+            "correct_answer": "For a healthy body"
           },
           {
-            "question": "Bakit itinuturing na mahalaga ang melodiya sa isang awit?",
+            "question": "Why is melody considered important in a song?",
             "options": [
-              "Ito ang bahaging madaling kantahin at alalahanin",
-              "Wala itong kahalagahan",
-              "Ito lamang ang bahagi na walang tunog",
-              "Ginagamit lamang ito ng instrumento"
+              "It is the part that is easy to sing and remember",
+              "It has no value",
+              "It is the only part with no sound",
+              "Only instruments use it"
             ],
-            "correct_answer": "Ito ang bahaging madaling kantahin at alalahanin"
+            "correct_answer": "It is the part that is easy to sing and remember"
           },
           {
-            "question": "Anong grupo ng pagkain ang kasama ang gulay at prutas?",
+            "question": "Which food group includes vegetables and fruits?",
             "options": [
-              "Bitamina at mineral",
-              "Karbohidrat lamang",
-              "Protina lamang",
-              "Taba lamang"
+              "Vitamins and minerals",
+              "Only carbohydrates",
+              "Only protein",
+              "Only fat"
             ],
-            "correct_answer": "Bitamina at mineral"
+            "correct_answer": "Vitamins and minerals"
           },
           {
-            "question": "Bakit mahalaga ang tubig sa balanseng pagkain?",
+            "question": "Why is water important in a balanced meal?",
             "options": [
-              "Kailangan ng katawan ang tubig upang gumana nang maayos",
-              "Walang kahalagahan ang tubig",
-              "Hindi kasama ang tubig sa pagkain",
-              "Tubig ay nakakasama sa katawan"
+              "The body needs water to work well",
+              "Water has no value",
+              "Water is not part of a meal",
+              "Water is bad for the body"
             ],
-            "correct_answer": "Kailangan ng katawan ang tubig upang gumana nang maayos"
+            "correct_answer": "The body needs water to work well"
           },
           {
-            "question": "Paano naiiba ang melodiya sa rhythm?",
+            "question": "How is melody different from rhythm?",
             "options": [
-              "Ang melodiya ay ang tono, ang rhythm ay ang tempo/bilis",
-              "Magkatulad lamang sila",
-              "Walang pagkakaiba",
-              "Ang rhythm ay tungkol sa tono lamang"
+              "Melody is the tune; rhythm is the pattern of long and short beats",
+              "They are just the same",
+              "There is no difference",
+              "Rhythm is only about the tune"
             ],
-            "correct_answer": "Ang melodiya ay ang tono, ang rhythm ay ang tempo/bilis"
+            "correct_answer": "Melody is the tune; rhythm is the pattern of long and short beats"
           },
           {
-            "question": "Bakit itinuturo ang food literacy sa MAPEH?",
+            "question": "Why is food literacy taught in MAPEH?",
             "options": [
-              "Upang matutong pumili ng malusog na pagkain",
-              "Walang layunin ito",
-              "Hindi ito kaugnay ng kalusugan",
-              "Para lamang sa matatanda"
+              "To learn to choose healthy food",
+              "It has no purpose",
+              "It is not linked to health",
+              "It is only for adults"
             ],
-            "correct_answer": "Upang matutong pumili ng malusog na pagkain"
+            "correct_answer": "To learn to choose healthy food"
           },
           {
-            "question": "Alin ang HINDI bahagi ng balanseng pagkain?",
+            "question": "Which is NOT part of a balanced meal?",
             "options": [
-              "Junk food lamang bilang pangunahing pagkain",
-              "Karbohidrat",
-              "Protina",
-              "Gulay at prutas"
+              "Only junk food as the main food",
+              "Carbohydrates",
+              "Protein",
+              "Vegetables and fruits"
             ],
-            "correct_answer": "Junk food lamang bilang pangunahing pagkain"
+            "correct_answer": "Only junk food as the main food"
           },
           {
-            "question": "Bakit gumagamit ng iba't ibang tunog ang isang melodiya?",
+            "question": "Why does a melody use different sounds?",
             "options": [
-              "Para lumikha ng natatanging tono na kilala at nakakaantig",
-              "Walang dahilan",
-              "Para lituhin ang tagapakinig",
-              "Para gawing mas maikli ang awit"
+              "To create a special tune that people know and are moved by",
+              "No reason",
+              "To confuse the listener",
+              "To make the song shorter"
             ],
-            "correct_answer": "Para lumikha ng natatanging tono na kilala at nakakaantig"
+            "correct_answer": "To create a special tune that people know and are moved by"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Melodiya at malusog na pagkain\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 4)\n\n- Melody and healthy food\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang melodiya?",
+            "question": "What is melody?",
             "options": [
-              "Serye ng tunog na bumubuo ng tono",
-              "Bilis ng awit",
-              "Lakas ng tunog",
-              "Instrumentong ginagamit"
+              "A series of sounds that forms a tune",
+              "Speed of a song",
+              "Loudness of the sound",
+              "Instrument used"
             ],
-            "correct_answer": "Serye ng tunog na bumubuo ng tono"
+            "correct_answer": "A series of sounds that forms a tune"
           },
           {
-            "question": "Ano ang balanseng pagkain?",
+            "question": "What is a balanced meal?",
             "options": [
-              "Karbohidrat, protina, gulay, prutas",
-              "Kanin lamang",
-              "Matamis lamang",
-              "Inumin lamang"
+              "Carbohydrates, protein, vegetables, fruits",
+              "Only rice",
+              "Only sweets",
+              "Only drinks"
             ],
-            "correct_answer": "Karbohidrat, protina, gulay, prutas"
+            "correct_answer": "Carbohydrates, protein, vegetables, fruits"
           },
           {
-            "question": "Halimbawa ng karbohidrat?",
+            "question": "Example of a carbohydrate?",
             "options": [
-              "Kanin",
-              "Isda",
-              "Gulay",
-              "Tubig"
+              "Rice",
+              "Fish",
+              "Vegetables",
+              "Water"
             ],
-            "correct_answer": "Kanin"
+            "correct_answer": "Rice"
           },
           {
-            "question": "Halimbawa ng protina?",
+            "question": "Example of a protein?",
             "options": [
-              "Isda o itlog",
-              "Kanin",
-              "Prutas",
-              "Tubig"
+              "Fish or eggs",
+              "Rice",
+              "Fruit",
+              "Water"
             ],
-            "correct_answer": "Isda o itlog"
+            "correct_answer": "Fish or eggs"
           },
           {
-            "question": "Bakit kumain ng iba't ibang pagkain?",
+            "question": "Why eat different kinds of food?",
             "options": [
-              "Malusog na katawan",
-              "Walang kahalagahan",
-              "Basta marami",
-              "Hindi mahalaga"
+              "A healthy body",
+              "It has no value",
+              "Just to eat a lot",
+              "It doesn't matter"
             ],
-            "correct_answer": "Malusog na katawan"
+            "correct_answer": "A healthy body"
           },
           {
-            "question": "Bakit mahalaga ang melodiya?",
+            "question": "Why is melody important?",
             "options": [
-              "Madaling kantahin at alalahanin",
-              "Walang kahalagahan",
-              "Walang tunog",
-              "Ginagamit ng instrumento lamang"
+              "It is easy to sing and remember",
+              "It has no value",
+              "It has no sound",
+              "Only instruments use it"
             ],
-            "correct_answer": "Madaling kantahin at alalahanin"
+            "correct_answer": "It is easy to sing and remember"
           },
           {
-            "question": "Anong grupo may gulay at prutas?",
+            "question": "Which group has vegetables and fruits?",
             "options": [
-              "Bitamina at mineral",
-              "Karbohidrat lamang",
-              "Protina lamang",
-              "Taba lamang"
+              "Vitamins and minerals",
+              "Only carbohydrates",
+              "Only protein",
+              "Only fat"
             ],
-            "correct_answer": "Bitamina at mineral"
+            "correct_answer": "Vitamins and minerals"
           },
           {
-            "question": "Bakit mahalaga ang tubig?",
+            "question": "Why is water important?",
             "options": [
-              "Kailangan ng katawan gumana nang maayos",
-              "Walang kahalagahan",
-              "Hindi kasama sa pagkain",
-              "Nakakasama sa katawan"
+              "The body needs it to work well",
+              "It has no value",
+              "It is not part of a meal",
+              "It is bad for the body"
             ],
-            "correct_answer": "Kailangan ng katawan gumana nang maayos"
+            "correct_answer": "The body needs it to work well"
           },
           {
-            "question": "Pagkakaiba ng melodiya sa rhythm?",
+            "question": "Difference between melody and rhythm?",
             "options": [
-              "Melodiya tono, rhythm tempo/bilis",
-              "Magkatulad lamang",
-              "Walang pagkakaiba",
-              "Rhythm tungkol sa tono"
+              "Melody is the tune; rhythm is the pattern of long and short beats",
+              "They are just the same",
+              "There is no difference",
+              "Rhythm is about the tune"
             ],
-            "correct_answer": "Melodiya tono, rhythm tempo/bilis"
+            "correct_answer": "Melody is the tune; rhythm is the pattern of long and short beats"
           },
           {
-            "question": "Bakit ituro ang food literacy?",
+            "question": "Why teach food literacy?",
             "options": [
-              "Matutong pumili ng malusog na pagkain",
-              "Walang layunin",
-              "Hindi kaugnay ng kalusugan",
-              "Para sa matatanda lamang"
+              "To learn to choose healthy food",
+              "It has no purpose",
+              "It is not linked to health",
+              "Only for adults"
             ],
-            "correct_answer": "Matutong pumili ng malusog na pagkain"
+            "correct_answer": "To learn to choose healthy food"
           },
           {
-            "question": "Alin ang HINDI bahagi ng balanseng pagkain?",
+            "question": "Which is NOT part of a balanced meal?",
             "options": [
-              "Junk food bilang pangunahing pagkain",
-              "Karbohidrat",
-              "Protina",
-              "Gulay at prutas"
+              "Junk food as the main food",
+              "Carbohydrates",
+              "Protein",
+              "Vegetables and fruits"
             ],
-            "correct_answer": "Junk food bilang pangunahing pagkain"
+            "correct_answer": "Junk food as the main food"
           },
           {
-            "question": "Bakit gumagamit ng iba't ibang tunog ang melodiya?",
+            "question": "Why does a melody use different sounds?",
             "options": [
-              "Lumikha ng natatanging tono",
-              "Walang dahilan",
-              "Lituhin ang tagapakinig",
-              "Gawing maikli ang awit"
+              "To create a special tune",
+              "No reason",
+              "To confuse the listener",
+              "To make the song short"
             ],
-            "correct_answer": "Lumikha ng natatanging tono"
+            "correct_answer": "To create a special tune"
           }
         ]
       },

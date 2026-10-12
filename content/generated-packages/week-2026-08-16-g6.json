@@ -76,14 +76,14 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎨 MAPEH — Week 9: Term Review!\n\nBalikan natin ang natutunan ngayong termino! 📚\n\n## 🎨 Music & Arts Review\n- **Revolutionary at American Period** — kung paano naimpluwensyahan ng kasaysayan ang sining.\n\n## 💪 PE & Health Review\n- **Holistic wellness** — pangangalaga sa buong sarili.\n- **Target at Invasion Games** — mga laro ng lahi.\n\n## 🎯 Susunod na Termino\n- Pag-aaralan natin ang Commonwealth Period at Sexual/Reproductive Health!\n\nMahusay na termino ng MAPEH! 🌟",
+        "summary_markdown": "# 🎨 MAPEH — Week 9: Term Review!\n\nLet's look back at what we learned this term! 📚\n\n## 🎨 Music & Arts Review\n- **Revolutionary and American Period** — how history shaped the arts.\n\n## 💪 PE & Health Review\n- **Holistic wellness** — taking care of your whole self.\n- **Target and Invasion Games** — traditional Filipino games.\n\n## 🎯 Next Term\n- We will study the Commonwealth Period and Sexual/Reproductive Health!\n\nGreat job this MAPEH term! 🌟",
         "quiz": [
-          { "question": "Anong mga panahon ang natutunan natin sa Music & Arts?", "options": ["Revolutionary at American Period", "Wala", "Isang panahon lamang", "Walang natutunan"], "correct_answer": "Revolutionary at American Period" },
-          { "question": "Ano ang natutunan natin sa Health?", "options": ["Holistic wellness", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Holistic wellness" },
-          { "question": "Anong mga laro ang natutunan natin sa PE?", "options": ["Target at invasion games", "Wala", "Isang laro lamang", "Walang laro"], "correct_answer": "Target at invasion games" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Commonwealth Period at Sexual/Reproductive Health", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Commonwealth Period at Sexual/Reproductive Health" },
-          { "question": "Paano naiimpluwensyahan ang sining ng kasaysayan?", "options": ["Sa pamamagitan ng mga pangyayari at paniniwala ng panahon", "Wala", "Walang koneksyon", "Random lamang"], "correct_answer": "Sa pamamagitan ng mga pangyayari at paniniwala ng panahon" },
-          { "question": "Bakit mahalaga ang holistic wellness?", "options": ["Pinapangalagaan nito ang buong sarili", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Pinapangalagaan nito ang buong sarili" }
+          { "question": "Which periods did we learn about in Music & Arts?", "options": ["Revolutionary and American Period", "None", "Only one period", "We learned nothing"], "correct_answer": "Revolutionary and American Period" },
+          { "question": "What did we learn about in Health?", "options": ["Holistic wellness", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Holistic wellness" },
+          { "question": "Which games did we learn in PE?", "options": ["Target and invasion games", "None", "Only one game", "No games"], "correct_answer": "Target and invasion games" },
+          { "question": "What will we study next term?", "options": ["Commonwealth Period and Sexual/Reproductive Health", "No more topics", "Just something else", "Nothing"], "correct_answer": "Commonwealth Period and Sexual/Reproductive Health" },
+          { "question": "How does history influence art?", "options": ["Through the events and beliefs of the time", "None", "No connection", "Just random"], "correct_answer": "Through the events and beliefs of the time" },
+          { "question": "Why is holistic wellness important?", "options": ["It takes care of your whole self", "There is no reason", "It is only for grades", "It is useless"], "correct_answer": "It takes care of your whole self" }
         ]
       },
       "EPP (AFA/FCS/IA)": {
@@ -171,13 +171,13 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Music/Arts: **Revolutionary at American Period**\n- Health: **holistic wellness** | PE: target/invasion games\n\nGreat term of MAPEH! 🌟",
+        "summary_markdown": "# 🎨 Friday Weekly Review — MAPEH\n\nQuick review!\n\n- Music/Arts: **Revolutionary and American Period**\n- Health: **holistic wellness** | PE: target/invasion games\n\nGreat term of MAPEH! 🌟",
         "quiz": [
-          { "question": "Anong mga panahon ang natutunan natin sa Music & Arts?", "options": ["Revolutionary at American Period", "Wala", "Isang panahon lamang", "Walang natutunan"], "correct_answer": "Revolutionary at American Period" },
-          { "question": "Ano ang natutunan natin sa Health?", "options": ["Holistic wellness", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Holistic wellness" },
-          { "question": "Anong mga laro ang natutunan natin sa PE?", "options": ["Target at invasion games", "Wala", "Isang laro lamang", "Walang laro"], "correct_answer": "Target at invasion games" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Commonwealth Period at Sexual/Reproductive Health", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Commonwealth Period at Sexual/Reproductive Health" },
-          { "question": "Bakit mahalaga ang holistic wellness?", "options": ["Pinapangalagaan nito ang buong sarili", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Pinapangalagaan nito ang buong sarili" }
+          { "question": "Which periods did we learn about in Music & Arts?", "options": ["Revolutionary and American Period", "None", "Only one period", "We learned nothing"], "correct_answer": "Revolutionary and American Period" },
+          { "question": "What did we learn about in Health?", "options": ["Holistic wellness", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Holistic wellness" },
+          { "question": "Which games did we learn in PE?", "options": ["Target and invasion games", "None", "Only one game", "No games"], "correct_answer": "Target and invasion games" },
+          { "question": "What will we study next term?", "options": ["Commonwealth Period and Sexual/Reproductive Health", "No more topics", "Just something else", "Nothing"], "correct_answer": "Commonwealth Period and Sexual/Reproductive Health" },
+          { "question": "Why is holistic wellness important?", "options": ["It takes care of your whole self", "There is no reason", "It is only for grades", "It is useless"], "correct_answer": "It takes care of your whole self" }
         ]
       },
       "EPP (AFA/FCS/IA)": {

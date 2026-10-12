@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💃 MAPEH — Pagsasama-sama ng 2/4 at 3/4 Time\n\nGrade 4, Linggo 27! Buuin natin ang natutunang mga hakbang sa sayaw! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang social dance mixer sa 3/4 time.\n\n## 💃 Pagsasama-sama ng Dalawang Tempo\nSa linggong ito, pagsasamahin natin ang mga hakbang mula sa 2/4 time (mabilis) at 3/4 time (malumanay) sa isang maliit na presentasyon.\n\n## 🎯 Layunin ng Pagsasanay\n- Palakasin ang koordinasyon sa pagpapalit ng tempo\n- Ipakita ang tiwala sa sarili sa harap ng iba\n- Magtulungan bilang grupo sa isang maikling koreograpiya\n\n## 🏆 Pagtatapos ng Term 2\nIto ang huling linggo ng Term 2 para sa MAPEH — magandang pagkakataon para ipakita ang natutunan buong term!\n\n**Mahahalagang salita:** 2/4 time, 3/4 time, koreograpiya, koordinasyon",
+        "summary_markdown": "# 💃 MAPEH — Putting Together 2/4 and 3/4 Time\n\nGrade 4, Week 27! Let's put together the dance steps we learned! 💃\n\n## 🔄 Review\nWe learned the social dance mixer in 3/4 time.\n\n## 💃 Putting Two Tempos Together\nThis week, we will combine steps from 2/4 time (fast) and 3/4 time (gentle) into a short presentation.\n\n## 🎯 Goals of the Practice\n- Build coordination when the tempo changes\n- Show self-confidence in front of others\n- Work together as a group on a short choreography (a planned set of dance moves)\n\n## 🏆 End of Term 2\nThis is the last week of Term 2 for MAPEH — a great chance to show what you learned all term!\n\n**Key words:** 2/4 time, 3/4 time, choreography, coordination",
         "quiz": [
           {
-            "question": "Anong dalawang tempo ang pinagsama sa linggong ito?",
+            "question": "Which two tempos were put together this week?",
             "options": [
-              "2/4 at 3/4 time",
-              "4/4 at 6/8 time",
-              "1/4 at 5/4 time",
-              "Walang tempo na pinagsama"
+              "2/4 and 3/4 time",
+              "4/4 and 6/8 time",
+              "1/4 and 5/4 time",
+              "No tempos were put together"
             ],
-            "correct_answer": "2/4 at 3/4 time"
+            "correct_answer": "2/4 and 3/4 time"
           },
           {
-            "question": "Alin ang mas mabilis na tempo?",
+            "question": "Which is the faster tempo?",
             "options": [
               "2/4 time",
               "3/4 time",
-              "Parehong magkatulad",
-              "Walang mabilis na tempo"
+              "Both are the same",
+              "There is no fast tempo"
             ],
             "correct_answer": "2/4 time"
           },
           {
-            "question": "Alin ang mas malumanay na tempo?",
+            "question": "Which is the gentler tempo?",
             "options": [
               "3/4 time",
               "2/4 time",
-              "Parehong magkatulad",
-              "Walang malumanay na tempo"
+              "Both are the same",
+              "There is no gentle tempo"
             ],
             "correct_answer": "3/4 time"
           },
           {
-            "question": "Ano ang layunin ng pagsasanay ngayong linggo?",
+            "question": "What is the goal of this week's practice?",
             "options": [
-              "Palakasin ang koordinasyon sa pagpapalit ng tempo",
-              "Matutong magbasa lamang",
-              "Matuto ng matematika",
-              "Maglaro ng basketball"
+              "To build coordination when the tempo changes",
+              "Only to learn to read",
+              "To learn math",
+              "To play basketball"
             ],
-            "correct_answer": "Palakasin ang koordinasyon sa pagpapalit ng tempo"
+            "correct_answer": "To build coordination when the tempo changes"
           },
           {
-            "question": "Bakit mahalaga ang tiwala sa sarili sa pagsasayaw sa harap ng iba?",
+            "question": "Why is self-confidence important when dancing in front of others?",
             "options": [
-              "Nakakatulong ito maipakita nang maayos ang koreograpiya",
-              "Walang kahalagahan ito",
-              "Hindi kailangan ng tiwala sa sarili",
-              "Nakakasagabal lamang ito"
+              "It helps you show the choreography well",
+              "It has no value",
+              "Self-confidence is not needed",
+              "It only gets in the way"
             ],
-            "correct_answer": "Nakakatulong ito maipakita nang maayos ang koreograpiya"
+            "correct_answer": "It helps you show the choreography well"
           },
           {
-            "question": "Bakit mahalaga ang pagtutulungan bilang grupo sa koreograpiya?",
+            "question": "Why is teamwork as a group important in choreography?",
             "options": [
-              "Nagbibigay ito ng mas maayos at magkasabay na presentasyon",
-              "Walang kahalagahan ito",
-              "Mas mabuti mag-isa lamang",
-              "Hindi kailangan ng grupo"
+              "It makes the presentation smoother and more together",
+              "It has no value",
+              "It's better to be alone",
+              "A group is not needed"
             ],
-            "correct_answer": "Nagbibigay ito ng mas maayos at magkasabay na presentasyon"
+            "correct_answer": "It makes the presentation smoother and more together"
           },
           {
-            "question": "Ano ang kahalagahan ng linggong ito para sa Term 2?",
+            "question": "Why is this week important for Term 2?",
             "options": [
-              "Ito ang huling linggo ng Term 2 para sa MAPEH",
-              "Ito ang unang linggo lamang",
-              "Walang kahalagahan ito",
-              "Hindi ito bahagi ng Term 2"
+              "It is the last week of Term 2 for MAPEH",
+              "It is only the first week",
+              "It has no value",
+              "It is not part of Term 2"
             ],
-            "correct_answer": "Ito ang huling linggo ng Term 2 para sa MAPEH"
+            "correct_answer": "It is the last week of Term 2 for MAPEH"
           },
           {
-            "question": "Bakit mahalagang ipakita ang natutunan buong term?",
+            "question": "Why is it important to show what you learned all term?",
             "options": [
-              "Nagpapakita ito ng pag-unlad sa kasanayan sa sayaw",
-              "Walang kahalagahan ito",
-              "Hindi na kailangang ipakita ito",
-              "Basta't tapos na ang term"
+              "It shows progress in your dance skills",
+              "It has no value",
+              "There is no need to show it",
+              "As long as the term is over"
             ],
-            "correct_answer": "Nagpapakita ito ng pag-unlad sa kasanayan sa sayaw"
+            "correct_answer": "It shows progress in your dance skills"
           },
           {
-            "question": "Ano ang kailangan para maayos na sumabay sa pagpapalit ng tempo?",
+            "question": "What do you need to follow tempo changes well?",
             "options": [
-              "Mabuting koordinasyon at pakikinig sa musika",
-              "Pagbabalewala sa musika",
-              "Pag-iisa lamang",
-              "Walang partikular na kasanayan"
+              "Good coordination and listening to the music",
+              "Ignoring the music",
+              "Only being alone",
+              "No special skill"
             ],
-            "correct_answer": "Mabuting koordinasyon at pakikinig sa musika"
+            "correct_answer": "Good coordination and listening to the music"
           },
           {
-            "question": "Bakit binubuo ang MAPEH ng sayaw bilang bahagi ng PE?",
+            "question": "Why does MAPEH include dance as part of PE?",
             "options": [
-              "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining",
-              "Walang layunin ito",
-              "Hindi kaugnay ng edukasyon",
-              "Para sa matatanda lamang"
+              "It supports physical health and appreciation of the arts",
+              "It has no purpose",
+              "It is not related to education",
+              "Only for adults"
             ],
-            "correct_answer": "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining"
+            "correct_answer": "It supports physical health and appreciation of the arts"
           },
           {
-            "question": "Ano ang naidudulot ng pagsasama-sama ng dalawang tempo sa isang presentasyon?",
+            "question": "What does putting two tempos together in a presentation bring?",
             "options": [
-              "Nagpapakita ito ng bersatilidad at kasanayan sa sayaw",
-              "Wala itong idinudulot",
-              "Nakakalito lamang ito",
-              "Hindi ito posible"
+              "It shows versatility and skill in dance",
+              "It brings nothing",
+              "It only causes confusion",
+              "It is not possible"
             ],
-            "correct_answer": "Nagpapakita ito ng bersatilidad at kasanayan sa sayaw"
+            "correct_answer": "It shows versatility and skill in dance"
           },
           {
-            "question": "Bakit mahalagang magsanay bago ang isang koreograpiyang presentasyon?",
+            "question": "Why is it important to practice before a choreography presentation?",
             "options": [
-              "Upang maging maayos at magkasabay ang mga galaw",
-              "Hindi na kailangan magsanay",
-              "Basta't tama ang unang subok",
-              "Walang epekto ang pagsasanay"
+              "So the movements are smooth and together",
+              "There is no need to practice",
+              "As long as the first try is right",
+              "Practice has no effect"
             ],
-            "correct_answer": "Upang maging maayos at magkasabay ang mga galaw"
+            "correct_answer": "So the movements are smooth and together"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Pagsasama-sama ng 2/4 at 3/4 time\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Putting together 2/4 and 3/4 time\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Anong dalawang tempo ang pinagsama?",
+            "question": "Which two tempos were put together?",
             "options": [
-              "2/4 at 3/4 time",
-              "4/4 at 6/8 time",
-              "1/4 at 5/4 time",
-              "Wala"
+              "2/4 and 3/4 time",
+              "4/4 and 6/8 time",
+              "1/4 and 5/4 time",
+              "None"
             ],
-            "correct_answer": "2/4 at 3/4 time"
+            "correct_answer": "2/4 and 3/4 time"
           },
           {
-            "question": "Alin ang mas mabilis?",
+            "question": "Which is faster?",
             "options": [
               "2/4 time",
               "3/4 time",
-              "Magkatulad",
-              "Wala"
+              "The same",
+              "None"
             ],
             "correct_answer": "2/4 time"
           },
           {
-            "question": "Alin ang mas malumanay?",
+            "question": "Which is gentler?",
             "options": [
               "3/4 time",
               "2/4 time",
-              "Magkatulad",
-              "Wala"
+              "The same",
+              "None"
             ],
             "correct_answer": "3/4 time"
           },
           {
-            "question": "Layunin ng pagsasanay?",
+            "question": "Goal of the practice?",
             "options": [
-              "Palakasin ang koordinasyon",
-              "Matutong magbasa",
-              "Matuto ng matematika",
-              "Maglaro ng basketball"
+              "Build coordination",
+              "Learn to read",
+              "Learn math",
+              "Play basketball"
             ],
-            "correct_answer": "Palakasin ang koordinasyon"
+            "correct_answer": "Build coordination"
           },
           {
-            "question": "Bakit mahalaga ang tiwala sa sarili sa pagsasayaw?",
+            "question": "Why is self-confidence important in dancing?",
             "options": [
-              "Nakakatulong maipakita ang koreograpiya",
-              "Walang kahalagahan",
-              "Hindi kailangan",
-              "Nakakasagabal lamang"
+              "It helps you show the choreography",
+              "It has no value",
+              "It is not needed",
+              "It only gets in the way"
             ],
-            "correct_answer": "Nakakatulong maipakita ang koreograpiya"
+            "correct_answer": "It helps you show the choreography"
           },
           {
-            "question": "Bakit mahalaga ang pagtutulungan bilang grupo?",
+            "question": "Why is teamwork as a group important?",
             "options": [
-              "Mas maayos na presentasyon",
-              "Walang kahalagahan",
-              "Mas mabuti mag-isa",
-              "Hindi kailangan"
+              "A smoother presentation",
+              "It has no value",
+              "It's better alone",
+              "It is not needed"
             ],
-            "correct_answer": "Mas maayos na presentasyon"
+            "correct_answer": "A smoother presentation"
           },
           {
-            "question": "Kahalagahan ng linggong ito para sa Term 2?",
+            "question": "Why is this week important for Term 2?",
             "options": [
-              "Huling linggo ng Term 2",
-              "Unang linggo lamang",
-              "Walang kahalagahan",
-              "Hindi bahagi ng Term 2"
+              "Last week of Term 2",
+              "Only the first week",
+              "It has no value",
+              "Not part of Term 2"
             ],
-            "correct_answer": "Huling linggo ng Term 2"
+            "correct_answer": "Last week of Term 2"
           },
           {
-            "question": "Bakit ipakita ang natutunan buong term?",
+            "question": "Why show what you learned all term?",
             "options": [
-              "Nagpapakita ng pag-unlad",
-              "Walang kahalagahan",
-              "Hindi na kailangan",
-              "Basta tapos na"
+              "It shows progress",
+              "It has no value",
+              "No longer needed",
+              "It's over anyway"
             ],
-            "correct_answer": "Nagpapakita ng pag-unlad"
+            "correct_answer": "It shows progress"
           },
           {
-            "question": "Kailangan para maayos sumabay sa tempo?",
+            "question": "What is needed to follow the tempo well?",
             "options": [
-              "Koordinasyon at pakikinig sa musika",
-              "Pagbabalewala",
-              "Pag-iisa",
-              "Wala"
+              "Coordination and listening to the music",
+              "Ignoring it",
+              "Being alone",
+              "Nothing"
             ],
-            "correct_answer": "Koordinasyon at pakikinig sa musika"
+            "correct_answer": "Coordination and listening to the music"
           },
           {
-            "question": "Bakit binubuo ang MAPEH ng sayaw?",
+            "question": "Why does MAPEH include dance?",
             "options": [
-              "Nagtataguyod ng kalusugan at sining",
-              "Walang layunin",
-              "Hindi kaugnay",
-              "Para sa matatanda"
+              "It supports health and the arts",
+              "No purpose",
+              "Not related",
+              "For adults"
             ],
-            "correct_answer": "Nagtataguyod ng kalusugan at sining"
+            "correct_answer": "It supports health and the arts"
           },
           {
-            "question": "Naidudulot ng pagsasama ng dalawang tempo?",
+            "question": "What does putting two tempos together bring?",
             "options": [
-              "Bersatilidad sa sayaw",
-              "Wala",
-              "Nakakalito lamang",
-              "Hindi posible"
+              "Versatility in dance",
+              "Nothing",
+              "Only confusion",
+              "Not possible"
             ],
-            "correct_answer": "Bersatilidad sa sayaw"
+            "correct_answer": "Versatility in dance"
           },
           {
-            "question": "Bakit magsanay bago ang presentasyon?",
+            "question": "Why practice before the presentation?",
             "options": [
-              "Maging maayos ang galaw",
-              "Hindi kailangan",
-              "Basta tama ang unang subok",
-              "Walang epekto"
+              "So the movements are smooth",
+              "It is not needed",
+              "As long as the first try is right",
+              "No effect"
             ],
-            "correct_answer": "Maging maayos ang galaw"
+            "correct_answer": "So the movements are smooth"
           }
         ]
       },

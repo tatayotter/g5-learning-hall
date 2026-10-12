@@ -635,30 +635,30 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🏐 MAPEH — Striking/Fielding at Net/Wall Games\n\nGrade 6, Linggo 18! Alamin natin ang mga larong pisikal para sa pamilya. 🏸\n\n## 🏐 Striking/Fielding Games\nAng **striking/fielding games** ay mga larong may **pananalo o pagtamo ng puntos** sa pamamagitan ng pagpalo/pagtapon ng bola at pagtakbo (hal. baseball, softball, patintero na may pagtapon).\n\n## 🏸 Net/Wall Games\nAng **net/wall games** ay mga larong may **hadlang** sa pagitan ng magkalaban (net o pader), tulad ng badminton, volleyball, o tennis.\n\n## 💪 Kasanayan at Konsepto na Ginagamit\n| Kasanayan | Paliwanag |\n|---|---|\n| **Agility** | kakayahang mabilis kumilos at magpalit ng direksyon |\n| **Balance** | kakayahang manatiling matatag habang gumagalaw |\n| **Coordination** | pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos |\n\n## 👨‍👩‍👧‍👦 Modipikadong Larong para sa Pamilya\nAng mga larong ito ay maaaring **i-modify** upang angkop para sa buong pamilya, tumutulong sa **kalusugan at pagbubuklod-buklod**.\n\n## 🧠 Halimbawa 1\n*Ano ang pagkakaiba ng striking/fielding games sa net/wall games?*\n- Ang striking/fielding ay may **pagpalo at pagtakbo**, habang ang net/wall games ay may **hadlang** sa pagitan ng magkalaban.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang i-modify ang mga larong ito para sa pamilya?*\n- Upang **magamit ng lahat ng edad** at maitaguyod ang kalusugan ng buong pamilya.\n\n## 💡 Kahalagahan\nAng paglahok sa mga larong ito ay nagpapabuti ng **pisikal na kalusugan** habang **nagpapatibay ng ugnayan** ng pamilya.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🏐 MAPEH — Striking/Fielding and Net/Wall Games\n\nGrade 6, Week 18! Let's learn about physical games for the family. 🏸\n\n## 🏐 Striking/Fielding Games\n**Striking/fielding games** are games where you **win or score points** by hitting/throwing a ball and running (e.g. baseball, softball, patintero with throwing).\n\n## 🏸 Net/Wall Games\n**Net/wall games** are games with a **barrier** between the two sides (a net or a wall), like badminton, volleyball, or tennis.\n\n## 💪 Skills and Ideas Used\n| Skill | Meaning |\n|---|---|\n| **Agility** | the ability to move fast and change direction |\n| **Balance** | the ability to stay steady while moving |\n| **Coordination** | making different body parts work together in one movement |\n\n## 👨‍👩‍👧‍👦 Modified Games for the Family\nThese games can be **modified (changed)** to fit the whole family, helping with **health and togetherness**.\n\n## 🧠 Example 1\n*What is the difference between striking/fielding games and net/wall games?*\n- Striking/fielding games have **hitting and running**, while net/wall games have a **barrier** between the two sides.\n\n## 🧠 Example 2\n*Why is it important to modify these games for the family?*\n- So **people of all ages can play** and the whole family stays healthy.\n\n## 💡 Why It Matters\nPlaying these games improves **physical health** while **making family bonds stronger**.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang striking/fielding games?",
+            "question": "What are striking/fielding games?",
             "options": [
-              "Mga larong may pagpalo/pagtapon ng bola at pagtakbo",
-              "Mga larong may hadlang na net lamang",
-              "Mga larong walang anumang bola",
-              "Mga larong ginagawa habang nakaupo"
+              "Games with hitting/throwing a ball and running",
+              "Games with only a net as a barrier",
+              "Games with no ball at all",
+              "Games played while sitting down"
             ],
-            "correct_answer": "Mga larong may pagpalo/pagtapon ng bola at pagtakbo"
+            "correct_answer": "Games with hitting/throwing a ball and running"
           },
           {
-            "question": "Ano ang net/wall games?",
+            "question": "What are net/wall games?",
             "options": [
-              "Mga larong may hadlang sa pagitan ng magkalaban",
-              "Mga larong walang panuntunan",
-              "Mga larong walang kalaban",
-              "Mga larong ginagawa lamang sa tubig"
+              "Games with a barrier between the two sides",
+              "Games with no rules",
+              "Games with no opponent",
+              "Games played only in water"
             ],
-            "correct_answer": "Mga larong may hadlang sa pagitan ng magkalaban"
+            "correct_answer": "Games with a barrier between the two sides"
           },
           {
-            "question": "Alin ang halimbawa ng net/wall game?",
+            "question": "Which is an example of a net/wall game?",
             "options": [
               "Badminton",
               "Baseball",
@@ -668,94 +668,94 @@
             "correct_answer": "Badminton"
           },
           {
-            "question": "Ano ang agility?",
+            "question": "What is agility?",
             "options": [
-              "Kakayahang mabilis kumilos at magpalit ng direksyon",
-              "Kakayahang manatiling tahimik",
-              "Kakayahang kumain nang mabilis",
-              "Kakayahang matulog nang mahimbing"
+              "The ability to move fast and change direction",
+              "The ability to stay quiet",
+              "The ability to eat fast",
+              "The ability to sleep deeply"
             ],
-            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+            "correct_answer": "The ability to move fast and change direction"
           },
           {
-            "question": "Ano ang balance?",
+            "question": "What is balance?",
             "options": [
-              "Kakayahang manatiling matatag habang gumagalaw",
-              "Kakayahang tumakbo nang napakabilis",
-              "Kakayahang magbilang nang mabilis",
-              "Kakayahang kumanta nang malakas"
+              "The ability to stay steady while moving",
+              "The ability to run very fast",
+              "The ability to count fast",
+              "The ability to sing loudly"
             ],
-            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+            "correct_answer": "The ability to stay steady while moving"
           },
           {
-            "question": "Ano ang coordination?",
+            "question": "What is coordination?",
             "options": [
-              "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos",
-              "Kakayahang manatiling nakaupo nang tahimik lamang",
-              "Kakayahang magbasa nang napakabilis lamang",
-              "Kakayahang manood ng TV nang napakatagal"
+              "Making different body parts work together in one movement",
+              "Only the ability to sit quietly",
+              "Only the ability to read very fast",
+              "The ability to watch TV for a very long time"
             ],
-            "correct_answer": "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos"
+            "correct_answer": "Making different body parts work together in one movement"
           },
           {
-            "question": "Ano ang pagkakaiba ng striking/fielding games sa net/wall games?",
+            "question": "What is the difference between striking/fielding games and net/wall games?",
             "options": [
-              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
-              "Pareho silang walang bola",
-              "Pareho silang ginagawa lamang habang nakaupo",
-              "Walang pagkakaiba ang dalawa"
+              "Striking/fielding has hitting and running; net/wall has a barrier",
+              "Both have no ball",
+              "Both are only played while sitting",
+              "There is no difference between the two"
             ],
-            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+            "correct_answer": "Striking/fielding has hitting and running; net/wall has a barrier"
           },
           {
-            "question": "Bakit mahalagang i-modify ang mga larong ito para sa pamilya?",
+            "question": "Why is it important to modify these games for the family?",
             "options": [
-              "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan",
-              "Upang mas mahirap laruin ng bawat isa",
-              "Walang dahilan para dito",
-              "Upang bawal na ang mga bata sa laro"
+              "So people of all ages can play and stay healthy",
+              "So they are harder for everyone to play",
+              "There is no reason for it",
+              "So children are no longer allowed to play"
             ],
-            "correct_answer": "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan"
+            "correct_answer": "So people of all ages can play and stay healthy"
           },
           {
-            "question": "Ano ang idinudulot ng paglahok sa mga larong ito para sa pamilya?",
+            "question": "What does playing these games bring to the family?",
             "options": [
-              "Pisikal na kalusugan at mas matibay na ugnayan",
-              "Kawalan ng oras para sa isa't isa",
-              "Pagtaas lamang ng gastusin",
-              "Walang epekto sa kalusugan"
+              "Physical health and stronger bonds",
+              "No time for each other",
+              "Only more expenses",
+              "No effect on health"
             ],
-            "correct_answer": "Pisikal na kalusugan at mas matibay na ugnayan"
+            "correct_answer": "Physical health and stronger bonds"
           },
           {
-            "question": "Alin ang halimbawa ng striking/fielding na larong Pilipino?",
+            "question": "Which is an example of a Filipino striking/fielding game?",
             "options": [
-              "Patintero na may pagtapon",
-              "Badminton sa bakuran",
-              "Volleyball sa parke",
-              "Tennis sa korte"
+              "Patintero with throwing",
+              "Badminton in the yard",
+              "Volleyball in the park",
+              "Tennis on a court"
             ],
-            "correct_answer": "Patintero na may pagtapon"
+            "correct_answer": "Patintero with throwing"
           },
           {
-            "question": "Bakit kailangan ang coordination sa mga larong ito?",
+            "question": "Why is coordination needed in these games?",
             "options": [
-              "Upang tama ang pagsasabay ng kilos ng katawan sa laro",
-              "Upang manatili lamang nakaupo sa gilid",
-              "Upang hindi na kailangang kumilos pa",
-              "Walang kaugnayan ang coordination sa laro"
+              "So your body movements work together correctly in the game",
+              "So you can just sit on the side",
+              "So you don't need to move anymore",
+              "Coordination has nothing to do with the game"
             ],
-            "correct_answer": "Upang tama ang pagsasabay ng kilos ng katawan sa laro"
+            "correct_answer": "So your body movements work together correctly in the game"
           },
           {
-            "question": "Ano ang pinakalayunin ng pagsasagawa ng mga larong ito bilang pamilya?",
+            "question": "What is the main goal of playing these games as a family?",
             "options": [
-              "Pagtataguyod ng kalusugan ng buong pamilya",
-              "Pagbibigay ng gantimpalang pera",
-              "Pagpapababa ng grado sa paaralan",
-              "Pagpapahirap sa gawaing-bahay"
+              "Keeping the whole family healthy",
+              "Giving money as a prize",
+              "Lowering grades in school",
+              "Making housework harder"
             ],
-            "correct_answer": "Pagtataguyod ng kalusugan ng buong pamilya"
+            "correct_answer": "Keeping the whole family healthy"
           }
         ]
       },
@@ -1637,30 +1637,30 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🏐 Friday Review — MAPEH (Grade 6)\n\n- Striking/fielding = pagpalo+pagtakbo; Net/wall = may hadlang\n- Agility, balance, coordination\n\nMagaling! 🌟",
+        "summary_markdown": "# 🏐 Friday Review — MAPEH (Grade 6)\n\n- Striking/fielding = hitting + running; Net/wall = has a barrier\n- Agility, balance, coordination\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang striking/fielding games?",
+            "question": "What are striking/fielding games?",
             "options": [
-              "Mga larong may pagpalo/pagtapon ng bola at pagtakbo",
-              "Mga larong may hadlang na net lamang",
-              "Mga larong walang anumang bola",
-              "Mga larong ginagawa habang nakaupo"
+              "Games with hitting/throwing a ball and running",
+              "Games with only a net as a barrier",
+              "Games with no ball at all",
+              "Games played while sitting down"
             ],
-            "correct_answer": "Mga larong may pagpalo/pagtapon ng bola at pagtakbo"
+            "correct_answer": "Games with hitting/throwing a ball and running"
           },
           {
-            "question": "Ano ang net/wall games?",
+            "question": "What are net/wall games?",
             "options": [
-              "Mga larong may hadlang sa pagitan ng magkalaban",
-              "Mga larong walang panuntunan",
-              "Mga larong walang kalaban",
-              "Mga larong ginagawa lamang sa tubig"
+              "Games with a barrier between the two sides",
+              "Games with no rules",
+              "Games with no opponent",
+              "Games played only in water"
             ],
-            "correct_answer": "Mga larong may hadlang sa pagitan ng magkalaban"
+            "correct_answer": "Games with a barrier between the two sides"
           },
           {
-            "question": "Alin ang halimbawa ng net/wall game?",
+            "question": "Which is an example of a net/wall game?",
             "options": [
               "Badminton",
               "Baseball",
@@ -1670,94 +1670,94 @@
             "correct_answer": "Badminton"
           },
           {
-            "question": "Ano ang agility?",
+            "question": "What is agility?",
             "options": [
-              "Kakayahang mabilis kumilos at magpalit ng direksyon",
-              "Kakayahang manatiling tahimik",
-              "Kakayahang kumain nang mabilis",
-              "Kakayahang matulog nang mahimbing"
+              "The ability to move fast and change direction",
+              "The ability to stay quiet",
+              "The ability to eat fast",
+              "The ability to sleep deeply"
             ],
-            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+            "correct_answer": "The ability to move fast and change direction"
           },
           {
-            "question": "Ano ang balance?",
+            "question": "What is balance?",
             "options": [
-              "Kakayahang manatiling matatag habang gumagalaw",
-              "Kakayahang tumakbo nang napakabilis",
-              "Kakayahang magbilang nang mabilis",
-              "Kakayahang kumanta nang malakas"
+              "The ability to stay steady while moving",
+              "The ability to run very fast",
+              "The ability to count fast",
+              "The ability to sing loudly"
             ],
-            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+            "correct_answer": "The ability to stay steady while moving"
           },
           {
-            "question": "Ano ang coordination?",
+            "question": "What is coordination?",
             "options": [
-              "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos",
-              "Kakayahang manatiling nakaupo nang tahimik lamang",
-              "Kakayahang magbasa nang napakabilis lamang",
-              "Kakayahang manood ng TV nang napakatagal"
+              "Making different body parts work together in one movement",
+              "Only the ability to sit quietly",
+              "Only the ability to read very fast",
+              "The ability to watch TV for a very long time"
             ],
-            "correct_answer": "Pagsasabay ng iba't ibang bahagi ng katawan sa isang kilos"
+            "correct_answer": "Making different body parts work together in one movement"
           },
           {
-            "question": "Ano ang pagkakaiba ng striking/fielding games sa net/wall games?",
+            "question": "What is the difference between striking/fielding games and net/wall games?",
             "options": [
-              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
-              "Pareho silang walang bola",
-              "Pareho silang ginagawa lamang habang nakaupo",
-              "Walang pagkakaiba ang dalawa"
+              "Striking/fielding has hitting and running; net/wall has a barrier",
+              "Both have no ball",
+              "Both are only played while sitting",
+              "There is no difference between the two"
             ],
-            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+            "correct_answer": "Striking/fielding has hitting and running; net/wall has a barrier"
           },
           {
-            "question": "Bakit mahalagang i-modify ang mga larong ito para sa pamilya?",
+            "question": "Why is it important to modify these games for the family?",
             "options": [
-              "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan",
-              "Upang mas mahirap laruin ng bawat isa",
-              "Walang dahilan para dito",
-              "Upang bawal na ang mga bata sa laro"
+              "So people of all ages can play and stay healthy",
+              "So they are harder for everyone to play",
+              "There is no reason for it",
+              "So children are no longer allowed to play"
             ],
-            "correct_answer": "Upang magamit ng lahat ng edad at maitaguyod ang kalusugan"
+            "correct_answer": "So people of all ages can play and stay healthy"
           },
           {
-            "question": "Ano ang idinudulot ng paglahok sa mga larong ito para sa pamilya?",
+            "question": "What does playing these games bring to the family?",
             "options": [
-              "Pisikal na kalusugan at mas matibay na ugnayan",
-              "Kawalan ng oras para sa isa't isa",
-              "Pagtaas lamang ng gastusin",
-              "Walang epekto sa kalusugan"
+              "Physical health and stronger bonds",
+              "No time for each other",
+              "Only more expenses",
+              "No effect on health"
             ],
-            "correct_answer": "Pisikal na kalusugan at mas matibay na ugnayan"
+            "correct_answer": "Physical health and stronger bonds"
           },
           {
-            "question": "Alin ang halimbawa ng striking/fielding na larong Pilipino?",
+            "question": "Which is an example of a Filipino striking/fielding game?",
             "options": [
-              "Patintero na may pagtapon",
-              "Badminton sa bakuran",
-              "Volleyball sa parke",
-              "Tennis sa korte"
+              "Patintero with throwing",
+              "Badminton in the yard",
+              "Volleyball in the park",
+              "Tennis on a court"
             ],
-            "correct_answer": "Patintero na may pagtapon"
+            "correct_answer": "Patintero with throwing"
           },
           {
-            "question": "Bakit kailangan ang coordination sa mga larong ito?",
+            "question": "Why is coordination needed in these games?",
             "options": [
-              "Upang tama ang pagsasabay ng kilos ng katawan sa laro",
-              "Upang manatili lamang nakaupo sa gilid",
-              "Upang hindi na kailangang kumilos pa",
-              "Walang kaugnayan ang coordination sa laro"
+              "So your body movements work together correctly in the game",
+              "So you can just sit on the side",
+              "So you don't need to move anymore",
+              "Coordination has nothing to do with the game"
             ],
-            "correct_answer": "Upang tama ang pagsasabay ng kilos ng katawan sa laro"
+            "correct_answer": "So your body movements work together correctly in the game"
           },
           {
-            "question": "Ano ang pinakalayunin ng pagsasagawa ng mga larong ito bilang pamilya?",
+            "question": "What is the main goal of playing these games as a family?",
             "options": [
-              "Pagtataguyod ng kalusugan ng buong pamilya",
-              "Pagbibigay ng gantimpalang pera",
-              "Pagpapababa ng grado sa paaralan",
-              "Pagpapahirap sa gawaing-bahay"
+              "Keeping the whole family healthy",
+              "Giving money as a prize",
+              "Lowering grades in school",
+              "Making housework harder"
             ],
-            "correct_answer": "Pagtataguyod ng kalusugan ng buong pamilya"
+            "correct_answer": "Keeping the whole family healthy"
           }
         ]
       },

@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💃 MAPEH — Fundamental Dance Steps sa 2/4 Time\n\nGrade 4, Linggo 24! Alamin natin ang batayang hakbang sa sayaw. 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang teatro at sayaw ng alamat.\n\n## 💃 Ano ang Fundamental Dance Steps?\nAng **fundamental dance steps** ay ang mga batayang hakbang na ginagamit sa maraming sayaw — tulad ng touch step, slide, at bounce.\n\n## 🕺 Sayaw sa 2/4 Time\nSa **2/4 time**, may dalawang beat sa bawat sukat, na karaniwang ginagamit sa mabilis na sayaw tulad ng polka.\n\n## 🎯 Bakit Mahalaga Ito?\nAng pagkatuto ng batayang hakbang ay nagbibigay-daan upang mas madaling matutunan ang mas kumplikadong sayaw sa hinaharap.\n\n**Mahahalagang salita:** fundamental dance steps, 2/4 time, touch step, polka",
+        "summary_markdown": "# 💃 MAPEH — Fundamental Dance Steps in 2/4 Time\n\nGrade 4, Week 24! Let's learn the basic steps in dance. 💃\n\n## 🔄 Review\nWe learned about theater and dances of legends.\n\n## 💃 What Are Fundamental Dance Steps?\n**Fundamental dance steps** are the basic steps used in many dances — like the touch step, slide, and bounce.\n\n## 🕺 Dancing in 2/4 Time\nIn **2/4 time**, there are two beats in each measure. It is often used in fast dances like the polka.\n\n## 🎯 Why Is It Important?\nLearning the basic steps makes it easier to learn harder dances later on.\n\n**Key words:** fundamental dance steps, 2/4 time, touch step, polka",
         "quiz": [
           {
-            "question": "Ano ang fundamental dance steps?",
+            "question": "What are fundamental dance steps?",
             "options": [
-              "Batayang hakbang na ginagamit sa maraming sayaw",
-              "Isang uri ng awit",
-              "Isang uri ng laro",
-              "Isang uri ng pagguhit"
+              "Basic steps used in many dances",
+              "A kind of song",
+              "A kind of game",
+              "A kind of drawing"
             ],
-            "correct_answer": "Batayang hakbang na ginagamit sa maraming sayaw"
+            "correct_answer": "Basic steps used in many dances"
           },
           {
-            "question": "Ilang beat ang mayroon sa 2/4 time bawat sukat?",
+            "question": "How many beats are in each measure in 2/4 time?",
             "options": [
-              "Dalawa",
-              "Tatlo",
-              "Apat",
-              "Isa"
+              "Two",
+              "Three",
+              "Four",
+              "One"
             ],
-            "correct_answer": "Dalawa"
+            "correct_answer": "Two"
           },
           {
-            "question": "Anong uri ng sayaw ang karaniwang gumagamit ng 2/4 time?",
+            "question": "What kind of dance often uses 2/4 time?",
             "options": [
               "Polka",
               "Waltz",
               "Tango",
-              "Ballroom sa 3/4"
+              "Ballroom in 3/4"
             ],
             "correct_answer": "Polka"
           },
           {
-            "question": "Bakit mahalagang matutunan ang batayang hakbang sa sayaw?",
+            "question": "Why is it important to learn the basic dance steps?",
             "options": [
-              "Nagbibigay-daan ito upang matutunan ang mas kumplikadong sayaw",
-              "Walang kahalagahan ito",
-              "Hindi na kailangan matutunan",
-              "Para lamang libangin ang guro"
+              "It makes it possible to learn harder dances",
+              "It has no value",
+              "There is no need to learn them",
+              "Only to entertain the teacher"
             ],
-            "correct_answer": "Nagbibigay-daan ito upang matutunan ang mas kumplikadong sayaw"
+            "correct_answer": "It makes it possible to learn harder dances"
           },
           {
-            "question": "Anong halimbawa ng fundamental dance step?",
+            "question": "What is an example of a fundamental dance step?",
             "options": [
               "Touch step",
-              "Pagbasa",
-              "Pagsulat",
-              "Paglangoy"
+              "Reading",
+              "Writing",
+              "Swimming"
             ],
             "correct_answer": "Touch step"
           },
           {
-            "question": "Bakit itinuturo ang batayang hakbang bago ang kumplikadong sayaw?",
+            "question": "Why are basic steps taught before harder dances?",
             "options": [
-              "Nagbibigay ito ng matibay na pundasyon",
-              "Walang dahilan",
-              "Hindi kailangang matutunan muna ang batayan",
-              "Basta anumang sayaw ay puwede agad"
+              "They give a strong foundation",
+              "No reason",
+              "There is no need to learn the basics first",
+              "Any dance can be done right away"
             ],
-            "correct_answer": "Nagbibigay ito ng matibay na pundasyon"
+            "correct_answer": "They give a strong foundation"
           },
           {
-            "question": "Ano ang layunin ng pagsasanay sa 2/4 time?",
+            "question": "What is the goal of practicing in 2/4 time?",
             "options": [
-              "Matutong sumabay sa tempo ng mabilis na musika",
-              "Matutong sumulat",
-              "Matutong maglaro ng basketball",
-              "Matuto ng matematika"
+              "To learn to keep up with the tempo of fast music",
+              "To learn to write",
+              "To learn to play basketball",
+              "To learn math"
             ],
-            "correct_answer": "Matutong sumabay sa tempo ng mabilis na musika"
+            "correct_answer": "To learn to keep up with the tempo of fast music"
           },
           {
-            "question": "Bakit mahalaga ang koordinasyon sa pagsasagawa ng dance steps?",
+            "question": "Why is coordination important when doing dance steps?",
             "options": [
-              "Upang maging maayos at magkasabay ang mga galaw",
-              "Walang kahalagahan",
-              "Hindi kailangan ng koordinasyon",
-              "Basta anumang galaw ay tama"
+              "So the movements are smooth and done together",
+              "It has no value",
+              "Coordination is not needed",
+              "Any movement is correct"
             ],
-            "correct_answer": "Upang maging maayos at magkasabay ang mga galaw"
+            "correct_answer": "So the movements are smooth and done together"
           },
           {
-            "question": "Ano ang benepisyo ng pagsasanay ng sayaw sa katawan?",
+            "question": "What is a benefit of dance practice for the body?",
             "options": [
-              "Pagpapaunlad ng pisikal na kakayahan at koordinasyon",
-              "Walang benepisyo",
-              "Pinapahina ang katawan",
-              "Pinipigilan ang paggalaw"
+              "Building physical skills and coordination",
+              "No benefit",
+              "It makes the body weaker",
+              "It stops you from moving"
             ],
-            "correct_answer": "Pagpapaunlad ng pisikal na kakayahan at koordinasyon"
+            "correct_answer": "Building physical skills and coordination"
           },
           {
-            "question": "Bakit mahalaga ang pagbibigay-diin sa tamang bilang ng beat sa 2/4 time?",
+            "question": "Why is it important to stress the correct beat count in 2/4 time?",
             "options": [
-              "Para tumpak na masabayan ang musika",
-              "Walang kaugnayan sa musika",
-              "Basta ba gumagalaw, tama na",
-              "Hindi mahalaga ang bilang ng beat"
+              "To follow the music exactly",
+              "It has nothing to do with music",
+              "As long as you move, it's fine",
+              "The beat count doesn't matter"
             ],
-            "correct_answer": "Para tumpak na masabayan ang musika"
+            "correct_answer": "To follow the music exactly"
           },
           {
-            "question": "Paano naiiba ang 2/4 time sa 3/4 time?",
+            "question": "How is 2/4 time different from 3/4 time?",
             "options": [
-              "May dalawang beat kada sukat ang 2/4, tatlo naman sa 3/4",
-              "Magkatulad lamang sila",
-              "Walang pagkakaiba",
-              "Ang 3/4 ay may dalawang beat"
+              "2/4 has two beats per measure, while 3/4 has three",
+              "They are just the same",
+              "There is no difference",
+              "3/4 has two beats"
             ],
-            "correct_answer": "May dalawang beat kada sukat ang 2/4, tatlo naman sa 3/4"
+            "correct_answer": "2/4 has two beats per measure, while 3/4 has three"
           },
           {
-            "question": "Bakit isinasama ang PE dance activities sa MAPEH?",
+            "question": "Why are PE dance activities part of MAPEH?",
             "options": [
-              "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining",
-              "Walang layunin ito",
-              "Hindi kaugnay ng edukasyon",
-              "Para lamang sa matatanda"
+              "They support physical health and appreciation of the arts",
+              "They have no purpose",
+              "They are not related to education",
+              "Only for adults"
             ],
-            "correct_answer": "Nagtataguyod ito ng pisikal na kalusugan at pagpapahalaga sa sining"
+            "correct_answer": "They support physical health and appreciation of the arts"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Fundamental dance steps sa 2/4 time\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 4)\n\n- Fundamental dance steps in 2/4 time\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang fundamental dance steps?",
+            "question": "What are fundamental dance steps?",
             "options": [
-              "Batayang hakbang sa maraming sayaw",
-              "Uri ng awit",
-              "Uri ng laro",
-              "Uri ng pagguhit"
+              "Basic steps in many dances",
+              "A kind of song",
+              "A kind of game",
+              "A kind of drawing"
             ],
-            "correct_answer": "Batayang hakbang sa maraming sayaw"
+            "correct_answer": "Basic steps in many dances"
           },
           {
-            "question": "Ilang beat sa 2/4 time?",
+            "question": "How many beats are in 2/4 time?",
             "options": [
-              "Dalawa",
-              "Tatlo",
-              "Apat",
-              "Isa"
+              "Two",
+              "Three",
+              "Four",
+              "One"
             ],
-            "correct_answer": "Dalawa"
+            "correct_answer": "Two"
           },
           {
-            "question": "Uri ng sayaw sa 2/4 time?",
+            "question": "Type of dance in 2/4 time?",
             "options": [
               "Polka",
               "Waltz",
               "Tango",
-              "Ballroom sa 3/4"
+              "Ballroom in 3/4"
             ],
             "correct_answer": "Polka"
           },
           {
-            "question": "Bakit matutunan ang batayang hakbang?",
+            "question": "Why learn the basic steps?",
             "options": [
-              "Matutunan ang mas kumplikadong sayaw",
-              "Walang kahalagahan",
-              "Hindi kailangan matutunan",
-              "Libangin lamang ang guro"
+              "To learn harder dances",
+              "It has no value",
+              "No need to learn them",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Matutunan ang mas kumplikadong sayaw"
+            "correct_answer": "To learn harder dances"
           },
           {
-            "question": "Halimbawa ng fundamental dance step?",
+            "question": "Example of a fundamental dance step?",
             "options": [
               "Touch step",
-              "Pagbasa",
-              "Pagsulat",
-              "Paglangoy"
+              "Reading",
+              "Writing",
+              "Swimming"
             ],
             "correct_answer": "Touch step"
           },
           {
-            "question": "Bakit ituro ang batayan bago kumplikado?",
+            "question": "Why teach the basics before harder steps?",
             "options": [
-              "Matibay na pundasyon",
-              "Walang dahilan",
-              "Hindi kailangan ng batayan",
-              "Anumang sayaw puwede agad"
+              "A strong foundation",
+              "No reason",
+              "Basics are not needed",
+              "Any dance can be done right away"
             ],
-            "correct_answer": "Matibay na pundasyon"
+            "correct_answer": "A strong foundation"
           },
           {
-            "question": "Layunin ng pagsasanay sa 2/4 time?",
+            "question": "Goal of practicing in 2/4 time?",
             "options": [
-              "Sumabay sa tempo ng mabilis na musika",
-              "Matutong sumulat",
-              "Maglaro ng basketball",
-              "Matuto ng matematika"
+              "Keep up with the tempo of fast music",
+              "Learn to write",
+              "Play basketball",
+              "Learn math"
             ],
-            "correct_answer": "Sumabay sa tempo ng mabilis na musika"
+            "correct_answer": "Keep up with the tempo of fast music"
           },
           {
-            "question": "Bakit mahalaga ang koordinasyon sa dance steps?",
+            "question": "Why is coordination important in dance steps?",
             "options": [
-              "Maayos at magkasabay na galaw",
-              "Walang kahalagahan",
-              "Hindi kailangan",
-              "Anumang galaw ay tama"
+              "Smooth movements done together",
+              "It has no value",
+              "It is not needed",
+              "Any movement is correct"
             ],
-            "correct_answer": "Maayos at magkasabay na galaw"
+            "correct_answer": "Smooth movements done together"
           },
           {
-            "question": "Benepisyo ng pagsasanay ng sayaw?",
+            "question": "Benefit of practicing dance?",
             "options": [
-              "Pisikal na kakayahan at koordinasyon",
-              "Walang benepisyo",
-              "Pinapahina ang katawan",
-              "Pinipigilan ang paggalaw"
+              "Physical skills and coordination",
+              "No benefit",
+              "It makes the body weaker",
+              "It stops you from moving"
             ],
-            "correct_answer": "Pisikal na kakayahan at koordinasyon"
+            "correct_answer": "Physical skills and coordination"
           },
           {
-            "question": "Bakit tumpak na bilang ng beat sa 2/4?",
+            "question": "Why count the beats exactly in 2/4?",
             "options": [
-              "Tumpak na masabayan ang musika",
-              "Walang kaugnayan",
-              "Basta gumagalaw",
-              "Hindi mahalaga"
+              "To follow the music exactly",
+              "Not related",
+              "Just keep moving",
+              "It doesn't matter"
             ],
-            "correct_answer": "Tumpak na masabayan ang musika"
+            "correct_answer": "To follow the music exactly"
           },
           {
-            "question": "Pagkakaiba ng 2/4 sa 3/4 time?",
+            "question": "Difference between 2/4 and 3/4 time?",
             "options": [
-              "Dalawang beat sa 2/4, tatlo sa 3/4",
-              "Magkatulad lamang",
-              "Walang pagkakaiba",
-              "3/4 may dalawang beat"
+              "Two beats in 2/4, three in 3/4",
+              "They are just the same",
+              "There is no difference",
+              "3/4 has two beats"
             ],
-            "correct_answer": "Dalawang beat sa 2/4, tatlo sa 3/4"
+            "correct_answer": "Two beats in 2/4, three in 3/4"
           },
           {
-            "question": "Bakit isinasama ang PE dance sa MAPEH?",
+            "question": "Why is PE dance part of MAPEH?",
             "options": [
-              "Nagtataguyod ng kalusugan at sining",
-              "Walang layunin",
-              "Hindi kaugnay ng edukasyon",
-              "Para sa matatanda lamang"
+              "It supports health and the arts",
+              "No purpose",
+              "Not related to education",
+              "Only for adults"
             ],
-            "correct_answer": "Nagtataguyod ng kalusugan at sining"
+            "correct_answer": "It supports health and the arts"
           }
         ]
       },

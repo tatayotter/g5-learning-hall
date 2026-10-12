@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎼 MAPEH — Paggawa ng Sariling Simpleng Awit\n\nGrade 5, Linggo 26! Gawin natin ang sarili nating simpleng himig! 🎼\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **culminating dance performance**.\n\n## 🎼 Muling Balikan: Verse at Chorus\nNatutuhan na natin na ang isang awit ay may **verse (saknong)** at **chorus (koro)**.\n\n## 🎵 Mga Hakbang sa Paggawa ng Sariling Awit\n1. Pumili ng simpleng paksa (hal. pagmamahal sa pamilya, kalikasan)\n2. Sumulat ng maikling **verse** na nagkukuwento\n3. Sumulat ng **chorus** na paulit-ulit at madaling tandaan\n4. Subukang humanap ng simpleng himig gamit ang boses o simpleng instrumento (kampanilya, palakpak)\n\n## 🎯 Layunin\nHindi kailangang maging perpekto ang himig — ang mahalaga ay maipahayag mo ang iyong ideya gamit ang **musical form** na natutunan natin.\n\n**Mahahalagang salita:** paggawa ng awit, verse, chorus, himig",
+        "summary_markdown": "# 🎼 MAPEH — Making Your Own Simple Song\n\nGrade 5, Week 26! Let's make our own simple tune! 🎼\n\n## 🔄 Review\nWe learned about the **culminating dance performance**.\n\n## 🎼 Looking Back: Verse and Chorus\nWe already learned that a song has a **verse** and a **chorus**.\n\n## 🎵 Steps to Make Your Own Song\n1. Choose a simple topic (e.g. love for family, nature)\n2. Write a short **verse** that tells a story\n3. Write a **chorus** that repeats and is easy to remember\n4. Try to find a simple tune using your voice or a simple instrument (bell, clapping)\n\n## 🎯 Goal\nThe tune does not have to be perfect — what matters is that you share your idea using the **musical form** we learned.\n\n**Key words:** songwriting, verse, chorus, tune",
         "quiz": [
           {
-            "question": "Ano ang unang hakbang sa paggawa ng sariling awit?",
+            "question": "What is the first step in making your own song?",
             "options": [
-              "Pumili ng simpleng paksa",
-              "Direktang kumanta nang walang plano",
-              "Kalimutan ang verse at chorus",
-              "Bumili ng bagong instrumento"
+              "Choose a simple topic",
+              "Start singing with no plan",
+              "Forget the verse and chorus",
+              "Buy a new instrument"
             ],
-            "correct_answer": "Pumili ng simpleng paksa"
+            "correct_answer": "Choose a simple topic"
           },
           {
-            "question": "Ano ang katangian ng verse na isusulat?",
+            "question": "What should the verse you write be like?",
             "options": [
-              "Nagkukuwento at nagbabago bawat pag-uulit",
-              "Palaging pareho ang salita",
-              "Walang salita",
-              "Instrumento lamang"
+              "It tells a story and changes each time",
+              "Its words are always the same",
+              "It has no words",
+              "An instrument only"
             ],
-            "correct_answer": "Nagkukuwento at nagbabago bawat pag-uulit"
+            "correct_answer": "It tells a story and changes each time"
           },
           {
-            "question": "Ano ang katangian ng chorus na dapat isulat?",
+            "question": "What should the chorus you write be like?",
             "options": [
-              "Paulit-ulit at madaling tandaan",
-              "Nagbabago bawat ulit",
-              "Walang himig",
-              "Mahaba at kumplikado"
+              "It repeats and is easy to remember",
+              "It changes each time",
+              "It has no tune",
+              "It is long and complicated"
             ],
-            "correct_answer": "Paulit-ulit at madaling tandaan"
+            "correct_answer": "It repeats and is easy to remember"
           },
           {
-            "question": "Anong simpleng instrumento ang maaaring gamitin sa paggawa ng himig?",
+            "question": "What simple instrument can you use to make a tune?",
             "options": [
-              "Kampanilya o palakpak",
-              "Piano lamang",
-              "Gitara lamang",
-              "Walang instrumentong maaaring gamitin"
+              "A bell or clapping",
+              "Piano only",
+              "Guitar only",
+              "No instrument can be used"
             ],
-            "correct_answer": "Kampanilya o palakpak"
+            "correct_answer": "A bell or clapping"
           },
           {
-            "question": "Ano ang mahalaga ayon sa layunin ng aktibidad?",
+            "question": "What matters most, based on the goal of the activity?",
             "options": [
-              "Maipahayag ang ideya gamit ang musical form",
-              "Maging perpekto ang himig",
-              "Maging pinakamahaba ang awit",
-              "Gumamit ng maraming instrumento"
+              "Sharing your idea using musical form",
+              "Making the tune perfect",
+              "Making the song the longest",
+              "Using many instruments"
             ],
-            "correct_answer": "Maipahayag ang ideya gamit ang musical form"
+            "correct_answer": "Sharing your idea using musical form"
           },
           {
-            "question": "Anong konseptong natutunan noong nakaraan ang ginagamit dito?",
+            "question": "What concept we learned before is used here?",
             "options": [
-              "Verse at chorus",
-              "Estadistika",
+              "Verse and chorus",
+              "Statistics",
               "Probability",
-              "Balangkas ng kuwento"
+              "Story outline"
             ],
-            "correct_answer": "Verse at chorus"
+            "correct_answer": "Verse and chorus"
           },
           {
-            "question": "Bakit hindi kailangang maging perpekto ang himig?",
+            "question": "Why doesn't the tune have to be perfect?",
             "options": [
-              "Ang mahalaga ay maipahayag ang ideya",
-              "Kailangang perpekto palagi",
-              "Hindi na kailangan ng himig",
-              "Wala itong kahalagahan"
+              "What matters is sharing the idea",
+              "It always has to be perfect",
+              "A tune is not needed anymore",
+              "It doesn't matter at all"
             ],
-            "correct_answer": "Ang mahalaga ay maipahayag ang ideya"
+            "correct_answer": "What matters is sharing the idea"
           },
           {
-            "question": "Anong halimbawang paksa ang maaaring gamitin sa awit?",
+            "question": "What is an example topic you can use for a song?",
             "options": [
-              "Pagmamahal sa pamilya",
-              "Batas komersyo",
-              "Ekonomiya ng bansa",
-              "Pamamahala ng gobyerno"
+              "Love for family",
+              "Business law",
+              "The country's economy",
+              "Running the government"
             ],
-            "correct_answer": "Pagmamahal sa pamilya"
+            "correct_answer": "Love for family"
           },
           {
-            "question": "Bakit mahalagang isulat muna ang verse bago ang chorus?",
+            "question": "Why is it important to write the verse before the chorus?",
             "options": [
-              "Para maayos na maiugnay ang kuwento sa pangunahing mensahe",
-              "Hindi mahalaga ang pagkakasunod-sunod",
-              "Dapat isulat muna ang chorus",
-              "Walang pagkakaayos na kailangan"
+              "So the story connects well to the main message",
+              "The order doesn't matter",
+              "The chorus should be written first",
+              "No order is needed"
             ],
-            "correct_answer": "Para maayos na maiugnay ang kuwento sa pangunahing mensahe"
+            "correct_answer": "So the story connects well to the main message"
           },
           {
-            "question": "Ano ang layunin ng pagsasagawa ng ganitong aktibidad sa MAPEH?",
+            "question": "What is the goal of doing an activity like this in MAPEH?",
             "options": [
-              "Ilapat ang natutunang musical form sa isang malikhaing proyekto",
-              "Wala itong layunin",
-              "Para lamang libangin ang guro",
-              "Palitan ang mga aralin sa matematika"
+              "To use the musical form we learned in a creative project",
+              "It has no goal",
+              "Just to entertain the teacher",
+              "To replace math lessons"
             ],
-            "correct_answer": "Ilapat ang natutunang musical form sa isang malikhaing proyekto"
+            "correct_answer": "To use the musical form we learned in a creative project"
           },
           {
-            "question": "Ano ang dapat gawin kung mahirap makahanap ng himig?",
+            "question": "What should you do if it is hard to find a tune?",
             "options": [
-              "Subukan ang simpleng boses o palakpak muna",
-              "Sumuko na lamang",
-              "Kalimutan ang buong proyekto",
-              "Kopyahin ang awit ng iba nang walang pagbabago"
+              "Try using just your voice or clapping first",
+              "Just give up",
+              "Forget the whole project",
+              "Copy someone else's song without changing it"
             ],
-            "correct_answer": "Subukan ang simpleng boses o palakpak muna"
+            "correct_answer": "Try using just your voice or clapping first"
           },
           {
-            "question": "Paano naiiba ang pagsulat ng awit sa pagsulat ng tulang pambata na inaral noon?",
+            "question": "How is writing a song different from writing the children's poem we studied before?",
             "options": [
-              "Ang awit ay may himig at musical form, ang tula ay binabasa lamang",
-              "Magkatulad lamang sila",
-              "Walang pagkakaiba sa dalawa",
-              "Ang tula ay may himig din palagi"
+              "A song has a tune and musical form; a poem is only read",
+              "They are just the same",
+              "There is no difference between the two",
+              "A poem always has a tune too"
             ],
-            "correct_answer": "Ang awit ay may himig at musical form, ang tula ay binabasa lamang"
+            "correct_answer": "A song has a tune and musical form; a poem is only read"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎼 Friday Review — MAPEH (Grade 5)\n\n- Paggawa ng sariling simpleng awit\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎼 Friday Review — MAPEH (Grade 5)\n\n- Making your own simple song\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Unang hakbang sa paggawa ng sariling awit?",
+            "question": "What is the first step in making your own song?",
             "options": [
-              "Pumili ng simpleng paksa",
-              "Direktang kumanta nang walang plano",
-              "Kalimutan ang verse at chorus",
-              "Bumili ng bagong instrumento"
+              "Choose a simple topic",
+              "Start singing with no plan",
+              "Forget the verse and chorus",
+              "Buy a new instrument"
             ],
-            "correct_answer": "Pumili ng simpleng paksa"
+            "correct_answer": "Choose a simple topic"
           },
           {
-            "question": "Katangian ng verse?",
+            "question": "What is a verse like?",
             "options": [
-              "Nagkukuwento at nagbabago bawat pag-uulit",
-              "Palaging pareho",
-              "Walang salita",
-              "Instrumento lamang"
+              "It tells a story and changes each time",
+              "It is always the same",
+              "It has no words",
+              "An instrument only"
             ],
-            "correct_answer": "Nagkukuwento at nagbabago bawat pag-uulit"
+            "correct_answer": "It tells a story and changes each time"
           },
           {
-            "question": "Katangian ng chorus?",
+            "question": "What is a chorus like?",
             "options": [
-              "Paulit-ulit at madaling tandaan",
-              "Nagbabago bawat ulit",
-              "Walang himig",
-              "Mahaba at kumplikado"
+              "It repeats and is easy to remember",
+              "It changes each time",
+              "It has no tune",
+              "It is long and complicated"
             ],
-            "correct_answer": "Paulit-ulit at madaling tandaan"
+            "correct_answer": "It repeats and is easy to remember"
           },
           {
-            "question": "Simpleng instrumento sa himig?",
+            "question": "What simple instrument can help with the tune?",
             "options": [
-              "Kampanilya o palakpak",
-              "Piano lamang",
-              "Gitara lamang",
-              "Wala"
+              "A bell or clapping",
+              "Piano only",
+              "Guitar only",
+              "None"
             ],
-            "correct_answer": "Kampanilya o palakpak"
+            "correct_answer": "A bell or clapping"
           },
           {
-            "question": "Mahalaga ayon sa layunin ng aktibidad?",
+            "question": "What matters most, based on the goal of the activity?",
             "options": [
-              "Maipahayag ang ideya gamit ang musical form",
-              "Maging perpekto ang himig",
-              "Maging pinakamahaba",
-              "Gumamit ng maraming instrumento"
+              "Sharing your idea using musical form",
+              "Making the tune perfect",
+              "Making it the longest",
+              "Using many instruments"
             ],
-            "correct_answer": "Maipahayag ang ideya gamit ang musical form"
+            "correct_answer": "Sharing your idea using musical form"
           },
           {
-            "question": "Konseptong ginagamit dito?",
+            "question": "What concept is used here?",
             "options": [
-              "Verse at chorus",
-              "Estadistika",
+              "Verse and chorus",
+              "Statistics",
               "Probability",
-              "Balangkas"
+              "Outline"
             ],
-            "correct_answer": "Verse at chorus"
+            "correct_answer": "Verse and chorus"
           },
           {
-            "question": "Bakit hindi kailangang perpekto ang himig?",
+            "question": "Why doesn't the tune have to be perfect?",
             "options": [
-              "Mahalaga ang maipahayag ang ideya",
-              "Kailangang perpekto",
-              "Hindi na kailangan ng himig",
-              "Walang kahalagahan"
+              "Sharing the idea is what matters",
+              "It has to be perfect",
+              "A tune is not needed anymore",
+              "It doesn't matter at all"
             ],
-            "correct_answer": "Mahalaga ang maipahayag ang ideya"
+            "correct_answer": "Sharing the idea is what matters"
           },
           {
-            "question": "Halimbawang paksa sa awit?",
+            "question": "What is an example topic for a song?",
             "options": [
-              "Pagmamahal sa pamilya",
-              "Batas komersyo",
-              "Ekonomiya",
-              "Pamamahala ng gobyerno"
+              "Love for family",
+              "Business law",
+              "Economics",
+              "Running the government"
             ],
-            "correct_answer": "Pagmamahal sa pamilya"
+            "correct_answer": "Love for family"
           },
           {
-            "question": "Bakit isulat muna ang verse bago chorus?",
+            "question": "Why write the verse before the chorus?",
             "options": [
-              "Maayos na maiugnay ang kuwento sa mensahe",
-              "Hindi mahalaga ang ayos",
-              "Dapat isulat muna ang chorus",
-              "Walang pagkakaayos"
+              "So the story connects well to the message",
+              "The order doesn't matter",
+              "The chorus should be written first",
+              "There is no order"
             ],
-            "correct_answer": "Maayos na maiugnay ang kuwento sa mensahe"
+            "correct_answer": "So the story connects well to the message"
           },
           {
-            "question": "Layunin ng aktibidad sa MAPEH?",
+            "question": "What is the goal of this MAPEH activity?",
             "options": [
-              "Ilapat ang musical form sa proyekto",
-              "Walang layunin",
-              "Libangin ang guro",
-              "Palitan ang matematika"
+              "To use musical form in a project",
+              "No goal",
+              "To entertain the teacher",
+              "To replace math"
             ],
-            "correct_answer": "Ilapat ang musical form sa proyekto"
+            "correct_answer": "To use musical form in a project"
           },
           {
-            "question": "Kung mahirap makahanap ng himig?",
+            "question": "What if it is hard to find a tune?",
             "options": [
-              "Subukan ang boses o palakpak",
-              "Sumuko na lamang",
-              "Kalimutan ang proyekto",
-              "Kopyahin ang iba"
+              "Try your voice or clapping",
+              "Just give up",
+              "Forget the project",
+              "Copy someone else"
             ],
-            "correct_answer": "Subukan ang boses o palakpak"
+            "correct_answer": "Try your voice or clapping"
           },
           {
-            "question": "Pagkakaiba ng awit sa tulang pambata?",
+            "question": "How is a song different from a children's poem?",
             "options": [
-              "Ang awit ay may himig, ang tula ay binabasa lamang",
-              "Magkatulad",
-              "Walang pagkakaiba",
-              "Ang tula ay may himig din"
+              "A song has a tune; a poem is only read",
+              "They are alike",
+              "There is no difference",
+              "A poem has a tune too"
             ],
-            "correct_answer": "Ang awit ay may himig, ang tula ay binabasa lamang"
+            "correct_answer": "A song has a tune; a poem is only read"
           }
         ]
       },
