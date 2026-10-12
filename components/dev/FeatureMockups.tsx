@@ -6,6 +6,7 @@
 // Curriculum content (weekly questions) is loaded from /api/content like the real app, since
 // it's public lesson material, not player data.
 import { useEffect, useState } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { supabase } from '@/lib/supabase';
 import GuildsTab from '@/components/dashboard/GuildsTab';
 import TodoTab from '@/components/dashboard/TodoTab';
@@ -89,7 +90,7 @@ const SCENES = ['board', 'guilds', 'checklist', 'vault', 'journal', 'parent'] as
 export default function FeatureMockups() {
   patchSupabase();
   const scene = (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('scene')) || 'board';
-  const [pkg, setPkg] = useState<Record<string, unknown> | null>(null);
+  const [pkg, setPkg] = useState<WeeklyPackageData | null>(null);
   const [activeGuild, setActiveGuild] = useState<GuildKey | null>(null);
 
   // Parent view: open the Journal section like a parent would, so the capture shows entries.

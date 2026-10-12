@@ -6,6 +6,7 @@
 'use client';
 
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import ReactMarkdown from 'react-markdown';
 import { UserId, USERS } from '@/lib/userSession';
 import { WEEKDAYS } from '@/lib/weekdays';
@@ -55,7 +56,7 @@ interface BoardMapViewProps {
 
   currentDayName: string;
   weekStartingDate: string;
-  mainQuestPackageData: any;
+  mainQuestPackageData: WeeklyPackageData;
   gauntletDayPools: Record<string, BossQuestion[]>;
   gauntletDaysDone: Set<string>;
   onEnterGauntletDay: (day: string) => void;
@@ -372,7 +373,7 @@ export default function BoardMapView({
               )}
               {activeEvent.content_source === 'gauntlet' ? (
                 <p className="text-xs text-emerald-400/90 font-bold uppercase tracking-wide">
-                  ⚔️ This week's board below is your Topic Mastery Gauntlet — one review session per day.
+                  ⚔️ This week&apos;s board below is your Topic Mastery Gauntlet — one review session per day.
                 </p>
               ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -464,7 +465,7 @@ export default function BoardMapView({
           >
             {gauntletActive ? (
               gauntletDayQuestions.length === 0 ? (
-                <p className="text-sm text-gray-400">Gathering this day's review questions…</p>
+                <p className="text-sm text-gray-400">Gathering this day&apos;s review questions…</p>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                   <QuestCard

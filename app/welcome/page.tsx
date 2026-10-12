@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { trackPixelEvent } from '@/lib/fbPixel';
 
@@ -892,12 +893,12 @@ export default function WelcomePage() {
       </section>
 
       <footer className="px-6 py-8 text-center border-t border-slate-200 bg-[#ffffff]">
-        <a
+        <Link
           href="/blog"
           className="inline-block text-[12px] font-semibold text-sky-500 hover:text-sky-600 transition-colors tracking-wide mb-3"
         >
           Free Parent Guides — Reading, Math, Typing & More →
-        </a>
+        </Link>
         <p className="text-[11px] tracking-wide mb-3">
           <a href="/parent-login" className="text-slate-400 hover:text-slate-600 underline">Parent Login</a>
           <span className="text-slate-200 mx-2">·</span>

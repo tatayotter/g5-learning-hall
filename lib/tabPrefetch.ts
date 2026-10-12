@@ -20,6 +20,8 @@ import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { fetchCurioCollection } from '@/lib/curioCollection';
 import { loadTiledArtMap } from '@/lib/tiledArtMap';
 import { REGIONS } from '@/lib/regions';
+import type { UserMonster } from '@/components/battle/shared';
+import type { BattleState, CaughtMonster } from '@/components/monster/types';
 
 const GUILD_TABLES: [tableName: string, questType: string][] = [
   ['sq_lorekeeper', 'lorekeeper'],
@@ -30,21 +32,21 @@ const GUILD_TABLES: [tableName: string, questType: string][] = [
 ];
 
 export interface MonsterGuildPrefetch {
-  userMonsters: any[];
-  battleState: any | null;
+  userMonsters: UserMonster[];
+  battleState: BattleState | null;
   inventory: InventoryMap;
   answeredArenaIds: Set<string>;
-  caughtMonsters: any[];
+  caughtMonsters: CaughtMonster[];
   subclassProfile: SubclassProfile | null;
 }
 
-const cache = new Map<string, Promise<any>>();
+const cache = new Map<string, Promise<unknown>>();
 // Guards a stale prefetch from a previously logged-in user (device sharing /
 // "switch user") from leaking into the next session's tabs.
 let cachedForUserId: string | null = null;
 
 // Fire-and-forget — call once right after login resolves.
-export function prefetchAllTabs(userId: string, grade: string | number | undefined) {
+export function prefetchAllTabs(userId: string, _grade: string | number | undefined) {
   cache.clear();
   cachedForUserId = userId;
 

@@ -217,7 +217,7 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
           )}
           {initialStatus === 'file' && (
             <div className="bg-amber-950/50 border border-amber-800/50 rounded-xl p-3 text-amber-400 text-sm">
-              JSON file exists but hasn't been imported to Supabase. Use the Import all button on the matrix, or paste + save below.
+              JSON file exists but hasn&apos;t been imported to Supabase. Use the Import all button on the matrix, or paste + save below.
             </div>
           )}
 
@@ -256,7 +256,7 @@ function CellModal({ grade, week, initialStatus, passcode, onClose, onSaved }: M
           {/* Step 2 — Paste the JSON response */}
           <div>
             <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-2">
-              Step 2 — Paste Claude's JSON response
+              Step 2 — Paste Claude&apos;s JSON response
             </p>
             <textarea
               ref={textareaRef}
@@ -313,21 +313,32 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
   const [importResult, setImportResult] = useState<{ ok: number; fail: number } | null>(null);
 
   // Load status on mount
-  const loadStatus = useCallback(async () => {
-    setLoading(true);
+  // Resolves to null on failure (silent — empty state).
+  const fetchStatus = useCallback(async (): Promise<{ files?: string[]; imported?: Record<string, string> } | null> => {
     try {
       const res = await fetch(`/api/admin-content-status?passcode=${encodeURIComponent(passcode)}`);
-      const data = await res.json();
-      setFiles(new Set(data.files ?? []));
-      setImported(data.imported ?? {});
+      return await res.json();
     } catch {
-      // silent — empty state
-    } finally {
-      setLoading(false);
+      return null;
     }
   }, [passcode]);
+  const applyStatus = useCallback((data: Awaited<ReturnType<typeof fetchStatus>>) => {
+    if (data) {
+      setFiles(new Set(data.files ?? []));
+      setImported(data.imported ?? {});
+    }
+    setLoading(false);
+  }, []);
+  const loadStatus = async () => {
+    setLoading(true);
+    applyStatus(await fetchStatus());
+  };
 
-  useEffect(() => { loadStatus(); }, [loadStatus]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchStatus().then(data => { if (!cancelled) applyStatus(data); });
+    return () => { cancelled = true; };
+  }, [fetchStatus, applyStatus]);
 
   // Mark a cell as saved in local state after modal save
   function onCellSaved(key: string) {
@@ -353,7 +364,7 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
       setImportResult({ ok: data.ok ?? 0, fail: data.fail ?? 0 });
       // Refresh matrix status to reflect new imports
       await loadStatus();
-    } catch (e) {
+    } catch {
       setImportResult({ ok: 0, fail: 1 });
     } finally {
       setImporting(false);
@@ -495,7 +506,7 @@ export default function ContentMatrixSection({ passcode }: { passcode: string })
         <p className="mt-3">
           File naming convention: <code className="bg-[#2a2119] px-1 rounded">week-YYYY-MM-DD-gN.json</code>
           &nbsp;(e.g. <code className="bg-[#2a2119] px-1 rounded">week-2026-08-24-g5.json</code>).
-          The "week" date is the Monday of that week.
+          The &quot;week&quot; date is the Monday of that week.
         </p>
       </div>
 

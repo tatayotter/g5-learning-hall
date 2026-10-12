@@ -3,6 +3,7 @@
 // logged-out mirror lives at app/welcome/pricing; both read their copy from
 // lib/pricingPlans.ts so they can't drift.
 import { useEffect, useState } from 'react';
+import { useClientValue } from '@/hooks/useClientValue';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { useParentPage } from '@/hooks/useScreenTime';
@@ -47,11 +48,10 @@ export default function PricingPage() {
   const [subscription, setSubscription] = useState<SubscriptionRow | null>(null);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState('');
-  const [isNative, setIsNative] = useState(false);
+  const isNative = useClientValue(isNativeApp, false);
 
   const isPremium = subscription?.status === 'active';
 
-  useEffect(() => { setIsNative(isNativeApp()); }, []);
 
   useEffect(() => {
     (async () => {

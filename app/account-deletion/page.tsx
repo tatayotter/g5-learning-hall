@@ -30,11 +30,11 @@ export default function AccountDeletionPage() {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-white">Option 2: Request deletion by email</h2>
           <p className="text-sm">
-            If you can't sign in, email{' '}
+            If you can&apos;t sign in, email{' '}
             <a href="mailto:rowilruelo@gmail.com?subject=Delete%20my%20Learning%20Hall%20account" className="text-indigo-400 underline">
               rowilruelo@gmail.com
             </a>{' '}
-            from the address you registered with, and include the child usernames on the account. We'll
+            from the address you registered with, and include the child usernames on the account. We&apos;ll
             verify the request and delete the account within 7 days.
           </p>
         </section>

@@ -68,25 +68,29 @@ interface Props {
 }
 
 export default function WeeklyLessonsPanel({ grade }: Props) {
-  const [loading, setLoading] = useState(true);
-  const [lessons, setLessons] = useState<Record<string, LessonEntry[]> | null>(null);
-  const [weekLabel, setWeekLabel] = useState('');
-  const [error, setError] = useState(false);
+  // Tagged with the grade it was loaded for; a different grade reads as loading.
+  const [result, setResult] = useState<{
+    grade: string;
+    lessons: Record<string, LessonEntry[]> | null;
+    weekLabel: string;
+    error: boolean;
+  } | null>(null);
+  const loading = result?.grade !== grade;
+  const lessons = loading ? null : result.lessons;
+  const weekLabel = result?.weekLabel ?? '';
+  const error = !loading && result.error;
 
   useEffect(() => {
     const gradeNum = gradeToNumber(grade);
-    if (!gradeNum) {
-      setLoading(false);
-      return;
-    }
-
     // Week key matches useWeeklyData: Sunday-anchored (no weekStartsOn override)
     const sunday = startOfWeek(new Date());
     const weekDate = format(sunday, 'yyyy-MM-dd');
     const monday = addDays(sunday, 1);
-    setWeekLabel(
-      `${format(monday, 'MMM d')}–${format(addDays(monday, 4), 'MMM d, yyyy')}`
-    );
+    const label = `${format(monday, 'MMM d')}–${format(addDays(monday, 4), 'MMM d, yyyy')}`;
+    let cancelled = false;
+    const finish = (lessonsByDay: Record<string, LessonEntry[]> | null, failed = false) => {
+      if (!cancelled) setResult({ grade, lessons: lessonsByDay, weekLabel: label, error: failed });
+    };
 
     fetch(`/api/content?grade=${gradeNum}&week=${weekDate}`)
       .then(r => {
@@ -95,8 +99,7 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
       })
       .then(({ content }: { content: Record<string, Record<string, { summary_markdown?: string }>> }) => {
         if (!content || Object.keys(content).length === 0) {
-          setLessons(null);
-          setLoading(false);
+          finish(null);
           return;
         }
         const byDay: Record<string, LessonEntry[]> = {};
@@ -108,13 +111,10 @@ export default function WeeklyLessonsPanel({ grade }: Props) {
             return { subject, topic: cleanTopic(topic, subject), blurb };
           });
         }
-        setLessons(Object.keys(byDay).length > 0 ? byDay : null);
-        setLoading(false);
+        finish(Object.keys(byDay).length > 0 ? byDay : null);
       })
-      .catch(() => {
-        setError(true);
-        setLoading(false);
-      });
+      .catch(() => finish(null, true));
+    return () => { cancelled = true; };
   }, [grade]);
 
   const note = (text: string, color: string = IOS.secondary) => (

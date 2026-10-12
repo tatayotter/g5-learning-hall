@@ -4,17 +4,18 @@
 // from everything they studied Monday-Thursday that week — built on the
 // fly from packageData, no separate admin authoring needed.
 import { WEEKDAYS } from './subjectSchedule';
+import type { PackageDay, PackageQuestion, WeeklyPackageData } from './weeklyPackage';
 
 export const WEEKLY_REVIEW_SUBJECT = 'Weekly Review';
 const QUESTIONS_PER_SUBJECT = 4;
 
-export function buildWeeklyReviewDay(packageData: any): Record<string, any> {
-  const quiz: any[] = [];
+export function buildWeeklyReviewDay(packageData: WeeklyPackageData | undefined): PackageDay {
+  const quiz: PackageQuestion[] = [];
 
   for (const day of WEEKDAYS.slice(0, 4)) { // Monday-Thursday
-    const subjects = packageData?.[day] || {};
-    for (const questData of Object.values(subjects) as any[]) {
-      const source: any[] = Array.isArray(questData?.quiz)
+    const subjects: PackageDay = packageData?.[day] || {};
+    for (const questData of Object.values(subjects)) {
+      const source: PackageQuestion[] = Array.isArray(questData?.quiz)
         ? questData.quiz
         : Array.isArray(questData?.questions)
         ? questData.questions

@@ -14,7 +14,7 @@ import { fetchCurioCollection } from '@/lib/curioCollection';
 import { cachedRead } from '@/lib/offlineReads';
 import {
   ALL_MONSTERS, GUILD_MONSTERS, MonsterDef,
-  getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
+  getGuildMonsterDisplay, getOwnedMonsterDisplay,
 } from '@/lib/monsterConfig';
 import { fetchSubclassProfile, guildLevelForKey } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
@@ -66,19 +66,26 @@ interface HeroProfileProps {
   onViewAchievements?: () => void;
 }
 
-export default function HeroProfile({ userId, data, currentDay, onViewAchievements }: HeroProfileProps) {
+export default function HeroProfile({ userId, data, onViewAchievements }: HeroProfileProps) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [avatarTick, setAvatarTick] = useState(0);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [switchingAvatar, setSwitchingAvatar] = useState<string | null>(null);
-  const [battleView, setBattleView] = useState<'week' | 'lifetime'>('week');
-  const [lifetimeStats, setLifetimeStats] = useState<LifetimeBattleStats | null>(null);
-  const [lifetimeLoading, setLifetimeLoading] = useState(false);
-  const [progress, setProgress] = useState<PlayerProgress | null>(null);
+  // Per-account state is tagged with the userId it belongs to — switching
+  // accounts (e.g. an admin/parent flipping between kids) must not show the
+  // previous user's numbers or toggle while the new fetch is pending.
+  const [battleViewFor, setBattleViewFor] = useState<{ userId: string; view: 'week' | 'lifetime' } | null>(null);
+  const battleView = battleViewFor?.userId === userId ? battleViewFor.view : 'week';
+  const setBattleView = (view: 'week' | 'lifetime') => setBattleViewFor({ userId, view });
+  const [lifetimeFor, setLifetimeFor] = useState<{ userId: string; stats: LifetimeBattleStats } | null>(null);
+  const lifetimeStats = lifetimeFor?.userId === userId ? lifetimeFor.stats : null;
+  const lifetimeLoading = lifetimeStats === null;
+  const [progressFor, setProgressFor] = useState<{ userId: string; progress: PlayerProgress | null } | null>(null);
+  const progress = progressFor?.userId === userId ? progressFor.progress : null;
   const [currentStreak, setCurrentStreak] = useState(0);
   const [activeCurios, setActiveCurios] = useState<ActiveCurio[]>([]);
   const [ownedCuriosCount, setOwnedCuriosCount] = useState(0);
-  const [activeSlot, setActiveSlot] = useState<number | null>(null);
+  const [, setActiveSlot] = useState<number | null>(null);
   const [subclassProfile, setSubclassProfile] = useState<Awaited<ReturnType<typeof fetchSubclassProfile>> | null>(null);
   const [referralKey, setReferralKey] = useState<string | null>(null);
   // Placeholder only until the roster finishes loading this account.
@@ -178,7 +185,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
       setActiveSlot(collection.battleState?.active_monster_slot ?? null);
       setActiveCurios(
         collection.userMonsters
-          .filter(m => m.slot !== null && m.slot !== undefined)
+          .filter((m): m is typeof m & { slot: number } => m.slot !== null && m.slot !== undefined)
           .sort((a, b) => a.slot - b.slot),
       );
       setOwnedCuriosCount(collection.userMonsters.length);
@@ -203,21 +210,14 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
     curioDisplayMonsters[id] = { ...def, name, emoji, isLegendary, spriteId };
   }
 
-  // Cached lifetime totals belong to whichever account fetched them —
-  // switching accounts (e.g. an admin/parent flipping between kids) must
-  // not show the previous user's numbers while the new fetch is pending.
-  useEffect(() => {
-    setLifetimeStats(null);
-    setBattleView('week');
-    setProgress(null);
-  }, [userId]);
-
   // Fetched eagerly (not gated behind the This Week/Lifetime toggle like lifetimeStats below)
   // because achievement criteria (isEarned, below) need lifetime counters/level/xp/gold
   // regardless of which battle-record view is showing — see
   // docs/weekly-progress-redesign-plan.md Phase 4 Wave 2.
   useEffect(() => {
-    fetchPlayerProgressForDisplay(userId).then(setProgress);
+    let cancelled = false;
+    fetchPlayerProgressForDisplay(userId).then(p => { if (!cancelled) setProgressFor({ userId, progress: p }); });
+    return () => { cancelled = true; };
   }, [userId]);
 
   // Fetch this player's referral key via RPC (children RLS blocks direct reads).
@@ -234,18 +234,17 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
   // weekly_packages row — fetched eagerly now so the Trainer Card stat panel
   // always shows lifetime totals without needing a toggle click.
   useEffect(() => {
-    if (lifetimeStats) return;
-    setLifetimeLoading(true);
+    let cancelled = false;
     fetchLifetimeBattleStats(userId).then(stats => {
-      setLifetimeStats(stats);
-      setLifetimeLoading(false);
+      if (!cancelled) setLifetimeFor({ userId, stats });
     });
-  }, [userId, lifetimeStats]);
+    return () => { cancelled = true; };
+  }, [userId]);
 
   useEffect(() => {
     const today = new Date().toISOString().slice(0, 10);
     fetchDailyChecklistStreak(userId, today).then(info => setCurrentStreak(info.currentStreak));
-  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [userId]);
 
   const stats = data.character_stats;
   const level = stats?.level || 1;
@@ -460,7 +459,7 @@ export default function HeroProfile({ userId, data, currentDay, onViewAchievemen
               { icon: '/icons/stats/atk.svg', label: 'PvP Wins', value: lifetimeLoading ? '…' : (lifetimeStats?.liveBattleWins ?? data.sibling_battles_won ?? 0) },
               { icon: '/icons/stats/stat_up.svg', label: 'Current Streak', value: `${currentStreak}d` },
               { icon: '/icons/rewards/gem.svg', label: 'Achievements', value: `${unlockedAchievements.length} / ${ACHIEVEMENTS.length}` },
-              { icon: '/icons/rewards/package.svg', label: 'Lifetime Trades', value: (progress as any)?.trades_completed ?? 0 },
+              { icon: '/icons/rewards/package.svg', label: 'Lifetime Trades', value: progress?.trades_completed_total ?? 0 },
             ].map(({ icon, label, value, gold: isGold }) => (
               <div key={label} className="flex items-center gap-2.5">
                 {typeof icon === 'string' && icon.startsWith('/') ? (

@@ -70,7 +70,7 @@ export default function QuestQuizDevPage() {
           questName="Math_Fractions"
           questKey="dev-quest"
           questData={quest}
-          currentStats={{ xp: 0, gold: 0, level: 1 } as any}
+          currentStats={{ xp: 0, gold: 0, level: 1 }}
           attemptsSoFar={used}
           dailyAttemptsUsed={dailyUsed}
           isMastered={mastered}

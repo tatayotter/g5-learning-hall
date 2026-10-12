@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useEffectEvent } from 'react';
 
 interface Particle {
   id: number;
@@ -127,7 +127,6 @@ function drawStar(ctx: CanvasRenderingContext2D, p: Particle) {
 export default function CelebrationOverlay({ trigger, type, onComplete }: CelebrationOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef   = useRef<number>(0);
-  const [active, setActive] = useState(false);
 
   // Every account gets embers now. Stars were a per-account variant; the
   // 'star' branches below stay so another variant can reuse them.
@@ -135,10 +134,11 @@ export default function CelebrationOverlay({ trigger, type, onComplete }: Celebr
 
   const COUNT = type === 'perfect' ? 40 : 80;
 
-  useEffect(() => {
-    if (!trigger) return;
-    setActive(true);
-
+  // Effect Event: the burst starts only when `trigger` changes, using the
+  // props (type, onComplete) current at that moment. The canvas is rendered
+  // whenever `trigger` is on, so it already exists when this runs (it used to
+  // mount one render later, so the first burst found no canvas and never drew).
+  const startBurst = useEffectEvent(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -194,7 +194,6 @@ export default function CelebrationOverlay({ trigger, type, onComplete }: Celebr
       });
 
       if (allDead) {
-        setActive(false);
         onComplete?.();
         return;
       }
@@ -203,11 +202,15 @@ export default function CelebrationOverlay({ trigger, type, onComplete }: Celebr
     }
 
     animRef.current = requestAnimationFrame(tick);
+  });
 
+  useEffect(() => {
+    if (!trigger) return;
+    startBurst();
     return () => cancelAnimationFrame(animRef.current);
   }, [trigger]);
 
-  if (!active) return null;
+  if (!trigger) return null;
 
   return (
     <canvas

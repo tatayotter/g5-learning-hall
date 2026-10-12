@@ -149,7 +149,7 @@ export default async function BlogPostPage({
               href="/register"
               className="inline-block bg-[#c9781a] hover:bg-[#b3690f] text-white font-bold text-sm px-6 py-3 rounded-lg transition-colors"
             >
-              Start Your Family's Quest
+              Start Your Family&apos;s Quest
             </Link>
           </div>
 

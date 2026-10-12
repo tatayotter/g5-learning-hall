@@ -128,7 +128,7 @@ export default function AvatarPicker({ userId, currentAvatar, onClose, onSaved }
                     return (
                       <button
                         key={item.key}
-                        onClick={() => { playPageFlip(); owned ? handlePick(avatar) : alert(`Unlock "${item.name}" for ${item.cost} Gold in the Trainer Sprites tab of the Curio Arena Shop.`); }}
+                        onClick={() => { playPageFlip(); if (owned) handlePick(avatar); else alert(`Unlock "${item.name}" for ${item.cost} Gold in the Trainer Sprites tab of the Curio Arena Shop.`); }}
                         disabled={owned && !!saving}
                         title={owned ? item.name : `Locked — ${item.cost} Gold in the Shop`}
                         className={`${tileClass} ${owned ? 'hover:-translate-y-0.5' : 'bg-[#f5f0e8]'}`}

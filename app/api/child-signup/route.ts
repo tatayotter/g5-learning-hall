@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { verifyTurnstileToken } from '@/lib/turnstile';
 import { friendlyNameError } from '@/lib/nameFilter';
+import { supabaseAdmin } from '@/lib/supabaseAdmin';
 
 // Maps create_unclaimed_child_account's raw exception text to something a
 // kid can act on. Unknown errors pass through unchanged.
@@ -23,6 +24,30 @@ function friendlySignupError(message: string): string {
   return message;
 }
 
+// Same child typed the same way, give or take case, spacing and punctuation
+// ("Ana B. Cruz" vs "ana b cruz").
+const normalizeName = (s: string) => s.toLowerCase().replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim();
+
+// Whether an active account already has this full name at this school (a
+// parent-made one, or one the child made before). On 2026-10-11 about a fifth
+// of all accounts were repeats like this, mostly kids who had lost their way
+// back in. Only answers yes/no: the form never learns whose account it is.
+async function looksLikeExistingAccount(fullName: unknown, schoolName: unknown): Promise<boolean> {
+  if (typeof fullName !== 'string' || typeof schoolName !== 'string') return false;
+  const name = normalizeName(fullName);
+  const school = normalizeName(schoolName);
+  const first = name.split(' ')[0];
+  if (!name.includes(' ') || first.length < 2 || !school) return false;
+  const { data, error } = await supabaseAdmin
+    .from('children')
+    .select('full_name, school_name')
+    .eq('is_active', true)
+    .ilike('full_name', `%${first}%`)
+    .limit(500);
+  if (error || !data) return false;
+  return data.some(c => normalizeName(c.full_name ?? '') === name && normalizeName(c.school_name ?? '') === school);
+}
+
 // Child self-registration (no parent required yet) — see
 // docs/parent-child-linking-design.md. The client establishes its own
 // anonymous session and passes the access token here so
@@ -30,10 +55,16 @@ function friendlySignupError(message: string): string {
 // browser, and so the real client IP (unavailable to browser JS) can be
 // attached for the RPC's own rate limiting.
 export async function POST(request: NextRequest) {
-  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode, attribution, turnstileToken } = await request.json();
+  const { accessToken, username, pin, fullName, grade, gender, schoolName, avatar, source, sessionId, referralCode, attribution, turnstileToken, confirmNewAccount } = await request.json();
 
   if (typeof accessToken !== 'string' || !accessToken) {
     return NextResponse.json({ success: false, error: 'missing session' }, { status: 400 });
+  }
+
+  // Before the Turnstile check, so the token isn't spent: the form resends the
+  // same one with confirmNewAccount once the child says this account is new.
+  if (confirmNewAccount !== true && await looksLikeExistingAccount(fullName, schoolName)) {
+    return NextResponse.json({ success: false, possibleDuplicate: true }, { status: 409 });
   }
 
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0].trim()

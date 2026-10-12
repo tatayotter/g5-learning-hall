@@ -1,5 +1,6 @@
 // hooks/useWeeklyData.ts
 import { useState, useEffect, useRef, useCallback } from 'react';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
 import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
@@ -45,7 +46,7 @@ function totalXpForLevelState(level: number, xp: number): number {
 // every visitor should re-fetch it individually. See app/api/content/route.ts.
 // Also returns the resolved content_weeks.id (null if the admin hasn't authored this grade/week
 // yet) — Wave 4 keys player_weekly_journal off it instead of a week_starting_date column.
-async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: any; contentWeekId: string | null }> {
+async function fetchGradeContent(grade: number, weekStartingDate: string): Promise<{ content: WeeklyPackageData; contentWeekId: string | null }> {
   try {
     const res = await fetch(`/api/content?grade=${grade}&week=${weekStartingDate}`);
     if (!res.ok) return { content: {}, contentWeekId: null };
@@ -100,7 +101,7 @@ export interface WeeklyData {
   purchased_items: number;
   honor_grants: number;
   achievements: Record<string, boolean>;
-  package_data?: any;
+  package_data?: WeeklyPackageData | string;
   quiz_attempts?: Record<string, number>;
   mastered_quizzes?: string[];
   // Real-calendar-day attempt counts for the board's main quests, keyed
@@ -240,7 +241,7 @@ export function useWeeklyData(userId: string | null) {
       // are always read live from player_progress (lifetime, no week dimension to carry
       // forward at all). This eliminates the fetch-error/carry-forward bug class for these
       // fields entirely, the same way Wave 1 eliminated it for xp/gold/level.
-      let journalRow: Record<string, any> | null = null;
+      let journalRow: Record<string, unknown> | null = null;
       if (weekId) {
         const { data: journal, error: journalError } = await supabase
           .from('player_weekly_journal')
@@ -285,7 +286,7 @@ export function useWeeklyData(userId: string | null) {
     }
     fetchData();
     return () => { cancelled = true; };
-  }, [currentSunday, userId, grade, reloadKey]);
+  }, [currentSunday, userId, grade, todayStr, reloadKey]);
 
   // Keeps the offline copy current with every load and save (saves update `data` in place),
   // including quests answered offline, so reopening offline shows the latest gold/xp.
@@ -303,7 +304,7 @@ export function useWeeklyData(userId: string | null) {
     newHonorGrants: number = data?.honor_grants || 0,
     newQuizAttempts: Record<string, number> = data?.quiz_attempts || {},
     newMasteredQuizzes: string[] = data?.mastered_quizzes || [],
-    newHonorGrantsCount: number = data?.honor_grants || 0,
+    _newHonorGrantsCount: number = data?.honor_grants || 0,
     newGuildSessionsCount: number = data?.guild_sessions_count || 0,
     newMonsterBattlesWon: number = data?.monster_battles_won || 0,
     newSiblingBattlesWon: number = data?.sibling_battles_won || 0,
@@ -332,7 +333,7 @@ export function useWeeklyData(userId: string | null) {
     let addedGold = 0;
 
     const newUnlocked = { ...currentAchievements };
-    const newlyUnlockedTitles: { title: string; xp: number; gold: number }[] = [];
+    const newlyUnlockedTitles: { id: string; title: string; xp: number; gold: number }[] = [];
     const newlyUnlockedIds: string[] = [];
 
     // Achievement criteria now check LIFETIME totals (player_progress), not the current
@@ -382,7 +383,7 @@ export function useWeeklyData(userId: string | null) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
         addedGold += ach.goldReward;
-        newlyUnlockedTitles.push({ title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
+        newlyUnlockedTitles.push({ id: ach.id, title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
         newlyUnlockedIds.push(ach.id);
       }
     });
@@ -390,10 +391,6 @@ export function useWeeklyData(userId: string | null) {
     // Claim synchronously, BEFORE the awaits below, so an overlapping save can't also unlock
     // these — see claimedAchievementsRef. Rolled back if the RPC fails.
     newlyUnlockedIds.forEach(id => { claimedAchievementsRef.current[id] = true; });
-
-    newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
-      logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
-    });
 
     // xp/gold/level are applied server-side as atomic deltas (not written as
     // an absolute snapshot of local state) so that two saves firing close
@@ -497,34 +494,59 @@ export function useWeeklyData(userId: string | null) {
       p_honor_grants_delta: counterDeltas.honor,
     };
 
-    let { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
+    // The reward folded into xpDelta/goldDelta for each id above. The server takes it back out
+    // for any id the account already owns (migration 20261011120000_achievement_award_dedupe):
+    // a second tab or device holds an older achievements list and would otherwise re-pay them.
+    const achievementRewards = Object.fromEntries(
+      newlyUnlockedTitles.map(({ id, xp, gold }) => [id, { xp, gold }])
+    );
+
+    let { data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
       ...progressArgs,
       ...lifetimeDeltaArgs,
+      p_achievement_rewards: achievementRewards,
     });
 
     // This client can go live before the migration above is approved and applied (Vercel
     // deploys on merge; deploy-migrations.yml waits for a manual approval click). Against a
-    // DB that doesn't have the *_delta params yet PostgREST answers PGRST202 ("function not
-    // found in the schema cache") and applies nothing, so retry once without them: xp, gold
-    // and every other counter still save, and the 3 lifetime counters simply don't move until
-    // the migration lands (omitting the old absolute params leaves them untouched there —
-    // COALESCE(NULL, current)).
+    // DB without p_achievement_rewards PostgREST answers PGRST202 ("function not found in the
+    // schema cache") and applies nothing, so retry once without it: everything saves exactly
+    // as before the dedupe, and the result just lacks new_achievement_ids (handled below).
     if (statsError?.code === 'PGRST202') {
-      ({ data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', progressArgs));
+      ({ data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
+        ...progressArgs,
+        ...lifetimeDeltaArgs,
+      }));
     }
 
-    if (statsError || !finalStats) {
+    if (statsError || !rpcResult) {
       console.error('Failed to apply progress update:', statsError);
       newlyUnlockedIds.forEach(id => { delete claimedAchievementsRef.current[id]; });
       alert(isOffline() ? OFFLINE_SAVE_MESSAGE : `⚠️ Save failed: ${statsError?.message}`);
       return;
     }
 
+    const { new_achievement_ids: confirmedIds, achievements: serverAchievements, ...finalStats } = rpcResult as CharacterStats & {
+      new_achievement_ids?: string[];
+      achievements?: Record<string, boolean>;
+    };
+
+    // Logged only after the save lands, and only for ids the server confirmed as new (all of
+    // them against the pre-dedupe DB, which doesn't report any).
+    const awardedIds = new Set(Array.isArray(confirmedIds) ? confirmedIds : newlyUnlockedIds);
+    newlyUnlockedTitles.forEach(({ id, title, xp, gold }) => {
+      if (awardedIds.has(id)) {
+        logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
+      }
+    });
+
     // Functional update, and achievements MERGED into whatever is there now rather than
     // overwritten from this call's stale closure — `{ ...data, achievements: newUnlocked }`
     // could write an older unlocked-list back over a newer one from an overlapping save.
+    // The server's full map is merged in too, so a stale tab catches up on achievements
+    // another tab or device unlocked and stops trying to re-award them.
     setData(prev => prev
-      ? { ...prev, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked } }
+      ? { ...prev, character_stats: finalStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked, ...(serverAchievements || {}) } }
       : prev);
 
     // journal_logs/counters are this-week-only content, not lifetime — written directly via a

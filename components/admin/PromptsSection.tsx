@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { ALL_SUBJECTS_BY_GRADE, DEFAULT_SCHEDULES, type DaySchedule } from '@/lib/promptBuilder';
 
 // ─── Static reference card (old behaviour) ───────────────────────────────────
@@ -122,11 +122,12 @@ function PromptBuilder({ passcode }: { passcode: string }) {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
-  // Reset schedule when grade changes
-  useEffect(() => {
-    setSchedule(DEFAULT_SCHEDULES[grade] ?? {});
+  // Switching grade resets the schedule to that grade's default.
+  const selectGrade = (g: number) => {
+    setGrade(g);
+    setSchedule(DEFAULT_SCHEDULES[g] ?? {});
     setResult(null);
-  }, [grade]);
+  };
 
   const build = useCallback(async () => {
     setBuilding(true);
@@ -168,7 +169,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
         <span className="text-2xl">⚡</span>
         <div>
           <p className="text-[#ede4d3] font-bold">Prompt Builder</p>
-          <p className="text-[#8a7c66] text-xs">Assembles a lean AI prompt from the current week's BOW only — no full-year noise.</p>
+          <p className="text-[#8a7c66] text-xs">Assembles a lean AI prompt from the current week&apos;s BOW only — no full-year noise.</p>
         </div>
         {result && savings !== null && (
           <span className="ml-auto bg-emerald-900/60 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-700/50">
@@ -188,7 +189,7 @@ function PromptBuilder({ passcode }: { passcode: string }) {
             {[2, 3, 4, 5, 6].map(g => (
               <button
                 key={g}
-                onClick={() => setGrade(g)}
+                onClick={() => selectGrade(g)}
                 className={`w-9 h-9 rounded-lg text-sm font-bold transition-colors ${
                   grade === g
                     ? 'bg-indigo-600 text-[#ede4d3]'

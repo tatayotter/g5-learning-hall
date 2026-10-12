@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import type { AuthoredQuestion } from '@/lib/weeklyPackage';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import {
   CustomEvent,
@@ -47,8 +48,8 @@ function EventManager({ events, questCounts, onReload, passcode }: {
       const result = await res.json();
       if (!res.ok || !result.success) throw new Error(result.error || 'Upload failed');
       setForm(f => ({ ...f, banner_url: result.url }));
-    } catch (e: any) {
-      setUploadError(`❌ Upload failed: ${e.message}`);
+    } catch (e) {
+      setUploadError(`❌ Upload failed: ${e instanceof Error ? e.message : String(e)}`);
     }
     setUploadingPoster(false);
   };
@@ -128,7 +129,7 @@ function EventManager({ events, questCounts, onReload, passcode }: {
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">🎪 Event Manager</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         Create a Custom Event now — title, banner, details, curio reward, and dates. Quests can be added
-        later in the Event Quest Editor below (an event can't be scheduled or activated until it has at
+        later in the Event Quest Editor below (an event can&apos;t be scheduled or activated until it has at
         least one quest).
       </p>
 
@@ -360,7 +361,23 @@ function EventManager({ events, questCounts, onReload, passcode }: {
   );
 }
 
-function EventQuestEditor({ events, questCounts, onReload, passcode }: {
+const NO_QUESTS: EventQuest[] = [];
+
+async function fetchEventsWithCounts() {
+  const all = await fetchAllEvents();
+  const counts: Record<string, number> = {};
+  await Promise.all(all.map(async ev => { counts[ev.id] = await countEventQuests(ev.id); }));
+  return { all, counts };
+}
+
+// One pasted event subject; validated in handleParse before it can be saved.
+interface AuthoredEventSubject {
+  subject_name?: string;
+  summary_markdown?: string;
+  quiz?: AuthoredQuestion[];
+}
+
+function EventQuestEditor({ events, onReload, passcode }: {
   events: CustomEvent[];
   questCounts: Record<string, number>;
   onReload: () => void;
@@ -368,30 +385,38 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
 }) {
   const [selectedEventId, setSelectedEventId] = useState('');
   const [gradeLevel, setGradeLevel] = useState<number>(5);
-  const [existingQuests, setExistingQuests] = useState<EventQuest[]>([]);
+  // Tagged with the event they were fetched for, so switching events never
+  // shows the previous event's quests.
+  const [questsFor, setQuestsFor] = useState<{ eventId: string; quests: EventQuest[] } | null>(null);
+  const existingQuests = selectedEventId && questsFor?.eventId === selectedEventId ? questsFor.quests : NO_QUESTS;
   const [jsonInput, setJsonInput] = useState('');
-  const [parsed, setParsed] = useState<{ data: any[]; warnings: string[] } | null>(null);
+  const [parsed, setParsed] = useState<{ data: AuthoredEventSubject[]; warnings: string[] } | null>(null);
   const [parseError, setParseError] = useState('');
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (!selectedEventId) { setExistingQuests([]); return; }
-    fetchEventQuests(selectedEventId).then(setExistingQuests);
+    if (!selectedEventId) return;
+    let cancelled = false;
+    fetchEventQuests(selectedEventId).then(quests => {
+      if (!cancelled) setQuestsFor({ eventId: selectedEventId, quests });
+    });
+    return () => { cancelled = true; };
   }, [selectedEventId]);
 
   const handleParse = () => {
     setParseError('');
     setParsed(null);
     try {
-      const arr = JSON.parse(jsonInput);
+      const arr: unknown = JSON.parse(jsonInput);
       if (!Array.isArray(arr)) throw new Error('Expected a JSON array of subjects');
+      const subjects = arr as AuthoredEventSubject[];
       const warnings: string[] = [];
-      arr.forEach((subj: any, si: number) => {
+      subjects.forEach((subj, si: number) => {
         if (!subj.subject_name) warnings.push(`Item ${si + 1}: missing subject_name`);
         if (!Array.isArray(subj.quiz) || subj.quiz.length === 0) {
           warnings.push(`${subj.subject_name || `Item ${si + 1}`}: missing quiz array`);
         } else {
-          subj.quiz.forEach((q: any, qi: number) => {
+          subj.quiz.forEach((q, qi: number) => {
             if (!q.correct_answer) warnings.push(`${subj.subject_name} quiz[${qi + 1}]: missing correct_answer`);
             if (!Array.isArray(q.options) || q.options.length < 2) {
               warnings.push(`${subj.subject_name} quiz[${qi + 1}]: needs at least 2 options`);
@@ -401,16 +426,16 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
           });
         }
       });
-      setParsed({ data: arr, warnings });
-    } catch (e: any) {
-      setParseError(`JSON parse error: ${e.message}`);
+      setParsed({ data: subjects, warnings });
+    } catch (e) {
+      setParseError(`JSON parse error: ${e instanceof Error ? e.message : String(e)}`);
     }
   };
 
   const handleSave = async () => {
     if (!parsed || parsed.warnings.length > 0 || !selectedEventId) return;
     setSaving(true);
-    const rows = parsed.data.map((subj: any, i: number) => ({
+    const rows = parsed.data.map((subj, i: number) => ({
       subject_name: subj.subject_name,
       summary_markdown: subj.summary_markdown || null,
       quiz: subj.quiz,
@@ -423,7 +448,7 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
     } else {
       setParsed(null);
       setJsonInput('');
-      fetchEventQuests(selectedEventId).then(setExistingQuests);
+      fetchEventQuests(selectedEventId).then(quests => setQuestsFor({ eventId: selectedEventId, quests }));
       onReload();
       alert('✅ Event quests saved!');
     }
@@ -435,7 +460,7 @@ function EventQuestEditor({ events, questCounts, onReload, passcode }: {
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">📜 Event Quest Editor</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         Paste per-subject quest content for an event. This is independent of the Event Manager above —
-        create the event first, then come back and paste subjects here whenever they're ready (typically
+        create the event first, then come back and paste subjects here whenever they&apos;re ready (typically
         the Sunday before the event starts).
       </p>
 
@@ -542,16 +567,23 @@ export default function EventsSection({ passcode }: { passcode: string }) {
   const [questCounts, setQuestCounts] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
 
-  const reload = async () => {
-    const all = await fetchAllEvents();
+  const reload = async () => applyEvents(await fetchEventsWithCounts());
+  const applyEvents = ({ all, counts }: Awaited<ReturnType<typeof fetchEventsWithCounts>>) => {
     setEvents(all);
-    const counts: Record<string, number> = {};
-    await Promise.all(all.map(async ev => { counts[ev.id] = await countEventQuests(ev.id); }));
     setQuestCounts(counts);
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetchEventsWithCounts().then(({ all, counts }) => {
+      if (cancelled) return;
+      setEvents(all);
+      setQuestCounts(counts);
+      setLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   if (loading) return <p className="text-[#8a7c66]">Loading events...</p>;
 

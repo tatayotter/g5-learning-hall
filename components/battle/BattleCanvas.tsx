@@ -172,7 +172,8 @@ export default function BattleCanvas({ leftMon, rightMon, layout = 'landscape', 
       gameRef.current = null;
       sceneRef.current = null;
     };
-  }, []);
+    // layout never changes while mounted (BattleStage remounts via key).
+  }, [layout]);
 
   const leftStage = toStageMonster(leftMon);
   const rightStage = toStageMonster(rightMon);

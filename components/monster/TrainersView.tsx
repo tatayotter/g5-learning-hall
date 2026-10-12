@@ -75,7 +75,7 @@ export default function TrainersView({
                 <div>
                   <p className="font-bold text-[#2a1505]">Challenge To A Battle</p>
                   <p className="text-xs text-[#6b4820]">
-                    Battle another player's team.
+                    Battle another player&apos;s team.
                     {alreadyWonToday
                       ? ' First win gold already claimed today — resets tomorrow.'
                       : ' First win today earns '}
@@ -174,7 +174,7 @@ export default function TrainersView({
             </GameButton>
           </div>
         </div>
-        <p className="text-xs text-[#6b4820] italic mt-2">"No hard feelings — just here to help you practice."</p>
+        <p className="text-xs text-[#6b4820] italic mt-2">&quot;No hard feelings — just here to help you practice.&quot;</p>
         <div className="flex gap-2 mt-2 flex-wrap">
           {userMonsters.filter(um => um.slot !== null).map((um, i) => {
             const def = ALL_MONSTERS[um.monster_id];
@@ -243,7 +243,7 @@ export default function TrainersView({
                 </div>
               )}
             </div>
-            <p className="text-xs text-[#6b4820] italic mt-2">"{trainer.intro}"</p>
+            <p className="text-xs text-[#6b4820] italic mt-2">&quot;{trainer.intro}&quot;</p>
             <div className="flex gap-2 mt-2 flex-wrap">
               {trainer.monsters.map((tm, i) => (
                 <span key={i} className="text-xs bg-white/70 border border-[#c9a87a] px-2 py-0.5 rounded text-[#3a2610]">

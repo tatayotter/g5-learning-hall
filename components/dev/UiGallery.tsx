@@ -29,6 +29,7 @@ import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextS
 import InfoTag from '@/components/InfoTag';
 import { ActionTile, PlaceholderTile } from '@/components/battle/BattleStage';
 import BattleStagePlayground from '@/components/dev/BattleStagePlayground';
+import NavRedesignMockup from '@/components/dev/NavRedesignMockup';
 import PostBattleSummary, { PostBattleSideInfo } from '@/components/battle/PostBattleSummary';
 import MonsterHpPanel from '@/components/battle/MonsterHpPanel';
 import { ALL_MONSTERS, MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from '@/lib/monsterConfig';
@@ -36,7 +37,6 @@ import { ALL_MONSTERS, MONSTERS, ELEMENT_ICON_SRC, NORMAL_SKILL_ICON_SRC } from 
 import SidebarRail from '@/components/SidebarRail';
 import MapStage from '@/components/MapStage';
 import OfflineUnavailable from '@/components/OfflineUnavailable';
-import CodexPanel from '@/components/CodexPanel';
 import ReferralKeyDisplay from '@/components/ReferralKeyDisplay';
 import WelcomeCard from '@/components/WelcomeCard';
 import GuardianSprite from '@/components/guilds/GuardianSprite';
@@ -181,6 +181,7 @@ export default function UiGallery() {
   const [continueCount, setContinueCount] = useState(0);
   const [celebration, setCelebration] = useState<{ type: 'levelup' | 'perfect' | 'curio'; key: number } | null>(null);
   const [activeOverlay, setActiveOverlay] = useState<OverlayKey | null>(null);
+  const [critNonce] = useState(() => Date.now());
   const close = () => setActiveOverlay(null);
   const [introPreview, setIntroPreview] = useState<'story' | 'training' | null>(null);
   const [battleTrainingPreview, setBattleTrainingPreview] = useState(false);
@@ -289,7 +290,7 @@ export default function UiGallery() {
       case 'achievementToast':
         return <AchievementToast userId="demo" newlyUnlocked={mockAchievements} onDismissAll={close} />;
       case 'critBonusToast':
-        return <CritBonusToast event={{ bonus: 25, nonce: Date.now() }} />;
+        return <CritBonusToast event={{ bonus: 25, nonce: critNonce }} />;
       case 'liveBattleInvite':
         return <LiveBattleInviteToast fromName="Miguel" onAccept={close} onDecline={close} />;
       case 'graduation':
@@ -360,7 +361,7 @@ export default function UiGallery() {
         <p className="text-[#6b4820] text-sm mt-1 max-w-2xl">
           Real components fed mock props, for restyling without a live session. Read{' '}
           <code className="text-[#7a4a0f]">docs/STYLE_GUIDE.md</code> first — this page mirrors the
-          real shell's current default (light, as of 2026-08-28) so it looks the way the real app does.
+          real shell&apos;s current default (light, as of 2026-08-28) so it looks the way the real app does.
         </p>
       </header>
 
@@ -709,6 +710,10 @@ export default function UiGallery() {
         </div>
       </Section>
 
+      <Section title="Navigation redesign (MOCKUP)" note="components/dev/NavRedesignMockup.tsx: proposed replacement for the compass drawer below and the Curio Arena's second menu, built from real play history. Today (To-Do + Main Quests) is home, with tabs for Side Quests, Curios, Journal and Vault. The To-Do is pinned on desktop, and Curios opens on the map. Switch between phone, tablet and desktop. Not wired into the app.">
+        <NavRedesignMockup />
+      </Section>
+
       <Section title="Navigation drawer" note="components/SidebarRail.tsx — the game's hamburger menu. Click the compass to open it (bottom-center portrait / left-middle landscape). Includes the inline logout-confirm dialog (Logout → confirm).">
         <div className="relative h-24 bg-neutral-950 rounded-xl border border-neutral-800 flex items-center justify-center text-gray-500 text-xs">
           (HUD stat bar renders pinned to the real page top — scroll up after opening the menu)
@@ -860,7 +865,7 @@ export default function UiGallery() {
               onDummyResult={async () => {}}
               onBonusPaid={() => {}}
               onImmersiveChange={() => {}}
-              gradeOverride={(q, selected) => ({ correct: selected === q.answer, correctAnswer: q.answer })}
+              gradeOverride={(q, selected) => ({ correct: selected === q.answer, correctAnswer: typeof q.answer === 'string' ? q.answer : null })}
               onClose={() => setBattleTrainingPreview(false)}
             />
           );

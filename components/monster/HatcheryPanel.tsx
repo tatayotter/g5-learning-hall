@@ -145,7 +145,7 @@ export default function HatcheryPanel({ userId, eggs, onEggsChanged }: HatcheryP
         <div className="p-6 rounded-xl border border-neutral-800 bg-neutral-900 text-center">
           <p className="text-gray-400 text-sm mb-1">No eggs yet.</p>
           <p className="text-gray-600 text-xs">
-            Graduate and level up a curio to earn its first egg — check My Team once one's ready.
+            Graduate and level up a curio to earn its first egg — check My Team once one&apos;s ready.
           </p>
         </div>
       ) : (

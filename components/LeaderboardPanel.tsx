@@ -6,6 +6,7 @@
 // prominently by default; "Show Full Leaderboard" expands that category's
 // complete ranked list.
 import { useEffect, useState, ReactNode } from 'react';
+import { useClientValue } from '@/hooks/useClientValue';
 import { fetchLeaderboard, fetchReactionCounts, sendReaction, LeaderboardEntry, ReactionCounts } from '@/lib/leaderboard';
 import { fetchTopTraders, TopTrader } from '@/lib/trades';
 import { USERS } from '@/lib/userSession';
@@ -52,11 +53,10 @@ function markReacted(fromUserId: string, toUserId: string) {
 
 function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: string; toUserId: string; count: number; onSent: () => void }) {
   const [sending, setSending] = useState(false);
-  const [onCooldown, setOnCooldown] = useState(true);
-
-  useEffect(() => {
-    setOnCooldown(!canReact(fromUserId, toUserId));
-  }, [fromUserId, toUserId]);
+  // Cooldown lives in localStorage; sentFor covers the cheer just sent here.
+  const storedCooldown = useClientValue(() => !canReact(fromUserId, toUserId), true);
+  const [sentFor, setSentFor] = useState<string | null>(null);
+  const onCooldown = storedCooldown || sentFor === `${fromUserId}|${toUserId}`;
 
   if (fromUserId === toUserId) return null;
 
@@ -67,7 +67,7 @@ function CheerButton({ fromUserId, toUserId, count, onSent }: { fromUserId: stri
     setSending(false);
     if (ok) {
       markReacted(fromUserId, toUserId);
-      setOnCooldown(true);
+      setSentFor(`${fromUserId}|${toUserId}`);
       playCheer();
       onSent();
     }

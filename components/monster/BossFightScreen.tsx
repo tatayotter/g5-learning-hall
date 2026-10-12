@@ -6,7 +6,7 @@
 // BattleStage's MonsterDef/MonsterHpPanel machinery onto a persona that isn't
 // a real Curio — reuses the genuinely shared pieces (ActionTile,
 // AttackBanner, DamageNumber, runBattleBeats/BattleBeat) directly.
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { CSSProperties } from 'react';
 import { ActionTile } from '@/components/battle/BattleStage';
 import { AttackBanner, DamageNumber, runBattleBeats, BattleBeat } from '@/components/battle/shared';
@@ -284,7 +284,7 @@ export function BossFightLostScreen({ personaName, onRetry, onExit }: { personaN
 export function BossFightEmptyScreen({ onExit }: { onExit: () => void }) {
   return (
     <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 text-center">
-      <p className="text-gray-400 text-sm mb-4">This boss isn't ready to be fought yet — not enough published questions.</p>
+      <p className="text-gray-400 text-sm mb-4">This boss isn&apos;t ready to be fought yet — not enough published questions.</p>
       <GameButton variant="quest" color="#57534e" onClick={onExit} style={{ fontSize: 15 }}>
         Back
       </GameButton>
@@ -325,23 +325,23 @@ export default function BossFightScreen({ userId, grade, subject, otherPersonas,
     return () => { cancelled = true; };
   }, [userId]);
 
-  const load = useCallback(async () => {
+  useEffect(() => {
     // Pre-downloaded on the dashboard (lib/bossQuestionBank.ts), with this
     // fight's questions already picked, so the fight opens with no wait.
     // Falls back to the network when the device has no copy.
     const bank = readBossBank(grade, CURRENT_TERM);
     const prepicked = bank ? takeBossPool(grade, CURRENT_TERM, subject) : null;
-    if (bank && prepicked) {
-      setRawPool(bankSubjectQuestions(bank, subject));
-      setPool(prepicked);
-      return;
-    }
-    const all = await fetchBossQuestionPool(grade, subject, CURRENT_TERM);
-    setRawPool(all);
-    setPool(buildBossQuestionPool(all));
+    const loaded = bank && prepicked
+      ? Promise.resolve({ raw: bankSubjectQuestions(bank, subject), pool: prepicked })
+      : fetchBossQuestionPool(grade, subject, CURRENT_TERM).then(all => ({ raw: all, pool: buildBossQuestionPool(all) }));
+    let cancelled = false;
+    loaded.then(({ raw, pool }) => {
+      if (cancelled) return;
+      setRawPool(raw);
+      setPool(pool);
+    });
+    return () => { cancelled = true; };
   }, [grade, subject]);
-
-  useEffect(() => { load(); }, [load]);
 
   // Persona fight theme takes over for the whole challenge session (loading,
   // battle, loss/retry, victory popup) — stopping it on unmount falls back

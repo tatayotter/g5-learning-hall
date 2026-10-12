@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, useEffectEvent } from 'react';
 import { UserId } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -217,9 +217,15 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     setLoading(false);
   };
 
+  const applyInventory = useEffectEvent((inv: InventoryMap) => {
+    setInventory(inv);
+    setLoading(false);
+  });
   useEffect(() => {
-    loadInventory();
-  }, [userId]); // eslint-disable-line react-hooks/exhaustive-deps
+    let cancelled = false;
+    fetchInventory(userId).then(inv => { if (!cancelled) applyInventory(inv); });
+    return () => { cancelled = true; };
+  }, [userId]);
 
   const handleBuy = async (key: string, cost: number, name: string) => {
     // Guards against a rapid double-click firing two purchases before

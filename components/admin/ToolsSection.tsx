@@ -1,16 +1,15 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useEffectEvent } from 'react';
+import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { supabase } from '@/lib/supabase';
 import { CharacterStats, WeeklyData } from '@/hooks/useWeeklyData';
-import { logAction } from '@/lib/playerlog';
 import { playBlessing } from '@/lib/sounds';
 import DeedHistory from '@/components/DeedHistory';
 import { callAdminApi } from '@/lib/adminApi';
 
-export default function ToolsSection({ currentData, currentSunday, onUpdateStats, passcode }: {
+export default function ToolsSection({ currentData, currentSunday, passcode }: {
   currentData: WeeklyData;
   currentSunday: string;
-  onUpdateStats: (...args: any[]) => void;
   passcode: string;
 }) {
   const [userId, setUserId] = useState<'damien' | 'tala'>(currentData.user_id as 'damien' | 'tala');
@@ -18,10 +17,11 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
   const [stats, setStats] = useState<CharacterStats>(currentData.character_stats);
   const [deedName, setDeedName] = useState('');
   const [deedGold, setDeedGold] = useState('');
-  const [claims, setClaims] = useState<any[]>([]);
-  const [loadingData, setLoadingData] = useState(false);
-  const loadUserData = async (id: 'damien' | 'tala') => {
-    setLoadingData(true);
+  const [deedVersion, setDeedVersion] = useState(0);
+  const [claims, setClaims] = useState<RewardClaim[]>([]);
+  const [loadingData, setLoadingData] = useState(true);
+
+  const fetchUserData = async (id: 'damien' | 'tala') => {
     // Level/xp/gold live on player_progress (lifetime, no week key); journal_logs/counters/
     // quiz_attempts/mastered_quizzes live on player_weekly_journal, keyed by content_week_id —
     // see docs/weekly-progress-redesign-plan.md Phase 4 Waves 1 & 4. Only damien (Grade 5) and
@@ -30,9 +30,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
     const progressResult = await callAdminApi<{ characterStats: CharacterStats | null }>('/api/admin-weekly', {
       passcode, action: 'get_progress_stats', userId: id,
     });
-    if (progressResult.characterStats) {
-      setStats(progressResult.characterStats);
-    }
+    let journal: WeeklyData | null = null;
     const { data: week } = await supabase
       .from('content_weeks')
       .select('id')
@@ -43,20 +41,38 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       const journalResult = await callAdminApi<{ journal: WeeklyData | null }>('/api/admin-weekly', {
         passcode, action: 'get_weekly_journal', userId: id, contentWeekId: week.id,
       });
-      if (journalResult.journal) {
-        setToolData(journalResult.journal);
-      }
+      journal = journalResult.journal ?? null;
     }
     const { data: claimsData } = await supabase
       .from('reward_claims')
       .select('*')
       .eq('app_user_id', id)
       .order('created_at', { ascending: false });
-    if (claimsData) setClaims(claimsData);
+    return { characterStats: progressResult.characterStats, journal, claims: claimsData as RewardClaim[] | null };
+  };
+  const applyUserData = (loaded: Awaited<ReturnType<typeof fetchUserData>>) => {
+    if (loaded.characterStats) setStats(loaded.characterStats);
+    if (loaded.journal) setToolData(loaded.journal);
+    if (loaded.claims) setClaims(loaded.claims);
     setLoadingData(false);
   };
+  const loadUserData = async (id: 'damien' | 'tala') => {
+    setLoadingData(true);
+    applyUserData(await fetchUserData(id));
+  };
+  const selectUser = (id: 'damien' | 'tala') => {
+    setUserId(id);
+    loadUserData(id);
+  };
 
-  useEffect(() => { loadUserData(userId); }, [userId]);
+  // First load only — later user switches go through selectUser.
+  const fetchInitial = useEffectEvent(() => fetchUserData(userId));
+  const applyInitial = useEffectEvent((loaded: Awaited<ReturnType<typeof fetchUserData>>) => applyUserData(loaded));
+  useEffect(() => {
+    let cancelled = false;
+    fetchInitial().then(result => { if (!cancelled) applyInitial(result); });
+    return () => { cancelled = true; };
+  }, []);
 
   // NOTE: these act on `userId` (the Damien/Tala picker above), not necessarily the
   // account currently logged into this browser tab — they used to go through
@@ -70,12 +86,15 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
       alert('Enter a deed name and valid gold amount.');
       return;
     }
-    const result = await callAdminApi('/api/admin-weekly', { passcode, action: 'award_progress_gold', userId, amount });
+    const result = await callAdminApi('/api/admin-weekly', {
+      passcode, action: 'award_progress_gold', userId, amount,
+      deedName, weekStartingDate: currentSunday,
+    });
     if (!result.success) {
       alert(`❌ ${result.error || 'Failed to award gold.'}`);
       return;
     }
-    logAction(userId, currentSunday, 'deed', deedName, 0, amount);
+    setDeedVersion(v => v + 1);
     playBlessing();
     alert(`✅ Awarded 🪙 ${amount} Gold for: ${deedName}`);
     setDeedName('');
@@ -117,7 +136,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
         {(['damien', 'tala'] as const).map(id => (
           <button
             key={id}
-            onClick={() => setUserId(id)}
+            onClick={() => selectUser(id)}
             className={`px-5 py-2 rounded-lg font-bold text-sm transition-all ${
               userId === id
                 ? id === 'damien' ? 'bg-amber-600 text-[#ede4d3]' : 'bg-pink-600 text-[#ede4d3]'
@@ -193,7 +212,7 @@ export default function ToolsSection({ currentData, currentSunday, onUpdateStats
           {/* Deed history */}
           <div className="bg-[#1c1611] border border-[#3d3225] rounded-xl p-5">
             <p className="text-xs text-[#8a7c66] uppercase tracking-widest mb-4">Deed History</p>
-            <DeedHistory userId={userId} />
+            <DeedHistory key={`${userId}-${deedVersion}`} userId={userId} passcode={passcode} />
           </div>
 
           {/* Reward queue */}

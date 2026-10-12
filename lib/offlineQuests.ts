@@ -73,12 +73,13 @@ const POOL_REFRESH_MS = 6 * 60 * 60 * 1000;
 // get_answer_key_hashed takes at most 20 weeks.
 const POOL_MAX_WEEKS = 20;
 
-export interface PoolQuestion {
+// A type (not an interface) so it fits the open BattleQuestion shape battles take.
+export type PoolQuestion = {
   id: string;
   question: string;
   options: string[];
   subject: string;
-}
+};
 
 interface StoredPool {
   weekIds: string[];

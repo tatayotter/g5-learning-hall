@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getScheduledDay } from '@/lib/subjectSchedule';
 import { callAdminApi } from '@/lib/adminApi';
 import { GRADE_LEVELS } from '@/lib/userSession';
@@ -33,7 +33,7 @@ interface DraftQuestion {
 
 const DRAFT_GRADES = GRADE_LEVELS.map(grade => ({ grade, label: `Grade ${grade}` }));
 
-const WEEKDAYS_FOR_PUBLISH = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'] as const;
+type PublishWeekday = 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday';
 
 const DRAFT_STATUS_COLORS: Record<DraftQuestion['status'], string> = {
   pending_review: 'bg-[#2a2119] text-[#a89c86] border-[#3d3225]',
@@ -195,7 +195,7 @@ function DraftSummaryCard({ summary, onReload, passcode, publishDay, publishWeek
   summary: DraftSummary;
   onReload: () => void;
   passcode: string;
-  publishDay: typeof WEEKDAYS_FOR_PUBLISH[number];
+  publishDay: PublishWeekday;
   publishWeek: string;
 }) {
   const [editing, setEditing] = useState(false);
@@ -401,25 +401,38 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
   const [drafts, setDrafts] = useState<DraftQuestion[]>([]);
   const [summaries, setSummaries] = useState<DraftSummary[]>([]);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
-  const [loading, setLoading] = useState(true);
+  // Loading until drafts for the current grade/status filter land, or while
+  // a manual reload is in flight.
+  const filterKey = `${grade}|${statusFilter}`;
+  const [loadedFilter, setLoadedFilter] = useState<string | null>(null);
+  const [reloading, setReloading] = useState(false);
+  const loading = reloading || loadedFilter !== filterKey;
 
-  const reload = async () => {
-    setLoading(true);
-    // draft_questions/draft_summaries deny all direct client reads (RLS) —
-    // correct_answer for content still pending review shouldn't be readable
-    // by anyone holding the public anon key. Routed through the same
-    // passcode-gated, service-role admin API every mutation here already uses.
-    const result = await callAdminApi<{ questions: DraftQuestion[]; summaries: DraftSummary[] }>(
-      '/api/admin-draft-questions',
-      { passcode, action: 'list_drafts', grade, statuses: [statusFilter] }
-    );
+  // draft_questions/draft_summaries deny all direct client reads (RLS) —
+  // correct_answer for content still pending review shouldn't be readable
+  // by anyone holding the public anon key. Routed through the same
+  // passcode-gated, service-role admin API every mutation here already uses.
+  const fetchDrafts = useCallback(() => callAdminApi<{ questions: DraftQuestion[]; summaries: DraftSummary[] }>(
+    '/api/admin-draft-questions',
+    { passcode, action: 'list_drafts', grade, statuses: [statusFilter] }
+  ), [passcode, grade, statusFilter]);
+  const applyDrafts = useCallback((result: Awaited<ReturnType<typeof fetchDrafts>>) => {
     setDrafts(result.success ? result.questions || [] : []);
     setSummaries(result.success ? result.summaries || [] : []);
     setSelectedIds(new Set());
-    setLoading(false);
+    setLoadedFilter(filterKey);
+    setReloading(false);
+  }, [filterKey]);
+  const reload = async () => {
+    setReloading(true);
+    applyDrafts(await fetchDrafts());
   };
 
-  useEffect(() => { reload(); }, [grade, statusFilter]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchDrafts().then(result => { if (!cancelled) applyDrafts(result); });
+    return () => { cancelled = true; };
+  }, [fetchDrafts, applyDrafts]);
 
   const toggleSelect = (id: string) => {
     setSelectedIds(prev => {
@@ -455,7 +468,7 @@ export default function DraftQuestionsSection({ passcode }: { passcode: string }
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">📝 Draft Questions</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
         AI-generated Main Quest questions and lesson summaries, tiered and topic-tagged, awaiting review
-        before publishing into a grade's shared weekly content. Publishing does not touch the 5 Guilds.
+        before publishing into a grade&apos;s shared weekly content. Publishing does not touch the 5 Guilds.
       </p>
 
       <div className="flex items-center gap-4 mb-6">

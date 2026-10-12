@@ -140,7 +140,7 @@ export async function claimDailyItems(userId: string): Promise<boolean> {
   return true;
 }
 
-export async function useInventoryItem(userId: string, key: string): Promise<boolean> {
+export async function spendInventoryItem(userId: string, key: string): Promise<boolean> {
   // Atomic conditional decrement — a fetch-then-update here would let two
   // overlapping calls (e.g. the same account open in two tabs) both read
   // quantity=1, both pass the >0 check, and both apply the item's effect

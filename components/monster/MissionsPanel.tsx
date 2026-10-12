@@ -129,14 +129,18 @@ export default function MissionsPanel({
     return () => clearInterval(id);
   }, []);
 
-  const load = useCallback(async () => {
-    const data = await fetchActiveMissions(userId);
+  const applyMissions = useCallback((data: Awaited<ReturnType<typeof fetchActiveMissions>>) => {
     setMissions(data);
     setLoading(false);
     onMissionLockedIdsChange(new Set(data.map(m => m.monster_row_id)));
-  }, [userId, onMissionLockedIdsChange]);
+  }, [onMissionLockedIdsChange]);
+  const load = async () => applyMissions(await fetchActiveMissions(userId));
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchActiveMissions(userId).then(data => { if (!cancelled) applyMissions(data); });
+    return () => { cancelled = true; };
+  }, [userId, applyMissions]);
 
   const handleSend = async (monsterRowId: string, tier: MissionTier) => {
     setBusy('send');

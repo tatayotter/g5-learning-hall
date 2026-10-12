@@ -213,7 +213,7 @@ export default function PlayerStatsPopup({ viewerId, targetId, onClose, onWave, 
         )}
 
         {targetInBattle && (
-          <p className="text-xs text-amber-400 text-center mb-3">⚔️ {profile?.name || targetId} is in a battle — you can't challenge them right now.</p>
+          <p className="text-xs text-amber-400 text-center mb-3">⚔️ {profile?.name || targetId} is in a battle — you can&apos;t challenge them right now.</p>
         )}
 
         {/* Same GameButton `quest` variant used for every other primary CTA in the

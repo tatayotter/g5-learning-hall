@@ -210,11 +210,22 @@ export function useSkipForGold(gold: number, onSpendGold: (amount: number) => Pr
   return { skipCost, maxGoldPerBattle, goldSpentThisBattle, canSkip, trySkip };
 }
 
+// A quiz question as served to battles (content_questions_public, with
+// correct_answer stripped — grading happens server-side by id).
+export interface BattleQuestion {
+  id: string;
+  question?: string;
+  problem_prompt?: string;
+  options?: (string | { key: string; text: string })[];
+  subject?: string;
+  [key: string]: unknown;
+}
+
 // How long the right/wrong reveal stays up before the next question.
 const ANSWER_PAUSE_MS = 500;
 
 export interface BattleQuestionProps {
-  questions: any[];
+  questions: BattleQuestion[];
   count: number;
   embedded?: boolean;
   // Whose progress to record the attempt against — the `questions` array comes from
@@ -223,8 +234,8 @@ export interface BattleQuestionProps {
   gradingUserId: string;
   // Dev previews only (/dev/ui-gallery): grade mock questions locally, since
   // they don't exist server-side. Real battles never pass this.
-  gradeOverride?: (question: any, selected: string) => { correct: boolean; correctAnswer: string | null };
-  onComplete: (correctCount: number, answeredQuestions: any[]) => void;
+  gradeOverride?: (question: BattleQuestion, selected: string) => { correct: boolean; correctAnswer: string | null };
+  onComplete: (correctCount: number, answeredQuestions: BattleQuestion[]) => void;
   // "Skip for gold" — omit entirely to disable the skip button (e.g. nowhere
   // currently does this, but keeps the prop optional for any other caller of
   // this modal, such as the Mastery Gauntlet, that doesn't want it). When
@@ -351,7 +362,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
           <p className="text-xs font-bold text-[#7a4a0f] mb-2">📡 The internet hiccuped. Tap your answer again!</p>
         )}
         <div className="space-y-2">
-        {(current.options || []).map((opt: any, optIdx: number) => {
+        {(current.options || []).map((opt, optIdx: number) => {
           const key = typeof opt === 'string' ? opt : opt.key;
           const text = typeof opt === 'string' ? opt : opt.text;
           const isSelected = selected === key;

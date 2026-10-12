@@ -6,7 +6,7 @@
 // use_growth_pill RPC was itself modeled directly on graduate_monster.
 import { supabase } from './supabase';
 
-export async function useGrowthPill(userId: string, monsterRowId: string): Promise<boolean> {
+export async function consumeGrowthPill(userId: string, monsterRowId: string): Promise<boolean> {
   const { data, error } = await supabase.rpc('use_growth_pill', {
     p_user_id: userId,
     p_monster_row_id: monsterRowId,

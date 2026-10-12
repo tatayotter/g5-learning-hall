@@ -7,7 +7,7 @@ import { captureAttribution } from '@/lib/analytics';
 
 declare global {
   interface Window {
-    fbq?: (...args: any[]) => void;
+    fbq?: (...args: unknown[]) => void;
     _fbq?: unknown;
   }
 }

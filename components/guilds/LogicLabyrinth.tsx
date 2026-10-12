@@ -1,12 +1,13 @@
 ﻿'use client';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
   getCompanionTierCrossed, fetchCompanionInstanceStats, getCompanionSpeciesDef,
   gradeStageIndex, gradeStageStars, MIN_GRADE_STAGE,
+  type GuildQuestionRow,
 } from '@/lib/guildEngine';
 import { applyLevelUp, XP_PER_CORRECT, GOLD_PER_CORRECT } from '@/lib/guildConfig';
 import { logAction } from '@/lib/playerlog';
@@ -73,59 +74,12 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
   } | null>(null);
 
   const timeLimit = 60;
-  const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit);
-
-  useEffect(() => {
-    async function loadPool() {
-      try {
-        const [pool, subProfile] = await Promise.all([
-          takePrefetch<any[]>(userId, 'guildPool:logic_labyrinth')
-            ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth'),
-          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
-            ?? fetchSubclassProfile(userId)
-        ]);
-        // Shuffle each puzzle's options too — otherwise correct_option_id
-        // tends to sit in the same array slot across puzzles (same class of
-        // bug fixed in Lorekeeper: a fixed answer position lets a kid win
-        // every round by spam-clicking that slot instead of solving anything).
-        const parsed = (pool as any[]).map(q => ({
-          ...q,
-          options_array: shuffle(typeof q.options_array === 'string' ? JSON.parse(q.options_array) : q.options_array)
-        }));
-        setQuestions(shuffle(parsed as LogicLabyrinthQuestion[]));
-        setProfile(subProfile);
-        setScreen('ready');
-      } catch (err) {
-        console.error('Failed to load Logic Labyrinth data:', err);
-      }
-    }
-    loadPool();
-  }, []);
-
-  useEffect(() => {
-    if (engine.phase === 'ended' && screen === 'playing') handleSessionEnd();
-  }, [engine.phase]);
-
-  const handleSelect = (optionId: string) => {
-    if (selectedOption || !engine.currentQuestion) return;
-    const isCorrect = optionId === engine.currentQuestion.correct_option_id;
-    setSelectedOption(optionId);
-    setFlashResult(isCorrect ? 'correct' : 'wrong');
-    if (isCorrect) playChime(); else playClash();
-
-    setTimeout(() => {
-      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
-      setSelectedOption(null);
-      setFlashResult(null);
-    }, 500);
-  };
-
-  const handleSessionEnd = async () => {
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
     setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'logic_labyrinth', engine.completedQuestionIds);
+    trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'logic_labyrinth', summary.completedQuestionIds);
     if (profile) {
-      const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, engine.totalXpEarned);
+      const { level, xp } = applyLevelUp(profile.logic_labyrinth_lvl, profile.logic_labyrinth_xp, summary.totalXpEarned);
       await updateSubclassProfile(userId, {
  logic_labyrinth_lvl: level, logic_labyrinth_xp: xp });
       if (profile.logic_labyrinth_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
@@ -146,13 +100,58 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
       }
     }
     // Record the session even when it earned no gold (a session with no answers isn't a session).
-    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
-      const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount, completedIds: engine.completedQuestionIds, subclassXp: engine.totalXpEarned });
+    if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
+      const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount, completedIds: summary.completedQuestionIds, subclassXp: summary.totalXpEarned });
     }
-    if (engine.totalGoldEarned > 0) {
-      logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${engine.correctCount} correct, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
+    if (summary.totalGoldEarned > 0) {
+      logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
     }
+  };
+
+  const engine = useTimeAttack<LogicLabyrinthQuestion>(questions, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
+
+  useEffect(() => {
+    async function loadPool() {
+      try {
+        const [pool, subProfile] = await Promise.all([
+          takePrefetch<GuildQuestionRow[]>(userId, 'guildPool:logic_labyrinth')
+            ?? fetchQuestionPool(userId, 'sq_logic_labyrinth', 'logic_labyrinth'),
+          takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
+            ?? fetchSubclassProfile(userId)
+        ]);
+        // Shuffle each puzzle's options too — otherwise correct_option_id
+        // tends to sit in the same array slot across puzzles (same class of
+        // bug fixed in Lorekeeper: a fixed answer position lets a kid win
+        // every round by spam-clicking that slot instead of solving anything).
+        const parsed = pool.map(q => ({
+          ...q,
+          options_array: shuffle(typeof q.options_array === 'string' ? JSON.parse(q.options_array) : q.options_array)
+        }));
+        setQuestions(shuffle(parsed as LogicLabyrinthQuestion[]));
+        setProfile(subProfile);
+        setScreen('ready');
+      } catch (err) {
+        console.error('Failed to load Logic Labyrinth data:', err);
+      }
+    }
+    loadPool();
+  }, [userId]);
+
+  const handleSelect = (optionId: string) => {
+    if (selectedOption || !engine.currentQuestion) return;
+    const isCorrect = optionId === engine.currentQuestion.correct_option_id;
+    setSelectedOption(optionId);
+    setFlashResult(isCorrect ? 'correct' : 'wrong');
+    if (isCorrect) playChime(); else playClash();
+
+    setTimeout(() => {
+      engine.submitResult(isCorrect, engine.currentQuestion!.id, gradeStageIndex(engine.currentQuestion!.grade_level));
+      setSelectedOption(null);
+      setFlashResult(null);
+    }, 500);
   };
 
   if (screen === 'loading') {
@@ -219,7 +218,6 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     const q = engine.currentQuestion;
     const difficultyStars = gradeStageStars(q.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
-    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-cyan-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (

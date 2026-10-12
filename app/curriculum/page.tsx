@@ -43,7 +43,7 @@ export default function CurriculumHubPage() {
         <h1 className="font-display text-3xl sm:text-4xl font-black mb-3">DepEd Curriculum Alignment</h1>
         <p className="text-[#6b5f4d] max-w-xl mx-auto leading-relaxed">
           What Learning Hall is actually built on, grade by grade — not a general sense of what a grade covers, but
-          DepEd's own MATATAG competencies, subject by subject and term by term.
+          DepEd&apos;s own MATATAG competencies, subject by subject and term by term.
         </p>
       </div>
 
@@ -53,8 +53,8 @@ export default function CurriculumHubPage() {
             <h2 className="font-display text-xl font-black mb-3">Why this page exists</h2>
             <p className="text-[#5c5245] leading-relaxed mb-3">
               A gamified app claiming to reinforce classroom learning only means something if the content actually
-              matches what's being taught. Every quest in Learning Hall — for every subject a grade covers, not just
-              the five skills the game turns into playable quests — is cross-checked against DepEd's own MATATAG
+              matches what&apos;s being taught. Every quest in Learning Hall — for every subject a grade covers, not just
+              the five skills the game turns into playable quests — is cross-checked against DepEd&apos;s own MATATAG
               curriculum guides, plus teacher-facing lesson resources like{' '}
               <a href="https://www.teachersclick.com/" target="_blank" rel="noopener noreferrer" className="text-[#a3610c] hover:text-[#c9781a] underline">
                 teachersclick.com
@@ -76,7 +76,7 @@ export default function CurriculumHubPage() {
               <Link href="/guilds" className="text-[#a3610c] hover:text-[#c9781a] underline">
                 The Guild Ledger
               </Link>
-              , which explains what each of the app's 5 side-quest guilds trains and why.
+              , which explains what each of the app&apos;s 5 side-quest guilds trains and why.
             </p>
           </section>
 
@@ -87,8 +87,8 @@ export default function CurriculumHubPage() {
             <p className="text-sm text-[#5c5245] leading-relaxed">
               English, Mathematics, and Science carry an additional layer of Special Science Elementary School (SSES)
               enrichment at every grade level from 2 to 6 — real, verified in the source material, and marked
-              explicitly on each grade page below. It's an applied-reasoning task layered on top of the standard
-              MATATAG competencies for those three subjects specifically, not a claim we're making across every
+              explicitly on each grade page below. It&apos;s an applied-reasoning task layered on top of the standard
+              MATATAG competencies for those three subjects specifically, not a claim we&apos;re making across every
               subject.
             </p>
           </section>

@@ -27,13 +27,12 @@ export const VAULT_CATALOG = {
   },
 } as const;
 
-// Loose shape matching what Dashboard's myClaims state actually holds
-// (straight from a `reward_claims` select) — kept untyped-ish (any-ish
-// fields) to match the pre-extraction behavior, not tightened here.
-interface RewardClaim {
-  id: string;
+// A `reward_claims` row (the columns the vault and admin tools read).
+export interface RewardClaim {
+  id: number;
   item_key: string;
   item_name: string;
+  cost: number;
   status: string;
   created_at: string;
 }

@@ -1,5 +1,5 @@
 // hooks/useTimeAttack.ts
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useEffectEvent } from 'react';
 import { TIME_ATTACK_DURATION, XP_PER_CORRECT, GOLD_PER_CORRECT, SCORE_PER_CORRECT, SCORE_PENALTY_WRONG, getStreakMultiplier, getTierRewardMultiplier, rollCritBonus } from '@/lib/guildConfig';
 
 export interface CritBonusEvent {
@@ -9,8 +9,22 @@ export interface CritBonusEvent {
 
 export type TimeAttackPhase = 'idle' | 'active' | 'ended';
 
-export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTACK_DURATION) {
-  const [phase, setPhase] = useState<TimeAttackPhase>('idle');
+// Final tallies handed to onTimeUp when the clock runs out.
+export interface TimeAttackSummary {
+  correctCount: number;
+  wrongCount: number;
+  totalXpEarned: number;
+  totalGoldEarned: number;
+  completedQuestionIds: string[];
+}
+
+export function useTimeAttack<T>(
+  questionPool: T[],
+  duration: number = TIME_ATTACK_DURATION,
+  // Called once, from the timer itself, when an active session runs out.
+  onTimeUp?: (summary: TimeAttackSummary) => void,
+) {
+  const [startedPhase, setPhase] = useState<TimeAttackPhase>('idle');
   const [timeLeft, setTimeLeft] = useState(duration);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -20,17 +34,23 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
   const [totalXpEarned, setTotalXpEarned] = useState(0);
   const [totalGoldEarned, setTotalGoldEarned] = useState(0);
   const [lastCrit, setLastCrit] = useState<CritBonusEvent | null>(null);
-  const completedIdsRef = useRef<string[]>([]);
+  const [completedQuestionIds, setCompletedQuestionIds] = useState<string[]>([]);
   const critNonceRef = useRef(0);
+
+  // An active session ends the moment the clock reaches zero.
+  const phase: TimeAttackPhase = startedPhase === 'active' && timeLeft <= 0 ? 'ended' : startedPhase;
+
+  const fireTimeUp = useEffectEvent(() => {
+    onTimeUp?.({ correctCount, wrongCount, totalXpEarned, totalGoldEarned, completedQuestionIds });
+  });
 
   useEffect(() => {
     if (phase !== 'active') return;
     if (process.env.NEXT_PUBLIC_PAUSE_TIMER === 'true') return; // DEV: set to false in .env.local to re-enable
-    if (timeLeft <= 0) {
-      setPhase('ended');
-      return;
-    }
-    const timer = setTimeout(() => setTimeLeft(t => t - 1), 1000);
+    const timer = setTimeout(() => {
+      setTimeLeft(t => t - 1);
+      if (timeLeft <= 1) fireTimeUp();
+    }, 1000);
     return () => clearTimeout(timer);
   }, [phase, timeLeft]);
 
@@ -45,7 +65,7 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
     setTotalXpEarned(0);
     setTotalGoldEarned(0);
     setLastCrit(null);
-    completedIdsRef.current = [];
+    setCompletedQuestionIds([]);
   }, [duration]);
 
   // Call this with true/false for whether the submitted answer was correct.
@@ -62,7 +82,7 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
     if (phase !== 'active') return;
 
     if (isCorrect) {
-      completedIdsRef.current.push(questionId);
+      setCompletedQuestionIds(ids => [...ids, questionId]);
       const newStreak = streak + 1;
       const streakMult = getStreakMultiplier(newStreak);
       const tierMult = getTierRewardMultiplier(tier);
@@ -102,7 +122,7 @@ export function useTimeAttack<T>(questionPool: T[], duration: number = TIME_ATTA
     totalXpEarned,
     totalGoldEarned,
     lastCrit,
-    completedQuestionIds: completedIdsRef.current,
+    completedQuestionIds,
     start,
     submitResult
   };

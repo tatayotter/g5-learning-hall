@@ -5,7 +5,7 @@ import { callAdminApi } from '@/lib/adminApi';
 interface AnalyticsEventRow {
   user_id: string;
   event_name: string;
-  properties: Record<string, any>;
+  properties: Record<string, unknown>;
   is_family: boolean;
   session_id: string;
   created_at: string;
