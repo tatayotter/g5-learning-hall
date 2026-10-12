@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Mga Panuntunan sa Silid-Computer\n\nBago natin simulan ang ating aralin sa ICT, balikan natin ang panuntunan! 🖥️\n\n## 📏 Mga Panuntunan\n- **Maglinis ng kamay** bago gumamit ng kagamitan.\n- **Maging responsable** sa paggamit ng Internet at online tools.\n\n## 🙋 Bakit Mahalaga Ito?\n- Iniingatan nito ang kagamitan at kaligtasan ng bawat mag-aaral online.\n\n## 💡 Simpleng Paalala\n- Humingi ng tulong sa guro kung may hindi maintindihan.\n\nHanda ka na bang matuto tungkol sa ICT nang ligtas at responsable? 🌟",
+        "summary_markdown": "# 💻 Computer Room Rules\n\nBefore we start our ICT lesson, let's review the rules! 🖥️\n\n## 📏 The Rules\n- **Clean your hands** before using the equipment.\n- **Be responsible** when using the Internet and online tools.\n\n## 🙋 Why Is This Important?\n- It protects the equipment and keeps every student safe online.\n\n## 💡 Simple Reminder\n- Ask your teacher for help if there is something you don't understand.\n\nAre you ready to learn about ICT safely and responsibly? 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin bago gumamit ng kagamitan?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
-          { "question": "Ano ang dapat maging tayo sa paggamit ng Internet?", "options": ["Responsable", "Walang pakialam", "Padalos-dalos", "Bastos"], "correct_answer": "Responsable" },
-          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
-          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
-          { "question": "Sino ang dapat hingan ng tulong kung nalilito ka?", "options": ["Guro", "Estranghero", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Guro" },
-          { "question": "Ano ang mahalaga sa paggamit ng online tools?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Walang gamit", "Wala"], "correct_answer": "Kaligtasan at responsibilidad" }
+          { "question": "What should you do before using the equipment?", "options": ["Clean your hands", "Eat first", "Run", "Drink"], "correct_answer": "Clean your hands" },
+          { "question": "What should we be when using the Internet?", "options": ["Responsible", "Careless", "Reckless", "Rude"], "correct_answer": "Responsible" },
+          { "question": "What should you do if there is something you don't understand?", "options": ["Ask the teacher for help", "Just don't do it", "Cry", "Run outside"], "correct_answer": "Ask the teacher for help" },
+          { "question": "Why are computer room rules important?", "options": ["They protect the equipment and keep everyone safe", "So we can play more", "They have no use", "So we don't use anything"], "correct_answer": "They protect the equipment and keep everyone safe" },
+          { "question": "Who should you ask for help if you are confused?", "options": ["Teacher", "Stranger", "No one", "Only a classmate"], "correct_answer": "Teacher" },
+          { "question": "What is important when using online tools?", "options": ["Safety and responsibility", "Only speed", "No use", "Nothing"], "correct_answer": "Safety and responsibility" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Maglinis ng kamay** bago gumamit ng kagamitan\n- Maging **responsable** sa paggamit ng Internet\n\nHanda ka nang matuto tungkol sa ICT! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Clean your hands** before using the equipment\n- Be **responsible** when using the Internet\n\nYou're ready to learn about ICT! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin bago gumamit ng kagamitan?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
-          { "question": "Ano ang dapat maging tayo sa paggamit ng Internet?", "options": ["Responsable", "Walang pakialam", "Padalos-dalos", "Bastos"], "correct_answer": "Responsable" },
-          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
-          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
-          { "question": "Ano ang mahalaga sa paggamit ng online tools?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Walang gamit", "Wala"], "correct_answer": "Kaligtasan at responsibilidad" }
+          { "question": "What should you do before using the equipment?", "options": ["Clean your hands", "Eat first", "Run", "Drink"], "correct_answer": "Clean your hands" },
+          { "question": "What should we be when using the Internet?", "options": ["Responsible", "Careless", "Reckless", "Rude"], "correct_answer": "Responsible" },
+          { "question": "What should you do if there is something you don't understand?", "options": ["Ask the teacher for help", "Just don't do it", "Cry", "Run outside"], "correct_answer": "Ask the teacher for help" },
+          { "question": "Why are computer room rules important?", "options": ["They protect the equipment and keep everyone safe", "So we can play more", "They have no use", "So we don't use anything"], "correct_answer": "They protect the equipment and keep everyone safe" },
+          { "question": "What is important when using online tools?", "options": ["Safety and responsibility", "Only speed", "No use", "Nothing"], "correct_answer": "Safety and responsibility" }
         ]
       },
       "Science": {

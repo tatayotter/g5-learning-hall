@@ -40,7 +40,7 @@ OUTPUT RULES:
 - Friday is always "Weekly Review" covering all subjects from Mon–Thu
 
 GRADE LEVEL: 6
-LANGUAGE: English for English, Mathematics, Science, EPP, MAPEH | Filipino for Filipino, Araling Panlipunan, GMRC (MAPEH is all English, in simple kid-friendly words; keep Filipino names of games, dances and instruments)
+LANGUAGE: English for English, Mathematics, Science, EPP (ICT), MAPEH | Filipino for Filipino, Araling Panlipunan, GMRC, EPP (AFA/FCS/IA) (MAPEH is all English, in simple kid-friendly words; keep Filipino names of games, dances and instruments)
 
 SUBJECTS AND TOPICS FOR THIS WEEK (from BOW):
 [PASTE THE WEEK'S SUBJECTS AND COMPETENCIES HERE — see BOW reference below]

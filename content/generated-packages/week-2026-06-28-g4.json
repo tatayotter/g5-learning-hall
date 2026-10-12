@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Paghahambing ng Computing Devices!\n\nAlamin natin ang pagkakaiba ng iba't ibang computing devices! 📱\n\n## 💻 Desktop vs. Laptop\n- **Desktop** — mas malaki, hindi madaling dalhin, madalas mas mabilis\n- **Laptop** — portable, may sariling baterya\n\n## 📱 Tablet at Smartphone\n- **Tablet** — flat, touch-screen, mas malaki kaysa smartphone\n- **Smartphone** — maliit, palaging dala-dala, may tawag at text\n\n## 🔍 Pagpili ng Tamang Device\n- Depende sa gawain, pipiliin natin ang pinaka-angkop na device.\n\nMay iba't ibang device para sa iba't ibang pangangailangan! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Comparing Computing Devices!\n\nLet's learn how different computing devices are not the same! 📱\n\n## 💻 Desktop vs. Laptop\n- **Desktop** — bigger, not easy to carry, often faster\n- **Laptop** — portable, has its own battery\n\n## 📱 Tablet and Smartphone\n- **Tablet** — flat, touch screen, bigger than a smartphone\n- **Smartphone** — small, always carried around, can call and text\n\n## 🔍 Choosing the Right Device\n- We choose the best device depending on the task.\n\nThere are different devices for different needs! 🌟",
         "quiz": [
-          { "question": "Alin ang mas malaki at hindi madaling dalhin?", "options": ["Desktop", "Smartphone", "Tablet", "Walang tama"], "correct_answer": "Desktop" },
-          { "question": "Alin ang portable at may sariling baterya?", "options": ["Laptop", "Desktop lamang", "Printer", "Monitor lamang"], "correct_answer": "Laptop" },
-          { "question": "Alin ang flat at touch-screen, mas malaki sa smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
-          { "question": "Alin ang maliit at palaging dala-dala, may tawag at text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
-          { "question": "Paano tayo pumipili ng tamang device?", "options": ["Depende sa gawain", "Random lamang", "Kulay lamang", "Presyo lamang"], "correct_answer": "Depende sa gawain" },
-          { "question": "Bakit may iba't ibang uri ng computing devices?", "options": ["Para sa iba't ibang pangangailangan", "Walang dahilan", "Para lang magmukhang bago", "Wala itong silbi"], "correct_answer": "Para sa iba't ibang pangangailangan" }
+          { "question": "Which one is bigger and not easy to carry?", "options": ["Desktop", "Smartphone", "Tablet", "None is correct"], "correct_answer": "Desktop" },
+          { "question": "Which one is portable and has its own battery?", "options": ["Laptop", "Only the desktop", "Printer", "Only the monitor"], "correct_answer": "Laptop" },
+          { "question": "Which one is flat, has a touch screen, and is bigger than a smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Which one is small, always carried around, and can call and text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "How do we choose the right device?", "options": ["It depends on the task", "Just randomly", "Only by color", "Only by price"], "correct_answer": "It depends on the task" },
+          { "question": "Why are there different kinds of computing devices?", "options": ["For different needs", "No reason", "Just to look new", "They have no purpose"], "correct_answer": "For different needs" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Desktop** = malaki, hindi portable | **Laptop** = portable\n- **Tablet** at **Smartphone** — iba't ibang gamit\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Desktop** = big, not portable | **Laptop** = portable\n- **Tablet** and **Smartphone** — different uses\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Alin ang mas malaki at hindi madaling dalhin?", "options": ["Desktop", "Smartphone", "Tablet", "Walang tama"], "correct_answer": "Desktop" },
-          { "question": "Alin ang portable at may sariling baterya?", "options": ["Laptop", "Desktop lamang", "Printer", "Monitor lamang"], "correct_answer": "Laptop" },
-          { "question": "Alin ang flat at touch-screen, mas malaki sa smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
-          { "question": "Alin ang maliit at palaging dala-dala, may tawag at text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
-          { "question": "Paano tayo pumipili ng tamang device?", "options": ["Depende sa gawain", "Random lamang", "Kulay lamang", "Presyo lamang"], "correct_answer": "Depende sa gawain" }
+          { "question": "Which one is bigger and not easy to carry?", "options": ["Desktop", "Smartphone", "Tablet", "None is correct"], "correct_answer": "Desktop" },
+          { "question": "Which one is portable and has its own battery?", "options": ["Laptop", "Only the desktop", "Printer", "Only the monitor"], "correct_answer": "Laptop" },
+          { "question": "Which one is flat, has a touch screen, and is bigger than a smartphone?", "options": ["Tablet", "Desktop", "Printer", "Speaker"], "correct_answer": "Tablet" },
+          { "question": "Which one is small, always carried around, and can call and text?", "options": ["Smartphone", "Desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "How do we choose the right device?", "options": ["It depends on the task", "Just randomly", "Only by color", "Only by price"], "correct_answer": "It depends on the task" }
         ]
       },
       "Science": {

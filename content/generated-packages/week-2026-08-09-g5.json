@@ -651,14 +651,14 @@
     },
     "Wednesday": {
       "EPP (ICT)": {
-        "summary_markdown": "## Email Etiquette: Being Polite and Professional Online\n\n- **Email etiquette** is the set of polite manners and unwritten rules for writing emails — it helps your message sound respectful and clear, especially to teachers, elders, or people you don't know well.\n- Every polite email usually has three parts: a **greeting** (e.g., \"Good day po, Ma'am/Sir,\"), the **message body** written in a calm and clear tone, and a **closing/signature** (e.g., \"Respectfully yours, Juan Dela Cruz, Grade 5\").\n- Using a **professional tone** means avoiding ALL CAPS (which can look like shouting), too many exclamation points, or slang — even when you're in a hurry or annoyed.\n- **Reply** sends your message only to the original sender, while **Reply All** sends it to everyone who received the email. Example: if your teacher emails the whole class and you only have a personal question, use **Reply**, not Reply All, so you don't bother 30 classmates with a message meant for one person.\n- Being **mindful of recipients** also means double-checking the To/Cc list before sending, so a private message (like a birthday invite) doesn't accidentally go to people it wasn't meant for.\n\n| Situation | Reply | Reply All |\n|---|---|---|\n| Personal question to teacher | Correct choice | Bothers everyone |\n| Group project update for the whole team | Sometimes too limited | Correct choice |\n\n- Good etiquette shows respect for the reader's time and feelings — a well-mannered email leaves a good impression, just like greeting someone politely in person.",
+        "summary_markdown": "## Email Etiquette: Being Polite and Professional Online\n\n- **Email etiquette** is the set of polite manners and unwritten rules for writing emails — it helps your message sound respectful and clear, especially to teachers, elders, or people you don't know well.\n- Every polite email usually has three parts: a **greeting** (e.g., \"Good day, Ma'am/Sir,\"), the **message body** written in a calm and clear tone, and a **closing/signature** (e.g., \"Respectfully yours, Juan Dela Cruz, Grade 5\").\n- Using a **professional tone** means avoiding ALL CAPS (which can look like shouting), too many exclamation points, or slang — even when you're in a hurry or annoyed.\n- **Reply** sends your message only to the original sender, while **Reply All** sends it to everyone who received the email. Example: if your teacher emails the whole class and you only have a personal question, use **Reply**, not Reply All, so you don't bother 30 classmates with a message meant for one person.\n- Being **mindful of recipients** also means double-checking the To/Cc list before sending, so a private message (like a birthday invite) doesn't accidentally go to people it wasn't meant for.\n\n| Situation | Reply | Reply All |\n|---|---|---|\n| Personal question to teacher | Correct choice | Bothers everyone |\n| Group project update for the whole team | Sometimes too limited | Correct choice |\n\n- Good etiquette shows respect for the reader's time and feelings — a well-mannered email leaves a good impression, just like greeting someone politely in person.",
         "quiz": [
           {
             "question": "Which of the following is an example of a polite greeting to open an email to a teacher?",
             "options": [
               "Good day, Ma'am/Sir,",
-              "Hoy!",
-              "Wag mo kong iignore ha",
+              "Hey you!",
+              "Don't you dare ignore me, ok",
               "Yo dude,"
             ],
             "correct_answer": "Good day, Ma'am/Sir,"
@@ -707,17 +707,17 @@
             "question": "Which closing line is most appropriate for an email to your school principal?",
             "options": [
               "Respectfully yours, Juan Dela Cruz, Grade 5",
-              "later na lang",
-              "bye bye po ingat po sana wag mo galitin",
+              "maybe later",
+              "bye bye take care hope u dont get mad",
               "k thanks"
             ],
             "correct_answer": "Respectfully yours, Juan Dela Cruz, Grade 5"
           },
           {
-            "question": "A classmate sent a group email asking for volunteers for a Buwan ng Wika program. Which response shows good email etiquette?",
+            "question": "A classmate sent a group email asking for volunteers for a Filipino Language Month program. Which response shows good email etiquette?",
             "options": [
               "'Good day! I would like to volunteer for the poster-making part. Thank you!'",
-              "'wla akong pake sa buwan ng wika'",
+              "'i dont care about language month'",
               "Replying all with just 'k'",
               "Not reading the email at all"
             ],
@@ -746,15 +746,15 @@
           {
             "question": "Which greeting-and-closing pair best fits a formal email to your school's guidance counselor?",
             "options": [
-              "'Magandang araw po, Ma'am' ... 'Lubos na gumagalang'",
-              "'Uy!' ... 'Sige, tara na'",
+              "'Good day, Ma'am' ... 'Respectfully yours'",
+              "'Hey!' ... 'OK, let's go'",
               "no greeting ... no closing",
               "'Yo!' ... 'Peace out'"
             ],
-            "correct_answer": "'Magandang araw po, Ma'am' ... 'Lubos na gumagalang'"
+            "correct_answer": "'Good day, Ma'am' ... 'Respectfully yours'"
           },
           {
-            "question": "Ten students received an email from their adviser asking who wants extra Math tutorials. One student clicks Reply All and writes \"Ako po!\" What problem does this cause, and what should the student have done instead?",
+            "question": "Ten students received an email from their adviser asking who wants extra Math tutorials. One student clicks Reply All and writes \"Me, please!\" What problem does this cause, and what should the student have done instead?",
             "options": [
               "It sends an unnecessary message to all 10 people; the student should have replied only to the adviser",
               "There is no problem, Reply All is always correct",
@@ -764,7 +764,7 @@
             "correct_answer": "It sends an unnecessary message to all 10 people; the student should have replied only to the adviser"
           },
           {
-            "question": "Read two email replies to a teacher's request for permission slip forms: Reply A: \"Good afternoon Ma'am, attached po is my permission slip. Thank you!\" Reply B: \"here\". Why is Reply A better email etiquette?",
+            "question": "Read two email replies to a teacher's request for permission slip forms: Reply A: \"Good afternoon Ma'am, attached is my permission slip. Thank you!\" Reply B: \"here\". Why is Reply A better email etiquette?",
             "options": [
               "It uses a polite greeting, clear message, and courteous closing appropriate for a teacher",
               "It is shorter, so it saves time",
@@ -796,12 +796,12 @@
           {
             "question": "A teacher emails the class: \"Please email me your project topics by Friday.\" Which student response best follows email etiquette from greeting to closing?",
             "options": [
-              "'Good day po Ma'am, my project topic is about recycling. Thank you po. - Maria, Grade 5'",
-              "'topic ko recycling'",
+              "'Good day, Ma'am, my project topic is about recycling. Thank you. - Maria, Grade 5'",
+              "'my topic recycling'",
               "Replying All with just the topic and no greeting",
               "Not replying because the deadline is still far"
             ],
-            "correct_answer": "'Good day po Ma'am, my project topic is about recycling. Thank you po. - Maria, Grade 5'"
+            "correct_answer": "'Good day, Ma'am, my project topic is about recycling. Thank you. - Maria, Grade 5'"
           }
         ]
       },

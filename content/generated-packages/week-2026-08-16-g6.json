@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 9: Term Review!\n\nBalikan natin ang natutunan tungkol sa online tools! 🖥️\n\n## 🖥️ Buod ng Natutunan\n- **Web conferencing** — pakikipagpulong online nang ligtas\n- **Online forms** — paggawa ng survey o form nang may respeto sa privacy\n- **Cloud storage** — pag-iimbak at pagbabahagi ng files\n\n## 🎯 Susunod na Termino\n- Matututo tayo ng **productivity software** — paggawa ng word documents at presentations!\n\nMahusay na termino ng pagkatuto tungkol sa ICT! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 9: Term Review!\n\nLet's look back at what we learned about online tools! 🖥️\n\n## 🖥️ Summary of What We Learned\n- **Web conferencing** — meeting online safely\n- **Online forms** — making a survey or form while respecting privacy\n- **Cloud storage** — storing and sharing files\n\n## 🎯 Next Term\n- We will learn about **productivity software** — making word documents and presentations!\n\nWhat a great term of learning about ICT! 🌟",
         "quiz": [
-          { "question": "Ano ang natutunan natin tungkol sa web conferencing?", "options": ["Pakikipagpulong online nang ligtas", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipagpulong online nang ligtas" },
-          { "question": "Ano ang natutunan natin tungkol sa online forms?", "options": ["Paggawa nito nang may respeto sa privacy", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Paggawa nito nang may respeto sa privacy" },
-          { "question": "Ano ang natutunan natin tungkol sa cloud storage?", "options": ["Pag-iimbak at pagbabahagi ng files", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pag-iimbak at pagbabahagi ng files" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Productivity software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Productivity software" },
-          { "question": "Ano ang gagawin gamit ang productivity software?", "options": ["Word documents at presentations", "Wala", "Isang bagay lamang", "Walang gagawin"], "correct_answer": "Word documents at presentations" },
-          { "question": "Bakit mahalaga ang mga online tool na natutunan natin?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" }
+          { "question": "What did we learn about web conferencing?", "options": ["Meeting online safely", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Meeting online safely" },
+          { "question": "What did we learn about online forms?", "options": ["Making them while respecting privacy", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Making them while respecting privacy" },
+          { "question": "What did we learn about cloud storage?", "options": ["Storing and sharing files", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Storing and sharing files" },
+          { "question": "What will we study next term?", "options": ["Productivity software", "No more topics", "Just something else", "Nothing"], "correct_answer": "Productivity software" },
+          { "question": "What will we make with productivity software?", "options": ["Word documents and presentations", "Nothing", "Only one thing", "We will make nothing"], "correct_answer": "Word documents and presentations" },
+          { "question": "Why are the online tools we learned important?", "options": ["They help with learning and communication", "They have no use", "Only for a grade", "They are useless"], "correct_answer": "They help with learning and communication" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: web conferencing, online forms, cloud storage\n- Susunod: productivity software\n\nMahusay na termino! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- What we learned: web conferencing, online forms, cloud storage\n- Next: productivity software\n\nGreat term! 🌟",
         "quiz": [
-          { "question": "Ano ang natutunan natin tungkol sa web conferencing?", "options": ["Pakikipagpulong online nang ligtas", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pakikipagpulong online nang ligtas" },
-          { "question": "Ano ang natutunan natin tungkol sa cloud storage?", "options": ["Pag-iimbak at pagbabahagi ng files", "Wala", "Isang bagay lamang", "Walang natutunan"], "correct_answer": "Pag-iimbak at pagbabahagi ng files" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Productivity software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Productivity software" },
-          { "question": "Ano ang gagawin gamit ang productivity software?", "options": ["Word documents at presentations", "Wala", "Isang bagay lamang", "Walang gagawin"], "correct_answer": "Word documents at presentations" },
-          { "question": "Bakit mahalaga ang mga online tool na natutunan natin?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" }
+          { "question": "What did we learn about web conferencing?", "options": ["Meeting online safely", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Meeting online safely" },
+          { "question": "What did we learn about cloud storage?", "options": ["Storing and sharing files", "Nothing", "Only one thing", "We learned nothing"], "correct_answer": "Storing and sharing files" },
+          { "question": "What will we study next term?", "options": ["Productivity software", "No more topics", "Just something else", "Nothing"], "correct_answer": "Productivity software" },
+          { "question": "What will we make with productivity software?", "options": ["Word documents and presentations", "Nothing", "Only one thing", "We will make nothing"], "correct_answer": "Word documents and presentations" },
+          { "question": "Why are the online tools we learned important?", "options": ["They help with learning and communication", "They have no use", "Only for a grade", "They are useless"], "correct_answer": "They help with learning and communication" }
         ]
       },
       "Science": {

@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Pag-upload at Pagsasabuhay ng Kasanayan!\n\nAlamin natin ang pag-upload ng files sa cloud! ⬆️\n\n## ⬆️ Pag-upload ng Files\n- I-drag o piliin ang file para i-upload sa iyong cloud storage account.\n- Bigyan ito ng **malinaw na pangalan** para madaling mahanap.\n\n## 🗂️ Pag-oorganisa\n- Gumawa ng folder ayon sa **paksa o petsa** para mas maayos.\n\n## 🔍 Halimbawa\n- Mag-upload ng iyong proyekto sa \"Araling Panlipunan Folder\" para madaling mahanap ng guro.\n\nMahusay na pag-upload at pag-oorganisa ay nagpapadali sa gawain! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Uploading and Using Your Skills!\n\nLet's learn how to upload files to the cloud! ⬆️\n\n## ⬆️ Uploading Files\n- Drag or select the file to upload it to your cloud storage account.\n- Give it a **clear name** so it is easy to find.\n\n## 🗂️ Organizing\n- Make folders by **topic or date** so things stay neat.\n\n## 🔍 Example\n- Upload your project to the \"Social Studies Folder\" so your teacher can find it easily.\n\nUploading and organizing well makes your work easier! 🌟",
         "quiz": [
-          { "question": "Paano mag-upload ng file sa cloud?", "options": ["I-drag o piliin ang file", "Isulat lamang ang pangalan", "Walang paraan", "I-print ito"], "correct_answer": "I-drag o piliin ang file" },
-          { "question": "Bakit dapat bigyan ng malinaw na pangalan ang file?", "options": ["Para madaling mahanap", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para madaling mahanap" },
-          { "question": "Paano dapat i-organisa ang mga folder?", "options": ["Ayon sa paksa o petsa", "Random lamang", "Walang ayos", "Kulay lamang"], "correct_answer": "Ayon sa paksa o petsa" },
-          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-upload ng proyekto sa tamang folder", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-upload ng proyekto sa tamang folder" },
-          { "question": "Bakit mahalaga ang maayos na pag-oorganisa ng files?", "options": ["Nagpapadali ito sa gawain", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapadali ito sa gawain" },
-          { "question": "Sino ang makikinabang sa maayos na pag-uupload ng proyekto?", "options": ["Ikaw at ang iyong guro", "Walang nakikinabang", "Estranghero lamang", "Wala"], "correct_answer": "Ikaw at ang iyong guro" }
+          { "question": "How do you upload a file to the cloud?", "options": ["Drag or select the file", "Just write the name", "There is no way", "Print it"], "correct_answer": "Drag or select the file" },
+          { "question": "Why should you give a file a clear name?", "options": ["So it is easy to find", "No reason", "Only to make it look nice", "It is useless"], "correct_answer": "So it is easy to find" },
+          { "question": "How should you organize folders?", "options": ["By topic or date", "Just randomly", "With no order", "Only by color"], "correct_answer": "By topic or date" },
+          { "question": "What is an example of using what you learned in real life?", "options": ["Uploading a project to the right folder", "Nothing", "Only playing", "Only watching"], "correct_answer": "Uploading a project to the right folder" },
+          { "question": "Why is it important to organize files well?", "options": ["It makes the work easier", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It makes the work easier" },
+          { "question": "Who benefits when a project is uploaded properly?", "options": ["You and your teacher", "No one benefits", "Only strangers", "Nobody"], "correct_answer": "You and your teacher" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- I-drag o piliin ang file para mag-upload\n- I-organisa ang folder ayon sa paksa\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Drag or select the file to upload it\n- Organize folders by topic\n\nGreat studying! 🌟",
         "quiz": [
-          { "question": "Paano mag-upload ng file sa cloud?", "options": ["I-drag o piliin ang file", "Isulat lamang ang pangalan", "Walang paraan", "I-print ito"], "correct_answer": "I-drag o piliin ang file" },
-          { "question": "Bakit dapat bigyan ng malinaw na pangalan ang file?", "options": ["Para madaling mahanap", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para madaling mahanap" },
-          { "question": "Paano dapat i-organisa ang mga folder?", "options": ["Ayon sa paksa o petsa", "Random lamang", "Walang ayos", "Kulay lamang"], "correct_answer": "Ayon sa paksa o petsa" },
-          { "question": "Bakit mahalaga ang maayos na pag-oorganisa ng files?", "options": ["Nagpapadali ito sa gawain", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapadali ito sa gawain" },
-          { "question": "Sino ang makikinabang sa maayos na pag-uupload ng proyekto?", "options": ["Ikaw at ang iyong guro", "Walang nakikinabang", "Estranghero lamang", "Wala"], "correct_answer": "Ikaw at ang iyong guro" }
+          { "question": "How do you upload a file to the cloud?", "options": ["Drag or select the file", "Just write the name", "There is no way", "Print it"], "correct_answer": "Drag or select the file" },
+          { "question": "Why should you give a file a clear name?", "options": ["So it is easy to find", "No reason", "Only to make it look nice", "It is useless"], "correct_answer": "So it is easy to find" },
+          { "question": "How should you organize folders?", "options": ["By topic or date", "Just randomly", "With no order", "Only by color"], "correct_answer": "By topic or date" },
+          { "question": "Why is it important to organize files well?", "options": ["It makes the work easier", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It makes the work easier" },
+          { "question": "Who benefits when a project is uploaded properly?", "options": ["You and your teacher", "No one benefits", "Only strangers", "Nobody"], "correct_answer": "You and your teacher" }
         ]
       },
       "Science": {

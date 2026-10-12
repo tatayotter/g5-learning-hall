@@ -59,8 +59,8 @@ MATATAG runs 3 terms, not 4 quarters. Use the correct EPP key for the active ter
 
 ## LANGUAGE
 
-- **English:** English, Mathematics, Science, EPP
-- **Filipino:** Filipino, Araling Panlipunan, GMRC
+- **English:** English, Mathematics, Science, EPP (ICT)
+- **Filipino:** Filipino, Araling Panlipunan, GMRC, EPP (AFA/FCS/IA)
 - **MAPEH:** All English, in simple kid-friendly words (keep Filipino names of games, dances and instruments)
 
 ---

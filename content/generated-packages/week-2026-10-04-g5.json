@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 📰 EPP (ICT) — Creating Brochures and Flyers\n\nGrade 5, Linggo 17! Gumawa tayo ng desktop publishing document. 💻\n\n## 📰 Ano ang Desktop Publishing?\nAng **desktop publishing** ay ang paggawa ng propesyonal na dokumento tulad ng **brochure** (tri-fold na babasahin) o **flyer** (isang pahinang paanunsiyo).\n\n## 🎨 Page Design at Layout\n**Layout** ay ang **pagkakaayos** ng mga elemento sa pahina.\n\n**Mga bahagi ng magandang layout:**\n- **Headline** — malaking teksto sa itaas\n- **Larawan** — kaakit-akit na biswal\n- **Katawan ng teksto** — impormasyon\n- **Contact info** — paraan ng pakikipag-ugnayan\n\n## 🖼️ Borders/Accents\nGinagamit ang **borders** (kwadro) at **accents** (dekorasyon) upang **gawing kaakit-akit** ang dokumento.\n\n## 📄 Building Blocks/Templates\nMaraming programa ang may **ready-made templates** (paunang disenyo) — maaari kang **magsimula** dito at **baguhin** ayon sa iyong pangangailangan.\n\n## 🧠 Halimbawa 1\n*Gumagawa ka ng flyer para sa isang school event. Ano ang dapat mong isama?*\n- **Headline** (pangalan ng event), **petsa at oras**, **lokasyon**, at **larawan** na kaakit-akit.\n\n## 🧠 Halimbawa 2\n*Bakit mainam gumamit ng template kaysa magsimula sa blangkong pahina?*\n- Nagtitipid ito ng **oras** at nagsisiguro ng **maayos na layout** mula sa umpisa.\n\n## 💡 Mga Tip sa Paggawa ng Brochure/Flyer\n- Panatilihing **simple** — huwag sobrahan ang teksto\n- Gumamit ng **malinaw na larawan**\n- Siguraduhing **madaling basahin** ang font\n- Isama ang **mahahalagang detalye lamang**\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 📰 EPP (ICT) — Creating Brochures and Flyers\n\nGrade 5, Week 17! Let's make a desktop publishing document. 💻\n\n## 📰 What Is Desktop Publishing?\n**Desktop publishing** is making professional documents like a **brochure** (tri-fold reading material) or a **flyer** (one-page announcement).\n\n## 🎨 Page Design and Layout\n**Layout** is how the elements are **arranged** on the page.\n\n**Parts of a good layout:**\n- **Headline** — big text at the top\n- **Picture** — an attractive visual\n- **Body text** — the information\n- **Contact info** — a way to get in touch\n\n## 🖼️ Borders/Accents\n**Borders** (frames) and **accents** (decorations) are used to **make** the document **attractive**.\n\n## 📄 Building Blocks/Templates\nMany programs have **ready-made templates** (designs made in advance) — you can **start** from one and **change** it to fit your needs.\n\n## 🧠 Example 1\n*You are making a flyer for a school event. What should you include?*\n- A **headline** (name of the event), the **date and time**, the **location**, and an attractive **picture**.\n\n## 🧠 Example 2\n*Why is it better to use a template than to start with a blank page?*\n- It saves **time** and gives you a **neat layout** from the start.\n\n## 💡 Tips for Making a Brochure/Flyer\n- Keep it **simple** — don't use too much text\n- Use **clear pictures**\n- Make sure the font is **easy to read**\n- Include **only the important details**\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang desktop publishing?",
+            "question": "What is desktop publishing?",
             "options": [
-              "Paggawa ng propesyonal na dokumento",
-              "Paggawa ng spreadsheet na lamang",
-              "Paglalaro ng computer game lamang",
-              "Pagsulat lamang ng email"
+              "Making professional documents",
+              "Only making a spreadsheet",
+              "Only playing a computer game",
+              "Only writing an email"
             ],
-            "correct_answer": "Paggawa ng propesyonal na dokumento"
+            "correct_answer": "Making professional documents"
           },
           {
-            "question": "Ano ang layout?",
+            "question": "What is layout?",
             "options": [
-              "Pagkakaayos ng mga elemento sa pahina",
-              "Kulay ng dokumento lamang",
-              "Bilang ng pahina lamang",
-              "Uri ng font lamang"
+              "How the elements are arranged on the page",
+              "Only the color of the document",
+              "Only the number of pages",
+              "Only the kind of font"
             ],
-            "correct_answer": "Pagkakaayos ng mga elemento sa pahina"
+            "correct_answer": "How the elements are arranged on the page"
           },
           {
-            "question": "Ano ang headline sa isang flyer?",
+            "question": "What is the headline on a flyer?",
             "options": [
-              "Malaking teksto sa itaas",
-              "Maliit na teksto sa ibaba",
-              "Larawan lamang",
-              "Contact number lamang"
+              "Big text at the top",
+              "Small text at the bottom",
+              "Only a picture",
+              "Only a contact number"
             ],
-            "correct_answer": "Malaking teksto sa itaas"
+            "correct_answer": "Big text at the top"
           },
           {
-            "question": "Ano ang ginagamit upang gawing kaakit-akit ang dokumento?",
+            "question": "What is used to make a document attractive?",
             "options": [
-              "Borders at accents",
-              "Random na numero lamang",
-              "Blangkong espasyo lamang",
-              "Isang kulay lamang"
+              "Borders and accents",
+              "Only random numbers",
+              "Only blank space",
+              "Only one color"
             ],
-            "correct_answer": "Borders at accents"
+            "correct_answer": "Borders and accents"
           },
           {
-            "question": "Ano ang template?",
+            "question": "What is a template?",
             "options": [
-              "Paunang disenyo na maaaring baguhin",
-              "Isang uri ng larawan lamang",
-              "Isang uri ng font lamang",
-              "Isang uri ng kulay lamang"
+              "A ready-made design that you can change",
+              "Only a kind of picture",
+              "Only a kind of font",
+              "Only a kind of color"
             ],
-            "correct_answer": "Paunang disenyo na maaaring baguhin"
+            "correct_answer": "A ready-made design that you can change"
           },
           {
-            "question": "Bakit mainam gumamit ng template?",
+            "question": "Why is it good to use a template?",
             "options": [
-              "Nagtitipid ng oras at may maayos na layout",
-              "Nagpapahirap lamang ito ng gawain",
-              "Wala itong kabuluhan dito",
-              "Ginagawang mas mahirap ang proyekto"
+              "It saves time and gives a neat layout",
+              "It only makes the work harder",
+              "It is useless",
+              "It makes the project harder"
             ],
-            "correct_answer": "Nagtitipid ng oras at may maayos na layout"
+            "correct_answer": "It saves time and gives a neat layout"
           },
           {
-            "question": "Ano ang dapat isama sa isang flyer ng school event?",
+            "question": "What should you include in a flyer for a school event?",
             "options": [
-              "Headline, petsa, lokasyon, at larawan",
-              "Isang random na larawan lamang",
-              "Walang teksto, larawan lamang",
-              "Isang blangkong pahina lamang"
+              "Headline, date, location, and a picture",
+              "Only a random picture",
+              "No text, only a picture",
+              "Only a blank page"
             ],
-            "correct_answer": "Headline, petsa, lokasyon, at larawan"
+            "correct_answer": "Headline, date, location, and a picture"
           },
           {
-            "question": "Bakit dapat panatilihing simple ang isang brochure?",
+            "question": "Why should you keep a brochure simple?",
             "options": [
-              "Upang hindi malito ang mambabasa",
-              "Upang tumagal ang paggawa",
-              "Upang mas mahaba ang teksto",
-              "Walang dahilan ito"
+              "So the reader does not get confused",
+              "So it takes longer to make",
+              "So the text is longer",
+              "There is no reason"
             ],
-            "correct_answer": "Upang hindi malito ang mambabasa"
+            "correct_answer": "So the reader does not get confused"
           },
           {
-            "question": "Ano ang isang tri-fold na babasahin?",
+            "question": "What is a tri-fold reading material?",
             "options": [
               "Brochure",
               "Flyer",
               "Poster",
-              "Sulat"
+              "Letter"
             ],
             "correct_answer": "Brochure"
           },
           {
-            "question": "Ano ang dapat isama sa contact info ng isang flyer?",
+            "question": "What should the contact info on a flyer include?",
             "options": [
-              "Paraan ng pakikipag-ugnayan",
-              "Kulay ng damit",
-              "Presyo ng papel",
-              "Uri ng printer"
+              "A way to get in touch",
+              "The color of clothes",
+              "The price of paper",
+              "The kind of printer"
             ],
-            "correct_answer": "Paraan ng pakikipag-ugnayan"
+            "correct_answer": "A way to get in touch"
           },
           {
-            "question": "Bakit dapat malinaw ang font sa isang brochure?",
+            "question": "Why should the font in a brochure be clear?",
             "options": [
-              "Upang madaling basahin ang impormasyon",
-              "Upang mas maganda ito tingnan lamang",
-              "Upang mabilis matapos ang trabaho",
-              "Walang dahilan ito"
+              "So the information is easy to read",
+              "Only so it looks nicer",
+              "So the work is finished quickly",
+              "There is no reason"
             ],
-            "correct_answer": "Upang madaling basahin ang impormasyon"
+            "correct_answer": "So the information is easy to read"
           },
           {
-            "question": "Isang mag-aaral ang gumawa ng flyer na puno ng teksto na hindi maintindihan. Ano ang problema dito?",
+            "question": "A student made a flyer full of text that is hard to understand. What is the problem?",
             "options": [
-              "Sobra ang impormasyon, kulang sa kalinawan",
-              "Masyadong simple ang disenyo",
-              "Walang problema dito",
-              "Masyadong maliit ang papel"
+              "Too much information, not enough clarity",
+              "The design is too simple",
+              "There is no problem",
+              "The paper is too small"
             ],
-            "correct_answer": "Sobra ang impormasyon, kulang sa kalinawan"
+            "correct_answer": "Too much information, not enough clarity"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 📰 Friday Review — EPP (ICT) (Grade 5)\n\n- **Desktop publishing** = brochure/flyer creation\n- **Layout:** headline, larawan, katawan ng teksto, contact info\n- Gumamit ng **template** para makatipid ng oras\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 📰 Friday Review — EPP (ICT) (Grade 5)\n\n- **Desktop publishing** = brochure/flyer creation\n- **Layout:** headline, picture, body text, contact info\n- Use a **template** to save time\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang desktop publishing?",
+            "question": "What is desktop publishing?",
             "options": [
-              "Paggawa ng propesyonal na dokumento",
-              "Paggawa ng spreadsheet na lamang",
-              "Paglalaro ng computer game lamang",
-              "Pagsulat lamang ng email"
+              "Making professional documents",
+              "Only making a spreadsheet",
+              "Only playing a computer game",
+              "Only writing an email"
             ],
-            "correct_answer": "Paggawa ng propesyonal na dokumento"
+            "correct_answer": "Making professional documents"
           },
           {
-            "question": "Ano ang layout?",
+            "question": "What is layout?",
             "options": [
-              "Pagkakaayos ng mga elemento sa pahina",
-              "Kulay ng dokumento lamang",
-              "Bilang ng pahina lamang",
-              "Uri ng font lamang"
+              "How the elements are arranged on the page",
+              "Only the color of the document",
+              "Only the number of pages",
+              "Only the kind of font"
             ],
-            "correct_answer": "Pagkakaayos ng mga elemento sa pahina"
+            "correct_answer": "How the elements are arranged on the page"
           },
           {
-            "question": "Ano ang headline sa isang flyer?",
+            "question": "What is the headline on a flyer?",
             "options": [
-              "Malaking teksto sa itaas",
-              "Maliit na teksto sa ibaba",
-              "Larawan lamang",
-              "Contact number lamang"
+              "Big text at the top",
+              "Small text at the bottom",
+              "Only a picture",
+              "Only a contact number"
             ],
-            "correct_answer": "Malaking teksto sa itaas"
+            "correct_answer": "Big text at the top"
           },
           {
-            "question": "Ano ang ginagamit upang gawing kaakit-akit ang dokumento?",
+            "question": "What is used to make a document attractive?",
             "options": [
-              "Borders at accents",
-              "Random na numero lamang",
-              "Blangkong espasyo lamang",
-              "Isang kulay lamang"
+              "Borders and accents",
+              "Only random numbers",
+              "Only blank space",
+              "Only one color"
             ],
-            "correct_answer": "Borders at accents"
+            "correct_answer": "Borders and accents"
           },
           {
-            "question": "Ano ang template?",
+            "question": "What is a template?",
             "options": [
-              "Paunang disenyo na maaaring baguhin",
-              "Isang uri ng larawan lamang",
-              "Isang uri ng font lamang",
-              "Isang uri ng kulay lamang"
+              "A ready-made design that you can change",
+              "Only a kind of picture",
+              "Only a kind of font",
+              "Only a kind of color"
             ],
-            "correct_answer": "Paunang disenyo na maaaring baguhin"
+            "correct_answer": "A ready-made design that you can change"
           },
           {
-            "question": "Bakit mainam gumamit ng template?",
+            "question": "Why is it good to use a template?",
             "options": [
-              "Nagtitipid ng oras at may maayos na layout",
-              "Nagpapahirap lamang ito ng gawain",
-              "Wala itong kabuluhan dito",
-              "Ginagawang mas mahirap ang proyekto"
+              "It saves time and gives a neat layout",
+              "It only makes the work harder",
+              "It is useless",
+              "It makes the project harder"
             ],
-            "correct_answer": "Nagtitipid ng oras at may maayos na layout"
+            "correct_answer": "It saves time and gives a neat layout"
           },
           {
-            "question": "Ano ang dapat isama sa isang flyer ng school event?",
+            "question": "What should you include in a flyer for a school event?",
             "options": [
-              "Headline, petsa, lokasyon, at larawan",
-              "Isang random na larawan lamang",
-              "Walang teksto, larawan lamang",
-              "Isang blangkong pahina lamang"
+              "Headline, date, location, and a picture",
+              "Only a random picture",
+              "No text, only a picture",
+              "Only a blank page"
             ],
-            "correct_answer": "Headline, petsa, lokasyon, at larawan"
+            "correct_answer": "Headline, date, location, and a picture"
           },
           {
-            "question": "Bakit dapat panatilihing simple ang isang brochure?",
+            "question": "Why should you keep a brochure simple?",
             "options": [
-              "Upang hindi malito ang mambabasa",
-              "Upang tumagal ang paggawa",
-              "Upang mas mahaba ang teksto",
-              "Walang dahilan ito"
+              "So the reader does not get confused",
+              "So it takes longer to make",
+              "So the text is longer",
+              "There is no reason"
             ],
-            "correct_answer": "Upang hindi malito ang mambabasa"
+            "correct_answer": "So the reader does not get confused"
           },
           {
-            "question": "Ano ang isang tri-fold na babasahin?",
+            "question": "What is a tri-fold reading material?",
             "options": [
               "Brochure",
               "Flyer",
               "Poster",
-              "Sulat"
+              "Letter"
             ],
             "correct_answer": "Brochure"
           },
           {
-            "question": "Ano ang dapat isama sa contact info ng isang flyer?",
+            "question": "What should the contact info on a flyer include?",
             "options": [
-              "Paraan ng pakikipag-ugnayan",
-              "Kulay ng damit",
-              "Presyo ng papel",
-              "Uri ng printer"
+              "A way to get in touch",
+              "The color of clothes",
+              "The price of paper",
+              "The kind of printer"
             ],
-            "correct_answer": "Paraan ng pakikipag-ugnayan"
+            "correct_answer": "A way to get in touch"
           },
           {
-            "question": "Bakit dapat malinaw ang font sa isang brochure?",
+            "question": "Why should the font in a brochure be clear?",
             "options": [
-              "Upang madaling basahin ang impormasyon",
-              "Upang mas maganda ito tingnan lamang",
-              "Upang mabilis matapos ang trabaho",
-              "Walang dahilan ito"
+              "So the information is easy to read",
+              "Only so it looks nicer",
+              "So the work is finished quickly",
+              "There is no reason"
             ],
-            "correct_answer": "Upang madaling basahin ang impormasyon"
+            "correct_answer": "So the information is easy to read"
           },
           {
-            "question": "Isang mag-aaral ang gumawa ng flyer na puno ng teksto na hindi maintindihan. Ano ang problema dito?",
+            "question": "A student made a flyer full of text that is hard to understand. What is the problem?",
             "options": [
-              "Sobra ang impormasyon, kulang sa kalinawan",
-              "Masyadong simple ang disenyo",
-              "Walang problema dito",
-              "Masyadong maliit ang papel"
+              "Too much information, not enough clarity",
+              "The design is too simple",
+              "There is no problem",
+              "The paper is too small"
             ],
-            "correct_answer": "Sobra ang impormasyon, kulang sa kalinawan"
+            "correct_answer": "Too much information, not enough clarity"
           }
         ]
       },

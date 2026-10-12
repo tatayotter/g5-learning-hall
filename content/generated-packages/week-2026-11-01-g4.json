@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Review: Digital Citizenship at Software\n\nGrade 4, Week 21! Balikan natin ang mga natutuhang kasanayan sa ICT. 💻\n\n## 🔄 Balik-Aral\nNatutuhan natin ang word processing, presentation, at spreadsheet software.\n\n## 💻 Digital Citizenship Recap\n- Bantayan ang **screen time** at postura\n- Sundin ang mga alituntunin sa **online safety**\n- Panatilihing pribado ang personal na impormasyon\n\n## 🖥️ Recap ng mga Software\n- **Word Processing** — pagta-type at pag-format ng dokumento\n- **Presentation** — paggawa ng slides\n- **Spreadsheet** — pag-oorganisa ng datos sa cells\n- **Desktop Publishing** — paglikha ng poster o newsletter\n\n**Mahahalagang salita:** digital citizenship, word processing, presentation, spreadsheet",
+        "summary_markdown": "# 💻 EPP (ICT) — Review: Digital Citizenship and Software\n\nGrade 4, Week 21! Let's review the ICT skills we have learned. 💻\n\n## 🔄 Review\nWe learned about word processing, presentation, and spreadsheet software.\n\n## 💻 Digital Citizenship Recap\n- Watch your **screen time** and posture\n- Follow the **online safety** rules\n- Keep your personal information private\n\n## 🖥️ Software Recap\n- **Word Processing** — typing and formatting documents\n- **Presentation** — making slides\n- **Spreadsheet** — organizing data in cells\n- **Desktop Publishing** — creating posters or newsletters\n\n**Key words:** digital citizenship, word processing, presentation, spreadsheet",
         "quiz": [
           {
-            "question": "Ano ang digital citizenship?",
+            "question": "What is digital citizenship?",
             "options": [
-              "Responsable at ligtas na paggamit ng teknolohiya",
-              "Paggamit ng kompyuter nang walang pag-iingat",
-              "Pagbabahagi ng lahat ng impormasyon online",
-              "Kawalan ng alituntunin sa Internet"
+              "Using technology responsibly and safely",
+              "Using a computer carelessly",
+              "Sharing all information online",
+              "Having no rules on the Internet"
             ],
-            "correct_answer": "Responsable at ligtas na paggamit ng teknolohiya"
+            "correct_answer": "Using technology responsibly and safely"
           },
           {
-            "question": "Ano ang ginagamit sa word processing?",
+            "question": "What is word processing used for?",
             "options": [
-              "Pagta-type at pag-format ng dokumento",
-              "Pag-oorganisa ng datos sa cells",
-              "Paggawa ng slides",
-              "Pagguhit lamang"
+              "Typing and formatting documents",
+              "Organizing data in cells",
+              "Making slides",
+              "Only drawing"
             ],
-            "correct_answer": "Pagta-type at pag-format ng dokumento"
+            "correct_answer": "Typing and formatting documents"
           },
           {
-            "question": "Ano ang ginagamit sa presentation software?",
+            "question": "What is presentation software used for?",
             "options": [
-              "Paggawa ng slides",
-              "Pagta-type ng dokumento lamang",
-              "Pag-oorganisa ng datos sa cells",
-              "Pagguhit lamang"
+              "Making slides",
+              "Only typing documents",
+              "Organizing data in cells",
+              "Only drawing"
             ],
-            "correct_answer": "Paggawa ng slides"
+            "correct_answer": "Making slides"
           },
           {
-            "question": "Ano ang ginagamit sa spreadsheet software?",
+            "question": "What is spreadsheet software used for?",
             "options": [
-              "Pag-oorganisa ng datos sa cells",
-              "Paggawa ng slides lamang",
-              "Pagta-type ng liham lamang",
-              "Pagguhit lamang"
+              "Organizing data in cells",
+              "Only making slides",
+              "Only typing letters",
+              "Only drawing"
             ],
-            "correct_answer": "Pag-oorganisa ng datos sa cells"
+            "correct_answer": "Organizing data in cells"
           },
           {
-            "question": "Ano ang ginagamit sa desktop publishing?",
+            "question": "What is desktop publishing used for?",
             "options": [
-              "Paglikha ng poster o newsletter",
-              "Pag-oorganisa ng datos lamang",
-              "Pagta-type ng liham lamang",
-              "Paggawa ng slides lamang"
+              "Creating posters or newsletters",
+              "Only organizing data",
+              "Only typing letters",
+              "Only making slides"
             ],
-            "correct_answer": "Paglikha ng poster o newsletter"
+            "correct_answer": "Creating posters or newsletters"
           },
           {
-            "question": "Bakit mahalaga ang tamang postura habang gumagamit ng kompyuter?",
+            "question": "Why is good posture important while using a computer?",
             "options": [
-              "Nakakaiwas ito sa sakit ng katawan",
-              "Walang epekto ang postura",
-              "Hindi na kailangan pag-isipan ito",
-              "Ito ay para lamang sa matatanda"
+              "It helps prevent body pain",
+              "Posture has no effect",
+              "No need to think about it",
+              "It is only for adults"
             ],
-            "correct_answer": "Nakakaiwas ito sa sakit ng katawan"
+            "correct_answer": "It helps prevent body pain"
           },
           {
-            "question": "Bakit mahalagang bantayan ang screen time?",
+            "question": "Why is it important to watch your screen time?",
             "options": [
-              "Maaaring makasama sa kalusugan kung sobra",
-              "Walang epekto sa kalusugan",
-              "Palaging mabuti ang mahabang screen time",
-              "Hindi na kailangan bantayan"
+              "Too much can be bad for your health",
+              "It has no effect on health",
+              "Long screen time is always good",
+              "No need to watch it"
             ],
-            "correct_answer": "Maaaring makasama sa kalusugan kung sobra"
+            "correct_answer": "Too much can be bad for your health"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang personal na impormasyon online?",
+            "question": "Why should you not share personal information online?",
             "options": [
-              "Maaaring gamitin ito ng may masamang layunin",
-              "Ligtas itong gawin palagi",
-              "Kinakailangan itong gawin",
-              "Walang panganib dito"
+              "People with bad intentions might use it",
+              "It is always safe to do",
+              "You are required to do it",
+              "There is no danger"
             ],
-            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+            "correct_answer": "People with bad intentions might use it"
           },
           {
-            "question": "Anong software ang gagamitin kung gusto mong gumawa ng ulat na may talahanayan ng datos?",
+            "question": "Which software would you use to make a report with a table of data?",
             "options": [
               "Spreadsheet",
-              "Presentation lamang",
-              "Word processing lamang",
-              "Desktop publishing lamang"
+              "Only presentation",
+              "Only word processing",
+              "Only desktop publishing"
             ],
             "correct_answer": "Spreadsheet"
           },
           {
-            "question": "Anong software ang gagamitin kung magtatanghal ka sa harap ng klase?",
+            "question": "Which software would you use to present in front of the class?",
             "options": [
               "Presentation",
-              "Spreadsheet lamang",
-              "Word processing lamang",
-              "Desktop publishing lamang"
+              "Only spreadsheet",
+              "Only word processing",
+              "Only desktop publishing"
             ],
             "correct_answer": "Presentation"
           },
           {
-            "question": "Bakit mahalagang balikan ang mga kasanayang natutunan sa ICT?",
+            "question": "Why is it important to review the ICT skills you learned?",
             "options": [
-              "Para patatagin ang kaalaman bago matuto ng bago",
-              "Hindi na kailangan balikan ito",
-              "Wala itong gamit",
-              "Para lamang libangin ang guro"
+              "To strengthen what you know before learning something new",
+              "No need to review",
+              "It is useless",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Para patatagin ang kaalaman bago matuto ng bago"
+            "correct_answer": "To strengthen what you know before learning something new"
           },
           {
-            "question": "Alin sa mga sumusunod ang bahagi ng online safety?",
+            "question": "Which of the following is part of online safety?",
             "options": [
-              "Panatilihing pribado ang personal na impormasyon",
-              "Ibahagi ang password sa lahat",
-              "Sumagot sa lahat ng humihingi ng impormasyon",
-              "Iwasan ang pag-iingat online"
+              "Keep personal information private",
+              "Share your password with everyone",
+              "Answer everyone who asks for information",
+              "Stop being careful online"
             ],
-            "correct_answer": "Panatilihing pribado ang personal na impormasyon"
+            "correct_answer": "Keep personal information private"
           }
         ]
       }
@@ -1762,90 +1762,90 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital citizenship at software recap\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital citizenship and software recap\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang digital citizenship?",
+            "question": "What is digital citizenship?",
             "options": [
-              "Responsable at ligtas na paggamit ng teknolohiya",
-              "Paggamit nang walang pag-iingat",
-              "Pagbabahagi ng lahat",
-              "Kawalan ng alituntunin"
+              "Using technology responsibly and safely",
+              "Using it carelessly",
+              "Sharing everything",
+              "Having no rules"
             ],
-            "correct_answer": "Responsable at ligtas na paggamit ng teknolohiya"
+            "correct_answer": "Using technology responsibly and safely"
           },
           {
-            "question": "Ginagamit sa word processing?",
+            "question": "What is word processing used for?",
             "options": [
-              "Pagta-type at pag-format ng dokumento",
-              "Pag-oorganisa sa cells",
-              "Paggawa ng slides",
-              "Pagguhit lamang"
+              "Typing and formatting documents",
+              "Organizing in cells",
+              "Making slides",
+              "Only drawing"
             ],
-            "correct_answer": "Pagta-type at pag-format ng dokumento"
+            "correct_answer": "Typing and formatting documents"
           },
           {
-            "question": "Ginagamit sa presentation software?",
+            "question": "What is presentation software used for?",
             "options": [
-              "Paggawa ng slides",
-              "Pagta-type ng dokumento",
-              "Pag-oorganisa sa cells",
-              "Pagguhit lamang"
+              "Making slides",
+              "Typing documents",
+              "Organizing in cells",
+              "Only drawing"
             ],
-            "correct_answer": "Paggawa ng slides"
+            "correct_answer": "Making slides"
           },
           {
-            "question": "Ginagamit sa spreadsheet software?",
+            "question": "What is spreadsheet software used for?",
             "options": [
-              "Pag-oorganisa ng datos sa cells",
-              "Paggawa ng slides",
-              "Pagta-type ng liham",
-              "Pagguhit lamang"
+              "Organizing data in cells",
+              "Making slides",
+              "Typing letters",
+              "Only drawing"
             ],
-            "correct_answer": "Pag-oorganisa ng datos sa cells"
+            "correct_answer": "Organizing data in cells"
           },
           {
-            "question": "Ginagamit sa desktop publishing?",
+            "question": "What is desktop publishing used for?",
             "options": [
-              "Paglikha ng poster o newsletter",
-              "Pag-oorganisa ng datos",
-              "Pagta-type ng liham",
-              "Paggawa ng slides"
+              "Creating posters or newsletters",
+              "Organizing data",
+              "Typing letters",
+              "Making slides"
             ],
-            "correct_answer": "Paglikha ng poster o newsletter"
+            "correct_answer": "Creating posters or newsletters"
           },
           {
-            "question": "Bakit mahalaga ang tamang postura?",
+            "question": "Why is good posture important?",
             "options": [
-              "Iwasan ang sakit ng katawan",
-              "Walang epekto",
-              "Hindi na kailangan isipin",
-              "Para sa matatanda lamang"
+              "To avoid body pain",
+              "No effect",
+              "No need to think about it",
+              "Only for adults"
             ],
-            "correct_answer": "Iwasan ang sakit ng katawan"
+            "correct_answer": "To avoid body pain"
           },
           {
-            "question": "Bakit bantayan ang screen time?",
+            "question": "Why watch your screen time?",
             "options": [
-              "Makasama sa kalusugan kung sobra",
-              "Walang epekto",
-              "Palaging mabuti",
-              "Hindi kailangan bantayan"
+              "Too much can be bad for your health",
+              "No effect",
+              "It's always good",
+              "No need to watch it"
             ],
-            "correct_answer": "Makasama sa kalusugan kung sobra"
+            "correct_answer": "Too much can be bad for your health"
           },
           {
-            "question": "Bakit hindi ibahagi ang personal na impormasyon?",
+            "question": "Why not share personal information?",
             "options": [
-              "Magagamit ng may masamang layunin",
-              "Ligtas gawin palagi",
-              "Kinakailangan gawin",
-              "Walang panganib"
+              "People with bad intentions can use it",
+              "Always safe to do",
+              "Required to do",
+              "No danger"
             ],
-            "correct_answer": "Magagamit ng may masamang layunin"
+            "correct_answer": "People with bad intentions can use it"
           },
           {
-            "question": "Software para sa ulat na may talahanayan?",
+            "question": "Which software is for a report with a table?",
             "options": [
               "Spreadsheet",
               "Presentation",
@@ -1855,7 +1855,7 @@
             "correct_answer": "Spreadsheet"
           },
           {
-            "question": "Software para sa pagtatanghal sa klase?",
+            "question": "Which software is for presenting to the class?",
             "options": [
               "Presentation",
               "Spreadsheet",
@@ -1865,24 +1865,24 @@
             "correct_answer": "Presentation"
           },
           {
-            "question": "Bakit balikan ang mga kasanayan sa ICT?",
+            "question": "Why review your ICT skills?",
             "options": [
-              "Patatagin ang kaalaman bago matuto ng bago",
-              "Hindi kailangan balikan",
-              "Walang gamit",
-              "Libangin lamang ang guro"
+              "To strengthen what you know before learning something new",
+              "No need to review",
+              "It is useless",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Patatagin ang kaalaman bago matuto ng bago"
+            "correct_answer": "To strengthen what you know before learning something new"
           },
           {
-            "question": "Bahagi ng online safety?",
+            "question": "What is part of online safety?",
             "options": [
-              "Panatilihing pribado ang personal na impormasyon",
-              "Ibahagi ang password",
-              "Sagutin lahat",
-              "Iwasan ang pag-iingat"
+              "Keep personal information private",
+              "Share your password",
+              "Answer everyone",
+              "Stop being careful"
             ],
-            "correct_answer": "Panatilihing pribado ang personal na impormasyon"
+            "correct_answer": "Keep personal information private"
           }
         ]
       },

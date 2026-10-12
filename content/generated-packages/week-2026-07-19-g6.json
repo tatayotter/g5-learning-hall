@@ -162,7 +162,7 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Cloud storage** = pag-iimbak ng files online\n- Ibahagi lamang sa **trusted people**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Cloud storage** = storing files online\n- Only share with **trusted people**\n\nGreat studying! 🌟",
         "quiz": [
           { "question": "What is cloud storage?", "options": ["Saving files online, accessible from any device", "A type of hardware", "A printed folder", "A type of pen"], "correct_answer": "Saving files online, accessible from any device" },
           { "question": "Which is an example of cloud storage?", "options": ["Google Drive", "A notebook", "A pencil case", "A calculator"], "correct_answer": "Google Drive" },

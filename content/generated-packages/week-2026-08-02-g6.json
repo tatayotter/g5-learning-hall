@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Term Review — Cloud Storage!\n\nBalikan natin ang natutunan tungkol sa cloud storage! ☁️\n\n## ☁️ Buod ng Natutunan\n- **Web conferencing, online forms, at cloud storage** — natutunan natin ang tatlong makabagong kasangkapan.\n\n## 🔒 Kaligtasan Online\n- Palaging isaalang-alang ang **privacy at responsibilidad** sa paggamit ng mga tool na ito.\n\n## 🎯 Pagsasabuhay\n- Gamitin ang natutunan sa totoong buhay — halimbawa, pag-uupload ng proyekto sa cloud.\n\nMahusay na termino ng pagkatuto tungkol sa online tools! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Term Review — Cloud Storage!\n\nLet's look back at what we learned about cloud storage! ☁️\n\n## ☁️ Summary of What We Learned\n- **Web conferencing, online forms, and cloud storage** — we learned three modern tools.\n\n## 🔒 Online Safety\n- Always think about **privacy and responsibility** when using these tools.\n\n## 🎯 Using It in Real Life\n- Use what you learned in real life — for example, uploading a project to the cloud.\n\nWhat a great term of learning about online tools! 🌟",
         "quiz": [
-          { "question": "Anong tatlong kasangkapan ang natutunan natin ngayong term?", "options": ["Web conferencing, online forms, cloud storage", "Wala", "Isang kasangkapan lamang", "Walang natutunan"], "correct_answer": "Web conferencing, online forms, cloud storage" },
-          { "question": "Ano ang dapat isaalang-alang sa paggamit ng mga online tool?", "options": ["Privacy at responsibilidad", "Wala", "Bilis lamang", "Kulay lamang"], "correct_answer": "Privacy at responsibilidad" },
-          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-uupload ng proyekto sa cloud", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-uupload ng proyekto sa cloud" },
-          { "question": "Bakit mahalaga ang mga online tool na ito?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" },
-          { "question": "Ano ang mahalaga sa web conferencing?", "options": ["Kaligtasan at responsibilidad", "Bilis lamang", "Wala", "Kulay lamang"], "correct_answer": "Kaligtasan at responsibilidad" },
-          { "question": "Ano ang mahalaga sa online forms?", "options": ["Data ethics", "Walang mahalaga", "Kulay lamang", "Wala"], "correct_answer": "Data ethics" }
+          { "question": "What three tools did we learn about this term?", "options": ["Web conferencing, online forms, cloud storage", "Nothing", "Only one tool", "We learned nothing"], "correct_answer": "Web conferencing, online forms, cloud storage" },
+          { "question": "What should you think about when using online tools?", "options": ["Privacy and responsibility", "Nothing", "Only speed", "Only color"], "correct_answer": "Privacy and responsibility" },
+          { "question": "What is an example of using what you learned in real life?", "options": ["Uploading a project to the cloud", "Nothing", "Only playing", "Only watching"], "correct_answer": "Uploading a project to the cloud" },
+          { "question": "Why are these online tools important?", "options": ["They help with learning and communication", "They have no use", "Only for a grade", "They are useless"], "correct_answer": "They help with learning and communication" },
+          { "question": "What is important in web conferencing?", "options": ["Safety and responsibility", "Only speed", "Nothing", "Only color"], "correct_answer": "Safety and responsibility" },
+          { "question": "What is important in online forms?", "options": ["Data ethics", "Nothing is important", "Only color", "Nothing"], "correct_answer": "Data ethics" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: **web conferencing, online forms, cloud storage**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- What we learned: **web conferencing, online forms, cloud storage**\n\nGreat studying! 🌟",
         "quiz": [
-          { "question": "Anong tatlong kasangkapan ang natutunan natin ngayong term?", "options": ["Web conferencing, online forms, cloud storage", "Wala", "Isang kasangkapan lamang", "Walang natutunan"], "correct_answer": "Web conferencing, online forms, cloud storage" },
-          { "question": "Ano ang dapat isaalang-alang sa paggamit ng mga online tool?", "options": ["Privacy at responsibilidad", "Wala", "Bilis lamang", "Kulay lamang"], "correct_answer": "Privacy at responsibilidad" },
-          { "question": "Ano ang halimbawa ng pagsasabuhay ng natutunan?", "options": ["Pag-uupload ng proyekto sa cloud", "Wala", "Paglalaro lamang", "Panonood lamang"], "correct_answer": "Pag-uupload ng proyekto sa cloud" },
-          { "question": "Bakit mahalaga ang mga online tool na ito?", "options": ["Tumutulong sila sa pag-aaral at komunikasyon", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong sila sa pag-aaral at komunikasyon" },
-          { "question": "Ano ang mahalaga sa online forms?", "options": ["Data ethics", "Walang mahalaga", "Kulay lamang", "Wala"], "correct_answer": "Data ethics" }
+          { "question": "What three tools did we learn about this term?", "options": ["Web conferencing, online forms, cloud storage", "Nothing", "Only one tool", "We learned nothing"], "correct_answer": "Web conferencing, online forms, cloud storage" },
+          { "question": "What should you think about when using online tools?", "options": ["Privacy and responsibility", "Nothing", "Only speed", "Only color"], "correct_answer": "Privacy and responsibility" },
+          { "question": "What is an example of using what you learned in real life?", "options": ["Uploading a project to the cloud", "Nothing", "Only playing", "Only watching"], "correct_answer": "Uploading a project to the cloud" },
+          { "question": "Why are these online tools important?", "options": ["They help with learning and communication", "They have no use", "Only for a grade", "They are useless"], "correct_answer": "They help with learning and communication" },
+          { "question": "What is important in online forms?", "options": ["Data ethics", "Nothing is important", "Only color", "Nothing"], "correct_answer": "Data ethics" }
         ]
       },
       "Science": {

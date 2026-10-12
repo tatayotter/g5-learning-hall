@@ -151,7 +151,7 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Google Forms** — gamit sa paggawa ng online form\n- Panatilihing **private** ang form maliban kung dapat publiko\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Google Forms** — a tool for making online forms\n- Keep the form **private** unless it should be public\n\nGreat studying! 🌟",
         "quiz": [
           { "question": "What is a tool used to create online forms?", "options": ["Google Forms", "A calculator", "A printer", "A camera"], "correct_answer": "Google Forms" },
           { "question": "What should online forms be kept as unless meant to be public?", "options": ["Private", "Open to everyone", "Deleted", "Ignored"], "correct_answer": "Private" },

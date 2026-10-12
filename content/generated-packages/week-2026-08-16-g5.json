@@ -741,7 +741,7 @@
             "correct_answer": "The urgency/time pressure and the request for sensitive bank details"
           },
           {
-            "question": "Compare two emails: Email A says \"Hi po, reminder na bukas ang deadline ng project. - Teacher Rose\" from a known school email. Email B says \"URGENT!!! Your account will be DELETED unless you click this link and enter your password NOW!\" Which is more likely phishing, and why?",
+            "question": "Compare two emails: Email A says \"Hi, just a reminder that the project deadline is tomorrow. - Teacher Rose\" from a known school email. Email B says \"URGENT!!! Your account will be DELETED unless you click this link and enter your password NOW!\" Which is more likely phishing, and why?",
             "options": [
               "Email B, because it uses urgency, threats, and asks for a password",
               "Email A, because it mentions a deadline",

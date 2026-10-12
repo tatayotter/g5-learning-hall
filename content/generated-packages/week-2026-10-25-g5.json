@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Pagtatanghal ng Aking Natapos na Digital Portfolio\n\nGrade 5, Linggo 20! Ipakita natin ang ating natapos at narebisang digital portfolio. 🖥️\n\n## 🔄 Balik-Aral\nGumawa tayo ng **Word document, presentation, at brochure**, at sinuri/binago natin ang mga ito batay sa puna.\n\n## 🎤 Pagtatanghal ng Portfolio\nNgayong linggo, ipapakita natin ang buong **digital portfolio** sa klase — ipapaliwanag natin ang bawat proyekto at kung bakit ito ginawa sa ganoong paraan.\n\n## 📋 Mga Dapat Sabihin sa Pagtatanghal\n- Ano ang **layunin** ng bawat proyekto\n- Anong **kasanayan** ang ginamit (formatting, animation, layout)\n- Anong **pagbabago** ang ginawa batay sa puna ng kaklase\n\n## 🧠 Halimbawa 1\n*Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?*\n- Upang **maipakita** kung paano tayo umunlad bilang manggagawa ng ICT.\n\n## 🧠 Halimbawa 2\n*Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?*\n- Ang **layunin at proseso** ng paggawa nito.\n\n## 💡 Kongklusyon\nAng pagtatanghal ng natapos na portfolio ay nagpapakita ng **buong kakayahan** natin sa ICT ngayong term.\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Presenting My Finished Digital Portfolio\n\nGrade 5, Week 20! Let's show our finished and revised digital portfolio. 🖥️\n\n## 🔄 Review\nWe made a **Word document, presentation, and brochure**, and we checked and changed them based on feedback.\n\n## 🎤 Presenting the Portfolio\nThis week, we will show our whole **digital portfolio** to the class — we will explain each project and why we made it that way.\n\n## 📋 What to Say When Presenting\n- The **purpose** of each project\n- The **skills** you used (formatting, animation, layout)\n- The **changes** you made based on your classmates' feedback\n\n## 🧠 Example 1\n*Why is it important to explain the changes you made based on feedback?*\n- To **show** how we have grown as ICT workers.\n\n## 🧠 Example 2\n*What should you answer when someone asks about a project?*\n- Its **purpose and process** — how you made it.\n\n## 💡 Conclusion\nPresenting our finished portfolio shows **all the ICT skills** we learned this term.\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Anong tatlong dokumento ang ginawa natin ngayong term?",
+            "question": "What three documents did we make this term?",
             "options": [
-              "Word document, presentation, at brochure",
-              "Isang spreadsheet lamang",
-              "Isang email lamang dito",
-              "Isang video lamang ngayon"
+              "Word document, presentation, and brochure",
+              "Only a spreadsheet",
+              "Only an email",
+              "Only a video"
             ],
-            "correct_answer": "Word document, presentation, at brochure"
+            "correct_answer": "Word document, presentation, and brochure"
           },
           {
-            "question": "Ano ang gagawin natin ngayong linggo sa ating portfolio?",
+            "question": "What will we do with our portfolio this week?",
             "options": [
-              "Ipapakita ito sa klase",
-              "Buburahin ito",
-              "Kalimutan ito",
-              "Isara na lamang ang programa"
+              "Show it to the class",
+              "Delete it",
+              "Forget it",
+              "Just close the program"
             ],
-            "correct_answer": "Ipapakita ito sa klase"
+            "correct_answer": "Show it to the class"
           },
           {
-            "question": "Ano ang dapat sabihin tungkol sa layunin ng bawat proyekto?",
+            "question": "What should you say about the purpose of each project?",
             "options": [
-              "Kung bakit ito ginawa sa ganoong paraan",
-              "Ang presyo ng kompyuter lamang",
-              "Ang oras ng pagsisimula lamang",
-              "Wala, hindi kailangang ipaliwanag"
+              "Why it was made that way",
+              "Only the price of the computer",
+              "Only the start time",
+              "Nothing, it does not need to be explained"
             ],
-            "correct_answer": "Kung bakit ito ginawa sa ganoong paraan"
+            "correct_answer": "Why it was made that way"
           },
           {
-            "question": "Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?",
+            "question": "Why is it important to explain the changes made based on feedback?",
             "options": [
-              "Upang maipakita kung paano tayo umunlad",
-              "Wala itong kabuluhan",
-              "Ginagawa lamang ito para sa marka",
-              "Nakakalito lamang ito sa manonood"
+              "To show how we have improved",
+              "It is useless",
+              "It is only done for a grade",
+              "It only confuses the audience"
             ],
-            "correct_answer": "Upang maipakita kung paano tayo umunlad"
+            "correct_answer": "To show how we have improved"
           },
           {
-            "question": "Anong kasanayan ang maaaring banggitin tungkol sa presentation?",
+            "question": "What skill can you mention about the presentation?",
             "options": [
-              "Animation at slide transitions",
-              "Pagluluto lamang",
-              "Pagsasaka lamang",
-              "Pananahi lamang dito"
+              "Animation and slide transitions",
+              "Only cooking",
+              "Only farming",
+              "Only sewing"
             ],
-            "correct_answer": "Animation at slide transitions"
+            "correct_answer": "Animation and slide transitions"
           },
           {
-            "question": "Anong kasanayan ang maaaring banggitin tungkol sa brochure?",
+            "question": "What skill can you mention about the brochure?",
             "options": [
-              "Layout at page design",
-              "Pagluluto lamang",
-              "Pananahi lamang",
-              "Pagsasaka lamang"
+              "Layout and page design",
+              "Only cooking",
+              "Only sewing",
+              "Only farming"
             ],
-            "correct_answer": "Layout at page design"
+            "correct_answer": "Layout and page design"
           },
           {
-            "question": "Ano ang ipinapakita ng pagtatanghal ng natapos na portfolio?",
+            "question": "What does presenting your finished portfolio show?",
             "options": [
-              "Ang buong kakayahan natin sa ICT ngayong term",
-              "Kapabayaan sa gawain dito ngayon",
-              "Kawalan ng interes sa ICT",
-              "Kakulangan sa oras lamang"
+              "All the ICT skills we learned this term",
+              "Carelessness in the work",
+              "No interest in ICT",
+              "Only a lack of time"
             ],
-            "correct_answer": "Ang buong kakayahan natin sa ICT ngayong term"
+            "correct_answer": "All the ICT skills we learned this term"
           },
           {
-            "question": "Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?",
+            "question": "What should you answer when someone asks about a project?",
             "options": [
-              "Ang layunin at proseso ng paggawa nito",
-              "Ang presyo ng kompyuter",
-              "Ang oras ng klase lamang",
-              "Wala, hindi kailangang sagutin"
+              "Its purpose and how it was made",
+              "The price of the computer",
+              "Only the class time",
+              "Nothing, you don't need to answer"
             ],
-            "correct_answer": "Ang layunin at proseso ng paggawa nito"
+            "correct_answer": "Its purpose and how it was made"
           },
           {
-            "question": "Bakit mahalagang gumawa ng iba't ibang uri ng dokumento sa ICT?",
+            "question": "Why is it important to make different kinds of documents in ICT?",
             "options": [
-              "Upang matutong pumili ng tamang tool para sa bawat gawain",
-              "Upang mahirapan lamang ang mag-aaral",
-              "Wala itong kabuluhan",
-              "Ginagawa lamang ito bilang libangan"
+              "To learn to choose the right tool for each task",
+              "Only to make it hard for students",
+              "It is useless",
+              "It is only done for fun"
             ],
-            "correct_answer": "Upang matutong pumili ng tamang tool para sa bawat gawain"
+            "correct_answer": "To learn to choose the right tool for each task"
           },
           {
-            "question": "Ano ang kailangan bago magtanghal ng portfolio?",
+            "question": "What do you need to do before presenting a portfolio?",
             "options": [
-              "Suriin ito at ihanda ang paliwanag",
-              "Direktang ipakita nang walang paghahanda",
-              "Burahin ito bago itanghal",
-              "Wala, hindi na kailangan ihanda"
+              "Check it and prepare your explanation",
+              "Show it right away without preparing",
+              "Delete it before presenting",
+              "Nothing, no need to prepare"
             ],
-            "correct_answer": "Suriin ito at ihanda ang paliwanag"
+            "correct_answer": "Check it and prepare your explanation"
           },
           {
-            "question": "Isang mag-aaral ang tinanong kung bakit binago niya ang layout ng kanyang brochure. Ano ang dapat niyang sagutin?",
+            "question": "A student was asked why they changed the layout of their brochure. What should they answer?",
             "options": [
-              "Ang dahilan batay sa punang natanggap niya",
-              "Hindi na kailangang sagutin ang tanong",
-              "Sabihing hindi niya alam ang dahilan",
-              "Ipagpaliban na lamang ang pagsagot"
+              "The reason, based on the feedback they got",
+              "There is no need to answer the question",
+              "Say they don't know the reason",
+              "Just put off answering"
             ],
-            "correct_answer": "Ang dahilan batay sa punang natanggap niya"
+            "correct_answer": "The reason, based on the feedback they got"
           },
           {
-            "question": "Bakit mahalagang ipakita ang buong proseso, hindi lang ang resulta, ng bawat proyekto?",
+            "question": "Why is it important to show the whole process of each project, not just the result?",
             "options": [
-              "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa",
-              "Hindi kailanman importante ang proseso",
-              "Ang resulta lamang ang mahalaga",
-              "Walang benepisyo ito sa pagtatanghal"
+              "It shows growth and knowledge in making it",
+              "The process is never important",
+              "Only the result matters",
+              "It does not help the presentation"
             ],
-            "correct_answer": "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa"
+            "correct_answer": "It shows growth and knowledge in making it"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- Pagtatanghal ng natapos na digital portfolio\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 💻 Friday Review — EPP (ICT) (Grade 5)\n\n- Presenting your finished digital portfolio\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Anong tatlong dokumento ang ginawa natin ngayong term?",
+            "question": "What three documents did we make this term?",
             "options": [
-              "Word document, presentation, at brochure",
-              "Isang spreadsheet lamang",
-              "Isang email lamang dito",
-              "Isang video lamang ngayon"
+              "Word document, presentation, and brochure",
+              "Only a spreadsheet",
+              "Only an email",
+              "Only a video"
             ],
-            "correct_answer": "Word document, presentation, at brochure"
+            "correct_answer": "Word document, presentation, and brochure"
           },
           {
-            "question": "Ano ang gagawin natin ngayong linggo sa ating portfolio?",
+            "question": "What will we do with our portfolio this week?",
             "options": [
-              "Ipapakita ito sa klase",
-              "Buburahin ito",
-              "Kalimutan ito",
-              "Isara na lamang ang programa"
+              "Show it to the class",
+              "Delete it",
+              "Forget it",
+              "Just close the program"
             ],
-            "correct_answer": "Ipapakita ito sa klase"
+            "correct_answer": "Show it to the class"
           },
           {
-            "question": "Ano ang dapat sabihin tungkol sa layunin ng bawat proyekto?",
+            "question": "What should you say about the purpose of each project?",
             "options": [
-              "Kung bakit ito ginawa sa ganoong paraan",
-              "Ang presyo ng kompyuter lamang",
-              "Ang oras ng pagsisimula lamang",
-              "Wala, hindi kailangang ipaliwanag"
+              "Why it was made that way",
+              "Only the price of the computer",
+              "Only the start time",
+              "Nothing, it does not need to be explained"
             ],
-            "correct_answer": "Kung bakit ito ginawa sa ganoong paraan"
+            "correct_answer": "Why it was made that way"
           },
           {
-            "question": "Bakit mahalagang ipaliwanag ang mga pagbabagong ginawa batay sa puna?",
+            "question": "Why is it important to explain the changes made based on feedback?",
             "options": [
-              "Upang maipakita kung paano tayo umunlad",
-              "Wala itong kabuluhan",
-              "Ginagawa lamang ito para sa marka",
-              "Nakakalito lamang ito sa manonood"
+              "To show how we have improved",
+              "It is useless",
+              "It is only done for a grade",
+              "It only confuses the audience"
             ],
-            "correct_answer": "Upang maipakita kung paano tayo umunlad"
+            "correct_answer": "To show how we have improved"
           },
           {
-            "question": "Anong kasanayan ang maaaring banggitin tungkol sa presentation?",
+            "question": "What skill can you mention about the presentation?",
             "options": [
-              "Animation at slide transitions",
-              "Pagluluto lamang",
-              "Pagsasaka lamang",
-              "Pananahi lamang dito"
+              "Animation and slide transitions",
+              "Only cooking",
+              "Only farming",
+              "Only sewing"
             ],
-            "correct_answer": "Animation at slide transitions"
+            "correct_answer": "Animation and slide transitions"
           },
           {
-            "question": "Anong kasanayan ang maaaring banggitin tungkol sa brochure?",
+            "question": "What skill can you mention about the brochure?",
             "options": [
-              "Layout at page design",
-              "Pagluluto lamang",
-              "Pananahi lamang",
-              "Pagsasaka lamang"
+              "Layout and page design",
+              "Only cooking",
+              "Only sewing",
+              "Only farming"
             ],
-            "correct_answer": "Layout at page design"
+            "correct_answer": "Layout and page design"
           },
           {
-            "question": "Ano ang ipinapakita ng pagtatanghal ng natapos na portfolio?",
+            "question": "What does presenting your finished portfolio show?",
             "options": [
-              "Ang buong kakayahan natin sa ICT ngayong term",
-              "Kapabayaan sa gawain dito ngayon",
-              "Kawalan ng interes sa ICT",
-              "Kakulangan sa oras lamang"
+              "All the ICT skills we learned this term",
+              "Carelessness in the work",
+              "No interest in ICT",
+              "Only a lack of time"
             ],
-            "correct_answer": "Ang buong kakayahan natin sa ICT ngayong term"
+            "correct_answer": "All the ICT skills we learned this term"
           },
           {
-            "question": "Ano ang dapat sagutin kapag tinanong tungkol sa isang proyekto?",
+            "question": "What should you answer when someone asks about a project?",
             "options": [
-              "Ang layunin at proseso ng paggawa nito",
-              "Ang presyo ng kompyuter",
-              "Ang oras ng klase lamang",
-              "Wala, hindi kailangang sagutin"
+              "Its purpose and how it was made",
+              "The price of the computer",
+              "Only the class time",
+              "Nothing, you don't need to answer"
             ],
-            "correct_answer": "Ang layunin at proseso ng paggawa nito"
+            "correct_answer": "Its purpose and how it was made"
           },
           {
-            "question": "Bakit mahalagang gumawa ng iba't ibang uri ng dokumento sa ICT?",
+            "question": "Why is it important to make different kinds of documents in ICT?",
             "options": [
-              "Upang matutong pumili ng tamang tool para sa bawat gawain",
-              "Upang mahirapan lamang ang mag-aaral",
-              "Wala itong kabuluhan",
-              "Ginagawa lamang ito bilang libangan"
+              "To learn to choose the right tool for each task",
+              "Only to make it hard for students",
+              "It is useless",
+              "It is only done for fun"
             ],
-            "correct_answer": "Upang matutong pumili ng tamang tool para sa bawat gawain"
+            "correct_answer": "To learn to choose the right tool for each task"
           },
           {
-            "question": "Ano ang kailangan bago magtanghal ng portfolio?",
+            "question": "What do you need to do before presenting a portfolio?",
             "options": [
-              "Suriin ito at ihanda ang paliwanag",
-              "Direktang ipakita nang walang paghahanda",
-              "Burahin ito bago itanghal",
-              "Wala, hindi na kailangan ihanda"
+              "Check it and prepare your explanation",
+              "Show it right away without preparing",
+              "Delete it before presenting",
+              "Nothing, no need to prepare"
             ],
-            "correct_answer": "Suriin ito at ihanda ang paliwanag"
+            "correct_answer": "Check it and prepare your explanation"
           },
           {
-            "question": "Isang mag-aaral ang tinanong kung bakit binago niya ang layout ng kanyang brochure. Ano ang dapat niyang sagutin?",
+            "question": "A student was asked why they changed the layout of their brochure. What should they answer?",
             "options": [
-              "Ang dahilan batay sa punang natanggap niya",
-              "Hindi na kailangang sagutin ang tanong",
-              "Sabihing hindi niya alam ang dahilan",
-              "Ipagpaliban na lamang ang pagsagot"
+              "The reason, based on the feedback they got",
+              "There is no need to answer the question",
+              "Say they don't know the reason",
+              "Just put off answering"
             ],
-            "correct_answer": "Ang dahilan batay sa punang natanggap niya"
+            "correct_answer": "The reason, based on the feedback they got"
           },
           {
-            "question": "Bakit mahalagang ipakita ang buong proseso, hindi lang ang resulta, ng bawat proyekto?",
+            "question": "Why is it important to show the whole process of each project, not just the result?",
             "options": [
-              "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa",
-              "Hindi kailanman importante ang proseso",
-              "Ang resulta lamang ang mahalaga",
-              "Walang benepisyo ito sa pagtatanghal"
+              "It shows growth and knowledge in making it",
+              "The process is never important",
+              "Only the result matters",
+              "It does not help the presentation"
             ],
-            "correct_answer": "Nagpapakita ito ng pag-unlad at kaalaman sa paggawa"
+            "correct_answer": "It shows growth and knowledge in making it"
           }
         ]
       },

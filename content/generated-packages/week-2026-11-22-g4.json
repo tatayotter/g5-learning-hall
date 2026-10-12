@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🎬 EPP (ICT) — Review: Presentation at Multimedia\n\nGrade 4, Week 24! Balikan natin ang paggawa ng epektibong presentation. 🎬\n\n## 🔄 Balik-Aral\nNatutuhan natin ang online security.\n\n## 🎬 Mga Elemento ng Magandang Presentation\n- **Malinaw na teksto** — hindi masyadong marami sa isang slide\n- **Angkop na larawan** — sumusuporta sa mensahe\n- **Kaunting transition** — hindi nakakagulo\n\n## 🖥️ Multimedia sa Presentation\nMaaaring magsama ng **litrato, tunog, o maikling bidyo** upang gawing mas kaakit-akit ang isang presentation.\n\n## 💡 Bakit Mahalaga Ito?\nAng magandang presentation ay tumutulong maipahayag nang malinaw ang isang mensahe sa manonood.\n\n**Mahahalagang salita:** presentation, multimedia, transition, mensahe",
+        "summary_markdown": "# 🎬 EPP (ICT) — Review: Presentation and Multimedia\n\nGrade 4, Week 24! Let's review how to make a good presentation. 🎬\n\n## 🔄 Review\nWe learned about online security.\n\n## 🎬 Parts of a Good Presentation\n- **Clear text** — not too much on one slide\n- **Fitting pictures** — they support the message\n- **Few transitions** — so it isn't distracting\n\n## 🖥️ Multimedia in a Presentation\nYou can add **photos, sounds, or short videos** to make a presentation more interesting.\n\n## 💡 Why Is This Important?\nA good presentation helps share a message clearly with the audience.\n\n**Key words:** presentation, multimedia, transition, message",
         "quiz": [
           {
-            "question": "Ano ang isang elemento ng magandang presentation?",
+            "question": "What is one part of a good presentation?",
             "options": [
-              "Malinaw na teksto",
-              "Napakaraming teksto sa isang slide",
-              "Walang larawan",
-              "Walang organisasyon"
+              "Clear text",
+              "Too much text on one slide",
+              "No pictures",
+              "No organization"
             ],
-            "correct_answer": "Malinaw na teksto"
+            "correct_answer": "Clear text"
           },
           {
-            "question": "Bakit dapat iwasan ang sobrang teksto sa isang slide?",
+            "question": "Why should you avoid too much text on one slide?",
             "options": [
-              "Mahihirapan ang manonood basahin at unawain ito",
-              "Walang epekto ito",
-              "Mas mahusay ang mas maraming teksto",
-              "Kinakailangan ang sobrang teksto"
+              "The audience will find it hard to read and understand",
+              "It has no effect",
+              "More text is better",
+              "Lots of text is required"
             ],
-            "correct_answer": "Mahihirapan ang manonood basahin at unawain ito"
+            "correct_answer": "The audience will find it hard to read and understand"
           },
           {
-            "question": "Bakit gumamit ng angkop na larawan sa presentation?",
+            "question": "Why use fitting pictures in a presentation?",
             "options": [
-              "Sumusuporta ito sa mensahe",
-              "Walang gamit ang larawan",
-              "Ginagawa lamang itong mas magulo",
-              "Hindi kailangan ang larawan"
+              "They support the message",
+              "Pictures are useless",
+              "They only make it messier",
+              "Pictures are not needed"
             ],
-            "correct_answer": "Sumusuporta ito sa mensahe"
+            "correct_answer": "They support the message"
           },
           {
-            "question": "Ano ang kasama sa multimedia sa presentation?",
+            "question": "What is included in multimedia in a presentation?",
             "options": [
-              "Litrato, tunog, o maikling bidyo",
-              "Teksto lamang",
-              "Walang laman",
-              "Numero lamang"
+              "Photos, sounds, or short videos",
+              "Only text",
+              "Nothing",
+              "Only numbers"
             ],
-            "correct_answer": "Litrato, tunog, o maikling bidyo"
+            "correct_answer": "Photos, sounds, or short videos"
           },
           {
-            "question": "Bakit dapat kaunti lamang ang transition sa isang presentation?",
+            "question": "Why should a presentation have only a few transitions?",
             "options": [
-              "Iwasan ang pagiging nakakagulo",
-              "Para gawing mas magulo",
-              "Walang kahalagahan ito",
-              "Kinakailangan ang maraming transition"
+              "To avoid being distracting",
+              "To make it messier",
+              "It doesn't matter",
+              "Many transitions are required"
             ],
-            "correct_answer": "Iwasan ang pagiging nakakagulo"
+            "correct_answer": "To avoid being distracting"
           },
           {
-            "question": "Bakit mahalaga ang magandang presentation?",
+            "question": "Why is a good presentation important?",
             "options": [
-              "Tumutulong maipahayag nang malinaw ang mensahe",
-              "Walang kahalagahan",
-              "Para lamang palamutihan",
-              "Hindi ito kailangan"
+              "It helps share the message clearly",
+              "It doesn't matter",
+              "Only for decoration",
+              "It is not needed"
             ],
-            "correct_answer": "Tumutulong maipahayag nang malinaw ang mensahe"
+            "correct_answer": "It helps share the message clearly"
           },
           {
-            "question": "Ano ang mangyayari kung sobrang teksto ang nasa isang slide?",
+            "question": "What happens if there is too much text on one slide?",
             "options": [
-              "Mahihirapang basahin at maunawaan ng manonood",
-              "Mas magiging malinaw ito",
-              "Walang epekto",
-              "Mas madaling maunawaan"
+              "The audience will find it hard to read and understand",
+              "It will be clearer",
+              "No effect",
+              "It is easier to understand"
             ],
-            "correct_answer": "Mahihirapang basahin at maunawaan ng manonood"
+            "correct_answer": "The audience will find it hard to read and understand"
           },
           {
-            "question": "Bakit itinuturo ang paggawa ng presentation sa EPP (ICT)?",
+            "question": "Why do we learn to make presentations in EPP (ICT)?",
             "options": [
-              "Upang matutong maipahayag ang ideya sa harap ng iba",
-              "Walang layunin ito",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng ICT"
+              "To learn how to share ideas in front of others",
+              "No purpose",
+              "Only for adults",
+              "Not related to ICT"
             ],
-            "correct_answer": "Upang matutong maipahayag ang ideya sa harap ng iba"
+            "correct_answer": "To learn how to share ideas in front of others"
           },
           {
-            "question": "Alin sa mga ito ang HINDI dapat gawin sa isang mahusay na presentation?",
+            "question": "Which of these should you NOT do in a good presentation?",
             "options": [
-              "Maglagay ng napakaraming teksto sa bawat slide",
-              "Gumamit ng angkop na larawan",
-              "Panatilihing malinaw ang mensahe",
-              "Gumamit ng kaunting transition"
+              "Put a lot of text on every slide",
+              "Use fitting pictures",
+              "Keep the message clear",
+              "Use few transitions"
             ],
-            "correct_answer": "Maglagay ng napakaraming teksto sa bawat slide"
+            "correct_answer": "Put a lot of text on every slide"
           },
           {
-            "question": "Bakit kailangang mag-focus sa isang malinaw na mensahe sa bawat slide?",
+            "question": "Why should each slide focus on one clear message?",
             "options": [
-              "Upang hindi malito ang manonood",
-              "Walang kahalagahan ito",
-              "Basta't marami ang impormasyon, okay na",
-              "Hindi mahalaga ang pagiging malinaw"
+              "So the audience doesn't get confused",
+              "It doesn't matter",
+              "As long as there is lots of information, it's okay",
+              "Being clear is not important"
             ],
-            "correct_answer": "Upang hindi malito ang manonood"
+            "correct_answer": "So the audience doesn't get confused"
           },
           {
-            "question": "Paano nakakatulong ang tunog o bidyo sa isang presentation?",
+            "question": "How do sound or video help a presentation?",
             "options": [
-              "Ginagawang mas kaakit-akit at nakakaengganyo ang presentation",
-              "Wala itong tulong",
-              "Ginagawa lamang itong mas mahirap gawin",
-              "Hindi ito kailangan"
+              "They make the presentation more interesting and engaging",
+              "They don't help",
+              "They only make it harder to make",
+              "They are not needed"
             ],
-            "correct_answer": "Ginagawang mas kaakit-akit at nakakaengganyo ang presentation"
+            "correct_answer": "They make the presentation more interesting and engaging"
           },
           {
-            "question": "Bakit balikan ang mga natutunang kasanayan sa presentation?",
+            "question": "Why review the presentation skills you learned?",
             "options": [
-              "Patatagin ang kaalaman bago gumawa ng bagong proyekto",
-              "Hindi na kailangan balikan ito",
-              "Walang gamit ito",
-              "Para lamang libangin ang guro"
+              "To strengthen what you know before a new project",
+              "No need to review",
+              "It is useless",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Patatagin ang kaalaman bago gumawa ng bagong proyekto"
+            "correct_answer": "To strengthen what you know before a new project"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🎬 Friday Review — EPP (ICT) (Grade 4)\n\n- Presentation at multimedia elements\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 🎬 Friday Review — EPP (ICT) (Grade 4)\n\n- Presentation and multimedia elements\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Elemento ng magandang presentation?",
+            "question": "What is one part of a good presentation?",
             "options": [
-              "Malinaw na teksto",
-              "Napakaraming teksto sa slide",
-              "Walang larawan",
-              "Walang organisasyon"
+              "Clear text",
+              "Too much text on a slide",
+              "No pictures",
+              "No organization"
             ],
-            "correct_answer": "Malinaw na teksto"
+            "correct_answer": "Clear text"
           },
           {
-            "question": "Bakit iwasan ang sobrang teksto sa slide?",
+            "question": "Why avoid too much text on a slide?",
             "options": [
-              "Mahihirapan basahin at unawain",
-              "Walang epekto",
-              "Mas mahusay ang mas maraming teksto",
-              "Kinakailangan ito"
+              "It is hard to read and understand",
+              "No effect",
+              "More text is better",
+              "It is required"
             ],
-            "correct_answer": "Mahihirapan basahin at unawain"
+            "correct_answer": "It is hard to read and understand"
           },
           {
-            "question": "Bakit gumamit ng angkop na larawan?",
+            "question": "Why use fitting pictures?",
             "options": [
-              "Sumusuporta sa mensahe",
-              "Walang gamit",
-              "Ginagawa lamang magulo",
-              "Hindi kailangan"
+              "They support the message",
+              "They are useless",
+              "They only make it messy",
+              "They are not needed"
             ],
-            "correct_answer": "Sumusuporta sa mensahe"
+            "correct_answer": "They support the message"
           },
           {
-            "question": "Kasama sa multimedia sa presentation?",
+            "question": "What is included in multimedia in a presentation?",
             "options": [
-              "Litrato, tunog, o bidyo",
-              "Teksto lamang",
-              "Walang laman",
-              "Numero lamang"
+              "Photos, sounds, or videos",
+              "Only text",
+              "Nothing",
+              "Only numbers"
             ],
-            "correct_answer": "Litrato, tunog, o bidyo"
+            "correct_answer": "Photos, sounds, or videos"
           },
           {
-            "question": "Bakit kaunti lamang ang transition?",
+            "question": "Why use only a few transitions?",
             "options": [
-              "Iwasan ang pagiging nakakagulo",
-              "Gawing mas magulo",
-              "Walang kahalagahan",
-              "Kinakailangan ang marami"
+              "To avoid being distracting",
+              "To make it messier",
+              "It doesn't matter",
+              "Many are required"
             ],
-            "correct_answer": "Iwasan ang pagiging nakakagulo"
+            "correct_answer": "To avoid being distracting"
           },
           {
-            "question": "Bakit mahalaga ang magandang presentation?",
+            "question": "Why is a good presentation important?",
             "options": [
-              "Maipahayag nang malinaw ang mensahe",
-              "Walang kahalagahan",
-              "Para lamang palamutihan",
-              "Hindi kailangan"
+              "To share the message clearly",
+              "It doesn't matter",
+              "Only for decoration",
+              "It is not needed"
             ],
-            "correct_answer": "Maipahayag nang malinaw ang mensahe"
+            "correct_answer": "To share the message clearly"
           },
           {
-            "question": "Mangyayari kung sobrang teksto ang slide?",
+            "question": "What happens if a slide has too much text?",
             "options": [
-              "Mahihirapang basahin ng manonood",
-              "Mas magiging malinaw",
-              "Walang epekto",
-              "Mas madaling maunawaan"
+              "The audience will find it hard to read",
+              "It will be clearer",
+              "No effect",
+              "It is easier to understand"
             ],
-            "correct_answer": "Mahihirapang basahin ng manonood"
+            "correct_answer": "The audience will find it hard to read"
           },
           {
-            "question": "Bakit ituro ang presentation sa ICT?",
+            "question": "Why teach presentations in ICT?",
             "options": [
-              "Matutong maipahayag ang ideya sa iba",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng ICT"
+              "To learn how to share ideas with others",
+              "No purpose",
+              "Only for adults",
+              "Not related to ICT"
             ],
-            "correct_answer": "Matutong maipahayag ang ideya sa iba"
+            "correct_answer": "To learn how to share ideas with others"
           },
           {
-            "question": "Alin ang HINDI dapat gawin sa presentation?",
+            "question": "Which should you NOT do in a presentation?",
             "options": [
-              "Maglagay ng napakaraming teksto",
-              "Gumamit ng angkop na larawan",
-              "Panatilihing malinaw ang mensahe",
-              "Gumamit ng kaunting transition"
+              "Put in way too much text",
+              "Use fitting pictures",
+              "Keep the message clear",
+              "Use few transitions"
             ],
-            "correct_answer": "Maglagay ng napakaraming teksto"
+            "correct_answer": "Put in way too much text"
           },
           {
-            "question": "Bakit mag-focus sa isang malinaw na mensahe kada slide?",
+            "question": "Why focus on one clear message per slide?",
             "options": [
-              "Hindi malito ang manonood",
-              "Walang kahalagahan",
-              "Basta marami ang impormasyon, okay na",
-              "Hindi mahalaga"
+              "So the audience doesn't get confused",
+              "It doesn't matter",
+              "As long as there is lots of information, it's okay",
+              "Not important"
             ],
-            "correct_answer": "Hindi malito ang manonood"
+            "correct_answer": "So the audience doesn't get confused"
           },
           {
-            "question": "Paano tumutulong ang tunog o bidyo?",
+            "question": "How do sound or video help?",
             "options": [
-              "Ginagawang mas kaakit-akit ang presentation",
-              "Wala itong tulong",
-              "Ginagawang mas mahirap",
-              "Hindi kailangan"
+              "They make the presentation more interesting",
+              "They don't help",
+              "They make it harder",
+              "They are not needed"
             ],
-            "correct_answer": "Ginagawang mas kaakit-akit ang presentation"
+            "correct_answer": "They make the presentation more interesting"
           },
           {
-            "question": "Bakit balikan ang natutunang kasanayan?",
+            "question": "Why review the skills you learned?",
             "options": [
-              "Patatagin ang kaalaman bago bagong proyekto",
-              "Hindi kailangan balikan",
-              "Walang gamit",
-              "Libangin lamang ang guro"
+              "To strengthen what you know before a new project",
+              "No need to review",
+              "It is useless",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Patatagin ang kaalaman bago bagong proyekto"
+            "correct_answer": "To strengthen what you know before a new project"
           }
         ]
       },

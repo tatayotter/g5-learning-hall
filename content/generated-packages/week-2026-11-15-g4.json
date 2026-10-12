@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🔐 EPP (ICT) — Review: Online Security\n\nGrade 4, Week 23! Balikan natin ang mga alituntunin sa online security. 🔐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang algorithm at flowchart.\n\n## 🔐 Mga Alituntunin sa Online Security\n- Gumamit ng **malakas na password** (kumbinasyon ng titik, bilang, simbolo)\n- Huwag ibahagi ang password sa kahit kanino\n- Mag-log out kapag tapos na gamitin ang isang account\n- Iwasan ang pag-click sa **kahina-hinalang link**\n\n## 🚨 Pagkilala sa Phishing\nAng **phishing** ay ang pagtatangkang manloko upang makakuha ng iyong personal na impormasyon sa pamamagitan ng huwad na mensahe o website.\n\n**Mahahalagang salita:** online security, password, phishing, log out",
+        "summary_markdown": "# 🔐 EPP (ICT) — Review: Online Security\n\nGrade 4, Week 23! Let's review the rules for online security. 🔐\n\n## 🔄 Review\nWe learned about algorithms and flowcharts.\n\n## 🔐 Online Security Rules\n- Use a **strong password** (a mix of letters, numbers, and symbols)\n- Do not share your password with anyone\n- Log out when you are done using an account\n- Do not click **suspicious links**\n\n## 🚨 Spotting Phishing\n**Phishing** is when someone tries to trick you into giving your personal information using a fake message or website.\n\n**Key words:** online security, password, phishing, log out",
         "quiz": [
           {
-            "question": "Ano ang katangian ng malakas na password?",
+            "question": "What makes a password strong?",
             "options": [
-              "Kumbinasyon ng titik, bilang, at simbolo",
-              "Pangalan lamang",
-              "Bilang lamang",
-              "Isang salita lamang"
+              "A mix of letters, numbers, and symbols",
+              "Only a name",
+              "Only numbers",
+              "Only one word"
             ],
-            "correct_answer": "Kumbinasyon ng titik, bilang, at simbolo"
+            "correct_answer": "A mix of letters, numbers, and symbols"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang password?",
+            "question": "Why should you not share your password?",
             "options": [
-              "Maaaring magamit ito upang makapasok sa iyong account",
-              "Ligtas itong ibahagi",
-              "Kinakailangan itong ibahagi sa kaibigan",
-              "Walang panganib dito"
+              "Someone could use it to get into your account",
+              "It is safe to share",
+              "You must share it with friends",
+              "There is no danger"
             ],
-            "correct_answer": "Maaaring magamit ito upang makapasok sa iyong account"
+            "correct_answer": "Someone could use it to get into your account"
           },
           {
-            "question": "Bakit dapat mag-log out pagkatapos gumamit ng account?",
+            "question": "Why should you log out after using an account?",
             "options": [
-              "Para maiwasang ma-access ng iba ang iyong account",
-              "Hindi na kailangan gawin ito",
-              "Walang epekto ito",
-              "Ito ay nagpapabagal lamang"
+              "So others can't get into your account",
+              "No need to do it",
+              "It has no effect",
+              "It only slows things down"
             ],
-            "correct_answer": "Para maiwasang ma-access ng iba ang iyong account"
+            "correct_answer": "So others can't get into your account"
           },
           {
-            "question": "Ano ang phishing?",
+            "question": "What is phishing?",
             "options": [
-              "Pagtatangkang manloko upang makuha ang personal na impormasyon",
-              "Isang uri ng laro",
-              "Isang uri ng software",
-              "Isang uri ng email lamang na walang panganib"
+              "Trying to trick you to get your personal information",
+              "A kind of game",
+              "A kind of software",
+              "Just a kind of email with no danger"
             ],
-            "correct_answer": "Pagtatangkang manloko upang makuha ang personal na impormasyon"
+            "correct_answer": "Trying to trick you to get your personal information"
           },
           {
-            "question": "Ano ang dapat gawin kapag may kahina-hinalang link?",
+            "question": "What should you do when you see a suspicious link?",
             "options": [
-              "Iwasang i-click ito",
-              "I-click agad",
-              "Ibahagi sa iba",
-              "Sumagot dito ng personal na impormasyon"
+              "Don't click it",
+              "Click it right away",
+              "Share it with others",
+              "Reply with your personal information"
             ],
-            "correct_answer": "Iwasang i-click ito"
+            "correct_answer": "Don't click it"
           },
           {
-            "question": "Bakit mahalaga ang online security?",
+            "question": "Why is online security important?",
             "options": [
-              "Nakakatulong ito protektahan ang personal na impormasyon",
-              "Wala itong kahalagahan",
-              "Hindi ito totoong isyu",
-              "Ito ay para lamang sa matatanda"
+              "It helps protect personal information",
+              "It doesn't matter",
+              "It is not a real issue",
+              "It is only for adults"
             ],
-            "correct_answer": "Nakakatulong ito protektahan ang personal na impormasyon"
+            "correct_answer": "It helps protect personal information"
           },
           {
-            "question": "Ano ang halimbawa ng huwad na mensahe sa phishing?",
+            "question": "What is an example of a fake phishing message?",
             "options": [
-              "Email na humihingi ng iyong password nang biglaan",
-              "Isang normal na balita",
-              "Isang liham mula sa guro",
-              "Isang alok ng libreng aklat"
+              "An email that suddenly asks for your password",
+              "A normal news story",
+              "A letter from your teacher",
+              "An offer of a free book"
             ],
-            "correct_answer": "Email na humihingi ng iyong password nang biglaan"
+            "correct_answer": "An email that suddenly asks for your password"
           },
           {
-            "question": "Bakit itinuturo ang online security sa mga bata?",
+            "question": "Why do we teach online security to kids?",
             "options": [
-              "Upang maprotektahan ang sarili sa mga panganib online",
-              "Walang layunin ito",
-              "Para hikayatin ang paggamit nang walang pag-iingat",
-              "Hindi ito bahagi ng ICT"
+              "So they can protect themselves from dangers online",
+              "No purpose",
+              "To get them to be careless",
+              "It is not part of ICT"
             ],
-            "correct_answer": "Upang maprotektahan ang sarili sa mga panganib online"
+            "correct_answer": "So they can protect themselves from dangers online"
           },
           {
-            "question": "Ano ang dapat gawin kung nakatanggap ka ng kahina-hinalang mensahe?",
+            "question": "What should you do if you get a suspicious message?",
             "options": [
-              "Sabihin sa magulang o guro",
-              "Sagutin agad",
-              "Ibahagi sa lahat",
-              "Balewalain lamang"
+              "Tell a parent or teacher",
+              "Reply right away",
+              "Share it with everyone",
+              "Just ignore it"
             ],
-            "correct_answer": "Sabihin sa magulang o guro"
+            "correct_answer": "Tell a parent or teacher"
           },
           {
-            "question": "Bakit hindi dapat gamitin ang parehong password sa lahat ng account?",
+            "question": "Why should you not use the same password for every account?",
             "options": [
-              "Kung na-hack ang isa, hindi maaapektuhan ang lahat",
-              "Mas madali kung parehong password",
-              "Walang epekto ito",
-              "Kinakailangan itong gawin"
+              "If one gets hacked, not all of them are affected",
+              "It's easier with the same password",
+              "It has no effect",
+              "You are required to do it"
             ],
-            "correct_answer": "Kung na-hack ang isa, hindi maaapektuhan ang lahat"
+            "correct_answer": "If one gets hacked, not all of them are affected"
           },
           {
-            "question": "Bakit mahalagang matutong kilalanin ang phishing?",
+            "question": "Why is it important to learn to spot phishing?",
             "options": [
-              "Upang maiwasang mabiktima ng panloloko online",
-              "Walang gamit ito",
-              "Phishing ay hindi totoong panganib",
-              "Hindi ito nauugnay sa online safety"
+              "So you don't get tricked online",
+              "It is useless",
+              "Phishing is not a real danger",
+              "It is not related to online safety"
             ],
-            "correct_answer": "Upang maiwasang mabiktima ng panloloko online"
+            "correct_answer": "So you don't get tricked online"
           },
           {
-            "question": "Ano ang pangkalahatang aral tungkol sa online security?",
+            "question": "What is the main lesson about online security?",
             "options": [
-              "Maging maingat at protektahan ang personal na impormasyon",
-              "Ibahagi ang lahat ng impormasyon",
-              "Hindi kailangan mag-ingat",
-              "Walang panganib online"
+              "Be careful and protect your personal information",
+              "Share all your information",
+              "No need to be careful",
+              "There is no danger online"
             ],
-            "correct_answer": "Maging maingat at protektahan ang personal na impormasyon"
+            "correct_answer": "Be careful and protect your personal information"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🔐 Friday Review — EPP (ICT) (Grade 4)\n\n- Online security at phishing\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 🔐 Friday Review — EPP (ICT) (Grade 4)\n\n- Online security and phishing\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Katangian ng malakas na password?",
+            "question": "What makes a password strong?",
             "options": [
-              "Kumbinasyon ng titik, bilang, simbolo",
-              "Pangalan lamang",
-              "Bilang lamang",
-              "Isang salita"
+              "A mix of letters, numbers, symbols",
+              "Only a name",
+              "Only numbers",
+              "One word"
             ],
-            "correct_answer": "Kumbinasyon ng titik, bilang, simbolo"
+            "correct_answer": "A mix of letters, numbers, symbols"
           },
           {
-            "question": "Bakit hindi ibahagi ang password?",
+            "question": "Why not share your password?",
             "options": [
-              "Magagamit para makapasok sa account",
-              "Ligtas ibahagi",
-              "Kinakailangan ibahagi",
-              "Walang panganib"
+              "Someone could use it to get into your account",
+              "Safe to share",
+              "Required to share",
+              "No danger"
             ],
-            "correct_answer": "Magagamit para makapasok sa account"
+            "correct_answer": "Someone could use it to get into your account"
           },
           {
-            "question": "Bakit mag-log out pagkagamit?",
+            "question": "Why log out after using an account?",
             "options": [
-              "Iwasang ma-access ng iba",
-              "Hindi kailangan gawin",
-              "Walang epekto",
-              "Nagpapabagal lamang"
+              "So others can't get in",
+              "No need to do it",
+              "No effect",
+              "It only slows things down"
             ],
-            "correct_answer": "Iwasang ma-access ng iba"
+            "correct_answer": "So others can't get in"
           },
           {
-            "question": "Ano ang phishing?",
+            "question": "What is phishing?",
             "options": [
-              "Pagtatangkang manloko para makuha impormasyon",
-              "Uri ng laro",
-              "Uri ng software",
-              "Email na walang panganib"
+              "Trying to trick you to get your information",
+              "A kind of game",
+              "A kind of software",
+              "An email with no danger"
             ],
-            "correct_answer": "Pagtatangkang manloko para makuha impormasyon"
+            "correct_answer": "Trying to trick you to get your information"
           },
           {
-            "question": "Gawin kung may kahina-hinalang link?",
+            "question": "What should you do with a suspicious link?",
             "options": [
-              "Iwasang i-click",
-              "I-click agad",
-              "Ibahagi sa iba",
-              "Sumagot dito"
+              "Don't click it",
+              "Click it right away",
+              "Share it with others",
+              "Reply to it"
             ],
-            "correct_answer": "Iwasang i-click"
+            "correct_answer": "Don't click it"
           },
           {
-            "question": "Bakit mahalaga ang online security?",
+            "question": "Why is online security important?",
             "options": [
-              "Protektahan ang personal na impormasyon",
-              "Walang kahalagahan",
-              "Hindi totoong isyu",
-              "Para sa matatanda lamang"
+              "To protect personal information",
+              "It doesn't matter",
+              "Not a real issue",
+              "Only for adults"
             ],
-            "correct_answer": "Protektahan ang personal na impormasyon"
+            "correct_answer": "To protect personal information"
           },
           {
-            "question": "Halimbawa ng phishing message?",
+            "question": "What is an example of a phishing message?",
             "options": [
-              "Email na humihingi ng password biglaan",
-              "Normal na balita",
-              "Liham mula sa guro",
-              "Alok ng libreng aklat"
+              "An email that suddenly asks for your password",
+              "A normal news story",
+              "A letter from your teacher",
+              "An offer of a free book"
             ],
-            "correct_answer": "Email na humihingi ng password biglaan"
+            "correct_answer": "An email that suddenly asks for your password"
           },
           {
-            "question": "Bakit ituro ang online security?",
+            "question": "Why teach online security?",
             "options": [
-              "Protektahan sa panganib online",
-              "Walang layunin",
-              "Hikayatin paggamit walang pag-iingat",
-              "Hindi bahagi ng ICT"
+              "To stay protected from dangers online",
+              "No purpose",
+              "To get people to be careless",
+              "Not part of ICT"
             ],
-            "correct_answer": "Protektahan sa panganib online"
+            "correct_answer": "To stay protected from dangers online"
           },
           {
-            "question": "Gawin kung may kahina-hinalang mensahe?",
+            "question": "What should you do with a suspicious message?",
             "options": [
-              "Sabihin sa magulang o guro",
-              "Sagutin agad",
-              "Ibahagi sa lahat",
-              "Balewalain"
+              "Tell a parent or teacher",
+              "Reply right away",
+              "Share it with everyone",
+              "Ignore it"
             ],
-            "correct_answer": "Sabihin sa magulang o guro"
+            "correct_answer": "Tell a parent or teacher"
           },
           {
-            "question": "Bakit hindi gamitin ang parehong password sa lahat?",
+            "question": "Why not use the same password for everything?",
             "options": [
-              "Iwasan pag-access sa lahat kung na-hack ang isa",
-              "Mas madali",
-              "Walang epekto",
-              "Kinakailangan gawin"
+              "So all accounts aren't opened if one gets hacked",
+              "It's easier",
+              "No effect",
+              "Required to do"
             ],
-            "correct_answer": "Iwasan pag-access sa lahat kung na-hack ang isa"
+            "correct_answer": "So all accounts aren't opened if one gets hacked"
           },
           {
-            "question": "Bakit matutong kilalanin ang phishing?",
+            "question": "Why learn to spot phishing?",
             "options": [
-              "Maiwasang mabiktima ng panloloko",
-              "Walang gamit",
-              "Hindi totoong panganib",
-              "Hindi nauugnay sa online safety"
+              "So you don't get tricked",
+              "It is useless",
+              "Not a real danger",
+              "Not related to online safety"
             ],
-            "correct_answer": "Maiwasang mabiktima ng panloloko"
+            "correct_answer": "So you don't get tricked"
           },
           {
-            "question": "Pangkalahatang aral tungkol sa online security?",
+            "question": "What is the main lesson about online security?",
             "options": [
-              "Maging maingat at protektahan ang impormasyon",
-              "Ibahagi lahat",
-              "Hindi kailangan mag-ingat",
-              "Walang panganib online"
+              "Be careful and protect your information",
+              "Share everything",
+              "No need to be careful",
+              "No danger online"
             ],
-            "correct_answer": "Maging maingat at protektahan ang impormasyon"
+            "correct_answer": "Be careful and protect your information"
           }
         ]
       },

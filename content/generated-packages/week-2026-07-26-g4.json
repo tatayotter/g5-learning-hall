@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 5: Higit Pang Kasanayan sa Mouse at Keyboard!\n\nPatuloy nating paunlarin ang ating computer skills! ⌨️\n\n## 🖱️ Kasanayan sa Mouse\n- **Drag-and-drop** — paghila ng bagay mula sa isang lugar patungo sa iba.\n- Mahalaga ang **katumpakan** sa paggamit ng mouse.\n\n## ⌨️ Kasanayan sa Keyboard\n- Gamitin ang tamang daliri para sa bawat key upang mas mabilis at tumpak ang pag-type.\n\n## 🔍 Pagsasanay\n- Magsanay araw-araw upang mapaunlad ang bilis at katumpakan.\n\nPatuloy na pagsasanay ang susi sa tagumpay! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 5: More Mouse and Keyboard Skills!\n\nLet's keep building our computer skills! ⌨️\n\n## 🖱️ Mouse Skills\n- **Drag-and-drop** — pulling an item from one place to another.\n- Being **accurate** is important when using the mouse.\n\n## ⌨️ Keyboard Skills\n- Use the correct finger for each key so you can type faster and more accurately.\n\n## 🔍 Practice\n- Practice every day to improve your speed and accuracy.\n\nPractice is the key to success! 🌟",
         "quiz": [
-          { "question": "Ano ang drag-and-drop?", "options": ["Paghila ng bagay mula sa isang lugar patungo sa iba", "Pag-type ng titik", "Pagpatay ng computer", "Pagbukas lamang"], "correct_answer": "Paghila ng bagay mula sa isang lugar patungo sa iba" },
-          { "question": "Ano ang mahalaga sa paggamit ng mouse?", "options": ["Katumpakan", "Bilis lamang", "Ingay", "Kulay"], "correct_answer": "Katumpakan" },
-          { "question": "Ano ang tumutulong sa mas mabilis na pag-type?", "options": ["Paggamit ng tamang daliri", "Paggamit ng isang daliri lamang", "Hindi pagtingin sa keyboard nang hindi nagsanay", "Walang paraan"], "correct_answer": "Paggamit ng tamang daliri" },
-          { "question": "Ano ang susi sa pagpapaunlad ng kasanayan?", "options": ["Patuloy na pagsasanay", "Isang beses lamang", "Hindi na pagsasanay", "Pag-iwas dito"], "correct_answer": "Patuloy na pagsasanay" },
-          { "question": "Ano ang dapat gawin araw-araw?", "options": ["Magsanay sa mouse at keyboard", "Umiwas sa computer", "Wala", "Manood lamang ng ibang gumagamit"], "correct_answer": "Magsanay sa mouse at keyboard" },
-          { "question": "Bakit mahalaga ang pagsasanay?", "options": ["Nagpapaunlad ito ng bilis at katumpakan", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapaunlad ito ng bilis at katumpakan" }
+          { "question": "What is drag-and-drop?", "options": ["Pulling an item from one place to another", "Typing a letter", "Turning off the computer", "Only opening something"], "correct_answer": "Pulling an item from one place to another" },
+          { "question": "What is important when using the mouse?", "options": ["Accuracy", "Only speed", "Noise", "Color"], "correct_answer": "Accuracy" },
+          { "question": "What helps you type faster?", "options": ["Using the correct fingers", "Using only one finger", "Not looking at the keyboard without practicing", "Nothing helps"], "correct_answer": "Using the correct fingers" },
+          { "question": "What is the key to improving your skills?", "options": ["Practicing again and again", "Only once", "Not practicing anymore", "Avoiding it"], "correct_answer": "Practicing again and again" },
+          { "question": "What should you do every day?", "options": ["Practice with the mouse and keyboard", "Stay away from the computer", "Nothing", "Only watch others use it"], "correct_answer": "Practice with the mouse and keyboard" },
+          { "question": "Why is practice important?", "options": ["It improves speed and accuracy", "It is useless", "Only for grades", "It has no purpose"], "correct_answer": "It improves speed and accuracy" }
         ]
       }
     },
@@ -162,13 +162,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Drag-and-drop** = paghila ng bagay\n- Katumpakan ang mahalaga sa mouse; tamang daliri para sa keyboard\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Drag-and-drop** = pulling an item\n- Accuracy matters with the mouse; use the correct fingers on the keyboard\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang drag-and-drop?", "options": ["Paghila ng bagay mula sa isang lugar patungo sa iba", "Pag-type ng titik", "Pagpatay ng computer", "Pagbukas lamang"], "correct_answer": "Paghila ng bagay mula sa isang lugar patungo sa iba" },
-          { "question": "Ano ang mahalaga sa paggamit ng mouse?", "options": ["Katumpakan", "Bilis lamang", "Ingay", "Kulay"], "correct_answer": "Katumpakan" },
-          { "question": "Ano ang tumutulong sa mas mabilis na pag-type?", "options": ["Paggamit ng tamang daliri", "Paggamit ng isang daliri lamang", "Hindi pagtingin sa keyboard nang hindi nagsanay", "Walang paraan"], "correct_answer": "Paggamit ng tamang daliri" },
-          { "question": "Ano ang susi sa pagpapaunlad ng kasanayan?", "options": ["Patuloy na pagsasanay", "Isang beses lamang", "Hindi na pagsasanay", "Pag-iwas dito"], "correct_answer": "Patuloy na pagsasanay" },
-          { "question": "Bakit mahalaga ang pagsasanay?", "options": ["Nagpapaunlad ito ng bilis at katumpakan", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagpapaunlad ito ng bilis at katumpakan" }
+          { "question": "What is drag-and-drop?", "options": ["Pulling an item from one place to another", "Typing a letter", "Turning off the computer", "Only opening something"], "correct_answer": "Pulling an item from one place to another" },
+          { "question": "What is important when using the mouse?", "options": ["Accuracy", "Only speed", "Noise", "Color"], "correct_answer": "Accuracy" },
+          { "question": "What helps you type faster?", "options": ["Using the correct fingers", "Using only one finger", "Not looking at the keyboard without practicing", "Nothing helps"], "correct_answer": "Using the correct fingers" },
+          { "question": "What is the key to improving your skills?", "options": ["Practicing again and again", "Only once", "Not practicing anymore", "Avoiding it"], "correct_answer": "Practicing again and again" },
+          { "question": "Why is practice important?", "options": ["It improves speed and accuracy", "It is useless", "Only for grades", "It has no purpose"], "correct_answer": "It improves speed and accuracy" }
         ]
       },
       "Science": {

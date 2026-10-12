@@ -162,7 +162,7 @@
         "summary_markdown": "### 🎯 Today's Focus\n* **Search Engine Mastery:** Tools like Google and Bing help us find information online. Using specific **keywords** leads to faster results.\n* **Netiquette:** Practice polite internet behavior, such as keeping **passwords private** to protect accounts.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Email Attachments:** We will learn how to safely attach files to emails and the difference between **CC and BCC**.",
         "quiz": [
           {
-            "question": "Saan tina-type ang URL sa isang web browser?",
+            "question": "Where do you type the URL in a web browser?",
             "options": [
               "Status Bar",
               "Address Bar",
@@ -171,25 +171,25 @@
             "correct_answer": "Address Bar"
           },
           {
-            "question": "Bakit mahalagang gumamit ng tamang keywords sa paghahanap?",
+            "question": "Why is it important to use the right keywords when searching?",
             "options": [
-              "Upang bumagal ang internet",
-              "Upang mabilis at tama ang resulta",
-              "Upang mabura ang files"
+              "To make the internet slower",
+              "To get fast and correct results",
+              "To delete files"
             ],
-            "correct_answer": "Upang mabilis at tama ang resulta"
+            "correct_answer": "To get fast and correct results"
           },
           {
-            "question": "Ano ang ibig sabihin ng netiquette?",
+            "question": "What does netiquette mean?",
             "options": [
-              "Pag-print ng files",
-              "Etiketa o tamang asal sa internet",
-              "Paggawa ng table"
+              "Printing files",
+              "Good manners or proper behavior on the internet",
+              "Making a table"
             ],
-            "correct_answer": "Etiketa o tamang asal sa internet"
+            "correct_answer": "Good manners or proper behavior on the internet"
           },
           {
-            "question": "Alin ang halimbawa ng web browser?",
+            "question": "Which is an example of a web browser?",
             "options": [
               "Google Chrome",
               "MS Word",
@@ -198,16 +198,16 @@
             "correct_answer": "Google Chrome"
           },
           {
-            "question": "Ano ang dapat gawin bago maniwala sa impormasyong nahanap online?",
+            "question": "What should you do before believing information you found online?",
             "options": [
-              "I-post agad",
-              "I-verify muna ito",
-              "Huwag basahin"
+              "Post it right away",
+              "Verify it first",
+              "Don't read it"
             ],
-            "correct_answer": "I-verify muna ito"
+            "correct_answer": "Verify it first"
           },
           {
-            "question": "Sino ang naghahanap at nagsusuri ng mga web page sa search engine?",
+            "question": "What searches and checks the web pages for a search engine?",
             "options": [
               "Keyboard",
               "Crawler",
@@ -216,22 +216,22 @@
             "correct_answer": "Crawler"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang password sa iba?",
+            "question": "Why should you not share your password with others?",
             "options": [
-              "Dahil bibilis ang computer",
-              "Dahil maaari nilang mapasok ang iyong account",
-              "Dahil mawawala ang mouse"
+              "Because the computer will get faster",
+              "Because they could get into your account",
+              "Because the mouse will disappear"
             ],
-            "correct_answer": "Dahil maaari nilang mapasok ang iyong account"
+            "correct_answer": "Because they could get into your account"
           },
           {
-            "question": "Ano ang pangunahing gamit ng search engine?",
+            "question": "What is the main use of a search engine?",
             "options": [
-              "Mag-imbak ng pagkain",
-              "Maghanap ng impormasyon sa web",
-              "Mag-print ng larawan"
+              "To store food",
+              "To search for information on the web",
+              "To print pictures"
             ],
-            "correct_answer": "Maghanap ng impormasyon sa web"
+            "correct_answer": "To search for information on the web"
           }
         ]
       },
