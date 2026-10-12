@@ -7,6 +7,8 @@ import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
 import Link from 'next/link';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
+import ChildReadyToPlay, { type CreatedChild } from '@/components/ChildReadyToPlay';
+import { usernameToChildId } from '@/lib/userSession';
 
 interface ParentRegisterFormProps {
   source: 'organic';
@@ -34,6 +36,9 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
   // this step and link the existing account from their dashboard instead.
   const [childAlreadyPlays, setChildAlreadyPlays] = useState(false);
   const [marketingOptIn, setMarketingOptIn] = useState(false);
+  // Set once the accounts exist: shows the hand-off screen (play here / send
+  // the login) instead of going straight to the dashboard.
+  const [readyKids, setReadyKids] = useState<CreatedChild[] | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
   const nameInputRef = useRef<HTMLInputElement>(null);
@@ -125,8 +130,9 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
       }
 
       let childFailed = false;
+      const created: CreatedChild[] = [];
       for (const child of newChildren) {
-        const { error: childError } = await supabase.rpc('create_child_account', {
+        const { data: rows, error: childError } = await supabase.rpc('create_child_account', {
           p_username: child.username,
           p_pin: child.pin,
           p_full_name: child.fullName,
@@ -140,13 +146,29 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
           childFailed = true;
           break;
         }
+        const row = (Array.isArray(rows) ? rows[0] : rows) as { id: string; username: string } | null;
+        created.push({
+          id: row?.id ?? usernameToChildId(child.username),
+          username: row?.username ?? child.username,
+          pin: child.pin,
+          fullName: child.fullName,
+          grade: child.grade,
+          gender: child.gender,
+          avatar: child.avatar,
+          schoolName: child.schoolName,
+        });
       }
 
-      if (!childFailed) router.push('/parent-dashboard');
+      if (!childFailed) {
+        if (created.length > 0) setReadyKids(created);
+        else router.push('/parent-dashboard');
+      }
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (readyKids) return <ChildReadyToPlay kids={readyKids} />;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5 max-w-lg mx-auto">

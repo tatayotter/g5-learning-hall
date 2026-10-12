@@ -13,7 +13,7 @@
 // lockout below just stops a sibling trying PINs on the login screen.
 import { offlinePlayEnabled } from '@/lib/offlineQuests';
 import { loadOfflineProfile } from '@/lib/offlineSnapshot';
-import { USERS, type UserId } from '@/lib/userSession';
+import { USERS, restoreChildUser, type UserId } from '@/lib/userSession';
 
 const VERIFIER = (id: string) => `lh_device_hero_${id}`;
 const LOCKOUT = (id: string) => `lh_device_hero_lockout_${id}`;
@@ -60,17 +60,33 @@ export async function rememberHeroOnDevice(id: UserId, pin: string): Promise<voi
   }
 }
 
-/** Heroes who can log in here with no connection: logged in here before, with offline play on. */
-export function offlineHeroIds(): UserId[] {
+/** Heroes who have logged in on this device before (and whose profile is saved here). */
+export function deviceHeroIds(): UserId[] {
   const ids: UserId[] = [];
   try {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const id = key?.startsWith('lh_device_hero_') && !key.startsWith('lh_device_hero_lockout_') ? key.slice('lh_device_hero_'.length) : null;
-      if (id && offlinePlayEnabled(id) && loadOfflineProfile(id)) ids.push(id);
+      if (id && loadOfflineProfile(id)) ids.push(id);
     }
   } catch { /* storage unavailable */ }
   return ids;
+}
+
+/** Heroes who can log in here with no connection: logged in here before, with offline play on. */
+export function offlineHeroIds(): UserId[] {
+  return deviceHeroIds().filter(offlinePlayEnabled);
+}
+
+/**
+ * Online: deviceHeroIds(), with any who aren't on the roster put into USERS from their saved
+ * profiles. A child with no parent linked yet is never on the roster, so without this the login
+ * screen had no card for them at all.
+ */
+export function loadDeviceHeroes(): UserId[] {
+  const ids = deviceHeroIds();
+  for (const id of ids) if (!USERS[id]) { const p = loadOfflineProfile(id); if (p) restoreChildUser(p); }
+  return ids.filter(id => USERS[id]);
 }
 
 /** The offline roster: offlineHeroIds() with their saved profiles put into USERS, by name. */
