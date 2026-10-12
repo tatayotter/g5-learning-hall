@@ -150,17 +150,12 @@ export default function GuildJournal({ userId, journalLogs, stats, currentSunday
         hardest_challenge: formData.hardest_challenge,
         gratitude: formData.gratitude
       };
-      // One entry per child per day (unique index): a repeat save is ignored
-      // rather than archived again.
-      let { error: archiveError } = await supabase.from('journal_entries')
-        .upsert(entry, { onConflict: 'user_id,entry_date', ignoreDuplicates: true });
-      // Fallback to a plain insert if the upsert is refused, e.g. before the
-      // unique index's migration is approved (42P10). Once the index exists, a
-      // duplicate (23505) just means today's entry is already archived.
-      if (archiveError) {
-        ({ error: archiveError } = await supabase.from('journal_entries').insert(entry));
-        if (archiveError?.code === '23505') archiveError = null;
-      }
+      // One entry per child per day (unique index journal_entries_user_day_key).
+      // A plain insert, not an upsert: the table only has an insert policy, so
+      // an upsert is refused (403) on every save. A duplicate (23505) just
+      // means today's entry is already archived.
+      let { error: archiveError } = await supabase.from('journal_entries').insert(entry);
+      if (archiveError?.code === '23505') archiveError = null;
       if (archiveError) {
         console.error('Failed to archive journal entry:', archiveError);
       }
