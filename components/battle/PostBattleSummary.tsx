@@ -5,7 +5,7 @@
 // button the player clicks to leave. Used by both LiveBattleScreen (PVP) and
 // the solo BattleScreen (NPC trainers + wild encounters) so every battle mode
 // in the game ends the same way instead of PVP alone getting a proper recap.
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ActiveBattleMonster, MonsterImage } from '@/components/battle/shared';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import { Nail } from '@/components/battle/MonsterHpPanel';
@@ -162,6 +162,18 @@ export default function PostBattleSummary({ outcome, left, right, log, expEarned
   // when the caller had no numeric rewards to put in the tiles.
   const subtitle = outcome !== 'win' ? encouragement : (rewards.length === 0 ? rewardLine : undefined);
 
+  // Continue fires once: callers save results asynchronously while this screen
+  // is still up, so a double tap used to record the same battle twice. The ref
+  // blocks taps that land before the re-render; the state greys the button.
+  const continuedRef = useRef(false);
+  const [continued, setContinued] = useState(false);
+  const handleContinue = () => {
+    if (continuedRef.current) return;
+    continuedRef.current = true;
+    setContinued(true);
+    onContinue();
+  };
+
   return (
     <div className="battle-panel-in">
       <VictoryScreen
@@ -172,7 +184,7 @@ export default function PostBattleSummary({ outcome, left, right, log, expEarned
         subtitle={subtitle}
         rewards={rewards}
         actions={
-          <GameButton variant="quest" color="#d97706" onClick={onContinue} className="w-full max-w-sm" style={{ fontSize: 20 }}>
+          <GameButton variant="quest" color="#d97706" onClick={handleContinue} disabled={continued} className="w-full max-w-sm" style={{ fontSize: 20 }}>
             Continue
           </GameButton>
         }

@@ -45,6 +45,7 @@ import { MtapSetComplete } from '@/components/bonusquests/MtapQuizPlayer';
 import { MixedTrainerComplete } from '@/components/bonusquests/MtapMixedTrainerPlayer';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
+import CurioEncounterPanel from '@/components/monster/map/panels/CurioEncounterPanel';
 import StarterSelection from '@/components/monster/StarterSelection';
 import OriginStory from '@/components/intro/OriginStory';
 import IntroTrainingQuest from '@/components/intro/IntroTrainingQuest';
@@ -177,6 +178,7 @@ export default function UiGallery() {
   const personas = Object.values(BOSS_PERSONAS).slice(0, 5);
 
   const [outcome, setOutcome] = useState<'win' | 'loss' | 'draw'>('win');
+  const [continueCount, setContinueCount] = useState(0);
   const [celebration, setCelebration] = useState<{ type: 'levelup' | 'perfect' | 'curio'; key: number } | null>(null);
   const [activeOverlay, setActiveOverlay] = useState<OverlayKey | null>(null);
   const [critNonce] = useState(() => Date.now());
@@ -634,12 +636,14 @@ export default function UiGallery() {
       <Section title="Post-battle summary" note="components/battle/PostBattleSummary.tsx — real monster art via ALL_MONSTERS">
         <div className="flex gap-3 mb-4">
           {(['win', 'loss', 'draw'] as const).map(o => (
-            <button key={o} onClick={() => setOutcome(o)} className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase border-2 ${outcome === o ? 'bg-[#c9781a] text-white border-[#c9781a]' : 'bg-white text-[#6b4820] border-[#c9a87a]'}`}>
+            <button key={o} onClick={() => { setOutcome(o); setContinueCount(0); }} className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase border-2 ${outcome === o ? 'bg-[#c9781a] text-white border-[#c9781a]' : 'bg-white text-[#6b4820] border-[#c9a87a]'}`}>
               {o}
             </button>
           ))}
+          <span className="self-center text-xs text-[#6b4820]">Continue fired: {continueCount}</span>
         </div>
         <PostBattleSummary
+          key={outcome}
           outcome={outcome}
           reasonLabel={outcome === 'win' ? 'Victory!' : outcome === 'loss' ? 'Defeated...' : 'Draw'}
           left={left}
@@ -647,8 +651,20 @@ export default function UiGallery() {
           log={['You used Blaze Stream!', 'Forest Scout used Bramble Lash!', 'Critical hit!']}
           expEarned={outcome === 'win' ? 120 : undefined}
           goldEarned={outcome === 'win' ? 40 : undefined}
-          onContinue={() => {}}
+          onContinue={() => setContinueCount(c => c + 1)}
         />
+      </Section>
+
+      <Section title="Wild curio encounter" note="components/monster/map/panels/CurioEncounterPanel.tsx — shown when the player steps onto a wild curio">
+        <div className="flex flex-wrap gap-4">
+          {([
+            { quality: 'normal', tries: 3 },
+            { quality: 'good', tries: 2 },
+            { quality: 'perfect', tries: 1 },
+          ] as const).map(c => (
+            <CurioEncounterPanel key={c.quality} curioDef={ALL_MONSTERS.bubbloon} quality={c.quality} attemptsLeft={c.tries} onBattle={() => {}} onRunAway={() => {}} />
+          ))}
+        </div>
       </Section>
 
       <Section

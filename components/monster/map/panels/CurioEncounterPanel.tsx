@@ -39,8 +39,10 @@ export default function CurioEncounterPanel({ curioDef, quality, attemptsLeft, o
               ? `A ${QUALITY_LABEL[quality]} curio is tougher: more HP and Attack. Win and you get more EXP, and you keep it at ${QUALITY_LABEL[quality]}.`
               : 'A wild curio is challenging you!'}
           </p>
-          <p className="text-gray-400 text-xs mt-1">
-            {attemptsLeft} {attemptsLeft === 1 ? 'try' : 'tries'} left. A wrong answer or a lost battle uses one.
+          <p className={`text-xs mt-1 ${attemptsLeft === 1 ? 'text-amber-300' : 'text-gray-400'}`}>
+            {attemptsLeft === 1
+              ? 'Last try! Answer right and win the battle to catch it. If you miss, it runs off, but more curios will come.'
+              : `${attemptsLeft} tries left. A wrong answer or a lost battle uses one.`}
           </p>
         </div>
       </div>
