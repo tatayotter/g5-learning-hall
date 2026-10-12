@@ -63,7 +63,7 @@ export default function TrainersView({
           return {
             id: b.userId, name: b.name, fullName: profile?.fullName ?? b.name,
             grade: profile?.grade ?? 'G5', avatar: b.userpic ?? '', theme: 'theme_default',
-            gender: b.gender, isFamily: false, school: profile?.school,
+            gender: b.gender, showCrown: false, school: profile?.school,
           };
         });
         const otherPlayers = [...botPlayers, ...realOnlinePlayers];
@@ -116,7 +116,11 @@ export default function TrainersView({
                           // name (lib/botProfiles.ts) instead of
                           // "Classmate" so they read as an ordinary
                           // online player, not a simulated one.
-                          : `${player.grade}${player.school ? ` · ${player.school}` : !player.isFamily ? ' · Classmate' : ''}`}
+                          // Crown accounts showed only their grade before
+                          // they had a school on file; kept that way.
+                          : player.showCrown
+                            ? player.grade
+                            : `${player.grade}${player.school ? ` · ${player.school}` : ' · Classmate'}`}
                       </p>
                     </div>
                   </div>

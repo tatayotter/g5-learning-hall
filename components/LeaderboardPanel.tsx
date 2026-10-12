@@ -148,9 +148,9 @@ function TopEntryCard({ entry, rank, badge, highlight, currentUserId, reactionCo
         <div className="flex-1">
           <p className="text-stone-900 font-bold text-lg flex items-center gap-1.5">
             {entry.name}
-            {entry.isFamily && <GMBadge />}
+            {entry.showCrown && <GMBadge />}
           </p>
-          <p className="text-xs text-stone-500">{entry.grade}{!entry.isFamily && ' · Classmate'}</p>
+          <p className="text-xs text-stone-500">{entry.grade}{!entry.showCrown && ' · Classmate'}</p>
           <p className="text-sm text-amber-400 font-bold font-mono mt-1 flex items-center gap-1">
             {highlight.emoji} {highlight.value}{highlight.label && ` ${highlight.label}`}
             {highlight.info && <InfoTag text={highlight.info} />}
@@ -190,7 +190,7 @@ function RankRow({ entry, rank, currentUserId, reactionCounts, onReactionSent }:
       <div className="flex-1 min-w-0">
         <p className="text-stone-800 text-sm font-bold flex items-center gap-1 truncate">
           {entry.name}
-          {entry.isFamily && <GMBadge />}
+          {entry.showCrown && <GMBadge />}
         </p>
         <div className="mt-1">
           <TeamStrip team={entry.team} />

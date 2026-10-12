@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState, useEffectEvent } from 'react';
-import { UserId, USERS } from '@/lib/userSession';
+import { UserId } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
   fetchInventory,
   spendGoldAndGrantItem,
-  claimDailyItems,
   InventoryMap,
 } from '@/lib/inventory';
 import { SCROLL_CATALOG, ScrollItem } from '@/lib/skillScrolls';
@@ -174,14 +173,12 @@ function ShopCard({
 export default function MonsterShop({ userId, currentStats, onSpendGold }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
-  const [claimedToday, setClaimedToday] = useState(false);
   const [buyingKey, setBuyingKey] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<ShopDetailItem | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
   const [activeSection, setActiveSection] = useState<'all' | 'items' | 'scrolls' | 'tomes' | 'sprites'>('all');
   const buyBusyRef = useRef(false);
-  const isFamily = USERS[userId].isFamily;
 
   // First-visit tutorial for this tab — same mount-once pattern as
   // MonsterGuild's (this component unmounts when leaving the vault tab, so
@@ -224,19 +221,9 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
     setInventory(inv);
     setLoading(false);
   });
-  const markClaimedToday = useEffectEvent(() => setClaimedToday(true));
-  const isFamilyNow = useEffectEvent(() => isFamily);
   useEffect(() => {
     let cancelled = false;
-    const showInventory = (inv: InventoryMap) => { if (!cancelled) applyInventory(inv); };
-    fetchInventory(userId).then(showInventory);
-    if (isFamilyNow()) {
-      claimDailyItems(userId).then(claimed => {
-        if (cancelled) return;
-        markClaimedToday(); // claimed now, or already claimed earlier today
-        if (claimed) fetchInventory(userId).then(showInventory);
-      });
-    }
+    fetchInventory(userId).then(inv => { if (!cancelled) applyInventory(inv); });
     return () => { cancelled = true; };
   }, [userId]);
 
@@ -302,7 +289,6 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       </div>
       <p className="text-[#6b4820] text-sm mb-6 font-semibold">
         Buy consumable items to use in Curio Arena battles.
-        {isFamily && ' As a family member, you receive free daily supplies!'}
       </p>
 
       <VoucherRedeemPanel
@@ -313,18 +299,6 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         }}
       />
 
-      {/* Daily claim banner for family */}
-      {isFamily && (
-        <div className={`mb-6 p-4 rounded-xl border ${claimedToday ? 'bg-green-50 border-green-300' : 'bg-amber-50 border-amber-300'}`}>
-          {claimedToday ? (
-            <p className="text-green-700 text-sm font-bold">✅ Daily supply claimed! 3× Health Potion + 1× Iron Shield added to your inventory.</p>
-          ) : (
-            <p className="text-amber-700 text-sm font-bold">
-              <img src="/icons/rewards/gift.svg" alt="Gift" className="inline w-4 h-4 align-[-2px]" /> Claiming your daily supply…
-            </p>
-          )}
-        </div>
-      )}
 
       {/* Inventory — same wood-plank + gold-ring + corner-nail frame as the
           battle screen's MonsterHpPanel, reusing its exported style pieces

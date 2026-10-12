@@ -1,4 +1,5 @@
 {
   "crons": [],
+  "regions": ["sin1"],
   "ignoreCommand": "bash scripts/vercel-ignore-build.sh"
 }

@@ -79,8 +79,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
   const minutesRef = useRef<HTMLInputElement>(null);
   const standardRef = useRef<HTMLInputElement>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const handleSessionEnd = async (summary: TimeAttackSummary) => {
     setScreen('results');
     trackEvent('guild_quiz_complete', { guild_key: 'number_realm', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
@@ -108,7 +107,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
     // Record the session even when it earned no gold (a session with no answers isn't a session).
     if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount, completedIds: summary.completedQuestionIds, subclassXp: summary.totalXpEarned });
     }
     if (summary.totalGoldEarned > 0) {
       logAction(userId, weekStartingDate, 'side_quest', `Number Realm session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
@@ -264,7 +263,7 @@ export default function NumberRealm({ userId, weekStartingDate, currentStats, on
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#b45309'}
+              color={'#b45309'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'number_realm' }); }}
               style={{ fontSize: 17 }}
             >

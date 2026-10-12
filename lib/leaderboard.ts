@@ -19,7 +19,7 @@ export interface LeaderboardEntry {
   name: string;
   avatar: string;
   grade: string;
-  isFamily: boolean;
+  showCrown: boolean;
   level: number;
   gold: number;
   questionsAnswered: number;
@@ -163,7 +163,7 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
       name: profile?.fullName ?? id,
       avatar: profile?.avatar ?? '/userpics/userpics_premium/ssb3.png',
       grade: profile?.grade ?? '',
-      isFamily: !!profile?.isFamily,
+      showCrown: !!profile?.showCrown,
       level: stats.level,
       gold: stats.gold,
       questionsAnswered,
@@ -195,7 +195,7 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
       name: bot.fullName,
       avatar: bot.userpic,
       grade: bot.grade,
-      isFamily: false,
+      showCrown: false,
       level: p.level,
       gold: p.gold,
       questionsAnswered: p.questionsAnswered,

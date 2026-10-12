@@ -221,6 +221,9 @@ export interface BattleQuestion {
   [key: string]: unknown;
 }
 
+// How long the right/wrong reveal stays up before the next question.
+const ANSWER_PAUSE_MS = 500;
+
 export interface BattleQuestionProps {
   questions: BattleQuestion[];
   count: number;
@@ -267,6 +270,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   const [revealedCorrect, setRevealedCorrect] = useState<string | null>(null);
   const [results, setResults] = useState<boolean[]>([]);
   const [skipped, setSkipped] = useState(false);
+  const [connectionHiccup, setConnectionHiccup] = useState(false);
 
   const current = pool[index];
   if (!current) return null;
@@ -286,7 +290,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
         setSkipped(false);
         setIndex(i => i + 1);
       }
-    }, 800);
+    }, ANSWER_PAUSE_MS);
   };
 
   const handleAnswer = async (opt: string) => {
@@ -294,10 +298,19 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
     playPageFlip();
     setSelected(opt);
     setGrading(true);
-    const { correct: isCorrect, correctAnswer } = gradeOverride
+    const graded: { correct: boolean; correctAnswer: string | null; failed?: boolean } = gradeOverride
       ? gradeOverride(current, opt)
       : await gradeMonsterQuestion(gradingUserId, current.id, opt);
+    const { correct: isCorrect, correctAnswer, failed } = graded;
     setGrading(false);
+    if (failed) {
+      // Couldn't reach the server even after a retry: keep the question up
+      // and let them tap again, rather than scoring it wrong.
+      setSelected(null);
+      setConnectionHiccup(true);
+      return;
+    }
+    setConnectionHiccup(false);
     setRevealedCorrect(correctAnswer);
     if (isCorrect) playChime(); else playClash();
     advance(isCorrect);
@@ -305,7 +318,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
 
   // Pays gold (via the caller's onSkip, which does the actual RPC debit +
   // per-battle cap check) to count this question as answered correctly
-  // without picking an option — same 800ms pacing as a real answer so a run
+  // without picking an option — same ANSWER_PAUSE_MS pacing as a real answer so a run
   // of skips doesn't feel instant/jarring next to answered questions.
   const handleSkip = async () => {
     if (selected || grading || skipped || !onSkip) return;
@@ -345,6 +358,9 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
           )}
         </div>
         <p className="text-base font-bold text-[#2a1505] mb-3 leading-snug">{current.question || current.problem_prompt}</p>
+        {connectionHiccup && (
+          <p className="text-xs font-bold text-[#7a4a0f] mb-2">📡 The internet hiccuped. Tap your answer again!</p>
+        )}
         <div className="space-y-2">
         {(current.options || []).map((opt, optIdx: number) => {
           const key = typeof opt === 'string' ? opt : opt.key;
@@ -420,7 +436,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
   );
 }
 
-// Perk badge for Tatay's kids — Damien and Tala are always USERS[id].isFamily.
+// GM crown shown next to the name of accounts with children.show_crown set.
 export function GMBadge() {
   return <span title="GM" className="text-xs leading-none">👑</span>;
 }

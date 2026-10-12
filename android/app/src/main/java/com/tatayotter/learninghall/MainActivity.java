@@ -16,21 +16,27 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-// This app is online-only — server.url from capacitor.config.ts always
-// loads the live Vercel app. No connection at cold start means there's
-// nothing safe to show in the WebView, so we hand off to
-// NoConnectionActivity instead of ever starting the bridge/WebView.
+// server.url from capacitor.config.ts always loads the live Vercel app. A
+// cold start with no connection still opens the WebView once the app has
+// finished loading online at least once on this phone: the web app's
+// service worker (public/sw.js) then serves the saved pages, and offline
+// play (docs/offline-mode-plan.md) takes over. Before that first online load
+// there is nothing saved to show, so we hand off to NoConnectionActivity
+// instead of ever starting the bridge/WebView. If the saved page can't load
+// after all, CachingWebViewClient.onReceivedError sends the player there too.
 public class MainActivity extends BridgeActivity {
 
     private static final String TAG = "MainActivity";
     private static final String SEED_PREFS_NAME = "webcache_seed_prefs";
     private static final String SEED_DONE_KEY = "seeded_" + CachingWebViewClient.CACHE_VERSION;
     private static final String SEED_ASSET_DIR = "webcache_seed";
+    private static final String OFFLINE_PREFS_NAME = "offline_prefs";
+    private static final String LOADED_ONLINE_KEY = "loaded_online";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!isOnline()) {
+        if (!isOnline(this) && !hasLoadedOnline(this)) {
             // Bail out before the WebView gets a chance to render/load
             // anything — finish() here happens before the first frame draws,
             // so there's no visible flash of the (now-unreachable) live URL.
@@ -89,8 +95,21 @@ public class MainActivity extends BridgeActivity {
         }).start();
     }
 
-    private boolean isOnline() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    // Set by CachingWebViewClient each time a page finishes loading while
+    // online, i.e. once the service worker has had a chance to save the app.
+    static void markLoadedOnline(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(OFFLINE_PREFS_NAME, MODE_PRIVATE);
+        if (!prefs.getBoolean(LOADED_ONLINE_KEY, false)) {
+            prefs.edit().putBoolean(LOADED_ONLINE_KEY, true).apply();
+        }
+    }
+
+    static boolean hasLoadedOnline(Context context) {
+        return context.getSharedPreferences(OFFLINE_PREFS_NAME, MODE_PRIVATE).getBoolean(LOADED_ONLINE_KEY, false);
+    }
+
+    static boolean isOnline(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (cm == null) return false;
         NetworkCapabilities caps = cm.getNetworkCapabilities(cm.getActiveNetwork());
         if (caps == null) return false;

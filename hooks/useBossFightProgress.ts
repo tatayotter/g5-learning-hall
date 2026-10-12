@@ -10,7 +10,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { BossPersona, getPersonasForGrade } from '@/lib/bossPersonas';
-import { fetchBossPoolCounts } from '@/lib/bossFightEngine';
+import { getScheduleForGrade } from '@/lib/subjectSchedule';
+import { bankLatestWeek, bankPoolCounts, readBossBank, syncBossBank } from '@/lib/bossQuestionBank';
 
 export interface SealedCurioReward {
   monsterId: string;
@@ -55,43 +56,58 @@ export function useBossFightProgress(userId: string, grade: number, term: number
   const [refreshing, setRefreshing] = useState(false);
   const loading = refreshing || loadedKey !== progressKey;
 
-  const fetchAll = useCallback(() => Promise.all([
+  // The term's boss questions live on the device (lib/bossQuestionBank.ts): a
+  // cached copy answers the roster/readiness counts at once while the sync
+  // checks for changes in the background, even before the event is switched on.
+  const fetchAll = useCallback(() => {
+    const isBossGrade = !!getScheduleForGrade(grade);
+    const cachedBank = isBossGrade ? readBossBank(grade, term) : null;
+    const bankSync = isBossGrade ? syncBossBank(grade, term) : Promise.resolve(null);
+    return Promise.all([
       supabase.from('boss_fights_status').select('boss_fights_enabled').maybeSingle(),
       supabase.from('boss_persona_defeats').select('subject')
         .eq('user_id', userId).eq('grade', grade).eq('term', term),
-      fetchBossPoolCounts(grade, term),
+      cachedBank ?? bankSync,
       supabase.from('boss_gauntlet_rewards').select('reward_monster_id, reward_lore_markdown')
         .eq('grade', grade).eq('term', term).maybeSingle(),
       supabase.from('boss_gauntlet_claims').select('id')
         .eq('user_id', userId).eq('grade', grade).eq('term', term).maybeSingle(),
-      supabase.from('draft_questions_public').select('week_starting_date')
-        .eq('grade', grade).eq('term', term)
-        .order('week_starting_date', { ascending: false }).limit(1).maybeSingle(),
-  ]), [userId, grade, term]);
+    ]).then(results => ({ results, cachedBank, bankSync }));
+  }, [userId, grade, term]);
 
-  const apply = useCallback(([statusRes, defeatsRes, counts, rewardRes, claimRes, lastWeekRes]: Awaited<ReturnType<typeof fetchAll>>) => {
+  const applyBank = useCallback((b: ReturnType<typeof readBossBank>) => {
+    setPoolCounts(b ? bankPoolCounts(b) : {});
+    const lastWeek = b ? bankLatestWeek(b) : null;
+    setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
+  }, []);
+
+  // isCurrent: false once this load is stale, so a late background sync
+  // never overwrites a newer user/grade/term.
+  const apply = useCallback((
+    { results: [statusRes, defeatsRes, bank, rewardRes, claimRes], cachedBank, bankSync }: Awaited<ReturnType<typeof fetchAll>>,
+    isCurrent: () => boolean,
+  ) => {
     setBossFightsEnabled(!!statusRes.data?.boss_fights_enabled);
     setDefeated(new Set((defeatsRes.data || []).map(r => r.subject as string)));
-    setPoolCounts(counts);
+    applyBank(bank);
+    if (cachedBank) bankSync.then(fresh => { if (isCurrent() && fresh && fresh !== cachedBank) applyBank(fresh); });
     setSealedCurio(rewardRes.data
       ? { monsterId: rewardRes.data.reward_monster_id as string, loreMarkdown: (rewardRes.data.reward_lore_markdown as string | null) ?? null }
       : null);
     setSealedCurioClaimed(!!claimRes.data);
-    const lastWeek = lastWeekRes.data?.week_starting_date as string | undefined;
-    setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
     setLoadedKey(progressKey);
     setRefreshing(false);
-  }, [progressKey]);
+  }, [progressKey, applyBank]);
 
   useEffect(() => {
     let cancelled = false;
-    fetchAll().then(result => { if (!cancelled) apply(result); });
+    fetchAll().then(result => { if (!cancelled) apply(result, () => !cancelled); });
     return () => { cancelled = true; };
   }, [fetchAll, apply]);
 
   const refresh = useCallback(() => {
     setRefreshing(true);
-    fetchAll().then(apply);
+    fetchAll().then(result => apply(result, () => true));
   }, [fetchAll, apply]);
 
   const claimSealedCurio = useCallback(async () => {

@@ -10,6 +10,7 @@ import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButto
 import CelebrationOverlay from '@/components/CelebrationOverlay';
 import { calculateReward } from '@/lib/quizReward';
 import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
+import { isOffline } from '@/lib/offlineSnapshot';
 
 // Proper Fisher-Yates — sort(() => Math.random() - 0.5) looks equivalent but
 // is heavily biased (see components/battle/shared.tsx's shuffleArray).
@@ -62,6 +63,9 @@ export interface QuizGradeResult {
   // nothing was graded, no attempt was consumed.
   locked?: boolean;
   attempts_used_today?: number;
+  // Graded on the device with no connection (lib/offlineQuests.ts); the answers
+  // are queued and the server re-grades them on reconnect.
+  queued_offline?: boolean;
 }
 
 interface QuestModuleProps {
@@ -94,6 +98,14 @@ interface QuestModuleProps {
   exitLabel?: string;
 }
 
+function OfflineQueuedNote() {
+  return (
+    <p className="mt-3 text-xs font-bold text-[#6b4820]">
+      📡 Saved here for now. It saves to your account when the internet is back.
+    </p>
+  );
+}
+
 const COOLDOWN_SECONDS = 20;
 const PRACTICE_COOLDOWN_SECONDS = 5;
 
@@ -120,6 +132,7 @@ export default function QuestModule({ userId, questName, questData, currentStats
   // cap was already hit before this submission (board-level gating should
   // normally prevent ever reaching this) — nothing was graded that time.
   const [alreadyLockedOnEntry, setAlreadyLockedOnEntry] = useState(false);
+  const [queuedOffline, setQueuedOffline] = useState(false);
 
   // Countdown ticker
   useEffect(() => {
@@ -143,7 +156,9 @@ export default function QuestModule({ userId, questName, questData, currentStats
     } catch (err) {
       console.error('Failed to grade quiz:', err);
       setGrading(false);
-      alert('⚠️ Could not grade your quiz — please try again.');
+      alert(isOffline()
+        ? "📡 No internet, and this quest needs it. Your answers are still here, so tap Submit again when the internet is back."
+        : '⚠️ Could not grade your quiz — please try again.');
       return;
     }
     setGrading(false);
@@ -198,6 +213,7 @@ export default function QuestModule({ userId, questName, questData, currentStats
     }
 
     setCorrectAnswers(gradedAnswers || []);
+    setQueuedOffline(!!graded.queued_offline);
     setSubmitted(true);
     setShuffledOptions(shuffleAllOptions());
     setLastResult({ isPerfect, score: correctCount, total, xp: reward.xp, gold: reward.gold, attemptNumber: newAttempts });
@@ -236,6 +252,7 @@ export default function QuestModule({ userId, questName, questData, currentStats
         }
       >
         {trainingResult && <CurioTrainingCard result={trainingResult} />}
+        {queuedOffline && <OfflineQueuedNote />}
       </VictoryScreen>
     );
   }
@@ -272,6 +289,7 @@ export default function QuestModule({ userId, questName, questData, currentStats
         }
       >
         {trainingResult && <CurioTrainingCard result={trainingResult} />}
+        {queuedOffline && <OfflineQueuedNote />}
       </VictoryScreen>
     );
   }
@@ -336,6 +354,7 @@ export default function QuestModule({ userId, questName, questData, currentStats
                   ? `No loot awarded this attempt. 🔒 That was your ${MAIN_QUEST_DAILY_ATTEMPT_CAP}${MAIN_QUEST_DAILY_ATTEMPT_CAP === 2 ? 'nd' : 'th'} attempt today — this quest is locked until tomorrow. Review the correct answers below before then.`
                   : "No loot awarded this attempt. 📖 Review your mistakes and remember the correct answers below before your next try — it'll help more than guessing."}
               </p>
+              {queuedOffline && <OfflineQueuedNote />}
             </div>
           )}
 

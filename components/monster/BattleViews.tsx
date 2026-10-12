@@ -8,11 +8,12 @@ import { UserId } from '@/lib/userSession';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { NpcTrainer } from '@/lib/monsterConfig';
 import { InventoryMap } from '@/lib/inventory';
-import { ActiveBattleMonster } from '@/components/battle/shared';
+import { ActiveBattleMonster, type BattleQuestionProps } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import BattleScreen from '@/components/monster/BattleScreen';
 import LiveBattleScreen from '@/components/LiveBattleScreen';
 import { GuildView } from '@/components/monster/types';
+import type { BattleLogger } from '@/lib/battleLog';
 
 type LiveBattleInbox = ReturnType<typeof useLiveBattleInbox>;
 
@@ -20,6 +21,10 @@ interface BattleViewsProps {
   view: GuildView;
   userId: string;
   questions: BattleQuestion[];
+  // Device grading for an offline trainer battle (lib/offlineTrainers.ts); NPC battles only.
+  npcGradeOverride?: BattleQuestionProps['gradeOverride'];
+  // The hidden battle log (lib/battleLog.ts) of an offline trainer battle.
+  onNpcBattleEvent?: BattleLogger;
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   handleQuestionsAnswered: (usedQuestions: BattleQuestion[]) => void;
@@ -61,6 +66,8 @@ export default function BattleViews({
   view,
   userId,
   questions,
+  npcGradeOverride,
+  onNpcBattleEvent,
   inventory,
   onUseItem,
   handleQuestionsAnswered,
@@ -97,6 +104,8 @@ export default function BattleViews({
           trainer={activeBattle}
           questions={questions}
           gradingUserId={userId}
+          gradeOverride={npcGradeOverride}
+          onBattleEvent={onNpcBattleEvent}
           inventory={inventory}
           onUseItem={onUseItem}
           gold={gold}

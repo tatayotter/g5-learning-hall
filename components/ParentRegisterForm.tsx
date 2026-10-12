@@ -28,6 +28,11 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [children, setChildren] = useState<ChildFormData[]>([emptyChildForm()]);
+  // A child who self-registered already has an account. Creating one here
+  // would use the free plan's only slot, and confirming the real child's link
+  // invite would then be refused at the child limit. So the parent can skip
+  // this step and link the existing account from their dashboard instead.
+  const [childAlreadyPlays, setChildAlreadyPlays] = useState(false);
   const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -61,7 +66,8 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
     }
     setError('');
 
-    for (const child of children) {
+    const newChildren = childAlreadyPlays ? [] : children;
+    for (const child of newChildren) {
       if (!child.fullName.trim() || !child.schoolName.trim() || !child.username.trim() || child.pin.length !== 4) {
         setError('Please fill in every field for each child, including a 4-digit PIN.');
         return;
@@ -72,7 +78,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
     try {
       // Before creating the parent login: a child name rejected after that
       // point would leave a half-registered parent.
-      for (const child of children) {
+      for (const child of newChildren) {
         const nameProblem = await checkSignupNames(child.username, child.fullName, child.schoolName);
         if (nameProblem) {
           setError(children.length > 1 ? `${child.fullName || 'A child'}: ${nameProblem}` : nameProblem);
@@ -102,7 +108,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
         user_id: signUpData.user.id,
         session_id: getOrCreateSessionId(),
         event_name: 'parent_registration_submitted',
-        properties: { source, ...getStoredAttribution() },
+        properties: { source, child_already_plays: childAlreadyPlays, ...getStoredAttribution() },
         is_family: false,
         client_ts: new Date().toISOString(),
       }).then(({ error }) => {
@@ -119,7 +125,7 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
       }
 
       let childFailed = false;
-      for (const child of children) {
+      for (const child of newChildren) {
         const { error: childError } = await supabase.rpc('create_child_account', {
           p_username: child.username,
           p_pin: child.pin,
@@ -236,6 +242,46 @@ export default function ParentRegisterForm({ source }: ParentRegisterFormProps) 
       )}
 
       {step === 1 && (
+        <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Does your child already play Learning Hall?">
+          {([
+            [false, 'Create a new account', 'For a child who is new to Learning Hall'],
+            [true, 'My child already plays', 'Link the account they already have'],
+          ] as const).map(([value, title, hint]) => {
+            const active = childAlreadyPlays === value;
+            return (
+              <button
+                key={title}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => { setChildAlreadyPlays(value); setError(''); }}
+                className={`rounded-xl border px-3 py-2.5 text-left transition-colors ${
+                  active
+                    ? 'border-orange-400 bg-orange-50 ring-2 ring-orange-200'
+                    : 'border-stone-300 bg-[#ffffff] hover:border-amber-300'
+                }`}
+              >
+                <span className={`block text-base font-semibold ${active ? 'text-orange-700' : 'text-slate-800'}`}>{title}</span>
+                <span className="block text-xs text-stone-500 mt-0.5">{hint}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {step === 1 && childAlreadyPlays && (
+        <div className="bg-[#ffffff] border border-stone-200 rounded-2xl p-5 shadow-sm space-y-2">
+          <p className="text-base font-semibold text-slate-800">You can link their account after this step</p>
+          <ol className="list-decimal pl-5 space-y-1 text-base text-stone-600">
+            <li>Create your account here.</li>
+            <li>On your child&apos;s Learning Hall account, they tap <span className="font-semibold text-slate-800">Show a parent</span> and enter <span className="font-semibold text-slate-800">{email.trim() || 'your email'}</span>.</li>
+            <li>Open the email we send you and confirm. Your child then appears on your dashboard.</li>
+          </ol>
+          <p className="text-xs text-stone-400">No new child account is created, so your free child slot stays open for them.</p>
+        </div>
+      )}
+
+      {step === 1 && !childAlreadyPlays && (
         <div className="space-y-3">
           {children.map((child, i) => (
             <div key={i} className="bg-[#ffffff] border border-stone-200 rounded-2xl p-5 shadow-sm">

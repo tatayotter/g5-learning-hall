@@ -139,7 +139,7 @@ export default function MapInfoDrawer({
                   <span className="text-[#2a1505] text-sm font-medium truncate">
                     {USERS[p.userId]?.name || p.name}
                   </span>
-                  {USERS[p.userId]?.isFamily && <GMBadge />}
+                  {USERS[p.userId]?.showCrown && <GMBadge />}
                   <span className="text-[12px] text-[#6b4820] ml-auto">{USERS[p.userId]?.grade}</span>
                 </button>
               ))}
@@ -198,7 +198,7 @@ export default function MapInfoDrawer({
                         className="text-[#2a1505] text-sm font-medium truncate flex-1 text-left hover:text-[#c9781a] transition-colors"
                       >
                         {USERS[friendId]?.name || friendId}
-                        {USERS[friendId]?.isFamily && <GMBadge />}
+                        {USERS[friendId]?.showCrown && <GMBadge />}
                       </button>
                       <button
                         onClick={() => { playPageFlip(); onRemoveFriend(friendId); }}

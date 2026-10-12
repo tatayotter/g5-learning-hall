@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import { cachedRead } from './offlineReads';
 import { GRADUATION_SCROLL_COST } from './monsterConfig';
 
 export type ItemKey =
@@ -46,17 +47,21 @@ export const DAILY_FAMILY_ITEMS: { key: ItemKey; qty: number }[] = [
 // lib/skillScrolls.ts share this same player_inventory table/map.
 export type InventoryMap = Partial<Record<string, number>>;
 
+// Offline (lib/offlineReads.ts) this is the last copy seen online, for showing counts only.
 export async function fetchInventory(userId: string): Promise<InventoryMap> {
-  const { data } = await supabase
-    .from('player_inventory')
-    .select('item_key, quantity')
-    .eq('app_user_id', userId);
+  return cachedRead(userId, 'inventory', async () => {
+    const { data, error } = await supabase
+      .from('player_inventory')
+      .select('item_key, quantity')
+      .eq('app_user_id', userId);
+    if (error) throw error;
 
-  const map: InventoryMap = {};
-  for (const row of data || []) {
-    map[row.item_key] = row.quantity;
-  }
-  return map;
+    const map: InventoryMap = {};
+    for (const row of data || []) {
+      map[row.item_key] = row.quantity;
+    }
+    return map;
+  }, {});
 }
 
 export async function addInventoryItem(userId: string, key: string, qty: number) {

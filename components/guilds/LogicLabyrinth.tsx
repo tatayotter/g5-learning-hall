@@ -73,8 +73,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     fromDef: MonsterDef; toDef: MonsterDef; monsterLevel: number; quality: QualityTier;
   } | null>(null);
 
-  const isTala = userId === 'tala';
-  const timeLimit = isTala ? 120 : 60;
+  const timeLimit = 60;
   const handleSessionEnd = async (summary: TimeAttackSummary) => {
     setScreen('results');
     trackEvent('guild_quiz_complete', { guild_key: 'logic_labyrinth', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
@@ -103,7 +102,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
     // Record the session even when it earned no gold (a session with no answers isn't a session).
     if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
       const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount });
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount, completedIds: summary.completedQuestionIds, subclassXp: summary.totalXpEarned });
     }
     if (summary.totalGoldEarned > 0) {
       logAction(userId, weekStartingDate, 'side_quest', `Logic Labyrinth session: ${summary.correctCount} correct, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
@@ -200,7 +199,7 @@ export default function LogicLabyrinth({ userId, weekStartingDate, currentStats,
           ) : (
             <GameButton
               variant="quest"
-              color={isTala ? '#db2777' : '#0e7490'}
+              color={'#0e7490'}
               onClick={() => { engine.start(); setScreen('playing'); trackEvent('guild_quiz_start', { guild_key: 'logic_labyrinth' }); }}
               style={{ fontSize: 17 }}
             >

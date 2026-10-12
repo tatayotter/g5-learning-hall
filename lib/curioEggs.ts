@@ -5,6 +5,7 @@
 // for the full design and RPC bodies (supabase/ has no local migration
 // files — schema lives on project rsiupmbfhqtihmtahccg).
 import { supabase } from './supabase';
+import { cachedRead } from './offlineReads';
 import { Element, GRADUATION_LEVEL_REQUIREMENT } from './monsterConfig';
 import { QualityTier } from './curioQuality';
 
@@ -53,16 +54,18 @@ export async function grantKeeperEgg(): Promise<{ granted: boolean; egg_id: stri
 }
 
 export async function fetchUserEggs(userId: string): Promise<CurioEgg[]> {
-  const { data, error } = await supabase
-    .from('curio_eggs')
-    .select('*')
-    .eq('user_id', userId)
-    .order('claimed_at', { ascending: true });
-  if (error) {
-    console.error('fetchUserEggs error:', error);
-    return [];
-  }
-  return (data || []) as CurioEgg[];
+  return cachedRead(userId, 'eggs', async () => {
+    const { data, error } = await supabase
+      .from('curio_eggs')
+      .select('*')
+      .eq('user_id', userId)
+      .order('claimed_at', { ascending: true });
+    if (error) {
+      console.error('fetchUserEggs error:', error);
+      throw error;
+    }
+    return (data || []) as CurioEgg[];
+  }, []);
 }
 
 export interface EggChainRow {
@@ -88,19 +91,24 @@ export async function fetchEggChainList(): Promise<EggChainRow[]> {
   return (data || []) as EggChainRow[];
 }
 
-export async function fetchEggChainMap(): Promise<EggChainMap> {
-  const { data, error } = await supabase
-    .from('curio_egg_chains')
-    .select('species_id, predecessor_species_id, element');
-  if (error) {
-    console.error('fetchEggChainMap error:', error);
-    return {};
-  }
-  const map: EggChainMap = {};
-  for (const row of data || []) {
-    map[row.species_id] = { predecessorSpeciesId: row.predecessor_species_id, element: row.element as Element };
-  }
-  return map;
+// Pass the player's id to keep a copy for offline (lib/offlineReads.ts).
+export async function fetchEggChainMap(userId?: string): Promise<EggChainMap> {
+  const fetchMap = async () => {
+    const { data, error } = await supabase
+      .from('curio_egg_chains')
+      .select('species_id, predecessor_species_id, element');
+    if (error) {
+      console.error('fetchEggChainMap error:', error);
+      throw error;
+    }
+    const map: EggChainMap = {};
+    for (const row of data || []) {
+      map[row.species_id] = { predecessorSpeciesId: row.predecessor_species_id, element: row.element as Element };
+    }
+    return map;
+  };
+  if (userId) return cachedRead(userId, 'eggChains', fetchMap, {});
+  return fetchMap().catch(() => ({}));
 }
 
 export interface ClaimEggResult {

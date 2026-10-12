@@ -1,5 +1,5 @@
 // hooks/useWeeklyData.ts
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { startOfWeek, format } from 'date-fns';
@@ -7,6 +7,9 @@ import { ACHIEVEMENTS, Achievement } from '@/lib/achievements';
 import { logAction } from '@/lib/playerlog';
 import { USERS, gradeToNumber } from '@/lib/userSession';
 import { fetchPlayerProgress, PlayerProgress } from '@/lib/lifetimeStats';
+import { isOffline, loadOfflineWeekly, saveOfflineWeekly } from '@/lib/offlineSnapshot';
+import { refreshFeatureFlags } from '@/lib/featureFlags';
+import { refreshOfflineContent } from '@/lib/offlineQuests';
 
 export interface CharacterStats {
   level: number;
@@ -78,6 +81,9 @@ const EMPTY_JOURNAL_FIELDS = {
   tatay_battles_won: 0,
   tatay_battles_lost: 0,
 };
+
+// Saves still need the server (offline progress syncing is separate, later work).
+const OFFLINE_SAVE_MESSAGE = "⚠️ You're offline, so this wasn't saved. Reconnect and try again.";
 
 export interface JournalEntry {
   done_today: string;
@@ -152,6 +158,17 @@ export function useWeeklyData(userId: string | null) {
   // newer one, letting a later save in the same open tab re-award it. Cleared on every
   // fetch (the DB record is authoritative again by then) so it can never leak between users.
   const claimedAchievementsRef = useRef<Record<string, boolean>>({});
+  // True while `data` is the last-loaded copy from lib/offlineSnapshot.ts because the device
+  // had no connection at load time. Coming back online refetches (reloadKey) and clears it.
+  const [offline, setOffline] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
+
+  useEffect(() => {
+    if (!offline) return;
+    const onOnline = () => setReloadKey(k => k + 1);
+    window.addEventListener('online', onOnline);
+    return () => window.removeEventListener('online', onOnline);
+  }, [offline]);
 
   const today = new Date();
   const currentSunday = format(startOfWeek(today), 'yyyy-MM-dd');
@@ -178,6 +195,17 @@ export function useWeeklyData(userId: string | null) {
       if (!userId) {
         setData(null);
         setLoading(true);
+        return;
+      }
+      // No connection: every query below would fail, so open on the last-loaded copy instead
+      // (null if this device never loaded this player online — Dashboard explains that case).
+      if (isOffline()) {
+        const snapshot = loadOfflineWeekly<WeeklyData, PlayerProgress>(userId);
+        setProgress(snapshot?.progress ?? null);
+        setContentWeekId(snapshot?.contentWeekId ?? null);
+        setData(snapshot?.data ?? null);
+        setOffline(true);
+        setLoading(false);
         return;
       }
       // player_progress/player_weekly_journal RLS only grants access to the `authenticated`
@@ -230,9 +258,7 @@ export function useWeeklyData(userId: string | null) {
       }
       if (cancelled) return;
 
-      setProgress(progressData);
-      setContentWeekId(weekId);
-      setData({
+      const loaded: WeeklyData = {
         week_starting_date: currentSunday,
         user_id: userId,
         character_stats: progressData
@@ -245,12 +271,30 @@ export function useWeeklyData(userId: string | null) {
         trash_collected: progressData?.trash_collected_total ?? 0,
         trash_gold_earned: progressData?.trash_gold_earned_total ?? 0,
         daily_quest_attempts: dailyAttemptRows,
-      });
+      };
+      setProgress(progressData);
+      setContentWeekId(weekId);
+      setData(loaded);
+      setOffline(false);
       setLoading(false);
+      // Keeps the remembered flags and, where offline play is on, the answer key and the rest of
+      // the term's questions current for the next time the device has no connection
+      // (lib/offlineQuests.ts).
+      void refreshFeatureFlags(userId).then(() => {
+        if (weekId) return refreshOfflineContent(userId, grade, currentSunday, weekId);
+      });
     }
     fetchData();
     return () => { cancelled = true; };
-  }, [currentSunday, userId, grade, todayStr]);
+  }, [currentSunday, userId, grade, todayStr, reloadKey]);
+
+  // Keeps the offline copy current with every load and save (saves update `data` in place),
+  // including quests answered offline, so reopening offline shows the latest gold/xp.
+  useEffect(() => {
+    if (userId && data && data.user_id === userId) {
+      saveOfflineWeekly(userId, { data, progress, contentWeekId });
+    }
+  }, [userId, data, progress, contentWeekId]);
 
   const updateStatsAndJournal = async (
     newStats: CharacterStats,
@@ -289,7 +333,7 @@ export function useWeeklyData(userId: string | null) {
     let addedGold = 0;
 
     const newUnlocked = { ...currentAchievements };
-    const newlyUnlockedTitles: { title: string; xp: number; gold: number }[] = [];
+    const newlyUnlockedTitles: { id: string; title: string; xp: number; gold: number }[] = [];
     const newlyUnlockedIds: string[] = [];
 
     // Achievement criteria now check LIFETIME totals (player_progress), not the current
@@ -339,7 +383,7 @@ export function useWeeklyData(userId: string | null) {
         newUnlocked[ach.id] = true;
         addedXp += ach.xpReward;
         addedGold += ach.goldReward;
-        newlyUnlockedTitles.push({ title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
+        newlyUnlockedTitles.push({ id: ach.id, title: ach.title, xp: ach.xpReward, gold: ach.goldReward });
         newlyUnlockedIds.push(ach.id);
       }
     });
@@ -347,10 +391,6 @@ export function useWeeklyData(userId: string | null) {
     // Claim synchronously, BEFORE the awaits below, so an overlapping save can't also unlock
     // these — see claimedAchievementsRef. Rolled back if the RPC fails.
     newlyUnlockedIds.forEach(id => { claimedAchievementsRef.current[id] = true; });
-
-    newlyUnlockedTitles.forEach(({ title, xp, gold }) => {
-      logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
-    });
 
     // xp/gold/level are applied server-side as atomic deltas (not written as
     // an absolute snapshot of local state) so that two saves firing close
@@ -454,34 +494,59 @@ export function useWeeklyData(userId: string | null) {
       p_honor_grants_delta: counterDeltas.honor,
     };
 
-    let { data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', {
+    // The reward folded into xpDelta/goldDelta for each id above. The server takes it back out
+    // for any id the account already owns (migration 20261011120000_achievement_award_dedupe):
+    // a second tab or device holds an older achievements list and would otherwise re-pay them.
+    const achievementRewards = Object.fromEntries(
+      newlyUnlockedTitles.map(({ id, xp, gold }) => [id, { xp, gold }])
+    );
+
+    let { data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
       ...progressArgs,
       ...lifetimeDeltaArgs,
+      p_achievement_rewards: achievementRewards,
     });
 
     // This client can go live before the migration above is approved and applied (Vercel
     // deploys on merge; deploy-migrations.yml waits for a manual approval click). Against a
-    // DB that doesn't have the *_delta params yet PostgREST answers PGRST202 ("function not
-    // found in the schema cache") and applies nothing, so retry once without them: xp, gold
-    // and every other counter still save, and the 3 lifetime counters simply don't move until
-    // the migration lands (omitting the old absolute params leaves them untouched there —
-    // COALESCE(NULL, current)).
+    // DB without p_achievement_rewards PostgREST answers PGRST202 ("function not found in the
+    // schema cache") and applies nothing, so retry once without it: everything saves exactly
+    // as before the dedupe, and the result just lacks new_achievement_ids (handled below).
     if (statsError?.code === 'PGRST202') {
-      ({ data: finalStats, error: statsError } = await supabase.rpc('apply_progress_update', progressArgs));
+      ({ data: rpcResult, error: statsError } = await supabase.rpc('apply_progress_update', {
+        ...progressArgs,
+        ...lifetimeDeltaArgs,
+      }));
     }
 
-    if (statsError || !finalStats) {
+    if (statsError || !rpcResult) {
       console.error('Failed to apply progress update:', statsError);
       newlyUnlockedIds.forEach(id => { delete claimedAchievementsRef.current[id]; });
-      alert(`⚠️ Save failed: ${statsError?.message}`);
+      alert(isOffline() ? OFFLINE_SAVE_MESSAGE : `⚠️ Save failed: ${statsError?.message}`);
       return;
     }
+
+    const { new_achievement_ids: confirmedIds, achievements: serverAchievements, ...finalStats } = rpcResult as CharacterStats & {
+      new_achievement_ids?: string[];
+      achievements?: Record<string, boolean>;
+    };
+
+    // Logged only after the save lands, and only for ids the server confirmed as new (all of
+    // them against the pre-dedupe DB, which doesn't report any).
+    const awardedIds = new Set(Array.isArray(confirmedIds) ? confirmedIds : newlyUnlockedIds);
+    newlyUnlockedTitles.forEach(({ id, title, xp, gold }) => {
+      if (awardedIds.has(id)) {
+        logAction(userId, currentSunday, 'achievement', `Unlocked achievement: ${title}`, xp, gold);
+      }
+    });
 
     // Functional update, and achievements MERGED into whatever is there now rather than
     // overwritten from this call's stale closure — `{ ...data, achievements: newUnlocked }`
     // could write an older unlocked-list back over a newer one from an overlapping save.
+    // The server's full map is merged in too, so a stale tab catches up on achievements
+    // another tab or device unlocked and stops trying to re-award them.
     setData(prev => prev
-      ? { ...prev, character_stats: finalStats as CharacterStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked } }
+      ? { ...prev, character_stats: finalStats, ...journalChanges, achievements: { ...prev.achievements, ...newUnlocked, ...(serverAchievements || {}) } }
       : prev);
 
     // journal_logs/counters are this-week-only content, not lifetime — written directly via a
@@ -495,7 +560,7 @@ export function useWeeklyData(userId: string | null) {
 
       if (journalError) {
         console.error('Failed to save journal:', journalError);
-        alert(`⚠️ Save failed: ${journalError.message}`);
+        alert(isOffline() ? OFFLINE_SAVE_MESSAGE : `⚠️ Save failed: ${journalError.message}`);
         return;
       }
     }
@@ -595,5 +660,37 @@ export function useWeeklyData(userId: string | null) {
     setProgress(prev => prev ? { ...prev, level: stats.level, xp: stats.xp, gold: stats.gold } : prev);
   };
 
-  return { data, loading, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
+  // Refetches everything from the server, e.g. after queued offline quests synced (the server's
+  // result replaces the phone's copy).
+  const refresh = useCallback(() => setReloadKey(k => k + 1), []);
+
+  // A main quest answered offline (lib/offlineQuests.ts): shows the result right away, the
+  // same as the online submit would after saving. Nothing is sent from here; the queued answers
+  // are re-graded and the reward applied server-side on sync, and `refresh` then replaces this.
+  const applyOfflineQuestResult = (questKey: string, isPerfect: boolean, newAttempts: number, newStats: CharacterStats) => {
+    setData(prev => {
+      if (!prev) return prev;
+      const next = { ...prev, quiz_attempts: { ...(prev.quiz_attempts || {}), [questKey]: newAttempts } };
+      if (!isPerfect) return next;
+      return {
+        ...next,
+        character_stats: newStats,
+        mastered_quizzes: [...(prev.mastered_quizzes || []), questKey],
+        mastery_count: (prev.mastery_count || 0) + 1,
+        perfect_quizzes: (prev.perfect_quizzes || 0) + 1,
+      };
+    });
+  };
+
+  // A guild session queued offline (lib/offlineGuilds.ts): its gold and the week's session
+  // count, on the device only until it syncs.
+  const applyOfflineGuildResult = (newStats: CharacterStats) => {
+    setData(prev => prev && {
+      ...prev,
+      character_stats: newStats,
+      guild_sessions_count: (prev.guild_sessions_count || 0) + 1,
+    });
+  };
+
+  return { data, loading, offline, refresh, applyOfflineQuestResult, applyOfflineGuildResult, updateStatsAndJournal, currentSunday, todayStr, contentWeekId, applyGoldDelta, bumpCounters, bumpDailyQuestAttempt, syncCharacterStats, setCharacterStatsDirect };
 }

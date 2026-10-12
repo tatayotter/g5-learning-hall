@@ -6,6 +6,7 @@
 // 'hatched' row is just filtered out of this list entirely, it has already
 // become a curio in My Team. See docs/curio-egg-mechanism-design.md.
 import { useEffect, useState } from 'react';
+import { needsConnection } from '@/lib/offlineReads';
 import { CurioEgg, incubateCurioEgg } from '@/lib/curioEggs';
 import { ALL_MONSTERS, EGG_SPRITE_SRC } from '@/lib/monsterConfig';
 import { MonsterImage } from '@/components/battle/shared';
@@ -101,6 +102,7 @@ function IncubatingEggCard({ egg }: { egg: CurioEgg }) {
 function StalledEggCard({ egg, userId, onEggsChanged }: { egg: CurioEgg; userId: string; onEggsChanged: () => void }) {
   const [busy, setBusy] = useState(false);
   const handleIncubate = async () => {
+    if (needsConnection()) return;
     setBusy(true);
     const result = await incubateCurioEgg(userId, egg.id);
     setBusy(false);

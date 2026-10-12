@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// Shared by every admin-gated API route (app/api/admin-*, family-admin,
+// Shared by every admin-gated API route (app/api/admin-*,
 // classmate-admin) — was previously copy-pasted verbatim into each one,
 // which meant a new admin route could easily forget it and ship unauthenticated.
 export function requireAdminPasscode(passcode: unknown): NextResponse | null {

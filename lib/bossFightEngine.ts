@@ -104,13 +104,19 @@ export async function fetchBossQuestionPool(grade: number, subject: string, term
 // Server-side grading, per question — correct_answer never reaches the
 // client. Same trust model as the rest of the battle system: the client
 // tallies verified-correct results, it doesn't re-derive correctness itself.
-export async function gradeBossQuestion(questionId: string, selected: string): Promise<boolean> {
-  const { data, error } = await supabase.rpc('grade_boss_question', {
-    p_question_id: questionId,
-    p_selected: selected,
-  });
-  if (error) return false;
-  return !!data;
+// Retries once on a failed call, then resolves null ("couldn't check") instead
+// of false, so a dropped connection never costs the kid a heart.
+export async function gradeBossQuestion(questionId: string, selected: string): Promise<boolean | null> {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt > 0) await new Promise(r => setTimeout(r, 600));
+    const { data, error } = await supabase.rpc('grade_boss_question', {
+      p_question_id: questionId,
+      p_selected: selected,
+    });
+    if (!error) return !!data;
+    console.error('Failed to grade boss question:', error);
+  }
+  return null;
 }
 
 export type BossFightStatus = 'active' | 'won' | 'lost';

@@ -16,7 +16,11 @@ import { trackEvent } from '@/lib/analytics';
 
 const TRAINING_PENDING_PREFIX = 'lh_intro_training_pending';
 
-// Set when the curio is claimed, cleared when training ends — so a kid who
+// player_log description for the paid training completion. Dashboard checks
+// for it so the reward is paid once per account, not once per device.
+export const TRAINING_QUEST_LOG = 'Completed the Keeper training quest';
+
+// Set when the curio is claimed, cleared when training is won or left — so a kid who
 // reloads between the two still gets the training quest (they'd otherwise
 // skip it, since owning a curio is what normally ends the intro).
 export function isIntroTrainingPending(userId: string): boolean {
@@ -86,7 +90,11 @@ export default function FirstCurioIntro({ userId, playerName, grade, startAt, cu
       grade={grade}
       currentStats={currentStats}
       weekStartingDate={weekStartingDate}
-      onRewards={onRewards}
+      onRewards={(newStats, xpEarned, goldEarned) => {
+        // Won: a reload on the victory screen shouldn't replay the quest.
+        setIntroTrainingPending(userId, false);
+        onRewards(newStats, xpEarned, goldEarned);
+      }}
       hasFirstQuest={hasFirstQuest}
       onDone={(completed) => {
         setIntroTrainingPending(userId, false);

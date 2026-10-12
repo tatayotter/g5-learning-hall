@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ACHIEVEMENTS } from '@/lib/achievements';
 import { WeeklyData } from '@/hooks/useWeeklyData';
-import { fetchPlayerProgress, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
+import { fetchPlayerProgressForDisplay, PlayerProgress, mergeProgressForAchievements } from '@/lib/lifetimeStats';
 import { playPageFlip } from '@/lib/sounds';
 
 interface AchievementsBoardProps {
@@ -29,7 +29,7 @@ export default function AchievementsBoard({ data, userId }: AchievementsBoardPro
   useEffect(() => {
     if (!userId) return;
     let cancelled = false;
-    fetchPlayerProgress(userId).then(p => { if (!cancelled) setLoaded({ userId, progress: p }); });
+    fetchPlayerProgressForDisplay(userId).then(p => { if (!cancelled) setLoaded({ userId, progress: p }); });
     return () => { cancelled = true; };
   }, [userId]);
 
