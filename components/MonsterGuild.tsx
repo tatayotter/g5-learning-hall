@@ -17,6 +17,7 @@ import { useIsOffline } from '@/hooks/useIsOffline';
 import OfflineUnavailable from '@/components/OfflineUnavailable';
 import { playCurioLevelUp, playPageFlip } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
+import { trackEvent } from '@/lib/analytics';
 import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useBotPresence } from '@/hooks/useBotPresence';
@@ -302,6 +303,31 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const [liveBattleBotAccuracy, setLiveBattleBotAccuracy] = useState<number | undefined>(undefined);
   /** Bot that has "challenged" the player — shown via LiveBattleInviteToast. */
   const [pendingBotChallenge, setPendingBotChallenge] = useState<BotProfile | null>(null);
+
+  // Which Arena screen a kid opens: one arena_view per screen change
+  // (docs/analytics/tracking-plan.md). `via` is 'enter' for the screen the
+  // Arena opens on, 'menu' for an Arena menu tap, and 'flow' when the game
+  // moved them (a battle starting or ending, a link from another screen).
+  // `prev_ms` is the time on the screen they just left; the last screen's time
+  // is in the tab's screen_time instead.
+  const arenaViaRef = useRef<'enter' | 'menu' | 'flow'>('enter');
+  const arenaLastViewRef = useRef<{ view: GuildView; at: number } | null>(null);
+  const logArenaView = useEffectEvent((next: GuildView) => {
+    const now = Date.now();
+    const prev = arenaLastViewRef.current;
+    arenaLastViewRef.current = { view: next, at: now };
+    const via = arenaViaRef.current;
+    arenaViaRef.current = 'flow';
+    const detail =
+      next === 'battle' ? {
+        battle_kind: isWildEncounterBattle ? 'wild' : isDummyBattle ? 'dummy' : pvpOpponentTeam ? 'pvp' : 'trainer',
+        offline: !!offlineBattle,
+      }
+      : next === 'live_battle' ? { opponent: liveBattleBotAccuracy !== undefined ? 'bot' : 'player' }
+      : {};
+    trackEvent('arena_view', { view: next, from: prev?.view ?? null, via, prev_ms: prev ? now - prev.at : null, ...detail }, 'monster');
+  });
+  useEffect(() => { logArenaView(view); }, [view]);
   // Challenger-side mirror of LiveBattleInviteToast's 15s countdown: covers
   // the case where the invitee's client never even receives/renders the
   // toast (they're offline, or not on this tab), so their own timer would
@@ -1489,7 +1515,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
                         return (
                           <button
                             key={tab.id}
-                            onClick={() => { playPageFlip(); setTradeTarget(null); setView(tab.id); setArenaNavOpen(false); }}
+                            onClick={() => { playPageFlip(); setTradeTarget(null); if (tab.id !== view) arenaViaRef.current = 'menu'; setView(tab.id); setArenaNavOpen(false); }}
                             className="relative flex flex-col items-center gap-1.5 p-4 rounded-2xl border transition-all duration-150 ease-out
                               hover:-translate-y-1 hover:drop-shadow-md active:translate-y-0 active:scale-95
                               border-transparent"
