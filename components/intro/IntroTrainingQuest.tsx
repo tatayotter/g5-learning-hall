@@ -138,7 +138,7 @@ export default function IntroTrainingQuest({ userId, grade, currentStats, weekSt
               onRewards(newStats, xpEarned, goldEarned);
               setVictoryLine(TRAINING_LINES.victory);
               if (trainingCurio && weekStartingDate) {
-                awardCurioTrainingExp(userId, trainingCurio.id, xpEarned, weekStartingDate).then(r => { if (r) setTrainingResult(r); });
+                awardCurioTrainingExp(userId, trainingCurio, xpEarned, weekStartingDate).then(r => { if (r) setTrainingResult(r); });
               }
             }}
             onExit={() => {

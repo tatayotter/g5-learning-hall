@@ -3,9 +3,13 @@
 // "Pick a curio to train" step shown before a main quest quiz starts. The chosen
 // curio earns 1/3 of the quest's XP as Curio EXP when the quest is completed
 // (see ActiveQuestView). An eligible curio is always selected; the player can switch.
+// Lists every curio the player owns: the team and bench (user_monsters) plus the
+// Catch Inbox (user_caught_monsters), where wild catches and guild companions wait
+// until they're put on the team.
 import { useEffect, useRef, useState } from 'react';
-import { supabase } from '@/lib/supabase';
-import { ALL_MONSTERS, BATTLE_CONSTANTS, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, BATTLE_CONSTANTS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
+import { fetchCurioCollection } from '@/lib/curioCollection';
+import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
 import { MonsterImage } from '@/components/battle/shared';
 import { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
@@ -19,6 +23,22 @@ export interface OwnedCurio {
   monster_level: number;
   slot: number | null;
   graduation_tier: number | null;
+  // Which table the row lives in: 'team' = user_monsters, 'inbox' = user_caught_monsters.
+  source: 'team' | 'inbox';
+  // The form the player actually sees: guild companions at their guild-level
+  // stage, graduated curios at their graduated stage.
+  display: MonsterDef | undefined;
+}
+
+// Same display rules as the Curio Arena (MonsterGuild.tsx) and Trainer Card:
+// guild companions take the stage their owner's guild level unlocks, then the
+// row's own graduation tier is layered on.
+export function getOwnedCurioDisplay(monsterId: string, graduationTier: number | null, profile: SubclassProfile | null): MonsterDef | undefined {
+  const guildDef = GUILD_MONSTERS[monsterId];
+  const species = guildDef
+    ? getGuildMonsterDisplay(guildDef, guildLevelForKey(profile, guildDef.guildEvolution?.guildKey))
+    : ALL_MONSTERS[monsterId];
+  return getOwnedMonsterDisplay(species, graduationTier);
 }
 
 const isMax = (c: { monster_level: number }) => c.monster_level >= BATTLE_CONSTANTS.MONSTER_LEVEL_CAP;
@@ -36,18 +56,28 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
 
   useEffect(() => {
     let cancelled = false;
-    supabase
-      .from('user_monsters')
-      .select('id, monster_id, nickname, monster_level, slot, graduation_tier')
-      .eq('user_id', userId)
-      .order('slot', { ascending: true, nullsFirst: false })
-      .then(({ data }) => { if (!cancelled) setCurios((data as OwnedCurio[]) ?? []); });
-    supabase
-      .from('user_battle_state')
-      .select('active_monster_slot')
-      .eq('user_id', userId)
-      .maybeSingle()
-      .then(({ data }) => { if (!cancelled && data?.active_monster_slot) setActiveSlot(data.active_monster_slot); });
+    Promise.all([
+      fetchCurioCollection(userId).catch(() => null),
+      fetchSubclassProfile(userId).catch(() => null),
+    ]).then(([collection, profile]) => {
+      if (cancelled) return;
+      const team: OwnedCurio[] = (collection?.userMonsters ?? []).map(m => ({
+        id: m.id, monster_id: m.monster_id, nickname: m.nickname, monster_level: m.monster_level,
+        slot: m.slot, graduation_tier: m.graduation_tier ?? null, source: 'team',
+        display: getOwnedCurioDisplay(m.monster_id, m.graduation_tier ?? null, profile),
+      }));
+      // Catch Inbox curios are never graduated (graduating needs a team slot).
+      const inbox: OwnedCurio[] = (collection?.caughtMonsters ?? []).map(m => ({
+        id: m.id, monster_id: m.monster_id, nickname: m.nickname, monster_level: m.monster_level,
+        slot: null, graduation_tier: 0, source: 'inbox',
+        display: getOwnedCurioDisplay(m.monster_id, 0, profile),
+      }));
+      // Team slots first, then the bench, then the inbox, strongest first.
+      team.sort((a, b) => (a.slot ?? 99) - (b.slot ?? 99) || b.monster_level - a.monster_level);
+      inbox.sort((a, b) => b.monster_level - a.monster_level);
+      setCurios([...team, ...inbox]);
+      if (collection?.battleState?.active_monster_slot) setActiveSlot(collection.battleState.active_monster_slot);
+    });
     return () => { cancelled = true; };
   }, [userId]);
 
@@ -78,7 +108,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
         {trainable.map(c => {
-          const def = getOwnedMonsterDisplay(ALL_MONSTERS[c.monster_id], c.graduation_tier);
+          const def = c.display;
           const selected = selectedId === c.id;
           return (
             <button
@@ -100,7 +130,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
               <MonsterImage monster={def} className="w-16 h-16" emojiClassName="text-4xl" />
               <span className="text-sm font-extrabold text-[#2a1505] truncate max-w-full">{c.nickname || def?.name || c.monster_id}</span>
               <span className="ccard-lv">
-                Lv.{c.monster_level}{c.slot != null ? '' : ' · bench'}
+                Lv.{c.monster_level}{c.slot != null ? '' : c.source === 'inbox' ? ' · inbox' : ' · bench'}
               </span>
               {selected && <span className="ccard-check">✔</span>}
             </button>

@@ -11,7 +11,7 @@
 // jumps straight to its final fill.
 import { ReactNode, useEffect, useState } from 'react';
 import { MonsterImage } from '@/components/battle/shared';
-import { ALL_MONSTERS, BATTLE_CONSTANTS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef } from '@/lib/monsterConfig';
 import {
   questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questButtonDropShadow,
   questTextShadowStyle, questTextStyle,
@@ -29,6 +29,7 @@ export interface VictoryReward {
 
 export interface TrainingResult {
   monsterId: string;
+  display?: MonsterDef;     // the curio's current form (graduated / guild stage)
   name: string;
   exp: number;              // EXP just earned
   prevExp: number;          // curio's total EXP before
@@ -127,7 +128,7 @@ function RewardTile({ reward, delay }: { reward: VictoryReward; delay: number })
 // Bottom card showing a curio's EXP bar filling — pass as a child of VictoryScreen.
 export function CurioTrainingCard({ result }: { result: TrainingResult }) {
   const per = BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL;
-  const def = ALL_MONSTERS[result.monsterId];
+  const def = result.display ?? ALL_MONSTERS[result.monsterId];
   const level = Math.min(Math.floor(result.newExp / per) + 1, BATTLE_CONSTANTS.MONSTER_LEVEL_CAP);
   const prevPct = ((result.prevExp % per) / per) * 100;
   const newPct = ((result.newExp % per) / per) * 100;
