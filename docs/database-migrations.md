@@ -101,6 +101,22 @@ owns the repo — never generated or entered by an AI session:
 If `deploy` ever fails at the link/push step, check these two secrets exist and haven't
 expired before looking anywhere else.
 
+## Large data migrations and the Vercel build
+
+Vercel fails a git deployment within seconds, with `errorCode: git_info_fail` and no build
+log, when the commit's diff is very large. It happened to PR #172 (MAPEH in English, a 1.3 MB
+diff, 2026-10-12): the preview and the production build of its merge commit both failed, and
+redeploying the same commit failed again. Earlier merges up to about 450 KB built normally.
+The app was fine; Vercel just never started the build.
+
+- When a PR's diff goes over about 1 MB (usually a generated content migration), expect this.
+  The PR's real checks (`database-tests.yml`, lint, e2e) still run and are what matter.
+- The live site stays on the previous version until a commit Vercel can read lands on
+  `main`. Any normal-sized follow-up merge deploys everything, including the big change.
+- If the app code in such a PR has to be live before the data changes (for example, a
+  device-cache refresh that a content rewording depends on), hold the `deploy` approval
+  above until the Vercel production build is green.
+
 ## Troubleshooting: "Remote migration versions not found in local migrations directory"
 
 `supabase db push` refuses to run at all if **any** version recorded in production's
