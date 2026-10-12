@@ -633,110 +633,110 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🖥️ EPP (ICT) — Creating Presentation Slides\n\nGrade 5, Linggo 16! Gumawa tayo ng slide presentation. 💻\n\n## 🎬 Bahagi ng Isang Presentation\n| Bahagi | Layunin |\n|---|---|\n| **Slide** | isang \"pahina\" ng presentation |\n| **Animation** | paggalaw ng teksto o larawan sa loob ng isang slide |\n| **Slide Transition** | epekto sa paglipat mula sa isang slide papunta sa susunod |\n| **Audio/Video** | tunog o video na naka-embed sa slide |\n\n## ✨ Pagdaragdag ng Animation\n**Hakbang:**\n1. Piliin ang **teksto o larawan** na gusto mong bigyan ng animation\n2. Pumunta sa **Animations tab**\n3. Piliin ang **epekto** (Fade In, Fly In, Zoom)\n4. I-preview upang makita ang resulta\n\n## 🎞️ Pagdaragdag ng Slide Transition\n**Hakbang:**\n1. Piliin ang slide\n2. Pumunta sa **Transitions tab**\n3. Piliin ang **epekto** ng paglipat (Fade, Push, Wipe)\n\n## 🎵 Pagdaragdag ng Audio/Video\n1. Pumunta sa **Insert tab**\n2. Piliin ang **Audio** o **Video**\n3. Piliin ang file mula sa iyong computer\n4. Ayusin kung **kailan** ito tutugtog (automatic o kapag na-click)\n\n## 🧠 Halimbawa 1\n*Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?*\n- **Animation** — para sa bawat item, gamit ang epekto tulad ng **Fade In**.\n\n## 🧠 Halimbawa 2\n*Gusto mong may makinis na epekto sa paglipat mula slide 1 patungo sa slide 2.*\n- Gamitin ang **Slide Transition** (hal. **Fade** o **Wipe**).\n\n## 💡 Mga Alituntunin\n- Huwag **sobrahan** ang animation — makakagambala ito sa mensahe\n- Piliin ang audio/video na **may kaugnayan** sa paksa\n- Panatilihing **simple at malinaw** ang bawat slide\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 🖥️ EPP (ICT) — Creating Presentation Slides\n\nGrade 5, Week 16! Let's make a slide presentation. 💻\n\n## 🎬 Parts of a Presentation\n| Part | Purpose |\n|---|---|\n| **Slide** | one \"page\" of a presentation |\n| **Animation** | movement of text or a picture inside one slide |\n| **Slide Transition** | an effect when moving from one slide to the next |\n| **Audio/Video** | sound or video embedded in the slide |\n\n## ✨ Adding Animation\n**Steps:**\n1. Choose the **text or picture** you want to animate\n2. Go to the **Animations tab**\n3. Choose an **effect** (Fade In, Fly In, Zoom)\n4. Preview it to see the result\n\n## 🎞️ Adding a Slide Transition\n**Steps:**\n1. Choose the slide\n2. Go to the **Transitions tab**\n3. Choose a transition **effect** (Fade, Push, Wipe)\n\n## 🎵 Adding Audio/Video\n1. Go to the **Insert tab**\n2. Choose **Audio** or **Video**\n3. Choose the file from your computer\n4. Set **when** it will play (automatically or when clicked)\n\n## 🧠 Example 1\n*You want each point on a list to appear one at a time. What will you use?*\n- **Animation** — for each item, using an effect like **Fade In**.\n\n## 🧠 Example 2\n*You want a smooth effect when moving from slide 1 to slide 2.*\n- Use a **Slide Transition** (e.g. **Fade** or **Wipe**).\n\n## 💡 Guidelines\n- Don't use **too much** animation — it can distract from your message\n- Choose audio/video that is **related** to the topic\n- Keep each slide **simple and clear**\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang slide?",
+            "question": "What is a slide?",
             "options": [
-              "Isang 'pahina' ng presentation",
-              "Isang uri ng tunog",
-              "Isang uri ng larawan lamang",
-              "Isang uri ng dokumento"
+              "One 'page' of a presentation",
+              "A kind of sound",
+              "Only a kind of picture",
+              "A kind of document"
             ],
-            "correct_answer": "Isang 'pahina' ng presentation"
+            "correct_answer": "One 'page' of a presentation"
           },
           {
-            "question": "Ano ang animation sa presentation?",
+            "question": "What is animation in a presentation?",
             "options": [
-              "Paggalaw ng teksto o larawan sa isang slide",
-              "Paglipat mula sa isang slide papunta sa iba",
-              "Tunog na naka-embed",
-              "Video na naka-embed"
+              "Movement of text or a picture on a slide",
+              "Moving from one slide to another",
+              "An embedded sound",
+              "An embedded video"
             ],
-            "correct_answer": "Paggalaw ng teksto o larawan sa isang slide"
+            "correct_answer": "Movement of text or a picture on a slide"
           },
           {
-            "question": "Ano ang slide transition?",
+            "question": "What is a slide transition?",
             "options": [
-              "Epekto sa paglipat mula slide patungo sa slide",
-              "Paggalaw ng teksto sa loob ng slide",
-              "Tunog na naka-embed",
-              "Kulay ng background"
+              "An effect when moving from one slide to the next",
+              "Movement of text inside a slide",
+              "An embedded sound",
+              "The background color"
             ],
-            "correct_answer": "Epekto sa paglipat mula slide patungo sa slide"
+            "correct_answer": "An effect when moving from one slide to the next"
           },
           {
-            "question": "Saan mo pipiliin ang epekto ng animation?",
+            "question": "Where do you choose an animation effect?",
             "options": [
               "Animations tab",
               "Transitions tab",
-              "Insert tab lamang",
+              "Only the Insert tab",
               "File tab"
             ],
             "correct_answer": "Animations tab"
           },
           {
-            "question": "Saan mo pipiliin ang epekto ng slide transition?",
+            "question": "Where do you choose a slide transition effect?",
             "options": [
               "Transitions tab",
               "Animations tab",
-              "Insert tab lamang",
+              "Only the Insert tab",
               "File tab"
             ],
             "correct_answer": "Transitions tab"
           },
           {
-            "question": "Saan mo idadagdag ang audio o video?",
+            "question": "Where do you add audio or video?",
             "options": [
               "Insert tab",
               "Animations tab",
               "Transitions tab",
-              "Design tab lamang"
+              "Only the Design tab"
             ],
             "correct_answer": "Insert tab"
           },
           {
-            "question": "Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?",
+            "question": "You want each point on a list to appear one at a time. What will you use?",
             "options": [
               "Animation",
-              "Slide transition lamang",
-              "Audio lamang",
-              "Video lamang"
+              "Only a slide transition",
+              "Only audio",
+              "Only video"
             ],
             "correct_answer": "Animation"
           },
           {
-            "question": "Gusto mong may makinis na epekto sa paglipat mula slide 1 papunta sa slide 2. Ano ang gagamitin mo?",
+            "question": "You want a smooth effect when moving from slide 1 to slide 2. What will you use?",
             "options": [
               "Slide transition",
-              "Animation lamang",
-              "Audio lamang",
-              "Video lamang"
+              "Only animation",
+              "Only audio",
+              "Only video"
             ],
             "correct_answer": "Slide transition"
           },
           {
-            "question": "Bakit hindi dapat sobrahan ang animation?",
+            "question": "Why should you not use too much animation?",
             "options": [
-              "Makakagambala ito sa mensahe",
-              "Mas mabilis itong gawin",
-              "Wala itong dahilan",
-              "Mas maganda ito palagi"
+              "It distracts from the message",
+              "It is faster to make",
+              "There is no reason",
+              "It always looks better"
             ],
-            "correct_answer": "Makakagambala ito sa mensahe"
+            "correct_answer": "It distracts from the message"
           },
           {
-            "question": "Ano ang dapat isaalang-alang sa pagpili ng audio o video?",
+            "question": "What should you think about when choosing audio or video?",
             "options": [
-              "Dapat may kaugnayan sa paksa",
-              "Dapat ito ang pinakamahaba",
-              "Dapat ito ay random lamang",
-              "Dapat walang kaugnayan sa paksa"
+              "It should be related to the topic",
+              "It should be the longest one",
+              "It should be random",
+              "It should not be related to the topic"
             ],
-            "correct_answer": "Dapat may kaugnayan sa paksa"
+            "correct_answer": "It should be related to the topic"
           },
           {
-            "question": "Ano ang halimbawa ng epekto ng animation?",
+            "question": "Which is an example of an animation effect?",
             "options": [
               "Fade In",
               "Push",
@@ -746,14 +746,14 @@
             "correct_answer": "Fade In"
           },
           {
-            "question": "Isang mag-aaral ang gumamit ng maraming animation sa bawat salita sa kanyang slide. Ano ang problema dito?",
+            "question": "A student used lots of animation on every word in their slide. What is the problem?",
             "options": [
-              "Nagiging magulo at nakakagambala ito",
-              "Wala itong problema",
-              "Mas propesyonal ito tingnan",
-              "Nagpapabilis ito ng presentation"
+              "It becomes messy and distracting",
+              "There is no problem",
+              "It looks more professional",
+              "It makes the presentation faster"
             ],
-            "correct_answer": "Nagiging magulo at nakakagambala ito"
+            "correct_answer": "It becomes messy and distracting"
           }
         ]
       }
@@ -1762,110 +1762,110 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🖥️ Friday Review — EPP (ICT) (Grade 5)\n\n- **Slide** = pahina ng presentation\n- **Animation** (loob ng slide) vs **Transition** (paglipat ng slide)\n- **Insert tab** para sa audio/video\n- Huwag sobrahan ang animation — nakakagambala ito\n\nMagaling! 🌟",
+        "summary_markdown": "# 🖥️ Friday Review — EPP (ICT) (Grade 5)\n\n- **Slide** = one page of a presentation\n- **Animation** (inside a slide) vs **Transition** (moving to the next slide)\n- **Insert tab** for audio/video\n- Don't use too much animation — it is distracting\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang slide?",
+            "question": "What is a slide?",
             "options": [
-              "Isang 'pahina' ng presentation",
-              "Isang uri ng tunog",
-              "Isang uri ng larawan lamang",
-              "Isang uri ng dokumento"
+              "One 'page' of a presentation",
+              "A kind of sound",
+              "Only a kind of picture",
+              "A kind of document"
             ],
-            "correct_answer": "Isang 'pahina' ng presentation"
+            "correct_answer": "One 'page' of a presentation"
           },
           {
-            "question": "Ano ang animation sa presentation?",
+            "question": "What is animation in a presentation?",
             "options": [
-              "Paggalaw ng teksto o larawan sa isang slide",
-              "Paglipat mula sa isang slide papunta sa iba",
-              "Tunog na naka-embed",
-              "Video na naka-embed"
+              "Movement of text or a picture on a slide",
+              "Moving from one slide to another",
+              "An embedded sound",
+              "An embedded video"
             ],
-            "correct_answer": "Paggalaw ng teksto o larawan sa isang slide"
+            "correct_answer": "Movement of text or a picture on a slide"
           },
           {
-            "question": "Ano ang slide transition?",
+            "question": "What is a slide transition?",
             "options": [
-              "Epekto sa paglipat mula slide patungo sa slide",
-              "Paggalaw ng teksto sa loob ng slide",
-              "Tunog na naka-embed",
-              "Kulay ng background"
+              "An effect when moving from one slide to the next",
+              "Movement of text inside a slide",
+              "An embedded sound",
+              "The background color"
             ],
-            "correct_answer": "Epekto sa paglipat mula slide patungo sa slide"
+            "correct_answer": "An effect when moving from one slide to the next"
           },
           {
-            "question": "Saan mo pipiliin ang epekto ng animation?",
+            "question": "Where do you choose an animation effect?",
             "options": [
               "Animations tab",
               "Transitions tab",
-              "Insert tab lamang",
+              "Only the Insert tab",
               "File tab"
             ],
             "correct_answer": "Animations tab"
           },
           {
-            "question": "Saan mo pipiliin ang epekto ng slide transition?",
+            "question": "Where do you choose a slide transition effect?",
             "options": [
               "Transitions tab",
               "Animations tab",
-              "Insert tab lamang",
+              "Only the Insert tab",
               "File tab"
             ],
             "correct_answer": "Transitions tab"
           },
           {
-            "question": "Saan mo idadagdag ang audio o video?",
+            "question": "Where do you add audio or video?",
             "options": [
               "Insert tab",
               "Animations tab",
               "Transitions tab",
-              "Design tab lamang"
+              "Only the Design tab"
             ],
             "correct_answer": "Insert tab"
           },
           {
-            "question": "Gusto mong lumitaw ang bawat punto ng listahan nang paisa-isa. Ano ang gagamitin mo?",
+            "question": "You want each point on a list to appear one at a time. What will you use?",
             "options": [
               "Animation",
-              "Slide transition lamang",
-              "Audio lamang",
-              "Video lamang"
+              "Only a slide transition",
+              "Only audio",
+              "Only video"
             ],
             "correct_answer": "Animation"
           },
           {
-            "question": "Gusto mong may makinis na epekto sa paglipat mula slide 1 papunta sa slide 2. Ano ang gagamitin mo?",
+            "question": "You want a smooth effect when moving from slide 1 to slide 2. What will you use?",
             "options": [
               "Slide transition",
-              "Animation lamang",
-              "Audio lamang",
-              "Video lamang"
+              "Only animation",
+              "Only audio",
+              "Only video"
             ],
             "correct_answer": "Slide transition"
           },
           {
-            "question": "Bakit hindi dapat sobrahan ang animation?",
+            "question": "Why should you not use too much animation?",
             "options": [
-              "Makakagambala ito sa mensahe",
-              "Mas mabilis itong gawin",
-              "Wala itong dahilan",
-              "Mas maganda ito palagi"
+              "It distracts from the message",
+              "It is faster to make",
+              "There is no reason",
+              "It always looks better"
             ],
-            "correct_answer": "Makakagambala ito sa mensahe"
+            "correct_answer": "It distracts from the message"
           },
           {
-            "question": "Ano ang dapat isaalang-alang sa pagpili ng audio o video?",
+            "question": "What should you think about when choosing audio or video?",
             "options": [
-              "Dapat may kaugnayan sa paksa",
-              "Dapat ito ang pinakamahaba",
-              "Dapat ito ay random lamang",
-              "Dapat walang kaugnayan sa paksa"
+              "It should be related to the topic",
+              "It should be the longest one",
+              "It should be random",
+              "It should not be related to the topic"
             ],
-            "correct_answer": "Dapat may kaugnayan sa paksa"
+            "correct_answer": "It should be related to the topic"
           },
           {
-            "question": "Ano ang halimbawa ng epekto ng animation?",
+            "question": "Which is an example of an animation effect?",
             "options": [
               "Fade In",
               "Push",
@@ -1875,14 +1875,14 @@
             "correct_answer": "Fade In"
           },
           {
-            "question": "Isang mag-aaral ang gumamit ng maraming animation sa bawat salita sa kanyang slide. Ano ang problema dito?",
+            "question": "A student used lots of animation on every word in their slide. What is the problem?",
             "options": [
-              "Nagiging magulo at nakakagambala ito",
-              "Wala itong problema",
-              "Mas propesyonal ito tingnan",
-              "Nagpapabilis ito ng presentation"
+              "It becomes messy and distracting",
+              "There is no problem",
+              "It looks more professional",
+              "It makes the presentation faster"
             ],
-            "correct_answer": "Nagiging magulo at nakakagambala ito"
+            "correct_answer": "It becomes messy and distracting"
           }
         ]
       },

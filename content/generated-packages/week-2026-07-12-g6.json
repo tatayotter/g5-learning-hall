@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Higit Pang Online Forms!\n\nPatuloy nating alamin ang paggawa ng online forms! 📋\n\n## 📋 Karagdagang Kasanayan\n- Magdagdag ng **maramihang uri ng tanong** — multiple choice, short answer, at checkbox.\n- Gamitin ang **settings** para gawing private o closed ang form.\n\n## 🔒 Data Ethics\n- Isaalang-alang ang **etika sa pagkolekta ng datos** — huwag mangolekta ng hindi kailangang impormasyon.\n\n## 🔍 Pagsasanay\n- Gumawa ng maikling form tungkol sa paboritong libangan ng klase!\n\nMahusay na paggamit ng online forms para sa mga totoong pangangailangan! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: More Online Forms!\n\nLet's keep learning how to make online forms! 📋\n\n## 📋 More Skills\n- Add **different kinds of questions** — multiple choice, short answer, and checkbox.\n- Use the **settings** to make the form private or closed.\n\n## 🔒 Data Ethics\n- Think about **ethics when collecting data** — don't collect information you don't need.\n\n## 🔍 Practice\n- Make a short form about your class's favorite hobbies!\n\nGreat use of online forms for real-life needs! 🌟",
         "quiz": [
-          { "question": "Anong uri ng tanong ang maaaring idagdag sa form?", "options": ["Multiple choice, short answer, checkbox", "Isang uri lamang", "Wala", "Larawan lamang"], "correct_answer": "Multiple choice, short answer, checkbox" },
-          { "question": "Ano ang ginagamit para gawing private ang form?", "options": ["Settings", "Walang paraan", "Kulay", "Font"], "correct_answer": "Settings" },
-          { "question": "Ano ang dapat iwasan sa pagkolekta ng datos?", "options": ["Hindi kailangang impormasyon", "Lahat ng impormasyon", "Walang dapat iwasan", "Pangalan lamang"], "correct_answer": "Hindi kailangang impormasyon" },
-          { "question": "Ano ang tawag sa pag-iingat sa pagkolekta ng datos?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
-          { "question": "Ano ang halimbawa ng gagawing form?", "options": ["Form tungkol sa paboritong libangan", "Walang halimbawa", "Isang larawan lamang", "Isang video lamang"], "correct_answer": "Form tungkol sa paboritong libangan" },
-          { "question": "Bakit mahalaga ang data ethics?", "options": ["Iniingatan nito ang privacy ng tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang privacy ng tao" }
+          { "question": "What kinds of questions can you add to a form?", "options": ["Multiple choice, short answer, checkbox", "Only one kind", "None", "Only pictures"], "correct_answer": "Multiple choice, short answer, checkbox" },
+          { "question": "What do you use to make a form private?", "options": ["Settings", "There is no way", "Color", "Font"], "correct_answer": "Settings" },
+          { "question": "What should you avoid when collecting data?", "options": ["Information you don't need", "All information", "Nothing to avoid", "Only names"], "correct_answer": "Information you don't need" },
+          { "question": "What do you call being careful when collecting data?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
+          { "question": "What is an example of a form you can make?", "options": ["A form about favorite hobbies", "No example", "Only a picture", "Only a video"], "correct_answer": "A form about favorite hobbies" },
+          { "question": "Why is data ethics important?", "options": ["It protects people's privacy", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It protects people's privacy" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Uri ng tanong: **multiple choice, short answer, checkbox**\n- Gamitin ang settings para gawing private\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Kinds of questions: **multiple choice, short answer, checkbox**\n- Use the settings to make it private\n\nGreat studying! 🌟",
         "quiz": [
-          { "question": "Anong uri ng tanong ang maaaring idagdag sa form?", "options": ["Multiple choice, short answer, checkbox", "Isang uri lamang", "Wala", "Larawan lamang"], "correct_answer": "Multiple choice, short answer, checkbox" },
-          { "question": "Ano ang ginagamit para gawing private ang form?", "options": ["Settings", "Walang paraan", "Kulay", "Font"], "correct_answer": "Settings" },
-          { "question": "Ano ang dapat iwasan sa pagkolekta ng datos?", "options": ["Hindi kailangang impormasyon", "Lahat ng impormasyon", "Walang dapat iwasan", "Pangalan lamang"], "correct_answer": "Hindi kailangang impormasyon" },
-          { "question": "Ano ang tawag sa pag-iingat sa pagkolekta ng datos?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
-          { "question": "Bakit mahalaga ang data ethics?", "options": ["Iniingatan nito ang privacy ng tao", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang privacy ng tao" }
+          { "question": "What kinds of questions can you add to a form?", "options": ["Multiple choice, short answer, checkbox", "Only one kind", "None", "Only pictures"], "correct_answer": "Multiple choice, short answer, checkbox" },
+          { "question": "What do you use to make a form private?", "options": ["Settings", "There is no way", "Color", "Font"], "correct_answer": "Settings" },
+          { "question": "What should you avoid when collecting data?", "options": ["Information you don't need", "All information", "Nothing to avoid", "Only names"], "correct_answer": "Information you don't need" },
+          { "question": "What do you call being careful when collecting data?", "options": ["Data ethics", "Data waste", "Data noise", "Data error"], "correct_answer": "Data ethics" },
+          { "question": "Why is data ethics important?", "options": ["It protects people's privacy", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It protects people's privacy" }
         ]
       },
       "Science": {

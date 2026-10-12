@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 👣 EPP (ICT) — Digital Footprint Awareness\n\nGrade 4, Week 26! Alamin natin ang tinatawag na \"digital footprint.\" 👣\n\n## 🔄 Balik-Aral\nNatutuhan natin ang simpleng spreadsheet data.\n\n## 👣 Ano ang Digital Footprint?\nAng **digital footprint** ay ang bakas na naiiwan natin sa Internet — mga litrato, mensahe, at komento na ating ibinahagi.\n\n## ⚠️ Bakit Kailangang Mag-ingat?\nAng anumang inilagay online ay maaaring **manatili magpakailanman**, kahit binura na natin ito.\n\n## ✅ Paano Magpanatili ng Positibong Digital Footprint\n- Mag-isip bago mag-post\n- Iwasan ang pagsasabi ng masasakit na salita online\n- Panatilihing pribado ang personal na impormasyon\n\n**Mahahalagang salita:** digital footprint, online, positibo, pag-iisip bago mag-post",
+        "summary_markdown": "# 👣 EPP (ICT) — Digital Footprint Awareness\n\nGrade 4, Week 26! Let's learn about the \"digital footprint.\" 👣\n\n## 🔄 Review\nWe learned about simple spreadsheet data.\n\n## 👣 What Is a Digital Footprint?\nA **digital footprint** is the trail we leave on the Internet — the photos, messages, and comments we share.\n\n## ⚠️ Why Do We Need to Be Careful?\nAnything we put online can **stay there forever**, even if we delete it.\n\n## ✅ How to Keep a Positive Digital Footprint\n- Think before you post\n- Do not say hurtful words online\n- Keep your personal information private\n\n**Key words:** digital footprint, online, positive, thinking before posting",
         "quiz": [
           {
-            "question": "Ano ang digital footprint?",
+            "question": "What is a digital footprint?",
             "options": [
-              "Bakas na naiiwan natin sa Internet",
-              "Isang uri ng laro",
-              "Isang uri ng litrato lamang",
-              "Isang uri ng kompyuter"
+              "The trail we leave on the Internet",
+              "A kind of game",
+              "Just a kind of photo",
+              "A kind of computer"
             ],
-            "correct_answer": "Bakas na naiiwan natin sa Internet"
+            "correct_answer": "The trail we leave on the Internet"
           },
           {
-            "question": "Bakit kailangang mag-ingat sa ating ibinabahagi online?",
+            "question": "Why do we need to be careful about what we share online?",
             "options": [
-              "Maaaring manatili ito magpakailanman kahit binura",
-              "Wala itong epekto",
-              "Nawawala agad ang lahat ng post",
-              "Hindi ito totoong isyu"
+              "It can stay forever even if deleted",
+              "It has no effect",
+              "All posts disappear right away",
+              "It is not a real issue"
             ],
-            "correct_answer": "Maaaring manatili ito magpakailanman kahit binura"
+            "correct_answer": "It can stay forever even if deleted"
           },
           {
-            "question": "Ano ang isang paraan para mapanatili ang positibong digital footprint?",
+            "question": "What is one way to keep a positive digital footprint?",
             "options": [
-              "Mag-isip bago mag-post",
-              "Basta mag-post nang walang pag-iisip",
-              "Ibahagi ang lahat ng personal na impormasyon",
-              "Sabihin ang masasakit na salita"
+              "Think before you post",
+              "Just post without thinking",
+              "Share all your personal information",
+              "Say hurtful words"
             ],
-            "correct_answer": "Mag-isip bago mag-post"
+            "correct_answer": "Think before you post"
           },
           {
-            "question": "Bakit dapat iwasan ang pagsasabi ng masasakit na salita online?",
+            "question": "Why should we avoid saying hurtful words online?",
             "options": [
-              "Maaari itong makasakit sa iba at manatili magpakailanman",
-              "Walang epekto ito",
-              "Ligtas itong gawin online",
-              "Kinakailangan itong gawin"
+              "They can hurt others and stay forever",
+              "They have no effect",
+              "It is safe to do online",
+              "We are required to do it"
             ],
-            "correct_answer": "Maaari itong makasakit sa iba at manatili magpakailanman"
+            "correct_answer": "They can hurt others and stay forever"
           },
           {
-            "question": "Ano ang kasama sa digital footprint?",
+            "question": "What is part of a digital footprint?",
             "options": [
-              "Mga litrato, mensahe, at komento na ibinahagi online",
-              "Mga gamit sa bahay lamang",
-              "Mga kasangkapan sa pagluluto",
-              "Mga laruan lamang"
+              "Photos, messages, and comments shared online",
+              "Only things at home",
+              "Cooking tools",
+              "Only toys"
             ],
-            "correct_answer": "Mga litrato, mensahe, at komento na ibinahagi online"
+            "correct_answer": "Photos, messages, and comments shared online"
           },
           {
-            "question": "Bakit mahalagang panatilihing pribado ang personal na impormasyon online?",
+            "question": "Why is it important to keep personal information private online?",
             "options": [
-              "Iwasan ang panganib mula sa may masamang layunin",
-              "Walang panganib dito",
-              "Kinakailangan itong ibahagi sa lahat",
-              "Ligtas itong ibahagi"
+              "To avoid danger from people with bad intentions",
+              "There is no danger",
+              "It must be shared with everyone",
+              "It is safe to share"
             ],
-            "correct_answer": "Iwasan ang panganib mula sa may masamang layunin"
+            "correct_answer": "To avoid danger from people with bad intentions"
           },
           {
-            "question": "Ano ang mangyayari kung nag-post ka ng negatibong bagay online noon?",
+            "question": "What happens if you posted something negative online before?",
             "options": [
-              "Maaari pa rin itong makita kahit binura mo na",
-              "Nawawala agad ito",
-              "Walang epekto ito ngayon",
-              "Hindi na ito naipon kahit saan"
+              "It can still be seen even after you delete it",
+              "It disappears right away",
+              "It has no effect now",
+              "It was never saved anywhere"
             ],
-            "correct_answer": "Maaari pa rin itong makita kahit binura mo na"
+            "correct_answer": "It can still be seen even after you delete it"
           },
           {
-            "question": "Bakit itinuturo ang digital footprint sa mga bata?",
+            "question": "Why do we teach kids about the digital footprint?",
             "options": [
-              "Upang maging responsable sa kanilang online presence",
-              "Walang layunin ito",
-              "Hikayatin silang mag-post nang walang pag-iisip",
-              "Hindi ito bahagi ng ICT"
+              "So they are responsible for their online presence",
+              "It has no purpose",
+              "To get them to post without thinking",
+              "It is not part of ICT"
             ],
-            "correct_answer": "Upang maging responsable sa kanilang online presence"
+            "correct_answer": "So they are responsible for their online presence"
           },
           {
-            "question": "Bakit dapat mag-isip bago mag-post ng anumang bagay online?",
+            "question": "Why should you think before posting anything online?",
             "options": [
-              "Ang post ay maaaring makaapekto sa iyong reputasyon sa hinaharap",
-              "Walang kahihinatnan ang pag-post",
-              "Basta't nasabi na, tapos na",
-              "Hindi mahalaga ang pag-iisip"
+              "A post can affect your reputation in the future",
+              "Posting has no consequences",
+              "Once it's said, it's done",
+              "Thinking is not important"
             ],
-            "correct_answer": "Ang post ay maaaring makaapekto sa iyong reputasyon sa hinaharap"
+            "correct_answer": "A post can affect your reputation in the future"
           },
           {
-            "question": "Sino ang responsable sa pagpapanatili ng positibong digital footprint?",
+            "question": "Who is responsible for keeping a positive digital footprint?",
             "options": [
-              "Bawat isa sa atin",
-              "Ang kompyuter lamang",
-              "Ang internet provider lamang",
-              "Walang sinuman"
+              "Each one of us",
+              "Only the computer",
+              "Only the internet provider",
+              "No one"
             ],
-            "correct_answer": "Bawat isa sa atin"
+            "correct_answer": "Each one of us"
           },
           {
-            "question": "Bakit mahalagang matutong pangalagaan ang digital footprint mula sa maagang edad?",
+            "question": "Why is it important to learn to care for your digital footprint at a young age?",
             "options": [
-              "Upang maging responsable sa online presence paglaki",
-              "Hindi na kailangan matutunan ito",
-              "Para sa matatanda lamang ito",
-              "Walang epekto ito"
+              "To be responsible online as you grow up",
+              "There is no need to learn it",
+              "It is only for adults",
+              "It has no effect"
             ],
-            "correct_answer": "Upang maging responsable sa online presence paglaki"
+            "correct_answer": "To be responsible online as you grow up"
           },
           {
-            "question": "Ano ang pangkalahatang aral tungkol sa digital footprint?",
+            "question": "What is the main lesson about the digital footprint?",
             "options": [
-              "Mag-isip bago mag-post at panatilihing positibo ang presensya online",
-              "Basta mag-post kahit ano",
-              "Hindi mahalaga ang naiiwan online",
-              "Walang panganib sa Internet"
+              "Think before you post and keep a positive presence online",
+              "Just post anything",
+              "What you leave online doesn't matter",
+              "There is no danger on the Internet"
             ],
-            "correct_answer": "Mag-isip bago mag-post at panatilihing positibo ang presensya online"
+            "correct_answer": "Think before you post and keep a positive presence online"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 👣 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital footprint awareness\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 👣 Friday Review — EPP (ICT) (Grade 4)\n\n- Digital footprint awareness\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang digital footprint?",
+            "question": "What is a digital footprint?",
             "options": [
-              "Bakas na naiiwan sa Internet",
-              "Uri ng laro",
-              "Uri ng litrato lamang",
-              "Uri ng kompyuter"
+              "The trail left on the Internet",
+              "A kind of game",
+              "Just a kind of photo",
+              "A kind of computer"
             ],
-            "correct_answer": "Bakas na naiiwan sa Internet"
+            "correct_answer": "The trail left on the Internet"
           },
           {
-            "question": "Bakit mag-ingat sa ibinabahagi online?",
+            "question": "Why be careful about what you share online?",
             "options": [
-              "Maaaring manatili magpakailanman",
-              "Walang epekto",
-              "Nawawala agad",
-              "Hindi totoong isyu"
+              "It can stay forever",
+              "No effect",
+              "It disappears right away",
+              "Not a real issue"
             ],
-            "correct_answer": "Maaaring manatili magpakailanman"
+            "correct_answer": "It can stay forever"
           },
           {
-            "question": "Paraan mapanatili ang positibong digital footprint?",
+            "question": "How can you keep a positive digital footprint?",
             "options": [
-              "Mag-isip bago mag-post",
-              "Basta mag-post",
-              "Ibahagi ang lahat",
-              "Sabihin masasakit na salita"
+              "Think before you post",
+              "Just post",
+              "Share everything",
+              "Say hurtful words"
             ],
-            "correct_answer": "Mag-isip bago mag-post"
+            "correct_answer": "Think before you post"
           },
           {
-            "question": "Bakit iwasan ang masasakit na salita online?",
+            "question": "Why avoid hurtful words online?",
             "options": [
-              "Makakasakit at manatili magpakailanman",
-              "Walang epekto",
-              "Ligtas gawin online",
-              "Kinakailangan gawin"
+              "They can hurt others and stay forever",
+              "No effect",
+              "Safe to do online",
+              "Required to do"
             ],
-            "correct_answer": "Makakasakit at manatili magpakailanman"
+            "correct_answer": "They can hurt others and stay forever"
           },
           {
-            "question": "Kasama sa digital footprint?",
+            "question": "What is part of a digital footprint?",
             "options": [
-              "Litrato, mensahe, komento online",
-              "Gamit sa bahay lamang",
-              "Kasangkapan sa pagluluto",
-              "Laruan lamang"
+              "Photos, messages, comments online",
+              "Only things at home",
+              "Cooking tools",
+              "Only toys"
             ],
-            "correct_answer": "Litrato, mensahe, komento online"
+            "correct_answer": "Photos, messages, comments online"
           },
           {
-            "question": "Bakit panatilihing pribado ang personal na impormasyon?",
+            "question": "Why keep personal information private?",
             "options": [
-              "Iwasan panganib mula sa masamang layunin",
-              "Walang panganib",
-              "Kinakailangan ibahagi",
-              "Ligtas ibahagi"
+              "To avoid danger from people with bad intentions",
+              "No danger",
+              "It must be shared",
+              "Safe to share"
             ],
-            "correct_answer": "Iwasan panganib mula sa masamang layunin"
+            "correct_answer": "To avoid danger from people with bad intentions"
           },
           {
-            "question": "Mangyayari kung nag-post ng negatibo dati?",
+            "question": "What happens if you posted something negative before?",
             "options": [
-              "Maaari pa ring makita kahit binura",
-              "Nawawala agad",
-              "Walang epekto ngayon",
-              "Hindi na naipon kahit saan"
+              "It can still be seen even if deleted",
+              "It disappears right away",
+              "No effect now",
+              "It was never saved anywhere"
             ],
-            "correct_answer": "Maaari pa ring makita kahit binura"
+            "correct_answer": "It can still be seen even if deleted"
           },
           {
-            "question": "Bakit ituro ang digital footprint sa bata?",
+            "question": "Why teach kids about the digital footprint?",
             "options": [
-              "Maging responsable sa online presence",
-              "Walang layunin",
-              "Hikayatin mag-post walang pag-iisip",
-              "Hindi bahagi ng ICT"
+              "To be responsible for their online presence",
+              "No purpose",
+              "To get them to post without thinking",
+              "Not part of ICT"
             ],
-            "correct_answer": "Maging responsable sa online presence"
+            "correct_answer": "To be responsible for their online presence"
           },
           {
-            "question": "Bakit mag-isip bago mag-post?",
+            "question": "Why think before posting?",
             "options": [
-              "Makakaapekto sa reputasyon sa hinaharap",
-              "Walang kahihinatnan",
-              "Tapos na pagkasabi",
-              "Hindi mahalaga"
+              "It can affect your reputation in the future",
+              "No consequences",
+              "Once it's said, it's done",
+              "Not important"
             ],
-            "correct_answer": "Makakaapekto sa reputasyon sa hinaharap"
+            "correct_answer": "It can affect your reputation in the future"
           },
           {
-            "question": "Sino responsable sa positibong digital footprint?",
+            "question": "Who is responsible for a positive digital footprint?",
             "options": [
-              "Bawat isa sa atin",
-              "Kompyuter lamang",
-              "Internet provider lamang",
-              "Walang sinuman"
+              "Each one of us",
+              "Only the computer",
+              "Only the internet provider",
+              "No one"
             ],
-            "correct_answer": "Bawat isa sa atin"
+            "correct_answer": "Each one of us"
           },
           {
-            "question": "Bakit matutong pangalagaan ito mula sa maagang edad?",
+            "question": "Why learn to care for it from a young age?",
             "options": [
-              "Maging responsable sa online presence paglaki",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To be responsible online as you grow up",
+              "No need to learn it",
+              "Only for adults",
+              "No effect"
             ],
-            "correct_answer": "Maging responsable sa online presence paglaki"
+            "correct_answer": "To be responsible online as you grow up"
           },
           {
-            "question": "Pangkalahatang aral tungkol sa digital footprint?",
+            "question": "What is the main lesson about the digital footprint?",
             "options": [
-              "Mag-isip bago mag-post, panatilihing positibo",
-              "Mag-post kahit ano",
-              "Hindi mahalaga ang naiiwan online",
-              "Walang panganib online"
+              "Think before you post, stay positive",
+              "Post anything",
+              "What you leave online doesn't matter",
+              "No danger online"
             ],
-            "correct_answer": "Mag-isip bago mag-post, panatilihing positibo"
+            "correct_answer": "Think before you post, stay positive"
           }
         ]
       },

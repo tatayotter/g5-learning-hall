@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Mga Panuntunan sa Silid-Computer\n\nBago natin simulan ang ating aralin sa ICT, balikan natin ang panuntunan! 🖥️\n\n## 📏 Mga Panuntunan\n- **Maglinis ng kamay** bago gumamit ng keyboard at mouse.\n- **Maging maingat** sa paghawak ng kagamitan.\n- **Walang pagkain o inumin** malapit sa computer.\n\n## 🙋 Bakit Mahalaga ang mga Panuntunan?\n- Iniingatan nito ang mahal na kagamitan ng paaralan at kaligtasan ng bawat mag-aaral.\n\n## 💡 Simpleng Paalala\n- Humingi ng tulong sa guro kung may hindi maintindihan.\n\nHanda ka na bang matuto tungkol sa ICT nang ligtas at responsable? 🌟",
+        "summary_markdown": "# 💻 Computer Room Rules\n\nBefore we start our ICT lesson, let's review the rules! 🖥️\n\n## 📏 The Rules\n- **Clean your hands** before using the keyboard and mouse.\n- **Be careful** when handling the equipment.\n- **No food or drinks** near the computer.\n\n## 🙋 Why Are the Rules Important?\n- They protect the school's expensive equipment and keep every student safe.\n\n## 💡 Simple Reminder\n- Ask your teacher for help if you don't understand something.\n\nAre you ready to learn about ICT safely and responsibly? 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin bago gumamit ng keyboard?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
-          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Para masarap", "Walang dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
-          { "question": "Paano dapat hawakan ang kagamitan sa computer?", "options": ["Nang maingat", "Nang malakas", "Nang basa", "Nang mabilis"], "correct_answer": "Nang maingat" },
-          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
-          { "question": "Bakit mahalaga ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" },
-          { "question": "Sino ang dapat hingan ng tulong kung nalilito ka?", "options": ["Guro", "Estranghero", "Walang sinuman", "Kaklase lamang"], "correct_answer": "Guro" }
+          { "question": "What should you do before using the keyboard?", "options": ["Clean your hands", "Eat first", "Run", "Drink"], "correct_answer": "Clean your hands" },
+          { "question": "Why should you not eat near the computer?", "options": ["So the equipment doesn't get damaged", "So you get full", "So it tastes good", "No reason"], "correct_answer": "So the equipment doesn't get damaged" },
+          { "question": "How should you handle computer equipment?", "options": ["Carefully", "Roughly", "With wet hands", "Quickly"], "correct_answer": "Carefully" },
+          { "question": "What should you do if you don't understand something?", "options": ["Ask your teacher for help", "Just don't do it", "Cry", "Run outside"], "correct_answer": "Ask your teacher for help" },
+          { "question": "Why are computer room rules important?", "options": ["They protect the equipment and keep everyone safe", "So you can play more", "They are useless", "So no one uses the computers"], "correct_answer": "They protect the equipment and keep everyone safe" },
+          { "question": "Who should you ask for help if you are confused?", "options": ["Teacher", "A stranger", "No one", "Only a classmate"], "correct_answer": "Teacher" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Maglinis ng kamay** bago gumamit ng keyboard/mouse\n- **Walang pagkain** malapit sa computer\n- Humingi ng tulong sa guro kung kailangan\n\nHanda ka nang matuto tungkol sa ICT! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Clean your hands** before using the keyboard/mouse\n- **No food** near the computer\n- Ask your teacher for help when you need it\n\nYou're ready to learn about ICT! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin bago gumamit ng keyboard?", "options": ["Maglinis ng kamay", "Kumain muna", "Tumakbo", "Uminom"], "correct_answer": "Maglinis ng kamay" },
-          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Para masarap", "Walang dahilan"], "correct_answer": "Para hindi masira ang kagamitan" },
-          { "question": "Ano ang dapat gawin kung may hindi maintindihan?", "options": ["Humingi ng tulong sa guro", "Hindi na lang gawin", "Umiyak", "Tumakbo palabas"], "correct_answer": "Humingi ng tulong sa guro" },
-          { "question": "Paano dapat hawakan ang kagamitan?", "options": ["Nang maingat", "Nang malakas", "Nang basa", "Nang mabilis"], "correct_answer": "Nang maingat" },
-          { "question": "Bakit importante ang panuntunan sa silid-computer?", "options": ["Iniingatan nito ang kagamitan at kaligtasan", "Para makapaglaro pa", "Walang gamit", "Para hindi gumamit"], "correct_answer": "Iniingatan nito ang kagamitan at kaligtasan" }
+          { "question": "What should you do before using the keyboard?", "options": ["Clean your hands", "Eat first", "Run", "Drink"], "correct_answer": "Clean your hands" },
+          { "question": "Why should you not eat near the computer?", "options": ["So the equipment doesn't get damaged", "So you get full", "So it tastes good", "No reason"], "correct_answer": "So the equipment doesn't get damaged" },
+          { "question": "What should you do if you don't understand something?", "options": ["Ask your teacher for help", "Just don't do it", "Cry", "Run outside"], "correct_answer": "Ask your teacher for help" },
+          { "question": "How should you handle the equipment?", "options": ["Carefully", "Roughly", "With wet hands", "Quickly"], "correct_answer": "Carefully" },
+          { "question": "Why are computer room rules important?", "options": ["They protect the equipment and keep everyone safe", "So you can play more", "They are useless", "So no one uses the computers"], "correct_answer": "They protect the equipment and keep everyone safe" }
         ]
       },
       "Science": {

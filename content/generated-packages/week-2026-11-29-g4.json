@@ -633,70 +633,70 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 📊 EPP (ICT) — Panimula sa Simpleng Spreadsheet Data\n\nGrade 4, Week 25! Alamin natin kung paano mag-oorganisa ng datos sa spreadsheet. 📊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang paggawa ng presentation.\n\n## 📊 Ano ang Spreadsheet?\nAng **spreadsheet** ay isang programa na may grid ng **rows** (hilera) at **columns** (hanay), na ginagamit para mag-organisa ng datos.\n\n## 🧮 Mga Simpleng Gamit\n- Pagtatala ng grado sa bawat asignatura\n- Pagbilang ng gastos sa isang linggo\n- Paggawa ng simpleng talahanayan ng datos\n\n## 📈 Koneksyon sa Matematika\nAng datos na naka-organisa sa spreadsheet ay maaaring gamitin upang gumawa ng **table o line graph**, tulad ng natutunan natin sa Matematika.\n\n**Mahahalagang salita:** spreadsheet, row, column, datos, talahanayan",
+        "summary_markdown": "# 📊 EPP (ICT) — Introduction to Simple Spreadsheet Data\n\nGrade 4, Week 25! Let's learn how to organize data in a spreadsheet. 📊\n\n## 🔄 Review\nWe learned how to make a presentation.\n\n## 📊 What Is a Spreadsheet?\nA **spreadsheet** is a program with a grid of **rows** (going across) and **columns** (going down), used to organize data.\n\n## 🧮 Simple Uses\n- Recording grades in each subject\n- Counting spending for one week\n- Making a simple data table\n\n## 📈 Connection to Math\nData organized in a spreadsheet can be used to make a **table or line graph**, just like we learned in Math.\n\n**Key words:** spreadsheet, row, column, data, table",
         "quiz": [
           {
-            "question": "Ano ang spreadsheet?",
+            "question": "What is a spreadsheet?",
             "options": [
-              "Programang may grid ng rows at columns",
-              "Isang uri ng laro",
-              "Isang uri ng litrato",
-              "Isang uri ng kanta"
+              "A program with a grid of rows and columns",
+              "A kind of game",
+              "A kind of photo",
+              "A kind of song"
             ],
-            "correct_answer": "Programang may grid ng rows at columns"
+            "correct_answer": "A program with a grid of rows and columns"
           },
           {
-            "question": "Ano ang tawag sa pahalang na hanay sa spreadsheet?",
+            "question": "What do you call a horizontal line of cells in a spreadsheet?",
             "options": [
               "Row",
               "Column",
-              "Cell lamang",
-              "Sheet lamang"
+              "Only a cell",
+              "Only a sheet"
             ],
             "correct_answer": "Row"
           },
           {
-            "question": "Ano ang tawag sa patayong hanay sa spreadsheet?",
+            "question": "What do you call a vertical line of cells in a spreadsheet?",
             "options": [
               "Column",
               "Row",
-              "Cell lamang",
-              "Sheet lamang"
+              "Only a cell",
+              "Only a sheet"
             ],
             "correct_answer": "Column"
           },
           {
-            "question": "Anong halimbawa ng gamit ng spreadsheet?",
+            "question": "What is an example of using a spreadsheet?",
             "options": [
-              "Pagtatala ng grado sa asignatura",
-              "Pagguhit ng larawan lamang",
-              "Panonood ng bidyo",
-              "Paglalaro ng kompyuter"
+              "Recording grades in a subject",
+              "Only drawing pictures",
+              "Watching videos",
+              "Playing computer games"
             ],
-            "correct_answer": "Pagtatala ng grado sa asignatura"
+            "correct_answer": "Recording grades in a subject"
           },
           {
-            "question": "Ano ang maaaring gawin sa datos na naka-organisa sa spreadsheet?",
+            "question": "What can you do with data organized in a spreadsheet?",
             "options": [
-              "Gumawa ng table o line graph",
-              "Wala itong magagawa",
-              "Kalimutan lamang ito",
-              "Itago ito magpakailanman"
+              "Make a table or line graph",
+              "Nothing at all",
+              "Just forget it",
+              "Hide it forever"
             ],
-            "correct_answer": "Gumawa ng table o line graph"
+            "correct_answer": "Make a table or line graph"
           },
           {
-            "question": "Bakit mahalagang mag-organisa ng datos sa spreadsheet?",
+            "question": "Why is it important to organize data in a spreadsheet?",
             "options": [
-              "Nagiging mas madaling suriin at maunawaan ang impormasyon",
-              "Walang kahalagahan",
-              "Nagiging mas magulo lamang ito",
-              "Hindi ito ginagamit sa totoong buhay"
+              "The information becomes easier to check and understand",
+              "It doesn't matter",
+              "It only gets messier",
+              "It is not used in real life"
             ],
-            "correct_answer": "Nagiging mas madaling suriin at maunawaan ang impormasyon"
+            "correct_answer": "The information becomes easier to check and understand"
           },
           {
-            "question": "Ano ang tawag sa lugar kung saan nagsasalubong ang row at column?",
+            "question": "What do you call the place where a row and a column meet?",
             "options": [
               "Cell",
               "Sheet",
@@ -706,54 +706,54 @@
             "correct_answer": "Cell"
           },
           {
-            "question": "Bakit itinuturo ang spreadsheet sa ICT?",
+            "question": "Why do we learn spreadsheets in ICT?",
             "options": [
-              "Upang matutong mag-organisa ng datos nang mahusay",
-              "Walang layunin ito",
-              "Para sa matatanda lamang",
-              "Hindi ito kaugnay ng ICT"
+              "To learn how to organize data well",
+              "No purpose",
+              "Only for adults",
+              "Not related to ICT"
             ],
-            "correct_answer": "Upang matutong mag-organisa ng datos nang mahusay"
+            "correct_answer": "To learn how to organize data well"
           },
           {
-            "question": "Paano nauugnay ang spreadsheet sa Matematika?",
+            "question": "How are spreadsheets related to Math?",
             "options": [
-              "Ang datos ay maaaring gamitin sa paggawa ng graph tulad ng natutunan sa Math",
-              "Walang koneksyon ang dalawa",
-              "Ang Matematika ay hindi gumagamit ng datos",
-              "Ang spreadsheet ay hindi kaugnay ng grap"
+              "The data can be used to make graphs, like we learned in Math",
+              "The two have no connection",
+              "Math does not use data",
+              "Spreadsheets have nothing to do with graphs"
             ],
-            "correct_answer": "Ang datos ay maaaring gamitin sa paggawa ng graph tulad ng natutunan sa Math"
+            "correct_answer": "The data can be used to make graphs, like we learned in Math"
           },
           {
-            "question": "Anong halimbawang datos ang maaaring itala sa spreadsheet?",
+            "question": "What is an example of data you can record in a spreadsheet?",
             "options": [
-              "Gastos sa isang linggo",
-              "Isang tula",
-              "Isang liham",
-              "Isang balita"
+              "Spending for one week",
+              "A poem",
+              "A letter",
+              "A news story"
             ],
-            "correct_answer": "Gastos sa isang linggo"
+            "correct_answer": "Spending for one week"
           },
           {
-            "question": "Bakit mahalagang matutong gumamit ng spreadsheet sa Grade 4?",
+            "question": "Why is it important to learn spreadsheets in Grade 4?",
             "options": [
-              "Batayang kasanayan ito sa pag-oorganisa ng impormasyon",
-              "Hindi ito kailangan matutunan",
-              "Para sa matatanda lamang ito",
-              "Walang gamit sa paaralan"
+              "It is a basic skill for organizing information",
+              "No need to learn it",
+              "It is only for adults",
+              "It has no use in school"
             ],
-            "correct_answer": "Batayang kasanayan ito sa pag-oorganisa ng impormasyon"
+            "correct_answer": "It is a basic skill for organizing information"
           },
           {
-            "question": "Ano ang benepisyo ng paggamit ng spreadsheet kaysa sa papel lamang?",
+            "question": "What is a benefit of using a spreadsheet instead of just paper?",
             "options": [
-              "Mas madaling ayusin, baguhin, at gawing graph ang datos",
-              "Walang benepisyo",
-              "Mas mahirap gamitin",
-              "Hindi ito puwedeng baguhin"
+              "Data is easier to arrange, change, and turn into a graph",
+              "No benefit",
+              "It is harder to use",
+              "It cannot be changed"
             ],
-            "correct_answer": "Mas madaling ayusin, baguhin, at gawing graph ang datos"
+            "correct_answer": "Data is easier to arrange, change, and turn into a graph"
           }
         ]
       }
@@ -1762,70 +1762,70 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 📊 Friday Review — EPP (ICT) (Grade 4)\n\n- Spreadsheet: rows, columns, cells\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 📊 Friday Review — EPP (ICT) (Grade 4)\n\n- Spreadsheet: rows, columns, cells\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang spreadsheet?",
+            "question": "What is a spreadsheet?",
             "options": [
-              "Programang may grid ng rows at columns",
-              "Uri ng laro",
-              "Uri ng litrato",
-              "Uri ng kanta"
+              "A program with a grid of rows and columns",
+              "A kind of game",
+              "A kind of photo",
+              "A kind of song"
             ],
-            "correct_answer": "Programang may grid ng rows at columns"
+            "correct_answer": "A program with a grid of rows and columns"
           },
           {
-            "question": "Pahalang na hanay sa spreadsheet?",
+            "question": "What is a horizontal line of cells in a spreadsheet?",
             "options": [
               "Row",
               "Column",
-              "Cell lamang",
-              "Sheet lamang"
+              "Only a cell",
+              "Only a sheet"
             ],
             "correct_answer": "Row"
           },
           {
-            "question": "Patayong hanay sa spreadsheet?",
+            "question": "What is a vertical line of cells in a spreadsheet?",
             "options": [
               "Column",
               "Row",
-              "Cell lamang",
-              "Sheet lamang"
+              "Only a cell",
+              "Only a sheet"
             ],
             "correct_answer": "Column"
           },
           {
-            "question": "Halimbawa ng gamit ng spreadsheet?",
+            "question": "What is an example of using a spreadsheet?",
             "options": [
-              "Pagtatala ng grado",
-              "Pagguhit lamang",
-              "Panonood ng bidyo",
-              "Paglalaro"
+              "Recording grades",
+              "Only drawing",
+              "Watching videos",
+              "Playing games"
             ],
-            "correct_answer": "Pagtatala ng grado"
+            "correct_answer": "Recording grades"
           },
           {
-            "question": "Magagawa sa datos sa spreadsheet?",
+            "question": "What can you do with data in a spreadsheet?",
             "options": [
-              "Gumawa ng table o graph",
-              "Wala itong magagawa",
-              "Kalimutan lamang",
-              "Itago ito"
+              "Make a table or graph",
+              "Nothing at all",
+              "Just forget it",
+              "Hide it"
             ],
-            "correct_answer": "Gumawa ng table o graph"
+            "correct_answer": "Make a table or graph"
           },
           {
-            "question": "Bakit mag-organisa ng datos?",
+            "question": "Why should we organize data?",
             "options": [
-              "Mas madaling suriin at maunawaan",
-              "Walang kahalagahan",
-              "Mas magulo lamang",
-              "Hindi ginagamit sa buhay"
+              "It is easier to check and understand",
+              "It doesn't matter",
+              "It only makes things messier",
+              "It is not used in real life"
             ],
-            "correct_answer": "Mas madaling suriin at maunawaan"
+            "correct_answer": "It is easier to check and understand"
           },
           {
-            "question": "Tawag sa nagsasalubong na row at column?",
+            "question": "What do you call the place where a row and a column meet?",
             "options": [
               "Cell",
               "Sheet",
@@ -1835,54 +1835,54 @@
             "correct_answer": "Cell"
           },
           {
-            "question": "Bakit ituro ang spreadsheet sa ICT?",
+            "question": "Why do we learn spreadsheets in ICT?",
             "options": [
-              "Matutong mag-organisa ng datos",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng ICT"
+              "To learn how to organize data",
+              "No purpose",
+              "Only for adults",
+              "Not related to ICT"
             ],
-            "correct_answer": "Matutong mag-organisa ng datos"
+            "correct_answer": "To learn how to organize data"
           },
           {
-            "question": "Koneksyon ng spreadsheet sa Matematika?",
+            "question": "How are spreadsheets connected to Math?",
             "options": [
-              "Datos gagamitin sa paggawa ng graph",
-              "Walang koneksyon",
-              "Hindi gumagamit ng datos ang Math",
-              "Hindi kaugnay ng grap"
+              "The data can be used to make graphs",
+              "No connection",
+              "Math does not use data",
+              "Not related to graphs"
             ],
-            "correct_answer": "Datos gagamitin sa paggawa ng graph"
+            "correct_answer": "The data can be used to make graphs"
           },
           {
-            "question": "Halimbawang datos na maaaring itala?",
+            "question": "What is an example of data you can record?",
             "options": [
-              "Gastos sa isang linggo",
-              "Isang tula",
-              "Isang liham",
-              "Isang balita"
+              "Spending for one week",
+              "A poem",
+              "A letter",
+              "A news story"
             ],
-            "correct_answer": "Gastos sa isang linggo"
+            "correct_answer": "Spending for one week"
           },
           {
-            "question": "Bakit matutong gumamit ng spreadsheet sa Grade 4?",
+            "question": "Why learn to use a spreadsheet in Grade 4?",
             "options": [
-              "Batayang kasanayan sa pag-oorganisa",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang gamit"
+              "It is a basic skill for organizing",
+              "No need to learn it",
+              "Only for adults",
+              "It has no use"
             ],
-            "correct_answer": "Batayang kasanayan sa pag-oorganisa"
+            "correct_answer": "It is a basic skill for organizing"
           },
           {
-            "question": "Benepisyo ng spreadsheet kaysa papel?",
+            "question": "What is a benefit of a spreadsheet over paper?",
             "options": [
-              "Mas madaling ayusin at gawing graph",
-              "Walang benepisyo",
-              "Mas mahirap gamitin",
-              "Hindi mababago"
+              "Easier to fix and turn into a graph",
+              "No benefit",
+              "Harder to use",
+              "Cannot be changed"
             ],
-            "correct_answer": "Mas madaling ayusin at gawing graph"
+            "correct_answer": "Easier to fix and turn into a graph"
           }
         ]
       },

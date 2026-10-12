@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🤖 EPP (ICT) — Review: Block Coding at Algorithm\n\nGrade 4, Week 22! Balikan natin ang batayan ng block coding. 🤖\n\n## 🔄 Balik-Aral\nNatutuhan natin ang digital citizenship.\n\n## 🤖 Ano ang Algorithm?\nAng **algorithm** ay isang hakbang-hakbang na paraan ng paglutas ng problema o pagsasagawa ng isang gawain.\n\n## 📊 Ano ang Flowchart?\nGinagamit ang **flowchart** upang ipakita ang proseso ng isang algorithm gamit ang mga simbolo at arrow.\n\n## 🧩 Halimbawa ng Simpleng Algorithm\nPara gumawa ng sandwich:\n1. Kumuha ng tinapay\n2. Maglagay ng palaman\n3. Isara ang sandwich\n4. Kainin\n\n**Mahahalagang salita:** algorithm, flowchart, hakbang-hakbang, proseso",
+        "summary_markdown": "# 🤖 EPP (ICT) — Review: Block Coding and Algorithms\n\nGrade 4, Week 22! Let's review the basics of block coding. 🤖\n\n## 🔄 Review\nWe learned about digital citizenship.\n\n## 🤖 What Is an Algorithm?\nAn **algorithm** is a step-by-step way to solve a problem or do a task.\n\n## 📊 What Is a Flowchart?\nA **flowchart** shows the process of an algorithm using symbols and arrows.\n\n## 🧩 Example of a Simple Algorithm\nTo make a sandwich:\n1. Get some bread\n2. Add the filling\n3. Close the sandwich\n4. Eat it\n\n**Key words:** algorithm, flowchart, step-by-step, process",
         "quiz": [
           {
-            "question": "Ano ang algorithm?",
+            "question": "What is an algorithm?",
             "options": [
-              "Hakbang-hakbang na paraan ng paglutas ng problema",
-              "Isang uri ng laro",
-              "Isang uri ng laruan",
-              "Isang uri ng pagkain"
+              "A step-by-step way to solve a problem",
+              "A kind of game",
+              "A kind of toy",
+              "A kind of food"
             ],
-            "correct_answer": "Hakbang-hakbang na paraan ng paglutas ng problema"
+            "correct_answer": "A step-by-step way to solve a problem"
           },
           {
-            "question": "Ano ang flowchart?",
+            "question": "What is a flowchart?",
             "options": [
-              "Simbolo at arrow na nagpapakita ng proseso",
-              "Isang uri ng grap ng datos lamang",
-              "Isang uri ng litrato",
-              "Isang uri ng kanta"
+              "Symbols and arrows that show a process",
+              "Just a kind of data graph",
+              "A kind of photo",
+              "A kind of song"
             ],
-            "correct_answer": "Simbolo at arrow na nagpapakita ng proseso"
+            "correct_answer": "Symbols and arrows that show a process"
           },
           {
-            "question": "Ano ang unang hakbang sa halimbawang algorithm ng paggawa ng sandwich?",
+            "question": "What is the first step in the sample sandwich algorithm?",
             "options": [
-              "Kumuha ng tinapay",
-              "Kainin",
-              "Isara ang sandwich",
-              "Maglagay ng palaman"
+              "Get some bread",
+              "Eat it",
+              "Close the sandwich",
+              "Add the filling"
             ],
-            "correct_answer": "Kumuha ng tinapay"
+            "correct_answer": "Get some bread"
           },
           {
-            "question": "Ano ang huling hakbang sa halimbawang algorithm?",
+            "question": "What is the last step in the sample algorithm?",
             "options": [
-              "Kainin",
-              "Kumuha ng tinapay",
-              "Maglagay ng palaman",
-              "Isara ang sandwich"
+              "Eat it",
+              "Get some bread",
+              "Add the filling",
+              "Close the sandwich"
             ],
-            "correct_answer": "Kainin"
+            "correct_answer": "Eat it"
           },
           {
-            "question": "Bakit mahalagang sumunod sa tamang pagkakasunod-sunod sa isang algorithm?",
+            "question": "Why is it important to follow the right order in an algorithm?",
             "options": [
-              "Para matagumpay na malutas ang problema o gawin ang gawain",
-              "Hindi mahalaga ang pagkakasunod-sunod",
-              "Basta anumang pagkakasunod-sunod ay tama",
-              "Walang epekto ang pagkakasunod-sunod"
+              "So the problem is solved or the task is done successfully",
+              "The order doesn't matter",
+              "Any order is correct",
+              "The order has no effect"
             ],
-            "correct_answer": "Para matagumpay na malutas ang problema o gawin ang gawain"
+            "correct_answer": "So the problem is solved or the task is done successfully"
           },
           {
-            "question": "Bakit ginagamit ang flowchart sa pagpaplano ng isang gawain?",
+            "question": "Why do we use a flowchart to plan a task?",
             "options": [
-              "Nagbibigay ito ng biswal na representasyon ng proseso",
-              "Wala itong gamit",
-              "Ginagamit lamang ito para sa larawan",
-              "Hindi ito ginagamit sa ICT"
+              "It gives a picture of the process",
+              "It is useless",
+              "It is only used for pictures",
+              "It is not used in ICT"
             ],
-            "correct_answer": "Nagbibigay ito ng biswal na representasyon ng proseso"
+            "correct_answer": "It gives a picture of the process"
           },
           {
-            "question": "Anong halimbawang gawain sa araw-araw ang maaaring gawing algorithm?",
+            "question": "Which everyday task can be turned into an algorithm?",
             "options": [
-              "Paghahanda para sa paaralan",
-              "Wala, hindi maaaring gawing algorithm ang gawain",
-              "Isang bagay na walang hakbang",
-              "Isang random na kaisipan"
+              "Getting ready for school",
+              "None, tasks can't be turned into algorithms",
+              "Something with no steps",
+              "A random thought"
             ],
-            "correct_answer": "Paghahanda para sa paaralan"
+            "correct_answer": "Getting ready for school"
           },
           {
-            "question": "Bakit itinuturo ang block coding sa mga bata?",
+            "question": "Why do we teach block coding to kids?",
             "options": [
-              "Upang ipakilala ang batayan ng lohikal na pag-iisip",
-              "Walang layunin ito",
-              "Para lamang libangin ang bata",
-              "Hindi ito nauugnay sa ICT"
+              "To introduce the basics of logical thinking",
+              "No purpose",
+              "Just to entertain kids",
+              "It is not related to ICT"
             ],
-            "correct_answer": "Upang ipakilala ang batayan ng lohikal na pag-iisip"
+            "correct_answer": "To introduce the basics of logical thinking"
           },
           {
-            "question": "Ano ang tinutukoy ng isang 'proseso' sa isang algorithm?",
+            "question": "What does a 'process' mean in an algorithm?",
             "options": [
-              "Ang bawat hakbang na kailangang gawin",
-              "Ang kabuuang resulta lamang",
-              "Ang huling hakbang lamang",
-              "Walang kahulugan ang proseso"
+              "Each step that needs to be done",
+              "Only the final result",
+              "Only the last step",
+              "Process has no meaning"
             ],
-            "correct_answer": "Ang bawat hakbang na kailangang gawin"
+            "correct_answer": "Each step that needs to be done"
           },
           {
-            "question": "Ano ang mangyayari kung hindi tamang pagkakasunod-sunod ang sundin sa isang algorithm?",
+            "question": "What happens if you don't follow the right order in an algorithm?",
             "options": [
-              "Maaaring hindi matagumpay ang gawain",
-              "Palaging magiging tama pa rin ang resulta",
-              "Walang epekto ito sa resulta",
-              "Mas mabilis pa ang resulta"
+              "The task may not succeed",
+              "The result will always still be right",
+              "It has no effect on the result",
+              "The result will be even faster"
             ],
-            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+            "correct_answer": "The task may not succeed"
           },
           {
-            "question": "Bakit mahalagang matutong bumuo ng simpleng algorithm sa Grade 4?",
+            "question": "Why is it important to learn to make simple algorithms in Grade 4?",
             "options": [
-              "Nagtuturo ito ng lohikal at sistematikong pag-iisip",
-              "Walang gamit ito sa totoong buhay",
-              "Para sa matatanda lamang ito",
-              "Hindi na kailangan ito matutunan"
+              "It teaches logical and organized thinking",
+              "It has no use in real life",
+              "It is only for adults",
+              "No need to learn it"
             ],
-            "correct_answer": "Nagtuturo ito ng lohikal at sistematikong pag-iisip"
+            "correct_answer": "It teaches logical and organized thinking"
           },
           {
-            "question": "Alin sa mga sumusunod ang halimbawa ng flowchart symbol?",
+            "question": "Which of the following is an example of a flowchart symbol?",
             "options": [
-              "Isang parihaba para sa isang hakbang",
-              "Isang notebook",
-              "Isang lapis",
-              "Isang gunting"
+              "A rectangle for a step",
+              "A notebook",
+              "A pencil",
+              "A pair of scissors"
             ],
-            "correct_answer": "Isang parihaba para sa isang hakbang"
+            "correct_answer": "A rectangle for a step"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🤖 Friday Review — EPP (ICT) (Grade 4)\n\n- Algorithm at flowchart\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 🤖 Friday Review — EPP (ICT) (Grade 4)\n\n- Algorithms and flowcharts\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang algorithm?",
+            "question": "What is an algorithm?",
             "options": [
-              "Hakbang-hakbang na paglutas ng problema",
-              "Uri ng laro",
-              "Uri ng laruan",
-              "Uri ng pagkain"
+              "Solving a problem step by step",
+              "A kind of game",
+              "A kind of toy",
+              "A kind of food"
             ],
-            "correct_answer": "Hakbang-hakbang na paglutas ng problema"
+            "correct_answer": "Solving a problem step by step"
           },
           {
-            "question": "Ano ang flowchart?",
+            "question": "What is a flowchart?",
             "options": [
-              "Simbolo at arrow ng proseso",
-              "Uri ng grap ng datos lamang",
-              "Uri ng litrato",
-              "Uri ng kanta"
+              "Symbols and arrows for a process",
+              "Just a kind of data graph",
+              "A kind of photo",
+              "A kind of song"
             ],
-            "correct_answer": "Simbolo at arrow ng proseso"
+            "correct_answer": "Symbols and arrows for a process"
           },
           {
-            "question": "Unang hakbang sa halimbawang algorithm ng sandwich?",
+            "question": "What is the first step in the sample sandwich algorithm?",
             "options": [
-              "Kumuha ng tinapay",
-              "Kainin",
-              "Isara ang sandwich",
-              "Maglagay ng palaman"
+              "Get some bread",
+              "Eat it",
+              "Close the sandwich",
+              "Add the filling"
             ],
-            "correct_answer": "Kumuha ng tinapay"
+            "correct_answer": "Get some bread"
           },
           {
-            "question": "Huling hakbang?",
+            "question": "What is the last step?",
             "options": [
-              "Kainin",
-              "Kumuha ng tinapay",
-              "Maglagay ng palaman",
-              "Isara"
+              "Eat it",
+              "Get some bread",
+              "Add the filling",
+              "Close it"
             ],
-            "correct_answer": "Kainin"
+            "correct_answer": "Eat it"
           },
           {
-            "question": "Bakit sumunod sa tamang pagkakasunod-sunod?",
+            "question": "Why follow the right order?",
             "options": [
-              "Para matagumpay malutas ang gawain",
-              "Hindi mahalaga",
-              "Basta anumang ayos ay tama",
-              "Walang epekto"
+              "So the task is done successfully",
+              "It doesn't matter",
+              "Any order is fine",
+              "No effect"
             ],
-            "correct_answer": "Para matagumpay malutas ang gawain"
+            "correct_answer": "So the task is done successfully"
           },
           {
-            "question": "Bakit ginagamit ang flowchart?",
+            "question": "Why do we use a flowchart?",
             "options": [
-              "Biswal na representasyon ng proseso",
-              "Walang gamit",
-              "Para sa larawan lamang",
-              "Hindi ginagamit sa ICT"
+              "It is a picture of the process",
+              "It is useless",
+              "Only for pictures",
+              "Not used in ICT"
             ],
-            "correct_answer": "Biswal na representasyon ng proseso"
+            "correct_answer": "It is a picture of the process"
           },
           {
-            "question": "Halimbawang gawain na magiging algorithm?",
+            "question": "What is a task that can become an algorithm?",
             "options": [
-              "Paghahanda para sa paaralan",
-              "Walang maaaring gawing algorithm",
-              "Isang bagay na walang hakbang",
-              "Random na kaisipan"
+              "Getting ready for school",
+              "Nothing can become an algorithm",
+              "Something with no steps",
+              "A random thought"
             ],
-            "correct_answer": "Paghahanda para sa paaralan"
+            "correct_answer": "Getting ready for school"
           },
           {
-            "question": "Bakit ituro ang block coding?",
+            "question": "Why teach block coding?",
             "options": [
-              "Ipakilala ang lohikal na pag-iisip",
-              "Walang layunin",
-              "Libangin lamang ang bata",
-              "Hindi nauugnay sa ICT"
+              "To introduce logical thinking",
+              "No purpose",
+              "Just to entertain kids",
+              "Not related to ICT"
             ],
-            "correct_answer": "Ipakilala ang lohikal na pag-iisip"
+            "correct_answer": "To introduce logical thinking"
           },
           {
-            "question": "Ano ang tinutukoy ng 'proseso' sa algorithm?",
+            "question": "What does 'process' mean in an algorithm?",
             "options": [
-              "Bawat hakbang na kailangang gawin",
-              "Kabuuang resulta lamang",
-              "Huling hakbang lamang",
-              "Walang kahulugan"
+              "Each step that needs to be done",
+              "Only the final result",
+              "Only the last step",
+              "It has no meaning"
             ],
-            "correct_answer": "Bawat hakbang na kailangang gawin"
+            "correct_answer": "Each step that needs to be done"
           },
           {
-            "question": "Mangyayari kung mali ang pagkakasunod-sunod?",
+            "question": "What happens if the order is wrong?",
             "options": [
-              "Maaaring hindi matagumpay ang gawain",
-              "Palaging magiging tama",
-              "Walang epekto",
-              "Mas mabilis ang resulta"
+              "The task may not succeed",
+              "It will always be right",
+              "No effect",
+              "The result is faster"
             ],
-            "correct_answer": "Maaaring hindi matagumpay ang gawain"
+            "correct_answer": "The task may not succeed"
           },
           {
-            "question": "Bakit matutong bumuo ng algorithm sa Grade 4?",
+            "question": "Why learn to make algorithms in Grade 4?",
             "options": [
-              "Nagtuturo ng lohikal na pag-iisip",
-              "Walang gamit sa totoong buhay",
-              "Para sa matatanda lamang",
-              "Hindi kailangan matutunan"
+              "It teaches logical thinking",
+              "No use in real life",
+              "Only for adults",
+              "No need to learn it"
             ],
-            "correct_answer": "Nagtuturo ng lohikal na pag-iisip"
+            "correct_answer": "It teaches logical thinking"
           },
           {
-            "question": "Halimbawa ng flowchart symbol?",
+            "question": "What is an example of a flowchart symbol?",
             "options": [
-              "Parihaba para sa hakbang",
+              "A rectangle for a step",
               "Notebook",
-              "Lapis",
-              "Gunting"
+              "Pencil",
+              "Scissors"
             ],
-            "correct_answer": "Parihaba para sa hakbang"
+            "correct_answer": "A rectangle for a step"
           }
         ]
       },

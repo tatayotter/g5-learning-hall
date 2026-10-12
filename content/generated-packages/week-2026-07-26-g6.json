@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Pagbabahagi sa Cloud Storage!\n\nAlamin natin nang mas malalim ang pagbabahagi ng files! 📤\n\n## 📤 Wastong Pagbabahagi\n- Gamitin ang **share button** upang bigyan ng access ang ibang tao.\n- Piliin kung sila ay makakapag-**view lamang** o makakapag-**edit** ng file.\n\n## 🔒 Pag-organisa ng Files\n- Gumamit ng **mga folder** para maayos ang mga file.\n\n## 🔍 Kaligtasan\n- I-check ang listahan ng mga taong may access sa file paminsan-minsan.\n\nMahusay na pag-oorganisa ay nagbibigay ng produktibong paggawa! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Sharing in Cloud Storage!\n\nLet's learn more about sharing files! 📤\n\n## 📤 Sharing the Right Way\n- Use the **share button** to give other people access.\n- Choose whether they can **view only** or **edit** the file.\n\n## 🔒 Organizing Files\n- Use **folders** to keep your files neat.\n\n## 🔍 Safety\n- Check the list of people who have access to the file from time to time.\n\nGood organizing helps you work productively! 🌟",
         "quiz": [
-          { "question": "Ano ang ginagamit para bigyan ng access ang ibang tao?", "options": ["Share button", "Delete button", "Print button", "Walang button"], "correct_answer": "Share button" },
-          { "question": "Anong dalawang uri ng access ang maaaring ibigay?", "options": ["View at edit", "Delete at print", "Walang uri", "Isa lamang"], "correct_answer": "View at edit" },
-          { "question": "Ano ang ginagamit para maayos ang mga file?", "options": ["Mga folder", "Wala", "Kulay lamang", "Font lamang"], "correct_answer": "Mga folder" },
-          { "question": "Ano ang dapat i-check paminsan-minsan?", "options": ["Listahan ng taong may access", "Wala", "Kulay ng file", "Presyo ng file"], "correct_answer": "Listahan ng taong may access" },
-          { "question": "Bakit mahalaga ang pag-organisa ng files?", "options": ["Nagbibigay ito ng produktibong paggawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng produktibong paggawa" },
-          { "question": "Ano ang dapat piliin bago magbahagi ng file?", "options": ["Kung view lamang o edit ang bibigyan", "Wala", "Random na opsyon", "Kulay lamang"], "correct_answer": "Kung view lamang o edit ang bibigyan" }
+          { "question": "What do you use to give other people access?", "options": ["Share button", "Delete button", "Print button", "No button"], "correct_answer": "Share button" },
+          { "question": "What two kinds of access can you give?", "options": ["View and edit", "Delete and print", "No kinds", "Only one"], "correct_answer": "View and edit" },
+          { "question": "What do you use to keep files organized?", "options": ["Folders", "Nothing", "Only color", "Only font"], "correct_answer": "Folders" },
+          { "question": "What should you check from time to time?", "options": ["The list of people who have access", "Nothing", "The color of the file", "The price of the file"], "correct_answer": "The list of people who have access" },
+          { "question": "Why is organizing files important?", "options": ["It helps you work productively", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It helps you work productively" },
+          { "question": "What should you choose before sharing a file?", "options": ["Whether to give view only or edit access", "Nothing", "A random option", "Only color"], "correct_answer": "Whether to give view only or edit access" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Share button** para bigyan ng access\n- Piliin: **view o edit**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Share button** to give access\n- Choose: **view or edit**\n\nGreat studying! 🌟",
         "quiz": [
-          { "question": "Ano ang ginagamit para bigyan ng access ang ibang tao?", "options": ["Share button", "Delete button", "Print button", "Walang button"], "correct_answer": "Share button" },
-          { "question": "Anong dalawang uri ng access ang maaaring ibigay?", "options": ["View at edit", "Delete at print", "Walang uri", "Isa lamang"], "correct_answer": "View at edit" },
-          { "question": "Ano ang ginagamit para maayos ang mga file?", "options": ["Mga folder", "Wala", "Kulay lamang", "Font lamang"], "correct_answer": "Mga folder" },
-          { "question": "Ano ang dapat i-check paminsan-minsan?", "options": ["Listahan ng taong may access", "Wala", "Kulay ng file", "Presyo ng file"], "correct_answer": "Listahan ng taong may access" },
-          { "question": "Bakit mahalaga ang pag-organisa ng files?", "options": ["Nagbibigay ito ng produktibong paggawa", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Nagbibigay ito ng produktibong paggawa" }
+          { "question": "What do you use to give other people access?", "options": ["Share button", "Delete button", "Print button", "No button"], "correct_answer": "Share button" },
+          { "question": "What two kinds of access can you give?", "options": ["View and edit", "Delete and print", "No kinds", "Only one"], "correct_answer": "View and edit" },
+          { "question": "What do you use to keep files organized?", "options": ["Folders", "Nothing", "Only color", "Only font"], "correct_answer": "Folders" },
+          { "question": "What should you check from time to time?", "options": ["The list of people who have access", "Nothing", "The color of the file", "The price of the file"], "correct_answer": "The list of people who have access" },
+          { "question": "Why is organizing files important?", "options": ["It helps you work productively", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It helps you work productively" }
         ]
       },
       "Science": {

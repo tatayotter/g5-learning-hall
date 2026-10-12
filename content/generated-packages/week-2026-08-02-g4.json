@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Wastong Posisyon at Oras sa Paggamit ng Computer!\n\nAlamin natin ang tamang paraan ng paggamit ng computer! 🖥️\n\n## 🪑 Wastong Posisyon\n- Umupo nang tuwid, katulad ng natutunan natin noong Grade 3.\n- Panatilihin ang screen sa **antas ng mata** at may **layo** na isang braso.\n\n## ⏰ Wastong Oras\n- Huwag gumamit ng computer nang **matagal** nang walang pahinga.\n- Kumuha ng break tuwing **20-30 minuto**.\n\n## 🔍 Bakit Mahalaga Ito?\n- Iniingatan nito ang ating **mata at katawan** mula sa pagod.\n\nMagsanay ng tamang posisyon at oras sa paggamit ng computer! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 6: Correct Posture and Time When Using a Computer!\n\nLet's learn the right way to use a computer! 🖥️\n\n## 🪑 Correct Posture\n- Sit up straight, just like we learned in Grade 3.\n- Keep the screen at **eye level** and about an arm's length **away**.\n\n## ⏰ Correct Time\n- Do not use the computer for a **long time** without a break.\n- Take a break every **20-30 minutes**.\n\n## 🔍 Why Is This Important?\n- It protects our **eyes and body** from getting tired.\n\nPractice good posture and time limits when using the computer! 🌟",
         "quiz": [
-          { "question": "Paano dapat umupo habang gumagamit ng computer?", "options": ["Nang tuwid", "Nakayuko", "Nakahiga", "Malayo sa upuan"], "correct_answer": "Nang tuwid" },
-          { "question": "Saan dapat nasa antas ang screen?", "options": ["Antas ng mata", "Mababa sa sahig", "Malayong-malayo", "Wala sa mga ito"], "correct_answer": "Antas ng mata" },
-          { "question": "Gaano kadalas dapat kumuha ng break?", "options": ["Tuwing 20-30 minuto", "Isang beses sa isang taon", "Hindi na kailangan", "Tuwing 5 oras"], "correct_answer": "Tuwing 20-30 minuto" },
-          { "question": "Bakit mahalaga ang wastong posisyon at oras?", "options": ["Iniingatan nito ang mata at katawan", "Walang dahilan", "Para mas matagal maglaro", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang mata at katawan" },
-          { "question": "Gaano dapat kalayo ang screen mula sa mata?", "options": ["Isang braso ang layo", "Napakalapit", "Napakalayo", "Walang tamang layo"], "correct_answer": "Isang braso ang layo" },
-          { "question": "Ano ang epekto ng paggamit ng computer nang walang pahinga?", "options": ["Pagod ang mata at katawan", "Walang epekto", "Mas malakas ang mata", "Mabuti sa katawan"], "correct_answer": "Pagod ang mata at katawan" }
+          { "question": "How should you sit while using a computer?", "options": ["Up straight", "Bent over", "Lying down", "Far from the chair"], "correct_answer": "Up straight" },
+          { "question": "At what level should the screen be?", "options": ["Eye level", "Low, near the floor", "Very far away", "None of these"], "correct_answer": "Eye level" },
+          { "question": "How often should you take a break?", "options": ["Every 20-30 minutes", "Once a year", "No need", "Every 5 hours"], "correct_answer": "Every 20-30 minutes" },
+          { "question": "Why are good posture and time limits important?", "options": ["They protect your eyes and body", "No reason", "So you can play longer", "They are useless"], "correct_answer": "They protect your eyes and body" },
+          { "question": "How far should the screen be from your eyes?", "options": ["About an arm's length away", "Very close", "Very far", "There is no right distance"], "correct_answer": "About an arm's length away" },
+          { "question": "What happens if you use a computer without a break?", "options": ["Your eyes and body get tired", "Nothing happens", "Your eyes get stronger", "It is good for your body"], "correct_answer": "Your eyes and body get tired" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Umupo nang **tuwid**, screen sa antas ng mata\n- Break tuwing **20-30 minuto**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Sit up **straight**, with the screen at eye level\n- Take a break every **20-30 minutes**\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Paano dapat umupo habang gumagamit ng computer?", "options": ["Nang tuwid", "Nakayuko", "Nakahiga", "Malayo sa upuan"], "correct_answer": "Nang tuwid" },
-          { "question": "Saan dapat nasa antas ang screen?", "options": ["Antas ng mata", "Mababa sa sahig", "Malayong-malayo", "Wala sa mga ito"], "correct_answer": "Antas ng mata" },
-          { "question": "Gaano kadalas dapat kumuha ng break?", "options": ["Tuwing 20-30 minuto", "Isang beses sa isang taon", "Hindi na kailangan", "Tuwing 5 oras"], "correct_answer": "Tuwing 20-30 minuto" },
-          { "question": "Bakit mahalaga ang wastong posisyon at oras?", "options": ["Iniingatan nito ang mata at katawan", "Walang dahilan", "Para mas matagal maglaro", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang mata at katawan" },
-          { "question": "Gaano dapat kalayo ang screen mula sa mata?", "options": ["Isang braso ang layo", "Napakalapit", "Napakalayo", "Walang tamang layo"], "correct_answer": "Isang braso ang layo" }
+          { "question": "How should you sit while using a computer?", "options": ["Up straight", "Bent over", "Lying down", "Far from the chair"], "correct_answer": "Up straight" },
+          { "question": "At what level should the screen be?", "options": ["Eye level", "Low, near the floor", "Very far away", "None of these"], "correct_answer": "Eye level" },
+          { "question": "How often should you take a break?", "options": ["Every 20-30 minutes", "Once a year", "No need", "Every 5 hours"], "correct_answer": "Every 20-30 minutes" },
+          { "question": "Why are good posture and time limits important?", "options": ["They protect your eyes and body", "No reason", "So you can play longer", "They are useless"], "correct_answer": "They protect your eyes and body" },
+          { "question": "How far should the screen be from your eyes?", "options": ["About an arm's length away", "Very close", "Very far", "There is no right distance"], "correct_answer": "About an arm's length away" }
         ]
       },
       "Science": {

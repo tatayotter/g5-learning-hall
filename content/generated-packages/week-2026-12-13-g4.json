@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🔍 EPP (ICT) — Responsableng Paggamit ng Search Engine\n\nGrade 4, Linggo 27! Alamin natin kung paano suriin ang impormasyon online. 🔍\n\n## 🔄 Balik-Aral\nNatutuhan natin ang digital footprint.\n\n## 🔍 Ano ang Search Engine?\nAng **search engine** (tulad ng Google) ay tumutulong maghanap ng impormasyon sa Internet gamit ang mga keyword.\n\n## ✅ Pagsusuri ng Impormasyon Online\nHindi lahat ng makikita online ay totoo. Dapat suriin natin:\n- Sino ang gumawa ng impormasyon?\n- Kailan ito nailathala?\n- May katibayan ba ang sinasabi?\n\n## ⚠️ Bakit Mahalaga Ito?\nMaraming maling impormasyon (fake news) ang kumakalat online, kaya mahalagang matutong suriin bago maniwala.\n\n**Mahahalagang salita:** search engine, keyword, pagsusuri, fake news",
+        "summary_markdown": "# 🔍 EPP (ICT) — Using Search Engines Responsibly\n\nGrade 4, Week 27! Let's learn how to check information online. 🔍\n\n## 🔄 Review\nWe learned about the digital footprint.\n\n## 🔍 What Is a Search Engine?\nA **search engine** (like Google) helps you find information on the Internet using keywords.\n\n## ✅ Checking Information Online\nNot everything you see online is true. We should check:\n- Who made the information?\n- When was it published?\n- Is there proof for what it says?\n\n## ⚠️ Why Is This Important?\nA lot of false information (fake news) spreads online, so it's important to learn to check before you believe.\n\n**Key words:** search engine, keyword, checking, fake news",
         "quiz": [
           {
-            "question": "Ano ang search engine?",
+            "question": "What is a search engine?",
             "options": [
-              "Tumutulong maghanap ng impormasyon sa Internet gamit ang keyword",
-              "Isang uri ng laro",
-              "Isang uri ng kompyuter",
-              "Isang uri ng printer"
+              "It helps you find information on the Internet using keywords",
+              "A kind of game",
+              "A kind of computer",
+              "A kind of printer"
             ],
-            "correct_answer": "Tumutulong maghanap ng impormasyon sa Internet gamit ang keyword"
+            "correct_answer": "It helps you find information on the Internet using keywords"
           },
           {
-            "question": "Ano ang dapat tanungin kapag sinusuri ang impormasyon online?",
+            "question": "What should you ask when checking information online?",
             "options": [
-              "Sino ang gumawa, kailan nailathala, at may katibayan ba",
-              "Ang kulay ng website lamang",
-              "Ang laki ng font",
-              "Wala, dapat lang paniwalaan agad"
+              "Who made it, when it was published, and is there proof",
+              "Only the website's color",
+              "The font size",
+              "Nothing, just believe it right away"
             ],
-            "correct_answer": "Sino ang gumawa, kailan nailathala, at may katibayan ba"
+            "correct_answer": "Who made it, when it was published, and is there proof"
           },
           {
-            "question": "Ano ang fake news?",
+            "question": "What is fake news?",
             "options": [
-              "Maling impormasyong kumakalat online",
-              "Totoong balita lamang",
-              "Isang uri ng laro",
-              "Isang opisyal na dokumento"
+              "False information spreading online",
+              "Only true news",
+              "A kind of game",
+              "An official document"
             ],
-            "correct_answer": "Maling impormasyong kumakalat online"
+            "correct_answer": "False information spreading online"
           },
           {
-            "question": "Bakit mahalagang suriin ang impormasyon bago maniwala?",
+            "question": "Why is it important to check information before believing it?",
             "options": [
-              "Hindi lahat ng nasa Internet ay totoo",
-              "Lahat ng online ay palaging totoo",
-              "Hindi na kailangan pang suriin",
-              "Walang epekto ang maling impormasyon"
+              "Not everything on the Internet is true",
+              "Everything online is always true",
+              "No need to check anymore",
+              "False information has no effect"
             ],
-            "correct_answer": "Hindi lahat ng nasa Internet ay totoo"
+            "correct_answer": "Not everything on the Internet is true"
           },
           {
-            "question": "Ano ang keyword sa paghahanap online?",
+            "question": "What is a keyword when searching online?",
             "options": [
-              "Mahalagang salitang ginagamit para maghanap ng impormasyon",
-              "Isang uri ng password",
-              "Isang uri ng virus",
-              "Isang uri ng file"
+              "An important word used to search for information",
+              "A kind of password",
+              "A kind of virus",
+              "A kind of file"
             ],
-            "correct_answer": "Mahalagang salitang ginagamit para maghanap ng impormasyon"
+            "correct_answer": "An important word used to search for information"
           },
           {
-            "question": "Bakit mahalagang malaman kung sino ang gumawa ng isang artikulo online?",
+            "question": "Why is it important to know who wrote an article online?",
             "options": [
-              "Tumutulong ito matukoy kung mapagkakatiwalaan ang impormasyon",
-              "Walang kaugnayan ito sa katotohanan",
-              "Hindi na kailangan malaman ito",
-              "Palaging pareho ang lahat ng may-akda"
+              "It helps you tell if the information can be trusted",
+              "It has nothing to do with the truth",
+              "No need to know",
+              "All authors are always the same"
             ],
-            "correct_answer": "Tumutulong ito matukoy kung mapagkakatiwalaan ang impormasyon"
+            "correct_answer": "It helps you tell if the information can be trusted"
           },
           {
-            "question": "Ano ang epekto ng paniniwala sa fake news?",
+            "question": "What happens when people believe fake news?",
             "options": [
-              "Maaaring maging maling kaalaman at desisyon",
-              "Walang epekto ito",
-              "Palaging positibo ang resulta",
-              "Nagpapalakas lamang ng kaalaman"
+              "It can lead to wrong knowledge and decisions",
+              "No effect",
+              "The result is always positive",
+              "It only makes your knowledge stronger"
             ],
-            "correct_answer": "Maaaring maging maling kaalaman at desisyon"
+            "correct_answer": "It can lead to wrong knowledge and decisions"
           },
           {
-            "question": "Bakit itinuturo ang pagsusuri ng online source sa mga bata?",
+            "question": "Why do we teach kids to check online sources?",
             "options": [
-              "Upang maging responsableng gumagamit ng Internet",
-              "Walang layunin ito",
-              "Para lamang libangin",
-              "Hindi bahagi ng ICT"
+              "To be a responsible Internet user",
+              "No purpose",
+              "Just for fun",
+              "Not part of ICT"
             ],
-            "correct_answer": "Upang maging responsableng gumagamit ng Internet"
+            "correct_answer": "To be a responsible Internet user"
           },
           {
-            "question": "Bakit mahalagang tingnan ang petsa ng paglalathala?",
+            "question": "Why is it important to look at the date something was published?",
             "options": [
-              "Ang lumang impormasyon ay maaaring hindi na tama",
-              "Walang epekto ang petsa",
-              "Lahat ng petsa ay pareho ang halaga",
-              "Hindi na kailangan tingnan ito"
+              "Old information may no longer be correct",
+              "The date has no effect",
+              "All dates matter the same",
+              "No need to look"
             ],
-            "correct_answer": "Ang lumang impormasyon ay maaaring hindi na tama"
+            "correct_answer": "Old information may no longer be correct"
           },
           {
-            "question": "Paano nauugnay ang digital footprint sa pagsusuri ng impormasyon online?",
+            "question": "How is the digital footprint related to checking information online?",
             "options": [
-              "Pareho silang bahagi ng responsableng paggamit ng Internet",
-              "Walang koneksyon ang dalawa",
-              "Isa tungkol lamang sa agham",
-              "Isa tungkol lamang sa matematika"
+              "Both are part of using the Internet responsibly",
+              "The two have no connection",
+              "One is only about science",
+              "One is only about math"
             ],
-            "correct_answer": "Pareho silang bahagi ng responsableng paggamit ng Internet"
+            "correct_answer": "Both are part of using the Internet responsibly"
           },
           {
-            "question": "Ano ang gagawin kung nakakita ka ng kaduda-dudang impormasyon online?",
+            "question": "What should you do if you see doubtful information online?",
             "options": [
-              "Suriin muna bago ibahagi o paniwalaan",
-              "Ibahagi agad sa lahat",
-              "Paniwalaan agad",
-              "Balewalain ang lahat ng babala"
+              "Check it first before sharing or believing it",
+              "Share it with everyone right away",
+              "Believe it right away",
+              "Ignore all warnings"
             ],
-            "correct_answer": "Suriin muna bago ibahagi o paniwalaan"
+            "correct_answer": "Check it first before sharing or believing it"
           },
           {
-            "question": "Bakit mahalaga ang katibayan sa isang impormasyon?",
+            "question": "Why is proof important for information?",
             "options": [
-              "Nagpapatunay ito na totoo ang sinasabi",
-              "Walang kahalagahan ito",
-              "Hindi na kailangan ng katibayan",
-              "Palaging tama kahit walang katibayan"
+              "It shows that what is said is true",
+              "It doesn't matter",
+              "Proof is not needed",
+              "It's always right even without proof"
             ],
-            "correct_answer": "Nagpapatunay ito na totoo ang sinasabi"
+            "correct_answer": "It shows that what is said is true"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🔍 Friday Review — EPP (ICT) (Grade 4)\n\n- Responsableng paggamit ng search engine\n\nMagaling sa ICT! 🌟",
+        "summary_markdown": "# 🔍 Friday Review — EPP (ICT) (Grade 4)\n\n- Using search engines responsibly\n\nGreat job in ICT! 🌟",
         "quiz": [
           {
-            "question": "Ano ang search engine?",
+            "question": "What is a search engine?",
             "options": [
-              "Tumutulong maghanap ng impormasyon gamit ang keyword",
-              "Uri ng laro",
-              "Uri ng kompyuter",
-              "Uri ng printer"
+              "It helps you find information using keywords",
+              "A kind of game",
+              "A kind of computer",
+              "A kind of printer"
             ],
-            "correct_answer": "Tumutulong maghanap ng impormasyon gamit ang keyword"
+            "correct_answer": "It helps you find information using keywords"
           },
           {
-            "question": "Ano ang dapat tanungin kapag sinusuri ang impormasyon online?",
+            "question": "What should you ask when checking information online?",
             "options": [
-              "Sino gumawa, kailan nailathala, may katibayan ba",
-              "Kulay ng website lamang",
-              "Laki ng font",
-              "Wala, paniwalaan agad"
+              "Who made it, when it was published, and is there proof",
+              "Only the website's color",
+              "The font size",
+              "Nothing, just believe it right away"
             ],
-            "correct_answer": "Sino gumawa, kailan nailathala, may katibayan ba"
+            "correct_answer": "Who made it, when it was published, and is there proof"
           },
           {
-            "question": "Ano ang fake news?",
+            "question": "What is fake news?",
             "options": [
-              "Maling impormasyong kumakalat online",
-              "Totoong balita lamang",
-              "Uri ng laro",
-              "Opisyal na dokumento"
+              "False information spreading online",
+              "Only true news",
+              "A kind of game",
+              "An official document"
             ],
-            "correct_answer": "Maling impormasyong kumakalat online"
+            "correct_answer": "False information spreading online"
           },
           {
-            "question": "Bakit suriin bago maniwala?",
+            "question": "Why should you check before believing?",
             "options": [
-              "Hindi lahat sa Internet ay totoo",
-              "Lahat ay palaging totoo",
-              "Hindi na kailangan suriin",
-              "Walang epekto ang maling impormasyon"
+              "Not everything on the Internet is true",
+              "Everything is always true",
+              "No need to check",
+              "False information has no effect"
             ],
-            "correct_answer": "Hindi lahat sa Internet ay totoo"
+            "correct_answer": "Not everything on the Internet is true"
           },
           {
-            "question": "Ano ang keyword sa paghahanap online?",
+            "question": "What is a keyword when searching online?",
             "options": [
-              "Mahalagang salitang ginagamit sa paghahanap",
-              "Uri ng password",
-              "Uri ng virus",
-              "Uri ng file"
+              "An important word used for searching",
+              "A kind of password",
+              "A kind of virus",
+              "A kind of file"
             ],
-            "correct_answer": "Mahalagang salitang ginagamit sa paghahanap"
+            "correct_answer": "An important word used for searching"
           },
           {
-            "question": "Bakit malaman kung sino gumawa ng artikulo?",
+            "question": "Why should you know who wrote an article?",
             "options": [
-              "Tumutulong matukoy kung mapagkakatiwalaan",
-              "Walang kaugnayan",
-              "Hindi na kailangan malaman",
-              "Palaging pareho ang may-akda"
+              "It helps you tell if it can be trusted",
+              "It doesn't matter",
+              "No need to know",
+              "The author is always the same"
             ],
-            "correct_answer": "Tumutulong matukoy kung mapagkakatiwalaan"
+            "correct_answer": "It helps you tell if it can be trusted"
           },
           {
-            "question": "Epekto ng paniniwala sa fake news?",
+            "question": "What happens when people believe fake news?",
             "options": [
-              "Maling kaalaman at desisyon",
-              "Walang epekto",
-              "Palaging positibo",
-              "Nagpapalakas lamang"
+              "Wrong knowledge and decisions",
+              "No effect",
+              "Always positive",
+              "It only makes you stronger"
             ],
-            "correct_answer": "Maling kaalaman at desisyon"
+            "correct_answer": "Wrong knowledge and decisions"
           },
           {
-            "question": "Bakit ituro ang pagsusuri ng online source?",
+            "question": "Why do we learn to check online sources?",
             "options": [
-              "Maging responsableng gumagamit ng Internet",
-              "Walang layunin",
-              "Libangin lamang",
-              "Hindi bahagi ng ICT"
+              "To be a responsible Internet user",
+              "No purpose",
+              "Just for fun",
+              "Not part of ICT"
             ],
-            "correct_answer": "Maging responsableng gumagamit ng Internet"
+            "correct_answer": "To be a responsible Internet user"
           },
           {
-            "question": "Bakit tingnan ang petsa ng paglalathala?",
+            "question": "Why should you look at the date something was published?",
             "options": [
-              "Lumang impormasyon maaaring hindi na tama",
-              "Walang epekto",
-              "Pareho lahat ng petsa",
-              "Hindi na kailangan tingnan"
+              "Old information may no longer be correct",
+              "No effect",
+              "All dates are the same",
+              "No need to look"
             ],
-            "correct_answer": "Lumang impormasyon maaaring hindi na tama"
+            "correct_answer": "Old information may no longer be correct"
           },
           {
-            "question": "Koneksyon ng digital footprint sa pagsusuri ng impormasyon?",
+            "question": "How is the digital footprint connected to checking information?",
             "options": [
-              "Parehong bahagi ng responsableng Internet use",
-              "Walang koneksyon",
-              "Isa tungkol sa agham",
-              "Isa tungkol sa matematika"
+              "Both are part of using the Internet responsibly",
+              "No connection",
+              "One is about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong bahagi ng responsableng Internet use"
+            "correct_answer": "Both are part of using the Internet responsibly"
           },
           {
-            "question": "Gagawin kung nakakita ng kaduda-dudang impormasyon?",
+            "question": "What should you do if you see doubtful information?",
             "options": [
-              "Suriin muna bago ibahagi",
-              "Ibahagi agad sa lahat",
-              "Paniwalaan agad",
-              "Balewalain ang babala"
+              "Check it first before sharing",
+              "Share it with everyone right away",
+              "Believe it right away",
+              "Ignore the warning"
             ],
-            "correct_answer": "Suriin muna bago ibahagi"
+            "correct_answer": "Check it first before sharing"
           },
           {
-            "question": "Bakit mahalaga ang katibayan sa impormasyon?",
+            "question": "Why is proof important for information?",
             "options": [
-              "Nagpapatunay na totoo ang sinasabi",
-              "Walang kahalagahan",
-              "Hindi na kailangan",
-              "Palaging tama kahit wala"
+              "It shows that what is said is true",
+              "It doesn't matter",
+              "It's not needed",
+              "It's always right even without proof"
             ],
-            "correct_answer": "Nagpapatunay na totoo ang sinasabi"
+            "correct_answer": "It shows that what is said is true"
           }
         ]
       },

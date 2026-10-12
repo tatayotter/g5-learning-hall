@@ -160,19 +160,19 @@
     },
     "Tuesday": {
       "EPP (ICT)": {
-        "summary_markdown": "### 🎯 Today's Focus\n* **Netiquette:** Ang etiketa o tamang asal sa internet, tulad ng paggamit ng **magalang na salita** at pagprotekta sa **privacy** (huwag ibahagi ang password).\n* **Web Browser:** Programang ginagamit upang makapasok sa internet; ang URL ay tina-type sa **Address Bar**.\n* **Search Engines:** Nakakatulong sa paghahanap ng impormasyon; gumamit ng mga angkop na **keywords** para sa mas mabilis at tamang resulta.\n* **Information Verification:** Bago maniwala, dapat **i-verify** muna ang katotohanan ng impormasyong nahanap online.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Safe E-mailing:** Pag-aaralan natin ang tamang pagpapadala ng **attachments** at ang gamit ng **CC at BCC**.",
+        "summary_markdown": "### 🎯 Today's Focus\n* **Netiquette:** Good manners on the internet, like using **polite words** and protecting your **privacy** (don't share your password).\n* **Web Browser:** A program used to go on the internet; you type the URL in the **Address Bar**.\n* **Search Engines:** Help you search for information; use the right **keywords** for faster and more correct results.\n* **Information Verification:** Before you believe it, you must **verify** first if the information you found online is true.\n\n---\n\n### 👀 Tomorrow's Sneak Peek\n* **Safe E-mailing:** We will learn how to send **attachments** the right way and how to use **CC and BCC**.",
         "quiz": [
           {
-            "question": "Ano ang ibig sabihin ng netiquette?",
+            "question": "What does netiquette mean?",
             "options": [
-              "Paggawa ng dokumento",
-              "Etiketa sa internet",
-              "Pag-print ng files"
+              "Making a document",
+              "Good manners on the internet",
+              "Printing files"
             ],
-            "correct_answer": "Etiketa sa internet"
+            "correct_answer": "Good manners on the internet"
           },
           {
-            "question": "Saan karaniwang tina-type ang URL sa isang browser?",
+            "question": "Where do you usually type the URL in a browser?",
             "options": [
               "Address Bar",
               "Status Bar",
@@ -181,7 +181,7 @@
             "correct_answer": "Address Bar"
           },
           {
-            "question": "Alin sa mga ito ang halimbawa ng web browser?",
+            "question": "Which of these is an example of a web browser?",
             "options": [
               "Microsoft Word",
               "Google Chrome",
@@ -190,43 +190,43 @@
             "correct_answer": "Google Chrome"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang password sa iba?",
+            "question": "Why should you not share your password with others?",
             "options": [
-              "Upang hindi mapasok ang account",
-              "Upang hindi masira ang mouse",
-              "Upang bumilis ang internet"
+              "So no one can get into your account",
+              "So the mouse does not break",
+              "So the internet gets faster"
             ],
-            "correct_answer": "Upang hindi mapasok ang account"
+            "correct_answer": "So no one can get into your account"
           },
           {
-            "question": "Ano ang pangunahing gamit ng search engine?",
+            "question": "What is the main use of a search engine?",
             "options": [
-              "Mag-imbak ng pagkain",
-              "Maghanap ng impormasyon sa web",
-              "Mag-print ng larawan"
+              "To store food",
+              "To search for information on the web",
+              "To print pictures"
             ],
-            "correct_answer": "Maghanap ng impormasyon sa web"
+            "correct_answer": "To search for information on the web"
           },
           {
-            "question": "Bakit mahalagang gumamit ng angkop na keywords sa paghahanap?",
+            "question": "Why is it important to use the right keywords when searching?",
             "options": [
-              "Upang mas mabilis ang resulta",
-              "Upang mawala ang signal",
-              "Upang hindi gumana ang search"
+              "To get results faster",
+              "To lose the signal",
+              "To make the search stop working"
             ],
-            "correct_answer": "Upang mas mabilis ang resulta"
+            "correct_answer": "To get results faster"
           },
           {
-            "question": "Ano ang dapat gawin bago magbahagi ng impormasyong nahanap online?",
+            "question": "What should you do before sharing information you found online?",
             "options": [
-              "I-post agad",
-              "I-verify muna",
-              "Huwag basahin"
+              "Post it right away",
+              "Verify it first",
+              "Don't read it"
             ],
-            "correct_answer": "I-verify muna"
+            "correct_answer": "Verify it first"
           },
           {
-            "question": "Sino o ano ang gumagawa ng pagsusuri sa mga web page sa search engine?",
+            "question": "Who or what checks the web pages for a search engine?",
             "options": [
               "Crawler",
               "Keyboard",

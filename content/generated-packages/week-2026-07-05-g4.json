@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 3: Bahagi ng Computer System!\n\nAlamin natin nang mas malalim ang mga bahagi ng computer! 🖥️\n\n## 🖥️ Mga Bahagi ng Computer System\n- **Monitor, keyboard, mouse, CPU, speakers** — ang mga pangunahing bahagi.\n\n## 🔌 Mga Peripheral Device\n- **Peripheral** ay kagamitang idinudugtong sa computer: **printer, webcam, scanner**.\n\n## 🔍 Gamit ng Bawat Bahagi\n- **CPU** — nagpoproseso ng impormasyon\n- **Printer** — gumagawa ng paper copy\n- **Scanner** — kumukuha ng digital na larawan ng dokumento\n\nAlam mo na ba ang gamit ng bawat bahagi? 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 3: Parts of the Computer System!\n\nLet's learn more about the parts of a computer! 🖥️\n\n## 🖥️ Parts of the Computer System\n- **Monitor, keyboard, mouse, CPU, speakers** — the main parts.\n\n## 🔌 Peripheral Devices\n- A **peripheral** is a device you connect to the computer: **printer, webcam, scanner**.\n\n## 🔍 What Each Part Does\n- **CPU** — processes information\n- **Printer** — makes a paper copy\n- **Scanner** — takes a digital picture of a document\n\nDo you know what each part does now? 🌟",
         "quiz": [
-          { "question": "Ano ang pangunahing gawain ng CPU?", "options": ["Nagpoproseso ng impormasyon", "Nagpapakita ng litrato", "Nagbibigay ng tunog", "Naglilimbag ng papel"], "correct_answer": "Nagpoproseso ng impormasyon" },
-          { "question": "Ano ang peripheral device?", "options": ["Kagamitang idinudugtong sa computer", "Ang pangunahing computer lamang", "Isang uri ng software", "Isang uri ng internet"], "correct_answer": "Kagamitang idinudugtong sa computer" },
-          { "question": "Alin ang halimbawa ng peripheral device?", "options": ["Printer", "CPU lamang", "Monitor lamang", "Walang halimbawa"], "correct_answer": "Printer" },
-          { "question": "Ano ang gawain ng scanner?", "options": ["Kumukuha ng digital na larawan ng dokumento", "Naglilimbag ng papel", "Nagbibigay ng tunog", "Nagpoproseso ng impormasyon"], "correct_answer": "Kumukuha ng digital na larawan ng dokumento" },
-          { "question": "Ano ang gawain ng printer?", "options": ["Gumagawa ng paper copy", "Kumukuha ng larawan", "Nagpoproseso ng impormasyon", "Nagpapakita ng litrato"], "correct_answer": "Gumagawa ng paper copy" },
-          { "question": "Alin ang isa pang halimbawa ng peripheral device?", "options": ["Webcam", "CPU", "Monitor", "Motherboard"], "correct_answer": "Webcam" }
+          { "question": "What is the main job of the CPU?", "options": ["It processes information", "It shows photos", "It makes sound", "It prints on paper"], "correct_answer": "It processes information" },
+          { "question": "What is a peripheral device?", "options": ["A device you connect to the computer", "Only the main computer", "A kind of software", "A kind of internet"], "correct_answer": "A device you connect to the computer" },
+          { "question": "Which is an example of a peripheral device?", "options": ["Printer", "Only the CPU", "Only the monitor", "There is no example"], "correct_answer": "Printer" },
+          { "question": "What does a scanner do?", "options": ["Takes a digital picture of a document", "Prints on paper", "Makes sound", "Processes information"], "correct_answer": "Takes a digital picture of a document" },
+          { "question": "What does a printer do?", "options": ["Makes a paper copy", "Takes a picture", "Processes information", "Shows photos"], "correct_answer": "Makes a paper copy" },
+          { "question": "Which is another example of a peripheral device?", "options": ["Webcam", "CPU", "Monitor", "Motherboard"], "correct_answer": "Webcam" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **CPU** = nagpoproseso | **Peripheral** = idinudugtong sa computer\n- **Printer, webcam, scanner** — mga peripheral device\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **CPU** = processes information | **Peripheral** = connected to the computer\n- **Printer, webcam, scanner** — peripheral devices\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang pangunahing gawain ng CPU?", "options": ["Nagpoproseso ng impormasyon", "Nagpapakita ng litrato", "Nagbibigay ng tunog", "Naglilimbag ng papel"], "correct_answer": "Nagpoproseso ng impormasyon" },
-          { "question": "Ano ang peripheral device?", "options": ["Kagamitang idinudugtong sa computer", "Ang pangunahing computer lamang", "Isang uri ng software", "Isang uri ng internet"], "correct_answer": "Kagamitang idinudugtong sa computer" },
-          { "question": "Alin ang halimbawa ng peripheral device?", "options": ["Printer", "CPU lamang", "Monitor lamang", "Walang halimbawa"], "correct_answer": "Printer" },
-          { "question": "Ano ang gawain ng scanner?", "options": ["Kumukuha ng digital na larawan ng dokumento", "Naglilimbag ng papel", "Nagbibigay ng tunog", "Nagpoproseso ng impormasyon"], "correct_answer": "Kumukuha ng digital na larawan ng dokumento" },
-          { "question": "Ano ang gawain ng printer?", "options": ["Gumagawa ng paper copy", "Kumukuha ng larawan", "Nagpoproseso ng impormasyon", "Nagpapakita ng litrato"], "correct_answer": "Gumagawa ng paper copy" }
+          { "question": "What is the main job of the CPU?", "options": ["It processes information", "It shows photos", "It makes sound", "It prints on paper"], "correct_answer": "It processes information" },
+          { "question": "What is a peripheral device?", "options": ["A device you connect to the computer", "Only the main computer", "A kind of software", "A kind of internet"], "correct_answer": "A device you connect to the computer" },
+          { "question": "Which is an example of a peripheral device?", "options": ["Printer", "Only the CPU", "Only the monitor", "There is no example"], "correct_answer": "Printer" },
+          { "question": "What does a scanner do?", "options": ["Takes a digital picture of a document", "Prints on paper", "Makes sound", "Processes information"], "correct_answer": "Takes a digital picture of a document" },
+          { "question": "What does a printer do?", "options": ["Makes a paper copy", "Takes a picture", "Processes information", "Shows photos"], "correct_answer": "Makes a paper copy" }
         ]
       },
       "Science": {

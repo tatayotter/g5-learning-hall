@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Term Review!\n\nBalikan natin ang ating natutunan tungkol sa computer! 🖥️\n\n## 🖥️ Buod ng Natutunan\n- **Mga bahagi ng computer**: monitor, keyboard, mouse, CPU, speakers, peripherals\n- **Basic operations**: booting, shutting down, keyboarding, mouse techniques\n- **Kaligtasan**: wastong posisyon/oras, panuntunan sa Internet\n\n## 🎯 Digital Project\n- Gumawa ng isang simpleng dokumento na nagpapakita ng lahat ng natutunan.\n\n## 🌟 Susunod na Termino\n- Matututo tayo ng **word processing at presentation software**!\n\nMahusay na termino ng pagkatuto tungkol sa ICT! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 8: Term Review!\n\nLet's review what we learned about computers! 🖥️\n\n## 🖥️ Summary of What We Learned\n- **Parts of a computer**: monitor, keyboard, mouse, CPU, speakers, peripherals\n- **Basic operations**: booting, shutting down, keyboarding, mouse techniques\n- **Safety**: correct posture/time, Internet rules\n\n## 🎯 Digital Project\n- Make a simple document that shows everything you learned.\n\n## 🌟 Next Term\n- We will learn **word processing and presentation software**!\n\nGreat term of learning about ICT! 🌟",
         "quiz": [
-          { "question": "Ano ang natutunan natin tungkol sa mga bahagi ng computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Wala", "Isang bahagi lamang", "Walang natutunan"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
-          { "question": "Ano ang natutunan natin tungkol sa kaligtasan online?", "options": ["Wastong posisyon at panuntunan sa Internet", "Walang natutunan", "Isang bagay lamang", "Wala"], "correct_answer": "Wastong posisyon at panuntunan sa Internet" },
-          { "question": "Ano ang gagawin sa digital project?", "options": ["Gumawa ng dokumentong nagpapakita ng natutunan", "Wala", "Manood lamang ng video", "Maglaro lamang"], "correct_answer": "Gumawa ng dokumentong nagpapakita ng natutunan" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Word processing at presentation software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Word processing at presentation software" },
-          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay", "Isang uri ng laro", "Wala"], "correct_answer": "Proseso ng pagsisimula ng computer" },
-          { "question": "Bakit mahalaga ang tamang pagsasanay sa computer?", "options": ["Tumutulong ito maging responsable at ligtas na gumagamit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maging responsable at ligtas na gumagamit" }
+          { "question": "What did we learn about the parts of a computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Nothing", "Only one part", "We learned nothing"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
+          { "question": "What did we learn about staying safe online?", "options": ["Correct posture and Internet rules", "We learned nothing", "Only one thing", "Nothing"], "correct_answer": "Correct posture and Internet rules" },
+          { "question": "What will you do in the digital project?", "options": ["Make a document that shows what you learned", "Nothing", "Only watch a video", "Only play games"], "correct_answer": "Make a document that shows what you learned" },
+          { "question": "What will we study next term?", "options": ["Word processing and presentation software", "No more topics", "Just something else", "Nothing"], "correct_answer": "Word processing and presentation software" },
+          { "question": "What is booting?", "options": ["The process of starting the computer", "The process of turning it off", "A kind of game", "Nothing"], "correct_answer": "The process of starting the computer" },
+          { "question": "Why is proper computer practice important?", "options": ["It helps you be a responsible and safe user", "No reason", "Only for grades", "It has no purpose"], "correct_answer": "It helps you be a responsible and safe user" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Natutunan: bahagi ng computer, basic operations, kaligtasan online\n- Susunod: **word processing at presentation software**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- What we learned: parts of the computer, basic operations, online safety\n- Next: **word processing and presentation software**\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang natutunan natin tungkol sa mga bahagi ng computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Wala", "Isang bahagi lamang", "Walang natutunan"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
-          { "question": "Ano ang natutunan natin tungkol sa kaligtasan online?", "options": ["Wastong posisyon at panuntunan sa Internet", "Walang natutunan", "Isang bagay lamang", "Wala"], "correct_answer": "Wastong posisyon at panuntunan sa Internet" },
-          { "question": "Ano ang pag-aaralan sa susunod na termino?", "options": ["Word processing at presentation software", "Wala nang paksa", "Ibang bagay lamang", "Wala"], "correct_answer": "Word processing at presentation software" },
-          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay", "Isang uri ng laro", "Wala"], "correct_answer": "Proseso ng pagsisimula ng computer" },
-          { "question": "Bakit mahalaga ang tamang pagsasanay sa computer?", "options": ["Tumutulong ito maging responsable at ligtas na gumagamit", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Tumutulong ito maging responsable at ligtas na gumagamit" }
+          { "question": "What did we learn about the parts of a computer?", "options": ["Monitor, keyboard, mouse, CPU, speakers", "Nothing", "Only one part", "We learned nothing"], "correct_answer": "Monitor, keyboard, mouse, CPU, speakers" },
+          { "question": "What did we learn about staying safe online?", "options": ["Correct posture and Internet rules", "We learned nothing", "Only one thing", "Nothing"], "correct_answer": "Correct posture and Internet rules" },
+          { "question": "What will we study next term?", "options": ["Word processing and presentation software", "No more topics", "Just something else", "Nothing"], "correct_answer": "Word processing and presentation software" },
+          { "question": "What is booting?", "options": ["The process of starting the computer", "The process of turning it off", "A kind of game", "Nothing"], "correct_answer": "The process of starting the computer" },
+          { "question": "Why is proper computer practice important?", "options": ["It helps you be a responsible and safe user", "No reason", "Only for grades", "It has no purpose"], "correct_answer": "It helps you be a responsible and safe user" }
         ]
       },
       "Science": {

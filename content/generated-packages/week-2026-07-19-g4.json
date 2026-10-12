@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Basic Computer Operations!\n\nAlamin natin ang mga pangunahing gawain sa computer! 🖥️\n\n## 🔛 Pag-boot at Pag-shutdown\n- **Booting** — proseso ng pagsisimula ng computer\n- **Shutting down** — tamang paraan ng pagpatay ng computer\n\n## ⌨️ Keyboarding Techniques\n- Gamitin ang **home row keys** (ASDF, JKL;) para sa mabilis na pag-type.\n\n## 🖱️ Mouse Techniques\n- **Single-click, double-click, right-click, drag** — mga pangunahing galaw ng mouse.\n\nMahusay na paraan para gamitin ang computer! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Basic Computer Operations!\n\nLet's learn the basic things we do on a computer! 🖥️\n\n## 🔛 Booting and Shutting Down\n- **Booting** — the process of starting the computer\n- **Shutting down** — the right way to turn off the computer\n\n## ⌨️ Keyboarding Techniques\n- Use the **home row keys** (ASDF, JKL;) to type fast.\n\n## 🖱️ Mouse Techniques\n- **Single-click, double-click, right-click, drag** — the main mouse moves.\n\nGreat ways to use the computer! 🌟",
         "quiz": [
-          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay ng computer", "Isang uri ng software", "Isang uri ng laro"], "correct_answer": "Proseso ng pagsisimula ng computer" },
-          { "question": "Ano ang tamang paraan ng pagpatay ng computer?", "options": ["Shutting down", "Unplugging agad", "Pagbagsak sa sahig", "Walang tamang paraan"], "correct_answer": "Shutting down" },
-          { "question": "Aling keys ang home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
-          { "question": "Ano ang double-click?", "options": ["Pag-click ng dalawang beses nang mabilis", "Pag-click ng isang beses", "Pag-drag ng mouse", "Pag-scroll"], "correct_answer": "Pag-click ng dalawang beses nang mabilis" },
-          { "question": "Ano ang gamit ng right-click?", "options": ["Nagpapakita ng menu ng mga opsyon", "Nagbubukas agad ng file", "Nagpapatay ng computer", "Walang gamit"], "correct_answer": "Nagpapakita ng menu ng mga opsyon" },
-          { "question": "Bakit mahalaga ang tamang pag-shutdown?", "options": ["Para hindi masira ang computer", "Walang dahilan", "Para tumagal ang laro", "Wala itong gamit"], "correct_answer": "Para hindi masira ang computer" }
+          { "question": "What is booting?", "options": ["The process of starting the computer", "The process of turning off the computer", "A kind of software", "A kind of game"], "correct_answer": "The process of starting the computer" },
+          { "question": "What is the right way to turn off a computer?", "options": ["Shutting down", "Unplugging it right away", "Dropping it on the floor", "There is no right way"], "correct_answer": "Shutting down" },
+          { "question": "Which keys are the home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
+          { "question": "What is a double-click?", "options": ["Clicking twice quickly", "Clicking once", "Dragging the mouse", "Scrolling"], "correct_answer": "Clicking twice quickly" },
+          { "question": "What does right-click do?", "options": ["Shows a menu of options", "Opens a file right away", "Turns off the computer", "Nothing"], "correct_answer": "Shows a menu of options" },
+          { "question": "Why is shutting down properly important?", "options": ["So the computer doesn't get damaged", "No reason", "So the game lasts longer", "It is useless"], "correct_answer": "So the computer doesn't get damaged" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- **Booting** = pagsisimula | **Shutting down** = tamang pagpatay\n- Home row: **ASDF, JKL;**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- **Booting** = starting up | **Shutting down** = turning off the right way\n- Home row: **ASDF, JKL;**\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang booting?", "options": ["Proseso ng pagsisimula ng computer", "Proseso ng pagpatay ng computer", "Isang uri ng software", "Isang uri ng laro"], "correct_answer": "Proseso ng pagsisimula ng computer" },
-          { "question": "Ano ang tamang paraan ng pagpatay ng computer?", "options": ["Shutting down", "Unplugging agad", "Pagbagsak sa sahig", "Walang tamang paraan"], "correct_answer": "Shutting down" },
-          { "question": "Aling keys ang home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
-          { "question": "Ano ang double-click?", "options": ["Pag-click ng dalawang beses nang mabilis", "Pag-click ng isang beses", "Pag-drag ng mouse", "Pag-scroll"], "correct_answer": "Pag-click ng dalawang beses nang mabilis" },
-          { "question": "Bakit mahalaga ang tamang pag-shutdown?", "options": ["Para hindi masira ang computer", "Walang dahilan", "Para tumagal ang laro", "Wala itong gamit"], "correct_answer": "Para hindi masira ang computer" }
+          { "question": "What is booting?", "options": ["The process of starting the computer", "The process of turning off the computer", "A kind of software", "A kind of game"], "correct_answer": "The process of starting the computer" },
+          { "question": "What is the right way to turn off a computer?", "options": ["Shutting down", "Unplugging it right away", "Dropping it on the floor", "There is no right way"], "correct_answer": "Shutting down" },
+          { "question": "Which keys are the home row?", "options": ["ASDF, JKL;", "QWER, UIOP", "ZXCV, NM,.", "1234, 5678"], "correct_answer": "ASDF, JKL;" },
+          { "question": "What is a double-click?", "options": ["Clicking twice quickly", "Clicking once", "Dragging the mouse", "Scrolling"], "correct_answer": "Clicking twice quickly" },
+          { "question": "Why is shutting down properly important?", "options": ["So the computer doesn't get damaged", "No reason", "So the game lasts longer", "It is useless"], "correct_answer": "So the computer doesn't get damaged" }
         ]
       },
       "Science": {

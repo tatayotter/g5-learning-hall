@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 1: Bakit Mahalaga ang Computer?\n\nAlamin natin kung bakit mahalaga ang computer sa ating buhay! 🖥️\n\n## 💡 Kahalagahan ng Computer\n- Tumutulong ang computer sa **trabaho, pag-aaral, komunikasyon, at aliwan**.\n- Ginagamit ito sa bahay, paaralan, at negosyo.\n\n## 📱 Iba Pang Computing Devices\n- **Laptop, tablet, smartphone** — lahat ng ito ay uri ng computing device.\n\n## 🔍 Halimbawa sa Pang-araw-araw na Buhay\n- Ginagamit ang computer para gumawa ng proyekto, mag-video call sa pamilya, at maghanap ng impormasyon.\n\nMahalaga ang computer sa modernong buhay! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 1: Why Are Computers Important?\n\nLet's learn why computers are important in our lives! 🖥️\n\n## 💡 Why Computers Matter\n- Computers help with **work, school, communication, and entertainment**.\n- They are used at home, in school, and in business.\n\n## 📱 Other Computing Devices\n- **Laptop, tablet, smartphone** — these are all kinds of computing devices.\n\n## 🔍 Examples in Everyday Life\n- We use computers to make projects, video call our family, and search for information.\n\nComputers are important in modern life! 🌟",
         "quiz": [
-          { "question": "Ano ang tumutulong sa trabaho, pag-aaral, at aliwan?", "options": ["Computer", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Computer" },
-          { "question": "Alin ang isa pang uri ng computing device?", "options": ["Tablet", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Tablet" },
-          { "question": "Saan ginagamit ang computer?", "options": ["Bahay, paaralan, at negosyo", "Wala kahit saan", "Ilalim ng dagat lamang", "Kalawakan lamang"], "correct_answer": "Bahay, paaralan, at negosyo" },
-          { "question": "Ano ang halimbawa ng gamit ng computer?", "options": ["Paggawa ng proyekto", "Pagtulog", "Paglangoy", "Pagkain"], "correct_answer": "Paggawa ng proyekto" },
-          { "question": "Alin ang uri ng computing device na maaaring dalhin kahit saan?", "options": ["Smartphone", "Desktop lamang", "Printer", "Monitor"], "correct_answer": "Smartphone" },
-          { "question": "Bakit mahalaga ang computer sa modernong buhay?", "options": ["Tumutulong ito sa maraming gawain", "Walang gamit", "Para lang sa laro", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa maraming gawain" }
+          { "question": "What helps with work, school, and entertainment?", "options": ["Computer", "Spoon", "Umbrella", "Shoes"], "correct_answer": "Computer" },
+          { "question": "Which is another kind of computing device?", "options": ["Tablet", "Spoon", "Umbrella", "Shoes"], "correct_answer": "Tablet" },
+          { "question": "Where are computers used?", "options": ["Home, school, and business", "Nowhere", "Only under the sea", "Only in outer space"], "correct_answer": "Home, school, and business" },
+          { "question": "What is an example of using a computer?", "options": ["Making a project", "Sleeping", "Swimming", "Eating"], "correct_answer": "Making a project" },
+          { "question": "Which kind of computing device can you carry anywhere?", "options": ["Smartphone", "Only the desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Why are computers important in modern life?", "options": ["They help with many tasks", "They are useless", "Only for games", "They have no purpose"], "correct_answer": "They help with many tasks" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Tumutulong ang computer sa **trabaho, pag-aaral, komunikasyon, aliwan**\n- Uri ng computing devices: **laptop, tablet, smartphone**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Computers help with **work, school, communication, entertainment**\n- Kinds of computing devices: **laptop, tablet, smartphone**\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang tumutulong sa trabaho, pag-aaral, at aliwan?", "options": ["Computer", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Computer" },
-          { "question": "Alin ang isa pang uri ng computing device?", "options": ["Tablet", "Kutsara", "Payong", "Sapatos"], "correct_answer": "Tablet" },
-          { "question": "Saan ginagamit ang computer?", "options": ["Bahay, paaralan, at negosyo", "Wala kahit saan", "Ilalim ng dagat lamang", "Kalawakan lamang"], "correct_answer": "Bahay, paaralan, at negosyo" },
-          { "question": "Alin ang uri ng computing device na maaaring dalhin kahit saan?", "options": ["Smartphone", "Desktop lamang", "Printer", "Monitor"], "correct_answer": "Smartphone" },
-          { "question": "Bakit mahalaga ang computer sa modernong buhay?", "options": ["Tumutulong ito sa maraming gawain", "Walang gamit", "Para lang sa laro", "Wala itong silbi"], "correct_answer": "Tumutulong ito sa maraming gawain" }
+          { "question": "What helps with work, school, and entertainment?", "options": ["Computer", "Spoon", "Umbrella", "Shoes"], "correct_answer": "Computer" },
+          { "question": "Which is another kind of computing device?", "options": ["Tablet", "Spoon", "Umbrella", "Shoes"], "correct_answer": "Tablet" },
+          { "question": "Where are computers used?", "options": ["Home, school, and business", "Nowhere", "Only under the sea", "Only in outer space"], "correct_answer": "Home, school, and business" },
+          { "question": "Which kind of computing device can you carry anywhere?", "options": ["Smartphone", "Only the desktop", "Printer", "Monitor"], "correct_answer": "Smartphone" },
+          { "question": "Why are computers important in modern life?", "options": ["They help with many tasks", "They are useless", "Only for games", "They have no purpose"], "correct_answer": "They help with many tasks" }
         ]
       },
       "Science": {

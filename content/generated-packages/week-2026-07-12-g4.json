@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Pag-aalaga sa Computer Equipment!\n\nAlamin natin kung paano alagaan ang ating computer equipment! 🧰\n\n## 🧰 Pangangalaga sa Kagamitan\n- Takpan ang keyboard kapag hindi ginagamit upang maiwasan ang alikabok.\n- Huwag ilapat ang pagkain o inumin malapit sa kagamitan.\n\n## 🔌 Wastong Paghawak ng Cables\n- Iwasan ang pagbaluktot o paghila ng cable nang malakas.\n\n## 🔍 Regular na Paglilinis\n- Punasan ang screen gamit ang malinis, tuyong tela.\n\nMahalaga ang pag-aalaga sa kagamitan para tumagal ito! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 4: Taking Care of Computer Equipment!\n\nLet's learn how to take care of our computer equipment! 🧰\n\n## 🧰 Caring for the Equipment\n- Cover the keyboard when it is not in use to keep dust away.\n- Do not put food or drinks near the equipment.\n\n## 🔌 Handling Cables Properly\n- Do not bend cables or pull them hard.\n\n## 🔍 Regular Cleaning\n- Wipe the screen with a clean, dry cloth.\n\nTaking care of the equipment helps it last longer! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin sa keyboard kapag hindi ginagamit?", "options": ["Takpan ito", "Basain ito", "Hayaang mabuksan", "Wala"], "correct_answer": "Takpan ito" },
-          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Walang dahilan", "Para masarap"], "correct_answer": "Para hindi masira ang kagamitan" },
-          { "question": "Paano dapat hawakan ang cable?", "options": ["Iwasan ang pagbaluktot o paghila", "Hilahin nang malakas", "Ikuyom", "Walang paraan"], "correct_answer": "Iwasan ang pagbaluktot o paghila" },
-          { "question": "Ano ang gamitin sa paglilinis ng screen?", "options": ["Malinis at tuyong tela", "Basang tuwalya", "Kutsara", "Walang gamitin"], "correct_answer": "Malinis at tuyong tela" },
-          { "question": "Bakit mahalaga ang pag-aalaga sa kagamitan?", "options": ["Para tumagal ito", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para tumagal ito" },
-          { "question": "Ano pang paraan ng pag-aalaga sa computer?", "options": ["Regular na paglilinis", "Pagsira dito", "Pag-iwan sa ulan", "Wala"], "correct_answer": "Regular na paglilinis" }
+          { "question": "What should you do with the keyboard when it is not in use?", "options": ["Cover it", "Get it wet", "Leave it uncovered", "Nothing"], "correct_answer": "Cover it" },
+          { "question": "Why should you not eat near the computer?", "options": ["So the equipment doesn't get damaged", "So you get full", "No reason", "So it tastes good"], "correct_answer": "So the equipment doesn't get damaged" },
+          { "question": "How should you handle a cable?", "options": ["Avoid bending or pulling it", "Pull it hard", "Crumple it up", "There is no right way"], "correct_answer": "Avoid bending or pulling it" },
+          { "question": "What should you use to clean the screen?", "options": ["A clean, dry cloth", "A wet towel", "A spoon", "Nothing"], "correct_answer": "A clean, dry cloth" },
+          { "question": "Why is taking care of equipment important?", "options": ["So it lasts longer", "No reason", "Just so it looks nice", "It is useless"], "correct_answer": "So it lasts longer" },
+          { "question": "What is another way to take care of the computer?", "options": ["Regular cleaning", "Breaking it", "Leaving it in the rain", "Nothing"], "correct_answer": "Regular cleaning" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Takpan ang keyboard kapag hindi ginagamit\n- Punasan ang screen gamit ang tuyong tela\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Cover the keyboard when you are not using it\n- Wipe the screen with a dry cloth\n\nYou are learning very well! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin sa keyboard kapag hindi ginagamit?", "options": ["Takpan ito", "Basain ito", "Hayaang mabuksan", "Wala"], "correct_answer": "Takpan ito" },
-          { "question": "Paano dapat hawakan ang cable?", "options": ["Iwasan ang pagbaluktot o paghila", "Hilahin nang malakas", "Ikuyom", "Walang paraan"], "correct_answer": "Iwasan ang pagbaluktot o paghila" },
-          { "question": "Ano ang gamitin sa paglilinis ng screen?", "options": ["Malinis at tuyong tela", "Basang tuwalya", "Kutsara", "Walang gamitin"], "correct_answer": "Malinis at tuyong tela" },
-          { "question": "Bakit mahalaga ang pag-aalaga sa kagamitan?", "options": ["Para tumagal ito", "Walang dahilan", "Para lang gumanda", "Wala itong silbi"], "correct_answer": "Para tumagal ito" },
-          { "question": "Bakit hindi dapat kumain malapit sa computer?", "options": ["Para hindi masira ang kagamitan", "Para busog ka", "Walang dahilan", "Para masarap"], "correct_answer": "Para hindi masira ang kagamitan" }
+          { "question": "What should you do with the keyboard when it is not in use?", "options": ["Cover it", "Get it wet", "Leave it uncovered", "Nothing"], "correct_answer": "Cover it" },
+          { "question": "How should you handle a cable?", "options": ["Avoid bending or pulling it", "Pull it hard", "Crumple it up", "There is no right way"], "correct_answer": "Avoid bending or pulling it" },
+          { "question": "What should you use to clean the screen?", "options": ["A clean, dry cloth", "A wet towel", "A spoon", "Nothing"], "correct_answer": "A clean, dry cloth" },
+          { "question": "Why is taking care of equipment important?", "options": ["So it lasts longer", "No reason", "Just so it looks nice", "It is useless"], "correct_answer": "So it lasts longer" },
+          { "question": "Why should you not eat near the computer?", "options": ["So the equipment doesn't get damaged", "So you get full", "No reason", "So it tastes good"], "correct_answer": "So the equipment doesn't get damaged" }
         ]
       },
       "Science": {

@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Kaligtasan sa Internet!\n\nAlamin natin ang mga panuntunan sa ligtas na paggamit ng Internet! 🛡️\n\n## 🛡️ Mga Panuntunang Pangkaligtasan\n- Huwag ibahagi ang **personal na impormasyon** online (pangalan, address, password).\n- Humingi ng **pahintulot ng magulang** bago mag-download o mag-sign up sa isang site.\n\n## 🚫 Pag-iwas sa Panganib Online\n- Iwasan ang pag-click sa **kahina-hinalang link** o mensahe mula sa estranghero.\n\n## 🔍 Kung May Problema\n- Palaging sabihin sa **pinagkakatiwalaang adult** kung may nakita kang kakaiba online.\n\nMaging matalino at ligtas sa paggamit ng Internet! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 7: Internet Safety!\n\nLet's learn the rules for using the Internet safely! 🛡️\n\n## 🛡️ Safety Rules\n- Do not share **personal information** online (name, address, password).\n- Ask for **your parent's permission** before downloading or signing up on a site.\n\n## 🚫 Avoiding Danger Online\n- Do not click **suspicious links** or messages from strangers.\n\n## 🔍 If There Is a Problem\n- Always tell a **trusted adult** if you see something strange online.\n\nBe smart and safe when using the Internet! 🌟",
         "quiz": [
-          { "question": "Ano ang hindi dapat ibahagi online?", "options": ["Personal na impormasyon", "Larawan ng paboritong hayop", "Kulay ng gusto", "Pangalan ng bansa"], "correct_answer": "Personal na impormasyon" },
-          { "question": "Kanino dapat humingi ng pahintulot bago mag-download?", "options": ["Magulang", "Estranghero", "Walang sinuman", "Kaibigan sa online"], "correct_answer": "Magulang" },
-          { "question": "Ano ang dapat iwasan online?", "options": ["Kahina-hinalang link", "Ligtas na website", "Aralin sa paaralan", "Larong pang-edukasyon"], "correct_answer": "Kahina-hinalang link" },
-          { "question": "Ano ang dapat gawin kung may nakita kang kakaiba online?", "options": ["Sabihin sa pinagkakatiwalaang adult", "Itago ito", "Balewalain", "I-click ito"], "correct_answer": "Sabihin sa pinagkakatiwalaang adult" },
-          { "question": "Bakit mahalaga ang mga panuntunang pangkaligtasan sa Internet?", "options": ["Iniingatan nito tayo sa panganib online", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito tayo sa panganib online" },
-          { "question": "Ano ang halimbawa ng personal na impormasyon?", "options": ["Address", "Paboritong kulay", "Paboritong laro", "Paboritong pagkain"], "correct_answer": "Address" }
+          { "question": "What should you NOT share online?", "options": ["Personal information", "A picture of your favorite animal", "Your favorite color", "The name of a country"], "correct_answer": "Personal information" },
+          { "question": "Who should you ask for permission before downloading?", "options": ["Parent", "A stranger", "No one", "An online friend"], "correct_answer": "Parent" },
+          { "question": "What should you avoid online?", "options": ["Suspicious links", "Safe websites", "School lessons", "Educational games"], "correct_answer": "Suspicious links" },
+          { "question": "What should you do if you see something strange online?", "options": ["Tell a trusted adult", "Hide it", "Ignore it", "Click it"], "correct_answer": "Tell a trusted adult" },
+          { "question": "Why are Internet safety rules important?", "options": ["They protect us from danger online", "They are useless", "Only for grades", "They have no purpose"], "correct_answer": "They protect us from danger online" },
+          { "question": "What is an example of personal information?", "options": ["Address", "Favorite color", "Favorite game", "Favorite food"], "correct_answer": "Address" }
         ]
       }
     },
@@ -162,13 +162,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- Huwag ibahagi ang **personal na impormasyon** online\n- Sabihin sa magulang kung may nakita kang kakaiba\n\nMaging ligtas online! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Do not share **personal information** online\n- Tell your parents if you see something strange\n\nStay safe online! 🌟",
         "quiz": [
-          { "question": "Ano ang hindi dapat ibahagi online?", "options": ["Personal na impormasyon", "Larawan ng paboritong hayop", "Kulay ng gusto", "Pangalan ng bansa"], "correct_answer": "Personal na impormasyon" },
-          { "question": "Kanino dapat humingi ng pahintulot bago mag-download?", "options": ["Magulang", "Estranghero", "Walang sinuman", "Kaibigan sa online"], "correct_answer": "Magulang" },
-          { "question": "Ano ang dapat iwasan online?", "options": ["Kahina-hinalang link", "Ligtas na website", "Aralin sa paaralan", "Larong pang-edukasyon"], "correct_answer": "Kahina-hinalang link" },
-          { "question": "Ano ang dapat gawin kung may nakita kang kakaiba online?", "options": ["Sabihin sa pinagkakatiwalaang adult", "Itago ito", "Balewalain", "I-click ito"], "correct_answer": "Sabihin sa pinagkakatiwalaang adult" },
-          { "question": "Bakit mahalaga ang mga panuntunang pangkaligtasan sa Internet?", "options": ["Iniingatan nito tayo sa panganib online", "Walang gamit", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito tayo sa panganib online" }
+          { "question": "What should you NOT share online?", "options": ["Personal information", "A picture of your favorite animal", "Your favorite color", "The name of a country"], "correct_answer": "Personal information" },
+          { "question": "Who should you ask for permission before downloading?", "options": ["Parent", "A stranger", "No one", "An online friend"], "correct_answer": "Parent" },
+          { "question": "What should you avoid online?", "options": ["Suspicious links", "Safe websites", "School lessons", "Educational games"], "correct_answer": "Suspicious links" },
+          { "question": "What should you do if you see something strange online?", "options": ["Tell a trusted adult", "Hide it", "Ignore it", "Click it"], "correct_answer": "Tell a trusted adult" },
+          { "question": "Why are Internet safety rules important?", "options": ["They protect us from danger online", "They are useless", "Only for grades", "They have no purpose"], "correct_answer": "They protect us from danger online" }
         ]
       },
       "Science": {

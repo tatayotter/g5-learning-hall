@@ -63,14 +63,14 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Etiquette sa Web Conferencing!\n\nAlamin natin ang magandang asal sa video call! 📹\n\n## 📹 Wastong Asal sa Video Call\n- I-mute ang mikropono kapag hindi nagsasalita para maiwasan ang ingay.\n- Maging **maalintuntunin** sa oras — huwag maantala.\n\n## 🔒 Privacy at Kaligtasan\n- Iwasan ang pagpapakita ng personal na impormasyon sa background.\n- Huwag i-share ang meeting link sa mga hindi dapat sumali.\n\n## 🔍 Bakit Ito Mahalaga?\n- Ang magandang asal sa video call ay nagpapakita ng **paggalang** sa iba.\n\nMaging responsable sa bawat online meeting! 🌟",
+        "summary_markdown": "# 💻 EPP (ICT) — Week 2: Web Conferencing Etiquette!\n\nLet's learn good manners for video calls! 📹\n\n## 📹 Proper Manners in a Video Call\n- Mute your microphone when you are not speaking to avoid noise.\n- Be **on time** — don't be late.\n\n## 🔒 Privacy and Safety\n- Avoid showing personal information in your background.\n- Don't share the meeting link with people who should not join.\n\n## 🔍 Why Is This Important?\n- Good manners in a video call show **respect** for others.\n\nBe responsible in every online meeting! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin sa mikropono kapag hindi nagsasalita?", "options": ["I-mute ito", "Palakasin ito", "Hayaang bukas lamang", "Sirain ito"], "correct_answer": "I-mute ito" },
-          { "question": "Bakit dapat maging maalintuntunin sa oras?", "options": ["Para hindi maantala ang meeting", "Walang dahilan", "Para lang sundin ang guro", "Wala itong silbi"], "correct_answer": "Para hindi maantala ang meeting" },
-          { "question": "Ano ang dapat iwasan sa background ng video call?", "options": ["Personal na impormasyon", "Malinis na kwarto", "Maayos na ilaw", "Wala sa mga ito"], "correct_answer": "Personal na impormasyon" },
-          { "question": "Kanino hindi dapat ibahagi ang meeting link?", "options": ["Sa mga hindi dapat sumali", "Sa guro", "Sa kaklase", "Walang paglalagyan"], "correct_answer": "Sa mga hindi dapat sumali" },
-          { "question": "Ano ang ipinapakita ng magandang asal sa video call?", "options": ["Paggalang sa iba", "Kawalang-galang", "Kapabayaan", "Walang gamit"], "correct_answer": "Paggalang sa iba" },
-          { "question": "Bakit mahalaga ang privacy sa video call?", "options": ["Iniingatan nito ang ating kaligtasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang ating kaligtasan" }
+          { "question": "What should you do with your microphone when you are not speaking?", "options": ["Mute it", "Make it louder", "Just leave it on", "Break it"], "correct_answer": "Mute it" },
+          { "question": "Why should you be on time?", "options": ["So the meeting is not delayed", "No reason", "Only to obey the teacher", "It is useless"], "correct_answer": "So the meeting is not delayed" },
+          { "question": "What should you avoid showing in your video call background?", "options": ["Personal information", "A clean room", "Good lighting", "None of these"], "correct_answer": "Personal information" },
+          { "question": "Who should you NOT share the meeting link with?", "options": ["People who should not join", "The teacher", "Classmates", "No one to give it to"], "correct_answer": "People who should not join" },
+          { "question": "What do good manners in a video call show?", "options": ["Respect for others", "Disrespect", "Carelessness", "No use"], "correct_answer": "Respect for others" },
+          { "question": "Why is privacy important in a video call?", "options": ["It keeps us safe", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It keeps us safe" }
         ]
       }
     },
@@ -151,13 +151,13 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: EPP (ICT)\n\nMabilis na balikan!\n\n- I-mute ang mikropono kapag hindi nagsasalita\n- Iwasan ang personal na impormasyon sa background\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: EPP (ICT)\n\nQuick review!\n\n- Mute your microphone when you are not speaking\n- Avoid showing personal information in your background\n\nGreat studying! 🌟",
         "quiz": [
-          { "question": "Ano ang dapat gawin sa mikropono kapag hindi nagsasalita?", "options": ["I-mute ito", "Palakasin ito", "Hayaang bukas lamang", "Sirain ito"], "correct_answer": "I-mute ito" },
-          { "question": "Ano ang dapat iwasan sa background ng video call?", "options": ["Personal na impormasyon", "Malinis na kwarto", "Maayos na ilaw", "Wala sa mga ito"], "correct_answer": "Personal na impormasyon" },
-          { "question": "Kanino hindi dapat ibahagi ang meeting link?", "options": ["Sa mga hindi dapat sumali", "Sa guro", "Sa kaklase", "Walang paglalagyan"], "correct_answer": "Sa mga hindi dapat sumali" },
-          { "question": "Ano ang ipinapakita ng magandang asal sa video call?", "options": ["Paggalang sa iba", "Kawalang-galang", "Kapabayaan", "Walang gamit"], "correct_answer": "Paggalang sa iba" },
-          { "question": "Bakit mahalaga ang privacy sa video call?", "options": ["Iniingatan nito ang ating kaligtasan", "Walang dahilan", "Para lang sa marka", "Wala itong silbi"], "correct_answer": "Iniingatan nito ang ating kaligtasan" }
+          { "question": "What should you do with your microphone when you are not speaking?", "options": ["Mute it", "Make it louder", "Just leave it on", "Break it"], "correct_answer": "Mute it" },
+          { "question": "What should you avoid showing in your video call background?", "options": ["Personal information", "A clean room", "Good lighting", "None of these"], "correct_answer": "Personal information" },
+          { "question": "Who should you NOT share the meeting link with?", "options": ["People who should not join", "The teacher", "Classmates", "No one to give it to"], "correct_answer": "People who should not join" },
+          { "question": "What do good manners in a video call show?", "options": ["Respect for others", "Disrespect", "Carelessness", "No use"], "correct_answer": "Respect for others" },
+          { "question": "Why is privacy important in a video call?", "options": ["It keeps us safe", "No reason", "Only for a grade", "It is useless"], "correct_answer": "It keeps us safe" }
         ]
       },
       "Science": {

@@ -633,127 +633,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🖊️ EPP (ICT) — Pag-eedit at Pagpapaganda ng Digital Portfolio\n\nGrade 5, Linggo 19! Balikan at pagandahin natin ang ating mga proyekto. 🖥️\n\n## 🔍 Bakit Mahalaga ang Pagre-review ng Sariling Gawa?\nAng **pagre-review** ng sariling proyekto ay tumutulong upang **matukoy ang mga bagay na dapat pagbutihin** bago ito ipakita sa iba.\n\n## ✅ Checklist sa Pagre-review ng Digital Portfolio\n| Tanong | Layunin |\n|---|---|\n| Malinaw ba ang layout? | Tinitiyak ang madaling pagbasa |\n| Tama ba ang ispeling at gramatika? | Tinitiyak ang propesyonal na hitsura |\n| Angkop ba ang mga larawan sa nilalaman? | Tinitiyak ang relevance |\n| May sapat bang detalye? | Tinitiyak ang pagiging kumpleto |\n\n## 🤝 Pakikinig sa Puna ng Iba (Peer Feedback)\nAng **pagtanggap ng puna** mula sa kaklase o guro ay tumutulong upang **mapabuti** ang isang proyekto — hindi ito dapat ikahiya kundi tanggapin bilang tulong.\n\n## ✏️ Paggawa ng Pagbabago\nMatapos makatanggap ng puna, gumawa ng **mga pagbabago** — tulad ng pagbabago ng font, pagdaragdag ng larawan, o pag-aayos ng gramatika.\n\n## 🧠 Halimbawa 1\n*Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?*\n- **Palitan ang larawan** ng mas malinaw na bersyon.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?*\n- Dahil nakatutulong ito upang **mapabuti** ang kalidad ng iyong gawa.\n\n## 💡 Kongklusyon\nAng pagre-review at pagpapaganda ng ating digital portfolio ay nagpapakita ng **propesyonalismo at pagsisikap** sa ating trabaho.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🖊️ EPP (ICT) — Editing and Improving Your Digital Portfolio\n\nGrade 5, Week 19! Let's look back at our projects and make them better. 🖥️\n\n## 🔍 Why Is It Important to Review Your Own Work?\n**Reviewing** your own project helps you **find the things that need to be improved** before you show it to others.\n\n## ✅ Digital Portfolio Review Checklist\n| Question | Purpose |\n|---|---|\n| Is the layout clear? | Makes sure it is easy to read |\n| Are the spelling and grammar correct? | Makes sure it looks professional |\n| Do the pictures fit the content? | Makes sure of relevance |\n| Are there enough details? | Makes sure it is complete |\n\n## 🤝 Listening to Feedback from Others (Peer Feedback)\n**Accepting feedback** from a classmate or teacher helps **improve** a project — don't be ashamed of it; take it as help.\n\n## ✏️ Making Changes\nAfter getting feedback, make **changes** — like changing the font, adding a picture, or fixing the grammar.\n\n## 🧠 Example 1\n*Your classmate said that a picture in your brochure is blurry. What is the right thing to do?*\n- **Replace the picture** with a clearer version.\n\n## 🧠 Example 2\n*Why is it important to accept feedback from others about your project?*\n- Because it helps **improve** the quality of your work.\n\n## 💡 Conclusion\nReviewing and improving our digital portfolio shows **professionalism and effort** in our work.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Bakit mahalaga ang pagre-review ng sariling proyekto?",
+            "question": "Why is it important to review your own project?",
             "options": [
-              "Tumutulong ito upang matukoy ang dapat pagbutihin",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapahirap lamang ito ng gawain",
-              "Ginagawa lamang ito para sa marka"
+              "It helps you find what needs to be improved",
+              "It is useless for the project",
+              "It only makes the work harder",
+              "It is only done for a grade"
             ],
-            "correct_answer": "Tumutulong ito upang matukoy ang dapat pagbutihin"
+            "correct_answer": "It helps you find what needs to be improved"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa ispeling at gramatika sa isang proyekto?",
+            "question": "What does checking the spelling and grammar of a project make sure of?",
             "options": [
-              "Ang propesyonal na hitsura ng proyekto",
-              "Ang bilis ng pagkumpleto ng proyekto",
-              "Ang presyo ng proyekto",
-              "Ang laki ng file lamang"
+              "The project looks professional",
+              "How fast the project is finished",
+              "The price of the project",
+              "Only the file size"
             ],
-            "correct_answer": "Ang propesyonal na hitsura ng proyekto"
+            "correct_answer": "The project looks professional"
           },
           {
-            "question": "Ano ang peer feedback?",
+            "question": "What is peer feedback?",
             "options": [
-              "Puna mula sa kaklase o guro tungkol sa iyong gawa",
-              "Isang uri ng file sa kompyuter",
-              "Isang uri ng larawan lamang",
-              "Isang bahagi ng brochure lamang"
+              "Comments from a classmate or teacher about your work",
+              "A kind of computer file",
+              "Only a kind of picture",
+              "Only a part of a brochure"
             ],
-            "correct_answer": "Puna mula sa kaklase o guro tungkol sa iyong gawa"
+            "correct_answer": "Comments from a classmate or teacher about your work"
           },
           {
-            "question": "Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?",
+            "question": "Your classmate said that a picture in your brochure is blurry. What is the right thing to do?",
             "options": [
-              "Palitan ang larawan ng mas malinaw na bersyon",
-              "Balewalain na lamang ang puna",
-              "Alisin ang buong brochure",
-              "Magalit sa kaklase na nagbigay ng puna"
+              "Replace the picture with a clearer version",
+              "Just ignore the feedback",
+              "Remove the whole brochure",
+              "Get angry at the classmate who gave the feedback"
             ],
-            "correct_answer": "Palitan ang larawan ng mas malinaw na bersyon"
+            "correct_answer": "Replace the picture with a clearer version"
           },
           {
-            "question": "Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?",
+            "question": "Why is it important to accept feedback from others about your project?",
             "options": [
-              "Nakatutulong ito upang mapabuti ang kalidad ng gawa",
-              "Wala itong kaugnayan sa kalidad ng gawa",
-              "Dapat itong ikahiya at iwasan",
-              "Hindi dapat pakinggan ang puna ng iba"
+              "It helps improve the quality of the work",
+              "It has nothing to do with the quality of the work",
+              "You should be ashamed of it and avoid it",
+              "You should not listen to feedback from others"
             ],
-            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng gawa"
+            "correct_answer": "It helps improve the quality of the work"
           },
           {
-            "question": "Ano ang dapat gawin matapos makatanggap ng puna sa isang proyekto?",
+            "question": "What should you do after getting feedback on a project?",
             "options": [
-              "Gumawa ng mga pagbabago batay sa puna",
-              "Kalimutan na lamang ang natanggap na puna",
-              "Isara agad ang proyekto",
-              "Ipasa agad kahit walang binago"
+              "Make changes based on the feedback",
+              "Just forget the feedback you got",
+              "Close the project right away",
+              "Submit it right away even without changes"
             ],
-            "correct_answer": "Gumawa ng mga pagbabago batay sa puna"
+            "correct_answer": "Make changes based on the feedback"
           },
           {
-            "question": "Ano ang tinitiyak ng pagtingin kung angkop ang mga larawan sa nilalaman?",
+            "question": "What does checking if the pictures fit the content make sure of?",
             "options": [
-              "Ang relevance ng mga larawan sa proyekto",
-              "Ang presyo ng mga larawan",
-              "Ang laki ng file lamang",
-              "Ang bilang ng letrang ginamit"
+              "The relevance of the pictures to the project",
+              "The price of the pictures",
+              "Only the file size",
+              "The number of letters used"
             ],
-            "correct_answer": "Ang relevance ng mga larawan sa proyekto"
+            "correct_answer": "The relevance of the pictures to the project"
           },
           {
-            "question": "Bakit mahalagang malinaw ang layout ng isang proyekto?",
+            "question": "Why is it important for a project's layout to be clear?",
             "options": [
-              "Upang madaling basahin at maintindihan ito",
-              "Upang mahirap lamang basahin ito",
-              "Wala itong kaugnayan sa pagbabasa",
-              "Upang lumaki lamang ang file"
+              "So it is easy to read and understand",
+              "So it is hard to read",
+              "It has nothing to do with reading",
+              "Just to make the file bigger"
             ],
-            "correct_answer": "Upang madaling basahin at maintindihan ito"
+            "correct_answer": "So it is easy to read and understand"
           },
           {
-            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagre-review?",
+            "question": "Which is an example of a change you can make after reviewing?",
             "options": [
-              "Pagbabago ng font o pagdaragdag ng larawan",
-              "Pagbura ng buong proyekto",
-              "Pagsara ng programa nang walang pag-save",
-              "Pagsulat ng bagong pangalan lamang"
+              "Changing the font or adding a picture",
+              "Deleting the whole project",
+              "Closing the program without saving",
+              "Only writing a new name"
             ],
-            "correct_answer": "Pagbabago ng font o pagdaragdag ng larawan"
+            "correct_answer": "Changing the font or adding a picture"
           },
           {
-            "question": "Ano ang ipinapakita ng pagre-review at pagpapaganda ng proyekto?",
+            "question": "What does reviewing and improving a project show?",
             "options": [
-              "Propesyonalismo at pagsisikap sa trabaho",
-              "Kapabayaan sa gawain",
-              "Kawalan ng interes sa proyekto",
-              "Kakulangan sa oras lamang"
+              "Professionalism and effort in your work",
+              "Carelessness in your work",
+              "No interest in the project",
+              "Only a lack of time"
             ],
-            "correct_answer": "Propesyonalismo at pagsisikap sa trabaho"
+            "correct_answer": "Professionalism and effort in your work"
           },
           {
-            "question": "Bakit dapat gamitin ang isang checklist kapag nire-review ang proyekto?",
+            "question": "Why should you use a checklist when reviewing a project?",
             "options": [
-              "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi",
-              "Upang mapabilis lamang ang buong gawain",
-              "Walang tunay na dahilan para dito",
-              "Upang maiwasan na lamang ang pag-eedit"
+              "To make sure all the important parts are covered",
+              "Only to make the whole task faster",
+              "There is no real reason for it",
+              "Only to avoid editing"
             ],
-            "correct_answer": "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi"
+            "correct_answer": "To make sure all the important parts are covered"
           },
           {
-            "question": "Isang mag-aaral ang natanggap ng puna na masyadong maliit ang teksto sa kanyang poster. Ano ang dapat niyang gawin?",
+            "question": "A student got feedback that the text on their poster is too small. What should they do?",
             "options": [
-              "Palakihin ang teksto upang mas madaling basahin",
-              "Balewalain ang puna at huwag baguhin ito",
-              "Alisin ang lahat ng teksto sa poster",
-              "Isara agad ang buong proyekto"
+              "Make the text bigger so it is easier to read",
+              "Ignore the feedback and change nothing",
+              "Remove all the text on the poster",
+              "Close the whole project right away"
             ],
-            "correct_answer": "Palakihin ang teksto upang mas madaling basahin"
+            "correct_answer": "Make the text bigger so it is easier to read"
           }
         ]
       }
@@ -1762,127 +1762,127 @@
         ]
       },
       "EPP (ICT)": {
-        "summary_markdown": "# 🖊️ Friday Review — EPP (ICT) (Grade 5)\n\n- Pagre-review at pagpapaganda ng digital portfolio gamit ang peer feedback\n\nMagaling! 🌟",
+        "summary_markdown": "# 🖊️ Friday Review — EPP (ICT) (Grade 5)\n\n- Reviewing and improving your digital portfolio using peer feedback\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Bakit mahalaga ang pagre-review ng sariling proyekto?",
+            "question": "Why is it important to review your own project?",
             "options": [
-              "Tumutulong ito upang matukoy ang dapat pagbutihin",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapahirap lamang ito ng gawain",
-              "Ginagawa lamang ito para sa marka"
+              "It helps you find what needs to be improved",
+              "It is useless for the project",
+              "It only makes the work harder",
+              "It is only done for a grade"
             ],
-            "correct_answer": "Tumutulong ito upang matukoy ang dapat pagbutihin"
+            "correct_answer": "It helps you find what needs to be improved"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa ispeling at gramatika sa isang proyekto?",
+            "question": "What does checking the spelling and grammar of a project make sure of?",
             "options": [
-              "Ang propesyonal na hitsura ng proyekto",
-              "Ang bilis ng pagkumpleto ng proyekto",
-              "Ang presyo ng proyekto",
-              "Ang laki ng file lamang"
+              "The project looks professional",
+              "How fast the project is finished",
+              "The price of the project",
+              "Only the file size"
             ],
-            "correct_answer": "Ang propesyonal na hitsura ng proyekto"
+            "correct_answer": "The project looks professional"
           },
           {
-            "question": "Ano ang peer feedback?",
+            "question": "What is peer feedback?",
             "options": [
-              "Puna mula sa kaklase o guro tungkol sa iyong gawa",
-              "Isang uri ng file sa kompyuter",
-              "Isang uri ng larawan lamang",
-              "Isang bahagi ng brochure lamang"
+              "Comments from a classmate or teacher about your work",
+              "A kind of computer file",
+              "Only a kind of picture",
+              "Only a part of a brochure"
             ],
-            "correct_answer": "Puna mula sa kaklase o guro tungkol sa iyong gawa"
+            "correct_answer": "Comments from a classmate or teacher about your work"
           },
           {
-            "question": "Nabanggit ng iyong kaklase na malabo ang isang larawan sa iyong brochure. Ano ang tamang gawin?",
+            "question": "Your classmate said that a picture in your brochure is blurry. What is the right thing to do?",
             "options": [
-              "Palitan ang larawan ng mas malinaw na bersyon",
-              "Balewalain na lamang ang puna",
-              "Alisin ang buong brochure",
-              "Magalit sa kaklase na nagbigay ng puna"
+              "Replace the picture with a clearer version",
+              "Just ignore the feedback",
+              "Remove the whole brochure",
+              "Get angry at the classmate who gave the feedback"
             ],
-            "correct_answer": "Palitan ang larawan ng mas malinaw na bersyon"
+            "correct_answer": "Replace the picture with a clearer version"
           },
           {
-            "question": "Bakit mahalagang tanggapin ang puna ng iba tungkol sa iyong proyekto?",
+            "question": "Why is it important to accept feedback from others about your project?",
             "options": [
-              "Nakatutulong ito upang mapabuti ang kalidad ng gawa",
-              "Wala itong kaugnayan sa kalidad ng gawa",
-              "Dapat itong ikahiya at iwasan",
-              "Hindi dapat pakinggan ang puna ng iba"
+              "It helps improve the quality of the work",
+              "It has nothing to do with the quality of the work",
+              "You should be ashamed of it and avoid it",
+              "You should not listen to feedback from others"
             ],
-            "correct_answer": "Nakatutulong ito upang mapabuti ang kalidad ng gawa"
+            "correct_answer": "It helps improve the quality of the work"
           },
           {
-            "question": "Ano ang dapat gawin matapos makatanggap ng puna sa isang proyekto?",
+            "question": "What should you do after getting feedback on a project?",
             "options": [
-              "Gumawa ng mga pagbabago batay sa puna",
-              "Kalimutan na lamang ang natanggap na puna",
-              "Isara agad ang proyekto",
-              "Ipasa agad kahit walang binago"
+              "Make changes based on the feedback",
+              "Just forget the feedback you got",
+              "Close the project right away",
+              "Submit it right away even without changes"
             ],
-            "correct_answer": "Gumawa ng mga pagbabago batay sa puna"
+            "correct_answer": "Make changes based on the feedback"
           },
           {
-            "question": "Ano ang tinitiyak ng pagtingin kung angkop ang mga larawan sa nilalaman?",
+            "question": "What does checking if the pictures fit the content make sure of?",
             "options": [
-              "Ang relevance ng mga larawan sa proyekto",
-              "Ang presyo ng mga larawan",
-              "Ang laki ng file lamang",
-              "Ang bilang ng letrang ginamit"
+              "The relevance of the pictures to the project",
+              "The price of the pictures",
+              "Only the file size",
+              "The number of letters used"
             ],
-            "correct_answer": "Ang relevance ng mga larawan sa proyekto"
+            "correct_answer": "The relevance of the pictures to the project"
           },
           {
-            "question": "Bakit mahalagang malinaw ang layout ng isang proyekto?",
+            "question": "Why is it important for a project's layout to be clear?",
             "options": [
-              "Upang madaling basahin at maintindihan ito",
-              "Upang mahirap lamang basahin ito",
-              "Wala itong kaugnayan sa pagbabasa",
-              "Upang lumaki lamang ang file"
+              "So it is easy to read and understand",
+              "So it is hard to read",
+              "It has nothing to do with reading",
+              "Just to make the file bigger"
             ],
-            "correct_answer": "Upang madaling basahin at maintindihan ito"
+            "correct_answer": "So it is easy to read and understand"
           },
           {
-            "question": "Ano ang halimbawa ng pagbabagong maaaring gawin matapos ang pagre-review?",
+            "question": "Which is an example of a change you can make after reviewing?",
             "options": [
-              "Pagbabago ng font o pagdaragdag ng larawan",
-              "Pagbura ng buong proyekto",
-              "Pagsara ng programa nang walang pag-save",
-              "Pagsulat ng bagong pangalan lamang"
+              "Changing the font or adding a picture",
+              "Deleting the whole project",
+              "Closing the program without saving",
+              "Only writing a new name"
             ],
-            "correct_answer": "Pagbabago ng font o pagdaragdag ng larawan"
+            "correct_answer": "Changing the font or adding a picture"
           },
           {
-            "question": "Ano ang ipinapakita ng pagre-review at pagpapaganda ng proyekto?",
+            "question": "What does reviewing and improving a project show?",
             "options": [
-              "Propesyonalismo at pagsisikap sa trabaho",
-              "Kapabayaan sa gawain",
-              "Kawalan ng interes sa proyekto",
-              "Kakulangan sa oras lamang"
+              "Professionalism and effort in your work",
+              "Carelessness in your work",
+              "No interest in the project",
+              "Only a lack of time"
             ],
-            "correct_answer": "Propesyonalismo at pagsisikap sa trabaho"
+            "correct_answer": "Professionalism and effort in your work"
           },
           {
-            "question": "Bakit dapat gamitin ang isang checklist kapag nire-review ang proyekto?",
+            "question": "Why should you use a checklist when reviewing a project?",
             "options": [
-              "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi",
-              "Upang mapabilis lamang ang buong gawain",
-              "Walang tunay na dahilan para dito",
-              "Upang maiwasan na lamang ang pag-eedit"
+              "To make sure all the important parts are covered",
+              "Only to make the whole task faster",
+              "There is no real reason for it",
+              "Only to avoid editing"
             ],
-            "correct_answer": "Upang matiyak na natugunan ang lahat ng mahahalagang bahagi"
+            "correct_answer": "To make sure all the important parts are covered"
           },
           {
-            "question": "Isang mag-aaral ang natanggap ng puna na masyadong maliit ang teksto sa kanyang poster. Ano ang dapat niyang gawin?",
+            "question": "A student got feedback that the text on their poster is too small. What should they do?",
             "options": [
-              "Palakihin ang teksto upang mas madaling basahin",
-              "Balewalain ang puna at huwag baguhin ito",
-              "Alisin ang lahat ng teksto sa poster",
-              "Isara agad ang buong proyekto"
+              "Make the text bigger so it is easier to read",
+              "Ignore the feedback and change nothing",
+              "Remove all the text on the poster",
+              "Close the whole project right away"
             ],
-            "correct_answer": "Palakihin ang teksto upang mas madaling basahin"
+            "correct_answer": "Make the text bigger so it is easier to read"
           }
         ]
       },
