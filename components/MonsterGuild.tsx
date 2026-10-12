@@ -1220,9 +1220,15 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }
 
     if (won && activeBattle) {
-      const newDefeated = [...(battleState?.defeated_trainers || []), activeBattle.id];
-      await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
-      setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+      // Each trainer is listed once: a rematch win used to append it again,
+      // which inflated the leaderboard's trainers-defeated count. Same rule as
+      // the offline path above and sync_offline_trainer_battle.
+      const defeated = battleState?.defeated_trainers || [];
+      if (!defeated.includes(activeBattle.id)) {
+        const newDefeated = [...defeated, activeBattle.id];
+        await supabase.from('user_battle_state').update({ defeated_trainers: newDefeated }).eq('user_id', userId);
+        setBattleState(prev => prev ? { ...prev, defeated_trainers: newDefeated } : prev);
+      }
 
       await awardActiveMonsterExp(expEarned);
       showNotification(`🏆 You defeated ${activeBattle.name}!`);

@@ -85,7 +85,8 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
 
   const defeatedByUser = new Map<string, number>();
   (battleStateRes.data || []).forEach((row) => {
-    defeatedByUser.set(row.user_id, (row.defeated_trainers || []).length);
+    // Distinct: older rematch wins listed the same trainer more than once.
+    defeatedByUser.set(row.user_id, new Set(row.defeated_trainers || []).size);
   });
 
   // Traded-in curios are excluded from every leaderboard signal below — rank
