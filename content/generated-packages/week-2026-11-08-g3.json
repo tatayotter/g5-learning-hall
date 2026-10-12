@@ -633,40 +633,40 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔍 Computer — Kilalanin ang Browser at Search Engine Icons\n\nGrade 3, Week 22! Matuto tayong kilalanin ang mga icon na madalas nating makita. 🔍\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga gamit ng Internet.\n\n## 🔍 Mga Karaniwang Icon ng Browser\n- **Chrome** — bilog na may apat na kulay\n- **Edge** — asul na alon o \"e\"\n- **Safari** — kompas na asul\n\n## 🔍 Mga Icon ng Search Engine\n- **Google** — kulay na salitang \"Google\" o magnifying glass\n\n## 💡 Bakit Kailangang Kilalanin Ito?\nAng pagkilala sa mga icon na ito ay tumutulong sa atin na **mahanap agad** ang tamang programa kapag gagamit ng kompyuter.\n\n**Mahahalagang salita:** icon, browser, search engine, kilalanin",
+        "summary_markdown": "# 🔍 Computer — Knowing Browser and Search Engine Icons\n\nGrade 3, Week 22! Let's learn to spot the icons we see a lot. 🔍\n\n## 🔄 Review\nWe learned the uses of the Internet.\n\n## 🔍 Common Browser Icons\n- **Chrome** — a circle with four colors\n- **Edge** — a blue wave or \"e\"\n- **Safari** — a blue compass\n\n## 🔍 Search Engine Icons\n- **Google** — the colorful word \"Google\" or a magnifying glass\n\n## 💡 Why Should We Know Them?\nKnowing these icons helps us **find the right program fast** when we use the computer.\n\n**Key words:** icon, browser, search engine, spot",
         "quiz": [
           {
-            "question": "Bakit mahalagang kilalanin ang mga icon ng browser?",
+            "question": "Why is it important to know the browser icons?",
             "options": [
-              "Tumutulong itong mahanap agad ang tamang programa",
-              "Walang gamit ito",
-              "Hindi na kailangan malaman ito",
-              "Para lamang palamutihan ang kompyuter"
+              "It helps you find the right program fast",
+              "It has no use",
+              "There is no need to know it",
+              "Only to decorate the computer"
             ],
-            "correct_answer": "Tumutulong itong mahanap agad ang tamang programa"
+            "correct_answer": "It helps you find the right program fast"
           },
           {
-            "question": "Anong hugis ang icon ng Chrome?",
+            "question": "What shape is the Chrome icon?",
             "options": [
-              "Bilog na may apat na kulay",
-              "Parisukat na itim",
-              "Tatsulok na berde",
-              "Bituin na dilaw"
+              "A circle with four colors",
+              "A black square",
+              "A green triangle",
+              "A yellow star"
             ],
-            "correct_answer": "Bilog na may apat na kulay"
+            "correct_answer": "A circle with four colors"
           },
           {
-            "question": "Ano ang halimbawa ng browser?",
+            "question": "What are examples of browsers?",
             "options": [
               "Chrome, Edge, Safari",
-              "Google lamang",
-              "Word lamang",
-              "Paint lamang"
+              "Only Google",
+              "Only Word",
+              "Only Paint"
             ],
             "correct_answer": "Chrome, Edge, Safari"
           },
           {
-            "question": "Ano ang halimbawa ng search engine?",
+            "question": "What is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -676,84 +676,84 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Bakit iba-iba ang hitsura ng mga browser icon?",
+            "question": "Why do the browser icons look different from each other?",
             "options": [
-              "Iba't ibang kumpanya ang gumawa ng bawat isa",
-              "Lahat sila ay pareho",
-              "Walang pagkakaiba",
-              "Iisang kumpanya lamang ang gumawa ng lahat"
+              "Different companies made each one",
+              "They are all the same",
+              "There is no difference",
+              "Only one company made them all"
             ],
-            "correct_answer": "Iba't ibang kumpanya ang gumawa ng bawat isa"
+            "correct_answer": "Different companies made each one"
           },
           {
-            "question": "Ano ang ginagamit para maghanap ng impormasyon online?",
+            "question": "What do you use to look for information online?",
             "options": [
               "Search engine",
-              "Browser lamang",
-              "Keyboard lamang",
-              "Mouse lamang"
+              "Only a browser",
+              "Only a keyboard",
+              "Only a mouse"
             ],
             "correct_answer": "Search engine"
           },
           {
-            "question": "Ano ang ginagamit para makapunta sa internet?",
+            "question": "What do you use to go on the Internet?",
             "options": [
               "Browser",
-              "Search engine lamang",
-              "Keyboard lamang",
-              "Wala sa mga ito"
+              "Only a search engine",
+              "Only a keyboard",
+              "None of these"
             ],
             "correct_answer": "Browser"
           },
           {
-            "question": "Bakit itinuturo ang pagkilala sa mga icon na ito sa Grade 3?",
+            "question": "Why do we learn these icons in Grade 3?",
             "options": [
-              "Para makapaggamit nang mas mahusay at mabilis ng kompyuter",
-              "Hindi ito mahalaga",
-              "Para lamang libangin ang mga bata",
-              "Walang layunin ito"
+              "To use the computer better and faster",
+              "It is not important",
+              "Only to keep kids busy",
+              "It has no goal"
             ],
-            "correct_answer": "Para makapaggamit nang mas mahusay at mabilis ng kompyuter"
+            "correct_answer": "To use the computer better and faster"
           },
           {
-            "question": "Kung gusto mong maghanap ng larawan ng hayop online, ano ang gagamitin mo?",
+            "question": "If you want to find a picture of an animal online, what will you use?",
             "options": [
               "Search engine",
-              "Isang bagong browser lamang",
-              "Isang bagong kompyuter",
-              "Walang gagamitin"
+              "Only a new browser",
+              "A new computer",
+              "Nothing"
             ],
             "correct_answer": "Search engine"
           },
           {
-            "question": "Kung gusto mong buksan ang Internet, ano ang una mong bubuksan?",
+            "question": "If you want to go on the Internet, what do you open first?",
             "options": [
               "Browser",
-              "Search engine lamang",
-              "Isang laruan",
-              "Isang libro"
+              "Only a search engine",
+              "A toy",
+              "A book"
             ],
             "correct_answer": "Browser"
           },
           {
-            "question": "Bakit mahalagang maging pamilyar sa iba't ibang icon ng kompyuter?",
+            "question": "Why is it important to know the different computer icons?",
             "options": [
-              "Nakakatulong ito upang gumamit nang mas kumpiyansa ng kompyuter",
-              "Hindi ito kinakailangan",
-              "Wala itong epekto sa paggamit",
-              "Isang icon lamang ang mahalaga"
+              "It helps you use the computer with more confidence",
+              "It is not needed",
+              "It does not change how you use it",
+              "Only one icon is important"
             ],
-            "correct_answer": "Nakakatulong ito upang gumamit nang mas kumpiyansa ng kompyuter"
+            "correct_answer": "It helps you use the computer with more confidence"
           },
           {
-            "question": "Alin sa mga sumusunod ang HINDI isang browser?",
+            "question": "Which of these is NOT a browser?",
             "options": [
-              "Google Search bar lamang (hindi ito browser)",
+              "Just the Google Search bar (it is not a browser)",
               "Chrome",
               "Edge",
               "Safari"
             ],
-            "correct_answer": "Google Search bar lamang (hindi ito browser)"
+            "correct_answer": "Just the Google Search bar (it is not a browser)"
           }
         ]
       }
@@ -1512,40 +1512,40 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔍 Friday Review — Computer (Grade 3)\n\n- Pagkilala sa browser at search engine icons\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🔍 Friday Review — Computer (Grade 3)\n\n- Knowing browser and search engine icons\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Bakit kilalanin ang icon ng browser?",
+            "question": "Why should you know the browser icons?",
             "options": [
-              "Mahanap agad ang tamang programa",
-              "Walang gamit",
-              "Hindi kailangan malaman",
-              "Palamutihan lamang"
+              "To find the right program fast",
+              "They have no use",
+              "No need to know them",
+              "Only for decoration"
             ],
-            "correct_answer": "Mahanap agad ang tamang programa"
+            "correct_answer": "To find the right program fast"
           },
           {
-            "question": "Hugis ng icon ng Chrome?",
+            "question": "What shape is the Chrome icon?",
             "options": [
-              "Bilog na may apat na kulay",
-              "Parisukat na itim",
-              "Tatsulok na berde",
-              "Bituin na dilaw"
+              "A circle with four colors",
+              "A black square",
+              "A green triangle",
+              "A yellow star"
             ],
-            "correct_answer": "Bilog na may apat na kulay"
+            "correct_answer": "A circle with four colors"
           },
           {
-            "question": "Halimbawa ng browser?",
+            "question": "Which are examples of browsers?",
             "options": [
               "Chrome, Edge, Safari",
-              "Google lamang",
-              "Word lamang",
-              "Paint lamang"
+              "Only Google",
+              "Only Word",
+              "Only Paint"
             ],
             "correct_answer": "Chrome, Edge, Safari"
           },
           {
-            "question": "Halimbawa ng search engine?",
+            "question": "Which is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -1555,84 +1555,84 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Bakit iba-iba ang hitsura ng browser icons?",
+            "question": "Why do browser icons look different from each other?",
             "options": [
-              "Iba't ibang kumpanya gumawa ng bawat isa",
-              "Lahat pareho",
-              "Walang pagkakaiba",
-              "Iisang kumpanya gumawa"
+              "Different companies made each one",
+              "They are all the same",
+              "There is no difference",
+              "One company made them all"
             ],
-            "correct_answer": "Iba't ibang kumpanya gumawa ng bawat isa"
+            "correct_answer": "Different companies made each one"
           },
           {
-            "question": "Gamit para maghanap ng impormasyon online?",
+            "question": "What do you use to look for information online?",
             "options": [
               "Search engine",
-              "Browser lamang",
-              "Keyboard lamang",
-              "Mouse lamang"
+              "Only a browser",
+              "Only a keyboard",
+              "Only a mouse"
             ],
             "correct_answer": "Search engine"
           },
           {
-            "question": "Gamit para makapunta sa internet?",
+            "question": "What do you use to go on the Internet?",
             "options": [
               "Browser",
-              "Search engine lamang",
-              "Keyboard lamang",
-              "Wala"
+              "Only a search engine",
+              "Only a keyboard",
+              "Nothing"
             ],
             "correct_answer": "Browser"
           },
           {
-            "question": "Bakit ituro ang pagkilala sa mga icon?",
+            "question": "Why do we learn to know the icons?",
             "options": [
-              "Makapaggamit nang mas mahusay ng kompyuter",
-              "Hindi mahalaga",
-              "Libangin lamang ang bata",
-              "Walang layunin"
+              "To use the computer better",
+              "It is not important",
+              "Only to keep kids busy",
+              "It has no goal"
             ],
-            "correct_answer": "Makapaggamit nang mas mahusay ng kompyuter"
+            "correct_answer": "To use the computer better"
           },
           {
-            "question": "Gusto mong maghanap ng larawan ng hayop: gamitin?",
+            "question": "You want to find a picture of an animal. What will you use?",
             "options": [
               "Search engine",
-              "Bagong browser lamang",
-              "Bagong kompyuter",
-              "Wala"
+              "Only a new browser",
+              "A new computer",
+              "Nothing"
             ],
             "correct_answer": "Search engine"
           },
           {
-            "question": "Gusto mong buksan ang Internet: buksan muna?",
+            "question": "You want to go on the Internet. What do you open first?",
             "options": [
               "Browser",
-              "Search engine lamang",
-              "Isang laruan",
-              "Isang libro"
+              "Only a search engine",
+              "A toy",
+              "A book"
             ],
             "correct_answer": "Browser"
           },
           {
-            "question": "Bakit maging pamilyar sa iba't ibang icon?",
+            "question": "Why should you know the different icons?",
             "options": [
-              "Gumamit nang mas kumpiyansa ng kompyuter",
-              "Hindi kinakailangan",
-              "Walang epekto",
-              "Isang icon lamang mahalaga"
+              "To use the computer with more confidence",
+              "It is not needed",
+              "It does not matter",
+              "Only one icon is important"
             ],
-            "correct_answer": "Gumamit nang mas kumpiyansa ng kompyuter"
+            "correct_answer": "To use the computer with more confidence"
           },
           {
-            "question": "Alin ang HINDI browser?",
+            "question": "Which one is NOT a browser?",
             "options": [
-              "Google Search bar lamang",
+              "Just the Google Search bar",
               "Chrome",
               "Edge",
               "Safari"
             ],
-            "correct_answer": "Google Search bar lamang"
+            "correct_answer": "Just the Google Search bar"
           }
         ]
       },

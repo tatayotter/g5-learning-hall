@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Simulan sa **pangalan**, tapos maikling pangungusap\n- Tumuon sa **katumpakan** bago bilis\n\nMahusay ang iyong pag-aaral ngayong term! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- Start with your **name**, then short sentences\n- Focus on **accuracy** before speed\n\nYou learned so well this term! 🌟",
         "quiz": [
           { "question": "What should you type first when practicing?", "options": ["Your name", "A whole paragraph", "Numbers only", "Nothing"], "correct_answer": "Your name" },
           { "question": "What should you focus on before speed?", "options": ["Accuracy", "Loudness", "Color", "Size"], "correct_answer": "Accuracy" },

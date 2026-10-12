@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ⏰ Computer — Screen-Time at Pagtatanong sa Matanda\n\nGrade 2, Week 23! Alamin natin kung paano maging matalinong gumamit ng kompyuter. ⏰\n\n## 🔄 Balik-Aral\nNatutuhan natin kung ano ang Internet.\n\n## ⏰ Ano ang Screen-Time?\nAng **screen-time** ay ang oras na ginugugol sa harap ng kompyuter, tablet, o telepono.\n\n## ⚖️ Bakit Kailangang Limitahan Ito?\n- Masyadong mahabang screen-time ay maaaring makasama sa mata at katawan\n- Kailangan ding may oras para sa pagbabasa, paglalaro sa labas, at pagtulog\n\n## 👨‍👩‍👧 Palaging Magtanong Muna sa Matanda\nBago pumunta online o gumamit ng bagong programa, **magtanong muna sa magulang o guro** para sa pahintulot at gabay.\n\n**Mahahalagang salita:** screen-time, balanse, pahintulot, gabay",
+        "summary_markdown": "# ⏰ Computer — Screen-Time and Asking a Grown-up\n\nGrade 2, Week 23! Let's learn how to use the computer wisely. ⏰\n\n## 🔄 Review\nWe learned what the Internet is.\n\n## ⏰ What Is Screen-Time?\n**Screen-time** is the time you spend in front of a computer, tablet, or phone.\n\n## ⚖️ Why Do We Need to Limit It?\n- Too much screen-time can hurt your eyes and body\n- We also need time for reading, playing outside, and sleeping\n\n## 👨‍👩‍👧 Always Ask a Grown-up First\nBefore you go online or use a new program, **ask a parent or teacher first** for permission and help.\n\n**Key words:** screen-time, balance, permission, help",
         "quiz": [
           {
-            "question": "Ano ang screen-time?",
+            "question": "What is screen-time?",
             "options": [
-              "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono",
-              "Oras ng pagtulog",
-              "Oras ng pagkain",
-              "Oras ng paglalaro sa labas"
+              "Time spent in front of a computer, tablet, or phone",
+              "Time for sleeping",
+              "Time for eating",
+              "Time for playing outside"
             ],
-            "correct_answer": "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono"
+            "correct_answer": "Time spent in front of a computer, tablet, or phone"
           },
           {
-            "question": "Bakit kailangang limitahan ang screen-time?",
+            "question": "Why do we need to limit screen-time?",
             "options": [
-              "Maaaring makasama sa mata at katawan kung sobra",
-              "Walang dahilan",
-              "Palaging mabuti ang mahabang screen-time",
-              "Hindi na kailangan limitahan"
+              "Too much can hurt your eyes and body",
+              "There is no reason",
+              "Long screen-time is always good",
+              "We don't need to limit it"
             ],
-            "correct_answer": "Maaaring makasama sa mata at katawan kung sobra"
+            "correct_answer": "Too much can hurt your eyes and body"
           },
           {
-            "question": "Ano pang dapat may oras para sa isang bata bukod sa screen-time?",
+            "question": "Besides screen-time, what else should a child have time for?",
             "options": [
-              "Pagbabasa, paglalaro sa labas, at pagtulog",
-              "Screen-time lamang buong araw",
-              "Walang ibang gagawin",
-              "Panonood lamang ng TV"
+              "Reading, playing outside, and sleeping",
+              "Only screen-time all day",
+              "Nothing else to do",
+              "Only watching TV"
             ],
-            "correct_answer": "Pagbabasa, paglalaro sa labas, at pagtulog"
+            "correct_answer": "Reading, playing outside, and sleeping"
           },
           {
-            "question": "Ano ang dapat gawin bago pumunta online?",
+            "question": "What should you do before going online?",
             "options": [
-              "Magtanong muna sa magulang o guro",
-              "Direktang pumunta nang walang pahintulot",
-              "Hindi na kailangan magtanong",
-              "Gawin lamang kapag walang matanda"
+              "Ask a parent or teacher first",
+              "Go online right away without permission",
+              "You don't need to ask",
+              "Do it only when no grown-up is around"
             ],
-            "correct_answer": "Magtanong muna sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher first"
           },
           {
-            "question": "Bakit mahalagang magtanong muna sa matanda?",
+            "question": "Why is it important to ask a grown-up first?",
             "options": [
-              "Para sa pahintulot at gabay sa paggamit ng kompyuter",
-              "Hindi na kailangan ng gabay",
-              "Palaging ligtas kahit walang tanong",
-              "Ang bata na lamang ang magpasya"
+              "To get permission and help using the computer",
+              "We don't need help",
+              "It is always safe even without asking",
+              "The child should decide alone"
             ],
-            "correct_answer": "Para sa pahintulot at gabay sa paggamit ng kompyuter"
+            "correct_answer": "To get permission and help using the computer"
           },
           {
-            "question": "Ano ang mangyayari kung sobra ang screen-time?",
+            "question": "What will happen if you have too much screen-time?",
             "options": [
-              "Maaaring makasama sa mata at kalusugan",
-              "Palaging mabuti ito",
-              "Walang epekto sa kalusugan",
-              "Nagpapalakas ito sa mata"
+              "It can hurt your eyes and health",
+              "It is always good",
+              "It does not affect your health",
+              "It makes your eyes stronger"
             ],
-            "correct_answer": "Maaaring makasama sa mata at kalusugan"
+            "correct_answer": "It can hurt your eyes and health"
           },
           {
-            "question": "Bakit mahalagang balansehin ang screen-time sa iba pang gawain?",
+            "question": "Why is it important to balance screen-time with other activities?",
             "options": [
-              "Upang magkaroon ng malusog na katawan at pag-iisip",
-              "Hindi mahalaga ang balanse",
-              "Screen-time lamang ang mahalaga",
-              "Walang dahilan"
+              "To have a healthy body and mind",
+              "Balance is not important",
+              "Only screen-time is important",
+              "There is no reason"
             ],
-            "correct_answer": "Upang magkaroon ng malusog na katawan at pag-iisip"
+            "correct_answer": "To have a healthy body and mind"
           },
           {
-            "question": "Sino dapat hingan ng pahintulot bago gumamit ng bagong programa online?",
+            "question": "Who should you ask for permission before using a new program online?",
             "options": [
-              "Magulang o guro",
-              "Walang kailangan hingan",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A parent or teacher",
+              "You don't need to ask anyone",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Magulang o guro"
+            "correct_answer": "A parent or teacher"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa Grade 2?",
+            "question": "Why do we learn this topic in Grade 2?",
             "options": [
-              "Para matutong balansehin ang paggamit ng kompyuter",
-              "Hindi ito mahalaga",
-              "Para hikayatin ang mas mahabang screen-time",
-              "Walang layunin ito"
+              "To learn to balance how we use the computer",
+              "It is not important",
+              "To get kids to have more screen-time",
+              "It has no goal"
             ],
-            "correct_answer": "Para matutong balansehin ang paggamit ng kompyuter"
+            "correct_answer": "To learn to balance how we use the computer"
           },
           {
-            "question": "Alin sa mga ito ay HINDI dapat gawin habang gumagamit ng kompyuter nang matagal?",
+            "question": "Which of these should you NOT do when using the computer for a long time?",
             "options": [
-              "Kalimutan ang oras ng pagtulog",
-              "Kumuha ng pahinga paminsan-minsan",
-              "Magtanong sa matanda",
-              "Ihinto kapag oras na"
+              "Forget about bedtime",
+              "Take a break now and then",
+              "Ask a grown-up",
+              "Stop when it is time"
             ],
-            "correct_answer": "Kalimutan ang oras ng pagtulog"
+            "correct_answer": "Forget about bedtime"
           },
           {
-            "question": "Ano ang benepisyo ng may balanseng screen-time?",
+            "question": "What is good about having balanced screen-time?",
             "options": [
-              "Malusog na mata, katawan, at buhay",
-              "Walang benepisyo",
-              "Nagpapabilis ng pag-aaral",
-              "Nagpapataas lamang ng puntos"
+              "Healthy eyes, body, and life",
+              "Nothing is good about it",
+              "It makes you learn faster",
+              "It only raises your points"
             ],
-            "correct_answer": "Malusog na mata, katawan, at buhay"
+            "correct_answer": "Healthy eyes, body, and life"
           },
           {
-            "question": "Bakit hindi dapat gamitin ang kompyuter nang walang pahintulot ng matanda?",
+            "question": "Why should you not use the computer without a grown-up's permission?",
             "options": [
-              "Para masiguro ang kaligtasan sa nilalaman at oras ng paggamit",
-              "Hindi na kailangan iyon",
-              "Ligtas na palagi kahit walang gabay",
-              "Bata na lamang ang dapat magpasya"
+              "To make sure the content and your time on it are safe",
+              "That is not needed",
+              "It is always safe even without help",
+              "The child should decide alone"
             ],
-            "correct_answer": "Para masiguro ang kaligtasan sa nilalaman at oras ng paggamit"
+            "correct_answer": "To make sure the content and your time on it are safe"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ⏰ Friday Review — Computer (Grade 2)\n\n- Screen-time at pagtatanong sa matanda\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# ⏰ Friday Review — Computer (Grade 2)\n\n- Screen-time and asking a grown-up\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang screen-time?",
+            "question": "What is screen-time?",
             "options": [
-              "Oras sa harap ng kompyuter, tablet, telepono",
-              "Oras ng pagtulog",
-              "Oras ng pagkain",
-              "Oras ng paglalaro sa labas"
+              "Time in front of a computer, tablet, phone",
+              "Time for sleeping",
+              "Time for eating",
+              "Time for playing outside"
             ],
-            "correct_answer": "Oras sa harap ng kompyuter, tablet, telepono"
+            "correct_answer": "Time in front of a computer, tablet, phone"
           },
           {
-            "question": "Bakit limitahan ang screen-time?",
+            "question": "Why limit screen-time?",
             "options": [
-              "Maaaring makasama sa mata at katawan",
-              "Walang dahilan",
-              "Palaging mabuti ang mahaba",
-              "Hindi kailangan limitahan"
+              "It can hurt your eyes and body",
+              "There is no reason",
+              "Long screen-time is always good",
+              "No need to limit it"
             ],
-            "correct_answer": "Maaaring makasama sa mata at katawan"
+            "correct_answer": "It can hurt your eyes and body"
           },
           {
-            "question": "Ano pang dapat may oras bukod sa screen-time?",
+            "question": "Besides screen-time, what else should you have time for?",
             "options": [
-              "Pagbabasa, paglalaro sa labas, pagtulog",
-              "Screen-time lamang",
-              "Wala nang ibang gagawin",
-              "Panonood lamang ng TV"
+              "Reading, playing outside, sleeping",
+              "Only screen-time",
+              "Nothing else to do",
+              "Only watching TV"
             ],
-            "correct_answer": "Pagbabasa, paglalaro sa labas, pagtulog"
+            "correct_answer": "Reading, playing outside, sleeping"
           },
           {
-            "question": "Gawin bago pumunta online?",
+            "question": "What should you do before going online?",
             "options": [
-              "Magtanong sa magulang o guro",
-              "Direktang pumunta",
-              "Hindi na magtanong",
-              "Gawin kapag walang matanda"
+              "Ask a parent or teacher",
+              "Go right away",
+              "Don't ask anymore",
+              "Do it when no grown-up is around"
             ],
-            "correct_answer": "Magtanong sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher"
           },
           {
-            "question": "Bakit magtanong muna sa matanda?",
+            "question": "Why ask a grown-up first?",
             "options": [
-              "Para sa pahintulot at gabay",
-              "Hindi kailangan ng gabay",
-              "Palaging ligtas",
-              "Bata na lamang magpasya"
+              "To get permission and help",
+              "We don't need help",
+              "It is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Para sa pahintulot at gabay"
+            "correct_answer": "To get permission and help"
           },
           {
-            "question": "Mangyayari kung sobra ang screen-time?",
+            "question": "What happens if you have too much screen-time?",
             "options": [
-              "Maaaring makasama sa mata at kalusugan",
-              "Palaging mabuti",
-              "Walang epekto",
-              "Nagpapalakas sa mata"
+              "It can hurt your eyes and health",
+              "It is always good",
+              "No effect",
+              "It makes your eyes stronger"
             ],
-            "correct_answer": "Maaaring makasama sa mata at kalusugan"
+            "correct_answer": "It can hurt your eyes and health"
           },
           {
-            "question": "Bakit balansehin ang screen-time?",
+            "question": "Why balance screen-time?",
             "options": [
-              "Malusog na katawan at pag-iisip",
-              "Hindi mahalaga ang balanse",
-              "Screen-time lamang mahalaga",
-              "Walang dahilan"
+              "For a healthy body and mind",
+              "Balance is not important",
+              "Only screen-time matters",
+              "There is no reason"
             ],
-            "correct_answer": "Malusog na katawan at pag-iisip"
+            "correct_answer": "For a healthy body and mind"
           },
           {
-            "question": "Sino hihingan ng pahintulot bago gumamit ng bagong programa?",
+            "question": "Who should you ask for permission before using a new program?",
             "options": [
-              "Magulang o guro",
-              "Walang kailangan hingan",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A parent or teacher",
+              "You don't need to ask anyone",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Magulang o guro"
+            "correct_answer": "A parent or teacher"
           },
           {
-            "question": "Bakit itinuro ang paksang ito?",
+            "question": "Why do we learn this topic?",
             "options": [
-              "Matutong balansehin ang paggamit ng kompyuter",
-              "Hindi ito mahalaga",
-              "Hikayatin ang mahabang screen-time",
-              "Walang layunin"
+              "To learn to balance how we use the computer",
+              "It is not important",
+              "To get more screen-time",
+              "No goal"
             ],
-            "correct_answer": "Matutong balansehin ang paggamit ng kompyuter"
+            "correct_answer": "To learn to balance how we use the computer"
           },
           {
-            "question": "Alin ang HINDI dapat gawin sa matagal na paggamit ng kompyuter?",
+            "question": "Which should you NOT do when using the computer for a long time?",
             "options": [
-              "Kalimutan ang oras ng pagtulog",
-              "Kumuha ng pahinga",
-              "Magtanong sa matanda",
-              "Ihinto kapag oras na"
+              "Forget about bedtime",
+              "Take a break",
+              "Ask a grown-up",
+              "Stop when it is time"
             ],
-            "correct_answer": "Kalimutan ang oras ng pagtulog"
+            "correct_answer": "Forget about bedtime"
           },
           {
-            "question": "Benepisyo ng balanseng screen-time?",
+            "question": "What is good about balanced screen-time?",
             "options": [
-              "Malusog na mata, katawan, buhay",
-              "Walang benepisyo",
-              "Nagpapabilis ng pag-aaral",
-              "Nagpapataas ng puntos"
+              "Healthy eyes, body, life",
+              "Nothing is good",
+              "It makes you learn faster",
+              "It raises your points"
             ],
-            "correct_answer": "Malusog na mata, katawan, buhay"
+            "correct_answer": "Healthy eyes, body, life"
           },
           {
-            "question": "Bakit hindi gamitin ang kompyuter nang walang pahintulot?",
+            "question": "Why not use the computer without permission?",
             "options": [
-              "Masiguro ang kaligtasan sa nilalaman",
-              "Hindi na kailangan iyon",
-              "Ligtas na palagi",
-              "Bata na lamang magpasya"
+              "To make sure the content is safe",
+              "That is not needed",
+              "It is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Masiguro ang kaligtasan sa nilalaman"
+            "correct_answer": "To make sure the content is safe"
           }
         ]
       },

@@ -167,7 +167,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Monitor** — nagpapakita ng larawan/salita\n- **CPU** — utak ng computer\n- **Keyboard** — pantype | **Mouse** — pang-click\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Monitor** — shows pictures/words\n- **CPU** — the brain of the computer\n- **Keyboard** — for typing | **Mouse** — for clicking\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "Which part shows pictures and words?", "options": ["Monitor", "Keyboard", "Mouse", "CPU"], "correct_answer": "Monitor" },
           { "question": "What is the \"brain\" of the computer?", "options": ["CPU", "Monitor", "Keyboard", "Mouse"], "correct_answer": "CPU" },

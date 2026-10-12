@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Turning on: **press power → wait → log in**\n- Turning off: **save → close → shut down**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- Turning on: **press power → wait → log in**\n- Turning off: **save → close → shut down**\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "What is the first step to turn on a computer?", "options": ["Press the power button", "Unplug it", "Close programs", "Log out"], "correct_answer": "Press the power button" },
           { "question": "What should you do before shutting down?", "options": ["Save your work", "Unplug it while running", "Nothing special", "Turn off the monitor only"], "correct_answer": "Save your work" },

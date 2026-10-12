@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🚨 Computer — Kilalanin at Iulat ang Hindi Ligtas na Sitwasyon\n\nGrade 2, Week 25! Alamin natin kung paano kikilalanin at ano ang gagawin sa mga hindi ligtas na bagay online. 🚨\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagpapanatiling pribado ng impormasyon.\n\n## 🚨 Ano ang Hindi Ligtas na Sitwasyon?\nHalimbawa: may nagmumura sa iyo online, may humihingi ng personal na impormasyon, o may nakakatakot na larawan o mensahe.\n\n## 📢 Ano ang Dapat Gawin?\n1. Huwag sumagot sa mensahe\n2. **I-screenshot** kung maaari (kasama ang matanda)\n3. Sabihin agad sa isang **magulang o guro**\n\n## 💡 Bakit Mahalagang Mag-report?\nAng pagsasabi sa matanda ay tumutulong panatilihing ligtas ang lahat online, kabilang ang ibang mga bata.\n\n**Mahahalagang salita:** hindi ligtas, i-report, screenshot, sabihin agad",
+        "summary_markdown": "# 🚨 Computer — Spot and Report Unsafe Situations\n\nGrade 2, Week 25! Let's learn how to spot unsafe things online and what to do. 🚨\n\n## 🔄 Review\nWe learned about keeping information private.\n\n## 🚨 What Is an Unsafe Situation?\nFor example: someone says bad words to you online, someone asks for your personal information, or you see a scary picture or message.\n\n## 📢 What Should You Do?\n1. Do not reply to the message\n2. **Take a screenshot** if you can (with a grown-up)\n3. Tell a **parent or teacher** right away\n\n## 💡 Why Is It Important to Report?\nTelling a grown-up helps keep everyone safe online, including other kids.\n\n**Key words:** unsafe, report, screenshot, tell right away",
         "quiz": [
           {
-            "question": "Ano ang halimbawa ng hindi ligtas na sitwasyon online?",
+            "question": "What is an example of an unsafe situation online?",
             "options": [
-              "May nagmumura o humihingi ng personal na impormasyon",
-              "May nagbibigay ng aral",
-              "May nagpapakita ng larawan ng hayop",
-              "May naglalaro ng edukasyonal na laro"
+              "Someone says bad words or asks for your personal information",
+              "Someone teaches a lesson",
+              "Someone shows a picture of an animal",
+              "Someone plays a learning game"
             ],
-            "correct_answer": "May nagmumura o humihingi ng personal na impormasyon"
+            "correct_answer": "Someone says bad words or asks for your personal information"
           },
           {
-            "question": "Ano ang unang dapat gawin kung may hindi ligtas na mensahe?",
+            "question": "What should you do first if you get an unsafe message?",
             "options": [
-              "Huwag sumagot",
-              "Sumagot nang bastos",
-              "Ibahagi ang personal na impormasyon",
-              "Balewalain at ipagpatuloy ang pag-uusap"
+              "Do not reply",
+              "Reply rudely",
+              "Share your personal information",
+              "Ignore it and keep talking"
             ],
-            "correct_answer": "Huwag sumagot"
+            "correct_answer": "Do not reply"
           },
           {
-            "question": "Sino ang dapat sabihan agad kung may nangyaring hindi ligtas online?",
+            "question": "Who should you tell right away if something unsafe happens online?",
             "options": [
-              "Magulang o guro",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A parent or teacher",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Magulang o guro"
+            "correct_answer": "A parent or teacher"
           },
           {
-            "question": "Ano ang maaaring gawin kasama ang matanda para maitala ang problema?",
+            "question": "What can you do with a grown-up to keep a record of the problem?",
             "options": [
-              "Mag-screenshot",
-              "Burahin agad ang lahat",
-              "Ipagpatuloy ang usapan",
-              "Sumagot nang matalim"
+              "Take a screenshot",
+              "Delete everything right away",
+              "Keep talking",
+              "Reply in a mean way"
             ],
-            "correct_answer": "Mag-screenshot"
+            "correct_answer": "Take a screenshot"
           },
           {
-            "question": "Bakit mahalagang mag-report ng hindi ligtas na sitwasyon?",
+            "question": "Why is it important to report an unsafe situation?",
             "options": [
-              "Tumutulong itong panatilihing ligtas ang lahat online",
-              "Wala itong kabuluhan",
-              "Nakakahiya itong gawin",
-              "Hindi na kailangan"
+              "It helps keep everyone safe online",
+              "It is no use",
+              "It is embarrassing to do",
+              "It is not needed"
             ],
-            "correct_answer": "Tumutulong itong panatilihing ligtas ang lahat online"
+            "correct_answer": "It helps keep everyone safe online"
           },
           {
-            "question": "Ano ang dapat gawin kung may humihingi ng personal na impormasyon online?",
+            "question": "What should you do if someone online asks for your personal information?",
             "options": [
-              "Huwag ibigay at sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it and tell a grown-up",
+              "Give it right away",
+              "Answer honestly",
+              "Keep talking"
             ],
-            "correct_answer": "Huwag ibigay at sabihin sa matanda"
+            "correct_answer": "Don't give it and tell a grown-up"
           },
           {
-            "question": "Bakit hindi dapat sumagot sa mensaheng nakakatakot?",
+            "question": "Why should you not reply to a scary message?",
             "options": [
-              "Maaaring lalong lumala ang sitwasyon",
-              "Palaging ligtas sumagot",
-              "Wala itong panganib",
-              "Kinakailangan itong gawin"
+              "It could make things worse",
+              "It is always safe to reply",
+              "It has no danger",
+              "You have to do it"
             ],
-            "correct_answer": "Maaaring lalong lumala ang sitwasyon"
+            "correct_answer": "It could make things worse"
           },
           {
-            "question": "Ano ang gagamitin para maitala ang isang nakakatakot na mensahe?",
+            "question": "What can you use to keep a record of a scary message?",
             "options": [
-              "Screenshot",
-              "Pagsira sa kompyuter",
-              "Pagtapon ng kompyuter",
-              "Wala, hindi na kailangan itala"
+              "A screenshot",
+              "Breaking the computer",
+              "Throwing away the computer",
+              "Nothing, you don't need a record"
             ],
-            "correct_answer": "Screenshot"
+            "correct_answer": "A screenshot"
           },
           {
-            "question": "Bakit mahalagang mayroong matandang katulong kapag may nangyaring hindi maganda online?",
+            "question": "Why is it important to have a grown-up help you when something bad happens online?",
             "options": [
-              "Makakatulong sila lutasin ito nang ligtas",
-              "Hindi kailangan ng tulong",
-              "Ang bata na lamang ang dapat lumutas",
-              "Walang gamit ang matanda"
+              "They can help fix it safely",
+              "You don't need help",
+              "The child should fix it alone",
+              "Grown-ups are no help"
             ],
-            "correct_answer": "Makakatulong sila lutasin ito nang ligtas"
+            "correct_answer": "They can help fix it safely"
           },
           {
-            "question": "Ano ang mabuting halimbawa ng pag-uulat?",
+            "question": "What is a good example of reporting?",
             "options": [
-              "Sabihin sa magulang at ipakita ang mensahe",
-              "Itago ang lahat sa sarili",
-              "Balewalain ang problema",
-              "Idagdag pa ang problema"
+              "Tell your parent and show them the message",
+              "Keep it all to yourself",
+              "Ignore the problem",
+              "Make the problem bigger"
             ],
-            "correct_answer": "Sabihin sa magulang at ipakita ang mensahe"
+            "correct_answer": "Tell your parent and show them the message"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa Grade 2?",
+            "question": "Why do we learn this topic in Grade 2?",
             "options": [
-              "Upang malaman kung paano tumugon sa mapanganib na sitwasyon online",
-              "Hindi na kailangan ituro ito",
-              "Para hikayatin ang paggamit online nang mag-isa",
-              "Walang layunin ito"
+              "To know what to do in a dangerous situation online",
+              "We don't need to learn it",
+              "To get kids to go online alone",
+              "It has no goal"
             ],
-            "correct_answer": "Upang malaman kung paano tumugon sa mapanganib na sitwasyon online"
+            "correct_answer": "To know what to do in a dangerous situation online"
           },
           {
-            "question": "Ano ang pinakamahalagang aral tungkol sa paggamit ng Internet?",
+            "question": "What is the most important lesson about using the Internet?",
             "options": [
-              "Palaging humingi ng tulong sa matanda kapag may hindi maganda ang nangyari",
-              "Hindi kailangan ng tulong ng matanda",
-              "Palaging ligtas ang lahat online",
-              "Hindi mahalaga ang pag-uulat"
+              "Always ask a grown-up for help when something bad happens",
+              "You don't need a grown-up's help",
+              "Everything online is always safe",
+              "Reporting is not important"
             ],
-            "correct_answer": "Palaging humingi ng tulong sa matanda kapag may hindi maganda ang nangyari"
+            "correct_answer": "Always ask a grown-up for help when something bad happens"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🚨 Friday Review — Computer (Grade 2)\n\n- Pagkilala at pag-uulat ng hindi ligtas na sitwasyon\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🚨 Friday Review — Computer (Grade 2)\n\n- Spotting and reporting unsafe situations\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Halimbawa ng hindi ligtas na sitwasyon online?",
+            "question": "What is an example of an unsafe situation online?",
             "options": [
-              "May nagmumura o humihingi ng personal na impormasyon",
-              "May nagbibigay ng aral",
-              "May larawan ng hayop",
-              "May edukasyonal na laro"
+              "Someone says bad words or asks for your personal information",
+              "Someone teaches a lesson",
+              "A picture of an animal",
+              "A learning game"
             ],
-            "correct_answer": "May nagmumura o humihingi ng personal na impormasyon"
+            "correct_answer": "Someone says bad words or asks for your personal information"
           },
           {
-            "question": "Unang gawin kung may hindi ligtas na mensahe?",
+            "question": "What should you do first if you get an unsafe message?",
             "options": [
-              "Huwag sumagot",
-              "Sumagot nang bastos",
-              "Ibahagi ang impormasyon",
-              "Balewalain at ipagpatuloy"
+              "Do not reply",
+              "Reply rudely",
+              "Share your information",
+              "Ignore it and keep going"
             ],
-            "correct_answer": "Huwag sumagot"
+            "correct_answer": "Do not reply"
           },
           {
-            "question": "Sino sabihan agad kung may hindi ligtas na nangyari?",
+            "question": "Who should you tell right away if something unsafe happens?",
             "options": [
-              "Magulang o guro",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A parent or teacher",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Magulang o guro"
+            "correct_answer": "A parent or teacher"
           },
           {
-            "question": "Gawin kasama ang matanda para maitala ang problema?",
+            "question": "What can you do with a grown-up to keep a record of the problem?",
             "options": [
-              "Mag-screenshot",
-              "Burahin agad",
-              "Ipagpatuloy ang usapan",
-              "Sumagot nang matalim"
+              "Take a screenshot",
+              "Delete it right away",
+              "Keep talking",
+              "Reply in a mean way"
             ],
-            "correct_answer": "Mag-screenshot"
+            "correct_answer": "Take a screenshot"
           },
           {
-            "question": "Bakit mag-report ng hindi ligtas na sitwasyon?",
+            "question": "Why report an unsafe situation?",
             "options": [
-              "Panatilihing ligtas ang lahat online",
-              "Walang kabuluhan",
-              "Nakakahiya gawin",
-              "Hindi na kailangan"
+              "To keep everyone safe online",
+              "It is no use",
+              "It is embarrassing",
+              "It is not needed"
             ],
-            "correct_answer": "Panatilihing ligtas ang lahat online"
+            "correct_answer": "To keep everyone safe online"
           },
           {
-            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "question": "What should you do if someone asks for your personal information?",
             "options": [
-              "Huwag ibigay, sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it, tell a grown-up",
+              "Give it right away",
+              "Answer honestly",
+              "Keep talking"
             ],
-            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+            "correct_answer": "Don't give it, tell a grown-up"
           },
           {
-            "question": "Bakit hindi sumagot sa mensaheng nakakatakot?",
+            "question": "Why not reply to a scary message?",
             "options": [
-              "Maaaring lumala ang sitwasyon",
-              "Palaging ligtas sumagot",
-              "Walang panganib",
-              "Kinakailangan gawin"
+              "It could make things worse",
+              "It is always safe to reply",
+              "No danger",
+              "You have to do it"
             ],
-            "correct_answer": "Maaaring lumala ang sitwasyon"
+            "correct_answer": "It could make things worse"
           },
           {
-            "question": "Ano ang gamitin para maitala ang mensahe?",
+            "question": "What can you use to keep a record of the message?",
             "options": [
-              "Screenshot",
-              "Pagsira sa kompyuter",
-              "Pagtapon ng kompyuter",
-              "Wala"
+              "A screenshot",
+              "Breaking the computer",
+              "Throwing away the computer",
+              "Nothing"
             ],
-            "correct_answer": "Screenshot"
+            "correct_answer": "A screenshot"
           },
           {
-            "question": "Bakit mayroong matandang katulong kapag may problema online?",
+            "question": "Why have a grown-up help when there is a problem online?",
             "options": [
-              "Makakatulong lutasin nang ligtas",
-              "Hindi kailangan ng tulong",
-              "Bata na lamang dapat lumutas",
-              "Walang gamit"
+              "They can help fix it safely",
+              "You don't need help",
+              "The child should fix it alone",
+              "No help"
             ],
-            "correct_answer": "Makakatulong lutasin nang ligtas"
+            "correct_answer": "They can help fix it safely"
           },
           {
-            "question": "Mabuting halimbawa ng pag-uulat?",
+            "question": "What is a good example of reporting?",
             "options": [
-              "Sabihin sa magulang at ipakita ang mensahe",
-              "Itago sa sarili",
-              "Balewalain ang problema",
-              "Idagdag pa ang problema"
+              "Tell your parent and show them the message",
+              "Keep it to yourself",
+              "Ignore the problem",
+              "Make the problem bigger"
             ],
-            "correct_answer": "Sabihin sa magulang at ipakita ang mensahe"
+            "correct_answer": "Tell your parent and show them the message"
           },
           {
-            "question": "Bakit ituro ang paksang ito sa Grade 2?",
+            "question": "Why learn this topic in Grade 2?",
             "options": [
-              "Malaman paano tumugon sa mapanganib na sitwasyon",
-              "Hindi kailangan ituro",
-              "Hikayatin paggamit online mag-isa",
-              "Walang layunin"
+              "To know what to do in a dangerous situation",
+              "No need to learn it",
+              "To get kids to go online alone",
+              "No goal"
             ],
-            "correct_answer": "Malaman paano tumugon sa mapanganib na sitwasyon"
+            "correct_answer": "To know what to do in a dangerous situation"
           },
           {
-            "question": "Pinakamahalagang aral tungkol sa Internet?",
+            "question": "What is the most important lesson about the Internet?",
             "options": [
-              "Humingi ng tulong sa matanda kapag may hindi maganda",
-              "Hindi kailangan ng tulong",
-              "Ligtas ang lahat online",
-              "Hindi mahalaga ang pag-uulat"
+              "Ask a grown-up for help when something bad happens",
+              "You don't need help",
+              "Everything online is safe",
+              "Reporting is not important"
             ],
-            "correct_answer": "Humingi ng tulong sa matanda kapag may hindi maganda"
+            "correct_answer": "Ask a grown-up for help when something bad happens"
           }
         ]
       },

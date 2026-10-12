@@ -633,7 +633,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🎨 Computer — Drawing and Simple Formatting\n\nGrade 3, Week 16! Let's create labeled drawings. 🖌️\n\n## 🖌️ Basic Drawing Tools\n| Tool | What it does |\n|---|---|\n| **Pencil/Brush** | draws freehand lines |\n| **Shapes** | draws circles, rectangles, triangles |\n| **Fill Color** | colors inside a closed shape |\n| **Eraser** | removes mistakes |\n\n## 🖼️ Creating a Labeled Picture\n**Goal:** draw a picture with a **caption** (a short title or description).\n\n**Steps:**\n1. Use **shapes** and **pencil/brush** to sketch your picture\n2. Use **fill color** to add color\n3. Use the **eraser** for mistakes\n4. Add a **short typed caption** below or beside the drawing\n\n## 🧠 Worked Example 1\n*You want to draw your favorite animal with a caption.*\n- Draw the animal using shapes and pencil tools\n- Color it using **fill color**\n- Type a caption: *\"My Favorite Animal: A Cat\"*\n\n## 🧠 Worked Example 2\n*You made a mistake with the fill color.*\n- Use the **eraser** or the **undo** option to fix it, then try again.\n\n## 📝 Example Project: \"My Family\"\n1. Draw simple figures representing family members\n2. Color each one\n3. Add a caption: *\"My Family: Nanay, Tatay, and Me\"*\n\n## 💡 Tips\n- Keep your drawing **simple and clear**\n- Choose colors that make your picture **easy to understand**\n- Always **check your caption** for spelling\n\nGreat drawing skills! 🌟",
+        "summary_markdown": "# 🎨 Computer — Drawing and Simple Formatting\n\nGrade 3, Week 16! Let's create labeled drawings. 🖌️\n\n## 🖌️ Basic Drawing Tools\n| Tool | What it does |\n|---|---|\n| **Pencil/Brush** | draws freehand lines |\n| **Shapes** | draws circles, rectangles, triangles |\n| **Fill Color** | colors inside a closed shape |\n| **Eraser** | removes mistakes |\n\n## 🖼️ Creating a Labeled Picture\n**Goal:** draw a picture with a **caption** (a short title or description).\n\n**Steps:**\n1. Use **shapes** and **pencil/brush** to sketch your picture\n2. Use **fill color** to add color\n3. Use the **eraser** for mistakes\n4. Add a **short typed caption** below or beside the drawing\n\n## 🧠 Worked Example 1\n*You want to draw your favorite animal with a caption.*\n- Draw the animal using shapes and pencil tools\n- Color it using **fill color**\n- Type a caption: *\"My Favorite Animal: A Cat\"*\n\n## 🧠 Worked Example 2\n*You made a mistake with the fill color.*\n- Use the **eraser** or the **undo** option to fix it, then try again.\n\n## 📝 Example Project: \"My Family\"\n1. Draw simple figures representing family members\n2. Color each one\n3. Add a caption: *\"My Family: Mom, Dad, and Me\"*\n\n## 💡 Tips\n- Keep your drawing **simple and clear**\n- Choose colors that make your picture **easy to understand**\n- Always **check your caption** for spelling\n\nGreat drawing skills! 🌟",
         "quiz": [
           {
             "question": "Which tool draws freehand lines?",
@@ -678,12 +678,12 @@
           {
             "question": "What is the FIRST step in making a labeled picture?",
             "options": [
-              "Sketch gamit ang shapes at pencil",
-              "I-type muna ang caption",
-              "I-save agad ang file",
-              "I-print ang larawan"
+              "Sketch using shapes and pencil",
+              "Type the caption first",
+              "Save the file right away",
+              "Print the picture"
             ],
-            "correct_answer": "Sketch gamit ang shapes at pencil"
+            "correct_answer": "Sketch using shapes and pencil"
           },
           {
             "question": "You made a mistake with fill color. What should you do?",
@@ -738,12 +738,12 @@
           {
             "question": "For a 'My Family' project, what should the caption include?",
             "options": [
-              "Maikling paglalarawan ng pamilya",
-              "Wala itong laman kailanman",
-              "Random na mga numero lamang",
-              "Mahabang talata na hiwalay"
+              "A short description of the family",
+              "Nothing at all, ever",
+              "Only random numbers",
+              "A long separate paragraph"
             ],
-            "correct_answer": "Maikling paglalarawan ng pamilya"
+            "correct_answer": "A short description of the family"
           },
           {
             "question": "A student draws a picture but forgets to add a caption. What is missing from the project?",
@@ -1557,12 +1557,12 @@
           {
             "question": "What is the FIRST step in making a labeled picture?",
             "options": [
-              "Sketch gamit ang shapes at pencil",
-              "I-type muna ang caption",
-              "I-save agad ang file",
-              "I-print ang larawan"
+              "Sketch using shapes and pencil",
+              "Type the caption first",
+              "Save the file right away",
+              "Print the picture"
             ],
-            "correct_answer": "Sketch gamit ang shapes at pencil"
+            "correct_answer": "Sketch using shapes and pencil"
           },
           {
             "question": "You made a mistake with fill color. What should you do?",
@@ -1617,12 +1617,12 @@
           {
             "question": "For a 'My Family' project, what should the caption include?",
             "options": [
-              "Maikling paglalarawan ng pamilya",
-              "Wala itong laman kailanman",
-              "Random na mga numero lamang",
-              "Mahabang talata na hiwalay"
+              "A short description of the family",
+              "Nothing at all, ever",
+              "Only random numbers",
+              "A long separate paragraph"
             ],
-            "correct_answer": "Maikling paglalarawan ng pamilya"
+            "correct_answer": "A short description of the family"
           },
           {
             "question": "A student draws a picture but forgets to add a caption. What is missing from the project?",

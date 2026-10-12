@@ -383,7 +383,7 @@
     },
     "Wednesday": {
       "Computer": {
-        "summary_markdown": "# 🎭 Computer — Mga Bahagi ng Keyboard\n\nGrade 2, Linggo 11! Alamin natin ang mga bahagi ng keyboard. ⌨️\n\n## ⌨️ Mahahalagang Susi\n- Ang mga letrang A, B, C ay matatagpuan sa **letter row**.\n- Ang mga numerong 0-9 ay nasa **number row**.\n- Ang **spacebar** ang pinakamahabang key — ito ang gumagawa ng puwang sa pagitan ng mga salita.\n\n## 🔑 Mga Espesyal na Susi\n- Ang **Enter/Return** ay pumipindot upang magsimula ng bagong linya.\n- Ang **Shift** ay ginagamit upang gumawa ng malaking letra.\n- Ang **Backspace** ay nagbubura ng letrang maling natype.\n\n**Bago humawak ng keyboard**, laging maghugas ng kamay muna!\n\n**Mahahalagang salita:** letter row, number row, spacebar, Shift, Backspace",
+        "summary_markdown": "# 🎭 Computer — Parts of the Keyboard\n\nGrade 2, Week 11! Let's learn the parts of the keyboard. ⌨️\n\n## ⌨️ Important Keys\n- The letters A, B, C are found in the **letter row**.\n- The numbers 0-9 are in the **number row**.\n- The **spacebar** is the longest key — it makes a space between words.\n\n## 🔑 Special Keys\n- Press **Enter/Return** to start a new line.\n- **Shift** is used to make a capital letter.\n- **Backspace** erases a letter you typed by mistake.\n\n**Before you touch the keyboard**, always wash your hands first!\n\n**Important words:** letter row, number row, spacebar, Shift, Backspace",
         "quiz": [
           {
             "question": "Which key do you press to start a new line when typing?",
@@ -1012,7 +1012,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — Computer (Grade 2)\n\n- Mga bahagi ng keyboard: letter row, number row, spacebar\n- Enter, Shift, at Backspace\n\nMagaling! ⭐",
+        "summary_markdown": "# 🎭 Friday Review — Computer (Grade 2)\n\n- Parts of the keyboard: letter row, number row, spacebar\n- Enter, Shift, and Backspace\n\nGreat job! ⭐",
         "quiz": [
           {
             "question": "Which key do you press to start a new line when typing?",

@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💾 Computer — Pag-save at Pagbukas ng File\n\nGrade 2, Week 21! Matuto tayo kung paano i-save ang ating trabaho. 💾\n\n## 🔄 Balik-Aral\nNatutuhan natin ang word-processing at pag-type ng simpleng pangungusap.\n\n## 💾 Ano ang \"Pag-save\"?\nAng **pag-save** ay ang pagtatago ng iyong trabaho sa kompyuter para hindi mawala kahit patayin ang kompyuter.\n\n## 📂 Mga Hakbang sa Pag-save (kasama ang matanda)\n1. I-click ang **\"Save\"** o pindutin ang **Ctrl+S**\n2. Bigyan ng **pangalan** ang file\n3. Piliin kung saan itatago (folder)\n\n## 📂 Ano ang Pagbukas ng File?\nAng **pagbukas ng file** ay ang paghahanap at pag-click sa isang na-save mong trabaho para muli itong makita.\n\n**Mahalaga:** Palaging humingi ng tulong sa matanda kapag nagse-save o nagbubukas ng file.\n\n**Mahahalagang salita:** pag-save, file, folder, pagbukas",
+        "summary_markdown": "# 💾 Computer — Saving and Opening a File\n\nGrade 2, Week 21! Let's learn how to save our work. 💾\n\n## 🔄 Review\nWe learned about word processing and typing simple sentences.\n\n## 💾 What Is \"Saving\"?\n**Saving** means keeping your work on the computer so it is not lost, even when the computer is turned off.\n\n## 📂 Steps to Save (with a grown-up)\n1. Click **\"Save\"** or press **Ctrl+S**\n2. Give the file a **name**\n3. Choose where to keep it (folder)\n\n## 📂 What Is Opening a File?\n**Opening a file** means finding and clicking on work you saved so you can see it again.\n\n**Important:** Always ask a grown-up for help when saving or opening a file.\n\n**Key words:** saving, file, folder, opening",
         "quiz": [
           {
-            "question": "Ano ang pag-save?",
+            "question": "What is saving?",
             "options": [
-              "Pagtatago ng trabaho para hindi mawala",
-              "Pagtapon ng trabaho",
-              "Pagpapalit ng kompyuter",
-              "Pagpindot ng mouse"
+              "Keeping your work so it is not lost",
+              "Throwing away your work",
+              "Changing the computer",
+              "Clicking the mouse"
             ],
-            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+            "correct_answer": "Keeping your work so it is not lost"
           },
           {
-            "question": "Anong susi ang maaaring pindutin para mag-save?",
+            "question": "Which keys can you press to save?",
             "options": [
               "Ctrl+S",
-              "Enter lamang",
+              "Enter only",
               "Backspace",
-              "Shift lamang"
+              "Shift only"
             ],
             "correct_answer": "Ctrl+S"
           },
           {
-            "question": "Ano ang dapat bigyan sa file bago i-save?",
+            "question": "What should you give the file before you save it?",
             "options": [
-              "Pangalan",
-              "Kulay lamang",
-              "Larawan lamang",
-              "Wala"
+              "A name",
+              "Only a color",
+              "Only a picture",
+              "Nothing"
             ],
-            "correct_answer": "Pangalan"
+            "correct_answer": "A name"
           },
           {
-            "question": "Ano ang folder?",
+            "question": "What is a folder?",
             "options": [
-              "Lugar kung saan itinatago ang file",
-              "Isang uri ng laruan",
-              "Isang uri ng gunting",
-              "Isang uri ng libro"
+              "A place where files are kept",
+              "A kind of toy",
+              "A kind of scissors",
+              "A kind of book"
             ],
-            "correct_answer": "Lugar kung saan itinatago ang file"
+            "correct_answer": "A place where files are kept"
           },
           {
-            "question": "Ano ang pagbukas ng file?",
+            "question": "What is opening a file?",
             "options": [
-              "Paghahanap at pag-click sa na-save na trabaho",
-              "Pagtapon ng file",
-              "Pagbabago ng pangalan",
-              "Pagpatay ng kompyuter"
+              "Finding and clicking on work you saved",
+              "Throwing away the file",
+              "Changing the name",
+              "Turning off the computer"
             ],
-            "correct_answer": "Paghahanap at pag-click sa na-save na trabaho"
+            "correct_answer": "Finding and clicking on work you saved"
           },
           {
-            "question": "Bakit mahalagang i-save ang iyong trabaho?",
+            "question": "Why is it important to save your work?",
             "options": [
-              "Para hindi ito mawala kahit patayin ang kompyuter",
-              "Para gawing mas kulay ang trabaho",
-              "Hindi mahalaga ito",
-              "Para awtomatikong matapos ang trabaho"
+              "So it is not lost even when the computer is turned off",
+              "To make your work more colorful",
+              "It is not important",
+              "So your work finishes by itself"
             ],
-            "correct_answer": "Para hindi ito mawala kahit patayin ang kompyuter"
+            "correct_answer": "So it is not lost even when the computer is turned off"
           },
           {
-            "question": "Sino dapat kasama kapag nagse-save ng file?",
+            "question": "Who should be with you when you save a file?",
             "options": [
-              "Isang may sapat na gulang na matanda",
-              "Walang sinuman",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Isang may sapat na gulang na matanda"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Ano ang mangyayari kung hindi mo i-save ang iyong trabaho?",
+            "question": "What will happen if you do not save your work?",
             "options": [
-              "Maaaring mawala ito kapag pinatay ang kompyuter",
-              "Palaging naiipon ito kahit hindi ma-save",
-              "Awtomatikong nase-save ito",
-              "Walang mangyayari"
+              "It may be lost when the computer is turned off",
+              "It is always kept even if you don't save",
+              "It saves by itself",
+              "Nothing will happen"
             ],
-            "correct_answer": "Maaaring mawala ito kapag pinatay ang kompyuter"
+            "correct_answer": "It may be lost when the computer is turned off"
           },
           {
-            "question": "Bakit kailangang piliin ang folder kung saan itatago ang file?",
+            "question": "Why do you need to choose the folder where you keep the file?",
             "options": [
-              "Para malaman kung saan ito mahahanap muli",
-              "Hindi na kailangan piliin ito",
-              "Palaging nasa iisang lugar lamang",
-              "Walang gamit ang folder"
+              "So you know where to find it again",
+              "You don't need to choose it",
+              "It is always in just one place",
+              "A folder is not useful"
             ],
-            "correct_answer": "Para malaman kung saan ito mahahanap muli"
+            "correct_answer": "So you know where to find it again"
           },
           {
-            "question": "Anong ginagawa mo kapag gusto mong makita muli ang dating trabaho?",
+            "question": "What do you do when you want to see your old work again?",
             "options": [
-              "Buksan ang file",
-              "Isara ang kompyuter",
-              "Burahin ang lahat",
-              "Magsimula ng bagong trabaho lamang"
+              "Open the file",
+              "Turn off the computer",
+              "Erase everything",
+              "Just start new work"
             ],
-            "correct_answer": "Buksan ang file"
+            "correct_answer": "Open the file"
           },
           {
-            "question": "Alin sa mga sumusunod ang tamang hakbang sa pag-save?",
+            "question": "Which of these is a correct step for saving?",
             "options": [
-              "I-click ang Save at bigyan ng pangalan ang file",
-              "Direktang patayin ang kompyuter",
-              "Kalimutan ang file",
-              "Isara agad ang programa"
+              "Click Save and give the file a name",
+              "Just turn off the computer",
+              "Forget about the file",
+              "Close the program right away"
             ],
-            "correct_answer": "I-click ang Save at bigyan ng pangalan ang file"
+            "correct_answer": "Click Save and give the file a name"
           },
           {
-            "question": "Bakit itinuro ang pagsave at pagbukas ng file sa Grade 2?",
+            "question": "Why do we learn about saving and opening files in Grade 2?",
             "options": [
-              "Batayang kasanayan ito sa paggamit ng kompyuter",
-              "Hindi ito kailangan matutunan",
-              "Ito ay para lamang sa matatanda",
-              "Walang gamit ito sa paaralan"
+              "It is a basic skill for using a computer",
+              "We don't need to learn it",
+              "It is only for grown-ups",
+              "It is not useful in school"
             ],
-            "correct_answer": "Batayang kasanayan ito sa paggamit ng kompyuter"
+            "correct_answer": "It is a basic skill for using a computer"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💾 Friday Review — Computer (Grade 2)\n\n- Pag-save at pagbukas ng file\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 💾 Friday Review — Computer (Grade 2)\n\n- Saving and opening a file\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang pag-save?",
+            "question": "What is saving?",
             "options": [
-              "Pagtatago ng trabaho para hindi mawala",
-              "Pagtapon ng trabaho",
-              "Pagpapalit ng kompyuter",
-              "Pagpindot ng mouse"
+              "Keeping your work so it is not lost",
+              "Throwing away your work",
+              "Changing the computer",
+              "Clicking the mouse"
             ],
-            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+            "correct_answer": "Keeping your work so it is not lost"
           },
           {
-            "question": "Anong susi ang pindutin para mag-save?",
+            "question": "Which keys do you press to save?",
             "options": [
               "Ctrl+S",
-              "Enter lamang",
+              "Enter only",
               "Backspace",
-              "Shift lamang"
+              "Shift only"
             ],
             "correct_answer": "Ctrl+S"
           },
           {
-            "question": "Ano ang dapat bigyan sa file bago i-save?",
+            "question": "What should you give the file before you save it?",
             "options": [
-              "Pangalan",
-              "Kulay lamang",
-              "Larawan lamang",
-              "Wala"
+              "A name",
+              "Only a color",
+              "Only a picture",
+              "Nothing"
             ],
-            "correct_answer": "Pangalan"
+            "correct_answer": "A name"
           },
           {
-            "question": "Ano ang folder?",
+            "question": "What is a folder?",
             "options": [
-              "Lugar kung saan itinatago ang file",
-              "Uri ng laruan",
-              "Uri ng gunting",
-              "Uri ng libro"
+              "A place where files are kept",
+              "A kind of toy",
+              "A kind of scissors",
+              "A kind of book"
             ],
-            "correct_answer": "Lugar kung saan itinatago ang file"
+            "correct_answer": "A place where files are kept"
           },
           {
-            "question": "Ano ang pagbukas ng file?",
+            "question": "What is opening a file?",
             "options": [
-              "Paghahanap at pag-click sa na-save na trabaho",
-              "Pagtapon ng file",
-              "Pagbabago ng pangalan",
-              "Pagpatay ng kompyuter"
+              "Finding and clicking on work you saved",
+              "Throwing away the file",
+              "Changing the name",
+              "Turning off the computer"
             ],
-            "correct_answer": "Paghahanap at pag-click sa na-save na trabaho"
+            "correct_answer": "Finding and clicking on work you saved"
           },
           {
-            "question": "Bakit i-save ang iyong trabaho?",
+            "question": "Why save your work?",
             "options": [
-              "Para hindi mawala kahit patayin ang kompyuter",
-              "Para gawing kulay",
-              "Hindi mahalaga",
-              "Para awtomatikong matapos"
+              "So it is not lost even when the computer is turned off",
+              "To make it colorful",
+              "It is not important",
+              "So it finishes by itself"
             ],
-            "correct_answer": "Para hindi mawala kahit patayin ang kompyuter"
+            "correct_answer": "So it is not lost even when the computer is turned off"
           },
           {
-            "question": "Sino kasama kapag nagse-save?",
+            "question": "Who should be with you when you save?",
             "options": [
-              "Isang may sapat na gulang",
-              "Walang sinuman",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Isang may sapat na gulang"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Mangyayari kung hindi mo i-save?",
+            "question": "What happens if you don't save?",
             "options": [
-              "Maaaring mawala kapag pinatay ang kompyuter",
-              "Palaging naiipon",
-              "Awtomatikong nase-save",
-              "Wala"
+              "It may be lost when the computer is turned off",
+              "It is always kept",
+              "It saves by itself",
+              "Nothing"
             ],
-            "correct_answer": "Maaaring mawala kapag pinatay ang kompyuter"
+            "correct_answer": "It may be lost when the computer is turned off"
           },
           {
-            "question": "Bakit piliin ang folder kung saan itatago ang file?",
+            "question": "Why choose the folder where you keep the file?",
             "options": [
-              "Para malaman kung saan mahahanap muli",
-              "Hindi kailangan piliin",
-              "Palaging iisa ang lugar",
-              "Walang gamit"
+              "So you know where to find it again",
+              "You don't need to choose",
+              "It is always the same place",
+              "It is not useful"
             ],
-            "correct_answer": "Para malaman kung saan mahahanap muli"
+            "correct_answer": "So you know where to find it again"
           },
           {
-            "question": "Ano ang gagawin kapag gusto mong makita muli ang dating trabaho?",
+            "question": "What will you do when you want to see your old work again?",
             "options": [
-              "Buksan ang file",
-              "Isara ang kompyuter",
-              "Burahin ang lahat",
-              "Magsimula ng bago"
+              "Open the file",
+              "Turn off the computer",
+              "Erase everything",
+              "Start something new"
             ],
-            "correct_answer": "Buksan ang file"
+            "correct_answer": "Open the file"
           },
           {
-            "question": "Tamang hakbang sa pag-save?",
+            "question": "What is a correct step for saving?",
             "options": [
-              "I-click ang Save at bigyan ng pangalan",
-              "Direktang patayin ang kompyuter",
-              "Kalimutan ang file",
-              "Isara agad"
+              "Click Save and give it a name",
+              "Just turn off the computer",
+              "Forget about the file",
+              "Close it right away"
             ],
-            "correct_answer": "I-click ang Save at bigyan ng pangalan"
+            "correct_answer": "Click Save and give it a name"
           },
           {
-            "question": "Bakit itinuro ang pag-save at pagbukas ng file?",
+            "question": "Why do we learn about saving and opening files?",
             "options": [
-              "Batayang kasanayan sa kompyuter",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang gamit sa paaralan"
+              "It is a basic computer skill",
+              "We don't need to learn it",
+              "It is only for grown-ups",
+              "It is not useful in school"
             ],
-            "correct_answer": "Batayang kasanayan sa kompyuter"
+            "correct_answer": "It is a basic computer skill"
           }
         ]
       },

@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🖥️ Computer — Pagsusuri at Pagpapakita ng Proyekto\n\nGrade 3, Week 20! Suriin at ipakita natin ang ating natapos na proyekto sa kompyuter. 💾\n\n## 🔍 Pagsusuri ng Proyekto Bago Ipakita\nBago ipakita ang ating proyekto (drawing o typed paragraph), suriin muna ito gamit ang mga kasanayang natutuhan — **copy, paste, at undo** — upang ayusin ang mga huling detalye.\n\n## ✅ Checklist Bago Ipakita\n| Tanong | Layunin |\n|---|---|\n| Na-save ba ang file nang wasto? | Tinitiyak na hindi mawawala ang gawa |\n| Tama ba ang ispeling? | Tinitiyak ang kalidad ng proyekto |\n| Malinaw ba ang mga label sa guhit? | Tinitiyak ang pag-unawa ng manonood |\n\n## 🖨️ Paghahanda para sa Presentasyon\nMaaaring **i-print** ang proyekto bago ito ipakita, o direktang ipakita sa screen ng kompyuter.\n\n## 🧠 Halimbawa 1\n*Nakita mong may maling spelling sa iyong proyekto bago ito i-print. Ano ang dapat mong gawin?*\n- **Itama muna** ang spelling gamit ang backspace o delete bago i-print o ipakita.\n\n## 🧠 Halimbawa 2\n*Bakit mahalagang i-save ang file bago isara ang programa?*\n- Upang **hindi mawala** ang natapos na gawain.\n\n## 💡 Kongklusyon\nAng pagsusuri bago ipakita ang proyekto ay nagpapakita ng **pagsisikap at pag-iingat** sa gawain.\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🖥️ Computer — Checking and Showing Your Project\n\nGrade 3, Week 20! Let's check and show our finished computer project. 💾\n\n## 🔍 Checking Your Project Before Showing It\nBefore we show our project (a drawing or a typed paragraph), let's check it first using the skills we learned — **copy, paste, and undo** — to fix the last details.\n\n## ✅ Checklist Before Showing\n| Question | Why |\n|---|---|\n| Was the file saved the right way? | So your work is not lost |\n| Is the spelling right? | So your project is good |\n| Are the labels on the drawing clear? | So people looking at it understand it |\n\n## 🖨️ Getting Ready to Present\nYou can **print** the project before you show it, or show it right on the computer screen.\n\n## 🧠 Example 1\n*You see a spelling mistake in your project before printing it. What should you do?*\n- **Fix the spelling first** using backspace or delete before printing or showing it.\n\n## 🧠 Example 2\n*Why is it important to save the file before closing the program?*\n- So your finished work is **not lost**.\n\n## 💡 Conclusion\nChecking your project before showing it shows **hard work and care**.\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang dapat gawin bago ipakita ang proyekto sa kompyuter?",
+            "question": "What should you do before showing your project on the computer?",
             "options": [
-              "Suriin ito gamit ang copy, paste, at undo",
-              "Direktang ipakita agad nang walang suri",
-              "Burahin ang buong proyekto",
-              "Isara agad ang programa"
+              "Check it using copy, paste, and undo",
+              "Show it right away without checking",
+              "Delete the whole project",
+              "Close the program right away"
             ],
-            "correct_answer": "Suriin ito gamit ang copy, paste, at undo"
+            "correct_answer": "Check it using copy, paste, and undo"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa wastong pag-save ng file?",
+            "question": "What does checking that the file is saved correctly make sure of?",
             "options": [
-              "Na hindi mawawala ang ating gawa",
-              "Na mas mabilis matapos ang gawain",
-              "Na mas maganda ang kulay ng file",
-              "Wala itong tinitiyak"
+              "That our work will not be lost",
+              "That the work gets done faster",
+              "That the file has nicer colors",
+              "It does not make sure of anything"
             ],
-            "correct_answer": "Na hindi mawawala ang ating gawa"
+            "correct_answer": "That our work will not be lost"
           },
           {
-            "question": "Nakita mong may maling spelling bago i-print ang proyekto. Ano ang dapat mong gawin?",
+            "question": "You see a spelling mistake before printing your project. What should you do?",
             "options": [
-              "Itama muna ang spelling bago i-print",
-              "I-print agad kahit may mali",
-              "Burahin ang buong proyekto",
-              "Huwag na lamang ipakita ang proyekto"
+              "Fix the spelling first before printing",
+              "Print right away even with the mistake",
+              "Delete the whole project",
+              "Just don't show the project"
             ],
-            "correct_answer": "Itama muna ang spelling bago i-print"
+            "correct_answer": "Fix the spelling first before printing"
           },
           {
-            "question": "Bakit mahalagang i-save ang file bago isara ang programa?",
+            "question": "Why is it important to save the file before closing the program?",
             "options": [
-              "Upang hindi mawala ang natapos na gawain",
-              "Wala itong kabuluhan",
-              "Upang mapabilis lamang ang pagsara",
-              "Upang mabura ang buong file"
+              "So your finished work is not lost",
+              "It does not help",
+              "Only to close it faster",
+              "To erase the whole file"
             ],
-            "correct_answer": "Upang hindi mawala ang natapos na gawain"
+            "correct_answer": "So your finished work is not lost"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa malinaw na label ng guhit?",
+            "question": "What does checking that the drawing labels are clear make sure of?",
             "options": [
-              "Ang pag-unawa ng manonood sa proyekto",
-              "Ang bilang ng kulay na ginamit",
-              "Ang presyo ng proyekto",
-              "Ang laki ng file lamang"
+              "That people looking at it understand the project",
+              "How many colors were used",
+              "How much the project costs",
+              "Only how big the file is"
             ],
-            "correct_answer": "Ang pag-unawa ng manonood sa proyekto"
+            "correct_answer": "That people looking at it understand the project"
           },
           {
-            "question": "Ano ang dalawang paraan ng paghahanda para sa presentasyon?",
+            "question": "What are two ways to get ready for your presentation?",
             "options": [
-              "I-print ito o ipakita sa screen ng kompyuter",
-              "Isara lamang ang programa",
-              "Burahin ang proyekto",
-              "Wala, hindi na kailangan ihanda"
+              "Print it or show it on the computer screen",
+              "Just close the program",
+              "Delete the project",
+              "None, no need to get ready"
             ],
-            "correct_answer": "I-print ito o ipakita sa screen ng kompyuter"
+            "correct_answer": "Print it or show it on the computer screen"
           },
           {
-            "question": "Bakit mahalagang gamitin ang undo kapag nagkamali habang sinusuri ang proyekto?",
+            "question": "Why is it important to use undo when you make a mistake while checking your project?",
             "options": [
-              "Nakatutulong ito upang itama ang mga pagkakamali",
-              "Nagpapabagal lamang ito ng gawain",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapahirap lamang ito ng trabaho"
+              "It helps fix mistakes",
+              "It only slows down the work",
+              "It does not help the project",
+              "It only makes work harder"
             ],
-            "correct_answer": "Nakatutulong ito upang itama ang mga pagkakamali"
+            "correct_answer": "It helps fix mistakes"
           },
           {
-            "question": "Ano ang ipinapakita ng pagsusuri bago ipakita ang proyekto?",
+            "question": "What does checking your project before showing it show?",
             "options": [
-              "Pagsisikap at pag-iingat sa gawain",
-              "Kapabayaan sa gawain",
-              "Kawalang-interes sa proyekto",
-              "Kakulangan sa oras lamang"
+              "Hard work and care",
+              "Being careless with your work",
+              "Not caring about the project",
+              "Only not having enough time"
             ],
-            "correct_answer": "Pagsisikap at pag-iingat sa gawain"
+            "correct_answer": "Hard work and care"
           },
           {
-            "question": "Bakit mahalagang gamitin ang copy at paste kapag ginagawa ang mga huling ayos ng proyekto?",
+            "question": "Why is it important to use copy and paste when you make the last fixes to your project?",
             "options": [
-              "Upang maiwasan ang pag-uulit ng pagsulat",
-              "Nagpapahirap lamang ito ng gawain",
-              "Wala itong ginagawang tulong",
-              "Ginagamit lamang ito sa paglalaro"
+              "So you don't have to type the same thing again",
+              "It only makes the work harder",
+              "It does not help at all",
+              "It is only used for playing"
             ],
-            "correct_answer": "Upang maiwasan ang pag-uulit ng pagsulat"
+            "correct_answer": "So you don't have to type the same thing again"
           },
           {
-            "question": "Ano ang unang hakbang bago ipakita ang natapos na proyekto sa klase?",
+            "question": "What is the first step before showing your finished project to the class?",
             "options": [
-              "Suriin ang proyekto gamit ang checklist",
-              "Direktang magtanghal nang walang suri",
-              "Kalimutan ang buong proyekto",
-              "Isara ang kompyuter agad"
+              "Check the project using a checklist",
+              "Present right away without checking",
+              "Forget the whole project",
+              "Turn off the computer right away"
             ],
-            "correct_answer": "Suriin ang proyekto gamit ang checklist"
+            "correct_answer": "Check the project using a checklist"
           },
           {
-            "question": "Bakit mahalagang matutong mag-checklist bago magtapos ng isang proyekto?",
+            "question": "Why is it important to use a checklist before finishing a project?",
             "options": [
-              "Tinitiyak nito na kumpleto ang lahat ng bahagi",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapabagal lamang ito ng gawain",
-              "Ginagamit lamang ito para sa marka"
+              "It makes sure all the parts are done",
+              "It does not help the project",
+              "It only slows down the work",
+              "It is only used for grades"
             ],
-            "correct_answer": "Tinitiyak nito na kumpleto ang lahat ng bahagi"
+            "correct_answer": "It makes sure all the parts are done"
           },
           {
-            "question": "Isang mag-aaral ang natapos na ng kanyang proyekto ngunit hindi pa na-save. Ano ang dapat niyang gawin muna?",
+            "question": "A student finished a project but has not saved it yet. What should the student do first?",
             "options": [
-              "I-save ang file bago isara ang programa",
-              "Isara agad ang programa nang walang pag-save",
-              "Burahin ang buong proyekto",
-              "Huwag na lamang ipasa ang proyekto"
+              "Save the file before closing the program",
+              "Close the program right away without saving",
+              "Delete the whole project",
+              "Just not turn in the project"
             ],
-            "correct_answer": "I-save ang file bago isara ang programa"
+            "correct_answer": "Save the file before closing the program"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🖥️ Friday Review — Computer (Grade 3)\n\n- Pagsusuri (checklist) bago ipakita ang proyekto\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🖥️ Friday Review — Computer (Grade 3)\n\n- Check your project (checklist) before you show it\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang dapat gawin bago ipakita ang proyekto sa kompyuter?",
+            "question": "What should you do before showing your project on the computer?",
             "options": [
-              "Suriin ito gamit ang copy, paste, at undo",
-              "Direktang ipakita agad nang walang suri",
-              "Burahin ang buong proyekto",
-              "Isara agad ang programa"
+              "Check it using copy, paste, and undo",
+              "Show it right away without checking",
+              "Delete the whole project",
+              "Close the program right away"
             ],
-            "correct_answer": "Suriin ito gamit ang copy, paste, at undo"
+            "correct_answer": "Check it using copy, paste, and undo"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa wastong pag-save ng file?",
+            "question": "What does checking that the file is saved correctly make sure of?",
             "options": [
-              "Na hindi mawawala ang ating gawa",
-              "Na mas mabilis matapos ang gawain",
-              "Na mas maganda ang kulay ng file",
-              "Wala itong tinitiyak"
+              "That our work will not be lost",
+              "That the work gets done faster",
+              "That the file has nicer colors",
+              "It does not make sure of anything"
             ],
-            "correct_answer": "Na hindi mawawala ang ating gawa"
+            "correct_answer": "That our work will not be lost"
           },
           {
-            "question": "Nakita mong may maling spelling bago i-print ang proyekto. Ano ang dapat mong gawin?",
+            "question": "You see a spelling mistake before printing your project. What should you do?",
             "options": [
-              "Itama muna ang spelling bago i-print",
-              "I-print agad kahit may mali",
-              "Burahin ang buong proyekto",
-              "Huwag na lamang ipakita ang proyekto"
+              "Fix the spelling first before printing",
+              "Print right away even with the mistake",
+              "Delete the whole project",
+              "Just don't show the project"
             ],
-            "correct_answer": "Itama muna ang spelling bago i-print"
+            "correct_answer": "Fix the spelling first before printing"
           },
           {
-            "question": "Bakit mahalagang i-save ang file bago isara ang programa?",
+            "question": "Why is it important to save the file before closing the program?",
             "options": [
-              "Upang hindi mawala ang natapos na gawain",
-              "Wala itong kabuluhan",
-              "Upang mapabilis lamang ang pagsara",
-              "Upang mabura ang buong file"
+              "So your finished work is not lost",
+              "It does not help",
+              "Only to close it faster",
+              "To erase the whole file"
             ],
-            "correct_answer": "Upang hindi mawala ang natapos na gawain"
+            "correct_answer": "So your finished work is not lost"
           },
           {
-            "question": "Ano ang tinitiyak ng pagsuri sa malinaw na label ng guhit?",
+            "question": "What does checking that the drawing labels are clear make sure of?",
             "options": [
-              "Ang pag-unawa ng manonood sa proyekto",
-              "Ang bilang ng kulay na ginamit",
-              "Ang presyo ng proyekto",
-              "Ang laki ng file lamang"
+              "That people looking at it understand the project",
+              "How many colors were used",
+              "How much the project costs",
+              "Only how big the file is"
             ],
-            "correct_answer": "Ang pag-unawa ng manonood sa proyekto"
+            "correct_answer": "That people looking at it understand the project"
           },
           {
-            "question": "Ano ang dalawang paraan ng paghahanda para sa presentasyon?",
+            "question": "What are two ways to get ready for your presentation?",
             "options": [
-              "I-print ito o ipakita sa screen ng kompyuter",
-              "Isara lamang ang programa",
-              "Burahin ang proyekto",
-              "Wala, hindi na kailangan ihanda"
+              "Print it or show it on the computer screen",
+              "Just close the program",
+              "Delete the project",
+              "None, no need to get ready"
             ],
-            "correct_answer": "I-print ito o ipakita sa screen ng kompyuter"
+            "correct_answer": "Print it or show it on the computer screen"
           },
           {
-            "question": "Bakit mahalagang gamitin ang undo kapag nagkamali habang sinusuri ang proyekto?",
+            "question": "Why is it important to use undo when you make a mistake while checking your project?",
             "options": [
-              "Nakatutulong ito upang itama ang mga pagkakamali",
-              "Nagpapabagal lamang ito ng gawain",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapahirap lamang ito ng trabaho"
+              "It helps fix mistakes",
+              "It only slows down the work",
+              "It does not help the project",
+              "It only makes work harder"
             ],
-            "correct_answer": "Nakatutulong ito upang itama ang mga pagkakamali"
+            "correct_answer": "It helps fix mistakes"
           },
           {
-            "question": "Ano ang ipinapakita ng pagsusuri bago ipakita ang proyekto?",
+            "question": "What does checking your project before showing it show?",
             "options": [
-              "Pagsisikap at pag-iingat sa gawain",
-              "Kapabayaan sa gawain",
-              "Kawalang-interes sa proyekto",
-              "Kakulangan sa oras lamang"
+              "Hard work and care",
+              "Being careless with your work",
+              "Not caring about the project",
+              "Only not having enough time"
             ],
-            "correct_answer": "Pagsisikap at pag-iingat sa gawain"
+            "correct_answer": "Hard work and care"
           },
           {
-            "question": "Bakit mahalagang gamitin ang copy at paste kapag ginagawa ang mga huling ayos ng proyekto?",
+            "question": "Why is it important to use copy and paste when you make the last fixes to your project?",
             "options": [
-              "Upang maiwasan ang pag-uulit ng pagsulat",
-              "Nagpapahirap lamang ito ng gawain",
-              "Wala itong ginagawang tulong",
-              "Ginagamit lamang ito sa paglalaro"
+              "So you don't have to type the same thing again",
+              "It only makes the work harder",
+              "It does not help at all",
+              "It is only used for playing"
             ],
-            "correct_answer": "Upang maiwasan ang pag-uulit ng pagsulat"
+            "correct_answer": "So you don't have to type the same thing again"
           },
           {
-            "question": "Ano ang unang hakbang bago ipakita ang natapos na proyekto sa klase?",
+            "question": "What is the first step before showing your finished project to the class?",
             "options": [
-              "Suriin ang proyekto gamit ang checklist",
-              "Direktang magtanghal nang walang suri",
-              "Kalimutan ang buong proyekto",
-              "Isara ang kompyuter agad"
+              "Check the project using a checklist",
+              "Present right away without checking",
+              "Forget the whole project",
+              "Turn off the computer right away"
             ],
-            "correct_answer": "Suriin ang proyekto gamit ang checklist"
+            "correct_answer": "Check the project using a checklist"
           },
           {
-            "question": "Bakit mahalagang matutong mag-checklist bago magtapos ng isang proyekto?",
+            "question": "Why is it important to use a checklist before finishing a project?",
             "options": [
-              "Tinitiyak nito na kumpleto ang lahat ng bahagi",
-              "Wala itong kabuluhan sa proyekto",
-              "Nagpapabagal lamang ito ng gawain",
-              "Ginagamit lamang ito para sa marka"
+              "It makes sure all the parts are done",
+              "It does not help the project",
+              "It only slows down the work",
+              "It is only used for grades"
             ],
-            "correct_answer": "Tinitiyak nito na kumpleto ang lahat ng bahagi"
+            "correct_answer": "It makes sure all the parts are done"
           },
           {
-            "question": "Isang mag-aaral ang natapos na ng kanyang proyekto ngunit hindi pa na-save. Ano ang dapat niyang gawin muna?",
+            "question": "A student finished a project but has not saved it yet. What should the student do first?",
             "options": [
-              "I-save ang file bago isara ang programa",
-              "Isara agad ang programa nang walang pag-save",
-              "Burahin ang buong proyekto",
-              "Huwag na lamang ipasa ang proyekto"
+              "Save the file before closing the program",
+              "Close the program right away without saving",
+              "Delete the whole project",
+              "Just not turn in the project"
             ],
-            "correct_answer": "I-save ang file bago isara ang programa"
+            "correct_answer": "Save the file before closing the program"
           }
         ]
       },

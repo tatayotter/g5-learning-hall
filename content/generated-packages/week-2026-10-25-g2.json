@@ -633,20 +633,20 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ⌨️ Computer — Word Processing at Pagta-type ng Simpleng Pangungusap\n\nGrade 2, Week 20! Let's learn about typing programs and write about ourselves. ✍️\n\n## ⌨️ Ano ang Word-Processing o Typing Program?\nAng isang **word-processing/typing program** ay ginagamit upang **magsulat gamit ang kompyuter**, katulad ng pagsusulat sa papel ngunit gamit ang keyboard.\n\n## ✍️ Pagta-type ng Simpleng Pangungusap Tungkol sa Sarili\nMaaari nating i-type ang mga simpleng pangungusap tungkol sa ating sarili, tulad ng:\n- *\"I am in Grade 2.\"*\n- *\"My name is Ana.\"*\n- *\"I like to read books.\"*\n\n## 🎯 Bakit Mahalaga ang Pag-iingat sa Pagta-type?\nSa pagta-type, mahalaga ang **katumpakan** (accuracy), hindi lamang bilis — dapat tama ang mga letra at salita.\n\n## 🧠 Halimbawa 1\n*Gusto mong i-type ang \"I am in Grade 2.\" Ano ang dapat mong gawin muna?*\n- **Buksan** ang word-processing/typing program bago magsimula.\n\n## 🧠 Halimbawa 2\n*Bakit mahalaga ang katumpakan kaysa bilis kapag nagta-type?*\n- Upang **maiwasan ang maling spelling** at maging malinaw ang mensahe.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsasanay sa word-processing ay tumutulong upang maging **komportable** tayo sa paggamit ng kompyuter para sa pagsusulat.\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# ⌨️ Computer — Word Processing and Typing Simple Sentences\n\nGrade 2, Week 20! Let's learn about typing programs and write about ourselves. ✍️\n\n## ⌨️ What Is a Word-Processing or Typing Program?\nA **word-processing/typing program** is used to **write using the computer**. It is like writing on paper, but you use the keyboard.\n\n## ✍️ Typing Simple Sentences About Yourself\nWe can type simple sentences about ourselves, like:\n- *\"I am in Grade 2.\"*\n- *\"My name is Ana.\"*\n- *\"I like to read books.\"*\n\n## 🎯 Why Is It Important to Type Carefully?\nWhen typing, **accuracy** (typing correctly) matters, not just speed. The letters and words must be right.\n\n## 🧠 Example 1\n*You want to type \"I am in Grade 2.\" What should you do first?*\n- **Open** the word-processing/typing program before you start.\n\n## 🧠 Example 2\n*Why is accuracy more important than speed when typing?*\n- So you **avoid wrong spelling** and your message is clear.\n\n## 💡 Why Is This Important?\nPracticing word processing helps us feel **comfortable** using the computer for writing.\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang word-processing o typing program?",
+            "question": "What is a word-processing or typing program?",
             "options": [
-              "Programang ginagamit upang magsulat gamit ang kompyuter",
-              "Isang uri ng laro na walang salita",
-              "Isang uri ng musikang pinapakinggan",
-              "Isang uri ng larawang ginuhit lamang"
+              "A program used to write using the computer",
+              "A kind of game with no words",
+              "A kind of music you listen to",
+              "A kind of picture that is only drawn"
             ],
-            "correct_answer": "Programang ginagamit upang magsulat gamit ang kompyuter"
+            "correct_answer": "A program used to write using the computer"
           },
           {
-            "question": "Alin ang halimbawa ng simpleng pangungusap tungkol sa sarili?",
+            "question": "Which is an example of a simple sentence about yourself?",
             "options": [
               "I am in Grade 2.",
               "The sky is blue.",
@@ -656,27 +656,27 @@
             "correct_answer": "I am in Grade 2."
           },
           {
-            "question": "Gusto mong i-type ang \"I am in Grade 2.\" Ano ang dapat mong gawin muna?",
+            "question": "You want to type \"I am in Grade 2.\" What should you do first?",
             "options": [
-              "Buksan ang word-processing/typing program",
-              "Isara agad ang kompyuter",
-              "Tanggalin ang keyboard",
-              "Huwag nang gamitin ang kompyuter"
+              "Open the word-processing/typing program",
+              "Turn off the computer right away",
+              "Take away the keyboard",
+              "Stop using the computer"
             ],
-            "correct_answer": "Buksan ang word-processing/typing program"
+            "correct_answer": "Open the word-processing/typing program"
           },
           {
-            "question": "Bakit mahalaga ang katumpakan kaysa bilis kapag nagta-type?",
+            "question": "Why is accuracy more important than speed when typing?",
             "options": [
-              "Upang maiwasan ang maling spelling at maging malinaw",
-              "Bilis lamang ang mahalaga, hindi katumpakan",
-              "Wala itong kaugnayan sa pagsulat",
-              "Hindi na kailangan ang katumpakan"
+              "So you avoid wrong spelling and your writing is clear",
+              "Only speed matters, not accuracy",
+              "It has nothing to do with writing",
+              "Accuracy is not needed anymore"
             ],
-            "correct_answer": "Upang maiwasan ang maling spelling at maging malinaw"
+            "correct_answer": "So you avoid wrong spelling and your writing is clear"
           },
           {
-            "question": "Ano ang halimbawa ng pangungusap tungkol sa sariling pangalan?",
+            "question": "Which is an example of a sentence about your own name?",
             "options": [
               "My name is Ana.",
               "The dog is brown.",
@@ -686,27 +686,27 @@
             "correct_answer": "My name is Ana."
           },
           {
-            "question": "Bakit mahalagang matutong mag-type ng simpleng pangungusap tungkol sa sarili?",
+            "question": "Why is it important to learn to type simple sentences about yourself?",
             "options": [
-              "Nakatutulong ito upang maging komportable sa paggamit ng kompyuter",
-              "Wala itong anumang kabuluhan sa pag-aaral ng bata",
-              "Ginagawa lamang ito upang makakuha ng magandang marka",
-              "Nakakalito lamang ito sa isang bagong mag-aaral"
+              "It helps you feel comfortable using the computer",
+              "It does not help a child learn at all",
+              "It is only done to get a good grade",
+              "It only confuses a new learner"
             ],
-            "correct_answer": "Nakatutulong ito upang maging komportable sa paggamit ng kompyuter"
+            "correct_answer": "It helps you feel comfortable using the computer"
           },
           {
-            "question": "Ano ang mahalagang isaalang-alang habang nagta-type, hindi lamang ang bilis?",
+            "question": "What is important to think about while typing, not just speed?",
             "options": [
-              "Katumpakan (accuracy)",
-              "Kulay ng screen lamang",
-              "Laki ng monitor lamang",
-              "Tunog ng keyboard lamang"
+              "Accuracy",
+              "Only the color of the screen",
+              "Only the size of the monitor",
+              "Only the sound of the keyboard"
             ],
-            "correct_answer": "Katumpakan (accuracy)"
+            "correct_answer": "Accuracy"
           },
           {
-            "question": "Alin ang halimbawa ng pangungusap tungkol sa gusto mong gawin?",
+            "question": "Which is an example of a sentence about something you like to do?",
             "options": [
               "I like to read books.",
               "The car is red.",
@@ -716,44 +716,44 @@
             "correct_answer": "I like to read books."
           },
           {
-            "question": "Ano ang layunin ng pagta-type ng mga simpleng pangungusap tungkol sa sarili?",
+            "question": "What is the goal of typing simple sentences about yourself?",
             "options": [
-              "Upang magsanay sa pagsusulat gamit ang kompyuter",
-              "Upang mabilis lamang matapos ang klase",
-              "Walang layunin ito talaga",
-              "Upang mabura lamang ang mga letra"
+              "To practice writing using the computer",
+              "Only to finish class fast",
+              "It has no goal at all",
+              "Only to erase the letters"
             ],
-            "correct_answer": "Upang magsanay sa pagsusulat gamit ang kompyuter"
+            "correct_answer": "To practice writing using the computer"
           },
           {
-            "question": "Ano ang katulad ng word-processing program sa totoong buhay?",
+            "question": "What is a word-processing program like in real life?",
             "options": [
-              "Pagsusulat sa papel, ngunit gamit ang keyboard",
-              "Isang uri ng laruan lamang",
-              "Isang uri ng kagamitan sa kusina",
-              "Isang uri ng damit"
+              "Writing on paper, but using a keyboard",
+              "Just a kind of toy",
+              "A kind of kitchen tool",
+              "A kind of clothing"
             ],
-            "correct_answer": "Pagsusulat sa papel, ngunit gamit ang keyboard"
+            "correct_answer": "Writing on paper, but using a keyboard"
           },
           {
-            "question": "Bakit dapat mag-ingat sa pagta-type ng ating pangalan at impormasyon?",
+            "question": "Why should we be careful when typing our name and information?",
             "options": [
-              "Upang tama at malinaw ang isinusulat na impormasyon",
-              "Dahil hindi mahalaga ang pagiging tama",
-              "Upang mas mabilis matapos ang gawain",
-              "Walang dahilan ito talaga"
+              "So the information we write is right and clear",
+              "Because being right is not important",
+              "So we finish the task faster",
+              "There is no reason at all"
             ],
-            "correct_answer": "Upang tama at malinaw ang isinusulat na impormasyon"
+            "correct_answer": "So the information we write is right and clear"
           },
           {
-            "question": "Ano ang isang halimbawang gagawin sa pagsasanay ng typing program ngayong linggo?",
+            "question": "What is one thing we will do to practice with the typing program this week?",
             "options": [
-              "Pagta-type ng simpleng pangungusap tungkol sa sarili",
-              "Paglalaro lamang ng video game sa kompyuter",
-              "Pagguhit lamang ng larawan gamit ang lapis",
-              "Panonood lamang ng video sa telebisyon"
+              "Type simple sentences about yourself",
+              "Just play video games on the computer",
+              "Just draw a picture with a pencil",
+              "Just watch videos on TV"
             ],
-            "correct_answer": "Pagta-type ng simpleng pangungusap tungkol sa sarili"
+            "correct_answer": "Type simple sentences about yourself"
           }
         ]
       }
@@ -1512,20 +1512,20 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ⌨️ Friday Review — Computer (Grade 2)\n\n- Word-processing/typing: pagta-type ng simpleng pangungusap tungkol sa sarili\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# ⌨️ Friday Review — Computer (Grade 2)\n\n- Word-processing/typing: typing simple sentences about yourself\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang word-processing o typing program?",
+            "question": "What is a word-processing or typing program?",
             "options": [
-              "Programang ginagamit upang magsulat gamit ang kompyuter",
-              "Isang uri ng laro na walang salita",
-              "Isang uri ng musikang pinapakinggan",
-              "Isang uri ng larawang ginuhit lamang"
+              "A program used to write using the computer",
+              "A kind of game with no words",
+              "A kind of music you listen to",
+              "A kind of picture that is only drawn"
             ],
-            "correct_answer": "Programang ginagamit upang magsulat gamit ang kompyuter"
+            "correct_answer": "A program used to write using the computer"
           },
           {
-            "question": "Alin ang halimbawa ng simpleng pangungusap tungkol sa sarili?",
+            "question": "Which is an example of a simple sentence about yourself?",
             "options": [
               "I am in Grade 2.",
               "The sky is blue.",
@@ -1535,27 +1535,27 @@
             "correct_answer": "I am in Grade 2."
           },
           {
-            "question": "Gusto mong i-type ang \"I am in Grade 2.\" Ano ang dapat mong gawin muna?",
+            "question": "You want to type \"I am in Grade 2.\" What should you do first?",
             "options": [
-              "Buksan ang word-processing/typing program",
-              "Isara agad ang kompyuter",
-              "Tanggalin ang keyboard",
-              "Huwag nang gamitin ang kompyuter"
+              "Open the word-processing/typing program",
+              "Turn off the computer right away",
+              "Take away the keyboard",
+              "Stop using the computer"
             ],
-            "correct_answer": "Buksan ang word-processing/typing program"
+            "correct_answer": "Open the word-processing/typing program"
           },
           {
-            "question": "Bakit mahalaga ang katumpakan kaysa bilis kapag nagta-type?",
+            "question": "Why is accuracy more important than speed when typing?",
             "options": [
-              "Upang maiwasan ang maling spelling at maging malinaw",
-              "Bilis lamang ang mahalaga, hindi katumpakan",
-              "Wala itong kaugnayan sa pagsulat",
-              "Hindi na kailangan ang katumpakan"
+              "So you avoid wrong spelling and your writing is clear",
+              "Only speed matters, not accuracy",
+              "It has nothing to do with writing",
+              "Accuracy is not needed anymore"
             ],
-            "correct_answer": "Upang maiwasan ang maling spelling at maging malinaw"
+            "correct_answer": "So you avoid wrong spelling and your writing is clear"
           },
           {
-            "question": "Ano ang halimbawa ng pangungusap tungkol sa sariling pangalan?",
+            "question": "Which is an example of a sentence about your own name?",
             "options": [
               "My name is Ana.",
               "The dog is brown.",
@@ -1565,27 +1565,27 @@
             "correct_answer": "My name is Ana."
           },
           {
-            "question": "Bakit mahalagang matutong mag-type ng simpleng pangungusap tungkol sa sarili?",
+            "question": "Why is it important to learn to type simple sentences about yourself?",
             "options": [
-              "Nakatutulong ito upang maging komportable sa paggamit ng kompyuter",
-              "Wala itong anumang kabuluhan sa pag-aaral ng bata",
-              "Ginagawa lamang ito upang makakuha ng magandang marka",
-              "Nakakalito lamang ito sa isang bagong mag-aaral"
+              "It helps you feel comfortable using the computer",
+              "It does not help a child learn at all",
+              "It is only done to get a good grade",
+              "It only confuses a new learner"
             ],
-            "correct_answer": "Nakatutulong ito upang maging komportable sa paggamit ng kompyuter"
+            "correct_answer": "It helps you feel comfortable using the computer"
           },
           {
-            "question": "Ano ang mahalagang isaalang-alang habang nagta-type, hindi lamang ang bilis?",
+            "question": "What is important to think about while typing, not just speed?",
             "options": [
-              "Katumpakan (accuracy)",
-              "Kulay ng screen lamang",
-              "Laki ng monitor lamang",
-              "Tunog ng keyboard lamang"
+              "Accuracy",
+              "Only the color of the screen",
+              "Only the size of the monitor",
+              "Only the sound of the keyboard"
             ],
-            "correct_answer": "Katumpakan (accuracy)"
+            "correct_answer": "Accuracy"
           },
           {
-            "question": "Alin ang halimbawa ng pangungusap tungkol sa gusto mong gawin?",
+            "question": "Which is an example of a sentence about something you like to do?",
             "options": [
               "I like to read books.",
               "The car is red.",
@@ -1595,44 +1595,44 @@
             "correct_answer": "I like to read books."
           },
           {
-            "question": "Ano ang layunin ng pagta-type ng mga simpleng pangungusap tungkol sa sarili?",
+            "question": "What is the goal of typing simple sentences about yourself?",
             "options": [
-              "Upang magsanay sa pagsusulat gamit ang kompyuter",
-              "Upang mabilis lamang matapos ang klase",
-              "Walang layunin ito talaga",
-              "Upang mabura lamang ang mga letra"
+              "To practice writing using the computer",
+              "Only to finish class fast",
+              "It has no goal at all",
+              "Only to erase the letters"
             ],
-            "correct_answer": "Upang magsanay sa pagsusulat gamit ang kompyuter"
+            "correct_answer": "To practice writing using the computer"
           },
           {
-            "question": "Ano ang katulad ng word-processing program sa totoong buhay?",
+            "question": "What is a word-processing program like in real life?",
             "options": [
-              "Pagsusulat sa papel, ngunit gamit ang keyboard",
-              "Isang uri ng laruan lamang",
-              "Isang uri ng kagamitan sa kusina",
-              "Isang uri ng damit"
+              "Writing on paper, but using a keyboard",
+              "Just a kind of toy",
+              "A kind of kitchen tool",
+              "A kind of clothing"
             ],
-            "correct_answer": "Pagsusulat sa papel, ngunit gamit ang keyboard"
+            "correct_answer": "Writing on paper, but using a keyboard"
           },
           {
-            "question": "Bakit dapat mag-ingat sa pagta-type ng ating pangalan at impormasyon?",
+            "question": "Why should we be careful when typing our name and information?",
             "options": [
-              "Upang tama at malinaw ang isinusulat na impormasyon",
-              "Dahil hindi mahalaga ang pagiging tama",
-              "Upang mas mabilis matapos ang gawain",
-              "Walang dahilan ito talaga"
+              "So the information we write is right and clear",
+              "Because being right is not important",
+              "So we finish the task faster",
+              "There is no reason at all"
             ],
-            "correct_answer": "Upang tama at malinaw ang isinusulat na impormasyon"
+            "correct_answer": "So the information we write is right and clear"
           },
           {
-            "question": "Ano ang isang halimbawang gagawin sa pagsasanay ng typing program ngayong linggo?",
+            "question": "What is one thing we will do to practice with the typing program this week?",
             "options": [
-              "Pagta-type ng simpleng pangungusap tungkol sa sarili",
-              "Paglalaro lamang ng video game sa kompyuter",
-              "Pagguhit lamang ng larawan gamit ang lapis",
-              "Panonood lamang ng video sa telebisyon"
+              "Type simple sentences about yourself",
+              "Just play video games on the computer",
+              "Just draw a picture with a pencil",
+              "Just watch videos on TV"
             ],
-            "correct_answer": "Pagta-type ng simpleng pangungusap tungkol sa sarili"
+            "correct_answer": "Type simple sentences about yourself"
           }
         ]
       },
