@@ -3,7 +3,9 @@ import { checkSignupNames } from '@/lib/nameFilter';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
-import { setActiveUser, recordLastLogin, registerChildUser } from '@/lib/userSession';
+import { setActiveUser, recordLastLogin, registerChildUser, USERS } from '@/lib/userSession';
+import { saveOfflineProfile } from '@/lib/offlineSnapshot';
+import { rememberHeroOnDevice } from '@/lib/deviceHeroes';
 import { getOrCreateSessionId, getStoredAttribution } from '@/lib/analytics';
 import { trackPixelEvent } from '@/lib/fbPixel';
 import ChildAccountForm, { ChildFormData, emptyChildForm } from '@/components/ChildAccountForm';
@@ -65,8 +67,17 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
     prefetchOriginStoryStart();
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // The server found an active account with this full name at this school
+  // (app/api/child-signup). Most repeat accounts were kids who had lost their
+  // way back into the first one, so they're offered the login first.
+  const [possibleDuplicate, setPossibleDuplicate] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    void submit(false);
+  };
+
+  const submit = async (confirmNewAccount: boolean) => {
     setError('');
 
     if (!data.fullName.trim() || !data.schoolName.trim() || !data.username.trim() || data.pin.length !== 4) {
@@ -105,9 +116,15 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
           referralCode: referralCode.trim() || null,
           attribution: getStoredAttribution(),
           turnstileToken,
+          confirmNewAccount,
         }),
       });
       const result = await res.json();
+      if (result.possibleDuplicate) {
+        // Checked before Turnstile, so the token is still good for "make my new account".
+        setPossibleDuplicate(true);
+        return;
+      }
       if (!res.ok || !result.success) {
         throw new Error(result.error || 'Could not create your account.');
       }
@@ -122,7 +139,10 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         avatar: data.avatar,
       });
       setActiveUser(result.id);
-      await recordLastLogin(result.id);
+      // Gives them a card under "Played on this device" on the login screen,
+      // and lets a reload keep them signed in (Dashboard's hydrate).
+      saveOfflineProfile(USERS[result.id]);
+      await Promise.all([recordLastLogin(result.id), rememberHeroOnDevice(result.id, data.pin)]);
       router.push('/');
     } catch (err: any) {
       setError(err.message || 'Something went wrong. Please try again.');
@@ -137,7 +157,12 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
     // The origin story is the next screen after signup: start downloading its
     // opening once the kid starts typing (lib/intro/storyPrefetch.ts).
     <form onSubmit={handleSubmit} onFocusCapture={prefetchStoryOnce} className="space-y-5">
-      <ChildAccountForm label="Your hero details" data={data} onChange={setData} theme="light" />
+      <ChildAccountForm
+        label="Your hero details"
+        data={data}
+        onChange={(next) => { setData(next); setPossibleDuplicate(false); }}
+        theme="light"
+      />
 
       {/* Referral code */}
       <div className="space-y-2">
@@ -198,15 +223,43 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
         </div>
       )}
 
-      <GameButton
-        type="submit"
-        variant="quest"
-        disabled={submitting}
-        className="w-full"
-        style={{ fontSize: 17 }}
-      >
-        {submitting ? 'Creating your hero…' : 'Start Your Adventure!'}
-      </GameButton>
+      {possibleDuplicate ? (
+        <div className="rounded-[14px] border border-[#8b5e2a] bg-[#f0ddb8] px-4 py-4 space-y-3">
+          <p className="text-lg font-bold text-[#2a1505]">You might already have an account</p>
+          <p className="text-base text-[#3a2610]">
+            A hero named <span className="font-bold">{data.fullName.trim()}</span> from {data.schoolName.trim()} is
+            already playing. If that&apos;s you, log in so you keep your curios and gold.
+          </p>
+          <GameButton
+            type="button"
+            variant="quest"
+            color="#d97706"
+            onClick={() => router.push('/?login=1')}
+            className="w-full"
+            style={{ fontSize: 17 }}
+          >
+            Log In Instead
+          </GameButton>
+          <button
+            type="button"
+            onClick={() => void submit(true)}
+            disabled={submitting}
+            className="w-full py-2 text-base font-bold text-[#6b4820] hover:text-[#2a1505] disabled:opacity-50"
+          >
+            {submitting ? 'Creating your hero…' : "That's not me. Make my new account"}
+          </button>
+        </div>
+      ) : (
+        <GameButton
+          type="submit"
+          variant="quest"
+          disabled={submitting}
+          className="w-full"
+          style={{ fontSize: 17 }}
+        >
+          {submitting ? 'Creating your hero…' : 'Start Your Adventure!'}
+        </GameButton>
+      )}
 
       <p className="text-center text-sm text-stone-400 leading-relaxed">
         You can play right away. Link a parent email later from inside the game to

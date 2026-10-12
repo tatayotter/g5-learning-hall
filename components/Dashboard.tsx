@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, USERS, gradeToNumber } from '@/lib/userSession';
+import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, restoreChildUser, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
 import LoadingScreen from '@/components/LoadingScreen';
@@ -129,7 +129,14 @@ export default function Dashboard() {
     };
   }, []);
 
+  // Once per mount, including under StrictMode's double effect run: the login
+  // screen puts heroes from this device into USERS (lib/deviceHeroes.ts), so a
+  // second run finishing after the first had shown it would find a hero the
+  // server just refused there and sign them in anyway.
+  const hydrateStartedRef = useRef(false);
   useEffect(() => {
+    if (hydrateStartedRef.current) return;
+    hydrateStartedRef.current = true;
     async function hydrate() {
       // Classmates/children/etc. must be populated into USERS before
       // anything reads USERS[savedUserId] below.
@@ -145,9 +152,17 @@ export default function Dashboard() {
         await loadAllUsersData();
       }
       const saved = getActiveUser();
-      if (saved && !USERS[saved] && startedOffline) {
+      if (saved && !USERS[saved]) {
         const cached = loadOfflineProfile(saved);
-        if (cached) USERS[saved] = cached;
+        if (cached && startedOffline) {
+          USERS[saved] = cached;
+        } else if (cached && await linkIdentity(saved)) {
+          // Online but not on the roster: a child with no parent linked yet,
+          // whom children_public never lists. linkIdentity (no PIN) only
+          // succeeds if this browser is still signed in as them.
+          restoreChildUser(cached);
+          trackEvent('session_restored');
+        }
       }
       if (saved && USERS[saved]) {
         if (!startedOffline) saveOfflineProfile(USERS[saved]);

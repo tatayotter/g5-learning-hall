@@ -324,6 +324,17 @@ export function loginReturningChild(profile: {
   childIds.add(profile.id);
 }
 
+// Puts a child back from the profile saved on this device (lib/offlineSnapshot.ts).
+// For an unclaimed child that saved copy is the only way to know them after a
+// reload, since children_public never lists them: without it every reload
+// signed them out, and many made a new account instead of finding the
+// username login. Callers check with the server first (linkIdentity) that
+// this browser is still signed in as them.
+export function restoreChildUser(profile: UserProfile): void {
+  USERS[profile.id] = profile;
+  childIds.add(profile.id);
+}
+
 export function getOtherPlayers(currentUserId: UserId): UserProfile[] {
   return (Object.keys(USERS) as UserId[])
     .filter(id => id !== currentUserId)

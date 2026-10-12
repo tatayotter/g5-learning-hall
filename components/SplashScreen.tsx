@@ -6,7 +6,7 @@ import { UserId, USERS, setActiveUser, getClassmateIds, getChildIds, linkIdentit
 import GameButton from '@/components/GameButton';
 import { playPageFlip } from '@/lib/sounds';
 import { isOffline } from '@/lib/offlineSnapshot';
-import { loadOfflineHeroes, offlineHeroIds, offlineLockoutMinutes, takeRelinkRequest, unlockHeroOffline } from '@/lib/deviceHeroes';
+import { loadDeviceHeroes, loadOfflineHeroes, offlineLockoutMinutes, takeRelinkRequest, unlockHeroOffline } from '@/lib/deviceHeroes';
 import { countUnsynced } from '@/lib/offlineOutbox';
 
 interface SplashScreenProps {
@@ -88,13 +88,18 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   // loadClassmates()/loadAvatarOverrides(), so USERS is fully populated.
   // Offline the roster can't load, so it's the heroes who can log in here without a connection
   // (logged in on this device before, offline play on), from their saved profiles. Online,
-  // those heroes come first, so siblings sharing a device don't have to search for each other.
+  // heroes who have logged in on this device come first under their own heading, so siblings
+  // sharing a device don't have to search for each other, and a child with no parent linked
+  // (never on the roster) still gets a card.
   const [offline] = useState(() => isOffline());
-  const allIds = useMemo(() => {
-    if (offline) return loadOfflineHeroes();
-    const onDevice = new Set(offlineHeroIds());
-    return [...getClassmateIds(), ...getChildIds()].sort((a, b) =>
-      Number(onDevice.has(b)) - Number(onDevice.has(a)) || USERS[a].name.localeCompare(USERS[b].name));
+  const { allIds, onDevice } = useMemo(() => {
+    if (offline) return { allIds: loadOfflineHeroes(), onDevice: new Set<UserId>() };
+    const device = new Set(loadDeviceHeroes());
+    return {
+      allIds: [...new Set([...getClassmateIds(), ...getChildIds()])].sort((a, b) =>
+        Number(device.has(b)) - Number(device.has(a)) || USERS[a].name.localeCompare(USERS[b].name)),
+      onDevice: device,
+    };
   }, [offline]);
   // Play saved on this device and not yet synced, per hero: it only syncs while that hero is
   // logged in, so their card says so.
@@ -117,8 +122,20 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
   useEffect(() => {
     const id = takeRelinkRequest();
     // eslint-disable-next-line react-hooks/set-state-in-effect -- sessionStorage is only readable after mount
-    if (id && USERS[id]) { setLoginTarget({ id, name: USERS[id].name }); setRelinkNote(true); }
+    if (id && USERS[id]) { setLoginTarget({ id, name: USERS[id].name }); setRelinkNote(true); return; }
+    // "Log in instead" from the sign-up form's possible-duplicate warning lands on /?login=1.
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('login') === '1') {
+      setReturningLogin(true);
+      params.delete('login');
+      const rest = params.toString();
+      window.history.replaceState(null, '', window.location.pathname + (rest ? `?${rest}` : ''));
+    }
   }, []);
+
+  // Children log in with a 4-digit PIN; admin-made classmate accounts use a password.
+  const targetUsesPin = !!loginTarget && getChildIds().includes(loginTarget.id);
+  const wrongSecret = targetUsesPin ? 'Incorrect PIN. Try again.' : '❌ Incorrect password. Try again.';
 
   const openLogin = (id: UserId, name: string) => {
     setLoginTarget({ id, name });
@@ -138,7 +155,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
     if (isOffline()) {
       const result = await unlockHeroOffline(loginTarget.id, passwordInput);
       if (result === 'ok') handleSelect(loginTarget.id);
-      else setLoginError(result === 'wrong' ? '❌ Incorrect password. Try again.'
+      else setLoginError(result === 'wrong' ? wrongSecret
         : result === 'locked' ? `🔒 Too many wrong tries. Wait ${offlineLockoutMinutes(loginTarget.id)} min, or try again when the internet is back.`
         : '📡 No internet. This hero can log in when the internet is back.');
       setLoggingIn(false);
@@ -160,13 +177,13 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
         // account's gold/monsters/inventory. See lib/userSession.ts:linkIdentity.
         const linked = await linkIdentity(loginTarget.id, passwordInput);
         if (!linked) {
-          setLoginError('❌ Incorrect password. Try again.');
+          setLoginError(wrongSecret);
           setLoggingIn(false);
           return;
         }
         handleSelect(loginTarget.id, passwordInput);
       } else {
-        setLoginError('❌ Incorrect password. Try again.');
+        setLoginError(wrongSecret);
       }
     } catch {
       setLoginError("📡 Can't connect right now. Check your internet and try again.");
@@ -314,8 +331,8 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                   {searchQuery.trim() ? <>No players match &quot;{searchQuery}&quot;</> : 'No players yet.'}
                 </p>
               )}
-              <div className="grid grid-cols-2 gap-2.5">
-                {visibleIds.map((id, i) => {
+              {(() => {
+                const renderCard = (id: UserId, i: number) => {
                   const user = USERS[id];
                   const palette = AVATAR_PALETTES[allIds.indexOf(id) % AVATAR_PALETTES.length];
 
@@ -350,8 +367,26 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                       </div>
                     </motion.button>
                   );
-                })}
-              </div>
+                };
+                const mine = visibleIds.filter(id => onDevice.has(id));
+                const rest = visibleIds.filter(id => !onDevice.has(id));
+                if (mine.length === 0) {
+                  return <div className="grid grid-cols-2 gap-2.5">{visibleIds.map(renderCard)}</div>;
+                }
+                const sectionLabel = 'text-[11px] tracking-[0.18em] text-blue-100/70 font-medium uppercase mb-2 px-1';
+                return (
+                  <>
+                    <p className={sectionLabel}>Played on this device</p>
+                    <div className="grid grid-cols-2 gap-2.5">{mine.map(renderCard)}</div>
+                    {rest.length > 0 && (
+                      <>
+                        <p className={`${sectionLabel} mt-5`}>All players</p>
+                        <div className="grid grid-cols-2 gap-2.5">{rest.map((id, i) => renderCard(id, mine.length + i))}</div>
+                      </>
+                    )}
+                  </>
+                );
+              })()}
               <div className="h-2" />
             </div>
           </div>
@@ -374,15 +409,16 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                 />
                 <h2 className="text-lg font-bold text-[#2a1505] mt-3 mb-1">{loginTarget.name}</h2>
                 <p className="text-[#6b4820] text-sm">
-                  {relinkNote ? "The internet is back! Type your password so we can save what you played to your account."
-                    : 'Enter your password to continue.'}
+                  {relinkNote ? `The internet is back! Type your ${targetUsesPin ? 'PIN' : 'password'} so we can save what you played to your account.`
+                    : targetUsesPin ? 'Enter your 4-digit PIN to continue.' : 'Enter your password to continue.'}
                 </p>
               </div>
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <input
                   type="password"
                   autoFocus
-                  placeholder="Password"
+                  inputMode={targetUsesPin ? 'numeric' : undefined}
+                  placeholder={targetUsesPin ? 'PIN' : 'Password'}
                   className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3.5 text-[16px] text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
@@ -426,7 +462,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               className="w-full rounded-[18px] bg-white border border-[#c9a87a] p-6 sm:p-8 shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_10px_30px_rgba(201,120,26,0.15)]"
             >
               <h2 className="text-lg font-bold text-[#2a1505] mb-1">Log In</h2>
-              <p className="text-[#6b4820] text-sm mb-5">Don&apos;t see your name above? Enter your username and PIN.</p>
+              <p className="text-[#6b4820] text-sm mb-5">Enter the username and PIN you made when you signed up.</p>
               <form onSubmit={handleReturningLoginSubmit} className="space-y-4">
                 <input
                   type="text"
@@ -440,6 +476,7 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
                 />
                 <input
                   type="password"
+                  inputMode="numeric"
                   placeholder="PIN"
                   className="w-full bg-white border border-[#c9a87a] rounded-[14px] p-3.5 text-[16px] text-[#2a1505] placeholder:text-[#8b5e2a]/60 focus:border-[#c9781a] outline-none"
                   value={passwordInput}
@@ -490,15 +527,17 @@ export default function SplashScreen({ onSelect }: SplashScreenProps) {
               >
                 Create Account
               </GameButton>
+              {/* Same weight as Create Account on purpose: when this was a grey "Can't Find
+                  Account", kids whose card was missing made a new account instead. */}
               <GameButton
                 type="button"
                 variant="quest"
-                color="#d4d4d4"
+                color="#d97706"
                 onClick={openReturningLogin}
                 className="flex-1"
                 style={{ fontSize: 15 }}
               >
-                Can&apos;t Find Account
+                Log In
               </GameButton>
             </motion.div>
 
