@@ -508,7 +508,7 @@
     },
     "Wednesday": {
       "Computer": {
-        "summary_markdown": "# 💻 Computer — Mga Tool sa Word Processing\n\nGrade 3, Week 11! Let's learn how to format text in a word-processing program. 💻\n\n## ✍️ Formatting Text\n- **Bold (B)** makes text darker and thicker.\n- **Underline (U)** adds a line under text.\n- **Font size** changes how big or small text appears.\n- **Font Color** changes the color of the text.\n\n## 💾 Saving Your Work\nWhen you finish typing a document, always press **Save (Ctrl+S)** so your work is not lost.\n\n## 🖱️ Other Tools\nBasic drawing tools let you **draw shapes and color them**, and Backspace removes a wrongly typed letter.\n\n**Key words:** bold, underline, font size, font color, save",
+        "summary_markdown": "# 💻 Computer — Word Processing Tools\n\nGrade 3, Week 11! Let's learn how to format text in a word-processing program. 💻\n\n## ✍️ Formatting Text\n- **Bold (B)** makes text darker and thicker.\n- **Underline (U)** adds a line under text.\n- **Font size** changes how big or small text appears.\n- **Font Color** changes the color of the text.\n\n## 💾 Saving Your Work\nWhen you finish typing a document, always press **Save (Ctrl+S)** so your work is not lost.\n\n## 🖱️ Other Tools\nBasic drawing tools let you **draw shapes and color them**, and Backspace removes a wrongly typed letter.\n\n**Key words:** bold, underline, font size, font color, save",
         "quiz": [
           {
             "question": "What do you click to OPEN a word-processing program from the desktop?",
@@ -1262,7 +1262,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Bold, Underline, Font size, Font color\n- Always Save your work (Ctrl+S)\n\nMagaling! 🌟",
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Bold, Underline, Font size, Font color\n- Always Save your work (Ctrl+S)\n\nGreat job! 🌟",
         "quiz": [
           {
             "question": "What do you click to OPEN a word-processing program from the desktop?",

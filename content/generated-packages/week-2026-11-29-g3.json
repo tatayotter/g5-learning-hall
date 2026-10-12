@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ❓ Computer — Hindi Lahat ng Nasa Internet ay Totoo\n\nGrade 3, Week 25! Alamin natin kung paano suriin ang katotohanan ng impormasyon online. ❓\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa hindi pagbabahagi ng personal na impormasyon.\n\n## ❓ Bakit Hindi Lahat ay Totoo Online?\nAng sinuman ay maaaring maglagay ng anumang impormasyon sa Internet — hindi lahat ay **na-check** kung tama.\n\n## 🔍 Paano Suriin Kung Totoo\n- Tingnan kung mula ito sa **kilalang website** (halimbawa, paaralan, aklatan)\n- Magtanong sa magulang o guro kung hindi sigurado\n- Ihambing sa ibang mapagkukunan\n\n## ⌨️ Simpleng Keyboard Shortcuts\n- **Ctrl+C** — kopyahin\n- **Ctrl+V** — i-paste\n- **Ctrl+S** — i-save\n\n**Mahahalagang salita:** totoo, hindi totoo, mapagkukunan, keyboard shortcut",
+        "summary_markdown": "# ❓ Computer — Not Everything on the Internet Is True\n\nGrade 3, Week 25! Let's learn how to check if information online is true. ❓\n\n## 🔄 Review\nWe learned about not sharing personal information.\n\n## ❓ Why Is Not Everything Online True?\nAnyone can put any information on the Internet — not all of it has been **checked** to see if it is right.\n\n## 🔍 How to Check If It Is True\n- See if it comes from a **well-known website** (for example, a school or library)\n- Ask a parent or teacher if you are not sure\n- Compare it with other sources\n\n## ⌨️ Simple Keyboard Shortcuts\n- **Ctrl+C** — copy\n- **Ctrl+V** — paste\n- **Ctrl+S** — save\n\n**Key words:** true, not true, source, keyboard shortcut",
         "quiz": [
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "question": "Why is not everything on the Internet true?",
             "options": [
-              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
-              "Lahat ng nasa Internet ay na-verify na",
-              "Walang maling impormasyon online",
-              "Ang Internet ay palaging tama"
+              "Anyone can post information without it being checked",
+              "Everything on the Internet has been checked",
+              "There is no wrong information online",
+              "The Internet is always right"
             ],
-            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+            "correct_answer": "Anyone can post information without it being checked"
           },
           {
-            "question": "Paano masusuri kung totoo ang isang impormasyon online?",
+            "question": "How can you check if information online is true?",
             "options": [
-              "Tingnan kung mula sa kilalang website",
-              "Basta paniwalaan agad",
-              "Ibahagi agad sa iba",
-              "Huwag na tingnan pa"
+              "See if it comes from a well-known website",
+              "Just believe it right away",
+              "Share it with others right away",
+              "Don't check at all"
             ],
-            "correct_answer": "Tingnan kung mula sa kilalang website"
+            "correct_answer": "See if it comes from a well-known website"
           },
           {
-            "question": "Ano ang gagawin kung hindi sigurado sa totoo ng impormasyon?",
+            "question": "What should you do if you are not sure the information is true?",
             "options": [
-              "Magtanong sa magulang o guro",
-              "Paniwalaan agad",
-              "Ibahagi kaagad",
-              "Balewalain na lamang"
+              "Ask a parent or teacher",
+              "Believe it right away",
+              "Share it right away",
+              "Just ignore it"
             ],
-            "correct_answer": "Magtanong sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher"
           },
           {
-            "question": "Ano ang ginagawa ng Ctrl+C?",
+            "question": "What does Ctrl+C do?",
             "options": [
-              "Kopyahin",
-              "I-paste",
-              "I-save",
-              "Burahin"
+              "Copy",
+              "Paste",
+              "Save",
+              "Delete"
             ],
-            "correct_answer": "Kopyahin"
+            "correct_answer": "Copy"
           },
           {
-            "question": "Ano ang ginagawa ng Ctrl+V?",
+            "question": "What does Ctrl+V do?",
             "options": [
-              "I-paste",
-              "Kopyahin",
-              "I-save",
-              "Burahin"
+              "Paste",
+              "Copy",
+              "Save",
+              "Delete"
             ],
-            "correct_answer": "I-paste"
+            "correct_answer": "Paste"
           },
           {
-            "question": "Ano ang ginagawa ng Ctrl+S?",
+            "question": "What does Ctrl+S do?",
             "options": [
-              "I-save",
-              "Kopyahin",
-              "I-paste",
-              "Burahin"
+              "Save",
+              "Copy",
+              "Paste",
+              "Delete"
             ],
-            "correct_answer": "I-save"
+            "correct_answer": "Save"
           },
           {
-            "question": "Bakit mahalagang ihambing ang impormasyon sa ibang mapagkukunan?",
+            "question": "Why is it important to compare information with other sources?",
             "options": [
-              "Para matiyak ang katotohanan nito",
-              "Hindi na kailangan gawin ito",
-              "Isang mapagkukunan lamang ang sapat na palagi",
-              "Walang gamit ito"
+              "To make sure it is true",
+              "There is no need to do it",
+              "One source is always enough",
+              "It has no use"
             ],
-            "correct_answer": "Para matiyak ang katotohanan nito"
+            "correct_answer": "To make sure it is true"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "question": "Why do kids learn this topic?",
             "options": [
-              "Upang maging kritikal sa impormasyong nakikita online",
-              "Hindi ito mahalaga",
-              "Upang paniwalaan lahat ng nabasa",
-              "Walang layunin ito"
+              "To think carefully about information they see online",
+              "It is not important",
+              "To believe everything they read",
+              "It has no goal"
             ],
-            "correct_answer": "Upang maging kritikal sa impormasyong nakikita online"
+            "correct_answer": "To think carefully about information they see online"
           },
           {
-            "question": "Bakit mahalagang malaman ang keyboard shortcuts?",
+            "question": "Why is it important to know keyboard shortcuts?",
             "options": [
-              "Nagpapabilis ito ng paggawa ng gawain sa kompyuter",
-              "Hindi na kailangan malaman ito",
-              "Walang gamit ito",
-              "Ito ay para lamang sa matatanda"
+              "They make computer work faster",
+              "There is no need to know them",
+              "They have no use",
+              "They are only for grown-ups"
             ],
-            "correct_answer": "Nagpapabilis ito ng paggawa ng gawain sa kompyuter"
+            "correct_answer": "They make computer work faster"
           },
           {
-            "question": "Ano ang halimbawa ng kilalang mapagkukunan ng impormasyon?",
+            "question": "What is an example of a trusted source of information?",
             "options": [
-              "Website ng paaralan o aklatan",
-              "Kahit sinong estranghero online",
-              "Random na comment",
-              "Hindi na kailangan mapagkukunan"
+              "A school or library website",
+              "Any stranger online",
+              "A random comment",
+              "No source is needed"
             ],
-            "correct_answer": "Website ng paaralan o aklatan"
+            "correct_answer": "A school or library website"
           },
           {
-            "question": "Ano ang mangyayari kung basta paniwalaan lahat ng nabasa online?",
+            "question": "What can happen if you believe everything you read online?",
             "options": [
-              "Maaaring maniwala sa maling impormasyon",
-              "Palaging tama ang paniniwala",
-              "Walang epekto",
-              "Awtomatikong tumpak ang lahat"
+              "You might believe wrong information",
+              "What you believe is always right",
+              "Nothing happens",
+              "Everything is always correct by itself"
             ],
-            "correct_answer": "Maaaring maniwala sa maling impormasyon"
+            "correct_answer": "You might believe wrong information"
           },
           {
-            "question": "Bakit mahalagang matutong suriin ang impormasyon simula sa maagang edad?",
+            "question": "Why is it important to learn to check information while you are young?",
             "options": [
-              "Upang maging matalinong gumagamit ng Internet paglaki",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto ito"
+              "To be a smart Internet user as you grow up",
+              "No need to learn it",
+              "It is only for grown-ups",
+              "It does not matter"
             ],
-            "correct_answer": "Upang maging matalinong gumagamit ng Internet paglaki"
+            "correct_answer": "To be a smart Internet user as you grow up"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ❓ Friday Review — Computer (Grade 3)\n\n- Hindi lahat ng nasa Internet ay totoo; keyboard shortcuts\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# ❓ Friday Review — Computer (Grade 3)\n\n- Not everything on the Internet is true; keyboard shortcuts\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "question": "Why is not everything on the Internet true?",
             "options": [
-              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
-              "Lahat na-verify na",
-              "Walang maling impormasyon",
-              "Palaging tama ang Internet"
+              "Anyone can post information without it being checked",
+              "Everything has been checked",
+              "There is no wrong information",
+              "The Internet is always right"
             ],
-            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+            "correct_answer": "Anyone can post information without it being checked"
           },
           {
-            "question": "Paano masusuri kung totoo ang impormasyon?",
+            "question": "How can you check if information is true?",
             "options": [
-              "Tingnan kung mula sa kilalang website",
-              "Basta paniwalaan agad",
-              "Ibahagi agad",
-              "Huwag tingnan pa"
+              "See if it comes from a well-known website",
+              "Just believe it right away",
+              "Share it right away",
+              "Don't check at all"
             ],
-            "correct_answer": "Tingnan kung mula sa kilalang website"
+            "correct_answer": "See if it comes from a well-known website"
           },
           {
-            "question": "Gawin kung hindi sigurado sa totoo ng impormasyon?",
+            "question": "What should you do if you are not sure the information is true?",
             "options": [
-              "Magtanong sa magulang o guro",
-              "Paniwalaan agad",
-              "Ibahagi kaagad",
-              "Balewalain"
+              "Ask a parent or teacher",
+              "Believe it right away",
+              "Share it right away",
+              "Ignore it"
             ],
-            "correct_answer": "Magtanong sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher"
           },
           {
-            "question": "Ginagawa ng Ctrl+C?",
+            "question": "What does Ctrl+C do?",
             "options": [
-              "Kopyahin",
-              "I-paste",
-              "I-save",
-              "Burahin"
+              "Copy",
+              "Paste",
+              "Save",
+              "Delete"
             ],
-            "correct_answer": "Kopyahin"
+            "correct_answer": "Copy"
           },
           {
-            "question": "Ginagawa ng Ctrl+V?",
+            "question": "What does Ctrl+V do?",
             "options": [
-              "I-paste",
-              "Kopyahin",
-              "I-save",
-              "Burahin"
+              "Paste",
+              "Copy",
+              "Save",
+              "Delete"
             ],
-            "correct_answer": "I-paste"
+            "correct_answer": "Paste"
           },
           {
-            "question": "Ginagawa ng Ctrl+S?",
+            "question": "What does Ctrl+S do?",
             "options": [
-              "I-save",
-              "Kopyahin",
-              "I-paste",
-              "Burahin"
+              "Save",
+              "Copy",
+              "Paste",
+              "Delete"
             ],
-            "correct_answer": "I-save"
+            "correct_answer": "Save"
           },
           {
-            "question": "Bakit ihambing ang impormasyon sa ibang mapagkukunan?",
+            "question": "Why compare information with other sources?",
             "options": [
-              "Matiyak ang katotohanan",
-              "Hindi kailangan gawin",
-              "Isang mapagkukunan sapat na",
-              "Walang gamit"
+              "To make sure it is true",
+              "No need to do it",
+              "One source is enough",
+              "It has no use"
             ],
-            "correct_answer": "Matiyak ang katotohanan"
+            "correct_answer": "To make sure it is true"
           },
           {
-            "question": "Bakit ituro ang paksang ito sa bata?",
+            "question": "Why do kids learn this topic?",
             "options": [
-              "Maging kritikal sa impormasyon online",
-              "Hindi mahalaga",
-              "Paniwalaan lahat",
-              "Walang layunin"
+              "To think carefully about information online",
+              "It is not important",
+              "To believe everything",
+              "It has no goal"
             ],
-            "correct_answer": "Maging kritikal sa impormasyon online"
+            "correct_answer": "To think carefully about information online"
           },
           {
-            "question": "Bakit malaman ang keyboard shortcuts?",
+            "question": "Why should you know keyboard shortcuts?",
             "options": [
-              "Nagpapabilis ng gawain sa kompyuter",
-              "Hindi kailangan malaman",
-              "Walang gamit",
-              "Para sa matatanda lamang"
+              "They make computer work faster",
+              "No need to know them",
+              "They have no use",
+              "They are only for grown-ups"
             ],
-            "correct_answer": "Nagpapabilis ng gawain sa kompyuter"
+            "correct_answer": "They make computer work faster"
           },
           {
-            "question": "Halimbawa ng kilalang mapagkukunan?",
+            "question": "Which is an example of a trusted source?",
             "options": [
-              "Website ng paaralan o aklatan",
-              "Kahit sinong estranghero",
-              "Random na comment",
-              "Walang mapagkukunan kailangan"
+              "A school or library website",
+              "Any stranger",
+              "A random comment",
+              "No source is needed"
             ],
-            "correct_answer": "Website ng paaralan o aklatan"
+            "correct_answer": "A school or library website"
           },
           {
-            "question": "Mangyayari kung basta paniwalaan lahat online?",
+            "question": "What can happen if you believe everything online?",
             "options": [
-              "Maaaring maniwala sa maling impormasyon",
-              "Palaging tama",
-              "Walang epekto",
-              "Awtomatikong tumpak"
+              "You might believe wrong information",
+              "It is always right",
+              "Nothing happens",
+              "It is always correct by itself"
             ],
-            "correct_answer": "Maaaring maniwala sa maling impormasyon"
+            "correct_answer": "You might believe wrong information"
           },
           {
-            "question": "Bakit matutong suriin impormasyon mula sa maagang edad?",
+            "question": "Why learn to check information while you are young?",
             "options": [
-              "Maging matalinong gumagamit ng Internet",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To be a smart Internet user",
+              "No need to learn it",
+              "It is only for grown-ups",
+              "It does not matter"
             ],
-            "correct_answer": "Maging matalinong gumagamit ng Internet"
+            "correct_answer": "To be a smart Internet user"
           }
         ]
       },

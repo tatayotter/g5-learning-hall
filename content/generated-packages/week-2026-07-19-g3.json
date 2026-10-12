@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Single-click** = select | **Double-click** = open\n- **Right-click** = menu | **Click-and-drag** = move\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Single-click** = select | **Double-click** = open\n- **Right-click** = menu | **Click-and-drag** = move\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "What does a single-click do?", "options": ["Selects an item", "Opens a program", "Shows a menu", "Deletes a file"], "correct_answer": "Selects an item" },
           { "question": "What does a double-click do?", "options": ["Opens a program or file", "Selects one item only", "Shows a menu", "Closes the computer"], "correct_answer": "Opens a program or file" },

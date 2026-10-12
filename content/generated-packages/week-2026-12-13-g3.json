@@ -633,100 +633,100 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Computer — Pagbabalik-Aral: Buong Term sa Computer\n\nGrade 3, Week 27! Balikan natin ang natutuhan sa Computer ngayong term. 💻\n\n## 🔄 Mga Natutunan\n- **Gamit ng Internet:** pagsasaliksik, komunikasyon, pag-aaral\n- **Browser at search engine:** pagkilala sa mga icon\n- **Ligtas na nilalaman:** paano makilala ang angkop at hindi angkop\n- **Personal na impormasyon:** kailan hindi dapat ibahagi\n- **Katotohanan online:** hindi lahat ng nasa Internet ay totoo\n- **Ligtas na pagsasara** ng kompyuter\n\n## 🧠 Pagsasama-sama\nGinamit natin ang lahat ng kaalamang ito upang maging **responsable at ligtas** na gumagamit ng kompyuter at Internet.\n\n## 🎯 Paghahanda\nSa susunod na term, patuloy nating pagyayamanin ang kaalaman sa ligtas na paggamit ng teknolohiya.\n\n**Mahahalagang salita:** Internet, browser, ligtas na nilalaman, personal na impormasyon",
+        "summary_markdown": "# 💻 Computer — Review: The Whole Term in Computer\n\nGrade 3, Week 27! Let's look back at what we learned in Computer this term. 💻\n\n## 🔄 What We Learned\n- **Uses of the Internet:** looking things up, talking to others, learning\n- **Browser and search engine:** knowing the icons\n- **Safe content:** how to tell what is right and not right for kids\n- **Personal information:** when not to share it\n- **Truth online:** not everything on the Internet is true\n- **Safe shutdown** of the computer\n\n## 🧠 Putting It All Together\nWe used all of this to be **careful and safe** computer and Internet users.\n\n## 🎯 Getting Ready\nNext term, we will keep learning more about using technology safely.\n\n**Key words:** Internet, browser, safe content, personal information",
         "quiz": [
           {
-            "question": "Gamit ng Internet?",
+            "question": "What is one use of the Internet?",
             "options": [
-              "Pagsasaliksik ng impormasyon",
-              "Panonood ng TV lamang",
-              "Pagluluto",
-              "Paglalakbay sa ibang bansa"
+              "Looking up information",
+              "Only watching TV",
+              "Cooking",
+              "Traveling to other countries"
             ],
-            "correct_answer": "Pagsasaliksik ng impormasyon"
+            "correct_answer": "Looking up information"
           },
           {
-            "question": "Ano ang browser?",
+            "question": "What is a browser?",
             "options": [
-              "Programang ginagamit para makapunta sa Internet",
-              "Uri ng laro",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A program used to go on the Internet",
+              "A kind of game",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+            "correct_answer": "A program used to go on the Internet"
           },
           {
-            "question": "Katangian ng ligtas na nilalaman?",
+            "question": "What is true about safe content?",
             "options": [
-              "Ginawa para sa bata, aprubado ng matanda",
-              "May marahas na larawan",
-              "Humihingi ng personal na impormasyon",
-              "Hindi angkop sa edad"
+              "Made for kids, approved by an adult",
+              "Has violent pictures",
+              "Asks for personal information",
+              "Not right for your age"
             ],
-            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+            "correct_answer": "Made for kids, approved by an adult"
           },
           {
-            "question": "Halimbawa ng personal na impormasyon?",
+            "question": "Which is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Full name and address",
+              "Favorite color",
+              "Favorite food",
+              "Favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Full name and address"
           },
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "question": "Why is not everything on the Internet true?",
             "options": [
-              "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check",
-              "Lahat na-verify na",
-              "Walang maling impormasyon",
-              "Palaging tama ang Internet"
+              "Anyone can post information without it being checked",
+              "Everything has been checked",
+              "There is no wrong information",
+              "The Internet is always right"
             ],
-            "correct_answer": "Sinuman ay maaaring maglagay ng impormasyon nang hindi na-check"
+            "correct_answer": "Anyone can post information without it being checked"
           },
           {
-            "question": "Unang hakbang bago isara ang kompyuter?",
+            "question": "What is the first step before turning off the computer?",
             "options": [
-              "I-save ang trabaho",
-              "Direktang patayin",
-              "Kalimutan ang trabaho",
-              "Tanggalin ang saksakan"
+              "Save your work",
+              "Turn it off right away",
+              "Forget your work",
+              "Pull out the plug"
             ],
-            "correct_answer": "I-save ang trabaho"
+            "correct_answer": "Save your work"
           },
           {
-            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "question": "What should you do if someone asks for your personal information?",
             "options": [
-              "Huwag ibigay, sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it, tell an adult",
+              "Give it right away",
+              "Answer honestly",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+            "correct_answer": "Don't give it, tell an adult"
           },
           {
-            "question": "Paano masusuri kung totoo ang impormasyon online?",
+            "question": "How can you check if information online is true?",
             "options": [
-              "Tingnan kung mula sa kilalang website",
-              "Basta paniwalaan agad",
-              "Ibahagi agad",
-              "Huwag tingnan pa"
+              "See if it comes from a well-known website",
+              "Just believe it right away",
+              "Share it right away",
+              "Don't check at all"
             ],
-            "correct_answer": "Tingnan kung mula sa kilalang website"
+            "correct_answer": "See if it comes from a well-known website"
           },
           {
-            "question": "Bakit kailangang piliin ang 'Shut Down' kaysa basta putulin ang kuryente?",
+            "question": "Why choose 'Shut Down' instead of just cutting the power?",
             "options": [
-              "Nakakaiwas sa pagkasira at pagkawala ng trabaho",
-              "Walang pagkakaiba",
-              "Basta patayin lamang agad",
-              "Hindi mahalaga kung paano isasara"
+              "It keeps the computer from breaking and your work from being lost",
+              "There is no difference",
+              "Just turn it off right away",
+              "It does not matter how you turn it off"
             ],
-            "correct_answer": "Nakakaiwas sa pagkasira at pagkawala ng trabaho"
+            "correct_answer": "It keeps the computer from breaking and your work from being lost"
           },
           {
-            "question": "Ano ang halimbawa ng search engine?",
+            "question": "What is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -736,24 +736,24 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Bakit itinuro ang lahat ng paksang ito sa Computer?",
+            "question": "Why did we learn all these Computer topics?",
             "options": [
-              "Upang maging responsable at ligtas sa paggamit ng teknolohiya",
-              "Hindi ito mahalaga",
-              "Upang hikayatin ang paggamit nang walang gabay",
-              "Walang layunin ito"
+              "To use technology in a careful and safe way",
+              "They are not important",
+              "To use it with no adult help",
+              "There is no goal"
             ],
-            "correct_answer": "Upang maging responsable at ligtas sa paggamit ng teknolohiya"
+            "correct_answer": "To use technology in a careful and safe way"
           },
           {
-            "question": "Ano ang pangkalahatang aral ng buong term sa Computer?",
+            "question": "What is the main lesson of the whole Computer term?",
             "options": [
-              "Gamitin ang kompyuter at Internet nang responsable at ligtas",
-              "Gamitin nang mag-isa kahit kailan",
-              "Hindi na kailangan mag-ingat",
-              "Walang panganib sa paggamit ng kompyuter"
+              "Use the computer and Internet wisely and safely",
+              "Use it alone any time",
+              "No need to be careful",
+              "There is no danger in using a computer"
             ],
-            "correct_answer": "Gamitin ang kompyuter at Internet nang responsable at ligtas"
+            "correct_answer": "Use the computer and Internet wisely and safely"
           }
         ]
       }
@@ -1512,100 +1512,100 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Term 2 wrap-up: Internet, ligtas na nilalaman, online safety\n\nMagaling na term! 🌟",
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- Term 2 wrap-up: Internet, safe content, online safety\n\nGreat term! 🌟",
         "quiz": [
           {
-            "question": "Gamit ng Internet?",
+            "question": "What is one use of the Internet?",
             "options": [
-              "Pagsasaliksik ng impormasyon",
-              "Panonood ng TV lamang",
-              "Pagluluto",
-              "Paglalakbay"
+              "Looking up information",
+              "Only watching TV",
+              "Cooking",
+              "Traveling"
             ],
-            "correct_answer": "Pagsasaliksik ng impormasyon"
+            "correct_answer": "Looking up information"
           },
           {
-            "question": "Ano ang browser?",
+            "question": "What is a browser?",
             "options": [
-              "Programang ginagamit para makapunta sa Internet",
-              "Uri ng laro",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A program used to go on the Internet",
+              "A kind of game",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+            "correct_answer": "A program used to go on the Internet"
           },
           {
-            "question": "Katangian ng ligtas na nilalaman?",
+            "question": "What is true about safe content?",
             "options": [
-              "Ginawa para sa bata, aprubado ng matanda",
-              "May marahas na larawan",
-              "Humihingi ng personal na impormasyon",
-              "Hindi angkop sa edad"
+              "Made for kids, approved by an adult",
+              "Has violent pictures",
+              "Asks for personal information",
+              "Not right for your age"
             ],
-            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+            "correct_answer": "Made for kids, approved by an adult"
           },
           {
-            "question": "Halimbawa ng personal na impormasyon?",
+            "question": "Which is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Full name and address",
+              "Favorite color",
+              "Favorite food",
+              "Favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Full name and address"
           },
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay totoo?",
+            "question": "Why is not everything on the Internet true?",
             "options": [
-              "Sinuman ay maaaring maglagay nang hindi na-check",
-              "Lahat na-verify na",
-              "Walang maling impormasyon",
-              "Palaging tama"
+              "Anyone can post things without them being checked",
+              "Everything has been checked",
+              "There is no wrong information",
+              "It is always right"
             ],
-            "correct_answer": "Sinuman ay maaaring maglagay nang hindi na-check"
+            "correct_answer": "Anyone can post things without them being checked"
           },
           {
-            "question": "Unang hakbang bago isara ang kompyuter?",
+            "question": "What is the first step before turning off the computer?",
             "options": [
-              "I-save ang trabaho",
-              "Direktang patayin",
-              "Kalimutan ang trabaho",
-              "Tanggalin ang saksakan"
+              "Save your work",
+              "Turn it off right away",
+              "Forget your work",
+              "Pull out the plug"
             ],
-            "correct_answer": "I-save ang trabaho"
+            "correct_answer": "Save your work"
           },
           {
-            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "question": "What should you do if someone asks for your personal information?",
             "options": [
-              "Huwag ibigay, sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it, tell an adult",
+              "Give it right away",
+              "Answer honestly",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+            "correct_answer": "Don't give it, tell an adult"
           },
           {
-            "question": "Paano masusuri kung totoo ang impormasyon?",
+            "question": "How can you check if information is true?",
             "options": [
-              "Tingnan kung mula sa kilalang website",
-              "Basta paniwalaan",
-              "Ibahagi agad",
-              "Huwag tingnan"
+              "See if it comes from a well-known website",
+              "Just believe it",
+              "Share it right away",
+              "Don't check"
             ],
-            "correct_answer": "Tingnan kung mula sa kilalang website"
+            "correct_answer": "See if it comes from a well-known website"
           },
           {
-            "question": "Bakit piliin ang 'Shut Down' kaysa basta putulin ang kuryente?",
+            "question": "Why choose 'Shut Down' instead of just cutting the power?",
             "options": [
-              "Iwasan ang pagkasira at pagkawala ng trabaho",
-              "Walang pagkakaiba",
-              "Basta patayin agad",
-              "Hindi mahalaga"
+              "To keep the computer from breaking and your work from being lost",
+              "There is no difference",
+              "Just turn it off right away",
+              "It is not important"
             ],
-            "correct_answer": "Iwasan ang pagkasira at pagkawala ng trabaho"
+            "correct_answer": "To keep the computer from breaking and your work from being lost"
           },
           {
-            "question": "Halimbawa ng search engine?",
+            "question": "Which is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -1615,24 +1615,24 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Bakit itinuro ang mga paksang ito sa Computer?",
+            "question": "Why did we learn these Computer topics?",
             "options": [
-              "Maging responsable at ligtas sa teknolohiya",
-              "Hindi mahalaga",
-              "Hikayatin nang walang gabay",
-              "Walang layunin"
+              "To use technology in a careful and safe way",
+              "They are not important",
+              "To use it with no adult help",
+              "There is no goal"
             ],
-            "correct_answer": "Maging responsable at ligtas sa teknolohiya"
+            "correct_answer": "To use technology in a careful and safe way"
           },
           {
-            "question": "Pangkalahatang aral ng term sa Computer?",
+            "question": "What is the main lesson of the Computer term?",
             "options": [
-              "Gamitin ang kompyuter at Internet nang responsable at ligtas",
-              "Gamitin nang mag-isa",
-              "Hindi na kailangan mag-ingat",
-              "Walang panganib"
+              "Use the computer and Internet wisely and safely",
+              "Use it alone",
+              "No need to be careful",
+              "There is no danger"
             ],
-            "correct_answer": "Gamitin ang kompyuter at Internet nang responsable at ligtas"
+            "correct_answer": "Use the computer and Internet wisely and safely"
           }
         ]
       },

@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🖱️ Computer — Pagsasanib ng Kasanayan sa Isang Proyekto\n\nGrade 2, Week 26! Pagsamahin natin ang lahat ng natutuhan sa kompyuter! 🖱️\n\n## 🔄 Balik-Aral\nNatutuhan natin kung paano kilalanin at iulat ang hindi ligtas na sitwasyon.\n\n## 🖱️ Mga Kasanayang Natutuhan\n- Mouse skills (click, drag)\n- Pagta-type gamit ang keyboard\n- Word-processing at simpleng pagguhit\n- Pag-save at pagbukas ng file\n- Online safety\n\n## 🎨 Simpleng Proyekto\nGumawa ng maikling proyekto — halimbawa, mag-type ng isang pangungusap tungkol sa iyong sarili at magdagdag ng simpleng guhit — gamit ang lahat ng kasanayang natutuhan.\n\n## 👨‍👩‍👧 Tandaan\nHumingi pa rin ng gabay ng matanda kapag nag-se-save o gumagamit ng bagong programa.\n\n**Mahahalagang salita:** pagsasanib, proyekto, mouse skills, word-processing",
+        "summary_markdown": "# 🖱️ Computer — Putting Your Skills Together in a Project\n\nGrade 2, Week 26! Let's put together everything we learned about the computer! 🖱️\n\n## 🔄 Review\nWe learned how to spot and report unsafe situations.\n\n## 🖱️ Skills We Learned\n- Mouse skills (click, drag)\n- Typing with the keyboard\n- Word processing and simple drawing\n- Saving and opening a file\n- Online safety\n\n## 🎨 Simple Project\nMake a short project — for example, type a sentence about yourself and add a simple drawing — using all the skills you learned.\n\n## 👨‍👩‍👧 Remember\nStill ask a grown-up for help when saving or using a new program.\n\n**Key words:** putting skills together, project, mouse skills, word-processing",
         "quiz": [
           {
-            "question": "Anong mga kasanayan ang pinagsama-sama sa proyekto?",
+            "question": "What skills are put together in the project?",
             "options": [
-              "Mouse skills, pag-type, pag-guhit, pag-save",
-              "Pagluluto at paglilinis lamang",
-              "Pagkanta at pagsayaw",
-              "Pangingisda at pagsasaka"
+              "Mouse skills, typing, drawing, saving",
+              "Only cooking and cleaning",
+              "Singing and dancing",
+              "Fishing and farming"
             ],
-            "correct_answer": "Mouse skills, pag-type, pag-guhit, pag-save"
+            "correct_answer": "Mouse skills, typing, drawing, saving"
           },
           {
-            "question": "Ano ang halimbawang gawin sa simpleng proyekto?",
+            "question": "What is an example of something to do in a simple project?",
             "options": [
-              "Mag-type ng pangungusap tungkol sa sarili at magdagdag ng guhit",
-              "Manood lamang ng TV",
-              "Maglaro nang mag-isa",
-              "Magbasa ng libro lamang"
+              "Type a sentence about yourself and add a drawing",
+              "Just watch TV",
+              "Play by yourself",
+              "Just read a book"
             ],
-            "correct_answer": "Mag-type ng pangungusap tungkol sa sarili at magdagdag ng guhit"
+            "correct_answer": "Type a sentence about yourself and add a drawing"
           },
           {
-            "question": "Bakit mahalagang pagsamahin ang mga kasanayan sa kompyuter?",
+            "question": "Why is it important to put your computer skills together?",
             "options": [
-              "Para makagawa ng isang kumpletong proyekto",
-              "Walang gamit ito",
-              "Hindi na kailangan gawin ito",
-              "Para lamang libangin ang guro"
+              "So you can make a complete project",
+              "It is no use",
+              "You don't need to do it",
+              "Only to make the teacher happy"
             ],
-            "correct_answer": "Para makagawa ng isang kumpletong proyekto"
+            "correct_answer": "So you can make a complete project"
           },
           {
-            "question": "Sino dapat pa ring hingan ng gabay habang gumagawa ng proyekto?",
+            "question": "Who should you still ask for help while making a project?",
             "options": [
-              "Isang matanda",
-              "Walang kailangan hingan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A grown-up",
+              "You don't need to ask anyone",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang matanda"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Anong kasanayan ang ginagamit para i-type ang pangungusap?",
+            "question": "What skill is used to type the sentence?",
             "options": [
               "Word-processing/typing",
-              "Mouse click lamang",
-              "Pagguhit lamang",
-              "Pag-save lamang"
+              "Only mouse click",
+              "Only drawing",
+              "Only saving"
             ],
             "correct_answer": "Word-processing/typing"
           },
           {
-            "question": "Ano ang dapat gawin bago isara ang proyekto?",
+            "question": "What should you do before closing the project?",
             "options": [
-              "I-save ang trabaho",
-              "Kalimutan na lamang ito",
-              "Burahin agad",
-              "Isara nang walang pag-save"
+              "Save your work",
+              "Just forget about it",
+              "Delete it right away",
+              "Close it without saving"
             ],
-            "correct_answer": "I-save ang trabaho"
+            "correct_answer": "Save your work"
           },
           {
-            "question": "Bakit mahalagang matutong gumamit ng mouse nang tama?",
+            "question": "Why is it important to learn to use the mouse the right way?",
             "options": [
-              "Para mas madaling gumawa ng proyekto sa kompyuter",
-              "Walang gamit ito",
-              "Hindi na kailangan matutunan",
-              "Para lamang sa laro"
+              "So it is easier to make projects on the computer",
+              "It is no use",
+              "You don't need to learn it",
+              "It is only for games"
             ],
-            "correct_answer": "Para mas madaling gumawa ng proyekto sa kompyuter"
+            "correct_answer": "So it is easier to make projects on the computer"
           },
           {
-            "question": "Ano ang layunin ng pagsasanib ng kasanayan sa isang proyekto?",
+            "question": "What is the goal of putting your skills together in a project?",
             "options": [
-              "Ipakita ang natutunang kasanayan sa isang gawain",
-              "Wala itong layunin",
-              "Para lamang matapos ang oras",
-              "Para hikayatin ang mahabang screen-time"
+              "To show the skills you learned in one task",
+              "It has no goal",
+              "Only to use up the time",
+              "To get more screen-time"
             ],
-            "correct_answer": "Ipakita ang natutunang kasanayan sa isang gawain"
+            "correct_answer": "To show the skills you learned in one task"
           },
           {
-            "question": "Bakit hindi dapat mag-online nang walang gabay ng matanda kahit sa isang proyekto?",
+            "question": "Why should you not go online without a grown-up's help, even for a project?",
             "options": [
-              "Para masiguro ang kaligtasan at tamang paggamit",
-              "Hindi na kailangan iyon",
-              "Ligtas na palagi",
-              "Bata na lamang ang magpasya"
+              "To make sure you are safe and use it the right way",
+              "That is not needed",
+              "It is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Para masiguro ang kaligtasan at tamang paggamit"
+            "correct_answer": "To make sure you are safe and use it the right way"
           },
           {
-            "question": "Alin sa mga ito ang kasanayan sa ICT na natutunan sa buong term?",
+            "question": "Which of these are computer skills (ICT) we learned this whole term?",
             "options": [
-              "Pag-save, pag-type, at online safety",
-              "Pagluluto ng pagkain",
-              "Pananahi ng damit",
-              "Pagsasaka"
+              "Saving, typing, and online safety",
+              "Cooking food",
+              "Sewing clothes",
+              "Farming"
             ],
-            "correct_answer": "Pag-save, pag-type, at online safety"
+            "correct_answer": "Saving, typing, and online safety"
           },
           {
-            "question": "Bakit kailangang magpraktis ng mga kasanayan sa kompyuter?",
+            "question": "Why do you need to practice computer skills?",
             "options": [
-              "Para maging mas magaling at komportable sa paggamit nito",
-              "Hindi na kailangan magpraktis",
-              "Isang beses lamang ginagamit ang kasanayan",
-              "Walang benepisyo ito"
+              "To get better and feel comfortable using it",
+              "You don't need to practice",
+              "You use a skill only once",
+              "It has no benefit"
             ],
-            "correct_answer": "Para maging mas magaling at komportable sa paggamit nito"
+            "correct_answer": "To get better and feel comfortable using it"
           },
           {
-            "question": "Ano ang mangyayari kung hindi mo isasanib ang mga kasanayan sa isang proyekto?",
+            "question": "What will happen if you do not put your skills together in a project?",
             "options": [
-              "Mahihirapan kang makagawa ng kumpletong gawain",
-              "Walang epekto ito",
-              "Mas madali kung hiwalay lahat",
-              "Awtomatikong matatapos ang proyekto"
+              "It will be hard to make a complete task",
+              "It has no effect",
+              "It is easier if everything is separate",
+              "The project finishes by itself"
             ],
-            "correct_answer": "Mahihirapan kang makagawa ng kumpletong gawain"
+            "correct_answer": "It will be hard to make a complete task"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🖱️ Friday Review — Computer (Grade 2)\n\n- Pagsasanib ng kasanayan sa proyekto\n\nMagaling sa Computer term! 🌟",
+        "summary_markdown": "# 🖱️ Friday Review — Computer (Grade 2)\n\n- Putting your skills together in a project\n\nGreat job this Computer term! 🌟",
         "quiz": [
           {
-            "question": "Anong mga kasanayan pinagsama sa proyekto?",
+            "question": "What skills are put together in the project?",
             "options": [
-              "Mouse skills, pag-type, pag-guhit, pag-save",
-              "Pagluluto at paglilinis",
-              "Pagkanta at pagsayaw",
-              "Pangingisda at pagsasaka"
+              "Mouse skills, typing, drawing, saving",
+              "Cooking and cleaning",
+              "Singing and dancing",
+              "Fishing and farming"
             ],
-            "correct_answer": "Mouse skills, pag-type, pag-guhit, pag-save"
+            "correct_answer": "Mouse skills, typing, drawing, saving"
           },
           {
-            "question": "Halimbawang gawin sa simpleng proyekto?",
+            "question": "What is an example of something to do in a simple project?",
             "options": [
-              "Mag-type ng pangungusap at magdagdag ng guhit",
-              "Manood lamang ng TV",
-              "Maglaro nang mag-isa",
-              "Magbasa lamang"
+              "Type a sentence and add a drawing",
+              "Just watch TV",
+              "Play by yourself",
+              "Just read"
             ],
-            "correct_answer": "Mag-type ng pangungusap at magdagdag ng guhit"
+            "correct_answer": "Type a sentence and add a drawing"
           },
           {
-            "question": "Bakit pagsamahin ang kasanayan sa kompyuter?",
+            "question": "Why put your computer skills together?",
             "options": [
-              "Makagawa ng kumpletong proyekto",
-              "Walang gamit",
-              "Hindi kailangan gawin",
-              "Libangin ang guro"
+              "To make a complete project",
+              "No use",
+              "You don't need to do it",
+              "To make the teacher happy"
             ],
-            "correct_answer": "Makagawa ng kumpletong proyekto"
+            "correct_answer": "To make a complete project"
           },
           {
-            "question": "Sino pa ring hihingan ng gabay habang gumagawa?",
+            "question": "Who should you still ask for help while working?",
             "options": [
-              "Isang matanda",
-              "Walang kailangan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A grown-up",
+              "No one needed",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang matanda"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Anong kasanayan gamit para i-type?",
+            "question": "What skill do you use to type?",
             "options": [
               "Word-processing/typing",
-              "Mouse click lamang",
-              "Pagguhit lamang",
-              "Pag-save lamang"
+              "Only mouse click",
+              "Only drawing",
+              "Only saving"
             ],
             "correct_answer": "Word-processing/typing"
           },
           {
-            "question": "Gawin bago isara ang proyekto?",
+            "question": "What should you do before closing the project?",
             "options": [
-              "I-save ang trabaho",
-              "Kalimutan na lamang",
-              "Burahin agad",
-              "Isara nang walang pag-save"
+              "Save your work",
+              "Just forget about it",
+              "Delete it right away",
+              "Close it without saving"
             ],
-            "correct_answer": "I-save ang trabaho"
+            "correct_answer": "Save your work"
           },
           {
-            "question": "Bakit matutong gumamit ng mouse nang tama?",
+            "question": "Why learn to use the mouse the right way?",
             "options": [
-              "Mas madaling gumawa ng proyekto",
-              "Walang gamit",
-              "Hindi kailangan matutunan",
-              "Para sa laro lamang"
+              "It is easier to make projects",
+              "No use",
+              "No need to learn it",
+              "Only for games"
             ],
-            "correct_answer": "Mas madaling gumawa ng proyekto"
+            "correct_answer": "It is easier to make projects"
           },
           {
-            "question": "Layunin ng pagsasanib ng kasanayan?",
+            "question": "What is the goal of putting your skills together?",
             "options": [
-              "Ipakita ang natutunang kasanayan sa isang gawain",
-              "Walang layunin",
-              "Matapos lamang ang oras",
-              "Hikayatin ang mahabang screen-time"
+              "To show the skills you learned in one task",
+              "No goal",
+              "Only to use up the time",
+              "To get more screen-time"
             ],
-            "correct_answer": "Ipakita ang natutunang kasanayan sa isang gawain"
+            "correct_answer": "To show the skills you learned in one task"
           },
           {
-            "question": "Bakit hindi mag-online nang walang gabay kahit sa proyekto?",
+            "question": "Why not go online without help, even for a project?",
             "options": [
-              "Masiguro ang kaligtasan at tamang paggamit",
-              "Hindi kailangan iyon",
-              "Ligtas na palagi",
-              "Bata na lamang magpasya"
+              "To make sure you are safe and use it the right way",
+              "Not needed",
+              "It is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Masiguro ang kaligtasan at tamang paggamit"
+            "correct_answer": "To make sure you are safe and use it the right way"
           },
           {
-            "question": "Kasanayan sa ICT na natutunan sa buong term?",
+            "question": "What computer skills (ICT) did we learn this whole term?",
             "options": [
-              "Pag-save, pag-type, online safety",
-              "Pagluluto ng pagkain",
-              "Pananahi ng damit",
-              "Pagsasaka"
+              "Saving, typing, online safety",
+              "Cooking food",
+              "Sewing clothes",
+              "Farming"
             ],
-            "correct_answer": "Pag-save, pag-type, online safety"
+            "correct_answer": "Saving, typing, online safety"
           },
           {
-            "question": "Bakit magpraktis ng kasanayan sa kompyuter?",
+            "question": "Why practice computer skills?",
             "options": [
-              "Maging mas magaling at komportable",
-              "Hindi kailangan magpraktis",
-              "Isang beses lamang gamit",
-              "Walang benepisyo"
+              "To get better and feel comfortable",
+              "No need to practice",
+              "You use it only once",
+              "No benefit"
             ],
-            "correct_answer": "Maging mas magaling at komportable"
+            "correct_answer": "To get better and feel comfortable"
           },
           {
-            "question": "Mangyayari kung hindi isasanib ang mga kasanayan?",
+            "question": "What happens if you don't put your skills together?",
             "options": [
-              "Mahihirapan makagawa ng kumpletong gawain",
-              "Walang epekto",
-              "Mas madali kung hiwalay",
-              "Awtomatikong matatapos"
+              "It will be hard to make a complete task",
+              "No effect",
+              "Easier if separate",
+              "It finishes by itself"
             ],
-            "correct_answer": "Mahihirapan makagawa ng kumpletong gawain"
+            "correct_answer": "It will be hard to make a complete task"
           }
         ]
       },

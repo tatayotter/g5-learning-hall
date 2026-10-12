@@ -156,7 +156,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Monitor** = output | **Keyboard** = input\n- **CPU** = utak ng computer\n- Input devices send info TO computer, output devices send info FROM computer\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Monitor** = output | **Keyboard** = input\n- **CPU** = brain of the computer\n- Input devices send info TO computer, output devices send info FROM computer\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "Which part shows what the computer is doing?", "options": ["Monitor", "Keyboard", "Mouse", "Speakers"], "correct_answer": "Monitor" },
           { "question": "Which of these is an INPUT device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },

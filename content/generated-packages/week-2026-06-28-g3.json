@@ -68,15 +68,15 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Computer — Week 2: Input at Output Devices!\n\nAlamin natin nang mas detalyado ang input at output devices! 🖥️\n\n## 📥 Input Devices\n- Nagpapadala ng impormasyon **PATUNGO** sa computer.\n- **Halimbawa:** keyboard, mouse, microphone, webcam\n\n## 📤 Output Devices\n- Nagpapadala ng impormasyon **MULA** sa computer.\n- **Halimbawa:** monitor, speakers, printer\n\n## 🔍 Pagsasanay\n- **Halimbawa 1:** Ang pag-type gamit ang keyboard ay isang **input**.\n- **Halimbawa 2:** Ang pagpapakita ng litrato sa monitor ay isang **output**.\n\nMahalaga ang bawat device para gumana ang computer! 🌟",
+        "summary_markdown": "# 💻 Computer — Week 2: Input and Output Devices!\n\nLet's learn more about input and output devices! 🖥️\n\n## 📥 Input Devices\n- They send information **TO** the computer.\n- **Examples:** keyboard, mouse, microphone, webcam\n\n## 📤 Output Devices\n- They send information **FROM** the computer.\n- **Examples:** monitor, speakers, printer\n\n## 🔍 Practice\n- **Example 1:** Typing on the keyboard is an **input**.\n- **Example 2:** Showing a picture on the monitor is an **output**.\n\nEvery device is important to make the computer work! 🌟",
         "quiz": [
-          { "question": "Alin ang input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
-          { "question": "Alin ang output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
-          { "question": "Ano ang gawain ng input device?", "options": ["Nagpapadala ng impormasyon patungo sa computer", "Nagpapadala ng impormasyon mula sa computer", "Walang ginagawa", "Nagpapabagal ng computer"], "correct_answer": "Nagpapadala ng impormasyon patungo sa computer" },
-          { "question": "Ang pag-type gamit ang keyboard ay anong uri ng gawain?", "options": ["Input", "Output", "Parehong hindi", "Parehong oo"], "correct_answer": "Input" },
-          { "question": "Alin sa mga ito ang isa pang input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" },
-          { "question": "Ang pagpapakita ng litrato sa monitor ay anong uri ng gawain?", "options": ["Output", "Input", "Parehong hindi", "Parehong oo"], "correct_answer": "Output" },
-          { "question": "Alin ang isa pang halimbawa ng output device?", "options": ["Printer", "Keyboard", "Mouse", "Webcam"], "correct_answer": "Printer" }
+          { "question": "Which one is an input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Which one is an output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
+          { "question": "What does an input device do?", "options": ["Sends information to the computer", "Sends information from the computer", "Does nothing", "Makes the computer slow"], "correct_answer": "Sends information to the computer" },
+          { "question": "Typing on the keyboard is what kind of task?", "options": ["Input", "Output", "Neither", "Both"], "correct_answer": "Input" },
+          { "question": "Which of these is another input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" },
+          { "question": "Showing a picture on the monitor is what kind of task?", "options": ["Output", "Input", "Neither", "Both"], "correct_answer": "Output" },
+          { "question": "Which is another example of an output device?", "options": ["Printer", "Keyboard", "Mouse", "Webcam"], "correct_answer": "Printer" }
         ]
       }
     },
@@ -146,13 +146,13 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Input**: keyboard, mouse (patungo sa computer)\n- **Output**: monitor, speakers, printer (mula sa computer)\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Input**: keyboard, mouse (to the computer)\n- **Output**: monitor, speakers, printer (from the computer)\n\nYou are learning so well! 🌟",
         "quiz": [
-          { "question": "Alin ang input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
-          { "question": "Alin ang output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
-          { "question": "Ang pag-type gamit ang keyboard ay anong uri ng gawain?", "options": ["Input", "Output", "Parehong hindi", "Parehong oo"], "correct_answer": "Input" },
-          { "question": "Ang pagpapakita ng litrato sa monitor ay anong uri ng gawain?", "options": ["Output", "Input", "Parehong hindi", "Parehong oo"], "correct_answer": "Output" },
-          { "question": "Alin sa mga ito ang isa pang input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" }
+          { "question": "Which one is an input device?", "options": ["Keyboard", "Monitor", "Speakers", "Printer"], "correct_answer": "Keyboard" },
+          { "question": "Which one is an output device?", "options": ["Monitor", "Keyboard", "Mouse", "Microphone"], "correct_answer": "Monitor" },
+          { "question": "Typing on the keyboard is what kind of task?", "options": ["Input", "Output", "Neither", "Both"], "correct_answer": "Input" },
+          { "question": "Showing a picture on the monitor is what kind of task?", "options": ["Output", "Input", "Neither", "Both"], "correct_answer": "Output" },
+          { "question": "Which of these is another input device?", "options": ["Microphone", "Speaker", "Printer", "Monitor"], "correct_answer": "Microphone" }
         ]
       }
     }

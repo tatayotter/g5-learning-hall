@@ -158,7 +158,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Ang **computer** ay tumutulong sa atin sa **trabaho, pag-aaral, at paglalaro**\n- Halimbawa: **desktop, laptop, tablet, smartphone**\n- Makikita ang computer sa **bahay, paaralan, at komunidad**\n\nMahusay ang unang linggo mo! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- A **computer** helps us **work, learn, and play**\n- Examples: **desktop, laptop, tablet, smartphone**\n- We see computers at **home, at school, and in the community**\n\nGreat job on your first week! 🌟",
         "quiz": [
           { "question": "What is a computer?", "options": ["A tool that helps us work, learn, and play", "A kind of food", "A type of animal", "A piece of clothing"], "correct_answer": "A tool that helps us work, learn, and play" },
           { "question": "Which computer can you carry around?", "options": ["Laptop", "Desktop computer", "Printer", "Monitor"], "correct_answer": "Laptop" },

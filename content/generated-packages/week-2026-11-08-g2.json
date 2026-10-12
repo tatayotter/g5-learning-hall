@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🌐 Computer — Ano ang Internet?\n\nGrade 2, Week 22! Alamin natin ang Internet sa payak na paraan. 🌐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pag-save at pagbukas ng file.\n\n## 🌐 Ano ang Internet?\nAng **Internet** ay isang malaking network na nagkokonekta ng mga kompyuter sa buong mundo, na nagpapahintulot sa atin na maghanap ng impormasyon, manood ng bidyo, at makipag-usap sa iba.\n\n## 👶 Nilalaman para sa Bata\nHindi lahat ng nasa Internet ay angkop para sa mga bata — dapat lamang manood o gumamit ng nilalamang **ginawa para sa mga bata** (kid-friendly).\n\n## 👨‍👩‍👧 Bakit Kailangan ng Gabay ng Matanda\nPalaging humingi ng pahintulot at gabay ng magulang o guro bago gumamit ng Internet.\n\n**Mahahalagang salita:** Internet, network, kid-friendly, gabay ng matanda",
+        "summary_markdown": "# 🌐 Computer — What Is the Internet?\n\nGrade 2, Week 22! Let's learn about the Internet in a simple way. 🌐\n\n## 🔄 Review\nWe learned about saving and opening a file.\n\n## 🌐 What Is the Internet?\nThe **Internet** is a big network that connects computers all over the world. It lets us look for information, watch videos, and talk with others.\n\n## 👶 Content for Kids\nNot everything on the Internet is good for kids. We should only watch or use content **made for kids** (kid-friendly).\n\n## 👨‍👩‍👧 Why We Need a Grown-up's Help\nAlways ask a parent or teacher for permission and help before using the Internet.\n\n**Key words:** Internet, network, kid-friendly, grown-up's help",
         "quiz": [
           {
-            "question": "Ano ang Internet?",
+            "question": "What is the Internet?",
             "options": [
-              "Network na nagkokonekta ng kompyuter sa buong mundo",
-              "Isang uri ng laruan",
-              "Isang uri ng libro",
-              "Isang uri ng gunting"
+              "A network that connects computers all over the world",
+              "A kind of toy",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+            "correct_answer": "A network that connects computers all over the world"
           },
           {
-            "question": "Ano ang maaaring gawin gamit ang Internet?",
+            "question": "What can you do using the Internet?",
             "options": [
-              "Maghanap ng impormasyon, manood ng bidyo, makipag-usap",
-              "Manahi ng damit",
-              "Magluto ng pagkain",
-              "Maglakbay sa ibang bansa"
+              "Look for information, watch videos, talk with others",
+              "Sew clothes",
+              "Cook food",
+              "Travel to another country"
             ],
-            "correct_answer": "Maghanap ng impormasyon, manood ng bidyo, makipag-usap"
+            "correct_answer": "Look for information, watch videos, talk with others"
           },
           {
-            "question": "Angkop bang lahat ng nasa Internet para sa mga bata?",
+            "question": "Is everything on the Internet good for kids?",
             "options": [
-              "Hindi, dapat lamang nilalamang ginawa para sa bata",
-              "Oo, lahat ay angkop",
-              "Walang nilalaman ang Internet",
-              "Hindi na kailangan pumili"
+              "No, only use content made for kids",
+              "Yes, everything is good for kids",
+              "The Internet has no content",
+              "You don't need to choose"
             ],
-            "correct_answer": "Hindi, dapat lamang nilalamang ginawa para sa bata"
+            "correct_answer": "No, only use content made for kids"
           },
           {
-            "question": "Bakit kailangan ng gabay ng matanda kapag gumagamit ng Internet?",
+            "question": "Why do we need a grown-up's help when using the Internet?",
             "options": [
-              "Para tumulong pumili ng ligtas at angkop na nilalaman",
-              "Hindi na kailangan ng gabay",
-              "Palaging ligtas ang lahat sa Internet",
-              "Ang bata na lamang ang dapat magpasya"
+              "To help choose safe and right content",
+              "We don't need help",
+              "Everything on the Internet is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Para tumulong pumili ng ligtas at angkop na nilalaman"
+            "correct_answer": "To help choose safe and right content"
           },
           {
-            "question": "Ano ang ibig sabihin ng 'kid-friendly'?",
+            "question": "What does 'kid-friendly' mean?",
             "options": [
-              "Nilalamang angkop at ginawa para sa mga bata",
-              "Nilalamang para lamang sa matatanda",
-              "Nilalamang mapanganib",
-              "Nilalamang walang laman"
+              "Content that is right for kids and made for them",
+              "Content only for grown-ups",
+              "Content that is dangerous",
+              "Content that is empty"
             ],
-            "correct_answer": "Nilalamang angkop at ginawa para sa mga bata"
+            "correct_answer": "Content that is right for kids and made for them"
           },
           {
-            "question": "Ano ang dapat gawin bago gumamit ng Internet?",
+            "question": "What should you do before using the Internet?",
             "options": [
-              "Humingi ng pahintulot at gabay ng magulang o guro",
-              "Direktang gamitin nang mag-isa",
-              "Hindi na kailangan magtanong",
-              "Gawin lamang kapag walang matanda"
+              "Ask a parent or teacher for permission and help",
+              "Use it alone right away",
+              "You don't need to ask",
+              "Use it only when no grown-up is around"
             ],
-            "correct_answer": "Humingi ng pahintulot at gabay ng magulang o guro"
+            "correct_answer": "Ask a parent or teacher for permission and help"
           },
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay angkop para sa bata?",
+            "question": "Why is not everything on the Internet good for kids?",
             "options": [
-              "May ilang nilalaman na para lamang sa matatanda o mapanganib",
-              "Lahat ay ligtas para sa bata",
-              "Walang mapanganib na nilalaman",
-              "Hindi totoo ito"
+              "Some content is only for grown-ups or is dangerous",
+              "Everything is safe for kids",
+              "There is no dangerous content",
+              "This is not true"
             ],
-            "correct_answer": "May ilang nilalaman na para lamang sa matatanda o mapanganib"
+            "correct_answer": "Some content is only for grown-ups or is dangerous"
           },
           {
-            "question": "Ano ang halimbawa ng maaaring gawin sa Internet nang may gabay ng magulang?",
+            "question": "What is an example of something you can do on the Internet with a parent's help?",
             "options": [
-              "Manood ng bidyong pang-edukasyon para sa bata",
-              "Manahi ng damit",
-              "Mag-drive ng kotse",
-              "Magluto ng ulam"
+              "Watch a learning video for kids",
+              "Sew clothes",
+              "Drive a car",
+              "Cook a meal"
             ],
-            "correct_answer": "Manood ng bidyong pang-edukasyon para sa bata"
+            "correct_answer": "Watch a learning video for kids"
           },
           {
-            "question": "Bakit itinuturing na malaking network ang Internet?",
+            "question": "Why is the Internet called a big network?",
             "options": [
-              "Nagkokonekta ito ng maraming kompyuter sa iba't ibang lugar",
-              "Isa lamang kompyuter ang bumubuo dito",
-              "Wala itong konektadong kompyuter",
-              "Ito ay hiwalay sa buong mundo"
+              "It connects many computers in many different places",
+              "It is made of only one computer",
+              "It has no connected computers",
+              "It is cut off from the whole world"
             ],
-            "correct_answer": "Nagkokonekta ito ng maraming kompyuter sa iba't ibang lugar"
+            "correct_answer": "It connects many computers in many different places"
           },
           {
-            "question": "Ano ang mahalagang aral tungkol sa Internet para sa bata?",
+            "question": "What is an important lesson about the Internet for kids?",
             "options": [
-              "Gamitin ito nang may gabay ng matanda at pumili lamang ng angkop na nilalaman",
-              "Puwedeng gamitin nang mag-isa kahit kailan",
-              "Hindi na kailangan pag-ingatan",
-              "Walang panganib sa Internet"
+              "Use it with a grown-up's help and choose only the right content",
+              "You can use it alone any time",
+              "You don't need to be careful",
+              "There is no danger on the Internet"
             ],
-            "correct_answer": "Gamitin ito nang may gabay ng matanda at pumili lamang ng angkop na nilalaman"
+            "correct_answer": "Use it with a grown-up's help and choose only the right content"
           },
           {
-            "question": "Bakit mahalagang matutong gumamit ng Internet nang tama simula pagkabata?",
+            "question": "Why is it important to learn to use the Internet the right way while you are young?",
             "options": [
-              "Upang maging ligtas at responsable sa paggamit nito paglaki",
-              "Hindi na kailangan matutunan ito",
-              "Ito ay para lamang sa matatanda",
-              "Walang epekto ito sa buhay ng bata"
+              "So you will be safe and responsible when using it as you grow up",
+              "You don't need to learn it",
+              "It is only for grown-ups",
+              "It does not change a child's life"
             ],
-            "correct_answer": "Upang maging ligtas at responsable sa paggamit nito paglaki"
+            "correct_answer": "So you will be safe and responsible when using it as you grow up"
           },
           {
-            "question": "Sino ang dapat humingi ng pahintulot bago pumunta online?",
+            "question": "Who should ask for permission before going online?",
             "options": [
-              "Ang bata, sa kanyang magulang o guro",
-              "Walang kailangang humingi ng pahintulot",
-              "Ang guro sa bata",
-              "Walang sinuman"
+              "The child, from a parent or teacher",
+              "No one needs to ask for permission",
+              "The teacher, from the child",
+              "Nobody"
             ],
-            "correct_answer": "Ang bata, sa kanyang magulang o guro"
+            "correct_answer": "The child, from a parent or teacher"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 2)\n\n- Ano ang Internet at kid-friendly na nilalaman\n\nMagaling! 🌟",
+        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 2)\n\n- What the Internet is and kid-friendly content\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang Internet?",
+            "question": "What is the Internet?",
             "options": [
-              "Network na nagkokonekta ng kompyuter sa buong mundo",
-              "Uri ng laruan",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A network that connects computers all over the world",
+              "A kind of toy",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+            "correct_answer": "A network that connects computers all over the world"
           },
           {
-            "question": "Maaaring gawin gamit ang Internet?",
+            "question": "What can you do using the Internet?",
             "options": [
-              "Maghanap ng impormasyon, manood ng bidyo",
-              "Manahi",
-              "Magluto",
-              "Maglakbay"
+              "Look for information, watch videos",
+              "Sew",
+              "Cook",
+              "Travel"
             ],
-            "correct_answer": "Maghanap ng impormasyon, manood ng bidyo"
+            "correct_answer": "Look for information, watch videos"
           },
           {
-            "question": "Angkop ba lahat ng nasa Internet para sa bata?",
+            "question": "Is everything on the Internet good for kids?",
             "options": [
-              "Hindi, dapat kid-friendly lamang",
-              "Oo, lahat angkop",
-              "Walang nilalaman",
-              "Hindi na kailangan pumili"
+              "No, only kid-friendly content",
+              "Yes, everything is good",
+              "There is no content",
+              "You don't need to choose"
             ],
-            "correct_answer": "Hindi, dapat kid-friendly lamang"
+            "correct_answer": "No, only kid-friendly content"
           },
           {
-            "question": "Bakit kailangan ng gabay ng matanda online?",
+            "question": "Why do we need a grown-up's help online?",
             "options": [
-              "Tumulong pumili ng ligtas na nilalaman",
-              "Hindi na kailangan",
-              "Palaging ligtas ang lahat",
-              "Bata na lamang magpasya"
+              "To help choose safe content",
+              "We don't need it",
+              "Everything is always safe",
+              "The child should decide alone"
             ],
-            "correct_answer": "Tumulong pumili ng ligtas na nilalaman"
+            "correct_answer": "To help choose safe content"
           },
           {
-            "question": "Ibig sabihin ng kid-friendly?",
+            "question": "What does kid-friendly mean?",
             "options": [
-              "Nilalamang angkop para sa bata",
-              "Para lamang sa matatanda",
-              "Mapanganib na nilalaman",
-              "Walang laman"
+              "Content that is right for kids",
+              "Only for grown-ups",
+              "Dangerous content",
+              "Empty"
             ],
-            "correct_answer": "Nilalamang angkop para sa bata"
+            "correct_answer": "Content that is right for kids"
           },
           {
-            "question": "Gawin bago gumamit ng Internet?",
+            "question": "What should you do before using the Internet?",
             "options": [
-              "Humingi ng pahintulot ng magulang",
-              "Direktang gamitin nang mag-isa",
-              "Hindi na magtanong",
-              "Gawin kapag walang matanda"
+              "Ask a parent for permission",
+              "Use it alone right away",
+              "Don't ask anymore",
+              "Use it when no grown-up is around"
             ],
-            "correct_answer": "Humingi ng pahintulot ng magulang"
+            "correct_answer": "Ask a parent for permission"
           },
           {
-            "question": "Bakit hindi angkop lahat sa Internet para sa bata?",
+            "question": "Why is not everything on the Internet good for kids?",
             "options": [
-              "May nilalamang para sa matatanda o mapanganib",
-              "Lahat ligtas",
-              "Walang mapanganib",
-              "Hindi totoo"
+              "Some content is for grown-ups or is dangerous",
+              "Everything is safe",
+              "Nothing is dangerous",
+              "Not true"
             ],
-            "correct_answer": "May nilalamang para sa matatanda o mapanganib"
+            "correct_answer": "Some content is for grown-ups or is dangerous"
           },
           {
-            "question": "Halimbawa ng magagawa nang may gabay ng magulang?",
+            "question": "What can you do with a parent's help?",
             "options": [
-              "Manood ng bidyong pang-edukasyon",
-              "Manahi",
-              "Mag-drive",
-              "Magluto"
+              "Watch a learning video",
+              "Sew",
+              "Drive",
+              "Cook"
             ],
-            "correct_answer": "Manood ng bidyong pang-edukasyon"
+            "correct_answer": "Watch a learning video"
           },
           {
-            "question": "Bakit malaking network ang Internet?",
+            "question": "Why is the Internet a big network?",
             "options": [
-              "Nagkokonekta ng maraming kompyuter",
-              "Isang kompyuter lamang",
-              "Walang konektado",
-              "Hiwalay sa mundo"
+              "It connects many computers",
+              "Only one computer",
+              "Nothing is connected",
+              "Cut off from the world"
             ],
-            "correct_answer": "Nagkokonekta ng maraming kompyuter"
+            "correct_answer": "It connects many computers"
           },
           {
-            "question": "Mahalagang aral tungkol sa Internet?",
+            "question": "What is an important lesson about the Internet?",
             "options": [
-              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
-              "Gamitin nang mag-isa kahit kailan",
-              "Hindi kailangan pag-ingatan",
-              "Walang panganib"
+              "Use it with help and choose the right content",
+              "Use it alone any time",
+              "You don't need to be careful",
+              "No danger"
             ],
-            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+            "correct_answer": "Use it with help and choose the right content"
           },
           {
-            "question": "Bakit matutong gumamit nang tama simula pagkabata?",
+            "question": "Why learn to use it the right way while you are young?",
             "options": [
-              "Maging ligtas at responsable paglaki",
-              "Hindi kailangan matutunan",
-              "Para lamang sa matatanda",
-              "Walang epekto"
+              "To be safe and responsible as you grow up",
+              "You don't need to learn it",
+              "Only for grown-ups",
+              "No effect"
             ],
-            "correct_answer": "Maging ligtas at responsable paglaki"
+            "correct_answer": "To be safe and responsible as you grow up"
           },
           {
-            "question": "Sino dapat humingi ng pahintulot bago pumunta online?",
+            "question": "Who should ask for permission before going online?",
             "options": [
-              "Ang bata, sa magulang o guro",
-              "Walang kailangan humingi",
-              "Ang guro sa bata",
-              "Walang sinuman"
+              "The child, from a parent or teacher",
+              "No one needs to ask",
+              "The teacher, from the child",
+              "Nobody"
             ],
-            "correct_answer": "Ang bata, sa magulang o guro"
+            "correct_answer": "The child, from a parent or teacher"
           }
         ]
       },

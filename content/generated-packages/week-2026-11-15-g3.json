@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ✅ Computer — Ligtas na Nilalaman vs. Hindi Angkop na Nilalaman\n\nGrade 3, Week 23! Alamin natin kung paano makilala ang ligtas na nilalaman online. ✅\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga icon ng browser at search engine.\n\n## ✅ Ligtas na Nilalaman\n- Ginawa para sa mga bata\n- Edukasyonal o nakakatuwang laro\n- Aprubado ng magulang o guro\n\n## 🚫 Hindi Angkop na Nilalaman\n- May marahas o nakakatakot na larawan\n- Humihingi ng personal na impormasyon\n- Hindi ginawa para sa edad ng bata\n\n## 👨‍👩‍👧 Ano ang Gagawin?\nKung nakakita ng hindi angkop na nilalaman, **isara agad** ito at sabihin sa isang matanda.\n\n**Mahahalagang salita:** ligtas, hindi angkop, edukasyonal, isara agad",
+        "summary_markdown": "# ✅ Computer — Safe Content vs. Content Not Right for Kids\n\nGrade 3, Week 23! Let's learn how to spot safe content online. ✅\n\n## 🔄 Review\nWe learned the browser and search engine icons.\n\n## ✅ Safe Content\n- Made for kids\n- Helps you learn or is a fun game\n- Approved by a parent or teacher\n\n## 🚫 Content Not Right for Kids\n- Has violent or scary pictures\n- Asks for personal information\n- Not made for a child's age\n\n## 👨‍👩‍👧 What Should You Do?\nIf you see content that is not right for kids, **close it right away** and tell an adult.\n\n**Key words:** safe, not right for kids, learning, close right away",
         "quiz": [
           {
-            "question": "Ano ang katangian ng ligtas na nilalaman online?",
+            "question": "What is true about safe content online?",
             "options": [
-              "Ginawa para sa mga bata at aprubado ng matanda",
-              "May marahas na larawan",
-              "Humihingi ng personal na impormasyon",
-              "Hindi angkop sa edad"
+              "Made for kids and approved by an adult",
+              "Has violent pictures",
+              "Asks for personal information",
+              "Not right for your age"
             ],
-            "correct_answer": "Ginawa para sa mga bata at aprubado ng matanda"
+            "correct_answer": "Made for kids and approved by an adult"
           },
           {
-            "question": "Ano ang katangian ng hindi angkop na nilalaman?",
+            "question": "What is true about content that is not right for kids?",
             "options": [
-              "May marahas o nakakatakot na larawan",
-              "Ginawa para sa mga bata",
-              "Edukasyonal",
-              "Aprubado ng magulang"
+              "Has violent or scary pictures",
+              "Made for kids",
+              "Helps you learn",
+              "Approved by a parent"
             ],
-            "correct_answer": "May marahas o nakakatakot na larawan"
+            "correct_answer": "Has violent or scary pictures"
           },
           {
-            "question": "Ano ang dapat gawin kung nakakita ng hindi angkop na nilalaman?",
+            "question": "What should you do if you see content that is not right for kids?",
             "options": [
-              "Isara agad at sabihin sa matanda",
-              "Ipagpatuloy panoorin",
-              "Ibahagi sa kaibigan",
-              "Balewalain ito"
+              "Close it right away and tell an adult",
+              "Keep watching",
+              "Share it with a friend",
+              "Ignore it"
             ],
-            "correct_answer": "Isara agad at sabihin sa matanda"
+            "correct_answer": "Close it right away and tell an adult"
           },
           {
-            "question": "Bakit mahalagang kilalanin ang ligtas na nilalaman?",
+            "question": "Why is it important to spot safe content?",
             "options": [
-              "Para maiwasan ang mapanganib o hindi angkop na bagay",
-              "Hindi na kailangan kilalanin ito",
-              "Lahat ng nilalaman ay ligtas",
-              "Walang gamit ito"
+              "To stay away from things that are dangerous or not right for kids",
+              "There is no need to spot it",
+              "All content is safe",
+              "It has no use"
             ],
-            "correct_answer": "Para maiwasan ang mapanganib o hindi angkop na bagay"
+            "correct_answer": "To stay away from things that are dangerous or not right for kids"
           },
           {
-            "question": "Sino ang dapat sabihan kung may nakitang hindi angkop na nilalaman?",
+            "question": "Who should you tell if you see content that is not right for kids?",
             "options": [
-              "Isang matanda",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "An adult",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang matanda"
+            "correct_answer": "An adult"
           },
           {
-            "question": "Alin ang halimbawa ng ligtas na nilalaman?",
+            "question": "Which is an example of safe content?",
             "options": [
-              "Edukasyonal na laro",
-              "Larawang marahas",
-              "Kahilingan ng personal na impormasyon",
-              "Nilalamang hindi angkop sa edad"
+              "A learning game",
+              "A violent picture",
+              "A request for personal information",
+              "Content that is not right for your age"
             ],
-            "correct_answer": "Edukasyonal na laro"
+            "correct_answer": "A learning game"
           },
           {
-            "question": "Bakit hindi dapat magbigay ng personal na impormasyon sa isang website?",
+            "question": "Why should you not give personal information to a website?",
             "options": [
-              "Maaaring gamitin ito ng may masamang layunin",
-              "Ligtas itong gawin palagi",
-              "Walang panganib dito",
-              "Kinakailangan itong gawin"
+              "Someone could use it to do bad things",
+              "It is always safe to do",
+              "There is no danger",
+              "You have to do it"
             ],
-            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "question": "Why do kids learn this topic?",
             "options": [
-              "Upang malaman kung ano ang dapat iwasan online",
-              "Hindi ito mahalaga",
-              "Upang hikayatin panoorin ang lahat",
-              "Walang layunin ito"
+              "To know what to stay away from online",
+              "It is not important",
+              "To get kids to watch everything",
+              "It has no goal"
             ],
-            "correct_answer": "Upang malaman kung ano ang dapat iwasan online"
+            "correct_answer": "To know what to stay away from online"
           },
           {
-            "question": "Ano ang tamang gawin kapag hindi sigurado kung ligtas ang isang website?",
+            "question": "What is the right thing to do if you are not sure a website is safe?",
             "options": [
-              "Magtanong muna sa magulang o guro",
-              "Buksan agad nang walang tanong",
-              "Ipagpatuloy nang mag-isa",
-              "Ibahagi sa kaklase"
+              "Ask a parent or teacher first",
+              "Open it right away without asking",
+              "Keep going alone",
+              "Share it with a classmate"
             ],
-            "correct_answer": "Magtanong muna sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher first"
           },
           {
-            "question": "Bakit mahalagang aprubahan muna ng matanda ang nilalaman?",
+            "question": "Why is it important for an adult to approve the content first?",
             "options": [
-              "Para matiyak na angkop at ligtas ito para sa bata",
-              "Hindi na kailangan ang aprubasyon",
-              "Ang bata na lamang ang dapat pumili",
-              "Walang gamit ang aprubasyon"
+              "To make sure it is right and safe for kids",
+              "Approval is not needed",
+              "The child should choose alone",
+              "Approval has no use"
             ],
-            "correct_answer": "Para matiyak na angkop at ligtas ito para sa bata"
+            "correct_answer": "To make sure it is right and safe for kids"
           },
           {
-            "question": "Alin sa mga sumusunod ang HINDI angkop na nilalaman para sa bata?",
+            "question": "Which of these is NOT right for kids?",
             "options": [
-              "Larawang nakakatakot o marahas",
-              "Bidyong pang-edukasyon",
-              "Larong pang-matematika",
-              "Kuwentong pambata"
+              "A scary or violent picture",
+              "A learning video",
+              "A math game",
+              "A kids' story"
             ],
-            "correct_answer": "Larawang nakakatakot o marahas"
+            "correct_answer": "A scary or violent picture"
           },
           {
-            "question": "Bakit mahalagang matutong kilalanin ang ligtas na nilalaman mula sa maagang edad?",
+            "question": "Why is it important to learn to spot safe content while you are young?",
             "options": [
-              "Upang maging responsable at ligtas sa paggamit ng Internet paglaki",
-              "Hindi na kailangan matutunan ito",
-              "Para sa matatanda lamang",
-              "Walang epekto ito sa hinaharap"
+              "To use the Internet wisely and safely as you grow up",
+              "There is no need to learn it",
+              "It is only for grown-ups",
+              "It does not matter later on"
             ],
-            "correct_answer": "Upang maging responsable at ligtas sa paggamit ng Internet paglaki"
+            "correct_answer": "To use the Internet wisely and safely as you grow up"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# ✅ Friday Review — Computer (Grade 3)\n\n- Ligtas vs. hindi angkop na nilalaman\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# ✅ Friday Review — Computer (Grade 3)\n\n- Safe vs. not-right-for-kids content\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Katangian ng ligtas na nilalaman?",
+            "question": "What is true about safe content?",
             "options": [
-              "Ginawa para sa bata, aprubado ng matanda",
-              "May marahas na larawan",
-              "Humihingi ng personal na impormasyon",
-              "Hindi angkop sa edad"
+              "Made for kids, approved by an adult",
+              "Has violent pictures",
+              "Asks for personal information",
+              "Not right for your age"
             ],
-            "correct_answer": "Ginawa para sa bata, aprubado ng matanda"
+            "correct_answer": "Made for kids, approved by an adult"
           },
           {
-            "question": "Katangian ng hindi angkop na nilalaman?",
+            "question": "What is true about content that is not right for kids?",
             "options": [
-              "May marahas o nakakatakot na larawan",
-              "Ginawa para sa bata",
-              "Edukasyonal",
-              "Aprubado ng magulang"
+              "Has violent or scary pictures",
+              "Made for kids",
+              "Helps you learn",
+              "Approved by a parent"
             ],
-            "correct_answer": "May marahas o nakakatakot na larawan"
+            "correct_answer": "Has violent or scary pictures"
           },
           {
-            "question": "Gawin kung may nakitang hindi angkop na nilalaman?",
+            "question": "What should you do if you see content that is not right for kids?",
             "options": [
-              "Isara agad at sabihin sa matanda",
-              "Ipagpatuloy panoorin",
-              "Ibahagi sa kaibigan",
-              "Balewalain"
+              "Close it right away and tell an adult",
+              "Keep watching",
+              "Share it with a friend",
+              "Ignore it"
             ],
-            "correct_answer": "Isara agad at sabihin sa matanda"
+            "correct_answer": "Close it right away and tell an adult"
           },
           {
-            "question": "Bakit kilalanin ang ligtas na nilalaman?",
+            "question": "Why should you spot safe content?",
             "options": [
-              "Iwasan ang mapanganib o hindi angkop",
-              "Hindi kailangan",
-              "Lahat ay ligtas",
-              "Walang gamit"
+              "To stay away from things that are dangerous or not right for kids",
+              "It is not needed",
+              "Everything is safe",
+              "It has no use"
             ],
-            "correct_answer": "Iwasan ang mapanganib o hindi angkop"
+            "correct_answer": "To stay away from things that are dangerous or not right for kids"
           },
           {
-            "question": "Sino sabihan kung may nakitang hindi angkop?",
+            "question": "Who should you tell if you see something not right for kids?",
             "options": [
-              "Isang matanda",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "An adult",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang matanda"
+            "correct_answer": "An adult"
           },
           {
-            "question": "Halimbawa ng ligtas na nilalaman?",
+            "question": "Which is an example of safe content?",
             "options": [
-              "Edukasyonal na laro",
-              "Larawang marahas",
-              "Kahilingan ng personal na impormasyon",
-              "Nilalamang hindi angkop"
+              "A learning game",
+              "A violent picture",
+              "A request for personal information",
+              "Content that is not right for kids"
             ],
-            "correct_answer": "Edukasyonal na laro"
+            "correct_answer": "A learning game"
           },
           {
-            "question": "Bakit hindi magbigay ng personal na impormasyon?",
+            "question": "Why should you not give out personal information?",
             "options": [
-              "Maaaring gamitin ng may masamang layunin",
-              "Ligtas palagi",
-              "Walang panganib",
-              "Kinakailangan gawin"
+              "Someone could use it to do bad things",
+              "It is always safe",
+              "There is no danger",
+              "You have to do it"
             ],
-            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Bakit ituro ang paksang ito?",
+            "question": "Why do we learn this topic?",
             "options": [
-              "Malaman ang dapat iwasan online",
-              "Hindi mahalaga",
-              "Hikayatin panoorin lahat",
-              "Walang layunin"
+              "To know what to stay away from online",
+              "It is not important",
+              "To get kids to watch everything",
+              "It has no goal"
             ],
-            "correct_answer": "Malaman ang dapat iwasan online"
+            "correct_answer": "To know what to stay away from online"
           },
           {
-            "question": "Gawin kung hindi sigurado kung ligtas ang website?",
+            "question": "What should you do if you are not sure a website is safe?",
             "options": [
-              "Magtanong sa magulang o guro",
-              "Buksan agad",
-              "Ipagpatuloy mag-isa",
-              "Ibahagi sa kaklase"
+              "Ask a parent or teacher",
+              "Open it right away",
+              "Keep going alone",
+              "Share it with a classmate"
             ],
-            "correct_answer": "Magtanong sa magulang o guro"
+            "correct_answer": "Ask a parent or teacher"
           },
           {
-            "question": "Bakit aprubahan muna ng matanda ang nilalaman?",
+            "question": "Why should an adult approve the content first?",
             "options": [
-              "Matiyak na angkop at ligtas",
-              "Hindi kailangan",
-              "Bata ang dapat pumili",
-              "Walang gamit"
+              "To make sure it is right and safe",
+              "It is not needed",
+              "The child should choose",
+              "It has no use"
             ],
-            "correct_answer": "Matiyak na angkop at ligtas"
+            "correct_answer": "To make sure it is right and safe"
           },
           {
-            "question": "Alin ang HINDI angkop na nilalaman?",
+            "question": "Which one is NOT right for kids?",
             "options": [
-              "Larawang nakakatakot o marahas",
-              "Bidyong pang-edukasyon",
-              "Larong pang-matematika",
-              "Kuwentong pambata"
+              "A scary or violent picture",
+              "A learning video",
+              "A math game",
+              "A kids' story"
             ],
-            "correct_answer": "Larawang nakakatakot o marahas"
+            "correct_answer": "A scary or violent picture"
           },
           {
-            "question": "Bakit matutong kilalanin ang ligtas na nilalaman maaga?",
+            "question": "Why learn to spot safe content while you are young?",
             "options": [
-              "Maging responsable sa Internet paglaki",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To use the Internet wisely as you grow up",
+              "No need to learn it",
+              "It is only for grown-ups",
+              "It does not matter"
             ],
-            "correct_answer": "Maging responsable sa Internet paglaki"
+            "correct_answer": "To use the Internet wisely as you grow up"
           }
         ]
       },

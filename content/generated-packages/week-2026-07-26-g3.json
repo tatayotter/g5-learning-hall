@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Spacebar** = space | **Enter** = new line\n- **Backspace** = delete | **Shift** = capital letters\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Spacebar** = space | **Enter** = new line\n- **Backspace** = delete | **Shift** = capital letters\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "What does the spacebar do?", "options": ["Adds a space between words", "Deletes letters", "Types numbers", "Moves the cursor"], "correct_answer": "Adds a space between words" },
           { "question": "What does the Enter key do?", "options": ["Starts a new line or confirms an action", "Deletes letters", "Adds a space", "Types numbers"], "correct_answer": "Starts a new line or confirms an action" },

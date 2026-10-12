@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔌 Computer — Ligtas na Pagsasara ng Programa at Kompyuter\n\nGrade 3, Week 26! Alamin natin ang tamang paraan ng pagsasara ng kompyuter. 🔌\n\n## 🔄 Balik-Aral\nNatutuhan natin na hindi lahat ng nasa Internet ay totoo.\n\n## 🔌 Bakit Mahalaga ang Tamang Pagsasara?\nAng biglaang pagputol ng kuryente o pagpindot lamang sa power button ay maaaring **makasira** sa kompyuter o **mawala** ang hindi pa na-save na trabaho.\n\n## ✅ Tamang Hakbang sa Pagsasara\n1. I-save muna ang lahat ng trabaho\n2. Isara ang lahat ng bukas na programa\n3. Piliin ang \"Shut Down\" mula sa menu\n4. Hintaying mag-off nang tuluyan bago tanggalin ang saksakan (kung kailangan)\n\n**Mahahalagang salita:** shut down, save, ligtas na pagsasara, programa",
+        "summary_markdown": "# 🔌 Computer — Safely Closing Programs and the Computer\n\nGrade 3, Week 26! Let's learn the right way to turn off the computer. 🔌\n\n## 🔄 Review\nWe learned that not everything on the Internet is true.\n\n## 🔌 Why Is Shutting Down the Right Way Important?\nSuddenly cutting the power or just pressing the power button can **damage** the computer or make you **lose** work you have not saved.\n\n## ✅ The Right Steps to Shut Down\n1. Save all your work first\n2. Close all open programs\n3. Choose \"Shut Down\" from the menu\n4. Wait for it to turn off all the way before pulling out the plug (if needed)\n\n**Key words:** shut down, save, safe shutdown, program",
         "quiz": [
           {
-            "question": "Bakit mahalaga ang tamang pagsasara ng kompyuter?",
+            "question": "Why is it important to shut down the computer the right way?",
             "options": [
-              "Nakakaiwas ito sa pagkasira at pagkawala ng trabaho",
-              "Hindi mahalaga kung paano isasara",
-              "Walang epekto sa kompyuter",
-              "Basta patayin lamang agad"
+              "It keeps the computer from breaking and your work from being lost",
+              "It does not matter how you turn it off",
+              "It does nothing to the computer",
+              "Just turn it off right away"
             ],
-            "correct_answer": "Nakakaiwas ito sa pagkasira at pagkawala ng trabaho"
+            "correct_answer": "It keeps the computer from breaking and your work from being lost"
           },
           {
-            "question": "Ano ang unang hakbang bago isara ang kompyuter?",
+            "question": "What is the first step before turning off the computer?",
             "options": [
-              "I-save ang lahat ng trabaho",
-              "Direktang patayin",
-              "Kalimutan ang trabaho",
-              "Tanggalin agad ang saksakan"
+              "Save all your work",
+              "Turn it off right away",
+              "Forget your work",
+              "Pull out the plug right away"
             ],
-            "correct_answer": "I-save ang lahat ng trabaho"
+            "correct_answer": "Save all your work"
           },
           {
-            "question": "Ano ang gagawin pagkatapos i-save ang trabaho?",
+            "question": "What should you do after saving your work?",
             "options": [
-              "Isara ang lahat ng bukas na programa",
-              "Direktang tanggalin ang saksakan",
-              "Simulan ulit ang trabaho",
-              "Kalimutan ang lahat"
+              "Close all open programs",
+              "Pull out the plug right away",
+              "Start the work over",
+              "Forget everything"
             ],
-            "correct_answer": "Isara ang lahat ng bukas na programa"
+            "correct_answer": "Close all open programs"
           },
           {
-            "question": "Anong opsyon ang dapat piliin para tamang isara ang kompyuter?",
+            "question": "Which option should you choose to turn off the computer the right way?",
             "options": [
               "Shut Down",
-              "Restart lamang paulit-ulit",
+              "Only Restart again and again",
               "Delete",
               "Format"
             ],
             "correct_answer": "Shut Down"
           },
           {
-            "question": "Ano ang maaaring mangyari kung basta biglang puputulin ang kuryente?",
+            "question": "What can happen if the power is suddenly cut?",
             "options": [
-              "Maaaring masira ang kompyuter o mawala ang trabaho",
-              "Walang mangyayari",
-              "Palaging ligtas ito",
-              "Mas mabilis pa itong isasara"
+              "The computer may break or your work may be lost",
+              "Nothing will happen",
+              "It is always safe",
+              "It turns off even faster"
             ],
-            "correct_answer": "Maaaring masira ang kompyuter o mawala ang trabaho"
+            "correct_answer": "The computer may break or your work may be lost"
           },
           {
-            "question": "Bakit dapat hintaying mag-off nang tuluyan ang kompyuter bago tanggalin ang saksakan?",
+            "question": "Why should you wait for the computer to fully turn off before pulling out the plug?",
             "options": [
-              "Para matiyak na kumpleto na ang proseso ng pagsasara",
-              "Hindi na kailangan hintayin ito",
-              "Walang epekto kung agad tatanggalin",
-              "Basta tanggalin agad"
+              "To make sure the shutdown is all done",
+              "There is no need to wait",
+              "Nothing happens if you pull it out right away",
+              "Just pull it out right away"
             ],
-            "correct_answer": "Para matiyak na kumpleto na ang proseso ng pagsasara"
+            "correct_answer": "To make sure the shutdown is all done"
           },
           {
-            "question": "Ano ang mangyayari kung hindi mo isasave ang iyong trabaho bago isara ang programa?",
+            "question": "What will happen if you don't save your work before closing the program?",
             "options": [
-              "Maaaring mawala ang iyong ginawang trabaho",
-              "Palaging naiipon ito",
-              "Walang epekto",
-              "Awtomatikong nase-save ito"
+              "Your work might be lost",
+              "It is always kept",
+              "Nothing happens",
+              "It saves by itself"
             ],
-            "correct_answer": "Maaaring mawala ang iyong ginawang trabaho"
+            "correct_answer": "Your work might be lost"
           },
           {
-            "question": "Bakit itinuturo ang ligtas na pagsasara sa mga bata?",
+            "question": "Why do kids learn how to shut down safely?",
             "options": [
-              "Upang mapanatili ang kompyuter sa mabuting kondisyon",
-              "Hindi ito mahalaga",
-              "Para lamang mapahaba ang oras",
-              "Walang layunin ito"
+              "To keep the computer in good shape",
+              "It is not important",
+              "Only to use up time",
+              "It has no goal"
             ],
-            "correct_answer": "Upang mapanatili ang kompyuter sa mabuting kondisyon"
+            "correct_answer": "To keep the computer in good shape"
           },
           {
-            "question": "Ilang hakbang ang binanggit sa tamang pagsasara ng kompyuter?",
+            "question": "How many steps were given for shutting down the computer the right way?",
             "options": [
-              "Apat na hakbang",
-              "Isang hakbang lamang",
-              "Sampung hakbang",
-              "Walang hakbang"
+              "Four steps",
+              "Only one step",
+              "Ten steps",
+              "No steps"
             ],
-            "correct_answer": "Apat na hakbang"
+            "correct_answer": "Four steps"
           },
           {
-            "question": "Bakit mahalagang isara ang lahat ng bukas na programa bago mag-shut down?",
+            "question": "Why is it important to close all open programs before you shut down?",
             "options": [
-              "Para maiwasan ang problema sa proseso ng pagsasara",
-              "Hindi na kailangan isara ang mga ito",
-              "Walang epekto kung bukas pa ang mga ito",
-              "Mas mabilis kung hindi isasara"
+              "To avoid problems while the computer shuts down",
+              "There is no need to close them",
+              "Nothing happens if they are still open",
+              "It is faster if you don't close them"
             ],
-            "correct_answer": "Para maiwasan ang problema sa proseso ng pagsasara"
+            "correct_answer": "To avoid problems while the computer shuts down"
           },
           {
-            "question": "Ano ang tamang gawin bago tanggalin ang saksakan ng kompyuter?",
+            "question": "What is the right thing to do before pulling out the computer's plug?",
             "options": [
-              "Tiyakin na tuluyan nang naka-off ang kompyuter",
-              "Direktang tanggalin agad",
-              "Walang kailangang tiyakin",
-              "Basta tanggalin habang naka-on"
+              "Make sure the computer is fully off",
+              "Pull it out right away",
+              "Nothing needs checking",
+              "Just pull it out while it is on"
             ],
-            "correct_answer": "Tiyakin na tuluyan nang naka-off ang kompyuter"
+            "correct_answer": "Make sure the computer is fully off"
           },
           {
-            "question": "Bakit mahalagang matutong mag-shut down nang tama simula sa Grade 3?",
+            "question": "Why is it important to learn to shut down the right way starting in Grade 3?",
             "options": [
-              "Batayang kasanayan ito sa pag-aalaga ng kagamitan",
-              "Hindi ito kailangan matutunan",
-              "Para sa matatanda lamang ito",
-              "Walang gamit sa paaralan"
+              "It is a basic skill for taking care of things we use",
+              "There is no need to learn it",
+              "It is only for grown-ups",
+              "It has no use in school"
             ],
-            "correct_answer": "Batayang kasanayan ito sa pag-aalaga ng kagamitan"
+            "correct_answer": "It is a basic skill for taking care of things we use"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔌 Friday Review — Computer (Grade 3)\n\n- Ligtas na pagsasara ng programa at kompyuter\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🔌 Friday Review — Computer (Grade 3)\n\n- Safely closing programs and the computer\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Bakit mahalaga ang tamang pagsasara ng kompyuter?",
+            "question": "Why is it important to shut down the computer the right way?",
             "options": [
-              "Nakakaiwas sa pagkasira at pagkawala ng trabaho",
-              "Hindi mahalaga",
-              "Walang epekto",
-              "Basta patayin agad"
+              "It keeps the computer from breaking and your work from being lost",
+              "It is not important",
+              "Nothing happens",
+              "Just turn it off right away"
             ],
-            "correct_answer": "Nakakaiwas sa pagkasira at pagkawala ng trabaho"
+            "correct_answer": "It keeps the computer from breaking and your work from being lost"
           },
           {
-            "question": "Unang hakbang bago isara ang kompyuter?",
+            "question": "What is the first step before turning off the computer?",
             "options": [
-              "I-save ang trabaho",
-              "Direktang patayin",
-              "Kalimutan ang trabaho",
-              "Tanggalin ang saksakan"
+              "Save your work",
+              "Turn it off right away",
+              "Forget your work",
+              "Pull out the plug"
             ],
-            "correct_answer": "I-save ang trabaho"
+            "correct_answer": "Save your work"
           },
           {
-            "question": "Gawin pagkatapos i-save ang trabaho?",
+            "question": "What should you do after saving your work?",
             "options": [
-              "Isara ang mga bukas na programa",
-              "Tanggalin ang saksakan",
-              "Simulan ulit",
-              "Kalimutan ang lahat"
+              "Close the open programs",
+              "Pull out the plug",
+              "Start over",
+              "Forget everything"
             ],
-            "correct_answer": "Isara ang mga bukas na programa"
+            "correct_answer": "Close the open programs"
           },
           {
-            "question": "Opsyon para tamang isara ang kompyuter?",
+            "question": "Which option turns off the computer the right way?",
             "options": [
               "Shut Down",
-              "Restart paulit-ulit",
+              "Restart again and again",
               "Delete",
               "Format"
             ],
             "correct_answer": "Shut Down"
           },
           {
-            "question": "Mangyayari kung biglang puputulin ang kuryente?",
+            "question": "What can happen if the power is suddenly cut?",
             "options": [
-              "Maaaring masira o mawala ang trabaho",
-              "Wala",
-              "Palaging ligtas",
-              "Mas mabilis isasara"
+              "The computer may break or your work may be lost",
+              "Nothing",
+              "It is always safe",
+              "It turns off faster"
             ],
-            "correct_answer": "Maaaring masira o mawala ang trabaho"
+            "correct_answer": "The computer may break or your work may be lost"
           },
           {
-            "question": "Bakit hintaying mag-off nang tuluyan bago tanggalin ang saksakan?",
+            "question": "Why wait for the computer to fully turn off before pulling out the plug?",
             "options": [
-              "Matiyak na kumpleto ang proseso",
-              "Hindi kailangan hintayin",
-              "Walang epekto",
-              "Basta tanggalin agad"
+              "To make sure the shutdown is finished",
+              "No need to wait",
+              "Nothing happens",
+              "Just pull it out right away"
             ],
-            "correct_answer": "Matiyak na kumpleto ang proseso"
+            "correct_answer": "To make sure the shutdown is finished"
           },
           {
-            "question": "Mangyayari kung hindi i-save ang trabaho?",
+            "question": "What will happen if you don't save your work?",
             "options": [
-              "Maaaring mawala ang trabaho",
-              "Palaging naiipon",
-              "Walang epekto",
-              "Awtomatikong nase-save"
+              "Your work might be lost",
+              "It is always kept",
+              "Nothing happens",
+              "It saves by itself"
             ],
-            "correct_answer": "Maaaring mawala ang trabaho"
+            "correct_answer": "Your work might be lost"
           },
           {
-            "question": "Bakit ituro ang ligtas na pagsasara?",
+            "question": "Why do we learn to shut down safely?",
             "options": [
-              "Mapanatili ang kompyuter sa mabuting kondisyon",
-              "Hindi mahalaga",
-              "Mapahaba lamang ang oras",
-              "Walang layunin"
+              "To keep the computer in good shape",
+              "It is not important",
+              "Only to use up time",
+              "It has no goal"
             ],
-            "correct_answer": "Mapanatili ang kompyuter sa mabuting kondisyon"
+            "correct_answer": "To keep the computer in good shape"
           },
           {
-            "question": "Ilang hakbang sa tamang pagsasara?",
+            "question": "How many steps are there to shut down the right way?",
             "options": [
-              "Apat",
-              "Isa",
-              "Sampu",
-              "Wala"
+              "Four",
+              "One",
+              "Ten",
+              "None"
             ],
-            "correct_answer": "Apat"
+            "correct_answer": "Four"
           },
           {
-            "question": "Bakit isara ang bukas na programa bago mag-shut down?",
+            "question": "Why close open programs before you shut down?",
             "options": [
-              "Iwasan ang problema sa pagsasara",
-              "Hindi kailangan",
-              "Walang epekto",
-              "Mas mabilis kung hindi isasara"
+              "To avoid problems while shutting down",
+              "It is not needed",
+              "Nothing happens",
+              "It is faster if you don't close them"
             ],
-            "correct_answer": "Iwasan ang problema sa pagsasara"
+            "correct_answer": "To avoid problems while shutting down"
           },
           {
-            "question": "Gawin bago tanggalin ang saksakan?",
+            "question": "What should you do before pulling out the plug?",
             "options": [
-              "Tiyakin naka-off na ang kompyuter",
-              "Direktang tanggalin",
-              "Walang kailangang tiyakin",
-              "Tanggalin habang naka-on"
+              "Make sure the computer is already off",
+              "Pull it out right away",
+              "Nothing needs checking",
+              "Pull it out while the computer is on"
             ],
-            "correct_answer": "Tiyakin naka-off na ang kompyuter"
+            "correct_answer": "Make sure the computer is already off"
           },
           {
-            "question": "Bakit matutong mag-shut down nang tama mula Grade 3?",
+            "question": "Why learn to shut down the right way from Grade 3?",
             "options": [
-              "Batayang kasanayan sa pag-aalaga ng kagamitan",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang gamit"
+              "It is a basic skill for taking care of things we use",
+              "No need to learn it",
+              "It is only for grown-ups",
+              "It has no use"
             ],
-            "correct_answer": "Batayang kasanayan sa pag-aalaga ng kagamitan"
+            "correct_answer": "It is a basic skill for taking care of things we use"
           }
         ]
       },

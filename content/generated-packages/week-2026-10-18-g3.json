@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Computer — Karagdagang Kasanayan: Copy, Paste, at Undo\n\nGrade 3, Week 19! Alamin natin ang mga kapaki-pakinabang na shortcut sa kompyuter. ⌨️\n\n## 📋 Copy and Paste\nAng **copy** ay ang paggawa ng **kopya** ng napiling teksto o larawan. Ang **paste** ay ang paglalagay ng nakopya sa **ibang lugar**.\n\n**Gamit:** kapag gusto mong gamitin muli ang parehong teksto o larawan nang hindi ito muling isinusulat.\n\n## ↩️ Undo\nAng **undo** ay ginagamit upang **ibalik** ang huling ginawang aksyon — kapaki-pakinabang kapag nagkamali tayo sa aming ginawa.\n\n**Halimbawa:** Kung aksidenteng na-delete mo ang isang parirala, gamitin ang undo upang ibalik ito.\n\n## 🖨️ Pag-print ng Iyong Gawa\nKapag tapos na ang iyong proyekto, maaari mo itong **i-print** upang magkaroon ng kopya sa papel.\n\n## 🧠 Halimbawa 1\n*Aksidenteng na-delete mo ang isang pangungusap sa iyong proyekto. Ano ang dapat mong gawin?*\n- Gamitin ang **undo** upang ibalik ang na-delete na pangungusap.\n\n## 🧠 Halimbawa 2\n*Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi ng proyekto. Anong dalawang kasanayan ang gagamitin?*\n- **Copy at paste** — kopyahin ang pamagat, at i-paste ito sa ibang lugar.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-alam sa copy, paste, at undo ay tumutulong upang maging **mas mabilis at episyente** sa paggawa ng proyekto.\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 💻 Computer — More Skills: Copy, Paste, and Undo\n\nGrade 3, Week 19! Let's learn some helpful computer shortcuts. ⌨️\n\n## 📋 Copy and Paste\n**Copy** makes a **copy** of the text or picture you chose. **Paste** puts what you copied in **another place**.\n\n**When to use it:** when you want to use the same text or picture again without typing it again.\n\n## ↩️ Undo\n**Undo** is used to **take back** the last thing you did — it helps when we make a mistake.\n\n**Example:** If you deleted a sentence by accident, use undo to bring it back.\n\n## 🖨️ Printing Your Work\nWhen your project is done, you can **print** it to have a copy on paper.\n\n## 🧠 Example 1\n*You deleted a sentence in your project by accident. What should you do?*\n- Use **undo** to bring back the deleted sentence.\n\n## 🧠 Example 2\n*You want to use the same title in different parts of your project. Which two skills will you use?*\n- **Copy and paste** — copy the title, then paste it in another place.\n\n## 💡 Why Is This Important?\nKnowing copy, paste, and undo helps you work on your project **faster and better**.\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang copy?",
+            "question": "What is copy?",
             "options": [
-              "Paggawa ng kopya ng napiling teksto o larawan",
-              "Pagtanggal ng teksto nang tuluyan",
-              "Pag-print ng buong dokumento",
-              "Pagsara ng programa"
+              "Making a copy of the chosen text or picture",
+              "Removing text forever",
+              "Printing the whole document",
+              "Closing the program"
             ],
-            "correct_answer": "Paggawa ng kopya ng napiling teksto o larawan"
+            "correct_answer": "Making a copy of the chosen text or picture"
           },
           {
-            "question": "Ano ang paste?",
+            "question": "What is paste?",
             "options": [
-              "Paglalagay ng nakopyang bagay sa ibang lugar",
-              "Pagtanggal ng teksto",
-              "Pag-save ng file",
-              "Pagbubukas ng bagong programa"
+              "Putting the copied thing in another place",
+              "Removing text",
+              "Saving a file",
+              "Opening a new program"
             ],
-            "correct_answer": "Paglalagay ng nakopyang bagay sa ibang lugar"
+            "correct_answer": "Putting the copied thing in another place"
           },
           {
-            "question": "Ano ang undo?",
+            "question": "What is undo?",
             "options": [
-              "Pagbabalik ng huling ginawang aksyon",
-              "Pagsulat ng bagong pangungusap",
-              "Pag-print ng dokumento",
-              "Pagsara ng programa"
+              "Taking back the last thing you did",
+              "Writing a new sentence",
+              "Printing the document",
+              "Closing the program"
             ],
-            "correct_answer": "Pagbabalik ng huling ginawang aksyon"
+            "correct_answer": "Taking back the last thing you did"
           },
           {
-            "question": "Aksidenteng na-delete mo ang isang pangungusap. Ano ang dapat mong gawin?",
+            "question": "You deleted a sentence by accident. What should you do?",
             "options": [
-              "Gamitin ang undo",
-              "Isara ang programa agad",
-              "Simulan ulit ang buong proyekto",
-              "I-save agad ang file"
+              "Use undo",
+              "Close the program right away",
+              "Start the whole project over",
+              "Save the file right away"
             ],
-            "correct_answer": "Gamitin ang undo"
+            "correct_answer": "Use undo"
           },
           {
-            "question": "Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi. Anong dalawang kasanayan ang gagamitin?",
+            "question": "You want to use the same title in different parts. Which two skills will you use?",
             "options": [
-              "Copy at paste",
-              "Undo at redo",
-              "Save at close",
-              "Print at delete"
+              "Copy and paste",
+              "Undo and redo",
+              "Save and close",
+              "Print and delete"
             ],
-            "correct_answer": "Copy at paste"
+            "correct_answer": "Copy and paste"
           },
           {
-            "question": "Ano ang gagawin mo sa iyong proyekto kapag tapos na ito?",
+            "question": "What can you do with your project when it is finished?",
             "options": [
-              "Maaari mo itong i-print",
-              "Kalimutan na lamang ito",
-              "Burahin agad ito",
-              "Huwag na itong buksan pa"
+              "You can print it",
+              "Just forget about it",
+              "Delete it right away",
+              "Never open it again"
             ],
-            "correct_answer": "Maaari mo itong i-print"
+            "correct_answer": "You can print it"
           },
           {
-            "question": "Bakit kapaki-pakinabang ang undo?",
+            "question": "Why is undo helpful?",
             "options": [
-              "Nakatutulong itong itama ang mga pagkakamali",
-              "Nagpapabagal lamang ito ng gawain",
-              "Wala itong gamit sa proyekto",
-              "Nagpapahirap lamang ito ng trabaho"
+              "It helps fix mistakes",
+              "It only slows down the work",
+              "It has no use in a project",
+              "It only makes work harder"
             ],
-            "correct_answer": "Nakatutulong itong itama ang mga pagkakamali"
+            "correct_answer": "It helps fix mistakes"
           },
           {
-            "question": "Bakit mahalagang malaman ang copy at paste?",
+            "question": "Why is it important to know copy and paste?",
             "options": [
-              "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat",
-              "Nagpapahirap lamang ito ng buong gawain",
-              "Wala talagang anumang tulong ito",
-              "Ginagamit lamang ito sa paglalaro ng laro"
+              "It helps you not type the same thing again",
+              "It only makes the whole work harder",
+              "It does not help at all",
+              "It is only used for playing games"
             ],
-            "correct_answer": "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat"
+            "correct_answer": "It helps you not type the same thing again"
           },
           {
-            "question": "Ano ang unang hakbang bago mag-paste ng isang teksto?",
+            "question": "What is the first step before you paste text?",
             "options": [
-              "Kopyahin muna ang teksto",
-              "I-print agad ang buong dokumento",
-              "Isara agad ang programa",
-              "Burahin agad ang teksto"
+              "Copy the text first",
+              "Print the whole document right away",
+              "Close the program right away",
+              "Delete the text right away"
             ],
-            "correct_answer": "Kopyahin muna ang teksto"
+            "correct_answer": "Copy the text first"
           },
           {
-            "question": "Bakit mahalagang malaman ang mga kasanayang ito para sa isang proyekto?",
+            "question": "Why is it important to know these skills for a project?",
             "options": [
-              "Tumutulong ang mga ito upang maging mas mabilis at episyente",
-              "Wala itong anumang kabuluhan sa buong gawain",
-              "Nagpapahirap lamang ito ng buong proyekto",
-              "Ginagamit lamang ito ng mga guro sa paaralan"
+              "They help you work faster and better",
+              "They do not help the work at all",
+              "They only make the whole project harder",
+              "Only teachers at school use them"
             ],
-            "correct_answer": "Tumutulong ang mga ito upang maging mas mabilis at episyente"
+            "correct_answer": "They help you work faster and better"
           },
           {
-            "question": "Ano ang mangyayari kapag pinindot mo ang undo pagkatapos ng isang pagkakamali?",
+            "question": "What happens when you press undo after a mistake?",
             "options": [
-              "Ibabalik nito ang huling ginawang aksyon",
-              "Isasara nito ang buong programa",
-              "I-i-print nito ang dokumento",
-              "Ide-delete nito ang buong file"
+              "It takes back the last thing you did",
+              "It closes the whole program",
+              "It prints the document",
+              "It deletes the whole file"
             ],
-            "correct_answer": "Ibabalik nito ang huling ginawang aksyon"
+            "correct_answer": "It takes back the last thing you did"
           },
           {
-            "question": "Ano ang benepisyo ng pag-print ng iyong tapos na proyekto?",
+            "question": "What is good about printing your finished project?",
             "options": [
-              "Magkakaroon ka ng kopya sa papel",
-              "Mawawala ang lahat ng datos",
-              "Hindi na ito mababasa pa",
-              "Magiging mas mabagal ang kompyuter"
+              "You will have a copy on paper",
+              "All the data will be lost",
+              "It can no longer be read",
+              "The computer will become slower"
             ],
-            "correct_answer": "Magkakaroon ka ng kopya sa papel"
+            "correct_answer": "You will have a copy on paper"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- **Copy, paste, undo** — kapaki-pakinabang na shortcut\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 3)\n\n- **Copy, paste, undo** — helpful shortcuts\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ano ang copy?",
+            "question": "What is copy?",
             "options": [
-              "Paggawa ng kopya ng napiling teksto o larawan",
-              "Pagtanggal ng teksto nang tuluyan",
-              "Pag-print ng buong dokumento",
-              "Pagsara ng programa"
+              "Making a copy of the chosen text or picture",
+              "Removing text forever",
+              "Printing the whole document",
+              "Closing the program"
             ],
-            "correct_answer": "Paggawa ng kopya ng napiling teksto o larawan"
+            "correct_answer": "Making a copy of the chosen text or picture"
           },
           {
-            "question": "Ano ang paste?",
+            "question": "What is paste?",
             "options": [
-              "Paglalagay ng nakopyang bagay sa ibang lugar",
-              "Pagtanggal ng teksto",
-              "Pag-save ng file",
-              "Pagbubukas ng bagong programa"
+              "Putting the copied thing in another place",
+              "Removing text",
+              "Saving a file",
+              "Opening a new program"
             ],
-            "correct_answer": "Paglalagay ng nakopyang bagay sa ibang lugar"
+            "correct_answer": "Putting the copied thing in another place"
           },
           {
-            "question": "Ano ang undo?",
+            "question": "What is undo?",
             "options": [
-              "Pagbabalik ng huling ginawang aksyon",
-              "Pagsulat ng bagong pangungusap",
-              "Pag-print ng dokumento",
-              "Pagsara ng programa"
+              "Taking back the last thing you did",
+              "Writing a new sentence",
+              "Printing the document",
+              "Closing the program"
             ],
-            "correct_answer": "Pagbabalik ng huling ginawang aksyon"
+            "correct_answer": "Taking back the last thing you did"
           },
           {
-            "question": "Aksidenteng na-delete mo ang isang pangungusap. Ano ang dapat mong gawin?",
+            "question": "You deleted a sentence by accident. What should you do?",
             "options": [
-              "Gamitin ang undo",
-              "Isara ang programa agad",
-              "Simulan ulit ang buong proyekto",
-              "I-save agad ang file"
+              "Use undo",
+              "Close the program right away",
+              "Start the whole project over",
+              "Save the file right away"
             ],
-            "correct_answer": "Gamitin ang undo"
+            "correct_answer": "Use undo"
           },
           {
-            "question": "Gusto mong gamitin muli ang parehong pamagat sa iba't ibang bahagi. Anong dalawang kasanayan ang gagamitin?",
+            "question": "You want to use the same title in different parts. Which two skills will you use?",
             "options": [
-              "Copy at paste",
-              "Undo at redo",
-              "Save at close",
-              "Print at delete"
+              "Copy and paste",
+              "Undo and redo",
+              "Save and close",
+              "Print and delete"
             ],
-            "correct_answer": "Copy at paste"
+            "correct_answer": "Copy and paste"
           },
           {
-            "question": "Ano ang gagawin mo sa iyong proyekto kapag tapos na ito?",
+            "question": "What can you do with your project when it is finished?",
             "options": [
-              "Maaari mo itong i-print",
-              "Kalimutan na lamang ito",
-              "Burahin agad ito",
-              "Huwag na itong buksan pa"
+              "You can print it",
+              "Just forget about it",
+              "Delete it right away",
+              "Never open it again"
             ],
-            "correct_answer": "Maaari mo itong i-print"
+            "correct_answer": "You can print it"
           },
           {
-            "question": "Bakit kapaki-pakinabang ang undo?",
+            "question": "Why is undo helpful?",
             "options": [
-              "Nakatutulong itong itama ang mga pagkakamali",
-              "Nagpapabagal lamang ito ng gawain",
-              "Wala itong gamit sa proyekto",
-              "Nagpapahirap lamang ito ng trabaho"
+              "It helps fix mistakes",
+              "It only slows down the work",
+              "It has no use in a project",
+              "It only makes work harder"
             ],
-            "correct_answer": "Nakatutulong itong itama ang mga pagkakamali"
+            "correct_answer": "It helps fix mistakes"
           },
           {
-            "question": "Bakit mahalagang malaman ang copy at paste?",
+            "question": "Why is it important to know copy and paste?",
             "options": [
-              "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat",
-              "Nagpapahirap lamang ito ng buong gawain",
-              "Wala talagang anumang tulong ito",
-              "Ginagamit lamang ito sa paglalaro ng laro"
+              "It helps you not type the same thing again",
+              "It only makes the whole work harder",
+              "It does not help at all",
+              "It is only used for playing games"
             ],
-            "correct_answer": "Nakatutulong itong maiwasan ang pag-uulit ng pagsulat"
+            "correct_answer": "It helps you not type the same thing again"
           },
           {
-            "question": "Ano ang unang hakbang bago mag-paste ng isang teksto?",
+            "question": "What is the first step before you paste text?",
             "options": [
-              "Kopyahin muna ang teksto",
-              "I-print agad ang buong dokumento",
-              "Isara agad ang programa",
-              "Burahin agad ang teksto"
+              "Copy the text first",
+              "Print the whole document right away",
+              "Close the program right away",
+              "Delete the text right away"
             ],
-            "correct_answer": "Kopyahin muna ang teksto"
+            "correct_answer": "Copy the text first"
           },
           {
-            "question": "Bakit mahalagang malaman ang mga kasanayang ito para sa isang proyekto?",
+            "question": "Why is it important to know these skills for a project?",
             "options": [
-              "Tumutulong ang mga ito upang maging mas mabilis at episyente",
-              "Wala itong anumang kabuluhan sa buong gawain",
-              "Nagpapahirap lamang ito ng buong proyekto",
-              "Ginagamit lamang ito ng mga guro sa paaralan"
+              "They help you work faster and better",
+              "They do not help the work at all",
+              "They only make the whole project harder",
+              "Only teachers at school use them"
             ],
-            "correct_answer": "Tumutulong ang mga ito upang maging mas mabilis at episyente"
+            "correct_answer": "They help you work faster and better"
           },
           {
-            "question": "Ano ang mangyayari kapag pinindot mo ang undo pagkatapos ng isang pagkakamali?",
+            "question": "What happens when you press undo after a mistake?",
             "options": [
-              "Ibabalik nito ang huling ginawang aksyon",
-              "Isasara nito ang buong programa",
-              "I-i-print nito ang dokumento",
-              "Ide-delete nito ang buong file"
+              "It takes back the last thing you did",
+              "It closes the whole program",
+              "It prints the document",
+              "It deletes the whole file"
             ],
-            "correct_answer": "Ibabalik nito ang huling ginawang aksyon"
+            "correct_answer": "It takes back the last thing you did"
           },
           {
-            "question": "Ano ang benepisyo ng pag-print ng iyong tapos na proyekto?",
+            "question": "What is good about printing your finished project?",
             "options": [
-              "Magkakaroon ka ng kopya sa papel",
-              "Mawawala ang lahat ng datos",
-              "Hindi na ito mababasa pa",
-              "Magiging mas mabagal ang kompyuter"
+              "You will have a copy on paper",
+              "All the data will be lost",
+              "It can no longer be read",
+              "The computer will become slower"
             ],
-            "correct_answer": "Magkakaroon ka ng kopya sa papel"
+            "correct_answer": "You will have a copy on paper"
           }
         ]
       },

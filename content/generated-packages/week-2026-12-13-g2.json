@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Computer — Pagbabalik-Aral: Buong Term sa Computer\n\nGrade 2, Week 27! Balikan natin ang lahat ng natutuhan sa Computer. 💻\n\n## 🔄 Mga Natutunan\n- **Keyboard at pag-type** ng simpleng pangungusap\n- **Pag-save at pagbukas** ng file\n- **Internet:** ano ito, kid-friendly na nilalaman\n- **Screen-time:** balanse at pahintulot ng matanda\n- **Online safety:** pribadong impormasyon, pag-uulat ng hindi ligtas na sitwasyon\n\n## 🧠 Pagsasama-sama\nGinamit natin ang lahat ng ito sa isang simpleng proyekto — pagpapakita kung gaano na tayo kahusay sa paggamit ng kompyuter nang ligtas at responsable.\n\n## 🎯 Paghahanda\nSa susunod na term, patuloy nating linangin ang ligtas at malikhaing paggamit ng teknolohiya.\n\n**Mahahalagang salita:** keyboard, file, Internet, screen-time, online safety",
+        "summary_markdown": "# 💻 Computer — Review: The Whole Computer Term\n\nGrade 2, Week 27! Let's look back at everything we learned in Computer. 💻\n\n## 🔄 What We Learned\n- **Keyboard and typing** simple sentences\n- **Saving and opening** a file\n- **Internet:** what it is, kid-friendly content\n- **Screen-time:** balance and a grown-up's permission\n- **Online safety:** private information, reporting unsafe situations\n\n## 🧠 Putting It All Together\nWe used all of these in a simple project — showing how good we are now at using the computer safely and responsibly.\n\n## 🎯 Getting Ready\nNext term, we will keep learning to use technology in safe and creative ways.\n\n**Key words:** keyboard, file, Internet, screen-time, online safety",
         "quiz": [
           {
-            "question": "Ano ang ginagamit para i-type ang mga salita?",
+            "question": "What do you use to type words?",
             "options": [
               "Keyboard",
-              "Mouse lamang",
-              "Screen lamang",
+              "Only the mouse",
+              "Only the screen",
               "Speaker"
             ],
             "correct_answer": "Keyboard"
           },
           {
-            "question": "Ano ang pag-save?",
+            "question": "What is saving?",
             "options": [
-              "Pagtatago ng trabaho para hindi mawala",
-              "Pagtapon ng trabaho",
-              "Pagpapalit ng kompyuter",
-              "Pagpindot ng mouse"
+              "Keeping your work so it is not lost",
+              "Throwing away your work",
+              "Changing the computer",
+              "Clicking the mouse"
             ],
-            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+            "correct_answer": "Keeping your work so it is not lost"
           },
           {
-            "question": "Ano ang Internet?",
+            "question": "What is the Internet?",
             "options": [
-              "Network na nagkokonekta ng kompyuter sa buong mundo",
-              "Uri ng laruan",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A network that connects computers all over the world",
+              "A kind of toy",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Network na nagkokonekta ng kompyuter sa buong mundo"
+            "correct_answer": "A network that connects computers all over the world"
           },
           {
-            "question": "Ano ang screen-time?",
+            "question": "What is screen-time?",
             "options": [
-              "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono",
-              "Oras ng pagtulog",
-              "Oras ng pagkain",
-              "Oras ng paglalaro sa labas"
+              "Time spent in front of a computer, tablet, or phone",
+              "Time for sleeping",
+              "Time for eating",
+              "Time for playing outside"
             ],
-            "correct_answer": "Oras na ginugugol sa harap ng kompyuter, tablet, o telepono"
+            "correct_answer": "Time spent in front of a computer, tablet, or phone"
           },
           {
-            "question": "Halimbawa ng personal na impormasyon?",
+            "question": "What is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Your full name and home address",
+              "Your favorite color",
+              "Your favorite food",
+              "Your favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Your full name and home address"
           },
           {
-            "question": "Gawin kung may hindi ligtas na nangyari online?",
+            "question": "What should you do if something unsafe happens online?",
             "options": [
-              "Sabihin agad sa isang matanda",
-              "Itago na lamang ito",
-              "Balewalain ito",
-              "Sabihin lamang sa kaibigan"
+              "Tell a grown-up right away",
+              "Just keep it a secret",
+              "Ignore it",
+              "Tell only a friend"
             ],
-            "correct_answer": "Sabihin agad sa isang matanda"
+            "correct_answer": "Tell a grown-up right away"
           },
           {
-            "question": "Sino dapat kasama kapag nagse-save ng file?",
+            "question": "Who should be with you when you save a file?",
             "options": [
-              "Isang may sapat na gulang na matanda",
-              "Walang sinuman",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Isang may sapat na gulang na matanda"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Bakit hindi lahat ng nasa Internet ay angkop para sa mga bata?",
+            "question": "Why is not everything on the Internet good for kids?",
             "options": [
-              "May ilang nilalaman na para lamang sa matatanda o mapanganib",
-              "Lahat ay ligtas para sa bata",
-              "Walang mapanganib na nilalaman",
-              "Hindi totoo ito"
+              "Some content is only for grown-ups or is dangerous",
+              "Everything is safe for kids",
+              "There is no dangerous content",
+              "This is not true"
             ],
-            "correct_answer": "May ilang nilalaman na para lamang sa matatanda o mapanganib"
+            "correct_answer": "Some content is only for grown-ups or is dangerous"
           },
           {
-            "question": "Bakit kailangang limitahan ang screen-time?",
+            "question": "Why do we need to limit screen-time?",
             "options": [
-              "Maaaring makasama sa mata at katawan",
-              "Walang dahilan",
-              "Palaging mabuti ang mahabang screen-time",
-              "Hindi na kailangan limitahan"
+              "It can hurt your eyes and body",
+              "There is no reason",
+              "Long screen-time is always good",
+              "We don't need to limit it"
             ],
-            "correct_answer": "Maaaring makasama sa mata at katawan"
+            "correct_answer": "It can hurt your eyes and body"
           },
           {
-            "question": "Ano ang unang gawin kung may hindi ligtas na mensahe?",
+            "question": "What should you do first if you get an unsafe message?",
             "options": [
-              "Huwag sumagot",
-              "Sumagot nang bastos",
-              "Ibahagi ang personal na impormasyon",
-              "Balewalain at ipagpatuloy ang pag-uusap"
+              "Do not reply",
+              "Reply rudely",
+              "Share your personal information",
+              "Ignore it and keep talking"
             ],
-            "correct_answer": "Huwag sumagot"
+            "correct_answer": "Do not reply"
           },
           {
-            "question": "Ano ang pangkalahatang aral tungkol sa Internet sa buong term?",
+            "question": "What is the main lesson about the Internet this whole term?",
             "options": [
-              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
-              "Gamitin nang mag-isa kahit kailan",
-              "Hindi na kailangan pag-ingatan",
-              "Walang panganib online"
+              "Use it with help and choose the right content",
+              "Use it alone any time",
+              "You don't need to be careful",
+              "There is no danger online"
             ],
-            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+            "correct_answer": "Use it with help and choose the right content"
           },
           {
-            "question": "Bakit itinuro ang lahat ng kasanayang ito sa Grade 2?",
+            "question": "Why did we learn all these skills in Grade 2?",
             "options": [
-              "Batayang kasanayan sa ligtas at responsableng paggamit ng kompyuter",
-              "Hindi kailangan matutunan ang mga ito",
-              "Para lamang sa matatanda",
-              "Walang gamit sa paaralan"
+              "They are basic skills for using the computer safely and responsibly",
+              "We don't need to learn them",
+              "They are only for grown-ups",
+              "They are not useful in school"
             ],
-            "correct_answer": "Batayang kasanayan sa ligtas at responsableng paggamit ng kompyuter"
+            "correct_answer": "They are basic skills for using the computer safely and responsibly"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Friday Review — Computer (Grade 2)\n\n- Term 2 wrap-up: keyboard, file, Internet, online safety\n\nMagaling na term sa Computer! 🌟",
+        "summary_markdown": "# 💻 Friday Review — Computer (Grade 2)\n\n- Term 2 wrap-up: keyboard, file, Internet, online safety\n\nGreat term in Computer! 🌟",
         "quiz": [
           {
-            "question": "Ginagamit para i-type ang salita?",
+            "question": "What do you use to type words?",
             "options": [
               "Keyboard",
-              "Mouse lamang",
-              "Screen lamang",
+              "Only the mouse",
+              "Only the screen",
               "Speaker"
             ],
             "correct_answer": "Keyboard"
           },
           {
-            "question": "Ano ang pag-save?",
+            "question": "What is saving?",
             "options": [
-              "Pagtatago ng trabaho para hindi mawala",
-              "Pagtapon ng trabaho",
-              "Pagpapalit ng kompyuter",
-              "Pagpindot ng mouse"
+              "Keeping your work so it is not lost",
+              "Throwing away your work",
+              "Changing the computer",
+              "Clicking the mouse"
             ],
-            "correct_answer": "Pagtatago ng trabaho para hindi mawala"
+            "correct_answer": "Keeping your work so it is not lost"
           },
           {
-            "question": "Ano ang Internet?",
+            "question": "What is the Internet?",
             "options": [
-              "Network na nagkokonekta ng kompyuter",
-              "Uri ng laruan",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A network that connects computers",
+              "A kind of toy",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Network na nagkokonekta ng kompyuter"
+            "correct_answer": "A network that connects computers"
           },
           {
-            "question": "Ano ang screen-time?",
+            "question": "What is screen-time?",
             "options": [
-              "Oras sa harap ng kompyuter, tablet, telepono",
-              "Oras ng pagtulog",
-              "Oras ng pagkain",
-              "Oras ng paglalaro sa labas"
+              "Time in front of a computer, tablet, phone",
+              "Time for sleeping",
+              "Time for eating",
+              "Time for playing outside"
             ],
-            "correct_answer": "Oras sa harap ng kompyuter, tablet, telepono"
+            "correct_answer": "Time in front of a computer, tablet, phone"
           },
           {
-            "question": "Halimbawa ng personal na impormasyon?",
+            "question": "What is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Your full name and home address",
+              "Your favorite color",
+              "Your favorite food",
+              "Your favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Your full name and home address"
           },
           {
-            "question": "Gawin kung may hindi ligtas na nangyari online?",
+            "question": "What should you do if something unsafe happens online?",
             "options": [
-              "Sabihin agad sa isang matanda",
-              "Itago na lamang",
-              "Balewalain",
-              "Sabihin sa kaibigan lamang"
+              "Tell a grown-up right away",
+              "Just keep it a secret",
+              "Ignore it",
+              "Tell only a friend"
             ],
-            "correct_answer": "Sabihin agad sa isang matanda"
+            "correct_answer": "Tell a grown-up right away"
           },
           {
-            "question": "Sino kasama kapag nagse-save?",
+            "question": "Who should be with you when you save?",
             "options": [
-              "Isang may sapat na gulang",
-              "Walang sinuman",
-              "Kaklase lamang",
-              "Kapatid na mas bata"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A younger brother or sister"
             ],
-            "correct_answer": "Isang may sapat na gulang"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Bakit hindi angkop lahat ng nasa Internet para sa bata?",
+            "question": "Why is not everything on the Internet good for kids?",
             "options": [
-              "May nilalamang para sa matatanda o mapanganib",
-              "Lahat ay ligtas",
-              "Walang mapanganib",
-              "Hindi totoo"
+              "Some content is for grown-ups or is dangerous",
+              "Everything is safe",
+              "Nothing is dangerous",
+              "Not true"
             ],
-            "correct_answer": "May nilalamang para sa matatanda o mapanganib"
+            "correct_answer": "Some content is for grown-ups or is dangerous"
           },
           {
-            "question": "Bakit limitahan ang screen-time?",
+            "question": "Why limit screen-time?",
             "options": [
-              "Maaaring makasama sa mata at katawan",
-              "Walang dahilan",
-              "Palaging mabuti ang mahaba",
-              "Hindi kailangan limitahan"
+              "It can hurt your eyes and body",
+              "There is no reason",
+              "Long screen-time is always good",
+              "No need to limit it"
             ],
-            "correct_answer": "Maaaring makasama sa mata at katawan"
+            "correct_answer": "It can hurt your eyes and body"
           },
           {
-            "question": "Unang gawin kung may hindi ligtas na mensahe?",
+            "question": "What should you do first if you get an unsafe message?",
             "options": [
-              "Huwag sumagot",
-              "Sumagot nang bastos",
-              "Ibahagi ang impormasyon",
-              "Balewalain"
+              "Do not reply",
+              "Reply rudely",
+              "Share your information",
+              "Ignore it"
             ],
-            "correct_answer": "Huwag sumagot"
+            "correct_answer": "Do not reply"
           },
           {
-            "question": "Pangkalahatang aral tungkol sa Internet?",
+            "question": "What is the main lesson about the Internet?",
             "options": [
-              "Gamitin nang may gabay at pumili ng angkop na nilalaman",
-              "Gamitin nang mag-isa",
-              "Hindi kailangan mag-ingat",
-              "Walang panganib"
+              "Use it with help and choose the right content",
+              "Use it alone",
+              "No need to be careful",
+              "No danger"
             ],
-            "correct_answer": "Gamitin nang may gabay at pumili ng angkop na nilalaman"
+            "correct_answer": "Use it with help and choose the right content"
           },
           {
-            "question": "Bakit ituro ang mga kasanayang ito sa Grade 2?",
+            "question": "Why learn these skills in Grade 2?",
             "options": [
-              "Batayang kasanayan sa ligtas na paggamit ng kompyuter",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang gamit sa paaralan"
+              "They are basic skills for using the computer safely",
+              "No need to learn them",
+              "Only for grown-ups",
+              "Not useful in school"
             ],
-            "correct_answer": "Batayang kasanayan sa ligtas na paggamit ng kompyuter"
+            "correct_answer": "They are basic skills for using the computer safely"
           }
         ]
       },

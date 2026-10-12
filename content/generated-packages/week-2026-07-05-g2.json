@@ -157,7 +157,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Speakers** — para marinig ang tunog\n- **Printer** — para gumawa ng paper copy\n- **Webcam** — para kumuha ng larawan/video\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Speakers** — to hear sound\n- **Printer** — to make a paper copy\n- **Webcam** — to take pictures/videos\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "Which part lets us hear sound?", "options": ["Speakers", "Printer", "Webcam", "Keyboard"], "correct_answer": "Speakers" },
           { "question": "Which part makes a paper copy of our work?", "options": ["Printer", "Speakers", "Webcam", "Mouse"], "correct_answer": "Printer" },

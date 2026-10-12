@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- **Double-click** an icon to open a program\n- **Save your work** before closing\n- Click the **X button** to close a program\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- **Double-click** an icon to open a program\n- **Save your work** before closing\n- Click the **X button** to close a program\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "How can you open an application?", "options": ["Double-click its icon", "Unplug the computer", "Press the power button", "Shake the mouse"], "correct_answer": "Double-click its icon" },
           { "question": "What should you do before closing a program?", "options": ["Save your work", "Delete everything", "Unplug the computer", "Nothing"], "correct_answer": "Save your work" },

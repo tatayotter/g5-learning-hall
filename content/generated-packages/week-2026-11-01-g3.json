@@ -633,40 +633,40 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🌐 Computer — Ano ang Ginagamit sa Internet\n\nGrade 3, Week 21! Alamin natin kung ano ang mga karaniwang gamit ng Internet. 🌐\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa pagsusuri at pagpapakita ng proyekto.\n\n## 🌐 Mga Gamit ng Internet\n- **Pagsasaliksik** — paghahanap ng impormasyon para sa proyekto\n- **Komunikasyon** — pakikipag-usap sa pamilya sa malayo\n- **Pag-aaral** — panonood ng edukasyonal na bidyo\n- **Libangan** — paglalaro ng edukasyonal na laro\n\n## 🔍 Pagkilala sa Browser at Search Engine\n- Ang **browser** ay ang programang ginagamit para makapunta sa Internet (hal. Chrome, Edge)\n- Ang **search engine** ay ang tool na ginagamit para maghanap ng impormasyon (hal. Google)\n\n**Mahahalagang salita:** Internet, browser, search engine, pagsasaliksik",
+        "summary_markdown": "# 🌐 Computer — What We Use the Internet For\n\nGrade 3, Week 21! Let's learn the common uses of the Internet. 🌐\n\n## 🔄 Review\nWe learned about checking and showing our project.\n\n## 🌐 Uses of the Internet\n- **Research** — looking up information for a project\n- **Talking to others** — talking with family who live far away\n- **Learning** — watching learning videos\n- **Fun** — playing learning games\n\n## 🔍 Knowing the Browser and Search Engine\n- A **browser** is the program we use to go on the Internet (e.g., Chrome, Edge)\n- A **search engine** is the tool we use to look for information (e.g., Google)\n\n**Key words:** Internet, browser, search engine, research",
         "quiz": [
           {
-            "question": "Ano ang isang gamit ng Internet?",
+            "question": "What is one use of the Internet?",
             "options": [
-              "Pagsasaliksik ng impormasyon",
-              "Panonood ng TV lamang",
-              "Pagluluto ng pagkain",
-              "Paglalakbay sa ibang bansa"
+              "Looking up information",
+              "Only watching TV",
+              "Cooking food",
+              "Traveling to other countries"
             ],
-            "correct_answer": "Pagsasaliksik ng impormasyon"
+            "correct_answer": "Looking up information"
           },
           {
-            "question": "Ano ang browser?",
+            "question": "What is a browser?",
             "options": [
-              "Programang ginagamit para makapunta sa Internet",
-              "Isang uri ng laro",
-              "Isang uri ng libro",
-              "Isang uri ng gunting"
+              "A program used to go on the Internet",
+              "A kind of game",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+            "correct_answer": "A program used to go on the Internet"
           },
           {
-            "question": "Ano ang search engine?",
+            "question": "What is a search engine?",
             "options": [
-              "Tool na ginagamit para maghanap ng impormasyon",
-              "Isang uri ng makina",
-              "Isang uri ng laruan",
-              "Isang uri ng bahagi ng kompyuter"
+              "A tool used to look for information",
+              "A kind of machine",
+              "A kind of toy",
+              "A kind of computer part"
             ],
-            "correct_answer": "Tool na ginagamit para maghanap ng impormasyon"
+            "correct_answer": "A tool used to look for information"
           },
           {
-            "question": "Alin ang halimbawa ng browser?",
+            "question": "Which is an example of a browser?",
             "options": [
               "Chrome",
               "Google",
@@ -676,7 +676,7 @@
             "correct_answer": "Chrome"
           },
           {
-            "question": "Alin ang halimbawa ng search engine?",
+            "question": "Which is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -686,74 +686,74 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Paano makakatulong ang Internet sa komunikasyon?",
+            "question": "How can the Internet help us talk to others?",
             "options": [
-              "Nakakapag-usap sa pamilya sa malayo",
-              "Wala itong papel sa komunikasyon",
-              "Pinipigilan nito ang komunikasyon",
-              "Ginagamit lamang para sa libangan"
+              "We can talk to family who live far away",
+              "It does not help us talk to others",
+              "It stops us from talking",
+              "It is only used for fun"
             ],
-            "correct_answer": "Nakakapag-usap sa pamilya sa malayo"
+            "correct_answer": "We can talk to family who live far away"
           },
           {
-            "question": "Paano makakatulong ang Internet sa pag-aaral?",
+            "question": "How can the Internet help with learning?",
             "options": [
-              "Panonood ng edukasyonal na bidyo",
-              "Wala itong gamit sa pag-aaral",
-              "Pinipigilan nito ang pag-aaral",
-              "Ginagamit lamang para sa libangan"
+              "Watching learning videos",
+              "It has no use for learning",
+              "It stops learning",
+              "It is only used for fun"
             ],
-            "correct_answer": "Panonood ng edukasyonal na bidyo"
+            "correct_answer": "Watching learning videos"
           },
           {
-            "question": "Bakit kailangan ng search engine?",
+            "question": "Why do we need a search engine?",
             "options": [
-              "Para makahanap ng impormasyon nang mabilis",
-              "Para lamang magbukas ng laro",
-              "Para lumikha ng bagong Internet",
-              "Walang gamit ito"
+              "To find information fast",
+              "Only to open games",
+              "To make a new Internet",
+              "It has no use"
             ],
-            "correct_answer": "Para makahanap ng impormasyon nang mabilis"
+            "correct_answer": "To find information fast"
           },
           {
-            "question": "Ano ang pagkakaiba ng browser sa search engine?",
+            "question": "How is a browser different from a search engine?",
             "options": [
-              "Ang browser ay ginagamit para makapunta sa Internet, ang search engine ay para maghanap",
-              "Magkatulad lamang sila",
-              "Walang pagkakaiba",
-              "Ang search engine ay para sa pagguhit lamang"
+              "A browser is used to go on the Internet, a search engine is used to look things up",
+              "They are just the same",
+              "There is no difference",
+              "A search engine is only for drawing"
             ],
-            "correct_answer": "Ang browser ay ginagamit para makapunta sa Internet, ang search engine ay para maghanap"
+            "correct_answer": "A browser is used to go on the Internet, a search engine is used to look things up"
           },
           {
-            "question": "Bakit mahalagang malaman ang mga karaniwang gamit ng Internet?",
+            "question": "Why is it important to know the common uses of the Internet?",
             "options": [
-              "Para magamit ito nang tama at responsable",
-              "Hindi na kailangan malaman ito",
-              "Para hikayatin ang paggamit nang walang gabay",
-              "Walang layunin ito"
+              "So you can use it the right way and wisely",
+              "There is no need to know it",
+              "To get kids to use it with no adult help",
+              "It has no goal"
             ],
-            "correct_answer": "Para magamit ito nang tama at responsable"
+            "correct_answer": "So you can use it the right way and wisely"
           },
           {
-            "question": "Alin sa mga ito ang halimbawa ng edukasyonal na paggamit ng Internet?",
+            "question": "Which of these is an example of using the Internet to learn?",
             "options": [
-              "Panonood ng bidyo tungkol sa Agham",
-              "Paglalaro nang walang layunin",
-              "Pagbabahagi ng personal na impormasyon",
-              "Pakikipag-usap sa estranghero"
+              "Watching a video about Science",
+              "Playing with no goal",
+              "Sharing personal information",
+              "Chatting with a stranger"
             ],
-            "correct_answer": "Panonood ng bidyo tungkol sa Agham"
+            "correct_answer": "Watching a video about Science"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito bago aralin ang online safety?",
+            "question": "Why do we learn this topic before online safety?",
             "options": [
-              "Para maunawaan muna kung ano ang Internet bago ang tamang paggamit nito",
-              "Hindi na kailangan ituro ito",
-              "Walang kaugnayan sa online safety",
-              "Ito ay para sa matatanda lamang"
+              "To first understand what the Internet is before learning to use it the right way",
+              "There is no need to teach it",
+              "It has nothing to do with online safety",
+              "It is only for grown-ups"
             ],
-            "correct_answer": "Para maunawaan muna kung ano ang Internet bago ang tamang paggamit nito"
+            "correct_answer": "To first understand what the Internet is before learning to use it the right way"
           }
         ]
       }
@@ -1512,40 +1512,40 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 3)\n\n- Gamit ng Internet: browser at search engine\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🌐 Friday Review — Computer (Grade 3)\n\n- Uses of the Internet: browser and search engine\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Gamit ng Internet?",
+            "question": "What is one use of the Internet?",
             "options": [
-              "Pagsasaliksik ng impormasyon",
-              "Panonood ng TV lamang",
-              "Pagluluto",
-              "Paglalakbay sa ibang bansa"
+              "Looking up information",
+              "Only watching TV",
+              "Cooking",
+              "Traveling to other countries"
             ],
-            "correct_answer": "Pagsasaliksik ng impormasyon"
+            "correct_answer": "Looking up information"
           },
           {
-            "question": "Ano ang browser?",
+            "question": "What is a browser?",
             "options": [
-              "Programang ginagamit para makapunta sa Internet",
-              "Uri ng laro",
-              "Uri ng libro",
-              "Uri ng gunting"
+              "A program used to go on the Internet",
+              "A kind of game",
+              "A kind of book",
+              "A kind of scissors"
             ],
-            "correct_answer": "Programang ginagamit para makapunta sa Internet"
+            "correct_answer": "A program used to go on the Internet"
           },
           {
-            "question": "Ano ang search engine?",
+            "question": "What is a search engine?",
             "options": [
-              "Tool para maghanap ng impormasyon",
-              "Uri ng makina",
-              "Uri ng laruan",
-              "Bahagi ng kompyuter"
+              "A tool to look for information",
+              "A kind of machine",
+              "A kind of toy",
+              "A computer part"
             ],
-            "correct_answer": "Tool para maghanap ng impormasyon"
+            "correct_answer": "A tool to look for information"
           },
           {
-            "question": "Halimbawa ng browser?",
+            "question": "Which is an example of a browser?",
             "options": [
               "Chrome",
               "Google",
@@ -1555,7 +1555,7 @@
             "correct_answer": "Chrome"
           },
           {
-            "question": "Halimbawa ng search engine?",
+            "question": "Which is an example of a search engine?",
             "options": [
               "Google",
               "Chrome",
@@ -1565,74 +1565,74 @@
             "correct_answer": "Google"
           },
           {
-            "question": "Paano tumulong ang Internet sa komunikasyon?",
+            "question": "How does the Internet help us talk to others?",
             "options": [
-              "Nakakapag-usap sa pamilya sa malayo",
-              "Walang papel",
-              "Pinipigilan ang komunikasyon",
-              "Para sa libangan lamang"
+              "We can talk to family who live far away",
+              "It does not help",
+              "It stops us from talking",
+              "It is only for fun"
             ],
-            "correct_answer": "Nakakapag-usap sa pamilya sa malayo"
+            "correct_answer": "We can talk to family who live far away"
           },
           {
-            "question": "Paano tumulong ang Internet sa pag-aaral?",
+            "question": "How does the Internet help with learning?",
             "options": [
-              "Panonood ng edukasyonal na bidyo",
-              "Walang gamit",
-              "Pinipigilan ang pag-aaral",
-              "Para sa libangan lamang"
+              "Watching learning videos",
+              "It has no use",
+              "It stops learning",
+              "It is only for fun"
             ],
-            "correct_answer": "Panonood ng edukasyonal na bidyo"
+            "correct_answer": "Watching learning videos"
           },
           {
-            "question": "Bakit kailangan ng search engine?",
+            "question": "Why do we need a search engine?",
             "options": [
-              "Makahanap ng impormasyon nang mabilis",
-              "Magbukas ng laro lamang",
-              "Lumikha ng bagong Internet",
-              "Walang gamit"
+              "To find information fast",
+              "Only to open games",
+              "To make a new Internet",
+              "It has no use"
             ],
-            "correct_answer": "Makahanap ng impormasyon nang mabilis"
+            "correct_answer": "To find information fast"
           },
           {
-            "question": "Pagkakaiba ng browser sa search engine?",
+            "question": "How is a browser different from a search engine?",
             "options": [
-              "Browser para makapunta sa Internet, search engine para maghanap",
-              "Magkatulad lamang",
-              "Walang pagkakaiba",
-              "Search engine para sa pagguhit"
+              "A browser takes you on the Internet, a search engine helps you look things up",
+              "They are just the same",
+              "There is no difference",
+              "A search engine is for drawing"
             ],
-            "correct_answer": "Browser para makapunta sa Internet, search engine para maghanap"
+            "correct_answer": "A browser takes you on the Internet, a search engine helps you look things up"
           },
           {
-            "question": "Bakit malaman ang gamit ng Internet?",
+            "question": "Why should you know the uses of the Internet?",
             "options": [
-              "Magamit nang tama at responsable",
-              "Hindi kailangan malaman",
-              "Hikayatin gamit nang walang gabay",
-              "Walang layunin"
+              "To use it the right way and wisely",
+              "No need to know them",
+              "To get kids to use it with no adult help",
+              "It has no goal"
             ],
-            "correct_answer": "Magamit nang tama at responsable"
+            "correct_answer": "To use it the right way and wisely"
           },
           {
-            "question": "Halimbawa ng edukasyonal na paggamit ng Internet?",
+            "question": "Which is an example of using the Internet to learn?",
             "options": [
-              "Panonood ng bidyo tungkol sa Agham",
-              "Paglalaro nang walang layunin",
-              "Pagbabahagi ng personal na impormasyon",
-              "Pakikipag-usap sa estranghero"
+              "Watching a video about Science",
+              "Playing with no goal",
+              "Sharing personal information",
+              "Chatting with a stranger"
             ],
-            "correct_answer": "Panonood ng bidyo tungkol sa Agham"
+            "correct_answer": "Watching a video about Science"
           },
           {
-            "question": "Bakit ituro ito bago ang online safety?",
+            "question": "Why learn this before online safety?",
             "options": [
-              "Maunawaan muna ang Internet bago ang tamang paggamit",
-              "Hindi kailangan ituro",
-              "Walang kaugnayan sa online safety",
-              "Para sa matatanda lamang"
+              "To first understand the Internet before learning to use it the right way",
+              "There is no need to teach it",
+              "It has nothing to do with online safety",
+              "It is only for grown-ups"
             ],
-            "correct_answer": "Maunawaan muna ang Internet bago ang tamang paggamit"
+            "correct_answer": "To first understand the Internet before learning to use it the right way"
           }
         ]
       },

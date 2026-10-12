@@ -591,37 +591,37 @@
             "correct_answer": "Space Bar"
           },
           {
-            "question": "Alin ang tamang posisyon ng mga daliri sa home row keys?",
+            "question": "Where do your fingers go on the home row keys?",
             "options": [
-              "ASDF at JKL;",
-              "QWER at UIOP",
-              "ZXCV at NM,.",
-              "Kung saan komportable"
+              "ASDF and JKL;",
+              "QWER and UIOP",
+              "ZXCV and NM,.",
+              "Wherever feels comfy"
             ],
-            "correct_answer": "ASDF at JKL;"
+            "correct_answer": "ASDF and JKL;"
           },
           {
-            "question": "Ano ang ginagawa ng DELETE key?",
+            "question": "What does the DELETE key do?",
             "options": [
-              "Binubura ang character sa kanan ng cursor",
-              "Sine-save ang dokumento",
-              "Binubura ang character sa kaliwa ng cursor",
-              "Nagbubukas ng bagong file"
+              "Erases the character to the right of the cursor",
+              "Saves the document",
+              "Erases the character to the left of the cursor",
+              "Opens a new file"
             ],
-            "correct_answer": "Binubura ang character sa kanan ng cursor"
+            "correct_answer": "Erases the character to the right of the cursor"
           },
           {
-            "question": "Ano ang gamit ng mouse?",
+            "question": "What is the mouse used for?",
             "options": [
-              "Piliin at i-click ang mga bagay sa screen",
-              "I-type ang mga salita",
-              "I-print ang dokumento",
-              "I-save ang file"
+              "To choose and click things on the screen",
+              "To type words",
+              "To print a document",
+              "To save a file"
             ],
-            "correct_answer": "Piliin at i-click ang mga bagay sa screen"
+            "correct_answer": "To choose and click things on the screen"
           },
           {
-            "question": "Anong parte ng computer ang nagpapakita ng impormasyon?",
+            "question": "Which part of the computer shows information?",
             "options": [
               "Monitor",
               "Keyboard",
@@ -1262,7 +1262,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nQuick review of computer basics!\n\n- **Monitor** = screen (output)\n- **Keyboard** = type letters/numbers (input)\n- **Mouse** = point and click (input)\n- **CPU** = brain of the computer\n- **Speakers** = play sound (output)\n- **Home row left hand**: A S D F\n- **Home row right hand**: J K L ;\n\nYou're a tech star! 💡",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review of computer basics!\n\n- **Monitor** = screen (output)\n- **Keyboard** = type letters/numbers (input)\n- **Mouse** = point and click (input)\n- **CPU** = brain of the computer\n- **Speakers** = play sound (output)\n- **Home row left hand**: A S D F\n- **Home row right hand**: J K L ;\n\nYou're a tech star! 💡",
         "quiz": [
           {
             "question": "What do we call the screen that shows your work?",
@@ -1345,17 +1345,17 @@
             "correct_answer": "Speakers"
           },
           {
-            "question": "Ano ang pangunahing gamit ng keyboard?",
+            "question": "What is the main use of the keyboard?",
             "options": [
-              "I-type ang mga salita at numero",
-              "I-click ang mga larawan",
-              "Ipakita ang mga file",
-              "I-print ang dokumento"
+              "To type words and numbers",
+              "To click pictures",
+              "To show files",
+              "To print a document"
             ],
-            "correct_answer": "I-type ang mga salita at numero"
+            "correct_answer": "To type words and numbers"
           },
           {
-            "question": "Anong key ang ginagamit para gumawa ng MALAKING titik?",
+            "question": "Which key do you use to make a CAPITAL letter?",
             "options": [
               "Shift key",
               "Enter key",
@@ -1365,24 +1365,24 @@
             "correct_answer": "Shift key"
           },
           {
-            "question": "Ano ang CPU?",
+            "question": "What is the CPU?",
             "options": [
-              "Ang utak ng computer na nagpoproseso ng impormasyon",
-              "Ang screen ng computer",
-              "Ang papel na pangprint",
-              "Ang mouse ng computer"
+              "The brain of the computer that works on information",
+              "The computer screen",
+              "The paper for printing",
+              "The computer mouse"
             ],
-            "correct_answer": "Ang utak ng computer na nagpoproseso ng impormasyon"
+            "correct_answer": "The brain of the computer that works on information"
           },
           {
-            "question": "Ano ang tamang hakbang bago patayin ang computer?",
+            "question": "What is the right step before turning off the computer?",
             "options": [
-              "I-shut down muna bago patayin ang kuryente",
-              "Direktang bawiin ang kuryente",
-              "Iwanan lang naka-on",
-              "I-restart muna nang tatlong beses"
+              "Shut it down first, then turn off the power",
+              "Pull out the power plug right away",
+              "Just leave it on",
+              "Restart it three times first"
             ],
-            "correct_answer": "I-shut down muna bago patayin ang kuryente"
+            "correct_answer": "Shut it down first, then turn off the power"
           }
         ]
       },

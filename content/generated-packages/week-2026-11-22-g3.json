@@ -633,127 +633,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔒 Computer — Huwag Ibahagi ang Personal na Impormasyon\n\nGrade 3, Week 24! Alamin natin kung paano protektahan ang ating pribadong impormasyon. 🔒\n\n## 🔄 Balik-Aral\nNatutuhan natin ang pagkakaiba ng ligtas at hindi angkop na nilalaman.\n\n## 🔒 Ano ang Personal na Impormasyon?\nBuong pangalan, tirahan, numero ng telepono, pangalan ng paaralan, at password.\n\n## 🚫 Bakit Huwag Ibahagi Online?\nAng mga taong hindi natin kilala online ay maaaring gamitin ang impormasyong ito para sa **masamang layunin**.\n\n## 👨‍👩‍👧 Ano ang Dapat Gawin?\nKung may humihingi ng personal na impormasyon, **huwag ibigay** at **sabihin agad** sa isang may sapat na gulang na matanda.\n\n**Mahahalagang salita:** personal na impormasyon, pribado, masamang layunin, sabihin agad",
+        "summary_markdown": "# 🔒 Computer — Don't Share Personal Information\n\nGrade 3, Week 24! Let's learn how to keep our private information safe. 🔒\n\n## 🔄 Review\nWe learned the difference between safe content and content not right for kids.\n\n## 🔒 What Is Personal Information?\nFull name, address, phone number, school name, and password.\n\n## 🚫 Why Not Share It Online?\nPeople we don't know online could use this information to do **bad things**.\n\n## 👨‍👩‍👧 What Should You Do?\nIf someone asks for your personal information, **don't give it** and **tell a grown-up right away**.\n\n**Key words:** personal information, private, bad things, tell right away",
         "quiz": [
           {
-            "question": "Ano ang halimbawa ng personal na impormasyon?",
+            "question": "What is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Full name and address",
+              "Favorite color",
+              "Favorite food",
+              "Favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Full name and address"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang personal na impormasyon online?",
+            "question": "Why should you not share personal information online?",
             "options": [
-              "Maaaring gamitin ito ng may masamang layunin",
-              "Ligtas itong gawin palagi",
-              "Kinakailangan itong gawin",
-              "Walang panganib dito"
+              "Someone could use it to do bad things",
+              "It is always safe to do",
+              "You have to do it",
+              "There is no danger"
             ],
-            "correct_answer": "Maaaring gamitin ito ng may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Ano ang dapat gawin kung may humihingi ng personal na impormasyon?",
+            "question": "What should you do if someone asks for your personal information?",
             "options": [
-              "Huwag ibigay at sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it and tell an adult",
+              "Give it right away",
+              "Answer honestly",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag ibigay at sabihin sa matanda"
+            "correct_answer": "Don't give it and tell an adult"
           },
           {
-            "question": "Alin ang halimbawa ng password?",
+            "question": "Which is an example of a password?",
             "options": [
-              "Isang sikretong kumbinasyon ng titik at bilang",
-              "Iyong buong pangalan lamang",
-              "Iyong paboritong hayop",
-              "Iyong paaralan lamang"
+              "A secret mix of letters and numbers",
+              "Only your full name",
+              "Your favorite animal",
+              "Only your school"
             ],
-            "correct_answer": "Isang sikretong kumbinasyon ng titik at bilang"
+            "correct_answer": "A secret mix of letters and numbers"
           },
           {
-            "question": "Bakit mapanganib ibigay ang tirahan sa estranghero online?",
+            "question": "Why is it dangerous to give your address to a stranger online?",
             "options": [
-              "Maaaring gamitin ito ng taong may masamang layunin",
-              "Walang panganib dito",
-              "Ligtas na palagi",
-              "Lahat ay may mabuting layunin"
+              "Someone could use it to do bad things",
+              "There is no danger",
+              "It is always safe",
+              "Everyone means well"
             ],
-            "correct_answer": "Maaaring gamitin ito ng taong may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Sino ang dapat sabihan kung may humihingi ng personal na impormasyon?",
+            "question": "Who should you tell if someone asks for your personal information?",
             "options": [
-              "Isang may sapat na gulang na matanda",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang may sapat na gulang na matanda"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Ano ang isa pang halimbawa ng personal na impormasyon?",
+            "question": "What is another example of personal information?",
             "options": [
-              "Numero ng telepono",
-              "Paboritong kulay",
-              "Paboritong hayop",
-              "Paboritong laro"
+              "Phone number",
+              "Favorite color",
+              "Favorite animal",
+              "Favorite game"
             ],
-            "correct_answer": "Numero ng telepono"
+            "correct_answer": "Phone number"
           },
           {
-            "question": "Bakit itinuturo ang paksang ito sa mga bata?",
+            "question": "Why do kids learn this topic?",
             "options": [
-              "Upang maging ligtas sa paggamit ng Internet",
-              "Hindi ito mahalaga",
-              "Upang hikayatin ang pagbabahagi",
-              "Walang layunin ito"
+              "To stay safe on the Internet",
+              "It is not important",
+              "To get people to share more",
+              "It has no goal"
             ],
-            "correct_answer": "Upang maging ligtas sa paggamit ng Internet"
+            "correct_answer": "To stay safe on the Internet"
           },
           {
-            "question": "Bakit hindi dapat ibahagi ang password sa kahit kanino?",
+            "question": "Why should you never share your password with anyone?",
             "options": [
-              "Maaaring magamit ito para makapasok sa iyong account",
-              "Ligtas itong ibahagi",
-              "Kinakailangan itong ibahagi sa kaibigan",
-              "Walang panganib dito"
+              "Someone could use it to get into your account",
+              "It is safe to share",
+              "You must share it with a friend",
+              "There is no danger"
             ],
-            "correct_answer": "Maaaring magamit ito para makapasok sa iyong account"
+            "correct_answer": "Someone could use it to get into your account"
           },
           {
-            "question": "Ano ang tamang gawin kung nakalimutan mo kung sino ang humihingi ng impormasyon?",
+            "question": "What is the right thing to do if you forgot who is asking for your information?",
             "options": [
-              "Huwag pa rin ibigay at magtanong sa matanda",
-              "Ibigay na lamang",
-              "Balewalain ang alalahanin",
-              "Ipagpatuloy ang pag-uusap"
+              "Still don't give it and ask an adult",
+              "Just give it",
+              "Ignore the worry",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag pa rin ibigay at magtanong sa matanda"
+            "correct_answer": "Still don't give it and ask an adult"
           },
           {
-            "question": "Bakit mahalagang maunawaan ang panganib sa pagbabahagi ng impormasyon mula sa maagang edad?",
+            "question": "Why is it important to learn the dangers of sharing information while you are young?",
             "options": [
-              "Upang maging responsable sa paggamit ng teknolohiya paglaki",
-              "Hindi na kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto ito"
+              "So you will use technology wisely as you grow up",
+              "There is no need to learn it",
+              "It is only for grown-ups",
+              "It does not matter"
             ],
-            "correct_answer": "Upang maging responsable sa paggamit ng teknolohiya paglaki"
+            "correct_answer": "So you will use technology wisely as you grow up"
           },
           {
-            "question": "Ano ang pangkalahatang aral tungkol sa personal na impormasyon?",
+            "question": "What is the main lesson about personal information?",
             "options": [
-              "Panatilihin itong pribado at humingi ng gabay sa matanda",
-              "Ibahagi ito sa lahat",
-              "Hindi na kailangan mag-ingat",
-              "Walang panganib online"
+              "Keep it private and ask an adult for help",
+              "Share it with everyone",
+              "No need to be careful",
+              "There is no danger online"
             ],
-            "correct_answer": "Panatilihin itong pribado at humingi ng gabay sa matanda"
+            "correct_answer": "Keep it private and ask an adult for help"
           }
         ]
       }
@@ -1512,127 +1512,127 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 🔒 Friday Review — Computer (Grade 3)\n\n- Huwag ibahagi ang personal na impormasyon\n\nMagaling sa Computer! 🌟",
+        "summary_markdown": "# 🔒 Friday Review — Computer (Grade 3)\n\n- Don't share personal information\n\nGreat job in Computer! 🌟",
         "quiz": [
           {
-            "question": "Halimbawa ng personal na impormasyon?",
+            "question": "Which is an example of personal information?",
             "options": [
-              "Buong pangalan at tirahan",
-              "Paboritong kulay",
-              "Paboritong pagkain",
-              "Paboritong laro"
+              "Full name and address",
+              "Favorite color",
+              "Favorite food",
+              "Favorite game"
             ],
-            "correct_answer": "Buong pangalan at tirahan"
+            "correct_answer": "Full name and address"
           },
           {
-            "question": "Bakit hindi ibahagi ang personal na impormasyon?",
+            "question": "Why should you not share personal information?",
             "options": [
-              "Maaaring gamitin ng may masamang layunin",
-              "Ligtas palagi",
-              "Kinakailangan gawin",
-              "Walang panganib"
+              "Someone could use it to do bad things",
+              "It is always safe",
+              "You have to do it",
+              "There is no danger"
             ],
-            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Gawin kung may humihingi ng personal na impormasyon?",
+            "question": "What should you do if someone asks for your personal information?",
             "options": [
-              "Huwag ibigay, sabihin sa matanda",
-              "Ibigay agad",
-              "Sagutin nang tapat",
-              "Ipagpatuloy ang usapan"
+              "Don't give it, tell an adult",
+              "Give it right away",
+              "Answer honestly",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag ibigay, sabihin sa matanda"
+            "correct_answer": "Don't give it, tell an adult"
           },
           {
-            "question": "Halimbawa ng password?",
+            "question": "Which is an example of a password?",
             "options": [
-              "Sikretong kumbinasyon ng titik at bilang",
-              "Buong pangalan lamang",
-              "Paboritong hayop",
-              "Paaralan lamang"
+              "A secret mix of letters and numbers",
+              "Only your full name",
+              "Your favorite animal",
+              "Only your school"
             ],
-            "correct_answer": "Sikretong kumbinasyon ng titik at bilang"
+            "correct_answer": "A secret mix of letters and numbers"
           },
           {
-            "question": "Bakit mapanganib ibigay ang tirahan sa estranghero?",
+            "question": "Why is it dangerous to give your address to a stranger?",
             "options": [
-              "Maaaring gamitin ng may masamang layunin",
-              "Walang panganib",
-              "Ligtas palagi",
-              "Lahat mabuti ang layunin"
+              "Someone could use it to do bad things",
+              "There is no danger",
+              "It is always safe",
+              "Everyone means well"
             ],
-            "correct_answer": "Maaaring gamitin ng may masamang layunin"
+            "correct_answer": "Someone could use it to do bad things"
           },
           {
-            "question": "Sino sabihan kung may humihingi ng impormasyon?",
+            "question": "Who should you tell if someone asks for your information?",
             "options": [
-              "Isang may sapat na gulang",
-              "Walang dapat sabihan",
-              "Kaklase lamang",
-              "Estranghero online"
+              "A grown-up",
+              "No one",
+              "Only a classmate",
+              "A stranger online"
             ],
-            "correct_answer": "Isang may sapat na gulang"
+            "correct_answer": "A grown-up"
           },
           {
-            "question": "Isa pang halimbawa ng personal na impormasyon?",
+            "question": "What is another example of personal information?",
             "options": [
-              "Numero ng telepono",
-              "Paboritong kulay",
-              "Paboritong hayop",
-              "Paboritong laro"
+              "Phone number",
+              "Favorite color",
+              "Favorite animal",
+              "Favorite game"
             ],
-            "correct_answer": "Numero ng telepono"
+            "correct_answer": "Phone number"
           },
           {
-            "question": "Bakit ituro ang paksang ito?",
+            "question": "Why do we learn this topic?",
             "options": [
-              "Maging ligtas sa Internet",
-              "Hindi mahalaga",
-              "Hikayatin ang pagbabahagi",
-              "Walang layunin"
+              "To stay safe on the Internet",
+              "It is not important",
+              "To get people to share more",
+              "It has no goal"
             ],
-            "correct_answer": "Maging ligtas sa Internet"
+            "correct_answer": "To stay safe on the Internet"
           },
           {
-            "question": "Bakit hindi ibahagi ang password?",
+            "question": "Why should you not share your password?",
             "options": [
-              "Magagamit para makapasok sa account mo",
-              "Ligtas ibahagi",
-              "Kinakailangan ibahagi sa kaibigan",
-              "Walang panganib"
+              "Someone could use it to get into your account",
+              "It is safe to share",
+              "You must share it with a friend",
+              "There is no danger"
             ],
-            "correct_answer": "Magagamit para makapasok sa account mo"
+            "correct_answer": "Someone could use it to get into your account"
           },
           {
-            "question": "Gawin kung hindi tiyak kung sino ang humihingi ng impormasyon?",
+            "question": "What should you do if you are not sure who is asking for your information?",
             "options": [
-              "Huwag pa rin ibigay, magtanong sa matanda",
-              "Ibigay na lamang",
-              "Balewalain",
-              "Ipagpatuloy ang usapan"
+              "Still don't give it, ask an adult",
+              "Just give it",
+              "Ignore it",
+              "Keep chatting"
             ],
-            "correct_answer": "Huwag pa rin ibigay, magtanong sa matanda"
+            "correct_answer": "Still don't give it, ask an adult"
           },
           {
-            "question": "Bakit maunawaan ang panganib mula sa maagang edad?",
+            "question": "Why learn about the dangers while you are young?",
             "options": [
-              "Maging responsable sa teknolohiya paglaki",
-              "Hindi kailangan matutunan",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To use technology wisely as you grow up",
+              "No need to learn it",
+              "It is only for grown-ups",
+              "It does not matter"
             ],
-            "correct_answer": "Maging responsable sa teknolohiya paglaki"
+            "correct_answer": "To use technology wisely as you grow up"
           },
           {
-            "question": "Pangkalahatang aral tungkol sa personal na impormasyon?",
+            "question": "What is the main lesson about personal information?",
             "options": [
-              "Panatilihing pribado, humingi ng gabay sa matanda",
-              "Ibahagi sa lahat",
-              "Hindi kailangan mag-ingat",
-              "Walang panganib online"
+              "Keep it private and ask an adult for help",
+              "Share it with everyone",
+              "No need to be careful",
+              "There is no danger online"
             ],
-            "correct_answer": "Panatilihing pribado, humingi ng gabay sa matanda"
+            "correct_answer": "Keep it private and ask an adult for help"
           }
         ]
       },

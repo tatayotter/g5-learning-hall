@@ -146,7 +146,7 @@
         ]
       },
       "Computer": {
-        "summary_markdown": "# 💻 Biyernes — Lingguhang Pagsasanay: Computer\n\nMabilis na balikan!\n\n- Home row: **A S D F** (left), **J K L ;** (right)\n- Thumbs rest on the **Space Bar**\n\nMahusay ang iyong pag-aaral! 🌟",
+        "summary_markdown": "# 💻 Friday — Weekly Practice: Computer\n\nQuick review!\n\n- Home row: **A S D F** (left), **J K L ;** (right)\n- Thumbs rest on the **Space Bar**\n\nYou are learning so well! 🌟",
         "quiz": [
           { "question": "Which keys are for the left hand on the home row?", "options": ["A S D F", "J K L ;", "Q W E R", "Z X C V"], "correct_answer": "A S D F" },
           { "question": "Which keys are for the right hand on the home row?", "options": ["J K L ;", "A S D F", "Q W E R", "Z X C V"], "correct_answer": "J K L ;" },
