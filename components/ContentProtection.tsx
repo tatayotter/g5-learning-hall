@@ -10,6 +10,8 @@ export default function ContentProtection() {
     const blockContextMenu = (e: MouseEvent) => e.preventDefault();
 
     const blockKeys = (e: KeyboardEvent) => {
+      // Autofill and some IMEs fire keydown with no key.
+      if (typeof e.key !== "string") return;
       const key = e.key.toLowerCase();
       const ctrlOrCmd = e.ctrlKey || e.metaKey;
 
