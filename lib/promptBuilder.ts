@@ -224,7 +224,7 @@ function gradeContext(grade: number): string {
 
 function languageRule(grade: number): string {
   if (grade === 2) return 'English for English/Mathematics/Science/Computer | Filipino for Filipino/GMRC/Makabansa';
-  return 'English for English/Mathematics/Science/EPP | Filipino for Filipino/Araling Panlipunan/GMRC | MAPEH: Filipino instructions, English technical terms';
+  return 'English for English/Mathematics/Science/EPP/MAPEH | Filipino for Filipino/Araling Panlipunan/GMRC | MAPEH: all English in simple kid-friendly words (keep Filipino names of games, dances, instruments)';
 }
 
 function summaryRule(grade: number): string {

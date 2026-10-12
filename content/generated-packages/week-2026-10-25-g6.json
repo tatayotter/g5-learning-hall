@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎭 MAPEH — Term Review: Musika, Sining, at PE\n\nGrade 6, Linggo 20! Balikan natin ang lahat ng natutuhan sa MAPEH ngayong term. 🎨\n\n## 🔄 Balik-Aral: Musika\nMeter, time signature, rhythmic dance patterns mula sa musikang Pilipino.\n\n## 🔄 Balik-Aral: Teatro at Sayaw\nSymbolic theater, seditious plays, dramatic structure noong panahon ng Amerikano.\n\n## 🔄 Balik-Aral: Kalusugan\nPuberty at pagbabago sa katawan, bukas na komunikasyon sa pamilya, self-esteem.\n\n## 🔄 Balik-Aral: PE\nStriking/fielding at net/wall games; agility, balance, coordination.\n\n## 🔄 Balik-Aral: Family Wellness\nPagpaplano ng gawaing pangkalusugan para sa buong pamilya.\n\n## 🧠 Halimbawa 1\n*Ano ang symbolic theater?*\n- Gumagamit ng **simbolo** upang ipahayag ang mensahe nang hindi tuwiran.\n\n## 🧠 Halimbawa 2\n*Ano ang pagkakaiba ng striking/fielding sa net/wall games?*\n- Striking/fielding ay may **pagpalo at pagtakbo**; net/wall ay may **hadlang**.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagbabalik-aral sa MAPEH ay tumutulong upang **maalala at maiugnay** ang lahat ng natutuhang konsepto.\n\nMagaling sa MAPEH! 🌟",
+        "summary_markdown": "# 🎭 MAPEH — Term Review: Music, Arts, and PE\n\nGrade 6, Week 20! Let's look back at everything we learned in MAPEH this term. 🎨\n\n## 🔄 Review: Music\nMeter, time signature, and rhythmic dance patterns from Filipino music.\n\n## 🔄 Review: Theater and Dance\nSymbolic theater, seditious plays, and dramatic structure during the American period.\n\n## 🔄 Review: Health\nPuberty and body changes, open communication with family, and self-esteem.\n\n## 🔄 Review: PE\nStriking/fielding and net/wall games; agility, balance, and coordination.\n\n## 🔄 Review: Family Wellness\nPlanning a health activity for the whole family.\n\n## 🧠 Example 1\n*What is symbolic theater?*\n- It uses **symbols** to share a message indirectly.\n\n## 🧠 Example 2\n*What is the difference between striking/fielding and net/wall games?*\n- Striking/fielding has **hitting and running**; net/wall has a **barrier**.\n\n## 💡 Why Does This Matter?\nReviewing MAPEH helps us **remember and connect** all the ideas we learned.\n\nGreat job in MAPEH! 🌟",
         "quiz": [
           {
-            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "question": "What did we learn about music this term?",
             "options": [
-              "Meter, time signature, at rhythmic dance patterns",
-              "Kasaysayan ng kompyuter lamang",
-              "Matematika lamang dito sa gawaing ito",
-              "Wala tayong natutuhan ngayon"
+              "Meter, time signature, and rhythmic dance patterns",
+              "Only the history of computers",
+              "Only math in this activity",
+              "We didn't learn anything this time"
             ],
-            "correct_answer": "Meter, time signature, at rhythmic dance patterns"
+            "correct_answer": "Meter, time signature, and rhythmic dance patterns"
           },
           {
-            "question": "Ano ang symbolic theater?",
+            "question": "What is symbolic theater?",
             "options": [
-              "Gumagamit ng simbolo upang ipahayag ang mensahe",
-              "Direktang pagsalungat lamang",
-              "Sayaw lamang na walang mensahe",
-              "Kanta lamang na walang kahulugan"
+              "It uses symbols to share a message",
+              "It is only direct protest",
+              "It is only a dance with no message",
+              "It is only a song with no meaning"
             ],
-            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+            "correct_answer": "It uses symbols to share a message"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa pagbabago habang papalaki?",
+            "question": "What did we learn about changes while growing up?",
             "options": [
-              "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago",
-              "Ito ay hindi normal at dapat ikahiya kahit kailan",
-              "Wala tayong natutuhan tungkol dito sa gawaing ito",
-              "Ito ay hindi bahagi ng MAPEH dito ngayon sa sitwasyong ito"
+              "They are a normal part of growing up, including physical and emotional changes",
+              "They are not normal and should always be a source of shame",
+              "We didn't learn anything about this in this activity",
+              "It is not part of MAPEH in this situation"
             ],
-            "correct_answer": "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago"
+            "correct_answer": "They are a normal part of growing up, including physical and emotional changes"
           },
           {
-            "question": "Ano ang pagkakaiba ng striking/fielding sa net/wall games?",
+            "question": "What is the difference between striking/fielding and net/wall games?",
             "options": [
-              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
-              "Pareho silang walang bola",
-              "Pareho silang ginagawa lamang habang nakaupo",
-              "Walang pagkakaiba ang dalawa"
+              "Striking/fielding has hitting and running; net/wall has a barrier",
+              "Both have no ball",
+              "Both are only played while sitting",
+              "There is no difference between the two"
             ],
-            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+            "correct_answer": "Striking/fielding has hitting and running; net/wall has a barrier"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa family wellness ngayong term?",
+            "question": "What did we learn about family wellness this term?",
             "options": [
-              "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya",
-              "Wala tayong natutuhan tungkol dito",
-              "Isang uri lamang ng laro dito sa gawaing ito",
-              "Isang uri lamang ng pagkain ngayon"
+              "Planning and doing health activities for the family",
+              "We didn't learn anything about it",
+              "Just one kind of game in this activity",
+              "Just one kind of food"
             ],
-            "correct_answer": "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya"
+            "correct_answer": "Planning and doing health activities for the family"
           },
           {
-            "question": "Ano ang agility?",
+            "question": "What is agility?",
             "options": [
-              "Kakayahang mabilis kumilos at magpalit ng direksyon",
-              "Kakayahang manatiling tahimik",
-              "Kakayahang kumain nang mabilis",
-              "Kakayahang matulog nang mahimbing"
+              "The ability to move fast and change direction",
+              "The ability to stay quiet",
+              "The ability to eat fast",
+              "The ability to sleep deeply"
             ],
-            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+            "correct_answer": "The ability to move fast and change direction"
           },
           {
-            "question": "Ano ang balance sa PE?",
+            "question": "What is balance in PE?",
             "options": [
-              "Kakayahang manatiling matatag habang gumagalaw",
-              "Kakayahang tumakbo nang napakabilis",
-              "Kakayahang magbilang nang mabilis",
-              "Kakayahang kumanta nang malakas"
+              "The ability to stay steady while moving",
+              "The ability to run very fast",
+              "The ability to count fast",
+              "The ability to sing loudly"
             ],
-            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+            "correct_answer": "The ability to stay steady while moving"
           },
           {
-            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "question": "Why is it important to review what we learned in MAPEH this term?",
             "options": [
-              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
-              "Wala itong kabuluhan sa pag-aaral dito",
-              "Ginagawa lamang ito para sa marka",
-              "Nakakalito lamang ito sa mag-aaral"
+              "It helps us remember and connect the ideas",
+              "It is pointless for learning",
+              "It is only done for grades",
+              "It only confuses students"
             ],
-            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+            "correct_answer": "It helps us remember and connect the ideas"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa dramatic structure ng dula?",
+            "question": "What did we learn about the dramatic structure of a play?",
             "options": [
-              "Eksposisyon, tunggalian, kasukdulan, at kakalasan",
-              "Isang bahagi lamang",
-              "Wala tayong natutuhan tungkol dito",
-              "Kasaysayan lamang ng dula"
+              "Exposition, conflict, climax, and resolution",
+              "Only one part",
+              "We didn't learn anything about it",
+              "Only the history of plays"
             ],
-            "correct_answer": "Eksposisyon, tunggalian, kasukdulan, at kakalasan"
+            "correct_answer": "Exposition, conflict, climax, and resolution"
           },
           {
-            "question": "Bakit mahalagang isabuhay ang natutuhan tungkol sa kalusugan at kalinisan?",
+            "question": "Why is it important to practice what we learned about health and cleanliness?",
             "options": [
-              "Nakatutulong ito upang mamuhay nang malusog at responsable",
-              "Wala itong kabuluhan sa buhay ngayon",
-              "Ginagawa lamang ito para sa marka",
-              "Hindi ito totoong mahalaga dito sa gawaing ito"
+              "It helps us live in a healthy and responsible way",
+              "It is pointless in life today",
+              "It is only done for grades",
+              "It is not really important in this activity"
             ],
-            "correct_answer": "Nakatutulong ito upang mamuhay nang malusog at responsable"
+            "correct_answer": "It helps us live in a healthy and responsible way"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa mga larong Pilipino sa PE?",
+            "question": "What did we learn about Filipino games in PE?",
             "options": [
-              "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura",
-              "Wala tayong natutuhan tungkol dito sa gawaing ito",
-              "Isang uri lamang ng libangan na walang halaga sa sitwasyong ito",
-              "Hindi ito bahagi ng MAPEH dito ngayon kahit kailan"
+              "They build physical skills while we value our culture",
+              "We didn't learn anything about it in this activity",
+              "They are just a kind of fun with no value in this situation",
+              "They are never part of MAPEH"
             ],
-            "correct_answer": "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura"
+            "correct_answer": "They build physical skills while we value our culture"
           },
           {
-            "question": "Bakit itinuturing na mahalaga ang buong saklaw ng MAPEH ngayong term?",
+            "question": "Why is everything we covered in MAPEH this term important?",
             "options": [
-              "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan",
-              "Isa lamang dapat pinag-aralan sa mga ito",
-              "Wala itong kabuluhan sa buhay ng bata ngayon",
-              "Ginagawa lamang ito bilang libangan dito sa gawaing ito"
+              "It gives balanced growth in arts, health, and physical skills",
+              "Only one of these should be studied",
+              "It is pointless in a child's life today",
+              "It is only done for fun in this activity"
             ],
-            "correct_answer": "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan"
+            "correct_answer": "It gives balanced growth in arts, health, and physical skills"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 6)\n\n- Term review: musika, teatro/sayaw, kalusugan, PE, family wellness\n\nMagaling sa MAPEH! 🌟",
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 6)\n\n- Term review: music, theater/dance, health, PE, family wellness\n\nGreat job in MAPEH! 🌟",
         "quiz": [
           {
-            "question": "Ano ang natutuhan natin tungkol sa musika ngayong term?",
+            "question": "What did we learn about music this term?",
             "options": [
-              "Meter, time signature, at rhythmic dance patterns",
-              "Kasaysayan ng kompyuter lamang",
-              "Matematika lamang dito sa gawaing ito",
-              "Wala tayong natutuhan ngayon"
+              "Meter, time signature, and rhythmic dance patterns",
+              "Only the history of computers",
+              "Only math in this activity",
+              "We didn't learn anything this time"
             ],
-            "correct_answer": "Meter, time signature, at rhythmic dance patterns"
+            "correct_answer": "Meter, time signature, and rhythmic dance patterns"
           },
           {
-            "question": "Ano ang symbolic theater?",
+            "question": "What is symbolic theater?",
             "options": [
-              "Gumagamit ng simbolo upang ipahayag ang mensahe",
-              "Direktang pagsalungat lamang",
-              "Sayaw lamang na walang mensahe",
-              "Kanta lamang na walang kahulugan"
+              "It uses symbols to share a message",
+              "It is only direct protest",
+              "It is only a dance with no message",
+              "It is only a song with no meaning"
             ],
-            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+            "correct_answer": "It uses symbols to share a message"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa pagbabago habang papalaki?",
+            "question": "What did we learn about changes while growing up?",
             "options": [
-              "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago",
-              "Ito ay hindi normal at dapat ikahiya kahit kailan",
-              "Wala tayong natutuhan tungkol dito sa gawaing ito",
-              "Ito ay hindi bahagi ng MAPEH dito ngayon sa sitwasyong ito"
+              "They are a normal part of growing up, including physical and emotional changes",
+              "They are not normal and should always be a source of shame",
+              "We didn't learn anything about this in this activity",
+              "It is not part of MAPEH in this situation"
             ],
-            "correct_answer": "Ito ay normal na bahagi ng paglaki, kasama ang pisikal at emosyonal na pagbabago"
+            "correct_answer": "They are a normal part of growing up, including physical and emotional changes"
           },
           {
-            "question": "Ano ang pagkakaiba ng striking/fielding sa net/wall games?",
+            "question": "What is the difference between striking/fielding and net/wall games?",
             "options": [
-              "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang",
-              "Pareho silang walang bola",
-              "Pareho silang ginagawa lamang habang nakaupo",
-              "Walang pagkakaiba ang dalawa"
+              "Striking/fielding has hitting and running; net/wall has a barrier",
+              "Both have no ball",
+              "Both are only played while sitting",
+              "There is no difference between the two"
             ],
-            "correct_answer": "Striking/fielding ay may pagpalo at pagtakbo; net/wall ay may hadlang"
+            "correct_answer": "Striking/fielding has hitting and running; net/wall has a barrier"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa family wellness ngayong term?",
+            "question": "What did we learn about family wellness this term?",
             "options": [
-              "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya",
-              "Wala tayong natutuhan tungkol dito",
-              "Isang uri lamang ng laro dito sa gawaing ito",
-              "Isang uri lamang ng pagkain ngayon"
+              "Planning and doing health activities for the family",
+              "We didn't learn anything about it",
+              "Just one kind of game in this activity",
+              "Just one kind of food"
             ],
-            "correct_answer": "Pagpaplano at pagsasagawa ng gawaing pangkalusugan para sa pamilya"
+            "correct_answer": "Planning and doing health activities for the family"
           },
           {
-            "question": "Ano ang agility?",
+            "question": "What is agility?",
             "options": [
-              "Kakayahang mabilis kumilos at magpalit ng direksyon",
-              "Kakayahang manatiling tahimik",
-              "Kakayahang kumain nang mabilis",
-              "Kakayahang matulog nang mahimbing"
+              "The ability to move fast and change direction",
+              "The ability to stay quiet",
+              "The ability to eat fast",
+              "The ability to sleep deeply"
             ],
-            "correct_answer": "Kakayahang mabilis kumilos at magpalit ng direksyon"
+            "correct_answer": "The ability to move fast and change direction"
           },
           {
-            "question": "Ano ang balance sa PE?",
+            "question": "What is balance in PE?",
             "options": [
-              "Kakayahang manatiling matatag habang gumagalaw",
-              "Kakayahang tumakbo nang napakabilis",
-              "Kakayahang magbilang nang mabilis",
-              "Kakayahang kumanta nang malakas"
+              "The ability to stay steady while moving",
+              "The ability to run very fast",
+              "The ability to count fast",
+              "The ability to sing loudly"
             ],
-            "correct_answer": "Kakayahang manatiling matatag habang gumagalaw"
+            "correct_answer": "The ability to stay steady while moving"
           },
           {
-            "question": "Bakit mahalagang balikan ang natutuhan natin sa MAPEH ngayong term?",
+            "question": "Why is it important to review what we learned in MAPEH this term?",
             "options": [
-              "Tumutulong ito upang maalala at maiugnay ang mga konsepto",
-              "Wala itong kabuluhan sa pag-aaral dito",
-              "Ginagawa lamang ito para sa marka",
-              "Nakakalito lamang ito sa mag-aaral"
+              "It helps us remember and connect the ideas",
+              "It is pointless for learning",
+              "It is only done for grades",
+              "It only confuses students"
             ],
-            "correct_answer": "Tumutulong ito upang maalala at maiugnay ang mga konsepto"
+            "correct_answer": "It helps us remember and connect the ideas"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa dramatic structure ng dula?",
+            "question": "What did we learn about the dramatic structure of a play?",
             "options": [
-              "Eksposisyon, tunggalian, kasukdulan, at kakalasan",
-              "Isang bahagi lamang",
-              "Wala tayong natutuhan tungkol dito",
-              "Kasaysayan lamang ng dula"
+              "Exposition, conflict, climax, and resolution",
+              "Only one part",
+              "We didn't learn anything about it",
+              "Only the history of plays"
             ],
-            "correct_answer": "Eksposisyon, tunggalian, kasukdulan, at kakalasan"
+            "correct_answer": "Exposition, conflict, climax, and resolution"
           },
           {
-            "question": "Bakit mahalagang isabuhay ang natutuhan tungkol sa kalusugan at kalinisan?",
+            "question": "Why is it important to practice what we learned about health and cleanliness?",
             "options": [
-              "Nakatutulong ito upang mamuhay nang malusog at responsable",
-              "Wala itong kabuluhan sa buhay ngayon",
-              "Ginagawa lamang ito para sa marka",
-              "Hindi ito totoong mahalaga dito sa gawaing ito"
+              "It helps us live in a healthy and responsible way",
+              "It is pointless in life today",
+              "It is only done for grades",
+              "It is not really important in this activity"
             ],
-            "correct_answer": "Nakatutulong ito upang mamuhay nang malusog at responsable"
+            "correct_answer": "It helps us live in a healthy and responsible way"
           },
           {
-            "question": "Ano ang natutuhan natin tungkol sa mga larong Pilipino sa PE?",
+            "question": "What did we learn about Filipino games in PE?",
             "options": [
-              "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura",
-              "Wala tayong natutuhan tungkol dito sa gawaing ito",
-              "Isang uri lamang ng libangan na walang halaga sa sitwasyong ito",
-              "Hindi ito bahagi ng MAPEH dito ngayon kahit kailan"
+              "They build physical skills while we value our culture",
+              "We didn't learn anything about it in this activity",
+              "They are just a kind of fun with no value in this situation",
+              "They are never part of MAPEH"
             ],
-            "correct_answer": "Nagpapaunlad ang mga ito ng kasanayang pisikal habang pinahahalagahan ang kultura"
+            "correct_answer": "They build physical skills while we value our culture"
           },
           {
-            "question": "Bakit itinuturing na mahalaga ang buong saklaw ng MAPEH ngayong term?",
+            "question": "Why is everything we covered in MAPEH this term important?",
             "options": [
-              "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan",
-              "Isa lamang dapat pinag-aralan sa mga ito",
-              "Wala itong kabuluhan sa buhay ng bata ngayon",
-              "Ginagawa lamang ito bilang libangan dito sa gawaing ito"
+              "It gives balanced growth in arts, health, and physical skills",
+              "Only one of these should be studied",
+              "It is pointless in a child's life today",
+              "It is only done for fun in this activity"
             ],
-            "correct_answer": "Nagbibigay ito ng balanseng pagpapaunlad sa sining, kalusugan, at pisikal na kasanayan"
+            "correct_answer": "It gives balanced growth in arts, health, and physical skills"
           }
         ]
       },

@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎵 MAPEH — Music: Rhythm and Tempo\n\nMaligayang pagdating sa Ikalawang Termino, Grade 4! Alamin natin ang ritmo. 🎶\n\n## 🥁 Ano ang Rhythm (Ritmo)?\nAng **ritmo** ay ang **paulit-ulit na tunog** sa musika — parang **puso ng isang kanta**.\n\n**Dalawang mahalagang bahagi:**\n- **Beat** — ang **regular na tibok** ng musika, tulad ng ticking ng orasan\n- **Rhythmic pattern** — kombinasyon ng **mahaba at maikling tunog** na binubuo ang isang parte ng kanta\n\n## ⏱️ Ano ang Tempo?\nAng **tempo** ay ang **bilis o bagal** ng musika.\n\n| Tempo | Ibig Sabihin |\n|---|---|\n| **Mabilis (fast)** | maenerhiyang kanta, sayaw |\n| **Katamtaman (moderate)** | pangkaraniwang bilis |\n| **Mabagal (slow)** | payapa, malungkot na kanta |\n\n## 🙏 Musikang Kaugnay ng Paniniwala\nMaraming katutubong musika sa Pilipinas ang **kaugnay ng relihiyon o paniniwala** ng komunidad.\n\n**Halimbawa:**\n- **Pasyon** — inaawit tuwing Semana Santa, mabagal at may ritmo ng pagninilay\n- **Musika sa ani** — mabilis na tempo bilang pagdiriwang ng masaganang ani\n- **Awit sa pananalangin** — kadalasang mabagal at kalmado\n\n## 🧠 Halimbawa 1\n*Anong tempo ang mas bagay sa isang awiting pang-libing?*\n- **Mabagal** — para ipahayag ang kalungkutan at paggalang. ✅\n\n## 🧠 Halimbawa 2\n*Anong tempo ang mas bagay sa isang awiting pang-piyesta?*\n- **Mabilis** — para ipakita ang saya at pagdiriwang. ✅\n\n## 🎵 Pagsasanay: Paggaya at Pag-improvise ng Ritmo\n1. **Makinig** sa isang rhythmic pattern\n2. **Ulitin** ito sa pamamagitan ng pagpalakpak\n3. **Subukang lumikha** ng sarili mong bagong pattern (improvisation)\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎵 MAPEH — Music: Rhythm and Tempo\n\nWelcome to Term 2, Grade 4! Let's learn about rhythm. 🎶\n\n## 🥁 What Is Rhythm?\n**Rhythm** is the **repeated sound** in music — like the **heartbeat of a song**.\n\n**Two important parts:**\n- **Beat** — the **steady pulse** of the music, like the ticking of a clock\n- **Rhythmic pattern** — a mix of **long and short sounds** that makes up part of a song\n\n## ⏱️ What Is Tempo?\n**Tempo** is **how fast or slow** the music is.\n\n| Tempo | Meaning |\n|---|---|\n| **Fast** | energetic songs, dances |\n| **Moderate** | normal speed |\n| **Slow** | peaceful, sad songs |\n\n## 🙏 Music Linked to Beliefs\nA lot of native music in the Philippines is **linked to the religion or beliefs** of the community.\n\n**Examples:**\n- **Pasyon** (the sung story of Jesus' Passion) — sung during Holy Week, slow, with a thoughtful rhythm\n- **Harvest music** — a fast tempo to celebrate a big harvest\n- **Prayer songs** — usually slow and calm\n\n## 🧠 Example 1\n*Which tempo fits a funeral song better?*\n- **Slow** — to show sadness and respect. ✅\n\n## 🧠 Example 2\n*Which tempo fits a fiesta song better?*\n- **Fast** — to show joy and celebration. ✅\n\n## 🎵 Practice: Copying and Improvising Rhythm\n1. **Listen** to a rhythmic pattern\n2. **Repeat** it by clapping\n3. **Try to create** your own new pattern (improvisation)\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang ritmo?",
+            "question": "What is rhythm?",
             "options": [
-              "Paulit-ulit na tunog sa musika",
-              "Kulay ng damit sa sayaw",
-              "Pangalan ng kanta",
-              "Instrumentong ginagamit"
+              "Repeated sounds in music",
+              "Color of clothes in a dance",
+              "Name of a song",
+              "Instrument used"
             ],
-            "correct_answer": "Paulit-ulit na tunog sa musika"
+            "correct_answer": "Repeated sounds in music"
           },
           {
-            "question": "Ano ang beat?",
+            "question": "What is a beat?",
             "options": [
-              "Regular na tibok ng musika",
-              "Mabagal na kanta",
-              "Instrumentong pangmusika",
-              "Titulo ng isang awit"
+              "Steady pulse of the music",
+              "A slow song",
+              "A musical instrument",
+              "Title of a song"
             ],
-            "correct_answer": "Regular na tibok ng musika"
+            "correct_answer": "Steady pulse of the music"
           },
           {
-            "question": "Ano ang tempo?",
+            "question": "What is tempo?",
             "options": [
-              "Bilis o bagal ng musika",
-              "Lakas ng tunog",
-              "Bilang ng mang-aawit",
-              "Uri ng instrumento"
+              "How fast or slow the music is",
+              "Loudness of the sound",
+              "Number of singers",
+              "Type of instrument"
             ],
-            "correct_answer": "Bilis o bagal ng musika"
+            "correct_answer": "How fast or slow the music is"
           },
           {
-            "question": "Anong tempo ang bagay sa awiting pang-libing?",
+            "question": "What tempo fits a funeral song?",
             "options": [
-              "Mabagal",
-              "Mabilis",
-              "Katamtaman lamang",
-              "Walang tempo"
+              "Slow",
+              "Fast",
+              "Only medium",
+              "No tempo"
             ],
-            "correct_answer": "Mabagal"
+            "correct_answer": "Slow"
           },
           {
-            "question": "Anong tempo ang bagay sa awiting pang-piyesta?",
+            "question": "What tempo fits a fiesta song?",
             "options": [
-              "Mabilis",
-              "Mabagal",
-              "Walang ritmo",
-              "Tahimik lamang"
+              "Fast",
+              "Slow",
+              "No rhythm",
+              "Just quiet"
             ],
-            "correct_answer": "Mabilis"
+            "correct_answer": "Fast"
           },
           {
-            "question": "Ano ang rhythmic pattern?",
+            "question": "What is a rhythmic pattern?",
             "options": [
-              "Kombinasyon ng tunog na mahaba/maikli",
-              "Isang instrumento lamang dito",
-              "Pangalan ng mang-aawit lamang",
-              "Uri lamang ng sayaw dito"
+              "A mix of long and short sounds",
+              "Just one instrument",
+              "Just the singer's name",
+              "Just a type of dance"
             ],
-            "correct_answer": "Kombinasyon ng tunog na mahaba/maikli"
+            "correct_answer": "A mix of long and short sounds"
           },
           {
-            "question": "Ano ang Pasyon?",
+            "question": "What is the Pasyon?",
             "options": [
-              "Inaawit tuwing Semana Santa",
-              "Sayaw sa piyesta",
-              "Instrumentong pangmusika",
-              "Uri ng damit"
+              "It is sung during Holy Week",
+              "A fiesta dance",
+              "A musical instrument",
+              "A type of clothing"
             ],
-            "correct_answer": "Inaawit tuwing Semana Santa"
+            "correct_answer": "It is sung during Holy Week"
           },
           {
-            "question": "Ano ang tamang tempo ng musika sa ani bilang pagdiriwang?",
+            "question": "What is the right tempo for harvest music played as a celebration?",
             "options": [
-              "Mabilis",
-              "Mabagal",
-              "Walang tunog",
-              "Tahimik"
+              "Fast",
+              "Slow",
+              "No sound",
+              "Quiet"
             ],
-            "correct_answer": "Mabilis"
+            "correct_answer": "Fast"
           },
           {
-            "question": "Ano ang layunin ng pag-improvise ng ritmo?",
+            "question": "What is the goal of improvising a rhythm?",
             "options": [
-              "Lumikha ng sariling bagong pattern",
-              "Kopyahin lamang ang kanta ng iba",
-              "Manahimik sa buong sesyon",
-              "Basahin ang mga titik lamang"
+              "To create your own new pattern",
+              "To just copy someone else's song",
+              "To stay quiet the whole session",
+              "To just read the lyrics"
             ],
-            "correct_answer": "Lumikha ng sariling bagong pattern"
+            "correct_answer": "To create your own new pattern"
           },
           {
-            "question": "Bakit maraming katutubong musika ang kaugnay ng paniniwala?",
+            "question": "Why is a lot of native music linked to beliefs?",
             "options": [
-              "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad",
-              "Wala itong kaugnayan sa buhay ng tao",
-              "Gawa lamang ito ng mga bata",
-              "Isinulat lamang ito para sa turista"
+              "It is used in community rituals and celebrations",
+              "It has nothing to do with people's lives",
+              "It was made only by children",
+              "It was written only for tourists"
             ],
-            "correct_answer": "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad"
+            "correct_answer": "It is used in community rituals and celebrations"
           },
           {
-            "question": "Paano mo mapapalakpak nang tama ang isang rhythmic pattern?",
+            "question": "How can you clap a rhythmic pattern correctly?",
             "options": [
-              "Makinig muna bago ulitin ito",
-              "Palakpak nang basta-basta lamang",
-              "Basahin ang titik ng kanta",
-              "Bumili ng bagong instrumento"
+              "Listen first before repeating it",
+              "Just clap any way you like",
+              "Read the song's lyrics",
+              "Buy a new instrument"
             ],
-            "correct_answer": "Makinig muna bago ulitin ito"
+            "correct_answer": "Listen first before repeating it"
           },
           {
-            "question": "Isang kanta ang binabagalan ang tempo sa gitna ng awit. Ano ang malamang na epekto nito sa damdamin ng nakikinig?",
+            "question": "A song slows down its tempo in the middle. What is the likely effect on the listener's feelings?",
             "options": [
-              "Nagiging mas malungkot o payapa ang pakiramdam",
-              "Nagiging mas masaya at masigla ito",
-              "Walang epekto sa damdamin",
-              "Nagiging mas malakas ang tunog"
+              "It makes the feeling sadder or more peaceful",
+              "It makes it happier and livelier",
+              "It has no effect on feelings",
+              "It makes the sound louder"
             ],
-            "correct_answer": "Nagiging mas malungkot o payapa ang pakiramdam"
+            "correct_answer": "It makes the feeling sadder or more peaceful"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎵 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Ritmo** = paulit-ulit na tunog | **Beat** = regular na tibok | **Tempo** = bilis o bagal\n- **Mabagal** = payapa/malungkot | **Mabilis** = masaya/piyesta\n- Musikang kaugnay ng paniniwala: **Pasyon**, musika sa ani\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 4)\n\n- **Rhythm** = repeated sounds | **Beat** = steady pulse | **Tempo** = how fast or slow\n- **Slow** = peaceful/sad | **Fast** = happy/fiesta\n- Music linked to beliefs: the **Pasyon**, harvest music\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang ritmo?",
+            "question": "What is rhythm?",
             "options": [
-              "Paulit-ulit na tunog sa musika",
-              "Kulay ng damit sa sayaw",
-              "Pangalan ng kanta",
-              "Instrumentong ginagamit"
+              "Repeated sounds in music",
+              "Color of clothes in a dance",
+              "Name of a song",
+              "Instrument used"
             ],
-            "correct_answer": "Paulit-ulit na tunog sa musika"
+            "correct_answer": "Repeated sounds in music"
           },
           {
-            "question": "Ano ang beat?",
+            "question": "What is a beat?",
             "options": [
-              "Regular na tibok ng musika",
-              "Mabagal na kanta",
-              "Instrumentong pangmusika",
-              "Titulo ng isang awit"
+              "Steady pulse of the music",
+              "A slow song",
+              "A musical instrument",
+              "Title of a song"
             ],
-            "correct_answer": "Regular na tibok ng musika"
+            "correct_answer": "Steady pulse of the music"
           },
           {
-            "question": "Ano ang tempo?",
+            "question": "What is tempo?",
             "options": [
-              "Bilis o bagal ng musika",
-              "Lakas ng tunog",
-              "Bilang ng mang-aawit",
-              "Uri ng instrumento"
+              "How fast or slow the music is",
+              "Loudness of the sound",
+              "Number of singers",
+              "Type of instrument"
             ],
-            "correct_answer": "Bilis o bagal ng musika"
+            "correct_answer": "How fast or slow the music is"
           },
           {
-            "question": "Anong tempo ang bagay sa awiting pang-libing?",
+            "question": "What tempo fits a funeral song?",
             "options": [
-              "Mabagal",
-              "Mabilis",
-              "Katamtaman lamang",
-              "Walang tempo"
+              "Slow",
+              "Fast",
+              "Only medium",
+              "No tempo"
             ],
-            "correct_answer": "Mabagal"
+            "correct_answer": "Slow"
           },
           {
-            "question": "Anong tempo ang bagay sa awiting pang-piyesta?",
+            "question": "What tempo fits a fiesta song?",
             "options": [
-              "Mabilis",
-              "Mabagal",
-              "Walang ritmo",
-              "Tahimik lamang"
+              "Fast",
+              "Slow",
+              "No rhythm",
+              "Just quiet"
             ],
-            "correct_answer": "Mabilis"
+            "correct_answer": "Fast"
           },
           {
-            "question": "Ano ang rhythmic pattern?",
+            "question": "What is a rhythmic pattern?",
             "options": [
-              "Kombinasyon ng tunog na mahaba/maikli",
-              "Isang instrumento lamang dito",
-              "Pangalan ng mang-aawit lamang",
-              "Uri lamang ng sayaw dito"
+              "A mix of long and short sounds",
+              "Just one instrument",
+              "Just the singer's name",
+              "Just a type of dance"
             ],
-            "correct_answer": "Kombinasyon ng tunog na mahaba/maikli"
+            "correct_answer": "A mix of long and short sounds"
           },
           {
-            "question": "Ano ang Pasyon?",
+            "question": "What is the Pasyon?",
             "options": [
-              "Inaawit tuwing Semana Santa",
-              "Sayaw sa piyesta",
-              "Instrumentong pangmusika",
-              "Uri ng damit"
+              "It is sung during Holy Week",
+              "A fiesta dance",
+              "A musical instrument",
+              "A type of clothing"
             ],
-            "correct_answer": "Inaawit tuwing Semana Santa"
+            "correct_answer": "It is sung during Holy Week"
           },
           {
-            "question": "Ano ang tamang tempo ng musika sa ani bilang pagdiriwang?",
+            "question": "What is the right tempo for harvest music played as a celebration?",
             "options": [
-              "Mabilis",
-              "Mabagal",
-              "Walang tunog",
-              "Tahimik"
+              "Fast",
+              "Slow",
+              "No sound",
+              "Quiet"
             ],
-            "correct_answer": "Mabilis"
+            "correct_answer": "Fast"
           },
           {
-            "question": "Ano ang layunin ng pag-improvise ng ritmo?",
+            "question": "What is the goal of improvising a rhythm?",
             "options": [
-              "Lumikha ng sariling bagong pattern",
-              "Kopyahin lamang ang kanta ng iba",
-              "Manahimik sa buong sesyon",
-              "Basahin ang mga titik lamang"
+              "To create your own new pattern",
+              "To just copy someone else's song",
+              "To stay quiet the whole session",
+              "To just read the lyrics"
             ],
-            "correct_answer": "Lumikha ng sariling bagong pattern"
+            "correct_answer": "To create your own new pattern"
           },
           {
-            "question": "Bakit maraming katutubong musika ang kaugnay ng paniniwala?",
+            "question": "Why is a lot of native music linked to beliefs?",
             "options": [
-              "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad",
-              "Wala itong kaugnayan sa buhay ng tao",
-              "Gawa lamang ito ng mga bata",
-              "Isinulat lamang ito para sa turista"
+              "It is used in community rituals and celebrations",
+              "It has nothing to do with people's lives",
+              "It was made only by children",
+              "It was written only for tourists"
             ],
-            "correct_answer": "Ginagamit ito sa mga ritwal at pagdiriwang ng komunidad"
+            "correct_answer": "It is used in community rituals and celebrations"
           },
           {
-            "question": "Paano mo mapapalakpak nang tama ang isang rhythmic pattern?",
+            "question": "How can you clap a rhythmic pattern correctly?",
             "options": [
-              "Makinig muna bago ulitin ito",
-              "Palakpak nang basta-basta lamang",
-              "Basahin ang titik ng kanta",
-              "Bumili ng bagong instrumento"
+              "Listen first before repeating it",
+              "Just clap any way you like",
+              "Read the song's lyrics",
+              "Buy a new instrument"
             ],
-            "correct_answer": "Makinig muna bago ulitin ito"
+            "correct_answer": "Listen first before repeating it"
           },
           {
-            "question": "Isang kanta ang binabagalan ang tempo sa gitna ng awit. Ano ang malamang na epekto nito sa damdamin ng nakikinig?",
+            "question": "A song slows down its tempo in the middle. What is the likely effect on the listener's feelings?",
             "options": [
-              "Nagiging mas malungkot o payapa ang pakiramdam",
-              "Nagiging mas masaya at masigla ito",
-              "Walang epekto sa damdamin",
-              "Nagiging mas malakas ang tunog"
+              "It makes the feeling sadder or more peaceful",
+              "It makes it happier and livelier",
+              "It has no effect on feelings",
+              "It makes the sound louder"
             ],
-            "correct_answer": "Nagiging mas malungkot o payapa ang pakiramdam"
+            "correct_answer": "It makes the feeling sadder or more peaceful"
           }
         ]
       },

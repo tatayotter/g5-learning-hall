@@ -635,20 +635,20 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🏸 MAPEH — Striking/Fielding at Net/Wall Games (Termino 2, Linggo 1)\n\nBagong uri ng laro para sa Termino 2! 🎾⚾\n\n## 🏏 Striking/Fielding Games\nLayunin: **tamaan ang bola** at tumakbo sa mga **base** bago maisauli ng kalaban ang bola.\n- **Halimbawa:** softball, baseball, patintero-inspired striking games\n- **Susi:** tamang **timing** ng pagtama, mabilis na pagtakbo, mahusay na **fielding** (pagsalo/pagbato pabalik)\n\n## 🏓 Net/Wall Games\nLayunin: **ipadaan ang bola sa net o pader** patungo sa lugar na mahirap sagutin ng kalaban.\n- **Halimbawa:** badminton, volleyball, table tennis, sipa-tennis\n- **Susi:** **placement** (kung saan ipapadpad ang bola), timing ng swing, at posisyon sa court\n\n## 🧠 Mahahalagang Kasanayan\n\n| Kasanayan | Paglalarawan |\n|---|---|\n| **Striking** | pagtama sa bola gamit ang kamay, paa, o pamalo |\n| **Fielding** | pagsalo o pagbawi ng bola pagkatapos itong tamaan |\n| **Serving** | pagpapasimula ng laro sa pamamagitan ng pagpadala ng bola sa kalaban |\n| **Volleying** | pagpapadaan ng bola nang hindi pinatatalbog sa sahig |\n\n## 💪 Estratehiya sa Striking/Fielding\n- **Sa pagbato/pagtama:** tumingin sa bola hanggang sa sandaling matama ito\n- **Sa fielding:** manatili sa tamang posisyon bago pa dumating ang bola\n- **Sa pagtakbo sa base:** magpasya nang mabilis kung tatakbo o hindi\n\n## 🎯 Estratehiya sa Net/Wall Games\n- **Ipadala ang bola sa bakanteng espasyo** ng kalaban\n- **Baguhin ang bilis at direksyon** upang hindi mahulaan ng kalaban\n- **Bumalik agad sa gitnang posisyon** (ready position) pagkatapos ng bawat tira\n\n## 🛡️ Kaligtasan\nMag-warm up bago maglaro, gumamit ng tamang kagamitan (racket, guwantes), at manatiling alerto sa direksyon ng bolang lumilipad.\n\n## 🤝 Sportsmanship\nKilalanin ang magandang laro ng kalaban, sundin ang mga panuntunan, at maglaro nang **patas** kahit walang nakatingin na referee.\n\nMagandang simula sa Termino 2! 🌟",
+        "summary_markdown": "# 🏸 MAPEH — Striking/Fielding and Net/Wall Games (Term 2, Week 1)\n\nNew kinds of games for Term 2! 🎾⚾\n\n## 🏏 Striking/Fielding Games\nGoal: **hit the ball** and run to the **bases** before the other team gets the ball back.\n- **Examples:** softball, baseball, patintero-inspired striking games\n- **Keys:** good **timing** when hitting, running fast, and good **fielding** (catching and throwing the ball back)\n\n## 🏓 Net/Wall Games\nGoal: **send the ball over the net or against the wall** to a spot that is hard for the opponent to return.\n- **Examples:** badminton, volleyball, table tennis, sipa-tennis\n- **Keys:** **placement** (where you send the ball), timing of your swing, and your position on the court\n\n## 🧠 Important Skills\n\n| Skill | Description |\n|---|---|\n| **Striking** | hitting the ball with your hand, foot, or a bat |\n| **Fielding** | catching or getting back the ball after it is hit |\n| **Serving** | starting the game by sending the ball to the opponent |\n| **Volleying** | sending the ball back without letting it bounce on the floor |\n\n## 💪 Strategies in Striking/Fielding\n- **When batting/hitting:** watch the ball until the moment you hit it\n- **When fielding:** get into the right position before the ball arrives\n- **When running the bases:** decide quickly whether to run or not\n\n## 🎯 Strategies in Net/Wall Games\n- **Send the ball into the opponent's open space**\n- **Change the speed and direction** so the opponent cannot guess\n- **Go back to the middle position right away** (ready position) after every shot\n\n## 🛡️ Safety\nWarm up before playing, use the right equipment (racket, gloves), and stay alert to where the ball is flying.\n\n## 🤝 Sportsmanship\nPraise the other team's good plays, follow the rules, and play **fairly** even when no referee is watching.\n\nA great start to Term 2! 🌟",
         "quiz": [
           {
-            "question": "Ano ang layunin ng striking/fielding games?",
+            "question": "What is the goal of striking/fielding games?",
             "options": [
-              "Tamaan ang bola at tumakbo sa mga base",
-              "Ipasok ang bola sa isang target",
-              "Ipadaan ang bola sa ibabaw ng net",
-              "Manatili lamang sa isang lugar"
+              "Hit the ball and run to the bases",
+              "Get the ball into a target",
+              "Send the ball over the net",
+              "Just stay in one place"
             ],
-            "correct_answer": "Tamaan ang bola at tumakbo sa mga base"
+            "correct_answer": "Hit the ball and run to the bases"
           },
           {
-            "question": "Alin ang halimbawa ng net/wall game?",
+            "question": "Which one is an example of a net/wall game?",
             "options": [
               "Badminton",
               "Softball",
@@ -658,104 +658,104 @@
             "correct_answer": "Badminton"
           },
           {
-            "question": "Ano ang fielding?",
+            "question": "What is fielding?",
             "options": [
-              "Pagsalo o pagbawi ng bola pagkatapos itong tamaan",
-              "Pagpapasimula ng laro sa net",
-              "Pagtakbo patungo sa base",
-              "Pagpapadala ng bola sa ere"
+              "Catching or getting back the ball after it is hit",
+              "Starting the game at the net",
+              "Running to a base",
+              "Sending the ball into the air"
             ],
-            "correct_answer": "Pagsalo o pagbawi ng bola pagkatapos itong tamaan"
+            "correct_answer": "Catching or getting back the ball after it is hit"
           },
           {
-            "question": "Ano ang volleying sa net/wall games?",
+            "question": "What is volleying in net/wall games?",
             "options": [
-              "Pagpapadaan ng bola nang hindi ito humahagpak sa sahig",
-              "Pagbato ng bola gamit ang pamalo",
-              "Pagtakbo patungo sa susunod na base",
-              "Pagsalo ng bola gamit ang dalawang kamay"
+              "Sending the ball back before it hits the floor",
+              "Hitting the ball with a bat",
+              "Running to the next base",
+              "Catching the ball with two hands"
             ],
-            "correct_answer": "Pagpapadaan ng bola nang hindi ito humahagpak sa sahig"
+            "correct_answer": "Sending the ball back before it hits the floor"
           },
           {
-            "question": "Bakit mahalagang tumingin sa bola hanggang sa matama ito?",
+            "question": "Why is it important to watch the ball until you hit it?",
             "options": [
-              "Nadaragdagan ang katumpakan ng pagtama",
-              "Napapabilis ang takbo ng manlalaro",
-              "Naiiwasan ang pagsalo ng kalaban",
-              "Nababawasan ang bigat ng bola"
+              "It makes your hit more accurate",
+              "It makes the player run faster",
+              "It stops the opponent from catching it",
+              "It makes the ball lighter"
             ],
-            "correct_answer": "Nadaragdagan ang katumpakan ng pagtama"
+            "correct_answer": "It makes your hit more accurate"
           },
           {
-            "question": "Sa net/wall games, saan pinakamainam ipadala ang bola?",
+            "question": "In net/wall games, where is the best place to send the ball?",
             "options": [
-              "Sa bakanteng espasyo ng kalaban",
-              "Sa pinakamalapit na bahagi ng net",
-              "Sa parehong lugar palagi",
-              "Sa labas ng court"
+              "Into the opponent's open space",
+              "To the closest part of the net",
+              "To the same spot every time",
+              "Outside the court"
             ],
-            "correct_answer": "Sa bakanteng espasyo ng kalaban"
+            "correct_answer": "Into the opponent's open space"
           },
           {
-            "question": "Bakit mahalagang bumalik sa ready position pagkatapos ng bawat tira?",
+            "question": "Why is it important to go back to the ready position after every shot?",
             "options": [
-              "Upang mahandang tumugon sa susunod na tira",
-              "Upang mapahinga nang matagal",
-              "Upang makapagpalit ng kagamitan",
-              "Upang makipag-usap sa kakampi"
+              "To be ready for the next shot",
+              "To rest for a long time",
+              "To change equipment",
+              "To talk with a teammate"
             ],
-            "correct_answer": "Upang mahandang tumugon sa susunod na tira"
+            "correct_answer": "To be ready for the next shot"
           },
           {
-            "question": "Ano ang mahalagang gawin bago maglaro ng striking/fielding o net/wall games?",
+            "question": "What is important to do before playing striking/fielding or net/wall games?",
             "options": [
-              "Mag-warm up",
-              "Kumain ng mabigat na pagkain",
-              "Matulog nang mahimbing",
-              "Uminom ng malamig na tubig kaagad"
+              "Warm up",
+              "Eat a heavy meal",
+              "Sleep deeply",
+              "Drink cold water right away"
             ],
-            "correct_answer": "Mag-warm up"
+            "correct_answer": "Warm up"
           },
           {
-            "question": "Ano ang nagpapakita ng tunay na sportsmanship sa mga larong ito?",
+            "question": "What shows true sportsmanship in these games?",
             "options": [
-              "Maglaro nang patas kahit walang referee",
-              "Manalo sa anumang paraan",
-              "Isumbong agad ang kalaban",
-              "Iwasan ang pakikilahok sa laro"
+              "Playing fairly even without a referee",
+              "Winning by any means",
+              "Reporting the opponent right away",
+              "Not taking part in the game"
             ],
-            "correct_answer": "Maglaro nang patas kahit walang referee"
+            "correct_answer": "Playing fairly even without a referee"
           },
           {
-            "question": "Bakit mahalagang baguhin ang bilis at direksyon ng tira sa net/wall games?",
+            "question": "Why is it important to change the speed and direction of your shots in net/wall games?",
             "options": [
-              "Upang hindi mahulaan ng kalaban ang susunod na galaw",
-              "Upang mapabilis ang pagtatapos ng laro",
-              "Upang mas madaling mahuli ang bola",
-              "Upang hindi na kailangang tumakbo"
+              "So the opponent cannot guess your next move",
+              "To make the game end faster",
+              "To make the ball easier to catch",
+              "So you don't have to run anymore"
             ],
-            "correct_answer": "Upang hindi mahulaan ng kalaban ang susunod na galaw"
+            "correct_answer": "So the opponent cannot guess your next move"
           },
           {
-            "question": "Sa isang laro ng softball, mabagal na tumatakbo ang isang manlalaro papuntang unang base kahit malayo ang bola. Ano ang dapat niyang gawin?",
+            "question": "In a softball game, a player runs slowly to first base even though the ball is far away. What should they do?",
             "options": [
-              "Tumakbo nang buong-lakas hanggang sa base",
-              "Huminto para magpahinga muna",
-              "Bumalik sa naunang posisyon",
-              "Hintayin ang susunod na inning"
+              "Run with full effort all the way to the base",
+              "Stop to rest first",
+              "Go back to the earlier position",
+              "Wait for the next inning"
             ],
-            "correct_answer": "Tumakbo nang buong-lakas hanggang sa base"
+            "correct_answer": "Run with full effort all the way to the base"
           },
           {
-            "question": "Palaging naiipit sa gitna ng court ang isang manlalaro ng badminton kaya nahuhuli sa mga tira sa gilid. Ano ang PINAKAMABUTING solusyon?",
+            "question": "A badminton player always gets stuck in the middle of the court, so they are late for shots to the sides. What is the BEST solution?",
             "options": [
-              "Bumalik agad sa ready position pagkatapos ng bawat tira",
-              "Manatili sa gilid ng court palagi",
-              "Tumigil sa paglalaro ng badminton",
-              "Hintayin na lang ang bawat tira ng kalaban"
+              "Go back to the ready position right after every shot",
+              "Always stay at the side of the court",
+              "Stop playing badminton",
+              "Just wait for each of the opponent's shots"
             ],
-            "correct_answer": "Bumalik agad sa ready position pagkatapos ng bawat tira"
+            "correct_answer": "Go back to the ready position right after every shot"
           }
         ]
       },
@@ -1637,10 +1637,10 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🏸 Biyernes na Balik-Aral — MAPEH (Grade 6, Termino 2 Linggo 1)\n\n- **Striking/fielding games** (softball) — tamaan ang bola, tumakbo sa base\n- **Net/wall games** (badminton, volleyball) — ipadaan ang bola sa net patungo sa bakanteng espasyo\n- **Fielding** = pagsalo/pagbawi ng bola | **Volleying** = pagpapadaan nang hindi humahagpak\n- Bumalik sa **ready position** pagkatapos ng bawat tira\n- Mag-**warm up** bago maglaro; maglaro nang **patas**\n\nMagandang simula sa Termino 2! 🌟",
+        "summary_markdown": "# 🏸 Friday Review — MAPEH (Grade 6, Term 2 Week 1)\n\n- **Striking/fielding games** (softball) — hit the ball, run to the base\n- **Net/wall games** (badminton, volleyball) — send the ball over the net into an open space\n- **Fielding** = catching or getting back the ball | **Volleying** = sending the ball back before it hits the floor\n- Go back to the **ready position** after every shot\n- **Warm up** before playing; play **fairly**\n\nA great start to Term 2! 🌟",
         "quiz": [
           {
-            "question": "Alin ang halimbawa ng striking/fielding game?",
+            "question": "Which one is an example of a striking/fielding game?",
             "options": [
               "Softball",
               "Badminton",
@@ -1650,7 +1650,7 @@
             "correct_answer": "Softball"
           },
           {
-            "question": "Alin ang halimbawa ng net/wall game?",
+            "question": "Which one is an example of a net/wall game?",
             "options": [
               "Volleyball",
               "Softball",
@@ -1660,104 +1660,104 @@
             "correct_answer": "Volleyball"
           },
           {
-            "question": "Ano ang fielding?",
+            "question": "What is fielding?",
             "options": [
-              "Pagsalo o pagbawi ng bola",
-              "Pagpapasimula ng laro",
-              "Pagtakbo sa base",
-              "Pagtama sa bola"
+              "Catching or getting back the ball",
+              "Starting the game",
+              "Running to the base",
+              "Hitting the ball"
             ],
-            "correct_answer": "Pagsalo o pagbawi ng bola"
+            "correct_answer": "Catching or getting back the ball"
           },
           {
-            "question": "Ano ang volleying?",
+            "question": "What is volleying?",
             "options": [
-              "Pagpapadaan ng bola nang hindi humahagpak sa sahig",
-              "Pagbato ng bola gamit ang pamalo",
-              "Pagtakbo patungo sa base",
-              "Pagsalo ng bola gamit ang dalawang kamay"
+              "Sending the ball back before it hits the floor",
+              "Hitting the ball with a bat",
+              "Running to a base",
+              "Catching the ball with two hands"
             ],
-            "correct_answer": "Pagpapadaan ng bola nang hindi humahagpak sa sahig"
+            "correct_answer": "Sending the ball back before it hits the floor"
           },
           {
-            "question": "Bakit mahalagang tumingin sa bola hanggang matama ito?",
+            "question": "Why is it important to watch the ball until you hit it?",
             "options": [
-              "Nadaragdagan ang katumpakan ng pagtama",
-              "Napapabilis ang takbo",
-              "Naiiwasan ang kalaban",
-              "Nababawasan ang bigat ng bola"
+              "It makes your hit more accurate",
+              "It makes you run faster",
+              "It helps you avoid the opponent",
+              "It makes the ball lighter"
             ],
-            "correct_answer": "Nadaragdagan ang katumpakan ng pagtama"
+            "correct_answer": "It makes your hit more accurate"
           },
           {
-            "question": "Saan pinakamainam ipadala ang bola sa net/wall games?",
+            "question": "Where is the best place to send the ball in net/wall games?",
             "options": [
-              "Sa bakanteng espasyo ng kalaban",
-              "Sa pinakamalapit na bahagi ng net",
-              "Sa parehong lugar palagi",
-              "Sa labas ng court"
+              "Into the opponent's open space",
+              "To the closest part of the net",
+              "To the same spot every time",
+              "Outside the court"
             ],
-            "correct_answer": "Sa bakanteng espasyo ng kalaban"
+            "correct_answer": "Into the opponent's open space"
           },
           {
-            "question": "Bakit mahalagang bumalik sa ready position pagkatapos ng bawat tira?",
+            "question": "Why is it important to go back to the ready position after every shot?",
             "options": [
-              "Upang mahandang tumugon sa susunod na tira",
-              "Upang mapahinga nang matagal",
-              "Upang makipag-usap sa kakampi",
-              "Upang makapagpalit ng kagamitan"
+              "To be ready for the next shot",
+              "To rest for a long time",
+              "To talk with a teammate",
+              "To change equipment"
             ],
-            "correct_answer": "Upang mahandang tumugon sa susunod na tira"
+            "correct_answer": "To be ready for the next shot"
           },
           {
-            "question": "Ano ang dapat gawin bago maglaro ng anumang isport?",
+            "question": "What should you do before playing any sport?",
             "options": [
-              "Mag-warm up",
-              "Kumain nang mabigat",
-              "Matulog agad",
-              "Uminom ng malamig na tubig"
+              "Warm up",
+              "Eat a heavy meal",
+              "Go to sleep right away",
+              "Drink cold water"
             ],
-            "correct_answer": "Mag-warm up"
+            "correct_answer": "Warm up"
           },
           {
-            "question": "Ano ang nagpapakita ng sportsmanship?",
+            "question": "What shows sportsmanship?",
             "options": [
-              "Maglaro nang patas kahit walang referee",
-              "Manalo sa anumang paraan",
-              "Isumbong agad ang kalaban",
-              "Iwasan ang paglahok"
+              "Playing fairly even without a referee",
+              "Winning by any means",
+              "Reporting the opponent right away",
+              "Not joining in"
             ],
-            "correct_answer": "Maglaro nang patas kahit walang referee"
+            "correct_answer": "Playing fairly even without a referee"
           },
           {
-            "question": "Bakit mahalagang baguhin ang bilis at direksyon ng tira?",
+            "question": "Why is it important to change the speed and direction of your shots?",
             "options": [
-              "Upang hindi mahulaan ng kalaban ang susunod na galaw",
-              "Upang mapabilis ang laro",
-              "Upang mas madaling mahuli ang bola",
-              "Upang hindi na kailangang tumakbo"
+              "So the opponent cannot guess your next move",
+              "To make the game faster",
+              "To make the ball easier to catch",
+              "So you don't have to run anymore"
             ],
-            "correct_answer": "Upang hindi mahulaan ng kalaban ang susunod na galaw"
+            "correct_answer": "So the opponent cannot guess your next move"
           },
           {
-            "question": "Mabagal tumatakbo ang isang manlalaro ng softball papunta sa unang base. Ano ang dapat niyang gawin?",
+            "question": "A softball player is running slowly to first base. What should they do?",
             "options": [
-              "Tumakbo nang buong-lakas",
-              "Tumigil para magpahinga",
-              "Bumalik sa naunang posisyon",
-              "Hintayin ang susunod na inning"
+              "Run with full effort",
+              "Stop to rest",
+              "Go back to the earlier position",
+              "Wait for the next inning"
             ],
-            "correct_answer": "Tumakbo nang buong-lakas"
+            "correct_answer": "Run with full effort"
           },
           {
-            "question": "Palaging naiipit sa gitna ang isang manlalaro ng badminton kaya nahuhuli sa mga tira sa gilid. Ano ang solusyon?",
+            "question": "A badminton player always gets stuck in the middle, so they are late for shots to the sides. What is the solution?",
             "options": [
-              "Bumalik agad sa ready position pagkatapos ng bawat tira",
-              "Manatili sa gilid palagi",
-              "Tumigil sa paglalaro",
-              "Hintayin na lang ang kalaban"
+              "Go back to the ready position right after every shot",
+              "Always stay at the side",
+              "Stop playing",
+              "Just wait for the opponent"
             ],
-            "correct_answer": "Bumalik agad sa ready position pagkatapos ng bawat tira"
+            "correct_answer": "Go back to the ready position right after every shot"
           }
         ]
       },

@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🌱 MAPEH — Kalusugang Pangkapaligiran (One Health)\n\nGrade 6, Linggo 22! Alamin natin ang kaugnayan ng kalusugan ng tao at kapaligiran. 🌱\n\n## 🔄 Balik-Aral\nNatutuhan natin ang karaniwang nakakahawang sakit.\n\n## 🌱 Ano ang One Health?\nAng **One Health** ay ang paniniwalang magkakaugnay ang kalusugan ng tao, hayop, at kapaligiran — kaya dapat pangalagaan ang lahat ng ito nang sabay-sabay.\n\n## ♻️ Sanitasyon at Kalinisan\nMahalaga ang tamang **sanitasyon** (tulad ng malinis na tubig at maayos na disposal ng basura) upang maiwasan ang pagkalat ng sakit.\n\n## ♻️ 8Rs ng Pamamahala ng Basura\nRefuse, Reduce, Reuse, Repurpose, Rot, Recycle, Repair, at Rethink — mga paraan para bawasan ang basurang idinudulot sa kapaligiran.\n\n**Mahahalagang salita:** One Health, sanitasyon, 8Rs, kapaligiran",
+        "summary_markdown": "# 🌱 MAPEH — Environmental Health (One Health)\n\nGrade 6, Week 22! Let's learn how people's health and the environment are connected. 🌱\n\n## 🔄 Review\nWe learned about common communicable diseases.\n\n## 🌱 What Is One Health?\n**One Health** is the idea that the health of people, animals, and the environment are all connected — so we must take care of all of them together.\n\n## ♻️ Sanitation and Cleanliness\nGood **sanitation** (like clean water and proper trash disposal) is important to stop the spread of disease.\n\n## ♻️ The 8Rs of Waste Management\nRefuse, Reduce, Reuse, Repurpose, Rot, Recycle, Repair, and Rethink — ways to cut down on the trash we put into the environment.\n\n**Key words:** One Health, sanitation, 8Rs, environment",
         "quiz": [
           {
-            "question": "Ano ang One Health?",
+            "question": "What is One Health?",
             "options": [
-              "Paniniwalang magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
-              "Isang uri ng bakuna",
-              "Isang uri ng ehersisyo",
-              "Isang uri ng gamot"
+              "The idea that the health of people, animals, and the environment are connected",
+              "A kind of vaccine",
+              "A kind of exercise",
+              "A kind of medicine"
             ],
-            "correct_answer": "Paniniwalang magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+            "correct_answer": "The idea that the health of people, animals, and the environment are connected"
           },
           {
-            "question": "Bakit mahalaga ang sanitasyon?",
+            "question": "Why is sanitation important?",
             "options": [
-              "Maiwasan ang pagkalat ng sakit",
-              "Walang kahalagahan",
-              "Nagdudulot ng sakit",
-              "Hindi konektado sa kalusugan"
+              "To prevent the spread of disease",
+              "It is not important",
+              "It causes disease",
+              "It is not connected to health"
             ],
-            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+            "correct_answer": "To prevent the spread of disease"
           },
           {
-            "question": "Ano ang ibig sabihin ng 8Rs?",
+            "question": "What do the 8Rs mean?",
             "options": [
-              "Mga paraan para bawasan ang basura sa kapaligiran",
-              "Walong bagong sakit",
-              "Walong bakuna",
-              "Walong uri ng ehersisyo"
+              "Ways to cut down on trash in the environment",
+              "Eight new diseases",
+              "Eight vaccines",
+              "Eight kinds of exercise"
             ],
-            "correct_answer": "Mga paraan para bawasan ang basura sa kapaligiran"
+            "correct_answer": "Ways to cut down on trash in the environment"
           },
           {
-            "question": "Bakit mahalagang pangalagaan ang kalusugan ng hayop at kapaligiran, hindi lamang ng tao?",
+            "question": "Why is it important to take care of the health of animals and the environment, not just people?",
             "options": [
-              "Magkakaugnay ang lahat ng ito ayon sa konsepto ng One Health",
-              "Walang kaugnayan ang mga ito sa kalusugan ng tao",
-              "Ang tao lamang ang mahalaga",
-              "Ang kapaligiran ay hiwalay sa kalusugan"
+              "They are all connected, according to the idea of One Health",
+              "They have nothing to do with people's health",
+              "Only people matter",
+              "The environment is separate from health"
             ],
-            "correct_answer": "Magkakaugnay ang lahat ng ito ayon sa konsepto ng One Health"
+            "correct_answer": "They are all connected, according to the idea of One Health"
           },
           {
-            "question": "Anong halimbawa ng maayos na sanitasyon?",
+            "question": "Which is an example of good sanitation?",
             "options": [
-              "Malinis na tubig at maayos na disposal ng basura",
-              "Basurang nakakalat kahit saan",
-              "Kawalang pag-iingat sa tubig",
-              "Pagtatapon ng basura sa ilog"
+              "Clean water and proper trash disposal",
+              "Trash scattered everywhere",
+              "Being careless with water",
+              "Throwing trash in the river"
             ],
-            "correct_answer": "Malinis na tubig at maayos na disposal ng basura"
+            "correct_answer": "Clean water and proper trash disposal"
           },
           {
-            "question": "Ano ang 'Reduce' sa 8Rs?",
+            "question": "What is 'Reduce' in the 8Rs?",
             "options": [
-              "Pagbawas ng basurang nagagawa",
-              "Pagdagdag ng basura",
-              "Pagtatago ng basura",
-              "Pagsunog ng basura"
+              "Cutting down on the trash we make",
+              "Adding more trash",
+              "Hiding trash",
+              "Burning trash"
             ],
-            "correct_answer": "Pagbawas ng basurang nagagawa"
+            "correct_answer": "Cutting down on the trash we make"
           },
           {
-            "question": "Ano ang 'Recycle' sa 8Rs?",
+            "question": "What is 'Recycle' in the 8Rs?",
             "options": [
-              "Paggawa ng bagong bagay mula sa lumang materyales",
-              "Pagtapon ng basura kaagad",
-              "Pagsunog ng basura",
-              "Pagtago ng basura magpakailanman"
+              "Making new things from old materials",
+              "Throwing trash away right away",
+              "Burning trash",
+              "Keeping trash hidden forever"
             ],
-            "correct_answer": "Paggawa ng bagong bagay mula sa lumang materyales"
+            "correct_answer": "Making new things from old materials"
           },
           {
-            "question": "Bakit itinuturing na mahalagang isyu ang kalusugang pangkapaligiran?",
+            "question": "Why is environmental health seen as an important issue?",
             "options": [
-              "Nakakaapekto ito sa kalusugan at kabuhayan ng lahat",
-              "Walang epekto ito sa tao",
-              "Isyu lamang ito ng ibang bansa",
-              "Hindi kaugnay ng MAPEH"
+              "It affects everyone's health and way of living",
+              "It has no effect on people",
+              "It is only an issue in other countries",
+              "It is not related to MAPEH"
             ],
-            "correct_answer": "Nakakaapekto ito sa kalusugan at kabuhayan ng lahat"
+            "correct_answer": "It affects everyone's health and way of living"
           },
           {
-            "question": "Bakit konektado ang sakit sa hayop sa sakit ng tao ayon sa One Health?",
+            "question": "According to One Health, why are animal diseases connected to human diseases?",
             "options": [
-              "Maaaring lumipat ang ilang sakit mula sa hayop patungo sa tao",
-              "Walang koneksyon ang dalawa",
-              "Ang hayop ay hindi kailanman nagkakasakit",
-              "Ang tao ay hindi kailanman nahahawa mula sa hayop"
+              "Some diseases can pass from animals to people",
+              "The two have no connection",
+              "Animals never get sick",
+              "People never catch diseases from animals"
             ],
-            "correct_answer": "Maaaring lumipat ang ilang sakit mula sa hayop patungo sa tao"
+            "correct_answer": "Some diseases can pass from animals to people"
           },
           {
-            "question": "Paano nauugnay ang paksang ito sa nakakahawang sakit na natutunan noon?",
+            "question": "How is this topic connected to the communicable diseases we learned before?",
             "options": [
-              "Parehong tumatalakay sa pag-iwas at pangangalaga ng kalusugan",
-              "Walang koneksyon ang dalawa",
-              "Isa tungkol lamang sa agham",
-              "Isa tungkol lamang sa matematika"
+              "Both are about preventing disease and caring for health",
+              "The two have no connection",
+              "One is only about science",
+              "One is only about math"
             ],
-            "correct_answer": "Parehong tumatalakay sa pag-iwas at pangangalaga ng kalusugan"
+            "correct_answer": "Both are about preventing disease and caring for health"
           },
           {
-            "question": "Bakit itinuturo ang 8Rs sa mga bata?",
+            "question": "Why are the 8Rs taught to children?",
             "options": [
-              "Upang maging responsable sa pangangalaga ng kapaligiran",
-              "Walang layunin ito",
-              "Para sa matatanda lamang ito",
-              "Hindi kaugnay ng kalusugan"
+              "To be responsible in caring for the environment",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to health"
             ],
-            "correct_answer": "Upang maging responsable sa pangangalaga ng kapaligiran"
+            "correct_answer": "To be responsible in caring for the environment"
           },
           {
-            "question": "Ano ang mangyayari kung walang maayos na sanitasyon sa isang komunidad?",
+            "question": "What happens if a community has no proper sanitation?",
             "options": [
-              "Mas mataas ang panganib ng pagkalat ng sakit",
-              "Walang epekto ito",
-              "Mas malusog ang lahat",
-              "Awtomatikong nawawala ang mga sakit"
+              "Higher risk of disease spreading",
+              "It has no effect",
+              "Everyone is healthier",
+              "Diseases disappear by themselves"
             ],
-            "correct_answer": "Mas mataas ang panganib ng pagkalat ng sakit"
+            "correct_answer": "Higher risk of disease spreading"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🌱 Friday Review — MAPEH (Grade 6)\n\n- Kalusugang pangkapaligiran (One Health)\n\nMagaling sa Health! 🌟",
+        "summary_markdown": "# 🌱 Friday Review — MAPEH (Grade 6)\n\n- Environmental health (One Health)\n\nGreat job in Health! 🌟",
         "quiz": [
           {
-            "question": "Ano ang One Health?",
+            "question": "What is One Health?",
             "options": [
-              "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran",
-              "Uri ng bakuna",
-              "Uri ng ehersisyo",
-              "Uri ng gamot"
+              "The health of people, animals, and the environment are connected",
+              "A kind of vaccine",
+              "A kind of exercise",
+              "A kind of medicine"
             ],
-            "correct_answer": "Magkakaugnay ang kalusugan ng tao, hayop, kapaligiran"
+            "correct_answer": "The health of people, animals, and the environment are connected"
           },
           {
-            "question": "Bakit mahalaga ang sanitasyon?",
+            "question": "Why is sanitation important?",
             "options": [
-              "Maiwasan ang pagkalat ng sakit",
-              "Walang kahalagahan",
-              "Nagdudulot ng sakit",
-              "Hindi konektado sa kalusugan"
+              "To prevent the spread of disease",
+              "It is not important",
+              "It causes disease",
+              "It is not connected to health"
             ],
-            "correct_answer": "Maiwasan ang pagkalat ng sakit"
+            "correct_answer": "To prevent the spread of disease"
           },
           {
-            "question": "Ano ang 8Rs?",
+            "question": "What are the 8Rs?",
             "options": [
-              "Paraan para bawasan ang basura",
-              "Walong bagong sakit",
-              "Walong bakuna",
-              "Walong ehersisyo"
+              "Ways to cut down on trash",
+              "Eight new diseases",
+              "Eight vaccines",
+              "Eight exercises"
             ],
-            "correct_answer": "Paraan para bawasan ang basura"
+            "correct_answer": "Ways to cut down on trash"
           },
           {
-            "question": "Bakit pangalagaan ang kalusugan ng hayop at kapaligiran?",
+            "question": "Why take care of the health of animals and the environment?",
             "options": [
-              "Magkakaugnay ayon sa One Health",
-              "Walang kaugnayan",
-              "Ang tao lamang mahalaga",
-              "Kapaligiran ay hiwalay"
+              "They are all connected, according to One Health",
+              "They are not related",
+              "Only people matter",
+              "The environment is separate"
             ],
-            "correct_answer": "Magkakaugnay ayon sa One Health"
+            "correct_answer": "They are all connected, according to One Health"
           },
           {
-            "question": "Halimbawa ng maayos na sanitasyon?",
+            "question": "An example of good sanitation?",
             "options": [
-              "Malinis na tubig at disposal ng basura",
-              "Basurang nakakalat",
-              "Kawalang pag-iingat sa tubig",
-              "Pagtatapon sa ilog"
+              "Clean water and proper trash disposal",
+              "Trash scattered around",
+              "Being careless with water",
+              "Throwing trash in the river"
             ],
-            "correct_answer": "Malinis na tubig at disposal ng basura"
+            "correct_answer": "Clean water and proper trash disposal"
           },
           {
-            "question": "Ano ang 'Reduce'?",
+            "question": "What is 'Reduce'?",
             "options": [
-              "Pagbawas ng basura",
-              "Pagdagdag ng basura",
-              "Pagtatago ng basura",
-              "Pagsunog ng basura"
+              "Cutting down on trash",
+              "Adding more trash",
+              "Hiding trash",
+              "Burning trash"
             ],
-            "correct_answer": "Pagbawas ng basura"
+            "correct_answer": "Cutting down on trash"
           },
           {
-            "question": "Ano ang 'Recycle'?",
+            "question": "What is 'Recycle'?",
             "options": [
-              "Bagong bagay mula sa lumang materyales",
-              "Pagtapon kaagad",
-              "Pagsunog ng basura",
-              "Pagtago magpakailanman"
+              "New things from old materials",
+              "Throwing away right away",
+              "Burning trash",
+              "Keeping it hidden forever"
             ],
-            "correct_answer": "Bagong bagay mula sa lumang materyales"
+            "correct_answer": "New things from old materials"
           },
           {
-            "question": "Bakit mahalagang isyu ang kalusugang pangkapaligiran?",
+            "question": "Why is environmental health an important issue?",
             "options": [
-              "Nakaka-apekto sa kalusugan ng lahat",
-              "Walang epekto sa tao",
-              "Isyu lamang ng ibang bansa",
-              "Hindi kaugnay ng MAPEH"
+              "It affects everyone's health",
+              "It has no effect on people",
+              "It is only an issue in other countries",
+              "It is not related to MAPEH"
             ],
-            "correct_answer": "Nakaka-apekto sa kalusugan ng lahat"
+            "correct_answer": "It affects everyone's health"
           },
           {
-            "question": "Bakit konektado ang sakit sa hayop sa sakit ng tao?",
+            "question": "Why are animal diseases connected to human diseases?",
             "options": [
-              "Maaaring lumipat ang sakit mula sa hayop",
-              "Walang koneksyon",
-              "Hayop ay hindi nagkakasakit",
-              "Tao ay hindi nahahawa"
+              "Diseases can pass from animals",
+              "There is no connection",
+              "Animals don't get sick",
+              "People don't catch diseases"
             ],
-            "correct_answer": "Maaaring lumipat ang sakit mula sa hayop"
+            "correct_answer": "Diseases can pass from animals"
           },
           {
-            "question": "Koneksyon sa nakakahawang sakit na natutunan noon?",
+            "question": "How is this connected to the communicable diseases we learned before?",
             "options": [
-              "Parehong tumatalakay sa pag-iwas ng sakit",
-              "Walang koneksyon",
-              "Isa tungkol sa agham lamang",
-              "Isa tungkol sa matematika"
+              "Both are about preventing disease",
+              "There is no connection",
+              "One is only about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong tumatalakay sa pag-iwas ng sakit"
+            "correct_answer": "Both are about preventing disease"
           },
           {
-            "question": "Bakit ituro ang 8Rs sa mga bata?",
+            "question": "Why teach the 8Rs to children?",
             "options": [
-              "Responsable sa pangangalaga ng kapaligiran",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng kalusugan"
+              "To be responsible in caring for the environment",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to health"
             ],
-            "correct_answer": "Responsable sa pangangalaga ng kapaligiran"
+            "correct_answer": "To be responsible in caring for the environment"
           },
           {
-            "question": "Ano ang mangyayari kung walang maayos na sanitasyon?",
+            "question": "What happens if there is no proper sanitation?",
             "options": [
-              "Mas mataas ang panganib ng sakit",
-              "Walang epekto",
-              "Mas malusog ang lahat",
-              "Nawawala ang mga sakit"
+              "Higher risk of disease",
+              "No effect",
+              "Everyone is healthier",
+              "Diseases disappear"
             ],
-            "correct_answer": "Mas mataas ang panganib ng sakit"
+            "correct_answer": "Higher risk of disease"
           }
         ]
       },

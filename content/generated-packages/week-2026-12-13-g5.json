@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎭 MAPEH — Term 2 Review: Musika, Sining, PE, at Kalusugan\n\nGrade 5, Linggo 27! Balikan natin ang natutunan ngayong term. 🎭\n\n## 🔄 Mga Paksang Natalakay\n- **Musika/Sining:** Panahon ng Unang Kolonyal na Espanyol; melody at musical form (verse/chorus)\n- **PE:** Rhythmic activities/dances sa 2/4 time, social dance mixer\n- **Kalusugan:** Tamang paggamit ng gamot, epekto ng gateway drugs\n\n## 🧠 Pagsasama-sama\nSa termino na ito, natutunan nating kilalanin ang mga bahagi ng musika (verse, chorus), gumawa ng sariling simpleng awit, sumayaw ng mga rhythmic dance, at alamin ang tamang pangangalaga sa kalusugan sa pamamagitan ng wastong paggamit ng gamot.\n\n## 🎯 Layunin ng Pagbabalik-Aral\nTiyakin na handa tayo para sa mga bagong paksa sa susunod na term, habang buong-buo ang natutunang kaalaman.\n\n**Mahahalagang salita:** musical form, social dance mixer, tamang paggamit ng gamot, gateway drugs",
+        "summary_markdown": "# 🎭 MAPEH — Term 2 Review: Music, Art, PE, and Health\n\nGrade 5, Week 27! Let's look back at what we learned this term. 🎭\n\n## 🔄 Topics We Covered\n- **Music/Art:** The Early Spanish Colonial Period; melody and musical form (verse/chorus)\n- **PE:** Rhythmic activities/dances in 2/4 time, social dance mixer\n- **Health:** Proper use of medicine, effects of gateway drugs\n\n## 🧠 Putting It All Together\nThis term, we learned to name the parts of music (verse, chorus), made our own simple song, danced rhythmic dances, and learned how to take care of our health by using medicine the right way.\n\n## 🎯 Goal of the Review\nMake sure we are ready for new topics next term, while keeping everything we learned.\n\n**Key words:** musical form, social dance mixer, proper use of medicine, gateway drugs",
         "quiz": [
           {
-            "question": "Ano ang verse (saknong) sa isang awit?",
+            "question": "What is a verse in a song?",
             "options": [
-              "Bahaging nagbabago ang salita sa bawat pag-uulit",
-              "Bahaging palaging pareho ang salita",
-              "Bahaging walang salita",
-              "Instrumento lamang"
+              "The part whose words change each time it comes back",
+              "The part whose words are always the same",
+              "The part with no words",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging nagbabago ang salita sa bawat pag-uulit"
+            "correct_answer": "The part whose words change each time it comes back"
           },
           {
-            "question": "Ano ang chorus (koro) sa isang awit?",
+            "question": "What is a chorus in a song?",
             "options": [
-              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
-              "Bahaging binabago bawat ulit",
-              "Bahaging walang himig",
-              "Instrumento lamang"
+              "The part that repeats and is usually remembered best",
+              "The part that changes each time",
+              "The part with no tune",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+            "correct_answer": "The part that repeats and is usually remembered best"
           },
           {
-            "question": "Ano ang social dance mixer?",
+            "question": "What is a social dance mixer?",
             "options": [
-              "Sayaw kung saan nagpapalit-palit ng partner",
-              "Isang uri ng awit",
-              "Isang laro na walang musika",
-              "Isang uri ng pagguhit"
+              "A dance where partners keep changing",
+              "A kind of song",
+              "A game with no music",
+              "A kind of drawing"
             ],
-            "correct_answer": "Sayaw kung saan nagpapalit-palit ng partner"
+            "correct_answer": "A dance where partners keep changing"
           },
           {
-            "question": "Anong time signature ang ginamit sa mga rhythmic dance?",
+            "question": "What time signature was used in the rhythmic dances?",
             "options": [
               "2/4",
               "6/8",
               "9/4",
-              "Walang time signature"
+              "No time signature"
             ],
             "correct_answer": "2/4"
           },
           {
-            "question": "Sino ang dapat magrereseta ng gamot?",
+            "question": "Who should prescribe medicine?",
             "options": [
-              "Doktor o magulang",
-              "Kaibigan lamang",
-              "Sinuman",
-              "Walang kailangang pahintulot"
+              "A doctor or parent",
+              "Only a friend",
+              "Anyone",
+              "No permission is needed"
             ],
-            "correct_answer": "Doktor o magulang"
+            "correct_answer": "A doctor or parent"
           },
           {
-            "question": "Ano ang gateway drugs?",
+            "question": "What are gateway drugs?",
             "options": [
-              "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga",
-              "Uri ng pagkain lamang",
-              "Legal na gamot na walang epekto",
-              "Uri ng bitamina"
+              "Substances that can open the way to more dangerous drugs",
+              "Just a kind of food",
+              "Legal medicine with no effect",
+              "A kind of vitamin"
             ],
-            "correct_answer": "Substansiyang maaaring magbukas ng daan sa mas mapanganib na droga"
+            "correct_answer": "Substances that can open the way to more dangerous drugs"
           },
           {
-            "question": "Alin ang halimbawa ng gateway drug?",
+            "question": "Which is an example of a gateway drug?",
             "options": [
-              "Sigarilyo",
-              "Gatas",
-              "Tubig",
-              "Prutas"
+              "Cigarettes",
+              "Milk",
+              "Water",
+              "Fruit"
             ],
-            "correct_answer": "Sigarilyo"
+            "correct_answer": "Cigarettes"
           },
           {
-            "question": "Bakit mahalagang malaman ang tamang paggamit ng gamot?",
+            "question": "Why is it important to know the proper use of medicine?",
             "options": [
-              "Upang maiwasan ang maling paggamit na makasasama sa katawan",
-              "Hindi ito mahalaga",
-              "Ang gamot ay palaging ligtas kahit paano gamitin",
-              "Hindi na kailangan ng dosis"
+              "To avoid misuse that can harm the body",
+              "It is not important",
+              "Medicine is always safe no matter how it is used",
+              "No dose is needed"
             ],
-            "correct_answer": "Upang maiwasan ang maling paggamit na makasasama sa katawan"
+            "correct_answer": "To avoid misuse that can harm the body"
           },
           {
-            "question": "Anong yugto ng kasaysayan ang tinalakay sa Musika/Sining ngayong term?",
+            "question": "What period of history was covered in Music/Art this term?",
             "options": [
-              "Unang Panahon ng Kolonyal na Espanyol",
-              "Panahon ng mga Amerikano",
-              "Kasalukuyang panahon",
-              "Bago dumating ang mga Espanyol"
+              "Early Spanish Colonial Period",
+              "American period",
+              "Present day",
+              "Before the Spanish arrived"
             ],
-            "correct_answer": "Unang Panahon ng Kolonyal na Espanyol"
+            "correct_answer": "Early Spanish Colonial Period"
           },
           {
-            "question": "Ano ang layunin ng pagbabalik-aral bago ang bakasyon?",
+            "question": "What is the goal of reviewing before the break?",
             "options": [
-              "Tiyakin na handa para sa bagong paksa sa susunod na term",
-              "Wala itong layunin",
-              "Para lamang libangin ang guro",
-              "Palitan ang mga aralin sa matematika"
+              "To make sure we are ready for new topics next term",
+              "It has no goal",
+              "Just to entertain the teacher",
+              "To replace math lessons"
             ],
-            "correct_answer": "Tiyakin na handa para sa bagong paksa sa susunod na term"
+            "correct_answer": "To make sure we are ready for new topics next term"
           },
           {
-            "question": "Anong kasanayan ang ipinakita sa culminating dance performance?",
+            "question": "What skill was shown in the culminating dance performance?",
             "options": [
-              "Koordinasyon at pakikipagtulungan",
-              "Kasanayan sa pagsulat",
-              "Kasanayan sa matematika",
-              "Kasanayan sa pagluluto"
+              "Coordination and teamwork",
+              "Writing skills",
+              "Math skills",
+              "Cooking skills"
             ],
-            "correct_answer": "Koordinasyon at pakikipagtulungan"
+            "correct_answer": "Coordination and teamwork"
           },
           {
-            "question": "Anong mahalagang aral ang natutunan sa paggawa ng sariling awit?",
+            "question": "What important lesson did we learn from making our own song?",
             "options": [
-              "Paglalapat ng musical form (verse at chorus) sa malikhaing proyekto",
-              "Paggawa ng puhunan",
-              "Pagkalkula ng probability",
-              "Pagsulat ng balangkas ng kuwento"
+              "Using musical form (verse and chorus) in a creative project",
+              "Making a business investment",
+              "Calculating probability",
+              "Writing a story outline"
             ],
-            "correct_answer": "Paglalapat ng musical form (verse at chorus) sa malikhaing proyekto"
+            "correct_answer": "Using musical form (verse and chorus) in a creative project"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 5)\n\n- Term 2 wrap-up: musika, PE, kalusugan\n\nMagaling na term! 🌟",
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 5)\n\n- Term 2 wrap-up: music, PE, health\n\nGreat term! 🌟",
         "quiz": [
           {
-            "question": "Ano ang verse (saknong)?",
+            "question": "What is a verse?",
             "options": [
-              "Bahaging nagbabago ang salita",
-              "Bahaging palaging pareho",
-              "Walang salita",
-              "Instrumento lamang"
+              "The part whose words change",
+              "The part that is always the same",
+              "It has no words",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging nagbabago ang salita"
+            "correct_answer": "The part whose words change"
           },
           {
-            "question": "Ano ang chorus (koro)?",
+            "question": "What is a chorus?",
             "options": [
-              "Bahaging paulit-ulit",
-              "Bahaging binabago bawat ulit",
-              "Bahaging walang himig",
-              "Instrumento lamang"
+              "The part that repeats",
+              "The part that changes each time",
+              "The part with no tune",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging paulit-ulit"
+            "correct_answer": "The part that repeats"
           },
           {
-            "question": "Ano ang social dance mixer?",
+            "question": "What is a social dance mixer?",
             "options": [
-              "Sayaw na nagpapalit-palit ng partner",
-              "Uri ng awit",
-              "Laro na walang musika",
-              "Uri ng pagguhit"
+              "A dance where partners keep changing",
+              "A kind of song",
+              "A game with no music",
+              "A kind of drawing"
             ],
-            "correct_answer": "Sayaw na nagpapalit-palit ng partner"
+            "correct_answer": "A dance where partners keep changing"
           },
           {
-            "question": "Anong time signature ginamit sa rhythmic dance?",
+            "question": "What time signature was used in the rhythmic dance?",
             "options": [
               "2/4",
               "6/8",
               "9/4",
-              "Wala"
+              "None"
             ],
             "correct_answer": "2/4"
           },
           {
-            "question": "Sino ang dapat magrereseta ng gamot?",
+            "question": "Who should prescribe medicine?",
             "options": [
-              "Doktor o magulang",
-              "Kaibigan lamang",
-              "Sinuman",
-              "Walang kailangan"
+              "A doctor or parent",
+              "Only a friend",
+              "Anyone",
+              "No one needs to"
             ],
-            "correct_answer": "Doktor o magulang"
+            "correct_answer": "A doctor or parent"
           },
           {
-            "question": "Ano ang gateway drugs?",
+            "question": "What are gateway drugs?",
             "options": [
-              "Substansiyang bukas-daan sa mas mapanganib na droga",
-              "Uri ng pagkain",
-              "Legal na gamot",
-              "Uri ng bitamina"
+              "Substances that open the way to more dangerous drugs",
+              "A kind of food",
+              "Legal medicine",
+              "A kind of vitamin"
             ],
-            "correct_answer": "Substansiyang bukas-daan sa mas mapanganib na droga"
+            "correct_answer": "Substances that open the way to more dangerous drugs"
           },
           {
-            "question": "Halimbawa ng gateway drug?",
+            "question": "What is an example of a gateway drug?",
             "options": [
-              "Sigarilyo",
-              "Gatas",
-              "Tubig",
-              "Prutas"
+              "Cigarettes",
+              "Milk",
+              "Water",
+              "Fruit"
             ],
-            "correct_answer": "Sigarilyo"
+            "correct_answer": "Cigarettes"
           },
           {
-            "question": "Bakit mahalaga ang tamang paggamit ng gamot?",
+            "question": "Why is the proper use of medicine important?",
             "options": [
-              "Upang maiwasan ang maling paggamit",
-              "Hindi mahalaga",
-              "Palaging ligtas ang gamot",
-              "Hindi kailangan ng dosis"
+              "To avoid misusing it",
+              "It is not important",
+              "Medicine is always safe",
+              "No dose is needed"
             ],
-            "correct_answer": "Upang maiwasan ang maling paggamit"
+            "correct_answer": "To avoid misusing it"
           },
           {
-            "question": "Yugto ng kasaysayan sa Musika/Sining ngayong term?",
+            "question": "What period of history did Music/Art cover this term?",
             "options": [
-              "Unang Kolonyal na Espanyol",
-              "Amerikano",
-              "Kasalukuyan",
-              "Bago dumating ang Espanyol"
+              "Early Spanish Colonial",
+              "American",
+              "Present day",
+              "Before the Spanish arrived"
             ],
-            "correct_answer": "Unang Kolonyal na Espanyol"
+            "correct_answer": "Early Spanish Colonial"
           },
           {
-            "question": "Layunin ng pagbabalik-aral bago bakasyon?",
+            "question": "What is the goal of reviewing before the break?",
             "options": [
-              "Maging handa sa bagong paksa",
-              "Walang layunin",
-              "Libangin ang guro",
-              "Palitan ang matematika"
+              "To be ready for new topics",
+              "No goal",
+              "To entertain the teacher",
+              "To replace math"
             ],
-            "correct_answer": "Maging handa sa bagong paksa"
+            "correct_answer": "To be ready for new topics"
           },
           {
-            "question": "Kasanayan sa culminating dance performance?",
+            "question": "What skill was shown in the culminating dance performance?",
             "options": [
-              "Koordinasyon at pakikipagtulungan",
-              "Pagsulat",
-              "Matematika",
-              "Pagluluto"
+              "Coordination and teamwork",
+              "Writing",
+              "Math",
+              "Cooking"
             ],
-            "correct_answer": "Koordinasyon at pakikipagtulungan"
+            "correct_answer": "Coordination and teamwork"
           },
           {
-            "question": "Aral sa paggawa ng sariling awit?",
+            "question": "What did we learn from making our own song?",
             "options": [
-              "Paglalapat ng musical form sa proyekto",
-              "Paggawa ng puhunan",
-              "Pagkalkula ng probability",
-              "Pagsulat ng balangkas"
+              "Using musical form in a project",
+              "Making a business investment",
+              "Calculating probability",
+              "Writing an outline"
             ],
-            "correct_answer": "Paglalapat ng musical form sa proyekto"
+            "correct_answer": "Using musical form in a project"
           }
         ]
       },

@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎊 MAPEH — Tradisyunal/Pambansang Sayaw\n\nGrade 6, Linggo 25! Alamin natin ang mga tradisyunal na sayaw ng Pilipinas! 🎊\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga lokal at rehiyonal na street dance festival.\n\n## 🎊 Ano ang Tradisyunal/Pambansang Sayaw?\nAng **tradisyunal na sayaw** ay mga sayaw na naipasa mula sa isang henerasyon patungo sa isa pa, na sumasalamin sa kultura at kasaysayan ng isang rehiyon.\n\n## 💃 Mga Halimbawa\n- **Tinikling** — sayaw gamit ang kawayan, kumakatawan sa ibong tikling\n- **Singkil** — sayaw ng mga Maranao gamit ang kawayan at payong\n- **Pandanggo sa Ilaw** — sayaw gamit ang mga ilawan sa kamay at ulo\n\n## 🎯 Bakit Mahalaga Ito?\nAng mga sayaw na ito ay bahagi ng ating pambansang pagkakakilanlan at dapat mapanatili para sa susunod na henerasyon.\n\n**Mahahalagang salita:** tradisyunal na sayaw, Tinikling, Singkil, Pandanggo sa Ilaw",
+        "summary_markdown": "# 🎊 MAPEH — Traditional/National Dances\n\nGrade 6, Week 25! Let's learn about the traditional dances of the Philippines! 🎊\n\n## 🔄 Review\nWe learned about local and regional street dance festivals.\n\n## 🎊 What Is a Traditional/National Dance?\nA **traditional dance** is a dance passed down from one generation to the next. It reflects the culture and history of a region.\n\n## 💃 Examples\n- **Tinikling** — a dance with bamboo poles that copies the tikling bird\n- **Singkil** — a Maranao dance using bamboo poles and umbrellas\n- **Pandanggo sa Ilaw** — a dance with oil lamps on the hands and head\n\n## 🎯 Why Does It Matter?\nThese dances are part of our national identity and should be kept alive for the next generation.\n\n**Key words:** traditional dance, Tinikling, Singkil, Pandanggo sa Ilaw",
         "quiz": [
           {
-            "question": "Ano ang tradisyunal na sayaw?",
+            "question": "What is a traditional dance?",
             "options": [
-              "Sayaw na naipasa mula sa isang henerasyon patungo sa isa pa",
-              "Bagong uri ng sayaw",
-              "Sayaw na banyaga lamang",
-              "Isang uri ng laro"
+              "A dance passed down from one generation to the next",
+              "A new kind of dance",
+              "Only a foreign dance",
+              "A kind of game"
             ],
-            "correct_answer": "Sayaw na naipasa mula sa isang henerasyon patungo sa isa pa"
+            "correct_answer": "A dance passed down from one generation to the next"
           },
           {
-            "question": "Anong kagamitan ginagamit sa Tinikling?",
+            "question": "What props are used in the Tinikling?",
             "options": [
-              "Kawayan",
-              "Payong",
-              "Ilawan",
-              "Baso"
+              "Bamboo poles",
+              "Umbrella",
+              "Oil lamp",
+              "Glass"
             ],
-            "correct_answer": "Kawayan"
+            "correct_answer": "Bamboo poles"
           },
           {
-            "question": "Sino ang gumagawa ng Singkil?",
+            "question": "Who performs the Singkil?",
             "options": [
-              "Mga Maranao",
-              "Mga Ilokano",
-              "Mga Bisaya",
-              "Mga Tagalog"
+              "The Maranao",
+              "The Ilokano",
+              "The Bisaya",
+              "The Tagalog"
             ],
-            "correct_answer": "Mga Maranao"
+            "correct_answer": "The Maranao"
           },
           {
-            "question": "Anong kagamitan ginagamit sa Pandanggo sa Ilaw?",
+            "question": "What props are used in the Pandanggo sa Ilaw?",
             "options": [
-              "Mga ilawan sa kamay at ulo",
-              "Kawayan lamang",
-              "Payong lamang",
-              "Walang kagamitan"
+              "Oil lamps on the hands and head",
+              "Only bamboo poles",
+              "Only an umbrella",
+              "No props"
             ],
-            "correct_answer": "Mga ilawan sa kamay at ulo"
+            "correct_answer": "Oil lamps on the hands and head"
           },
           {
-            "question": "Ano ang kinakatawan ng Tinikling?",
+            "question": "What does the Tinikling show?",
             "options": [
-              "Ibong tikling",
-              "Isang uri ng puno",
-              "Isang uri ng isda",
-              "Isang uri ng hayop na dagat"
+              "The tikling bird",
+              "A kind of tree",
+              "A kind of fish",
+              "A kind of sea animal"
             ],
-            "correct_answer": "Ibong tikling"
+            "correct_answer": "The tikling bird"
           },
           {
-            "question": "Bakit mahalagang mapanatili ang mga tradisyunal na sayaw?",
+            "question": "Why is it important to keep traditional dances alive?",
             "options": [
-              "Bahagi ito ng ating pambansang pagkakakilanlan",
-              "Walang kahalagahan ito",
-              "Hindi na kailangan ito ngayon",
-              "Ito ay hindi bahagi ng kultura"
+              "They are part of our national identity",
+              "They are not important",
+              "They are no longer needed today",
+              "They are not part of the culture"
             ],
-            "correct_answer": "Bahagi ito ng ating pambansang pagkakakilanlan"
+            "correct_answer": "They are part of our national identity"
           },
           {
-            "question": "Ano ang ipinapakita ng Singkil bilang sayaw?",
+            "question": "What does the Singkil show as a dance?",
             "options": [
-              "Kulturang Maranao gamit ang kawayan at payong",
-              "Kulturang banyaga",
-              "Isang uri ng laro lamang",
-              "Walang partikular na kahulugan"
+              "Maranao culture using bamboo poles and umbrellas",
+              "Foreign culture",
+              "Only a kind of game",
+              "No special meaning"
             ],
-            "correct_answer": "Kulturang Maranao gamit ang kawayan at payong"
+            "correct_answer": "Maranao culture using bamboo poles and umbrellas"
           },
           {
-            "question": "Bakit itinuturo ang tradisyunal na sayaw sa MAPEH?",
+            "question": "Why is traditional dance taught in MAPEH?",
             "options": [
-              "Upang mapahalagahan at mapanatili ang kultura ng Pilipinas",
-              "Walang layunin ito",
-              "Para sa matatanda lamang ito",
-              "Hindi kaugnay ng edukasyon"
+              "To value and keep alive the culture of the Philippines",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to education"
             ],
-            "correct_answer": "Upang mapahalagahan at mapanatili ang kultura ng Pilipinas"
+            "correct_answer": "To value and keep alive the culture of the Philippines"
           },
           {
-            "question": "Bakit mahalagang ituro ang tradisyunal na sayaw sa mga bata?",
+            "question": "Why is it important to teach traditional dance to children?",
             "options": [
-              "Upang maipasa ang kultura sa susunod na henerasyon",
-              "Hindi na kailangan ituro ito",
-              "Para sa matatanda lamang ito",
-              "Walang epekto ito"
+              "To pass the culture on to the next generation",
+              "It doesn't need to be taught anymore",
+              "It is only for older people",
+              "It has no effect"
             ],
-            "correct_answer": "Upang maipasa ang kultura sa susunod na henerasyon"
+            "correct_answer": "To pass the culture on to the next generation"
           },
           {
-            "question": "Paano nauugnay ang tradisyunal na sayaw sa street dance na natutunan noon?",
+            "question": "How is traditional dance related to the street dance we learned before?",
             "options": [
-              "Parehong bahagi ng pagdiriwang at pagpapahalaga sa kultura ng Pilipinas",
-              "Walang koneksyon ang dalawa",
-              "Isa tungkol sa agham lamang",
-              "Isa tungkol sa matematika"
+              "Both are part of celebrating and valuing Filipino culture",
+              "The two have no connection",
+              "One is only about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong bahagi ng pagdiriwang at pagpapahalaga sa kultura ng Pilipinas"
+            "correct_answer": "Both are part of celebrating and valuing Filipino culture"
           },
           {
-            "question": "Bakit natatangi ang bawat tradisyunal na sayaw sa iba't ibang rehiyon?",
+            "question": "Why is each traditional dance special in different regions?",
             "options": [
-              "Sumasalamin ito sa natatanging kasaysayan at kultura ng bawat lugar",
-              "Magkatulad lamang ang lahat ng sayaw",
-              "Walang pagkakaiba ang mga rehiyon",
-              "Basta random lamang ang pagkakaiba"
+              "It reflects the special history and culture of each place",
+              "All the dances are the same",
+              "The regions are no different",
+              "The differences are just random"
             ],
-            "correct_answer": "Sumasalamin ito sa natatanging kasaysayan at kultura ng bawat lugar"
+            "correct_answer": "It reflects the special history and culture of each place"
           },
           {
-            "question": "Ano ang naidudulot ng pag-aaral ng iba't ibang tradisyunal na sayaw?",
+            "question": "What does learning different traditional dances bring?",
             "options": [
-              "Mas malalim na pag-unawa at pagpapahalaga sa kultura ng bansa",
-              "Walang naidudulot",
-              "Nakakalito lamang ito",
-              "Hindi ito nagbibigay-kaalaman"
+              "A deeper understanding and appreciation of the country's culture",
+              "Nothing",
+              "It is only confusing",
+              "It gives no new knowledge"
             ],
-            "correct_answer": "Mas malalim na pag-unawa at pagpapahalaga sa kultura ng bansa"
+            "correct_answer": "A deeper understanding and appreciation of the country's culture"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎊 Friday Review — MAPEH (Grade 6)\n\n- Tradisyunal/pambansang sayaw\n\nMagaling sa kultura! 🌟",
+        "summary_markdown": "# 🎊 Friday Review — MAPEH (Grade 6)\n\n- Traditional/national dances\n\nGreat job learning about culture! 🌟",
         "quiz": [
           {
-            "question": "Ano ang tradisyunal na sayaw?",
+            "question": "What is a traditional dance?",
             "options": [
-              "Naipasa mula sa isang henerasyon patungo sa isa pa",
-              "Bagong uri ng sayaw",
-              "Sayaw na banyaga lamang",
-              "Uri ng laro"
+              "Passed down from one generation to the next",
+              "A new kind of dance",
+              "Only a foreign dance",
+              "A kind of game"
             ],
-            "correct_answer": "Naipasa mula sa isang henerasyon patungo sa isa pa"
+            "correct_answer": "Passed down from one generation to the next"
           },
           {
-            "question": "Kagamitan sa Tinikling?",
+            "question": "Props used in the Tinikling?",
             "options": [
-              "Kawayan",
-              "Payong",
-              "Ilawan",
-              "Baso"
+              "Bamboo poles",
+              "Umbrella",
+              "Oil lamp",
+              "Glass"
             ],
-            "correct_answer": "Kawayan"
+            "correct_answer": "Bamboo poles"
           },
           {
-            "question": "Sino gumagawa ng Singkil?",
+            "question": "Who performs the Singkil?",
             "options": [
-              "Mga Maranao",
-              "Mga Ilokano",
-              "Mga Bisaya",
-              "Mga Tagalog"
+              "The Maranao",
+              "The Ilokano",
+              "The Bisaya",
+              "The Tagalog"
             ],
-            "correct_answer": "Mga Maranao"
+            "correct_answer": "The Maranao"
           },
           {
-            "question": "Kagamitan sa Pandanggo sa Ilaw?",
+            "question": "Props used in the Pandanggo sa Ilaw?",
             "options": [
-              "Ilawan sa kamay at ulo",
-              "Kawayan lamang",
-              "Payong lamang",
-              "Walang kagamitan"
+              "Oil lamps on the hands and head",
+              "Only bamboo poles",
+              "Only an umbrella",
+              "No props"
             ],
-            "correct_answer": "Ilawan sa kamay at ulo"
+            "correct_answer": "Oil lamps on the hands and head"
           },
           {
-            "question": "Kinakatawan ng Tinikling?",
+            "question": "What does the Tinikling show?",
             "options": [
-              "Ibong tikling",
-              "Puno",
-              "Isda",
-              "Hayop sa dagat"
+              "The tikling bird",
+              "A tree",
+              "A fish",
+              "A sea animal"
             ],
-            "correct_answer": "Ibong tikling"
+            "correct_answer": "The tikling bird"
           },
           {
-            "question": "Bakit mapanatili ang tradisyunal na sayaw?",
+            "question": "Why keep traditional dances alive?",
             "options": [
-              "Bahagi ng pambansang pagkakakilanlan",
-              "Walang kahalagahan",
-              "Hindi na kailangan ngayon",
-              "Hindi bahagi ng kultura"
+              "Part of our national identity",
+              "They are not important",
+              "No longer needed today",
+              "Not part of the culture"
             ],
-            "correct_answer": "Bahagi ng pambansang pagkakakilanlan"
+            "correct_answer": "Part of our national identity"
           },
           {
-            "question": "Ipinapakita ng Singkil?",
+            "question": "What does the Singkil show?",
             "options": [
-              "Kulturang Maranao gamit kawayan at payong",
-              "Kulturang banyaga",
-              "Uri ng laro lamang",
-              "Walang kahulugan"
+              "Maranao culture using bamboo poles and umbrellas",
+              "Foreign culture",
+              "Only a kind of game",
+              "It has no meaning"
             ],
-            "correct_answer": "Kulturang Maranao gamit kawayan at payong"
+            "correct_answer": "Maranao culture using bamboo poles and umbrellas"
           },
           {
-            "question": "Bakit ituro ang tradisyunal na sayaw sa MAPEH?",
+            "question": "Why teach traditional dance in MAPEH?",
             "options": [
-              "Mapahalagahan at mapanatili ang kultura",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng edukasyon"
+              "To value and keep our culture alive",
+              "It has no purpose",
+              "Only for older people",
+              "Not related to education"
             ],
-            "correct_answer": "Mapahalagahan at mapanatili ang kultura"
+            "correct_answer": "To value and keep our culture alive"
           },
           {
-            "question": "Bakit ituro sa mga bata?",
+            "question": "Why teach it to children?",
             "options": [
-              "Maipasa ang kultura sa susunod na henerasyon",
-              "Hindi kailangan ituro",
-              "Para sa matatanda lamang",
-              "Walang epekto"
+              "To pass the culture on to the next generation",
+              "It doesn't need to be taught",
+              "Only for older people",
+              "No effect"
             ],
-            "correct_answer": "Maipasa ang kultura sa susunod na henerasyon"
+            "correct_answer": "To pass the culture on to the next generation"
           },
           {
-            "question": "Koneksyon sa street dance na natutunan?",
+            "question": "How is it connected to the street dance we learned?",
             "options": [
-              "Parehong bahagi ng pagdiriwang ng kultura",
-              "Walang koneksyon",
-              "Isa tungkol sa agham",
-              "Isa tungkol sa matematika"
+              "Both are part of celebrating culture",
+              "No connection",
+              "One is about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong bahagi ng pagdiriwang ng kultura"
+            "correct_answer": "Both are part of celebrating culture"
           },
           {
-            "question": "Bakit natatangi ang bawat sayaw sa rehiyon?",
+            "question": "Why is each region's dance special?",
             "options": [
-              "Sumasalamin sa natatanging kasaysayan ng lugar",
-              "Magkatulad lamang",
-              "Walang pagkakaiba",
-              "Random lamang"
+              "It reflects the place's own history",
+              "They are all the same",
+              "No difference",
+              "Just random"
             ],
-            "correct_answer": "Sumasalamin sa natatanging kasaysayan ng lugar"
+            "correct_answer": "It reflects the place's own history"
           },
           {
-            "question": "Naidudulot ng pag-aaral ng sayaw?",
+            "question": "What does learning these dances bring?",
             "options": [
-              "Mas malalim na pagpapahalaga sa kultura",
-              "Walang naidudulot",
-              "Nakakalito lamang",
-              "Hindi nagbibigay-kaalaman"
+              "A deeper appreciation of culture",
+              "Nothing",
+              "Only confusion",
+              "No new knowledge"
             ],
-            "correct_answer": "Mas malalim na pagpapahalaga sa kultura"
+            "correct_answer": "A deeper appreciation of culture"
           }
         ]
       },

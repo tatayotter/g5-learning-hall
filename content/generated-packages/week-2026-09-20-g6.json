@@ -635,30 +635,30 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎵 MAPEH — Music: Meter, Time Signatures, and Rhythmic Dance Patterns\n\nMaligayang pagdating sa Ikalawang Termino, Grade 6! 🎶\n\n## ⏱️ Ano ang Meter?\nAng **meter** ay ang **regular na pattern** ng bilang ng beats sa bawat measure (sukob) ng musika.\n\n## 🎼 Ano ang Time Signature?\nAng **time signature** ay ang **dalawang numero** sa simula ng musika (hal. **4/4**, **3/4**) na nagsasabi:\n- **Itaas na numero** — ilang beat kada measure\n- **Ibabang numero** — anong uri ng note ang isang beat\n\n**Halimbawa:**\n- **4/4 (Common Time)** — 4 beats bawat measure, karaniwan sa maraming kanta\n- **3/4 (Waltz Time)** — 3 beats bawat measure, ginagamit sa waltz\n\n## 💃 Rhythmic Dance Patterns\nAng bawat sayaw ay may sariling **rhythmic pattern** na tumutugma sa **time signature** ng musika.\n\n**Halimbawa:**\n- **Tinikling** — gumagamit ng ritmo na tumutugma sa pagpalakpak ng kawayan\n- **Waltz** — gumagalaw ang mananayaw sa 3-beat pattern (1-2-3, 1-2-3)\n\n## 🎻 Musikang Pilipino Klasikal, Semi-Klasikal, at Popular\n\n| Uri | Halimbawa |\n|---|---|\n| **Klasikal** | mga sonata at symphony ni Nicanor Abelardo |\n| **Semi-klasikal** | kundiman (awiting pag-ibig) |\n| **Popular** | mga OPM (Original Pilipino Music) |\n\n## 🧠 Halimbawa 1\n*Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?*\n- **3 beats** kada measure — bagay sa waltz. ✅\n\n## 🧠 Halimbawa 2\n*Bakit tumutugma ang rhythmic dance pattern sa time signature?*\n- Ang bilang ng **hakbang** sa sayaw ay dapat umayon sa bilang ng **beats** sa musika, upang manatiling **magkasabay** ang tao sa tugtog. ✅\n\n## 🎵 Musikang Pilipino Klasikal na Panahon\nMaraming kompositor ng panahong ito ang naghalo ng **Kanluraning estilo** (klasikal) sa **musikang Pilipino** — tulad ng kundiman na naghahalo ng melodiya ng Kanluran sa damdaming Pilipino.\n\nMagaling sa Termino 2! 🌟",
+        "summary_markdown": "# 🎵 MAPEH — Music: Meter, Time Signatures, and Rhythmic Dance Patterns\n\nWelcome to Term 2, Grade 6! 🎶\n\n## ⏱️ What Is Meter?\n**Meter** is the **regular pattern** of how many beats are in each measure of the music.\n\n## 🎼 What Is a Time Signature?\nA **time signature** is the **two numbers** at the start of the music (e.g. **4/4**, **3/4**) that tell us:\n- **Top number** — how many beats are in each measure\n- **Bottom number** — what kind of note gets one beat\n\n**Examples:**\n- **4/4 (Common Time)** — 4 beats in each measure, used in many songs\n- **3/4 (Waltz Time)** — 3 beats in each measure, used in the waltz\n\n## 💃 Rhythmic Dance Patterns\nEvery dance has its own **rhythmic pattern** that matches the **time signature** of the music.\n\n**Examples:**\n- **Tinikling** — uses a rhythm that matches the clapping of the bamboo poles\n- **Waltz** — dancers move in a 3-beat pattern (1-2-3, 1-2-3)\n\n## 🎻 Filipino Classical, Semi-Classical, and Popular Music\n\n| Type | Example |\n|---|---|\n| **Classical** | the sonatas and symphonies of Nicanor Abelardo |\n| **Semi-classical** | kundiman (love songs) |\n| **Popular** | OPM (Original Pilipino Music) |\n\n## 🧠 Example 1\n*A song has a 3/4 time signature. How many beats are in each measure?*\n- **3 beats** in each measure — good for a waltz. ✅\n\n## 🧠 Example 2\n*Why does a rhythmic dance pattern match the time signature?*\n- The number of **steps** in the dance should match the number of **beats** in the music, so people stay **in time** with the music. ✅\n\n## 🎵 Filipino Music of the Classical Period\nMany composers of this time mixed **Western style** (classical) with **Filipino music** — like the kundiman, which mixes Western melodies with Filipino feelings.\n\nGreat job in Term 2! 🌟",
         "quiz": [
           {
-            "question": "Ano ang meter sa musika?",
+            "question": "What is meter in music?",
             "options": [
-              "Pattern ng beats sa bawat measure",
-              "Bilis ng musika lamang",
-              "Lakas ng tunog lamang",
-              "Uri lamang ng instrumento"
+              "The pattern of beats in each measure",
+              "Only how fast the music is",
+              "Only how loud the sound is",
+              "Only a type of instrument"
             ],
-            "correct_answer": "Pattern ng beats sa bawat measure"
+            "correct_answer": "The pattern of beats in each measure"
           },
           {
-            "question": "Ano ang ipinapakita ng itaas na numero sa time signature?",
+            "question": "What does the top number in a time signature show?",
             "options": [
-              "Ilang beat kada measure",
-              "Anong nota ang isang beat",
-              "Bilang ng mang-aawit",
-              "Tagal ng buong kanta"
+              "How many beats are in each measure",
+              "What note gets one beat",
+              "How many singers there are",
+              "How long the whole song is"
             ],
-            "correct_answer": "Ilang beat kada measure"
+            "correct_answer": "How many beats are in each measure"
           },
           {
-            "question": "Ilang beat bawat measure ang mayroon ang 3/4 time signature?",
+            "question": "How many beats are in each measure in a 3/4 time signature?",
             "options": [
               "3 beats",
               "4 beats",
@@ -668,7 +668,7 @@
             "correct_answer": "3 beats"
           },
           {
-            "question": "Aling sayaw ang gumagamit ng 3-beat pattern?",
+            "question": "Which dance uses a 3-beat pattern?",
             "options": [
               "Waltz",
               "Tinikling",
@@ -678,17 +678,17 @@
             "correct_answer": "Waltz"
           },
           {
-            "question": "Ano ang kundiman?",
+            "question": "What is a kundiman?",
             "options": [
-              "Semi-klasikal na awiting pag-ibig",
-              "Uri lamang ng sayaw",
-              "Isang instrumento lamang",
-              "Isang laro lamang"
+              "A semi-classical love song",
+              "Just a type of dance",
+              "Just an instrument",
+              "Just a game"
             ],
-            "correct_answer": "Semi-klasikal na awiting pag-ibig"
+            "correct_answer": "A semi-classical love song"
           },
           {
-            "question": "Ano ang tinatawag na 4/4 time signature?",
+            "question": "What is the 4/4 time signature called?",
             "options": [
               "Common Time",
               "Waltz Time",
@@ -698,37 +698,37 @@
             "correct_answer": "Common Time"
           },
           {
-            "question": "Bakit tumutugma ang rhythmic dance pattern sa time signature?",
+            "question": "Why does a rhythmic dance pattern match the time signature?",
             "options": [
-              "Upang manatiling magkasabay ang tao sa tugtog",
-              "Upang mapabilis ang sayaw",
-              "Upang mas malakas ang tunog",
-              "Wala itong kaugnayan sa isa't isa"
+              "So people stay in time with the music",
+              "To make the dance faster",
+              "To make the sound louder",
+              "They have nothing to do with each other"
             ],
-            "correct_answer": "Upang manatiling magkasabay ang tao sa tugtog"
+            "correct_answer": "So people stay in time with the music"
           },
           {
-            "question": "Alin ang halimbawa ng musikang popular sa Pilipinas?",
+            "question": "Which one is an example of popular music in the Philippines?",
             "options": [
               "OPM",
               "Symphony",
               "Sonata",
-              "Kundiman lamang"
+              "Only kundiman"
             ],
             "correct_answer": "OPM"
           },
           {
-            "question": "Ano ang ipinapakita ng ibabang numero sa time signature?",
+            "question": "What does the bottom number in a time signature show?",
             "options": [
-              "Anong uri ng note ang isang beat",
-              "Ilang beat bawat measure",
-              "Bilang ng mang-aawit",
-              "Tagal ng buong kanta"
+              "What kind of note gets one beat",
+              "How many beats are in each measure",
+              "How many singers there are",
+              "How long the whole song is"
             ],
-            "correct_answer": "Anong uri ng note ang isang beat"
+            "correct_answer": "What kind of note gets one beat"
           },
           {
-            "question": "Sino ang kilalang kompositor ng musikang klasikal na Pilipino?",
+            "question": "Who is a well-known composer of Filipino classical music?",
             "options": [
               "Nicanor Abelardo",
               "Andres Bonifacio",
@@ -738,7 +738,7 @@
             "correct_answer": "Nicanor Abelardo"
           },
           {
-            "question": "Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?",
+            "question": "A song has a 3/4 time signature. How many beats are in each measure?",
             "options": [
               "3 beats",
               "4 beats",
@@ -748,7 +748,7 @@
             "correct_answer": "3 beats"
           },
           {
-            "question": "Isang sayaw ang gumagamit ng kawayan na pinapalakpak sa ritmo. Anong sayaw ito?",
+            "question": "A dance uses bamboo poles that are clapped together to a rhythm. What dance is it?",
             "options": [
               "Tinikling",
               "Waltz",
@@ -1637,30 +1637,30 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎵 Biyernes na Balik-Aral — MAPEH (Grade 6)\n\n- **Meter** = pattern ng beats bawat measure | **Time signature** = 2 numero (beats/measure, uri ng note)\n- **4/4 (Common Time)** · **3/4 (Waltz Time)**\n- Rhythmic dance patterns dapat tumutugma sa time signature\n\nMagaling sa Termino 2! 🌟",
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 6)\n\n- **Meter** = the pattern of beats in each measure | **Time signature** = 2 numbers (beats per measure, kind of note)\n- **4/4 (Common Time)** · **3/4 (Waltz Time)**\n- Rhythmic dance patterns should match the time signature\n\nGreat job in Term 2! 🌟",
         "quiz": [
           {
-            "question": "Ano ang meter sa musika?",
+            "question": "What is meter in music?",
             "options": [
-              "Pattern ng beats sa bawat measure",
-              "Bilis ng musika lamang",
-              "Lakas ng tunog lamang",
-              "Uri lamang ng instrumento"
+              "The pattern of beats in each measure",
+              "Only how fast the music is",
+              "Only how loud the sound is",
+              "Only a type of instrument"
             ],
-            "correct_answer": "Pattern ng beats sa bawat measure"
+            "correct_answer": "The pattern of beats in each measure"
           },
           {
-            "question": "Ano ang ipinapakita ng itaas na numero sa time signature?",
+            "question": "What does the top number in a time signature show?",
             "options": [
-              "Ilang beat kada measure",
-              "Anong nota ang isang beat",
-              "Bilang ng mang-aawit",
-              "Tagal ng buong kanta"
+              "How many beats are in each measure",
+              "What note gets one beat",
+              "How many singers there are",
+              "How long the whole song is"
             ],
-            "correct_answer": "Ilang beat kada measure"
+            "correct_answer": "How many beats are in each measure"
           },
           {
-            "question": "Ilang beat bawat measure ang mayroon ang 3/4 time signature?",
+            "question": "How many beats are in each measure in a 3/4 time signature?",
             "options": [
               "3 beats",
               "4 beats",
@@ -1670,7 +1670,7 @@
             "correct_answer": "3 beats"
           },
           {
-            "question": "Aling sayaw ang gumagamit ng 3-beat pattern?",
+            "question": "Which dance uses a 3-beat pattern?",
             "options": [
               "Waltz",
               "Tinikling",
@@ -1680,17 +1680,17 @@
             "correct_answer": "Waltz"
           },
           {
-            "question": "Ano ang kundiman?",
+            "question": "What is a kundiman?",
             "options": [
-              "Semi-klasikal na awiting pag-ibig",
-              "Uri lamang ng sayaw",
-              "Isang instrumento lamang",
-              "Isang laro lamang"
+              "A semi-classical love song",
+              "Just a type of dance",
+              "Just an instrument",
+              "Just a game"
             ],
-            "correct_answer": "Semi-klasikal na awiting pag-ibig"
+            "correct_answer": "A semi-classical love song"
           },
           {
-            "question": "Ano ang tinatawag na 4/4 time signature?",
+            "question": "What is the 4/4 time signature called?",
             "options": [
               "Common Time",
               "Waltz Time",
@@ -1700,37 +1700,37 @@
             "correct_answer": "Common Time"
           },
           {
-            "question": "Bakit tumutugma ang rhythmic dance pattern sa time signature?",
+            "question": "Why does a rhythmic dance pattern match the time signature?",
             "options": [
-              "Upang manatiling magkasabay ang tao sa tugtog",
-              "Upang mapabilis ang sayaw",
-              "Upang mas malakas ang tunog",
-              "Wala itong kaugnayan sa isa't isa"
+              "So people stay in time with the music",
+              "To make the dance faster",
+              "To make the sound louder",
+              "They have nothing to do with each other"
             ],
-            "correct_answer": "Upang manatiling magkasabay ang tao sa tugtog"
+            "correct_answer": "So people stay in time with the music"
           },
           {
-            "question": "Alin ang halimbawa ng musikang popular sa Pilipinas?",
+            "question": "Which one is an example of popular music in the Philippines?",
             "options": [
               "OPM",
               "Symphony",
               "Sonata",
-              "Kundiman lamang"
+              "Only kundiman"
             ],
             "correct_answer": "OPM"
           },
           {
-            "question": "Ano ang ipinapakita ng ibabang numero sa time signature?",
+            "question": "What does the bottom number in a time signature show?",
             "options": [
-              "Anong uri ng note ang isang beat",
-              "Ilang beat bawat measure",
-              "Bilang ng mang-aawit",
-              "Tagal ng buong kanta"
+              "What kind of note gets one beat",
+              "How many beats are in each measure",
+              "How many singers there are",
+              "How long the whole song is"
             ],
-            "correct_answer": "Anong uri ng note ang isang beat"
+            "correct_answer": "What kind of note gets one beat"
           },
           {
-            "question": "Sino ang kilalang kompositor ng musikang klasikal na Pilipino?",
+            "question": "Who is a well-known composer of Filipino classical music?",
             "options": [
               "Nicanor Abelardo",
               "Andres Bonifacio",
@@ -1740,7 +1740,7 @@
             "correct_answer": "Nicanor Abelardo"
           },
           {
-            "question": "Isang kanta ang may time signature na 3/4. Ilang beat ang bawat measure?",
+            "question": "A song has a 3/4 time signature. How many beats are in each measure?",
             "options": [
               "3 beats",
               "4 beats",
@@ -1750,7 +1750,7 @@
             "correct_answer": "3 beats"
           },
           {
-            "question": "Isang sayaw ang gumagamit ng kawayan na pinapalakpak sa ritmo. Anong sayaw ito?",
+            "question": "A dance uses bamboo poles that are clapped together to a rhythm. What dance is it?",
             "options": [
               "Tinikling",
               "Waltz",

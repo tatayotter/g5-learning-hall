@@ -760,90 +760,90 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎵 MAPEH — Musical Form: Verse and Chorus\n\nGrade 5, Linggo 21! Alamin natin ang bahagi ng isang awit. 🎶\n\n## 🔄 Balik-Aral\nNatutuhan natin ang **melody** at ang mga sayaw sa 2/4 time.\n\n## 🎵 Ano ang Musical Form?\nAng **musical form** ay ang **pagkakaayos** ng mga bahagi ng isang awit. Ang dalawang pinakakaraniwang bahagi ay:\n\n- **Verse (Saknong)** — ang bahaging nagbabago ang salita sa bawat pag-uulit; nagkukuwento ito.\n- **Chorus (Koro)** — ang bahaging paulit-ulit at kadalasang pinakakatatandaan ng mga tao; ito ang \"pangunahing mensahe\" ng awit.\n\n**Halimbawa:** Sa maraming awiting Pilipino, ang **verse** ay nagbabago ng kuwento habang ang **koro** ay paulit-ulit na inaawit sa parehong himig at salita.\n\n**Mahahalagang salita:** musical form, verse, chorus, saknong, koro",
+        "summary_markdown": "# 🎵 MAPEH — Musical Form: Verse and Chorus\n\nGrade 5, Week 21! Let's learn the parts of a song. 🎶\n\n## 🔄 Review\nWe learned about **melody** and dances in 2/4 time.\n\n## 🎵 What Is Musical Form?\n**Musical form** is the **way the parts of a song are arranged**. The two most common parts are:\n\n- **Verse** — the part whose words change each time it comes back; it tells a story.\n- **Chorus** — the part that repeats and that people usually remember best; it is the \"main message\" of the song.\n\n**Example:** In many Filipino songs, the **verse** moves the story along while the **chorus** is sung again and again with the same tune and words.\n\n**Key words:** musical form, verse, chorus",
         "quiz": [
           {
-            "question": "Ano ang musical form?",
+            "question": "What is musical form?",
             "options": [
-              "Pagkakaayos ng mga bahagi ng isang awit",
-              "Ang lapad ng boses ng kumakanta",
-              "Ang bilang ng mga instrumento",
-              "Ang tunog ng gitara lamang"
+              "The way the parts of a song are arranged",
+              "How wide the singer's voice range is",
+              "The number of instruments",
+              "The sound of a guitar only"
             ],
-            "correct_answer": "Pagkakaayos ng mga bahagi ng isang awit"
+            "correct_answer": "The way the parts of a song are arranged"
           },
           {
-            "question": "Ano ang verse (saknong) sa isang awit?",
+            "question": "What is a verse in a song?",
             "options": [
-              "Bahaging nagbabago ang salita sa bawat pag-uulit",
-              "Bahaging palaging pareho ang salita",
-              "Bahaging walang salita",
-              "Bahaging tumutunog lamang ng tambol"
+              "The part whose words change each time it comes back",
+              "The part whose words are always the same",
+              "The part with no words",
+              "The part where only a drum plays"
             ],
-            "correct_answer": "Bahaging nagbabago ang salita sa bawat pag-uulit"
+            "correct_answer": "The part whose words change each time it comes back"
           },
           {
-            "question": "Ano ang chorus (koro) sa isang awit?",
+            "question": "What is a chorus in a song?",
             "options": [
-              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
-              "Bahaging binabago ang salita bawat pag-uulit",
-              "Bahaging walang himig",
-              "Bahaging tumutugtog lamang ng piano"
+              "The part that repeats and is usually remembered best",
+              "The part whose words change each time it comes back",
+              "The part with no tune",
+              "The part where only a piano plays"
             ],
-            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+            "correct_answer": "The part that repeats and is usually remembered best"
           },
           {
-            "question": "Anong bahagi ng awit ang nagkukuwento tungkol sa nagbabagong ideya?",
+            "question": "Which part of a song tells a story with changing ideas?",
             "options": [
               "Verse",
               "Chorus",
-              "Rhythm lamang",
-              "Dynamics lamang"
+              "Rhythm only",
+              "Dynamics only"
             ],
             "correct_answer": "Verse"
           },
           {
-            "question": "Bakit madaling matandaan ang koro ng isang awit?",
+            "question": "Why is the chorus of a song easy to remember?",
             "options": [
-              "Sapagkat ito ay paulit-ulit sa parehong salita at himig",
-              "Sapagkat ito ay tahimik lamang",
-              "Sapagkat wala itong himig",
-              "Sapagkat isang beses lamang ito kinakanta"
+              "Because it repeats with the same words and tune",
+              "Because it is only quiet",
+              "Because it has no tune",
+              "Because it is sung only once"
             ],
-            "correct_answer": "Sapagkat ito ay paulit-ulit sa parehong salita at himig"
+            "correct_answer": "Because it repeats with the same words and tune"
           },
           {
-            "question": "Alin ang tamang halimbawa ng isang saknong (verse)?",
+            "question": "Which is a correct example of a verse?",
             "options": [
-              "Bahaging nagbabago ang kuwento bawat ulit ng awit",
-              "Bahaging palaging pareho ang salita",
-              "Ang pamagat lamang ng awit",
-              "Ang tugtugin bago magsimula ang awit"
+              "The part where the story changes each time the song goes on",
+              "The part whose words are always the same",
+              "Just the title of the song",
+              "The music played before the song starts"
             ],
-            "correct_answer": "Bahaging nagbabago ang kuwento bawat ulit ng awit"
+            "correct_answer": "The part where the story changes each time the song goes on"
           },
           {
-            "question": "Sa isang awiting may dalawang saknong at isang koro sa gitna, ilang beses karaniwang inaawit ang koro?",
+            "question": "In a song with two verses and a chorus in the middle, how many times is the chorus usually sung?",
             "options": [
-              "Higit sa isang beses",
-              "Isang beses lamang",
-              "Hindi na inaawit",
-              "Sa dulo lamang"
+              "More than once",
+              "Only once",
+              "It is not sung",
+              "Only at the end"
             ],
-            "correct_answer": "Higit sa isang beses"
+            "correct_answer": "More than once"
           },
           {
-            "question": "Bakit mahalagang malaman ang musical form ng isang awit?",
+            "question": "Why is it important to know the musical form of a song?",
             "options": [
-              "Nakakatulong itong maunawaan ang pagkakaayos at mensahe ng awit",
-              "Wala itong kaugnayan sa pag-unawa sa awit",
-              "Ginagamit lamang ito ng mga propesyonal na musikero",
-              "Ito ay para lamang sa mga instrumento"
+              "It helps us understand how the song is arranged and its message",
+              "It has nothing to do with understanding the song",
+              "It is used only by professional musicians",
+              "It is only for instruments"
             ],
-            "correct_answer": "Nakakatulong itong maunawaan ang pagkakaayos at mensahe ng awit"
+            "correct_answer": "It helps us understand how the song is arranged and its message"
           },
           {
-            "question": "Alin sa mga ito ang HINDI bahagi ng karaniwang musical form?",
+            "question": "Which of these is NOT part of a common musical form?",
             "options": [
               "Deposit slip",
               "Verse",
@@ -853,34 +853,34 @@
             "correct_answer": "Deposit slip"
           },
           {
-            "question": "Paano naiiba ang saknong sa koro?",
+            "question": "How is a verse different from a chorus?",
             "options": [
-              "Nagbabago ang salita ng saknong habang paulit-ulit ang koro",
-              "Pareho lamang sila palagi",
-              "Walang himig ang saknong",
-              "Walang salita ang koro"
+              "The verse's words change while the chorus repeats",
+              "They are always exactly the same",
+              "The verse has no tune",
+              "The chorus has no words"
             ],
-            "correct_answer": "Nagbabago ang salita ng saknong habang paulit-ulit ang koro"
+            "correct_answer": "The verse's words change while the chorus repeats"
           },
           {
-            "question": "Kung gusto mong ipakilala ang pangunahing mensahe ng iyong sariling awit, aling bahagi ang gagamitin mo nang paulit-ulit?",
+            "question": "If you want to share the main message of your own song, which part would you repeat?",
             "options": [
               "Chorus",
               "Verse",
-              "Introduction lamang",
-              "Walang bahagi"
+              "Introduction only",
+              "No part"
             ],
             "correct_answer": "Chorus"
           },
           {
-            "question": "Ano ang koneksyon ng melody sa musical form?",
+            "question": "How is melody connected to musical form?",
             "options": [
-              "Ang melody ay ginagamit sa parehong verse at chorus, ngunit maaaring iba ang himig ng bawat isa",
-              "Walang koneksyon ang melody sa musical form",
-              "Ang melody ay para lamang sa chorus",
-              "Ang melody ay para lamang sa mga instrumento"
+              "Melody is used in both the verse and the chorus, but each can have a different tune",
+              "Melody has no connection to musical form",
+              "Melody is only for the chorus",
+              "Melody is only for instruments"
             ],
-            "correct_answer": "Ang melody ay ginagamit sa parehong verse at chorus, ngunit maaaring iba ang himig ng bawat isa"
+            "correct_answer": "Melody is used in both the verse and the chorus, but each can have a different tune"
           }
         ]
       },
@@ -1887,60 +1887,60 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 5)\n\n- Musical form: verse and chorus\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎵 Friday Review — MAPEH (Grade 5)\n\n- Musical form: verse and chorus\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang verse (saknong) sa isang awit?",
+            "question": "What is a verse in a song?",
             "options": [
-              "Bahaging nagbabago ang salita bawat pag-uulit",
-              "Bahaging palaging pareho",
-              "Bahaging walang salita",
-              "Instrumento lamang"
+              "The part whose words change each time",
+              "The part that is always the same",
+              "The part with no words",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging nagbabago ang salita bawat pag-uulit"
+            "correct_answer": "The part whose words change each time"
           },
           {
-            "question": "Ano ang chorus (koro) sa isang awit?",
+            "question": "What is a chorus in a song?",
             "options": [
-              "Bahaging paulit-ulit at kadalasang pinakakatatandaan",
-              "Bahaging binabago bawat ulit",
-              "Bahaging walang himig",
-              "Instrumento lamang"
+              "The part that repeats and is usually remembered best",
+              "The part that changes each time",
+              "The part with no tune",
+              "An instrument only"
             ],
-            "correct_answer": "Bahaging paulit-ulit at kadalasang pinakakatatandaan"
+            "correct_answer": "The part that repeats and is usually remembered best"
           },
           {
-            "question": "Ano ang musical form?",
+            "question": "What is musical form?",
             "options": [
-              "Pagkakaayos ng mga bahagi ng isang awit",
-              "Ang lapad ng boses",
-              "Bilang ng instrumento",
-              "Tunog ng gitara lamang"
+              "The way the parts of a song are arranged",
+              "How wide a voice's range is",
+              "The number of instruments",
+              "The sound of a guitar only"
             ],
-            "correct_answer": "Pagkakaayos ng mga bahagi ng isang awit"
+            "correct_answer": "The way the parts of a song are arranged"
           },
           {
-            "question": "Bakit madaling matandaan ang koro?",
+            "question": "Why is the chorus easy to remember?",
             "options": [
-              "Sapagkat ito ay paulit-ulit",
-              "Sapagkat tahimik ito",
-              "Sapagkat wala itong himig",
-              "Isang beses lamang ito kinakanta"
+              "Because it repeats",
+              "Because it is quiet",
+              "Because it has no tune",
+              "It is sung only once"
             ],
-            "correct_answer": "Sapagkat ito ay paulit-ulit"
+            "correct_answer": "Because it repeats"
           },
           {
-            "question": "Anong bahagi ng awit ang nagkukuwento?",
+            "question": "Which part of a song tells a story?",
             "options": [
               "Verse",
-              "Chorus lamang",
-              "Rhythm lamang",
-              "Wala sa mga ito"
+              "Chorus only",
+              "Rhythm only",
+              "None of these"
             ],
             "correct_answer": "Verse"
           },
           {
-            "question": "Alin ang HINDI bahagi ng musical form?",
+            "question": "Which one is NOT part of musical form?",
             "options": [
               "Deposit slip",
               "Verse",
@@ -1950,61 +1950,61 @@
             "correct_answer": "Deposit slip"
           },
           {
-            "question": "Paano naiiba ang saknong sa koro?",
+            "question": "How is a verse different from a chorus?",
             "options": [
-              "Nagbabago ang salita ng saknong, paulit-ulit ang koro",
-              "Pareho lamang sila",
-              "Walang himig ang saknong",
-              "Walang salita ang koro"
+              "The verse's words change; the chorus repeats",
+              "They are exactly the same",
+              "The verse has no tune",
+              "The chorus has no words"
             ],
-            "correct_answer": "Nagbabago ang salita ng saknong, paulit-ulit ang koro"
+            "correct_answer": "The verse's words change; the chorus repeats"
           },
           {
-            "question": "Bakit mahalagang malaman ang musical form?",
+            "question": "Why is it important to know musical form?",
             "options": [
-              "Nakakatulong maunawaan ang mensahe ng awit",
-              "Wala itong kaugnayan sa pag-unawa",
-              "Para lamang sa musikero",
-              "Para lamang sa instrumento"
+              "It helps us understand the song's message",
+              "It has nothing to do with understanding",
+              "It is only for musicians",
+              "It is only for instruments"
             ],
-            "correct_answer": "Nakakatulong maunawaan ang mensahe ng awit"
+            "correct_answer": "It helps us understand the song's message"
           },
           {
-            "question": "Kung gusto mong idiin ang pangunahing mensahe ng awit, alin ang gagamitin nang paulit-ulit?",
+            "question": "If you want to stress the main message of a song, which part would you repeat?",
             "options": [
               "Chorus",
               "Verse",
-              "Introduction lamang",
-              "Walang bahagi"
+              "Introduction only",
+              "No part"
             ],
             "correct_answer": "Chorus"
           },
           {
-            "question": "Ilang beses karaniwang inaawit ang koro sa isang awit?",
+            "question": "How many times is the chorus usually sung in a song?",
             "options": [
-              "Higit sa isang beses",
-              "Isang beses lamang",
-              "Hindi na inaawit",
-              "Sa dulo lamang"
+              "More than once",
+              "Only once",
+              "It is not sung",
+              "Only at the end"
             ],
-            "correct_answer": "Higit sa isang beses"
+            "correct_answer": "More than once"
           },
           {
-            "question": "Ano ang koneksyon ng melody sa verse at chorus?",
+            "question": "How is melody connected to the verse and chorus?",
             "options": [
-              "Ginagamit ang melody sa dalawa, maaaring magkaiba ang himig",
-              "Walang koneksyon",
-              "Melody ay para lamang sa chorus",
-              "Melody ay para lamang sa instrumento"
+              "Melody is used in both, and the tunes can be different",
+              "There is no connection",
+              "Melody is only for the chorus",
+              "Melody is only for instruments"
             ],
-            "correct_answer": "Ginagamit ang melody sa dalawa, maaaring magkaiba ang himig"
+            "correct_answer": "Melody is used in both, and the tunes can be different"
           },
           {
-            "question": "Anong tawag sa bahaging paulit-ulit na kadalasang kinakanta ng lahat?",
+            "question": "What do we call the repeating part that everyone usually sings?",
             "options": [
               "Chorus",
               "Verse",
-              "Bridge lamang",
+              "Bridge only",
               "Introduction"
             ],
             "correct_answer": "Chorus"

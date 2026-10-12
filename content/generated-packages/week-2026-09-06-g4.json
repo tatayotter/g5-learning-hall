@@ -760,40 +760,40 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎯 MAPEH — Target Games at Larong Pilipino\n\nHuling MAPEH ng Termino 1, Grade 4! Maglaro tayo! 🇵🇭\n\n## 🎯 Ano ang Target Games?\nSa **target games**, layunin mong **maitapon o maipadala** ang isang bagay (bola, bato, sinturon) patungo sa isang **target** o tiyak na lugar.\n\n**Mahalagang kasanayan:**\n- **Positioning** — tamang tayo at posisyon bago tumira\n- **Sending/propelling** — paghagis o pagtira patungo sa target\n- **Accuracy** — tumpak na pagtira\n\n## 🏃 Apat na Fitness Component\n| Component | Kahulugan |\n|---|---|\n| **Agility** | mabilis na pagbabago ng direksiyon |\n| **Balance** | pananatiling matatag ang katawan |\n| **Coordination** | magkasabay na paggalaw ng mata at kamay |\n| **Speed** | bilis ng paggalaw |\n\n## 🇵🇭 Mga Larong Pilipino (Target Games)\n\n**1. Tumbang Preso** — hinahagisan ng tsinelas ang nakatayong lata upang matumba ito. Sinasanay ang **accuracy** at **agility**.\n\n**2. Tatsing** — pinipitik o hinahagisan ng pamato ang mga tansan o takip upang mailabas sa bilog. Sinasanay ang **coordination**.\n\n**3. Tamaang-Tao** — hinahagisan ng bola ang kalaro sa loob ng bilog; iniiwasan naman nila ito. Sinasanay ang **agility** at **speed**.\n\n**4. Batuhang Bola** — paghahagis at pagsalo ng bola sa pagitan ng magkakampi.\n\n**5. Calahoyo** — inihuhulog o itinutulak ang bola o bato patungo sa maliit na butas sa lupa. Sinasanay ang **accuracy**.\n\n**6. Bati-Cobra** — pinapalo ang maliit na kahoy gamit ang mas mahabang kahoy. Sinasanay ang **hand-eye coordination**.\n\n## 🛡️ Kaligtasan sa Paglalaro\n- Mag-**warm-up** bago maglaro at **cool-down** pagkatapos\n- Siguraduhing **ligtas** at walang matutumbukan sa paligid\n- Gumamit ng **magaan** na bagay sa paghahagis, hindi matigas na bato\n- **Uminom ng tubig** — iwasan ang dehydration\n- Sundin ang **tuntunin** at igalang ang kalaro\n\n## 💛 Halaga ng Larong Pilipino\nAng mga larong ito ay bahagi ng ating **kultura**. Bukod sa **ehersisyo**, natututo tayo ng **pagkakaisa**, **pagiging patas**, at **paggalang** sa kalaro.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎯 MAPEH — Target Games and Filipino Games\n\nLast MAPEH lesson of Term 1, Grade 4! Let's play! 🇵🇭\n\n## 🎯 What Are Target Games?\nIn **target games**, your goal is to **throw or send** an object (a ball, a stone, a slipper) toward a **target** or a certain spot.\n\n**Important skills:**\n- **Positioning** — standing in the right place and position before you throw\n- **Sending/propelling** — throwing or hitting toward the target\n- **Accuracy** — hitting exactly where you aim\n\n## 🏃 Four Fitness Components\n| Component | Meaning |\n|---|---|\n| **Agility** | changing direction quickly |\n| **Balance** | keeping the body steady |\n| **Coordination** | moving the eyes and hands together |\n| **Speed** | how fast you move |\n\n## 🇵🇭 Filipino Games (Target Games)\n\n**1. Tumbang Preso** — players throw a slipper at a standing can to knock it down. It trains **accuracy** and **agility**.\n\n**2. Tatsing** — players flick or throw a pamato (a flat stone or disc used as a shooter) at bottle caps to knock them out of a circle. It trains **coordination**.\n\n**3. Tamaang-Tao** — players throw a ball at playmates inside a circle, and the playmates try to dodge it. It trains **agility** and **speed**.\n\n**4. Batuhang Bola** — teammates throw and catch a ball with each other.\n\n**5. Calahoyo** — players drop or push a ball or stone toward a small hole in the ground. It trains **accuracy**.\n\n**6. Bati-Cobra** — players hit a small stick using a longer stick. It trains **hand-eye coordination**.\n\n## 🛡️ Safety While Playing\n- **Warm up** before playing and **cool down** after\n- Make sure the area is **safe** and there is nothing to bump into\n- Use **light** objects for throwing, not hard stones\n- **Drink water** — avoid dehydration\n- Follow the **rules** and respect your playmates\n\n## 💛 Why Filipino Games Matter\nThese games are part of our **culture**. Besides **exercise**, we learn **teamwork**, **fairness**, and **respect** for our playmates.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang layunin sa target games?",
+            "question": "What is the goal in target games?",
             "options": [
-              "Maipadala ang bagay sa target",
-              "Makatakbo nang pinakamabilis",
-              "Makaakyat nang pinakamataas",
-              "Makalangoy nang pinakamalayo"
+              "To send an object to the target",
+              "To run the fastest",
+              "To climb the highest",
+              "To swim the farthest"
             ],
-            "correct_answer": "Maipadala ang bagay sa target"
+            "correct_answer": "To send an object to the target"
           },
           {
-            "question": "Sa Tumbang Preso, ano ang pinupuntirya?",
+            "question": "In Tumbang Preso, what do you aim at?",
             "options": [
-              "Ang nakatayong lata",
-              "Ang bilog na guhit",
-              "Ang mataas na puno",
-              "Ang bukas na pinto"
+              "The standing can",
+              "The round line",
+              "The tall tree",
+              "The open door"
             ],
-            "correct_answer": "Ang nakatayong lata"
+            "correct_answer": "The standing can"
           },
           {
-            "question": "Ano ang agility?",
+            "question": "What is agility?",
             "options": [
-              "Mabilis na pagbabago ng direksiyon",
-              "Pananatiling nakatayo nang matagal",
-              "Paggamit ng malakas na boses",
-              "Pagbilang ng puntos sa laro"
+              "Changing direction quickly",
+              "Standing still for a long time",
+              "Using a loud voice",
+              "Counting points in a game"
             ],
-            "correct_answer": "Mabilis na pagbabago ng direksiyon"
+            "correct_answer": "Changing direction quickly"
           },
           {
-            "question": "Anong fitness component ang pananatiling matatag ng katawan?",
+            "question": "Which fitness component means keeping the body steady?",
             "options": [
               "Balance",
               "Speed",
@@ -803,17 +803,17 @@
             "correct_answer": "Balance"
           },
           {
-            "question": "Sa larong Tatsing, ano ang ginagamit na pantama?",
+            "question": "In Tatsing, what do you use to hit the targets?",
             "options": [
-              "Pamato",
-              "Tsinelas",
-              "Mahabang kahoy",
-              "Malaking bola"
+              "Pamato (a flat shooter stone or disc)",
+              "Slipper",
+              "Long stick",
+              "Big ball"
             ],
-            "correct_answer": "Pamato"
+            "correct_answer": "Pamato (a flat shooter stone or disc)"
           },
           {
-            "question": "Aling laro ang naghahagis ng bola sa kalarong nasa loob ng bilog?",
+            "question": "In which game do you throw a ball at playmates inside a circle?",
             "options": [
               "Tamaang-Tao",
               "Tumbang Preso",
@@ -823,37 +823,37 @@
             "correct_answer": "Tamaang-Tao"
           },
           {
-            "question": "Ano ang coordination sa palakasan?",
+            "question": "What is coordination in sports?",
             "options": [
-              "Magkasabay na paggalaw ng mata at kamay",
-              "Bilis ng pagtakbo sa daan",
-              "Lakas ng buto at kalamnan",
-              "Haba ng oras ng paglalaro"
+              "Moving the eyes and hands together",
+              "How fast you run on the road",
+              "How strong your bones and muscles are",
+              "How long you play"
             ],
-            "correct_answer": "Magkasabay na paggalaw ng mata at kamay"
+            "correct_answer": "Moving the eyes and hands together"
           },
           {
-            "question": "Bakit mahalaga ang warm-up bago maglaro?",
+            "question": "Why is it important to warm up before playing?",
             "options": [
-              "Upang maiwasan ang pinsala",
-              "Upang mapabilis ang laro",
-              "Upang dumami ang puntos",
-              "Upang lumamig ang katawan"
+              "To avoid injury",
+              "To make the game faster",
+              "To get more points",
+              "To cool down the body"
             ],
-            "correct_answer": "Upang maiwasan ang pinsala"
+            "correct_answer": "To avoid injury"
           },
           {
-            "question": "Sa Calahoyo, saan pinapapunta ang bola o bato?",
+            "question": "In Calahoyo, where do you send the ball or stone?",
             "options": [
-              "Sa maliit na butas sa lupa",
-              "Sa itaas ng mataas na poste",
-              "Sa kamay ng kalaro",
-              "Sa labas ng malaking bilog"
+              "Into a small hole in the ground",
+              "To the top of a tall pole",
+              "Into a playmate's hand",
+              "Outside a big circle"
             ],
-            "correct_answer": "Sa maliit na butas sa lupa"
+            "correct_answer": "Into a small hole in the ground"
           },
           {
-            "question": "Aling laro ang pinakamahusay na nagsasanay ng hand-eye coordination gamit ang kahoy?",
+            "question": "Which game best trains hand-eye coordination using sticks?",
             "options": [
               "Bati-Cobra",
               "Tumbang Preso",
@@ -863,24 +863,24 @@
             "correct_answer": "Bati-Cobra"
           },
           {
-            "question": "Bukod sa ehersisyo, ano pa ang natututuhan sa larong Pilipino?",
+            "question": "Besides exercise, what else do we learn from Filipino games?",
             "options": [
-              "Pagkakaisa at paggalang sa kalaro",
-              "Pagiging mas matalino sa klase",
-              "Pagkakaroon ng maraming pera",
-              "Pag-iwas sa lahat ng gawain"
+              "Teamwork and respect for playmates",
+              "Being smarter in class",
+              "Having lots of money",
+              "Avoiding all chores"
             ],
-            "correct_answer": "Pagkakaisa at paggalang sa kalaro"
+            "correct_answer": "Teamwork and respect for playmates"
           },
           {
-            "question": "Palaging pumapalya ang tira mo sa Tumbang Preso. Alin ang PINAKAMABUTING paraan upang gumaling?",
+            "question": "Your throws in Tumbang Preso keep missing. What is the BEST way to get better?",
             "options": [
-              "Ayusin ang positioning bago tumira",
-              "Humagis nang napakalakas",
-              "Lumapit hanggang sa lata",
-              "Tumira nang nakapikit"
+              "Fix your positioning before you throw",
+              "Throw as hard as you can",
+              "Walk right up to the can",
+              "Throw with your eyes closed"
             ],
-            "correct_answer": "Ayusin ang positioning bago tumira"
+            "correct_answer": "Fix your positioning before you throw"
           }
         ]
       },
@@ -1762,30 +1762,30 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎯 Biyernes na Balik-Aral — MAPEH (Grade 4)\n\n- **Target games** = ipadala ang bagay sa isang **target**\n- **Fitness components:** agility · balance · coordination · speed\n- **Larong Pilipino:** Tumbang Preso · Tatsing · Tamaang-Tao · Batuhang Bola · Calahoyo · Bati-Cobra\n- **Kaligtasan:** warm-up, ligtas na paligid, magaan na bagay, tubig, sundin ang tuntunin\n- Natututo tayo ng **pagkakaisa** at **paggalang**\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎯 Friday Review — MAPEH (Grade 4)\n\n- **Target games** = send an object to a **target**\n- **Fitness components:** agility · balance · coordination · speed\n- **Filipino games:** Tumbang Preso · Tatsing · Tamaang-Tao · Batuhang Bola · Calahoyo · Bati-Cobra\n- **Safety:** warm up, a safe play area, light objects, water, follow the rules\n- We learn **teamwork** and **respect**\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Sa Tumbang Preso, ano ang ipinapatumba?",
+            "question": "In Tumbang Preso, what do you knock down?",
             "options": [
-              "Ang lata",
-              "Ang bola",
-              "Ang kahoy",
-              "Ang bato"
+              "The can",
+              "The ball",
+              "The stick",
+              "The stone"
             ],
-            "correct_answer": "Ang lata"
+            "correct_answer": "The can"
           },
           {
-            "question": "Ano ang balance sa fitness?",
+            "question": "What is balance in fitness?",
             "options": [
-              "Pananatiling matatag ang katawan",
-              "Bilis ng pagtakbo sa daan",
-              "Lakas ng pagtira ng bola",
-              "Haba ng oras ng laro"
+              "Keeping the body steady",
+              "How fast you run on the road",
+              "How hard you hit the ball",
+              "How long the game lasts"
             ],
-            "correct_answer": "Pananatiling matatag ang katawan"
+            "correct_answer": "Keeping the body steady"
           },
           {
-            "question": "Aling laro ang gumagamit ng mahabang kahoy sa pagpalo ng maliit na kahoy?",
+            "question": "Which game uses a long stick to hit a small stick?",
             "options": [
               "Bati-Cobra",
               "Tatsing",
@@ -1795,47 +1795,47 @@
             "correct_answer": "Bati-Cobra"
           },
           {
-            "question": "Ano ang dapat gawin bago maglaro?",
+            "question": "What should you do before playing?",
             "options": [
-              "Mag-warm-up",
-              "Kumain nang marami",
-              "Matulog agad",
-              "Uminom ng malamig"
+              "Warm up",
+              "Eat a lot",
+              "Go to sleep right away",
+              "Drink something cold"
             ],
-            "correct_answer": "Mag-warm-up"
+            "correct_answer": "Warm up"
           },
           {
-            "question": "Sa Calahoyo, saan pinapapunta ang bola?",
+            "question": "In Calahoyo, where do you send the ball?",
             "options": [
-              "Sa butas sa lupa",
-              "Sa itaas ng poste",
-              "Sa loob ng bakod",
-              "Sa kamay ng kalaro"
+              "Into a hole in the ground",
+              "To the top of a pole",
+              "Inside a fence",
+              "Into a playmate's hand"
             ],
-            "correct_answer": "Sa butas sa lupa"
+            "correct_answer": "Into a hole in the ground"
           },
           {
-            "question": "Ano ang speed bilang fitness component?",
+            "question": "What is speed as a fitness component?",
             "options": [
-              "Bilis ng paggalaw",
-              "Tibay ng katawan",
-              "Lakas ng kalamnan",
-              "Haba ng hininga"
+              "How fast you move",
+              "How tough your body is",
+              "How strong your muscles are",
+              "How long you can hold your breath"
             ],
-            "correct_answer": "Bilis ng paggalaw"
+            "correct_answer": "How fast you move"
           },
           {
-            "question": "Bakit dapat magaan ang bagay na ihahagis sa laro?",
+            "question": "Why should the object you throw in a game be light?",
             "options": [
-              "Upang hindi makasakit ng kalaro",
-              "Upang mas malayo ang lipad",
-              "Upang mas mabilis matapos",
-              "Upang mas maganda tingnan"
+              "So it won't hurt a playmate",
+              "So it flies farther",
+              "So the game ends faster",
+              "So it looks nicer"
             ],
-            "correct_answer": "Upang hindi makasakit ng kalaro"
+            "correct_answer": "So it won't hurt a playmate"
           },
           {
-            "question": "Aling laro ang umiiwas sa bolang ihinahagis sa loob ng bilog?",
+            "question": "In which game do players inside a circle dodge a thrown ball?",
             "options": [
               "Tamaang-Tao",
               "Batuhang Bola",
@@ -1845,44 +1845,44 @@
             "correct_answer": "Tamaang-Tao"
           },
           {
-            "question": "Ang coordination ay kinabibilangan ng magkasabay na paggalaw ng:",
+            "question": "Coordination means moving these together:",
             "options": [
-              "mata at kamay",
-              "paa at tainga",
-              "ilong at bibig",
-              "likod at leeg"
+              "eyes and hands",
+              "feet and ears",
+              "nose and mouth",
+              "back and neck"
             ],
-            "correct_answer": "mata at kamay"
+            "correct_answer": "eyes and hands"
           },
           {
-            "question": "Bakit mahalaga ang uminom ng tubig habang naglalaro?",
+            "question": "Why is it important to drink water while playing?",
             "options": [
-              "Upang maiwasan ang dehydration",
-              "Upang tumaas ang puntos",
-              "Upang bumagal ang laro",
-              "Upang lumakas ang boses"
+              "To avoid dehydration",
+              "To score more points",
+              "To slow down the game",
+              "To make your voice louder"
             ],
-            "correct_answer": "Upang maiwasan ang dehydration"
+            "correct_answer": "To avoid dehydration"
           },
           {
-            "question": "Natalo ang kalaro mo sa Tatsing. Ano ang nagpapakita ng magandang sportsmanship?",
+            "question": "Your playmate lost to you in Tatsing. What shows good sportsmanship?",
             "options": [
-              "Batiin siya nang may paggalang",
-              "Ipagmalaki ang panalo mo",
-              "Pagtawanan ang pagkatalo",
-              "Ayawan ang susunod na laro"
+              "Greet them with respect",
+              "Brag about your win",
+              "Laugh at their loss",
+              "Refuse to play the next game"
             ],
-            "correct_answer": "Batiin siya nang may paggalang"
+            "correct_answer": "Greet them with respect"
           },
           {
-            "question": "Bakit mahalagang panatilihin ang mga larong Pilipino?",
+            "question": "Why is it important to keep Filipino games alive?",
             "options": [
-              "Bahagi ito ng ating kultura",
-              "Mas mura ito kaysa laruan",
-              "Mabilis lang itong matapos",
-              "Walang tuntunin ang mga ito"
+              "They are part of our culture",
+              "They are cheaper than toys",
+              "They end quickly",
+              "They have no rules"
             ],
-            "correct_answer": "Bahagi ito ng ating kultura"
+            "correct_answer": "They are part of our culture"
           }
         ]
       },

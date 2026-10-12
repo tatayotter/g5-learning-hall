@@ -760,70 +760,70 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💃 MAPEH — Pagsasanib ng Sayaw, Kalusugan, at Sining\n\nGrade 5, Linggo 19! Pagsamahin natin ang natutuhan tungkol sa sining, sayaw, at kalusugan. 🎨\n\n## 🔄 Balik-Aral: Ating Natutuhan\n- **Musika at Sining** noong Early Spanish Colonial Period — melody, teatro, sayaw, visual arts\n- **Kalusugan** — proper use of medicine, negative effects of gateway drugs\n- **PE** — rhythmic activities at dances sa 2/4 time\n\n## 🎨 Pagsasanib ng mga Ito\nNgayong linggo, pagsasamahin natin ang mga natutuhang ito sa pamamagitan ng pagplano ng isang **wellness activity** na gumagamit ng sayaw at sining para sa kalusugan.\n\n## 📋 Halimbawa ng Wellness Activity\nIsang **dance-for-health session**: gumamit ng mga hakbang sa sayaw (mula sa Early Spanish Colonial period o modernong dance mixer) bilang ehersisyo, kasama ang paggawa ng simpleng biswal na sining (poster) tungkol sa kahalagahan ng ehersisyo at pag-iwas sa maling paggamit ng gamot.\n\n## 🧠 Halimbawa 1\n*Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?*\n- Dahil ito ay **nagpapataas ng cardiovascular endurance** habang nagiging masaya.\n\n## 🧠 Halimbawa 2\n*Paano maiugnay ang sining sa kampanya para sa kalusugan?*\n- Sa pamamagitan ng **paggawa ng biswal na materyales** (poster) na nagpapaalala tungkol sa tamang gamit ng gamot at kahalagahan ng ehersisyo.\n\n## 💡 Bakit Mahalaga Ito?\nAng pagsasanib ng sayaw, kalusugan, at sining ay nagpapakita kung paano **konektado** ang iba't ibang aralin sa totoong buhay.\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 MAPEH — Combining Dance, Health, and Art\n\nGrade 5, Week 19! Let's put together what we learned about art, dance, and health. 🎨\n\n## 🔄 Review: What We Learned\n- **Music and Art** in the Early Spanish Colonial Period — melody, theater, dance, visual arts\n- **Health** — proper use of medicine, negative effects of gateway drugs\n- **PE** — rhythmic activities and dances in 2/4 time\n\n## 🎨 Putting Them Together\nThis week, we will combine these lessons by planning a **wellness activity** that uses dance and art for health.\n\n## 📋 Example of a Wellness Activity\nA **dance-for-health session**: use dance steps (from the Early Spanish Colonial period or a modern dance mixer) as exercise, and make a simple piece of visual art (a poster) about why exercise matters and why we should avoid misusing medicine.\n\n## 🧠 Example 1\n*Why is dance a good exercise for health?*\n- Because it **builds cardiovascular endurance** while being fun.\n\n## 🧠 Example 2\n*How can art be connected to a health campaign?*\n- By **making visual materials** (posters) that remind people about the proper use of medicine and why exercise matters.\n\n## 💡 Why Is This Important?\nCombining dance, health, and art shows how different lessons are **connected** in real life.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Anong tatlong paksa ang pinagsasama natin ngayong linggo?",
+            "question": "What three subjects are we combining this week?",
             "options": [
-              "Sayaw, kalusugan, at sining",
-              "Matematika, agham, at wika",
-              "Kasaysayan, heograpiya, at agrikultura",
-              "Musika lamang"
+              "Dance, health, and art",
+              "Math, science, and language",
+              "History, geography, and agriculture",
+              "Music only"
             ],
-            "correct_answer": "Sayaw, kalusugan, at sining"
+            "correct_answer": "Dance, health, and art"
           },
           {
-            "question": "Ano ang isang halimbawa ng wellness activity na pinag-aralan natin?",
+            "question": "What is one example of a wellness activity we studied?",
             "options": [
-              "Dance-for-health session na may biswal na sining",
-              "Isang eksamen tungkol sa matematika",
-              "Isang liham na isusulat sa magulang",
-              "Isang gawain tungkol sa agrikultura"
+              "A dance-for-health session with visual art",
+              "A math exam",
+              "A letter to write to a parent",
+              "An activity about farming"
             ],
-            "correct_answer": "Dance-for-health session na may biswal na sining"
+            "correct_answer": "A dance-for-health session with visual art"
           },
           {
-            "question": "Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?",
+            "question": "Why is dance a good exercise for health?",
             "options": [
-              "Nagpapataas ito ng cardiovascular endurance habang masaya",
-              "Wala itong benepisyo sa kalusugan",
-              "Nagpapahina lamang ito ng katawan",
-              "Ginagawa lamang ito para sa libangan"
+              "It builds cardiovascular endurance while being fun",
+              "It has no health benefits",
+              "It only makes the body weaker",
+              "It is done only for fun"
             ],
-            "correct_answer": "Nagpapataas ito ng cardiovascular endurance habang masaya"
+            "correct_answer": "It builds cardiovascular endurance while being fun"
           },
           {
-            "question": "Paano maiugnay ang sining sa kampanya para sa kalusugan?",
+            "question": "How can art be connected to a health campaign?",
             "options": [
-              "Sa paggawa ng biswal na materyales tungkol sa kalusugan",
-              "Sa pag-iwas sa lahat ng gawaing pansining",
-              "Walang koneksyon ang sining sa kalusugan",
-              "Sa pagtigil ng lahat ng ehersisyo"
+              "By making visual materials about health",
+              "By avoiding all art activities",
+              "Art has no connection to health",
+              "By stopping all exercise"
             ],
-            "correct_answer": "Sa paggawa ng biswal na materyales tungkol sa kalusugan"
+            "correct_answer": "By making visual materials about health"
           },
           {
-            "question": "Anong panahon ang pinag-aralan nating musika at sining kanina?",
+            "question": "What period of music and art did we study earlier?",
             "options": [
               "Early Spanish Colonial Period",
-              "Panahon ng Amerikano",
-              "Panahon ng Hapon",
-              "Kasalukuyang panahon"
+              "American period",
+              "Japanese period",
+              "Present day"
             ],
             "correct_answer": "Early Spanish Colonial Period"
           },
           {
-            "question": "Anong paksa sa kalusugan ang natutuhan natin kaugnay ng gamot?",
+            "question": "What health topic about medicine did we learn?",
             "options": [
-              "Proper use versus misuse ng gamot",
-              "Kasaysayan ng gamot sa Pilipinas",
-              "Presyo ng gamot sa botika",
-              "Pangalan ng mga gamot lamang"
+              "Proper use versus misuse of medicine",
+              "History of medicine in the Philippines",
+              "Prices of medicine at the drugstore",
+              "Names of medicines only"
             ],
-            "correct_answer": "Proper use versus misuse ng gamot"
+            "correct_answer": "Proper use versus misuse of medicine"
           },
           {
-            "question": "Ano ang time signature na natutuhan natin para sa mga rhythmic activity?",
+            "question": "What time signature did we learn for rhythmic activities?",
             "options": [
               "2/4 time",
               "10/4 time",
@@ -833,54 +833,54 @@
             "correct_answer": "2/4 time"
           },
           {
-            "question": "Bakit mahalagang pagsamahin ang sayaw, kalusugan, at sining sa isang gawain?",
+            "question": "Why is it important to combine dance, health, and art in one activity?",
             "options": [
-              "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay",
-              "Wala itong anumang kabuluhan sa totoong buhay natin",
-              "Nagpapahirap lamang ito sa pag-aaral ng bata",
-              "Ginagawa lamang ito upang makakuha ng marka"
+              "It shows how different lessons are connected in life",
+              "It has no meaning at all in our real lives",
+              "It only makes learning harder for kids",
+              "It is done only to get a grade"
             ],
-            "correct_answer": "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay"
+            "correct_answer": "It shows how different lessons are connected in life"
           },
           {
-            "question": "Ano ang layunin ng paggawa ng poster tungkol sa kahalagahan ng ehersisyo?",
+            "question": "What is the goal of making a poster about why exercise matters?",
             "options": [
-              "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay",
-              "Upang palamutihan lamang ang silid-aralan",
-              "Walang layunin ang gawaing ito",
-              "Upang mapabilis ang oras ng klase"
+              "To remind others why an active lifestyle is important",
+              "Just to decorate the classroom",
+              "This activity has no goal",
+              "To make class time go faster"
             ],
-            "correct_answer": "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay"
+            "correct_answer": "To remind others why an active lifestyle is important"
           },
           {
-            "question": "Ano ang isang halimbawa ng dance mixer na natutuhan natin?",
+            "question": "What is an example of a dance mixer we learned?",
             "options": [
-              "Isang modernong sayaw na ginagawa bilang ehersisyo",
-              "Isang uri ng pagkain",
-              "Isang uri ng kagamitan sa agrikultura",
-              "Isang uri ng kompyuter program"
+              "A modern dance done as exercise",
+              "A kind of food",
+              "A kind of farm tool",
+              "A kind of computer program"
             ],
-            "correct_answer": "Isang modernong sayaw na ginagawa bilang ehersisyo"
+            "correct_answer": "A modern dance done as exercise"
           },
           {
-            "question": "Bakit itinuturing na kapaki-pakinabang ang pagsasanib ng mga aralin sa buhay ng bata?",
+            "question": "Why is combining lessons considered helpful in a child's life?",
             "options": [
-              "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon",
-              "Wala itong tunay na kaugnayan sa totoong buhay natin",
-              "Nagpapahirap lamang ito sa pag-unawa ng bata",
-              "Ginagawa lamang ito upang mapahaba pa ang klase"
+              "Kids see how what they learn is used in real situations",
+              "It has no real link to our real lives",
+              "It only makes it harder for kids to understand",
+              "It is done only to make class longer"
             ],
-            "correct_answer": "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon"
+            "correct_answer": "Kids see how what they learn is used in real situations"
           },
           {
-            "question": "Ano ang isang halimbawa ng negatibong epekto ng maling paggamit ng gamot na natutuhan natin?",
+            "question": "What is one negative effect of misusing medicine that we learned?",
             "options": [
-              "Maaari itong makasama sa kalusugan ng katawan",
-              "Palaging mabuti ang epekto nito",
-              "Wala itong anumang epekto sa katawan",
-              "Nagpapalakas lamang ito ng katawan"
+              "It can harm the body's health",
+              "Its effect is always good",
+              "It has no effect at all on the body",
+              "It only makes the body stronger"
             ],
-            "correct_answer": "Maaari itong makasama sa kalusugan ng katawan"
+            "correct_answer": "It can harm the body's health"
           }
         ]
       },
@@ -1887,70 +1887,70 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Pagsasanib ng sayaw, kalusugan, at sining sa isang wellness activity\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Combining dance, health, and art in one wellness activity\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Anong tatlong paksa ang pinagsasama natin ngayong linggo?",
+            "question": "What three subjects are we combining this week?",
             "options": [
-              "Sayaw, kalusugan, at sining",
-              "Matematika, agham, at wika",
-              "Kasaysayan, heograpiya, at agrikultura",
-              "Musika lamang"
+              "Dance, health, and art",
+              "Math, science, and language",
+              "History, geography, and agriculture",
+              "Music only"
             ],
-            "correct_answer": "Sayaw, kalusugan, at sining"
+            "correct_answer": "Dance, health, and art"
           },
           {
-            "question": "Ano ang isang halimbawa ng wellness activity na pinag-aralan natin?",
+            "question": "What is one example of a wellness activity we studied?",
             "options": [
-              "Dance-for-health session na may biswal na sining",
-              "Isang eksamen tungkol sa matematika",
-              "Isang liham na isusulat sa magulang",
-              "Isang gawain tungkol sa agrikultura"
+              "A dance-for-health session with visual art",
+              "A math exam",
+              "A letter to write to a parent",
+              "An activity about farming"
             ],
-            "correct_answer": "Dance-for-health session na may biswal na sining"
+            "correct_answer": "A dance-for-health session with visual art"
           },
           {
-            "question": "Bakit mabisang gamitin ang sayaw bilang ehersisyo para sa kalusugan?",
+            "question": "Why is dance a good exercise for health?",
             "options": [
-              "Nagpapataas ito ng cardiovascular endurance habang masaya",
-              "Wala itong benepisyo sa kalusugan",
-              "Nagpapahina lamang ito ng katawan",
-              "Ginagawa lamang ito para sa libangan"
+              "It builds cardiovascular endurance while being fun",
+              "It has no health benefits",
+              "It only makes the body weaker",
+              "It is done only for fun"
             ],
-            "correct_answer": "Nagpapataas ito ng cardiovascular endurance habang masaya"
+            "correct_answer": "It builds cardiovascular endurance while being fun"
           },
           {
-            "question": "Paano maiugnay ang sining sa kampanya para sa kalusugan?",
+            "question": "How can art be connected to a health campaign?",
             "options": [
-              "Sa paggawa ng biswal na materyales tungkol sa kalusugan",
-              "Sa pag-iwas sa lahat ng gawaing pansining",
-              "Walang koneksyon ang sining sa kalusugan",
-              "Sa pagtigil ng lahat ng ehersisyo"
+              "By making visual materials about health",
+              "By avoiding all art activities",
+              "Art has no connection to health",
+              "By stopping all exercise"
             ],
-            "correct_answer": "Sa paggawa ng biswal na materyales tungkol sa kalusugan"
+            "correct_answer": "By making visual materials about health"
           },
           {
-            "question": "Anong panahon ang pinag-aralan nating musika at sining kanina?",
+            "question": "What period of music and art did we study earlier?",
             "options": [
               "Early Spanish Colonial Period",
-              "Panahon ng Amerikano",
-              "Panahon ng Hapon",
-              "Kasalukuyang panahon"
+              "American period",
+              "Japanese period",
+              "Present day"
             ],
             "correct_answer": "Early Spanish Colonial Period"
           },
           {
-            "question": "Anong paksa sa kalusugan ang natutuhan natin kaugnay ng gamot?",
+            "question": "What health topic about medicine did we learn?",
             "options": [
-              "Proper use versus misuse ng gamot",
-              "Kasaysayan ng gamot sa Pilipinas",
-              "Presyo ng gamot sa botika",
-              "Pangalan ng mga gamot lamang"
+              "Proper use versus misuse of medicine",
+              "History of medicine in the Philippines",
+              "Prices of medicine at the drugstore",
+              "Names of medicines only"
             ],
-            "correct_answer": "Proper use versus misuse ng gamot"
+            "correct_answer": "Proper use versus misuse of medicine"
           },
           {
-            "question": "Ano ang time signature na natutuhan natin para sa mga rhythmic activity?",
+            "question": "What time signature did we learn for rhythmic activities?",
             "options": [
               "2/4 time",
               "10/4 time",
@@ -1960,54 +1960,54 @@
             "correct_answer": "2/4 time"
           },
           {
-            "question": "Bakit mahalagang pagsamahin ang sayaw, kalusugan, at sining sa isang gawain?",
+            "question": "Why is it important to combine dance, health, and art in one activity?",
             "options": [
-              "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay",
-              "Wala itong anumang kabuluhan sa totoong buhay natin",
-              "Nagpapahirap lamang ito sa pag-aaral ng bata",
-              "Ginagawa lamang ito upang makakuha ng marka"
+              "It shows how different lessons are connected in life",
+              "It has no meaning at all in our real lives",
+              "It only makes learning harder for kids",
+              "It is done only to get a grade"
             ],
-            "correct_answer": "Nagpapakita ito kung paano konektado ang iba't ibang aralin sa buhay"
+            "correct_answer": "It shows how different lessons are connected in life"
           },
           {
-            "question": "Ano ang layunin ng paggawa ng poster tungkol sa kahalagahan ng ehersisyo?",
+            "question": "What is the goal of making a poster about why exercise matters?",
             "options": [
-              "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay",
-              "Upang palamutihan lamang ang silid-aralan",
-              "Walang layunin ang gawaing ito",
-              "Upang mapabilis ang oras ng klase"
+              "To remind others why an active lifestyle is important",
+              "Just to decorate the classroom",
+              "This activity has no goal",
+              "To make class time go faster"
             ],
-            "correct_answer": "Upang ipaalala sa iba ang kahalagahan ng aktibong pamumuhay"
+            "correct_answer": "To remind others why an active lifestyle is important"
           },
           {
-            "question": "Ano ang isang halimbawa ng dance mixer na natutuhan natin?",
+            "question": "What is an example of a dance mixer we learned?",
             "options": [
-              "Isang modernong sayaw na ginagawa bilang ehersisyo",
-              "Isang uri ng pagkain",
-              "Isang uri ng kagamitan sa agrikultura",
-              "Isang uri ng kompyuter program"
+              "A modern dance done as exercise",
+              "A kind of food",
+              "A kind of farm tool",
+              "A kind of computer program"
             ],
-            "correct_answer": "Isang modernong sayaw na ginagawa bilang ehersisyo"
+            "correct_answer": "A modern dance done as exercise"
           },
           {
-            "question": "Bakit itinuturing na kapaki-pakinabang ang pagsasanib ng mga aralin sa buhay ng bata?",
+            "question": "Why is combining lessons considered helpful in a child's life?",
             "options": [
-              "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon",
-              "Wala itong tunay na kaugnayan sa totoong buhay natin",
-              "Nagpapahirap lamang ito sa pag-unawa ng bata",
-              "Ginagawa lamang ito upang mapahaba pa ang klase"
+              "Kids see how what they learn is used in real situations",
+              "It has no real link to our real lives",
+              "It only makes it harder for kids to understand",
+              "It is done only to make class longer"
             ],
-            "correct_answer": "Nakikita ng bata kung paano ginagamit ang natutuhan sa totoong sitwasyon"
+            "correct_answer": "Kids see how what they learn is used in real situations"
           },
           {
-            "question": "Ano ang isang halimbawa ng negatibong epekto ng maling paggamit ng gamot na natutuhan natin?",
+            "question": "What is one negative effect of misusing medicine that we learned?",
             "options": [
-              "Maaari itong makasama sa kalusugan ng katawan",
-              "Palaging mabuti ang epekto nito",
-              "Wala itong anumang epekto sa katawan",
-              "Nagpapalakas lamang ito ng katawan"
+              "It can harm the body's health",
+              "Its effect is always good",
+              "It has no effect at all on the body",
+              "It only makes the body stronger"
             ],
-            "correct_answer": "Maaari itong makasama sa kalusugan ng katawan"
+            "correct_answer": "It can harm the body's health"
           }
         ]
       },

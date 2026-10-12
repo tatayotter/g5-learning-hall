@@ -635,127 +635,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎭 MAPEH — Symbolic Theater at Seditious Plays\n\nGrade 6, Linggo 16! Alamin natin ang teatro noong panahon ng Amerikano. 🎭\n\n## 🎭 Symbolic Theater\nAng **symbolic theater** ay gumagamit ng **simbolo** upang ipahayag ang isang mensahe nang **hindi tuwiran** — madalas ito ginagamit noong panahong bawal ang tuwirang pagsalungat.\n\n## ✊ Seditious Plays (Dulang Seditious)\nMga dulang **lihim na kumukundena** sa pananakop ng Amerikano, gamit ang mga **simbolikong tauhan**.\n\n**Halimbawa ng simbolismo:**\n- Isang karakter na kumakatawan sa **\"Inang Bayan\"** (Pilipinas)\n- Isang manlulupig na kumakatawan sa **dayuhang mananakop**\n- Kulay at damit na may **lihim na kahulugan**\n\n## 🏛️ Estruktura ng Dulang Dramatiko\n| Bahagi | Kahulugan |\n|---|---|\n| **Eksposisyon** | pagpapakilala sa tauhan at sitwasyon |\n| **Tunggalian** | ang problema o away sa kuwento |\n| **Kasukdulan** | ang pinakamataas na bahagi ng tunggalian |\n| **Kakalasan** | ang paglutas ng problema |\n\n## 💃 Sayaw ng Panahon\nMaraming sayaw noong panahong ito ang ginagamit din bilang **lihim na pagpapahayag ng damdaming makabayan**.\n\n## 🧠 Halimbawa 1\n*Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano imbes na tuwirang salungat?*\n- Dahil **ipinagbawal** ng Batas Sedisyon ang tuwirang pagsalungat sa gobyernong Amerikano — kaya gumamit sila ng **simbolo** upang makaiwas sa parusa.\n\n## 🧠 Halimbawa 2\n*Ano ang kasukdulan sa isang dulang dramatiko?*\n- Ang **pinakamataas na bahagi** ng tunggalian — kung saan pinakamalakas ang tensyon bago ito malutas.\n\n## 💡 Kahalagahan ng Ganitong Sining\nNagpapakita ito ng **katalinuhan at katapangan** ng mga Pilipinong sining, kahit sa gitna ng panunupil.\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎭 MAPEH — Symbolic Theater and Seditious Plays\n\nGrade 6, Week 16! Let's learn about theater during the American period. 🎭\n\n## 🎭 Symbolic Theater\n**Symbolic theater** uses **symbols** to share a message **indirectly** — it was often used when speaking out openly was not allowed.\n\n## ✊ Seditious Plays\nThese are plays that **secretly spoke out against** American rule, using **symbolic characters**.\n\n**Examples of symbolism:**\n- A character who stands for **\"Mother Country\" (Inang Bayan)** (the Philippines)\n- A conqueror who stands for the **foreign rulers**\n- Colors and costumes with a **secret meaning**\n\n## 🏛️ Parts of a Dramatic Play\n| Part | Meaning |\n|---|---|\n| **Exposition** | introduces the characters and the situation |\n| **Conflict** | the problem or fight in the story |\n| **Climax** | the highest point of the conflict |\n| **Resolution** | the problem is solved |\n\n## 💃 Dances of the Time\nMany dances during this time were also used as a **secret way to show love for the country**.\n\n## 🧠 Example 1\n*Why did writers during the American period use symbols instead of speaking out openly?*\n- Because the Sedition Law **banned** open protest against the American government — so they used **symbols** to avoid being punished.\n\n## 🧠 Example 2\n*What is the climax in a dramatic play?*\n- It is the **highest point** of the conflict — where the tension is strongest before the problem is solved.\n\n## 💡 Why This Kind of Art Matters\nIt shows the **cleverness and courage** of Filipino artists, even when they were being oppressed.\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang symbolic theater?",
+            "question": "What is symbolic theater?",
             "options": [
-              "Gumagamit ng simbolo upang ipahayag ang mensahe",
-              "Direktang pagsalungat lamang",
-              "Sayaw lamang na walang mensahe",
-              "Kanta lamang na walang kahulugan"
+              "It uses symbols to share a message",
+              "It is only direct protest",
+              "It is only a dance with no message",
+              "It is only a song with no meaning"
             ],
-            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+            "correct_answer": "It uses symbols to share a message"
           },
           {
-            "question": "Ano ang seditious play?",
+            "question": "What is a seditious play?",
             "options": [
-              "Dulang lihim na kumukundena sa pananakop",
-              "Dulang tungkol sa pag-ibig lamang",
-              "Dulang komedya lamang",
-              "Dulang walang kaugnayan sa kasaysayan"
+              "A play that secretly speaks out against foreign rule",
+              "A play only about love",
+              "A play that is only a comedy",
+              "A play with no link to history"
             ],
-            "correct_answer": "Dulang lihim na kumukundena sa pananakop"
+            "correct_answer": "A play that secretly speaks out against foreign rule"
           },
           {
-            "question": "Ano ang kumakatawan sa 'Inang Bayan' sa mga dulang ito?",
+            "question": "What does 'Inang Bayan' (Mother Country) stand for in these plays?",
             "options": [
-              "Ang Pilipinas",
-              "Ang Espanya",
-              "Ang Hapon",
-              "Ang Amerika"
+              "The Philippines",
+              "Spain",
+              "Japan",
+              "America"
             ],
-            "correct_answer": "Ang Pilipinas"
+            "correct_answer": "The Philippines"
           },
           {
-            "question": "Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano?",
+            "question": "Why did writers during the American period use symbols?",
             "options": [
-              "Ipinagbawal ang tuwirang pagsalungat",
-              "Wala silang ideya kung ano ang isusulat",
-              "Mas madali itong gawin",
-              "Gustong-gusto lamang nila ang simbolo"
+              "Open protest was banned",
+              "They had no idea what to write",
+              "It was easier to do",
+              "They just really liked symbols"
             ],
-            "correct_answer": "Ipinagbawal ang tuwirang pagsalungat"
+            "correct_answer": "Open protest was banned"
           },
           {
-            "question": "Ano ang eksposisyon sa dulang dramatiko?",
+            "question": "What is the exposition in a dramatic play?",
             "options": [
-              "Pagpapakilala sa tauhan at sitwasyon",
-              "Ang pinakamataas na bahagi",
-              "Ang paglutas ng problema",
-              "Ang katapusan ng dula"
+              "It introduces the characters and the situation",
+              "The highest point",
+              "The solving of the problem",
+              "The ending of the play"
             ],
-            "correct_answer": "Pagpapakilala sa tauhan at sitwasyon"
+            "correct_answer": "It introduces the characters and the situation"
           },
           {
-            "question": "Ano ang kasukdulan?",
+            "question": "What is the climax?",
             "options": [
-              "Ang pinakamataas na bahagi ng tunggalian",
-              "Ang simula ng dula",
-              "Ang pagpapakilala sa tauhan",
-              "Ang katapusan lamang"
+              "The highest point of the conflict",
+              "The beginning of the play",
+              "The introduction of the characters",
+              "Only the ending"
             ],
-            "correct_answer": "Ang pinakamataas na bahagi ng tunggalian"
+            "correct_answer": "The highest point of the conflict"
           },
           {
-            "question": "Ano ang kakalasan?",
+            "question": "What is the resolution?",
             "options": [
-              "Ang paglutas ng problema",
-              "Ang simula ng problema",
-              "Ang pagpapakilala sa tauhan",
-              "Ang pinakamataas na tensyon"
+              "The solving of the problem",
+              "The start of the problem",
+              "The introduction of the characters",
+              "The highest tension"
             ],
-            "correct_answer": "Ang paglutas ng problema"
+            "correct_answer": "The solving of the problem"
           },
           {
-            "question": "Ano ang tunggalian sa isang dula?",
+            "question": "What is the conflict in a play?",
             "options": [
-              "Ang problema o away sa kuwento",
-              "Ang pagtatapos ng kuwento",
-              "Ang pagpapakilala sa tauhan",
-              "Ang pamagat ng dula"
+              "The problem or fight in the story",
+              "The ending of the story",
+              "The introduction of the characters",
+              "The title of the play"
             ],
-            "correct_answer": "Ang problema o away sa kuwento"
+            "correct_answer": "The problem or fight in the story"
           },
           {
-            "question": "Ano ang ginagamit sa mga sayaw ng panahong ito bilang lihim na pagpapahayag?",
+            "question": "What did dances of this time secretly express?",
             "options": [
-              "Damdaming makabayan",
-              "Kalungkutan lamang",
-              "Kaligayahan lamang",
-              "Wala itong kahulugan"
+              "Love for the country",
+              "Only sadness",
+              "Only happiness",
+              "They had no meaning"
             ],
-            "correct_answer": "Damdaming makabayan"
+            "correct_answer": "Love for the country"
           },
           {
-            "question": "Ano ang ipinapakita ng ganitong sining kahit sa gitna ng panunupil?",
+            "question": "What does this kind of art show, even during oppression?",
             "options": [
-              "Katalinuhan at katapangan ng mga Pilipino",
-              "Kawalan ng talento ng mga Pilipino",
-              "Takot ng mga Pilipino",
-              "Kawalan ng interes sa sining"
+              "The cleverness and courage of Filipinos",
+              "Filipinos having no talent",
+              "The fear of Filipinos",
+              "No interest in art"
             ],
-            "correct_answer": "Katalinuhan at katapangan ng mga Pilipino"
+            "correct_answer": "The cleverness and courage of Filipinos"
           },
           {
-            "question": "Sino ang kumakatawan sa manlulupig sa mga dulang seditious?",
+            "question": "Who does the conqueror stand for in seditious plays?",
             "options": [
-              "Ang dayuhang mananakop",
-              "Ang mga Pilipino",
-              "Ang Inang Bayan",
-              "Ang mga bata"
+              "The foreign rulers",
+              "The Filipinos",
+              "The Mother Country",
+              "The children"
             ],
-            "correct_answer": "Ang dayuhang mananakop"
+            "correct_answer": "The foreign rulers"
           },
           {
-            "question": "Isang manunulat ang gumamit ng karakter na 'ahas' upang ilarawan ang mananakop. Ano ang tawag dito?",
+            "question": "A writer used a 'snake' character to show the foreign ruler. What is this called?",
             "options": [
-              "Simbolismo",
-              "Direktang paninindigan",
-              "Katotohanan lamang",
-              "Balitang pang-araw-araw"
+              "Symbolism",
+              "Direct protest",
+              "Only the truth",
+              "Daily news"
             ],
-            "correct_answer": "Simbolismo"
+            "correct_answer": "Symbolism"
           }
         ]
       },
@@ -1637,127 +1637,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎭 Biyernes na Balik-Aral — MAPEH (Grade 6)\n\n- **Symbolic theater** = simbolo, hindi tuwirang pagsalungat\n- **Seditious plays** = lihim na kumukundena sa pananakop\n- **Estruktura ng dula:** eksposisyon → tunggalian → kasukdulan → kakalasan\n\nMagaling! 🌟",
+        "summary_markdown": "# 🎭 Friday Review — MAPEH (Grade 6)\n\n- **Symbolic theater** = uses symbols, not open protest\n- **Seditious plays** = secretly speak out against foreign rule\n- **Parts of a play:** exposition → conflict → climax → resolution\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Ano ang symbolic theater?",
+            "question": "What is symbolic theater?",
             "options": [
-              "Gumagamit ng simbolo upang ipahayag ang mensahe",
-              "Direktang pagsalungat lamang",
-              "Sayaw lamang na walang mensahe",
-              "Kanta lamang na walang kahulugan"
+              "It uses symbols to share a message",
+              "It is only direct protest",
+              "It is only a dance with no message",
+              "It is only a song with no meaning"
             ],
-            "correct_answer": "Gumagamit ng simbolo upang ipahayag ang mensahe"
+            "correct_answer": "It uses symbols to share a message"
           },
           {
-            "question": "Ano ang seditious play?",
+            "question": "What is a seditious play?",
             "options": [
-              "Dulang lihim na kumukundena sa pananakop",
-              "Dulang tungkol sa pag-ibig lamang",
-              "Dulang komedya lamang",
-              "Dulang walang kaugnayan sa kasaysayan"
+              "A play that secretly speaks out against foreign rule",
+              "A play only about love",
+              "A play that is only a comedy",
+              "A play with no link to history"
             ],
-            "correct_answer": "Dulang lihim na kumukundena sa pananakop"
+            "correct_answer": "A play that secretly speaks out against foreign rule"
           },
           {
-            "question": "Ano ang kumakatawan sa 'Inang Bayan' sa mga dulang ito?",
+            "question": "What does 'Inang Bayan' (Mother Country) stand for in these plays?",
             "options": [
-              "Ang Pilipinas",
-              "Ang Espanya",
-              "Ang Hapon",
-              "Ang Amerika"
+              "The Philippines",
+              "Spain",
+              "Japan",
+              "America"
             ],
-            "correct_answer": "Ang Pilipinas"
+            "correct_answer": "The Philippines"
           },
           {
-            "question": "Bakit gumamit ng simbolo ang mga manunulat noong panahon ng Amerikano?",
+            "question": "Why did writers during the American period use symbols?",
             "options": [
-              "Ipinagbawal ang tuwirang pagsalungat",
-              "Wala silang ideya kung ano ang isusulat",
-              "Mas madali itong gawin",
-              "Gustong-gusto lamang nila ang simbolo"
+              "Open protest was banned",
+              "They had no idea what to write",
+              "It was easier to do",
+              "They just really liked symbols"
             ],
-            "correct_answer": "Ipinagbawal ang tuwirang pagsalungat"
+            "correct_answer": "Open protest was banned"
           },
           {
-            "question": "Ano ang eksposisyon sa dulang dramatiko?",
+            "question": "What is the exposition in a dramatic play?",
             "options": [
-              "Pagpapakilala sa tauhan at sitwasyon",
-              "Ang pinakamataas na bahagi",
-              "Ang paglutas ng problema",
-              "Ang katapusan ng dula"
+              "It introduces the characters and the situation",
+              "The highest point",
+              "The solving of the problem",
+              "The ending of the play"
             ],
-            "correct_answer": "Pagpapakilala sa tauhan at sitwasyon"
+            "correct_answer": "It introduces the characters and the situation"
           },
           {
-            "question": "Ano ang kasukdulan?",
+            "question": "What is the climax?",
             "options": [
-              "Ang pinakamataas na bahagi ng tunggalian",
-              "Ang simula ng dula",
-              "Ang pagpapakilala sa tauhan",
-              "Ang katapusan lamang"
+              "The highest point of the conflict",
+              "The beginning of the play",
+              "The introduction of the characters",
+              "Only the ending"
             ],
-            "correct_answer": "Ang pinakamataas na bahagi ng tunggalian"
+            "correct_answer": "The highest point of the conflict"
           },
           {
-            "question": "Ano ang kakalasan?",
+            "question": "What is the resolution?",
             "options": [
-              "Ang paglutas ng problema",
-              "Ang simula ng problema",
-              "Ang pagpapakilala sa tauhan",
-              "Ang pinakamataas na tensyon"
+              "The solving of the problem",
+              "The start of the problem",
+              "The introduction of the characters",
+              "The highest tension"
             ],
-            "correct_answer": "Ang paglutas ng problema"
+            "correct_answer": "The solving of the problem"
           },
           {
-            "question": "Ano ang tunggalian sa isang dula?",
+            "question": "What is the conflict in a play?",
             "options": [
-              "Ang problema o away sa kuwento",
-              "Ang pagtatapos ng kuwento",
-              "Ang pagpapakilala sa tauhan",
-              "Ang pamagat ng dula"
+              "The problem or fight in the story",
+              "The ending of the story",
+              "The introduction of the characters",
+              "The title of the play"
             ],
-            "correct_answer": "Ang problema o away sa kuwento"
+            "correct_answer": "The problem or fight in the story"
           },
           {
-            "question": "Ano ang ginagamit sa mga sayaw ng panahong ito bilang lihim na pagpapahayag?",
+            "question": "What did dances of this time secretly express?",
             "options": [
-              "Damdaming makabayan",
-              "Kalungkutan lamang",
-              "Kaligayahan lamang",
-              "Wala itong kahulugan"
+              "Love for the country",
+              "Only sadness",
+              "Only happiness",
+              "They had no meaning"
             ],
-            "correct_answer": "Damdaming makabayan"
+            "correct_answer": "Love for the country"
           },
           {
-            "question": "Ano ang ipinapakita ng ganitong sining kahit sa gitna ng panunupil?",
+            "question": "What does this kind of art show, even during oppression?",
             "options": [
-              "Katalinuhan at katapangan ng mga Pilipino",
-              "Kawalan ng talento ng mga Pilipino",
-              "Takot ng mga Pilipino",
-              "Kawalan ng interes sa sining"
+              "The cleverness and courage of Filipinos",
+              "Filipinos having no talent",
+              "The fear of Filipinos",
+              "No interest in art"
             ],
-            "correct_answer": "Katalinuhan at katapangan ng mga Pilipino"
+            "correct_answer": "The cleverness and courage of Filipinos"
           },
           {
-            "question": "Sino ang kumakatawan sa manlulupig sa mga dulang seditious?",
+            "question": "Who does the conqueror stand for in seditious plays?",
             "options": [
-              "Ang dayuhang mananakop",
-              "Ang mga Pilipino",
-              "Ang Inang Bayan",
-              "Ang mga bata"
+              "The foreign rulers",
+              "The Filipinos",
+              "The Mother Country",
+              "The children"
             ],
-            "correct_answer": "Ang dayuhang mananakop"
+            "correct_answer": "The foreign rulers"
           },
           {
-            "question": "Isang manunulat ang gumamit ng karakter na 'ahas' upang ilarawan ang mananakop. Ano ang tawag dito?",
+            "question": "A writer used a 'snake' character to show the foreign ruler. What is this called?",
             "options": [
-              "Simbolismo",
-              "Direktang paninindigan",
-              "Katotohanan lamang",
-              "Balitang pang-araw-araw"
+              "Symbolism",
+              "Direct protest",
+              "Only the truth",
+              "Daily news"
             ],
-            "correct_answer": "Simbolismo"
+            "correct_answer": "Symbolism"
           }
         ]
       },

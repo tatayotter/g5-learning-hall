@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 💃 MAPEH — Culminating Dance Performance\n\nGrade 5, Linggo 25! Isagawa natin ang natutunang sayaw sa isang maliit na pagtatanghal! 💃\n\n## 🔄 Balik-Aral\nNatutuhan natin ang tungkol sa **epekto ng gateway drugs**.\n\n## 💃 Paghahanda para sa Pagtatanghal\nGamit ang natutunang **social dance mixer** sa 2/4 time, magsanay ng maliit na grupo para magtanghal sa harap ng klase.\n\n## 📋 Mga Hakbang\n1. Piliin ang bilang ng miyembro sa grupo (4-6 katao)\n2. Ulit-ulitin ang mga hakbang na natutunan\n3. Magpraktis ng **timing** kasama ang musika\n4. Magtanghal nang may kumpiyansa at ngiti\n\n## 🌟 Layunin ng Culminating Activity\nIto ay pagkakataon para ipakita ang **koordinasyon**, **pakikipagtulungan sa grupo**, at kasiyahan sa paggalaw sa musika na tinalakay natin sa nakaraang mga linggo.\n\n**Mahahalagang salita:** culminating activity, pagtatanghal, pakikipagtulungan, kumpiyansa",
+        "summary_markdown": "# 💃 MAPEH — Culminating Dance Performance\n\nGrade 5, Week 25! Let's show the dance we learned in a small performance! 💃\n\n## 🔄 Review\nWe learned about the **effects of gateway drugs**.\n\n## 💃 Getting Ready to Perform\nUsing the **social dance mixer** in 2/4 time that we learned, practice in a small group to perform in front of the class.\n\n## 📋 Steps\n1. Choose how many members are in the group (4-6 people)\n2. Repeat the steps you learned again and again\n3. Practice your **timing** with the music\n4. Perform with confidence and a smile\n\n## 🌟 Goal of the Culminating Activity\nThis is a chance to show the **coordination**, **teamwork in a group**, and joy of moving to music that we talked about in the past weeks.\n\n**Key words:** culminating activity, performance, teamwork, confidence",
         "quiz": [
           {
-            "question": "Ano ang layunin ng culminating dance performance?",
+            "question": "What is the goal of the culminating dance performance?",
             "options": [
-              "Ipakita ang koordinasyon at pakikipagtulungan sa grupo",
-              "Talunin ang ibang grupo",
-              "Wala itong layunin",
-              "Para lang libangin ang guro"
+              "To show coordination and teamwork in a group",
+              "To beat the other groups",
+              "It has no goal",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Ipakita ang koordinasyon at pakikipagtulungan sa grupo"
+            "correct_answer": "To show coordination and teamwork in a group"
           },
           {
-            "question": "Anong sayaw ang gagamitin sa pagtatanghal?",
+            "question": "What dance will be used in the performance?",
             "options": [
-              "Social dance mixer sa 2/4 time",
-              "Isang bagong sayaw na hindi pa natutunan",
-              "Walang sayaw, kanta lamang",
-              "Isang sayaw sa ibang bansa"
+              "Social dance mixer in 2/4 time",
+              "A new dance not learned yet",
+              "No dance, just a song",
+              "A dance from another country"
             ],
-            "correct_answer": "Social dance mixer sa 2/4 time"
+            "correct_answer": "Social dance mixer in 2/4 time"
           },
           {
-            "question": "Ilan ang inirerekomendang bilang ng miyembro sa grupo?",
+            "question": "How many members are recommended in a group?",
             "options": [
-              "4-6 katao",
-              "1 katao lamang",
-              "20 katao",
-              "Walang bilang na itinakda"
+              "4-6 people",
+              "Only 1 person",
+              "20 people",
+              "No set number"
             ],
-            "correct_answer": "4-6 katao"
+            "correct_answer": "4-6 people"
           },
           {
-            "question": "Bakit kailangang magpraktis ng timing kasama ang musika?",
+            "question": "Why do you need to practice timing with the music?",
             "options": [
-              "Para maging maayos at magkasabay ang mga galaw",
-              "Hindi na kailangan magpraktis",
-              "Para lang mapahaba ang oras",
-              "Walang kaugnayan ang timing sa sayaw"
+              "So the moves are smooth and in sync",
+              "There is no need to practice",
+              "Just to make the time longer",
+              "Timing has nothing to do with dance"
             ],
-            "correct_answer": "Para maging maayos at magkasabay ang mga galaw"
+            "correct_answer": "So the moves are smooth and in sync"
           },
           {
-            "question": "Ano ang dapat ipakita habang nagtatanghal?",
+            "question": "What should you show while performing?",
             "options": [
-              "Kumpiyansa at ngiti",
-              "Takot at pag-aalinlangan",
-              "Galit sa kasama",
-              "Kawalan ng interes"
+              "Confidence and a smile",
+              "Fear and doubt",
+              "Anger at your groupmates",
+              "No interest"
             ],
-            "correct_answer": "Kumpiyansa at ngiti"
+            "correct_answer": "Confidence and a smile"
           },
           {
-            "question": "Anong kasanayan ang pinapatunayan ng pagtatanghal na ito?",
+            "question": "What skill does this performance prove?",
             "options": [
-              "Koordinasyon at pakikipagtulungan",
-              "Kasanayan sa pagsulat",
-              "Kasanayan sa matematika",
-              "Kasanayan sa pagluluto"
+              "Coordination and teamwork",
+              "Writing skills",
+              "Math skills",
+              "Cooking skills"
             ],
-            "correct_answer": "Koordinasyon at pakikipagtulungan"
+            "correct_answer": "Coordination and teamwork"
           },
           {
-            "question": "Bakit mahalaga ang pag-uulit ng mga hakbang bago magtanghal?",
+            "question": "Why is it important to repeat the steps before performing?",
             "options": [
-              "Para maging tuluy-tuloy at maayos ang pagganap",
-              "Hindi na kailangan ulitin",
-              "Para lang mapagod ang grupo",
-              "Walang epekto ito"
+              "So the performance is smooth and steady",
+              "There is no need to repeat them",
+              "Just to tire out the group",
+              "It has no effect"
             ],
-            "correct_answer": "Para maging tuluy-tuloy at maayos ang pagganap"
+            "correct_answer": "So the performance is smooth and steady"
           },
           {
-            "question": "Ano ang tawag sa aktibidad na nagsasama ng mga natutunang kasanayan sa dulo ng yunit?",
+            "question": "What do we call an activity that puts together the skills learned at the end of a unit?",
             "options": [
               "Culminating activity",
-              "Panimulang aralin",
-              "Pagsusulit lamang",
-              "Balik-aral lamang"
+              "Opening lesson",
+              "Just a test",
+              "Just a review"
             ],
             "correct_answer": "Culminating activity"
           },
           {
-            "question": "Bakit itinuturing na mahalaga ang pakikipagtulungan sa grupo sa aktibidad na ito?",
+            "question": "Why is teamwork in the group considered important in this activity?",
             "options": [
-              "Kailangang magkasabay ang lahat ng kasapi ng grupo",
-              "Bawat isa ay gumagawa nang bukod-bukod",
-              "Walang kailangang pakikipagtulungan",
-              "Ang isang tao lamang ang sumasayaw"
+              "All group members need to move together",
+              "Each one works separately",
+              "No teamwork is needed",
+              "Only one person dances"
             ],
-            "correct_answer": "Kailangang magkasabay ang lahat ng kasapi ng grupo"
+            "correct_answer": "All group members need to move together"
           },
           {
-            "question": "Ano ang benepisyo ng pagsasagawa ng culminating activity sa MAPEH?",
+            "question": "What is the benefit of doing a culminating activity in MAPEH?",
             "options": [
-              "Pinagsasama nito ang mga natutunang kasanayan sa isang tagumpay na aktibidad",
-              "Wala itong benepisyo",
-              "Ito ay para lamang libangin",
-              "Hindi ito bahagi ng pag-aaral"
+              "It puts the skills you learned together into one successful activity",
+              "It has no benefit",
+              "It is just for fun",
+              "It is not part of learning"
             ],
-            "correct_answer": "Pinagsasama nito ang mga natutunang kasanayan sa isang tagumpay na aktibidad"
+            "correct_answer": "It puts the skills you learned together into one successful activity"
           },
           {
-            "question": "Ano ang unang hakbang sa paghahanda ng pagtatanghal?",
+            "question": "What is the first step in getting ready for the performance?",
             "options": [
-              "Piliin ang bilang ng miyembro sa grupo",
-              "Direktang magtanghal na walang praktis",
-              "Kalimutan ang mga hakbang",
-              "Umalis sa grupo"
+              "Choose the number of members in the group",
+              "Perform right away without practice",
+              "Forget the steps",
+              "Leave the group"
             ],
-            "correct_answer": "Piliin ang bilang ng miyembro sa grupo"
+            "correct_answer": "Choose the number of members in the group"
           },
           {
-            "question": "Bakit mahalagang bahagi ng MAPEH ang pisikal na aktibidad tulad ng sayaw?",
+            "question": "Why is physical activity like dance an important part of MAPEH?",
             "options": [
-              "Nagpapalusog ito ng katawan at nagtuturo ng koordinasyon",
-              "Wala itong kabuluhan sa kalusugan",
-              "Ito ay hindi bahagi ng pisikal na edukasyon",
-              "Ginagawa lamang ito para libangin ang guro"
+              "It keeps the body healthy and teaches coordination",
+              "It means nothing for health",
+              "It is not part of physical education",
+              "It is done only to entertain the teacher"
             ],
-            "correct_answer": "Nagpapalusog ito ng katawan at nagtuturo ng koordinasyon"
+            "correct_answer": "It keeps the body healthy and teaches coordination"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Culminating dance performance\n\nMagaling! 🌟",
+        "summary_markdown": "# 💃 Friday Review — MAPEH (Grade 5)\n\n- Culminating dance performance\n\nGreat job! 🌟",
         "quiz": [
           {
-            "question": "Layunin ng culminating dance performance?",
+            "question": "What is the goal of the culminating dance performance?",
             "options": [
-              "Ipakita ang koordinasyon at pakikipagtulungan",
-              "Talunin ang ibang grupo",
-              "Wala itong layunin",
-              "Para lang libangin ang guro"
+              "To show coordination and teamwork",
+              "To beat the other groups",
+              "It has no goal",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Ipakita ang koordinasyon at pakikipagtulungan"
+            "correct_answer": "To show coordination and teamwork"
           },
           {
-            "question": "Anong sayaw ang ginamit?",
+            "question": "What dance was used?",
             "options": [
-              "Social dance mixer sa 2/4 time",
-              "Bagong sayaw na hindi pa natutunan",
-              "Walang sayaw",
-              "Sayaw sa ibang bansa"
+              "Social dance mixer in 2/4 time",
+              "A new dance not learned yet",
+              "No dance",
+              "A dance from another country"
             ],
-            "correct_answer": "Social dance mixer sa 2/4 time"
+            "correct_answer": "Social dance mixer in 2/4 time"
           },
           {
-            "question": "Ilan ang inirerekomendang bilang sa grupo?",
+            "question": "How many people are recommended in a group?",
             "options": [
-              "4-6 katao",
-              "1 katao lamang",
-              "20 katao",
-              "Walang itinakda"
+              "4-6 people",
+              "Only 1 person",
+              "20 people",
+              "No set number"
             ],
-            "correct_answer": "4-6 katao"
+            "correct_answer": "4-6 people"
           },
           {
-            "question": "Bakit magpraktis ng timing sa musika?",
+            "question": "Why practice timing with the music?",
             "options": [
-              "Para maging maayos ang mga galaw",
-              "Hindi kailangan",
-              "Para mapahaba ang oras",
-              "Walang kaugnayan"
+              "So the moves are smooth",
+              "It is not needed",
+              "To make the time longer",
+              "It has no connection"
             ],
-            "correct_answer": "Para maging maayos ang mga galaw"
+            "correct_answer": "So the moves are smooth"
           },
           {
-            "question": "Ano ang dapat ipakita habang nagtatanghal?",
+            "question": "What should you show while performing?",
             "options": [
-              "Kumpiyansa at ngiti",
-              "Takot at pag-aalinlangan",
-              "Galit sa kasama",
-              "Kawalan ng interes"
+              "Confidence and a smile",
+              "Fear and doubt",
+              "Anger at your groupmates",
+              "No interest"
             ],
-            "correct_answer": "Kumpiyansa at ngiti"
+            "correct_answer": "Confidence and a smile"
           },
           {
-            "question": "Anong kasanayan pinatutunayan ng pagtatanghal?",
+            "question": "What skill does the performance prove?",
             "options": [
-              "Koordinasyon at pakikipagtulungan",
-              "Pagsulat",
-              "Matematika",
-              "Pagluluto"
+              "Coordination and teamwork",
+              "Writing",
+              "Math",
+              "Cooking"
             ],
-            "correct_answer": "Koordinasyon at pakikipagtulungan"
+            "correct_answer": "Coordination and teamwork"
           },
           {
-            "question": "Bakit uulitin ang mga hakbang bago magtanghal?",
+            "question": "Why repeat the steps before performing?",
             "options": [
-              "Para maging maayos ang pagganap",
-              "Hindi kailangan",
-              "Para lang mapagod",
-              "Walang epekto"
+              "So the performance goes well",
+              "It is not needed",
+              "Just to get tired",
+              "No effect"
             ],
-            "correct_answer": "Para maging maayos ang pagganap"
+            "correct_answer": "So the performance goes well"
           },
           {
-            "question": "Tawag sa aktibidad na sinasama ang natutunan sa dulo ng yunit?",
+            "question": "What do we call an activity that puts together what you learned at the end of a unit?",
             "options": [
               "Culminating activity",
-              "Panimulang aralin",
-              "Pagsusulit lamang",
-              "Balik-aral lamang"
+              "Opening lesson",
+              "Just a test",
+              "Just a review"
             ],
             "correct_answer": "Culminating activity"
           },
           {
-            "question": "Bakit mahalaga ang pakikipagtulungan sa grupo dito?",
+            "question": "Why is teamwork in the group important here?",
             "options": [
-              "Kailangang magkasabay ang lahat",
-              "Bawat isa gumagawa nang bukod",
-              "Walang kailangan",
-              "Isang tao lamang sumasayaw"
+              "Everyone needs to move together",
+              "Each one works separately",
+              "Nothing is needed",
+              "Only one person dances"
             ],
-            "correct_answer": "Kailangang magkasabay ang lahat"
+            "correct_answer": "Everyone needs to move together"
           },
           {
-            "question": "Benepisyo ng culminating activity sa MAPEH?",
+            "question": "What is the benefit of a culminating activity in MAPEH?",
             "options": [
-              "Pinagsasama ang natutunang kasanayan sa isang tagumpay",
-              "Walang benepisyo",
-              "Para lang libangin",
-              "Hindi bahagi ng pag-aaral"
+              "It puts the skills you learned together into one success",
+              "No benefit",
+              "Just for fun",
+              "Not part of learning"
             ],
-            "correct_answer": "Pinagsasama ang natutunang kasanayan sa isang tagumpay"
+            "correct_answer": "It puts the skills you learned together into one success"
           },
           {
-            "question": "Unang hakbang sa paghahanda ng pagtatanghal?",
+            "question": "What is the first step in getting ready to perform?",
             "options": [
-              "Piliin ang bilang ng miyembro",
-              "Direktang magtanghal",
-              "Kalimutan ang hakbang",
-              "Umalis sa grupo"
+              "Choose the number of members",
+              "Perform right away",
+              "Forget the steps",
+              "Leave the group"
             ],
-            "correct_answer": "Piliin ang bilang ng miyembro"
+            "correct_answer": "Choose the number of members"
           },
           {
-            "question": "Bakit mahalaga ang pisikal na aktibidad sa MAPEH?",
+            "question": "Why is physical activity important in MAPEH?",
             "options": [
-              "Nagpapalusog ng katawan at nagtuturo ng koordinasyon",
-              "Walang kabuluhan sa kalusugan",
-              "Hindi bahagi ng PE",
-              "Para lang libangin ang guro"
+              "It keeps the body healthy and teaches coordination",
+              "It means nothing for health",
+              "It is not part of PE",
+              "Just to entertain the teacher"
             ],
-            "correct_answer": "Nagpapalusog ng katawan at nagtuturo ng koordinasyon"
+            "correct_answer": "It keeps the body healthy and teaches coordination"
           }
         ]
       },

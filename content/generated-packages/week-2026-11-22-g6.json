@@ -635,20 +635,20 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎉 MAPEH — Lokal at Rehiyonal na Street Dance\n\nGrade 6, Linggo 24! Alamin natin ang mga sikat na street dance festival sa Pilipinas! 🎉\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dance exercise.\n\n## 🎉 Ano ang Street Dance Festival?\nAng mga **street dance festival** ay taunang kaganapan kung saan nagsasayaw ang mga komunidad sa lansangan bilang pagdiriwang ng kultura at kasaysayang panrehiyon.\n\n## 🌟 Mga Halimbawa\n- **Sinulog** (Cebu) — parangal kay Santo Niño\n- **Ati-Atihan** (Aklan) — pinakamatandang pista sa Pilipinas\n- **Dinagyang** (Iloilo) — makulay na pagdiriwang na may mga tribung sumasayaw\n\n## 💃 Katangian ng Street Dance\nBinubuo ito ng malakas na tunog ng tambol, makukulay na kasuotan, at magkakasabay na koreograpiya ng malaking grupo ng manananayaw.\n\n## 🎯 Bakit Mahalaga Ito?\nIpinapakita ng street dance festivals ang mayamang kultura at diwa ng pagdiriwang ng mga Pilipino.\n\n**Mahahalagang salita:** street dance, Sinulog, Ati-Atihan, Dinagyang, pagdiriwang",
+        "summary_markdown": "# 🎉 MAPEH — Local and Regional Street Dances\n\nGrade 6, Week 24! Let's learn about famous street dance festivals in the Philippines! 🎉\n\n## 🔄 Review\nWe learned about dance exercise.\n\n## 🎉 What Is a Street Dance Festival?\n**Street dance festivals** are yearly events where communities dance in the streets to celebrate their region's culture and history.\n\n## 🌟 Examples\n- **Sinulog** (Cebu) — honors the Santo Niño\n- **Ati-Atihan** (Aklan) — the oldest festival in the Philippines\n- **Dinagyang** (Iloilo) — a colorful celebration with dancing tribes\n\n## 💃 Features of Street Dance\nIt has loud drumbeats, colorful costumes, and a big group of dancers moving together in the same choreography.\n\n## 🎯 Why Does It Matter?\nStreet dance festivals show the rich culture and festive spirit of Filipinos.\n\n**Key words:** street dance, Sinulog, Ati-Atihan, Dinagyang, celebration",
         "quiz": [
           {
-            "question": "Ano ang street dance festival?",
+            "question": "What is a street dance festival?",
             "options": [
-              "Taunang kaganapan ng pagsasayaw sa lansangan bilang pagdiriwang",
-              "Isang uri ng laro sa bahay",
-              "Isang uri ng pagkain",
-              "Isang bantas"
+              "A yearly event of dancing in the streets to celebrate",
+              "A kind of game at home",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Taunang kaganapan ng pagsasayaw sa lansangan bilang pagdiriwang"
+            "correct_answer": "A yearly event of dancing in the streets to celebrate"
           },
           {
-            "question": "Saan ginaganap ang Sinulog?",
+            "question": "Where is the Sinulog held?",
             "options": [
               "Cebu",
               "Aklan",
@@ -658,7 +658,7 @@
             "correct_answer": "Cebu"
           },
           {
-            "question": "Saan ginaganap ang Ati-Atihan?",
+            "question": "Where is the Ati-Atihan held?",
             "options": [
               "Aklan",
               "Cebu",
@@ -668,7 +668,7 @@
             "correct_answer": "Aklan"
           },
           {
-            "question": "Saan ginaganap ang Dinagyang?",
+            "question": "Where is the Dinagyang held?",
             "options": [
               "Iloilo",
               "Cebu",
@@ -678,17 +678,17 @@
             "correct_answer": "Iloilo"
           },
           {
-            "question": "Kanino iginagalang ang Sinulog?",
+            "question": "Who is honored in the Sinulog?",
             "options": [
               "Santo Niño",
-              "Ina ng Kalamba",
+              "Ina ng Kalamba (Our Lady of Kalamba)",
               "Rizal",
               "Bonifacio"
             ],
             "correct_answer": "Santo Niño"
           },
           {
-            "question": "Alin ang pinakamatandang pista sa Pilipinas?",
+            "question": "Which is the oldest festival in the Philippines?",
             "options": [
               "Ati-Atihan",
               "Sinulog",
@@ -698,64 +698,64 @@
             "correct_answer": "Ati-Atihan"
           },
           {
-            "question": "Anong katangian mayroon ang street dance?",
+            "question": "What feature does street dance have?",
             "options": [
-              "Malakas na tunog ng tambol at makukulay na kasuotan",
-              "Katahimikan at walang musika",
-              "Isang tao lamang ang sumasayaw",
-              "Walang koreograpiya"
+              "Loud drumbeats and colorful costumes",
+              "Silence and no music",
+              "Only one person dances",
+              "No choreography"
             ],
-            "correct_answer": "Malakas na tunog ng tambol at makukulay na kasuotan"
+            "correct_answer": "Loud drumbeats and colorful costumes"
           },
           {
-            "question": "Bakit mahalagang pahalagahan ang mga street dance festival?",
+            "question": "Why is it important to value street dance festivals?",
             "options": [
-              "Ipinapakita nila ang mayamang kultura ng Pilipinas",
-              "Walang kahalagahan ito",
-              "Ito ay basta libangan lamang",
-              "Hindi ito bahagi ng kultura"
+              "They show the rich culture of the Philippines",
+              "They are not important",
+              "They are just for fun",
+              "They are not part of the culture"
             ],
-            "correct_answer": "Ipinapakita nila ang mayamang kultura ng Pilipinas"
+            "correct_answer": "They show the rich culture of the Philippines"
           },
           {
-            "question": "Bakit itinuturo ang mga street dance festival sa MAPEH?",
+            "question": "Why are street dance festivals taught in MAPEH?",
             "options": [
-              "Upang mapahalagahan ang kultura at kasaysayang panrehiyon",
-              "Walang layunin ito",
-              "Para sa matatanda lamang ito",
-              "Hindi kaugnay ng edukasyon"
+              "To value the culture and history of each region",
+              "It has no purpose",
+              "It is only for older people",
+              "It is not related to education"
             ],
-            "correct_answer": "Upang mapahalagahan ang kultura at kasaysayang panrehiyon"
+            "correct_answer": "To value the culture and history of each region"
           },
           {
-            "question": "Ano ang layunin ng magkakasabay na koreograpiya sa street dance?",
+            "question": "What is the goal of dancing in sync (together) in street dance?",
             "options": [
-              "Nagpapakita ng pagkakaisa at kasanayan ng grupo",
-              "Walang layunin ito",
-              "Nagdudulot lamang ng kalituhan",
-              "Ito ay hindi bahagi ng festival"
+              "It shows the group's unity and skill",
+              "It has no goal",
+              "It only causes confusion",
+              "It is not part of the festival"
             ],
-            "correct_answer": "Nagpapakita ng pagkakaisa at kasanayan ng grupo"
+            "correct_answer": "It shows the group's unity and skill"
           },
           {
-            "question": "Paano nauugnay ang street dance sa dance exercise na natutunan noon?",
+            "question": "How is street dance related to the dance exercise we learned before?",
             "options": [
-              "Parehong gumagamit ng galaw at musika bilang bahagi ng sayaw",
-              "Walang koneksyon ang dalawa",
-              "Isa tungkol sa agham lamang",
-              "Isa tungkol sa matematika"
+              "Both use movement and music as part of dance",
+              "The two have no connection",
+              "One is only about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong gumagamit ng galaw at musika bilang bahagi ng sayaw"
+            "correct_answer": "Both use movement and music as part of dance"
           },
           {
-            "question": "Bakit itinuturing na mahalagang bahagi ng pagkakakilanlan ng Pilipino ang mga festival na ito?",
+            "question": "Why are these festivals seen as an important part of Filipino identity?",
             "options": [
-              "Ipinapakita nila ang natatanging kultura ng bawat rehiyon",
-              "Wala silang kaugnayan sa pagkakakilanlan",
-              "Ito ay hiram lamang sa ibang bansa",
-              "Hindi ito bahagi ng kultura"
+              "They show the special culture of each region",
+              "They have nothing to do with identity",
+              "They are only borrowed from other countries",
+              "They are not part of the culture"
             ],
-            "correct_answer": "Ipinapakita nila ang natatanging kultura ng bawat rehiyon"
+            "correct_answer": "They show the special culture of each region"
           }
         ]
       },
@@ -1637,20 +1637,20 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 6)\n\n- Lokal at rehiyonal na street dance\n\nMagaling sa kultura! 🌟",
+        "summary_markdown": "# 🎉 Friday Review — MAPEH (Grade 6)\n\n- Local and regional street dances\n\nGreat job learning about culture! 🌟",
         "quiz": [
           {
-            "question": "Ano ang street dance festival?",
+            "question": "What is a street dance festival?",
             "options": [
-              "Taunang kaganapan ng pagsasayaw sa lansangan",
-              "Uri ng laro sa bahay",
-              "Uri ng pagkain",
-              "Bantas"
+              "A yearly event of dancing in the streets",
+              "A kind of game at home",
+              "A kind of food",
+              "A punctuation mark"
             ],
-            "correct_answer": "Taunang kaganapan ng pagsasayaw sa lansangan"
+            "correct_answer": "A yearly event of dancing in the streets"
           },
           {
-            "question": "Saan ginaganap ang Sinulog?",
+            "question": "Where is the Sinulog held?",
             "options": [
               "Cebu",
               "Aklan",
@@ -1660,7 +1660,7 @@
             "correct_answer": "Cebu"
           },
           {
-            "question": "Saan ginaganap ang Ati-Atihan?",
+            "question": "Where is the Ati-Atihan held?",
             "options": [
               "Aklan",
               "Cebu",
@@ -1670,7 +1670,7 @@
             "correct_answer": "Aklan"
           },
           {
-            "question": "Saan ginaganap ang Dinagyang?",
+            "question": "Where is the Dinagyang held?",
             "options": [
               "Iloilo",
               "Cebu",
@@ -1680,17 +1680,17 @@
             "correct_answer": "Iloilo"
           },
           {
-            "question": "Kanino iginagalang ang Sinulog?",
+            "question": "Who is honored in the Sinulog?",
             "options": [
               "Santo Niño",
-              "Ina ng Kalamba",
+              "Ina ng Kalamba (Our Lady of Kalamba)",
               "Rizal",
               "Bonifacio"
             ],
             "correct_answer": "Santo Niño"
           },
           {
-            "question": "Pinakamatandang pista sa Pilipinas?",
+            "question": "Oldest festival in the Philippines?",
             "options": [
               "Ati-Atihan",
               "Sinulog",
@@ -1700,64 +1700,64 @@
             "correct_answer": "Ati-Atihan"
           },
           {
-            "question": "Katangian ng street dance?",
+            "question": "A feature of street dance?",
             "options": [
-              "Malakas na tunog ng tambol at makukulay na kasuotan",
-              "Katahimikan",
-              "Isang tao lamang",
-              "Walang koreograpiya"
+              "Loud drumbeats and colorful costumes",
+              "Silence",
+              "Only one person",
+              "No choreography"
             ],
-            "correct_answer": "Malakas na tunog ng tambol at makukulay na kasuotan"
+            "correct_answer": "Loud drumbeats and colorful costumes"
           },
           {
-            "question": "Bakit pahalagahan ang mga festival na ito?",
+            "question": "Why value these festivals?",
             "options": [
-              "Mayamang kultura ng Pilipinas",
-              "Walang kahalagahan",
-              "Libangan lamang",
-              "Hindi bahagi ng kultura"
+              "The rich culture of the Philippines",
+              "They are not important",
+              "Just for fun",
+              "Not part of the culture"
             ],
-            "correct_answer": "Mayamang kultura ng Pilipinas"
+            "correct_answer": "The rich culture of the Philippines"
           },
           {
-            "question": "Bakit ituro ang mga festival sa MAPEH?",
+            "question": "Why teach festivals in MAPEH?",
             "options": [
-              "Mapahalagahan ang kultura at kasaysayan",
-              "Walang layunin",
-              "Para sa matatanda lamang",
-              "Hindi kaugnay ng edukasyon"
+              "To value culture and history",
+              "It has no purpose",
+              "Only for older people",
+              "Not related to education"
             ],
-            "correct_answer": "Mapahalagahan ang kultura at kasaysayan"
+            "correct_answer": "To value culture and history"
           },
           {
-            "question": "Layunin ng magkakasabay na koreograpiya?",
+            "question": "The goal of dancing in sync (together)?",
             "options": [
-              "Pagkakaisa at kasanayan ng grupo",
-              "Walang layunin",
-              "Nagdudulot ng kalituhan",
-              "Hindi bahagi ng festival"
+              "Group unity and skill",
+              "It has no goal",
+              "It causes confusion",
+              "Not part of the festival"
             ],
-            "correct_answer": "Pagkakaisa at kasanayan ng grupo"
+            "correct_answer": "Group unity and skill"
           },
           {
-            "question": "Koneksyon sa dance exercise na natutunan noon?",
+            "question": "How is it connected to the dance exercise we learned before?",
             "options": [
-              "Parehong gumagamit ng galaw at musika",
-              "Walang koneksyon",
-              "Isa tungkol sa agham",
-              "Isa tungkol sa matematika"
+              "Both use movement and music",
+              "No connection",
+              "One is about science",
+              "One is about math"
             ],
-            "correct_answer": "Parehong gumagamit ng galaw at musika"
+            "correct_answer": "Both use movement and music"
           },
           {
-            "question": "Bakit mahalaga ang mga festival sa pagkakakilanlan?",
+            "question": "Why are festivals important to our identity?",
             "options": [
-              "Ipinapakita ang natatanging kultura ng bawat rehiyon",
-              "Walang kaugnayan",
-              "Hiram lamang sa ibang bansa",
-              "Hindi bahagi ng kultura"
+              "They show the special culture of each region",
+              "Not related",
+              "Only borrowed from other countries",
+              "Not part of the culture"
             ],
-            "correct_answer": "Ipinapakita ang natatanging kultura ng bawat rehiyon"
+            "correct_answer": "They show the special culture of each region"
           }
         ]
       },

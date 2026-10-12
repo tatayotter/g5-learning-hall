@@ -760,127 +760,127 @@
     },
     "Thursday": {
       "MAPEH": {
-        "summary_markdown": "# 🎨 MAPEH — Visual Arts sa Early Spanish Colonial Period\n\nGrade 5, Linggo 18! Alamin natin ang biswal na sining noong unang bahagi ng panahon ng Espanyol. 🖼️\n\n## 🖌️ Visual Arts Strand\nAng **Visual Arts** ay sumasaklaw sa mga paksa, tema, istilo, at midyum na ginamit noong Early Spanish Colonial Period (1521-1600).\n\n## 🎨 Mga Paksa at Tema\nKaramihan sa sining noong panahong ito ay may temang **relihiyoso** — mga larawan ng mga santo, mga eksena mula sa Bibliya, at simbahan.\n\n## 🖼️ Mga Istilo at Midyum\n| Midyum | Paliwanag |\n|---|---|\n| **Pag-obserba (Observing)** | pagmamasid sa kapaligiran bago gumuhit o magpinta |\n| **Pagpepersepsiyon (Perceiving)** | pag-unawa sa hugis, liwanag, at anino |\n| **Pagguhit (Drawing)** | paggamit ng lapis o karbon upang lumikha ng larawan |\n| **Pagpinta (Painting)** | paggamit ng kulay sa isang kanbas o ibabaw |\n| **Pag-print (Printing)** | paglikha ng maraming kopya gamit ang isang orihinal na plantilya |\n| **Pag-ukit (Engraving)** | pag-ukit ng disenyo sa isang matigas na ibabaw |\n\n## 🧠 Halimbawa 1\n*Bakit karamihan sa sining noong Early Spanish Colonial Period ay may temang relihiyoso?*\n- Dahil malaking impluwensya ang **Simbahang Katoliko** sa lipunan noong panahong iyon.\n\n## 🧠 Halimbawa 2\n*Ano ang pagkakaiba ng pagguhit at pagpinta?*\n- Ang **pagguhit** ay gumagamit ng lapis o karbon, habang ang **pagpinta** ay gumagamit ng kulay.\n\n## 💡 Bakit Mahalaga Ito?\nAng pag-aaral ng biswal na sining noong panahong ito ay tumutulong upang maunawaan natin ang **kultura at paniniwala** ng ating mga ninuno.\n\nMagaling sa sining! 🌟",
+        "summary_markdown": "# 🎨 MAPEH — Visual Arts in the Early Spanish Colonial Period\n\nGrade 5, Week 18! Let's learn about the visual arts in the early part of the Spanish period. 🖼️\n\n## 🖌️ Visual Arts Strand\n**Visual Arts** covers the subjects, themes, styles, and media used during the Early Spanish Colonial Period (1521-1600).\n\n## 🎨 Subjects and Themes\nMost art from this time had a **religious** theme — pictures of saints, scenes from the Bible, and churches.\n\n## 🖼️ Styles and Media\n| Medium | Meaning |\n|---|---|\n| **Observing** | looking closely at your surroundings before you draw or paint |\n| **Perceiving** | understanding shape, light, and shadow |\n| **Drawing** | using a pencil or charcoal to make a picture |\n| **Painting** | putting color on a canvas or surface |\n| **Printing** | making many copies from one original template |\n| **Engraving** | carving a design into a hard surface |\n\n## 🧠 Example 1\n*Why did most art in the Early Spanish Colonial Period have a religious theme?*\n- Because the **Catholic Church** had a big influence on society at that time.\n\n## 🧠 Example 2\n*What is the difference between drawing and painting?*\n- **Drawing** uses a pencil or charcoal, while **painting** uses color.\n\n## 💡 Why Is This Important?\nStudying the visual arts of this period helps us understand the **culture and beliefs** of our ancestors.\n\nGreat job with art! 🌟",
         "quiz": [
           {
-            "question": "Anong panahon ang saklaw ng Visual Arts strand na ito?",
+            "question": "What period does this Visual Arts strand cover?",
             "options": [
               "Early Spanish Colonial Period (1521-1600)",
-              "Panahon ng pananakop ng Amerikano",
-              "Panahon ng pananakop ng Hapon",
-              "Ang kasalukuyang panahon ngayon"
+              "The American colonial period",
+              "The Japanese occupation period",
+              "The present day"
             ],
             "correct_answer": "Early Spanish Colonial Period (1521-1600)"
           },
           {
-            "question": "Bakit karamihan sa sining noong panahong ito ay may temang relihiyoso?",
+            "question": "Why did most art from this period have a religious theme?",
             "options": [
-              "Dahil malaking impluwensya ang Simbahang Katoliko",
-              "Dahil bawal ang ibang tema noon",
-              "Dahil walang ibang paksang alam ang mga tao",
-              "Dahil ipinagbawal ang sekular na sining"
+              "Because the Catholic Church had a big influence",
+              "Because other themes were not allowed then",
+              "Because people knew no other subjects",
+              "Because non-religious art was banned"
             ],
-            "correct_answer": "Dahil malaking impluwensya ang Simbahang Katoliko"
+            "correct_answer": "Because the Catholic Church had a big influence"
           },
           {
-            "question": "Ano ang pag-obserba (observing) sa sining?",
+            "question": "What is observing in art?",
             "options": [
-              "Pagmamasid sa kapaligiran bago gumuhit o magpinta",
-              "Pagbebenta ng likhang-sining",
-              "Paglilinis ng mga gamit sa sining",
-              "Pagbibigay ng pangalan sa larawan"
+              "Looking closely at your surroundings before drawing or painting",
+              "Selling artwork",
+              "Cleaning art materials",
+              "Giving a picture a name"
             ],
-            "correct_answer": "Pagmamasid sa kapaligiran bago gumuhit o magpinta"
+            "correct_answer": "Looking closely at your surroundings before drawing or painting"
           },
           {
-            "question": "Ano ang pagpepersepsiyon (perceiving) sa sining?",
+            "question": "What is perceiving in art?",
             "options": [
-              "Pag-unawa sa hugis, liwanag, at anino",
-              "Pagbenta ng gawang sining",
-              "Pagsulat ng pamagat ng larawan",
-              "Pagtatapon ng lumang gamit"
+              "Understanding shape, light, and shadow",
+              "Selling a work of art",
+              "Writing the title of a picture",
+              "Throwing away old things"
             ],
-            "correct_answer": "Pag-unawa sa hugis, liwanag, at anino"
+            "correct_answer": "Understanding shape, light, and shadow"
           },
           {
-            "question": "Ano ang pagkakaiba ng pagguhit at pagpinta?",
+            "question": "What is the difference between drawing and painting?",
             "options": [
-              "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay",
-              "Parehong gumagamit lamang ng kulay sa dalawa",
-              "Parehong gumagamit lamang ng lapis sa dalawa",
-              "Walang anumang pagkakaiba sa dalawang ito"
+              "Drawing uses a pencil; painting uses color",
+              "Both use only color",
+              "Both use only a pencil",
+              "There is no difference at all between the two"
             ],
-            "correct_answer": "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay"
+            "correct_answer": "Drawing uses a pencil; painting uses color"
           },
           {
-            "question": "Ano ang pag-print (printing) sa sining?",
+            "question": "What is printing in art?",
             "options": [
-              "Paglikha ng maraming kopya gamit ang isang plantilya",
-              "Pagguhit lamang gamit ang isang lapis",
-              "Pagpinta lamang gamit ang isang kulay",
-              "Pag-uukit lamang sa piraso ng kahoy"
+              "Making many copies from one template",
+              "Drawing with just one pencil",
+              "Painting with just one color",
+              "Carving into a piece of wood only"
             ],
-            "correct_answer": "Paglikha ng maraming kopya gamit ang isang plantilya"
+            "correct_answer": "Making many copies from one template"
           },
           {
-            "question": "Ano ang pag-ukit (engraving)?",
+            "question": "What is engraving?",
             "options": [
-              "Pag-ukit ng disenyo sa isang matigas na ibabaw",
-              "Pagguhit gamit ang lapis lamang",
-              "Pagpinta gamit ang tubig-kulay",
-              "Pagbenta ng likhang-sining"
+              "Carving a design into a hard surface",
+              "Drawing with a pencil only",
+              "Painting with watercolor",
+              "Selling artwork"
             ],
-            "correct_answer": "Pag-ukit ng disenyo sa isang matigas na ibabaw"
+            "correct_answer": "Carving a design into a hard surface"
           },
           {
-            "question": "Alin ang karaniwang paksa ng sining noong Early Spanish Colonial Period?",
+            "question": "Which was a common subject of art in the Early Spanish Colonial Period?",
             "options": [
-              "Mga larawan ng santo at eksena mula sa Bibliya",
-              "Mga larawan ng makabagong sasakyan",
-              "Mga larawan ng kompyuter",
-              "Mga larawan ng mga planeta"
+              "Pictures of saints and scenes from the Bible",
+              "Pictures of modern cars",
+              "Pictures of computers",
+              "Pictures of the planets"
             ],
-            "correct_answer": "Mga larawan ng santo at eksena mula sa Bibliya"
+            "correct_answer": "Pictures of saints and scenes from the Bible"
           },
           {
-            "question": "Bakit mahalagang pag-aralan ang biswal na sining ng nakaraan?",
+            "question": "Why is it important to study the visual arts of the past?",
             "options": [
-              "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno",
-              "Wala itong anumang kabuluhan sa kasalukuyang panahon",
-              "Ginagawa lamang ito bilang isang uri ng libangan",
-              "Hindi ito talaga bahagi ng ating kasaysayan"
+              "It helps us understand the culture of our ancestors",
+              "It has no meaning at all today",
+              "It is done only for fun",
+              "It is not really part of our history"
             ],
-            "correct_answer": "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno"
+            "correct_answer": "It helps us understand the culture of our ancestors"
           },
           {
-            "question": "Ano ang unang hakbang bago gumuhit o magpinta, ayon sa Visual Arts strand?",
+            "question": "According to the Visual Arts strand, what is the first step before drawing or painting?",
             "options": [
-              "Pag-obserba sa kapaligiran",
-              "Direktang pagbenta ng gawa",
-              "Pagtatapon ng gamit",
-              "Paglimot sa paksa"
+              "Observing your surroundings",
+              "Selling the work right away",
+              "Throwing away materials",
+              "Forgetting the subject"
             ],
-            "correct_answer": "Pag-obserba sa kapaligiran"
+            "correct_answer": "Observing your surroundings"
           },
           {
-            "question": "Anong midyum ang gumagamit ng kulay sa isang kanbas o ibabaw?",
+            "question": "Which medium puts color on a canvas or surface?",
             "options": [
-              "Pagpinta",
-              "Pagguhit",
-              "Pag-ukit",
-              "Pag-obserba"
+              "Painting",
+              "Drawing",
+              "Engraving",
+              "Observing"
             ],
-            "correct_answer": "Pagpinta"
+            "correct_answer": "Painting"
           },
           {
-            "question": "Bakit mahalaga ang pagpepersepsiyon sa paglikha ng sining?",
+            "question": "Why is perceiving important when making art?",
             "options": [
-              "Tumutulong ito upang maipakita nang tama ang hugis at liwanag",
-              "Wala itong anumang papel sa paglikha ng sining",
-              "Ginagamit lamang ito kapag ibinebenta ang gawa",
-              "Hindi ito bahagi ng proseso ng paglikha"
+              "It helps show shape and light correctly",
+              "It has no role in making art",
+              "It is used only when selling the work",
+              "It is not part of the creative process"
             ],
-            "correct_answer": "Tumutulong ito upang maipakita nang tama ang hugis at liwanag"
+            "correct_answer": "It helps show shape and light correctly"
           }
         ]
       },
@@ -1887,127 +1887,127 @@
         ]
       },
       "MAPEH": {
-        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 5)\n\n- Visual Arts: observing, perceiving, drawing, painting, printing, engraving\n- Karamihang tema: relihiyoso\n\nMagaling sa sining! 🌟",
+        "summary_markdown": "# 🎨 Friday Review — MAPEH (Grade 5)\n\n- Visual Arts: observing, perceiving, drawing, painting, printing, engraving\n- Most common theme: religious\n\nGreat job with art! 🌟",
         "quiz": [
           {
-            "question": "Anong panahon ang saklaw ng Visual Arts strand na ito?",
+            "question": "What period does this Visual Arts strand cover?",
             "options": [
               "Early Spanish Colonial Period (1521-1600)",
-              "Panahon ng pananakop ng Amerikano",
-              "Panahon ng pananakop ng Hapon",
-              "Ang kasalukuyang panahon ngayon"
+              "The American colonial period",
+              "The Japanese occupation period",
+              "The present day"
             ],
             "correct_answer": "Early Spanish Colonial Period (1521-1600)"
           },
           {
-            "question": "Bakit karamihan sa sining noong panahong ito ay may temang relihiyoso?",
+            "question": "Why did most art from this period have a religious theme?",
             "options": [
-              "Dahil malaking impluwensya ang Simbahang Katoliko",
-              "Dahil bawal ang ibang tema noon",
-              "Dahil walang ibang paksang alam ang mga tao",
-              "Dahil ipinagbawal ang sekular na sining"
+              "Because the Catholic Church had a big influence",
+              "Because other themes were not allowed then",
+              "Because people knew no other subjects",
+              "Because non-religious art was banned"
             ],
-            "correct_answer": "Dahil malaking impluwensya ang Simbahang Katoliko"
+            "correct_answer": "Because the Catholic Church had a big influence"
           },
           {
-            "question": "Ano ang pag-obserba (observing) sa sining?",
+            "question": "What is observing in art?",
             "options": [
-              "Pagmamasid sa kapaligiran bago gumuhit o magpinta",
-              "Pagbebenta ng likhang-sining",
-              "Paglilinis ng mga gamit sa sining",
-              "Pagbibigay ng pangalan sa larawan"
+              "Looking closely at your surroundings before drawing or painting",
+              "Selling artwork",
+              "Cleaning art materials",
+              "Giving a picture a name"
             ],
-            "correct_answer": "Pagmamasid sa kapaligiran bago gumuhit o magpinta"
+            "correct_answer": "Looking closely at your surroundings before drawing or painting"
           },
           {
-            "question": "Ano ang pagpepersepsiyon (perceiving) sa sining?",
+            "question": "What is perceiving in art?",
             "options": [
-              "Pag-unawa sa hugis, liwanag, at anino",
-              "Pagbenta ng gawang sining",
-              "Pagsulat ng pamagat ng larawan",
-              "Pagtatapon ng lumang gamit"
+              "Understanding shape, light, and shadow",
+              "Selling a work of art",
+              "Writing the title of a picture",
+              "Throwing away old things"
             ],
-            "correct_answer": "Pag-unawa sa hugis, liwanag, at anino"
+            "correct_answer": "Understanding shape, light, and shadow"
           },
           {
-            "question": "Ano ang pagkakaiba ng pagguhit at pagpinta?",
+            "question": "What is the difference between drawing and painting?",
             "options": [
-              "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay",
-              "Parehong gumagamit lamang ng kulay sa dalawa",
-              "Parehong gumagamit lamang ng lapis sa dalawa",
-              "Walang anumang pagkakaiba sa dalawang ito"
+              "Drawing uses a pencil; painting uses color",
+              "Both use only color",
+              "Both use only a pencil",
+              "There is no difference at all between the two"
             ],
-            "correct_answer": "Pagguhit ay gumagamit ng lapis; pagpinta ay gumagamit ng kulay"
+            "correct_answer": "Drawing uses a pencil; painting uses color"
           },
           {
-            "question": "Ano ang pag-print (printing) sa sining?",
+            "question": "What is printing in art?",
             "options": [
-              "Paglikha ng maraming kopya gamit ang isang plantilya",
-              "Pagguhit lamang gamit ang isang lapis",
-              "Pagpinta lamang gamit ang isang kulay",
-              "Pag-uukit lamang sa piraso ng kahoy"
+              "Making many copies from one template",
+              "Drawing with just one pencil",
+              "Painting with just one color",
+              "Carving into a piece of wood only"
             ],
-            "correct_answer": "Paglikha ng maraming kopya gamit ang isang plantilya"
+            "correct_answer": "Making many copies from one template"
           },
           {
-            "question": "Ano ang pag-ukit (engraving)?",
+            "question": "What is engraving?",
             "options": [
-              "Pag-ukit ng disenyo sa isang matigas na ibabaw",
-              "Pagguhit gamit ang lapis lamang",
-              "Pagpinta gamit ang tubig-kulay",
-              "Pagbenta ng likhang-sining"
+              "Carving a design into a hard surface",
+              "Drawing with a pencil only",
+              "Painting with watercolor",
+              "Selling artwork"
             ],
-            "correct_answer": "Pag-ukit ng disenyo sa isang matigas na ibabaw"
+            "correct_answer": "Carving a design into a hard surface"
           },
           {
-            "question": "Alin ang karaniwang paksa ng sining noong Early Spanish Colonial Period?",
+            "question": "Which was a common subject of art in the Early Spanish Colonial Period?",
             "options": [
-              "Mga larawan ng santo at eksena mula sa Bibliya",
-              "Mga larawan ng makabagong sasakyan",
-              "Mga larawan ng kompyuter",
-              "Mga larawan ng mga planeta"
+              "Pictures of saints and scenes from the Bible",
+              "Pictures of modern cars",
+              "Pictures of computers",
+              "Pictures of the planets"
             ],
-            "correct_answer": "Mga larawan ng santo at eksena mula sa Bibliya"
+            "correct_answer": "Pictures of saints and scenes from the Bible"
           },
           {
-            "question": "Bakit mahalagang pag-aralan ang biswal na sining ng nakaraan?",
+            "question": "Why is it important to study the visual arts of the past?",
             "options": [
-              "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno",
-              "Wala itong anumang kabuluhan sa kasalukuyang panahon",
-              "Ginagawa lamang ito bilang isang uri ng libangan",
-              "Hindi ito talaga bahagi ng ating kasaysayan"
+              "It helps us understand the culture of our ancestors",
+              "It has no meaning at all today",
+              "It is done only for fun",
+              "It is not really part of our history"
             ],
-            "correct_answer": "Tumutulong ito upang maunawaan ang kultura ng ating mga ninuno"
+            "correct_answer": "It helps us understand the culture of our ancestors"
           },
           {
-            "question": "Ano ang unang hakbang bago gumuhit o magpinta, ayon sa Visual Arts strand?",
+            "question": "According to the Visual Arts strand, what is the first step before drawing or painting?",
             "options": [
-              "Pag-obserba sa kapaligiran",
-              "Direktang pagbenta ng gawa",
-              "Pagtatapon ng gamit",
-              "Paglimot sa paksa"
+              "Observing your surroundings",
+              "Selling the work right away",
+              "Throwing away materials",
+              "Forgetting the subject"
             ],
-            "correct_answer": "Pag-obserba sa kapaligiran"
+            "correct_answer": "Observing your surroundings"
           },
           {
-            "question": "Anong midyum ang gumagamit ng kulay sa isang kanbas o ibabaw?",
+            "question": "Which medium puts color on a canvas or surface?",
             "options": [
-              "Pagpinta",
-              "Pagguhit",
-              "Pag-ukit",
-              "Pag-obserba"
+              "Painting",
+              "Drawing",
+              "Engraving",
+              "Observing"
             ],
-            "correct_answer": "Pagpinta"
+            "correct_answer": "Painting"
           },
           {
-            "question": "Bakit mahalaga ang pagpepersepsiyon sa paglikha ng sining?",
+            "question": "Why is perceiving important when making art?",
             "options": [
-              "Tumutulong ito upang maipakita nang tama ang hugis at liwanag",
-              "Wala itong anumang papel sa paglikha ng sining",
-              "Ginagamit lamang ito kapag ibinebenta ang gawa",
-              "Hindi ito bahagi ng proseso ng paglikha"
+              "It helps show shape and light correctly",
+              "It has no role in making art",
+              "It is used only when selling the work",
+              "It is not part of the creative process"
             ],
-            "correct_answer": "Tumutulong ito upang maipakita nang tama ang hugis at liwanag"
+            "correct_answer": "It helps show shape and light correctly"
           }
         ]
       },
