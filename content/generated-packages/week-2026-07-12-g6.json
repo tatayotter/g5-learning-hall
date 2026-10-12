@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Decantation, filtering, evaporation, magnets** — mga separation technique\n- Salt water = evaporation ang gamit\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Decantation, filtering, evaporation, magnets** — separation techniques\n- Salt water = use evaporation\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is decantation?", "options": ["Pouring off liquid, leaving solids behind", "Using a magnet", "Heating until it evaporates", "Using a filter"], "correct_answer": "Pouring off liquid, leaving solids behind" },
           { "question": "What is filtering?", "options": ["Using a filter to separate solids from liquids", "Pouring off liquid only", "Using a magnet", "Heating a liquid"], "correct_answer": "Using a filter to separate solids from liquids" },

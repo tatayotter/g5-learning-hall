@@ -136,7 +136,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Hard** = hindi kumikibot | **Shiny** = kumikinang | **Stretchable** = naiuunat\n- Nakatutulong ang properties para pumili ng tamang materyales\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Hard** = does not bend easily | **Shiny** = sparkles | **Stretchable** = can be stretched\n- Properties help us choose the right material\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "Which property describes something that does not bend easily?", "options": ["Hard", "Shiny", "Stretchable", "Soft"], "correct_answer": "Hard" },
           { "question": "Which material is stretchable?", "options": ["Rubber band", "Rock", "Glass", "Metal spoon"], "correct_answer": "Rubber band" },

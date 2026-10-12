@@ -381,127 +381,127 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Review: Movement, Sound, Light, and Non-Living Things\n\nGrade 3, Linggo 27! Balikan natin ang natutuhan sa Agham. 🔬\n\n## 🔄 Mga Natutunan\n- **Paggalaw:** natural na sanhi, tao, timbang, ibabaw\n- **Tunog at liwanag:** paano nagagawa, paano nakakasama\n- **Mga bagay na walang buhay:** bato, lupa, tubig, hangin, metal\n- **Kapaki-pakinabang na produkto:** mula sa hilaw na materyales\n\n## 🧠 Pagsasama-sama\nAng lahat ng ito ay bahagi ng ating pag-unawa sa **pisikal na kapaligiran** — kung paano gumagalaw ang mga bagay, paano gumagawa ng tunog at liwanag, at kung paano nagiging kapaki-pakinabang ang mga likas na materyales.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang tungkol sa panahon at kalawakan.\n\n**Mahahalagang salita:** paggalaw, tunog, liwanag, hilaw na materyales",
+        "summary_markdown": "# 🔬 Science — Review: Movement, Sound, Light, and Non-Living Things\n\nGrade 3, Week 27! Let's look back at what we learned in Science. 🔬\n\n## 🔄 What We Learned\n- **Movement:** natural causes, people, weight, surface\n- **Sound and light:** how they are made, how they can be harmful\n- **Non-living things:** rocks, soil, water, air, metal\n- **Useful products:** made from raw materials\n\n## 🧠 Putting It All Together\nAll of these help us understand our **physical environment** — how things move, how sound and light are made, and how natural materials become useful.\n\n## 🎯 Getting Ready\nNext term, we will learn more about weather and space.\n\n**Key words:** movement, sound, light, raw materials",
         "quiz": [
           {
-            "question": "Ano ang natural na sanhi ng paggalaw?",
+            "question": "What are natural causes of movement?",
             "options": [
-              "Hangin, tubig, grabidad",
-              "Pagtulak lamang ng tao",
-              "Pagbuhat lamang ng tao",
-              "Wala sa mga ito"
+              "Wind, water, gravity",
+              "Only people pushing",
+              "Only people lifting",
+              "None of these"
             ],
-            "correct_answer": "Hangin, tubig, grabidad"
+            "correct_answer": "Wind, water, gravity"
           },
           {
-            "question": "Paano nagagawa ang tunog?",
+            "question": "How is sound made?",
             "options": [
-              "Sa pamamagitan ng pag-vibrate ng bagay",
-              "Sa pamamagitan ng paninigid ng bagay",
-              "Sa pamamagitan ng pagbago ng kulay",
-              "Walang paraan"
+              "By an object vibrating",
+              "By an object staying still",
+              "By changing color",
+              "There is no way"
             ],
-            "correct_answer": "Sa pamamagitan ng pag-vibrate ng bagay"
+            "correct_answer": "By an object vibrating"
           },
           {
-            "question": "Ano ang natural na pinagmumulan ng liwanag?",
+            "question": "What is a natural source of light?",
             "options": [
-              "Ang araw",
-              "Isang ilaw sa kuwarto",
-              "Isang flashlight",
-              "Isang kandila lamang"
+              "The sun",
+              "A room light",
+              "A flashlight",
+              "Only a candle"
             ],
-            "correct_answer": "Ang araw"
+            "correct_answer": "The sun"
           },
           {
-            "question": "Ano ang epekto ng malakas na tunog sa tainga?",
+            "question": "What does loud sound do to the ears?",
             "options": [
-              "Maaari itong makasira ng tainga sa paglipas ng panahon",
-              "Walang epekto",
-              "Pinapalakas nito ang tainga",
-              "Pinapabuti nito ang pandinig"
+              "It can hurt the ears over time",
+              "It has no effect",
+              "It makes the ears stronger",
+              "It makes hearing better"
             ],
-            "correct_answer": "Maaari itong makasira ng tainga sa paglipas ng panahon"
+            "correct_answer": "It can hurt the ears over time"
           },
           {
-            "question": "Ano ang halimbawa ng bagay na walang buhay?",
+            "question": "What is an example of a non-living thing?",
             "options": [
-              "Bato",
-              "Halaman",
-              "Hayop",
-              "Tao"
+              "Rock",
+              "Plant",
+              "Animal",
+              "Person"
             ],
-            "correct_answer": "Bato"
+            "correct_answer": "Rock"
           },
           {
-            "question": "Ano ang magiging produkto ng luwad (clay)?",
+            "question": "What can be made from clay?",
             "options": [
-              "Laryo at palayok",
-              "Salamin",
-              "Kuryente",
-              "Damit"
+              "Bricks and pots",
+              "Glass",
+              "Electricity",
+              "Clothes"
             ],
-            "correct_answer": "Laryo at palayok"
+            "correct_answer": "Bricks and pots"
           },
           {
-            "question": "Ano ang magiging produkto ng buhangin?",
+            "question": "What can be made from sand?",
             "options": [
-              "Salamin at semento",
-              "Laryo lamang",
-              "Kuryente",
-              "Damit"
+              "Glass and cement",
+              "Only bricks",
+              "Electricity",
+              "Clothes"
             ],
-            "correct_answer": "Salamin at semento"
+            "correct_answer": "Glass and cement"
           },
           {
-            "question": "Bakit mapanganib tumingin nang direkta sa araw?",
+            "question": "Why is it dangerous to look straight at the sun?",
             "options": [
-              "Maaari itong makasira ng mata",
-              "Walang panganib",
-              "Pinapalakas nito ang paningin",
-              "Pinapabuti nito ang paningin"
+              "It can hurt your eyes",
+              "There is no danger",
+              "It makes your eyesight stronger",
+              "It makes your eyesight better"
             ],
-            "correct_answer": "Maaari itong makasira ng mata"
+            "correct_answer": "It can hurt your eyes"
           },
           {
-            "question": "Ano ang epekto ng timbang sa paggalaw ng bagay?",
+            "question": "How does weight affect the way an object moves?",
             "options": [
-              "Mas mabigat na bagay ay mas mahirap galawin",
-              "Walang epekto ang timbang",
-              "Mas magaan ay mas mahirap galawin",
-              "Timbang lamang para sa likido"
+              "Heavier objects are harder to move",
+              "Weight has no effect",
+              "Lighter objects are harder to move",
+              "Weight is only for liquids"
             ],
-            "correct_answer": "Mas mabigat na bagay ay mas mahirap galawin"
+            "correct_answer": "Heavier objects are harder to move"
           },
           {
-            "question": "Ano ang halimbawa ng paggamit ng tunog para magbigay ng impormasyon?",
+            "question": "What is an example of using sound to give information?",
             "options": [
-              "Sirena",
-              "Larawan",
-              "Aklat",
-              "Guhit"
+              "Siren",
+              "Picture",
+              "Book",
+              "Drawing"
             ],
-            "correct_answer": "Sirena"
+            "correct_answer": "Siren"
           },
           {
-            "question": "Ano ang mangyayari kung ibabago ang posisyon ng isang bagay palapit sa iyo?",
+            "question": "What happens if an object's position changes so it comes closer to you?",
             "options": [
-              "Ito ay lumalapit",
-              "Ito ay lumalayo",
-              "Walang nangyari",
-              "Ito ay nagbago ng kulay"
+              "It is moving closer",
+              "It is moving away",
+              "Nothing happened",
+              "It changed color"
             ],
-            "correct_answer": "Ito ay lumalapit"
+            "correct_answer": "It is moving closer"
           },
           {
-            "question": "Bakit mahalagang alamin kung paano nagiging kapaki-pakinabang ang mga hilaw na materyales?",
+            "question": "Why is it important to learn how raw materials become useful?",
             "options": [
-              "Para maunawaan kung paano nagmula ang mga bagay na ginagamit natin araw-araw",
-              "Walang kahalagahan",
-              "Hindi ito nauugnay sa buhay natin",
-              "Hindi ito bahagi ng Agham"
+              "To understand where the things we use every day come from",
+              "It is not important",
+              "It is not related to our life",
+              "It is not part of Science"
             ],
-            "correct_answer": "Para maunawaan kung paano nagmula ang mga bagay na ginagamit natin araw-araw"
+            "correct_answer": "To understand where the things we use every day come from"
           }
         ]
       }
@@ -1265,124 +1265,124 @@
         "summary_markdown": "# 🔬 Friday Review — Science (Grade 3)\n\n- Term 2 wrap-up: movement, sound, light, materials\n\nGreat term of Science! 🌟",
         "quiz": [
           {
-            "question": "Natural na sanhi ng paggalaw?",
+            "question": "What are natural causes of movement?",
             "options": [
-              "Hangin, tubig, grabidad",
-              "Pagtulak lamang ng tao",
-              "Pagbuhat lamang",
-              "Wala"
+              "Wind, water, gravity",
+              "Only people pushing",
+              "Only lifting",
+              "None"
             ],
-            "correct_answer": "Hangin, tubig, grabidad"
+            "correct_answer": "Wind, water, gravity"
           },
           {
-            "question": "Paano nagagawa ang tunog?",
+            "question": "How is sound made?",
             "options": [
-              "Pag-vibrate ng bagay",
-              "Paninigid ng bagay",
-              "Pagbago ng kulay",
-              "Walang paraan"
+              "An object vibrating",
+              "An object staying still",
+              "Changing color",
+              "There is no way"
             ],
-            "correct_answer": "Pag-vibrate ng bagay"
+            "correct_answer": "An object vibrating"
           },
           {
-            "question": "Natural na pinagmumulan ng liwanag?",
+            "question": "What is a natural source of light?",
             "options": [
-              "Ang araw",
-              "Ilaw sa kuwarto",
+              "The sun",
+              "A room light",
               "Flashlight",
-              "Kandila lamang"
+              "Only a candle"
             ],
-            "correct_answer": "Ang araw"
+            "correct_answer": "The sun"
           },
           {
-            "question": "Epekto ng malakas na tunog sa tainga?",
+            "question": "What does loud sound do to the ears?",
             "options": [
-              "Maaaring makasira sa paglipas ng panahon",
-              "Walang epekto",
-              "Pinapalakas ang tainga",
-              "Pinapabuti ang pandinig"
+              "It can hurt them over time",
+              "No effect",
+              "It makes the ears stronger",
+              "It makes hearing better"
             ],
-            "correct_answer": "Maaaring makasira sa paglipas ng panahon"
+            "correct_answer": "It can hurt them over time"
           },
           {
-            "question": "Halimbawa ng bagay na walang buhay?",
+            "question": "Which is an example of a non-living thing?",
             "options": [
-              "Bato",
-              "Halaman",
-              "Hayop",
-              "Tao"
+              "Rock",
+              "Plant",
+              "Animal",
+              "Person"
             ],
-            "correct_answer": "Bato"
+            "correct_answer": "Rock"
           },
           {
-            "question": "Produkto ng luwad?",
+            "question": "What is made from clay?",
             "options": [
-              "Laryo at palayok",
-              "Salamin",
-              "Kuryente",
-              "Damit"
+              "Bricks and pots",
+              "Glass",
+              "Electricity",
+              "Clothes"
             ],
-            "correct_answer": "Laryo at palayok"
+            "correct_answer": "Bricks and pots"
           },
           {
-            "question": "Produkto ng buhangin?",
+            "question": "What is made from sand?",
             "options": [
-              "Salamin at semento",
-              "Laryo lamang",
-              "Kuryente",
-              "Damit"
+              "Glass and cement",
+              "Only bricks",
+              "Electricity",
+              "Clothes"
             ],
-            "correct_answer": "Salamin at semento"
+            "correct_answer": "Glass and cement"
           },
           {
-            "question": "Bakit mapanganib tumingin sa araw?",
+            "question": "Why is it dangerous to look at the sun?",
             "options": [
-              "Maaaring makasira ng mata",
-              "Walang panganib",
-              "Pinapalakas ang paningin",
-              "Pinapabuti ang paningin"
+              "It can hurt your eyes",
+              "There is no danger",
+              "It makes eyesight stronger",
+              "It makes eyesight better"
             ],
-            "correct_answer": "Maaaring makasira ng mata"
+            "correct_answer": "It can hurt your eyes"
           },
           {
-            "question": "Epekto ng timbang sa paggalaw?",
+            "question": "How does weight affect movement?",
             "options": [
-              "Mabigat na bagay mas mahirap galawin",
-              "Walang epekto",
-              "Magaan mas mahirap galawin",
-              "Timbang para sa likido lamang"
+              "Heavy objects are harder to move",
+              "No effect",
+              "Light objects are harder to move",
+              "Weight is only for liquids"
             ],
-            "correct_answer": "Mabigat na bagay mas mahirap galawin"
+            "correct_answer": "Heavy objects are harder to move"
           },
           {
-            "question": "Halimbawa ng tunog na nagbibigay impormasyon?",
+            "question": "What is an example of a sound that gives information?",
             "options": [
-              "Sirena",
-              "Larawan",
-              "Aklat",
-              "Guhit"
+              "Siren",
+              "Picture",
+              "Book",
+              "Drawing"
             ],
-            "correct_answer": "Sirena"
+            "correct_answer": "Siren"
           },
           {
-            "question": "Mangyayari kung bagay ay ibabago ang posisyon palapit sa iyo?",
+            "question": "What happens if an object changes its position to come closer to you?",
             "options": [
-              "Ito ay lumalapit",
-              "Ito ay lumalayo",
-              "Walang nangyari",
-              "Nagbago ng kulay"
+              "It is moving closer",
+              "It is moving away",
+              "Nothing happened",
+              "It changed color"
             ],
-            "correct_answer": "Ito ay lumalapit"
+            "correct_answer": "It is moving closer"
           },
           {
-            "question": "Bakit malaman kung paano nagiging kapaki-pakinabang ang hilaw na materyales?",
+            "question": "Why should we know how raw materials become useful?",
             "options": [
-              "Maunawaan ang pinagmulan ng bagay na ginagamit araw-araw",
-              "Walang kahalagahan",
-              "Hindi nauugnay sa buhay",
-              "Hindi bahagi ng Agham"
+              "To understand where the things we use every day come from",
+              "It is not important",
+              "It is not related to life",
+              "It is not part of Science"
             ],
-            "correct_answer": "Maunawaan ang pinagmulan ng bagay na ginagamit araw-araw"
+            "correct_answer": "To understand where the things we use every day come from"
           }
         ]
       },

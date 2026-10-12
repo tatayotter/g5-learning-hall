@@ -316,17 +316,17 @@
     },
     "Tuesday": {
       "Science": {
-        "summary_markdown": "## Designing Your Own Investigation: A Full Example with Evaporation\n\n- A strong scientific investigation starts with a **testable question** -- one that can actually be answered by observing or measuring something, unlike an opinion question like \"which tastes best?\"\n- Example testable question: \"Does the type of liquid affect how fast it evaporates?\" -- comparing, say, tubig (water) and gatas (milk), or suka (vinegar) and alcohol.\n- For this kind of comparison, the **variable** is the type of liquid, while the **controls** (kept the same) should include the amount of liquid, the type and size of container, and the location/temperature where both are placed.\n- A fair setup uses **identical containers**, **equal amounts** of each liquid, placed in the **same location** at the **same time** -- changing only the type of liquid.\n- Watch out for hidden extra variables! If one cup sits in full sun and the other in shade, you cannot tell whether the liquid type or the sunlight caused any difference in evaporation -- the fix is to place both cups in the exact same location.\n\n| Part of the Investigation | Example (Water vs. Milk) |\n|---|---|\n| Testable question | Does the type of liquid affect evaporation rate? |\n| Variable | Type of liquid (water vs. milk) |\n| Controls | Amount of liquid, container type, location |\n| Conclusion | States which liquid evaporated faster, based on findings |\n\n- A good conclusion directly answers the tested question using the findings -- for example, \"Water evaporated faster than milk under the same conditions in this investigation\" -- rather than an opinion like \"water is better.\"\n- This same approach (clear question, one variable, several controls) can be extended to testing three or more liquids at once, as long as every container, amount, and location stays identical except for the liquid type.",
+        "summary_markdown": "## Designing Your Own Investigation: A Full Example with Evaporation\n\n- A strong scientific investigation starts with a **testable question** -- one that can actually be answered by observing or measuring something, unlike an opinion question like \"which tastes best?\"\n- Example testable question: \"Does the type of liquid affect how fast it evaporates?\" -- comparing, say, water and milk, or vinegar and alcohol.\n- For this kind of comparison, the **variable** is the type of liquid, while the **controls** (kept the same) should include the amount of liquid, the type and size of container, and the location/temperature where both are placed.\n- A fair setup uses **identical containers**, **equal amounts** of each liquid, placed in the **same location** at the **same time** -- changing only the type of liquid.\n- Watch out for hidden extra variables! If one cup sits in full sun and the other in shade, you cannot tell whether the liquid type or the sunlight caused any difference in evaporation -- the fix is to place both cups in the exact same location.\n\n| Part of the Investigation | Example (Water vs. Milk) |\n|---|---|\n| Testable question | Does the type of liquid affect evaporation rate? |\n| Variable | Type of liquid (water vs. milk) |\n| Controls | Amount of liquid, container type, location |\n| Conclusion | States which liquid evaporated faster, based on findings |\n\n- A good conclusion directly answers the tested question using the findings -- for example, \"Water evaporated faster than milk under the same conditions in this investigation\" -- rather than an opinion like \"water is better.\"\n- This same approach (clear question, one variable, several controls) can be extended to testing three or more liquids at once, as long as every container, amount, and location stays identical except for the liquid type.",
         "quiz": [
           {
             "question": "Which of these is an example of a testable question?",
             "options": [
-              "Does patis (fish sauce) evaporate faster than tubig (water) at the same temperature?",
+              "Does fish sauce evaporate faster than water at the same temperature?",
               "Which soft drink tastes the best?",
               "Is summer the best season?",
               "What color is prettiest?"
             ],
-            "correct_answer": "Does patis (fish sauce) evaporate faster than tubig (water) at the same temperature?"
+            "correct_answer": "Does fish sauce evaporate faster than water at the same temperature?"
           },
           {
             "question": "When comparing the evaporation rate of two different liquids, what is being changed on purpose?",
@@ -369,7 +369,7 @@
             "correct_answer": "Write a conclusion that answers the original testable question"
           },
           {
-            "question": "A student designs the question, \"Does gatas (milk) evaporate at the same rate as tubig (water)?\" and pours 50 mL of each into identical open cups placed side by side. What is being kept the same (control) here?",
+            "question": "A student designs the question, \"Does milk evaporate at the same rate as water?\" and pours 50 mL of each into identical open cups placed side by side. What is being kept the same (control) here?",
             "options": [
               "The amount of liquid, the type of cup, and the location",
               "The type of liquid",
@@ -389,7 +389,7 @@
             "correct_answer": "The type of liquid (milk vs. water)"
           },
           {
-            "question": "A student wants to test which of two liquids, suka (vinegar) or tubig (water), evaporates faster, but pours 100 mL of vinegar into a wide bowl and only 50 mL of water into a narrow cup. What is the problem with this plan?",
+            "question": "A student wants to test which of two liquids, vinegar or water, evaporates faster, but pours 100 mL of vinegar into a wide bowl and only 50 mL of water into a narrow cup. What is the problem with this plan?",
             "options": [
               "Both the amount of liquid and the container shape are different, so it is not a fair comparison",
               "There is no problem because both are liquids",
@@ -409,7 +409,7 @@
             "correct_answer": "Two identical shallow containers, equal amounts of two different liquids, and a way to check them over time (like a ruler for liquid level)"
           },
           {
-            "question": "After 3 days, a student's open cup of tubig (water) is almost empty, while the same-sized, same-amount cup of gatas (milk) is only slightly reduced. What is the best conclusion?",
+            "question": "After 3 days, a student's open cup of water is almost empty, while the same-sized, same-amount cup of milk is only slightly reduced. What is the best conclusion?",
             "options": [
               "Water evaporated faster than milk under the same conditions in this investigation",
               "Milk always evaporates faster than water everywhere",
@@ -419,7 +419,7 @@
             "correct_answer": "Water evaporated faster than milk under the same conditions in this investigation"
           },
           {
-            "question": "Design a testable question comparing the evaporation rate of alcohol and tubig (water). Which of these best states both the control and the variable together?",
+            "question": "Design a testable question comparing the evaporation rate of alcohol and water. Which of these best states both the control and the variable together?",
             "options": [
               "Variable: type of liquid (alcohol vs. water); Controls: equal amount of liquid, identical open containers, same location and temperature",
               "Variable: container shape; Controls: type of liquid",

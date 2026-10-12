@@ -381,127 +381,127 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌦️ Science — Paano Nakaaapekto ang Panahon sa Pang-araw-araw na Buhay\n\nGrade 2, Linggo 23! Alamin natin ang buong koneksyon ng panahon sa ating buhay. 🌦️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang dalawang panahon sa Pilipinas.\n\n## 🌤️ Epekto ng Panahon sa Kasuotan\nSa tag-init, magsuot ng manipis na damit. Sa tag-ulan, magsuot ng kapote at magdala ng payong.\n\n## 🏠 Epekto ng Panahon sa Aktibidad\nSa maaraw na araw, maaaring maglaro sa labas. Sa malakas na ulan o bagyo, kailangang manatili sa loob ng bahay para sa kaligtasan.\n\n## 🌾 Epekto ng Panahon sa Pagsasaka\nAng mga magsasaka ay nagtatanim ayon din sa panahon — ang ilang pananim ay mas mabuting itanim sa tag-ulan dahil sa sapat na tubig.\n\nAng pag-unawa sa panahon ay tumutulong sa atin na **maghanda at magpasya nang mas mabuti**.\n\n**Mahahalagang salita:** kasuotan, aktibidad, pagsasaka, paghahanda",
+        "summary_markdown": "# 🌦️ Science — How Weather Affects Our Daily Life\n\nGrade 2, Week 23! Let's learn how weather is connected to our lives. 🌦️\n\n## 🔄 Review\nWe learned about the two seasons in the Philippines.\n\n## 🌤️ How Weather Affects Our Clothes\nIn the dry season, wear thin clothes. In the rainy season, wear a raincoat and bring an umbrella.\n\n## 🏠 How Weather Affects Our Activities\nOn a sunny day, we can play outside. When there is heavy rain or a typhoon, we must stay inside the house to be safe.\n\n## 🌾 How Weather Affects Farming\nFarmers plant based on the season too. Some crops are better to plant in the rainy season because there is enough water.\n\nKnowing about the weather helps us **get ready and make better choices**.\n\n**Key words:** clothes, activities, farming, getting ready",
         "quiz": [
           {
-            "question": "Anong kasuotan ang bagay sa tag-init?",
+            "question": "What clothes are good for the dry season?",
             "options": [
-              "Manipis na damit",
-              "Kapote",
-              "Makapal na kasuotan pantaglamig",
-              "Bota para sa niyebe"
+              "Thin clothes",
+              "Raincoat",
+              "Thick winter clothes",
+              "Snow boots"
             ],
-            "correct_answer": "Manipis na damit"
+            "correct_answer": "Thin clothes"
           },
           {
-            "question": "Anong kasuotan ang bagay sa tag-ulan?",
+            "question": "What clothes are good for the rainy season?",
             "options": [
-              "Kapote at magdala ng payong",
-              "Damit pang-swimming lamang",
-              "Sunglasses lamang",
-              "Bota para sa niyebe"
+              "A raincoat, and bring an umbrella",
+              "Only a swimsuit",
+              "Only sunglasses",
+              "Snow boots"
             ],
-            "correct_answer": "Kapote at magdala ng payong"
+            "correct_answer": "A raincoat, and bring an umbrella"
           },
           {
-            "question": "Ano ang dapat gawin sa panahon ng malakas na ulan o bagyo?",
+            "question": "What should you do during heavy rain or a typhoon?",
             "options": [
-              "Manatili sa loob ng bahay para sa kaligtasan",
-              "Maglaro sa labas",
-              "Lumangoy sa dagat",
-              "Maglipad ng saranggola"
+              "Stay inside the house to be safe",
+              "Play outside",
+              "Swim in the sea",
+              "Fly a kite"
             ],
-            "correct_answer": "Manatili sa loob ng bahay para sa kaligtasan"
+            "correct_answer": "Stay inside the house to be safe"
           },
           {
-            "question": "Kailan mas mabuting magtanim ang mga magsasaka ng ilang pananim?",
+            "question": "When is it better for farmers to plant some crops?",
             "options": [
-              "Sa tag-ulan dahil sa sapat na tubig",
-              "Sa tag-init lamang",
-              "Kahit anong panahon walang epekto",
-              "Hindi kailanman"
+              "In the rainy season, because there is enough water",
+              "Only in the dry season",
+              "Any season, it makes no difference",
+              "Never"
             ],
-            "correct_answer": "Sa tag-ulan dahil sa sapat na tubig"
+            "correct_answer": "In the rainy season, because there is enough water"
           },
           {
-            "question": "Bakit mahalagang maunawaan ang panahon?",
+            "question": "Why is it important to understand the weather?",
             "options": [
-              "Tumutulong ito sa mas mabuting paghahanda at pagpapasya",
-              "Walang kabuluhan ito",
-              "Para lamang libangin ang sarili",
-              "Hindi ito nakakatulong sa buhay"
+              "It helps us get ready and make better choices",
+              "It is useless",
+              "Just to have fun",
+              "It does not help in life"
             ],
-            "correct_answer": "Tumutulong ito sa mas mabuting paghahanda at pagpapasya"
+            "correct_answer": "It helps us get ready and make better choices"
           },
           {
-            "question": "Bakit magsuot ng makapal na damit sa panahon ng ulan?",
+            "question": "Why wear thick clothes when it rains?",
             "options": [
-              "Para hindi magkasakit sa lamig at basa",
-              "Para mainitan",
-              "Para maglaro sa dagat",
-              "Walang dahilan"
+              "So we don't get sick from the cold and wet",
+              "To feel hot",
+              "To play in the sea",
+              "No reason"
             ],
-            "correct_answer": "Para hindi magkasakit sa lamig at basa"
+            "correct_answer": "So we don't get sick from the cold and wet"
           },
           {
-            "question": "Ano ang epekto ng panahon sa pagsasaka?",
+            "question": "How does weather affect farming?",
             "options": [
-              "Nakakatulong ito magpasya kung kailan magtatanim",
-              "Walang epekto sa pagsasaka",
-              "Hindi kailanman pinag-iisipan ng magsasaka",
-              "Ang panahon ay walang kinalaman sa tanim"
+              "It helps farmers decide when to plant",
+              "It has no effect on farming",
+              "Farmers never think about it",
+              "Weather has nothing to do with crops"
             ],
-            "correct_answer": "Nakakatulong ito magpasya kung kailan magtatanim"
+            "correct_answer": "It helps farmers decide when to plant"
           },
           {
-            "question": "Bakit kailangang magdala ng payong sa tag-ulan?",
+            "question": "Why do we need to bring an umbrella in the rainy season?",
             "options": [
-              "Para hindi mabasa ang katawan",
-              "Para protektahan mula sa araw",
-              "Para makatulong maglipad ng saranggola",
-              "Walang gamit ito"
+              "So our body does not get wet",
+              "To block the sun",
+              "To help fly a kite",
+              "It is useless"
             ],
-            "correct_answer": "Para hindi mabasa ang katawan"
+            "correct_answer": "So our body does not get wet"
           },
           {
-            "question": "Ano ang mangyayari kung hindi naghahanda para sa bagyo?",
+            "question": "What can happen if we don't get ready for a typhoon?",
             "options": [
-              "Maaaring manganib ang kaligtasan ng pamilya",
-              "Walang epekto ito",
-              "Palaging ligtas kahit walang paghahanda",
-              "Hindi mahalaga ang paghahanda"
+              "Our family may not be safe",
+              "Nothing will happen",
+              "We are always safe even if we don't get ready",
+              "Getting ready is not important"
             ],
-            "correct_answer": "Maaaring manganib ang kaligtasan ng pamilya"
+            "correct_answer": "Our family may not be safe"
           },
           {
-            "question": "Bakit iba-iba ang gawain sa iba't ibang panahon?",
+            "question": "Why do we do different activities in different weather?",
             "options": [
-              "Naaapektuhan ng panahon ang kaligtasan at kaginhawaan ng gawain",
-              "Walang koneksyon ang panahon sa gawain",
-              "Palaging pareho ang gagawin kahit anong panahon",
-              "Hindi kailangang isaalang-alang ang panahon"
+              "Weather affects how safe and comfortable an activity is",
+              "Weather has no connection to activities",
+              "We always do the same things in any weather",
+              "We don't need to think about the weather"
             ],
-            "correct_answer": "Naaapektuhan ng panahon ang kaligtasan at kaginhawaan ng gawain"
+            "correct_answer": "Weather affects how safe and comfortable an activity is"
           },
           {
-            "question": "Sino ang direktang nakakaramdam ng epekto ng panahon sa kabuhayan?",
+            "question": "Whose work is directly affected by the weather?",
             "options": [
-              "Mga magsasaka",
-              "Mga guro lamang",
-              "Walang sinuman",
-              "Mga estudyante lamang"
+              "Farmers",
+              "Only teachers",
+              "No one",
+              "Only students"
             ],
-            "correct_answer": "Mga magsasaka"
+            "correct_answer": "Farmers"
           },
           {
-            "question": "Ano ang pangkalahatang aral tungkol sa panahon at pang-araw-araw na buhay?",
+            "question": "What is the big lesson about weather and daily life?",
             "options": [
-              "Ang panahon ay may malaking epekto sa ating kasuotan, aktibidad, at kabuhayan",
-              "Walang koneksyon ang panahon sa ating buhay",
-              "Ang panahon ay hindi importante sa desisyon natin",
-              "Ang panahon ay hindi nakakaapekto sa kahit sino"
+              "Weather has a big effect on our clothes, activities, and work",
+              "Weather has no connection to our lives",
+              "Weather is not important to our choices",
+              "Weather does not affect anyone"
             ],
-            "correct_answer": "Ang panahon ay may malaking epekto sa ating kasuotan, aktibidad, at kabuhayan"
+            "correct_answer": "Weather has a big effect on our clothes, activities, and work"
           }
         ]
       }
@@ -1262,127 +1262,127 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- Epekto ng panahon sa kasuotan, aktibidad, at pagsasaka\n\nMagaling sa Agham term! 🌟",
+        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- How weather affects our clothes, activities, and farming\n\nGreat job this Science term! 🌟",
         "quiz": [
           {
-            "question": "Kasuotan na bagay sa tag-init?",
+            "question": "What clothes are good for the dry season?",
             "options": [
-              "Manipis na damit",
-              "Kapote",
-              "Makapal na kasuotan",
-              "Bota para sa niyebe"
+              "Thin clothes",
+              "Raincoat",
+              "Thick clothes",
+              "Snow boots"
             ],
-            "correct_answer": "Manipis na damit"
+            "correct_answer": "Thin clothes"
           },
           {
-            "question": "Kasuotan na bagay sa tag-ulan?",
+            "question": "What clothes are good for the rainy season?",
             "options": [
-              "Kapote at payong",
-              "Damit pang-swimming",
-              "Sunglasses lamang",
-              "Bota para sa niyebe"
+              "Raincoat and umbrella",
+              "Swimsuit",
+              "Only sunglasses",
+              "Snow boots"
             ],
-            "correct_answer": "Kapote at payong"
+            "correct_answer": "Raincoat and umbrella"
           },
           {
-            "question": "Gawin sa malakas na ulan o bagyo?",
+            "question": "What should you do in heavy rain or a typhoon?",
             "options": [
-              "Manatili sa loob ng bahay",
-              "Maglaro sa labas",
-              "Lumangoy sa dagat",
-              "Maglipad ng saranggola"
+              "Stay inside the house",
+              "Play outside",
+              "Swim in the sea",
+              "Fly a kite"
             ],
-            "correct_answer": "Manatili sa loob ng bahay"
+            "correct_answer": "Stay inside the house"
           },
           {
-            "question": "Kailan mas mabuting magtanim ng ilang pananim?",
+            "question": "When is it better to plant some crops?",
             "options": [
-              "Sa tag-ulan dahil sa sapat na tubig",
-              "Sa tag-init lamang",
-              "Kahit anong panahon",
-              "Hindi kailanman"
+              "In the rainy season, because there is enough water",
+              "Only in the dry season",
+              "Any season",
+              "Never"
             ],
-            "correct_answer": "Sa tag-ulan dahil sa sapat na tubig"
+            "correct_answer": "In the rainy season, because there is enough water"
           },
           {
-            "question": "Bakit maunawaan ang panahon?",
+            "question": "Why should we understand the weather?",
             "options": [
-              "Tumutulong sa paghahanda at pagpapasya",
-              "Walang kabuluhan",
-              "Para lamang libangin",
-              "Hindi nakakatulong"
+              "It helps us get ready and make choices",
+              "It is useless",
+              "Just for fun",
+              "It does not help"
             ],
-            "correct_answer": "Tumutulong sa paghahanda at pagpapasya"
+            "correct_answer": "It helps us get ready and make choices"
           },
           {
-            "question": "Bakit magsuot ng makapal na damit sa ulan?",
+            "question": "Why wear thick clothes in the rain?",
             "options": [
-              "Hindi magkasakit sa lamig at basa",
-              "Para mainitan",
-              "Para maglaro sa dagat",
-              "Walang dahilan"
+              "So we don't get sick from the cold and wet",
+              "To feel hot",
+              "To play in the sea",
+              "No reason"
             ],
-            "correct_answer": "Hindi magkasakit sa lamig at basa"
+            "correct_answer": "So we don't get sick from the cold and wet"
           },
           {
-            "question": "Epekto ng panahon sa pagsasaka?",
+            "question": "How does weather affect farming?",
             "options": [
-              "Nakakatulong magpasya kung kailan magtatanim",
-              "Walang epekto",
-              "Hindi pinag-iisipan",
-              "Walang kinalaman sa tanim"
+              "It helps farmers decide when to plant",
+              "No effect",
+              "Farmers don't think about it",
+              "It has nothing to do with crops"
             ],
-            "correct_answer": "Nakakatulong magpasya kung kailan magtatanim"
+            "correct_answer": "It helps farmers decide when to plant"
           },
           {
-            "question": "Bakit magdala ng payong sa tag-ulan?",
+            "question": "Why bring an umbrella in the rainy season?",
             "options": [
-              "Para hindi mabasa",
-              "Protektahan mula sa araw",
-              "Makatulong maglipad ng saranggola",
-              "Walang gamit"
+              "So we don't get wet",
+              "To block the sun",
+              "To help fly a kite",
+              "It is useless"
             ],
-            "correct_answer": "Para hindi mabasa"
+            "correct_answer": "So we don't get wet"
           },
           {
-            "question": "Mangyayari kung hindi naghanda para sa bagyo?",
+            "question": "What can happen if we don't get ready for a typhoon?",
             "options": [
-              "Maaaring manganib ang kaligtasan",
-              "Walang epekto",
-              "Palaging ligtas",
-              "Hindi mahalaga"
+              "We may not be safe",
+              "No effect",
+              "We are always safe",
+              "It is not important"
             ],
-            "correct_answer": "Maaaring manganib ang kaligtasan"
+            "correct_answer": "We may not be safe"
           },
           {
-            "question": "Bakit iba-iba ang gawain sa iba't ibang panahon?",
+            "question": "Why do we do different activities in different weather?",
             "options": [
-              "Naaapektuhan ang kaligtasan at kaginhawaan",
-              "Walang koneksyon",
-              "Palaging pareho ang gagawin",
-              "Hindi kailangang isaalang-alang"
+              "Weather affects our safety and comfort",
+              "There is no connection",
+              "We always do the same things",
+              "We don't need to think about it"
             ],
-            "correct_answer": "Naaapektuhan ang kaligtasan at kaginhawaan"
+            "correct_answer": "Weather affects our safety and comfort"
           },
           {
-            "question": "Sino direktang nakakaramdam ng epekto ng panahon sa kabuhayan?",
+            "question": "Whose work is directly affected by the weather?",
             "options": [
-              "Mga magsasaka",
-              "Mga guro lamang",
-              "Walang sinuman",
-              "Mga estudyante lamang"
+              "Farmers",
+              "Only teachers",
+              "No one",
+              "Only students"
             ],
-            "correct_answer": "Mga magsasaka"
+            "correct_answer": "Farmers"
           },
           {
-            "question": "Pangkalahatang aral tungkol sa panahon?",
+            "question": "What is the big lesson about weather?",
             "options": [
-              "May malaking epekto sa kasuotan, aktibidad, at kabuhayan",
-              "Walang koneksyon sa buhay",
-              "Hindi importante sa desisyon",
-              "Hindi nakakaapekto sa kahit sino"
+              "It has a big effect on our clothes, activities, and work",
+              "It has no connection to our lives",
+              "It is not important for our choices",
+              "It does not affect anyone"
             ],
-            "correct_answer": "May malaking epekto sa kasuotan, aktibidad, at kabuhayan"
+            "correct_answer": "It has a big effect on our clothes, activities, and work"
           }
         ]
       },

@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 6: Pagbabago na Maaaring Makasama\n\nAlamin natin kung paano makasama ang ilang pagbabago sa materyales! ⚠️\n\n## ⚠️ Mga Pagbabagong Nakakasama\n- Ang pagsunog ng basura sa bahay ay nagbubuga ng **usok** na nakasasama sa hangin.\n- Ang hindi tamang pagtatapon ng basura ay nakakasama sa **kalikasan** at mga hayop.\n\n## 🌍 Epekto sa Kapaligiran\n- Ang mga pagbabagong ito ay nakaaapekto sa parehong **may buhay** (tao, hayop, halaman) at **walang buhay** (tubig, hangin, lupa) na bagay.\n\n## ✅ Ano ang Dapat Gawin?\n- Iwasan ang pagsunog ng basura; itapon ito nang tama sa basurahan.\n\nAlagaan natin ang ating kapaligiran! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 6: Changes That Can Be Harmful\n\nLet's learn how some changes in materials can be harmful! ⚠️\n\n## ⚠️ Harmful Changes\n- Burning trash at home gives off **smoke** that is bad for the air.\n- Throwing trash away the wrong way harms **nature** and animals.\n\n## 🌍 Effects on the Environment\n- These changes affect both **living things** (people, animals, plants) and **non-living things** (water, air, soil).\n\n## ✅ What Should We Do?\n- Do not burn trash; throw it properly in the trash bin.\n\nLet's take care of our environment! 🌟",
         "quiz": [
-          { "question": "Ano ang nagbubuga ng usok na nakakasama?", "options": ["Pagsunog ng basura", "Pagtatanim ng puno", "Pagbabasa ng libro", "Paglalaro ng bola"], "correct_answer": "Pagsunog ng basura" },
-          { "question": "Ano ang epekto ng maling pagtatapon ng basura?", "options": ["Nakakasama sa kalikasan at mga hayop", "Walang epekto", "Nakabubuti sa kalikasan", "Nagpapaganda ng lugar"], "correct_answer": "Nakakasama sa kalikasan at mga hayop" },
-          { "question": "Sino ang naaapektuhan ng mga pagbabagong ito?", "options": ["Parehong may buhay at walang buhay na bagay", "Tao lamang", "Hayop lamang", "Walang naaapektuhan"], "correct_answer": "Parehong may buhay at walang buhay na bagay" },
-          { "question": "Ano ang dapat gawin sa basura imbes na sunugin?", "options": ["Itapon nang tama sa basurahan", "Iwanan kahit saan", "Sunugin pa rin", "Itago sa bahay"], "correct_answer": "Itapon nang tama sa basurahan" },
-          { "question": "Ano ang halimbawa ng bagay na may buhay na maaapektuhan?", "options": ["Hayop", "Bato", "Metal", "Plastik"], "correct_answer": "Hayop" },
-          { "question": "Ano ang halimbawa ng bagay na walang buhay na maaapektuhan?", "options": ["Tubig", "Puno", "Hayop", "Tao"], "correct_answer": "Tubig" },
-          { "question": "Bakit dapat nating alagaan ang ating kapaligiran?", "options": ["Para maiwasan ang pagkasama nito", "Walang dahilan", "Para lang sundin ang guro", "Para makuha ang gantimpala"], "correct_answer": "Para maiwasan ang pagkasama nito" }
+          { "question": "What gives off harmful smoke?", "options": ["Burning trash", "Planting trees", "Reading books", "Playing ball"], "correct_answer": "Burning trash" },
+          { "question": "What happens when trash is thrown away the wrong way?", "options": ["It harms nature and animals", "Nothing happens", "It is good for nature", "It makes the place nicer"], "correct_answer": "It harms nature and animals" },
+          { "question": "Who is affected by these changes?", "options": ["Both living and non-living things", "Only people", "Only animals", "No one"], "correct_answer": "Both living and non-living things" },
+          { "question": "What should we do with trash instead of burning it?", "options": ["Throw it properly in the trash bin", "Leave it anywhere", "Still burn it", "Keep it at home"], "correct_answer": "Throw it properly in the trash bin" },
+          { "question": "What is an example of a living thing that can be affected?", "options": ["Animal", "Rock", "Metal", "Plastic"], "correct_answer": "Animal" },
+          { "question": "What is an example of a non-living thing that can be affected?", "options": ["Water", "Tree", "Animal", "Person"], "correct_answer": "Water" },
+          { "question": "Why should we take care of our environment?", "options": ["To keep it from being harmed", "There is no reason", "Just to obey the teacher", "To get a prize"], "correct_answer": "To keep it from being harmed" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang pagsunog ng basura ay nakakasama sa hangin\n- Itapon ang basura nang tama upang alagaan ang kalikasan\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- Burning trash is bad for the air\n- Throw trash away properly to take care of nature\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang nagbubuga ng usok na nakakasama?", "options": ["Pagsunog ng basura", "Pagtatanim ng puno", "Pagbabasa ng libro", "Paglalaro ng bola"], "correct_answer": "Pagsunog ng basura" },
-          { "question": "Ano ang epekto ng maling pagtatapon ng basura?", "options": ["Nakakasama sa kalikasan at mga hayop", "Walang epekto", "Nakabubuti sa kalikasan", "Nagpapaganda ng lugar"], "correct_answer": "Nakakasama sa kalikasan at mga hayop" },
-          { "question": "Ano ang dapat gawin sa basura imbes na sunugin?", "options": ["Itapon nang tama sa basurahan", "Iwanan kahit saan", "Sunugin pa rin", "Itago sa bahay"], "correct_answer": "Itapon nang tama sa basurahan" },
-          { "question": "Sino ang naaapektuhan ng mga pagbabagong ito?", "options": ["Parehong may buhay at walang buhay na bagay", "Tao lamang", "Hayop lamang", "Walang naaapektuhan"], "correct_answer": "Parehong may buhay at walang buhay na bagay" },
-          { "question": "Bakit dapat nating alagaan ang ating kapaligiran?", "options": ["Para maiwasan ang pagkasama nito", "Walang dahilan", "Para lang sundin ang guro", "Para makuha ang gantimpala"], "correct_answer": "Para maiwasan ang pagkasama nito" }
+          { "question": "What gives off harmful smoke?", "options": ["Burning trash", "Planting trees", "Reading books", "Playing ball"], "correct_answer": "Burning trash" },
+          { "question": "What happens when trash is thrown away the wrong way?", "options": ["It harms nature and animals", "Nothing happens", "It is good for nature", "It makes the place nicer"], "correct_answer": "It harms nature and animals" },
+          { "question": "What should we do with trash instead of burning it?", "options": ["Throw it properly in the trash bin", "Leave it anywhere", "Still burn it", "Keep it at home"], "correct_answer": "Throw it properly in the trash bin" },
+          { "question": "Who is affected by these changes?", "options": ["Both living and non-living things", "Only people", "Only animals", "No one"], "correct_answer": "Both living and non-living things" },
+          { "question": "Why should we take care of our environment?", "options": ["To keep it from being harmed", "There is no reason", "Just to obey the teacher", "To get a prize"], "correct_answer": "To keep it from being harmed" }
         ]
       },
       "Computer": {

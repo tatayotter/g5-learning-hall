@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang pagsunog ng kahoy ay permanenteng pagbabago\n- Iwasan ang pagsunog ng basura para sa malinis na hangin\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- Burning wood is a permanent change\n- Avoid burning trash to keep the air clean\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What happens when wood is burned?", "options": ["It turns into ash permanently", "It turns back into a tree", "Nothing changes", "It turns into water"], "correct_answer": "It turns into ash permanently" },
           { "question": "Why should we restrict burning waste materials?", "options": ["To avoid air pollution", "It has no reason", "To make more smoke", "To save money only"], "correct_answer": "To avoid air pollution" },

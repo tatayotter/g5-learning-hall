@@ -40,7 +40,7 @@ OUTPUT RULES:
 - Friday is always "Weekly Review" covering all subjects from Mon–Thu
 
 GRADE LEVEL: 3
-LANGUAGE: English for English, Mathematics, Science, Computer | Filipino for Filipino, GMRC, Makabansa
+LANGUAGE: English for English, Mathematics, Science, Computer | Filipino for Filipino, GMRC, Makabansa (Science is all English, including every answer choice)
 
 SUBJECTS AND TOPICS FOR THIS WEEK (from BOW):
 [PASTE THE WEEK'S SUBJECTS AND COMPETENCIES HERE — see BOW reference below]

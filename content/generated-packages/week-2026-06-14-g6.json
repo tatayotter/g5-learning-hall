@@ -39,14 +39,14 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nBalikan natin ang ating mga kasanayan bilang siyentipiko bago tayo magsimula! 🧪\n\n## 🔍 Mga Kasanayan ng Siyentipiko\n- **Pagmamasid, paghula, pagsukat** — mga pangunahing kasanayan.\n- **Fair test** — sinusubaybayan ang isang salik habang pinananatiling pareho ang iba.\n\n## 🧰 Kagamitang Pang-Agham\n- **Timbangan, ruler, thermometer** — para sa iba't ibang eksperimento.\n\n## 🔬 Halimbawa\n- Sinusukat mo ang temperatura ng tubig gamit ang thermometer bago at pagkatapos pinainit.\n\nHanda ka na bang maging mahusay na siyentipiko ngayong taon? 🌟",
+        "summary_markdown": "# 🔬 I Am a Scientist!\n\nLet's review our skills as scientists before we begin! 🧪\n\n## 🔍 Skills of a Scientist\n- **Observing, predicting, measuring** — the main skills.\n- **Fair test** — testing one factor while keeping all the others the same.\n\n## 🧰 Science Tools\n- **Weighing scale, ruler, thermometer** — for different experiments.\n\n## 🔬 Example\n- You measure the temperature of water using a thermometer before and after it is heated.\n\nAre you ready to be a great scientist this year? 🌟",
         "quiz": [
-          { "question": "Ano ang fair test?", "options": ["Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba", "Pagbibilang lamang", "Paglalaro lamang", "Walang kahulugan"], "correct_answer": "Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba" },
-          { "question": "Ano ang gamit ng thermometer?", "options": ["Sukat ng temperatura", "Sukat ng haba", "Sukat ng bigat", "Sukat ng oras"], "correct_answer": "Sukat ng temperatura" },
-          { "question": "Ano ang gamit ng timbangan?", "options": ["Sukat ng bigat", "Sukat ng temperatura", "Sukat ng haba", "Sukat ng oras"], "correct_answer": "Sukat ng bigat" },
-          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang temperatura?", "options": ["Pagsukat", "Pagmamasid lamang", "Paghula lamang", "Wala"], "correct_answer": "Pagsukat" },
-          { "question": "Ilang trial ang kailangan para sa balidong eksperimento?", "options": ["Kahit tatlo", "Isa lamang", "Wala", "Sampu"], "correct_answer": "Kahit tatlo" },
-          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+          { "question": "What is a fair test?", "options": ["Testing one factor while keeping all the others the same", "Just counting", "Just playing", "It has no meaning"], "correct_answer": "Testing one factor while keeping all the others the same" },
+          { "question": "What is a thermometer used for?", "options": ["Measuring temperature", "Measuring length", "Measuring weight", "Measuring time"], "correct_answer": "Measuring temperature" },
+          { "question": "What is a weighing scale used for?", "options": ["Measuring weight", "Measuring temperature", "Measuring length", "Measuring time"], "correct_answer": "Measuring weight" },
+          { "question": "Which skill do you use when you measure temperature?", "options": ["Measuring", "Observing only", "Predicting only", "None of these"], "correct_answer": "Measuring" },
+          { "question": "How many trials does a valid experiment need?", "options": ["At least three", "Only one", "None", "Ten"], "correct_answer": "At least three" },
+          { "question": "What does a scientist do first?", "options": ["Observes carefully", "Sleeps", "Eats", "Just plays"], "correct_answer": "Observes carefully" }
         ]
       }
     },
@@ -161,13 +161,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Fair test** = pagsubaybay sa isang salik lamang\n- **Timbangan, ruler, thermometer** — kagamitang pang-agham\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Fair test** = testing only one factor\n- **Weighing scale, ruler, thermometer** — science tools\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang fair test?", "options": ["Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba", "Pagbibilang lamang", "Paglalaro lamang", "Walang kahulugan"], "correct_answer": "Sinusubaybayan ang isang salik habang pinananatiling pareho ang iba" },
-          { "question": "Ano ang gamit ng thermometer?", "options": ["Sukat ng temperatura", "Sukat ng haba", "Sukat ng bigat", "Sukat ng oras"], "correct_answer": "Sukat ng temperatura" },
-          { "question": "Ilang trial ang kailangan para sa balidong eksperimento?", "options": ["Kahit tatlo", "Isa lamang", "Wala", "Sampu"], "correct_answer": "Kahit tatlo" },
-          { "question": "Ano ang gamit ng timbangan?", "options": ["Sukat ng bigat", "Sukat ng temperatura", "Sukat ng haba", "Sukat ng oras"], "correct_answer": "Sukat ng bigat" },
-          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+          { "question": "What is a fair test?", "options": ["Testing one factor while keeping all the others the same", "Just counting", "Just playing", "It has no meaning"], "correct_answer": "Testing one factor while keeping all the others the same" },
+          { "question": "What is a thermometer used for?", "options": ["Measuring temperature", "Measuring length", "Measuring weight", "Measuring time"], "correct_answer": "Measuring temperature" },
+          { "question": "How many trials does a valid experiment need?", "options": ["At least three", "Only one", "None", "Ten"], "correct_answer": "At least three" },
+          { "question": "What is a weighing scale used for?", "options": ["Measuring weight", "Measuring temperature", "Measuring length", "Measuring time"], "correct_answer": "Measuring weight" },
+          { "question": "What does a scientist do first?", "options": ["Observes carefully", "Sleeps", "Eats", "Just plays"], "correct_answer": "Observes carefully" }
         ]
       },
       "MAPEH": {

@@ -223,8 +223,8 @@ function gradeContext(grade: number): string {
 }
 
 function languageRule(grade: number): string {
-  if (grade === 2) return 'English for English/Mathematics/Science/Computer | Filipino for Filipino/GMRC/Makabansa';
-  return 'English for English/Mathematics/Science/EPP (ICT)/MAPEH | Filipino for Filipino/Araling Panlipunan/GMRC/EPP (AFA/FCS/IA) | MAPEH: all English in simple kid-friendly words (keep Filipino names of games, dances, instruments)';
+  if (grade === 2) return 'English for English/Mathematics/Science/Computer | Filipino for Filipino/GMRC/Makabansa | Science: all English, including every answer choice';
+  return 'English for English/Mathematics/Science/EPP (ICT)/MAPEH | Filipino for Filipino/Araling Panlipunan/GMRC/EPP (AFA/FCS/IA) | MAPEH: all English in simple kid-friendly words (keep Filipino names of games, dances, instruments) | Science: all English, including every answer choice';
 }
 
 function summaryRule(grade: number): string {

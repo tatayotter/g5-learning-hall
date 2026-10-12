@@ -136,7 +136,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Hard** = matigas | **Shiny** = makintab | **Stretchable** = naiuunat\n- Physical properties describe how a solid looks and feels\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Hard** = not soft | **Shiny** = gleams | **Stretchable** = can be stretched\n- Physical properties describe how a solid looks and feels\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What property describes something that reflects light?", "options": ["Shiny", "Hard", "Stretchable", "Soft"], "correct_answer": "Shiny" },
           { "question": "Which material is an example of \"hard\"?", "options": ["Rock", "Rubber band", "Cotton", "Sponge"], "correct_answer": "Rock" },

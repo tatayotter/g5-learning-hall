@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Streetlights** = kaligtasan sa gabi | **Water pumps** = malinis na tubig\n- Ang mga imbentor ay lumulutas ng mga problema\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Streetlights** = safety at night | **Water pumps** = clean water\n- Inventors solve problems\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is an example of a community invention?", "options": ["Streetlights", "A rock", "A cloud", "A leaf"], "correct_answer": "Streetlights" },
           { "question": "How do streetlights help the community?", "options": ["Help people feel safe at night", "Make it darker", "Have no use", "Only decorate"], "correct_answer": "Help people feel safe at night" },

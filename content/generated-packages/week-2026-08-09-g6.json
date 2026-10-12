@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pollination** = paggalaw ng pollen\n- **Cutting, budding, layering, grafting** — paraan ng propagation\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Pollination** = moving pollen\n- **Cutting, budding, layering, grafting** — ways of propagation\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is pollination?", "options": ["Pollen moving from one flower to another", "Seeds growing underground", "Leaves falling off", "Roots absorbing water"], "correct_answer": "Pollen moving from one flower to another" },
           { "question": "What carries pollen between flowers?", "options": ["Bees or wind", "Only rain", "Only humans", "Only soil"], "correct_answer": "Bees or wind" },

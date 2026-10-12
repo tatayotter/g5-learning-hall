@@ -4,7 +4,7 @@
   "days": {
     "Tuesday": {
       "Science": {
-        "summary_markdown": "## Matter, Mass, and Volume: Meet the Three States of Matter\n\n- **Matter** is anything that has **mass** (the amount of \"stuff\" it is made of) and **volume** (the amount of space it takes up). If something is not matter, it has neither.\n- Scientists sort matter into three basic **states**: **solid**, **liquid**, and **gas**.\n- A **solid**, like a bato (stone) or a bangko (bench), keeps its own shape no matter what container or space it is placed in.\n- A **liquid**, like tubig (water) or patis (fish sauce), does not keep its own shape -- it takes the shape of whatever container holds it.\n- A **gas**, like hangin (air), also has no fixed shape, and it can even fill an entire balloon or room because it spreads out to fill available space.\n- One useful first clue for sorting an object into a state of matter is simply: does it keep its own shape, or not?\n\n| State | Example | Keeps its own shape? |\n|---|---|---|\n| Solid | Bato (stone) | Yes |\n| Liquid | Tubig (water) | No |\n| Gas | Hangin (air) | No |\n\n- Even gases are matter -- blowing up a balloon shows that air takes up space (volume), and matter like air also has mass, even though it may be too light to feel with your hands alone.",
+        "summary_markdown": "## Matter, Mass, and Volume: Meet the Three States of Matter\n\n- **Matter** is anything that has **mass** (the amount of \"stuff\" it is made of) and **volume** (the amount of space it takes up). If something is not matter, it has neither.\n- Scientists sort matter into three basic **states**: **solid**, **liquid**, and **gas**.\n- A **solid**, like a stone or a bench, keeps its own shape no matter what container or space it is placed in.\n- A **liquid**, like water or fish sauce, does not keep its own shape -- it takes the shape of whatever container holds it.\n- A **gas**, like air, also has no fixed shape, and it can even fill an entire balloon or room because it spreads out to fill available space.\n- One useful first clue for sorting an object into a state of matter is simply: does it keep its own shape, or not?\n\n| State | Example | Keeps its own shape? |\n|---|---|---|\n| Solid | Stone | Yes |\n| Liquid | Water | No |\n| Gas | Air | No |\n\n- Even gases are matter -- blowing up a balloon shows that air takes up space (volume), and matter like air also has mass, even though it may be too light to feel with your hands alone.",
         "quiz": [
           {
             "question": "What is \"matter\"?",
@@ -57,17 +57,17 @@
             "correct_answer": "Solid"
           },
           {
-            "question": "Bato (stone), tubig (water), and hangin (air) are examples of matter. Which one is a solid?",
+            "question": "Stone, water, and air are examples of matter. Which one is a solid?",
             "options": [
-              "Bato (stone)",
-              "Tubig (water)",
-              "Hangin (air)",
+              "Stone",
+              "Water",
+              "Air",
               "None of them"
             ],
-            "correct_answer": "Bato (stone)"
+            "correct_answer": "Stone"
           },
           {
-            "question": "You pour patis (fish sauce) from a bottle into a small saucer. What state of matter is the patis?",
+            "question": "You pour fish sauce from a bottle into a small saucer. What state of matter is the fish sauce?",
             "options": [
               "Liquid",
               "Solid",
@@ -89,12 +89,12 @@
           {
             "question": "Which group correctly names one solid, one liquid, and one gas, in that order?",
             "options": [
-              "Bato, tubig, hangin",
-              "Tubig, hangin, bato",
-              "Hangin, bato, tubig",
-              "Bato, bato, tubig"
+              "Stone, water, air",
+              "Water, air, stone",
+              "Air, stone, water",
+              "Stone, stone, water"
             ],
-            "correct_answer": "Bato, tubig, hangin"
+            "correct_answer": "Stone, water, air"
           },
           {
             "question": "A piece of ice cube is left on a plate. While it is still fully frozen, what state of matter is it?",
@@ -117,7 +117,7 @@
             "correct_answer": "Air takes up space"
           },
           {
-            "question": "Why does a bato (stone) keep the same shape no matter what container or bag you place it in, while tubig (water) does not?",
+            "question": "Why does a stone keep the same shape no matter what container or bag you place it in, while water does not?",
             "options": [
               "Because a solid has its own fixed shape, but a liquid takes the shape of its container",
               "Because stones are heavier than water",
@@ -137,7 +137,7 @@
             "correct_answer": "Check if it has a fixed volume (liquid) or spreads to fill all available space (gas)"
           },
           {
-            "question": "Bibingka batter is runny and takes the shape of its pan before baking. After baking, it holds its own shape even outside the pan. What changed?",
+            "question": "Rice cake batter is runny and takes the shape of its pan before baking. After baking, it holds its own shape even outside the pan. What changed?",
             "options": [
               "It changed from behaving like a liquid to behaving like a solid",
               "It changed from a gas to a liquid",

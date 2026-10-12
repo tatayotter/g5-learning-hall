@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 1: Agham sa Pang-araw-araw na Buhay\n\nMakikita ang agham sa ating paligid araw-araw! 🌍\n\n## 🔍 Agham sa Ating Kapaligiran\n- Maraming bagay at pangyayari sa paligid natin ang maaaring **ipaliwanag ng agham**.\n- **Halimbawa 1:** Bakit lumulutang ang bangka sa tubig? (Agham ng buoyancy!)\n- **Halimbawa 2:** Bakit umuulan? (Agham ng water cycle!)\n\n## 🌦️ Mga Halimbawa sa Bahay\n- Pagluluto ng pagkain — pagbabago ng anyo ng materyales\n- Paggamit ng ilaw — konsepto ng enerhiya\n\n## 🏡 Mga Halimbawa sa Komunidad\n- Pagpapatubo ng halaman sa taniman\n- Paggamit ng makina sa palengke\n\nAgham ay nasa lahat ng dako — subukan mong hanapin ito araw-araw! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 1: Science in Everyday Life\n\nWe can see science all around us every day! 🌍\n\n## 🔍 Science in Our Surroundings\n- Many things and events around us can be **explained by science**.\n- **Example 1:** Why does a boat float on water? (The science of buoyancy!)\n- **Example 2:** Why does it rain? (The science of the water cycle!)\n\n## 🌦️ Examples at Home\n- Cooking food — materials change their form\n- Using lights — the idea of energy\n\n## 🏡 Examples in the Community\n- Growing plants in a garden\n- Using machines in the market\n\nScience is everywhere — try to find it every day! 🌟",
         "quiz": [
-          { "question": "Alin ang halimbawa ng agham sa bahay?", "options": ["Pagluluto ng pagkain", "Paglalaro ng bola", "Pagtulog", "Panonood ng TV"], "correct_answer": "Pagluluto ng pagkain" },
-          { "question": "Anong agham ang nagpapaliwanag kung bakit umuulan?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
-          { "question": "Saan natin makikita ang agham?", "options": ["Sa ating paligid araw-araw", "Sa aklatan lamang", "Sa paaralan lamang", "Wala kahit saan"], "correct_answer": "Sa ating paligid araw-araw" },
-          { "question": "Alin ang halimbawa ng agham sa komunidad?", "options": ["Paggamit ng makina sa palengke", "Panonood ng pelikula", "Paglalaro ng laruan", "Pagkanta"], "correct_answer": "Paggamit ng makina sa palengke" },
-          { "question": "Ano ang tinatawag na kaalaman na nagpapaliwanag sa mundo?", "options": ["Agham", "Kwento", "Sayaw", "Awit"], "correct_answer": "Agham" },
-          { "question": "Anong konsepto ng agham ang ginagamit natin kapag nagsisindi ng ilaw?", "options": ["Enerhiya", "Kasaysayan", "Sining", "Musika"], "correct_answer": "Enerhiya" },
-          { "question": "Ano ang nangyayari sa pagluluto ng pagkain?", "options": ["Pagbabago ng anyo ng materyales", "Walang pagbabago", "Paglaki lamang", "Pagliit lamang"], "correct_answer": "Pagbabago ng anyo ng materyales" }
+          { "question": "Which is an example of science at home?", "options": ["Cooking food", "Playing ball", "Sleeping", "Watching TV"], "correct_answer": "Cooking food" },
+          { "question": "What science explains why it rains?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
+          { "question": "Where can we see science?", "options": ["All around us every day", "Only in the library", "Only at school", "Nowhere"], "correct_answer": "All around us every day" },
+          { "question": "Which is an example of science in the community?", "options": ["Using machines in the market", "Watching a movie", "Playing with toys", "Singing"], "correct_answer": "Using machines in the market" },
+          { "question": "What do we call the knowledge that explains the world?", "options": ["Science", "Story", "Dance", "Song"], "correct_answer": "Science" },
+          { "question": "What science idea do we use when we turn on a light?", "options": ["Energy", "History", "Art", "Music"], "correct_answer": "Energy" },
+          { "question": "What happens when we cook food?", "options": ["The materials change their form", "Nothing changes", "It only gets bigger", "It only gets smaller"], "correct_answer": "The materials change their form" }
         ]
       }
     },
@@ -146,13 +146,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Makikita ang **agham** sa paligid natin araw-araw\n- Halimbawa: **pagluluto**, **paggamit ng ilaw**, **water cycle**\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- We can see **science** around us every day\n- Examples: **cooking**, **using lights**, **water cycle**\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Alin ang halimbawa ng agham sa bahay?", "options": ["Pagluluto ng pagkain", "Paglalaro ng bola", "Pagtulog", "Panonood ng TV"], "correct_answer": "Pagluluto ng pagkain" },
-          { "question": "Anong agham ang nagpapaliwanag kung bakit umuulan?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
-          { "question": "Saan natin makikita ang agham?", "options": ["Sa ating paligid araw-araw", "Sa aklatan lamang", "Sa paaralan lamang", "Wala kahit saan"], "correct_answer": "Sa ating paligid araw-araw" },
-          { "question": "Alin ang halimbawa ng agham sa komunidad?", "options": ["Paggamit ng makina sa palengke", "Panonood ng pelikula", "Paglalaro ng laruan", "Pagkanta"], "correct_answer": "Paggamit ng makina sa palengke" },
-          { "question": "Anong konsepto ng agham ang ginagamit natin kapag nagsisindi ng ilaw?", "options": ["Enerhiya", "Kasaysayan", "Sining", "Musika"], "correct_answer": "Enerhiya" }
+          { "question": "Which is an example of science at home?", "options": ["Cooking food", "Playing ball", "Sleeping", "Watching TV"], "correct_answer": "Cooking food" },
+          { "question": "What science explains why it rains?", "options": ["Water cycle", "Buoyancy", "Gravity", "Electricity"], "correct_answer": "Water cycle" },
+          { "question": "Where can we see science?", "options": ["All around us every day", "Only in the library", "Only at school", "Nowhere"], "correct_answer": "All around us every day" },
+          { "question": "Which is an example of science in the community?", "options": ["Using machines in the market", "Watching a movie", "Playing with toys", "Singing"], "correct_answer": "Using machines in the market" },
+          { "question": "What science idea do we use when we turn on a light?", "options": ["Energy", "History", "Art", "Music"], "correct_answer": "Energy" }
         ]
       },
       "Computer": {

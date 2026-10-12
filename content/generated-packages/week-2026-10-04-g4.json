@@ -381,17 +381,17 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🏞️ Science — Habitats of Philippine Animals and Plants\n\nGrade 4, Week 17! Let's explore where animals and plants live. 🌏\n\n## 🏞️ What Is a Habitat?\nA **habitat** is the **natural environment** where an animal or plant **lives and grows**.\n\n## 🗺️ Three Main Habitat Types\n\n| Habitat | Meaning | Examples |\n|---|---|---|\n| **Terrestrial** | on **land** | forest, garden, grassland |\n| **Aquatic** | in **water** | river, lake, sea |\n| **Aerial** | in the **air** (mostly) | high in trees, cliffs |\n\n## 🌾 Philippine Habitats and Their Living Things\n\n**Garden (Hardin)**\n- Plants: kamatis, gumamela\n- Animals: butterflies, bees, earthworms\n\n**Rice Field (Palayan)**\n- Plants: palay\n- Animals: dragonflies, frogs, snails\n\n**Seashore (Baybayin)**\n- Plants: mangrove seedlings\n- Animals: crabs, starfish\n\n**Mangrove Swamp**\n- Plants: bakhaw (mangrove trees)\n- Animals: mudskippers, small fish, birds\n\n## 🧠 Worked Example 1\n*A frog lives in a rice field. What type of habitat is this, and is the frog terrestrial or aquatic?*\n- The rice field is a **mixed habitat** — the frog uses **both** land and water, showing adaptability.\n\n## 🧠 Worked Example 2\n*Why do mangrove trees grow well in swamps?*\n- Mangroves have **special roots** that let them survive in **salty, muddy water** — perfectly adapted for that habitat.\n\n## 💡 Why Habitats Matter\nEach living thing is **adapted** to survive in its specific habitat. Destroying a habitat (like cutting mangroves) **harms** the living things that depend on it.\n\nGreat scientist work! 🌟",
+        "summary_markdown": "# 🏞️ Science — Habitats of Philippine Animals and Plants\n\nGrade 4, Week 17! Let's explore where animals and plants live. 🌏\n\n## 🏞️ What Is a Habitat?\nA **habitat** is the **natural environment** where an animal or plant **lives and grows**.\n\n## 🗺️ Three Main Habitat Types\n\n| Habitat | Meaning | Examples |\n|---|---|---|\n| **Terrestrial** | on **land** | forest, garden, grassland |\n| **Aquatic** | in **water** | river, lake, sea |\n| **Aerial** | in the **air** (mostly) | high in trees, cliffs |\n\n## 🌾 Philippine Habitats and Their Living Things\n\n**Garden**\n- Plants: tomato, hibiscus\n- Animals: butterflies, bees, earthworms\n\n**Rice Field**\n- Plants: rice plants\n- Animals: dragonflies, frogs, snails\n\n**Seashore**\n- Plants: mangrove seedlings\n- Animals: crabs, starfish\n\n**Mangrove Swamp**\n- Plants: mangrove trees\n- Animals: mudskippers, small fish, birds\n\n## 🧠 Worked Example 1\n*A frog lives in a rice field. What type of habitat is this, and is the frog terrestrial or aquatic?*\n- The rice field is a **mixed habitat** — the frog uses **both** land and water, showing adaptability.\n\n## 🧠 Worked Example 2\n*Why do mangrove trees grow well in swamps?*\n- Mangroves have **special roots** that let them survive in **salty, muddy water** — perfectly adapted for that habitat.\n\n## 💡 Why Habitats Matter\nEach living thing is **adapted** to survive in its specific habitat. Destroying a habitat (like cutting mangroves) **harms** the living things that depend on it.\n\nGreat scientist work! 🌟",
         "quiz": [
           {
             "question": "What is a habitat?",
             "options": [
-              "Ang natural na tahanan ng isang bagay",
-              "Isang uri ng pagkain lamang",
-              "Isang kagamitan sa agham lamang",
-              "Isang uri ng panahon lamang"
+              "The natural home of a living thing",
+              "Just a type of food",
+              "Just a science tool",
+              "Just a type of weather"
             ],
-            "correct_answer": "Ang natural na tahanan ng isang bagay"
+            "correct_answer": "The natural home of a living thing"
           },
           {
             "question": "What does 'terrestrial' mean?",
@@ -426,12 +426,12 @@
           {
             "question": "Which plant grows in a mangrove swamp?",
             "options": [
-              "Bakhaw (mangrove)",
-              "Palay",
-              "Gumamela",
-              "Kamatis"
+              "Mangrove tree",
+              "Rice plant",
+              "Hibiscus",
+              "Tomato"
             ],
-            "correct_answer": "Bakhaw (mangrove)"
+            "correct_answer": "Mangrove tree"
           },
           {
             "question": "Which animal is found at the seashore?",
@@ -1387,17 +1387,17 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🏞️ Friday Review — Science (Grade 4)\n\n- **Terrestrial** (land) · **Aquatic** (water) · **Aerial** (air)\n- **Rice field** = frogs, dragonflies | **Mangrove swamp** = bakhaw, mudskippers\n- Habitats need **protection** — destroying them harms living things\n\nGreat scientist work! 🌟",
+        "summary_markdown": "# 🏞️ Friday Review — Science (Grade 4)\n\n- **Terrestrial** (land) · **Aquatic** (water) · **Aerial** (air)\n- **Rice field** = frogs, dragonflies | **Mangrove swamp** = mangrove trees, mudskippers\n- Habitats need **protection** — destroying them harms living things\n\nGreat scientist work! 🌟",
         "quiz": [
           {
             "question": "What is a habitat?",
             "options": [
-              "Ang natural na tahanan ng isang bagay",
-              "Isang uri ng pagkain lamang",
-              "Isang kagamitan sa agham lamang",
-              "Isang uri ng panahon lamang"
+              "The natural home of a living thing",
+              "Just a type of food",
+              "Just a science tool",
+              "Just a type of weather"
             ],
-            "correct_answer": "Ang natural na tahanan ng isang bagay"
+            "correct_answer": "The natural home of a living thing"
           },
           {
             "question": "What does 'terrestrial' mean?",
@@ -1432,12 +1432,12 @@
           {
             "question": "Which plant grows in a mangrove swamp?",
             "options": [
-              "Bakhaw (mangrove)",
-              "Palay",
-              "Gumamela",
-              "Kamatis"
+              "Mangrove tree",
+              "Rice plant",
+              "Hibiscus",
+              "Tomato"
             ],
-            "correct_answer": "Bakhaw (mangrove)"
+            "correct_answer": "Mangrove tree"
           },
           {
             "question": "Which animal is found at the seashore?",

@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Natutunan: inventions, chemical properties, body systems, habitats\n- Susunod: **life cycles, food chains, forces**\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- What we learned: inventions, chemical properties, body systems, habitats\n- Coming up next: **life cycles, food chains, forces**\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "Which body system helps us breathe?", "options": ["Respiratory system", "Skeletal system", "Digestive system", "Muscular system"], "correct_answer": "Respiratory system" },
           { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Always hard", "Always shiny"], "correct_answer": "Breaks down naturally" },

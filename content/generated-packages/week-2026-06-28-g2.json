@@ -157,7 +157,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- May buhay: **hayop, halaman** | Walang buhay: **bato, metal**\n- Minsang-buhay na materyales: **tuyong dahon, kahoy, bulak**\n- Makikita ang mga ito sa bahay, paaralan, at bakuran\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- Living: **animals, plants** | Nonliving: **rock, metal**\n- Once-living materials: **dried leaf, wood, cotton**\n- We can find these at home, at school, and in the yard\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "Which of these is nonliving?", "options": ["Stone", "Cat", "Tree", "Bird"], "correct_answer": "Stone" },
           { "question": "Which material came from a living thing but is no longer alive?", "options": ["Dried leaf", "Stone", "Metal", "Plastic"], "correct_answer": "Dried leaf" },

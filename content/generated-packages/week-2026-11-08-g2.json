@@ -381,50 +381,50 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌦️ Science — Ang Dalawang Panahon sa Pilipinas\n\nGrade 2, Week 22! Alamin natin ang tag-ulan at tag-init sa Agham. 🌦️\n\n## 🔄 Balik-Aral\nNatutuhan natin ang mga kasangkapan sa pagsukat ng panahon.\n\n## ☀️ Ang Tag-init (Dry Season)\nMataas ang temperatura, kaunti ang ulan. Ito ay karaniwang nagaganap mula Marso hanggang Mayo.\n\n## 🌧️ Ang Tag-ulan (Rainy Season)\nMaraming ulan at mas mababang temperatura. Ito ay karaniwang nagaganap mula Hunyo hanggang Nobyembre, kabilang ang mga **bagyo**.\n\n## 🔬 Pag-obserba sa Panahon\nGinagamit ng mga siyentipiko ang **thermometer** para sukatin ang init, at **rain gauge** para sukatin ang ulan, upang malaman kung anong panahon ang nararanasan.\n\n**Mahahalagang salita:** tag-init, tag-ulan, temperatura, bagyo",
+        "summary_markdown": "# 🌦️ Science — The Two Seasons in the Philippines\n\nGrade 2, Week 22! Let's learn about the rainy season and the dry season in Science. 🌦️\n\n## 🔄 Review\nWe learned about the tools we use to measure the weather.\n\n## ☀️ The Dry Season\nIt is hot, and there is little rain. It usually happens from March to May.\n\n## 🌧️ The Rainy Season\nThere is a lot of rain, and it is cooler. It usually happens from June to November, and it brings **typhoons**.\n\n## 🔬 Observing the Weather\nScientists use a **thermometer** to measure heat and a **rain gauge** to measure rain. This helps them know which season it is.\n\n**Key words:** dry season, rainy season, temperature, typhoon",
         "quiz": [
           {
-            "question": "Ano ang tag-init?",
+            "question": "What is the dry season?",
             "options": [
-              "Panahong mataas ang temperatura at kaunti ang ulan",
-              "Panahong maraming ulan",
-              "Panahong may niyebe",
-              "Panahong walang araw"
+              "A season that is hot, with little rain",
+              "A season with a lot of rain",
+              "A season with snow",
+              "A season with no sun"
             ],
-            "correct_answer": "Panahong mataas ang temperatura at kaunti ang ulan"
+            "correct_answer": "A season that is hot, with little rain"
           },
           {
-            "question": "Ano ang tag-ulan?",
+            "question": "What is the rainy season?",
             "options": [
-              "Panahong maraming ulan at mas mababang temperatura",
-              "Panahong laging mainit",
-              "Panahong walang ulan",
-              "Panahong may niyebe"
+              "A season with a lot of rain and cooler weather",
+              "A season that is always hot",
+              "A season with no rain",
+              "A season with snow"
             ],
-            "correct_answer": "Panahong maraming ulan at mas mababang temperatura"
+            "correct_answer": "A season with a lot of rain and cooler weather"
           },
           {
-            "question": "Kailan karaniwang nagaganap ang tag-init?",
+            "question": "When does the dry season usually happen?",
             "options": [
-              "Marso hanggang Mayo",
-              "Hunyo hanggang Nobyembre",
-              "Disyembre hanggang Enero",
-              "Buong taon"
+              "March to May",
+              "June to November",
+              "December to January",
+              "The whole year"
             ],
-            "correct_answer": "Marso hanggang Mayo"
+            "correct_answer": "March to May"
           },
           {
-            "question": "Kailan karaniwang nagaganap ang tag-ulan?",
+            "question": "When does the rainy season usually happen?",
             "options": [
-              "Hunyo hanggang Nobyembre",
-              "Marso hanggang Mayo",
-              "Enero hanggang Pebrero lamang",
-              "Hindi kailanman nagaganap"
+              "June to November",
+              "March to May",
+              "Only January to February",
+              "It never happens"
             ],
-            "correct_answer": "Hunyo hanggang Nobyembre"
+            "correct_answer": "June to November"
           },
           {
-            "question": "Ano ang ginagamit ng siyentipiko para sukatin ang init?",
+            "question": "What does a scientist use to measure heat?",
             "options": [
               "Thermometer",
               "Rain gauge",
@@ -434,7 +434,7 @@
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Ano ang ginagamit ng siyentipiko para sukatin ang ulan?",
+            "question": "What does a scientist use to measure rain?",
             "options": [
               "Rain gauge",
               "Thermometer",
@@ -444,64 +444,64 @@
             "correct_answer": "Rain gauge"
           },
           {
-            "question": "Ano ang tinatawag na malakas na bagyo na dulot ng hangin at ulan?",
+            "question": "What do we call a very strong storm with wind and rain?",
             "options": [
-              "Bagyo",
-              "Tag-init",
-              "Amihan lamang",
-              "Tag-araw"
+              "Typhoon",
+              "Dry season",
+              "Just a cool wind (amihan)",
+              "Summer"
             ],
-            "correct_answer": "Bagyo"
+            "correct_answer": "Typhoon"
           },
           {
-            "question": "Bakit mahalagang alamin ang panahon?",
+            "question": "Why is it important to know about the weather?",
             "options": [
-              "Para makapaghanda tayo sa kung ano ang aasahan",
-              "Walang kahalagahan",
-              "Para lamang libangin ang sarili",
-              "Hindi ito nakakatulong sa pang-araw-araw na buhay"
+              "So we can get ready for what will happen",
+              "It is not important",
+              "Just to have fun",
+              "It does not help in daily life"
             ],
-            "correct_answer": "Para makapaghanda tayo sa kung ano ang aasahan"
+            "correct_answer": "So we can get ready for what will happen"
           },
           {
-            "question": "Anong instrumento ang tumutulong malaman kung gaano kainit ang araw?",
+            "question": "What tool helps us know how hot the day is?",
             "options": [
               "Thermometer",
-              "Payong",
-              "Kapote",
-              "Bota"
+              "Umbrella",
+              "Raincoat",
+              "Boots"
             ],
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Ano ang epekto ng tag-ulan sa pang-araw-araw na buhay?",
+            "question": "How does the rainy season affect our daily life?",
             "options": [
-              "Kailangang magdala ng payong at mag-ingat sa baha",
-              "Walang epekto",
-              "Kailangang uminom ng maraming tubig",
-              "Kailangang magsuot ng manipis na damit"
+              "We need to bring an umbrella and watch out for floods",
+              "No effect",
+              "We need to drink lots of water",
+              "We need to wear thin clothes"
             ],
-            "correct_answer": "Kailangang magdala ng payong at mag-ingat sa baha"
+            "correct_answer": "We need to bring an umbrella and watch out for floods"
           },
           {
-            "question": "Ano ang epekto ng tag-init sa pang-araw-araw na buhay?",
+            "question": "How does the dry season affect our daily life?",
             "options": [
-              "Kailangang uminom ng maraming tubig at magsuot ng manipis na damit",
-              "Kailangang magsuot ng makapal na kasuotan",
-              "Kailangang mag-ingat sa niyebe",
-              "Walang epekto"
+              "We need to drink lots of water and wear thin clothes",
+              "We need to wear thick clothes",
+              "We need to watch out for snow",
+              "No effect"
             ],
-            "correct_answer": "Kailangang uminom ng maraming tubig at magsuot ng manipis na damit"
+            "correct_answer": "We need to drink lots of water and wear thin clothes"
           },
           {
-            "question": "Bakit mahalagang gamitin ang mga kasangkapang panukat sa panahon?",
+            "question": "Why is it important to use weather measuring tools?",
             "options": [
-              "Nagbibigay ito ng tumpak na impormasyon",
-              "Hindi na kailangan gamitin ang mga ito",
-              "Basta na lamang manghula",
-              "Wala itong gamit"
+              "They give us correct information",
+              "We do not need to use them",
+              "We can just guess",
+              "They are useless"
             ],
-            "correct_answer": "Nagbibigay ito ng tumpak na impormasyon"
+            "correct_answer": "They give us correct information"
           }
         ]
       }
@@ -1262,50 +1262,50 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- Ang dalawang panahon sa Pilipinas\n\nMagaling sa Agham! 🌟",
+        "summary_markdown": "# 🌦️ Friday Review — Science (Grade 2)\n\n- The two seasons in the Philippines\n\nGreat job in Science! 🌟",
         "quiz": [
           {
-            "question": "Ano ang tag-init?",
+            "question": "What is the dry season?",
             "options": [
-              "Mataas ang temperatura, kaunti ang ulan",
-              "Maraming ulan",
-              "May niyebe",
-              "Walang araw"
+              "Hot, with little rain",
+              "A lot of rain",
+              "There is snow",
+              "There is no sun"
             ],
-            "correct_answer": "Mataas ang temperatura, kaunti ang ulan"
+            "correct_answer": "Hot, with little rain"
           },
           {
-            "question": "Ano ang tag-ulan?",
+            "question": "What is the rainy season?",
             "options": [
-              "Maraming ulan, mas mababang temperatura",
-              "Laging mainit",
-              "Walang ulan",
-              "May niyebe"
+              "A lot of rain, cooler weather",
+              "Always hot",
+              "No rain",
+              "There is snow"
             ],
-            "correct_answer": "Maraming ulan, mas mababang temperatura"
+            "correct_answer": "A lot of rain, cooler weather"
           },
           {
-            "question": "Kailan nagaganap ang tag-init?",
+            "question": "When is the dry season?",
             "options": [
-              "Marso hanggang Mayo",
-              "Hunyo hanggang Nobyembre",
-              "Disyembre hanggang Enero",
-              "Buong taon"
+              "March to May",
+              "June to November",
+              "December to January",
+              "The whole year"
             ],
-            "correct_answer": "Marso hanggang Mayo"
+            "correct_answer": "March to May"
           },
           {
-            "question": "Kailan nagaganap ang tag-ulan?",
+            "question": "When is the rainy season?",
             "options": [
-              "Hunyo hanggang Nobyembre",
-              "Marso hanggang Mayo",
-              "Enero hanggang Pebrero",
-              "Hindi kailanman"
+              "June to November",
+              "March to May",
+              "January to February",
+              "Never"
             ],
-            "correct_answer": "Hunyo hanggang Nobyembre"
+            "correct_answer": "June to November"
           },
           {
-            "question": "Ginagamit para sukatin ang init?",
+            "question": "What do we use to measure heat?",
             "options": [
               "Thermometer",
               "Rain gauge",
@@ -1315,7 +1315,7 @@
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Ginagamit para sukatin ang ulan?",
+            "question": "What do we use to measure rain?",
             "options": [
               "Rain gauge",
               "Thermometer",
@@ -1325,64 +1325,64 @@
             "correct_answer": "Rain gauge"
           },
           {
-            "question": "Tawag sa malakas na bagyo?",
+            "question": "What do we call a very strong storm?",
             "options": [
-              "Bagyo",
-              "Tag-init",
-              "Amihan lamang",
-              "Tag-araw"
+              "Typhoon",
+              "Dry season",
+              "Just a cool wind (amihan)",
+              "Summer"
             ],
-            "correct_answer": "Bagyo"
+            "correct_answer": "Typhoon"
           },
           {
-            "question": "Bakit mahalagang alamin ang panahon?",
+            "question": "Why is it important to know about the weather?",
             "options": [
-              "Para makapaghanda tayo",
-              "Walang kahalagahan",
-              "Para lamang libangin",
-              "Hindi nakakatulong"
+              "So we can get ready",
+              "It is not important",
+              "Just for fun",
+              "It does not help"
             ],
-            "correct_answer": "Para makapaghanda tayo"
+            "correct_answer": "So we can get ready"
           },
           {
-            "question": "Instrumento para malaman ang init ng araw?",
+            "question": "What tool tells us how hot the day is?",
             "options": [
               "Thermometer",
-              "Payong",
-              "Kapote",
-              "Bota"
+              "Umbrella",
+              "Raincoat",
+              "Boots"
             ],
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Epekto ng tag-ulan sa buhay?",
+            "question": "How does the rainy season affect our lives?",
             "options": [
-              "Magdala ng payong at mag-ingat sa baha",
-              "Walang epekto",
-              "Uminom ng maraming tubig",
-              "Magsuot ng manipis"
+              "Bring an umbrella and watch out for floods",
+              "No effect",
+              "Drink lots of water",
+              "Wear thin clothes"
             ],
-            "correct_answer": "Magdala ng payong at mag-ingat sa baha"
+            "correct_answer": "Bring an umbrella and watch out for floods"
           },
           {
-            "question": "Epekto ng tag-init sa buhay?",
+            "question": "How does the dry season affect our lives?",
             "options": [
-              "Uminom ng maraming tubig, manipis na damit",
-              "Makapal na kasuotan",
-              "Mag-ingat sa niyebe",
-              "Walang epekto"
+              "Drink lots of water, wear thin clothes",
+              "Wear thick clothes",
+              "Watch out for snow",
+              "No effect"
             ],
-            "correct_answer": "Uminom ng maraming tubig, manipis na damit"
+            "correct_answer": "Drink lots of water, wear thin clothes"
           },
           {
-            "question": "Bakit gamitin ang mga kasangkapang panukat?",
+            "question": "Why do we use measuring tools?",
             "options": [
-              "Nagbibigay ng tumpak na impormasyon",
-              "Hindi na kailangan",
-              "Basta manghula lamang",
-              "Walang gamit"
+              "They give us correct information",
+              "We do not need them",
+              "Just guess",
+              "They are useless"
             ],
-            "correct_answer": "Nagbibigay ng tumpak na impormasyon"
+            "correct_answer": "They give us correct information"
           }
         ]
       },

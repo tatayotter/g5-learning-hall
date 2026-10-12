@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Fair test: baguhin ang **isang salik lamang**\n- Kailangan ng **hindi bababa sa 3 trial**\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- Fair test: change **only one factor**\n- You need **at least 3 trials**\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "How many factors should you change at a time in a fair test?", "options": ["One", "Two", "Three", "All of them"], "correct_answer": "One" },
           { "question": "What should stay the same in a fair test?", "options": ["Everything except the one factor being tested", "Nothing", "Only the result", "Only the time"], "correct_answer": "Everything except the one factor being tested" },

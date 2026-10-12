@@ -339,7 +339,7 @@
     },
     "Tuesday": {
       "Science": {
-        "summary_markdown": "## Specialized Plant Structures: Rhizomes, Tubers, Bulbs, Thorns, Aerial Roots, and Tendrils\n\n- Many plants have **specialized structures** that are not just ordinary stems, roots, or leaves -- each is shaped for a specific job: storage, protection, or support.\n- A **rhizome** is an underground stem that spreads sideways and sprouts new shoots along its length. Example: luya (ginger) and luyang dilaw (turmeric).\n- A **tuber** is a swollen underground stem that stores food, usually as a single rounded structure. Example: kamote (sweet potato).\n- A **bulb** is made of layered, fleshy leaf-like scales wrapped around a bud, storing food underground. Example: sibuyas (onion).\n- **Thorns** are sharp, pointed growths along a stem, used mainly for protection. Example: calamansi and bayabas (guava) branches.\n- **Aerial roots** are roots that hang or grow in open air instead of into soil, often absorbing moisture directly from the air and rain. Example: orchids or balete (banyan) growing on a tree trunk.\n- **Tendrils** are thin, curly, thread-like structures that help a climbing plant grip a support. Example: upo (bottle gourd) and ampalaya (bitter gourd) vines.\n\n| Structure | Example | Main Function |\n|---|---|---|\n| Rhizome | Ginger | Underground spreading stem, sprouts shoots |\n| Tuber | Sweet potato | Stores food underground |\n| Bulb | Onion | Stores food in layered scales |\n| Thorn | Calamansi | Protection from being eaten |\n| Aerial root | Orchid | Absorbs moisture from air |\n| Tendril | Bottle gourd vine | Climbing/support |\n\n- Telling these structures apart takes careful observation: a rhizome spreads with multiple shoot points, a tuber is a single solid swollen stem, and a bulb is made of wrapped layers around a bud. Not every climbing plant uses tendrils either -- some simply twine their whole stem around a support instead.",
+        "summary_markdown": "## Specialized Plant Structures: Rhizomes, Tubers, Bulbs, Thorns, Aerial Roots, and Tendrils\n\n- Many plants have **specialized structures** that are not just ordinary stems, roots, or leaves -- each is shaped for a specific job: storage, protection, or support.\n- A **rhizome** is an underground stem that spreads sideways and sprouts new shoots along its length. Example: ginger and turmeric.\n- A **tuber** is a swollen underground stem that stores food, usually as a single rounded structure. Example: sweet potato.\n- A **bulb** is made of layered, fleshy leaf-like scales wrapped around a bud, storing food underground. Example: onion.\n- **Thorns** are sharp, pointed growths along a stem, used mainly for protection. Example: calamansi and guava branches.\n- **Aerial roots** are roots that hang or grow in open air instead of into soil, often absorbing moisture directly from the air and rain. Example: orchids or banyan trees growing on a tree trunk.\n- **Tendrils** are thin, curly, thread-like structures that help a climbing plant grip a support. Example: bottle gourd and bitter gourd vines.\n\n| Structure | Example | Main Function |\n|---|---|---|\n| Rhizome | Ginger | Underground spreading stem, sprouts shoots |\n| Tuber | Sweet potato | Stores food underground |\n| Bulb | Onion | Stores food in layered scales |\n| Thorn | Calamansi | Protection from being eaten |\n| Aerial root | Orchid | Absorbs moisture from air |\n| Tendril | Bottle gourd vine | Climbing/support |\n\n- Telling these structures apart takes careful observation: a rhizome spreads with multiple shoot points, a tuber is a single solid swollen stem, and a bulb is made of wrapped layers around a bud. Not every climbing plant uses tendrils either -- some simply twine their whole stem around a support instead.",
         "quiz": [
           {
             "question": "What is a \"rhizome\"?",
@@ -392,7 +392,7 @@
             "correct_answer": "Helping a plant climb or hold onto a support"
           },
           {
-            "question": "Luya (ginger) and luyang dilaw (turmeric) grow from thick underground stems that spread sideways and sprout new shoots. What structure is this?",
+            "question": "Ginger and turmeric grow from thick underground stems that spread sideways and sprout new shoots. What structure is this?",
             "options": [
               "Rhizome",
               "Tuber",
@@ -402,7 +402,7 @@
             "correct_answer": "Rhizome"
           },
           {
-            "question": "Kamote (sweet potato) grows a swollen underground part that stores starch, which people dig up and eat. What structure is this?",
+            "question": "Sweet potato grows a swollen underground part that stores starch, which people dig up and eat. What structure is this?",
             "options": [
               "Tuber",
               "Bulb",
@@ -412,7 +412,7 @@
             "correct_answer": "Tuber"
           },
           {
-            "question": "Sibuyas (onion) is made of layered, fleshy leaf-like parts wrapped around each other underground. What structure is this?",
+            "question": "An onion is made of layered, fleshy leaf-like parts wrapped around each other underground. What structure is this?",
             "options": [
               "Bulb",
               "Rhizome",
@@ -422,7 +422,7 @@
             "correct_answer": "Bulb"
           },
           {
-            "question": "A calamansi or bayabas (guava) branch has sharp, pointed growths along its stem that can prick anyone who touches it. What structure is this?",
+            "question": "A calamansi or guava branch has sharp, pointed growths along its stem that can prick anyone who touches it. What structure is this?",
             "options": [
               "Thorns",
               "Tendrils",
@@ -432,7 +432,7 @@
             "correct_answer": "Thorns"
           },
           {
-            "question": "An upo (bottle gourd) or ampalaya (bitter gourd) vine has thin, curly, thread-like parts that wrap tightly around a trellis or fence to hold the plant up. What structure is this?",
+            "question": "A bottle gourd or bitter gourd vine has thin, curly, thread-like parts that wrap tightly around a trellis or fence to hold the plant up. What structure is this?",
             "options": [
               "Tendrils",
               "Bulbs",
@@ -442,7 +442,7 @@
             "correct_answer": "Tendrils"
           },
           {
-            "question": "A balete (banyan) or orchid growing on a tree trunk has roots that hang down from branches into the open air instead of growing into the soil. What is this structure called, and what might it be for?",
+            "question": "A banyan tree or orchid growing on a tree trunk has roots that hang down from branches into the open air instead of growing into the soil. What is this structure called, and what might it be for?",
             "options": [
               "Aerial roots -- they absorb moisture and nutrients directly from the air and rain, useful when the plant is not rooted in soil",
               "Tendrils -- they are only used for climbing",

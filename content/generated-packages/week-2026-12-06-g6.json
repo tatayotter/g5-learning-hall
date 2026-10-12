@@ -256,7 +256,7 @@
     },
     "Tuesday": {
       "Science": {
-        "summary_markdown": "# 🌏 Science — Philippine Seasons and Earth's Rotation\n\nGrade 6, Week 26! Let's learn why we experience day, night, and seasons! 🌏\n\n## 🔄 Review\nWe learned about volcanoes and PHIVOLCS Alert Levels.\n\n## 🌏 Earth's Rotation: Day and Night\nThe Earth **rotates** on its axis once every 24 hours, causing day and night as different parts face or turn away from the Sun.\n\n## ☀️ Philippine Seasons\nThe Philippines experiences two main seasons:\n- **Tag-init/Tag-araw (dry season)** — roughly March to May\n- **Tag-ulan (wet/rainy season)** — roughly June to November\n\n## 🔍 What Causes Seasons Globally?\nGlobally, seasons are caused by Earth's **tilted axis** as it revolves around the Sun, changing how directly sunlight hits different regions.\n\n## 🎯 Why This Matters\nUnderstanding Earth's rotation and seasons helps explain daily and yearly patterns that affect agriculture, weather, and daily life.\n\n**Key words:** rotation, axis, revolution, tag-init, tag-ulan",
+        "summary_markdown": "# 🌏 Science — Philippine Seasons and Earth's Rotation\n\nGrade 6, Week 26! Let's learn why we experience day, night, and seasons! 🌏\n\n## 🔄 Review\nWe learned about volcanoes and PHIVOLCS Alert Levels.\n\n## 🌏 Earth's Rotation: Day and Night\nThe Earth **rotates** on its axis once every 24 hours, causing day and night as different parts face or turn away from the Sun.\n\n## ☀️ Philippine Seasons\nThe Philippines experiences two main seasons:\n- **Dry season** — roughly March to May\n- **Rainy (wet) season** — roughly June to November\n\n## 🔍 What Causes Seasons Globally?\nGlobally, seasons are caused by Earth's **tilted axis** as it revolves around the Sun, changing how directly sunlight hits different regions.\n\n## 🎯 Why This Matters\nUnderstanding Earth's rotation and seasons helps explain daily and yearly patterns that affect agriculture, weather, and daily life.\n\n**Key words:** rotation, axis, revolution, dry season, rainy season",
         "quiz": [
           {
             "question": "What causes day and night?",
@@ -281,15 +281,15 @@
           {
             "question": "What are the two main seasons in the Philippines?",
             "options": [
-              "Tag-init and Tag-ulan",
+              "Dry season and Rainy season",
               "Winter and Summer",
               "Spring and Fall",
               "Wet and Frozen"
             ],
-            "correct_answer": "Tag-init and Tag-ulan"
+            "correct_answer": "Dry season and Rainy season"
           },
           {
-            "question": "When does the Philippine dry season (Tag-init) generally occur?",
+            "question": "When does the Philippine dry season generally occur?",
             "options": [
               "March to May",
               "June to November",
@@ -299,7 +299,7 @@
             "correct_answer": "March to May"
           },
           {
-            "question": "When does the Philippine wet season (Tag-ulan) generally occur?",
+            "question": "When does the Philippine wet season generally occur?",
             "options": [
               "June to November",
               "March to May",
@@ -1287,15 +1287,15 @@
           {
             "question": "Two main Philippine seasons?",
             "options": [
-              "Tag-init and Tag-ulan",
+              "Dry season and Rainy season",
               "Winter and Summer",
               "Spring and Fall",
               "Wet and Frozen"
             ],
-            "correct_answer": "Tag-init and Tag-ulan"
+            "correct_answer": "Dry season and Rainy season"
           },
           {
-            "question": "When is Tag-init generally?",
+            "question": "When is the dry season generally?",
             "options": [
               "March to May",
               "June to November",
@@ -1305,7 +1305,7 @@
             "correct_answer": "March to May"
           },
           {
-            "question": "When is Tag-ulan generally?",
+            "question": "When is the rainy season generally?",
             "options": [
               "June to November",
               "March to May",

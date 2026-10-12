@@ -331,12 +331,12 @@
           {
             "question": "What are the two main seasons in the Philippines?",
             "options": [
-              "Tag-init and Tag-ulan",
+              "Dry season and Rainy season",
               "Winter and Summer",
               "Spring and Fall",
               "Wet and Frozen"
             ],
-            "correct_answer": "Tag-init and Tag-ulan"
+            "correct_answer": "Dry season and Rainy season"
           },
           {
             "question": "Why are simple machines useful?",
@@ -1337,12 +1337,12 @@
           {
             "question": "Two main Philippine seasons?",
             "options": [
-              "Tag-init and Tag-ulan",
+              "Dry season and Rainy season",
               "Winter and Summer",
               "Spring and Fall",
               "Wet and Frozen"
             ],
-            "correct_answer": "Tag-init and Tag-ulan"
+            "correct_answer": "Dry season and Rainy season"
           },
           {
             "question": "Why are simple machines useful?",

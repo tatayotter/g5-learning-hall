@@ -148,7 +148,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Ang buhay na bagay ay **humihinga, kumakain, lumalaki, gumagalaw**\n- Ang bagay na walang buhay ay hindi humihinga o lumalaki\n- Halimbawa: **aso** (may buhay), **bato** (walang buhay)\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- Living things **breathe, eat, grow, and move**\n- Nonliving things do not breathe or grow\n- Example: **dog** (living), **rock** (nonliving)\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "Which is a living thing?", "options": ["Dog", "Rock", "Toy car", "Cloud"], "correct_answer": "Dog" },
           { "question": "Which is a nonliving thing?", "options": ["Rock", "Plant", "Bird", "Fish"], "correct_answer": "Rock" },
