@@ -45,16 +45,16 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nWelcome to Science! Simulan natin sa pagiging mahusay na **tagamasid** (observer) gamit ang ating limang pandama. 🧪\n\n## 👀 Ano ang Ginagawa ng Siyentipiko?\n- Ang siyentipiko ay **nagmamasid** (observes), **nagtatanong** (asks questions), at **sumusubok** (tests) para matuto tungkol sa mundo.\n- **Halimbawa:** Napansin mo bang mainit ang tubig? Iyan ay isang **obserbasyon**!\n\n## 👁️👂👃👅✋ Ating Limang Pandama\n- **Paningin (Mata)** — nakakakita tayo ng kulay at hugis\n- **Pandinig (Tainga)** — naririnig natin ang mga tunog\n- **Pang-amoy (Ilong)** — naaamoy natin ang mga bagay\n- **Panlasa (Dila)** — natitikman natin ang lasa ng pagkain\n- **Pandama (Balat)** — nararamdaman natin ang init, lamig, o texture\n\n**Halimbawa:** Kapag kumakain ka ng mangga, ginagamit mo ang paningin (kulay), pang-amoy (bango), at panlasa (tamis)!\n\nHanda ka na bang maging isang mahusay na siyentipiko sa taong ito? 🌟",
+        "summary_markdown": "# 🔬 I Am a Scientist!\n\nWelcome to Science! Let's start by being a good **observer** using our five senses. 🧪\n\n## 👀 What Does a Scientist Do?\n- A scientist **observes**, **asks questions**, and **tests** things to learn about the world.\n- **Example:** Did you notice that the water is hot? That is an **observation**!\n\n## 👁️👂👃👅✋ Our Five Senses\n- **Sight (Eyes)** — we see colors and shapes\n- **Hearing (Ears)** — we hear sounds\n- **Smell (Nose)** — we smell things\n- **Taste (Tongue)** — we taste our food\n- **Touch (Skin)** — we feel hot, cold, or texture\n\n**Example:** When you eat a mango, you use sight (color), smell (sweet smell), and taste (sweetness)!\n\nAre you ready to be a great scientist this year? 🌟",
         "quiz": [
-          { "question": "Anong ginagawa ng isang siyentipiko?", "options": ["Nagmamasid at nagtatanong", "Natutulog buong araw", "Naglalaro lamang", "Wala ni isa"], "correct_answer": "Nagmamasid at nagtatanong" },
-          { "question": "Aling bahagi ng katawan ang ginagamit sa PARINGIN?", "options": ["Mata", "Tainga", "Ilong", "Dila"], "correct_answer": "Mata" },
-          { "question": "Aling pandama ang ginagamit natin para marinig ang tunog?", "options": ["Tainga", "Mata", "Ilong", "Balat"], "correct_answer": "Tainga" },
-          { "question": "Alin ang ginagamit natin para malasahan ang matamis na pagkain?", "options": ["Dila", "Tainga", "Mata", "Ilong"], "correct_answer": "Dila" },
-          { "question": "Alin ang ginagamit natin para maamoy ang bulaklak?", "options": ["Ilong", "Mata", "Tainga", "Dila"], "correct_answer": "Ilong" },
-          { "question": "Aling pandama ang gamit para maramdaman ang init ng araw?", "options": ["Balat", "Mata", "Tainga", "Ilong"], "correct_answer": "Balat" },
-          { "question": "Ilan ang ating pandama?", "options": ["Lima", "Tatlo", "Apat", "Anim"], "correct_answer": "Lima" },
-          { "question": "Kapag napansin mong mainit ang tubig, ano ang ginawa mo?", "options": ["Obserbasyon", "Panaginip", "Paglalaro", "Pagkain"], "correct_answer": "Obserbasyon" }
+          { "question": "What does a scientist do?", "options": ["Observes and asks questions", "Sleeps all day", "Only plays", "None of these"], "correct_answer": "Observes and asks questions" },
+          { "question": "Which body part do we use for SIGHT?", "options": ["Eyes", "Ears", "Nose", "Tongue"], "correct_answer": "Eyes" },
+          { "question": "Which sense organ do we use to hear sounds?", "options": ["Ears", "Eyes", "Nose", "Skin"], "correct_answer": "Ears" },
+          { "question": "What do we use to taste sweet food?", "options": ["Tongue", "Ears", "Eyes", "Nose"], "correct_answer": "Tongue" },
+          { "question": "What do we use to smell a flower?", "options": ["Nose", "Eyes", "Ears", "Tongue"], "correct_answer": "Nose" },
+          { "question": "Which sense organ do we use to feel the heat of the sun?", "options": ["Skin", "Eyes", "Ears", "Nose"], "correct_answer": "Skin" },
+          { "question": "How many senses do we have?", "options": ["Five", "Three", "Four", "Six"], "correct_answer": "Five" },
+          { "question": "When you notice that the water is hot, what did you do?", "options": ["Observation", "Dreaming", "Playing", "Eating"], "correct_answer": "Observation" }
         ]
       }
     },
@@ -141,13 +141,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan ng ating limang pandama!\n\n- **Mata** — paningin | **Tainga** — pandinig | **Ilong** — pang-amoy\n- **Dila** — panlasa | **Balat** — pandama\n- Ang siyentipiko ay **nagmamasid** at **nagtatanong**\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review of our five senses!\n\n- **Eyes** — sight | **Ears** — hearing | **Nose** — smell\n- **Tongue** — taste | **Skin** — touch\n- A scientist **observes** and **asks questions**\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Aling bahagi ang ginagamit sa paningin?", "options": ["Mata", "Tainga", "Ilong", "Dila"], "correct_answer": "Mata" },
-          { "question": "Aling pandama ang gamit para marinig?", "options": ["Tainga", "Mata", "Ilong", "Balat"], "correct_answer": "Tainga" },
-          { "question": "Ano ang ginagawa ng siyentipiko?", "options": ["Nagmamasid at nagtatanong", "Natutulog buong araw", "Naglalaro lamang", "Wala ni isa"], "correct_answer": "Nagmamasid at nagtatanong" },
-          { "question": "Alin ang gamit para malasahan ang pagkain?", "options": ["Dila", "Tainga", "Mata", "Ilong"], "correct_answer": "Dila" },
-          { "question": "Ilan ang ating pandama?", "options": ["Lima", "Tatlo", "Apat", "Anim"], "correct_answer": "Lima" }
+          { "question": "Which body part do we use for sight?", "options": ["Eyes", "Ears", "Nose", "Tongue"], "correct_answer": "Eyes" },
+          { "question": "Which sense organ do we use to hear?", "options": ["Ears", "Eyes", "Nose", "Skin"], "correct_answer": "Ears" },
+          { "question": "What does a scientist do?", "options": ["Observes and asks questions", "Sleeps all day", "Only plays", "None of these"], "correct_answer": "Observes and asks questions" },
+          { "question": "What do we use to taste food?", "options": ["Tongue", "Ears", "Eyes", "Nose"], "correct_answer": "Tongue" },
+          { "question": "How many senses do we have?", "options": ["Five", "Three", "Four", "Six"], "correct_answer": "Five" }
         ]
       },
       "Computer": {

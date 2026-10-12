@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Solution** = evenly spread | **Suspension** = not evenly spread\n- Hangin = mixture ng oxygen, carbon dioxide, nitrogen\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Solution** = evenly spread | **Suspension** = not evenly spread\n- Air = a mixture of oxygen, carbon dioxide, nitrogen\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is a solution?", "options": ["A mixture with particles evenly spread", "A mixture with particles that settle", "A single pure substance", "Only a liquid"], "correct_answer": "A mixture with particles evenly spread" },
           { "question": "What is a suspension?", "options": ["A mixture with particles NOT evenly spread", "A mixture with particles evenly spread", "A single pure substance", "Only a gas"], "correct_answer": "A mixture with particles NOT evenly spread" },

@@ -147,7 +147,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- Limang pangangailangan: **hangin, pagkain, tubig, espasyo, tirahan**\n- Ang halaman ay gumagamit ng **sikat ng araw** para gumawa ng pagkain\n- Bawat buhay na bagay ay may pangangailangan\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- Five basic needs: **air, food, water, space, shelter**\n- Plants use **sunlight** to make food\n- Every living thing has needs\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "Which of these is a basic need of ALL living things?", "options": ["Water", "A toy", "A television", "Money"], "correct_answer": "Water" },
           { "question": "What do plants use to make their own food?", "options": ["Sunlight", "Television", "Toys", "Money"], "correct_answer": "Sunlight" },

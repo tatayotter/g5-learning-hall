@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 8: Paggawang Kapaki-pakinabang ang mga Solidong Materyales\n\nAlamin natin kung paano ginagawang kapaki-pakinabang ang mga materyales! 🔨\n\n## 🔨 Paraan ng Pagbabago sa Materyales\n- **Pag-hulma (shaped)** — binibigyan ng anyo ang materyales, tulad ng luwad na ginagawang palayok\n- **Pindutin (pressed)** — pinipiga o pinipisil, tulad ng paggawa ng juice\n- **Pukpukin (hammered)** — pinupukpok upang mahubog, tulad ng bakal na ginagawang kutsara\n- **Putulin (cut)** — pinuputol upang magkaroon ng bagong hugis, tulad ng papel na ginagawang libro\n\n## 🔍 Halimbawa\n- Ang isang piraso ng kahoy ay maaaring **putulin** at **hulmahin** para gawing upuan.\n\nMaraming paraan para gawing kapaki-pakinabang ang mga materyales! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 8: Making Solid Materials Useful\n\nLet's learn how materials are made useful! 🔨\n\n## 🔨 Ways to Change Materials\n- **Shaped** — the material is given a form, like clay made into a pot\n- **Pressed** — squeezed or pressed, like when making juice\n- **Hammered** — pounded to give it a shape, like iron made into a spoon\n- **Cut** — cut to get a new shape, like paper made into a book\n\n## 🔍 Example\n- A piece of wood can be **cut** and **shaped** to make a chair.\n\nThere are many ways to make materials useful! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagbibigay ng anyo sa materyales?", "options": ["Pag-hulma", "Pagputol", "Pagpindot", "Pagpukpok"], "correct_answer": "Pag-hulma" },
-          { "question": "Alin ang halimbawa ng pagpindot?", "options": ["Paggawa ng juice", "Paggawa ng palayok", "Paggawa ng libro", "Paggawa ng upuan"], "correct_answer": "Paggawa ng juice" },
-          { "question": "Ano ang ginagawa sa bakal para maging kutsara?", "options": ["Pinupukpok", "Pinipindot lamang", "Sinusunog", "Wala"], "correct_answer": "Pinupukpok" },
-          { "question": "Ano ang ginagawa sa papel para maging libro?", "options": ["Pinuputol at hinuhulma", "Sinusunog lamang", "Wala", "Pinupukpok lamang"], "correct_answer": "Pinuputol at hinuhulma" },
-          { "question": "Ano ang ginagawa sa luwad para maging palayok?", "options": ["Hinuhulma", "Pinuputol lamang", "Sinusunog agad", "Wala"], "correct_answer": "Hinuhulma" },
-          { "question": "Bakit ginagawang bago ang mga solidong materyales?", "options": ["Para maging kapaki-pakinabang", "Walang dahilan", "Para itapon lamang", "Para masira"], "correct_answer": "Para maging kapaki-pakinabang" },
-          { "question": "Ano ang maaaring gawin sa isang piraso ng kahoy?", "options": ["Putulin at hulmahin para gawing upuan", "Walang magagawa dito", "Itapon lamang", "Sunugin lamang"], "correct_answer": "Putulin at hulmahin para gawing upuan" }
+          { "question": "What do we call giving a material a form?", "options": ["Shaping", "Cutting", "Pressing", "Hammering"], "correct_answer": "Shaping" },
+          { "question": "Which is an example of pressing?", "options": ["Making juice", "Making a pot", "Making a book", "Making a chair"], "correct_answer": "Making juice" },
+          { "question": "What is done to iron to make it into a spoon?", "options": ["It is hammered", "It is only pressed", "It is burned", "Nothing"], "correct_answer": "It is hammered" },
+          { "question": "What is done to paper to make it into a book?", "options": ["It is cut and shaped", "It is only burned", "Nothing", "It is only hammered"], "correct_answer": "It is cut and shaped" },
+          { "question": "What is done to clay to make it into a pot?", "options": ["It is shaped", "It is only cut", "It is burned right away", "Nothing"], "correct_answer": "It is shaped" },
+          { "question": "Why are solid materials made into new things?", "options": ["To make them useful", "There is no reason", "Just to throw them away", "To break them"], "correct_answer": "To make them useful" },
+          { "question": "What can be done with a piece of wood?", "options": ["Cut and shape it to make a chair", "Nothing can be done with it", "Just throw it away", "Just burn it"], "correct_answer": "Cut and shape it to make a chair" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pag-hulma, pagpindot, pagpukpok, pagputol** — paraan ng pagbabago sa materyales\n- Ginagawang kapaki-pakinabang ang mga materyales\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Shaping, pressing, hammering, cutting** — ways to change materials\n- These make materials useful\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagbibigay ng anyo sa materyales?", "options": ["Pag-hulma", "Pagputol", "Pagpindot", "Pagpukpok"], "correct_answer": "Pag-hulma" },
-          { "question": "Alin ang halimbawa ng pagpindot?", "options": ["Paggawa ng juice", "Paggawa ng palayok", "Paggawa ng libro", "Paggawa ng upuan"], "correct_answer": "Paggawa ng juice" },
-          { "question": "Ano ang ginagawa sa bakal para maging kutsara?", "options": ["Pinupukpok", "Pinipindot lamang", "Sinusunog", "Wala"], "correct_answer": "Pinupukpok" },
-          { "question": "Ano ang ginagawa sa luwad para maging palayok?", "options": ["Hinuhulma", "Pinuputol lamang", "Sinusunog agad", "Wala"], "correct_answer": "Hinuhulma" },
-          { "question": "Bakit ginagawang bago ang mga solidong materyales?", "options": ["Para maging kapaki-pakinabang", "Walang dahilan", "Para itapon lamang", "Para masira"], "correct_answer": "Para maging kapaki-pakinabang" }
+          { "question": "What do we call giving a material a form?", "options": ["Shaping", "Cutting", "Pressing", "Hammering"], "correct_answer": "Shaping" },
+          { "question": "Which is an example of pressing?", "options": ["Making juice", "Making a pot", "Making a book", "Making a chair"], "correct_answer": "Making juice" },
+          { "question": "What is done to iron to make it into a spoon?", "options": ["It is hammered", "It is only pressed", "It is burned", "Nothing"], "correct_answer": "It is hammered" },
+          { "question": "What is done to clay to make it into a pot?", "options": ["It is shaped", "It is only cut", "It is burned right away", "Nothing"], "correct_answer": "It is shaped" },
+          { "question": "Why are solid materials made into new things?", "options": ["To make them useful", "There is no reason", "Just to throw them away", "To break them"], "correct_answer": "To make them useful" }
         ]
       },
       "Computer": {

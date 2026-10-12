@@ -316,7 +316,7 @@
     },
     "Tuesday": {
       "Science": {
-        "summary_markdown": "## How Plant Structures Help Plants Survive\n\n- Plants often face **unfavorable conditions** such as **drought** (long dry spells), **strong wind**, or **being eaten** by animals -- and their specialized structures help them survive these challenges.\n- **Storage structures** like tubers and bulbs (kamote/sweet potato, sibuyas/onion) store food -- and sometimes moisture -- underground. During a drought, or after a typhoon destroys the leaves, the plant can survive on these reserves and regrow later, even if the parts above ground wither or are damaged.\n- **Rhizomes** (like the underground stems of gabi/taro) work the same way: after a typhoon strips away the leaves, the rhizome's stored food lets new shoots emerge weeks later.\n- **Thorns** (like on calamansi branches) physically discourage grazing animals, reducing how much of the plant gets eaten compared to a thornless plant nearby.\n- **Tendrils** (like on an upo/bottle gourd vine) grip a trellis or fence tightly, helping the plant stay anchored and resist being blown down during a strong bagyo (typhoon).\n- **Aerial roots** (like on an orchid growing on a tree trunk) let a plant absorb moisture from rain and humid air when it has no access to soil at all.\n\n| Structure | Threat it Helps Against |\n|---|---|\n| Tuber / Bulb / Rhizome | Drought, being cut down (regrowth) |\n| Thorn | Being eaten |\n| Tendril | Strong wind |\n| Aerial root | Lack of soil/moisture access |\n\n- Each structure is matched to a specific kind of threat -- this is why a plant growing where droughts, strong winds, AND grazing animals are all common would benefit from having **several different structures together**, rather than relying on just one, since no single structure protects against every possible danger.",
+        "summary_markdown": "## How Plant Structures Help Plants Survive\n\n- Plants often face **unfavorable conditions** such as **drought** (long dry spells), **strong wind**, or **being eaten** by animals -- and their specialized structures help them survive these challenges.\n- **Storage structures** like tubers and bulbs (sweet potato, onion) store food -- and sometimes moisture -- underground. During a drought, or after a typhoon destroys the leaves, the plant can survive on these reserves and regrow later, even if the parts above ground wither or are damaged.\n- **Rhizomes** (like the underground stems of taro) work the same way: after a typhoon strips away the leaves, the rhizome's stored food lets new shoots emerge weeks later.\n- **Thorns** (like on calamansi branches) physically discourage grazing animals, reducing how much of the plant gets eaten compared to a thornless plant nearby.\n- **Tendrils** (like on a bottle gourd vine) grip a trellis or fence tightly, helping the plant stay anchored and resist being blown down during a strong typhoon.\n- **Aerial roots** (like on an orchid growing on a tree trunk) let a plant absorb moisture from rain and humid air when it has no access to soil at all.\n\n| Structure | Threat it Helps Against |\n|---|---|\n| Tuber / Bulb / Rhizome | Drought, being cut down (regrowth) |\n| Thorn | Being eaten |\n| Tendril | Strong wind |\n| Aerial root | Lack of soil/moisture access |\n\n- Each structure is matched to a specific kind of threat -- this is why a plant growing where droughts, strong winds, AND grazing animals are all common would benefit from having **several different structures together**, rather than relying on just one, since no single structure protects against every possible danger.",
         "quiz": [
           {
             "question": "How do tubers and bulbs generally help a plant survive difficult conditions like drought?",
@@ -369,7 +369,7 @@
             "correct_answer": "Drought, strong wind, and being eaten by animals"
           },
           {
-            "question": "During a long dry season (tag-init), a kamote (sweet potato) plant's leaves wither, but its underground tubers survive and later sprout new leaves when rain returns. How did the tuber help the plant survive the drought?",
+            "question": "During a long dry season (dry season), a sweet potato plant's leaves wither, but its underground tubers survive and later sprout new leaves when rain returns. How did the tuber help the plant survive the drought?",
             "options": [
               "The tuber stored food (and some moisture) that let the plant survive underground even when the leaves above dried out",
               "The tuber attracted more rain to the plant",
@@ -379,7 +379,7 @@
             "correct_answer": "The tuber stored food (and some moisture) that let the plant survive underground even when the leaves above dried out"
           },
           {
-            "question": "A kalamansi (calamansi) bush with thorny branches is less likely to be fully eaten by grazing animals compared to a thornless bush nearby. What survival advantage do the thorns provide?",
+            "question": "A calamansi bush with thorny branches is less likely to be fully eaten by grazing animals compared to a thornless bush nearby. What survival advantage do the thorns provide?",
             "options": [
               "They physically discourage or injure animals that try to eat the plant, reducing how much gets eaten",
               "They make the fruit taste better to animals",
@@ -389,7 +389,7 @@
             "correct_answer": "They physically discourage or injure animals that try to eat the plant, reducing how much gets eaten"
           },
           {
-            "question": "During a strong bagyo (typhoon) with heavy wind, an upo (bottle gourd) vine with tendrils gripping a trellis stays attached, while a similar vine without any climbing structure gets blown down. What does this show about tendrils?",
+            "question": "During a strong typhoon with heavy wind, a bottle gourd vine with tendrils gripping a trellis stays attached, while a similar vine without any climbing structure gets blown down. What does this show about tendrils?",
             "options": [
               "Tendrils help anchor the plant to a support, helping it withstand strong wind",
               "Tendrils make the plant immune to all wind damage",
@@ -409,7 +409,7 @@
             "correct_answer": "The lack of direct access to soil and stored groundwater -- the aerial roots absorb moisture from rain and humid air instead"
           },
           {
-            "question": "A gabi (taro) plant with underground rhizomes has its leaves cut down by a strong typhoon, but a few weeks later new shoots emerge from the rhizome. What does this show about the rhizome's role in survival?",
+            "question": "A taro plant with underground rhizomes has its leaves cut down by a strong typhoon, but a few weeks later new shoots emerge from the rhizome. What does this show about the rhizome's role in survival?",
             "options": [
               "The rhizome stored enough food underground to let the plant regrow after the above-ground parts were destroyed",
               "The rhizome caused the typhoon to happen",
@@ -419,7 +419,7 @@
             "correct_answer": "The rhizome stored enough food underground to let the plant regrow after the above-ground parts were destroyed"
           },
           {
-            "question": "A farmer notices that his sibuyas (onion) crop, grown from bulbs, survives short dry spells better than a leafy vegetable planted nearby with no storage structures. Using what you know about bulbs, explain why.",
+            "question": "A farmer notices that his onion crop, grown from bulbs, survives short dry spells better than a leafy vegetable planted nearby with no storage structures. Using what you know about bulbs, explain why.",
             "options": [
               "The bulb's stored food and layered structure let the plant draw on reserves during the dry spell, while the leafy vegetable has no such reserve to fall back on",
               "Onions do not need water at all, unlike other vegetables",
@@ -449,7 +449,7 @@
             "correct_answer": "Expose both types of plants to the same goats, in the same area, for the same amount of time, then compare how much of each was eaten"
           },
           {
-            "question": "A gabi (taro) plant's rhizome survives after a typhoon destroys its leaves, but a similar leafy plant WITHOUT a rhizome dies completely after the same storm. What does comparing these two outcomes suggest about the rhizome's survival value?",
+            "question": "A taro plant's rhizome survives after a typhoon destroys its leaves, but a similar leafy plant WITHOUT a rhizome dies completely after the same storm. What does comparing these two outcomes suggest about the rhizome's survival value?",
             "options": [
               "Having an underground food-storage structure like a rhizome gives a plant a way to recover after losing its above-ground parts, which a plant without one lacks",
               "The rhizome caused the other plant to die",

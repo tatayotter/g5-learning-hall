@@ -4,7 +4,7 @@
   "days": {
     "Tuesday": {
       "Science": {
-        "summary_markdown": "## Comparing States of Matter: Shape AND Volume\n\n- Last week we sorted matter by shape alone. This week we look more closely using **two separate properties**: **shape** and **volume**.\n- A **definite (fixed) shape** means the matter keeps its own shape no matter what container it is in.\n- A **definite (fixed) volume** means the amount of space the matter takes up stays the same, even if it is moved to a different container.\n- **Solids** (like a wooden bangko) have BOTH a definite shape and a definite volume.\n- **Liquids** (like gatas/milk) have a definite volume but an **indefinite shape** -- pour milk from a tall glass into a wide bowl, and it looks different, but it is still the same amount (say, 250 mL).\n- **Gases** (like hangin/air in a basketball) have **neither** a definite shape nor a definite volume -- they spread out to completely fill whatever space contains them.\n\n| State | Shape | Volume |\n|---|---|---|\n| Solid | Definite | Definite |\n| Liquid | Indefinite | Definite |\n| Gas | Indefinite | Indefinite |\n\n- A tricky example: pouring bigas (rice grains) into a pile makes the pile's overall shape change, but each individual grain is still a solid with its own fixed shape -- only the whole pile's outline changes.\n- Using two properties instead of one gives scientists a clearer, more accurate way to describe and compare matter.",
+        "summary_markdown": "## Comparing States of Matter: Shape AND Volume\n\n- Last week we sorted matter by shape alone. This week we look more closely using **two separate properties**: **shape** and **volume**.\n- A **definite (fixed) shape** means the matter keeps its own shape no matter what container it is in.\n- A **definite (fixed) volume** means the amount of space the matter takes up stays the same, even if it is moved to a different container.\n- **Solids** (like a wooden bench) have BOTH a definite shape and a definite volume.\n- **Liquids** (like milk) have a definite volume but an **indefinite shape** -- pour milk from a tall glass into a wide bowl, and it looks different, but it is still the same amount (say, 250 mL).\n- **Gases** (like air in a basketball) have **neither** a definite shape nor a definite volume -- they spread out to completely fill whatever space contains them.\n\n| State | Shape | Volume |\n|---|---|---|\n| Solid | Definite | Definite |\n| Liquid | Indefinite | Definite |\n| Gas | Indefinite | Indefinite |\n\n- A tricky example: pouring rice grains into a pile makes the pile's overall shape change, but each individual grain is still a solid with its own fixed shape -- only the whole pile's outline changes.\n- Using two properties instead of one gives scientists a clearer, more accurate way to describe and compare matter.",
         "quiz": [
           {
             "question": "Which state of matter has BOTH a definite shape and a definite volume?",
@@ -67,7 +67,7 @@
             "correct_answer": "Gases have an indefinite shape and indefinite volume -- they fill their container"
           },
           {
-            "question": "Gatas (milk) is poured from a tall glass into a wide, shallow bowl. It looks different but the same amount is still there. Which property of liquids does this show?",
+            "question": "Milk is poured from a tall glass into a wide, shallow bowl. It looks different but the same amount is still there. Which property of liquids does this show?",
             "options": [
               "Liquids have a definite volume but an indefinite (changing) shape",
               "Liquids have a definite shape",
@@ -77,7 +77,7 @@
             "correct_answer": "Liquids have a definite volume but an indefinite (changing) shape"
           },
           {
-            "question": "A wooden bangko (bench) keeps the exact same shape and size whether it sits in the classroom or outside. This shows the bangko is a solid because it has:",
+            "question": "A wooden bench keeps the exact same shape and size whether it sits in the classroom or outside. This shows the bench is a solid because it has:",
             "options": [
               "A definite shape and a definite volume",
               "A definite shape but indefinite volume",
@@ -87,14 +87,14 @@
             "correct_answer": "A definite shape and a definite volume"
           },
           {
-            "question": "You have 250 mL of suka (vinegar) in a bottle. You pour it into a wider jar. Which statement is TRUE?",
+            "question": "You have 250 mL of vinegar in a bottle. You pour it into a wider jar. Which statement is TRUE?",
             "options": [
-              "The suka still has 250 mL of volume, but now looks like a different shape",
-              "The suka now has more volume",
-              "The suka becomes a gas",
-              "The suka's shape stays the same as the bottle"
+              "The vinegar still has 250 mL of volume, but now looks like a different shape",
+              "The vinegar now has more volume",
+              "The vinegar becomes a gas",
+              "The vinegar's shape stays the same as the bottle"
             ],
-            "correct_answer": "The suka still has 250 mL of volume, but now looks like a different shape"
+            "correct_answer": "The vinegar still has 250 mL of volume, but now looks like a different shape"
           },
           {
             "question": "Which pair correctly matches the state of matter to BOTH of its properties?",
@@ -107,7 +107,7 @@
             "correct_answer": "Gas -- indefinite shape, indefinite volume"
           },
           {
-            "question": "A sealed sack of bigas (rice grains) is poured onto a table. The rice pile spreads out and does not keep the sack's shape. Does this mean rice grains behave like a liquid? Why or why not?",
+            "question": "A sealed sack of rice grains is poured onto a table. The rice pile spreads out and does not keep the sack's shape. Does this mean rice grains behave like a liquid? Why or why not?",
             "options": [
               "No -- each individual rice grain is still a solid with its own fixed shape; only the whole pile's outer shape changes because it is made of many separate solid grains",
               "Yes -- because the pile takes the shape of the table",
@@ -117,7 +117,7 @@
             "correct_answer": "No -- each individual rice grain is still a solid with its own fixed shape; only the whole pile's outer shape changes because it is made of many separate solid grains"
           },
           {
-            "question": "Two clear containers, one tall and thin and one short and wide, each hold 500 mL of tubig (water). A classmate says the tall one has \"more water\" because the water level looks higher. What is wrong with this reasoning?",
+            "question": "Two clear containers, one tall and thin and one short and wide, each hold 500 mL of water. A classmate says the tall one has \"more water\" because the water level looks higher. What is wrong with this reasoning?",
             "options": [
               "Volume is the actual amount of space taken up, not how tall the water looks -- both containers have the same 500 mL",
               "The tall container really does have more water",
@@ -127,7 +127,7 @@
             "correct_answer": "Volume is the actual amount of space taken up, not how tall the water looks -- both containers have the same 500 mL"
           },
           {
-            "question": "If you could seal hangin (air) inside a small balloon and then inside a very large empty room, what would happen to its shape and volume?",
+            "question": "If you could seal air inside a small balloon and then inside a very large empty room, what would happen to its shape and volume?",
             "options": [
               "It would spread out to take the shape and volume of whichever space contains it",
               "It would always stay the same size no matter what",

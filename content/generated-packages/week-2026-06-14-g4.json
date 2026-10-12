@@ -39,14 +39,14 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nBalikan natin ang mga kasanayan bilang siyentipiko! 🧪\n\n## 🔍 Mga Kasanayan ng Siyentipiko\n- **Pagmamasid** — pagtingin nang mabuti sa mga detalye\n- **Paghula** — paghula ng maaaring mangyari batay sa ebidensiya\n- **Pagsukat** — paggamit ng ruler o timbangan\n\n## 🧰 Kagamitang Pang-Agham\n- **Ruler, hand lens, timbangan** — para sa iba't ibang eksperimento\n\n## 🔬 Halimbawa\n- Sinusukat mo ang haba ng iyong lapis gamit ang ruler — iyan ay isang eksperimento sa pagsukat!\n\nHanda ka na bang maging mahusay na siyentipiko ngayong taon? 🌟",
+        "summary_markdown": "# 🔬 I Am a Scientist!\n\nLet's review the skills of a scientist! 🧪\n\n## 🔍 Skills of a Scientist\n- **Observing** — looking carefully at the details\n- **Predicting** — guessing what may happen based on evidence\n- **Measuring** — using a ruler or a weighing scale\n\n## 🧰 Science Tools\n- **Ruler, hand lens, weighing scale** — for different experiments\n\n## 🔬 Example\n- You measure the length of your pencil using a ruler — that is a measuring experiment!\n\nAre you ready to be a great scientist this year? 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
-          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
-          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
-          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang haba ng lapis?", "options": ["Pagsukat", "Pagmamasid", "Paghula", "Walang isa"], "correct_answer": "Pagsukat" },
-          { "question": "Ano ang ginagamit para sukatin ang bigat?", "options": ["Timbangan", "Ruler", "Gunting", "Lapis"], "correct_answer": "Timbangan" },
-          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+          { "question": "What do we call looking carefully at the details?", "options": ["Observing", "Predicting", "Measuring", "Playing"], "correct_answer": "Observing" },
+          { "question": "What is a ruler used for?", "options": ["Measuring length", "Cutting", "Sticking things together", "Erasing"], "correct_answer": "Measuring length" },
+          { "question": "What do we call guessing what will happen based on evidence?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "Which skill do you use when you measure the length of a pencil?", "options": ["Measuring", "Observing", "Predicting", "None of these"], "correct_answer": "Measuring" },
+          { "question": "What do we use to measure weight?", "options": ["Weighing scale", "Ruler", "Scissors", "Pencil"], "correct_answer": "Weighing scale" },
+          { "question": "What does a scientist do first?", "options": ["Observes carefully", "Sleeps", "Eats", "Just plays"], "correct_answer": "Observes carefully" }
         ]
       }
     },
@@ -161,13 +161,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pagmamasid, paghula, pagsukat** — kasanayan ng siyentipiko\n- **Ruler** — sukat ng haba | **Timbangan** — sukat ng bigat\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Observing, predicting, measuring** — skills of a scientist\n- **Ruler** — measures length | **Weighing scale** — measures weight\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
-          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
-          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
-          { "question": "Ano ang ginagamit para sukatin ang bigat?", "options": ["Timbangan", "Ruler", "Gunting", "Lapis"], "correct_answer": "Timbangan" },
-          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+          { "question": "What do we call looking carefully at the details?", "options": ["Observing", "Predicting", "Measuring", "Playing"], "correct_answer": "Observing" },
+          { "question": "What is a ruler used for?", "options": ["Measuring length", "Cutting", "Sticking things together", "Erasing"], "correct_answer": "Measuring length" },
+          { "question": "What do we call guessing what will happen based on evidence?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "What do we use to measure weight?", "options": ["Weighing scale", "Ruler", "Scissors", "Pencil"], "correct_answer": "Weighing scale" },
+          { "question": "What does a scientist do first?", "options": ["Observes carefully", "Sleeps", "Eats", "Just plays"], "correct_answer": "Observes carefully" }
         ]
       },
       "MAPEH": {

@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Roberto del Rosario** — karaoke | **Thomas Edison** — light bulb\n- Inventions like refrigerators improve our lives\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Roberto del Rosario** — karaoke | **Thomas Edison** — light bulb\n- Inventions like refrigerators improve our lives\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What did Roberto del Rosario invent?", "options": ["The karaoke sing-along system", "The light bulb", "The telephone", "The bicycle"], "correct_answer": "The karaoke sing-along system" },
           { "question": "What did Thomas Edison invent?", "options": ["The electric light bulb", "The karaoke system", "The bicycle", "The refrigerator"], "correct_answer": "The electric light bulb" },

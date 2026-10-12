@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Ako ay Isang Siyentipiko!\n\nBalikan natin ang ating mga kasanayan bilang siyentipiko! 🧪\n\n## 🔍 Mga Kasanayan ng Siyentipiko\n- **Pagmamasid (observing)** — pagtingin nang mabuti sa mga detalye\n- **Paghula (predicting)** — paghula ng maaaring mangyari batay sa ebidensiya\n- **Pagsukat (measuring)** — paggamit ng ruler o timbangan para malaman ang eksaktong dami\n\n## 🧰 Kagamitang Pang-Agham\n- **Ruler** — sukat ng haba\n- **Hand lens** — para makita ang maliliit na detalye\n- **Modeling clay** — para gumawa ng modelo\n\n## 🔬 Halimbawa ng Pagmamasid\n- **Halimbawa 1:** Napansin mong mabilis matuyo ang tubig sa araw — iyan ay obserbasyon!\n- **Halimbawa 2:** Sinusukat mo ang haba ng iyong lapis gamit ang ruler.\n\nHanda ka na bang maging mahusay na siyentipiko ngayong taon? 🌟",
+        "summary_markdown": "# 🔬 I Am a Scientist!\n\nLet's review our skills as scientists! 🧪\n\n## 🔍 Skills of a Scientist\n- **Observing** — looking carefully at details\n- **Predicting** — guessing what might happen based on evidence\n- **Measuring** — using a ruler or a weighing scale to find the exact amount\n\n## 🧰 Science Tools\n- **Ruler** — measures length\n- **Hand lens** — for seeing small details\n- **Modeling clay** — for making models\n\n## 🔬 Examples of Observing\n- **Example 1:** You notice that water dries fast in the sun — that is an observation!\n- **Example 2:** You measure the length of your pencil with a ruler.\n\nAre you ready to be a great scientist this year? 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
-          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
-          { "question": "Ano ang gamit ng hand lens?", "options": ["Para makita ang maliliit na detalye", "Para magsulat", "Para maglaro", "Para kumain"], "correct_answer": "Para makita ang maliliit na detalye" },
-          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
-          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang haba ng lapis?", "options": ["Pagsukat", "Pagmamasid", "Paghula", "Walang isa"], "correct_answer": "Pagsukat" },
-          { "question": "Alin ang halimbawa ng modeling clay?", "options": ["Panggawa ng modelo", "Pambasa", "Pantype", "Pantugtog"], "correct_answer": "Panggawa ng modelo" },
-          { "question": "Ano ang ginagawa ng isang siyentipiko sa unang hakbang?", "options": ["Nagmamasid nang mabuti", "Natutulog", "Kumakain", "Naglalaro lamang"], "correct_answer": "Nagmamasid nang mabuti" }
+          { "question": "What do we call looking carefully at details?", "options": ["Observing", "Predicting", "Measuring", "Playing"], "correct_answer": "Observing" },
+          { "question": "What is a ruler used for?", "options": ["Measuring length", "Cutting", "Sticking things", "Erasing"], "correct_answer": "Measuring length" },
+          { "question": "What is a hand lens used for?", "options": ["To see small details", "To write", "To play", "To eat"], "correct_answer": "To see small details" },
+          { "question": "What do we call a guess based on evidence?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "What skill do you use when you measure the length of a pencil?", "options": ["Measuring", "Observing", "Predicting", "None of these"], "correct_answer": "Measuring" },
+          { "question": "What is modeling clay used for?", "options": ["Making models", "Reading", "Typing", "Playing music"], "correct_answer": "Making models" },
+          { "question": "What does a scientist do first?", "options": ["Observes carefully", "Sleeps", "Eats", "Just plays"], "correct_answer": "Observes carefully" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Pagmamasid, paghula, pagsukat** — kasanayan ng siyentipiko\n- **Ruler** — sukat ng haba | **Hand lens** — para sa maliliit na detalye\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Observing, predicting, measuring** — skills of a scientist\n- **Ruler** — measures length | **Hand lens** — for seeing small details\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa pagtingin nang mabuti sa mga detalye?", "options": ["Pagmamasid", "Paghula", "Pagsukat", "Paglalaro"], "correct_answer": "Pagmamasid" },
-          { "question": "Ano ang gamit ng ruler?", "options": ["Sukat ng haba", "Panggupit", "Pandikit", "Pambura"], "correct_answer": "Sukat ng haba" },
-          { "question": "Ano ang gamit ng hand lens?", "options": ["Para makita ang maliliit na detalye", "Para magsulat", "Para maglaro", "Para kumain"], "correct_answer": "Para makita ang maliliit na detalye" },
-          { "question": "Ano ang paghula batay sa ebidensiya?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
-          { "question": "Anong kasanayan ang ginagamit kapag sinusukat mo ang haba ng lapis?", "options": ["Pagsukat", "Pagmamasid", "Paghula", "Walang isa"], "correct_answer": "Pagsukat" }
+          { "question": "What do we call looking carefully at details?", "options": ["Observing", "Predicting", "Measuring", "Playing"], "correct_answer": "Observing" },
+          { "question": "What is a ruler used for?", "options": ["Measuring length", "Cutting", "Sticking things", "Erasing"], "correct_answer": "Measuring length" },
+          { "question": "What is a hand lens used for?", "options": ["To see small details", "To write", "To play", "To eat"], "correct_answer": "To see small details" },
+          { "question": "What do we call a guess based on evidence?", "options": ["Prediction", "Observation", "Measurement", "Conclusion"], "correct_answer": "Prediction" },
+          { "question": "What skill do you use when you measure the length of a pencil?", "options": ["Measuring", "Observing", "Predicting", "None of these"], "correct_answer": "Measuring" }
         ]
       },
       "Computer": {

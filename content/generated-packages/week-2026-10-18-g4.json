@@ -381,7 +381,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🍃 Science — Food Chains\n\nGrade 4, Week 19! Let's trace who eats whom in nature. 🐛\n\n## 🍽️ Grouping Animals by Diet\n| Group | What They Eat |\n|---|---|\n| **Herbivores** | only plants (e.g., cow, carabao) |\n| **Carnivores** | only other animals (e.g., eagle, snake) |\n| **Omnivores** | both plants and animals (e.g., pig, chicken) |\n\n## 🔗 What Is a Food Chain?\nA **food chain** shows how **energy flows** from one living thing to another, starting with a plant.\n\n**Example:** Grass → Grasshopper → Frog → Snake → Eagle\n\n## 🇵🇭 A Food Chain Using Philippine Living Things\n**Example:** Palay (rice plant) → Daga (rat) → Ahas (snake) → Agila (eagle)\n\n## 🏷️ Labeling by Feeding Group\n| Organism | Feeding Group |\n|---|---|\n| **Palay (plant)** | Producer |\n| **Daga (rat)** | Herbivore |\n| **Ahas (snake)** | Carnivore |\n| **Agila (eagle)** | Carnivore |\n\n## 🧠 Worked Example 1\n*Why does every food chain start with a plant?*\n- Because plants are **producers** — they make their own food and are the source of energy for the chain.\n\n## 🧠 Worked Example 2\n*In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?*\n- **Herbivore** — it eats only the palay (plant).\n\n## 💡 Why This Matters\nUnderstanding food chains helps us see how all living things are **connected** in nature.\n\nGreat food chain science! 🌟",
+        "summary_markdown": "# 🍃 Science — Food Chains\n\nGrade 4, Week 19! Let's trace who eats whom in nature. 🐛\n\n## 🍽️ Grouping Animals by Diet\n| Group | What They Eat |\n|---|---|\n| **Herbivores** | only plants (e.g., cow, carabao) |\n| **Carnivores** | only other animals (e.g., eagle, snake) |\n| **Omnivores** | both plants and animals (e.g., pig, chicken) |\n\n## 🔗 What Is a Food Chain?\nA **food chain** shows how **energy flows** from one living thing to another, starting with a plant.\n\n**Example:** Grass → Grasshopper → Frog → Snake → Eagle\n\n## 🇵🇭 A Food Chain Using Philippine Living Things\n**Example:** Rice plant → Rat → Snake → Eagle\n\n## 🏷️ Labeling by Feeding Group\n| Organism | Feeding Group |\n|---|---|\n| **Rice plant** | Producer |\n| **Rat** | Herbivore |\n| **Snake** | Carnivore |\n| **Eagle** | Carnivore |\n\n## 🧠 Worked Example 1\n*Why does every food chain start with a plant?*\n- Because plants are **producers** — they make their own food and are the source of energy for the chain.\n\n## 🧠 Worked Example 2\n*In the chain Rice plant → Rat → Snake → Eagle, what is the rat's feeding group?*\n- **Herbivore** — it eats only the rice plant.\n\n## 💡 Why This Matters\nUnderstanding food chains helps us see how all living things are **connected** in nature.\n\nGreat food chain science! 🌟",
         "quiz": [
           {
             "question": "What is a herbivore?",
@@ -424,14 +424,14 @@
             "correct_answer": "How energy flows from one living thing to another"
           },
           {
-            "question": "In the chain Palay → Daga → Ahas → Agila, what starts the food chain?",
+            "question": "In the chain Rice plant → Rat → Snake → Eagle, what starts the food chain?",
             "options": [
-              "Palay (a plant)",
-              "Daga (a rat)",
-              "Ahas (a snake)",
-              "Agila (an eagle)"
+              "Rice plant (a plant)",
+              "Rat",
+              "Snake",
+              "Eagle"
             ],
-            "correct_answer": "Palay (a plant)"
+            "correct_answer": "Rice plant (a plant)"
           },
           {
             "question": "Why does every food chain start with a plant?",
@@ -444,7 +444,7 @@
             "correct_answer": "Plants are producers that make their own food"
           },
           {
-            "question": "In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?",
+            "question": "In the chain Rice plant → Rat → Snake → Eagle, what is the rat's feeding group?",
             "options": [
               "Herbivore",
               "Carnivore",
@@ -1430,14 +1430,14 @@
             "correct_answer": "How energy flows from one living thing to another"
           },
           {
-            "question": "In the chain Palay → Daga → Ahas → Agila, what starts the food chain?",
+            "question": "In the chain Rice plant → Rat → Snake → Eagle, what starts the food chain?",
             "options": [
-              "Palay (a plant)",
-              "Daga (a rat)",
-              "Ahas (a snake)",
-              "Agila (an eagle)"
+              "Rice plant (a plant)",
+              "Rat",
+              "Snake",
+              "Eagle"
             ],
-            "correct_answer": "Palay (a plant)"
+            "correct_answer": "Rice plant (a plant)"
           },
           {
             "question": "Why does every food chain start with a plant?",
@@ -1450,7 +1450,7 @@
             "correct_answer": "Plants are producers that make their own food"
           },
           {
-            "question": "In the chain Palay → Daga → Ahas → Agila, what is the daga's feeding group?",
+            "question": "In the chain Rice plant → Rat → Snake → Eagle, what is the rat's feeding group?",
             "options": [
               "Herbivore",
               "Carnivore",

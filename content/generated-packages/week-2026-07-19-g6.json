@@ -172,7 +172,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Winnowing** = hangin | **Sieving** = mesh\n- Winnowing ginagamit sa paghihiwalay ng bigas at busal\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Winnowing** = wind | **Sieving** = mesh\n- Winnowing is used to separate rice grains from husks\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is winnowing?", "options": ["Using wind to separate lighter materials from heavier ones", "Using a filter", "Using a magnet", "Heating a liquid"], "correct_answer": "Using wind to separate lighter materials from heavier ones" },
           { "question": "What is sieving?", "options": ["Using a mesh to separate particles by size", "Pouring off liquid", "Using a magnet", "Heating until evaporated"], "correct_answer": "Using a mesh to separate particles by size" },

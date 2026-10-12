@@ -381,7 +381,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌿 Science — Classifying Living Things & Plant Survival Structures\n\nFinal Science lesson of Term 1, Grade 5. 🔬\n\n## 🧬 Three Groups of Living Things\n\n| Group | Key characteristics | Examples |\n|---|---|---|\n| **Plants** | make their own food (**photosynthesis**), mostly stay in one place, have cell walls | mango tree, fern, moss |\n| **Animals** | cannot make own food, **move** to find it, respond quickly | tamaraw, tilapia, ant |\n| **Microorganisms** | too small to see without a **microscope** | bacteria, yeast, amoeba |\n\n**Key difference:** plants **produce** their food; animals must **consume** it.\n\n## 🔬 About Microorganisms\nNot all are harmful!\n- **Helpful:** yeast makes bread rise; bacteria turn milk into yogurt; decomposers recycle nutrients\n- **Harmful:** some bacteria and viruses cause disease\n\n## 🌱 Specialized Plant Structures\nPlants developed special parts to **survive difficult conditions**.\n\n### For STORAGE\n- **Tuber** — swollen underground stem storing starch → **potato**, **kamote**\n- **Bulb** — layered underground leaves storing food → **onion**, **garlic**\n- **Rhizome** — horizontal underground stem → **ginger (luya)**, **turmeric**\n\n**Why it helps:** during **drought** or dry season, the plant lives off stored food and regrows later.\n\n### For PROTECTION\n- **Thorns** — sharp points → **rose**, **bougainvillea**, **cactus**\n\n**Why it helps:** discourages animals from **eating** the plant.\n\n### For SUPPORT\n- **Tendrils** — thin coiling threads that grip → **ampalaya**, **patola**, **grape vine**\n- **Aerial roots** — roots above ground → **balete**, **orchid**, **mangrove**\n\n**Why it helps:** tendrils let a weak stem climb toward **sunlight** without growing a thick trunk. Aerial roots **anchor** the plant against strong wind and can absorb moisture from air.\n\n## 🧠 Worked Example 1\n*Why can a kamote plant survive a long dry season?*\n- Step 1: Kamote forms **tubers** underground.\n- Step 2: Tubers store **starch (food)** and **water**.\n- Step 3: When leaves die in drought, the tuber **survives** and sprouts again when rain returns. ✅\n\n## 🧠 Worked Example 2\n*A mangrove grows in soft, muddy, wave-battered soil. Which structure helps most?*\n- Step 1: Soft mud gives poor grip.\n- Step 2: **Aerial roots** spread wide above and into the mud.\n- Step 3: They **anchor** the tree against waves and wind. ✅\n\nGreat scientist work this term! 🔎",
+        "summary_markdown": "# 🌿 Science — Classifying Living Things & Plant Survival Structures\n\nFinal Science lesson of Term 1, Grade 5. 🔬\n\n## 🧬 Three Groups of Living Things\n\n| Group | Key characteristics | Examples |\n|---|---|---|\n| **Plants** | make their own food (**photosynthesis**), mostly stay in one place, have cell walls | mango tree, fern, moss |\n| **Animals** | cannot make own food, **move** to find it, respond quickly | tamaraw, tilapia, ant |\n| **Microorganisms** | too small to see without a **microscope** | bacteria, yeast, amoeba |\n\n**Key difference:** plants **produce** their food; animals must **consume** it.\n\n## 🔬 About Microorganisms\nNot all are harmful!\n- **Helpful:** yeast makes bread rise; bacteria turn milk into yogurt; decomposers recycle nutrients\n- **Harmful:** some bacteria and viruses cause disease\n\n## 🌱 Specialized Plant Structures\nPlants developed special parts to **survive difficult conditions**.\n\n### For STORAGE\n- **Tuber** — swollen underground stem storing starch → **potato**, **sweet potato**\n- **Bulb** — layered underground leaves storing food → **onion**, **garlic**\n- **Rhizome** — horizontal underground stem → **ginger**, **turmeric**\n\n**Why it helps:** during **drought** or dry season, the plant lives off stored food and regrows later.\n\n### For PROTECTION\n- **Thorns** — sharp points → **rose**, **bougainvillea**, **cactus**\n\n**Why it helps:** discourages animals from **eating** the plant.\n\n### For SUPPORT\n- **Tendrils** — thin coiling threads that grip → **bitter gourd**, **sponge gourd**, **grape vine**\n- **Aerial roots** — roots above ground → **banyan**, **orchid**, **mangrove**\n\n**Why it helps:** tendrils let a weak stem climb toward **sunlight** without growing a thick trunk. Aerial roots **anchor** the plant against strong wind and can absorb moisture from air.\n\n## 🧠 Worked Example 1\n*Why can a sweet potato plant survive a long dry season?*\n- Step 1: Sweet potato forms **tubers** underground.\n- Step 2: Tubers store **starch (food)** and **water**.\n- Step 3: When leaves die in drought, the tuber **survives** and sprouts again when rain returns. ✅\n\n## 🧠 Worked Example 2\n*A mangrove grows in soft, muddy, wave-battered soil. Which structure helps most?*\n- Step 1: Soft mud gives poor grip.\n- Step 2: **Aerial roots** spread wide above and into the mud.\n- Step 3: They **anchor** the tree against waves and wind. ✅\n\nGreat scientist work this term! 🔎",
         "quiz": [
           {
             "question": "Which group of living things makes its own food?",
@@ -424,7 +424,7 @@
             "correct_answer": "bulb"
           },
           {
-            "question": "Ginger (luya) grows from which structure?",
+            "question": "Ginger grows from which structure?",
             "options": [
               "Rhizome",
               "Bulb",
@@ -444,7 +444,7 @@
             "correct_answer": "Protection from being eaten"
           },
           {
-            "question": "Tendrils on an ampalaya vine help the plant to:",
+            "question": "Tendrils on a bitter gourd vine help the plant to:",
             "options": [
               "climb toward sunlight",
               "store starch underground",
@@ -474,7 +474,7 @@
             "correct_answer": "Aerial roots"
           },
           {
-            "question": "Why can a kamote plant survive a long dry season?",
+            "question": "Why can a sweet potato plant survive a long dry season?",
             "options": [
               "Its tuber stores food and water",
               "Its thorns keep animals away",
@@ -1512,7 +1512,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌿 Friday Review — Science (Grade 5)\n\n**Three groups:** **Plants** (make own food) · **Animals** (must consume) · **Microorganisms** (need a microscope)\n\n| Structure | Purpose | Examples |\n|---|---|---|\n| **Tuber** | storage | potato, kamote |\n| **Bulb** | storage | onion, garlic |\n| **Rhizome** | storage | ginger, turmeric |\n| **Thorns** | protection | rose, cactus |\n| **Tendrils** | support/climbing | ampalaya, patola |\n| **Aerial roots** | support/anchoring | balete, mangrove |\n\n**Survival link:** storage → survives **drought** · thorns → survives **being eaten** · tendrils/aerial roots → survives **wind** and reaches **light**\n\nGreat scientist work! 🔎",
+        "summary_markdown": "# 🌿 Friday Review — Science (Grade 5)\n\n**Three groups:** **Plants** (make own food) · **Animals** (must consume) · **Microorganisms** (need a microscope)\n\n| Structure | Purpose | Examples |\n|---|---|---|\n| **Tuber** | storage | potato, sweet potato |\n| **Bulb** | storage | onion, garlic |\n| **Rhizome** | storage | ginger, turmeric |\n| **Thorns** | protection | rose, cactus |\n| **Tendrils** | support/climbing | bitter gourd, sponge gourd |\n| **Aerial roots** | support/anchoring | banyan, mangrove |\n\n**Survival link:** storage → survives **drought** · thorns → survives **being eaten** · tendrils/aerial roots → survives **wind** and reaches **light**\n\nGreat scientist work! 🔎",
         "quiz": [
           {
             "question": "Which group must consume food rather than make it?",
@@ -1555,7 +1555,7 @@
             "correct_answer": "protection"
           },
           {
-            "question": "A patola vine grips a trellis using its:",
+            "question": "A sponge gourd vine grips a trellis using its:",
             "options": [
               "tendrils",
               "thorns",
@@ -1575,7 +1575,7 @@
             "correct_answer": "Bacteria"
           },
           {
-            "question": "A balete tree's roots growing above the ground are called:",
+            "question": "A banyan tree's roots growing above the ground are called:",
             "options": [
               "aerial roots",
               "tap roots",

@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Vertebrates** = may backbone | **Invertebrates** = walang backbone\n- Halimbawa: Philippine eagle (vertebrate), coconut crab (invertebrate)\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Vertebrates** = have a backbone | **Invertebrates** = no backbone\n- Examples: Philippine eagle (vertebrate), coconut crab (invertebrate)\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is a vertebrate?", "options": ["An animal with a backbone", "An animal with no backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with a backbone" },
           { "question": "What is an invertebrate?", "options": ["An animal with no backbone", "An animal with a backbone", "A type of plant", "A type of rock"], "correct_answer": "An animal with no backbone" },

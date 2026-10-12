@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Burnable** = nagliliyab | **Biodegradable** = nabubulok\n- Pag-unawa sa chemical properties ay nagpapaligtas sa atin\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Burnable** = can catch fire | **Biodegradable** = can rot away\n- Understanding chemical properties keeps us safe\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What does \"burnable\" mean?", "options": ["Can catch fire", "Can float", "Can bend", "Can shine"], "correct_answer": "Can catch fire" },
           { "question": "What does biodegradable mean?", "options": ["Breaks down naturally", "Never changes", "Is always hard", "Is always shiny"], "correct_answer": "Breaks down naturally" },

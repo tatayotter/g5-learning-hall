@@ -381,7 +381,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🦎 Science — Vertebrates and Invertebrates\n\nGrade 6, Week 18! Let's classify animals by their backbones. 🦴\n\n## 🦴 What Is a Vertebrate?\nA **vertebrate** is an animal that has a **backbone (spine)**.\n\n**Examples:** fish, frogs, lizards, birds, dogs, humans\n\n## 🐛 What Is an Invertebrate?\nAn **invertebrate** is an animal that does **NOT** have a backbone.\n\n**Examples:** insects, worms, jellyfish, starfish, crabs, snails\n\n## 🇵🇭 Local Examples\n| Group | Local Examples |\n|---|---|\n| **Vertebrates** | isda (bangus), palaka, ibon (maya), aso, tao |\n| **Invertebrates** | alupihan, uod, alimango, kuhol, alitaptap |\n\n## 🔍 How to Tell the Difference\n- Vertebrates usually have **internal skeletons** (bones)\n- Invertebrates may have **no skeleton**, a **soft body** (like worms), or an **exoskeleton** (hard outer covering, like crabs and insects)\n\n## 🧠 Worked Example 1\n*Is a crab a vertebrate or invertebrate?*\n- **Invertebrate** — it has an exoskeleton (hard shell), not a backbone.\n\n## 🧠 Worked Example 2\n*Is a bangus (milkfish) a vertebrate or invertebrate?*\n- **Vertebrate** — fish have a backbone.\n\n## 🧠 Worked Example 3\n*Why does an insect not need an internal skeleton?*\n- Because its **exoskeleton** (hard outer shell) provides support and protection instead.\n\n## 💡 Why This Matters\nClassifying animals as vertebrates or invertebrates helps scientists **organize and study** the huge diversity of animal life.\n\nGreat classification science! 🌟",
+        "summary_markdown": "# 🦎 Science — Vertebrates and Invertebrates\n\nGrade 6, Week 18! Let's classify animals by their backbones. 🦴\n\n## 🦴 What Is a Vertebrate?\nA **vertebrate** is an animal that has a **backbone (spine)**.\n\n**Examples:** fish, frogs, lizards, birds, dogs, humans\n\n## 🐛 What Is an Invertebrate?\nAn **invertebrate** is an animal that does **NOT** have a backbone.\n\n**Examples:** insects, worms, jellyfish, starfish, crabs, snails\n\n## 🇵🇭 Local Examples\n| Group | Local Examples |\n|---|---|\n| **Vertebrates** | fish (milkfish), frog, bird (sparrow), dog, human |\n| **Invertebrates** | centipede, worm, mud crab, snail, firefly |\n\n## 🔍 How to Tell the Difference\n- Vertebrates usually have **internal skeletons** (bones)\n- Invertebrates may have **no skeleton**, a **soft body** (like worms), or an **exoskeleton** (hard outer covering, like crabs and insects)\n\n## 🧠 Worked Example 1\n*Is a crab a vertebrate or invertebrate?*\n- **Invertebrate** — it has an exoskeleton (hard shell), not a backbone.\n\n## 🧠 Worked Example 2\n*Is a milkfish a vertebrate or invertebrate?*\n- **Vertebrate** — fish have a backbone.\n\n## 🧠 Worked Example 3\n*Why does an insect not need an internal skeleton?*\n- Because its **exoskeleton** (hard outer shell) provides support and protection instead.\n\n## 💡 Why This Matters\nClassifying animals as vertebrates or invertebrates helps scientists **organize and study** the huge diversity of animal life.\n\nGreat classification science! 🌟",
         "quiz": [
           {
             "question": "What is a vertebrate?",
@@ -434,7 +434,7 @@
             "correct_answer": "Invertebrate, because it has an exoskeleton, not a backbone"
           },
           {
-            "question": "Is a bangus (milkfish) a vertebrate or invertebrate?",
+            "question": "Is a milkfish a vertebrate or invertebrate?",
             "options": [
               "Vertebrate, because fish have a backbone",
               "Invertebrate, because fish have no backbone",
@@ -476,22 +476,22 @@
           {
             "question": "Which local animal is an example of an invertebrate?",
             "options": [
-              "Alitaptap (firefly)",
-              "Palaka (frog)",
-              "Maya (bird)",
-              "Aso (dog)"
+              "Firefly",
+              "Frog",
+              "Sparrow",
+              "Dog"
             ],
-            "correct_answer": "Alitaptap (firefly)"
+            "correct_answer": "Firefly"
           },
           {
             "question": "Which local animal is an example of a vertebrate?",
             "options": [
-              "Palaka (frog)",
-              "Uod (worm)",
-              "Alimango (crab)",
-              "Kuhol (snail)"
+              "Frog",
+              "Worm",
+              "Crab",
+              "Snail"
             ],
-            "correct_answer": "Palaka (frog)"
+            "correct_answer": "Frog"
           },
           {
             "question": "Why is classifying animals as vertebrates or invertebrates useful for scientists?",
@@ -1387,7 +1387,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🦎 Friday Review — Science (Grade 6)\n\n- **Vertebrate** = may backbone; **Invertebrate** = walang backbone\n- Exoskeleton vs internal skeleton\n\nGreat classification science! 🌟",
+        "summary_markdown": "# 🦎 Friday Review — Science (Grade 6)\n\n- **Vertebrate** = has a backbone; **Invertebrate** = no backbone\n- Exoskeleton vs internal skeleton\n\nGreat classification science! 🌟",
         "quiz": [
           {
             "question": "What is a vertebrate?",
@@ -1440,7 +1440,7 @@
             "correct_answer": "Invertebrate, because it has an exoskeleton, not a backbone"
           },
           {
-            "question": "Is a bangus (milkfish) a vertebrate or invertebrate?",
+            "question": "Is a milkfish a vertebrate or invertebrate?",
             "options": [
               "Vertebrate, because fish have a backbone",
               "Invertebrate, because fish have no backbone",
@@ -1482,22 +1482,22 @@
           {
             "question": "Which local animal is an example of an invertebrate?",
             "options": [
-              "Alitaptap (firefly)",
-              "Palaka (frog)",
-              "Maya (bird)",
-              "Aso (dog)"
+              "Firefly",
+              "Frog",
+              "Sparrow",
+              "Dog"
             ],
-            "correct_answer": "Alitaptap (firefly)"
+            "correct_answer": "Firefly"
           },
           {
             "question": "Which local animal is an example of a vertebrate?",
             "options": [
-              "Palaka (frog)",
-              "Uod (worm)",
-              "Alimango (crab)",
-              "Kuhol (snail)"
+              "Frog",
+              "Worm",
+              "Crab",
+              "Snail"
             ],
-            "correct_answer": "Palaka (frog)"
+            "correct_answer": "Frog"
           },
           {
             "question": "Why is classifying animals as vertebrates or invertebrates useful for scientists?",

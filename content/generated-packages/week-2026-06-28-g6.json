@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Physical change** = reversible | **Chemical change** = irreversible\n- Melting ice = reversible; burning wood = irreversible\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Physical change** = reversible | **Chemical change** = irreversible\n- Melting ice = reversible; burning wood = irreversible\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What type of change can be reversed?", "options": ["Physical change", "Chemical change", "Neither", "Both are irreversible"], "correct_answer": "Physical change" },
           { "question": "What type of change cannot be undone?", "options": ["Chemical change", "Physical change", "Neither", "Both are reversible"], "correct_answer": "Chemical change" },

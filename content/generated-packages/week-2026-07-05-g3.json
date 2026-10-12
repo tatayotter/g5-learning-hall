@@ -136,7 +136,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Observing** = using senses | **Predicting** = smart guess\n- **Measuring** = finding exact size using a tool\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Observing** = using senses | **Predicting** = smart guess\n- **Measuring** = finding exact size using a tool\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What does observing mean?", "options": ["Using our senses to gather information", "Guessing randomly", "Measuring exactly", "Drawing pictures"], "correct_answer": "Using our senses to gather information" },
           { "question": "What does predicting mean?", "options": ["Making a smart guess based on what we know", "Measuring with a ruler", "Drawing a picture", "Reading a book"], "correct_answer": "Making a smart guess based on what we know" },

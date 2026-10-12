@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 9: Mga Metal na Ginagamit sa Komunidad!\n\nAlamin natin ang mga metal na ginagamit sa ating komunidad! ⚙️\n\n## ⚙️ Mga Uri ng Metal\n- **Bakal (iron)** — matibay, ginagamit sa gusali at kagamitan\n- **Ginto (gold)** — makintab, ginagamit sa alahas\n- **Pilak (silver)** — makintab din, ginagamit sa alahas at kubyertos\n- **Tanso (copper)** — ginagamit sa kawad na pang-elektrisidad\n\n## 🔍 Katangian at Gamit\n- **Halimbawa 1:** Ang bakal ay matibay kaya ginagamit sa paggawa ng gusali.\n- **Halimbawa 2:** Ang tanso ay mahusay na konduktor kaya ginagamit sa kuryente.\n\n## 💛 Bakit Mahalaga Ito?\n- Ang mga metal na ito ay bahagi ng ating pang-araw-araw na buhay.\n\nMaraming metal ang tumutulong sa ating komunidad! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 9: Metals Used in the Community!\n\nLet's learn about the metals used in our community! ⚙️\n\n## ⚙️ Kinds of Metal\n- **Iron** — strong, used in buildings and tools\n- **Gold** — shiny, used in jewelry\n- **Silver** — also shiny, used in jewelry and in spoons and forks\n- **Copper** — used in electric wires\n\n## 🔍 Properties and Uses\n- **Example 1:** Iron is strong, so it is used to make buildings.\n- **Example 2:** Copper is a good conductor, so it is used for electricity.\n\n## 💛 Why Is This Important?\n- These metals are part of our everyday life.\n\nMany metals help our community! 🌟",
         "quiz": [
-          { "question": "Aling metal ang ginagamit sa gusali dahil sa tibay nito?", "options": ["Bakal", "Ginto", "Pilak", "Tanso"], "correct_answer": "Bakal" },
-          { "question": "Aling metal ang ginagamit sa alahas dahil sa kislap nito?", "options": ["Ginto", "Bakal lamang", "Tanso lamang", "Walang metal"], "correct_answer": "Ginto" },
-          { "question": "Aling metal ang ginagamit sa kawad na pang-elektrisidad?", "options": ["Tanso", "Bakal", "Ginto", "Pilak"], "correct_answer": "Tanso" },
-          { "question": "Ano ang katangian ng bakal?", "options": ["Matibay", "Malambot", "Malagkit", "Malamig lamang"], "correct_answer": "Matibay" },
-          { "question": "Aling metal ang ginagamit din sa kubyertos?", "options": ["Pilak", "Ginto lamang", "Bakal lamang", "Tanso lamang"], "correct_answer": "Pilak" },
-          { "question": "Bakit mahalaga ang mga metal na ito?", "options": ["Bahagi sila ng ating pang-araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Wala silang katangian"], "correct_answer": "Bahagi sila ng ating pang-araw-araw na buhay" },
-          { "question": "Ano ang gamit ng tanso bukod sa kawad?", "options": ["Pang-elektrisidad", "Alahas lamang", "Pagkain", "Damit"], "correct_answer": "Pang-elektrisidad" }
+          { "question": "Which metal is used in buildings because it is strong?", "options": ["Iron", "Gold", "Silver", "Copper"], "correct_answer": "Iron" },
+          { "question": "Which metal is used in jewelry because it shines?", "options": ["Gold", "Only iron", "Only copper", "No metal"], "correct_answer": "Gold" },
+          { "question": "Which metal is used in electric wires?", "options": ["Copper", "Iron", "Gold", "Silver"], "correct_answer": "Copper" },
+          { "question": "What is a property of iron?", "options": ["Strong", "Soft", "Sticky", "Only cold"], "correct_answer": "Strong" },
+          { "question": "Which metal is also used for spoons and forks?", "options": ["Silver", "Only gold", "Only iron", "Only copper"], "correct_answer": "Silver" },
+          { "question": "Why are these metals important?", "options": ["They are part of our everyday life", "They have no use", "Just for tests", "They have no properties"], "correct_answer": "They are part of our everyday life" },
+          { "question": "What else is copper used for besides wires?", "options": ["For electricity", "Only jewelry", "Food", "Clothes"], "correct_answer": "For electricity" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Bakal** = matibay | **Ginto/Pilak** = alahas\n- **Tanso** = kawad na pang-elektrisidad\n\nMahusay kang batang siyentipiko ngayong term! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Iron** = strong | **Gold/Silver** = jewelry\n- **Copper** = electric wires\n\nYou were a great young scientist this term! 🌟",
         "quiz": [
-          { "question": "Aling metal ang ginagamit sa gusali dahil sa tibay nito?", "options": ["Bakal", "Ginto", "Pilak", "Tanso"], "correct_answer": "Bakal" },
-          { "question": "Aling metal ang ginagamit sa alahas dahil sa kislap nito?", "options": ["Ginto", "Bakal lamang", "Tanso lamang", "Walang metal"], "correct_answer": "Ginto" },
-          { "question": "Aling metal ang ginagamit sa kawad na pang-elektrisidad?", "options": ["Tanso", "Bakal", "Ginto", "Pilak"], "correct_answer": "Tanso" },
-          { "question": "Ano ang katangian ng bakal?", "options": ["Matibay", "Malambot", "Malagkit", "Malamig lamang"], "correct_answer": "Matibay" },
-          { "question": "Bakit mahalaga ang mga metal na ito?", "options": ["Bahagi sila ng ating pang-araw-araw na buhay", "Walang gamit", "Para lang sa pagsusulit", "Wala silang katangian"], "correct_answer": "Bahagi sila ng ating pang-araw-araw na buhay" }
+          { "question": "Which metal is used in buildings because it is strong?", "options": ["Iron", "Gold", "Silver", "Copper"], "correct_answer": "Iron" },
+          { "question": "Which metal is used in jewelry because it shines?", "options": ["Gold", "Only iron", "Only copper", "No metal"], "correct_answer": "Gold" },
+          { "question": "Which metal is used in electric wires?", "options": ["Copper", "Iron", "Gold", "Silver"], "correct_answer": "Copper" },
+          { "question": "What is a property of iron?", "options": ["Strong", "Soft", "Sticky", "Only cold"], "correct_answer": "Strong" },
+          { "question": "Why are these metals important?", "options": ["They are part of our everyday life", "They have no use", "Just for tests", "They have no properties"], "correct_answer": "They are part of our everyday life" }
         ]
       },
       "Computer": {

@@ -161,7 +161,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Melting** = solid→liquid | **Evaporation** = liquid→gas\n- **Freezing** = liquid→solid | **Condensation** = gas→liquid\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nQuick review!\n\n- **Melting** = solid→liquid | **Evaporation** = liquid→gas\n- **Freezing** = liquid→solid | **Condensation** = gas→liquid\n\nYou are a great young scientist! 🌟",
         "quiz": [
           { "question": "What is melting?", "options": ["Solid to liquid", "Liquid to gas", "Gas to liquid", "Liquid to solid"], "correct_answer": "Solid to liquid" },
           { "question": "What is evaporation?", "options": ["Liquid to gas", "Solid to liquid", "Gas to liquid", "Liquid to solid"], "correct_answer": "Liquid to gas" },

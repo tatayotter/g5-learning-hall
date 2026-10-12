@@ -381,10 +381,10 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Review: Weather, Matter, and Forces\n\nGrade 2, Linggo 27! Balikan natin ang natutuhan sa Agham. 🔬\n\n## 🔄 Mga Natutunan\n- **Panahon:** kasangkapan sa panukat (thermometer, rain gauge, wind vane), dalawang panahon, epekto sa buhay\n- **Bagay (Matter):** solid, liquid, gas; melting, evaporation\n- **Puwersa:** push at pull; simple machines (lever, wheel-and-axle)\n\n## 🧠 Pagsasama-sama\nAng lahat ng ito ay bahagi ng ating **physical environment** — natutunan nating unawain ang panahon, ang mga bagay sa paligid natin, at kung paano gumagalaw ang mga bagay.\n\n## 🎯 Paghahanda\nSa susunod na term, aalamin pa natin ang tungkol sa langit at ang pag-aalaga sa kapaligiran.\n\n**Mahahalagang salita:** panahon, bagay, puwersa, simple machine",
+        "summary_markdown": "# 🔬 Science — Review: Weather, Matter, and Forces\n\nGrade 2, Week 27! Let's look back at what we learned in Science. 🔬\n\n## 🔄 What We Learned\n- **Weather:** measuring tools (thermometer, rain gauge, wind vane), the two seasons, how weather affects our lives\n- **Matter:** solid, liquid, gas; melting, evaporation\n- **Force:** push and pull; simple machines (lever, wheel-and-axle)\n\n## 🧠 Putting It Together\nAll of these are part of our **physical environment**. We learned about the weather, the things around us, and how things move.\n\n## 🎯 Getting Ready\nNext term, we will learn more about the sky and caring for the environment.\n\n**Key words:** weather, matter, force, simple machine",
         "quiz": [
           {
-            "question": "Anong tool ang sumusukat ng init?",
+            "question": "What tool measures heat?",
             "options": [
               "Thermometer",
               "Rain gauge",
@@ -394,57 +394,57 @@
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Ano ang tag-ulan?",
+            "question": "What is the rainy season?",
             "options": [
-              "Maraming ulan, mas mababang temperatura",
-              "Laging mainit",
-              "Walang ulan",
-              "May niyebe"
+              "A lot of rain, cooler weather",
+              "Always hot",
+              "No rain",
+              "There is snow"
             ],
-            "correct_answer": "Maraming ulan, mas mababang temperatura"
+            "correct_answer": "A lot of rain, cooler weather"
           },
           {
-            "question": "Ano ang solid?",
+            "question": "What is a solid?",
             "options": [
-              "Bagay na may fixed shape",
-              "Bagay na kumukuha ng anyo ng lalagyan",
-              "Bagay na kumakalat sa espasyo",
-              "Wala sa mga ito"
+              "Matter with a fixed shape",
+              "Matter that takes the shape of its container",
+              "Matter that spreads to fill a space",
+              "None of these"
             ],
-            "correct_answer": "Bagay na may fixed shape"
+            "correct_answer": "Matter with a fixed shape"
           },
           {
-            "question": "Ano ang melting?",
+            "question": "What is melting?",
             "options": [
-              "Solid na nagiging liquid",
-              "Liquid na nagiging gas",
-              "Gas na nagiging solid",
-              "Walang pagbabago"
+              "A solid changing into a liquid",
+              "A liquid changing into a gas",
+              "A gas changing into a solid",
+              "No change"
             ],
-            "correct_answer": "Solid na nagiging liquid"
+            "correct_answer": "A solid changing into a liquid"
           },
           {
-            "question": "Ano ang push?",
+            "question": "What is a push?",
             "options": [
-              "Puwersang gumagalaw palayo sa iyo",
-              "Puwersang gumagalaw papunta sa iyo",
-              "Uri ng likido",
-              "Uri ng hayop"
+              "A force that moves something away from you",
+              "A force that moves something toward you",
+              "A kind of liquid",
+              "A kind of animal"
             ],
-            "correct_answer": "Puwersang gumagalaw palayo sa iyo"
+            "correct_answer": "A force that moves something away from you"
           },
           {
-            "question": "Ano ang lever?",
+            "question": "What is a lever?",
             "options": [
-              "Bar na tumutulong mag-angat gamit ang fixed point",
-              "Bilog na gulong lamang",
-              "Uri ng likido",
-              "Uri ng hayop"
+              "A bar that helps lift things using a fixed point",
+              "Just a round wheel",
+              "A kind of liquid",
+              "A kind of animal"
             ],
-            "correct_answer": "Bar na tumutulong mag-angat gamit ang fixed point"
+            "correct_answer": "A bar that helps lift things using a fixed point"
           },
           {
-            "question": "Ano ang tawag sa fixed point ng lever?",
+            "question": "What is the fixed point of a lever called?",
             "options": [
               "Fulcrum",
               "Axle",
@@ -454,54 +454,54 @@
             "correct_answer": "Fulcrum"
           },
           {
-            "question": "Halimbawa ng gas?",
+            "question": "Which is an example of a gas?",
             "options": [
-              "Hangin",
-              "Bato",
-              "Tubig",
-              "Mesa"
+              "Air",
+              "Rock",
+              "Water",
+              "Table"
             ],
-            "correct_answer": "Hangin"
+            "correct_answer": "Air"
           },
           {
-            "question": "Ano ang wheel-and-axle?",
+            "question": "What is a wheel-and-axle?",
             "options": [
-              "Gulong na nakakabit sa rod, magkasamang umiikot",
-              "Bar na may fixed point",
-              "Uri ng likido",
-              "Patag na ibabaw"
+              "A wheel attached to a rod; they turn together",
+              "A bar with a fixed point",
+              "A kind of liquid",
+              "A flat surface"
             ],
-            "correct_answer": "Gulong na nakakabit sa rod, magkasamang umiikot"
+            "correct_answer": "A wheel attached to a rod; they turn together"
           },
           {
-            "question": "Bakit mahalagang unawain ang panahon?",
+            "question": "Why is it important to understand the weather?",
             "options": [
-              "Tumutulong sa paghahanda at pagpapasya",
-              "Walang kabuluhan",
-              "Para lamang libangin",
-              "Hindi nakakatulong"
+              "It helps us get ready and make choices",
+              "It is useless",
+              "Just for fun",
+              "It does not help"
             ],
-            "correct_answer": "Tumutulong sa paghahanda at pagpapasya"
+            "correct_answer": "It helps us get ready and make choices"
           },
           {
-            "question": "Ano ang evaporation?",
+            "question": "What is evaporation?",
             "options": [
-              "Liquid na nagiging gas",
-              "Solid na nagiging liquid",
-              "Gas na nagiging solid",
-              "Walang pagbabago"
+              "A liquid changing into a gas",
+              "A solid changing into a liquid",
+              "A gas changing into a solid",
+              "No change"
             ],
-            "correct_answer": "Liquid na nagiging gas"
+            "correct_answer": "A liquid changing into a gas"
           },
           {
-            "question": "Bakit gumagamit ng simple machine?",
+            "question": "Why do we use simple machines?",
             "options": [
-              "Ginagawang mas madali ang trabaho",
-              "Ginagawang mas mahirap ang trabaho",
-              "Walang layunin",
-              "Para lang gawing maganda ang bahay"
+              "They make work easier",
+              "They make work harder",
+              "They have no purpose",
+              "Just to make the house pretty"
             ],
-            "correct_answer": "Ginagawang mas madali ang trabaho"
+            "correct_answer": "They make work easier"
           }
         ]
       }
@@ -1265,7 +1265,7 @@
         "summary_markdown": "# 🔬 Friday Review — Science (Grade 2)\n\n- Term 2 wrap-up: weather, matter, forces\n\nGreat term of Science! 🌟",
         "quiz": [
           {
-            "question": "Anong tool sumusukat ng init?",
+            "question": "What tool measures heat?",
             "options": [
               "Thermometer",
               "Rain gauge",
@@ -1275,57 +1275,57 @@
             "correct_answer": "Thermometer"
           },
           {
-            "question": "Ano ang tag-ulan?",
+            "question": "What is the rainy season?",
             "options": [
-              "Maraming ulan, mas mababang temperatura",
-              "Laging mainit",
-              "Walang ulan",
-              "May niyebe"
+              "A lot of rain, cooler weather",
+              "Always hot",
+              "No rain",
+              "There is snow"
             ],
-            "correct_answer": "Maraming ulan, mas mababang temperatura"
+            "correct_answer": "A lot of rain, cooler weather"
           },
           {
-            "question": "Ano ang solid?",
+            "question": "What is a solid?",
             "options": [
-              "Bagay na may fixed shape",
-              "Bagay na kumukuha ng anyo ng lalagyan",
-              "Bagay na kumakalat sa espasyo",
-              "Wala"
+              "Matter with a fixed shape",
+              "Matter that takes the shape of its container",
+              "Matter that spreads to fill a space",
+              "Nothing"
             ],
-            "correct_answer": "Bagay na may fixed shape"
+            "correct_answer": "Matter with a fixed shape"
           },
           {
-            "question": "Ano ang melting?",
+            "question": "What is melting?",
             "options": [
-              "Solid na nagiging liquid",
-              "Liquid na nagiging gas",
-              "Gas na nagiging solid",
-              "Walang pagbabago"
+              "A solid changing into a liquid",
+              "A liquid changing into a gas",
+              "A gas changing into a solid",
+              "No change"
             ],
-            "correct_answer": "Solid na nagiging liquid"
+            "correct_answer": "A solid changing into a liquid"
           },
           {
-            "question": "Ano ang push?",
+            "question": "What is a push?",
             "options": [
-              "Puwersang gumagalaw palayo sa iyo",
-              "Puwersang papunta sa iyo",
-              "Uri ng likido",
-              "Uri ng hayop"
+              "A force that moves something away from you",
+              "A force that moves something toward you",
+              "A kind of liquid",
+              "A kind of animal"
             ],
-            "correct_answer": "Puwersang gumagalaw palayo sa iyo"
+            "correct_answer": "A force that moves something away from you"
           },
           {
-            "question": "Ano ang lever?",
+            "question": "What is a lever?",
             "options": [
-              "Bar na tumutulong mag-angat gamit ang fixed point",
-              "Bilog na gulong lamang",
-              "Uri ng likido",
-              "Uri ng hayop"
+              "A bar that helps lift things using a fixed point",
+              "Just a round wheel",
+              "A kind of liquid",
+              "A kind of animal"
             ],
-            "correct_answer": "Bar na tumutulong mag-angat gamit ang fixed point"
+            "correct_answer": "A bar that helps lift things using a fixed point"
           },
           {
-            "question": "Tawag sa fixed point ng lever?",
+            "question": "What is the fixed point of a lever called?",
             "options": [
               "Fulcrum",
               "Axle",
@@ -1335,54 +1335,54 @@
             "correct_answer": "Fulcrum"
           },
           {
-            "question": "Halimbawa ng gas?",
+            "question": "Which is an example of a gas?",
             "options": [
-              "Hangin",
-              "Bato",
-              "Tubig",
-              "Mesa"
+              "Air",
+              "Rock",
+              "Water",
+              "Table"
             ],
-            "correct_answer": "Hangin"
+            "correct_answer": "Air"
           },
           {
-            "question": "Ano ang wheel-and-axle?",
+            "question": "What is a wheel-and-axle?",
             "options": [
-              "Gulong na nakakabit sa rod",
-              "Bar na may fixed point",
-              "Uri ng likido",
-              "Patag na ibabaw"
+              "A wheel attached to a rod",
+              "A bar with a fixed point",
+              "A kind of liquid",
+              "A flat surface"
             ],
-            "correct_answer": "Gulong na nakakabit sa rod"
+            "correct_answer": "A wheel attached to a rod"
           },
           {
-            "question": "Bakit mahalaga ang panahon?",
+            "question": "Why is weather important?",
             "options": [
-              "Tumutulong sa paghahanda",
-              "Walang kabuluhan",
-              "Para lamang libangin",
-              "Hindi nakakatulong"
+              "It helps us get ready",
+              "It is useless",
+              "Just for fun",
+              "It does not help"
             ],
-            "correct_answer": "Tumutulong sa paghahanda"
+            "correct_answer": "It helps us get ready"
           },
           {
-            "question": "Ano ang evaporation?",
+            "question": "What is evaporation?",
             "options": [
-              "Liquid na nagiging gas",
-              "Solid na nagiging liquid",
-              "Gas na nagiging solid",
-              "Walang pagbabago"
+              "A liquid changing into a gas",
+              "A solid changing into a liquid",
+              "A gas changing into a solid",
+              "No change"
             ],
-            "correct_answer": "Liquid na nagiging gas"
+            "correct_answer": "A liquid changing into a gas"
           },
           {
-            "question": "Bakit gumagamit ng simple machine?",
+            "question": "Why do we use simple machines?",
             "options": [
-              "Ginagawang mas madali ang trabaho",
-              "Mas mahirap ang trabaho",
-              "Walang layunin",
-              "Gawing maganda ang bahay"
+              "They make work easier",
+              "They make work harder",
+              "They have no purpose",
+              "To make the house pretty"
             ],
-            "correct_answer": "Ginagawang mas madali ang trabaho"
+            "correct_answer": "They make work easier"
           }
         ]
       },

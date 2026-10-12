@@ -309,7 +309,7 @@
             "correct_answer": "The same balloon and the same weighing scale"
           },
           {
-            "question": "A group testing sugar dissolving plans to use warm water in one cup and cold water in another, both with the exact same amount of asukal (sugar) and the exact same size of cup. Is this a fair test?",
+            "question": "A group testing sugar dissolving plans to use warm water in one cup and cold water in another, both with the exact same amount of sugar and the exact same size of cup. Is this a fair test?",
             "options": [
               "Yes, because only the water temperature differs while other factors are kept the same",
               "No, because the cups are the same size",
@@ -359,7 +359,7 @@
             "correct_answer": "Planning this ahead of time helps the student design a fair procedure and know exactly what to keep the same, instead of realizing too late that other factors were also changing"
           },
           {
-            "question": "A student designs a test comparing how fast paper towels absorb tubig (water) versus tissue paper, using the same amount of water, the same size of paper, and the same pouring method for both. What makes this a strong, fair investigation plan?",
+            "question": "A student designs a test comparing how fast paper towels absorb water versus tissue paper, using the same amount of water, the same size of paper, and the same pouring method for both. What makes this a strong, fair investigation plan?",
             "options": [
               "Only one factor (the type of paper) is different, while everything else that could affect the result is kept the same",
               "It uses two different types of paper, which is enough on its own",
@@ -369,7 +369,7 @@
             "correct_answer": "Only one factor (the type of paper) is different, while everything else that could affect the result is kept the same"
           },
           {
-            "question": "A student proposes the testable question, \"Does the amount of asukal (sugar) affect how sweet a glass of calamansi juice tastes?\" What would be the variable, and what would need to be kept the same?",
+            "question": "A student proposes the testable question, \"Does the amount of sugar affect how sweet a glass of calamansi juice tastes?\" What would be the variable, and what would need to be kept the same?",
             "options": [
               "The variable is the amount of sugar added; the amount of juice, water, and calamansi used should be kept the same",
               "The variable is the type of glass used; nothing else matters",

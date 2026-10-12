@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 7: Wastong Pag-aalaga sa mga Materyales\n\nAlamin natin kung paano tamang ihandle at itapon ang mga materyales! ♻️\n\n## ♻️ Wastong Pag-aalaga sa Materyales\n- **Reuse** — gamitin muli ang mga bagay, tulad ng lalagyan ng biskwit para sa maliliit na gamit.\n- **Recycle** — gawing bago ang mga materyales tulad ng papel, plastik, at salamin.\n- **Wastong Pagtatapon** — itapon ang labis na langis sa basurahan, hindi sa lababo o kanal.\n\n## 🔍 Halimbawa\n- Sa halip na itapon lang ang lumang bote, maaari itong gamiting **plant pot**!\n\n## 💛 Bakit Ito Mahalaga?\n- Ang wastong pag-aalaga sa mga materyales ay nagpoprotekta sa ating kalikasan.\n\nTulungan natin ang kalikasan sa pamamagitan ng wastong pag-aalaga! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 7: Taking Proper Care of Materials\n\nLet's learn how to handle and throw away materials the right way! ♻️\n\n## ♻️ Taking Proper Care of Materials\n- **Reuse** — use things again, like using a biscuit container to keep small things.\n- **Recycle** — make materials like paper, plastic, and glass into something new.\n- **Proper Disposal** — throw extra cooking oil in the trash bin, not in the sink or drain.\n\n## 🔍 Example\n- Instead of just throwing away an old bottle, you can use it as a **plant pot**!\n\n## 💛 Why Is This Important?\n- Taking proper care of materials protects our nature.\n\nLet's help nature by taking proper care of materials! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa paggamit muli ng mga bagay?", "options": ["Reuse", "Recycle", "Reduce", "Sunugin"], "correct_answer": "Reuse" },
-          { "question": "Ano ang tawag sa paggawang bago ng materyales?", "options": ["Recycle", "Reuse", "Sunugin", "Itapon"], "correct_answer": "Recycle" },
-          { "question": "Saan dapat itapon ang labis na langis?", "options": ["Sa basurahan", "Sa lababo", "Sa kanal", "Kahit saan"], "correct_answer": "Sa basurahan" },
-          { "question": "Ano ang maaaring gawin sa lumang bote?", "options": ["Gawing plant pot", "Itapon lamang", "Sunugin", "Walang gagawin"], "correct_answer": "Gawing plant pot" },
-          { "question": "Bakit mahalaga ang wastong pag-aalaga sa materyales?", "options": ["Nagpoprotekta ito sa kalikasan", "Walang dahilan", "Para lang sa marka", "Para mabuhat ang gamit"], "correct_answer": "Nagpoprotekta ito sa kalikasan" },
-          { "question": "Alin ang halimbawa ng materyales na maaaring i-recycle?", "options": ["Papel", "Basurang pagkain", "Usok", "Hangin"], "correct_answer": "Papel" },
-          { "question": "Ano ang epekto ng tamang pagtapon ng basura?", "options": ["Naiingatan ang kalikasan", "Walang epekto", "Nasisira ang kalikasan", "Nagdudulot ng problema"], "correct_answer": "Naiingatan ang kalikasan" }
+          { "question": "What do we call using things again?", "options": ["Reuse", "Recycle", "Reduce", "Burn it"], "correct_answer": "Reuse" },
+          { "question": "What do we call making materials into something new?", "options": ["Recycle", "Reuse", "Burn it", "Throw it away"], "correct_answer": "Recycle" },
+          { "question": "Where should extra cooking oil be thrown?", "options": ["In the trash bin", "In the sink", "In the drain", "Anywhere"], "correct_answer": "In the trash bin" },
+          { "question": "What can you do with an old bottle?", "options": ["Make it a plant pot", "Just throw it away", "Burn it", "Do nothing"], "correct_answer": "Make it a plant pot" },
+          { "question": "Why is it important to take proper care of materials?", "options": ["It protects nature", "There is no reason", "Just for grades", "To carry things"], "correct_answer": "It protects nature" },
+          { "question": "Which is an example of a material that can be recycled?", "options": ["Paper", "Food waste", "Smoke", "Air"], "correct_answer": "Paper" },
+          { "question": "What happens when we throw trash away properly?", "options": ["Nature is protected", "Nothing happens", "Nature is harmed", "It causes problems"], "correct_answer": "Nature is protected" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Reuse** = gamitin muli | **Recycle** = gawing bago\n- Itapon ang labis na langis sa basurahan\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Reuse** = use again | **Recycle** = make into something new\n- Throw extra cooking oil in the trash bin\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang tawag sa paggamit muli ng mga bagay?", "options": ["Reuse", "Recycle", "Reduce", "Sunugin"], "correct_answer": "Reuse" },
-          { "question": "Ano ang tawag sa paggawang bago ng materyales?", "options": ["Recycle", "Reuse", "Sunugin", "Itapon"], "correct_answer": "Recycle" },
-          { "question": "Saan dapat itapon ang labis na langis?", "options": ["Sa basurahan", "Sa lababo", "Sa kanal", "Kahit saan"], "correct_answer": "Sa basurahan" },
-          { "question": "Bakit mahalaga ang wastong pag-aalaga sa materyales?", "options": ["Nagpoprotekta ito sa kalikasan", "Walang dahilan", "Para lang sa marka", "Para mabuhat ang gamit"], "correct_answer": "Nagpoprotekta ito sa kalikasan" },
-          { "question": "Alin ang halimbawa ng materyales na maaaring i-recycle?", "options": ["Papel", "Basurang pagkain", "Usok", "Hangin"], "correct_answer": "Papel" }
+          { "question": "What do we call using things again?", "options": ["Reuse", "Recycle", "Reduce", "Burn it"], "correct_answer": "Reuse" },
+          { "question": "What do we call making materials into something new?", "options": ["Recycle", "Reuse", "Burn it", "Throw it away"], "correct_answer": "Recycle" },
+          { "question": "Where should extra cooking oil be thrown?", "options": ["In the trash bin", "In the sink", "In the drain", "Anywhere"], "correct_answer": "In the trash bin" },
+          { "question": "Why is it important to take proper care of materials?", "options": ["It protects nature", "There is no reason", "Just for grades", "To carry things"], "correct_answer": "It protects nature" },
+          { "question": "Which is an example of a material that can be recycled?", "options": ["Paper", "Food waste", "Smoke", "Air"], "correct_answer": "Paper" }
         ]
       },
       "Computer": {

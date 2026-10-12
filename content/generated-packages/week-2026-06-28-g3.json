@@ -42,15 +42,15 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Science — Week 2: Mga Kasanayan at Kagamitang Pang-Agham\n\nMatuto tayo ng mga kasanayan sa paggamit ng kagamitang pang-agham! 🔬\n\n## 🧰 Kagamitang Pang-Agham\n- **Ruler** — sukat ng haba\n- **Gunting** — pangputol\n- **Balloon** — para sa mga eksperimento tungkol sa hangin\n- **Modeling clay** — panggawa ng modelo\n\n## 🔍 Mga Kasanayan sa Agham\n- **Pagtatanong** — kailangan magtanong ang siyentipiko upang matuto.\n- **Paggalaw ng materyales (tinkering)** — pagsubok at paglalaro gamit ang kagamitan para matuklasan kung paano ito gumagana.\n\n## 🔬 Halimbawa\n- Gamitin ang balloon para malaman kung paano gumagalaw ang hangin sa loob nito.\n\nMahusay ang mga batang siyentipiko na gumagamit ng tamang kagamitan! 🌟",
+        "summary_markdown": "# 🔬 Science — Week 2: Science Skills and Science Tools\n\nLet's learn the skills for using science tools! 🔬\n\n## 🧰 Science Tools\n- **Ruler** — measures length\n- **Scissors** — for cutting\n- **Balloon** — for experiments about air\n- **Modeling clay** — for making models\n\n## 🔍 Science Skills\n- **Asking questions** — a scientist needs to ask questions to learn.\n- **Playing with materials (tinkering)** — trying things out and playing with tools to find out how they work.\n\n## 🔬 Example\n- Use a balloon to find out how air moves inside it.\n\nGreat young scientists use the right tools! 🌟",
         "quiz": [
-          { "question": "Ano ang gamit ng gunting sa agham?", "options": ["Pangputol", "Pansukat", "Pandikit", "Panglinis"], "correct_answer": "Pangputol" },
-          { "question": "Ano ang ginagamit para sukatin ang haba?", "options": ["Ruler", "Balloon", "Gunting", "Clay"], "correct_answer": "Ruler" },
-          { "question": "Ano ang tawag sa pagsubok at paglalaro gamit ang kagamitan?", "options": ["Tinkering", "Pagtulog", "Pagkain", "Paglalakad"], "correct_answer": "Tinkering" },
-          { "question": "Bakit kailangan magtanong ang isang siyentipiko?", "options": ["Upang matuto", "Upang mahirapan lamang", "Walang dahilan", "Upang makalimutan"], "correct_answer": "Upang matuto" },
-          { "question": "Ano ang gamit ng modeling clay?", "options": ["Panggawa ng modelo", "Pansukat", "Pangputol", "Pandikit"], "correct_answer": "Panggawa ng modelo" },
-          { "question": "Ano ang magagamit natin para malaman kung paano gumagalaw ang hangin?", "options": ["Balloon", "Ruler", "Gunting", "Lapis"], "correct_answer": "Balloon" },
-          { "question": "Alin ang isang kasanayang pang-agham?", "options": ["Pagtatanong", "Pagtulog", "Paglalaro lang", "Panonood ng TV"], "correct_answer": "Pagtatanong" }
+          { "question": "What are scissors used for in science?", "options": ["Cutting", "Measuring", "Sticking things", "Cleaning"], "correct_answer": "Cutting" },
+          { "question": "What is used to measure length?", "options": ["Ruler", "Balloon", "Scissors", "Clay"], "correct_answer": "Ruler" },
+          { "question": "What do we call trying things out and playing with tools?", "options": ["Tinkering", "Sleeping", "Eating", "Walking"], "correct_answer": "Tinkering" },
+          { "question": "Why does a scientist need to ask questions?", "options": ["To learn", "Just to make it hard", "There is no reason", "To forget"], "correct_answer": "To learn" },
+          { "question": "What is modeling clay used for?", "options": ["Making models", "Measuring", "Cutting", "Sticking things"], "correct_answer": "Making models" },
+          { "question": "What can we use to find out how air moves?", "options": ["Balloon", "Ruler", "Scissors", "Pencil"], "correct_answer": "Balloon" },
+          { "question": "Which one is a science skill?", "options": ["Asking questions", "Sleeping", "Just playing", "Watching TV"], "correct_answer": "Asking questions" }
         ]
       }
     },
@@ -136,13 +136,13 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🔬 Biyernes — Lingguhang Pagsasanay: Science\n\nMabilis na balikan!\n\n- **Ruler** — pansukat | **Gunting** — pangputol\n- **Tinkering** — pagsubok at paglalaro gamit ang kagamitan\n\nMahusay kang batang siyentipiko! 🌟",
+        "summary_markdown": "# 🔬 Friday — Weekly Practice: Science\n\nA quick review!\n\n- **Ruler** — for measuring | **Scissors** — for cutting\n- **Tinkering** — trying things out and playing with tools\n\nYou are a great young scientist! 🌟",
         "quiz": [
-          { "question": "Ano ang gamit ng gunting sa agham?", "options": ["Pangputol", "Pansukat", "Pandikit", "Panglinis"], "correct_answer": "Pangputol" },
-          { "question": "Ano ang ginagamit para sukatin ang haba?", "options": ["Ruler", "Balloon", "Gunting", "Clay"], "correct_answer": "Ruler" },
-          { "question": "Ano ang tawag sa pagsubok at paglalaro gamit ang kagamitan?", "options": ["Tinkering", "Pagtulog", "Pagkain", "Paglalakad"], "correct_answer": "Tinkering" },
-          { "question": "Bakit kailangan magtanong ang isang siyentipiko?", "options": ["Upang matuto", "Upang mahirapan lamang", "Walang dahilan", "Upang makalimutan"], "correct_answer": "Upang matuto" },
-          { "question": "Ano ang gamit ng modeling clay?", "options": ["Panggawa ng modelo", "Pansukat", "Pangputol", "Pandikit"], "correct_answer": "Panggawa ng modelo" }
+          { "question": "What are scissors used for in science?", "options": ["Cutting", "Measuring", "Sticking things", "Cleaning"], "correct_answer": "Cutting" },
+          { "question": "What is used to measure length?", "options": ["Ruler", "Balloon", "Scissors", "Clay"], "correct_answer": "Ruler" },
+          { "question": "What do we call trying things out and playing with tools?", "options": ["Tinkering", "Sleeping", "Eating", "Walking"], "correct_answer": "Tinkering" },
+          { "question": "Why does a scientist need to ask questions?", "options": ["To learn", "Just to make it hard", "There is no reason", "To forget"], "correct_answer": "To learn" },
+          { "question": "What is modeling clay used for?", "options": ["Making models", "Measuring", "Cutting", "Sticking things"], "correct_answer": "Making models" }
         ]
       },
       "Computer": {

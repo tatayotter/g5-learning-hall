@@ -381,7 +381,7 @@
         ]
       },
       "Science": {
-        "summary_markdown": "# 🌱 Science — Plants in Our Community\n\nWelcome to Term 2, Grade 2! Let's explore the plants around us. 🌿\n\n## 🌳 Types of Plants We See\n- **Trees** — tall with a thick trunk (mango, narra, acacia)\n- **Shrubs** — smaller, bushy, many stems (gumamela, santan)\n- **Vegetables** — grown for eating (kangkong, talong, kamatis)\n- **Flowers** — grown for their bright blooms (sampaguita, rosal)\n\n## 🌿 The Basic Parts of a Plant\n| Part | Job |\n|---|---|\n| **Root** | holds the plant in the ground; takes in **water** and nutrients |\n| **Stem** | carries water up; **holds up** the plant |\n| **Leaf** | makes **food** using sunlight |\n| **Flower** | attracts insects to help make **seeds** |\n| **Fruit** | protects the **seeds** inside |\n| **Seed** | grows into a **new** plant |\n\n## 🧠 Worked Example 1\n*Why do plants need roots?*\n- Step 1: Roots grow **underground**.\n- Step 2: They **soak up water** from the soil like a sponge.\n- Step 3: They also **hold the plant steady** so wind doesn't blow it over. ✅\n\n## 🧠 Worked Example 2\n*A mango tree has fruit with a seed inside. What is the fruit's job?*\n- The **fruit** protects the **seed** while it grows, and helps it travel (animals eat the fruit and drop the seed elsewhere). ✅\n\n## 🔍 Look Around You\n- The **kangkong** in your ulam has **leaves** you eat\n- The **kamatis** you slice is actually a **fruit** with seeds inside\n- The **sampaguita** flower makes a sweet smell to attract **bees**\n\n## 💧 What Plants Need to Grow\n- **Sunlight** — for leaves to make food\n- **Water** — taken in by roots\n- **Air** — plants breathe too!\n- **Good soil** — full of nutrients\n\nGreat plant explorer! 🌸",
+        "summary_markdown": "# 🌱 Science — Plants in Our Community\n\nWelcome to Term 2, Grade 2! Let's explore the plants around us. 🌿\n\n## 🌳 Types of Plants We See\n- **Trees** — tall with a thick trunk (mango, narra, acacia)\n- **Shrubs** — smaller, bushy, many stems (gumamela, santan)\n- **Vegetables** — grown for eating (kangkong, eggplant, tomato)\n- **Flowers** — grown for their bright blooms (sampaguita, rosal)\n\n## 🌿 The Basic Parts of a Plant\n| Part | Job |\n|---|---|\n| **Root** | holds the plant in the ground; takes in **water** and nutrients |\n| **Stem** | carries water up; **holds up** the plant |\n| **Leaf** | makes **food** using sunlight |\n| **Flower** | attracts insects to help make **seeds** |\n| **Fruit** | protects the **seeds** inside |\n| **Seed** | grows into a **new** plant |\n\n## 🧠 Worked Example 1\n*Why do plants need roots?*\n- Step 1: Roots grow **underground**.\n- Step 2: They **soak up water** from the soil like a sponge.\n- Step 3: They also **hold the plant steady** so wind doesn't blow it over. ✅\n\n## 🧠 Worked Example 2\n*A mango tree has fruit with a seed inside. What is the fruit's job?*\n- The **fruit** protects the **seed** while it grows, and helps it travel (animals eat the fruit and drop the seed elsewhere). ✅\n\n## 🔍 Look Around You\n- The **kangkong** in your meal has **leaves** you eat\n- The **tomato** you slice is actually a **fruit** with seeds inside\n- The **sampaguita** flower makes a sweet smell to attract **bees**\n\n## 💧 What Plants Need to Grow\n- **Sunlight** — for leaves to make food\n- **Water** — taken in by roots\n- **Air** — plants breathe too!\n- **Good soil** — full of nutrients\n\nGreat plant explorer! 🌸",
         "quiz": [
           {
             "question": "Which plant part holds the plant in the ground?",
@@ -464,7 +464,7 @@
             "correct_answer": "Sunlight, water, and air"
           },
           {
-            "question": "The kamatis you slice for salad is actually which plant part?",
+            "question": "The tomato you slice for salad is actually which plant part?",
             "options": [
               "Fruit",
               "Root",
@@ -497,7 +497,7 @@
             "question": "Which vegetable's leaves do we usually eat?",
             "options": [
               "Kangkong",
-              "Kamatis",
+              "Tomato",
               "Sampaguita",
               "Narra"
             ],
