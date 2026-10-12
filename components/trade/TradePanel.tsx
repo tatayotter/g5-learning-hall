@@ -82,7 +82,11 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
     setThreads(await fetchMyTradeThreads(userId));
   }, [userId]);
 
-  useEffect(() => { loadThreads(); }, [loadThreads]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchMyTradeThreads(userId).then(t => { if (!cancelled) setThreads(t); });
+    return () => { cancelled = true; };
+  }, [userId]);
 
   const isActive = (t: TradeThread) => t.trades[t.trades.length - 1].status === 'pending';
   const activeThreads = threads.filter(isActive);
@@ -163,6 +167,8 @@ export default function TradePanel({ userId, userMonsters, onTradeCompleted, onT
 
       {tab === 'new' && (
         <NewTradeFlow
+          // A different preset player starts the flow over for that player.
+          key={presetTarget?.id ?? 'search'}
           userId={userId}
           userMonsters={userMonsters}
           initialTarget={presetTarget ?? null}
@@ -339,8 +345,11 @@ function CounterOfferFlow({
   );
 }
 
+const NO_RESULTS: PlayerSearchResult[] = [];
+const NO_MONSTERS: UserMonster[] = [];
+
 function NewTradeFlow({
-  userId, userMonsters, onCreated, initialTarget,
+  userMonsters, onCreated, initialTarget,
 }: {
   userId: UserId;
   userMonsters: UserMonster[];
@@ -348,30 +357,40 @@ function NewTradeFlow({
   initialTarget?: PlayerSearchResult | null;
 }) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<PlayerSearchResult[]>([]);
-  const [target, setTarget] = useState<PlayerSearchResult | null>(null);
-  const [theirMonsters, setTheirMonsters] = useState<UserMonster[]>([]);
+  // Search results and the target's curios are tagged with what they were
+  // fetched for, so a newer query/target never shows stale ones.
+  const [search, setSearch] = useState<{ query: string; results: PlayerSearchResult[] } | null>(null);
+  const results = query.trim() && search?.query === query ? search.results : NO_RESULTS;
+  // Arriving here via a map sprite's "Trade" button (see PlayerStatsPopup)
+  // skips straight past the player search.
+  const [target, setTarget] = useState<PlayerSearchResult | null>(initialTarget ?? null);
+  const [monstersFor, setMonstersFor] = useState<{ targetId: string; monsters: UserMonster[] } | null>(null);
+  const theirMonsters = target && monstersFor?.targetId === target.id ? monstersFor.monsters : NO_MONSTERS;
 
   useEffect(() => {
-    if (!query.trim()) { setResults([]); return; }
-    const t = setTimeout(async () => setResults(await searchPlayers(query)), 250);
-    return () => clearTimeout(t);
+    if (!query.trim()) return;
+    let cancelled = false;
+    const t = setTimeout(async () => {
+      const found = await searchPlayers(query);
+      if (!cancelled) setSearch({ query, results: found });
+    }, 250);
+    return () => { cancelled = true; clearTimeout(t); };
   }, [query]);
 
-  const selectTarget = async (p: PlayerSearchResult) => {
-    setTarget(p);
-    setResults([]);
-    setQuery('');
-    setTheirMonsters(await fetchTradeableMonsters(p.id));
-  };
-
-  // Arriving here via a map sprite's "Trade" button (see PlayerStatsPopup) —
-  // skip straight past the player search. Intentionally runs once: this
-  // mirrors selectTarget, but only for the id the popup handed us.
+  const targetId = target?.id;
   useEffect(() => {
-    if (initialTarget) selectTarget(initialTarget);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialTarget?.id]);
+    if (!targetId) return;
+    let cancelled = false;
+    fetchTradeableMonsters(targetId).then(monsters => {
+      if (!cancelled) setMonstersFor({ targetId, monsters });
+    });
+    return () => { cancelled = true; };
+  }, [targetId]);
+
+  const selectTarget = (p: PlayerSearchResult) => {
+    setTarget(p);
+    setQuery('');
+  };
 
   if (!target) {
     return (
@@ -416,7 +435,6 @@ function NewTradeFlow({
           });
           if (error) return error;
           setTarget(null);
-          setTheirMonsters([]);
           onCreated();
           return null;
         }}
@@ -495,7 +513,7 @@ function OfferBuilder({
       </div>
 
       <div className="rounded-lg bg-amber-50 border border-amber-300 px-4 py-3 text-sm text-amber-800">
-        Estimated fee you'll pay if accepted: <span className="font-bold">{fee} gold</span>
+        Estimated fee you&apos;ll pay if accepted: <span className="font-bold">{fee} gold</span>
         {' '}(250 per curio moved + 8% of any gold you send, min 1). Final fee is confirmed by the server when the trade is accepted.
       </div>
 

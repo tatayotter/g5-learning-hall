@@ -20,8 +20,9 @@ function pickSessionBots(): typeof BOT_PROFILES {
 }
 
 export function useBotPresence(): Record<string, OnlinePlayer> {
-  // Fixed bot subset for this session
-  const sessionBots = useMemo(pickSessionBots, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Fixed bot subset for this session (lazy state init runs exactly once;
+  // useMemo is only a cache hint and may recompute).
+  const [sessionBots] = useState(pickSessionBots);
 
   // Positions keyed by bot id — each bot moves independently
   const [positions, setPositions] = useState<Record<string, { x: number; y: number }>>(() =>

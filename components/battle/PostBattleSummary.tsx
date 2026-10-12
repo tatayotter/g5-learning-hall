@@ -5,7 +5,7 @@
 // button the player clicks to leave. Used by both LiveBattleScreen (PVP) and
 // the solo BattleScreen (NPC trainers + wild encounters) so every battle mode
 // in the game ends the same way instead of PVP alone getting a proper recap.
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { ActiveBattleMonster, MonsterImage } from '@/components/battle/shared';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle } from '@/components/GameButton';
 import { Nail } from '@/components/battle/MonsterHpPanel';
@@ -152,10 +152,11 @@ export default function PostBattleSummary({ outcome, left, right, log, expEarned
   if (expEarned) rewards.push({ ...XP_REWARD, label: 'Curio EXP', value: expEarned, icon: <XpIcon /> });
   if (goldEarned) rewards.push({ ...GOLD_REWARD, value: goldEarned, icon: <GoldIcon /> });
 
-  const encouragement = useMemo(() => {
+  // Picked once per mount — the summary is shown for a single finished battle.
+  const [encouragement] = useState(() => {
     const pool = outcome === 'draw' ? DRAW_ENCOURAGEMENT : DEFEAT_ENCOURAGEMENT;
     return pool[Math.floor(Math.random() * pool.length)];
-  }, [outcome]);
+  });
 
   // A loss/draw gets its warm nudge; a win shows the free-text reward line only
   // when the caller had no numeric rewards to put in the tiles.

@@ -84,18 +84,19 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
   ]);
 
   const defeatedByUser = new Map<string, number>();
-  (battleStateRes.data || []).forEach((row: any) => {
-    defeatedByUser.set(row.user_id, (row.defeated_trainers || []).length);
+  (battleStateRes.data || []).forEach((row) => {
+    // Distinct: older rematch wins listed the same trainer more than once.
+    defeatedByUser.set(row.user_id, new Set(row.defeated_trainers || []).size);
   });
 
   // Traded-in curios are excluded from every leaderboard signal below — rank
   // (and the team/collection shown for it) should reflect earned progress,
   // not trading/purchasing power. user_caught_monsters (the dex) is never
   // touched by trading, so it's unaffected.
-  const earnedMonsters = (monstersRes.data || []).filter((row: any) => row.acquired_via !== 'traded');
+  const earnedMonsters = (monstersRes.data || []).filter((row) => row.acquired_via !== 'traded');
 
   const teamByUser = new Map<string, LeaderboardTeamMonster[]>();
-  earnedMonsters.forEach((row: any) => {
+  earnedMonsters.forEach((row) => {
     if (row.slot == null) return; // benched, not part of the active team
     const list = teamByUser.get(row.user_id) || [];
     list.push({ monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname });
@@ -110,8 +111,8 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
     set.add(monsterId);
     speciesByUser.set(userId, set);
   };
-  earnedMonsters.forEach((row: any) => addSpecies(row.user_id, row.monster_id));
-  (caughtRes.data || []).forEach((row: any) => addSpecies(row.user_id, row.monster_id));
+  earnedMonsters.forEach((row) => addSpecies(row.user_id, row.monster_id));
+  (caughtRes.data || []).forEach((row) => addSpecies(row.user_id, row.monster_id));
 
   // Highest-level monster owned — active team plus bench, mirroring the same
   // union used for monstersCollected above.
@@ -122,18 +123,18 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
       topMonsterByUser.set(userId, monster);
     }
   };
-  earnedMonsters.forEach((row: any) =>
+  earnedMonsters.forEach((row) =>
     considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
-  (caughtRes.data || []).forEach((row: any) =>
+  (caughtRes.data || []).forEach((row) =>
     considerMonster(row.user_id, { monster_id: row.monster_id, monster_level: row.monster_level, nickname: row.nickname }));
 
   const statsByUser = new Map<string, { level: number; gold: number }>();
-  (progressRes.data || []).forEach((row: any) => {
+  (progressRes.data || []).forEach((row) => {
     statsByUser.set(row.user_id, { level: row.level ?? 1, gold: row.gold ?? 0 });
   });
 
   const questionsByUser = new Map<string, number>();
-  (questionsRes.data || []).forEach((row: any) => {
+  (questionsRes.data || []).forEach((row) => {
     questionsByUser.set(row.user_id, (questionsByUser.get(row.user_id) || 0) + 1);
   });
 
@@ -142,7 +143,7 @@ async function computeLeaderboard(): Promise<LeaderboardEntry[]> {
   // their own trainer/wild ids as `opponent`, which never collide with a
   // real user id, so this cleanly separates the two without a schema change.
   const winsByUser = new Map<string, number>();
-  (battleLogRes.data || []).forEach((row: any) => {
+  (battleLogRes.data || []).forEach((row) => {
     if (!ids.includes(row.opponent)) return;
     winsByUser.set(row.user_id, (winsByUser.get(row.user_id) || 0) + 1);
   });
@@ -221,7 +222,7 @@ export interface ReactionCounts {
 export async function fetchReactionCounts(): Promise<ReactionCounts> {
   const { data } = await supabase.from('leaderboard_reactions').select('to_user_id');
   const counts: ReactionCounts = {};
-  (data || []).forEach((row: any) => {
+  (data || []).forEach((row) => {
     counts[row.to_user_id] = (counts[row.to_user_id] || 0) + 1;
   });
   return counts;

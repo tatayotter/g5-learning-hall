@@ -5,11 +5,13 @@
 // device for offline viewing (lib/offlineReads.ts).
 import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { cachedRead, readingOffline } from '@/lib/offlineReads';
+import type { UserMonster } from '@/components/battle/shared';
+import type { BattleState, CaughtMonster } from '@/components/monster/types';
 
 export interface CurioCollection {
-  userMonsters: any[];
-  battleState: any | null;
-  caughtMonsters: any[];
+  userMonsters: UserMonster[];
+  battleState: BattleState | null;
+  caughtMonsters: CaughtMonster[];
 }
 
 export async function fetchCurioCollection(userId: string): Promise<CurioCollection> {

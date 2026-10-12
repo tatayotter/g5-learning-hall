@@ -3,6 +3,7 @@
 // realtime hooks (hooks/useLiveBattleInbox.ts, hooks/useLiveBattle.ts) thin —
 // they own the channel/broadcast wiring, this file owns the DB shape.
 import { supabase } from '@/lib/supabase';
+import type { ActiveBattleMonster } from '@/components/battle/shared';
 import { trackEvent } from '@/lib/analytics';
 
 export type LiveBattleStatus =
@@ -20,8 +21,8 @@ export interface LiveBattleRow {
   channel_name: string;
   round_number: number;
   round_deadline_at: string | null;
-  challenger_team: any[];
-  opponent_team: any[];
+  challenger_team: ActiveBattleMonster[];
+  opponent_team: ActiveBattleMonster[];
   challenger_hp: Record<string, number>;
   opponent_hp: Record<string, number>;
   winner_id: string | null;
@@ -44,10 +45,10 @@ function channelNameFor(battleId: string): string {
 export async function createInvite(
   challengerId: string,
   opponentId: string,
-  challengerTeam: any[],
-  opponentTeam: any[],
+  challengerTeam: ActiveBattleMonster[],
+  opponentTeam: ActiveBattleMonster[],
 ): Promise<LiveBattleRow | null> {
-  const initialHp = (team: any[]) =>
+  const initialHp = (team: ActiveBattleMonster[]) =>
     Object.fromEntries(team.map((m, i) => [i, m.currentHp ?? m.maxHp]));
 
   const { data, error } = await supabase

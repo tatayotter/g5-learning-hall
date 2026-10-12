@@ -5,6 +5,7 @@
 'use client';
 
 import { UserId } from '@/lib/userSession';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { NpcTrainer } from '@/lib/monsterConfig';
 import { InventoryMap } from '@/lib/inventory';
 import { ActiveBattleMonster, type BattleQuestionProps } from '@/components/battle/shared';
@@ -19,14 +20,14 @@ type LiveBattleInbox = ReturnType<typeof useLiveBattleInbox>;
 interface BattleViewsProps {
   view: GuildView;
   userId: string;
-  questions: any[];
+  questions: BattleQuestion[];
   // Device grading for an offline trainer battle (lib/offlineTrainers.ts); NPC battles only.
   npcGradeOverride?: BattleQuestionProps['gradeOverride'];
   // The hidden battle log (lib/battleLog.ts) of an offline trainer battle.
   onNpcBattleEvent?: BattleLogger;
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
-  handleQuestionsAnswered: (usedQuestions: any[]) => void;
+  handleQuestionsAnswered: (usedQuestions: BattleQuestion[]) => void;
   buildPlayerTeam: () => ActiveBattleMonster[];
 
   // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —

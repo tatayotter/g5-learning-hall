@@ -49,17 +49,21 @@ export function useBossFightProgress(userId: string, grade: number, term: number
   const [sealedCurioClaimed, setSealedCurioClaimed] = useState(false);
   const [endsAt, setEndsAt] = useState<Date | null>(null);
   const [bossFightsEnabled, setBossFightsEnabled] = useState(false);
-  const [loading, setLoading] = useState(true);
+  // Loading until data for this exact user/grade/term lands, or while a
+  // manual refresh is in flight.
+  const progressKey = `${userId}|${grade}|${term}`;
+  const [loadedKey, setLoadedKey] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
+  const loading = refreshing || loadedKey !== progressKey;
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    // The term's boss questions live on the device (lib/bossQuestionBank.ts): a
-    // cached copy answers the roster/readiness counts at once while the sync
-    // checks for changes in the background, even before the event is switched on.
+  // The term's boss questions live on the device (lib/bossQuestionBank.ts): a
+  // cached copy answers the roster/readiness counts at once while the sync
+  // checks for changes in the background, even before the event is switched on.
+  const fetchAll = useCallback(() => {
     const isBossGrade = !!getScheduleForGrade(grade);
     const cachedBank = isBossGrade ? readBossBank(grade, term) : null;
     const bankSync = isBossGrade ? syncBossBank(grade, term) : Promise.resolve(null);
-    const [statusRes, defeatsRes, bank, rewardRes, claimRes] = await Promise.all([
+    return Promise.all([
       supabase.from('boss_fights_status').select('boss_fights_enabled').maybeSingle(),
       supabase.from('boss_persona_defeats').select('subject')
         .eq('user_id', userId).eq('grade', grade).eq('term', term),
@@ -68,24 +72,43 @@ export function useBossFightProgress(userId: string, grade: number, term: number
         .eq('grade', grade).eq('term', term).maybeSingle(),
       supabase.from('boss_gauntlet_claims').select('id')
         .eq('user_id', userId).eq('grade', grade).eq('term', term).maybeSingle(),
-    ]);
-    const applyBank = (b: typeof bank) => {
-      setPoolCounts(b ? bankPoolCounts(b) : {});
-      const lastWeek = b ? bankLatestWeek(b) : null;
-      setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
-    };
+    ]).then(results => ({ results, cachedBank, bankSync }));
+  }, [userId, grade, term]);
+
+  const applyBank = useCallback((b: ReturnType<typeof readBossBank>) => {
+    setPoolCounts(b ? bankPoolCounts(b) : {});
+    const lastWeek = b ? bankLatestWeek(b) : null;
+    setEndsAt(lastWeek ? fridayEnd(lastWeek) : null);
+  }, []);
+
+  // isCurrent: false once this load is stale, so a late background sync
+  // never overwrites a newer user/grade/term.
+  const apply = useCallback((
+    { results: [statusRes, defeatsRes, bank, rewardRes, claimRes], cachedBank, bankSync }: Awaited<ReturnType<typeof fetchAll>>,
+    isCurrent: () => boolean,
+  ) => {
     setBossFightsEnabled(!!statusRes.data?.boss_fights_enabled);
     setDefeated(new Set((defeatsRes.data || []).map(r => r.subject as string)));
     applyBank(bank);
-    if (cachedBank) bankSync.then(fresh => { if (fresh && fresh !== cachedBank) applyBank(fresh); });
+    if (cachedBank) bankSync.then(fresh => { if (isCurrent() && fresh && fresh !== cachedBank) applyBank(fresh); });
     setSealedCurio(rewardRes.data
       ? { monsterId: rewardRes.data.reward_monster_id as string, loreMarkdown: (rewardRes.data.reward_lore_markdown as string | null) ?? null }
       : null);
     setSealedCurioClaimed(!!claimRes.data);
-    setLoading(false);
-  }, [userId, grade, term]);
+    setLoadedKey(progressKey);
+    setRefreshing(false);
+  }, [progressKey, applyBank]);
 
-  useEffect(() => { load(); }, [load]);
+  useEffect(() => {
+    let cancelled = false;
+    fetchAll().then(result => { if (!cancelled) apply(result, () => !cancelled); });
+    return () => { cancelled = true; };
+  }, [fetchAll, apply]);
+
+  const refresh = useCallback(() => {
+    setRefreshing(true);
+    fetchAll().then(result => apply(result, () => true));
+  }, [fetchAll, apply]);
 
   const claimSealedCurio = useCallback(async () => {
     const { data, error } = await supabase.rpc('claim_boss_gauntlet_reward', {
@@ -104,6 +127,6 @@ export function useBossFightProgress(userId: string, grade: number, term: number
   return {
     defeated, personas, poolCounts, total: personas.length,
     sealedCurio, sealedCurioClaimed, endsAt,
-    bossFightsEnabled, loading, refresh: load, claimSealedCurio,
+    bossFightsEnabled, loading, refresh, claimSealedCurio,
   };
 }

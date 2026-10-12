@@ -34,30 +34,26 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
 
   // Referral code state — pre-filled from ?ref= URL param if provided
   const [referralCode, setReferralCode] = useState(initialReferralCode ?? '');
-  const [referralState, setReferralState] = useState<
-    'idle' | 'checking' | 'valid' | 'invalid'
-  >('idle');
-  const [referralReferrerName, setReferralReferrerName] = useState('');
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Result of the last finished check, tagged with the code it was for; the
+  // displayed state is derived from it so a newer code reads as "checking".
+  const [referralCheck, setReferralCheck] = useState<{ code: string; referrerName: string | null } | null>(null);
+  const trimmedReferral = referralCode.trim();
+  const referralState: 'idle' | 'checking' | 'valid' | 'invalid' =
+    trimmedReferral.length < 4 ? 'idle'
+    : referralCheck?.code !== trimmedReferral ? 'checking'
+    : referralCheck.referrerName !== null ? 'valid' : 'invalid';
+  const referralReferrerName = referralState === 'valid' ? referralCheck?.referrerName ?? '' : '';
 
   // Live-validate referral code with debounce
   useEffect(() => {
     const code = referralCode.trim();
-    if (!code) { setReferralState('idle'); return; }
-    if (code.length < 4) { setReferralState('idle'); return; }
-
-    setReferralState('checking');
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-    debounceRef.current = setTimeout(async () => {
+    if (code.length < 4) return;
+    let cancelled = false;
+    const timer = setTimeout(async () => {
       const result = await validateReferralCode(code);
-      if (result) {
-        setReferralState('valid');
-        setReferralReferrerName(result.referrerUsername);
-      } else {
-        setReferralState('invalid');
-        setReferralReferrerName('');
-      }
+      if (!cancelled) setReferralCheck({ code, referrerName: result ? result.referrerUsername : null });
     }, 500);
+    return () => { cancelled = true; clearTimeout(timer); };
   }, [referralCode]);
 
   const storyPrefetched = useRef(false);
@@ -144,8 +140,8 @@ export default function ChildSignupForm({ source, initialReferralCode }: ChildSi
       saveOfflineProfile(USERS[result.id]);
       await Promise.all([recordLastLogin(result.id), rememberHeroOnDevice(result.id, data.pin)]);
       router.push('/');
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
+    } catch (err) {
+      setError((err instanceof Error && err.message) || 'Something went wrong. Please try again.');
       setTurnstileToken('');
       setTurnstileKey((k) => k + 1);
     } finally {

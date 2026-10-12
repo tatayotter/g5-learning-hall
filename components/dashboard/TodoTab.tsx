@@ -5,6 +5,7 @@
 'use client';
 
 import { UserId, gradeToNumber, USERS } from '@/lib/userSession';
+import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { useWeeklyData } from '@/hooks/useWeeklyData';
 import { GuildKey } from '@/lib/dailyChecklist';
 import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -19,7 +20,7 @@ interface TodoTabProps {
   currentDayName: string;
   // Friday-collapsed-to-"Weekly Review" package data, same shape DailyChecklist
   // already expects (see Dashboard.tsx's mainQuestPackageData memo).
-  mainQuestPackageData: any;
+  mainQuestPackageData: WeeklyPackageData;
   journalLogs: Record<string, unknown> | undefined | null;
   masteredQuizzes: string[] | undefined;
   applyGoldDelta: UseWeeklyDataReturn['applyGoldDelta'];
@@ -75,7 +76,7 @@ export default function TodoTab({
           </span>
         )}
       </div>
-      <p className="text-gray-500 mb-6">Clear today's checklist to claim your daily bonus gold.</p>
+      <p className="text-gray-500 mb-6">Clear today&apos;s checklist to claim your daily bonus gold.</p>
       <DailyChecklist
         userId={activeUserId}
         grade={gradeToNumber(USERS[activeUserId]?.grade)}

@@ -6,7 +6,8 @@
 // renders the other parent pages instead. Not linked anywhere in the real app.
 // Patching the shared client is safe here only because this route never
 // mounts alongside real app screens.
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useClientValue, useHasMounted } from '@/hooks/useClientValue';
 import { format, subDays } from 'date-fns';
 import { supabase } from '@/lib/supabase';
 import ParentDashboardPage from '@/app/parent-dashboard/page';
@@ -91,14 +92,16 @@ function installStubs(plan: 'premium' | 'free') {
 }
 
 export default function DevParentDashboardPage() {
-  const [page, setPage] = useState<PageKey | null>(null);
+  const requested = useClientValue(() => new URLSearchParams(window.location.search).get('page'), null);
+  const page: PageKey = requested && requested in PAGES ? (requested as PageKey) : 'dashboard';
+  // Rendering waits for the client pass; the hydration commit's effect below
+  // has installed the stubs by then, before the real page mounts and fetches.
+  const mounted = useHasMounted();
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    installStubs(params.get('plan') === 'free' ? 'free' : 'premium');
-    const requested = params.get('page') as PageKey | null;
-    setPage(requested && requested in PAGES ? requested : 'dashboard');
+    const plan = new URLSearchParams(window.location.search).get('plan');
+    installStubs(plan === 'free' ? 'free' : 'premium');
   }, []);
-  if (!page) return null;
+  if (!mounted) return null;
   const Page = PAGES[page];
   return <Page />;
 }

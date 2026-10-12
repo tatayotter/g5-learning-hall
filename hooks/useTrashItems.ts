@@ -57,10 +57,13 @@ export function useTrashItems(
   const timerRef          = useRef<ReturnType<typeof setTimeout>  | null>(null);
   const tickRef           = useRef<ReturnType<typeof setInterval> | null>(null);
   const endTimeRef        = useRef<number | null>(null);
+  // Latest tiles for the respawn timer, which fires outside any render.
   const occupiedRef       = useRef(occupied);
   const walkableRef       = useRef(walkableTiles);
-  occupiedRef.current     = occupied;
-  walkableRef.current     = walkableTiles;
+  useEffect(() => {
+    occupiedRef.current = occupied;
+    walkableRef.current = walkableTiles;
+  });
 
   const doRespawn = useCallback(() => {
     endTimeRef.current = null;
@@ -84,11 +87,13 @@ export function useTrashItems(
     }, TRASH_RESPAWN_MS);
   }, [doRespawn]);
 
-  // Initial spawn + reset when region changes
+  // Initial spawn + reset when region changes. Spawning is random, so it
+  // can't happen during render; the region change is the trigger.
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (tickRef.current)  clearInterval(tickRef.current);
     endTimeRef.current = null;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- random respawn keyed to region (see above)
     setSecsLeft(null);
     setInventory(emptyInv());
     setItems(spawnTrash(walkableRef.current, occupiedRef.current));
@@ -96,7 +101,6 @@ export function useTrashItems(
       if (timerRef.current) clearTimeout(timerRef.current);
       if (tickRef.current)  clearInterval(tickRef.current);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId]);
 
   /** Remove item from the map and add to inventory. */

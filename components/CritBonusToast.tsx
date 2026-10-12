@@ -11,14 +11,17 @@ interface CritBonusToastProps {
 // nonce changes, even if the bonus amount repeats, so back-to-back rolls both
 // show.
 export default function CritBonusToast({ event }: CritBonusToastProps) {
-  const [visible, setVisible] = useState<CritBonusEvent | null>(null);
+  // Shown until its 1.4s timer marks that same event expired; a new event
+  // (new nonce) is visible immediately.
+  const [expiredNonce, setExpiredNonce] = useState<number | null>(null);
+  const nonce = event?.nonce ?? null;
+  const visible = event && nonce !== expiredNonce ? event : null;
 
   useEffect(() => {
-    if (!event) return;
-    setVisible(event);
-    const timer = setTimeout(() => setVisible(null), 1400);
+    if (nonce === null) return;
+    const timer = setTimeout(() => setExpiredNonce(nonce), 1400);
     return () => clearTimeout(timer);
-  }, [event]);
+  }, [nonce]);
 
   return (
     <AnimatePresence>

@@ -14,6 +14,7 @@
 // exact same setDirectionPressed(dir, pressed) API — useContinuousMovement
 // needed zero changes.
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useHasMounted } from '@/hooks/useClientValue';
 import { createPortal } from 'react-dom';
 import type { Direction } from '@/hooks/useContinuousMovement';
 
@@ -55,8 +56,7 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   // `left/top: e.clientX/clientY` always lines up with the actual finger
   // position. Needs a mount flag since document.body isn't available
   // during SSR.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useHasMounted();
 
   const clearAll = useCallback(() => {
     activeRef.current.forEach(dir => setDirectionPressed(dir, false));
@@ -108,6 +108,15 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   // and by the disabled/unmount effects below, which need to force-stop
   // regardless of which pointer is "active" (there's no lifting pointer
   // event to check an id against in those cases).
+  // stopDragging and handlePointerUp reference each other (stop removes the
+  // up-listener; the up-listener calls stop), so the listener reaches stop
+  // through a ref to keep both callbacks stable without a dependency cycle.
+  const stopDraggingRef = useRef<() => void>(() => {});
+  const handlePointerUp = useCallback((e: PointerEvent) => {
+    if (e.pointerId !== pointerIdRef.current) return;
+    stopDraggingRef.current();
+  }, []);
+
   const stopDragging = useCallback(() => {
     draggingRef.current = false;
     pointerIdRef.current = null;
@@ -115,12 +124,8 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
     window.removeEventListener('pointerup', handlePointerUp);
     setVisible(false);
     clearAll();
-  }, [handlePointerMove, clearAll]);
-
-  const handlePointerUp = useCallback((e: PointerEvent) => {
-    if (e.pointerId !== pointerIdRef.current) return;
-    stopDragging();
-  }, [stopDragging]);
+  }, [handlePointerMove, handlePointerUp, clearAll]);
+  useEffect(() => { stopDraggingRef.current = stopDragging; }, [stopDragging]);
 
   // Cancel an in-progress drag if the joystick gets disabled mid-hold (e.g.
   // a scroll/quiz overlay opens) — mirrors the old dpad/Joystick's guard.

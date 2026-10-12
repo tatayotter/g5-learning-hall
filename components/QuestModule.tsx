@@ -1,5 +1,6 @@
 // components/QuestModule.tsx
 import { useState, useEffect } from 'react';
+import type { Components } from 'react-markdown';
 import { MonsterImage } from '@/components/battle/shared';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
@@ -25,25 +26,25 @@ function shuffleArray<T>(arr: T[]): T[] {
 // Exported so other screens that render the same summary_markdown (e.g. the
 // pre-quest "Study Session" screens in app/page.tsx) can match this styling
 // instead of falling back to plain/unstyled markdown.
-export const markdownComponents = {
-  h1: (props: any) => <h1 className="text-2xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
-  h2: (props: any) => <h2 className="text-xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
-  h3: (props: any) => <h3 className="text-lg font-bold font-display text-[#7a4a0f] mt-6 mb-2 first:mt-0" {...props} />,
-  p: (props: any) => <p className="text-[#3a2610] leading-relaxed mb-4" {...props} />,
-  strong: (props: any) => <strong className="text-[#1a0d05] font-bold" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
-  li: (props: any) => <li className="pl-1" {...props} />,
+export const markdownComponents: Components = {
+  h1: (props) => <h1 className="text-2xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h2: (props) => <h2 className="text-xl font-bold font-display text-[#2a1505] mt-6 mb-3 first:mt-0" {...props} />,
+  h3: (props) => <h3 className="text-lg font-bold font-display text-[#7a4a0f] mt-6 mb-2 first:mt-0" {...props} />,
+  p: (props) => <p className="text-[#3a2610] leading-relaxed mb-4" {...props} />,
+  strong: (props) => <strong className="text-[#1a0d05] font-bold" {...props} />,
+  ul: (props) => <ul className="list-disc list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
+  ol: (props) => <ol className="list-decimal list-outside pl-5 mb-4 space-y-1 text-[#3a2610]" {...props} />,
+  li: (props) => <li className="pl-1" {...props} />,
   hr: () => <hr className="border-[#c9a87a] my-6" />,
-  blockquote: (props: any) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#6b4820] my-4" {...props} />,
+  blockquote: (props) => <blockquote className="border-l-4 border-[#c9781a] pl-4 italic text-[#6b4820] my-4" {...props} />,
   // GFM tables (needs remarkPlugins={[remarkGfm]} passed alongside this map —
   // plain react-markdown doesn't parse table syntax at all, it just falls
   // through as a literal pipe-delimited paragraph).
-  table: (props: any) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
-  thead: (props: any) => <thead className="text-[#2a1505]" {...props} />,
-  tr: (props: any) => <tr className="border-b border-[#c9a87a]" {...props} />,
-  th: (props: any) => <th className="text-left font-bold py-2 px-3 border-b border-[#c9a87a]" {...props} />,
-  td: (props: any) => <td className="py-2 px-3 text-[#3a2610]" {...props} />,
+  table: (props) => <div className="overflow-x-auto mb-4"><table className="w-full text-sm border-collapse" {...props} /></div>,
+  thead: (props) => <thead className="text-[#2a1505]" {...props} />,
+  tr: (props) => <tr className="border-b border-[#c9a87a]" {...props} />,
+  th: (props) => <th className="text-left font-bold py-2 px-3 border-b border-[#c9a87a]" {...props} />,
+  td: (props) => <td className="py-2 px-3 text-[#3a2610]" {...props} />,
 };
 
 interface QuizQuestion {
@@ -71,7 +72,7 @@ interface QuestModuleProps {
   userId: string;
   questName: string;
   questKey: string;
-  questData: any;
+  questData: { quiz?: QuizQuestion[] } | undefined;
   currentStats: CharacterStats;
   attemptsSoFar: number;
   // How many of today's MAIN_QUEST_DAILY_ATTEMPT_CAP attempts are already
@@ -108,13 +109,16 @@ function OfflineQueuedNote() {
 const COOLDOWN_SECONDS = 20;
 const PRACTICE_COOLDOWN_SECONDS = 5;
 
-export default function QuestModule({ userId, questName, questKey, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit, practice = false, exitLabel = 'Return to Campaign Map' }: QuestModuleProps) {
+export default function QuestModule({ userId, questName, questData, currentStats, attemptsSoFar, dailyAttemptsUsed, isMastered, trainingCurio, trainingResult, gradeQuiz, onQuizSubmit, onExit, practice = false, exitLabel = 'Return to Campaign Map' }: QuestModuleProps) {
   const safeAttemptsSoFar = Number.isFinite(attemptsSoFar) ? attemptsSoFar : 0;
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [grading, setGrading] = useState(false);
-  const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>({});
+  const quiz: QuizQuestion[] = questData?.quiz || [];
+  // Option order is shuffled on entry and again on every submit/retry.
+  const shuffleAllOptions = () => Object.fromEntries(quiz.map((q, i) => [i, shuffleArray(q.options)])) as Record<number, string[]>;
+  const [shuffledOptions, setShuffledOptions] = useState<Record<number, string[]>>(shuffleAllOptions);
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [lastResult, setLastResult] = useState<{ isPerfect: boolean; score: number; total: number; xp: number; gold: number; attemptNumber: number } | null>(null);
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
@@ -136,16 +140,6 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     const timer = setTimeout(() => setCooldownRemaining(c => c - 1), 1000);
     return () => clearTimeout(timer);
   }, [cooldownRemaining]);
-
-  useEffect(() => {
-    const newShuffled: Record<number, string[]> = {};
-    quiz.forEach((q, i) => {
-      newShuffled[i] = shuffleArray(q.options);
-    });
-    setShuffledOptions(newShuffled);
-  }, [submitted]);
-
-  const quiz: QuizQuestion[] = questData?.quiz || [];
 
   const handleSelect = (qIndex: number, option: string) => {
     if (submitted) return;
@@ -180,13 +174,14 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     if (graded.locked) {
       setAlreadyLockedOnEntry(true);
       setSubmitted(true);
+      setShuffledOptions(shuffleAllOptions());
       return;
     }
 
     const { correct_count: correctCount, total, is_perfect: isPerfect, correct_answers: gradedAnswers } = graded;
     const newAttempts = safeAttemptsSoFar + 1;
 
-    let newStats = { ...currentStats };
+    const newStats = { ...currentStats };
     let reward = { xp: 0, gold: 0 };
 
     if (isPerfect) {
@@ -220,6 +215,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     setCorrectAnswers(gradedAnswers || []);
     setQueuedOffline(!!graded.queued_offline);
     setSubmitted(true);
+    setShuffledOptions(shuffleAllOptions());
     setLastResult({ isPerfect, score: correctCount, total, xp: reward.xp, gold: reward.gold, attemptNumber: newAttempts });
     onQuizSubmit(isPerfect, newAttempts, newStats, reward.xp, reward.gold);
   };
@@ -228,6 +224,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
     if (cooldownRemaining > 0) return;
     setSelectedAnswers({});
     setSubmitted(false);
+    setShuffledOptions(shuffleAllOptions());
     setLastResult(null);
   };
 
@@ -267,7 +264,7 @@ export default function QuestModule({ userId, questName, questKey, questData, cu
       <div className="bg-amber-50 border border-amber-600 p-8 rounded-xl text-center">
         <h2 className="text-3xl font-bold text-amber-700 mb-4 font-display">🔒 Quest Locked</h2>
         <p className="text-[#6b4820] mb-6">
-          You've already used both attempts for {questName.replace('_', ' ')} today. Come back tomorrow for 2 fresh attempts!
+          You&apos;ve already used both attempts for {questName.replace('_', ' ')} today. Come back tomorrow for 2 fresh attempts!
         </p>
         <GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 15 }}>
           Return to Campaign Map

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ChildSignupForm from '@/components/ChildSignupForm';
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ export default async function ChildSignupPage({
 
         <p className="text-center text-sm text-blue-200/30 mt-5">
           Already have an account?{' '}
-          <a href="/" className="text-amber-500/60 hover:text-amber-400 underline">Go back to the main page</a>.
+          <Link href="/" className="text-amber-500/60 hover:text-amber-400 underline">Go back to the main page</Link>.
         </p>
       </div>
     </main>

@@ -159,7 +159,7 @@ interface DexEntry {
 // action should apply to (a duplicate catch can sit benched as a second
 // instance of the same species) — every row in TeamPanel is already one
 // specific instance, so there's nothing to disambiguate there.
-export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, monsterDisplay, subclassProfile }: {
+export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, subclassProfile }: {
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
@@ -375,7 +375,7 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                 </div>
                 {selectedOwned && selectedIsActiveTier && (
                   <p className="text-[10px] text-[#8b5e2a] italic mt-2">
-                    This is the species' default loadout — visit My Team to see this curio's actual equipped skills, live stats, and Tutor/Graduate it.
+                    This is the species&apos; default loadout — visit My Team to see this curio&apos;s actual equipped skills, live stats, and Tutor/Graduate it.
                   </p>
                 )}
               </WhiteNailBox>

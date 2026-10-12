@@ -1,6 +1,6 @@
 ﻿'use client';
 import { useState, useEffect, useRef } from 'react';
-import { useTimeAttack } from '@/hooks/useTimeAttack';
+import { useTimeAttack, type TimeAttackSummary } from '@/hooks/useTimeAttack';
 import {
   fetchQuestionPool, markQuestionsCompleted, fetchSubclassProfile, updateSubclassProfile,
   ensureGuildMonsterGranted, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile,
@@ -64,28 +64,58 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   const inputRef = useRef<HTMLInputElement>(null);
 
   const timeLimit = 60;
-  const engine = useTimeAttack<SpellCasterQuestion>(questions, timeLimit)
+  const handleSessionEnd = async (summary: TimeAttackSummary) => {
+    setScreen('results');
+    trackEvent('guild_quiz_complete', { guild_key: 'spellcaster', correct_count: summary.correctCount, wrong_count: summary.wrongCount, xp_earned: summary.totalXpEarned, gold_earned: summary.totalGoldEarned });
+    await markQuestionsCompleted(userId, 'spellcaster', summary.completedQuestionIds);
+    if (profile) {
+      const { level, xp } = applyLevelUp(profile.spellcaster_lvl, profile.spellcaster_xp, summary.totalXpEarned);
+      await updateSubclassProfile(userId, { spellcaster_lvl: level, spellcaster_xp: xp });
+      if (profile.spellcaster_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
+        const grantedId = await ensureGuildMonsterGranted(userId, 'spellcaster');
+        if (grantedId) setNewCurioId(grantedId);
+      } else if (profile.spellcaster_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
+        const tierCrossed = getCompanionTierCrossed('spellcaster', profile.spellcaster_lvl, level);
+        const speciesDef = tierCrossed ? getCompanionSpeciesDef('spellcaster') : undefined;
+        if (tierCrossed && speciesDef) {
+          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'spellcaster');
+          setCompanionGraduation({
+            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
+            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
+            monsterLevel,
+            quality,
+          });
+        }
+      }
+    }
+    // Record the session even when it earned no gold (a session with no answers isn't a session).
+    if (summary.totalGoldEarned > 0 || summary.correctCount + summary.wrongCount > 0) {
+      const newStats = { ...currentStats, gold: currentStats.gold + summary.totalGoldEarned };
+      onGoldEarned(newStats, { questionsAnswered: summary.correctCount + summary.wrongCount, correctCount: summary.correctCount, completedIds: summary.completedQuestionIds, subclassXp: summary.totalXpEarned });
+    }
+    if (summary.totalGoldEarned > 0) {
+      logAction(userId, weekStartingDate, 'side_quest', `SpellCaster session: ${summary.correctCount} words spelled, ${summary.totalXpEarned} Subclass XP`, 0, summary.totalGoldEarned);
+    }
+  };
+
+  const engine = useTimeAttack<SpellCasterQuestion>(questions, timeLimit, (summary) => {
+    if (screen === 'playing') handleSessionEnd(summary);
+  });
 
   useEffect(() => {
     async function loadPool() {
       const [pool, subProfile] = await Promise.all([
-        takePrefetch<any[]>(userId, 'guildPool:spellcaster')
-          ?? fetchQuestionPool(userId, 'sq_spellcaster', 'spellcaster'),
+        takePrefetch<SpellCasterQuestion[]>(userId, 'guildPool:spellcaster')
+          ?? fetchQuestionPool<SpellCasterQuestion>(userId, 'sq_spellcaster', 'spellcaster'),
         takePrefetch<SubclassProfile | null>(userId, 'subclassProfile')
           ?? fetchSubclassProfile(userId)
       ]);
-      setQuestions(shuffle(pool as SpellCasterQuestion[]));
+      setQuestions(shuffle(pool));
       setProfile(subProfile);
       setScreen('ready');
     }
     loadPool();
-  }, []);
-
-  useEffect(() => {
-    if (engine.phase === 'ended' && screen === 'playing') {
-      handleSessionEnd();
-    }
-  }, [engine.phase]);
+  }, [userId]);
 
   // Auto-focus input when playing starts. The input is never remounted
   // between words (see the static wrapper below), so a one-time focus here
@@ -118,40 +148,6 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
       engine.submitResult(false, engine.currentQuestion.id);
       setTypedValue('');
       setTimeout(() => setFlashResult(null), 300);
-    }
-  };
-
-  const handleSessionEnd = async () => {
-    setScreen('results');
-    trackEvent('guild_quiz_complete', { guild_key: 'spellcaster', correct_count: engine.correctCount, wrong_count: engine.wrongCount, xp_earned: engine.totalXpEarned, gold_earned: engine.totalGoldEarned });
-    await markQuestionsCompleted(userId, 'spellcaster', engine.completedQuestionIds);
-    if (profile) {
-      const { level, xp } = applyLevelUp(profile.spellcaster_lvl, profile.spellcaster_xp, engine.totalXpEarned);
-      await updateSubclassProfile(userId, { spellcaster_lvl: level, spellcaster_xp: xp });
-      if (profile.spellcaster_lvl < GUILD_MONSTER_GRANT_LEVEL && level >= GUILD_MONSTER_GRANT_LEVEL) {
-        const grantedId = await ensureGuildMonsterGranted(userId, 'spellcaster');
-        if (grantedId) setNewCurioId(grantedId);
-      } else if (profile.spellcaster_lvl >= GUILD_MONSTER_GRANT_LEVEL) {
-        const tierCrossed = getCompanionTierCrossed('spellcaster', profile.spellcaster_lvl, level);
-        const speciesDef = tierCrossed ? getCompanionSpeciesDef('spellcaster') : undefined;
-        if (tierCrossed && speciesDef) {
-          const { level: monsterLevel, quality } = await fetchCompanionInstanceStats(userId, 'spellcaster');
-          setCompanionGraduation({
-            fromDef: getGuildMonsterTierDef(speciesDef, (tierCrossed - 1) as 1 | 2),
-            toDef: getGuildMonsterTierDef(speciesDef, tierCrossed),
-            monsterLevel,
-            quality,
-          });
-        }
-      }
-    }
-    // Record the session even when it earned no gold (a session with no answers isn't a session).
-    if (engine.totalGoldEarned > 0 || engine.correctCount + engine.wrongCount > 0) {
-      const newStats = { ...currentStats, gold: currentStats.gold + engine.totalGoldEarned };
-      onGoldEarned(newStats, { questionsAnswered: engine.correctCount + engine.wrongCount, correctCount: engine.correctCount, completedIds: engine.completedQuestionIds, subclassXp: engine.totalXpEarned });
-    }
-    if (engine.totalGoldEarned > 0) {
-      logAction(userId, weekStartingDate, 'side_quest', `SpellCaster session: ${engine.correctCount} words spelled, ${engine.totalXpEarned} Subclass XP`, 0, engine.totalGoldEarned);
     }
   };
 
@@ -243,7 +239,6 @@ export default function SpellCaster({ userId, weekStartingDate, currentStats, on
   if (screen === 'playing' && engine.currentQuestion) {
     const difficultyStars = gradeStageStars(engine.currentQuestion.grade_level);
     const timerPct = (engine.timeLeft / timeLimit) * 100;
-    const timerColor = engine.timeLeft <= 10 ? 'bg-red-500' : engine.timeLeft <= 20 ? 'bg-yellow-500' : 'bg-violet-500';
     const feedbackClass = flashResult === 'correct' ? 'battle-answer-correct' : flashResult === 'wrong' ? 'battle-answer-wrong' : '';
 
     return (

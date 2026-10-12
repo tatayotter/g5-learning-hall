@@ -206,7 +206,7 @@ export async function fetchGauntletDaysDone(userId: string, eventId: string): Pr
     .eq('user_id', userId)
     .eq('event_id', eventId);
   if (error || !data) return new Set();
-  return new Set(data.map((row: any) => row.day as string));
+  return new Set(data.map((row) => row.day as string));
 }
 
 // Marks one weekday's chunk complete so claim_event_reward's gauntlet

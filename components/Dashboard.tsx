@@ -1,7 +1,8 @@
 ﻿// components/Dashboard.tsx
 'use client';
 
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, useEffectEvent } from 'react';
+import type { RewardClaim } from '@/components/dashboard/VaultTab';
 import { UserId, getActiveUser, clearActiveUser, loadAllUsersData, saveTheme, linkIdentity, recordLastLogin, restoreChildUser, USERS, gradeToNumber } from '@/lib/userSession';
 import { THEME_CLASSES, getThemeItem } from '@/lib/themeShop';
 import SplashScreen from '@/components/SplashScreen';
@@ -16,12 +17,11 @@ import { flushTrainerOutbox, pendingTrainerBattles } from '@/lib/offlineTrainers
 import { countUnsynced } from '@/lib/offlineOutbox';
 import { askToRelink, heroReadyOffline, offlineLoginSetupSnoozed, rememberHeroOnDevice } from '@/lib/deviceHeroes';
 import OfflineLoginSetup from '@/components/OfflineLoginSetup';
-import { GuildKey, GUILDS, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { GuildKey, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import { useReadTimer } from '@/hooks/useReadTimer';
 import { format } from 'date-fns';
-import AchievementsBoard from '@/components/AchievementsBoard';
 import { supabase } from '@/lib/supabase';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
@@ -63,7 +63,7 @@ import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
-import SidebarRail, { RailTabId } from '@/components/SidebarRail';
+import SidebarRail from '@/components/SidebarRail';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import FirstCurioIntro, { isIntroTrainingPending, TRAINING_QUEST_LOG } from '@/components/intro/FirstCurioIntro';
 import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
@@ -109,6 +109,9 @@ function applyThemeClass(themeKey: string) {
   const cls = getThemeItem(themeKey)?.cssClass;
   if (cls) document.documentElement.classList.add(cls);
 }
+
+const NO_DAY_POOLS: Record<string, BossQuestion[]> = {};
+const NO_DAYS_DONE: Set<string> = new Set();
 
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
@@ -228,6 +231,10 @@ export default function Dashboard() {
   // sidebar's Curio Arena badge.
   const [hasEggReadyCurio, setHasEggReadyCurio] = useState(false);
   const eggBadge = hasEggReadyCurio || hasStalledEgg || pendingEggHatches.length > 0;
+
+  const [toast, setToast] = useState({ show: false, message: '' });
+  const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
+  const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
 
   // The player this startup work last ran for, so reconnecting doesn't
   // repeat it (the claims are idempotent, but the toasts and prefetch aren't
@@ -460,9 +467,11 @@ export default function Dashboard() {
   // Sticks to whichever top-level tab the player was on across a page refresh
   // instead of always dropping back to Main Quests. sessionStorage (not
   // localStorage) so a fresh browser session still starts clean.
-  const [activeTab, setActiveTab] = useState(() =>
-    (typeof window !== 'undefined' && sessionStorage.getItem('activeTab')) || 'board'
-  );
+  // A push deep link's `?tab=` wins over the tab remembered for this session.
+  const [activeTab, setActiveTabState] = useState(() => {
+    if (typeof window === 'undefined') return 'board';
+    return new URLSearchParams(window.location.search).get('tab') || sessionStorage.getItem('activeTab') || 'board';
+  });
   useEffect(() => {
     sessionStorage.setItem('activeTab', activeTab);
   }, [activeTab]);
@@ -526,14 +535,10 @@ export default function Dashboard() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     recordPushOpenFromUrl();
-    const params = new URLSearchParams(window.location.search);
-    const tab = params.get('tab');
-    if (!tab) return;
-    setActiveTab(tab);
-    if (params.has('view') || params.has('tab')) {
+    // The tab itself was already read by activeTab's initializer.
+    if (new URLSearchParams(window.location.search).has('tab')) {
       window.history.replaceState(null, '', window.location.pathname);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -541,13 +546,13 @@ export default function Dashboard() {
     fetchSubclassProfile(activeUserId).then(setGuildProfile);
   }, [activeTab, activeUserId]);
 
-  // One-shot: MonsterGuild reads guildInitialView only at mount, so clear it
-  // right after so a later manual tab visit defaults back to the map view.
-  useEffect(() => {
-    if (activeTab === 'monster' && guildInitialView) {
-      setGuildInitialView(undefined);
-    }
-  }, [activeTab]);
+  // MonsterGuild reads guildInitialView only at mount, so it's cleared as the
+  // player switches to any other tab — a later manual visit to the Arena then
+  // defaults back to the map view.
+  const setActiveTab = useCallback((tab: string) => {
+    if (tab !== 'monster') setGuildInitialView(undefined);
+    setActiveTabState(tab);
+  }, []);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   // Active time per tab, with an open quest split out by phase so study-note
   // reading and quiz answering are measured separately from browsing the board.
@@ -555,14 +560,16 @@ export default function Dashboard() {
     activeUserId ? (activeQuest ? `quest_${quizPhase}` : activeTab) : null,
     (name, props, options) => trackEvent(name, props, activeTab, options)
   );
-  const [myClaims, setMyClaims] = useState<any[]>([]);
-  const [toast, setToast] = useState({ show: false, message: '' });
+  const [myClaims, setMyClaims] = useState<RewardClaim[]>([]);
 
   // Main quests and guild sessions played offline (lib/offlineQuests.ts,
   // lib/offlineGuilds.ts) go to the server on load, on reconnect, when the app comes back to the
   // front, every few minutes, and when the player taps Sync now in the menu. The server
   // re-grades quests, clamps guild rewards and pays once; the refetch then replaces the phone's
   // copy with the server's.
+  // Declared before the sync effect below, which sets them (see the achievement check further down).
+  const achievementCheckAfterRef = useRef<typeof data | undefined>(undefined);
+  const dataRef = useRef(data);
   const countWaiting = useCallback(() => activeUserId ? countUnsynced(activeUserId) : 0, [activeUserId]);
   const [saveStatus, setSaveStatus] = useState<{ waiting: number; syncing: boolean; failed: boolean; lastSyncedAt: number | null }>(
     { waiting: 0, syncing: false, failed: false, lastSyncedAt: null });
@@ -677,16 +684,12 @@ export default function Dashboard() {
   // device, in updateStatsAndJournal). Once the refetched data arrives, a zero-change save runs
   // that check, so e.g. a first mastery earned offline unlocks its achievement as it would have
   // online. Keyed on the data object from before the refetch, so it waits for the fresh copy.
-  const achievementCheckAfterRef = useRef<typeof data | undefined>(undefined);
-  const dataRef = useRef(data);
   useEffect(() => {
     dataRef.current = data;
     if (achievementCheckAfterRef.current === undefined || !data || data === achievementCheckAfterRef.current || showingOfflineCopy) return;
     achievementCheckAfterRef.current = undefined;
     void bumpCounters({});
   }, [data, showingOfflineCopy, bumpCounters]);
-  const [notifications, setNotifications] = useState<PlayerNotification[]>([]);
-  const [dashReferralKey, setDashReferralKey] = useState<string | null>(null);
   const { newlyUnlocked, clearNotifications } = useAchievementNotifier(data);
 
   // --- Custom Events ---
@@ -706,8 +709,9 @@ export default function Dashboard() {
   // than sitting alongside it — the full-week pool is built once and split
   // into 5 daily chunks so each weekday's card opens just its own slice.
   // See project_term_break_special_content_plan memory.
-  const [gauntletDayPools, setGauntletDayPools] = useState<Record<string, BossQuestion[]>>({});
-  const [gauntletDaysDone, setGauntletDaysDone] = useState<Set<string>>(new Set());
+  // Built per user + gauntlet event; anything else (no event, an authored
+  // event, a different user) reads as empty.
+  const [gauntlet, setGauntlet] = useState<{ key: string; dayPools: Record<string, BossQuestion[]>; daysDone: Set<string> } | null>(null);
   const [activeGauntletDay, setActiveGauntletDay] = useState<string | null>(null);
 
   // --- Term Exam Boss Fight ---
@@ -729,12 +733,10 @@ export default function Dashboard() {
   // accounts that already had a curio when they loaded (a brand-new kid gets
   // the first-curio intro and sees this one on a later visit). The event's
   // music is already playing via the effect above.
-  const [showBossIntro, setShowBossIntro] = useState(false);
-  useEffect(() => {
-    if (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM)) {
-      setShowBossIntro(true);
-    }
-  }, [bossEventActive, bossGradeLevel]);
+  // null = automatic (show while the event is active and the intro unseen);
+  // true/false once the player replays or dismisses it.
+  const [bossIntroOverride, setShowBossIntro] = useState<boolean | null>(null);
+  const showBossIntro = bossIntroOverride ?? (bossEventActive && !hasCutsceneBeenSeen(bossGradeLevel, CURRENT_TERM));
   const dismissBossIntro = () => {
     markCutsceneSeen(bossGradeLevel, CURRENT_TERM);
     setShowBossIntro(false);
@@ -760,8 +762,7 @@ export default function Dashboard() {
   const activeEventQuestForTimer = eventQuests.find(q => q.id === activeEventQuest);
   const eventStudyReadRemaining = useReadTimer(activeEventQuestForTimer?.summary_markdown, activeEventQuest || '');
 
-  const loadEventData = async (userId: UserId) => {
-    const ev = await fetchActiveEvent();
+  const applyActiveEvent = async (userId: UserId, ev: Awaited<ReturnType<typeof fetchActiveEvent>>) => {
     setActiveEvent(ev);
     if (!ev) {
       setEventQuests([]);
@@ -790,9 +791,13 @@ export default function Dashboard() {
     }
   };
 
+  const loadEventData = async (userId: UserId) => applyActiveEvent(userId, await fetchActiveEvent());
+  const applyEventOnLoad = useEffectEvent(applyActiveEvent);
   useEffect(() => {
     if (!activeUserId) return;
-    loadEventData(activeUserId);
+    let cancelled = false;
+    fetchActiveEvent().then(ev => { if (!cancelled) applyEventOnLoad(activeUserId, ev); });
+    return () => { cancelled = true; };
   }, [activeUserId]);
 
   // Builds the gauntlet's full-week pool once per active event and splits
@@ -802,12 +807,18 @@ export default function Dashboard() {
   // grade's own weekly lessons from before the event started — rather than
   // a term-scoped authored bank, so this works for every grade, not just
   // the two that ever had draft_questions content.
+  const gauntletKey = activeUserId && activeEvent?.content_source === 'gauntlet'
+    ? `${activeUserId}|${activeEvent.id}|${activeEvent.start_date}`
+    : null;
+  const currentGauntlet = gauntletKey && gauntlet?.key === gauntletKey ? gauntlet : null;
+  const gauntletDayPools = currentGauntlet?.dayPools ?? NO_DAY_POOLS;
+  const gauntletDaysDone = currentGauntlet?.daysDone ?? NO_DAYS_DONE;
+  const setGauntletDaysDone = useCallback<React.Dispatch<React.SetStateAction<Set<string>>>>(update => {
+    setGauntlet(g => g && { ...g, daysDone: typeof update === 'function' ? update(g.daysDone) : update });
+  }, []);
   useEffect(() => {
-    if (!activeUserId || !activeEvent || activeEvent.content_source !== 'gauntlet') {
-      setGauntletDayPools({});
-      setGauntletDaysDone(new Set());
-      return;
-    }
+    if (!gauntletKey || !activeUserId || !activeEvent) return;
+    let cancelled = false;
     const grade = gradeToNumber(USERS[activeUserId]?.grade);
     Promise.all([
       fetchGauntletQuestionPool(grade, activeEvent.start_date),
@@ -815,10 +826,10 @@ export default function Dashboard() {
       fetchGauntletDaysDone(activeUserId, activeEvent.id),
     ]).then(async ([all, mistakes, daysDone]) => {
       const pool = await hydrateGauntletPool(buildMasteryGauntletPool(all, mistakes));
-      setGauntletDayPools(splitPoolIntoDays(pool, WEEKDAYS));
-      setGauntletDaysDone(daysDone);
+      if (!cancelled) setGauntlet({ key: gauntletKey, dayPools: splitPoolIntoDays(pool, WEEKDAYS), daysDone });
     });
-  }, [activeUserId, activeEvent?.id, activeEvent?.content_source, activeEvent?.start_date]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => { cancelled = true; };
+  }, [gauntletKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleDismissEventPopup = () => {
     setShowEventPopup(false);
@@ -838,8 +849,17 @@ export default function Dashboard() {
     if (claimsData) setMyClaims(claimsData);
   };
 
+  const onClaimsChanged = useEffectEvent(() => { fetchMyClaims(); });
   useEffect(() => {
-    fetchMyClaims();
+    if (!activeUserId) return;
+    let cancelled = false;
+    supabase
+      .from('reward_claims')
+      .select('*')
+      .eq('app_user_id', activeUserId)
+      .order('created_at', { ascending: false })
+      .then(({ data }) => { if (!cancelled && data) setMyClaims(data); });
+    return () => { cancelled = true; };
   }, [activeUserId]);
 
   // Live-refresh claimed rewards so the claimable-hours total updates as
@@ -852,7 +872,7 @@ export default function Dashboard() {
       .on(
         'postgres_changes',
         { event: '*', schema: 'public', table: 'reward_claims', filter: `app_user_id=eq.${activeUserId}` },
-        () => fetchMyClaims()
+        () => onClaimsChanged()
       )
       .subscribe();
     return () => {
@@ -911,12 +931,12 @@ export default function Dashboard() {
 
   // These memos must sit above every early return so the hook call order
   // stays stable across renders (Rules of Hooks).
+  const rawPackageData = data?.package_data;
   const packageData = useMemo(() => {
-    if (!data) return {};
-    return typeof data.package_data === 'string' && data.package_data.trim() !== ''
-      ? JSON.parse(data.package_data)
-      : (data.package_data || {});
-  }, [data?.package_data]);
+    return typeof rawPackageData === 'string' && rawPackageData.trim() !== ''
+      ? JSON.parse(rawPackageData)
+      : (rawPackageData || {});
+  }, [rawPackageData]);
   // Main Quest board shows Friday as one auto-built "Weekly Review" quest
   // instead of whatever's stored under Friday — the Monster Arena question
   // pool (which reads `packageData` directly) is left untouched.

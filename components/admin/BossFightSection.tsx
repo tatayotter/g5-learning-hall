@@ -102,8 +102,7 @@ function PoolReadinessPanel() {
 function GauntletRewardEditor({ passcode }: { passcode: string }) {
   const [grade, setGrade] = useState<number>(5);
   const [term, setTerm] = useState<number>(CURRENT_TERM);
-  const [rewardMonsterId, setRewardMonsterId] = useState('');
-  const [loreMarkdown, setLoreMarkdown] = useState('');
+  const [edits, setEdits] = useState<{ key: string; rewardMonsterId?: string; loreMarkdown?: string }>({ key: '' });
   const [monsterFilter, setMonsterFilter] = useState('');
   const [saving, setSaving] = useState(false);
   const [existing, setExisting] = useState<Record<string, { reward_monster_id: string; reward_lore_markdown: string | null }>>({});
@@ -118,11 +117,14 @@ function GauntletRewardEditor({ passcode }: { passcode: string }) {
     });
   }, []);
 
-  useEffect(() => {
-    const row = existing[`${grade}_${term}`];
-    setRewardMonsterId(row?.reward_monster_id || '');
-    setLoreMarkdown(row?.reward_lore_markdown || '');
-  }, [grade, term, existing]);
+  // Unsaved edits belong to one grade/term; otherwise show what's saved.
+  const formKey = `${grade}_${term}`;
+  const savedReward = existing[formKey];
+  const formEdits = edits.key === formKey ? edits : { key: formKey };
+  const rewardMonsterId = formEdits.rewardMonsterId ?? savedReward?.reward_monster_id ?? '';
+  const loreMarkdown = formEdits.loreMarkdown ?? savedReward?.reward_lore_markdown ?? '';
+  const setRewardMonsterId = (id: string) => setEdits({ ...formEdits, rewardMonsterId: id });
+  const setLoreMarkdown = (text: string) => setEdits({ ...formEdits, loreMarkdown: text });
 
   const monsterOptions = Object.values(ALL_MONSTERS).filter(m =>
     m.name.toLowerCase().includes(monsterFilter.toLowerCase())

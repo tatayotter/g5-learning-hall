@@ -6,7 +6,7 @@
 // drawer instead of a permanent side column.
 import { useState } from 'react';
 import { Element, ELEMENT_ICON_SRC } from '@/lib/monsterConfig';
-import { REGIONS, ELEMENT_COLOR, REGION_BY_ELEMENT, Region } from '@/lib/regions';
+import { REGIONS, REGION_BY_ELEMENT, Region } from '@/lib/regions';
 import MapStage from '@/components/MapStage';
 import { playPageFlip } from '@/lib/sounds';
 

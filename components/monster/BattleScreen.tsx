@@ -1,5 +1,6 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import type { BattleQuestion } from '@/components/battle/shared';
 import { playBattleSfx, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
 import {
@@ -29,14 +30,14 @@ interface BattleScreenProps {
   trainer?: NpcTrainer;
   siblingTeam?: ActiveBattleMonster[];
   siblingName?: string;
-  questions: any[];
+  questions: BattleQuestion[];
   gradingUserId: string;
   // Grades on the device instead of the server (offline trainer battles, lib/offlineTrainers.ts).
   gradeOverride?: BattleQuestionProps['gradeOverride'];
   inventory: InventoryMap;
   onUseItem: (key: string) => Promise<boolean>;
   onBattleEnd: (won: boolean, expEarned: number) => void;
-  onQuestionsAnswered?: (questions: any[]) => void;
+  onQuestionsAnswered?: (questions: BattleQuestion[]) => void;
   // "Skip for gold" (see BattleQuestionModal in components/battle/shared.tsx) —
   // gold is the player's live balance, onSpendGold does the actual atomic
   // server-side debit and resolves to whether it succeeded.
@@ -48,7 +49,7 @@ interface BattleScreenProps {
 
 export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam, siblingName, questions, gradingUserId, gradeOverride, inventory, onUseItem, onBattleEnd, onQuestionsAnswered, gold, onSpendGold, onBattleEvent }: BattleScreenProps) {
   const opponentName = trainer?.name || siblingName || 'Sibling';
-  const opponentTeam = siblingTeam || trainer?.monsters.map((tm: any) => {
+  const opponentTeam = siblingTeam || trainer?.monsters.map((tm) => {
     const def = ALL_MONSTERS[tm.monsterId];
     const hp = getScaledStats(def, tm.level, tm.quality).hp;
     return { def, level: tm.level, quality: tm.quality, currentHp: hp, maxHp: hp, status: null, statusTurns: 0, restUsed: 0 };
@@ -61,7 +62,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const [phase, setPhase] = useState<'select_skill' | 'select_item' | 'select_switch' | 'select_revive_target' | 'answering' | 'npc_turn' | 'ended'>('select_skill');
   const [pendingSkillId, setPendingSkillId] = useState<string | null>(null);
   const [questionCount, setQuestionCount] = useState(1);
-  const [expEarned, setExpEarned] = useState(0);
+  const [, setExpEarned] = useState(0);
   const [playerAnim, setPlayerAnim] = useState('');
   const [npcAnim, setNpcAnim] = useState('');
   const [banner, setBanner] = useState<{ text: string; iconSrc: string | null } | null>(null);
@@ -80,18 +81,28 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   const playerMon = playerMonsters[playerMonsterIdx];
   const npcMon = npcMonsters[npcMonsterIdx];
 
+  // Battle consumables only (Graduation Scrolls are used from the team screen).
+  const battleItems = Object.entries(inventory).filter(([key, qty]) => {
+    if (!qty || qty <= 0) return false;
+    const itemData = SHOP_CATALOG.find(i => i.key === key);
+    return !!itemData && itemData.effect !== 'graduate_monster';
+  });
+
   // Mirrors of the latest committed state, read by doNpcTurn's setTimeout callback
   // so it never has to nest a setState call inside another setState's updater.
   const playerMonstersRef = useRef(playerMonsters);
-  playerMonstersRef.current = playerMonsters;
   const npcMonstersRef = useRef(npcMonsters);
-  npcMonstersRef.current = npcMonsters;
   // A manual monster switch changes playerMonsterIdx and calls doNpcTurn() in
   // the same tick — doNpcTurn's setTimeout closure would otherwise capture the
   // pre-switch index (state updates aren't visible until the next render), so
   // the NPC's counter-attack could land on the just-benched monster instead.
   const playerMonsterIdxRef = useRef(playerMonsterIdx);
-  playerMonsterIdxRef.current = playerMonsterIdx;
+  // Synced right after each commit, well before doNpcTurn's delayed callback reads them.
+  useLayoutEffect(() => {
+    playerMonstersRef.current = playerMonsters;
+    npcMonstersRef.current = npcMonsters;
+    playerMonsterIdxRef.current = playerMonsterIdx;
+  });
   // Same problem on the NPC side: after a KO, the "sends out" flow calls
   // doNpcTurn from a closure that still holds the fainted curio's index — so
   // the knocked-out curio used to counter-attack. Written wherever
@@ -138,7 +149,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
 
   const applyStatusTick = (mon: ActiveBattleMonster): [ActiveBattleMonster, string[]] => {
     const msgs: string[] = [];
-    let updated = { ...mon };
+    const updated = { ...mon };
     if (updated.status === 'burn') {
       updated.currentHp = Math.max(0, updated.currentHp - BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN);
       msgs.push(`${updated.def.name} takes ${BATTLE_CONSTANTS.BURN_DAMAGE_PER_TURN} burn damage!`);
@@ -340,7 +351,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     return ok;
   };
 
-  const handleQuestionsComplete = (correctCount: number, answeredQuestions: any[]) => {
+  const handleQuestionsComplete = (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     setPhase('npc_turn');
     onQuestionsAnswered?.(answeredQuestions);
     if (!pendingSkillId) return;
@@ -453,8 +464,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       msg = `${playerMon.def.name} used ${skill.name}! (${correctCount}/${skill.questionCount} correct) → ${damage} damage!`;
     }
 
-    let newNpcMonsters = [...npcMonsters];
-    let newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
+    const newNpcMonsters = [...npcMonsters];
+    const newNpcMon = { ...npcMon, currentHp: Math.max(0, npcMon.currentHp - damage) };
 
     // A perfect hit's ELEMENT_STATUS effect is either a debuff (burn/paralyze/
     // curse — applied to whoever got hit) or a buff (blessed — applied to the
@@ -486,9 +497,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       npc: npcMonsterIdx, hpBefore: npcMon.currentHp, hpAfter: newNpcMon.currentHp,
     });
 
-    let newPlayerMonsters = playerMonsters.map((m, i) => {
+    const newPlayerMonsters = playerMonsters.map((m, i) => {
       if (i !== playerMonsterIdx) return m;
-      let updated = { ...m, modifiers: effectResult.casterModifiers };
+      const updated = { ...m, modifiers: effectResult.casterModifiers };
       // Consume any blessed carried in from a prior turn (it just powered
       // this attack via computePlayerDamage's blessed bonus), then re-bless for the next turn if
       // this hit itself earned a fresh one.
@@ -765,38 +776,31 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
           skill scrolls, the Compendium-only graduation scroll) — only show
           entries that are actual battle consumables, not just anything the
           player owns. */}
-      {(() => {
-        const battleItems = Object.entries(inventory).filter(([key, qty]) => {
-          if (!qty || qty <= 0) return false;
-          const itemData = SHOP_CATALOG.find(i => i.key === key);
-          return !!itemData && itemData.effect !== 'graduate_monster';
-        });
+      {battleItems.length === 0 ? (
+        <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
+      ) : (
+          battleItems.map(([key, qty]) => {
+            const itemData = SHOP_CATALOG.find(i => i.key === key)!;
+            const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
 
-        if (battleItems.length === 0) {
-          return <p className="text-gray-500 text-sm text-center">No items in inventory.</p>;
-        }
-
-        return battleItems.map(([key, qty]) => {
-          const itemData = SHOP_CATALOG.find(i => i.key === key)!;
-          const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
-
-          return (
-            <button
-              key={key}
-              onClick={() => { playPageFlip(); handleItemUse(key); }}
-              disabled={itemBusy || noReviveTargets}
-              className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
-            >
-              <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
-              <div className="flex-1">
-                <p className="text-white font-bold text-sm capitalize">{itemData.name}</p>
-                <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</p>
-              </div>
-              <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
-            </button>
-          );
-        });
-      })()}
+            return (
+              <button
+                key={key}
+                // eslint-disable-next-line react-hooks/refs -- click handler; its double-use ref guard is only read on click
+                onClick={() => { playPageFlip(); handleItemUse(key); }}
+                disabled={itemBusy || noReviveTargets}
+                className="w-full bg-neutral-800 hover:bg-neutral-700 border border-neutral-600 rounded-xl p-3 text-left flex items-center gap-3 transition-all disabled:opacity-40 disabled:cursor-not-allowed btn-tactile"
+              >
+                <img src={itemData.icon} alt={itemData.name} className="w-8 h-8 object-contain flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-white font-bold text-sm capitalize">{itemData.name}</p>
+                  <p className="text-xs text-gray-400">{noReviveTargets ? 'No fainted curios to revive' : itemData.desc}</p>
+                </div>
+                <span className="bg-neutral-700 text-yellow-400 font-bold px-3 py-1 rounded-full text-xs">x{qty}</span>
+              </button>
+            );
+          })
+      )}
       <button
         onClick={() => { playPageFlip(); setPhase('select_skill'); }}
         className="w-full text-gray-500 text-sm mt-2 hover:text-white transition-colors btn-tactile"
@@ -870,7 +874,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   ) : confirmSurrender ? (
     <div className="w-full max-w-sm bg-neutral-950 border border-red-900 rounded-2xl p-4 text-center space-y-3 battle-panel-in">
       <p className="text-white font-bold">Surrender the battle?</p>
-      <p className="text-xs text-gray-400">You'll earn no Curio EXP.</p>
+      <p className="text-xs text-gray-400">You&apos;ll earn no Curio EXP.</p>
       <div className="flex gap-2">
         <button
           onClick={() => { playPageFlip(); setConfirmSurrender(false); }}

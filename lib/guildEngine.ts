@@ -210,16 +210,23 @@ export async function fetchCompanionInstanceStats(userId: string, guildKey: Guil
 // player on an empty stage. Only once grade 6 itself is exhausted (or no
 // stage ahead has any content) do we fall back to the old "prestige"
 // behavior: wipe history for this guild and recycle the pool we landed on.
-export async function fetchQuestionPool(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
+// One row from a guild question table (sq_*). Columns differ per guild, so
+// each guild screen narrows it to its own question type.
+export interface GuildQuestionRow {
+  id: string;
+  [key: string]: unknown;
+}
+
+export async function fetchQuestionPool<T extends { id: string } = GuildQuestionRow>(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<T[]> {
   // The five grade-staged guilds also play offline, from the batch saved on the last fetch.
-  if (!GUILD_GRADE_STAGE_FIELD[questType]) return fetchQuestionPoolOnline(userId, tableName, questType, gradeLevel);
-  if (playingGuildsOffline(userId)) return loadGuildPool(userId, questType);
-  const pool = await fetchQuestionPoolOnline(userId, tableName, questType, gradeLevel);
+  if (!GUILD_GRADE_STAGE_FIELD[questType]) return fetchQuestionPoolOnline<T>(userId, tableName, questType, gradeLevel);
+  if (playingGuildsOffline(userId)) return loadGuildPool<T>(userId, questType);
+  const pool = await fetchQuestionPoolOnline<T>(userId, tableName, questType, gradeLevel);
   saveGuildPool(userId, questType, pool);
   return pool;
 }
 
-async function fetchQuestionPoolOnline(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<any[]> {
+async function fetchQuestionPoolOnline<T extends { id: string } = GuildQuestionRow>(userId: string, tableName: string, questType: string, gradeLevel?: number): Promise<T[]> {
   const USER_ID = userId;
   const stageField = GUILD_GRADE_STAGE_FIELD[questType];
 
@@ -235,9 +242,9 @@ async function fetchQuestionPoolOnline(userId: string, tableName: string, questT
   // Completed IDs are excluded client-side rather than via a `.not(id, in, ...)`
   // filter — with hundreds of completed questions that filter's URL grows past
   // server/proxy length limits and the request fails outright.
-  const completedIds = new Set((completed || []).map((c: any) => c.question_id));
+  const completedIds = new Set((completed || []).map((c) => c.question_id));
 
-  async function fetchPool(grade: number | null): Promise<any[]> {
+  async function fetchPool(grade: number | null): Promise<T[]> {
     // No term_id filter — questions are no longer sorted/scoped by term.
     let query = supabase
       .from(tableName)
@@ -249,22 +256,22 @@ async function fetchQuestionPoolOnline(userId: string, tableName: string, questT
       console.error(`Failed to fetch ${tableName} questions:`, error);
       return [];
     }
-    return data || [];
+    return (data || []) as T[];
   }
 
   // Top up a too-small "remaining" pool with already-completed questions from
   // the wider pool so a session isn't just 1-2 distinct questions on repeat —
   // still prefers fresh questions first, just pads with seen ones if needed.
-  function withTopUp(remaining: any[], widerPool: any[]): any[] {
+  function withTopUp(remaining: T[], widerPool: T[]): T[] {
     if (remaining.length >= MIN_SESSION_POOL_SIZE) return remaining;
-    const remainingIds = new Set(remaining.map((q: any) => q.id));
-    const topUp = widerPool.filter((q: any) => !remainingIds.has(q.id));
+    const remainingIds = new Set(remaining.map((q) => q.id));
+    const topUp = widerPool.filter((q) => !remainingIds.has(q.id));
     return [...remaining, ...topUp.slice(0, MIN_SESSION_POOL_SIZE - remaining.length)];
   }
 
   if (!stageField) {
     const data = await fetchPool(gradeLevel ?? null);
-    const remaining = data.filter((q: any) => !completedIds.has(q.id));
+    const remaining = data.filter((q) => !completedIds.has(q.id));
     if (remaining.length > 0) return withTopUp(remaining, data).slice(0, PREFETCH_BATCH_SIZE);
     await supabase.from('user_completed_questions').delete().eq('user_id', USER_ID).eq('quest_type', questType);
     return data.slice(0, PREFETCH_BATCH_SIZE);
@@ -273,7 +280,7 @@ async function fetchQuestionPoolOnline(userId: string, tableName: string, questT
   // Walks forward from `fromStage` until it finds a grade stage with any
   // active content (or hits MAX_GRADE_STAGE), so an unauthored stage never
   // strands a player — they just skip straight past it.
-  async function fetchNonEmptyPoolFrom(fromStage: number): Promise<{ pool: any[]; stage: number }> {
+  async function fetchNonEmptyPoolFrom(fromStage: number): Promise<{ pool: T[]; stage: number }> {
     let stage = fromStage;
     let pool = await fetchPool(stage);
     while (pool.length === 0 && stage < MAX_GRADE_STAGE) {
@@ -284,7 +291,9 @@ async function fetchQuestionPoolOnline(userId: string, tableName: string, questT
   }
 
   const startStage = (profile?.[stageField] as number | undefined) ?? MIN_GRADE_STAGE;
-  let { pool: stagePool, stage: currentStage } = await fetchNonEmptyPoolFrom(startStage);
+  const startPool = await fetchNonEmptyPoolFrom(startStage);
+  const currentStage = startPool.stage;
+  let stagePool = startPool.pool;
   // Absolute fallback: nothing authored anywhere from startStage through
   // grade 6 (e.g. a brand-new guild with no content yet) — serve whatever
   // exists across all grades rather than an empty pool.
@@ -294,7 +303,7 @@ async function fetchQuestionPoolOnline(userId: string, tableName: string, questT
   // stage now so future sessions don't redo the same skip-forward walk.
   if (currentStage !== startStage) await updateSubclassProfile(USER_ID, { [stageField]: currentStage } as Partial<SubclassProfile>);
 
-  const remaining = stagePool.filter((q: any) => !completedIds.has(q.id));
+  const remaining = stagePool.filter((q) => !completedIds.has(q.id));
   if (remaining.length > 0) {
     return withTopUp(remaining, stagePool).slice(0, PREFETCH_BATCH_SIZE);
   }
@@ -366,12 +375,12 @@ export async function fetchAnsweredArenaQuestionIds(userId: string): Promise<Set
       .eq('user_id', userId)
       .eq('quest_type', MONSTER_ARENA_QUEST_TYPE);
     if (error) throw error;
-    return (data || []).map((row: any) => row.question_id as string);
+    return (data || []).map((row) => row.question_id as string);
   }, [] as string[]);
   return new Set(ids);
 }
 
-export async function markArenaQuestionsCompleted(userId: string, questions: any[]) {
+export async function markArenaQuestionsCompleted(userId: string, questions: { id: string }[]) {
   if (questions.length === 0) return;
   const error = await insertCompletedQuestions(
     questions.map(q => ({ user_id: userId, quest_type: MONSTER_ARENA_QUEST_TYPE, question_id: q.id })),

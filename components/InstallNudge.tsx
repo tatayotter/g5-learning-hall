@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useClientValue } from '@/hooks/useClientValue';
 import type { UserId } from '@/lib/userSession';
 import { dismissInstallNudge, hasDismissedInstallNudge, isIosDevice, isRunningInstalled } from '@/lib/installPrompt';
 import { trackEvent } from '@/lib/analytics';
@@ -24,8 +25,14 @@ type BeforeInstallPromptEvent = Event & {
 type Platform = 'installable' | 'ios';
 
 export default function InstallNudge({ userId }: { userId: UserId | null }) {
-  const [platform, setPlatform] = useState<Platform | null>(null);
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [dismissed, setDismissed] = useState(false);
+  // iOS never fires beforeinstallprompt, so eligibility is read directly.
+  const iosEligible = useClientValue(
+    () => isIosDevice() && !isRunningInstalled() && !hasDismissedInstallNudge(userId),
+    false,
+  );
+  const platform: Platform | null = dismissed ? null : iosEligible ? 'ios' : deferredPrompt ? 'installable' : null;
   const [expanded, setExpanded] = useState(false);
 
   // Fires however the install happened (our button or the browser's own menu),
@@ -41,17 +48,11 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   }, [platform]);
 
   useEffect(() => {
-    if (isRunningInstalled() || hasDismissedInstallNudge(userId)) return;
-
-    if (isIosDevice()) {
-      setPlatform('ios');
-      return;
-    }
+    if (isRunningInstalled() || hasDismissedInstallNudge(userId) || isIosDevice()) return;
 
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
-      setPlatform('installable');
     };
     window.addEventListener('beforeinstallprompt', handler);
     return () => window.removeEventListener('beforeinstallprompt', handler);
@@ -62,7 +63,7 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
   const handleDismiss = () => {
     trackEvent('install_nudge_dismissed', { platform });
     dismissInstallNudge(userId);
-    setPlatform(null);
+    setDismissed(true);
   };
 
   const handleInstallClick = async () => {
@@ -73,7 +74,7 @@ export default function InstallNudge({ userId }: { userId: UserId | null }) {
     // Dismiss either way — a "not now" on the native prompt shouldn't nag
     // again next session any more than accepting it should.
     dismissInstallNudge(userId);
-    setPlatform(null);
+    setDismissed(true);
   };
 
   if (!expanded) {

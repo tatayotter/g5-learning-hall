@@ -85,7 +85,7 @@ export default function DailyBonusModal({ streak, gold, userId, onClose }: Daily
 
           {phase !== 'reveal' ? (
             <p className="text-white font-bold text-lg" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
-              Tallying today's work...
+              Tallying today&apos;s work...
             </p>
           ) : (
             <div className="space-y-4">

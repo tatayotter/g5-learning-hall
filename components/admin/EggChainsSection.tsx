@@ -44,7 +44,15 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
     setLoading(false);
   };
 
-  useEffect(() => { reload(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetchEggChainList().then(list => {
+      if (cancelled) return;
+      setChains(list);
+      setLoading(false);
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   // Predecessor's element defaults to match its species — the admin can
   // still override, but this saves a click for the common case.
@@ -89,7 +97,7 @@ export default function EggChainsSection({ passcode }: { passcode: string }) {
     <div>
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">🥚 Egg Chains</h2>
       <p className="text-[#8a7c66] text-sm mb-6">
-        Which species hatches out of which graduated curio's egg. A species with no chain here never
+        Which species hatches out of which graduated curio&apos;s egg. A species with no chain here never
         becomes egg-ready — guild companions and event curios are left out of both dropdowns on purpose.
       </p>
 

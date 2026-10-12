@@ -34,7 +34,7 @@ interface QuestCardProps {
   onEnter: () => void;
 }
 
-export default function QuestCard({ subjectName, subtitle, completed, locked = false, xp = 200, gold = 50, onEnter }: QuestCardProps) {
+export default function QuestCard({ subjectName, completed, locked = false, xp = 200, gold = 50, onEnter }: QuestCardProps) {
   const style = SUBJECT_STYLE[subjectName] ?? DEFAULT_STYLE;
   const isLocked = locked && !completed;
 

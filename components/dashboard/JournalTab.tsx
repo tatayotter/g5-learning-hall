@@ -32,7 +32,7 @@ export default function JournalTab({ activeUserId, journalLogs, characterStats, 
           <span style={{ ...questTextStyle, color: '#f5c542' }}>Guild Journal</span>
         </span>
       </h1>
-      <p className="text-[#6b4820] mb-6">Reflect on today's run and seal your ledger entry to claim your reward.</p>
+      <p className="text-[#6b4820] mb-6">Reflect on today&apos;s run and seal your ledger entry to claim your reward.</p>
       <GuildJournal
         userId={activeUserId}
         journalLogs={journalLogs || {}}

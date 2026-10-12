@@ -638,7 +638,7 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private buildTilemap(bg: Extract<MapBackground, { type: 'tilemap' }>) {
     const mapDataKey = `tilemapdata:${bg.key}`;
-    const imageKeys = Object.entries(bg.tilesetImages).map(([name, url]) => [name, `tileset:${bg.key}:${name}`] as const);
+    const imageKeys = Object.entries(bg.tilesetImages).map(([name]) => [name, `tileset:${bg.key}:${name}`] as const);
 
     let pending = imageKeys.length;
     const tryBuild = () => {
@@ -996,7 +996,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // foliage layers at depth 12+. Called from applyState (once per tile crossed);
   // updateTrashPositions() repositions them every rAF frame as the camera pans.
 
-  private applyTrashItems(state: MapCanvasSyncState, t: Transform) {
+  private applyTrashItems(state: MapCanvasSyncState, _t: Transform) {
     const items = state.trashItems ?? [];
     const collecting = new Set(state.collectingTrashIds ?? []);
 
@@ -1119,8 +1119,11 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  pixelArt:true setting. Safe to call repeatedly — no-ops once set. */
   private setLinearFilter(key: string) {
     try {
-      // Phaser stores FilterMode as integer: NEAREST=0, LINEAR=1.
-      this.textures.get(key).setFilter(1 as any);
+      // NOTE: Phaser's FilterMode is LINEAR=0, NEAREST=1, so this has always
+      // applied NEAREST (the raw `1` it used to pass) despite the name. Kept
+      // that way so the map's current look doesn't change; use
+      // FilterMode.LINEAR here to get the bilinear filtering described above.
+      this.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
     } catch {
       // Silently ignore if the API differs in this Phaser build.
     }

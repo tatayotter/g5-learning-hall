@@ -95,7 +95,7 @@ export default async function SupportPage({
               Any amount helps keep it going
             </h2>
             <p className="text-slate-500 leading-relaxed mb-6">
-              There's no minimum tier, no reward tiers to pick through — just a straightforward way
+              There&apos;s no minimum tier, no reward tiers to pick through — just a straightforward way
               to chip in. Pick an amount that feels right, or set your own.
             </p>
             <div className="flex items-center gap-3 text-sm text-slate-500">

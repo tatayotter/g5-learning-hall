@@ -41,7 +41,7 @@ export function gradeToNumber(grade: string | number | undefined): number {
 // into USERS once so every existing USERS[id] lookup across the app keeps
 // working synchronously without an async refactor.
 let classmatesLoaded = false;
-let classmateIds: Set<UserId> = new Set();
+const classmateIds: Set<UserId> = new Set();
 
 // Supabase caps a single select response at 1000 rows by default — fine for
 // today's handful of classmates, but a silent, hard-to-notice truncation
@@ -51,6 +51,15 @@ let classmateIds: Set<UserId> = new Set();
 // buzzing-rolling-engelbart.md — this doesn't scope the query down, it just
 // stops it from silently truncating until scoping (Phase 1+) lands.
 const ROSTER_PAGE_SIZE = 1000;
+
+// Public roster columns shared by classmates_public and children_public.
+interface RosterRow {
+  id: string;
+  full_name: string;
+  grade: string;
+  gender: string | null;
+  school_name: string | null;
+}
 
 async function fetchAllRows<T>(
   table: string,
@@ -82,9 +91,9 @@ export async function loadClassmates(): Promise<void> {
   // safe-column view is the only public read path for the account-select
   // roster; the admin dashboard's need for username goes through a
   // separate passcode-gated route instead (see classmate-admin/route.ts).
-  const data = await fetchAllRows<any>('classmates_public', 'id, full_name, grade, gender, school_name');
+  const data = await fetchAllRows<RosterRow>('classmates_public', 'id, full_name, grade, gender, school_name');
 
-  (data || []).forEach((c: any) => {
+  (data || []).forEach((c) => {
     const gender = c.gender === 'girl' ? 'girl' : 'boy';
     USERS[c.id] = {
       id: c.id,
@@ -116,7 +125,7 @@ export function getClassmateIds(): UserId[] {
 // table. Loaded into USERS once so every existing USERS[id] lookup across
 // the app keeps working synchronously without an async refactor.
 let childrenLoaded = false;
-let childIds: Set<UserId> = new Set();
+const childIds: Set<UserId> = new Set();
 
 export async function loadChildren(): Promise<void> {
   if (childrenLoaded) return;
@@ -126,9 +135,9 @@ export async function loadChildren(): Promise<void> {
   // of approved parents) is the public account-select roster's read path.
   // '*' rather than a column list so this keeps working whether or not the
   // view has the show_crown column yet (it's added by a later migration).
-  const data = await fetchAllRows<any>('children_public', '*');
+  const data = await fetchAllRows<RosterRow & { avatar: string | null; show_crown?: boolean | null }>('children_public', '*');
 
-  (data || []).forEach((c: any) => {
+  (data || []).forEach((c) => {
     const gender = c.gender === 'girl' ? 'girl' : 'boy';
     const defaultAvatar = gender === 'girl'
       ? '/userpics/userpics_premium/ssg3.png'
@@ -162,7 +171,7 @@ let avatarsLoaded = false;
 export async function loadAvatarOverrides(): Promise<void> {
   if (avatarsLoaded) return;
   const { data } = await supabase.from('user_avatars').select('user_id, avatar');
-  (data || []).forEach((row: any) => {
+  (data || []).forEach((row) => {
     if (USERS[row.user_id]) USERS[row.user_id].avatar = row.avatar;
   });
   avatarsLoaded = true;
@@ -186,7 +195,7 @@ let themesLoaded = false;
 export async function loadThemeOverrides(): Promise<void> {
   if (themesLoaded) return;
   const { data } = await supabase.from('user_themes').select('user_id, theme_key');
-  (data || []).forEach((row: any) => {
+  (data || []).forEach((row) => {
     if (USERS[row.user_id]) USERS[row.user_id].theme = row.theme_key;
   });
   themesLoaded = true;

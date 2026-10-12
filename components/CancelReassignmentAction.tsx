@@ -10,15 +10,13 @@ import { supabase } from '@/lib/supabase';
 export default function CancelReassignmentAction() {
   const searchParams = useSearchParams();
   const token = searchParams.get('token') || '';
-  const [status, setStatus] = useState<'loading' | 'done' | 'error'>('loading');
+  const [result, setResult] = useState<'done' | 'error' | null>(null);
+  const status: 'loading' | 'done' | 'error' = !token ? 'error' : result ?? 'loading';
 
   useEffect(() => {
-    if (!token) {
-      setStatus('error');
-      return;
-    }
+    if (!token) return;
     supabase.rpc('cancel_child_reassignment', { p_cancel_token: token }).then(({ error }) => {
-      setStatus(error ? 'error' : 'done');
+      setResult(error ? 'error' : 'done');
     });
   }, [token]);
 

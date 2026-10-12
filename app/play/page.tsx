@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const GUILDS = [
@@ -116,9 +117,9 @@ function PrimaryCTA() {
         🚀 Create My Account — It&apos;s Free!
       </motion.a>
       <p className="text-xs text-[#a89c86]">No parent needed to start. Takes less than a minute.</p>
-      <a href="/" className="text-xs font-semibold text-[#d4b46a] hover:text-[#f0b429] underline underline-offset-2">
+      <Link href="/" className="text-xs font-semibold text-[#d4b46a] hover:text-[#f0b429] underline underline-offset-2">
         I already have an account →
-      </a>
+      </Link>
     </div>
   );
 }
@@ -292,7 +293,7 @@ export default function PlayPage() {
           </a>
         </p>
         <p className="text-[11px] tracking-wide mb-3">
-          <a href="/" className="text-white/40 hover:text-white/70 underline">Log In</a>
+          <Link href="/" className="text-white/40 hover:text-white/70 underline">Log In</Link>
           <span className="text-white/20 mx-2">·</span>
           <a href="/welcome" className="text-white/40 hover:text-white/70 underline">For Parents</a>
         </p>

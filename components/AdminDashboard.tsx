@@ -30,7 +30,6 @@ import BlogSection from '@/components/admin/BlogSection';
 interface AdminDashboardProps {
   currentData: WeeklyData;
   currentSunday: string;
-  onUpdateStats: (...args: any[]) => void;
   onBack: () => void;
 }
 
@@ -100,7 +99,7 @@ function readStoredSection(): AdminSection {
   return 'overview';
 }
 
-export default function AdminDashboard({ currentData, currentSunday, onUpdateStats, onBack }: AdminDashboardProps) {
+export default function AdminDashboard({ currentData, currentSunday, onBack }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -303,9 +302,7 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
             {section === 'overview' && <OverviewSection passcode={password} />}
             {section === 'packages' && (
               <WeeklyPackageBuilder
-                currentData={currentData}
                 currentSunday={currentSunday}
-                onUpdateStats={onUpdateStats}
                 passcode={password}
                 onNavigateToDrafts={() => setSection('draft_questions')}
               />
@@ -326,7 +323,6 @@ export default function AdminDashboard({ currentData, currentSunday, onUpdateSta
               <ToolsSection
                 currentData={currentData}
                 currentSunday={currentSunday}
-                onUpdateStats={onUpdateStats}
                 passcode={password}
               />
             )}

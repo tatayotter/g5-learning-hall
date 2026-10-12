@@ -77,7 +77,36 @@ function PoolCountPanel() {
   );
 }
 
-const nonEmptyStr = (v: any) => typeof v === 'string' && v.trim().length > 0;
+const nonEmptyStr = (v: unknown): v is string => typeof v === 'string' && v.trim().length > 0;
+
+// A pasted (or existing) question row. Fields are whatever the admin pasted,
+// so validateQuestion() checks every one at runtime before anything is inserted.
+interface ImportedQuestion {
+  passage?: string;
+  question?: string;
+  choice_a?: string;
+  choice_b?: string;
+  choice_c?: string;
+  choice_d?: string;
+  correct_choice?: string;
+  correct_answer?: string;
+  word_string?: string;
+  problem_prompt?: string;
+  expected_layout?: string;
+  correct_numerator?: number;
+  correct_denominator?: number;
+  correct_standard_ans?: string;
+  puzzle_prompt_text?: string;
+  matrix_image_url?: string;
+  options_array?: unknown;
+  correct_option_id?: string;
+  correct_spelling?: string;
+  wrong_a?: string;
+  wrong_b?: string;
+  wrong_c?: string;
+  difficulty_tier?: number;
+  [key: string]: unknown;
+}
 
 // Per-guild required-field / cross-field checks. Without these, malformed
 // rows (missing options_array, wrong expected_layout, correct_choice that
@@ -93,7 +122,7 @@ const nonEmptyStr = (v: any) => typeof v === 'string' && v.trim().length > 0;
 // has no such column (it's a separate Wild Encounter feature, not one of the
 // 5 progression guilds), so reject the field there instead of letting a
 // confusing "column does not exist" error surface from the insert itself.
-function validateDifficultyTier(guild: GuildTable, q: any): string[] {
+function validateDifficultyTier(guild: GuildTable, q: ImportedQuestion): string[] {
   if (q.difficulty_tier === undefined || q.difficulty_tier === null) return [];
   if (guild === 'sq_wild_encounter') {
     return ['difficulty_tier is not supported on sq_wild_encounter'];
@@ -104,7 +133,7 @@ function validateDifficultyTier(guild: GuildTable, q: any): string[] {
   return [];
 }
 
-function validateQuestion(guild: GuildTable, q: any): string[] {
+function validateQuestion(guild: GuildTable, q: ImportedQuestion): string[] {
   const errors: string[] = [...validateDifficultyTier(guild, q)];
 
   if (guild === 'sq_lorekeeper' || guild === 'sq_wild_encounter') {
@@ -112,14 +141,14 @@ function validateQuestion(guild: GuildTable, q: any): string[] {
     (['choice_a', 'choice_b', 'choice_c', 'choice_d'] as const).forEach(f => {
       if (!nonEmptyStr(q[f])) errors.push(`missing ${f}`);
     });
-    if (!['a', 'b', 'c', 'd'].includes(q.correct_choice)) {
+    if (!['a', 'b', 'c', 'd'].includes(q.correct_choice ?? '')) {
       errors.push(`correct_choice must be "a", "b", "c", or "d" (got ${JSON.stringify(q.correct_choice)})`);
     }
   } else if (guild === 'sq_spellcaster') {
     if (!nonEmptyStr(q.word_string)) errors.push('missing word_string');
   } else if (guild === 'sq_number_realm') {
     if (!nonEmptyStr(q.problem_prompt)) errors.push('missing problem_prompt');
-    if (!['standard', 'fraction', 'time'].includes(q.expected_layout)) {
+    if (!['standard', 'fraction', 'time'].includes(q.expected_layout ?? '')) {
       errors.push(`expected_layout must be "standard", "fraction", or "time" (got ${JSON.stringify(q.expected_layout)})`);
     } else if (q.expected_layout === 'fraction') {
       if (typeof q.correct_numerator !== 'number' || typeof q.correct_denominator !== 'number') {
@@ -143,8 +172,8 @@ function validateQuestion(guild: GuildTable, q: any): string[] {
     if (!Array.isArray(options) || options.length === 0) {
       errors.push('options_array must be a non-empty array');
     } else {
-      const ids = options.map((o: any) => o?.id);
-      if (ids.some((id: any) => !nonEmptyStr(id))) errors.push('every option in options_array needs a non-empty id');
+      const ids = options.map((o) => o?.id);
+      if (ids.some((id) => !nonEmptyStr(id))) errors.push('every option in options_array needs a non-empty id');
       if (!nonEmptyStr(q.correct_option_id) || !ids.includes(q.correct_option_id)) {
         errors.push('correct_option_id must match one of the ids in options_array');
       }
@@ -180,8 +209,8 @@ const DEDUPE_FIELDS: Record<GuildTable, string> = {
   sq_lexicon_arena: 'correct_spelling',
 };
 
-function dedupeKeyFor(guild: GuildTable, q: any): string | null {
-  const norm = (s: any) => (typeof s === 'string' && s.trim()) ? s.trim().toLowerCase().replace(/\s+/g, ' ') : null;
+function dedupeKeyFor(guild: GuildTable, q: ImportedQuestion): string | null {
+  const norm = (s: unknown) => (typeof s === 'string' && s.trim()) ? s.trim().toLowerCase().replace(/\s+/g, ' ') : null;
   if (guild === 'sq_logic_labyrinth') return norm(q.puzzle_prompt_text) || norm(q.matrix_image_url);
   if (guild === 'sq_spellcaster') return norm(q.word_string);
   if (guild === 'sq_number_realm') return norm(q.problem_prompt);
@@ -255,7 +284,7 @@ export default function QuestionBankImporter() {
   const [guild, setGuild] = useState<GuildTable>('sq_lorekeeper');
   const [gradeLevel, setGradeLevel] = useState<number>(5);
   const [jsonInput, setJsonInput] = useState('');
-  const [preview, setPreview] = useState<any[]>([]);
+  const [preview, setPreview] = useState<ImportedQuestion[]>([]);
   const [parseError, setParseError] = useState('');
   const [importing, setImporting] = useState(false);
   const [importResult, setImportResult] = useState<{ inserted: number; skipped: number; invalid: number; invalidDetails: string[] } | null>(null);
@@ -285,8 +314,8 @@ export default function QuestionBankImporter() {
       const arr = JSON.parse(jsonInput);
       if (!Array.isArray(arr)) throw new Error('Expected a JSON array of questions');
       setPreview(arr);
-    } catch (e: any) {
-      setParseError(`Parse error: ${e.message}`);
+    } catch (e) {
+      setParseError(`Parse error: ${e instanceof Error ? e.message : String(e)}`);
     }
   };
 
@@ -299,13 +328,14 @@ export default function QuestionBankImporter() {
       .from(guild)
       .select(DEDUPE_FIELDS[guild])
       .eq('grade_level', gradeLevel)
-      .eq('is_active', true);
+      .eq('is_active', true)
+      .overrideTypes<ImportedQuestion[], { merge: false }>();
 
-    const existingKeys = new Set((existing || []).map((r: any) => dedupeKeyFor(guild, r)).filter((k): k is string => !!k));
+    const existingKeys = new Set((existing || []).map((r) => dedupeKeyFor(guild, r)).filter((k): k is string => !!k));
     const seenInBatch = new Set<string>();
 
     let duplicateCount = 0;
-    const toInsert: any[] = [];
+    const toInsert: ImportedQuestion[] = [];
 
     preview.forEach((q, i) => {
       if (previewErrors[i].length > 0) return; // invalid rows are never inserted, reported separately below
@@ -342,7 +372,7 @@ export default function QuestionBankImporter() {
   };
 
   // Guild-specific field renderer for preview
-  const renderQuestionPreview = (q: any, i: number) => {
+  const renderQuestionPreview = (q: ImportedQuestion, i: number) => {
     const errors = previewErrors[i];
     const wrapClass = `rounded-lg px-4 py-2 border ${errors.length > 0 ? 'bg-red-950/30 border-[#6e1512]' : 'bg-[#1c1611] border-[#2a2119]'}`;
     const errorFooter = errors.length > 0 && (
@@ -382,7 +412,7 @@ export default function QuestionBankImporter() {
   return (
     <div>
       <h2 className="text-xl font-bold text-[#ede4d3] mb-1">Question Bank Importer</h2>
-      <p className="text-[#8a7c66] text-sm mb-6">Bulk-import questions into any guild's question pool.</p>
+      <p className="text-[#8a7c66] text-sm mb-6">Bulk-import questions into any guild&apos;s question pool.</p>
 
       <PoolCountPanel key={refreshPool} />
 
@@ -466,7 +496,7 @@ export default function QuestionBankImporter() {
           <div className="flex justify-between items-center mb-3">
             <p className="text-[#ede4d3] font-bold">
               {preview.length} questions parsed
-              {invalidCount > 0 && <span className="text-[#e0605a]"> · {invalidCount} invalid (won't be imported)</span>}
+              {invalidCount > 0 && <span className="text-[#e0605a]"> · {invalidCount} invalid (won&apos;t be imported)</span>}
             </p>
             <p className="text-xs text-[#8a7c66]">{GUILD_LABELS[guild]} · Grade {gradeLevel}</p>
           </div>
