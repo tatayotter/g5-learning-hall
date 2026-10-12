@@ -70,8 +70,8 @@ export default function ActiveQuestView({
   // Awards the training curio its share of the quest XP. Runs once, on the
   // perfect (quest-completed) submission only.
   const awardTrainingExp = async (xpEarned: number) => {
-    if (!trainingCurioId) return;
-    const result = await awardCurioTrainingExp(activeUserId, trainingCurioId, xpEarned, data.week_starting_date);
+    if (!trainingCurio) return;
+    const result = await awardCurioTrainingExp(activeUserId, trainingCurio, xpEarned, data.week_starting_date);
     if (result) setTrainingResult(result);
   };
 

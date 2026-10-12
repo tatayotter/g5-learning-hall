@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import type { Components } from 'react-markdown';
 import { MonsterImage } from '@/components/battle/shared';
-import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, MonsterDef } from '@/lib/monsterConfig';
 import { CharacterStats } from '@/hooks/useWeeklyData';
 import { playChime, playClash, playLevelUp, playPageFlip } from '@/lib/sounds';
 import VictoryScreen, { CurioTrainingCard, TrainingResult, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD } from '@/components/VictoryScreen';
@@ -82,7 +82,7 @@ interface QuestModuleProps {
   dailyAttemptsUsed: number;
   isMastered: boolean;
   // The curio picked to train for this quest — shown next to the progress dots.
-  trainingCurio?: { monster_id: string; nickname: string | null; monster_level: number } | null;
+  trainingCurio?: { monster_id: string; nickname: string | null; monster_level: number; display?: MonsterDef } | null;
   // Filled in by the parent once the training curio's EXP has been awarded.
   trainingResult?: TrainingResult | null;
   // Grading happens server-side (grade_content_quiz / grade_event_quiz RPCs) —
@@ -335,10 +335,10 @@ export default function QuestModule({ userId, questName, questData, currentStats
             </div>
             {trainingCurio && (
               <div className="flex items-center gap-2 bg-white border-2 border-[#8b5e2a] rounded-full pl-1 pr-3 py-0.5 shadow-sm flex-shrink-0">
-                <MonsterImage monster={ALL_MONSTERS[trainingCurio.monster_id]} className="w-8 h-8" emojiClassName="text-2xl" />
+                <MonsterImage monster={trainingCurio.display ?? ALL_MONSTERS[trainingCurio.monster_id]} className="w-8 h-8" emojiClassName="text-2xl" />
                 <span className="leading-tight text-xs font-extrabold text-[#2a1505] min-w-0">
                   <span className="block text-[9px] uppercase tracking-wide text-[#c9781a]">Training</span>
-                  <span className="block truncate max-w-[92px] sm:max-w-none">{trainingCurio.nickname || ALL_MONSTERS[trainingCurio.monster_id]?.name || 'Curio'} Lv.{trainingCurio.monster_level}</span>
+                  <span className="block truncate max-w-[92px] sm:max-w-none">{trainingCurio.nickname || (trainingCurio.display ?? ALL_MONSTERS[trainingCurio.monster_id])?.name || 'Curio'} Lv.{trainingCurio.monster_level}</span>
                 </span>
               </div>
             )}
