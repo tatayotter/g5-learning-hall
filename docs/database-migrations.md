@@ -104,18 +104,28 @@ expired before looking anywhere else.
 ## Large data migrations and the Vercel build
 
 Vercel fails a git deployment within seconds, with `errorCode: git_info_fail` and no build
-log, when the commit's diff is very large. It happened to PR #172 (MAPEH in English, a 1.3 MB
-diff, 2026-10-12): the preview and the production build of its merge commit both failed, and
-redeploying the same commit failed again. Earlier merges up to about 450 KB built normally.
-The app was fine; Vercel just never started the build.
+log, when the changes since that branch's last successful deployment add up to a very large
+diff. It happened to PR #172 (MAPEH in English, a 1.3 MB diff, 2026-10-12). Earlier merges up
+to about 450 KB built normally. The app was fine; Vercel just never started the build.
 
-- When a PR's diff goes over about 1 MB (usually a generated content migration), expect this.
-  The PR's real checks (`database-tests.yml`, lint, e2e) still run and are what matter.
-- The live site stays on the previous version until a commit Vercel can read lands on
-  `main`. Any normal-sized follow-up merge deploys everything, including the big change.
-- If the app code in such a PR has to be live before the data changes (for example, a
-  device-cache refresh that a content rewording depends on), hold the `deploy` approval
-  above until the Vercel production build is green.
+What failed and what worked that day:
+- #172's preview, a redeploy of it, the production build of its merge, a small follow-up
+  merge on `main` (#173), and a dashboard Redeploy of that merge all failed. Every
+  production build is compared with the last good production build, so the big diff
+  stayed in range.
+- #173's own preview built, because its branch only compared against its one small commit.
+- Rebuilding that preview for production worked (Vercel API `create_deployment` with
+  `deploymentId` of the preview and `target: "production"`, or the dashboard's
+  **Promote to Production**, which rebuilds with production env vars). Once one production
+  build succeeds, later merges compare against it and build normally.
+
+So, when a PR's diff goes over about 1 MB (usually a generated content migration):
+- Its real checks (`database-tests.yml`, lint, e2e) still run and are what matter.
+- After merging, open a tiny follow-up PR, then rebuild that PR's green preview for
+  production as above.
+- If the app code has to be live before the data changes (for example, a device-cache
+  refresh that a content rewording depends on), hold the `deploy` approval above until
+  the production build is green.
 
 ## Troubleshooting: "Remote migration versions not found in local migrations directory"
 
