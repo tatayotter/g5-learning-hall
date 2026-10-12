@@ -122,6 +122,7 @@ while a main quest is open. For parents: `parent_home`, `parent_child`, `parent_
 | `battle_training_tip_viewed` / `_tip_done` | Element tip shown / dismissed | `tip`, `ms` | 40 / 4 each |
 | `battle_training_completed` | Training finished | `replay`, `bonus_paid` | 3 / 3 |
 | `curio_arena_battle_start` / `_end` | Live PvP battle | `battle_id`, `end_reason`, `winner_id` | 0 |
+| `arena_view` | A Curio Arena screen opens (`app_tab` = `monster`) | `view` (map / team / trainers / compendium / trade / leaderboard / hatchery / battle / live_battle), `from` (previous screen, null on entering), `via` (enter / menu / flow), `prev_ms` (time on the previous screen), `battle_kind` (trainer / pvp / wild / dummy) + `offline` for `battle`, `opponent` (bot / player) for `live_battle` | new (2026-10-12) |
 | `keeper_egg_granted` | Keeper's Egg given | `new_grant`, `element` | 3 / 3 |
 | `keeper_egg_beat_viewed` / `_skipped` | Egg story beats | `beat` / `at_beat` | 9 / 3, 1 / 1 |
 | `keeper_egg_reminders` | Reminder opt-in answered | `enabled` | 0 |
@@ -198,7 +199,7 @@ Two exceptions:
 | Intro + first curio | `intro_started` | `intro_story_completed` vs `intro_skipped`; `intro_training_completed`; `intro_first_quest_handoff` | Does the intro lead to a first real quest? |
 | Tab tutorials | `tab_tutorial_step_viewed` | completed vs skipped, step reached | Do tutorials teach or get skipped? (120 skips vs 44 completes so far) |
 | Guilds | `tab_view` guilds, `guild_quiz_start` | `guild_quiz_complete` / start, correct rate, days per user | Is optional practice used beyond the main quest? |
-| Curios / monster tab | `tab_view` monster | battle training completion, shop purchases, arena battles | Does collecting drive return visits? (returners used it 69% vs 18% in the 09-30 funnel) |
+| Curios / monster tab | `tab_view` monster, then `arena_view` per screen | battle training completion, shop purchases, arena battles, reach per Arena screen | Does collecting drive return visits? (returners used it 69% vs 18% in the 09-30 funnel) Which Arena screens do kids ever reach, and through the menu or the game? |
 | Battle training | `battle_training_started` vs `_declined` | `_completed`, tip time | Is the coached fight worth its length? |
 | Keeper's Egg | `keeper_egg_granted` | `keeper_egg_completed` (story finished), `keeper_egg_return_viewed`, D1/D2 return, hatched keeper eggs in `curio_eggs` | Does "come back tomorrow" bring kids back? |
 | Todo / journal / codex / vault / profile | `tab_view` per tab | days per visitor, `screen_time` | Each tab on the adoption x repeat grid |
@@ -216,6 +217,46 @@ Two exceptions:
   Write the decision and the numbers behind it into `docs/analytics/reports/`.
 - Pair each review with a few observations of real kids or parents using the app. The numbers
   show *what*; watching shows *why*.
+
+### Arena screen reach
+
+Baseline for the navigation redesign (`/dev/ui-gallery`, "Navigation redesign"). Compare the
+same query before and after any nav change. Per screen: how many kids reached it, and whether
+through the Arena menu or the game itself.
+
+```sql
+select properties->>'view' as screen,
+       count(distinct user_id) as kids,
+       count(*) as opens,
+       count(*) filter (where properties->>'via' = 'menu') as via_menu,
+       count(*) filter (where properties->>'via' = 'flow') as via_game,
+       count(*) filter (where properties->>'via' = 'enter') as first_screen
+from analytics_events
+where event_name = 'arena_view'
+  and not is_family
+  and created_at > now() - interval '30 days'
+group by 1
+order by kids desc;
+```
+
+Share of Arena visitors who ever reach each screen: divide `kids` by the distinct users with a
+`tab_view` of `monster` over the same window.
+
+Time on each screen (`prev_ms` belongs to the screen being left, so group by `from`; the last
+screen of a visit isn't counted here):
+
+```sql
+select properties->>'from' as screen,
+       count(*) as visits,
+       round(percentile_cont(0.5) within group (order by (properties->>'prev_ms')::numeric) / 1000) as median_seconds
+from analytics_events
+where event_name = 'arena_view'
+  and not is_family
+  and properties->>'from' is not null
+  and created_at > now() - interval '30 days'
+group by 1
+order by visits desc;
+```
 
 ## 7. Known gaps
 
