@@ -453,63 +453,6 @@ function Sidebar({ active, onSelect, badges, iconPx, onMenuItem }: { active: Tab
 // ─── Today: the checklist hub ───────────────────────────────────────────────
 type GoTarget = 'journal' | 'quest' | 'map' | 'guild' | 'hatchery' | 'battle' | 'event' | 'boss';
 
-function Checklist({ day, onGo, compact, net }: { day: DayState; onGo: (target: GoTarget) => void; compact?: boolean; net: Net }) {
-  const nextGuild = GUILDS[day.guildsPlayed]?.name;
-  const rows: { label: string; done: boolean; action?: string; target: GoTarget }[] = [
-    { label: "Fill out today's journal entry", done: day.journalDone, action: 'Write', target: 'journal' },
-    { label: "Finish today's Main Quest", done: day.questDone, action: 'Start', target: 'quest' },
-    { label: 'Answer a training map question correctly', done: day.mapDone, action: 'Map', target: 'map' },
-    { label: `Play every Side Quest guild (${day.guildsPlayed}/${GUILDS.length})`, done: day.guildsPlayed >= GUILDS.length, action: nextGuild ? 'Next' : undefined, target: 'guild' },
-  ];
-  const doneCount = rows.filter(r => r.done).length;
-  const allDone = doneCount === rows.length;
-  return (
-    <ParchmentCard className="p-3">
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-[#7a4a0f] text-sm font-black uppercase tracking-wide">Today&apos;s To-Do</span>
-        <span className="text-[#6b4820] text-xs font-bold">{doneCount}/{rows.length}</span>
-      </div>
-      <div className="flex flex-col gap-1.5">
-        {rows.map(r => (
-          <div key={r.target} className="flex items-center gap-2 bg-[#e8d0a0]/60 rounded-xl px-2.5 py-1.5">
-            <span className={`w-4 h-4 rounded border-2 shrink-0 ${r.done ? 'bg-green-600 border-green-700' : 'bg-white border-[#8b5e2a]'}`} />
-            <span className={`flex-1 ${compact ? 'text-[12px]' : 'text-[13px]'} font-bold leading-tight ${r.done ? 'text-[#6b4820] line-through' : 'text-[#2a1505]'}`}>
-              {r.label}
-              {r.target === 'guild' && !r.done && nextGuild && <span className="block text-[11px] font-bold text-[#6b4820]">Next up: {nextGuild}</span>}
-            </span>
-            {!r.done && r.action && (net === 'offline' && r.target !== 'journal' ? <NeedsNetChip /> : <SmallButton onClick={() => onGo(r.target)}>{r.action}</SmallButton>)}
-          </div>
-        ))}
-      </div>
-      <div className="mt-2.5" style={{ fontSize: 15 }}>
-        <GameButton variant="quest" color={allDone && net === 'online' ? undefined : '#a8a29e'} disabled={!allDone || net !== 'online'} className="w-full" style={{ minHeight: 44 }}>
-          {!allDone ? 'Finish all to claim' : net === 'online' ? 'Claim daily bonus' : 'Claim when the internet is back'}
-        </GameButton>
-      </div>
-    </ParchmentCard>
-  );
-}
-
-function MainQuestList({ iconPx, wide, highlight, onStart, locked }: { iconPx: number; wide: boolean; highlight: boolean; onStart: () => void; locked: boolean }) {
-  const quests = ['Mathematics: Fractions', 'Science: Plant Parts', 'English: Verb Tenses', 'Filipino: Pangngalan'];
-  return (
-    <>
-      <SectionLabel>This week&apos;s Main Quests</SectionLabel>
-      <div className={`grid gap-2 ${wide ? 'grid-cols-2' : 'grid-cols-1'}`}>
-        {quests.map((q, i) => (
-          <ParchmentCard key={q} className="p-3 flex items-center gap-3" highlight={highlight && i === 0}>
-            <img src="/main ui/mainquest.png" alt="" className="object-contain" style={{ width: iconPx, height: iconPx }} />
-            <span className="flex-1 text-[#2a1505] text-sm font-bold">{q}</span>
-            {i === 0
-              ? (locked ? <NeedsNetChip /> : <SmallButton onClick={onStart}>Start</SmallButton>)
-              : <span className="text-[11px] font-black uppercase rounded-full px-2 py-0.5 bg-[#e8d0a0] text-[#6b4820]">Opens {['Tue', 'Wed', 'Thu'][i - 1]}</span>}
-          </ParchmentCard>
-        ))}
-      </div>
-    </>
-  );
-}
-
 function NeedsNetChip() {
   return <span className="shrink-0 inline-flex items-center gap-1 rounded-full bg-[#e8d0a0] text-[#6b4820] text-[11px] font-black px-2 py-1"><LockGlyph />{NEEDS_NET}</span>;
 }
@@ -546,40 +489,190 @@ const NUDGES: Record<Exclude<Nudge, 'none'>, { icon: string; title: string; sub:
   alerts:  { icon: '/icons/notificationbell.png', title: 'Turn on reminders',          sub: 'We\'ll tell you when your egg is ready.', action: 'Turn on' },
 };
 
-// Order is fixed and by what a kid should do first: a reason to come back
-// (gift, egg), today's work (To-Do), time-limited things (event, boss),
-// people (classmate online), then the week's quests. At most ONE nudge card
-// (install / link parent / reminders), always last, so nags never stack.
-function TodayScreen({ day, onGo, iconPx, wide, checklistPinned, questHighlight, net, onGift, onToast }: { day: DayState; onGo: (target: GoTarget) => void; iconPx: number; wide: boolean; checklistPinned: boolean; questHighlight: boolean; net: Net; onGift: () => void; onToast: (m: string) => void }) {
+// ─── Today: a picture-led page ──────────────────────────────────────────────
+// Rowil (2026-10-13): Today must feel like a game, not a wall of text. So the
+// To-Do is a trail of four big picture stops that ends at a reward chest, the
+// gift and egg are picture tiles, time-limited things are art banners and the
+// week's quests are subject-art tiles. Words are labels, not sentences.
+const JOURNEY_BG = `linear-gradient(rgba(10,8,7,0.35), rgba(10,8,7,0.8)), url("/intro/ledger_hall.webp") center 40% / cover`;
+
+function DayJourney({ day, onGo, net, compact, onClaim }: { day: DayState; onGo: (target: GoTarget) => void; net: Net; compact?: boolean; onClaim: () => void }) {
+  const guildsDone = day.guildsPlayed >= GUILDS.length;
+  const nextGuild = GUILDS[day.guildsPlayed]?.name;
+  const stops: { target: GoTarget; label: string; icon: string; done: boolean; does: string; count?: string }[] = [
+    { target: 'journal', label: 'Journal', icon: '/nav/journal.png', done: day.journalDone, does: "Write today's journal" },
+    { target: 'quest', label: 'Quest', icon: '/main ui/mainquest.png', done: day.questDone, does: "Finish today's Main Quest" },
+    { target: 'map', label: 'Map', icon: '/icons/mapicon.png', done: day.mapDone, does: 'Answer one Training Map question' },
+    { target: 'guild', label: 'Guilds', icon: '/nav/side-quests.png', done: guildsDone, does: nextGuild ? `Play every Side Quest guild, next is ${nextGuild}` : 'Play every Side Quest guild', count: `${Math.min(day.guildsPlayed, GUILDS.length)}/${GUILDS.length}` },
+  ];
+  const locked = (t: GoTarget) => net === 'offline' && t !== 'journal';
+  const doneCount = stops.filter(s => s.done).length;
+  const left = stops.length - doneCount;
+  const nextIdx = stops.findIndex(s => !s.done && !locked(s.target));
+  const node = compact ? 46 : 56;
+  const cols = stops.length + 1;
+  return (
+    <section aria-label="Today's journey" className="relative rounded-2xl border-2 border-[#8b5e2a] overflow-hidden" style={{ background: JOURNEY_BG, boxShadow: '0 3px 0 #4a2f18' }}>
+      <div className={compact ? 'p-2.5' : 'p-3'}>
+        <div className="flex items-center justify-between gap-2">
+          <QuestText size={compact ? 15 : 18}>Today&apos;s Journey</QuestText>
+          <span className="rounded-full bg-[#0a0807]/70 border border-[#f5c542]/70 text-[#f5c542] text-[11px] font-black px-2 py-0.5 whitespace-nowrap">{doneCount} of {stops.length} done</span>
+        </div>
+
+        <div className="relative mt-3" style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+          {/* Path between stops: gold once the stop before it is done. */}
+          {stops.map((s, i) => (
+            <span key={`path-${s.target}`} aria-hidden className="absolute" style={{ left: `${((i + 0.5) / cols) * 100}%`, width: `${100 / cols}%`, top: node / 2 - 3, height: 6, borderRadius: 3, background: s.done ? '#f5c542' : 'transparent', border: s.done ? '1px solid #8b5e2a' : '2px dashed rgba(245,197,66,.55)' }} />
+          ))}
+          {stops.map((s, i) => {
+            const isLocked = !s.done && locked(s.target);
+            const isNext = i === nextIdx;
+            const state = s.done ? 'done' : isLocked ? 'needs internet' : isNext ? 'do this next' : 'not done yet';
+            return (
+              <div key={s.target} className="relative flex flex-col items-center">
+                <button
+                  onClick={() => { if (!isLocked) { playPageFlip(); onGo(s.target); } }}
+                  disabled={isLocked}
+                  aria-label={`${s.does}, ${state}${s.count ? `, ${s.count}` : ''}`}
+                  className={`relative rounded-full flex items-center justify-center active:scale-95 ${FOCUS_RING}`}
+                  style={{ width: node, height: node, background: s.done ? '#dcfce7' : '#f0ddb8', border: `3px solid ${s.done ? '#15803d' : isNext ? '#f5c542' : '#8b5e2a'}`, boxShadow: isNext ? '0 0 0 3px rgba(245,197,66,.45), 0 3px 0 #4a2f18' : '0 3px 0 #4a2f18' }}
+                >
+                  <img src={s.icon} alt="" className="object-contain" style={{ width: node - 16, height: node - 16, filter: isLocked ? 'grayscale(1) opacity(.55)' : undefined }} />
+                  {s.done && <span aria-hidden className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#15803d] border-2 border-[#ffffff] text-[#ffffff] text-[11px] font-black leading-none flex items-center justify-center">✓</span>}
+                  {isLocked && <span aria-hidden className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#f0ddb8] border-2 border-[#8b5e2a] flex items-center justify-center"><LockGlyph /></span>}
+                  {!s.done && !isLocked && s.count && <span aria-hidden className="absolute -top-1.5 -right-2 rounded-full bg-[#2563eb] border-2 border-[#ffffff] text-[#ffffff] text-[11px] font-black px-1 leading-[14px]">{s.count}</span>}
+                </button>
+                <span aria-hidden className={`mt-1 text-[11px] font-black whitespace-nowrap ${isNext ? 'text-[#f5c542]' : 'text-[#ffffff]'}`} style={{ textShadow: '0 1px 2px rgba(0,0,0,.9)' }}>{isNext ? `${s.label}!` : s.label}</span>
+              </div>
+            );
+          })}
+          {/* The reward at the end of the path: the daily bonus. */}
+          <div className="relative flex flex-col items-center">
+            <span aria-hidden className="relative flex items-center justify-center" style={{ width: node, height: node }}>
+              <img src="/nav/vault.png" alt="" className="object-contain" style={{ width: node + 4, height: node + 4, filter: left > 0 ? 'grayscale(.85) brightness(.8)' : 'drop-shadow(0 0 8px rgba(245,197,66,.9))' }} />
+            </span>
+            <span aria-hidden className="mt-1 text-[11px] font-black text-[#f5c542] whitespace-nowrap" style={{ textShadow: '0 1px 2px rgba(0,0,0,.9)' }}>Chest</span>
+          </div>
+        </div>
+
+        <div className="mt-2.5" style={{ fontSize: compact ? 13 : 15 }}>
+          {left > 0 ? (
+            <p className="text-center text-[#ffffff] text-[13px] font-bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,.9)' }}>
+              {left === 1 ? 'One more stop to open the chest!' : `${left} more stops to open the chest!`}
+            </p>
+          ) : (
+            <GameButton variant="quest" color={net === 'online' ? undefined : '#a8a29e'} disabled={net !== 'online'} onClick={onClaim} className="w-full" style={{ minHeight: 44 }}>
+              {net === 'online' ? 'Open the chest!' : 'Open it when the internet is back'}
+            </GameButton>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GiftTile({ claimed, net, onOpen }: { claimed: boolean; net: Net; onOpen: () => void }) {
+  return (
+    <ParchmentCard className="p-3 flex flex-col items-center text-center" highlight={!claimed}>
+      <img src={claimed ? '/nav/gift-open.png' : '/nav/gift.png'} alt="" className="w-16 h-16 object-contain" />
+      <p className="mt-1 text-[#2a1505] text-sm font-black leading-tight">{claimed ? 'Gift opened!' : 'Daily gift'}</p>
+      <p className="text-[#6b4820] text-[12px] font-bold leading-snug">{claimed ? 'New one tomorrow' : net === 'online' ? 'A surprise every day' : 'It will wait for you'}</p>
+      {!claimed && <div className="mt-2">{net === 'online' ? <SmallButton onClick={onOpen} size={14}>Open</SmallButton> : <NeedsNetChip />}</div>}
+    </ParchmentCard>
+  );
+}
+
+function EggTile({ daysLeft, onHatch }: { daysLeft: number; onHatch: () => void }) {
+  const ready = daysLeft === 0;
+  return (
+    <ParchmentCard className="p-3 flex flex-col items-center text-center" highlight={ready}>
+      <img src="/eggs/egg_light_200px.png" alt="" className="w-16 h-16 object-contain" style={ready ? { filter: 'drop-shadow(0 0 6px rgba(245,197,66,.9))' } : undefined} />
+      <p className="mt-1 text-[#2a1505] text-sm font-black leading-tight">{ready ? 'Ready to hatch!' : 'Your egg'}</p>
+      {ready
+        ? <div className="mt-2"><SmallButton onClick={onHatch} size={14}>Hatch</SmallButton></div>
+        : <>
+            <p className="text-[#6b4820] text-[12px] font-bold leading-snug">{daysLeft === 1 ? 'Hatches tomorrow!' : `Hatches in ${daysLeft} days`}</p>
+            <EggDots left={daysLeft} />
+          </>}
+    </ParchmentCard>
+  );
+}
+
+// Time-limited things (event, boss, a classmate to battle): a wide art banner.
+function ArtBanner({ img, title, sub, action, onAction, locked, position = 'center' }: { img: string; title: string; sub: string; action: string; onAction: () => void; locked?: boolean; position?: string }) {
+  return (
+    <div className="relative rounded-2xl border-2 border-[#8b5e2a] overflow-hidden flex items-center gap-3 p-3 min-h-[84px]" style={{ boxShadow: '0 3px 0 #4a2f18', background: `linear-gradient(90deg, rgba(10,8,7,.88) 0%, rgba(10,8,7,.6) 55%, rgba(10,8,7,.15) 100%), url("${img}") ${position} / cover` }}>
+      <div className="flex-1 min-w-0">
+        <p className="text-[#ffffff] text-[15px] font-black leading-tight" style={{ textShadow: '0 1px 2px rgba(0,0,0,.9)' }}>{title}</p>
+        <p className="text-[#f0ddb8] text-[12px] font-bold leading-snug">{sub}</p>
+      </div>
+      {locked ? <NeedsNetChip /> : <SmallButton onClick={onAction} size={14}>{action}</SmallButton>}
+    </div>
+  );
+}
+
+const WEEK_QUESTS = [
+  { subject: 'Math', topic: 'Fractions', bg: '/subjects/math-card-bg.png' },
+  { subject: 'Science', topic: 'Plant Parts', bg: '/subjects/science-card-bg.png' },
+  { subject: 'English', topic: 'Verb Tenses', bg: '/subjects/english-card-bg.png' },
+  { subject: 'Filipino', topic: 'Pangngalan', bg: '/subjects/filipino-card-bg.png' },
+];
+
+function QuestTiles({ wide, highlight, onStart, locked, done }: { wide: boolean; highlight: boolean; onStart: () => void; locked: boolean; done: boolean }) {
+  return (
+    <>
+      <SectionLabel>This week&apos;s Main Quests</SectionLabel>
+      <div className={`grid gap-2.5 ${wide ? 'grid-cols-4' : 'grid-cols-2'}`}>
+        {WEEK_QUESTS.map((q, i) => {
+          const today = i === 0;
+          return (
+            <div key={q.subject} className="relative rounded-2xl border-2 overflow-hidden bg-[#f0ddb8] flex flex-col" style={{ borderColor: today && highlight ? '#c9781a' : '#8b5e2a', boxShadow: today && highlight ? '0 3px 0 #c9781a, 0 0 0 3px rgba(245,201,92,.6)' : '0 3px 0 #8b5e2a' }}>
+              <div className="relative" style={{ aspectRatio: '400 / 220' }}>
+                <img src={q.bg} alt="" className="absolute inset-0 w-full h-full object-cover" style={today ? undefined : { filter: 'saturate(.45) brightness(.85)' }} />
+                {today && done && <img src="/subjects/quest_cleared.png" alt="" className="absolute inset-0 m-auto h-3/4 object-contain" />}
+                <span className={`absolute top-1.5 left-1.5 rounded-full text-[11px] font-black px-2 py-0.5 border ${today ? 'bg-[#f5c542] text-[#2a1505] border-[#4a2f18]' : 'bg-[#0a0807]/75 text-[#ffffff] border-transparent'}`}>
+                  {today ? 'Today' : `Opens ${['Tue', 'Wed', 'Thu'][i - 1]}`}
+                </span>
+              </div>
+              <div className="px-2 pt-1.5 pb-2 flex-1 flex flex-col">
+                <p className="text-[#2a1505] text-[13px] font-black leading-tight">{q.subject}</p>
+                <p className="text-[#6b4820] text-[12px] font-bold leading-tight">{q.topic}</p>
+                {today && !done && <div className="mt-1.5">{locked ? <NeedsNetChip /> : <SmallButton onClick={onStart} size={14} className="w-full">Start</SmallButton>}</div>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+// Order is fixed and by what a kid should do first: today's journey (the
+// To-Do as a trail to the chest), a reason to come back (gift, egg),
+// time-limited things (event, boss), people (classmate online), then the
+// week's quests. At most ONE nudge card (install / link parent / reminders),
+// always last, so nags never stack.
+function TodayScreen({ day, onGo, wide, checklistPinned, questHighlight, net, onGift, onToast, onClaim }: { day: DayState; onGo: (target: GoTarget) => void; wide: boolean; checklistPinned: boolean; questHighlight: boolean; net: Net; onGift: () => void; onToast: (m: string) => void; onClaim: () => void }) {
   const canPlay = net !== 'offline';
   const nudge = day.nudge !== 'none' ? NUDGES[day.nudge] : null;
+  const hasEgg = day.eggDaysLeft >= 0;
   return (
     <div className="flex flex-col gap-3 p-3">
-      {!day.giftClaimed && (
-        <TodayCard icon="/nav/gift.png" title="Today's gift is here!" sub={net === 'online' ? 'Open it before the day ends.' : 'It will wait for you until the internet is back.'} action="Open" onAction={onGift} locked={net !== 'online'} highlight />
-      )}
-      {day.giftClaimed && (
-        <TodayCard icon="/nav/gift-open.png" title="Gift opened!" sub="Come back tomorrow for another one." />
-      )}
-      {day.eggDaysLeft > 0 && (
-        <TodayCard icon="/eggs/egg_light_200px.png" title={day.eggDaysLeft === 1 ? 'Come back tomorrow to hatch your egg!' : `${day.eggDaysLeft} more days until your egg hatches!`} sub="Play one day at a time to warm it up.">
-          <EggDots left={day.eggDaysLeft} />
-        </TodayCard>
-      )}
-      {day.eggDaysLeft === 0 && (
-        <TodayCard icon="/eggs/egg_light_200px.png" title="Your egg is ready to hatch!" sub="It hatches in the Hatchery." action="Hatch" onAction={() => onGo('hatchery')} highlight />
-      )}
-      {!checklistPinned && <Checklist day={day} onGo={onGo} net={net} />}
+      {!checklistPinned && <DayJourney day={day} onGo={onGo} net={net} onClaim={onClaim} />}
+      <div className={`grid gap-2.5 ${hasEgg ? 'grid-cols-2' : 'grid-cols-1'}`}>
+        <GiftTile claimed={day.giftClaimed} net={net} onOpen={onGift} />
+        {hasEgg && <EggTile daysLeft={day.eggDaysLeft} onHatch={() => onGo('hatchery')} />}
+      </div>
       {day.eventActive && (
-        <TodayCard icon="/main ui/bonusquest.png" title="Harvest Festival event" sub="2 event quests left. Ends Sunday." action="Play" onAction={() => onGo('event')} locked={net !== 'online'} />
+        <ArtBanner img="/intro/five_guilds.webp" title="Harvest Festival" sub="2 event quests left. Ends Sunday." action="Play" onAction={() => onGo('event')} locked={net !== 'online'} />
       )}
       {day.bossActive && (
-        <TodayCard icon="/bosses/ang-limot.webp" title="The Forgetting is here!" sub="Beat this term's boss before Friday." action="Fight" onAction={() => onGo('boss')} locked={net !== 'online'} />
+        <ArtBanner img="/bosses/ang-limot.webp" position="center 30%" title="The Forgetting is here!" sub="Beat it before Friday." action="Fight" onAction={() => onGo('boss')} locked={net !== 'online'} />
       )}
       {day.classmateOnline && net === 'online' && (
-        <TodayCard icon="/nav/battle.png" title="A classmate is online now" sub="Challenge them to a live battle." action="Battle" onAction={() => onGo('battle')} />
+        <ArtBanner img="/intro/bt_elements.webp" title="A classmate is online" sub="Battle them now!" action="Battle" onAction={() => onGo('battle')} />
       )}
-      <MainQuestList iconPx={iconPx} wide={wide} highlight={questHighlight} onStart={() => onGo('quest')} locked={!canPlay} />
+      <QuestTiles wide={wide} highlight={questHighlight} onStart={() => onGo('quest')} locked={!canPlay} done={day.questDone} />
       {nudge && net === 'online' && (
         <TodayCard icon={nudge.icon} title={nudge.title} sub={nudge.sub} action={nudge.action} onAction={() => onToast(`${nudge.title}: opens here`)} />
       )}
@@ -674,12 +767,12 @@ function CuriosScreen({ day, onOpen, onToast, onRegion, iconPx, ranksUnlocked, n
 
       {/* On a short screen (phone held sideways) the big button would sit on
           the bottom map pin, so it shrinks into the bottom-right corner. */}
-      <div className={`absolute bottom-3 ${short ? 'right-3' : 'left-1/2 -translate-x-1/2'}`} style={{ fontSize: short ? 22 : 30 }}>
+      <div className={`absolute bottom-3 ${short ? 'right-3' : 'left-1/2 -translate-x-1/2'}`} style={{ fontSize: short ? 17 : 20 }}>
         <GameButton
           variant="quest"
           icon={<img src="/nav/battle.png" alt="" className="w-full h-full object-contain" />}
-          sub={net !== 'online' ? 'Trainers only, no internet' : day.classmateOnline ? 'A classmate is online' : 'Trainers and classmates'}
           onClick={() => onOpen('battle')}
+          style={{ minHeight: 44 }}
         >
           Battle
         </GameButton>
@@ -1261,6 +1354,7 @@ export default function NavRedesignMockup() {
     showToast('Press back again to close the game');
   };
 
+  const onClaim = () => showToast('The chest had 50 gold and 20 XP!');
   const onChecklistGo = (target: GoTarget) => {
     if (target === 'journal') goTab('journal');
     else if (target === 'quest' || target === 'event') startMoment('quiz');
@@ -1387,7 +1481,7 @@ export default function NavRedesignMockup() {
                   <AnimatePresence mode="wait">
                     <motion.div key={sub ?? tab} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16 }} className={tab === 'curios' && !sub ? 'absolute inset-0' : ''}>
                       {sub && <SubScreenView sub={sub} net={net} onBack={() => setSub(null)} />}
-                      {!sub && tab === 'today' && <TodayScreen day={day} net={net} onGo={onChecklistGo} iconPx={iconPx} wide={wide} checklistPinned={checklistPinned} questHighlight={questHighlight} onGift={() => { patch({ giftClaimed: true }); showToast('You got 30 gold and a Potion!'); }} onToast={showToast} />}
+                      {!sub && tab === 'today' && <TodayScreen day={day} net={net} onGo={onChecklistGo} wide={wide} checklistPinned={checklistPinned} questHighlight={questHighlight} onGift={() => { patch({ giftClaimed: true }); showToast('You got 30 gold and a Potion!'); }} onToast={showToast} onClaim={onClaim} />}
                       {!sub && tab === 'sidequests' && <SideQuestsScreen day={day} wide={wide} highlight={guildHighlight} locked={net === 'offline'} onVault={() => goTab('vault')} onPlay={() => startMoment('guild')} />}
                       {!sub && tab === 'curios' && <CuriosScreen day={day} net={net} short={d.height < 500} iconPx={iconPx} ranksUnlocked={ranksUnlocked} onOpen={setPanel} onToast={showToast} onRegion={() => startMoment('map')} />}
                       {!sub && tab === 'journal' && <JournalScreen done={day.journalDone} net={net} keyboardOpen={keyboardActive} onFocus={() => { if (keyboardHeight > 0) setKeyboardOpen(true); }} onSave={() => { patch({ journalDone: true }); setKeyboardOpen(false); }} />}
@@ -1403,7 +1497,7 @@ export default function NavRedesignMockup() {
 
                 {checklistPinned && (
                   <aside aria-label="Today's To-Do" className="absolute right-0 bottom-0 overflow-y-auto p-3 bg-[#f5f0e8] border-l-2 border-[#c9a87a] flex flex-col gap-3" style={{ top, width: TODAY_PANEL_W }}>
-                    <Checklist day={day} net={net} onGo={onChecklistGo} compact />
+                    <DayJourney day={day} net={net} onGo={onChecklistGo} onClaim={onClaim} compact />
                     <p className="text-[#6b4820] text-[11px] px-1">Pinned on screens 1200px and wider: kids check the To-Do after almost every activity, so it never leaves the screen. Narrower sidebar screens (a tablet lying sideways) show it at the top of Today instead. It steps aside during game moments.</p>
                   </aside>
                 )}
