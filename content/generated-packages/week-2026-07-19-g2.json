@@ -592,7 +592,7 @@
         "summary_markdown": "### 🎯 Today's Focus\n* **Finding Digits in a Place** — Sometimes we are asked to find which specific digit occupies a certain place value (e.g., in 542, the digit 4 is in the tens place).\n* **Expanded Form** — This is writing a number as the **sum of the values** of its digits. For example, 315 is 300 + 10 + 5. It helps us visualize the structure of the number.\n* **Standard Form and Zeros** — When a place has a zero (like 601), we can skip it in expanded form: 600 + 1. Adding these values back together always gives us the original **standard form**.",
         "quiz": [
           {
-            "question": "Sa bilang na 542, anong digit ang nasa 'tens place'?",
+            "question": "In the number 542, which digit is in the tens place?",
             "options": [
               "4",
               "5",
@@ -601,7 +601,7 @@
             "correct_answer": "4"
           },
           {
-            "question": "Sa bilang na 801, anong digit ang nasa 'ones place'?",
+            "question": "In the number 801, which digit is in the ones place?",
             "options": [
               "1",
               "8",
@@ -610,7 +610,7 @@
             "correct_answer": "1"
           },
           {
-            "question": "Sa bilang na 369, anong digit ang nasa 'hundreds place'?",
+            "question": "In the number 369, which digit is in the hundreds place?",
             "options": [
               "3",
               "6",
@@ -619,7 +619,7 @@
             "correct_answer": "3"
           },
           {
-            "question": "Sa bilang na 363, ano ang halaga o 'value' ng digit na 6?",
+            "question": "In the number 363, what is the value of the digit 6?",
             "options": [
               "60",
               "600",
@@ -628,7 +628,7 @@
             "correct_answer": "60"
           },
           {
-            "question": "Sa bilang na 759, ano ang halaga o 'value' ng digit na 7?",
+            "question": "In the number 759, what is the value of the digit 7?",
             "options": [
               "700",
               "70",
@@ -637,7 +637,7 @@
             "correct_answer": "700"
           },
           {
-            "question": "Ano ang 'expanded form' ng bilang na 315?",
+            "question": "What is the expanded form of 315?",
             "options": [
               "300 + 10 + 5",
               "30 + 10 + 5",
@@ -646,7 +646,7 @@
             "correct_answer": "300 + 10 + 5"
           },
           {
-            "question": "Ano ang tamang 'expanded form' ng 601 kung saan ang 'tens place' ay zero?",
+            "question": "What is the correct expanded form of 601, where the tens place is zero?",
             "options": [
               "600 + 1",
               "60 + 1",
@@ -655,7 +655,7 @@
             "correct_answer": "600 + 1"
           },
           {
-            "question": "Kung pagsasamahin ang 900 + 10 + 2, ano ang mabubuong bilang sa 'standard form'?",
+            "question": "If you put together 900 + 10 + 2, what number do you get in standard form?",
             "options": [
               "912",
               "921",
