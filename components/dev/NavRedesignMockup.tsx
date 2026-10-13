@@ -114,10 +114,10 @@ const MOMENT_RULES: Record<Exclude<Moment, 'none'>, { title: string; exit: 'conf
 
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'today',      label: 'Today',       icon: '/nav/today.png' },
-  { id: 'sidequests', label: 'Side Quests', icon: '/main ui/sidequest.png' },
-  { id: 'curios',     label: 'Curios',      icon: '/main ui/curioarena.png' },
-  { id: 'journal',    label: 'Journal',     icon: '/main ui/journal.png' },
-  { id: 'vault',      label: 'Vault',       icon: '/main ui/rewardvault.png' },
+  { id: 'sidequests', label: 'Side Quests', icon: '/nav/side-quests.png' },
+  { id: 'curios',     label: 'Curios',      icon: '/nav/curios.png' },
+  { id: 'journal',    label: 'Journal',     icon: '/nav/journal.png' },
+  { id: 'vault',      label: 'Vault',       icon: '/nav/vault.png' },
 ];
 
 const GUILDS = [
@@ -214,7 +214,7 @@ function CountPill({ text }: { text: string }) {
 const FOCUS_RING = 'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f5c542]';
 
 function LockGlyph() {
-  return <img src="/nav/padlock.png" alt="" aria-hidden className="w-3.5 h-3.5 object-contain" style={{ imageRendering: 'pixelated' }} />;
+  return <img src="/nav/padlock.png" alt="" aria-hidden className="w-3.5 h-3.5 object-contain" />;
 }
 
 function ParchmentCard({ children, className = '', highlight }: { children: ReactNode; className?: string; highlight?: boolean }) {
@@ -276,7 +276,7 @@ function Hud({ onGold, onName, onMenu, onBell, unread, net, waiting, showMenu, l
       {net !== 'online' && (
         <button onClick={onMenu} className="min-h-[44px] flex items-center shrink-0" aria-label={waiting > 0 ? `No internet. ${waiting} saved here for now` : 'No internet'}>
           <span className="inline-flex items-center gap-1 rounded-full bg-[#f0ddb8] border border-[#8b5e2a] text-[#2a1505] text-[11px] font-black px-2 py-0.5">
-            <span aria-hidden>📡</span>{!compact && 'No internet'}{waiting > 0 && <span className="text-[#b45309]">{compact ? waiting : ` · ${waiting} to save`}</span>}
+            <img src="/nav/no-internet.png" alt="" aria-hidden className="w-8 h-4 object-contain" />{!compact && 'No internet'}{waiting > 0 && <span className="text-[#b45309]">{compact ? waiting : ` · ${waiting} to save`}</span>}
           </span>
         </button>
       )}
@@ -288,7 +288,7 @@ function Hud({ onGold, onName, onMenu, onBell, unread, net, waiting, showMenu, l
       </button>
       {showMenu && (
         <button onClick={onMenu} className="w-11 h-11 flex items-center justify-center shrink-0 active:scale-95 transition-transform" aria-label="Menu: Profile, Codex, Bonus Quests, sound, log out">
-          <img src="/nav/menu.png" alt="" className="w-8 h-8 object-contain" style={{ imageRendering: 'pixelated' }} />
+          <img src="/nav/menu.png" alt="" className="w-8 h-8 object-contain" />
         </button>
       )}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0a0807]/90" aria-hidden>
@@ -305,7 +305,7 @@ function NetStrip({ net, top, left, right }: { net: Net; top: number; left: numb
   return (
     // Short enough for one line on a 360px phone; NET_STRIP_H assumes one line.
     <div role="status" className="absolute z-20 flex items-center justify-center gap-1 bg-[#f0ddb8] border-b-2 border-[#8b5e2a] text-[#2a1505] text-[11px] font-bold px-3 whitespace-nowrap overflow-hidden" style={{ top, left, right, height: NET_STRIP_H }}>
-      <span aria-hidden>📡</span>
+      <img src="/nav/no-internet.png" alt="" aria-hidden className="w-8 h-4 object-contain" />
       {net === 'offlinePlay' ? 'No internet. Quests and battles still work!' : 'No internet. You can look, but not play.'}
     </div>
   );
@@ -517,7 +517,7 @@ function NeedsNetChip() {
 function TodayCard({ icon, title, sub, action, onAction, locked, highlight, children }: { icon: string; title: string; sub: string; action?: string; onAction?: () => void; locked?: boolean; highlight?: boolean; children?: ReactNode }) {
   return (
     <ParchmentCard className="p-3 flex items-center gap-3" highlight={highlight}>
-      <img src={icon} alt="" className="w-11 h-11 object-contain shrink-0" style={icon.startsWith('/nav/') ? { imageRendering: 'pixelated' } : undefined} />
+      <img src={icon} alt="" className="w-11 h-11 object-contain shrink-0" />
       <div className="flex-1 min-w-0">
         <p className="text-[#2a1505] text-sm font-black leading-tight">{title}</p>
         <p className="text-[#6b4820] text-xs leading-snug">{sub}</p>
@@ -557,6 +557,9 @@ function TodayScreen({ day, onGo, iconPx, wide, checklistPinned, questHighlight,
     <div className="flex flex-col gap-3 p-3">
       {!day.giftClaimed && (
         <TodayCard icon="/nav/gift.png" title="Today's gift is here!" sub={net === 'online' ? 'Open it before the day ends.' : 'It will wait for you until the internet is back.'} action="Open" onAction={onGift} locked={net !== 'online'} highlight />
+      )}
+      {day.giftClaimed && (
+        <TodayCard icon="/nav/gift-open.png" title="Gift opened!" sub="Come back tomorrow for another one." />
       )}
       {day.eggDaysLeft > 0 && (
         <TodayCard icon="/eggs/egg_light_200px.png" title={day.eggDaysLeft === 1 ? 'Come back tomorrow to hatch your egg!' : `${day.eggDaysLeft} more days until your egg hatches!`} sub="Play one day at a time to warm it up.">
@@ -624,7 +627,7 @@ function EdgeButton({ icon, label, onClick, badge, locked, count, iconPx }: { ic
   const plate = Math.max(44, iconPx + 14);
   return (
     <button onClick={onClick} aria-label={`${label}${locked ? `, locked: ${locked}` : ''}${badge ? ', something new' : ''}`} className={`relative flex flex-col items-center gap-0.5 active:scale-95 transition-transform w-[72px] ${FOCUS_RING}`}>
-      <span className="relative flex items-center justify-center" style={{ width: plate, height: plate, backgroundImage: "url('/nav/plate.png')", backgroundSize: '100% 100%', imageRendering: 'pixelated', filter: 'drop-shadow(0 3px 0 rgba(0,0,0,0.55))' }}>
+      <span className="relative flex items-center justify-center" style={{ width: plate, height: plate, backgroundImage: "url('/nav/plate.png')", backgroundSize: '100% 100%', filter: 'drop-shadow(0 3px 0 rgba(0,0,0,0.55))' }}>
         <img src={icon} alt="" className={`object-contain ${locked ? 'grayscale opacity-60' : ''}`} style={{ width: iconPx, height: iconPx }} />
         {badge && <RedDot small />}
         {locked && (
@@ -674,7 +677,7 @@ function CuriosScreen({ day, onOpen, onToast, onRegion, iconPx, ranksUnlocked, n
       <div className={`absolute bottom-3 ${short ? 'right-3' : 'left-1/2 -translate-x-1/2'}`} style={{ fontSize: short ? 22 : 30 }}>
         <GameButton
           variant="quest"
-          icon={<img src="/nav/battle.png" alt="" className="w-full h-full object-contain" style={{ imageRendering: 'pixelated' }} />}
+          icon={<img src="/nav/battle.png" alt="" className="w-full h-full object-contain" />}
           sub={net !== 'online' ? 'Trainers only, no internet' : day.classmateOnline ? 'A classmate is online' : 'Trainers and classmates'}
           onClick={() => onOpen('battle')}
         >
@@ -1508,8 +1511,8 @@ export default function NavRedesignMockup() {
 
           <p className="text-[#2a1505] text-sm font-black mt-3">Art that would help</p>
           <ul className="text-[#3a2610] text-xs list-disc pl-4 flex flex-col gap-1">
-            <li>Drawn 2026-10-13 as pixel-art stand-ins (public/nav/): Today, menu, Battle, gift chest (closed and open), padlock, map-edge plate. Final art from the meta.ai prompts swaps in at the same paths.</li>
-            <li>Still to redraw: the four other tab icons, bolder so they read at 24-28px on a dark bar.</li>
+            <li>New icon set (2026-10-13, meta.ai, public/nav/): all five tabs, menu, Battle, gift chest closed and open, padlock, no-internet rope, map-edge plate.</li>
+            <li>Still wanted: painted World Map island art (see the World Map redesign).</li>
           </ul>
         </div>
       </div>
