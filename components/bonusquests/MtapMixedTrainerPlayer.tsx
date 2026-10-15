@@ -15,7 +15,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonDropShadow, questTextShadowStyle, questTextStyle, QUIZ_OPTION_STYLES } from '@/components/GameButton';
-import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio } from '@/components/VictoryScreen';
+import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio, CurioTrainingCard, TrainingResult } from '@/components/VictoryScreen';
+import { MtapReadyScreen, useSecCurioTraining } from '@/components/bonusquests/MtapCurioTraining';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import {
   MtapQuestion, MtapGradeResult, MixedTrainerRewardResult, fetchMixedTrainerSet, gradeMtapAnswer, creditMtapReward, claimMixedTrainerReward,
@@ -25,21 +26,23 @@ import { TIER_LABEL, MtapTier, TIERS } from '@/lib/mtapContent';
 interface MtapMixedTrainerPlayerProps {
   userId: UserId;
   grade: number;
+  weekStartingDate?: string | null; // for the curio training log entry
   onExit: () => void;
   onRewardEarned?: (xp: number, gold: number) => void;
   onProgress?: () => void; // called after each grade, same as MtapQuizPlayer's — lets the topics list refresh mastery once the child is back
 }
 
-type Phase = 'loading' | 'question' | 'answered' | 'done' | 'empty';
+type Phase = 'loading' | 'ready' | 'question' | 'answered' | 'done' | 'empty';
 
 type TierTally = Record<MtapTier, { correct: number; total: number }>;
 
 // End-of-run summary. Exported (and prop-driven) so /dev/ui-gallery can preview it
 // without a live session.
-export function MixedTrainerComplete({ tierTally, reward, pillResult, onExit }: {
+export function MixedTrainerComplete({ tierTally, reward, pillResult, training, onExit }: {
   tierTally: TierTally;
   reward: { xp: number; gold: number };
   pillResult: MixedTrainerRewardResult | null;
+  training?: TrainingResult | null;
   onExit: () => void;
 }) {
   const totalCorrect = TIERS.reduce((sum, t) => sum + tierTally[t].correct, 0);
@@ -87,12 +90,13 @@ export function MixedTrainerComplete({ tierTally, reward, pillResult, onExit }: 
           </p>
         )}
       </div>
+      {training && <div className="mt-4"><CurioTrainingCard result={training} /></div>}
     </VictoryScreen>
   );
 }
 
 export default function MtapMixedTrainerPlayer({
-  userId, grade, onExit, onRewardEarned, onProgress,
+  userId, grade, weekStartingDate, onExit, onRewardEarned, onProgress,
 }: MtapMixedTrainerPlayerProps) {
   const [questions, setQuestions] = useState<MtapQuestion[]>([]);
   const [index, setIndex] = useState(0);
@@ -102,6 +106,7 @@ export default function MtapMixedTrainerPlayer({
   const [timeLeft, setTimeLeft] = useState(0);
   const [grading, setGrading] = useState(false);
   const [sessionReward, setSessionReward] = useState({ xp: 0, gold: 0 });
+  const training = useSecCurioTraining(userId, weekStartingDate, phase === 'done');
   // Per-tier {correct, total} so the results screen can show a real
   // elimination-round-style breakdown, not just one combined score.
   const [tierTally, setTierTally] = useState<Record<MtapTier, { correct: number; total: number }>>({
@@ -122,7 +127,7 @@ export default function MtapMixedTrainerPlayer({
       }
       setQuestions(qs);
       setTimeLeft(qs[0].time_budget_seconds);
-      setPhase('question');
+      setPhase('ready');
     })();
     return () => { cancelled = true; };
   }, [grade]);
@@ -169,6 +174,7 @@ export default function MtapMixedTrainerPlayer({
       const credited = await creditMtapReward(userId, reward.xp, reward.gold);
       if (credited) {
         setSessionReward(r => ({ xp: r.xp + reward.xp, gold: r.gold + reward.gold }));
+        training.countNewCorrect();
         onRewardEarned?.(reward.xp, reward.gold);
       }
     }
@@ -215,7 +221,20 @@ export default function MtapMixedTrainerPlayer({
     );
   }
   if (phase === 'done') {
-    return <MixedTrainerComplete tierTally={tierTally} reward={sessionReward} pillResult={pillResult} onExit={onExit} />;
+    return <MixedTrainerComplete tierTally={tierTally} reward={sessionReward} pillResult={pillResult} training={training.result} onExit={onExit} />;
+  }
+  if (phase === 'ready') {
+    return (
+      <MtapReadyScreen
+        userId={userId}
+        label="Mixed Trainer Track"
+        detail={`${questions.length} mixed questions from every topic. The timer starts when you tap Start.`}
+        selectedId={training.curio?.id}
+        onSelect={training.setCurio}
+        onStart={() => setPhase('question')}
+        onBack={onExit}
+      />
+    );
   }
 
   const timerColor = timeLeft <= 5 ? 'text-red-600' : 'text-[#7a4a0f]';
