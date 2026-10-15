@@ -12,6 +12,9 @@ import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/s
 import { CaughtMonster } from '@/components/monster/types';
 import { playPageFlip } from '@/lib/sounds';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
+import GameButton from '@/components/GameButton';
+import type { InventoryMap } from '@/lib/inventory';
+import { TRACKING_GOAL, TRACKING_SCROLL_COST, isTrackable, trackingScrollKey } from '@/lib/curioTracking';
 import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 // White parchment inset with a gold outline — the modal's own content
@@ -159,14 +162,65 @@ interface DexEntry {
 // action should apply to (a duplicate catch can sit benched as a second
 // instance of the same species) — every row in TeamPanel is already one
 // specific instance, so there's nothing to disambiguate there.
-export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, subclassProfile }: {
+// Buy a Tracking Scroll from a first form's Compendium page (also sold in the
+// Shop). Not offered for a curio the player already has.
+function TrackingScrollOffer({ name, owned, inBag, gold, buying, onBuy }: {
+  name: string; owned: boolean; inBag: number; gold: number; buying: boolean; onBuy?: () => void;
+}) {
+  if (!onBuy) return null;
+  const canAfford = gold >= TRACKING_SCROLL_COST;
+  return (
+    <div className="mt-4">
+      <WhiteNailBox>
+        <div className="flex items-center gap-3">
+          <span className="text-3xl" aria-hidden>📜</span>
+          <div className="flex-1 min-w-0 text-left">
+            <p className="text-sm font-extrabold text-[#2a1505]">Tracking Scroll</p>
+            <p className="text-[11px] text-[#6b4820] leading-snug">
+              {owned
+                ? `You already have ${name}.`
+                : inBag > 0
+                  ? 'It\'s in your bag! Put it in a map slot and tap it to start tracking.'
+                  : `Put it in a map slot, answer ${TRACKING_GOAL} map questions right, and ${name} comes to you!`}
+            </p>
+          </div>
+          {!owned && inBag === 0 && (
+            <GameButton
+              variant="quest"
+              color={canAfford ? '#d97706' : '#57534e'}
+              disabled={!canAfford || buying}
+              onClick={onBuy}
+              data-testid="compendium-buy-tracking"
+              style={{ fontSize: 13, whiteSpace: 'nowrap' }}
+            >
+              {buying ? 'Buying…' : (
+                <span className="inline-flex items-center gap-1">
+                  {TRACKING_SCROLL_COST.toLocaleString()} <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3.5 h-3.5" />
+                </span>
+              )}
+            </GameButton>
+          )}
+        </div>
+        {!owned && inBag === 0 && !canAfford && (
+          <p className="text-[11px] text-[#b91c1c] font-bold mt-1 text-right">You need {(TRACKING_SCROLL_COST - gold).toLocaleString()} more gold.</p>
+        )}
+      </WhiteNailBox>
+    </div>
+  );
+}
+
+export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMonsterIds, subclassProfile, inventory, currentGold, onBuyTrackingScroll }: {
   userMonsters: UserMonster[];
   caughtMonsters: CaughtMonster[];
   seenMonsterIds: string[];
   monsterDisplay: Record<string, MonsterDef>;
   subclassProfile: SubclassProfile | null;
+  inventory?: InventoryMap;
+  currentGold?: number;
+  onBuyTrackingScroll?: (monsterId: string) => Promise<void>;
 }) {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [buyingScroll, setBuyingScroll] = useState(false);
 
   const ownedSpeciesIds = new Set([
     ...userMonsters.map(m => m.monster_id),
@@ -417,6 +471,19 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                 )}
               </div>
             </div>
+          )}
+          {selectedEntry && selectedEntry.tier === 1 && !selectedEntry.guildLabel && isTrackable(selectedEntry.speciesId) && (
+            <TrackingScrollOffer
+              name={selectedKnown ? selected.name : '???'}
+              owned={selectedOwned}
+              inBag={inventory?.[trackingScrollKey(selectedEntry.speciesId)] ?? 0}
+              gold={currentGold ?? 0}
+              buying={buyingScroll}
+              onBuy={onBuyTrackingScroll ? async () => {
+                setBuyingScroll(true);
+                try { await onBuyTrackingScroll(selectedEntry.speciesId); } finally { setBuyingScroll(false); }
+              } : undefined}
+            />
           )}
             </div>
           </div>

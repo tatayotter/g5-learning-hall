@@ -31,6 +31,10 @@ export interface BattleState {
   // of tries). Saved so it survives map switches, tab switches and reloads,
   // and follows the player between maps. Null when there's none.
   pending_wild_curio?: PendingWildCurio | null;
+  // The 4 map item slots (lib/itemBar.ts): bag items and carried trash.
+  item_bar?: unknown;
+  // The species whose Tracking Scroll is active (lib/curioTracking.ts).
+  active_tracking?: string | null;
 }
 
 export interface PendingWildCurio {
@@ -43,4 +47,7 @@ export interface PendingWildCurio {
   question_id: string | null;
   region: string | null; // where it spawned (analytics only; it follows the player)
   spawned_at: string;
+  // Summoned with a full Tracking Scroll: it never runs away (out of tries
+  // refills its tries instead).
+  tracked?: boolean;
 }

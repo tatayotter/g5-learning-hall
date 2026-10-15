@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect } from 'react';
+import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect, useCallback } from 'react';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -15,7 +15,7 @@ import { gradeScrollOffline } from '@/lib/offlineMap';
 import type { BattleLogEvent } from '@/lib/battleLog';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import OfflineUnavailable from '@/components/OfflineUnavailable';
-import { playCurioLevelUp, playPageFlip } from '@/lib/sounds';
+import { playCurioLevelUp, playPageFlip, playShopPurchase } from '@/lib/sounds';
 import { logAction } from '@/lib/playerlog';
 import { trackEvent } from '@/lib/analytics';
 import { UserId, USERS, gradeToNumber } from '@/lib/userSession';
@@ -36,7 +36,7 @@ import {
   pickRandomWildMonsterId, getGuildMonsterDisplay, getGraduatedMonsterDisplay, getOwnedMonsterDisplay,
   NpcTrainer, MonsterDef, TrainerMonster,
 } from '@/lib/monsterConfig';
-import { fetchInventory, spendInventoryItem, spendGold, InventoryMap } from '@/lib/inventory';
+import { fetchInventory, spendInventoryItem, spendGold, spendGoldAndGrantItem, InventoryMap } from '@/lib/inventory';
 import { rollFreshQualityTier, QUALITY_STAT_MULTIPLIER, type QualityTier } from '@/lib/curioQuality';
 import {
   fetchAnsweredArenaQuestionIds, markArenaQuestionsCompleted, resetArenaHistory,
@@ -55,6 +55,7 @@ import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { REGIONS } from '@/lib/regions';
 import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
+import { trackingScrollKey, TRACKING_SCROLL_COST } from '@/lib/curioTracking';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import StarterSelection from '@/components/monster/StarterSelection';
 import HatcheryPanel from '@/components/monster/HatcheryPanel';
@@ -175,7 +176,12 @@ interface CurioState {
   quality: QualityTier;
   region: string | null; // where it spawned; it follows the player between maps
   spawnedAt: string;
+  // Summoned with a Tracking Scroll (lib/curioTracking.ts): never runs away.
+  tracked?: boolean;
 }
+
+// Wild curios, plus starters a Tracking Scroll can summon.
+const curioSpecies = (id: string) => WILD_MONSTERS[id] ?? ALL_MONSTERS[id];
 
 export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult }: MonsterGuildProps) {
   // Mounted/unmounted with this component (i.e. with the Curio Arena tab),
@@ -738,6 +744,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       question_id: next.question?.id ?? null,
       region: next.region,
       spawned_at: next.spawnedAt,
+      ...(next.tracked ? { tracked: true } : {}),
     } : null;
     setBattleState(prev => prev ? { ...prev, pending_wild_curio: pending } : prev);
     await supabase.from('user_battle_state').update({ pending_wild_curio: pending }).eq('user_id', userId);
@@ -759,11 +766,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (restoredSpawnRef.current === pendingCurio.spawned_at) return;
     restoredSpawnRef.current = pendingCurio.spawned_at;
     (async () => {
-      if (!WILD_MONSTERS[pendingCurio.monster_id]) { await savePendingCurio(null); return; }
+      if (!curioSpecies(pendingCurio.monster_id)) { await savePendingCurio(null); return; }
       // Its last try went on a battle that never finished (reload or leaving
       // mid-fight), which counts as the loss: it's gone, not a free retry.
-      if (pendingCurio.attempts_left <= 0) {
-        showNotification(`The wild ${WILD_MONSTERS[pendingCurio.monster_id].name} ran off...`);
+      // A tracked curio never runs off; it gets fresh tries instead.
+      if (pendingCurio.attempts_left <= 0 && !pendingCurio.tracked) {
+        showNotification(`The wild ${curioSpecies(pendingCurio.monster_id).name} ran off...`);
         logWildEncounterEvent(userId, 'fled', { region: activeRegion, monsterId: pendingCurio.monster_id, quality: pendingCurio.quality, level: pendingCurio.level, attemptsLeft: 0 });
         await savePendingCurio(null);
         return;
@@ -780,13 +788,14 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         monsterId: pendingCurio.monster_id,
         level: pendingCurio.level,
         question,
-        attemptsLeft: pendingCurio.attempts_left,
+        attemptsLeft: pendingCurio.attempts_left > 0 ? pendingCurio.attempts_left : WILD_ENCOUNTER_TRIES,
         quality: pendingCurio.quality,
         region: pendingCurio.region,
         spawnedAt: pendingCurio.spawned_at,
+        tracked: !!pendingCurio.tracked,
       };
       setCurio(restored);
-      if (question.id !== pendingCurio.question_id) savePendingCurio(restored);
+      if (question.id !== pendingCurio.question_id || restored.attemptsLeft !== pendingCurio.attempts_left) savePendingCurio(restored);
       logWildEncounterEvent(userId, 'restored', { region: activeRegion, monsterId: restored.monsterId, quality: restored.quality, level: restored.level, attemptsLeft: restored.attemptsLeft });
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -843,6 +852,50 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     }
   };
 
+  // Compendium's "Buy Tracking Scroll" (the Shop sells them too).
+  const handleBuyTrackingScroll = async (monsterId: string) => {
+    if (needsConnection()) return;
+    const key = trackingScrollKey(monsterId);
+    const stats = await spendGoldAndGrantItem(userId, key, 1);
+    if (!stats) { showNotification('Not enough gold yet!'); return; }
+    onGoldSynced(stats);
+    setInventory(prev => ({ ...prev, [key]: (prev[key] ?? 0) + 1 }));
+    const name = ALL_MONSTERS[monsterId]?.name ?? 'curio';
+    logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought Tracking Scroll: ${name}`, 0, -TRACKING_SCROLL_COST);
+    playShopPurchase();
+    showNotification(`📜 Tracking Scroll for ${name} is in your bag! Put it in a map slot.`);
+  };
+
+  const patchBattleState = useCallback((patch: Partial<BattleState>) => {
+    setBattleState(prev => (prev ? { ...prev, ...patch } : prev));
+  }, []);
+
+  // A full Tracking Scroll summoned its curio. The server already saved it as
+  // the pending wild curio and used up the scroll; this puts it on the map
+  // next to the player with a question ready, like a fresh wild spawn.
+  const handleTrackedCurioSummoned = async (pending: PendingWildCurio) => {
+    const key = trackingScrollKey(pending.monster_id);
+    setInventory(prev => ({ ...prev, [key]: Math.max(0, (prev[key] ?? 0) - 1) }));
+    restoredSpawnRef.current = pending.spawned_at;
+    const question = await pickWildQuestion();
+    const summoned: CurioState = {
+      id: ++curioIdRef.current,
+      monsterId: pending.monster_id,
+      level: pending.level,
+      question,
+      attemptsLeft: pending.attempts_left,
+      quality: pending.quality,
+      region: pending.region,
+      spawnedAt: pending.spawned_at,
+      tracked: true,
+    };
+    setCurio(summoned);
+    if (question) savePendingCurio(summoned);
+    setBattleState(prev => prev && !prev.seen_monsters.includes(pending.monster_id)
+      ? { ...prev, seen_monsters: [...prev.seen_monsters, pending.monster_id] }
+      : prev);
+  };
+
   // Fires when the player walks onto the curio's map tile (see
   // TrainingMap.tsx's handleTileEnter) — promotes the "known but not yet
   // engaged" curio into an actual open WildEncounterModal.
@@ -866,7 +919,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const handleWildEncounterCorrect = () => {
     if (!wildEncounter || !curio) return;
     markQuestionsCompleted(userId, 'wild_encounter', [wildEncounter.question.id]);
-    const monster = WILD_MONSTERS[wildEncounter.monsterId];
+    const monster = curioSpecies(wildEncounter.monsterId);
     const quality = wildEncounter.quality;
     // Starting the battle uses a try up front, so reloading mid-battle can't
     // dodge a loss; winning catches it, so the try only matters on a loss.
@@ -935,9 +988,18 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setWildEncounter(prev => prev ? { ...prev, question, attemptsLeft } : prev);
   };
 
-  // Out of tries: the curio leaves for good.
+  // Out of tries: the curio leaves for good. A tracked curio (it cost a
+  // Tracking Scroll) stays instead, with fresh tries.
   const curioFled = (monsterId: string) => {
-    const name = WILD_MONSTERS[monsterId]?.name ?? 'curio';
+    const name = curioSpecies(monsterId)?.name ?? 'curio';
+    if (curio?.tracked) {
+      const refilled: CurioState = { ...curio, attemptsLeft: WILD_ENCOUNTER_TRIES, question: null };
+      showNotification(`${name} is tired but didn't run away. Walk up to it to try again!`);
+      setWildEncounter(null);
+      setCurio(refilled);
+      savePendingCurio(refilled);
+      return;
+    }
     showNotification(`The wild ${name} ran off...`);
     logWildEncounterEvent(userId, 'fled', { region: activeRegion, monsterId, quality: curio?.quality, level: curio?.level, attemptsLeft: 0 });
     setWildEncounter(null);
@@ -1573,6 +1635,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           regionId={activeRegion}
           playerLevel={playerLevel}
           onEnterRegion={setActiveRegion}
+          inventory={inventory}
+          onBattleStatePatch={patchBattleState}
+          onTrackedCurioSummoned={handleTrackedCurioSummoned}
         />
       )}
 
@@ -1613,6 +1678,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           seenMonsterIds={battleState?.seen_monsters || []}
           monsterDisplay={displayMonsters}
           subclassProfile={subclassProfile}
+          inventory={inventory}
+          currentGold={currentGold}
+          onBuyTrackingScroll={handleBuyTrackingScroll}
         />
       )}
 
@@ -1699,7 +1767,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       {wildEncounter && (
         <WildEncounterModal
           key={wildEncounter.question.id}
-          monster={WILD_MONSTERS[wildEncounter.monsterId]}
+          monster={curioSpecies(wildEncounter.monsterId)}
           level={wildEncounter.level}
           quality={wildEncounter.quality}
           question={wildEncounter.question}

@@ -35,6 +35,10 @@ interface MapStageProps {
   drawerLabel?: string;
   drawer?: ReactNode;
   overlay?: ReactNode;
+  /** The map item slots (MapItemBar), a column on the right edge (the
+   *  bottom is taken by the menu compass and Arena button). Kept outside the
+   *  scaled canvas in fullscreen so it stays full size and uncropped. */
+  hotbar?: ReactNode;
   /** When true, the stage mounts as a fixed full-viewport layer (z-78, below
    *  the HUD at z-79 and the arena FAB at z-80). On mobile the canvas scales
    *  to fill the full screen height (cover mode), cropping the excess width. */
@@ -52,6 +56,7 @@ export default function MapStage({
   drawerLabel = 'Info',
   drawer,
   overlay,
+  hotbar,
   fullscreen,
 }: MapStageProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -94,6 +99,9 @@ export default function MapStage({
         {/* In fullscreen mode controls are lifted out to a fixed overlay so they
             aren't cropped by the cover-mode horizontal overflow. */}
         {controls && !fullscreen && <div className="mstage-controls">{controls}</div>}
+        {hotbar && !fullscreen && (
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 z-[17]">{hotbar}</div>
+        )}
       </div>
 
       {/* In fullscreen mode the drawer + toggle are lifted to a fixed top overlay
@@ -154,6 +162,14 @@ export default function MapStage({
         <div className="fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
           {shell}
           {overlayLayer}
+          {hotbar && (
+            <div
+              className="fixed top-1/2 -translate-y-1/2 z-[81]"
+              style={{ right: 'calc(env(safe-area-inset-right, 0px) + 8px)' }}
+            >
+              {hotbar}
+            </div>
+          )}
           {controls && (
             <div className="map-joystick-wrap fixed z-[81]">
               {controls}

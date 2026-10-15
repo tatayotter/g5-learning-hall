@@ -30,6 +30,33 @@ How wild curios work on the training maps, and how to measure them. Code:
 7. **Catch.** A new species goes to the Catch Inbox at its level and quality. A species the
    player already owns offers a spare (at the quality they beat) or 100 gold.
 
+## Tracking Scrolls
+
+A way to hunt one exact curio. Code: `lib/curioTracking.ts`, `hooks/useItemBar.ts`,
+`components/monster/map/MapItemBar.tsx`; server side in
+`supabase/migrations/20261015070000_curio_tracking_scrolls.sql`.
+
+1. **Buy.** One scroll per first form: the 6 starters and the 21 non-legendary wild curios
+   (no legendaries, guild or event curios). 5,000 gold each (`shop_items`), sold in the Shop and
+   on the curio's Compendium page. Not sold for a curio the player already has, or while that
+   scroll is already in the bag.
+2. **Equip and activate.** The map has 4 item slots (keys 1-4 on a computer). A scroll goes from
+   the bag (🎒) into a slot; tapping it makes it the active one (`user_battle_state.active_tracking`).
+   Only one is active at a time, and each scroll keeps its own meter (`curio_tracking`), so
+   switching never loses progress. Needs internet.
+3. **Fill the meter.** Each right map-scroll answer adds 1 (`advance_tracking` only counts a
+   question the server graded right in the last 10 minutes, once). Wrong answers add nothing and
+   take nothing away. The meter is on the account, so map changes and reloads keep it.
+4. **Summon.** At 30/30, tapping the scroll asks to summon. `summon_tracked_curio` uses up the
+   scroll, rolls level (active curio ±1) and quality (same odds as a wild spawn), and saves the
+   curio as `pending_wild_curio` with `tracked: true`. From there it is a normal wild encounter:
+   question, battle, catch. A tracked curio never runs away: running out of tries refills them.
+5. **Trash shares the slots.** Picked-up trash stacks by type in the same 4 slots
+   (`user_battle_state.item_bar`, see `lib/itemBar.ts`), so it survives map changes. With no free
+   slot, new trash stays on the map until the player trades at the Recycler or throws some away.
+
+Events: `tracking_started`, `tracking_summoned` in `wild_encounter_events`.
+
 ## Funnel data
 
 Every step is a row in `wild_encounter_events` (players can insert their own rows, nobody can

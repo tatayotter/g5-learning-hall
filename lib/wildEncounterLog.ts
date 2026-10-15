@@ -20,7 +20,9 @@ export type WildEncounterEvent =
   | 'fled'
   | 'caught'
   | 'duplicate_kept'
-  | 'duplicate_gold';
+  | 'duplicate_gold'
+  | 'tracking_started'   // a Tracking Scroll was made the active one
+  | 'tracking_summoned'; // a full meter summoned its curio
 
 export interface WildEncounterEventFields {
   region?: string | null;
