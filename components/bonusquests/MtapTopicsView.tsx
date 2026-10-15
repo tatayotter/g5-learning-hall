@@ -19,6 +19,7 @@ import MtapMixedTrainerPlayer from '@/components/bonusquests/MtapMixedTrainerPla
 interface MtapTopicsViewProps {
   userId: UserId;
   grade: number;
+  weekStartingDate?: string | null;
   onRewardEarned?: (xp: number, gold: number) => void;
 }
 
@@ -28,7 +29,7 @@ type View =
   | { mode: 'quiz'; archetype: string; archetypeName: string; tier: MtapTier }
   | { mode: 'mixed-trainer' };
 
-export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTopicsViewProps) {
+export default function MtapTopicsView({ userId, grade, weekStartingDate, onRewardEarned }: MtapTopicsViewProps) {
   const strands = MTAP_STRANDS_BY_GRADE[grade] || [];
   const [attempts, setAttempts] = useState<MtapAttempt[]>([]);
   const [expanded, setExpanded] = useState<number | null>(null);
@@ -62,6 +63,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
       <MtapQuizPlayer
         userId={userId}
         grade={grade}
+        weekStartingDate={weekStartingDate}
         archetype={view.archetype}
         archetypeName={view.archetypeName}
         tier={view.tier}
@@ -77,6 +79,7 @@ export default function MtapTopicsView({ userId, grade, onRewardEarned }: MtapTo
       <MtapMixedTrainerPlayer
         userId={userId}
         grade={grade}
+        weekStartingDate={weekStartingDate}
         onExit={() => { setView({ mode: 'list' }); reload(); }}
         onProgress={reload}
         onRewardEarned={onRewardEarned}

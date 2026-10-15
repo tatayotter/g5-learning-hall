@@ -10,7 +10,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { UserId } from '@/lib/userSession';
 import { calculateReward } from '@/lib/quizReward';
 import GameButton, { QUIZ_OPTION_STYLES } from '@/components/GameButton';
-import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio } from '@/components/VictoryScreen';
+import VictoryScreen, { VictoryReward, XpIcon, GoldIcon, XP_REWARD, GOLD_REWARD, starsFromRatio, CurioTrainingCard, TrainingResult } from '@/components/VictoryScreen';
+import { MtapReadyScreen, useSecCurioTraining } from '@/components/bonusquests/MtapCurioTraining';
 import {
   MtapQuestion, MtapGradeResult, fetchMtapQuestions, gradeMtapAnswer, creditMtapReward,
 } from '@/lib/mtapEngine';
@@ -22,17 +23,18 @@ interface MtapQuizPlayerProps {
   archetype: string;
   archetypeName: string;
   tier: MtapTier;
+  weekStartingDate?: string | null; // for the curio training log entry
   onExit: () => void;
   onRewardEarned?: (xp: number, gold: number) => void;
   onProgress?: () => void; // called after each grade, so the parent can refresh attempts/mastery
 }
 
-type Phase = 'loading' | 'question' | 'answered' | 'done' | 'empty';
+type Phase = 'loading' | 'ready' | 'question' | 'answered' | 'done' | 'empty';
 
 // End-of-set summary. Exported (and prop-driven) so /dev/ui-gallery can preview it
 // without a live session.
-export function MtapSetComplete({ correct, total, reward, onExit }: {
-  correct: number; total: number; reward: { xp: number; gold: number }; onExit: () => void;
+export function MtapSetComplete({ correct, total, reward, training, onExit }: {
+  correct: number; total: number; reward: { xp: number; gold: number }; training?: TrainingResult | null; onExit: () => void;
 }) {
   const rewards: VictoryReward[] = [];
   if (reward.xp > 0) rewards.push({ ...XP_REWARD, value: reward.xp, icon: <XpIcon /> });
@@ -45,12 +47,14 @@ export function MtapSetComplete({ correct, total, reward, onExit }: {
       subtitle={rewards.length === 0 && correct > 0 ? `${score}. Repeat answers earn no extra reward, but great practice!` : score}
       rewards={rewards}
       actions={<GameButton variant="quest" color="#8b5e2a" onClick={onExit} style={{ fontSize: 20 }}>Back to topics</GameButton>}
-    />
+    >
+      {training && <CurioTrainingCard result={training} />}
+    </VictoryScreen>
   );
 }
 
 export default function MtapQuizPlayer({
-  userId, grade, archetype, archetypeName, tier, onExit, onRewardEarned, onProgress,
+  userId, grade, archetype, archetypeName, tier, weekStartingDate, onExit, onRewardEarned, onProgress,
 }: MtapQuizPlayerProps) {
   const [questions, setQuestions] = useState<MtapQuestion[]>([]);
   const [index, setIndex] = useState(0);
@@ -61,6 +65,7 @@ export default function MtapQuizPlayer({
   const [grading, setGrading] = useState(false);
   const [sessionCorrect, setSessionCorrect] = useState(0);
   const [sessionReward, setSessionReward] = useState({ xp: 0, gold: 0 });
+  const training = useSecCurioTraining(userId, weekStartingDate, phase === 'done');
 
   useEffect(() => {
     let cancelled = false;
@@ -75,7 +80,7 @@ export default function MtapQuizPlayer({
       const shuffled = [...qs].sort(() => Math.random() - 0.5);
       setQuestions(shuffled);
       setTimeLeft(shuffled[0].time_budget_seconds);
-      setPhase('question');
+      setPhase('ready');
     })();
     return () => { cancelled = true; };
   }, [grade, archetype, tier]);
@@ -120,6 +125,7 @@ export default function MtapQuizPlayer({
         const credited = await creditMtapReward(userId, reward.xp, reward.gold);
         if (credited) {
           setSessionReward(r => ({ xp: r.xp + reward.xp, gold: r.gold + reward.gold }));
+          training.countNewCorrect();
           onRewardEarned?.(reward.xp, reward.gold);
         }
       }
@@ -150,7 +156,20 @@ export default function MtapQuizPlayer({
     );
   }
   if (phase === 'done') {
-    return <MtapSetComplete correct={sessionCorrect} total={questions.length} reward={sessionReward} onExit={onExit} />;
+    return <MtapSetComplete correct={sessionCorrect} total={questions.length} reward={sessionReward} training={training.result} onExit={onExit} />;
+  }
+  if (phase === 'ready') {
+    return (
+      <MtapReadyScreen
+        userId={userId}
+        label={`${archetypeName} · ${TIER_LABEL[tier]}`}
+        detail={`${questions.length} questions. The timer starts when you tap Start.`}
+        selectedId={training.curio?.id}
+        onSelect={training.setCurio}
+        onStart={() => setPhase('question')}
+        onBack={onExit}
+      />
+    );
   }
 
   const timerColor = timeLeft <= 5 ? 'text-red-600' : 'text-[#7a4a0f]';

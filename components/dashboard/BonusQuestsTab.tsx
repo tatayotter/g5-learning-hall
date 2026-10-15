@@ -22,10 +22,11 @@ import { gradeColor } from '@/lib/gradeColors';
 
 interface BonusQuestsTabProps {
   userId: UserId;
+  weekStartingDate?: string | null;
   onRewardEarned?: (xp: number, gold: number) => void;
 }
 
-export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTabProps) {
+export default function BonusQuestsTab({ userId, weekStartingDate, onRewardEarned }: BonusQuestsTabProps) {
   const [openGrade, setOpenGrade] = useState<number | null>(null);
   const [ownedPackIds, setOwnedPackIds] = useState<Set<string> | null>(null); // null = still loading
 
@@ -57,7 +58,7 @@ export default function BonusQuestsTab({ userId, onRewardEarned }: BonusQuestsTa
     return (
       <div>
         <span className="text-xs text-[#a8a29e] cursor-pointer mb-2 inline-block" onClick={() => { playPageFlip(); setOpenGrade(null); }}>&larr; Bonus Quests</span>
-        <MtapTopicsView userId={userId} grade={openGrade} onRewardEarned={onRewardEarned} />
+        <MtapTopicsView userId={userId} grade={openGrade} weekStartingDate={weekStartingDate} onRewardEarned={onRewardEarned} />
       </div>
     );
   }
