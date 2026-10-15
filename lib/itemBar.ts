@@ -1,86 +1,110 @@
 // lib/itemBar.ts
-// The 4 item slots on the Training Map (like a hotbar). A slot holds either
-// an item from the player's bag (by inventory key, e.g. a Tracking Scroll;
-// the item itself stays in player_inventory, the slot just carries it) or a
-// stack of one kind of trash. Trash only lives in the slots, so a full bar
-// means no more trash until the player trades some at the Recycler or throws
-// some away. Saved on user_battle_state.item_bar, so it survives map changes,
-// reloads and other devices.
+// The Training Map's bag (up to BAG_SIZE squares, like an MMORPG bag) and
+// its 4 item slots (like a game hotbar).
+//
+// The bag holds the player's Tracking Scrolls (from player_inventory) and the
+// trash they pick up (counts per kind, saved on user_battle_state.bag_trash).
+// A kind of trash fills one square per TRASH_STACK pieces. A full bag means no
+// more trash until the player trades some at the Recycler or throws some away.
+//
+// A slot points at something in the bag: {item: <inventory key>} or
+// {trash: <kind>}; it never holds its own copy. Saved on
+// user_battle_state.item_bar, so slots and bag survive map changes, reloads
+// and other devices.
 import { TRASH_DEFS, TRASH_ORDER, type TrashType } from '@/lib/trashConfig';
 
 export const ITEM_BAR_SIZE = 4;
+export const BAG_SIZE = 30;
+// Pieces of one kind of trash per bag square.
+export const TRASH_STACK = 20;
 
-export type ItemSlot = null | { item: string } | { trash: TrashType; n: number };
+export type ItemSlot = null | { item: string } | { trash: TrashType };
 export type ItemBar = ItemSlot[];
 
 export type TrashCounts = Record<TrashType, number>;
 
 export const emptyItemBar = (): ItemBar => Array.from({ length: ITEM_BAR_SIZE }, () => null);
+export const emptyTrash = (): TrashCounts => Object.fromEntries(TRASH_ORDER.map(t => [t, 0])) as TrashCounts;
 
-// Whatever the column holds (older rows, a bad write) becomes a clean bar.
-export function normalizeItemBar(raw: unknown): ItemBar {
+const isTrashType = (v: unknown): v is TrashType => typeof v === 'string' && v in TRASH_DEFS;
+
+// Whatever the columns hold (a bad write, the older slot-only format where a
+// slot carried {trash, n}) becomes a clean bar and bag. Older {trash, n}
+// counts move into the bag.
+export function normalizeItemBar(rawBar: unknown, rawTrash?: unknown): { bar: ItemBar; trash: TrashCounts } {
   const bar = emptyItemBar();
-  if (!Array.isArray(raw)) return bar;
-  for (let i = 0; i < ITEM_BAR_SIZE; i++) {
-    const s = raw[i] as Record<string, unknown> | null | undefined;
-    if (!s || typeof s !== 'object') continue;
-    if (typeof s.item === 'string' && s.item) bar[i] = { item: s.item };
-    else if (typeof s.trash === 'string' && s.trash in TRASH_DEFS && typeof s.n === 'number' && s.n > 0) {
-      bar[i] = { trash: s.trash as TrashType, n: Math.floor(s.n) };
+  const trash = emptyTrash();
+  if (rawTrash && typeof rawTrash === 'object') {
+    for (const [k, v] of Object.entries(rawTrash as Record<string, unknown>)) {
+      if (isTrashType(k) && typeof v === 'number' && v > 0) trash[k] = Math.floor(v);
     }
   }
-  return bar;
+  if (Array.isArray(rawBar)) {
+    for (let i = 0; i < ITEM_BAR_SIZE; i++) {
+      const s = rawBar[i] as Record<string, unknown> | null | undefined;
+      if (!s || typeof s !== 'object') continue;
+      if (typeof s.item === 'string' && s.item) bar[i] = { item: s.item };
+      else if (isTrashType(s.trash)) {
+        if (typeof s.n === 'number' && s.n > 0) trash[s.trash] += Math.floor(s.n);
+        if (!bar.some(x => isTrashSlot(x) && x.trash === s.trash)) bar[i] = { trash: s.trash };
+      }
+    }
+  }
+  // A trash slot with no trash of that kind left is empty.
+  return { bar: bar.map(s => (isTrashSlot(s) && trash[s.trash] <= 0 ? null : s)), trash };
 }
 
-export const isTrashSlot = (s: ItemSlot): s is { trash: TrashType; n: number } => !!s && 'trash' in s;
+export const isTrashSlot = (s: ItemSlot): s is { trash: TrashType } => !!s && 'trash' in s;
 export const isItemSlot = (s: ItemSlot): s is { item: string } => !!s && 'item' in s;
 
-export function trashCounts(bar: ItemBar): TrashCounts {
-  const counts = Object.fromEntries(TRASH_ORDER.map(t => [t, 0])) as TrashCounts;
-  for (const s of bar) if (isTrashSlot(s)) counts[s.trash] += s.n;
-  return counts;
+export const trashSquares = (n: number) => Math.ceil(n / TRASH_STACK);
+
+// Squares in use: one per bag item key plus the trash stacks.
+export function bagSquaresUsed(itemKeys: string[], trash: TrashCounts): number {
+  return itemKeys.length + TRASH_ORDER.reduce((sum, t) => sum + trashSquares(trash[t]), 0);
 }
 
-// Adds one piece of trash: onto its own stack, else into the first empty
-// slot. Null when there's no room.
-export function addTrash(bar: ItemBar, type: TrashType): ItemBar | null {
-  const stack = bar.findIndex(s => isTrashSlot(s) && s.trash === type);
-  if (stack !== -1) {
-    const s = bar[stack] as { trash: TrashType; n: number };
-    return bar.map((x, i) => (i === stack ? { trash: type, n: s.n + 1 } : x));
-  }
-  const empty = bar.indexOf(null);
-  if (empty === -1) return null;
-  return bar.map((x, i) => (i === empty ? { trash: type, n: 1 } : x));
+// One more piece of trash, or null when it would need a square the bag doesn't have.
+export function addTrash(trash: TrashCounts, type: TrashType, itemKeys: string[]): TrashCounts | null {
+  const next = { ...trash, [type]: trash[type] + 1 };
+  return bagSquaresUsed(itemKeys, next) > BAG_SIZE ? null : next;
 }
 
 // Trades every full bundle for gold (1 gold per bundle, see TRASH_DEFS);
-// leftovers stay, and an emptied stack frees its slot.
-export function tradeTrash(bar: ItemBar): { bar: ItemBar; gold: number } {
+// leftovers stay.
+export function tradeTrash(trash: TrashCounts): { trash: TrashCounts; gold: number } {
   let gold = 0;
-  const next = bar.map(s => {
-    if (!isTrashSlot(s)) return s;
-    const size = TRASH_DEFS[s.trash].bundleSize;
-    const bundles = Math.floor(s.n / size);
+  const next = emptyTrash();
+  for (const t of TRASH_ORDER) {
+    const size = TRASH_DEFS[t].bundleSize;
+    const bundles = Math.floor(trash[t] / size);
     gold += bundles;
-    const left = s.n - bundles * size;
-    return left > 0 ? { trash: s.trash, n: left } : null;
-  });
-  return { bar: next, gold };
+    next[t] = trash[t] - bundles * size;
+  }
+  return { trash: next, gold };
 }
 
-// Puts a bag item into the first empty slot (or `slot`). Null when full or
-// already on the bar.
-export function equipItem(bar: ItemBar, key: string, slot?: number): ItemBar | null {
-  if (bar.some(s => isItemSlot(s) && s.item === key)) return null;
-  const at = slot ?? bar.indexOf(null);
-  if (at < 0 || at >= ITEM_BAR_SIZE || bar[at] !== null) return null;
-  return bar.map((x, i) => (i === at ? { item: key } : x));
+const sameThing = (a: ItemSlot, b: Exclude<ItemSlot, null>) =>
+  !!a && (isItemSlot(a) ? isItemSlot(b) && a.item === b.item : isTrashSlot(b) && a.trash === b.trash);
+
+export const slotOf = (bar: ItemBar, thing: Exclude<ItemSlot, null>) => bar.findIndex(s => sameThing(s, thing));
+
+// Puts a bag item or kind of trash into the first empty slot. Null when the
+// slots are full or it's already in one.
+export function equip(bar: ItemBar, thing: Exclude<ItemSlot, null>): ItemBar | null {
+  if (slotOf(bar, thing) !== -1) return null;
+  const at = bar.indexOf(null);
+  if (at === -1) return null;
+  return bar.map((x, i) => (i === at ? thing : x));
 }
 
 export const clearSlot = (bar: ItemBar, slot: number): ItemBar => bar.map((x, i) => (i === slot ? null : x));
 
-// Slots whose bag item ran out (used up elsewhere) are freed.
-export function dropMissingItems(bar: ItemBar, inventory: Partial<Record<string, number>>): ItemBar {
-  return bar.map(s => (isItemSlot(s) && !((inventory[s.item] ?? 0) > 0) ? null : s));
+// Slots whose item ran out (used up elsewhere) or whose trash is gone are freed.
+export function dropMissing(bar: ItemBar, inventory: Partial<Record<string, number>>, trash: TrashCounts): ItemBar {
+  return bar.map(s => {
+    if (isItemSlot(s)) return (inventory[s.item] ?? 0) > 0 ? s : null;
+    if (isTrashSlot(s)) return trash[s.trash] > 0 ? s : null;
+    return s;
+  });
 }

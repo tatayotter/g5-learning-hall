@@ -33,6 +33,7 @@ export interface BattleState {
   pending_wild_curio?: PendingWildCurio | null;
   // The 4 map item slots (lib/itemBar.ts): bag items and carried trash.
   item_bar?: unknown;
+  bag_trash?: unknown;
   // The species whose Tracking Scroll is active (lib/curioTracking.ts).
   active_tracking?: string | null;
 }

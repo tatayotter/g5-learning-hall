@@ -7,8 +7,9 @@
 --    Bought with the existing spend_gold_and_grant_item, which reads the cost
 --    from here. 5,000 gold: about a month of play for the most active players.
 -- 2. user_battle_state.item_bar: the 4 item slots on the map, an array of 4
---    entries: null, {"item": <inventory key>} or {"trash": <type>, "n": <count>}
---    (trash is carried only in these slots, see lib/itemBar.ts). Written by the
+--    entries: null, {"item": <inventory key>} or {"trash": <type>}; a slot
+--    points at something in the bag. user_battle_state.bag_trash: the trash in
+--    the map bag, {<type>: <count>} (see lib/itemBar.ts). Both written by the
 --    player's own client under the existing "update own" policy.
 --    user_battle_state.active_tracking: the species whose scroll is active.
 -- 3. curio_tracking: each scroll's catch meter. Players read their own rows;
@@ -42,6 +43,8 @@ on conflict (key) do nothing;
 -- ── 2. Item bar + active scroll ──────────────────────────────────────────────
 alter table public.user_battle_state
   add column if not exists item_bar jsonb not null default '[null, null, null, null]'::jsonb;
+alter table public.user_battle_state
+  add column if not exists bag_trash jsonb not null default '{}'::jsonb;
 alter table public.user_battle_state add column if not exists active_tracking text;
 
 -- ── 3. Catch meters ──────────────────────────────────────────────────────────

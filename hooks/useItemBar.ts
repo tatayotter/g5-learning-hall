@@ -17,7 +17,8 @@ import type { InventoryMap } from '@/lib/inventory';
 import type { BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { TrashType } from '@/lib/trashConfig';
 import {
-  ItemBar, normalizeItemBar, isItemSlot, addTrash, tradeTrash, equipItem, clearSlot, trashCounts,
+  ItemBar, ItemSlot, TrashCounts, normalizeItemBar, isItemSlot, addTrash, tradeTrash, equip as equipInBar, clearSlot,
+  dropMissing, bagSquaresUsed, BAG_SIZE,
 } from '@/lib/itemBar';
 import {
   TRACKING_GOAL, fetchTrackingProgress, setActiveTracking, advanceTracking, summonTrackedCurio, trackedMonsterId,
@@ -26,18 +27,26 @@ import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 
 const pendingKey = (userId: string) => `lh_item_bar_unsaved_${userId}`;
 
-function loadUnsaved(userId: string): ItemBar | null {
+type Saved = { bar: ItemBar; trash: TrashCounts };
+
+function loadUnsaved(userId: string): Saved | null {
   try {
     const raw = localStorage.getItem(pendingKey(userId));
-    return raw ? normalizeItemBar(JSON.parse(raw)) : null;
+    if (!raw) return null;
+    const v = JSON.parse(raw);
+    return normalizeItemBar(v?.bar ?? v, v?.trash);
   } catch { return null; }
 }
-function setUnsaved(userId: string, bar: ItemBar | null) {
+function setUnsaved(userId: string, saved: Saved | null) {
   try {
-    if (bar) localStorage.setItem(pendingKey(userId), JSON.stringify(bar));
+    if (saved) localStorage.setItem(pendingKey(userId), JSON.stringify(saved));
     else localStorage.removeItem(pendingKey(userId));
   } catch { /* storage blocked */ }
 }
+
+// Bag items: every Tracking Scroll the player holds (one square each).
+export const bagItemKeys = (inventory: InventoryMap) =>
+  Object.entries(inventory).filter(([k, q]) => (q ?? 0) > 0 && trackedMonsterId(k)).map(([k]) => k).sort();
 
 export interface UseItemBarArgs {
   userId: string;
@@ -50,17 +59,18 @@ export interface UseItemBarArgs {
 }
 
 export function useItemBar({ userId, battleState, inventory, offline, regionId, onBattleStatePatch, onTrackedCurioSummoned }: UseItemBarArgs) {
-  const [rawBar, setRawBar] = useState<ItemBar>(() => {
+  const [saved, setSaved] = useState<Saved>(() => {
     const unsaved = !offline ? loadUnsaved(userId) : null;
-    return unsaved ?? normalizeItemBar(battleState.item_bar);
+    return unsaved ?? normalizeItemBar(battleState.item_bar, battleState.bag_trash);
   });
+  const trash = saved.trash;
   // A bag item that ran out (used up somewhere else) leaves its slot.
-  const bar = useMemo(
-    () => rawBar.map(s => (isItemSlot(s) && !((inventory[s.item] ?? 0) > 0) ? null : s)),
-    [rawBar, inventory],
-  );
-  const barRef = useRef(bar);
-  useEffect(() => { barRef.current = bar; }, [bar]);
+  const bar = useMemo(() => dropMissing(saved.bar, inventory, saved.trash), [saved, inventory]);
+  const itemKeys = useMemo(() => bagItemKeys(inventory), [inventory]);
+  const stateRef = useRef<Saved>({ bar, trash });
+  useEffect(() => { stateRef.current = { bar, trash }; }, [bar, trash]);
+  const itemKeysRef = useRef(itemKeys);
+  useEffect(() => { itemKeysRef.current = itemKeys; }, [itemKeys]);
 
   const [activeTracking, setActiveTrackingId] = useState<string | null>(battleState.active_tracking ?? null);
   const [progress, setProgress] = useState<Record<string, number>>({});
@@ -76,16 +86,17 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
   // Writes go out one at a time and always carry the newest bar, so a slow
   // earlier write can never land after (and undo) a later one.
   const writeChain = useRef<Promise<unknown>>(Promise.resolve());
-  const persist = useCallback((next: ItemBar) => {
+  const persist = useCallback((next: Saved) => {
     if (offline) {
       setUnsaved(userId, next);
       updateOfflineCopy<CurioCollection>(userId, 'curioCollection', c => ({
-        ...c, battleState: c.battleState && { ...c.battleState, item_bar: next },
+        ...c, battleState: c.battleState && { ...c.battleState, item_bar: next.bar, bag_trash: next.trash },
       }));
       return;
     }
     writeChain.current = writeChain.current.then(async () => {
-      const { error } = await supabase.from('user_battle_state').update({ item_bar: barRef.current }).eq('user_id', userId);
+      const { bar: b, trash: t } = stateRef.current;
+      const { error } = await supabase.from('user_battle_state').update({ item_bar: b, bag_trash: t }).eq('user_id', userId);
       if (error) console.warn('item bar save failed:', error.message);
       else setUnsaved(userId, null);
     });
@@ -97,42 +108,47 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
     if (offline || flushedRef.current) return;
     flushedRef.current = true;
     if (loadUnsaved(userId)) {
-      onBattleStatePatch({ item_bar: barRef.current });
-      persist(barRef.current);
+      onBattleStatePatch({ item_bar: stateRef.current.bar, bag_trash: stateRef.current.trash });
+      persist(stateRef.current);
     }
   }, [offline, userId, persist, onBattleStatePatch]);
 
-  const commit = useCallback((next: ItemBar) => {
-    barRef.current = next;
-    setRawBar(next);
-    onBattleStatePatch({ item_bar: next });
-    persist(next);
+  const commit = useCallback((next: Saved) => {
+    // Trash that's all gone leaves its slot.
+    const clean = { bar: dropMissing(next.bar, Object.fromEntries(itemKeysRef.current.map(k => [k, 1])), next.trash), trash: next.trash };
+    stateRef.current = clean;
+    setSaved(clean);
+    onBattleStatePatch({ item_bar: clean.bar, bag_trash: clean.trash });
+    persist(clean);
   }, [onBattleStatePatch, persist]);
 
   // ── Trash ─────────────────────────────────────────────────────────────────
-  /** False when the slots are full (the trash stays on the map). */
+  /** False when the bag is full (the trash stays on the map). */
   const pickUpTrash = useCallback((type: TrashType): boolean => {
-    const next = addTrash(barRef.current, type);
+    const next = addTrash(stateRef.current.trash, type, itemKeysRef.current);
     if (!next) return false;
-    commit(next);
+    commit({ bar: stateRef.current.bar, trash: next });
     return true;
   }, [commit]);
 
-  const canPickUp = useCallback((type: TrashType) => addTrash(barRef.current, type) !== null, []);
+  const canPickUp = useCallback((type: TrashType) => addTrash(stateRef.current.trash, type, itemKeysRef.current) !== null, []);
 
   const tradeAllTrash = useCallback((): number => {
-    const { bar: next, gold } = tradeTrash(barRef.current);
-    if (gold > 0) commit(next);
+    const { trash: next, gold } = tradeTrash(stateRef.current.trash);
+    if (gold > 0) commit({ bar: stateRef.current.bar, trash: next });
     return gold;
   }, [commit]);
 
-  const throwAway = useCallback((slot: number) => commit(clearSlot(barRef.current, slot)), [commit]);
+  /** Throws away every piece of one kind of trash. */
+  const throwAway = useCallback((type: TrashType) => {
+    commit({ bar: stateRef.current.bar, trash: { ...stateRef.current.trash, [type]: 0 } });
+  }, [commit]);
 
-  // ── Bag items ─────────────────────────────────────────────────────────────
-  const equip = useCallback((key: string): boolean => {
-    const next = equipItem(barRef.current, key);
+  // ── Slots ─────────────────────────────────────────────────────────────────
+  const equip = useCallback((thing: Exclude<ItemSlot, null>): boolean => {
+    const next = equipInBar(stateRef.current.bar, thing);
     if (!next) return false;
-    commit(next);
+    commit({ bar: next, trash: stateRef.current.trash });
     return true;
   }, [commit]);
 
@@ -159,9 +175,9 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
 
   // Putting the active scroll back in the bag stops tracking (its meter keeps its progress).
   const unequip = useCallback((slot: number) => {
-    const s = barRef.current[slot];
+    const s = stateRef.current.bar[slot];
     if (isItemSlot(s) && trackedMonsterId(s.item) === activeTracking) void stopTracking();
-    commit(clearSlot(barRef.current, slot));
+    commit({ bar: clearSlot(stateRef.current.bar, slot), trash: stateRef.current.trash });
   }, [commit, activeTracking, stopTracking]);
 
   /** A right map-scroll answer. Returns the new progress when it counted. */
@@ -196,7 +212,10 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
 
   return {
     bar,
-    trash: trashCounts(bar),
+    trash,
+    itemKeys,
+    bagUsed: bagSquaresUsed(itemKeys, trash),
+    bagSize: BAG_SIZE,
     activeTracking,
     progress,
     busy,

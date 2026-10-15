@@ -51,9 +51,11 @@ A way to hunt one exact curio. Code: `lib/curioTracking.ts`, `hooks/useItemBar.t
    scroll, rolls level (active curio ±1) and quality (same odds as a wild spawn), and saves the
    curio as `pending_wild_curio` with `tracked: true`. From there it is a normal wild encounter:
    question, battle, catch. A tracked curio never runs away: running out of tries refills them.
-5. **Trash shares the slots.** Picked-up trash stacks by type in the same 4 slots
-   (`user_battle_state.item_bar`, see `lib/itemBar.ts`), so it survives map changes. With no free
-   slot, new trash stays on the map until the player trades at the Recycler or throws some away.
+5. **The bag.** A 30-square grid holding the scrolls and picked-up trash (20 pieces of one kind
+   per square; counts in `user_battle_state.bag_trash`, slots in `user_battle_state.item_bar`, see
+   `lib/itemBar.ts`), so it survives map changes. A slot points at something in the bag (gold
+   border in the grid). With the bag full, new trash stays on the map until the player trades at
+   the Recycler or throws some away.
 
 Events: `tracking_started`, `tracking_summoned` in `wild_encounter_events`.
 

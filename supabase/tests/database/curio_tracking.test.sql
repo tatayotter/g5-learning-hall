@@ -17,7 +17,7 @@ grant select on fx to authenticated;
 insert into user_identity_map (auth_uid, app_user_id)
 select kid_auth, kid from fx union all select other_auth, other_kid from fx;
 insert into user_battle_state (user_id, item_bar)
-select kid, '[{"item": "tracking_scroll_embrak"}, {"trash": "paper", "n": 3}, null, null]'::jsonb from fx;
+select kid, '[{"item": "tracking_scroll_embrak"}, {"trash": "paper"}, null, null]'::jsonb from fx;
 insert into user_monsters (user_id, monster_id, monster_exp, monster_level, slot)
 select kid, 'shadrak', 900, 10, 1 from fx;
 insert into player_progress (user_id, gold) select kid, 6000 from fx
@@ -134,9 +134,9 @@ select ok(
 reset role;
 
 select is(
-  (select array[(item_bar -> 0)::text, (item_bar -> 1 ->> 'n'), coalesce(active_tracking, 'none'), pending_wild_curio ->> 'monster_id']
+  (select array[(item_bar -> 0)::text, (item_bar -> 1 ->> 'trash'), coalesce(active_tracking, 'none'), pending_wild_curio ->> 'monster_id']
    from user_battle_state where user_id = (select kid from fx)),
-  array['null', '3', 'none', 'embrak'],
+  array['null', 'paper', 'none', 'embrak'],
   'the used-up scroll leaves its slot (trash stays), tracking stops, and the curio is waiting on the map'
 );
 select is(

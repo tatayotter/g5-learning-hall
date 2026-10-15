@@ -100,7 +100,7 @@ export default function MapStage({
             aren't cropped by the cover-mode horizontal overflow. */}
         {controls && !fullscreen && <div className="mstage-controls">{controls}</div>}
         {hotbar && !fullscreen && (
-          <div className="absolute right-2 top-1/2 -translate-y-1/2 z-[17]">{hotbar}</div>
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 lg:right-auto lg:top-auto lg:translate-y-0 lg:bottom-2 lg:left-1/2 lg:-translate-x-1/2 z-[17]">{hotbar}</div>
         )}
       </div>
 
@@ -163,12 +163,12 @@ export default function MapStage({
           {shell}
           {overlayLayer}
           {hotbar && (
-            // Phones in landscape (short screens): bottom-right instead of
-            // centred on the right edge, where the tall column would hit the
-            // zoom buttons.
+            // Phone (portrait): a column centred on the right edge. Phone in
+            // landscape (short screen): a row at the bottom right, where the
+            // column would hit the zoom buttons. Desktop: a row at the bottom
+            // centre, like a game hotbar.
             <div
-              className="fixed top-1/2 -translate-y-1/2 z-[81] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)]"
-              style={{ right: 'calc(env(safe-area-inset-right, 0px) + 8px)' }}
+              className="fixed z-[81] top-1/2 -translate-y-1/2 right-[calc(env(safe-area-inset-right,0px)+8px)] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)] lg:top-auto lg:translate-y-0 lg:bottom-3 lg:right-auto lg:left-1/2 lg:-translate-x-1/2"
             >
               {hotbar}
             </div>

@@ -487,18 +487,18 @@ export default function TrainingMap({
     }
 
     // Trash pickup — play coin sound + start lift animation, then remove from map
-    // Trash goes into the item slots; with no room it stays on the map.
+    // Trash goes into the bag; with no room it stays on the map.
     const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
     if (trashHere && !collectingTrashIds.has(trashHere.id) && !itemBarRef.current.canPickUp(trashHere.type)) {
-      showBarMessage('Your slots are full! Trade or throw away some trash.');
+      showBarMessage('Your bag is full! Trade or throw away some trash.');
     } else if (trashHere && !collectingTrashIds.has(trashHere.id)) {
       playCoins();
       setCollectingTrashIds(prev => new Set([...prev, trashHere.id]));
       setTimeout(() => {
         setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
-        // Another pickup may have filled the last slot meanwhile.
+        // Another pickup may have filled the bag meanwhile.
         if (!itemBarRef.current.pickUpTrash(trashHere.type)) {
-          showBarMessage('Your slots are full! Trade or throw away some trash.');
+          showBarMessage('Your bag is full! Trade or throw away some trash.');
           return;
         }
         collectTrash(trashHere.id);
@@ -890,7 +890,7 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
-        hotbar={<MapItemBar api={itemBar} inventory={inventory} offline={offline} message={barMessage} onMessage={showBarMessage} />}
+        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} />}
         fullscreen={fullscreen}
       />
 
