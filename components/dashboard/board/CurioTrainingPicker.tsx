@@ -48,9 +48,12 @@ interface Props {
   // undefined = player hasn't chosen yet (defaults to the active curio)
   selectedId: string | undefined;
   onSelect: (curio: OwnedCurio) => void;
+  // What the trainee earns, for screens that don't pay a share of quest XP
+  // (Bonus Quest sets). Defaults to the main-quest wording.
+  rewardText?: string;
 }
 
-export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Props) {
+export default function CurioTrainingPicker({ userId, selectedId, onSelect, rewardText }: Props) {
   const [curios, setCurios] = useState<OwnedCurio[] | null>(null);
   const [activeSlot, setActiveSlot] = useState<number>(1);
 
@@ -112,7 +115,7 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect }: Pr
       <style>{CURIO_CARD_STYLES}</style>
       <p className="text-center text-[#7a4a0f] font-bold mb-1">Which curio should train?</p>
       <p className="text-center text-xs text-[#6b4820] mb-4">
-        Your active curio is picked by default — tap another to switch. The trainee earns {Math.round(TRAINING_EXP_SHARE * 100)}% of the XP you earn when you complete this quest.
+        Your active curio is picked by default — tap another to switch. {rewardText ?? `The trainee earns ${Math.round(TRAINING_EXP_SHARE * 100)}% of the XP you earn when you complete this quest.`}
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
         {visible.map(c => {
