@@ -18,7 +18,7 @@ import type { BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { TrashType } from '@/lib/trashConfig';
 import {
   ItemBar, ItemSlot, TrashCounts, normalizeItemBar, isItemSlot, addTrash, tradeTrash, equip as equipInBar, clearSlot,
-  dropMissing, bagSquaresUsed, BAG_SIZE,
+  placeAt as placeInBar, swapSlots, dropMissing, bagSquaresUsed, BAG_SIZE,
 } from '@/lib/itemBar';
 import {
   TRACKING_GOAL, fetchTrackingProgress, setActiveTracking, advanceTracking, summonTrackedCurio, trackedMonsterId,
@@ -180,6 +180,18 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
     commit({ bar: clearSlot(stateRef.current.bar, slot), trash: stateRef.current.trash });
   }, [commit, activeTracking, stopTracking]);
 
+  // Puts a bag thing into a chosen slot (moving it, or pushing out what was there).
+  const placeAt = useCallback((thing: Exclude<ItemSlot, null>, slot: number) => {
+    const out = stateRef.current.bar[slot];
+    if (isItemSlot(out) && trackedMonsterId(out.item) === activeTracking && !(isItemSlot(thing) && thing.item === out.item)) void stopTracking();
+    commit({ bar: placeInBar(stateRef.current.bar, thing, slot), trash: stateRef.current.trash });
+  }, [commit, activeTracking, stopTracking]);
+
+  const swap = useCallback((a: number, b: number) => {
+    if (a === b) return;
+    commit({ bar: swapSlots(stateRef.current.bar, a, b), trash: stateRef.current.trash });
+  }, [commit]);
+
   /** A right map-scroll answer. Returns the new progress when it counted. */
   const onRightAnswer = useCallback(async (questionId: string): Promise<{ monsterId: string; progress: number; filled: boolean } | null> => {
     if (offline || !activeTracking) return null;
@@ -225,6 +237,8 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
     throwAway,
     equip,
     unequip,
+    placeAt,
+    swap,
     startTracking,
     stopTracking,
     onRightAnswer,

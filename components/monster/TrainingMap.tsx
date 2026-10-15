@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
-import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip } from '@/lib/sounds';
+import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip, playLevelUp } from '@/lib/sounds';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
@@ -698,6 +698,7 @@ export default function TrainingMap({
       const tracked = await itemBar.onRightAnswer(String(answeredId));
       if (tracked) {
         const name = ALL_MONSTERS[tracked.monsterId]?.name ?? 'curio';
+        if (tracked.filled) playLevelUp();
         showBarMessage(tracked.filled
           ? `📜 Meter full! Tap your scroll to summon ${name}!`
           : `📜 ${name} meter: ${tracked.progress}/${TRACKING_GOAL}`);

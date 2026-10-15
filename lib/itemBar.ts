@@ -108,3 +108,15 @@ export function dropMissing(bar: ItemBar, inventory: Partial<Record<string, numb
     return s;
   });
 }
+
+// Puts a bag item or kind of trash into one slot, moving it if it's already in
+// another and pushing out whatever was there (back to the bag).
+export function placeAt(bar: ItemBar, thing: Exclude<ItemSlot, null>, slot: number): ItemBar {
+  const from = slotOf(bar, thing);
+  return bar.map((x, i) => (i === slot ? thing : i === from ? null : x));
+}
+
+// Swaps two slots (dragging one slot onto another).
+export function swapSlots(bar: ItemBar, a: number, b: number): ItemBar {
+  return bar.map((x, i) => (i === a ? bar[b] : i === b ? bar[a] : x));
+}

@@ -7,11 +7,11 @@
 // The slots are map chrome (dark, over game art — see docs/STYLE_GUIDE.md's
 // "deliberately still dark" list). The panels they open are parchment
 // content panels.
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ALL_MONSTERS, type MonsterDef } from '@/lib/monsterConfig';
 import { TRASH_DEFS, TRASH_ORDER, type TrashType } from '@/lib/trashConfig';
-import { isItemSlot, isTrashSlot, slotOf, ITEM_BAR_SIZE, TRASH_STACK } from '@/lib/itemBar';
+import { isItemSlot, isTrashSlot, slotOf, ITEM_BAR_SIZE, TRASH_STACK, type ItemSlot } from '@/lib/itemBar';
 import { TRACKING_GOAL, trackedMonsterId } from '@/lib/curioTracking';
 import type { ItemBarApi } from '@/hooks/useItemBar';
 import { MonsterImage } from '@/components/battle/shared';
@@ -65,6 +65,35 @@ function PanelFrame({ onClose, wide = false, children }: { onClose: () => void; 
   );
 }
 
+// Dragging (mouse) between the bag and the slots: a bag item, or a slot.
+const DRAG_TYPE = 'application/x-lh-bag';
+type DragData = { pick: BagPick } | { slot: number };
+const readDrag = (e: React.DragEvent): DragData | null => {
+  try { return JSON.parse(e.dataTransfer.getData(DRAG_TYPE)) as DragData; } catch { return null; }
+};
+const startDrag = (e: React.DragEvent, data: DragData) => {
+  e.dataTransfer.setData(DRAG_TYPE, JSON.stringify(data));
+  e.dataTransfer.effectAllowed = 'move';
+};
+const allowDrop = (e: React.DragEvent) => {
+  if (e.dataTransfer.types.includes(DRAG_TYPE)) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; }
+};
+
+// What's in a slot, as a picture.
+function SlotThing({ s, trash, size }: { s: ItemSlot; trash: Record<TrashType, number>; size: 'sm' | 'lg' }) {
+  if (isTrashSlot(s)) {
+    return (
+      <>
+        <TrashIcon type={s.trash} className={size === 'lg' ? 'w-8 h-8 lg:w-10 lg:h-10' : 'w-[80%] h-[80%]'} />
+        <span className="absolute bottom-0 right-0.5 text-[10px] font-black text-white leading-none" style={{ textShadow: '0 1px 2px #000' }}>{trash[s.trash]}</span>
+      </>
+    );
+  }
+  const id = isItemSlot(s) ? trackedMonsterId(s.item) : null;
+  const def = id ? ALL_MONSTERS[id] : undefined;
+  return def ? <TrackingScrollIcon monster={def} className={size === 'lg' ? 'w-11 h-11 lg:w-[52px] lg:h-[52px]' : 'w-[92%] h-[92%]'} /> : null;
+}
+
 const samePick = (a: BagPick | null, b: BagPick) =>
   !!a && ('item' in a ? 'item' in b && a.item === b.item : 'trash' in b && a.trash === b.trash);
 
@@ -79,6 +108,18 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
   const activeDef: MonsterDef | undefined = activeTracking ? ALL_MONSTERS[activeTracking] : undefined;
   const activeProgress = activeTracking ? progress[activeTracking] ?? 0 : 0;
   const activeFull = activeProgress >= TRACKING_GOAL;
+
+  // A "+1" pops over the active scroll's slot each time its meter goes up.
+  const [pop, setPop] = useState(0);
+  const lastProgress = useRef<{ id: string | null; p: number }>({ id: activeTracking, p: activeProgress });
+  useEffect(() => {
+    const last = lastProgress.current;
+    lastProgress.current = { id: activeTracking, p: activeProgress };
+    if (last.id !== activeTracking || activeProgress <= last.p) return;
+    setPop(n => n + 1);
+    const t = setTimeout(() => setPop(0), 1400);
+    return () => clearTimeout(t);
+  }, [activeTracking, activeProgress]);
 
   const tapSlot = async (i: number) => {
     playPageFlip();
@@ -125,6 +166,20 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
     }),
   ];
   const barFull = !bar.includes(null);
+  const bagFull = api.bagUsed >= api.bagSize;
+  const bagNearlyFull = api.bagUsed >= api.bagSize - 5;
+
+  const dropOnSlot = (d: DragData | null, slot: number) => {
+    if (!d) return;
+    playPageFlip();
+    if ('slot' in d) api.swap(d.slot, slot);
+    else api.placeAt(d.pick, slot);
+  };
+  const dropOnBag = (d: DragData | null) => {
+    if (!d || !('slot' in d)) return;
+    playPageFlip();
+    api.unequip(d.slot);
+  };
 
   return (
     <>
@@ -166,6 +221,10 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
               <button
                 key={i}
                 onClick={() => void tapSlot(i)}
+                draggable={!!s}
+                onDragStart={e => startDrag(e, { slot: i })}
+                onDragOver={allowDrop}
+                onDrop={e => { e.preventDefault(); dropOnSlot(readDrag(e), i); }}
                 aria-label={s ? (isTrashSlot(s) ? `${TRASH_DEFS[s.trash].label} ×${trash[s.trash]}` : `Tracking Scroll: ${def?.name}`) : `Empty slot ${i + 1}`}
                 data-testid={`item-slot-${i + 1}`}
                 className={`relative w-12 h-12 lg:w-14 lg:h-14 rounded-lg border-2 flex items-center justify-center bg-[#1c140c]/85 transition-transform active:scale-95 ${
@@ -173,40 +232,77 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
                 } ${isActive && p >= TRACKING_GOAL ? 'animate-pulse' : ''}`}
               >
                 <span className="absolute top-0 left-0.5 text-[9px] font-bold text-[#e8d0a0]/80 leading-none">{i + 1}</span>
-                {isTrashSlot(s) && (
-                  <>
-                    <TrashIcon type={s.trash} className="w-8 h-8 lg:w-10 lg:h-10" />
-                    <span className="absolute bottom-0 right-0.5 text-[11px] font-black text-white leading-none" style={{ textShadow: '0 1px 2px #000' }}>{trash[s.trash]}</span>
-                  </>
-                )}
-                {def && (
-                  <>
-                    <TrackingScrollIcon monster={def} className="w-11 h-11 lg:w-[52px] lg:h-[52px]" />
-                    {p > 0 && <Meter value={p} className="absolute bottom-0.5 left-1 right-4 !h-1" />}
-                  </>
+                <SlotThing s={s} trash={trash} size="lg" />
+                {def && p > 0 && <Meter value={p} className="absolute bottom-0.5 left-1 right-4 !h-1" />}
+                {isActive && pop > 0 && (
+                  <span key={pop} className="meter-plus-float absolute left-1/2 top-0 pointer-events-none" data-testid="meter-plus">+1</span>
                 )}
               </button>
             );
           })}
           <button
             onClick={() => { playPageFlip(); setPanel({ kind: 'bag', pick: null }); }}
-            aria-label="Open bag"
+            onDragOver={allowDrop}
+            onDrop={e => { e.preventDefault(); dropOnBag(readDrag(e)); }}
+            aria-label={bagFull ? 'Open bag (full)' : 'Open bag'}
             data-testid="item-bag"
-            className="w-12 h-9 [@media(max-height:500px)]:w-9 [@media(max-height:500px)]:h-12 lg:w-10 lg:h-14 rounded-lg border-2 border-[#8b5e2a] bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95"
+            className={`relative w-12 h-9 [@media(max-height:500px)]:w-9 [@media(max-height:500px)]:h-12 lg:w-10 lg:h-14 rounded-lg border-2 ${bagFull ? 'border-[#ef4444]' : 'border-[#8b5e2a]'} bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95`}
           >
             🎒
+            {/* Nearly full: how many squares are used. Full: a red FULL tag. */}
+            {bagNearlyFull && (
+              <span
+                className={`absolute -top-1.5 -right-1.5 px-1 rounded-full text-[9px] font-black leading-[14px] tabular-nums ${bagFull ? 'bg-[#ef4444] text-white' : 'bg-[#f5c542] text-[#2a1505]'}`}
+                data-testid="bag-badge"
+              >
+                {bagFull ? 'FULL' : `${api.bagUsed}/${api.bagSize}`}
+              </span>
+            )}
           </button>
         </div>
       </div>
 
       {panel?.kind === 'bag' && (
         <PanelFrame wide onClose={() => setPanel(null)}>
-          <div className="flex items-baseline justify-between mb-2">
+          <div className="flex items-center justify-between gap-2 mb-2">
             <h3 className="text-lg font-extrabold text-[#7a4a0f]">Your Bag</h3>
+            {/* The 4 slots, here too: tap an item then a slot to put it there, or drag. */}
+            <div className="flex gap-1 mx-auto" data-testid="bag-slots">
+              {Array.from({ length: ITEM_BAR_SIZE }, (_, i) => {
+                const s = bar[i];
+                const holdsPick = !!panel.pick && !!s && samePick(panel.pick, s);
+                return (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      if (panel.pick && !holdsPick) { playPageFlip(); api.placeAt(panel.pick, i); }
+                      else if (s) { playPageFlip(); setPanel({ kind: 'bag', pick: s }); }
+                    }}
+                    draggable={!!s}
+                    onDragStart={e => startDrag(e, { slot: i })}
+                    onDragOver={allowDrop}
+                    onDrop={e => { e.preventDefault(); dropOnSlot(readDrag(e), i); }}
+                    aria-label={`Slot ${i + 1}${s ? '' : ', empty'}`}
+                    data-testid={`bag-slot-${i + 1}`}
+                    className={`relative w-9 h-9 rounded-md bg-[#1c140c] flex items-center justify-center border-2 ${
+                      holdsPick ? 'border-white' : panel.pick ? 'border-[#f5c542] border-dashed' : 'border-[#8b5e2a]'
+                    }`}
+                  >
+                    <span className="absolute top-0 left-0.5 text-[8px] font-bold text-[#e8d0a0]/80 leading-none">{i + 1}</span>
+                    <SlotThing s={s} trash={trash} size="sm" />
+                  </button>
+                );
+              })}
+            </div>
             <span className="text-xs font-bold text-[#6b4820] tabular-nums" data-testid="bag-count">{api.bagUsed}/{api.bagSize}</span>
           </div>
           {/* 6 x 5; 10 x 3 on short (landscape phone) screens so the buttons below stay in view. */}
-          <div className="grid grid-cols-6 [@media(max-height:500px)]:grid-cols-10 gap-1.5 bg-[#3a2610] border-2 border-[#8b5e2a] rounded-xl p-1.5" data-testid="bag-grid">
+          <div
+            className="grid grid-cols-6 [@media(max-height:500px)]:grid-cols-10 gap-1.5 bg-[#3a2610] border-2 border-[#8b5e2a] rounded-xl p-1.5"
+            data-testid="bag-grid"
+            onDragOver={allowDrop}
+            onDrop={e => { e.preventDefault(); dropOnBag(readDrag(e)); }}
+          >
             {Array.from({ length: api.bagSize }, (_, i) => {
               const sq = squares[i];
               if (!sq) return <div key={`empty-${i}`} className="aspect-square rounded-md bg-[#1c140c]/70 border border-[#5a3d1e]" />;
@@ -219,6 +315,8 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
                 <button
                   key={sq.key}
                   onClick={() => { playPageFlip(); setPanel({ kind: 'bag', pick: sq.pick }); }}
+                  draggable
+                  onDragStart={e => startDrag(e, { pick: sq.pick })}
                   aria-label={`${label}${slot >= 0 ? `, in slot ${slot + 1}` : ''}`}
                   data-testid={`bag-square-${i + 1}`}
                   className={`relative aspect-square rounded-md bg-[#1c140c] flex items-center justify-center border-2 ${
@@ -238,7 +336,7 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
               );
             })}
           </div>
-          <p className="text-[11px] text-[#6b4820] mt-1.5 mb-2">Gold border = in a slot. Tap an item to use it.</p>
+          <p className="text-[11px] text-[#6b4820] mt-1.5 mb-2">Gold border = in a slot. Tap an item, then tap a slot up top to put it there.</p>
 
           {panel.pick && (() => {
             const pick = panel.pick;
