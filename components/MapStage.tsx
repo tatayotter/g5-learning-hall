@@ -163,8 +163,11 @@ export default function MapStage({
           {shell}
           {overlayLayer}
           {hotbar && (
+            // Phones in landscape (short screens): bottom-right instead of
+            // centred on the right edge, where the tall column would hit the
+            // zoom buttons.
             <div
-              className="fixed top-1/2 -translate-y-1/2 z-[81]"
+              className="fixed top-1/2 -translate-y-1/2 z-[81] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)]"
               style={{ right: 'calc(env(safe-area-inset-right, 0px) + 8px)' }}
             >
               {hotbar}

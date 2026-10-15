@@ -1766,7 +1766,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
       {wildEncounter && (
         <WildEncounterModal
-          key={wildEncounter.question.id}
+          // Tries in the key too: a small question pool can hand out the same
+          // question again, and without a fresh mount the screen stays stuck
+          // on the last answer.
+          key={`${wildEncounter.question.id}-${wildEncounter.attemptsLeft}`}
           monster={curioSpecies(wildEncounter.monsterId)}
           level={wildEncounter.level}
           quality={wildEncounter.quality}

@@ -13,6 +13,7 @@ import { CaughtMonster } from '@/components/monster/types';
 import { playPageFlip } from '@/lib/sounds';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton from '@/components/GameButton';
+import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import type { InventoryMap } from '@/lib/inventory';
 import { TRACKING_GOAL, TRACKING_SCROLL_COST, isTrackable, trackingScrollKey } from '@/lib/curioTracking';
 import { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -164,8 +165,8 @@ interface DexEntry {
 // specific instance, so there's nothing to disambiguate there.
 // Buy a Tracking Scroll from a first form's Compendium page (also sold in the
 // Shop). Not offered for a curio the player already has.
-function TrackingScrollOffer({ name, owned, inBag, gold, buying, onBuy }: {
-  name: string; owned: boolean; inBag: number; gold: number; buying: boolean; onBuy?: () => void;
+function TrackingScrollOffer({ name, monster, owned, inBag, gold, buying, onBuy }: {
+  name: string; monster?: MonsterDef; owned: boolean; inBag: number; gold: number; buying: boolean; onBuy?: () => void;
 }) {
   if (!onBuy) return null;
   const canAfford = gold >= TRACKING_SCROLL_COST;
@@ -173,7 +174,8 @@ function TrackingScrollOffer({ name, owned, inBag, gold, buying, onBuy }: {
     <div className="mt-4">
       <WhiteNailBox>
         <div className="flex items-center gap-3">
-          <span className="text-3xl" aria-hidden>📜</span>
+          {/* An unknown curio's scroll stays plain so it doesn't give away the face. */}
+          {monster ? <TrackingScrollIcon monster={monster} className="w-14 h-14" /> : <span className="text-3xl" aria-hidden>📜</span>}
           <div className="flex-1 min-w-0 text-left">
             <p className="text-sm font-extrabold text-[#2a1505]">Tracking Scroll</p>
             <p className="text-[11px] text-[#6b4820] leading-snug">
@@ -475,6 +477,7 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
           {selectedEntry && selectedEntry.tier === 1 && !selectedEntry.guildLabel && isTrackable(selectedEntry.speciesId) && (
             <TrackingScrollOffer
               name={selectedKnown ? selected.name : '???'}
+              monster={selectedKnown ? selected : undefined}
               owned={selectedOwned}
               inBag={inventory?.[trackingScrollKey(selectedEntry.speciesId)] ?? 0}
               gold={currentGold ?? 0}

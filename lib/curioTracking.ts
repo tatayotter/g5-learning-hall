@@ -8,7 +8,7 @@
 // Server side (migration 20261015070000_curio_tracking_scrolls): costs in
 // shop_items, meters in curio_tracking, and set_active_tracking /
 // advance_tracking / summon_tracked_curio do every write.
-import { supabase } from '@/lib/supabase';
+import { supabase, ensureAnonymousSession } from '@/lib/supabase';
 import { MONSTERS, WILD_MONSTERS, type MonsterDef } from '@/lib/monsterConfig';
 import type { PendingWildCurio } from '@/components/monster/types';
 
@@ -35,6 +35,8 @@ export const trackingScrollName = (def: MonsterDef) => `Tracking Scroll: ${def.n
 
 // species id -> meter progress, for every scroll the player has started.
 export async function fetchTrackingProgress(userId: string): Promise<Record<string, number>> {
+  // Before sign-in finishes, row-level security would quietly return no rows (every meter at 0).
+  await ensureAnonymousSession();
   const { data, error } = await supabase.from('curio_tracking').select('monster_id, progress').eq('user_id', userId);
   if (error) { console.warn('tracking progress load failed:', error.message); return {}; }
   return Object.fromEntries((data ?? []).map(r => [r.monster_id as string, r.progress as number]));

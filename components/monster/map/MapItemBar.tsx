@@ -16,6 +16,7 @@ import type { InventoryMap } from '@/lib/inventory';
 import type { ItemBarApi } from '@/hooks/useItemBar';
 import { MonsterImage } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
+import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import { playPageFlip } from '@/lib/sounds';
 
 interface MapItemBarProps {
@@ -135,7 +136,8 @@ export default function MapItemBar({ api, inventory, offline, message, onMessage
             )}
           </button>
         )}
-        <div className="flex flex-col items-center gap-1.5 bg-[#0a0807]/60 rounded-xl p-1.5 border border-[#d4a017]/50">
+        {/* A column on the right edge; a row on short (landscape phone) screens. */}
+        <div className="flex flex-col [@media(max-height:500px)]:flex-row items-center gap-1.5 bg-[#0a0807]/60 rounded-xl p-1.5 border border-[#d4a017]/50">
           {Array.from({ length: ITEM_BAR_SIZE }, (_, i) => {
             const s = bar[i];
             const scrollId = isItemSlot(s) ? trackedMonsterId(s.item) : null;
@@ -161,8 +163,7 @@ export default function MapItemBar({ api, inventory, offline, message, onMessage
                 )}
                 {def && (
                   <>
-                    <MonsterImage monster={def} className="w-9 h-9" emojiClassName="text-xl" />
-                    <span className="absolute -bottom-0.5 -right-0.5 text-[13px] leading-none" aria-hidden>📜</span>
+                    <TrackingScrollIcon monster={def} className="w-11 h-11" />
                     {p > 0 && <Meter value={p} className="absolute bottom-0.5 left-1 right-4 !h-1" />}
                   </>
                 )}
@@ -173,7 +174,7 @@ export default function MapItemBar({ api, inventory, offline, message, onMessage
             onClick={() => { playPageFlip(); setPanel({ kind: 'bag' }); }}
             aria-label="Open bag"
             data-testid="item-bag"
-            className="w-12 h-9 rounded-lg border-2 border-[#8b5e2a] bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95"
+            className="w-12 h-9 [@media(max-height:500px)]:w-9 [@media(max-height:500px)]:h-12 rounded-lg border-2 border-[#8b5e2a] bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95"
           >
             🎒
           </button>
@@ -193,9 +194,9 @@ export default function MapItemBar({ api, inventory, offline, message, onMessage
                 const p = progress[sc.monsterId] ?? 0;
                 return (
                   <div key={sc.key} className="flex items-center gap-2 bg-white border-2 border-[#c9a87a] rounded-xl p-2">
-                    <MonsterImage monster={def} className="w-9 h-9 shrink-0" emojiClassName="text-xl" />
+                    {def && <TrackingScrollIcon monster={def} className="w-11 h-11" />}
                     <div className="min-w-0 flex-1">
-                      <p className="text-[13px] font-bold text-[#2a1505] leading-tight truncate">📜 {def?.name}{sc.qty > 1 ? ` ×${sc.qty}` : ''}</p>
+                      <p className="text-[13px] font-bold text-[#2a1505] leading-tight truncate">{def?.name}{sc.qty > 1 ? ` ×${sc.qty}` : ''}</p>
                       <p className="text-[11px] text-[#6b4820]">Meter {p}/{TRACKING_GOAL}</p>
                     </div>
                     {sc.slot >= 0 ? (

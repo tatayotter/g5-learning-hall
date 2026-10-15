@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useEffectEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, useEffectEvent, type ReactNode } from 'react';
 import { UserId } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -23,6 +23,7 @@ import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextS
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import VoucherRedeemPanel from '@/components/VoucherRedeemPanel';
 import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import {
   TRACKABLE_CURIOS, TRACKING_GOAL, TRACKING_SCROLL_COST, trackingScrollKey, trackingScrollName, trackedMonsterId, fetchOwnedSpecies,
 } from '@/lib/curioTracking';
@@ -153,18 +154,20 @@ interface ShopCardProps {
   affordable: boolean;
   owned?: boolean;
   imageSize?: string;
+  // Drawn in place of the icon image (Tracking Scrolls draw their own).
+  art?: ReactNode;
   onClick: () => void;
 }
 
 function ShopCard({
   icon, name, cost, inBag = 0,
   affordable, owned = false,
-  imageSize = 'w-full h-full', onClick,
+  imageSize = 'w-full h-full', art, onClick,
 }: ShopCardProps) {
   return (
     <button onClick={onClick} className="scard">
       <div className="scard-art">
-        <img src={icon} alt={name} className={`${imageSize} object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]`} />
+        {art ?? <img src={icon} alt={name} className={`${imageSize} object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]`} />}
         {owned ? (
           <span className="sbadge bottom-1 right-1 bg-green-600 text-white border-2 border-green-900">✓</span>
         ) : inBag > 0 && (
@@ -281,6 +284,10 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   if (loading) return <p className="text-stone-500 animate-pulse">Loading shop…</p>;
 
+  const trackingPopupDef = selectedItem?.trackingMonsterId
+    ? TRACKABLE_CURIOS.find(d => d.id === selectedItem.trackingMonsterId)
+    : undefined;
+
   return (
     <div>
       <style>{SHOP_CSS}</style>
@@ -344,8 +351,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               return (
                 <button key={key} onClick={() => setSelectedItem(trackingDetail(def))} className="scard !p-1.5" title={trackingScrollName(def)}>
                   <div className="scard-art">
-                    <img src={curioSpriteUrl(def)} alt={def.name} className="w-full h-full object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]" />
-                    <span className="sbadge top-1 left-1">📜</span>
+                    <TrackingScrollIcon monster={def} className="w-full h-full" />
                     <span className="sbadge bottom-1 right-1 bg-[#7a4a0f] text-white border-2 border-[#3a2610]">×{qty}</span>
                   </div>
                 </button>
@@ -430,6 +436,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               <ShopCard
                 key={def.id}
                 icon={curioSpriteUrl(def)}
+                art={<TrackingScrollIcon monster={def} className="w-full h-full" />}
                 name={def.name}
                 cost={TRACKING_SCROLL_COST}
                 inBag={inventory[trackingScrollKey(def.id)] || 0}
@@ -590,7 +597,9 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             onClick={e => e.stopPropagation()}
           >
             <div className="mx-auto mb-3 w-28 h-28 p-3 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle,#fff6d6 0%,#f0ddb8 85%)', border: '2px solid #c9a87a' }}>
-              <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />
+              {trackingPopupDef
+                ? <TrackingScrollIcon monster={trackingPopupDef} className="w-full h-full" />
+                : <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />}
             </div>
             <h3 className="font-display text-2xl font-extrabold text-[#7a4a0f] mb-1">{selectedItem.name}</h3>
             <p className="text-sm font-semibold text-[#6b4820] mb-4">{selectedItem.desc}</p>
