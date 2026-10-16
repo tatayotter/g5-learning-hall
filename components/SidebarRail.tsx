@@ -1,7 +1,7 @@
 // components/SidebarRail.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -10,7 +10,7 @@ import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
 import SoundSettings from '@/components/SoundSettings';
 
-function useIsLandscape() {
+export function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
   useEffect(() => {
     const check = () => setIsLandscape(window.innerWidth > window.innerHeight);
@@ -21,7 +21,7 @@ function useIsLandscape() {
   return isLandscape;
 }
 
-function useIsDesktop() {
+export function useIsDesktop() {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     const check = () => setIsDesktop(window.innerWidth >= 1024);
@@ -100,7 +100,7 @@ const waitingLabel = (n: number) => `${n} ${n === 1 ? 'thing' : 'things'}`;
 // Everything is saved on the device as it happens, so there's nothing for a "save" to do; what
 // can fail is getting it to the server. This row says where the player's progress is, and
 // Sync now sends what's waiting straight away instead of on the next automatic try.
-function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: () => void }) {
+export function SaveStatusRow({ status, onSyncNow }: { status: SaveStatus; onSyncNow?: () => void }) {
   const { waiting, syncing, online, failed, lastSyncedAt } = status;
   // "Synced N min ago" moves on while the menu stays open.
   const [now, setNow] = useState(() => Date.now());
@@ -195,6 +195,158 @@ function CompassIcon({ large = false }: { large?: boolean }) {
   );
 }
 
+
+export interface TopHudProps {
+  isDesktop: boolean;
+  isLandscape: boolean;
+  playerName: string;
+  playerGrade?: string;
+  playerLevel: number;
+  playerXp: number;
+  playerGold: number;
+  playerStreak: number;
+  weekLabel?: string;
+  notifications: PlayerNotification[];
+  onMarkNotificationsRead?: () => void;
+  // The new navigation's desktop sidebar sits left of the bar, and its Menu
+  // button sits first in it on phones and tablets.
+  left?: number;
+  leading?: ReactNode;
+}
+
+// The top stat bar, shared by this compass nav and the new five-tab nav
+// (components/nav/GameNav.tsx).
+export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, playerLevel, playerXp, playerGold, playerStreak, weekLabel, notifications, onMarkNotificationsRead, left = 0, leading }: TopHudProps) {
+  const xpCap = 500 + playerLevel * 100;
+  const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
+  return (
+    <>
+    {/* Full-width HUD stat bar — pinned to the top.
+        Deliberately dark regardless of the shell's light/dark theme (a
+        persistent overlay bar, same category as a modal scrim) — colors
+        below are hardcoded to today's dark-shell values rather than the
+        bg-black/text-white/bg-white/NN tokens, so this bar doesn't go
+        illegible if the base theme ever flips again. See
+        docs/STYLE_GUIDE.md. A thin gold edge + glow (2026-09-04 restyle)
+        replaces the old plain white/10 border so it reads as a gilded
+        banner rather than a flat translucent strip, and the fill now
+        reuses the same wood-grain texture as MonsterHpPanel/the nav
+        drawer frame instead of a flat dark tint — a dark scrim layer
+        is mixed into the background on top of the grain so the white/
+        amber stat text stays legible over the wood. The bar itself
+        stays pointer-events-none (it's a display overlay, clicks pass
+        through to the game underneath) — only the docked bell opts
+        back into pointer-events-auto. */}
+    <div className={`app-top-hud fixed top-0 right-0 z-[79] select-none pointer-events-none font-display
+      flex items-center gap-3
+      ${isDesktop ? 'px-8 pt-1.5 pb-2' : 'px-4 pt-1 pb-1.5'}`}
+      style={{
+        left,
+        boxShadow: '0 2px 8px -1px rgba(0,0,0,0.5)',
+        backgroundImage: `linear-gradient(rgba(10,8,7,0.55), rgba(10,8,7,0.55)), ${woodTextureStyle.backgroundImage}`,
+      }}>
+      {leading && <div className="pointer-events-auto shrink-0 -my-1">{leading}</div>}
+      <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
+      <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+      <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
+      <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
+      <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
+      {/* Grade/week only fit alongside everything else once there's
+          real room to spare (desktop, or landscape phones/tablets) —
+          dropped on narrow portrait so the bar stays one line
+          (2026-09-04: was previously a second row on portrait). */}
+      {(isDesktop || isLandscape) && (
+        <>
+          <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
+          {playerGrade && <span className={`text-[#8a7c66] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{playerGrade}</span>}
+          {weekLabel && <span className={`text-[#a89c86] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{weekLabel}</span>}
+        </>
+      )}
+      <div className="flex-1" />
+      <div className="pointer-events-auto shrink-0">
+        <NotificationInbox notifications={notifications} onMarkRead={() => onMarkNotificationsRead?.()} />
+      </div>
+
+      {/* XP bar — full-width, pinned to the HUD's own bottom edge
+          (2026-09-05: was a small inline segment next to "Lv.N";
+          moved here so it reads as the bar's own progress meter
+          rather than a cramped stat). */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0a0807]/90 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-amber-500 to-[#f5c542]"
+          style={{ width: `${xpPct}%`, boxShadow: '0 0 6px 1px rgba(245,197,66,0.55)' }}
+        />
+      </div>
+    </div>
+    </>
+  );
+}
+
+// "Log out of this hero?" with the no-internet and unsaved-play warnings,
+// shared with the new five-tab nav (components/nav/GameNav.tsx).
+export function LogoutConfirmDialog({ open, online, saveStatus, onCancel, onLogout }: { open: boolean; online: boolean; saveStatus?: SaveStatus; onCancel: () => void; onLogout: () => void | Promise<void> }) {
+  const [loggingOut, setLoggingOut] = useState(false);
+  return (
+    <>
+    {/* ── Logout confirmation dialog ───────────────────────────────────── */}
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-[#0a0807]/70 z-[80] flex items-center justify-center p-6"
+        >
+          {/* Same wood-plank + gold trim + corner-nail frame as the other
+              game popups (DuplicateCatchModal etc.). */}
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.95, opacity: 0 }}
+            className="relative border-2 border-[#4a2f18] rounded-2xl p-6 w-full max-w-xs text-center"
+            style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+          >
+            <Nail className="top-2 left-2" />
+            <Nail className="top-2 right-2" />
+            <Nail className="bottom-2 left-2" />
+            <Nail className="bottom-2 right-2" />
+            <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
+            <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
+            {!online && (
+              <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                No internet! Until it&apos;s back, only heroes who&apos;ve played here before can log in.
+              </p>
+            )}
+            {saveStatus && saveStatus.waiting > 0 && (
+              <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
+                {waitingLabel(saveStatus.waiting)} you played {saveStatus.waiting === 1 ? "isn't" : "aren't"} saved to your account yet. Don&apos;t worry, {saveStatus.waiting === 1 ? "it's" : "they're"} safe here and will save the next time you log in on this device.
+              </p>
+            )}
+            <div className="flex gap-3" style={{ fontSize: 14 }}>
+              <GameButton variant="quest" color="#57534e" className="flex-1" disabled={loggingOut} onClick={onCancel}>
+                Cancel
+              </GameButton>
+              <GameButton
+                variant="quest"
+                color="#dc2626"
+                className="flex-1"
+                disabled={loggingOut}
+                onClick={async () => {
+                  setLoggingOut(true);
+                  try { await onLogout(); } finally { setLoggingOut(false); onCancel(); }
+                }}
+              >
+                {loggingOut ? 'Saving…' : 'Logout'}
+              </GameButton>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
+  );
+}
+
 export default function SidebarRail({
   activeTab,
   onNavigate,
@@ -213,11 +365,8 @@ export default function SidebarRail({
   onSyncNow,
   online = true,
 }: SidebarRailProps) {
-  const xpCap = 500 + playerLevel * 100;
-  const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   const [isOpen, setIsOpen] = useState(false);
   const [confirmingLogout, setConfirmingLogout] = useState(false);
-  const [loggingOut, setLoggingOut] = useState(false);
   const isLandscape = useIsLandscape();
   const isDesktop = useIsDesktop();
 
@@ -244,61 +393,19 @@ export default function SidebarRail({
             <CompassIcon large={isDesktop} />
           </button>
 
-          {/* Full-width HUD stat bar — pinned to the top.
-              Deliberately dark regardless of the shell's light/dark theme (a
-              persistent overlay bar, same category as a modal scrim) — colors
-              below are hardcoded to today's dark-shell values rather than the
-              bg-black/text-white/bg-white/NN tokens, so this bar doesn't go
-              illegible if the base theme ever flips again. See
-              docs/STYLE_GUIDE.md. A thin gold edge + glow (2026-09-04 restyle)
-              replaces the old plain white/10 border so it reads as a gilded
-              banner rather than a flat translucent strip, and the fill now
-              reuses the same wood-grain texture as MonsterHpPanel/the nav
-              drawer frame instead of a flat dark tint — a dark scrim layer
-              is mixed into the background on top of the grain so the white/
-              amber stat text stays legible over the wood. The bar itself
-              stays pointer-events-none (it's a display overlay, clicks pass
-              through to the game underneath) — only the docked bell opts
-              back into pointer-events-auto. */}
-          <div className={`app-top-hud fixed top-0 left-0 right-0 z-[79] select-none pointer-events-none font-display
-            flex items-center gap-3
-            ${isDesktop ? 'px-8 pt-1.5 pb-2' : 'px-4 pt-1 pb-1.5'}`}
-            style={{
-              boxShadow: '0 2px 8px -1px rgba(0,0,0,0.5)',
-              backgroundImage: `linear-gradient(rgba(10,8,7,0.55), rgba(10,8,7,0.55)), ${woodTextureStyle.backgroundImage}`,
-            }}>
-            <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
-            <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-            <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
-            <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
-            <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
-            {/* Grade/week only fit alongside everything else once there's
-                real room to spare (desktop, or landscape phones/tablets) —
-                dropped on narrow portrait so the bar stays one line
-                (2026-09-04: was previously a second row on portrait). */}
-            {(isDesktop || isLandscape) && (
-              <>
-                <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-                {playerGrade && <span className={`text-[#8a7c66] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{playerGrade}</span>}
-                {weekLabel && <span className={`text-[#a89c86] font-bold leading-none tracking-wide uppercase shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`}>{weekLabel}</span>}
-              </>
-            )}
-            <div className="flex-1" />
-            <div className="pointer-events-auto shrink-0">
-              <NotificationInbox notifications={notifications} onMarkRead={() => onMarkNotificationsRead?.()} />
-            </div>
-
-            {/* XP bar — full-width, pinned to the HUD's own bottom edge
-                (2026-09-05: was a small inline segment next to "Lv.N";
-                moved here so it reads as the bar's own progress meter
-                rather than a cramped stat). */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0a0807]/90 overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-amber-500 to-[#f5c542]"
-                style={{ width: `${xpPct}%`, boxShadow: '0 0 6px 1px rgba(245,197,66,0.55)' }}
-              />
-            </div>
-          </div>
+          <TopHud
+            isDesktop={isDesktop}
+            isLandscape={isLandscape}
+            playerName={playerName}
+            playerGrade={playerGrade}
+            playerLevel={playerLevel}
+            playerXp={playerXp}
+            playerGold={playerGold}
+            playerStreak={playerStreak}
+            weekLabel={weekLabel}
+            notifications={notifications}
+            onMarkNotificationsRead={onMarkNotificationsRead}
+          />
         </>
       )}
 
@@ -402,61 +509,13 @@ export default function SidebarRail({
         )}
       </AnimatePresence>
 
-      {/* ── Logout confirmation dialog ───────────────────────────────────── */}
-      <AnimatePresence>
-        {confirmingLogout && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-[#0a0807]/70 z-[80] flex items-center justify-center p-6"
-          >
-            {/* Same wood-plank + gold trim + corner-nail frame as the other
-                game popups (DuplicateCatchModal etc.). */}
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative border-2 border-[#4a2f18] rounded-2xl p-6 w-full max-w-xs text-center"
-              style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
-            >
-              <Nail className="top-2 left-2" />
-              <Nail className="top-2 right-2" />
-              <Nail className="bottom-2 left-2" />
-              <Nail className="bottom-2 right-2" />
-              <p className="text-[#ffffff] font-bold text-lg mb-1" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Log out of this hero?</p>
-              <p className="text-[#e8d0a0] text-xs mb-5">You&apos;ll return to the hero select screen.</p>
-              {!online && (
-                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
-                  No internet! Until it&apos;s back, only heroes who&apos;ve played here before can log in.
-                </p>
-              )}
-              {saveStatus && saveStatus.waiting > 0 && (
-                <p role="alert" className="-mt-3 mb-5 rounded-lg bg-[#0a0807]/50 px-3 py-2 text-xs font-bold text-[#f5c542]">
-                  {waitingLabel(saveStatus.waiting)} you played {saveStatus.waiting === 1 ? "isn't" : "aren't"} saved to your account yet. Don&apos;t worry, {saveStatus.waiting === 1 ? "it's" : "they're"} safe here and will save the next time you log in on this device.
-                </p>
-              )}
-              <div className="flex gap-3" style={{ fontSize: 14 }}>
-                <GameButton variant="quest" color="#57534e" className="flex-1" disabled={loggingOut} onClick={() => setConfirmingLogout(false)}>
-                  Cancel
-                </GameButton>
-                <GameButton
-                  variant="quest"
-                  color="#dc2626"
-                  className="flex-1"
-                  disabled={loggingOut}
-                  onClick={async () => {
-                    setLoggingOut(true);
-                    try { await onLogout(); } finally { setLoggingOut(false); setConfirmingLogout(false); }
-                  }}
-                >
-                  {loggingOut ? 'Saving…' : 'Logout'}
-                </GameButton>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <LogoutConfirmDialog
+        open={confirmingLogout}
+        online={online}
+        saveStatus={saveStatus}
+        onCancel={() => setConfirmingLogout(false)}
+        onLogout={onLogout}
+      />
     </>
   );
 }

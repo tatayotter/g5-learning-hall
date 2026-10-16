@@ -12,7 +12,7 @@ export default function OfflineBanner({ questsWork = false, waiting = 0 }: { que
   return (
     <div
       role="status"
-      className="fixed bottom-[6.5rem] landscape:bottom-3 left-1/2 -translate-x-1/2 z-40 w-max max-w-[calc(100vw-1.5rem)] flex items-center gap-1.5 bg-[#f0ddb8] border-2 border-[#8b5e2a] text-[#2a1505] text-xs font-bold px-3 py-1 rounded-2xl shadow-lg"
+      className="offline-banner fixed bottom-[6.5rem] landscape:bottom-3 left-1/2 -translate-x-1/2 z-40 w-max max-w-[calc(100vw-1.5rem)] flex items-center gap-1.5 bg-[#f0ddb8] border-2 border-[#8b5e2a] text-[#2a1505] text-xs font-bold px-3 py-1 rounded-2xl shadow-lg"
     >
       <span aria-hidden>📡</span>
       <span>{questsWork

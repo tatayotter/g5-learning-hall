@@ -1706,3 +1706,26 @@ body.battle-fullscreen-active .arena-fab { display: none; }
   paint-order: stroke fill;
   text-shadow: 0 2px 6px rgba(0,0,0,0.7);
 }
+
+/* ── New navigation (components/nav/GameNav.tsx, new_nav flag) ──────────
+   GameNav puts `new-nav new-nav-<bar|rail|sidebar>` on <body>; these make room
+   for it. --nav-left / --nav-bottom are what the nav covers, and drop to 0
+   while a game moment hides it (new-nav-hidden). */
+body.new-nav { --nav-left: 0px; --nav-bottom: 0px; }
+body.new-nav-bar { --nav-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+body.new-nav-rail { --nav-left: 76px; }
+body.new-nav-sidebar { --nav-left: 210px; }
+body.new-nav.new-nav-hidden { --nav-left: 0px; --nav-bottom: 0px; }
+
+body.new-nav .app-content { padding-left: var(--nav-left); }
+body.new-nav .app-main { padding-bottom: calc(var(--nav-bottom) + 2rem); }
+/* The full-screen World Map stops at the nav instead of running under it. */
+body.new-nav .map-stage-full { left: var(--nav-left); bottom: var(--nav-bottom); }
+body.new-nav .map-hotbar { margin-bottom: var(--nav-bottom); margin-left: calc(var(--nav-left) / 2); margin-top: calc(var(--nav-bottom) / -2); }
+body.new-nav .map-joystick-wrap { bottom: calc(1rem + var(--nav-bottom)); left: calc(1rem + var(--nav-left)); }
+/* With no compass to sit beside, the Arena menu button sits bottom-right. */
+body.new-nav .arena-fab { left: auto; right: 1rem; bottom: calc(1rem + var(--nav-bottom)); }
+body.new-nav .offline-banner { bottom: calc(1rem + var(--nav-bottom)); }
+body.battle-fullscreen-active.new-nav nav[aria-label="Main"] { display: none; }
+/* A phone held sideways has the map's item row in the bottom-right corner. */
+body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }

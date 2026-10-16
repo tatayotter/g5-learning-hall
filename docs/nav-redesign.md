@@ -1,8 +1,9 @@
 # Navigation redesign: audit and rollout plan
 
-Status (2026-10-13): mockup only (`components/dev/NavRedesignMockup.tsx`, live in `/dev/ui-gallery`
-under "Navigation redesign (MOCKUP)"). Nothing here is wired into the real game yet. This file is
-the checklist the real build has to meet, and the plan for turning it on one kid at a time.
+Status (2026-10-16): **built behind the `new_nav` flag** (`components/nav/GameNav.tsx`), off for
+everyone until a kid is put on its allowlist. The mockup (`components/dev/NavRedesignMockup.tsx`,
+`/dev/ui-gallery` under "Navigation redesign (MOCKUP)") stays as the design reference. This file is
+the checklist the build has to meet, and the plan for turning it on one kid at a time.
 
 The redesign replaces the compass drawer (`components/SidebarRail.tsx`) and the Curio Arena's
 second floating menu (`ARENA_TABS` in `components/MonsterGuild.tsx`) with five tabs:
@@ -112,25 +113,44 @@ to close the game.
 
 Same switch as offline play (`feature_flags`, `lib/featureFlags.ts`).
 
-1. **Build behind the flag, old nav untouched.** A new shell (`components/nav/`) built from the
-   mockup's pieces, wrapping the existing tab components (DailyChecklist, BoardMapView, GuildsTab,
-   MonsterGuild, JournalTab, VaultTab...) without changing them. `Dashboard.tsx` picks the shell with
-   `hasFeatureFlag(userId, 'new_nav')`. Both shells share `activeTab`, mapped through
-   `LEGACY_TAB_TO_NEW`, so push links work in both. Migration: `insert into feature_flags (key)
-   values ('new_nav') on conflict do nothing` (starts off; additive only).
-2. **Things the real build needs that the mockup only fakes:** the live-battle invite listener moved
-   out of `MonsterGuild` so invites work on every tab; Android back via `@capacitor/app`'s
-   `backButton`; keyboard detection via `visualViewport`; safe-area insets; offline guards for
-   journal, daily bonus and Vault; the Arena tutorial step re-anchored; `OfflineBanner` replaced by
-   the strip.
-3. **Test before each step, no manual testing:** the mockup audit
-   (`/mnt/project-files/nav-mockup/e2e/audit.test.js`, 200 checks), then the same checks against the
-   real shell with the fake-Supabase harness, the offline e2e suite, and the Android e2e workflow
-   (back button, keyboard).
-4. **Turn on in steps:** the family accounts first (desktop, daily players) for a few days, then the
-   offline-play allowlist, then a share of new sign-ups, then everyone. Compare kids with and without
-   the flag on: daily bonus claims, day-2 returns, first quest finished.
-5. **Undo:** set the flag to `off`; each kid goes back to the old nav on their next online load
+### Built (step 1)
+
+- **Flag:** migration `20261016040000_new_nav_flag.sql` adds `new_nav` as `off`
+  (`supabase/tests/database/new_nav_flag.test.sql`). `useFeatureFlag(userId, 'new_nav')` reads the
+  remembered value straight away and switches when the next refresh lands.
+- **Shell:** `Dashboard.tsx` renders `GameNav` instead of `SidebarRail` when the flag is on. The
+  five tabs map onto the existing tab ids (Today = `board`, Side Quests = `guilds`, Curios =
+  `monster`, Journal = `journal`, Vault = `vault`), so push links and the remembered tab work in
+  both navs. Profile, Codex, Bonus Quests and To-Do (`todo`, from old links) open as pages with
+  Back to the last tab. The top bar, logout warning and save status are the old nav's own pieces
+  (`TopHud`, `LogoutConfirmDialog`, `SaveStatusRow` exported from `SidebarRail.tsx`).
+- **Today:** the real Daily To-Do drawn as the journey trail to the bonus chest
+  (`DailyChecklist variant="journey"` + `components/nav/JourneyTrail.tsx`, same data and claim),
+  then the Main Quest board. Today's dot is the unclaimed bonus only.
+- **Layout:** body classes `new-nav new-nav-<bar|rail|sidebar>` and `--nav-left/--nav-bottom` in
+  `app/globals.css` make room: page padding, the full-screen World Map stops at the nav, the map
+  item bar, joystick and Arena button move clear of it.
+- **Game moments:** the nav hides during a Main Quest, event quest, boss fight, gauntlet day and a
+  guild run (they have their own way out), and during full-screen battles.
+- **Tests:** `/mnt/project-files/new-nav/e2e/nav.test.js` (real game, fake Supabase): 196 checks
+  across the six screen sizes with the flag on, and the old nav unchanged with it off.
+
+### Still to build (step 2)
+
+The live-battle invite listener moved out of `MonsterGuild` so invites work on every tab; Android
+back via `@capacitor/app`'s `backButton`; keyboard detection via `visualViewport`; offline guards for
+journal, daily bonus and Vault; the no-internet strip replacing `OfflineBanner`; the gift and egg
+tiles and art banners on Today; the Arena's own menu button replaced by the map-edge buttons; the
+Arena tutorial step re-anchored.
+
+### Turning it on
+
+1. **Family accounts first:** put the chosen kids on the allowlist after the deploy
+   (`update feature_flags set mode = 'allowlist', allowlist = '{<child id>,...}' where key =
+   'new_nav'`). Kid ids stay out of this public repo. Compare with and without the flag on: daily
+   bonus claims, day-2 returns, first quest finished.
+2. Then the offline-play allowlist, then a share of new sign-ups, then everyone.
+3. **Undo:** set the flag to `off`; each kid goes back to the old nav on their next online load
    (a kid who stays offline keeps the new nav until then). Delete the old nav only after two stable
    weeks on `everyone`.
 

@@ -64,6 +64,9 @@ import CurioRevealModal from '@/components/CurioRevealModal';
 import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
 import SidebarRail from '@/components/SidebarRail';
+import GameNav, { NAV_PAGES, NavBackButton } from '@/components/nav/GameNav';
+import DailyChecklist from '@/components/DailyChecklist';
+import { useFeatureFlag } from '@/lib/featureFlags';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
 import FirstCurioIntro, { isIntroTrainingPending, TRAINING_QUEST_LOG } from '@/components/intro/FirstCurioIntro';
 import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
@@ -553,6 +556,17 @@ export default function Dashboard() {
     if (tab !== 'monster') setGuildInitialView(undefined);
     setActiveTabState(tab);
   }, []);
+  // The five-tab navigation (components/nav/GameNav.tsx), per kid behind the
+  // new_nav flag; everyone else keeps the compass drawer.
+  const newNav = useFeatureFlag(activeUserId, 'new_nav');
+  const isNavPage = (NAV_PAGES as readonly string[]).includes(activeTab);
+  // Where a menu page's Back goes: the last of the five tabs the kid was on.
+  const lastMainTabRef = useRef('board');
+  useEffect(() => {
+    if (!(NAV_PAGES as readonly string[]).includes(activeTab)) lastMainTabRef.current = activeTab;
+    // A new tab starts at its top, not wherever the last one was scrolled to.
+    if (newNav) document.querySelector('.app-main')?.scrollTo(0, 0);
+  }, [activeTab, newNav]);
   const [quizPhase, setQuizPhase] = useState<'study' | 'ready' | 'quiz'>('study');
   // Active time per tab, with an open quest split out by phase so study-note
   // reading and quiz answering are measured separately from browsing the board.
@@ -1176,6 +1190,52 @@ export default function Dashboard() {
 
   const currentDayName = format(new Date(), 'EEEE');
 
+  const navBadges = {
+    monster: eggBadge,
+    board: !!data && (() => {
+      const allQuests = Object.entries(data.package_data ?? {}).flatMap(([day, subjects]) =>
+        Object.keys(subjects as object).map(sub => `${day}_${sub}`)
+      );
+      const mastered = new Set(data.mastered_quizzes ?? []);
+      return allQuests.some(q => !mastered.has(q));
+    })(),
+    todo: !checklistClaimedToday,
+    journal: !!data && !data.journal_logs?.[new Date().toISOString().slice(0, 10)],
+  };
+  const navNavigate = (tab: string) => {
+    playPageFlip();
+    // Curio Arena defaults to the full-screen World Map stage; landing
+    // on Team instead keeps the sidebar usable when arriving fresh
+    // from the rail. Re-clicking while already there leaves the view alone.
+    // The new nav stays beside the map, so Curios opens on the map itself.
+    if (tab === 'monster' && activeTab !== 'monster' && !newNav) setGuildInitialView('team');
+    setActiveTab(tab);
+    setActiveQuest(null);
+    setActiveEventQuest(null);
+    setActiveBossFight(null);
+  };
+  const navLogout = async () => {
+    // Send this hero's offline play first, so nothing is left waiting for them on a shared
+    // device. If it doesn't go, the logout warning already said it stays here.
+    if (!isOffline() && countWaiting() > 0) await syncNowRef.current();
+    handleSwitchUser();
+  };
+  const weekLabel = (() => {
+    if (!currentSunday) return undefined;
+    // SY 2026-2027: continuous week numbers, Week 1 = Sunday June 14 2026.
+    const SY_START = new Date('2026-06-14').getTime();
+    const weekNum = Math.floor((new Date(currentSunday).getTime() - SY_START) / (7 * 24 * 60 * 60 * 1000)) + 1;
+    return weekNum > 0 ? `Week ${weekNum}` : undefined;
+  })();
+  // Quests, guild runs and boss fights have their own way out; the new nav steps aside.
+  const navHidden = activeQuest !== null || activeEventQuest !== null || activeBossFight !== null || activeGauntletDay !== null || activeGuild !== null;
+  const markNotificationsReadNow = () => {
+    if (!activeUserId) return;
+    markNotificationsRead(activeUserId);
+    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+  };
+
+
   return (
     <>
       {bossEventActive && (
@@ -1338,60 +1398,50 @@ export default function Dashboard() {
         />
       )}
 
+      {newNav ? (
+        <GameNav
+          activeTab={activeTab}
+          onNavigate={navNavigate}
+          // Today's dot is the unclaimed daily bonus only: a dot for "quests left
+          // this week" would never clear.
+          badges={{ board: navBadges.todo, monster: navBadges.monster, journal: navBadges.journal }}
+          hidden={navHidden}
+          hud={{
+            playerName: (activeUserId ? USERS[activeUserId]?.name : undefined) ?? 'Hero',
+            playerGrade: activeUserId ? USERS[activeUserId]?.grade : undefined,
+            playerLevel: data?.character_stats.level ?? 1,
+            playerXp: data?.character_stats.xp ?? 0,
+            playerGold: data?.character_stats.gold ?? 0,
+            playerStreak: loginStreak,
+            weekLabel,
+            notifications,
+            onMarkNotificationsRead: markNotificationsReadNow,
+          }}
+          online={online}
+          saveStatus={offlinePlayEnabled(activeUserId) ? { ...saveStatus, online } : undefined}
+          onSyncNow={() => void syncNowRef.current()}
+          onLogout={navLogout}
+        />
+      ) : (
       <SidebarRail
         activeTab={activeTab}
-        railBadges={{
-          monster: eggBadge,
-          board: !!data && (() => {
-            const allQuests = Object.entries(data.package_data ?? {}).flatMap(([day, subjects]) =>
-              Object.keys(subjects as object).map(sub => `${day}_${sub}`)
-            );
-            const mastered = new Set(data.mastered_quizzes ?? []);
-            return allQuests.some(q => !mastered.has(q));
-          })(),
-          todo: !checklistClaimedToday,
-          journal: !!data && !data.journal_logs?.[new Date().toISOString().slice(0, 10)],
-        }}
-        onNavigate={(tab) => {
-          playPageFlip();
-          // Curio Arena defaults to the full-screen World Map stage; landing
-          // on Team instead keeps the sidebar usable when arriving fresh
-          // from the rail. Re-clicking while already there leaves the view alone.
-          if (tab === 'monster' && activeTab !== 'monster') setGuildInitialView('team');
-          setActiveTab(tab);
-          setActiveQuest(null);
-          setActiveEventQuest(null);
-          setActiveBossFight(null);
-        }}
-        onLogout={async () => {
-          // Send this hero's offline play first, so nothing is left waiting for them on a shared
-          // device. If it doesn't go, the logout warning already said it stays here.
-          if (!isOffline() && countWaiting() > 0) await syncNowRef.current();
-          handleSwitchUser();
-        }}
+        railBadges={navBadges}
+        onNavigate={navNavigate}
+        onLogout={navLogout}
         playerName={activeUserId ? USERS[activeUserId]?.name : undefined}
         playerGrade={activeUserId ? USERS[activeUserId]?.grade : undefined}
         playerLevel={data?.character_stats.level}
         playerXp={data?.character_stats.xp}
         playerGold={data?.character_stats.gold}
         playerStreak={loginStreak}
-        weekLabel={(() => {
-          if (!currentSunday) return undefined;
-          // SY 2026-2027: continuous week numbers, Week 1 = Sunday June 14 2026.
-          const SY_START = new Date('2026-06-14').getTime();
-          const weekNum = Math.floor((new Date(currentSunday).getTime() - SY_START) / (7 * 24 * 60 * 60 * 1000)) + 1;
-          return weekNum > 0 ? `Week ${weekNum}` : undefined;
-        })()}
+        weekLabel={weekLabel}
         saveStatus={offlinePlayEnabled(activeUserId) ? { ...saveStatus, online } : undefined}
         online={online}
         onSyncNow={() => void syncNowRef.current()}
         notifications={notifications}
-        onMarkNotificationsRead={() => {
-          if (!activeUserId) return;
-          markNotificationsRead(activeUserId);
-          setNotifications(prev => prev.map(n => ({ ...n, read: true })));
-        }}
+        onMarkNotificationsRead={markNotificationsReadNow}
       />
+      )}
 
       {/* Main Content Area */}
       {/* min-w-0 overrides the flex default of min-width:auto — without it,
@@ -1408,7 +1458,7 @@ export default function Dashboard() {
           down this file) was resolving off-screen: fixed elements pin to
           the viewport, but only once nothing upstream is still stretching
           it. */}
-      <main className="h-full w-full pt-16 lg:pt-24 px-4 lg:px-8 pb-28 lg:pb-12 overflow-y-auto overflow-x-hidden relative bg-white">
+      <main className="app-main h-full w-full pt-16 lg:pt-24 px-4 lg:px-8 pb-28 lg:pb-12 overflow-y-auto overflow-x-hidden relative bg-white">
 
 
         {/* Tab switches from the sidebar rail fade/slide the content area
@@ -1423,7 +1473,40 @@ export default function Dashboard() {
           transition={{ duration: 0.2, ease: 'easeOut' }}
         >
 
+        {newNav && isNavPage && <NavBackButton onBack={() => setActiveTab(lastMainTabRef.current)} />}
+
+        {/* New nav: Today opens with the day's To-Do as a picture trail to
+            the daily bonus chest, then the week's Main Quest board. */}
+        {newNav && activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
+          <div className="max-w-5xl mx-auto pt-3 pb-1">
+            <DailyChecklist
+              variant="journey"
+              online={online}
+              userId={activeUserId}
+              grade={gradeToNumber(USERS[activeUserId]?.grade)}
+              currentSunday={data.week_starting_date}
+              currentDayName={currentDayName}
+              packageData={mainQuestPackageData}
+              journalLogs={data.journal_logs}
+              masteredQuizzes={data.mastered_quizzes}
+              onGoldAwarded={gold => { applyGoldDelta(gold); setChecklistClaimedToday(true); }}
+              onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+              onGoToJournal={() => setActiveTab('journal')}
+              onGoToMainQuest={() => { setActiveQuest(null); document.querySelector('[data-board-start]')?.scrollIntoView({ behavior: 'smooth' }); }}
+              onGoToTrainingMap={() => setActiveTab('monster')}
+              onCountChange={handleTodoCountChange}
+              activeEvent={activeEvent}
+              eventClaimed={eventClaimed}
+              eventQuests={eventQuests}
+              eventProgress={eventProgress}
+              gauntletDaysDone={gauntletDaysDone}
+              onGoToEvent={() => { setActiveQuest(null); }}
+            />
+          </div>
+        )}
+
         {/* --- TAB A: QUEST BOARD --- */}
+        {newNav && <div data-board-start aria-hidden />}
         {/* Ask only after the kid has played once — a cold ask before
             they care about anything in the game is the one most likely
             to get a permanent "Block". */}
