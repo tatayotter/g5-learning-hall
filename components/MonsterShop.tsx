@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, useEffectEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, useEffectEvent, type ReactNode } from 'react';
 import { UserId } from '@/lib/userSession';
 import {
   SHOP_CATALOG,
@@ -22,6 +22,11 @@ import TutorialSpotlight from '@/components/TutorialSpotlight';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle, questButtonDropShadow } from '@/components/GameButton';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import VoucherRedeemPanel from '@/components/VoucherRedeemPanel';
+import { curioSpriteUrl } from '@/components/battle/BattleCanvas';
+import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
+import {
+  TRACKABLE_CURIOS, TRACKING_GOAL, TRACKING_SCROLL_COST, trackingScrollKey, trackingScrollName, trackedMonsterId, fetchOwnedSpecies,
+} from '@/lib/curioTracking';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
   unlearn: 'Unlearn',
@@ -55,7 +60,18 @@ interface ShopDetailItem {
   category?: ScrollItem['category'];
   baseDamageMultiplier?: number;
   effects?: SkillEffect[];
+  // Tracking Scrolls only: the curio it tracks (one per species, and not for a curio you have).
+  trackingMonsterId?: string;
 }
+
+const trackingDetail = (def: (typeof TRACKABLE_CURIOS)[number]): ShopDetailItem => ({
+  key: trackingScrollKey(def.id),
+  name: trackingScrollName(def),
+  icon: curioSpriteUrl(def),
+  desc: `Put it in a map slot and tap it. Every right answer on a map scroll fills its meter. At ${TRACKING_GOAL}, ${def.name} appears next to you. Win the battle to catch it!`,
+  cost: TRACKING_SCROLL_COST,
+  trackingMonsterId: def.id,
+});
 
 // Human-readable line for one SkillEffect — covers every `kind` the game
 // currently has (see SkillEffect in lib/monsterConfig.ts). Fighting Skills
@@ -138,18 +154,20 @@ interface ShopCardProps {
   affordable: boolean;
   owned?: boolean;
   imageSize?: string;
+  // Drawn in place of the icon image (Tracking Scrolls draw their own).
+  art?: ReactNode;
   onClick: () => void;
 }
 
 function ShopCard({
   icon, name, cost, inBag = 0,
   affordable, owned = false,
-  imageSize = 'w-full h-full', onClick,
+  imageSize = 'w-full h-full', art, onClick,
 }: ShopCardProps) {
   return (
     <button onClick={onClick} className="scard">
       <div className="scard-art">
-        <img src={icon} alt={name} className={`${imageSize} object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]`} />
+        {art ?? <img src={icon} alt={name} className={`${imageSize} object-contain drop-shadow-[0_2px_2px_rgba(42,21,5,0.35)]`} />}
         {owned ? (
           <span className="sbadge bottom-1 right-1 bg-green-600 text-white border-2 border-green-900">✓</span>
         ) : inBag > 0 && (
@@ -177,7 +195,13 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const [selectedItem, setSelectedItem] = useState<ShopDetailItem | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
-  const [activeSection, setActiveSection] = useState<'all' | 'items' | 'scrolls' | 'tomes' | 'sprites'>('all');
+  const [activeSection, setActiveSection] = useState<'all' | 'items' | 'tracking' | 'scrolls' | 'tomes' | 'sprites'>('all');
+  const [ownedSpecies, setOwnedSpecies] = useState<Set<string>>(new Set());
+  useEffect(() => {
+    let cancelled = false;
+    fetchOwnedSpecies(userId).then(s => { if (!cancelled) setOwnedSpecies(s); });
+    return () => { cancelled = true; };
+  }, [userId]);
   const buyBusyRef = useRef(false);
 
   // First-visit tutorial for this tab — same mount-once pattern as
@@ -260,6 +284,10 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   if (loading) return <p className="text-stone-500 animate-pulse">Loading shop…</p>;
 
+  const trackingPopupDef = selectedItem?.trackingMonsterId
+    ? TRACKABLE_CURIOS.find(d => d.id === selectedItem.trackingMonsterId)
+    : undefined;
+
   return (
     <div>
       <style>{SHOP_CSS}</style>
@@ -316,6 +344,19 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           <p className="text-[#f0ddb8] text-sm italic" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>No items yet. Buy some below!</p>
         ) : (
           <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-8 xl:grid-cols-10 gap-3">
+            {Object.entries(inventory).map(([key, qty]) => {
+              const id = trackedMonsterId(key);
+              const def = id ? TRACKABLE_CURIOS.find(d => d.id === id) : undefined;
+              if (!def || !qty) return null;
+              return (
+                <button key={key} onClick={() => setSelectedItem(trackingDetail(def))} className="scard !p-1.5" title={trackingScrollName(def)}>
+                  <div className="scard-art">
+                    <TrackingScrollIcon monster={def} className="w-full h-full" />
+                    <span className="sbadge bottom-1 right-1 bg-[#7a4a0f] text-white border-2 border-[#3a2610]">×{qty}</span>
+                  </div>
+                </button>
+              );
+            })}
             {SHOP_CATALOG.map(item => {
               const qty = inventory[item.key] || 0;
               if (qty === 0) return null;
@@ -349,6 +390,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           >
             <option value="all">All Items</option>
             <option value="items">Curio Battle Items</option>
+            <option value="tracking">Tracking Scrolls</option>
             <option value="scrolls">Curio Battle Skills</option>
             <option value="tomes">Tomes of Knowledge</option>
             <option value="sprites">Trainer Sprites</option>
@@ -371,6 +413,36 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                 inBag={inventory[item.key] || 0}
                 affordable={currentStats.gold >= item.cost}
                 onClick={() => setSelectedItem(item)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Tracking Scrolls — the big gold sink: one per first-form curio
+          (lib/curioTracking.ts). Not sold for a curio the player already has,
+          or when that scroll is already in the bag. */}
+      {(activeSection === 'all' || activeSection === 'tracking') && (
+        <div className="mb-8">
+          {activeSection === 'all' ? (
+            <h2 className="shead mb-3">🔍 Tracking Scrolls</h2>
+          ) : (
+            <p className="text-stone-500 text-sm mb-4">
+              Pick the curio you want. Fill the scroll&apos;s meter on the map with right answers, then battle it to catch it.
+            </p>
+          )}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+            {TRACKABLE_CURIOS.map(def => (
+              <ShopCard
+                key={def.id}
+                icon={curioSpriteUrl(def)}
+                art={<TrackingScrollIcon monster={def} className="w-full h-full" />}
+                name={def.name}
+                cost={TRACKING_SCROLL_COST}
+                inBag={inventory[trackingScrollKey(def.id)] || 0}
+                affordable={currentStats.gold >= TRACKING_SCROLL_COST}
+                owned={ownedSpecies.has(def.id)}
+                onClick={() => setSelectedItem(trackingDetail(def))}
               />
             ))}
           </div>
@@ -525,7 +597,9 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             onClick={e => e.stopPropagation()}
           >
             <div className="mx-auto mb-3 w-28 h-28 p-3 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle,#fff6d6 0%,#f0ddb8 85%)', border: '2px solid #c9a87a' }}>
-              <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />
+              {trackingPopupDef
+                ? <TrackingScrollIcon monster={trackingPopupDef} className="w-full h-full" />
+                : <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />}
             </div>
             <h3 className="font-display text-2xl font-extrabold text-[#7a4a0f] mb-1">{selectedItem.name}</h3>
             <p className="text-sm font-semibold text-[#6b4820] mb-4">{selectedItem.desc}</p>
@@ -611,12 +685,26 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             {(() => {
               const owned = (inventory[selectedItem.key] || 0) > 0;
               const alreadyOwned = selectedItem.ownedOnly && owned;
+              const trackingBlock = selectedItem.trackingMonsterId
+                ? ownedSpecies.has(selectedItem.trackingMonsterId)
+                  ? 'You already have this curio.'
+                  : owned ? 'This scroll is already in your bag.' : null
+                : null;
               return (
                 <>
                   {!selectedItem.ownedOnly && (
                     <p className="mb-4"><span className="inline-block text-xs font-extrabold text-[#7a4a0f] bg-[#f0ddb8] border border-[#c9a87a] rounded-full px-3 py-0.5">In bag: ×{inventory[selectedItem.key] || 0}</span></p>
                   )}
-                  {alreadyOwned ? (
+                  {trackingBlock ? (
+                    <div className="flex gap-2">
+                      <div className="flex-1 bg-[#e8d0a0] border-2 border-[#8b5e2a] text-[#6b4820] font-extrabold text-xs py-2.5 px-2 rounded-xl text-center flex items-center justify-center">
+                        {trackingBlock}
+                      </div>
+                      <GameButton variant="quest" color="#57534e" onClick={() => setSelectedItem(null)} className="flex-1" style={{ fontSize: 14 }}>
+                        Close
+                      </GameButton>
+                    </div>
+                  ) : alreadyOwned ? (
                     <div className="flex gap-2">
                       <div className="flex-1 bg-[#dcfce7] border-2 border-[#15803d] text-[#166534] font-extrabold uppercase tracking-wide text-xs py-2.5 rounded-xl text-center flex items-center justify-center">
                         ✓ Owned

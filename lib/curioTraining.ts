@@ -1,22 +1,39 @@
 // lib/curioTraining.ts
-// Awards a quest's training curio its share of the quest XP. Shared by the
-// main-quest view (components/dashboard/board/ActiveQuestView.tsx) and the
-// intro's training quest (components/intro/IntroTrainingQuest.tsx).
+// Awards a quest's training curio its Curio EXP. Shared by the main-quest view
+// (components/dashboard/board/ActiveQuestView.tsx), the intro's training quest
+// (components/intro/IntroTrainingQuest.tsx) and the Bonus Quests (SEC) sets
+// (components/bonusquests/MtapCurioTraining.tsx).
 // Best-effort: returns null on any failure — a curio EXP hiccup must never
 // block the quest reward itself.
 import { supabase } from '@/lib/supabase';
 import { logAction } from '@/lib/playerlog';
-import { ALL_MONSTERS, getMonsterLevel } from '@/lib/monsterConfig';
+import { ALL_MONSTERS, BATTLE_CONSTANTS, getMonsterLevel } from '@/lib/monsterConfig';
 import { TRAINING_EXP_SHARE, OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
 import type { TrainingResult } from '@/components/VictoryScreen';
 
-export async function awardCurioTrainingExp(
+type TrainingCurio = Pick<OwnedCurio, 'id' | 'source' | 'nickname' | 'display'>;
+
+// Bonus Quest sets pay XP per question (not per quest), so the curio earns a
+// flat amount per newly-correct answer instead of a share of the set's XP: a
+// share would hand out ~6 levels per set. 10 EXP per answer is the same rate as
+// a grass-battle answer and puts a typical 8-10 question set close to a main quest.
+export const SEC_TRAINING_EXP_PER_ANSWER = BATTLE_CONSTANTS.MONSTER_EXP_PER_GRASS_ANSWER;
+
+export function awardCurioTrainingExp(
   userId: string,
-  curio: Pick<OwnedCurio, 'id' | 'source' | 'nickname' | 'display'>,
+  curio: TrainingCurio,
   xpEarned: number,
   weekStartingDate: string,
 ): Promise<TrainingResult | null> {
-  const exp = Math.floor(xpEarned * TRAINING_EXP_SHARE);
+  return grantCurioExp(userId, curio, Math.floor(xpEarned * TRAINING_EXP_SHARE), weekStartingDate);
+}
+
+export async function grantCurioExp(
+  userId: string,
+  curio: TrainingCurio,
+  exp: number,
+  weekStartingDate: string,
+): Promise<TrainingResult | null> {
   if (exp <= 0) return null;
   // Team/bench curios live in user_monsters; Catch Inbox curios in user_caught_monsters.
   const table = curio.source === 'inbox' ? 'user_caught_monsters' : 'user_monsters';

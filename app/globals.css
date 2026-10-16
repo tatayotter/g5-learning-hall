@@ -1695,3 +1695,14 @@ body.battle-fullscreen-active .arena-fab { display: none; }
   .bcoin-arc, .bcoin-shadow { animation: none; }
   .bcoin-coin { animation: none; transform: rotateY(var(--bc-end)); }
 }
+/* "+1" over the active Tracking Scroll slot when a right answer fills its meter. */
+.meter-plus-float {
+  animation: damage-float 1.4s ease-out forwards;
+  font-weight: 900;
+  font-size: 1rem;
+  line-height: 1;
+  color: #fde68a;
+  -webkit-text-stroke: 1.5px #78350f;
+  paint-order: stroke fill;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}

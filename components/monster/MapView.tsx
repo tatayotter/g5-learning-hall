@@ -11,7 +11,8 @@ import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import { NpcTrainer, MonsterDef } from '@/lib/monsterConfig';
 import { QualityTier } from '@/lib/curioQuality';
 import { UserMonster } from '@/components/battle/shared';
-import { CaughtMonster, BattleState } from '@/components/monster/types';
+import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
+import type { InventoryMap } from '@/lib/inventory';
 import TrainingMap from '@/components/monster/TrainingMap';
 
 interface MapViewProps {
@@ -40,6 +41,9 @@ interface MapViewProps {
   regionId: string;
   playerLevel: number;
   onEnterRegion: (regionId: string) => void;
+  inventory: InventoryMap;
+  onBattleStatePatch: (patch: Partial<BattleState>) => void;
+  onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
 }
 
 export default function MapView({
@@ -68,6 +72,9 @@ export default function MapView({
   regionId,
   playerLevel,
   onEnterRegion,
+  inventory,
+  onBattleStatePatch,
+  onTrackedCurioSummoned,
 }: MapViewProps) {
   return (
     <TrainingMap
@@ -78,6 +85,9 @@ export default function MapView({
       questions={questions}
       gradingUserId={userId}
       onBattleStateChange={onBattleStateChange}
+      inventory={inventory}
+      onBattleStatePatch={onBattleStatePatch}
+      onTrackedCurioSummoned={onTrackedCurioSummoned}
       onMonsterExpGained={onMonsterExpGained}
       onHeal={onHeal}
       onQuestionsAnswered={onQuestionsAnswered}

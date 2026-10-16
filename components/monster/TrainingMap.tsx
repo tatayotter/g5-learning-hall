@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
-import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip } from '@/lib/sounds';
+import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip, playLevelUp } from '@/lib/sounds';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
@@ -26,10 +26,16 @@ import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
 import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
-import { CaughtMonster, BattleState } from '@/components/monster/types';
+import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { useTrashItems } from '@/hooks/useTrashItems';
+import { useItemBar } from '@/hooks/useItemBar';
+import { useIsOffline } from '@/hooks/useIsOffline';
+import MapItemBar from '@/components/monster/map/MapItemBar';
+import type { InventoryMap } from '@/lib/inventory';
+import { ALL_MONSTERS } from '@/lib/monsterConfig';
+import { TRACKING_GOAL } from '@/lib/curioTracking';
 import { TRASH_DEFS, RECYCLER_TILES } from '@/lib/trashConfig';
 import { BOT_IDS } from '@/lib/botProfiles';
 import {
@@ -180,6 +186,12 @@ interface TrainingMapProps {
   onEnterRegion?: (regionId: string) => void;
   /** Pass through to MapStage — renders the map as a fixed full-viewport layer. */
   fullscreen?: boolean;
+  // Bag contents, for the map item slots (Tracking Scrolls).
+  inventory: InventoryMap;
+  // Merges fields into MonsterGuild's battleState without spreading a stale copy.
+  onBattleStatePatch: (patch: Partial<BattleState>) => void;
+  // A full Tracking Scroll summoned its curio (already saved as the pending wild curio).
+  onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
 }
 
 export default function TrainingMap({
@@ -188,7 +200,25 @@ export default function TrainingMap({
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
+  inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
+  const offline = useIsOffline();
+  const itemBar = useItemBar({
+    userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
+  });
+  const itemBarRef = useRef(itemBar);
+  useEffect(() => { itemBarRef.current = itemBar; });
+  const trashInventory = itemBar.trash;
+  const canTrade = (Object.keys(TRASH_DEFS) as (keyof typeof TRASH_DEFS)[]).some(t => trashInventory[t] >= TRASH_DEFS[t].bundleSize);
+  // Short message over the map for the item slots (full slots, tracking progress).
+  const [barMessage, setBarMessage] = useState<string | null>(null);
+  const barMessageTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const showBarMessage = useCallback((text: string) => {
+    if (barMessageTimer.current) clearTimeout(barMessageTimer.current);
+    setBarMessage(text);
+    barMessageTimer.current = setTimeout(() => setBarMessage(null), 2800);
+  }, []);
+  useEffect(() => () => { if (barMessageTimer.current) clearTimeout(barMessageTimer.current); }, []);
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
   // Tagged with the curio it was picked for, so a new curio never flashes
@@ -333,10 +363,7 @@ export default function TrainingMap({
 
   const {
     items: trashItems,
-    inventory: trashInventory,
     collectTrash,
-    tradeAll,
-    canTrade,
     respawnSecsLeft,
   } = useTrashItems(walkableTiles, activeRegion.id, trashOccupied);
 
@@ -460,13 +487,21 @@ export default function TrainingMap({
     }
 
     // Trash pickup — play coin sound + start lift animation, then remove from map
+    // Trash goes into the bag; with no room it stays on the map.
     const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
-    if (trashHere && !collectingTrashIds.has(trashHere.id)) {
+    if (trashHere && !collectingTrashIds.has(trashHere.id) && !itemBarRef.current.canPickUp(trashHere.type)) {
+      showBarMessage('Your bag is full! Trade or throw away some trash.');
+    } else if (trashHere && !collectingTrashIds.has(trashHere.id)) {
       playCoins();
       setCollectingTrashIds(prev => new Set([...prev, trashHere.id]));
       setTimeout(() => {
-        collectTrash(trashHere.id);
         setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
+        // Another pickup may have filled the bag meanwhile.
+        if (!itemBarRef.current.pickUpTrash(trashHere.type)) {
+          showBarMessage('Your bag is full! Trade or throw away some trash.');
+          return;
+        }
+        collectTrash(trashHere.id);
         // Persist to player_progress for achievement tracking; skip for bots.
         if (!BOT_IDS.has(userId)) {
           if (playingMapOffline(userId)) queueTrash(userId, 1, 0);
@@ -487,7 +522,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -656,6 +691,19 @@ export default function TrainingMap({
     onBattleStateChange({ ...battleState, ...stateUpdates });
 
     if (encountered) onWildEncounterRoll?.(pity);
+
+    // An active Tracking Scroll's meter fills with each right answer.
+    const answeredId = answeredQuestions[0]?.id;
+    if (!offlineMap && correctCount > 0 && answeredId && itemBar.activeTracking) {
+      const tracked = await itemBar.onRightAnswer(String(answeredId));
+      if (tracked) {
+        const name = ALL_MONSTERS[tracked.monsterId]?.name ?? 'curio';
+        if (tracked.filled) playLevelUp();
+        showBarMessage(tracked.filled
+          ? `📜 Meter full! Tap your scroll to summon ${name}!`
+          : `📜 ${name} meter: ${tracked.progress}/${TRACKING_GOAL}`);
+      }
+    }
   };
 
   const leftTag = (
@@ -780,7 +828,7 @@ export default function TrainingMap({
       canTrade={canTrade}
       pendingTradeGold={pendingTradeGold}
       onTradeAll={() => {
-        const gold = tradeAll();
+        const gold = itemBar.tradeAllTrash();
         if (gold > 0) {
           onTrashTraded?.(gold);
           setGoldEarnedFlash(gold);
@@ -843,6 +891,7 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
+        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} />}
         fullscreen={fullscreen}
       />
 

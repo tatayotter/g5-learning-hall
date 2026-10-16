@@ -1,7 +1,8 @@
 // hooks/useTrashItems.ts
-// Client-side trash scavenging — no DB writes, resets on page refresh.
+// Client-side trash scavenging: the trash lying on the map. No DB writes.
 // On region load, TRASH_SPAWN_COUNT items appear at random walkable tiles.
 // Collecting all starts a 5-minute respawn countdown, then they reappear.
+// What the player carries lives in the map item slots (lib/itemBar.ts).
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { TRASH_DEFS, TRASH_SPAWN_COUNT, TRASH_RESPAWN_MS, type TrashType } from '@/lib/trashConfig';
@@ -14,8 +15,6 @@ export interface TrashItem {
 }
 
 export type TrashInventory = Record<TrashType, number>;
-
-const emptyInv = (): TrashInventory => ({ paper: 0, bottle: 0, wrapper: 0, pencil: 0, chipbag: 0 });
 
 function buildPool(): TrashType[] {
   const pool: TrashType[] = [];
@@ -51,7 +50,6 @@ export function useTrashItems(
   occupied: { x: number; y: number }[],
 ) {
   const [items, setItems]               = useState<TrashItem[]>([]);
-  const [inventory, setInventory]       = useState<TrashInventory>(emptyInv());
   const [respawnSecsLeft, setSecsLeft]  = useState<number | null>(null);
 
   const timerRef          = useRef<ReturnType<typeof setTimeout>  | null>(null);
@@ -95,7 +93,6 @@ export function useTrashItems(
     endTimeRef.current = null;
     // eslint-disable-next-line react-hooks/set-state-in-effect -- random respawn keyed to region (see above)
     setSecsLeft(null);
-    setInventory(emptyInv());
     setItems(spawnTrash(walkableRef.current, occupiedRef.current));
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -103,39 +100,15 @@ export function useTrashItems(
     };
   }, [regionId]);
 
-  /** Remove item from the map and add to inventory. */
+  /** Remove item from the map (the caller has already put it in a slot). */
   const collectTrash = useCallback((id: string) => {
     setItems(prev => {
-      const item = prev.find(i => i.id === id);
-      if (!item) return prev;
+      if (!prev.some(i => i.id === id)) return prev;
       const next = prev.filter(i => i.id !== id);
-      setInventory(inv => ({ ...inv, [item.type]: inv[item.type] + 1 }));
       if (next.length === 0) setTimeout(startRespawn, 0);
       return next;
     });
   }, [startRespawn]);
 
-  /**
-   * Trade all complete bundles for gold.
-   * Returns the gold earned (caller is responsible for crediting the player).
-   */
-  const tradeAll = useCallback((): number => {
-    let total = 0;
-    setInventory(inv => {
-      const next = { ...inv };
-      for (const [t, def] of Object.entries(TRASH_DEFS) as [TrashType, (typeof TRASH_DEFS)[TrashType]][]) {
-        const bundles = Math.floor(next[t] / def.bundleSize);
-        total += bundles;
-        next[t] = next[t] % def.bundleSize;
-      }
-      return next;
-    });
-    return total;
-  }, []);
-
-  const canTrade = (Object.keys(TRASH_DEFS) as TrashType[]).some(
-    t => inventory[t] >= TRASH_DEFS[t].bundleSize,
-  );
-
-  return { items, inventory, collectTrash, tradeAll, canTrade, respawnSecsLeft };
+  return { items, collectTrash, respawnSecsLeft };
 }

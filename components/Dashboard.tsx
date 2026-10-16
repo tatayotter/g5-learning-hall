@@ -1598,6 +1598,7 @@ export default function Dashboard() {
         {activeTab === 'bonus_quests' && (
           <BonusQuestsTab
             userId={activeUserId}
+            weekStartingDate={data.week_starting_date}
             onRewardEarned={() => syncCharacterStats()}
           />
         )}
