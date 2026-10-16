@@ -159,7 +159,7 @@ export default function MapStage({
   if (fullscreen) {
     return (
       <MapScaleContext.Provider value={scale}>
-        <div className="fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
+        <div className="map-stage-full fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
           {shell}
           {overlayLayer}
           {hotbar && (
@@ -168,7 +168,7 @@ export default function MapStage({
             // column would hit the zoom buttons. Desktop: a row at the bottom
             // centre, like a game hotbar.
             <div
-              className="fixed z-[81] top-1/2 -translate-y-1/2 right-[calc(env(safe-area-inset-right,0px)+8px)] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)] lg:top-auto lg:translate-y-0 lg:bottom-3 lg:right-auto lg:left-1/2 lg:-translate-x-1/2"
+              className="map-hotbar fixed z-[81] top-1/2 -translate-y-1/2 right-[calc(env(safe-area-inset-right,0px)+8px)] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)] lg:top-auto lg:translate-y-0 lg:bottom-3 lg:right-auto lg:left-1/2 lg:-translate-x-1/2"
             >
               {hotbar}
             </div>

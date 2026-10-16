@@ -19,6 +19,7 @@ import { trackEvent } from '@/lib/analytics';
 import GameButton from '@/components/GameButton';
 import GuardianSprite, { GuardianGuild } from '@/components/guilds/GuardianSprite';
 import DailyBonusModal from '@/components/DailyBonusModal';
+import JourneyTrail, { type JourneyStop } from '@/components/nav/JourneyTrail';
 import { CustomEvent, EventQuest, UserEventProgressRow } from '@/lib/customEvents';
 
 // Buttons here previously ran a homemade comic-outline look (yellow-400 +
@@ -68,9 +69,17 @@ interface DailyChecklistProps {
   eventProgress?: UserEventProgressRow[];
   gauntletDaysDone?: Set<string>;
   onGoToEvent?: () => void;
+  // 'journey': the new navigation's Today tab draws the same items as a
+  // picture trail to a chest (components/nav/JourneyTrail.tsx). Same data,
+  // same claim.
+  variant?: 'list' | 'journey';
+  online?: boolean;
 }
 
 interface ChecklistItem {
+  key: string;
+  icon: string;
+  short: string;
   label: string;
   done: boolean;
   actionLabel?: string;
@@ -94,6 +103,8 @@ export default function DailyChecklist({
   eventClaimed,
   gauntletDaysDone,
   onGoToEvent,
+  variant = 'list',
+  online = true,
 }: DailyChecklistProps) {
   const todayKey = manilaToday();
   const [battleFlags, setBattleFlags] = useState<ChecklistBattleFlags>({
@@ -157,12 +168,14 @@ export default function DailyChecklist({
 
   const items: ChecklistItem[] = [
     {
+      key: 'journal', icon: '/nav/journal.png', short: 'Journal',
       label: "Fill out today's journal entry",
       done: journalDone,
       actionLabel: 'Write Journal',
       onAction: onGoToJournal,
     },
     {
+      key: 'quest', icon: '/main ui/mainquest.png', short: 'Quest',
       label: gauntletActive
         ? "Main Quest is paused for the event — see below"
         : questScheduledToday
@@ -173,12 +186,14 @@ export default function DailyChecklist({
       onAction: gauntletActive ? undefined : onGoToMainQuest,
     },
     {
+      key: 'map', icon: '/icons/mapicon.png', short: 'Map',
       label: 'Answer a training map question correctly',
       done: battleDone,
       actionLabel: 'Go to Map',
       onAction: onGoToTrainingMap,
     },
     ...(gauntletActive ? [{
+      key: 'event', icon: '/main ui/bonusquest.png', short: 'Event',
       label: `Progress today's event: ${activeEvent!.title}`,
       done: eventDayDone,
       actionLabel: 'Go to Event',
@@ -210,6 +225,37 @@ export default function DailyChecklist({
     }
     setClaiming(false);
   };
+
+  if (variant === 'journey') {
+    const nextGuild = GUILDS.find(g => !battleFlags.guilds_played_today.includes(g.key));
+    const stops: JourneyStop[] = [
+      ...items.map(item => ({
+        key: item.key, label: item.short, icon: item.icon, done: item.done, does: item.label,
+        onGo: item.onAction,
+      })),
+      {
+        key: 'guilds', label: 'Guilds', icon: '/nav/side-quests.png', done: guildsAllDone,
+        does: nextGuild ? `Play each Learning Guild, next is ${nextGuild.label}` : 'Play each Learning Guild',
+        count: `${guildsPlayedToday.length}/${GUILDS.length}`,
+        onGo: nextGuild ? () => onPlayGuild(nextGuild.key) : undefined,
+      },
+    ];
+    return (
+      <div className={loading ? 'opacity-60 pointer-events-none' : undefined} aria-busy={loading}>
+        <JourneyTrail
+          stops={loading ? stops.map(st => ({ ...st, done: false })) : stops}
+          claimed={claimed}
+          claiming={claiming}
+          gold={streakInfo?.nextGold ?? streakInfo?.todayGold ?? STREAK_GOLD_LADDER[0]}
+          online={online}
+          onClaim={handleClaim}
+        />
+        {bonusEvent && (
+          <DailyBonusModal streak={bonusEvent.streak} gold={bonusEvent.gold} userId={userId} onClose={() => setBonusEvent(null)} />
+        )}
+      </div>
+    );
+  }
 
   if (loading) {
     return (

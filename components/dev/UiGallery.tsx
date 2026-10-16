@@ -710,7 +710,7 @@ export default function UiGallery() {
         </div>
       </Section>
 
-      <Section title="Navigation redesign (MOCKUP)" note="components/dev/NavRedesignMockup.tsx: proposed replacement for the compass drawer below and the Curio Arena's second menu, built from real play history. Today (To-Do + Main Quests) is home, with tabs for Side Quests, Curios, Journal and Vault. The To-Do is pinned on desktop, and Curios opens on the map. Switch between phone, tablet and desktop. Not wired into the app.">
+      <Section title="Navigation redesign (MOCKUP)" note="components/dev/NavRedesignMockup.tsx: proposed replacement for the compass drawer below and the Curio Arena's second menu, built from real play history. Today (To-Do + Main Quests) is home, with tabs for Side Quests, Curios, Journal and Vault. The To-Do is pinned on desktop, and Curios opens on the map. Hardened 2026-10-13 (docs/nav-redesign.md): six screen sizes, an Internet switch for the no-internet states, a daily gift and egg countdown on Today, and Log out on every layout. Not wired into the app.">
         <NavRedesignMockup />
       </Section>
 
