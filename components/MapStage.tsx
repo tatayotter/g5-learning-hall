@@ -35,6 +35,10 @@ interface MapStageProps {
   drawerLabel?: string;
   drawer?: ReactNode;
   overlay?: ReactNode;
+  /** The map item slots (MapItemBar), a column on the right edge (the
+   *  bottom is taken by the menu compass and Arena button). Kept outside the
+   *  scaled canvas in fullscreen so it stays full size and uncropped. */
+  hotbar?: ReactNode;
   /** When true, the stage mounts as a fixed full-viewport layer (z-78, below
    *  the HUD at z-79 and the arena FAB at z-80). On mobile the canvas scales
    *  to fill the full screen height (cover mode), cropping the excess width. */
@@ -52,6 +56,7 @@ export default function MapStage({
   drawerLabel = 'Info',
   drawer,
   overlay,
+  hotbar,
   fullscreen,
 }: MapStageProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -94,6 +99,9 @@ export default function MapStage({
         {/* In fullscreen mode controls are lifted out to a fixed overlay so they
             aren't cropped by the cover-mode horizontal overflow. */}
         {controls && !fullscreen && <div className="mstage-controls">{controls}</div>}
+        {hotbar && !fullscreen && (
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 lg:right-auto lg:top-auto lg:translate-y-0 lg:bottom-2 lg:left-1/2 lg:-translate-x-1/2 z-[17]">{hotbar}</div>
+        )}
       </div>
 
       {/* In fullscreen mode the drawer + toggle are lifted to a fixed top overlay
@@ -154,6 +162,17 @@ export default function MapStage({
         <div className="fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
           {shell}
           {overlayLayer}
+          {hotbar && (
+            // Phone (portrait): a column centred on the right edge. Phone in
+            // landscape (short screen): a row at the bottom right, where the
+            // column would hit the zoom buttons. Desktop: a row at the bottom
+            // centre, like a game hotbar.
+            <div
+              className="fixed z-[81] top-1/2 -translate-y-1/2 right-[calc(env(safe-area-inset-right,0px)+8px)] [@media(max-height:500px)]:top-auto [@media(max-height:500px)]:translate-y-0 [@media(max-height:500px)]:bottom-[max(env(safe-area-inset-bottom,0px),8px)] lg:top-auto lg:translate-y-0 lg:bottom-3 lg:right-auto lg:left-1/2 lg:-translate-x-1/2"
+            >
+              {hotbar}
+            </div>
+          )}
           {controls && (
             <div className="map-joystick-wrap fixed z-[81]">
               {controls}
