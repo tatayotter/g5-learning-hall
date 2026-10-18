@@ -22,6 +22,30 @@ export function dismissInstallNudge(userId: string | null): void {
   localStorage.setItem(storageKey(userId), '1');
 }
 
+// Google Play closed test for the Android app. Only Google accounts on the
+// test's tester list can join; anyone else sees "not available". The plain
+// store listing doesn't open until a tester has joined, so link the opt-in page.
+export const PLAY_TEST_URL = 'https://play.google.com/apps/testing/com.tatayotter.learninghall';
+
+const PLAY_TEST_KEY_PREFIX = 'play_test_nudge_dismissed';
+
+// Separate from the home-screen nudge's flag, so kids who closed that one
+// still get one chance to see the Android app.
+export function hasDismissedPlayTestNudge(userId: string | null): boolean {
+  if (typeof window === 'undefined' || !userId) return true;
+  return localStorage.getItem(`${PLAY_TEST_KEY_PREFIX}:${userId}`) === '1';
+}
+
+export function dismissPlayTestNudge(userId: string | null): void {
+  if (typeof window === 'undefined' || !userId) return;
+  localStorage.setItem(`${PLAY_TEST_KEY_PREFIX}:${userId}`, '1');
+}
+
+export function isAndroidDevice(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  return /android/i.test(navigator.userAgent);
+}
+
 /** True once the app is already running as an installed/home-screen app —
  * covers the standard `display-mode` media query (Android/desktop Chrome,
  * Edge) and iOS Safari's older `navigator.standalone` flag. */

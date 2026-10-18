@@ -504,11 +504,13 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   // Offer battle training once per Arena visit (BattleTraining checks whether
   // it's already finished and closes itself if so).
+  // Battle training fights with the team, so wait until a curio is on it.
+  const hasTeam = userMonsters.some(um => um.slot !== null);
   useEffect(() => {
-    if (loading || offline || trainingOfferedRef.current || userMonsters.length === 0) return;
+    if (loading || offline || trainingOfferedRef.current || !hasTeam) return;
     trainingOfferedRef.current = true;
     setBattleTraining({ replay: false });
-  }, [loading, offline, userMonsters.length]);
+  }, [loading, offline, hasTeam]);
 
   // Chain map is admin-authored content, not per-user — fetch once.
   useEffect(() => { fetchEggChainMap(userId).then(setEggChainMap); }, [userId]);
@@ -651,7 +653,19 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     showNotification('Claimed 1 egg 🥚');
   };
 
+  // Every battle fights with the curios on My Team. A kid can own curios with
+  // none on the team (all benched), and an empty team crashed the battle
+  // screens, so send them to My Team instead of starting the fight.
+  const needsTeam = () => {
+    if (hasTeam) return false;
+    showNotification('Put a curio on your team first!');
+    setView('team');
+    window.scrollTo({ top: 0 });
+    return true;
+  };
+
   const handleTrainerBattle = (trainer: NpcTrainer) => {
+    if (needsTeam()) return;
     const offlineQuestions = battlingTrainersOffline(userId) ? offlineArenaQuestions(userId, answeredArenaIds) : [];
     if (offlineQuestions.length === 0 && needsConnection()) return;
     setOfflineBattle(offlineQuestions.length > 0 ? { questions: offlineQuestions } : null);
@@ -686,6 +700,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   };
 
   const handleDummyBattle = () => {
+    if (needsTeam()) return;
     if (needsConnection()) return;
     setOfflineBattle(null);
     setIsDummyBattle(true);
@@ -901,6 +916,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // engaged" curio into an actual open WildEncounterModal.
   const handleEnterCurio = async () => {
     if (!curio || wildEncounter) return;
+    if (needsTeam()) return;
     if (needsConnection()) return;
     // Same rule as the restore above, for a curio still in memory: no tries
     // left (its last battle was abandoned) means it has run off.
@@ -1079,6 +1095,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       setShowPvpParentGate(true);
       return;
     }
+    if (needsTeam()) return;
     // Battles with classmates (bots included) are graded and saved by the server.
     if (needsConnection()) return;
     // Bot players are not in Supabase — bypass the real invite flow and launch
@@ -1462,7 +1479,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
       {/* Notification */}
       {notification && (
-        <div className="fixed top-6 right-6 z-50 bg-amber-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg">
+        <div className="fixed top-20 right-6 z-50 bg-amber-600 text-white px-6 py-3 rounded-xl font-bold shadow-lg">
           {notification}
         </div>
       )}
@@ -1712,7 +1729,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           botOnlinePlayers={botOnlinePlayers}
           handleChallengePlayer={handleChallengePlayer}
           handleDummyBattle={handleDummyBattle}
-          onReplayBattleTraining={() => { if (!needsConnection()) setBattleTraining({ replay: true }); }}
+          onReplayBattleTraining={() => { if (!needsTeam() && !needsConnection()) setBattleTraining({ replay: true }); }}
           handleTrainerBattle={handleTrainerBattle}
         />
       )}
@@ -1831,6 +1848,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
               setShowPvpParentGate(true);
               return;
             }
+            if (needsTeam()) return;
             const myTeam = buildPlayerTeam();
             const oppTeam = buildBotTeam(bot);
             const fakeId = `${bot.id}_${Date.now()}`;
