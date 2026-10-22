@@ -1729,3 +1729,39 @@ body.new-nav .offline-banner { bottom: calc(1rem + var(--nav-bottom)); }
 body.battle-fullscreen-active.new-nav nav[aria-label="Main"] { display: none; }
 /* A phone held sideways has the map's item row in the bottom-right corner. */
 body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }
+
+/* ── Curio trading card (components/monster/CurioCard.tsx) ─────────────── */
+@keyframes curio-card-in {
+  0%   { opacity: 0; transform: rotateY(-70deg) scale(0.85); }
+  60%  { opacity: 1; transform: rotateY(8deg) scale(1.02); }
+  100% { opacity: 1; transform: rotateY(0) scale(1); }
+}
+.curio-card {
+  --rx: 0deg; --ry: 0deg; --mx: 50%; --my: 30%;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.18s ease-out;
+  animation: curio-card-in 0.55s cubic-bezier(.2,.8,.3,1) both;
+  touch-action: pan-y;
+}
+/* Holo shine over a Good+ or legendary card's face; follows the pointer. */
+.curio-card-foil {
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgba(255,255,255,0.55) 0%, transparent 38%),
+    linear-gradient(115deg, transparent 20%, rgba(255,0,140,0.10) 35%, rgba(0,220,255,0.12) 50%, rgba(255,230,0,0.10) 65%, transparent 80%);
+  background-size: 100% 100%, 250% 250%;
+  mix-blend-mode: soft-light;
+  animation: curio-card-foil 6s linear infinite;
+}
+@keyframes curio-card-foil {
+  0%   { background-position: 0 0, 0% 0%; }
+  100% { background-position: 0 0, 250% 250%; }
+}
+.curio-card-shiny { animation: curio-card-in 0.55s cubic-bezier(.2,.8,.3,1) both, curio-card-glint 3s ease-in-out 0.6s infinite; }
+@keyframes curio-card-glint {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.08) saturate(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curio-card, .curio-card-shiny, .curio-card-foil { animation: none; transition: none; }
+}

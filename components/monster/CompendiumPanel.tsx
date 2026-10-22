@@ -1,15 +1,17 @@
 'use client';
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   WILD_MONSTERS, ALL_MONSTERS, EVENT_MONSTERS, SKILLS,
   getGuildMonsterTier, getGuildMonsterTierDef,
   getGraduatedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
-  Element, MonsterDef, ELEMENT_ICON_SRC,
+  MonsterDef,
 } from '@/lib/monsterConfig';
 import { guildLevelForKey, GUILD_MONSTER_GRANT_LEVEL, SubclassProfile } from '@/lib/guildEngine';
 import { GUILDS } from '@/lib/dailyChecklist';
 import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
+import CurioCard from '@/components/monster/CurioCard';
 import { playPageFlip } from '@/lib/sounds';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton from '@/components/GameButton';
@@ -30,15 +32,6 @@ export function WhiteNailBox({ className = '', children }: { className?: string;
     </div>
   );
 }
-
-const ELEMENT_STYLES: Record<Element, string> = {
-  fire:   'text-orange-400 border-orange-800 bg-orange-900/20',
-  water:  'text-blue-400 border-blue-800 bg-blue-900/20',
-  leaf:   'text-green-400 border-green-800 bg-green-900/20',
-  storm:  'text-yellow-400 border-yellow-800 bg-yellow-900/20',
-  shadow: 'text-purple-400 border-purple-800 bg-purple-900/20',
-  light:  'text-amber-300 border-amber-700 bg-amber-900/20',
-};
 
 // Renders a monster's sprite as a flat black silhouette — deliberately
 // bypasses MonsterImage so the emoji fallback can't leak a hint about the
@@ -118,25 +111,6 @@ function GraduationStream({ entries, knownByKey, activeKey, onSelect }: {
             </div>
           );
         })}
-      </div>
-    </div>
-  );
-}
-
-// Stat bar ceilings that accommodate every form in the game:
-//   wild-legendary tier (WILD_STAT_PRESET × 1.70) tops out at HP≈238, ATK≈44
-//   super_enhanced (1.45×) peaks at HP≈174, ATK≈36 — well within these bounds.
-const STAT_BAR_MAX = { hp: 250, atk: 50, def: 40, spd: 30 } as const;
-
-function CompendiumStatBar({ label, value, max }: { label: string; value: number; max: number }) {
-  return (
-    <div>
-      <div className="flex justify-between text-[10px] text-[#6b4820] font-bold mb-0.5">
-        <span>{label}</span>
-        <span>{value}</span>
-      </div>
-      <div className="w-full h-1.5 bg-[#e8d0a0] border border-[#c9a87a] rounded-full overflow-hidden">
-        <div className="h-full bg-amber-500 rounded-full" style={{ width: `${Math.min(100, (value / max) * 100)}%` }} />
       </div>
     </div>
   );
@@ -329,7 +303,99 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
         <p className="text-xs text-[#6b4820]">Every curio species in the game. Wild-only species stay a mystery silhouette until you encounter one on the Training Map.</p>
       </div>
 
-      {selected && (
+      {selected && selectedKnown && selectedEntry && (() => {
+        const stageIndex = graduationStreamEntries.findIndex(e => e.key === selectedEntry.key);
+        const fromEntry = stageIndex > 0 ? graduationStreamEntries[stageIndex - 1] : undefined;
+        const close = () => setSelectedKey(null);
+        return createPortal(
+          // Known species: its trading card, with the form chain and the
+          // Tracking Scroll offer in a wood panel beside it (below on a phone).
+          // Portaled to <body> so a transformed ancestor can't clip it.
+          <div className="fixed inset-0 z-[82] bg-black/75 overflow-y-auto" data-testid="compendium-detail">
+            <div
+              className="min-h-full flex flex-col md:flex-row items-center md:items-start md:justify-center gap-5 px-4 pt-12 pb-8 md:pt-[6vh]"
+              onClick={e => { if (e.target === e.currentTarget) close(); }}
+            >
+              <button
+                onClick={() => { playPageFlip(); close(); }}
+                className="fixed top-3 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white text-xl leading-none btn-tactile"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+              <div className="md:sticky md:top-[6vh] flex justify-center w-full md:w-auto" onClick={e => { if (e.target === e.currentTarget) close(); }}>
+                <CurioCard
+                  key={selectedEntry.key}
+                  def={selected}
+                  speciesId={selectedEntry.speciesId}
+                  stats={{ hp: selected.baseHp, attack: selected.baseAttack, defense: selected.baseDefense, speed: selected.baseSpeed }}
+                  moves={selected.skills.map((skillId, i) => ({
+                    skill: SKILLS[skillId] ?? null,
+                    lockedUntil: i === 0 ? undefined : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3,
+                  }))}
+                  stage={{
+                    index: Math.max(1, stageIndex + 1),
+                    total: Math.max(1, graduationStreamEntries.length),
+                    from: fromEntry && graduationStreamKnownByKey[fromEntry.key] ? fromEntry.def : undefined,
+                  }}
+                  ownedNote={selectedOwned && selectedIsActiveTier ? 'You have it!' : undefined}
+                />
+              </div>
+              <div
+                className="relative w-full max-w-md rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+                style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+              >
+                <Nail className="top-2 left-2" />
+                <Nail className="top-2 right-2" />
+                <Nail className="bottom-2 left-2" />
+                <Nail className="bottom-2 right-2" />
+                <div className="flex flex-col gap-4 p-5">
+                  {graduationStreamEntries.length > 1 && (
+                    <GraduationStream
+                      entries={graduationStreamEntries}
+                      knownByKey={graduationStreamKnownByKey}
+                      activeKey={selectedKey}
+                      onSelect={setSelectedKey}
+                    />
+                  )}
+                  {selectedEntry.guildLabel && (
+                    <p className="text-xs text-gray-200" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Comes at {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}.</p>
+                  )}
+                  {selectedEntry.isGraduationTier && (
+                    <p className="text-xs text-amber-300 font-semibold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
+                      ✨ Graduated form · needs Lv.{selectedEntry.unlockLevel} and a Graduation Scroll
+                    </p>
+                  )}
+                  <WhiteNailBox>
+                    <p className="text-xs text-[#3a2610] leading-snug">
+                      {selectedOwned && selectedIsActiveTier
+                        ? 'This card shows the starting numbers. Open your curio in My Team to see its real level, power and moves, and to train it.'
+                        : 'This card shows the starting numbers. Moves with a 🔒 are learned as the curio levels up.'}
+                    </p>
+                  </WhiteNailBox>
+                  {selectedEntry.tier === 1 && !selectedEntry.guildLabel && isTrackable(selectedEntry.speciesId) && (
+                    <TrackingScrollOffer
+                      name={selected.name}
+                      monster={selected}
+                      owned={selectedOwned}
+                      inBag={inventory?.[trackingScrollKey(selectedEntry.speciesId)] ?? 0}
+                      gold={currentGold ?? 0}
+                      buying={buyingScroll}
+                      onBuy={onBuyTrackingScroll ? async () => {
+                        setBuyingScroll(true);
+                        try { await onBuyTrackingScroll(selectedEntry.speciesId); } finally { setBuyingScroll(false); }
+                      } : undefined}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>,
+          document.body,
+        );
+      })()}
+
+      {selected && !selectedKnown && (
         <div
           className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
           onClick={() => setSelectedKey(null)}
@@ -356,87 +422,6 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
             </button>
             {/* Only this body scrolls, so the frame's nails stay pinned to its corners. */}
             <div className="overflow-y-auto min-h-0 p-5">
-          {selectedKnown ? (
-            <div className="flex flex-col gap-4">
-              {/* Portrait through the Graduation Stream is one centered
-                  column (2026-08-29) — the insets below stay left-aligned
-                  text inside their own white boxes. */}
-              <div className="flex flex-col items-center text-center gap-2">
-                <div className="w-28 h-28">
-                  <MonsterImage monster={selected} className="w-full h-full" emojiClassName="text-6xl" />
-                </div>
-                {/* Same Bungee/stroke/shadow text treatment as the quest
-                    GameButton's label (2026-08-29). */}
-                <p className="text-xl font-bold flex items-center justify-center gap-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-                  <span style={{ position: 'relative', display: 'inline-block' }}>
-                    <span aria-hidden style={questTextShadowStyle}>{selected.name}</span>
-                    <span style={questTextStyle}>{selected.name}</span>
-                  </span>
-                  {selected.isLegendary && <span title="Legendary">👑</span>}
-                </p>
-                <div className="flex flex-wrap items-center justify-center gap-2">
-                  <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[selected.element]}`}>
-                    <img src={ELEMENT_ICON_SRC[selected.element]} alt="" className="w-3 h-3 object-contain" />
-                    {selected.element}
-                  </span>
-                  <span className="text-[10px] text-gray-200 capitalize" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{selected.archetype.replace('_', ' ')}</span>
-                  {selectedOwned && selectedIsActiveTier && <span className="text-[10px] text-green-400 font-bold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>✅ In your collection</span>}
-                  {selectedEntry?.guildLabel && (
-                    <span className="text-[10px] text-gray-200" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Tier {selectedEntry.tier} · {selectedEntry.guildLabel} Lv.{selectedEntry.unlockLevel}+</span>
-                  )}
-                  {selectedEntry?.isGraduationTier && (
-                    <span className="text-[10px] text-amber-300 font-semibold" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>
-                      ✨ Grad {selectedEntry.tier - 1} · Lv.{selectedEntry.unlockLevel}+
-                    </span>
-                  )}
-                </div>
-                {graduationStreamEntries.length > 1 && (
-                  <GraduationStream
-                    entries={graduationStreamEntries}
-                    knownByKey={graduationStreamKnownByKey}
-                    activeKey={selectedKey}
-                    onSelect={setSelectedKey}
-                  />
-                )}
-              </div>
-
-              <WhiteNailBox>
-                <p className="text-sm text-[#3a2610] leading-relaxed">{selected.description}</p>
-              </WhiteNailBox>
-
-              <WhiteNailBox>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-2">
-                  <CompendiumStatBar label="HP" value={selected.baseHp} max={STAT_BAR_MAX.hp} />
-                  <CompendiumStatBar label="Attack" value={selected.baseAttack} max={STAT_BAR_MAX.atk} />
-                  <CompendiumStatBar label="Defense" value={selected.baseDefense} max={STAT_BAR_MAX.def} />
-                  <CompendiumStatBar label="Speed" value={selected.baseSpeed} max={STAT_BAR_MAX.spd} />
-                </div>
-              </WhiteNailBox>
-
-              <WhiteNailBox>
-                <p className="text-[10px] text-[#6b4820] font-bold uppercase tracking-widest mb-1">Default attacks</p>
-                <div className="space-y-1">
-                  {selected.skills.map((skillId, i) => {
-                    const skill = SKILLS[skillId];
-                    if (!skill) return null;
-                    const unlockLevel = i === 0 ? 1 : i === 1 ? selected.skillUnlocks.tier2 : selected.skillUnlocks.tier3;
-                    return (
-                      <div key={skillId} className="flex items-center gap-2 text-xs">
-                        <span className="text-[#6b4820] w-14 flex-shrink-0">Lv.{unlockLevel}</span>
-                        <span className="font-bold text-[#2a1505]">{skill.name}</span>
-                        <span className="text-[#6b4820]">— {skill.description}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-                {selectedOwned && selectedIsActiveTier && (
-                  <p className="text-[10px] text-[#8b5e2a] italic mt-2">
-                    This is the species&apos; default loadout — visit My Team to see this curio&apos;s actual equipped skills, live stats, and Tutor/Graduate it.
-                  </p>
-                )}
-              </WhiteNailBox>
-            </div>
-          ) : (
             <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
               <div className="relative w-28 h-28 flex-shrink-0">
                 <MonsterSilhouette id={selected.spriteId ?? selected.id} className="w-full h-full" />
@@ -473,11 +458,9 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
                 )}
               </div>
             </div>
-          )}
           {selectedEntry && selectedEntry.tier === 1 && !selectedEntry.guildLabel && isTrackable(selectedEntry.speciesId) && (
             <TrackingScrollOffer
-              name={selectedKnown ? selected.name : '???'}
-              monster={selectedKnown ? selected : undefined}
+              name="???"
               owned={selectedOwned}
               inBag={inventory?.[trackingScrollKey(selectedEntry.speciesId)] ?? 0}
               gold={currentGold ?? 0}

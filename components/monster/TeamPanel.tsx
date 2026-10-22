@@ -1,18 +1,20 @@
 'use client';
 import { useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { supabase } from '@/lib/supabase';
 import { needsConnection } from '@/lib/offlineReads';
 import {
-  ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS, Element, ELEMENT_ICON_SRC,
+  ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS,
   getUnlockedMonsterSlots, getScaledStats, getEquippedSkills,
   getGraduatedMonsterDisplay, getOwnedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
-  getMonsterLevel,
+  getMonsterLevel, getAvailableSkillTiers,
 } from '@/lib/monsterConfig';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import { playPageFlip } from '@/lib/sounds';
 import { graduateMonster } from '@/lib/monsterGraduation';
 import { consumeGrowthPill } from '@/lib/growthPill';
-import { MonsterImage, UserMonster } from '@/components/battle/shared';
+import { MonsterImage, UserMonster, getSkillSlotLock } from '@/components/battle/shared';
+import CurioCard, { getOwnedCurioStage } from '@/components/monster/CurioCard';
 import { CaughtMonster } from '@/components/monster/types';
 import {
   QualityTier, QUALITY_TIERS, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
@@ -31,15 +33,6 @@ import MissionsPanel from '@/components/monster/MissionsPanel';
 import { WhiteNailBox } from '@/components/monster/CompendiumPanel';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
-
-const ELEMENT_STYLES: Record<Element, string> = {
-  fire:   'text-orange-700 border-orange-200 bg-orange-50',
-  water:  'text-blue-700 border-blue-200 bg-blue-50',
-  leaf:   'text-green-700 border-green-200 bg-green-50',
-  storm:  'text-yellow-700 border-yellow-200 bg-yellow-50',
-  shadow: 'text-purple-700 border-purple-200 bg-purple-50',
-  light:  'text-amber-700 border-amber-200 bg-amber-50',
-};
 
 export default function TeamPanel({
   userMonsters, playerLevel, userId, onTeamChange, onLoadoutChange, monsterDisplay, caughtMonsters, onPromote,
@@ -302,77 +295,69 @@ export default function TeamPanel({
     // pick a scroll) — too small for the full quest button.
     const chipButton = 'text-[10px] font-bold bg-[#f0ddb8] hover:bg-[#e8c88a] border border-[#c9a87a] hover:border-[#c9781a] disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-[#6b4820] flex-shrink-0 btn-tactile';
     const sectionLabel = 'text-[10px] text-[#7a4a0f] font-bold uppercase tracking-widest mb-1';
-    const shadowText = { textShadow: '0 1px 2px rgba(0,0,0,0.9)' };
+
+    const equipped = getEquippedSkills(monster.equipped_skills, def);
+    const availableTiers = getAvailableSkillTiers(monster.monster_level, def);
+    const cardMoves = equipped.map((skill, i) => {
+      const tier = (i + 1) as 1 | 2 | 3;
+      const { isLocked, requiredLevel } = getSkillSlotLock(monster.equipped_skills, def, tier, availableTiers);
+      return { skill, lockedUntil: isLocked ? requiredLevel : undefined };
+    });
 
     return (
-      <div
-        className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
-        onClick={() => setDetailMonster(null)}
-      >
-        {/* Same wood-plank + gold trim + corner-nail frame and white gold-trim
-            insets as CompendiumPanel's species detail modal. The frame itself
-            doesn't scroll (so the nails stay pinned to its corners) — only the
-            inner body does. */}
+      // The whole overlay scrolls (card on top on a phone, card beside the
+      // training panel on wider screens); tapping the dark backdrop closes.
+      <div className="fixed inset-0 z-[82] bg-black/75 overflow-y-auto" data-testid="curio-detail">
         <div
-          className="relative w-full max-w-xl max-h-[85vh] flex flex-col rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
-          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
-          onClick={e => e.stopPropagation()}
+          className="min-h-full flex flex-col md:flex-row items-center md:items-start md:justify-center gap-5 px-4 pt-12 pb-8 md:pt-[6vh]"
+          onClick={e => { if (e.target === e.currentTarget) setDetailMonster(null); }}
         >
-          <Nail className="top-2 left-2" />
-          <Nail className="top-2 right-2" />
-          <Nail className="bottom-2 left-2" />
-          <Nail className="bottom-2 right-2" />
           <button
             onClick={() => { playPageFlip(); setDetailMonster(null); }}
-            className="absolute top-3 right-7 z-10 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
-            style={shadowText}
+            className="fixed top-3 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white text-xl leading-none btn-tactile"
             aria-label="Close"
           >
             ✕
           </button>
 
-          <div className="flex flex-col gap-4 overflow-y-auto min-h-0 p-5">
-            <div className="flex flex-col items-center text-center gap-2">
-              <div className={`w-28 h-28 ${glowClass}`}>
-                <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-6xl" />
-              </div>
-              <p className="text-xl font-bold flex items-center justify-center gap-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <span aria-hidden style={questTextShadowStyle}>{def.name}</span>
-                  <span style={questTextStyle}>{def.name}</span>
-                </span>
-                {def.isLegendary && <span title="Legendary">👑</span>}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[def.element]}`}>
-                  <img src={ELEMENT_ICON_SRC[def.element]} alt="" className="w-3 h-3 object-contain" />
-                  {def.element}
-                </span>
-                <span className="text-[10px] text-gray-200 capitalize" style={shadowText}>{def.archetype.replace('_', ' ')}</span>
-                <span className="text-[10px] text-gray-200" style={shadowText}>Lv.{monster.monster_level}{monster.graduation_tier ? ` · Graduation Tier ${monster.graduation_tier}` : ''}</span>
-                {monster.quality !== 'normal' && (
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#2a1505] ${glowClass}`}>
-                    {QUALITY_LABEL[monster.quality]}
-                  </span>
-                )}
-              </div>
-            </div>
+          <div className="md:sticky md:top-[6vh] flex justify-center w-full md:w-auto" onClick={e => { if (e.target === e.currentTarget) setDetailMonster(null); }}>
+            <CurioCard
+              key={`${monster.id}-${monster.graduation_tier}-${monster.quality}`}
+              def={def}
+              speciesId={monster.monster_id}
+              stats={scaled}
+              moves={cardMoves}
+              stage={getOwnedCurioStage(monster.monster_id, def, monster.graduation_tier ?? 0)}
+              quality={monster.quality}
+              level={monster.monster_level}
+              exp={monster.monster_exp}
+              ownedNote={monster.slot !== null ? 'On your team' : 'Resting'}
+            />
+          </div>
+
+        {/* Training panel: the same wood-plank + gold trim + corner-nail
+            frame and white gold-trim insets as CompendiumPanel's modal. */}
+        <div
+          className="relative w-full max-w-md rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+        >
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+
+          <div className="flex flex-col gap-4 p-5">
+            <p className="text-center text-base" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>Train {def.name}</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Train {def.name}</span>
+              </span>
+            </p>
 
             <WhiteNailBox>
-              <p className={sectionLabel}>Live stats</p>
-              <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-[#2a1505]">
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/hp.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.hp} HP</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/atk.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.attack} Attack</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/def.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.defense} Defense</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/spd.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.speed} Speed</p>
-              </div>
-              <p className="text-[10px] text-[#6b4820] mt-1">Reflects level, graduation, and quality — the Compendium only shows this species&apos; unmodified base stats.</p>
-            </WhiteNailBox>
-
-            <WhiteNailBox>
-              <p className={sectionLabel}>Skills</p>
+              <p className={sectionLabel}>Change moves</p>
               <div className="space-y-2">
-                {getEquippedSkills(monster.equipped_skills, def).map((skill, i) => {
+                {equipped.map((skill, i) => {
                   const slotIndex = i + 1;
                   const isPending = pendingSlot?.monsterRowId === monster.id && pendingSlot.slotIndex === slotIndex;
                   const unlearnQty = inventory['unlearn_scroll'] || 0;
@@ -592,6 +577,7 @@ export default function TeamPanel({
             })()}
           </div>
         </div>
+        </div>
       </div>
     );
   })();
@@ -600,8 +586,12 @@ export default function TeamPanel({
     <div className="space-y-4">
       <h3 className="text-lg font-bold text-gray-900">Your Team</h3>
 
+      {/* Portaled to <body> so the overlay covers the whole screen (the
+          panel sits inside a transformed container, which would clip a
+          position:fixed child), with the ceremonies and confirms above it. */}
+      {typeof document !== 'undefined' && createPortal(<>
       {detailModal}
-
+      <div className="relative z-[90]">
       {ceremony && (
         <GraduationCeremonyModal
           fromDef={ceremony.fromDef}
@@ -680,6 +670,8 @@ export default function TeamPanel({
           </div>
         </div>
       )}
+      </div>
+      </>, document.body)}
 
       {[1, 2, 3].map(slot => {
         const monster = userMonsters.find(m => m.slot === slot);
