@@ -256,9 +256,11 @@ export default function TrainingMap({
         queuePosition(userId, newX, newY);
         return;
       }
+      // A Supabase query only runs once something awaits or .then()s it.
       supabase.from('user_battle_state')
         .update({ map_x: newX, map_y: newY, updated_at: new Date().toISOString() })
-        .eq('user_id', userId);
+        .eq('user_id', userId)
+        .then(({ error }) => { if (error) console.error('save map position error:', error); });
     }, 200)
   );
   // Flush on unmount only (empty deps — see useMapPresence.ts's identical
@@ -505,7 +507,9 @@ export default function TrainingMap({
         // Persist to player_progress for achievement tracking; skip for bots.
         if (!BOT_IDS.has(userId)) {
           if (playingMapOffline(userId)) queueTrash(userId, 1, 0);
-          else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 1, p_gold: 0 });
+          // .then() is what sends it: an un-awaited Supabase call never runs.
+          else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 1, p_gold: 0 })
+            .then(({ error }) => { if (error) console.error('add_trash_stats error:', error); });
         }
       }, 450);
     }
@@ -577,7 +581,8 @@ export default function TrainingMap({
             } else {
               supabase.from('user_battle_state')
                 .update({ map_x: parsed.spawn.x, map_y: parsed.spawn.y, updated_at: new Date().toISOString() })
-                .eq('user_id', userId);
+                .eq('user_id', userId)
+                .then(({ error }) => { if (error) console.error('save map position error:', error); });
             }
             contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
           }
@@ -836,7 +841,8 @@ export default function TrainingMap({
           // Persist gold-from-recycling counter for achievements; skip for bots.
           if (!BOT_IDS.has(userId)) {
             if (playingMapOffline(userId)) queueTrash(userId, 0, gold);
-            else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold });
+            else supabase.rpc('add_trash_stats', { p_user_id: userId, p_collected: 0, p_gold: gold })
+              .then(({ error }) => { if (error) console.error('add_trash_stats error:', error); });
           }
         }
         setPendingRecyclerTrade(false);
