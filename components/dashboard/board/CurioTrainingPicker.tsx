@@ -10,8 +10,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ALL_MONSTERS, BATTLE_CONSTANTS, GUILD_MONSTERS, MonsterDef, getGuildMonsterDisplay, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import { fetchCurioCollection } from '@/lib/curioCollection';
 import { fetchSubclassProfile, guildLevelForKey, SubclassProfile } from '@/lib/guildEngine';
-import { MonsterImage } from '@/components/battle/shared';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questButtonBoxShadow, questTextShadowStyle, questTextStyle, CURIO_CARD_STYLES } from '@/components/GameButton';
+import GameButton from '@/components/GameButton';
+import MiniCurioCard from '@/components/monster/MiniCurioCard';
+import type { QualityTier } from '@/lib/curioQuality';
 import { playPageFlip } from '@/lib/sounds';
 
 export const TRAINING_EXP_SHARE = 1 / 3;
@@ -25,6 +26,7 @@ export interface OwnedCurio {
   graduation_tier: number | null;
   // Which table the row lives in: 'team' = user_monsters, 'inbox' = user_caught_monsters.
   source: 'team' | 'inbox';
+  quality?: QualityTier;
   // The form the player actually sees: guild companions at their guild-level
   // stage, graduated curios at their graduated stage.
   display: MonsterDef | undefined;
@@ -66,13 +68,13 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect, rewa
       if (cancelled) return;
       const team: OwnedCurio[] = (collection?.userMonsters ?? []).map(m => ({
         id: m.id, monster_id: m.monster_id, nickname: m.nickname, monster_level: m.monster_level,
-        slot: m.slot, graduation_tier: m.graduation_tier ?? null, source: 'team',
+        slot: m.slot, graduation_tier: m.graduation_tier ?? null, source: 'team', quality: m.quality,
         display: getOwnedCurioDisplay(m.monster_id, m.graduation_tier ?? null, profile),
       }));
       // Catch Inbox curios are never graduated (graduating needs a team slot).
       const inbox: OwnedCurio[] = (collection?.caughtMonsters ?? []).map(m => ({
         id: m.id, monster_id: m.monster_id, nickname: m.nickname, monster_level: m.monster_level,
-        slot: null, graduation_tier: 0, source: 'inbox',
+        slot: null, graduation_tier: 0, source: 'inbox', quality: m.quality,
         display: getOwnedCurioDisplay(m.monster_id, 0, profile),
       }));
       // Team slots first, then the bench, then the inbox, strongest first.
@@ -112,12 +114,11 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect, rewa
 
   return (
     <div className="mb-8 text-left">
-      <style>{CURIO_CARD_STYLES}</style>
       <p className="text-center text-[#7a4a0f] font-bold mb-1">Which curio should train?</p>
       <p className="text-center text-xs text-[#6b4820] mb-4">
         Your active curio is picked by default — tap another to switch. {rewardText ?? `The trainee earns ${Math.round(TRAINING_EXP_SHARE * 100)}% of the XP you earn when you complete this quest.`}
       </p>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+      <div className="grid grid-cols-2 min-[440px]:grid-cols-3 sm:grid-cols-4 gap-3 pt-2 max-w-[300px] min-[440px]:max-w-xl mx-auto">
         {visible.map(c => {
           const def = c.display;
           const selected = selectedId === c.id;
@@ -125,25 +126,22 @@ export default function CurioTrainingPicker({ userId, selectedId, onSelect, rewa
             <button
               key={c.id}
               onClick={() => { playPageFlip(); onSelect(c); }}
-              className={`ccard ${selected ? 'ccard-selected' : ''}`}
+              className="relative pt-2 text-left btn-tactile"
+              data-testid="curio-pick"
+              aria-pressed={selected}
+              aria-label={`${c.nickname || def?.name || c.monster_id} Lv.${c.monster_level}${c.slot != null ? '' : c.source === 'inbox' ? ' inbox' : ' bench'}`}
             >
-              {c.id === activeCurio?.id && (
-                <span
-                  className="ccard-tag"
-                  style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, boxShadow: questButtonBoxShadow, fontSize: 10 }}
-                >
-                  <span style={{ position: 'relative', display: 'inline-block' }}>
-                    <span aria-hidden style={questTextShadowStyle}>Active</span>
-                    <span style={questTextStyle}>Active</span>
-                  </span>
-                </span>
+              {def && (
+                <MiniCurioCard
+                  def={def}
+                  name={c.nickname ?? undefined}
+                  level={c.monster_level}
+                  quality={c.quality}
+                  tag={c.id === activeCurio?.id ? 'Active' : undefined}
+                  note={c.slot != null ? undefined : c.source === 'inbox' ? 'Inbox' : 'Bench'}
+                  selected={selected}
+                />
               )}
-              <MonsterImage monster={def} className="w-16 h-16" emojiClassName="text-4xl" />
-              <span className="text-sm font-extrabold text-[#2a1505] truncate max-w-full">{c.nickname || def?.name || c.monster_id}</span>
-              <span className="ccard-lv">
-                Lv.{c.monster_level}{c.slot != null ? '' : c.source === 'inbox' ? ' · inbox' : ' · bench'}
-              </span>
-              {selected && <span className="ccard-check">✔</span>}
             </button>
           );
         })}

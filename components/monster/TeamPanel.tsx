@@ -13,8 +13,9 @@ import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/sk
 import { playPageFlip } from '@/lib/sounds';
 import { graduateMonster } from '@/lib/monsterGraduation';
 import { consumeGrowthPill } from '@/lib/growthPill';
-import { MonsterImage, UserMonster, getSkillSlotLock } from '@/components/battle/shared';
-import CurioCard, { getOwnedCurioStage } from '@/components/monster/CurioCard';
+import { UserMonster, getSkillSlotLock } from '@/components/battle/shared';
+import CurioCard, { buildCurioStory, getOwnedCurioStage } from '@/components/monster/CurioCard';
+import MiniCurioCard from '@/components/monster/MiniCurioCard';
 import { CaughtMonster } from '@/components/monster/types';
 import {
   QualityTier, QUALITY_TIERS, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
@@ -303,6 +304,7 @@ export default function TeamPanel({
       const { isLocked, requiredLevel } = getSkillSlotLock(monster.equipped_skills, def, tier, availableTiers);
       return { skill, lockedUntil: isLocked ? requiredLevel : undefined };
     });
+    const stage = getOwnedCurioStage(monster.monster_id, def, monster.graduation_tier ?? 0);
 
     return (
       // The whole overlay scrolls (card on top on a phone, card beside the
@@ -327,11 +329,12 @@ export default function TeamPanel({
               speciesId={monster.monster_id}
               stats={scaled}
               moves={cardMoves}
-              stage={getOwnedCurioStage(monster.monster_id, def, monster.graduation_tier ?? 0)}
+              stage={stage}
               quality={monster.quality}
               level={monster.monster_level}
               exp={monster.monster_exp}
               ownedNote={monster.slot !== null ? 'On your team' : 'Resting'}
+              story={buildCurioStory(monster, stage, cardMoves)}
             />
           </div>
 
@@ -673,75 +676,69 @@ export default function TeamPanel({
       </div>
       </>, document.body)}
 
-      {[1, 2, 3].map(slot => {
-        const monster = userMonsters.find(m => m.slot === slot);
-        const isUnlocked = slot <= unlockedSlots || !!monster;
-        const def = monster ? getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier) : null;
-        const expToNext = monster ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) : 0;
-
-        return (
-          <div
-            key={slot}
-            className={`p-4 rounded-xl border ${isUnlocked ? 'border-stone-200 bg-stone-50' : 'border-stone-200 bg-stone-100 opacity-50'}`}
-          >
-            {!isUnlocked ? (
-              <p className="text-gray-500 text-sm">🔒 Unlocks at player Level {BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}</p>
-            ) : !monster || !def ? (
-              <div>
-                <p className="text-gray-400 text-sm mb-2">Slot {slot} — Choose a monster:</p>
-                {benchedMonsters.length === 0 ? (
-                  <p className="text-xs text-gray-600">No captured monsters available. Catch one on the Training Map first!</p>
-                ) : (
-                  <div className="flex flex-wrap gap-2">
-                    {benchedMonsters.map(bm => {
-                      const bmDef = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
-                      if (!bmDef) return null;
-                      return (
-                        <button
-                          key={bm.id}
-                          onClick={() => handleAddMonster(slot, bm.monster_id, bm.id)}
-                          className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
-                        >
-                          {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
+      {/* Team slots as card thumbnails; tapping one opens its full card. */}
+      <div className="grid grid-cols-3 gap-3 sm:max-w-md">
+        {[1, 2, 3].map(slot => {
+          const monster = userMonsters.find(m => m.slot === slot);
+          const isUnlocked = slot <= unlockedSlots || !!monster;
+          const def = monster ? getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier) : null;
+          if (monster && def) {
+            return (
               <button
+                key={slot}
                 onClick={() => setDetailMonster(monster)}
-                className="w-full flex items-center gap-4 text-left rounded-lg"
+                className="relative pt-2 text-left btn-tactile"
+                aria-label={`${def.name} Lv.${monster.monster_level}`}
               >
-                <div className={`w-12 h-12 ${getQualityGlowClass(monster.quality)}`}>
-                  <MonsterImage monster={def} className="w-full h-full" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{monster.monster_level}</span></p>
-                  <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  <div className="w-full bg-stone-200 rounded-full h-1.5 mt-1">
-                    <div
-                      className="h-1.5 rounded-full bg-amber-400 transition-all"
-                      style={{ width: `${((monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
-                </div>
-                <div className="text-xs text-gray-400 space-y-0.5">
-                  {(() => {
-                    const scaled = getScaledStats(def, monster.monster_level, monster.quality);
-                    return (
-                      <>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                      </>
-                    );
-                  })()}
-                </div>
+                <MiniCurioCard
+                  def={def}
+                  level={monster.monster_level}
+                  quality={monster.quality}
+                  hp={getScaledStats(def, monster.monster_level, monster.quality).hp}
+                  tag={`Slot ${slot}`}
+                />
               </button>
+            );
+          }
+          return (
+            <div
+              key={slot}
+              className="relative mt-2 rounded-[11px] border-2 border-dashed border-[#c9a87a] bg-[#f5f0e8] flex flex-col items-center justify-center text-center p-2 aspect-[5/7]"
+            >
+              <span className="text-2xl" aria-hidden>{isUnlocked ? '＋' : '🔒'}</span>
+              <p className="text-[11px] font-bold text-[#6b4820] leading-tight mt-1">
+                {isUnlocked ? `Slot ${slot} is empty` : `Unlocks at player Lv.${BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}`}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* An open slot lists the bench curios that can fill it. */}
+      {[1, 2, 3].map(slot => {
+        const isOpen = slot <= unlockedSlots && !userMonsters.some(m => m.slot === slot);
+        if (!isOpen) return null;
+        return (
+          <div key={slot} className="p-3 rounded-xl border border-stone-200 bg-stone-50">
+            <p className="text-gray-500 text-sm mb-2">Slot {slot}: choose a curio</p>
+            {benchedMonsters.length === 0 ? (
+              <p className="text-xs text-gray-600">No captured monsters available. Catch one on the Training Map first!</p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {benchedMonsters.map(bm => {
+                  const bmDef = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
+                  if (!bmDef) return null;
+                  return (
+                    <button
+                      key={bm.id}
+                      onClick={() => handleAddMonster(slot, bm.monster_id, bm.id)}
+                      className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
+                    >
+                      {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
+                    </button>
+                  );
+                })}
+              </div>
             )}
           </div>
         );
@@ -761,128 +758,111 @@ export default function TeamPanel({
       {/* Everything not currently sitting in slot 1-3: monsters already owned but
           benched (slot IS NULL — displaced teammates, guild-reward familiars) and
           rare wild catches waiting to join for the first time. This has to be an
-          always-visible section: the per-slot "Choose a monster" list above only
+          always-visible section: the per-slot "choose a curio" list above only
           renders for slots that are already empty, so once every unlocked slot is
           full, a benched monster would otherwise have no UI to be seen or swapped
           back in from at all. */}
-      {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (
-        <div className="space-y-3 pt-2">
-          <p className="text-xs text-cyan-700 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
-          {benchedMonsters.map(bm => {
-            const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
-            if (!def) return null;
-            const scaled = getScaledStats(def, bm.monster_level, bm.quality);
-            return (
-              <div key={bm.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
-                <div className="flex items-center gap-4">
-                  <button onClick={() => setDetailMonster(bm)} className="flex flex-1 items-center gap-4 text-left rounded-lg min-w-0">
-                    <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(bm.quality)}`}>
-                      <MonsterImage monster={def} className="w-full h-full" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{bm.monster_level}</span></p>
-                      <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                    </div>
-                    <div className="text-xs text-gray-400 space-y-0.5 flex-shrink-0">
-                      <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                    </div>
-                  </button>
-                  {missionLockedIds.has(bm.id) ? (
-                    <span className="text-xs text-amber-700 font-bold px-3 py-2 rounded-lg bg-amber-50 border border-amber-200 flex-shrink-0">
-                      ⚔️ On Mission
-                    </span>
-                  ) : (
+      {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (() => {
+        // The slot picker for whichever bench/inbox card's "Move to Team" is open.
+        const slotPicker = (onPick: (slot: number) => void) => (
+          <div className="col-span-full p-3 rounded-xl border border-cyan-200 bg-cyan-50 flex flex-wrap gap-2">
+            {[1, 2, 3].map(slot => {
+              const existing = userMonsters.find(m => m.slot === slot);
+              const isUnlocked = slot <= unlockedSlots || !!existing;
+              if (!isUnlocked) return null;
+              return (
+                <button
+                  key={slot}
+                  onClick={() => onPick(slot)}
+                  className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
+                >
+                  {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                </button>
+              );
+            })}
+          </div>
+        );
+        const moveButton = (open: boolean, onClick: () => void) => (
+          <button
+            onClick={onClick}
+            className={`w-full mt-1.5 text-white text-[11px] font-bold px-2 py-1.5 rounded-lg transition-colors ${open ? 'bg-cyan-900' : 'bg-cyan-700 hover:bg-cyan-600'}`}
+          >
+            → Move to Team
+          </button>
+        );
+        return (
+          <div className="space-y-3 pt-2">
+            <p className="text-xs text-cyan-700 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+              {benchedMonsters.map(bm => {
+                const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
+                if (!def) return null;
+                const onMission = missionLockedIds.has(bm.id);
+                return [
+                  <div key={bm.id} className="flex flex-col">
                     <button
-                      onClick={() => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id)}
-                      className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                      onClick={() => setDetailMonster(bm)}
+                      className="relative pt-2 text-left btn-tactile"
+                      aria-label={`${def.name} Lv.${bm.monster_level}`}
                     >
-                      → Move to Team
+                      <MiniCurioCard
+                        def={def}
+                        level={bm.monster_level}
+                        quality={bm.quality}
+                        hp={getScaledStats(def, bm.monster_level, bm.quality).hp}
+                        dimmed={onMission}
+                      />
                     </button>
-                  )}
-                </div>
-                {promotingBenchId === bm.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { handleAddMonster(slot, bm.monster_id, bm.id); setPromotingBenchId(null); }}
-                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
-                        >
-                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          {caughtMonsters.map(caught => {
-            // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
-            // always the ungraduated tier-1 form (user_caught_monsters has no
-            // graduation_tier column; only a promoted team monster can be
-            // graduated), so it must never render via the species-wide
-            // graduation-aware display override, even if the player's own
-            // team already owns a graduated instance of this same species.
-            // Not clickable into the detail modal — not yet a user_monsters
-            // row, so skill loadout/graduation/tutoring only apply once
-            // promoted below.
-            const def = ALL_MONSTERS[caught.monster_id];
-            if (!def) return null;
-            const scaled = getScaledStats(def, caught.monster_level, caught.quality);
-            return (
-              <div key={caught.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(caught.quality)}`}>
-                    <MonsterImage monster={def} className="w-full h-full" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{caught.monster_level}</span></p>
-                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  </div>
-                  <div className="text-xs text-gray-400 space-y-0.5">
-                    <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                  </div>
-                  <button
-                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                    className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
-                  >
-                    → Move to Team
-                  </button>
-                </div>
-                {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
-                        >
-                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
+                    {onMission ? (
+                      <span className="mt-1.5 text-[11px] text-amber-700 font-bold px-2 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-center">
+                        ⚔️ On Mission
+                      </span>
+                    ) : moveButton(promotingBenchId === bm.id, () => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id))}
+                  </div>,
+                  promotingBenchId === bm.id && (
+                    <div key={`${bm.id}-slots`} className="contents">
+                      {slotPicker(slot => { handleAddMonster(slot, bm.monster_id, bm.id); setPromotingBenchId(null); })}
+                    </div>
+                  ),
+                ];
+              })}
+              {caughtMonsters.map(caught => {
+                // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
+                // always the ungraduated tier-1 form (user_caught_monsters has no
+                // graduation_tier column; only a promoted team monster can be
+                // graduated), so it must never render via the species-wide
+                // graduation-aware display override, even if the player's own
+                // team already owns a graduated instance of this same species.
+                // Not clickable into the detail modal — not yet a user_monsters
+                // row, so skill loadout/graduation/tutoring only apply once
+                // promoted below.
+                const def = ALL_MONSTERS[caught.monster_id];
+                if (!def) return null;
+                return [
+                  <div key={caught.id} className="flex flex-col">
+                    <div className="relative pt-2">
+                      <MiniCurioCard
+                        def={def}
+                        name={caught.nickname ?? undefined}
+                        level={caught.monster_level}
+                        quality={caught.quality}
+                        hp={getScaledStats(def, caught.monster_level, caught.quality).hp}
+                        tag="New"
+                      />
+                    </div>
+                    {moveButton(promotingId === caught.id, () => setPromotingId(promotingId === caught.id ? null : caught.id))}
+                  </div>,
+                  promotingId === caught.id && (
+                    <div key={`${caught.id}-slots`} className="contents">
+                      {slotPicker(slot => { onPromote(caught, slot); setPromotingId(null); })}
+                    </div>
+                  ),
+                ];
+              })}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

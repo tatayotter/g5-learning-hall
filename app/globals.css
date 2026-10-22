@@ -1757,11 +1757,16 @@ body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }
   0%   { background-position: 0 0, 0% 0%; }
   100% { background-position: 0 0, 250% 250%; }
 }
-.curio-card-shiny { animation: curio-card-in 0.55s cubic-bezier(.2,.8,.3,1) both, curio-card-glint 3s ease-in-out 0.6s infinite; }
-@keyframes curio-card-glint {
-  0%, 100% { filter: brightness(1); }
-  50%      { filter: brightness(1.08) saturate(1.1); }
+/* Flip to the card back (owned curios). Nothing between .curio-card and the
+   faces may set filter/overflow/opacity, or the 3D flattens and the back shows
+   mirrored instead of hidden. */
+.curio-card-flipper {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(.3,.7,.3,1);
 }
+.curio-card-flipper.is-flipped { transform: rotateY(180deg); }
+.curio-card-face, .curio-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.curio-card-back { transform: rotateY(180deg); }
 @media (prefers-reduced-motion: reduce) {
-  .curio-card, .curio-card-shiny, .curio-card-foil { animation: none; transition: none; }
+  .curio-card, .curio-card-foil, .curio-card-flipper { animation: none; transition: none; }
 }

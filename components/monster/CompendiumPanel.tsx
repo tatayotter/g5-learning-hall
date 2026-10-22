@@ -12,6 +12,7 @@ import { GUILDS } from '@/lib/dailyChecklist';
 import { UserMonster, MonsterImage, LegendaryBadge } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
 import CurioCard from '@/components/monster/CurioCard';
+import MiniCurioCard, { MonsterSilhouette } from '@/components/monster/MiniCurioCard';
 import { playPageFlip } from '@/lib/sounds';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton from '@/components/GameButton';
@@ -30,30 +31,6 @@ export function WhiteNailBox({ className = '', children }: { className?: string;
     <div className={`relative bg-white border-2 border-[#4a2f18] rounded-xl p-3 ${className}`} style={{ boxShadow: '0 0 0 2px #d4a017' }}>
       {children}
     </div>
-  );
-}
-
-// Renders a monster's sprite as a flat black silhouette — deliberately
-// bypasses MonsterImage so the emoji fallback can't leak a hint about the
-// mystery species underneath. Callers overlay their own LegendaryBadge
-// (isLegendary is safe to reveal — it doesn't identify the species).
-function MonsterSilhouette({ id, className = '' }: { id: string; className?: string }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) {
-    return (
-      <div className={`flex items-center justify-center rounded-lg bg-neutral-950 text-neutral-700 text-2xl ${className}`}>
-        ?
-      </div>
-    );
-  }
-  return (
-    <img
-      src={`/monsters/${id}.webp`}
-      alt="???"
-      className={`object-contain ${className}`}
-      style={{ filter: 'brightness(0)', opacity: 0.55 }}
-      onError={() => setFailed(true)}
-    />
   );
 }
 
@@ -492,44 +469,26 @@ export default function CompendiumPanel({ userMonsters, caughtMonsters, seenMons
           // benched curio show "In Team" instead of "Benched".
           const inTeam = userMonsters.some(m => m.monster_id === entry.speciesId && m.slot !== null);
           return (
-            // Same wood-plank + gold trim + corner-nail frame as the battle
-            // screen's MonsterHpPanel, reusing its exported style pieces
-            // rather than re-deriving them (2026-08-29).
+            // The species' card thumbnail (base numbers); a species not met
+            // yet is the face-down mystery version.
             <button
               key={entry.key}
               onClick={() => setSelectedKey(entry.key)}
-              className="relative p-3 rounded-xl border-2 border-[#4a2f18] text-center transition-shadow"
-              style={{
-                ...woodTextureStyle,
-                boxShadow: selectedKey === entry.key
-                  ? `0 0 0 3px #f5c542, ${questButtonDropShadow}`
-                  : `0 0 0 2px #d4a017, ${questButtonDropShadow}`,
-              }}
+              className="relative pt-2 text-left btn-tactile"
+              aria-label={known ? entry.def.name : 'Unknown curio'}
             >
-              <Nail className="top-1 left-1" />
-              <Nail className="top-1 right-1" />
-              <Nail className="bottom-1 left-1" />
-              <Nail className="bottom-1 right-1" />
-              <div className="relative w-14 h-14 mx-auto mb-2">
-                {known ? (
-                  <MonsterImage monster={entry.def} className="w-full h-full" emojiClassName="text-3xl" />
-                ) : (
-                  <>
-                    <MonsterSilhouette id={entry.def.spriteId ?? entry.speciesId} className="w-full h-full" />
-                    {entry.def.isLegendary && <LegendaryBadge />}
-                  </>
-                )}
-              </div>
-              <p className="text-xs font-bold text-white truncate" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>{known ? entry.def.name : '???'}</p>
-              {entry.guildLabel && <p className="text-[9px] text-gray-200" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Tier {entry.tier}</p>}
-              {entry.isGraduationTier && <p className="text-[9px] text-amber-300" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>Grad {entry.tier - 1} · Lv.{entry.unlockLevel}</p>}
-              {known && owned && isActiveTier && (
-                inTeam ? (
-                  <p className="text-[9px] text-green-400" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>✅ In Team</p>
-                ) : (
-                  <p className="text-[9px] text-amber-300" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.9)' }}>📦 Benched</p>
-                )
-              )}
+              <MiniCurioCard
+                def={entry.def}
+                mystery={!known}
+                hp={known ? entry.def.baseHp : undefined}
+                tag={entry.guildLabel ? `Tier ${entry.tier}` : entry.isGraduationTier ? `Grad ${entry.tier - 1}` : undefined}
+                selected={selectedKey === entry.key}
+                note={
+                  known && owned && isActiveTier ? (inTeam ? '✅ In Team' : '📦 Benched')
+                  : entry.isGraduationTier ? `Lv.${entry.unlockLevel}+`
+                  : undefined
+                }
+              />
             </button>
           );
         })}
