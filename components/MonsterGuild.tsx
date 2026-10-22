@@ -349,7 +349,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setNotification(msg);
     setTimeout(() => setNotification(null), 3000);
   };
-  const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
+  const [revealMonster, setRevealMonster] = useState<{ def: MonsterDef; level?: number; quality?: QualityTier } | null>(null);
   const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string; quality: QualityTier } | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
@@ -1298,7 +1298,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         setCurio(null);
         await savePendingCurio(null);
         if (wasNew) {
-          setRevealMonster(ALL_MONSTERS[wildMonsterId]);
+          setRevealMonster({ def: ALL_MONSTERS[wildMonsterId], level: wildLevel, quality: wildQuality });
           logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
         } else {
           // Already own this species (active or in the catch inbox) — let
@@ -1812,7 +1812,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       {revealMonster && (
-        <CurioRevealModal monster={revealMonster} userId={userId} onClose={() => setRevealMonster(null)} />
+        <CurioRevealModal monster={revealMonster.def} level={revealMonster.level} quality={revealMonster.quality} userId={userId} onClose={() => setRevealMonster(null)} />
       )}
 
       {liveBattleInbox.incomingInvite && (

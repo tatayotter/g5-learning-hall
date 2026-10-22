@@ -2,9 +2,9 @@
 // Egg hatch reveal ceremony — fired wherever a sync_egg_progress call surfaces
 // a freshly-hatched egg (the hatch itself is already resolved server-side).
 // The kid hatches it: three taps, each adding a crack and a wobble, then the
-// shell bursts and the hatchling lands big, with light rays that settle down
-// and the same quality treatment as Tutor rolls, so a lucky hatch still reads
-// as exciting. The reveal then introduces it (element, quality, a line of
+// shell bursts and the hatchling's card lands face down and flips over
+// (components/curio/NewCardReveal.tsx); a lucky quality gets confetti and a
+// fanfare as it turns, so a lucky hatch still reads as exciting. The reveal then introduces it (element, quality, a line of
 // lore) and says what to do next. A Keeper's Egg (lib/intro/keeperEgg.ts)
 // also gets the Lorekeeper closing the three-day promise.
 // The frame/stage/pills live in components/curio/CurioEventKit.tsx, shared
@@ -17,7 +17,8 @@ import CelebrationOverlay from '@/components/CelebrationOverlay';
 import GameButton from '@/components/GameButton';
 import VoiceCaptions from '@/components/intro/VoiceCaptions';
 import { HATCH_LINE } from '@/lib/intro/keeperEgg';
-import { CurioEventFrame, CurioSpotlight, CurioIdentity, RevealFlash, ELEMENT_RGB, TEXT_SHADOW } from '@/components/curio/CurioEventKit';
+import { CurioEventFrame, CurioSpotlight, CurioIdentity, RevealFlash, TEXT_SHADOW } from '@/components/curio/CurioEventKit';
+import NewCardReveal from '@/components/curio/NewCardReveal';
 
 interface EggHatchModalProps {
   speciesId: string;
@@ -62,6 +63,7 @@ export default function EggHatchModal({ speciesId, element, quality, userId, kin
   const [taps, setTaps] = useState(0);
   const [wobbleKey, setWobbleKey] = useState(0);
   const [burst, setBurst] = useState(false);
+  const [cardFlipped, setCardFlipped] = useState(false);
   const def = ALL_MONSTERS[speciesId];
   const eggSrc = EGG_SPRITE_SRC[element];
   const isRareQuality = quality === 'outstanding' || quality === 'perfect';
@@ -81,13 +83,18 @@ export default function EggHatchModal({ speciesId, element, quality, userId, kin
     const t = setTimeout(() => {
       setPhase('reveal');
       playCurioCaught();
-      if (isRareQuality) {
-        playCurioLevelUp();
-        setBurst(true);
-      }
     }, 450);
     return () => clearTimeout(t);
-  }, [phase, isRareQuality]);
+  }, [phase]);
+
+  // The hatchling's card turns over; a lucky quality gets the fanfare.
+  const onCardFlip = () => {
+    setCardFlipped(true);
+    if (isRareQuality) {
+      playCurioLevelUp();
+      setBurst(true);
+    }
+  };
 
   if (!def) return null;
 
@@ -98,9 +105,12 @@ export default function EggHatchModal({ speciesId, element, quality, userId, kin
       <style>{EGG_CSS}</style>
       {isRareQuality && <CelebrationOverlay userId={userId} trigger={burst} type="levelup" />}
       <CurioEventFrame title={isKeeper ? "Keeper's Egg" : 'The Hatchery'}>
-        {/* Stage: the egg while tapping, the hatchling after. */}
-        <CurioSpotlight def={revealed ? def : null} rays={revealed} raysRgb={ELEMENT_RGB[def.element] ?? ELEMENT_RGB[element]}>
-          {!revealed && (
+        {/* Stage: the egg while tapping, then the hatchling's new card. */}
+        {revealed ? (
+          <NewCardReveal def={def} level={1} quality={quality} flipAfterMs={900} onFlip={onCardFlip} />
+        ) : (
+        <CurioSpotlight def={null}>
+          {(
             <button
               type="button"
               onClick={tap}
@@ -130,6 +140,7 @@ export default function EggHatchModal({ speciesId, element, quality, userId, kin
             </button>
           )}
         </CurioSpotlight>
+        )}
 
         {!revealed ? (
           <p className={`text-white font-bold text-lg mt-2 ${phase === 'tapping' ? 'ce-hint' : ''}`} style={{ textShadow: '0 1px 3px rgba(0,0,0,0.9)' }}>
@@ -138,10 +149,10 @@ export default function EggHatchModal({ speciesId, element, quality, userId, kin
               : 'Here it comes...'}
           </p>
         ) : (
-          <div className="ce-rise space-y-3 mt-1">
+          <div className={`space-y-3 mt-1 ${cardFlipped ? 'ce-rise' : 'invisible'}`}>
             <CurioIdentity def={def} lead="Your egg hatched into" quality={quality} />
 
-            {isKeeper && (
+            {isKeeper && cardFlipped && (
               <div className="text-left">
                 <VoiceCaptions lines={[HATCH_LINE]} startDelayMs={700} onDone={() => {}} />
               </div>

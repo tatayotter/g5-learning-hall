@@ -329,7 +329,7 @@ export default function UiGallery() {
       case 'dailyBonus':
         return <DailyBonusModal streak={3} gold={150} userId="demo" onClose={close} />;
       case 'curioReveal':
-        return <CurioRevealModal monster={leftMon} userId="demo" onClose={close} />;
+        return <CurioRevealModal monster={leftMon} level={7} quality="good" userId="demo" onClose={close} />;
       case 'wildEncounter':
         return <WildEncounterModal monster={leftMon} level={5} quality="outstanding" question={mockQuestion} attemptsLeft={3} onCorrect={close} onWrong={close} />;
       case 'eventAnnouncement':
