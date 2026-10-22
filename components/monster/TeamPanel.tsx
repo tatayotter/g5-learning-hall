@@ -1,18 +1,21 @@
 'use client';
 import { useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { supabase } from '@/lib/supabase';
 import { needsConnection } from '@/lib/offlineReads';
 import {
-  ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS, Element, ELEMENT_ICON_SRC,
+  ALL_MONSTERS, BATTLE_CONSTANTS, MonsterDef, Skill, SKILLS,
   getUnlockedMonsterSlots, getScaledStats, getEquippedSkills,
   getGraduatedMonsterDisplay, getOwnedMonsterDisplay, getMaxGraduationTier, GRADUATION_LEVEL_REQUIREMENT,
-  getMonsterLevel,
+  getMonsterLevel, getAvailableSkillTiers,
 } from '@/lib/monsterConfig';
 import { SCROLL_CATALOG, unlearnMonsterSkill, learnMonsterSkill } from '@/lib/skillScrolls';
 import { playPageFlip } from '@/lib/sounds';
 import { graduateMonster } from '@/lib/monsterGraduation';
 import { consumeGrowthPill } from '@/lib/growthPill';
-import { MonsterImage, UserMonster } from '@/components/battle/shared';
+import { UserMonster, getSkillSlotLock } from '@/components/battle/shared';
+import CurioCard, { buildCurioStory, getOwnedCurioStage } from '@/components/monster/CurioCard';
+import MiniCurioCard from '@/components/monster/MiniCurioCard';
 import { CaughtMonster } from '@/components/monster/types';
 import {
   QualityTier, QUALITY_TIERS, QUALITY_LABEL, TUTOR_COST_BY_TIER, totalAdvanceChance, getQualityGlowClass,
@@ -31,15 +34,6 @@ import MissionsPanel from '@/components/monster/MissionsPanel';
 import { WhiteNailBox } from '@/components/monster/CompendiumPanel';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
-
-const ELEMENT_STYLES: Record<Element, string> = {
-  fire:   'text-orange-700 border-orange-200 bg-orange-50',
-  water:  'text-blue-700 border-blue-200 bg-blue-50',
-  leaf:   'text-green-700 border-green-200 bg-green-50',
-  storm:  'text-yellow-700 border-yellow-200 bg-yellow-50',
-  shadow: 'text-purple-700 border-purple-200 bg-purple-50',
-  light:  'text-amber-700 border-amber-200 bg-amber-50',
-};
 
 export default function TeamPanel({
   userMonsters, playerLevel, userId, onTeamChange, onLoadoutChange, monsterDisplay, caughtMonsters, onPromote,
@@ -302,77 +296,71 @@ export default function TeamPanel({
     // pick a scroll) — too small for the full quest button.
     const chipButton = 'text-[10px] font-bold bg-[#f0ddb8] hover:bg-[#e8c88a] border border-[#c9a87a] hover:border-[#c9781a] disabled:opacity-40 disabled:cursor-not-allowed px-2 py-1 rounded text-[#6b4820] flex-shrink-0 btn-tactile';
     const sectionLabel = 'text-[10px] text-[#7a4a0f] font-bold uppercase tracking-widest mb-1';
-    const shadowText = { textShadow: '0 1px 2px rgba(0,0,0,0.9)' };
+
+    const equipped = getEquippedSkills(monster.equipped_skills, def);
+    const availableTiers = getAvailableSkillTiers(monster.monster_level, def);
+    const cardMoves = equipped.map((skill, i) => {
+      const tier = (i + 1) as 1 | 2 | 3;
+      const { isLocked, requiredLevel } = getSkillSlotLock(monster.equipped_skills, def, tier, availableTiers);
+      return { skill, lockedUntil: isLocked ? requiredLevel : undefined };
+    });
+    const stage = getOwnedCurioStage(monster.monster_id, def, monster.graduation_tier ?? 0);
 
     return (
-      <div
-        className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
-        onClick={() => setDetailMonster(null)}
-      >
-        {/* Same wood-plank + gold trim + corner-nail frame and white gold-trim
-            insets as CompendiumPanel's species detail modal. The frame itself
-            doesn't scroll (so the nails stay pinned to its corners) — only the
-            inner body does. */}
+      // The whole overlay scrolls (card on top on a phone, card beside the
+      // training panel on wider screens); tapping the dark backdrop closes.
+      <div className="fixed inset-0 z-[82] bg-black/75 overflow-y-auto" data-testid="curio-detail">
         <div
-          className="relative w-full max-w-xl max-h-[85vh] flex flex-col rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
-          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
-          onClick={e => e.stopPropagation()}
+          className="min-h-full flex flex-col md:flex-row items-center md:items-start md:justify-center gap-5 px-4 pt-12 pb-8 md:pt-[6vh]"
+          onClick={e => { if (e.target === e.currentTarget) setDetailMonster(null); }}
         >
-          <Nail className="top-2 left-2" />
-          <Nail className="top-2 right-2" />
-          <Nail className="bottom-2 left-2" />
-          <Nail className="bottom-2 right-2" />
           <button
             onClick={() => { playPageFlip(); setDetailMonster(null); }}
-            className="absolute top-3 right-7 z-10 text-gray-200 hover:text-white text-xl leading-none btn-tactile"
-            style={shadowText}
+            className="fixed top-3 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white text-xl leading-none btn-tactile"
             aria-label="Close"
           >
             ✕
           </button>
 
-          <div className="flex flex-col gap-4 overflow-y-auto min-h-0 p-5">
-            <div className="flex flex-col items-center text-center gap-2">
-              <div className={`w-28 h-28 ${glowClass}`}>
-                <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-6xl" />
-              </div>
-              <p className="text-xl font-bold flex items-center justify-center gap-2" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <span aria-hidden style={questTextShadowStyle}>{def.name}</span>
-                  <span style={questTextStyle}>{def.name}</span>
-                </span>
-                {def.isLegendary && <span title="Legendary">👑</span>}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border capitalize ${ELEMENT_STYLES[def.element]}`}>
-                  <img src={ELEMENT_ICON_SRC[def.element]} alt="" className="w-3 h-3 object-contain" />
-                  {def.element}
-                </span>
-                <span className="text-[10px] text-gray-200 capitalize" style={shadowText}>{def.archetype.replace('_', ' ')}</span>
-                <span className="text-[10px] text-gray-200" style={shadowText}>Lv.{monster.monster_level}{monster.graduation_tier ? ` · Graduation Tier ${monster.graduation_tier}` : ''}</span>
-                {monster.quality !== 'normal' && (
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-[#2a1505] ${glowClass}`}>
-                    {QUALITY_LABEL[monster.quality]}
-                  </span>
-                )}
-              </div>
-            </div>
+          <div className="md:sticky md:top-[6vh] flex justify-center w-full md:w-auto" onClick={e => { if (e.target === e.currentTarget) setDetailMonster(null); }}>
+            <CurioCard
+              key={`${monster.id}-${monster.graduation_tier}-${monster.quality}`}
+              def={def}
+              speciesId={monster.monster_id}
+              stats={scaled}
+              moves={cardMoves}
+              stage={stage}
+              quality={monster.quality}
+              level={monster.monster_level}
+              exp={monster.monster_exp}
+              ownedNote={monster.slot !== null ? 'On your team' : 'Resting'}
+              story={buildCurioStory(monster, stage, cardMoves)}
+            />
+          </div>
+
+        {/* Training panel: the same wood-plank + gold trim + corner-nail
+            frame and white gold-trim insets as CompendiumPanel's modal. */}
+        <div
+          className="relative w-full max-w-md rounded-2xl border-2 border-[#4a2f18] battle-panel-in"
+          style={{ boxShadow: `0 0 0 3px #d4a017, ${questButtonDropShadow}`, ...woodTextureStyle }}
+        >
+          <Nail className="top-2 left-2" />
+          <Nail className="top-2 right-2" />
+          <Nail className="bottom-2 left-2" />
+          <Nail className="bottom-2 right-2" />
+
+          <div className="flex flex-col gap-4 p-5">
+            <p className="text-center text-base" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>Train {def.name}</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Train {def.name}</span>
+              </span>
+            </p>
 
             <WhiteNailBox>
-              <p className={sectionLabel}>Live stats</p>
-              <div className="grid grid-cols-2 gap-2 max-w-xs text-sm text-[#2a1505]">
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/hp.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.hp} HP</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/atk.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.attack} Attack</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/def.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.defense} Defense</p>
-                <p className="flex items-center gap-1.5"><img src="/icons/stats/spd.svg" alt="" className="w-4 h-4 object-contain" /> {scaled.speed} Speed</p>
-              </div>
-              <p className="text-[10px] text-[#6b4820] mt-1">Reflects level, graduation, and quality — the Compendium only shows this species&apos; unmodified base stats.</p>
-            </WhiteNailBox>
-
-            <WhiteNailBox>
-              <p className={sectionLabel}>Skills</p>
+              <p className={sectionLabel}>Change moves</p>
               <div className="space-y-2">
-                {getEquippedSkills(monster.equipped_skills, def).map((skill, i) => {
+                {equipped.map((skill, i) => {
                   const slotIndex = i + 1;
                   const isPending = pendingSlot?.monsterRowId === monster.id && pendingSlot.slotIndex === slotIndex;
                   const unlearnQty = inventory['unlearn_scroll'] || 0;
@@ -592,6 +580,7 @@ export default function TeamPanel({
             })()}
           </div>
         </div>
+        </div>
       </div>
     );
   })();
@@ -600,8 +589,12 @@ export default function TeamPanel({
     <div className="space-y-4">
       <h3 className="text-lg font-bold text-gray-900">Your Team</h3>
 
+      {/* Portaled to <body> so the overlay covers the whole screen (the
+          panel sits inside a transformed container, which would clip a
+          position:fixed child), with the ceremonies and confirms above it. */}
+      {typeof document !== 'undefined' && createPortal(<>
       {detailModal}
-
+      <div className="relative z-[90]">
       {ceremony && (
         <GraduationCeremonyModal
           fromDef={ceremony.fromDef}
@@ -680,76 +673,72 @@ export default function TeamPanel({
           </div>
         </div>
       )}
+      </div>
+      </>, document.body)}
 
-      {[1, 2, 3].map(slot => {
-        const monster = userMonsters.find(m => m.slot === slot);
-        const isUnlocked = slot <= unlockedSlots || !!monster;
-        const def = monster ? getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier) : null;
-        const expToNext = monster ? BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL - (monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) : 0;
-
-        return (
-          <div
-            key={slot}
-            className={`p-4 rounded-xl border ${isUnlocked ? 'border-stone-200 bg-stone-50' : 'border-stone-200 bg-stone-100 opacity-50'}`}
-          >
-            {!isUnlocked ? (
-              <p className="text-gray-500 text-sm">🔒 Unlocks at player Level {BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}</p>
-            ) : !monster || !def ? (
-              <div>
-                <p className="text-gray-400 text-sm mb-2">Slot {slot} — Choose a monster:</p>
-                {benchedMonsters.length === 0 ? (
-                  <p className="text-xs text-gray-600">No captured monsters available. Catch one on the Training Map first!</p>
-                ) : (
-                  <div className="flex flex-wrap gap-2">
-                    {benchedMonsters.map(bm => {
-                      const bmDef = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
-                      if (!bmDef) return null;
-                      return (
-                        <button
-                          key={bm.id}
-                          onClick={() => handleAddMonster(slot, bm.monster_id, bm.id)}
-                          className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
-                        >
-                          {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
+      {/* Team slots as card thumbnails; tapping one opens its full card. */}
+      <div className="grid grid-cols-3 gap-3 sm:max-w-md">
+        {[1, 2, 3].map(slot => {
+          const monster = userMonsters.find(m => m.slot === slot);
+          const isUnlocked = slot <= unlockedSlots || !!monster;
+          const def = monster ? getOwnedMonsterDisplay(monsterDisplay[monster.monster_id], monster.graduation_tier) : null;
+          if (monster && def) {
+            return (
               <button
+                key={slot}
                 onClick={() => setDetailMonster(monster)}
-                className="w-full flex items-center gap-4 text-left rounded-lg"
+                className="relative pt-2 text-left btn-tactile"
+                aria-label={`${def.name} Lv.${monster.monster_level}`}
               >
-                <div className={`w-12 h-12 ${getQualityGlowClass(monster.quality)}`}>
-                  <MonsterImage monster={def} className="w-full h-full" />
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{monster.monster_level}</span></p>
-                  <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  <div className="w-full bg-stone-200 rounded-full h-1.5 mt-1">
-                    <div
-                      className="h-1.5 rounded-full bg-amber-400 transition-all"
-                      style={{ width: `${((monster.monster_exp % BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) / BATTLE_CONSTANTS.MONSTER_EXP_PER_LEVEL) * 100}%` }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-500 mt-0.5">{expToNext} EXP to next level</p>
-                </div>
-                <div className="text-xs text-gray-400 space-y-0.5">
-                  {(() => {
-                    const scaled = getScaledStats(def, monster.monster_level, monster.quality);
-                    return (
-                      <>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                        <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                      </>
-                    );
-                  })()}
-                </div>
+                <MiniCurioCard
+                  def={def}
+                  level={monster.monster_level}
+                  quality={monster.quality}
+                  hp={getScaledStats(def, monster.monster_level, monster.quality).hp}
+                  tag={`Slot ${slot}`}
+                />
               </button>
+            );
+          }
+          return (
+            <div
+              key={slot}
+              className="relative mt-2 rounded-[11px] border-2 border-dashed border-[#c9a87a] bg-[#f5f0e8] flex flex-col items-center justify-center text-center p-2 aspect-[5/7]"
+            >
+              <span className="text-2xl" aria-hidden>{isUnlocked ? '＋' : '🔒'}</span>
+              <p className="text-[11px] font-bold text-[#6b4820] leading-tight mt-1">
+                {isUnlocked ? `Slot ${slot} is empty` : `Unlocks at player Lv.${BATTLE_CONSTANTS.PLAYER_LEVEL_FOR_SLOT[slot as 1|2|3]}`}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* An open slot lists the bench curios that can fill it. */}
+      {[1, 2, 3].map(slot => {
+        const isOpen = slot <= unlockedSlots && !userMonsters.some(m => m.slot === slot);
+        if (!isOpen) return null;
+        return (
+          <div key={slot} className="p-3 rounded-xl border border-stone-200 bg-stone-50">
+            <p className="text-gray-500 text-sm mb-2">Slot {slot}: choose a curio</p>
+            {benchedMonsters.length === 0 ? (
+              <p className="text-xs text-gray-600">No captured monsters available. Catch one on the Training Map first!</p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {benchedMonsters.map(bm => {
+                  const bmDef = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
+                  if (!bmDef) return null;
+                  return (
+                    <button
+                      key={bm.id}
+                      onClick={() => handleAddMonster(slot, bm.monster_id, bm.id)}
+                      className="text-sm bg-stone-100 hover:bg-stone-200 px-3 py-1 rounded-lg text-gray-900"
+                    >
+                      {bmDef.name} <span className="text-gray-500">Lv.{bm.monster_level}</span>
+                    </button>
+                  );
+                })}
+              </div>
             )}
           </div>
         );
@@ -769,128 +758,111 @@ export default function TeamPanel({
       {/* Everything not currently sitting in slot 1-3: monsters already owned but
           benched (slot IS NULL — displaced teammates, guild-reward familiars) and
           rare wild catches waiting to join for the first time. This has to be an
-          always-visible section: the per-slot "Choose a monster" list above only
+          always-visible section: the per-slot "choose a curio" list above only
           renders for slots that are already empty, so once every unlocked slot is
           full, a benched monster would otherwise have no UI to be seen or swapped
           back in from at all. */}
-      {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (
-        <div className="space-y-3 pt-2">
-          <p className="text-xs text-cyan-700 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
-          {benchedMonsters.map(bm => {
-            const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
-            if (!def) return null;
-            const scaled = getScaledStats(def, bm.monster_level, bm.quality);
-            return (
-              <div key={bm.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
-                <div className="flex items-center gap-4">
-                  <button onClick={() => setDetailMonster(bm)} className="flex flex-1 items-center gap-4 text-left rounded-lg min-w-0">
-                    <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(bm.quality)}`}>
-                      <MonsterImage monster={def} className="w-full h-full" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{bm.monster_level}</span></p>
-                      <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                    </div>
-                    <div className="text-xs text-gray-400 space-y-0.5 flex-shrink-0">
-                      <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                      <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                    </div>
-                  </button>
-                  {missionLockedIds.has(bm.id) ? (
-                    <span className="text-xs text-amber-700 font-bold px-3 py-2 rounded-lg bg-amber-50 border border-amber-200 flex-shrink-0">
-                      ⚔️ On Mission
-                    </span>
-                  ) : (
+      {(benchedMonsters.length > 0 || caughtMonsters.length > 0) && (() => {
+        // The slot picker for whichever bench/inbox card's "Move to Team" is open.
+        const slotPicker = (onPick: (slot: number) => void) => (
+          <div className="col-span-full p-3 rounded-xl border border-cyan-200 bg-cyan-50 flex flex-wrap gap-2">
+            {[1, 2, 3].map(slot => {
+              const existing = userMonsters.find(m => m.slot === slot);
+              const isUnlocked = slot <= unlockedSlots || !!existing;
+              if (!isUnlocked) return null;
+              return (
+                <button
+                  key={slot}
+                  onClick={() => onPick(slot)}
+                  className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
+                >
+                  {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
+                </button>
+              );
+            })}
+          </div>
+        );
+        const moveButton = (open: boolean, onClick: () => void) => (
+          <button
+            onClick={onClick}
+            className={`w-full mt-1.5 text-white text-[11px] font-bold px-2 py-1.5 rounded-lg transition-colors ${open ? 'bg-cyan-900' : 'bg-cyan-700 hover:bg-cyan-600'}`}
+          >
+            → Move to Team
+          </button>
+        );
+        return (
+          <div className="space-y-3 pt-2">
+            <p className="text-xs text-cyan-700 font-bold uppercase tracking-widest">Your Bench (Add To Your Team)</p>
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3">
+              {benchedMonsters.map(bm => {
+                const def = getOwnedMonsterDisplay(monsterDisplay[bm.monster_id], bm.graduation_tier);
+                if (!def) return null;
+                const onMission = missionLockedIds.has(bm.id);
+                return [
+                  <div key={bm.id} className="flex flex-col">
                     <button
-                      onClick={() => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id)}
-                      className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0"
+                      onClick={() => setDetailMonster(bm)}
+                      className="relative pt-2 text-left btn-tactile"
+                      aria-label={`${def.name} Lv.${bm.monster_level}`}
                     >
-                      → Move to Team
+                      <MiniCurioCard
+                        def={def}
+                        level={bm.monster_level}
+                        quality={bm.quality}
+                        hp={getScaledStats(def, bm.monster_level, bm.quality).hp}
+                        dimmed={onMission}
+                      />
                     </button>
-                  )}
-                </div>
-                {promotingBenchId === bm.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { handleAddMonster(slot, bm.monster_id, bm.id); setPromotingBenchId(null); }}
-                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
-                        >
-                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-          {caughtMonsters.map(caught => {
-            // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
-            // always the ungraduated tier-1 form (user_caught_monsters has no
-            // graduation_tier column; only a promoted team monster can be
-            // graduated), so it must never render via the species-wide
-            // graduation-aware display override, even if the player's own
-            // team already owns a graduated instance of this same species.
-            // Not clickable into the detail modal — not yet a user_monsters
-            // row, so skill loadout/graduation/tutoring only apply once
-            // promoted below.
-            const def = ALL_MONSTERS[caught.monster_id];
-            if (!def) return null;
-            const scaled = getScaledStats(def, caught.monster_level, caught.quality);
-            return (
-              <div key={caught.id} className="p-4 rounded-xl border border-cyan-200 bg-cyan-50">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 flex-shrink-0 ${getQualityGlowClass(caught.quality)}`}>
-                    <MonsterImage monster={def} className="w-full h-full" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-gray-900">{def.name} <span className="text-gray-500 text-sm">Lv.{caught.monster_level}</span></p>
-                    <p className="text-xs text-gray-500 capitalize">{def.element} · {def.archetype.replace('_', ' ')}</p>
-                  </div>
-                  <div className="text-xs text-gray-400 space-y-0.5">
-                    <p className="flex items-center gap-1"><img src="/icons/stats/hp.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.hp}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/atk.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.attack}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/def.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.defense}</p>
-                    <p className="flex items-center gap-1"><img src="/icons/stats/spd.svg" alt="" className="w-3.5 h-3.5 object-contain" /> {scaled.speed}</p>
-                  </div>
-                  <button
-                    onClick={() => setPromotingId(promotingId === caught.id ? null : caught.id)}
-                    className="bg-cyan-700 hover:bg-cyan-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors"
-                  >
-                    → Move to Team
-                  </button>
-                </div>
-                {promotingId === caught.id && (
-                  <div className="mt-3 pt-3 border-t border-cyan-200 flex flex-wrap gap-2">
-                    {[1, 2, 3].map(slot => {
-                      const existing = userMonsters.find(m => m.slot === slot);
-                      const isUnlocked = slot <= unlockedSlots || !!existing;
-                      if (!isUnlocked) return null;
-                      return (
-                        <button
-                          key={slot}
-                          onClick={() => { onPromote(caught, slot); setPromotingId(null); }}
-                          className="text-xs bg-stone-100 hover:bg-stone-200 px-3 py-2 rounded-lg text-gray-900"
-                        >
-                          {existing ? `Replace ${getOwnedMonsterDisplay(monsterDisplay[existing.monster_id], existing.graduation_tier)?.name || existing.monster_id} (Slot ${slot})` : `Empty Slot ${slot}`}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      )}
+                    {onMission ? (
+                      <span className="mt-1.5 text-[11px] text-amber-700 font-bold px-2 py-1.5 rounded-lg bg-amber-50 border border-amber-200 text-center">
+                        ⚔️ On Mission
+                      </span>
+                    ) : moveButton(promotingBenchId === bm.id, () => setPromotingBenchId(promotingBenchId === bm.id ? null : bm.id))}
+                  </div>,
+                  promotingBenchId === bm.id && (
+                    <div key={`${bm.id}-slots`} className="contents">
+                      {slotPicker(slot => { handleAddMonster(slot, bm.monster_id, bm.id); setPromotingBenchId(null); })}
+                    </div>
+                  ),
+                ];
+              })}
+              {caughtMonsters.map(caught => {
+                // Deliberately ALL_MONSTERS, not monsterDisplay — a bench catch is
+                // always the ungraduated tier-1 form (user_caught_monsters has no
+                // graduation_tier column; only a promoted team monster can be
+                // graduated), so it must never render via the species-wide
+                // graduation-aware display override, even if the player's own
+                // team already owns a graduated instance of this same species.
+                // Not clickable into the detail modal — not yet a user_monsters
+                // row, so skill loadout/graduation/tutoring only apply once
+                // promoted below.
+                const def = ALL_MONSTERS[caught.monster_id];
+                if (!def) return null;
+                return [
+                  <div key={caught.id} className="flex flex-col">
+                    <div className="relative pt-2">
+                      <MiniCurioCard
+                        def={def}
+                        name={caught.nickname ?? undefined}
+                        level={caught.monster_level}
+                        quality={caught.quality}
+                        hp={getScaledStats(def, caught.monster_level, caught.quality).hp}
+                        tag="New"
+                      />
+                    </div>
+                    {moveButton(promotingId === caught.id, () => setPromotingId(promotingId === caught.id ? null : caught.id))}
+                  </div>,
+                  promotingId === caught.id && (
+                    <div key={`${caught.id}-slots`} className="contents">
+                      {slotPicker(slot => { onPromote(caught, slot); setPromotingId(null); })}
+                    </div>
+                  ),
+                ];
+              })}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

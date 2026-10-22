@@ -7,6 +7,7 @@
 // block the quest reward itself.
 import { supabase } from '@/lib/supabase';
 import { logAction } from '@/lib/playerlog';
+import { recordCurioStory } from '@/lib/curioStory';
 import { ALL_MONSTERS, BATTLE_CONSTANTS, getMonsterLevel } from '@/lib/monsterConfig';
 import { TRAINING_EXP_SHARE, OwnedCurio } from '@/components/dashboard/board/CurioTrainingPicker';
 import type { TrainingResult } from '@/components/VictoryScreen';
@@ -25,6 +26,8 @@ export function awardCurioTrainingExp(
   xpEarned: number,
   weekStartingDate: string,
 ): Promise<TrainingResult | null> {
+  // A quest trained this curio: count it on its card back (team/bench curios only).
+  if (curio.source !== 'inbox') recordCurioStory(userId, curio.id, { trained: true });
   return grantCurioExp(userId, curio, Math.floor(xpEarned * TRAINING_EXP_SHARE), weekStartingDate);
 }
 

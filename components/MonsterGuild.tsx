@@ -63,6 +63,7 @@ import { EggChainMap, CurioEgg, fetchEggChainMap, fetchUserEggs, eggReadyLevel }
 import { takePrefetch, MonsterGuildPrefetch } from '@/lib/tabPrefetch';
 import MapView from '@/components/monster/MapView';
 import TeamView from '@/components/monster/TeamView';
+import { recordCurioStory } from '@/lib/curioStory';
 import BattleViews from '@/components/monster/BattleViews';
 import TrainersView from '@/components/monster/TrainersView';
 import BattleTraining from '@/components/monster/BattleTraining';
@@ -348,7 +349,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     setNotification(msg);
     setTimeout(() => setNotification(null), 3000);
   };
-  const [revealMonster, setRevealMonster] = useState<MonsterDef | null>(null);
+  const [revealMonster, setRevealMonster] = useState<{ def: MonsterDef; level?: number; quality?: QualityTier } | null>(null);
   const [pendingDuplicate, setPendingDuplicate] = useState<{ monsterId: string; level: number; name: string; quality: QualityTier } | null>(null);
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [answeredArenaIds, setAnsweredArenaIds] = useState<Set<string>>(new Set());
@@ -1218,9 +1219,16 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     await supabase.from('user_monsters').update({ monster_exp: newExp, monster_level: getMonsterLevel(newExp) }).eq('id', activeMonster.id);
   };
 
+  // Counts a battle on the active curio's trading card (lib/curioStory.ts).
+  const recordActiveCurioBattle = (won: boolean) => {
+    const activeMonster = userMonsters.find(m => m.slot === (battleState?.active_monster_slot || 1));
+    recordCurioStory(userId, activeMonster?.id, { battleWon: won });
+  };
+
   // Shared by the Trainers-list Dummy fight and battle training's Dummy fight.
   const recordDummyResult = async (won: boolean, expEarned: number) => {
     const today = new Date().toISOString().split('T')[0];
+    recordActiveCurioBattle(won);
     if (won) {
       await awardActiveMonsterExp(expEarned);
       showNotification('🥊 You bullied the Training Dummy!');
@@ -1238,6 +1246,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // counts toward the Tatay achievements, but never marks him defeated.
   const recordTrainingTatayResult = (won: boolean) => {
     const today = new Date().toISOString().split('T')[0];
+    recordActiveCurioBattle(won);
     // .then() is what sends it: an un-awaited Supabase query never runs.
     supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'tatay', result: won ? 'win' : 'loss', monster_exp_earned: 0 })
       .then(({ error }) => { if (error) console.error('monster_battle_log insert error:', error); });
@@ -1257,6 +1266,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     if (battleEndHandledRef.current) return;
     battleEndHandledRef.current = true;
     const today = new Date().toISOString().split('T')[0];
+
+    // Dummy fights count inside recordDummyResult; offline trainer battles aren't
+    // counted (the server re-grades them on sync and decides the result).
+    if (!(isDummyBattle && activeBattle) && !offlineBattle) recordActiveCurioBattle(won);
 
     if (isWildEncounterBattle && activeBattle) {
       const wildMonsterId = activeBattle.monsters[0].monsterId;
@@ -1287,7 +1300,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
         setCurio(null);
         await savePendingCurio(null);
         if (wasNew) {
-          setRevealMonster(ALL_MONSTERS[wildMonsterId]);
+          setRevealMonster({ def: ALL_MONSTERS[wildMonsterId], level: wildLevel, quality: wildQuality });
           logAction(userId, today, 'battle', `🐉 Captured wild ${activeBattle.name}!`, 0, 0);
         } else {
           // Already own this species (active or in the catch inbox) — let
@@ -1381,6 +1394,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
 
   const handlePvpBattleEnd = async (won: boolean, _expEarned: number) => {
     const today = new Date().toISOString().split('T')[0];
+    recordActiveCurioBattle(won);
     const opponent = pvpOpponent!;
     if (won) {
       const alreadyWonToday = battleState?.last_pvp_win === today;
@@ -1800,7 +1814,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       )}
 
       {revealMonster && (
-        <CurioRevealModal monster={revealMonster} userId={userId} onClose={() => setRevealMonster(null)} />
+        <CurioRevealModal monster={revealMonster.def} level={revealMonster.level} quality={revealMonster.quality} userId={userId} onClose={() => setRevealMonster(null)} />
       )}
 
       {liveBattleInbox.incomingInvite && (

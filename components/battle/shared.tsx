@@ -24,6 +24,13 @@ export interface UserMonster {
   equipped_skills: (string | null)[];
   graduation_tier: number; // 0 = ungraduated; see MonsterDef.graduation in lib/monsterConfig.ts
   quality: QualityTier; // see lib/curioQuality.ts — boosts HP/Attack via getScaledStats
+  // Shown on the back of the curio's trading card (lib/curioStory.ts). Optional: not every
+  // query selects them, and rows read from an older offline copy won't have them.
+  created_at?: string;
+  acquired_via?: string; // 'caught' (default, incl. starters and guild companions) | 'egg' | 'traded'
+  battles_fought?: number;
+  battles_won?: number;
+  quests_trained?: number;
 }
 
 export interface ActiveBattleMonster {

@@ -5,7 +5,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { MonsterImage, UserMonster } from '@/components/battle/shared';
 import { CaughtMonster } from '@/components/monster/types';
-import { MonsterDef, getOwnedMonsterDisplay } from '@/lib/monsterConfig';
+import { MonsterDef, getOwnedMonsterDisplay, getScaledStats } from '@/lib/monsterConfig';
+import MiniCurioCard from '@/components/monster/MiniCurioCard';
 import { getQualityGlowClass } from '@/lib/curioQuality';
 import {
   MISSION_TIERS, MISSION_SLOT_LEVELS, MissionTier, CurioMission,
@@ -350,7 +351,7 @@ export default function MissionsPanel({
                   All benched Curios are already on missions, or there are none on the bench yet.
                 </p>
               ) : (
-                <div className="space-y-2 max-h-48 overflow-y-auto pr-0.5">
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-72 overflow-y-auto p-1">
                   {available.map(um => {
                     const def = getOwnedMonsterDisplay(monsterDisplay[um.monster_id], um.graduation_tier);
                     if (!def) return null;
@@ -359,18 +360,16 @@ export default function MissionsPanel({
                         key={um.id}
                         onClick={() => { playPageFlip(); handleSend(um.id, pickerTier); }}
                         disabled={busy === 'send'}
-                        className="w-full flex items-center gap-3 p-2.5 rounded-lg border border-stone-100 bg-stone-50 hover:bg-stone-100 disabled:opacity-40 transition-colors text-left"
+                        className="relative pt-2 text-left btn-tactile disabled:opacity-40"
+                        aria-label={`${def.name} Lv.${um.monster_level}`}
                       >
-                        <div className={`w-8 h-8 flex-shrink-0 ${getQualityGlowClass(um.quality)}`}>
-                          <MonsterImage monster={def} className="w-full h-full" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-bold text-gray-900 leading-tight">{def.name}</p>
-                          <p className="text-xs text-gray-500">Lv.{um.monster_level}</p>
-                        </div>
-                        {busy === 'send' && (
-                          <span className="ml-auto text-xs text-stone-400">Sending…</span>
-                        )}
+                        <MiniCurioCard
+                          def={def}
+                          level={um.monster_level}
+                          quality={um.quality}
+                          hp={getScaledStats(def, um.monster_level, um.quality).hp}
+                          note={busy === 'send' ? 'Sending…' : undefined}
+                        />
                       </button>
                     );
                   })}
