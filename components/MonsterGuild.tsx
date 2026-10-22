@@ -1247,7 +1247,9 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   const recordTrainingTatayResult = (won: boolean) => {
     const today = new Date().toISOString().split('T')[0];
     recordActiveCurioBattle(won);
-    void supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'tatay', result: won ? 'win' : 'loss', monster_exp_earned: 0 });
+    // .then() is what sends it: an un-awaited Supabase query never runs.
+    supabase.from('monster_battle_log').insert({ user_id: userId, opponent: 'tatay', result: won ? 'win' : 'loss', monster_exp_earned: 0 })
+      .then(({ error }) => { if (error) console.error('monster_battle_log insert error:', error); });
     logAction(userId, today, 'battle', won ? '🏆 Beat Tatay in battle training' : '💀 Lost to Tatay in battle training', 0, 0);
     onTatayBattleResult?.(won);
   };

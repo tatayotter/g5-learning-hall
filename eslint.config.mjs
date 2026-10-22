@@ -32,6 +32,16 @@ const eslintConfig = defineConfig([
         destructuredArrayIgnorePattern: "^_",
         ignoreRestSiblings: true,
       }],
+      // A Supabase query is lazy: it only runs once something awaits it or calls
+      // .then(). A bare `supabase.rpc(...)` statement never reaches the server, which
+      // silently left the trash counters and saved map position at zero for months.
+      "no-restricted-syntax": ["error", ...[
+        "ExpressionStatement > CallExpression",
+        "ExpressionStatement > UnaryExpression[operator='void'] > CallExpression",
+      ].map(prefix => ({
+        selector: `${prefix}[callee.type='MemberExpression'][callee.property.name=/^(rpc|from|select|insert|update|upsert|eq|neq|in|is|match|order|limit|range|single|maybeSingle)$/]:has(Identifier[name='supabase'])`,
+        message: "This Supabase query never runs: await it or add .then(...).",
+      }))],
     },
   },
   {
