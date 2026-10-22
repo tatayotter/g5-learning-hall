@@ -615,6 +615,7 @@ export default function MapCanvas({
           CSS transition here (it would fight/lag behind 60fps updates). */}
       <div
         ref={selfWrapRef}
+        data-testid="map-self-marker"
         className="absolute pointer-events-none flex items-center justify-center"
         style={{ left: `${leftPct(posX)}%`, top: `${topPct(posY)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
       >

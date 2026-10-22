@@ -92,6 +92,8 @@ export default class GardenPlants {
 
   private draw(p: PlantSprite, tex: string, key: string, changed: boolean) {
     const old = this.drawn.get(p.id);
+    // Just picked: a puff of dust and leaves where it stood.
+    if (changed && p.stage === 'picked' && old?.key.endsWith(':ripe')) this.dustPop(p);
     old?.images.forEach(i => i.destroy());
     const texture = this.scene.textures.get(tex);
     const h = p.tall ? 64 : 32;
@@ -134,6 +136,40 @@ export default class GardenPlants {
       for (const image of images) {
         this.scene.tweens.add({ targets: image, x: image.x + 1, duration: 60, yoyo: true, repeat: 3 });
       }
+    }
+  }
+
+  // Soft dust clouds that swell and fade, plus leaf and soil bits that jump out and fall,
+  // all square art pixels so it matches the map.
+  private dustPop(p: PlantSprite) {
+    if (this.still) return;
+    const cx = p.x * 32 + 16;
+    const base = (p.y + 1) * 32 - 6;
+    const add = (o: Phaser.GameObjects.GameObject) => { this.container.add(o); return o; };
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2 + Math.random() * 0.6;
+      const puff = add(this.scene.add.ellipse(cx + Math.cos(a) * 4, base - 2, 10, 7, 0xe8dcc0, 0.85)) as Phaser.GameObjects.Ellipse;
+      this.scene.tweens.add({
+        targets: puff,
+        x: cx + Math.cos(a) * 16, y: base - 6 - Math.random() * 8,
+        scaleX: 2, scaleY: 1.8, alpha: 0,
+        duration: 450 + Math.random() * 150, ease: 'Cubic.easeOut',
+        onComplete: () => puff.destroy(),
+      });
+    }
+    const colors = [0x5d8a2e, 0x7fae3e, 0x3f6b22, 0x8a5a33, 0x6b4426];
+    for (let i = 0; i < 12; i++) {
+      const bit = add(this.scene.add.rectangle(cx, base - 8, 2, 2, colors[i % colors.length])) as Phaser.GameObjects.Rectangle;
+      const dx = (Math.random() - 0.5) * 40;
+      const up = 10 + Math.random() * 16;
+      this.scene.tweens.add({ targets: bit, x: cx + dx, duration: 520, ease: 'Linear' });
+      this.scene.tweens.add({
+        targets: bit, y: base - 8 - up, duration: 220, ease: 'Quad.easeOut',
+        onComplete: () => this.scene.tweens.add({
+          targets: bit, y: base + 2, alpha: 0, duration: 300, ease: 'Quad.easeIn',
+          onComplete: () => bit.destroy(),
+        }),
+      });
     }
   }
 

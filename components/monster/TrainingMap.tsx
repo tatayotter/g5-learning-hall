@@ -34,7 +34,8 @@ import { useTrashItems } from '@/hooks/useTrashItems';
 import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
-import { VEGGIES, WILD_PLANTS } from '@/lib/gardenConfig';
+import { VEGGIES, WILD_PLANTS, gardenItemIcon, seedsKey, veggieKey } from '@/lib/gardenConfig';
+import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import type { InventoryMap } from '@/lib/inventory';
@@ -666,6 +667,7 @@ export default function TrainingMap({
     const name = VEGGIES[plant.veggie].label;
     if (r.status === 'picked') {
       playChime();
+      flyToBag([gardenItemIcon(veggieKey(plant.veggie)), ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : [])]);
       showBarMessage(r.seeds > 0 ? `You picked a ${name} and found ${name} Seeds too!` : `You picked a ${name}! It's in your bag.`);
     } else if (r.status === 'wrong') {
       playClash();
@@ -833,7 +835,9 @@ export default function TrainingMap({
         trashItems={trashItems}
         collectingTrashIds={collectingTrashIds}
         recyclerTile={recyclerTile}
-        gardenPlants={garden.on ? garden.sprites : undefined}
+        // The plant being asked about stays ripe until the panel closes, so its dust pop
+        // (lib/phaserMap/gardenPlants.ts) plays where the player can see it.
+        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id ? { ...p, stage: 'ripe' as const } : p)) : undefined}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {lockedPortalMsg && (
