@@ -68,6 +68,7 @@ import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
+import WildTrees, { type TreeSprite } from './wildTrees';
 import SwayingTrees from './swayingTrees';
 
 // Sprite shadows lie on the ground: above the flat ground layers (Ground, and
@@ -130,6 +131,10 @@ export interface MapCanvasSyncState {
   recyclerTile?: { x: number; y: number } | null;
   /** Wild veggie plants (lib/phaserMap/gardenPlants.ts), tile-art maps only. */
   gardenPlants?: PlantSprite[];
+  /** Wild trees (lib/phaserMap/wildTrees.ts), tile-art maps only. */
+  wildTrees?: TreeSprite[];
+  /** A swing that just landed on a tree; n goes up by one per swing. */
+  treeSwing?: { id: string; n: number } | null;
 }
 
 interface TrackedSprite {
@@ -297,6 +302,9 @@ export default class TrainingMapScene extends Phaser.Scene {
   private trees: SwayingTrees | null = null;
   private garden: GardenPlants | null = null;
   private gardenPlants: PlantSprite[] = [];
+  private wildTrees: WildTrees | null = null;
+  private wildTreeSprites: TreeSprite[] = [];
+  private lastTreeSwing = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -336,6 +344,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.grass?.update(time);
     this.trees?.update(time);
     this.garden?.update(time);
+    this.wildTrees?.update(time);
   }
 
   create() {
@@ -607,6 +616,12 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyRecycler(state, this.lastTransform);
     this.gardenPlants = state.gardenPlants ?? [];
     this.garden?.setPlants(this.gardenPlants);
+    this.wildTreeSprites = state.wildTrees ?? [];
+    this.wildTrees?.setTrees(this.wildTreeSprites);
+    if (state.treeSwing && state.treeSwing.n !== this.lastTreeSwing) {
+      this.lastTreeSwing = state.treeSwing.n;
+      this.wildTrees?.swing(state.treeSwing.id);
+    }
     // Wall-bump screen shake was removed (felt too jarring) — `bumping`
     // still flows through from TrainingMap.tsx (it still drives the bump
     // sound there) but this scene no longer reacts to it visually.
@@ -682,6 +697,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.grass = null;
     this.trees = null;
     this.garden = null;
+    this.wildTrees = null;
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -743,6 +759,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden = new GardenPlants(this, anyLayer, 8.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.garden.container);
         this.garden.setPlants(this.gardenPlants);
+        // Trunks with the plants; canopies over the players, next to the map's own canopies.
+        this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above);
+        this.wildTrees.setTrees(this.wildTreeSprites);
       }
       this.tilemap = map;
       this.followInitialized = true;
