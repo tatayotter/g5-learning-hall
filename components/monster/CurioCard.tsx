@@ -211,8 +211,14 @@ export default function CurioCard({
             }}
           >
             <div aria-hidden className="absolute inset-x-[12%] bottom-[9%] h-[10%] rounded-[50%] bg-black/15 blur-[2px]" />
-            <div className={`absolute inset-[8%] ${getQualityGlowClass(tier)}`}>
-              <MonsterImage monster={def} className="w-full h-full" emojiClassName="text-7xl" />
+            {/* The glow class sets position: relative, so it goes on an inner
+                box — on the absolute one it would drop the inset and the art
+                would spill to the window's edges. The legendary crown is the
+                tag below, so the sprite's own corner badge is turned off. */}
+            <div className="absolute inset-x-[10%] top-[9%] bottom-[11%]">
+              <div className={`w-full h-full ${getQualityGlowClass(tier)}`}>
+                <MonsterImage monster={{ ...def, isLegendary: false }} className="w-full h-full" emojiClassName="text-7xl" />
+              </div>
             </div>
             {def.isLegendary && (
               <span className="absolute top-1.5 left-1.5 text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded-sm bg-[#2a1505]/80 text-[#fde68a]">👑 Legendary</span>
@@ -231,7 +237,7 @@ export default function CurioCard({
           </div>
           {level !== undefined && exp !== undefined && (
             <div className="flex items-center gap-1.5 px-1" title={atCap ? 'Top level!' : `${expPerLevel - expInto} XP to Lv.${level + 1}`}>
-              <span className="text-[9px] font-black text-[#3a2610]">XP</span>
+              <span className="text-[9px] font-black text-[#3a2610] whitespace-nowrap">{atCap ? 'XP' : `XP to Lv.${level + 1}`}</span>
               <div className="flex-1 h-1.5 rounded-full bg-white/70 border border-[#4a2f18]/40 overflow-hidden">
                 <div className="h-full rounded-full bg-[#2563eb]" style={{ width: `${atCap ? 100 : (expInto / expPerLevel) * 100}%` }} />
               </div>
