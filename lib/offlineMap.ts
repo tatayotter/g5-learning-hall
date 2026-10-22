@@ -7,15 +7,17 @@
 // - scrolls are graded from the answer key already downloaded for main quests
 //   (lib/offlineQuests.ts), and the curio EXP shows straight away;
 // - every scroll answer, trash pickup or trade and the last tile stood on goes into a per-player
-//   outbox;
+//   outbox, and so does every wild veggie pick (lib/garden.ts);
 // - on reconnect each entry goes to sync_offline_map once (it re-grades the answer and clamps
-//   the trash), keyed by the entry id so a retry can't pay twice.
+//   the trash), or to gather_wild_plant for a pick, keyed by the entry id so a retry can't pay
+//   twice.
 import { supabase } from '@/lib/supabase';
 import { isOffline } from '@/lib/offlineSnapshot';
 import { gradeQuestionOffline, hasOfflineAnswer, offlinePlayEnabled, type KeyedQuestion } from '@/lib/offlineQuests';
 import { updateOfflineCopy } from '@/lib/offlineReads';
 import type { CurioCollection } from '@/lib/curioCollection';
 import { BATTLE_CONSTANTS, getMonsterLevel } from '@/lib/monsterConfig';
+import { gatherWildPlant } from '@/lib/garden';
 
 const OUTBOX = (userId: string) => `lh_map_outbox_${userId}`;
 
@@ -56,7 +58,7 @@ export function gradeScrollOffline(userId: string, question: KeyedQuestion, sele
 
 export interface MapOutboxEntry {
   id: string;
-  kind: 'scroll' | 'trash' | 'position';
+  kind: 'scroll' | 'trash' | 'position' | 'gather';
   monsterRowId: string | null;
   questionId: string | null;
   selected: string | null;
@@ -64,6 +66,9 @@ export interface MapOutboxEntry {
   trashGold: number;
   mapX: number | null;
   mapY: number | null;
+  // A veggie pick: which plant.
+  region?: string | null;
+  nodeId?: string | null;
   playedAt: string;
   // Server rejections (not network failures) so far; kept for a look, never dropped.
   failures: number;
@@ -113,6 +118,10 @@ export function queueTrash(userId: string, collected: number, gold: number) {
   queue(userId, { kind: 'trash', trashCollected: collected, trashGold: gold });
 }
 
+export function queueGather(userId: string, region: string, nodeId: string, questionId: string, selected: string) {
+  queue(userId, { kind: 'gather', region, nodeId, questionId, selected });
+}
+
 export function queuePosition(userId: string, x: number, y: number) {
   queue(userId, { kind: 'position', mapX: x, mapY: y });
   updateOfflineCopy<CurioCollection>(userId, 'curioCollection', c => ({
@@ -124,6 +133,7 @@ export function queuePosition(userId: string, x: number, y: number) {
 export interface SyncedMapEntries {
   answers: number;
   gold: number;
+  veggies: number;
 }
 
 const flushing = new Map<string, Promise<SyncedMapEntries>>();
@@ -134,9 +144,26 @@ export function flushMapOutbox(userId: string): Promise<SyncedMapEntries> {
   const running = flushing.get(userId);
   if (running) return running;
   const run = (async () => {
-    const synced: SyncedMapEntries = { answers: 0, gold: 0 };
+    const synced: SyncedMapEntries = { answers: 0, gold: 0, veggies: 0 };
     for (const entry of pendingMapEntries(userId)) {
       if (isOffline()) break;
+      if (entry.kind === 'gather') {
+        const res = entry.region && entry.nodeId && entry.questionId && entry.selected !== null
+          ? await gatherWildPlant({
+              userId, region: entry.region, nodeId: entry.nodeId, questionId: entry.questionId,
+              selected: entry.selected, entryId: entry.id, playedAt: entry.playedAt,
+            })
+          : { ok: false as const, network: false };
+        const remaining = pendingMapEntries(userId);
+        if (!res.ok) {
+          if (res.network) break;
+          write(OUTBOX(userId), remaining.map(e => e.id === entry.id ? { ...e, failures: e.failures + 1 } : e));
+          continue;
+        }
+        write(OUTBOX(userId), remaining.filter(e => e.id !== entry.id));
+        if (!res.result.replayed && res.result.status === 'picked') synced.veggies += 1;
+        continue;
+      }
       const { data, error } = await supabase.rpc('sync_offline_map', {
         p_user_id: userId,
         p_entry_id: entry.id,

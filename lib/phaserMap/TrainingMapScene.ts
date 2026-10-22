@@ -67,6 +67,7 @@
 import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 import SwayingGrass from './swayingGrass';
+import GardenPlants, { type PlantSprite } from './gardenPlants';
 import SwayingTrees from './swayingTrees';
 
 // Sprite shadows lie on the ground: above the flat ground layers (Ground, and
@@ -127,6 +128,8 @@ export interface MapCanvasSyncState {
   /** Recycler NPC tile position — rendered in canvas at depth 8 so the player
    *  sprite (depth 10) always appears in front of it. */
   recyclerTile?: { x: number; y: number } | null;
+  /** Wild veggie plants (lib/phaserMap/gardenPlants.ts), tile-art maps only. */
+  gardenPlants?: PlantSprite[];
 }
 
 interface TrackedSprite {
@@ -292,6 +295,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private grass: SwayingGrass | null = null;
   private grassTile = '';
   private trees: SwayingTrees | null = null;
+  private garden: GardenPlants | null = null;
+  private gardenPlants: PlantSprite[] = [];
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -330,6 +335,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   update(time: number) {
     this.grass?.update(time);
     this.trees?.update(time);
+    this.garden?.update(time);
   }
 
   create() {
@@ -381,6 +387,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (grassTile !== this.grassTile) {
       this.grassTile = grassTile;
       this.grass?.rustle(Math.round(xTile), Math.round(yTile), this.time.now);
+      this.garden?.rustle(Math.round(xTile), Math.round(yTile), this.time.now);
     }
 
     // The camera (transform offset) changes every frame as the player moves,
@@ -598,6 +605,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyDustPuffs(state);
     this.applyTrashItems(state, this.lastTransform);
     this.applyRecycler(state, this.lastTransform);
+    this.gardenPlants = state.gardenPlants ?? [];
+    this.garden?.setPlants(this.gardenPlants);
     // Wall-bump screen shake was removed (felt too jarring) — `bumping`
     // still flows through from TrainingMap.tsx (it still drives the bump
     // sound there) but this scene no longer reacts to it visually.
@@ -672,6 +681,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.tilemapLayers = [];
     this.grass = null;
     this.trees = null;
+    this.garden = null;
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -727,6 +737,13 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (this.grass) this.tilemapLayers.push(this.grass.container);
       this.trees = topLayer && SwayingTrees.build(this, topLayer, baseLayer);
       if (this.trees) this.tilemapLayers.push(this.trees.container);
+      // Plants stand on the ground objects but under every player (9-10) and the trash (9).
+      const anyLayer = detailLayer ?? baseLayer ?? topLayer;
+      if (anyLayer) {
+        this.garden = new GardenPlants(this, anyLayer, 8.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.garden.container);
+        this.garden.setPlants(this.gardenPlants);
+      }
       this.tilemap = map;
       this.followInitialized = true;
     };

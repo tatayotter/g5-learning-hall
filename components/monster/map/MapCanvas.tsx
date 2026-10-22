@@ -17,6 +17,7 @@ import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
 import { REGIONS } from '@/lib/regions';
 import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality';
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
+import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
 import { playPageFlip } from '@/lib/sounds';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
@@ -115,13 +116,15 @@ interface MapCanvasProps {
   collectingTrashIds?: Set<string>;
   /** Recycler NPC tile for the active region. */
   recyclerTile?: { x: number; y: number } | null;
+  /** Wild veggie plants (garden), drawn in the Phaser scene. */
+  gardenPlants?: PlantSprite[];
   onPlayerClick: (userId: string) => void;
 }
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, onPlayerClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, onPlayerClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -320,6 +323,7 @@ export default function MapCanvas({
       })),
       collectingTrashIds: collectingTrashIds ? [...collectingTrashIds] : [],
       recyclerTile: recyclerTile ?? null,
+      gardenPlants,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);

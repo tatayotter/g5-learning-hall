@@ -30,6 +30,7 @@ interface MapViewProps {
   onEnterCurio: () => void;
   onTrainerEncounter: (trainer: NpcTrainer) => void;
   onTrashTraded: (gold: number) => void;
+  onGoldSynced?: (stats: { gold: number; xp: number; level: number }) => void;
   onChallengePlayer: (opponentId: UserId, opponentName: string) => void;
   onTradePlayer: (opponentId: UserId, opponentName: string) => void;
   onGatedPlayerClick?: () => void;
@@ -61,6 +62,7 @@ export default function MapView({
   onEnterCurio,
   onTrainerEncounter,
   onTrashTraded,
+  onGoldSynced,
   onChallengePlayer,
   onTradePlayer,
   onGatedPlayerClick,
@@ -96,6 +98,7 @@ export default function MapView({
       onEnterCurio={onEnterCurio}
       onTrainerEncounter={onTrainerEncounter}
       onTrashTraded={onTrashTraded}
+      onGoldSynced={onGoldSynced}
       onChallengePlayer={(targetId, name) => onChallengePlayer(targetId as UserId, name)}
       onTradePlayer={(targetId, name) => onTradePlayer(targetId as UserId, name)}
       onGatedPlayerClick={onGatedPlayerClick}

@@ -18,6 +18,7 @@ import { MonsterImage } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
 import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import { playPageFlip } from '@/lib/sounds';
+import { GARDEN_KEYS, GARDEN_STACK, VEGGIE_SELL_PRICE, gardenItemIcon, gardenItemLabel, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
 
 interface MapItemBarProps {
   api: ItemBarApi;
@@ -25,11 +26,14 @@ interface MapItemBarProps {
   // Short note shown beside the slots (full bag, meter progress).
   message: string | null;
   onMessage: (text: string) => void;
+  // Veggies and seed packets (garden on). They live in the bag only, not the slots.
+  gardenBag?: GardenBag;
 }
 
-// What a bag square holds: a Tracking Scroll (by inventory key) or a stack of
-// one kind of trash. A kind with more than TRASH_STACK pieces fills several squares.
-type BagPick = { item: string } | { trash: TrashType };
+// What a bag square holds: a Tracking Scroll (by inventory key), a stack of
+// one kind of trash, or a stack of veggies or seed packets (by bag item key). A
+// kind with more than TRASH_STACK (GARDEN_STACK) pieces fills several squares.
+type BagPick = { item: string } | { trash: TrashType } | { garden: string };
 type BagSquare = { pick: BagPick; n: number; key: string };
 
 type Panel =
@@ -95,13 +99,19 @@ function SlotThing({ s, trash, size }: { s: ItemSlot; trash: Record<TrashType, n
 }
 
 const samePick = (a: BagPick | null, b: BagPick) =>
-  !!a && ('item' in a ? 'item' in b && a.item === b.item : 'trash' in b && a.trash === b.trash);
+  !!a && ('item' in a ? 'item' in b && a.item === b.item
+    : 'trash' in a ? 'trash' in b && a.trash === b.trash
+    : 'garden' in b && a.garden === b.garden);
+
+function GardenIcon({ itemKey, className }: { itemKey: string; className: string }) {
+  return <img src={gardenItemIcon(itemKey)} alt="" className={`object-contain ${className}`} style={{ imageRendering: 'pixelated' }} />;
+}
 
 function TrashIcon({ type, className }: { type: TrashType; className: string }) {
   return <img src={`/trash/${type}.png`} alt="" className={`object-contain ${className}`} />;
 }
 
-export default function MapItemBar({ api, offline, message, onMessage }: MapItemBarProps) {
+export default function MapItemBar({ api, offline, message, onMessage, gardenBag }: MapItemBarProps) {
   const [panel, setPanel] = useState<Panel | null>(null);
   const { bar, trash, activeTracking, progress } = api;
 
@@ -154,13 +164,20 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
     return () => window.removeEventListener('keydown', onKey);
   }, [tapSlotRef]);
 
-  // The bag's squares: scrolls first, then trash stacks.
+  // The bag's squares: scrolls first, then trash stacks, then veggies and seed packets.
   const squares: BagSquare[] = [
     ...api.itemKeys.map(k => ({ pick: { item: k }, n: 1, key: k })),
     ...TRASH_ORDER.flatMap(t => {
       const out: BagSquare[] = [];
       for (let left = trash[t], i = 0; left > 0; left -= TRASH_STACK, i++) {
         out.push({ pick: { trash: t }, n: Math.min(TRASH_STACK, left), key: `${t}-${i}` });
+      }
+      return out;
+    }),
+    ...GARDEN_KEYS.flatMap(k => {
+      const out: BagSquare[] = [];
+      for (let left = gardenBag?.[k] ?? 0, i = 0; left > 0; left -= GARDEN_STACK, i++) {
+        out.push({ pick: { garden: k }, n: Math.min(GARDEN_STACK, left), key: `${k}-${i}` });
       }
       return out;
     }),
@@ -173,7 +190,7 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
     if (!d) return;
     playPageFlip();
     if ('slot' in d) api.swap(d.slot, slot);
-    else api.placeAt(d.pick, slot);
+    else if (!('garden' in d.pick)) api.placeAt(d.pick, slot);
   };
   const dropOnBag = (d: DragData | null) => {
     if (!d || !('slot' in d)) return;
@@ -275,7 +292,8 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
                   <button
                     key={i}
                     onClick={() => {
-                      if (panel.pick && !holdsPick) { playPageFlip(); api.placeAt(panel.pick, i); }
+                      if (panel.pick && 'garden' in panel.pick) { if (s) { playPageFlip(); setPanel({ kind: 'bag', pick: s }); } }
+                      else if (panel.pick && !holdsPick) { playPageFlip(); api.placeAt(panel.pick, i); }
                       else if (s) { playPageFlip(); setPanel({ kind: 'bag', pick: s }); }
                     }}
                     draggable={!!s}
@@ -285,7 +303,7 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
                     aria-label={`Slot ${i + 1}${s ? '' : ', empty'}`}
                     data-testid={`bag-slot-${i + 1}`}
                     className={`relative w-9 h-9 rounded-md bg-[#1c140c] flex items-center justify-center border-2 ${
-                      holdsPick ? 'border-white' : panel.pick ? 'border-[#f5c542] border-dashed' : 'border-[#8b5e2a]'
+                      holdsPick ? 'border-white' : panel.pick && !('garden' in panel.pick) ? 'border-[#f5c542] border-dashed' : 'border-[#8b5e2a]'
                     }`}
                   >
                     <span className="absolute top-0 left-0.5 text-[8px] font-bold text-[#e8d0a0]/80 leading-none">{i + 1}</span>
@@ -303,19 +321,21 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
             onDragOver={allowDrop}
             onDrop={e => { e.preventDefault(); dropOnBag(readDrag(e)); }}
           >
-            {Array.from({ length: api.bagSize }, (_, i) => {
+            {Array.from({ length: Math.max(api.bagSize, squares.length) }, (_, i) => {
               const sq = squares[i];
               if (!sq) return <div key={`empty-${i}`} className="aspect-square rounded-md bg-[#1c140c]/70 border border-[#5a3d1e]" />;
-              const slot = slotOf(bar, sq.pick);
+              const garden = 'garden' in sq.pick ? sq.pick.garden : null;
+              const slot = 'garden' in sq.pick ? -1 : slotOf(bar, sq.pick);
               const picked = samePick(panel.pick, sq.pick);
               const scrollId = 'item' in sq.pick ? trackedMonsterId(sq.pick.item) : null;
               const def = scrollId ? ALL_MONSTERS[scrollId] : undefined;
-              const label = 'trash' in sq.pick ? `${TRASH_DEFS[sq.pick.trash].label} ×${sq.n}` : `Tracking Scroll: ${def?.name}`;
+              const label = 'trash' in sq.pick ? `${TRASH_DEFS[sq.pick.trash].label} ×${sq.n}`
+                : garden ? `${gardenItemLabel(garden)} ×${sq.n}` : `Tracking Scroll: ${def?.name}`;
               return (
                 <button
                   key={sq.key}
                   onClick={() => { playPageFlip(); setPanel({ kind: 'bag', pick: sq.pick }); }}
-                  draggable
+                  draggable={!garden}
                   onDragStart={e => startDrag(e, { pick: sq.pick })}
                   aria-label={`${label}${slot >= 0 ? `, in slot ${slot + 1}` : ''}`}
                   data-testid={`bag-square-${i + 1}`}
@@ -325,8 +345,9 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
                 >
                   {'trash' in sq.pick
                     ? <TrashIcon type={sq.pick.trash} className="w-[80%] h-[80%]" />
+                    : garden ? <GardenIcon itemKey={garden} className="w-[86%] h-[86%]" />
                     : def && <TrackingScrollIcon monster={def} className="w-[92%] h-[92%]" />}
-                  {'trash' in sq.pick && (
+                  {('trash' in sq.pick || garden) && (
                     <span className="absolute bottom-0 right-0.5 text-[10px] font-black text-white leading-none" style={{ textShadow: '0 1px 2px #000' }}>{sq.n}</span>
                   )}
                   {slot >= 0 && (
@@ -338,7 +359,27 @@ export default function MapItemBar({ api, offline, message, onMessage }: MapItem
           </div>
           <p className="text-[11px] text-[#6b4820] mt-1.5 mb-2">Gold border = in a slot. Tap an item, then tap a slot up top to put it there.</p>
 
-          {panel.pick && (() => {
+          {panel.pick && 'garden' in panel.pick && (() => {
+            const k = panel.pick.garden;
+            const n = gardenBag?.[k] ?? 0;
+            const g = parseGardenKey(k);
+            if (n <= 0 || !g) return null;
+            return (
+              <div className="bg-white border-2 border-[#c9a87a] rounded-xl p-3 mb-2 flex items-center gap-3 text-left" data-testid="bag-detail">
+                <GardenIcon itemKey={k} className="w-12 h-12 flex-shrink-0" />
+                <div className="min-w-0">
+                  <p className="text-sm font-extrabold text-[#2a1505]">{gardenItemLabel(k)} ×{n}</p>
+                  <p className="text-[11px] text-[#6b4820]">
+                    {g.kind === 'veggie'
+                      ? `Picked fresh! The Recycler buys veggies for ${VEGGIE_SELL_PRICE} gold each.`
+                      : 'Keep these safe. Soon you can plant them in your own garden!'}
+                  </p>
+                </div>
+              </div>
+            );
+          })()}
+
+          {panel.pick && !('garden' in panel.pick) && (() => {
             const pick = panel.pick;
             const slot = slotOf(bar, pick);
             const putIn = (

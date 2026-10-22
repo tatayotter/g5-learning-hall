@@ -22,6 +22,7 @@ import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePan
 import CurioEncounterPanel from '@/components/monster/map/panels/CurioEncounterPanel';
 import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChallengePanel';
 import ScrollQuestionPanel from '@/components/monster/map/panels/ScrollQuestionPanel';
+import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionPanel';
 import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
@@ -31,6 +32,9 @@ import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { useItemBar } from '@/hooks/useItemBar';
+import { useGarden, type PlantView } from '@/hooks/useGarden';
+import { useFeatureFlag } from '@/lib/featureFlags';
+import { VEGGIES, WILD_PLANTS } from '@/lib/gardenConfig';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import type { InventoryMap } from '@/lib/inventory';
@@ -169,6 +173,8 @@ interface TrainingMapProps {
   onTrainerEncounter?: (trainer: NpcTrainer) => void;
   /** Called with gold earned when the player trades trash at the Recycler NPC. */
   onTrashTraded?: (gold: number) => void;
+  /** The account's totals after a sale the server already paid (veggies at the Recycler). */
+  onGoldSynced?: (stats: { gold: number; xp: number; level: number }) => void;
   liveBattleInbox?: ReturnType<typeof useLiveBattleInbox>;
   mapPresence: ReturnType<typeof useMapPresence>;
   movementLocked?: boolean;
@@ -197,14 +203,20 @@ interface TrainingMapProps {
 export default function TrainingMap({
   userId, battleState, userMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
-  activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded,
+  activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
   inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
   const offline = useIsOffline();
+  // Wild veggies (garden switch): plants to pick, and their stacks in the bag.
+  const gardenRegion = regionId ?? 'ledgers_heart';
+  const garden = useGarden({
+    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId),
+  });
   const itemBar = useItemBar({
     userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
+    gardenSquares: garden.squares,
   });
   const itemBarRef = useRef(itemBar);
   useEffect(() => { itemBarRef.current = itemBar; });
@@ -221,6 +233,9 @@ export default function TrainingMap({
   useEffect(() => () => { if (barMessageTimer.current) clearTimeout(barMessageTimer.current); }, []);
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
+  // The ripe veggie plant whose question is up.
+  const [activePlant, setActivePlant] = useState<PlantView | null>(null);
+  const [sellingVeggies, setSellingVeggies] = useState(false);
   // Tagged with the curio it was picked for, so a new curio never flashes
   // at the previous one's tile before its own spot is picked.
   const [pickedCurioPos, setPickedCurioPos] = useState<{ curioId: number; pos: { x: number; y: number } | null } | null>(null);
@@ -324,7 +339,15 @@ export default function TrainingMap({
   // Tree-canopy exclusion zone for scroll/curio spawning (real-tile-art maps
   // only — see lib/tiledArtMap.ts). null for painted-background elemental
   // regions, which have no such layer to derive this from.
-  const [foliage, setFoliage] = useState<boolean[][] | null>(null);
+  const [mapFoliage, setFoliage] = useState<boolean[][] | null>(null);
+  // Plant tiles count as taken too, so no scroll, trash or curio lands on a plant.
+  const foliage = useMemo(() => {
+    const plants = garden.on ? WILD_PLANTS[gardenRegion] ?? [] : [];
+    if (!mapFoliage || plants.length === 0) return mapFoliage;
+    const f = mapFoliage.map(row => [...row]);
+    for (const p of plants) if (f[p.y]) f[p.y][p.x] = true;
+    return f;
+  }, [mapFoliage, garden.on, gardenRegion]);
   const [lockedPortalMsg, setLockedPortalMsg] = useState<string | null>(null);
 
   const [mapRecycler, setMapRecycler] = useState<{ x: number; y: number } | null>(null);
@@ -488,6 +511,27 @@ export default function TrainingMap({
       return;
     }
 
+    // A wild veggie plant: ripe ones ask one question to pick.
+    const plantHere = garden.plantAt(newX, newY);
+    if (plantHere) {
+      const name = VEGGIES[plantHere.veggie].label.toLowerCase();
+      const now = Date.now();
+      if (!plantHere.ripe) {
+        const mins = Math.max(1, Math.ceil(((plantHere.readyAt ?? now) - now) / 60000));
+        showBarMessage(`This ${name} is growing back. Ready in about ${mins} minute${mins === 1 ? '' : 's'}!`);
+      } else if (plantHere.restUntil && now < plantHere.restUntil) {
+        showBarMessage('This plant needs a short rest. Try again in a minute!');
+      } else if (itemBarRef.current.bagUsed + garden.squaresForPick(plantHere.veggie) > itemBarRef.current.bagSize) {
+        showBarMessage('Your bag is full! Sell veggies or trade trash at the Recycler.');
+      } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
+        showBarMessage("No internet, and this week's questions aren't saved here yet.");
+      } else {
+        playMonsterAppear();
+        setActivePlant(plantHere);
+      }
+      return;
+    }
+
     // Trash pickup — play coin sound + start lift animation, then remove from map
     // Trash goes into the bag; with no room it stays on the map.
     const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
@@ -526,7 +570,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage, garden]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -537,7 +581,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
+    enabled: !activeScroll && !activePlant && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -611,6 +655,27 @@ export default function TrainingMap({
         return result;
       }
     : undefined;
+
+  // A pick attempt at a veggie plant is over (useGarden already saved it).
+  const handleGatherAnswer = (_correctCount: number, answeredQuestions: BattleQuestion[]) => {
+    const plant = activePlant;
+    setActivePlant(null);
+    onQuestionsAnswered?.(answeredQuestions);
+    const r = garden.lastResult.current;
+    if (!plant || !r) return;
+    const name = VEGGIES[plant.veggie].label;
+    if (r.status === 'picked') {
+      playChime();
+      showBarMessage(r.seeds > 0 ? `You picked a ${name} and found ${name} Seeds too!` : `You picked a ${name}! It's in your bag.`);
+    } else if (r.status === 'wrong') {
+      playClash();
+      showBarMessage(r.restUntil ? 'Oops! The plant needs a short rest. Try again in a minute.' : 'Not quite! Walk back on to try another question.');
+    } else if (r.status === 'growing') {
+      showBarMessage(`This ${name.toLowerCase()} is still growing back.`);
+    } else {
+      showBarMessage('This plant needs a short rest. Try again in a minute!');
+    }
+  };
 
   const handleScrollAnswer = async (correctCount: number, answeredQuestions: BattleQuestion[]) => {
     const answered = activeScroll!;
@@ -736,7 +801,7 @@ export default function TrainingMap({
 
   // Gates both the floating joystick's press-and-drag and (previously) the
   // static dpad — matches the keyboard-movement path in useContinuousMovement.
-  const controlsDisabled = movementLocked || !!activeScroll;
+  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant;
 
   const frameContent = (
     <div className="relative w-full h-full">
@@ -768,6 +833,7 @@ export default function TrainingMap({
         trashItems={trashItems}
         collectingTrashIds={collectingTrashIds}
         recyclerTile={recyclerTile}
+        gardenPlants={garden.on ? garden.sprites : undefined}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {lockedPortalMsg && (
@@ -848,6 +914,21 @@ export default function TrainingMap({
         setPendingRecyclerTrade(false);
       }}
       onDismiss={() => setPendingRecyclerTrade(false)}
+      gardenBag={garden.on ? garden.bag : undefined}
+      offline={playingMapOffline(userId)}
+      sellingVeggies={sellingVeggies}
+      onSellVeggies={garden.on ? async () => {
+        setSellingVeggies(true);
+        const sold = await garden.sell(null);
+        setSellingVeggies(false);
+        if (!sold) { showBarMessage("That didn't work. Try again!"); return; }
+        if (sold.gold > 0) {
+          playCoins();
+          setGoldEarnedFlash(sold.gold);
+          setTimeout(() => setGoldEarnedFlash(null), 1800);
+        }
+        if (sold.progress) onGoldSynced?.(sold.progress);
+      } : undefined}
     />
   ) : pendingCurioChallenge && activeCurio && curioDef ? (
     <CurioEncounterPanel
@@ -877,6 +958,15 @@ export default function TrainingMap({
         setActiveMapTrainer(null);
       }}
     />
+  ) : activePlant ? (
+    <GatherQuestionPanel
+      veggie={activePlant.veggie}
+      questions={scrollGradeOverride ? offlineScrollQuestions(userId, questions) : questions}
+      gradingUserId={gradingUserId}
+      grade={(q, selected) => garden.grade(activePlant, q, selected)}
+      onComplete={handleGatherAnswer}
+      onLeave={() => setActivePlant(null)}
+    />
   ) : activeScroll ? (
     <ScrollQuestionPanel
       activeMonsterDef={activeMonster ? monsterDisplay[activeMonster.monster_id] : undefined}
@@ -897,7 +987,7 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
-        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} />}
+        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} />}
         fullscreen={fullscreen}
       />
 

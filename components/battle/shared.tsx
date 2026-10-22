@@ -231,6 +231,8 @@ export interface BattleQuestion {
 // How long the right/wrong reveal stays up before the next question.
 const ANSWER_PAUSE_MS = 500;
 
+export interface GradeResult { correct: boolean; correctAnswer: string | null; failed?: boolean }
+
 export interface BattleQuestionProps {
   questions: BattleQuestion[];
   count: number;
@@ -239,9 +241,10 @@ export interface BattleQuestionProps {
   // content_questions_public (correct_answer stripped), so correctness has to be checked
   // server-side via grade_content_question, keyed by each question's stable id.
   gradingUserId: string;
-  // Dev previews only (/dev/ui-gallery): grade mock questions locally, since
-  // they don't exist server-side. Real battles never pass this.
-  gradeOverride?: (question: BattleQuestion, selected: string) => { correct: boolean; correctAnswer: string | null };
+  // Grades somewhere else instead: dev previews (/dev/ui-gallery) grade mock questions
+  // locally, the offline map grades from the downloaded answer key, and wild veggie picks
+  // grade through gather_wild_plant. failed: couldn't reach the server, let them tap again.
+  gradeOverride?: (question: BattleQuestion, selected: string) => GradeResult | Promise<GradeResult>;
   onComplete: (correctCount: number, answeredQuestions: BattleQuestion[]) => void;
   // "Skip for gold" — omit entirely to disable the skip button (e.g. nowhere
   // currently does this, but keeps the prop optional for any other caller of
@@ -306,7 +309,7 @@ export function BattleQuestionModal({ questions, count, embedded, gradingUserId,
     setSelected(opt);
     setGrading(true);
     const graded: { correct: boolean; correctAnswer: string | null; failed?: boolean } = gradeOverride
-      ? gradeOverride(current, opt)
+      ? await gradeOverride(current, opt)
       : await gradeMonsterQuestion(gradingUserId, current.id, opt);
     const { correct: isCorrect, correctAnswer, failed } = graded;
     setGrading(false);
