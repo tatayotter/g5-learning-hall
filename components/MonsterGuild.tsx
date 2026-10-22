@@ -1657,6 +1657,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onEnterCurio={handleEnterCurio}
           onTrainerEncounter={handleTrainerBattle}
           onTrashTraded={onGoldAwarded}
+          onGoldSynced={onGoldSynced}
           onChallengePlayer={handleChallengePlayer}
           onGatedPlayerClick={isGatedUnlinked ? () => setShowPvpParentGate(true) : undefined}
           onTradePlayer={handleTradePlayer}

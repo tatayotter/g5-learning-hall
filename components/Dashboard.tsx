@@ -621,7 +621,7 @@ export default function Dashboard() {
           ? await flushTrainerOutbox(activeUserId) : { battles: 0, wins: 0 };
         // The Curio Arena reloads its curios so the server's EXP replaces the device's.
         if (hadMapEntries) setEggRefreshSignal(n => n + 1);
-        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0 && trainers.battles === 0) return;
+        if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0 && map.veggies === 0 && trainers.battles === 0) return;
         achievementCheckAfterRef.current = dataRef.current;
         refresh();
         const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold;
@@ -630,6 +630,7 @@ export default function Dashboard() {
           guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,
           map.answers > 0 && `${map.answers} map scroll${map.answers === 1 ? '' : 's'}`,
           map.answers === 0 && map.gold > 0 && 'your trash trades',
+          map.veggies > 0 && `${map.veggies} veggie${map.veggies === 1 ? '' : 's'} you picked`,
           trainers.battles > 0 && `${trainers.battles} trainer battle${trainers.battles === 1 ? '' : 's'}`,
         ].filter(Boolean).join(' and ');
         // A quest finished on two devices pays once; the one that synced second says why its

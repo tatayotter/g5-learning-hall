@@ -56,9 +56,11 @@ export interface UseItemBarArgs {
   regionId: string | null;
   onBattleStatePatch: (patch: Partial<BattleState>) => void;
   onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
+  // Bag squares the garden's veggies and seed packets take (hooks/useGarden.ts).
+  gardenSquares?: number;
 }
 
-export function useItemBar({ userId, battleState, inventory, offline, regionId, onBattleStatePatch, onTrackedCurioSummoned }: UseItemBarArgs) {
+export function useItemBar({ userId, battleState, inventory, offline, regionId, onBattleStatePatch, onTrackedCurioSummoned, gardenSquares = 0 }: UseItemBarArgs) {
   const [saved, setSaved] = useState<Saved>(() => {
     const unsaved = !offline ? loadUnsaved(userId) : null;
     return unsaved ?? normalizeItemBar(battleState.item_bar, battleState.bag_trash);
@@ -71,6 +73,8 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
   useEffect(() => { stateRef.current = { bar, trash }; }, [bar, trash]);
   const itemKeysRef = useRef(itemKeys);
   useEffect(() => { itemKeysRef.current = itemKeys; }, [itemKeys]);
+  const gardenRef = useRef(gardenSquares);
+  useEffect(() => { gardenRef.current = gardenSquares; }, [gardenSquares]);
 
   const [activeTracking, setActiveTrackingId] = useState<string | null>(battleState.active_tracking ?? null);
   const [progress, setProgress] = useState<Record<string, number>>({});
@@ -125,13 +129,13 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
   // ── Trash ─────────────────────────────────────────────────────────────────
   /** False when the bag is full (the trash stays on the map). */
   const pickUpTrash = useCallback((type: TrashType): boolean => {
-    const next = addTrash(stateRef.current.trash, type, itemKeysRef.current);
+    const next = addTrash(stateRef.current.trash, type, itemKeysRef.current, gardenRef.current);
     if (!next) return false;
     commit({ bar: stateRef.current.bar, trash: next });
     return true;
   }, [commit]);
 
-  const canPickUp = useCallback((type: TrashType) => addTrash(stateRef.current.trash, type, itemKeysRef.current) !== null, []);
+  const canPickUp = useCallback((type: TrashType) => addTrash(stateRef.current.trash, type, itemKeysRef.current, gardenRef.current) !== null, []);
 
   const tradeAllTrash = useCallback((): number => {
     const { trash: next, gold } = tradeTrash(stateRef.current.trash);
@@ -226,7 +230,7 @@ export function useItemBar({ userId, battleState, inventory, offline, regionId, 
     bar,
     trash,
     itemKeys,
-    bagUsed: bagSquaresUsed(itemKeys, trash),
+    bagUsed: bagSquaresUsed(itemKeys, trash, gardenSquares),
     bagSize: BAG_SIZE,
     activeTracking,
     progress,

@@ -2,8 +2,10 @@
 // The Training Map's bag (up to BAG_SIZE squares, like an MMORPG bag) and
 // its 4 item slots (like a game hotbar).
 //
-// The bag holds the player's Tracking Scrolls (from player_inventory) and the
-// trash they pick up (counts per kind, saved on user_battle_state.bag_trash).
+// The bag holds the player's Tracking Scrolls (from player_inventory), the
+// trash they pick up (counts per kind, saved on user_battle_state.bag_trash)
+// and, with the garden on, veggies and seed packets (player_bag_items,
+// hooks/useGarden.ts).
 // A kind of trash fills one square per TRASH_STACK pieces. A full bag means no
 // more trash until the player trades some at the Recycler or throws some away.
 //
@@ -59,15 +61,16 @@ export const isItemSlot = (s: ItemSlot): s is { item: string } => !!s && 'item' 
 
 export const trashSquares = (n: number) => Math.ceil(n / TRASH_STACK);
 
-// Squares in use: one per bag item key plus the trash stacks.
-export function bagSquaresUsed(itemKeys: string[], trash: TrashCounts): number {
-  return itemKeys.length + TRASH_ORDER.reduce((sum, t) => sum + trashSquares(trash[t]), 0);
+// Squares in use: one per bag item key plus the trash stacks, plus `extra` (the garden's
+// veggie and seed stacks, hooks/useGarden.ts).
+export function bagSquaresUsed(itemKeys: string[], trash: TrashCounts, extra = 0): number {
+  return itemKeys.length + TRASH_ORDER.reduce((sum, t) => sum + trashSquares(trash[t]), 0) + extra;
 }
 
 // One more piece of trash, or null when it would need a square the bag doesn't have.
-export function addTrash(trash: TrashCounts, type: TrashType, itemKeys: string[]): TrashCounts | null {
+export function addTrash(trash: TrashCounts, type: TrashType, itemKeys: string[], extra = 0): TrashCounts | null {
   const next = { ...trash, [type]: trash[type] + 1 };
-  return bagSquaresUsed(itemKeys, next) > BAG_SIZE ? null : next;
+  return bagSquaresUsed(itemKeys, next, extra) > BAG_SIZE ? null : next;
 }
 
 // Trades every full bundle for gold (1 gold per bundle, see TRASH_DEFS);
