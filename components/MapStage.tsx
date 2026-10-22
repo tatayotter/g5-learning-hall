@@ -27,6 +27,10 @@ import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
  *  cover-mode portrait fullscreen. Defaults to 1 (no transform). */
 export const MapScaleContext = createContext(1);
 
+/** Screen y (CSS px) where the fixed top HUD ends, in fullscreen; 0 otherwise.
+ *  MapCanvas keeps the map's top row from scrolling under the HUD. */
+export const MapHudContext = createContext(0);
+
 interface MapStageProps {
   leftTag: ReactNode;
   rightTag?: ReactNode;
@@ -159,6 +163,7 @@ export default function MapStage({
   if (fullscreen) {
     return (
       <MapScaleContext.Provider value={scale}>
+      <MapHudContext.Provider value={hudBottom}>
         <div className="map-stage-full fixed inset-0 z-[78] overflow-hidden flex items-center justify-center bg-[#0a0807]">
           {shell}
           {overlayLayer}
@@ -213,6 +218,7 @@ export default function MapStage({
             </div>
           )}
         </div>
+      </MapHudContext.Provider>
       </MapScaleContext.Provider>
     );
   }

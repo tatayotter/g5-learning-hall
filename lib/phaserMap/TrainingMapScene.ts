@@ -66,6 +66,15 @@
 // interpolate name tags/badges/bubbles in lockstep with the sprite.
 import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
+import SwayingGrass from './swayingGrass';
+import SwayingTrees from './swayingTrees';
+
+// Sprite shadows lie on the ground: above the flat ground layers (Ground, and
+// Ground Detail's paths, pebbles and flowers) but under the swaying tall
+// grass (Ground Detail + 0.5) and every object layer or sprite above that.
+// Painted-background regions have no layers, so any depth above 0 works.
+const SHADOW_ABOVE_DETAIL = 0.25;
+const DEFAULT_SHADOW_DEPTH = 1.5;
 
 export { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM };
 
@@ -104,6 +113,11 @@ export interface MapCanvasSyncState {
    *  CSS scale crops both sides. Used to tighten the camera clamp so the
    *  player sprite stays within the visible viewport. */
   visibleCanvasW?: number;
+  /** Visible band of canvas rows (canvas px): cover mode can crop the top and
+   *  bottom, and the fixed HUD covers the top. The camera keeps the map's top
+   *  and bottom edges inside this band. Default 0..CANVAS_HEIGHT. */
+  visibleCanvasTop?: number;
+  visibleCanvasBottom?: number;
   /** Tilemap camera zoom (player-adjustable); defaults to TILE_ART_ZOOM. */
   zoom?: number;
   /** Trash items to render below the foliage layer (depth 9). */
@@ -272,7 +286,12 @@ export default class TrainingMapScene extends Phaser.Scene {
   private bg: Phaser.GameObjects.Image | null = null;
   private bgSrc = '';
   private tilemapKey = '';
-  private tilemapLayers: Phaser.Tilemaps.TilemapLayer[] = [];
+  // Everything that pans/zooms with the map: the tilemap layers plus the
+  // swaying-grass container (see swayingGrass.ts), which sits between them.
+  private tilemapLayers: (Phaser.Tilemaps.TilemapLayer | Phaser.GameObjects.Container)[] = [];
+  private grass: SwayingGrass | null = null;
+  private grassTile = '';
+  private trees: SwayingTrees | null = null;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -286,6 +305,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private lastMapWidth = 0;
   private lastMapHeight = 0;
   private visibleCanvasW = CANVAS_WIDTH;
+  private visibleCanvasTop = 0;
+  private visibleCanvasBottom = CANVAS_HEIGHT;
   private zoom = TILE_ART_ZOOM;
   // Whether the follow offset has ever been placed for the current tilemap —
   // the very first placement snaps instead of tweening (see applyState).
@@ -299,10 +320,16 @@ export default class TrainingMapScene extends Phaser.Scene {
   // Recycler NPC sprite — depth 8, below player sprites (depth 9/10).
   private recyclerSprite: Phaser.GameObjects.Image | null = null;
   private recyclerShadow: Phaser.GameObjects.Ellipse | null = null;
+  private shadowDepth = DEFAULT_SHADOW_DEPTH;
   private recyclerTilePos: { x: number; y: number } | null = null;
 
   constructor() {
     super('TrainingMapScene');
+  }
+
+  update(time: number) {
+    this.grass?.update(time);
+    this.trees?.update(time);
   }
 
   create() {
@@ -350,6 +377,11 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (this.self.shadow) this.self.shadow.setPosition(px, py + h * 0.44);
     this.self.x = xTile;
     this.self.y = yTile;
+    const grassTile = `${Math.round(xTile)},${Math.round(yTile)}`;
+    if (grassTile !== this.grassTile) {
+      this.grassTile = grassTile;
+      this.grass?.rustle(Math.round(xTile), Math.round(yTile), this.time.now);
+    }
 
     // The camera (transform offset) changes every frame as the player moves,
     // so every other-player sprite needs repositioning every frame too, camera
@@ -442,7 +474,12 @@ export default class TrainingMapScene extends Phaser.Scene {
       // Normal mode: keep tilemap within canvas edges (no void).
       offsetX = Phaser.Math.Clamp(CANVAS_WIDTH / 2 - playerCenterX, Math.min(0, CANVAS_WIDTH - mapPixelW), 0);
     }
-    const offsetY = Phaser.Math.Clamp(CANVAS_HEIGHT / 2 - playerCenterY, Math.min(0, CANVAS_HEIGHT - mapPixelH), 0);
+    // Centre the player in the visible band and keep the map's top edge at or
+    // above the band's top (never under the HUD) and its bottom edge at or
+    // below the band's bottom.
+    const visTop = this.visibleCanvasTop;
+    const visBottom = this.visibleCanvasBottom;
+    const offsetY = Phaser.Math.Clamp((visTop + visBottom) / 2 - playerCenterY, Math.min(visTop, visBottom - mapPixelH), visTop);
     return { tileW, tileH, offsetX, offsetY };
   }
 
@@ -512,6 +549,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.lastMapHeight = state.mapHeight;
     this.lastBackground = state.background;
     if (state.visibleCanvasW !== undefined) this.visibleCanvasW = state.visibleCanvasW;
+    if (state.visibleCanvasTop !== undefined) this.visibleCanvasTop = state.visibleCanvasTop;
+    if (state.visibleCanvasBottom !== undefined) this.visibleCanvasBottom = state.visibleCanvasBottom;
     const prevTransform = this.lastTransform;
     const prevTileH = this.lastTransform.tileH;
     if (state.zoom !== undefined && state.zoom !== this.zoom) this.applyZoom(state.zoom);
@@ -631,6 +670,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
+    this.grass = null;
+    this.trees = null;
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -659,6 +700,9 @@ export default class TrainingMapScene extends Phaser.Scene {
       const t = this.lastTransform;
       const scale = t.tileW / bg.tileSize;
       let depth = 1;
+      let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+      let baseLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+      let topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       const order = [...bg.belowPlayerLayers, ...bg.abovePlayerLayers];
       for (const layerName of order) {
         const layer = map.createLayer(layerName, tilesets, t.offsetX, t.offsetY);
@@ -673,7 +717,16 @@ export default class TrainingMapScene extends Phaser.Scene {
         layer.setDepth(isAbove ? 11 + depth : depth);
         depth++;
         this.tilemapLayers.push(layer as Phaser.Tilemaps.TilemapLayer);
+        const lower = layerName.toLowerCase();
+        if (lower === 'ground detail') detailLayer = layer as Phaser.Tilemaps.TilemapLayer;
+        if (lower === 'objects base') baseLayer = layer as Phaser.Tilemaps.TilemapLayer;
+        if (lower === 'objects top') topLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
+      this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
+      this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
+      if (this.grass) this.tilemapLayers.push(this.grass.container);
+      this.trees = topLayer && SwayingTrees.build(this, topLayer, baseLayer);
+      if (this.trees) this.tilemapLayers.push(this.trees.container);
       this.tilemap = map;
       this.followInitialized = true;
     };
@@ -732,7 +785,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         image.setInteractive({ useHandCursor: true });
         image.on('pointerdown', () => onClick(player.id));
       }
-      const shadow = this.makeShadow(px, py, h, depth);
+      const shadow = this.makeShadow(px, py, h);
       const next: OtherTrackedSprite = {
         image, shadow, x: player.x, y: player.y, baseScaleY: image.scaleY, srcKey: key,
         // Spawns already "at rest" on its own tile — nothing to interpolate
@@ -824,7 +877,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const image = this.add.sprite(px, py, placeholder);
       image.setDisplaySize(h * 0.95, h * 0.95);
       image.setDepth(10);
-      const shadow = this.makeShadow(px, py, h, 10);
+      const shadow = this.makeShadow(px, py, h);
       const next: TrackedSprite = { image, shadow, x: state.self.x, y: state.self.y, baseScaleY: image.scaleY, srcKey: key };
       this.self = next;
       this.loadSpriteVisual(state.self.spriteSrc, h * 0.95, (texKey) => {
@@ -981,13 +1034,21 @@ export default class TrainingMapScene extends Phaser.Scene {
     img.setScale(scale);
   }
 
-  /** Ellipse ground-shadow beneath a sprite's feet.
-   *  depth: same as the owning sprite — the ellipse renders on top of the
-   *  ground tiles but behind the sprite because Phaser draws objects at the
-   *  same integer depth in insertion order, and shadows are always added first. */
-  private makeShadow(px: number, py: number, h: number, depth: number): Phaser.GameObjects.Ellipse {
+  /** Ellipse ground-shadow beneath a sprite's feet. Drawn right on the
+   *  ground (shadowDepth), so grass tufts, bushes and the other
+   *  map objects stay on top of it the way they would in real life. */
+  // Sprites can be drawn before the tilemap finishes loading, so their
+  // shadows are moved once the layer depths are known.
+  private setShadowDepth(depth: number) {
+    this.shadowDepth = depth;
+    this.self?.shadow.setDepth(depth);
+    for (const o of this.others.values()) o.shadow.setDepth(depth);
+    this.recyclerShadow?.setDepth(depth);
+  }
+
+  private makeShadow(px: number, py: number, h: number): Phaser.GameObjects.Ellipse {
     const shadow = this.add.ellipse(px, py + h * 0.44, h * 0.5, h * 0.12, 0x000000, 0.28);
-    shadow.setDepth(depth - 0.5);
+    shadow.setDepth(this.shadowDepth);
     return shadow;
   }
 
@@ -1103,11 +1164,11 @@ export default class TrainingMapScene extends Phaser.Scene {
       img.setDepth(8);
       this.recyclerSprite = img;
       this.recyclerTilePos = { x: tile.x, y: tile.y };
-      // Shadow at depth 7 — beneath the recycler sprite.
+      // Shadow on the ground, under the grass like every other shadow.
       if (this.recyclerShadow) this.recyclerShadow.destroy();
       // Recycler bottom-anchor sits at py + h*0.5; shadow goes near its feet.
       this.recyclerShadow = this.add.ellipse(px, py + h * 0.5, h * 0.55, h * 0.12, 0x000000, 0.25);
-      this.recyclerShadow.setDepth(7);
+      this.recyclerShadow.setDepth(this.shadowDepth);
     };
 
     this.ensureTexture(key, '/npcs/recycler.png', placeSprite);

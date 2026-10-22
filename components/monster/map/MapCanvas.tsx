@@ -10,7 +10,7 @@
 // scene file's header comment for the full rationale.
 import { useEffect, useRef, useContext, useState, useCallback } from 'react';
 import { useClientValue } from '@/hooks/useClientValue';
-import { MapScaleContext } from '@/components/MapStage';
+import { MapScaleContext, MapHudContext } from '@/components/MapStage';
 import { USERS } from '@/lib/userSession';
 import { GMBadge, MonsterImage } from '@/components/battle/shared';
 import { ELEMENT_ICON_SRC, type MonsterDef } from '@/lib/monsterConfig';
@@ -136,6 +136,29 @@ export default function MapCanvas({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+
+  // The rows of the canvas actually on screen, in canvas pixels: in cover
+  // mode a wide screen crops the top and bottom, and the fixed HUD covers
+  // the top of what's left. The camera keeps the map's edges inside this band
+  // so the top rows never hide under the HUD.
+  const hudBottom = useContext(MapHudContext);
+  const [visibleCanvasY, setVisibleCanvasY] = useState<{ top: number; bottom: number }>({ top: 0, bottom: CANVAS_HEIGHT });
+  useEffect(() => {
+    const measure = () => {
+      const el = rootRef.current;
+      if (!el || mapScale <= 0) return;
+      const r = el.getBoundingClientRect();
+      const stage = el.closest('.map-stage-full')?.getBoundingClientRect();
+      const screenTop = Math.max(hudBottom, stage?.top ?? 0);
+      const screenBottom = stage?.bottom ?? window.innerHeight;
+      const top = Math.round(Math.min(CANVAS_HEIGHT, Math.max(0, (screenTop - r.top) / mapScale)));
+      const bottom = Math.round(Math.max(top, Math.min(CANVAS_HEIGHT, (screenBottom - r.top) / mapScale)));
+      setVisibleCanvasY(prev => (prev.top === top && prev.bottom === bottom ? prev : { top, bottom }));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [mapScale, hudBottom]);
 
   // Player-adjustable camera zoom (tile-art maps only), remembered per device.
   // The saved zoom is read straight from storage; the player's own choice
@@ -286,6 +309,8 @@ export default function MapCanvas({
       dustPuffs,
       onPlayerClick,
       visibleCanvasW,
+      visibleCanvasTop: visibleCanvasY.top,
+      visibleCanvasBottom: visibleCanvasY.bottom,
       zoom,
       trashItems: trashItems?.map(i => ({
         id: i.id,
