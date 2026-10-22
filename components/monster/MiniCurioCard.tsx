@@ -36,6 +36,13 @@ export function MonsterSilhouette({ id, className = '' }: { id: string; classNam
   );
 }
 
+// The name is as big as the card's width allows: short names get up to 13px,
+// long ones shrink just enough to fit (Bungee letters are about 0.72em wide;
+// 44px covers the padding and the element icon).
+function nameFontSize(name: string) {
+  return `clamp(9px, calc((100cqi - 44px) / ${(Math.max(name.length, 4) * 0.72).toFixed(2)}), 13px)`;
+}
+
 const MYSTERY_FRAME = 'linear-gradient(135deg, #78716c 0%, #44403c 50%, #57534e 100%)';
 
 export default function MiniCurioCard({
@@ -60,6 +67,7 @@ export default function MiniCurioCard({
     <div
       className={`mini-curio-card relative w-full rounded-[11px] p-[4px] ${dimmed ? 'opacity-60' : ''}`}
       style={{
+        containerType: 'inline-size',
         background: frame,
         boxShadow: selected
           ? '0 0 0 3px #22c55e, 0 6px 14px rgba(0,0,0,0.35)'
@@ -85,8 +93,8 @@ export default function MiniCurioCard({
       >
         <div className="flex items-center gap-1 min-w-0">
           <p
-            className={`flex-1 min-w-0 truncate leading-tight text-[#2a1505] ${shownName.length > 9 ? 'text-[9px]' : 'text-[11px]'}`}
-            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
+            className="flex-1 min-w-0 truncate leading-tight text-[#2a1505]"
+            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing, fontSize: nameFontSize(shownName) }}
             title={shownName}
           >
             {shownName}

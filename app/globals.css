@@ -1767,6 +1767,10 @@ body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }
 .curio-card-flipper.is-flipped { transform: rotateY(180deg); }
 .curio-card-face, .curio-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
 .curio-card-back { transform: rotateY(180deg); }
+/* While "Save card" takes a picture of the back: flat, back on top. */
+.curio-card[data-capture="back"] .curio-card-flipper { transform: none; transition: none; }
+.curio-card[data-capture="back"] .curio-card-back { transform: none; }
+.curio-card[data-capture="back"] .curio-card-face { visibility: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .curio-card, .curio-card-foil, .curio-card-flipper { animation: none; transition: none; }
 }

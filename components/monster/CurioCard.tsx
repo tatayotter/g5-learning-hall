@@ -255,24 +255,25 @@ export default function CurioCard({
   // shows where it works: a browser, or a device that can share pictures.
   const canSave = typeof navigator !== 'undefined' && (!isNativeApp() || typeof navigator.canShare === 'function');
 
-  // Saves the front of the card as a picture: shared to the device's share
-  // sheet where it can take a file (phones), otherwise downloaded.
+  // Saves the side that's showing as a picture: shared to the device's share
+  // sheet where it can take a file (phones), otherwise downloaded. The picture
+  // can't be 3D, so for the back the card is briefly laid flat with the back
+  // on top (globals.css, .curio-card[data-capture="back"]).
   const saveCard = async () => {
     const el = cardRef.current;
     if (!el || saving) return;
     setSaving(true);
+    const side = flipped ? 'back' : 'front';
     try {
-      if (flipped) {
-        setFlipped(false);
-        await new Promise(r => setTimeout(r, 650));
-      }
+      el.dataset.capture = side;
       const { toBlob } = await import('html-to-image');
       const blob = await toBlob(el, {
         pixelRatio: 2,
         style: { transform: 'none', animation: 'none', margin: '0' },
       });
+      endCapture(el);
       if (!blob) return;
-      const fileName = `${def.name.replace(/[^a-z0-9]+/gi, '-')}-card.png`;
+      const fileName = `${def.name.replace(/[^a-z0-9]+/gi, '-')}-card${side === 'back' ? '-story' : ''}.png`;
       const file = new File([blob], fileName, { type: 'image/png' });
       if (navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: `${def.name} card` }).catch(() => {});
@@ -285,6 +286,7 @@ export default function CurioCard({
       a.click();
       setTimeout(() => URL.revokeObjectURL(url), 5000);
     } finally {
+      endCapture(el);
       setSaving(false);
     }
   };
@@ -486,6 +488,19 @@ export default function CurioCard({
   );
 }
 
+// Puts the card back after a picture: the flipper jumps straight back to its
+// angle instead of spinning there.
+function endCapture(el: HTMLElement) {
+  if (!el.dataset.capture) return;
+  const flipper = el.querySelector<HTMLElement>('.curio-card-flipper');
+  if (flipper) flipper.style.transition = 'none';
+  delete el.dataset.capture;
+  if (flipper) {
+    void flipper.offsetWidth;
+    requestAnimationFrame(() => { flipper.style.transition = ''; });
+  }
+}
+
 function StoryRow({ icon, label, value, testId }: { icon: string; label: string; value: string; testId?: string }) {
   return (
     <div className="flex items-center gap-2 rounded-md bg-white/65 px-2 py-1" data-testid={testId}>
@@ -506,14 +521,29 @@ function CardBack({ def, speciesId, story, flipped }: { def: MonsterDef; species
       aria-hidden={!flipped}
       data-testid="curio-card-back"
     >
-      <div className="flex items-center gap-2">
-        <MonsterImage monster={{ ...def, isLegendary: false }} className="w-10 h-10" emojiClassName="text-2xl" />
-        <p className="text-[17px] leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-          <span style={{ position: 'relative', display: 'inline-block' }}>
-            <span aria-hidden style={questTextShadowStyle}>{def.name}&apos;s story</span>
-            <span style={questTextStyle}>{def.name}&apos;s story</span>
-          </span>
-        </p>
+      <p className="text-[17px] leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+        <span style={{ position: 'relative', display: 'inline-block' }}>
+          <span aria-hidden style={questTextShadowStyle}>{def.name}&apos;s story</span>
+          <span style={questTextStyle}>{def.name}&apos;s story</span>
+        </span>
+      </p>
+
+      {/* Portrait: grows to fill whatever room the front leaves, so the back
+          is never half empty on a tall card. */}
+      <div
+        className="relative flex-1 min-h-[64px] rounded-md overflow-hidden"
+        style={{
+          background: `radial-gradient(circle at 50% 60%, #ffffff 0%, ${theme.art} 55%, ${theme.bottom} 100%)`,
+          boxShadow: '0 0 0 1.5px #c9a24a, 0 0 0 3px #4a2f18',
+        }}
+        data-testid="curio-story-portrait"
+      >
+        <div className="absolute inset-[6%]">
+          <MonsterImage monster={{ ...def, isLegendary: false }} className="w-full h-full" emojiClassName="text-6xl" />
+        </div>
+        <span className="absolute bottom-1 right-1.5 text-[10px] font-black px-1.5 py-px rounded-full bg-[#2a1505]/80 text-[#fde68a]">
+          {story.battlesFought > 0 ? `${Math.round((story.battlesWon / story.battlesFought) * 100)}% wins` : 'Ready for battle'}
+        </span>
       </div>
 
       <div className="flex flex-col gap-1">
@@ -552,7 +582,6 @@ function CardBack({ def, speciesId, story, flipped }: { def: MonsterDef; species
         <p className="text-[12px] font-bold leading-snug">{story.nextGoal}</p>
       </div>
 
-      <div className="flex-1" />
       {story.countingNote && <p className="text-[9px] italic text-[#3a2610] text-center">{story.countingNote}</p>}
       <div className="flex items-center justify-between text-[9px] font-bold text-[#3a2610] px-0.5">
         <span>{curioCardNumber(speciesId)}</span>
