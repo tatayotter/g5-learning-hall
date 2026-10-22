@@ -4,30 +4,35 @@
 //
 // A tilemap layer is one baked surface, so a single tile can't move on its
 // own. At map build, each tuft tile in the "Ground Detail" layer is hidden
-// and redrawn as its own Image (same tileset texture, same spot), all held
-// in one Container that follows the camera like a tilemap layer does (the
-// scene keeps it in its tilemapLayers list). Every frame one shared wind wave
-// rolls across the field: each tuft leans by a sine of time minus its map
-// position, so neighbours move together and the wave travels diagonally.
+// and redrawn as three horizontal slices (same tileset texture, same spot),
+// all held in one Container that follows the camera like a tilemap layer
+// does (the scene keeps it in its tilemapLayers list).
 //
-// Each tuft pivots at the bottom of its painted grass (not the tile's
-// bottom): the three tuft tiles draw the same 32x16 clump at three heights.
+// The sway bends rather than rotates: the bottom slice (roots) stays put, the
+// middle slice slides up to 1 art pixel and the top slice up to 2, always in
+// whole art pixels so the pixel art stays crisp. One slow wind wave rolls
+// across the field (neighbours move together), with a per-tuft seed so the
+// field doesn't move in lockstep.
 import Phaser from 'phaser';
 
 // Global tile ids (Ledger's Heart's tileset order) of the tall-grass tufts,
 // mapped to the pixel row where the clump's base sits inside its 32 px tile.
+// Each draws the same 16 px tall clump.
 const TUFT_BASE_Y: Record<number, number> = { 5491: 32, 5492: 24, 5493: 16 };
+const CLUMP_H = 16;
+// Slices from the top of the clump down: [rows, max shift in art pixels].
+// Bottom 30% anchored, top 70% bends (same rule as the garden plants).
+const SLICES: [number, number][] = [[6, 2], [5, 1], [5, 0]];
 
-const SWAY_DEG = 4;           // how far a tuft leans at the top of a gust
-const SWAY_PERIOD_MS = 2600;  // one full gust
-const WAVE_X = 0.45;          // phase step per tile: the wave travels right...
-const WAVE_Y = 0.25;          // ...and a little down the map
-const RUSTLE_DEG = 14;        // extra lean when stepped into
-const RUSTLE_MS = 450;
+const SWAY_PERIOD_MS = 5200;  // one full gust: slow and calm
+const WAVE_X = 0.35;          // phase step per tile: the wave travels right...
+const WAVE_Y = 0.2;           // ...and a little down the map
+const RUSTLE_MS = 600;        // shake when stepped into
 
 interface Tuft {
-  image: Phaser.GameObjects.Image;
+  slices: { image: Phaser.GameObjects.Image; x: number; shift: number; px: number }[];
   phase: number;
+  seed: number;
   rustleStart: number;
 }
 
@@ -51,31 +56,41 @@ export default class SwayingGrass {
       const baseY = TUFT_BASE_Y[tile.index];
       const tileset = tile.tileset;
       if (baseY === undefined || !tileset?.image) return;
+      const at = tileset.getTileTextureCoordinates(tile.index) as { x: number; y: number } | null;
+      if (!at) return;
       const texture = tileset.image;
-      const frameName = `tuft:${tile.index}`;
-      if (!texture.has(frameName)) {
-        const at = tileset.getTileTextureCoordinates(tile.index) as { x: number; y: number } | null;
-        if (!at) return;
-        texture.add(frameName, 0, at.x, at.y, tileset.tileWidth, tileset.tileHeight);
-      }
-      const w = tile.width;
-      const h = tile.height;
-      const image = scene.add.image(tile.x * w + w / 2, tile.y * h + baseY * (h / 32), texture.key, frameName);
-      image.setOrigin(0.5, baseY / 32);
-      this.container.add(image);
+      const px = tile.height / 32; // map pixels per art pixel
+      const left = tile.x * tile.width;
+      let row = baseY - CLUMP_H;
+      const slices: Tuft['slices'] = [];
+      SLICES.forEach(([rows, shift], i) => {
+        const frameName = `tuft:${tile.index}:${i}`;
+        if (!texture.has(frameName)) texture.add(frameName, 0, at.x, at.y + row, tileset.tileWidth, rows);
+        const image = scene.add.image(left, tile.y * tile.height + row * px, texture.key, frameName).setOrigin(0, 0);
+        this.container.add(image);
+        slices.push({ image, x: left, shift, px });
+        row += rows;
+      });
       tile.setVisible(false);
-      this.tufts.set(`${tile.x},${tile.y}`, { image, phase: tile.x * WAVE_X + tile.y * WAVE_Y, rustleStart: -Infinity });
+      const seed = Math.sin(tile.x * 12.9898 + tile.y * 78.233) * 43758.5453;
+      this.tufts.set(`${tile.x},${tile.y}`, {
+        slices,
+        phase: tile.x * WAVE_X + tile.y * WAVE_Y,
+        seed: (seed - Math.floor(seed)) * Math.PI * 2,
+        rustleStart: -Infinity,
+      });
     });
   }
 
   update(now: number) {
     const wind = (now / SWAY_PERIOD_MS) * Math.PI * 2;
     for (const tuft of this.tufts.values()) {
-      // A main gust plus a faster, smaller flutter so it never looks mechanical.
-      let deg = SWAY_DEG * Math.sin(wind - tuft.phase) + 1.2 * Math.sin(wind * 2.3 - tuft.phase * 1.7);
+      // Leans mostly one way (the wind's direction), with a slow per-tuft drift.
+      let lean = 0.35 + 0.5 * Math.sin(wind - tuft.phase) + 0.25 * Math.sin(wind * 0.43 + tuft.seed);
       const r = (now - tuft.rustleStart) / RUSTLE_MS;
-      if (r < 1) deg += RUSTLE_DEG * Math.sin(r * Math.PI * 3) * (1 - r);
-      tuft.image.setAngle(deg);
+      if (r < 1) lean += 1.2 * Math.sin(r * Math.PI * 4) * (1 - r);
+      lean = Math.max(-1, Math.min(1, lean));
+      for (const s of tuft.slices) s.image.x = s.x + Math.round(lean * s.shift) * s.px;
     }
   }
 
