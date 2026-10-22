@@ -1,8 +1,9 @@
 // components/monster/map/flyToBag.ts
-// The "it went into your bag" moment for a picked veggie: its icon pops up over the
+// The "it went into your bag" moment for anything earned on the Training Map (veggies,
+// seed packets, trash; use it for every new map item too): its icon pops up over the
 // player, hangs there for a beat, then flies in an arc into the bag button
 // (MapItemBar's data-testid="item-bag"), which gives a little bump when it lands.
-// Seed packets follow a moment later. Plain DOM + Web Animations, drawn on top of
+// Several icons follow one another. Plain DOM + Web Animations, drawn on top of
 // everything, so it works whatever panel was just closed.
 const POP_MS = 420;
 const HOLD_MS = 180;
@@ -15,7 +16,8 @@ const center = (el: Element) => {
   return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
 };
 
-export function flyToBag(icons: string[]) {
+// smooth: the icon is painted art (trash), not pixel art (veggies), so don't pixelate it.
+export function flyToBag(icons: string[], { smooth = false }: { smooth?: boolean } = {}) {
   if (typeof document === 'undefined' || icons.length === 0) return;
   const bag = document.querySelector('[data-testid="item-bag"]');
   const self = document.querySelector('[data-testid="map-self-marker"]');
@@ -36,7 +38,7 @@ export function flyToBag(icons: string[]) {
     Object.assign(img.style, {
       position: 'fixed', left: `${from.x - SIZE / 2}px`, top: `${from.y - SIZE / 2}px`,
       width: `${SIZE}px`, height: `${SIZE}px`, zIndex: '120', pointerEvents: 'none',
-      imageRendering: 'pixelated', filter: 'drop-shadow(0 3px 3px rgba(0,0,0,0.45))', opacity: '0',
+      imageRendering: smooth ? 'auto' : 'pixelated', objectFit: 'contain', filter: 'drop-shadow(0 3px 3px rgba(0,0,0,0.45))', opacity: '0',
     });
     document.body.appendChild(img);
     const dx = to.x - from.x, dy = to.y - from.y;

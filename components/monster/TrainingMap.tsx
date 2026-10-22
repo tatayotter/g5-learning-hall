@@ -541,6 +541,7 @@ export default function TrainingMap({
     } else if (trashHere && !collectingTrashIds.has(trashHere.id)) {
       playCoins();
       setCollectingTrashIds(prev => new Set([...prev, trashHere.id]));
+      flyToBag([`/trash/${trashHere.type}.png`], { smooth: true });
       setTimeout(() => {
         setCollectingTrashIds(prev => { const n = new Set(prev); n.delete(trashHere.id); return n; });
         // Another pickup may have filled the bag meanwhile.

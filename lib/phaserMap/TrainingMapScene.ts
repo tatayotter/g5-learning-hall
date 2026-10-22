@@ -1114,14 +1114,15 @@ export default class TrainingMapScene extends Phaser.Scene {
         if (entry) {
           this.trashAnimating.add(id);
           this.trashTexts.delete(id);
+          // A quick shrink and a puff of dust; the icon itself pops up and flies to the
+          // bag as a DOM overlay (components/monster/map/flyToBag.ts).
+          this.dustPuff(entry.sprite.x, entry.sprite.y, entry.sprite.displayHeight);
           this.tweens.add({
             targets: entry.sprite,
-            y: entry.sprite.y - 28,
-            alpha: 0,
-            scaleX: entry.sprite.scaleX * 1.4,
-            scaleY: entry.sprite.scaleY * 1.4,
-            duration: 450,
-            ease: 'Cubic.easeOut',
+            scaleX: 0,
+            scaleY: 0,
+            duration: 140,
+            ease: 'Back.easeIn',
             onComplete: () => {
               entry.sprite.destroy();
               this.trashAnimating.delete(id);
@@ -1137,6 +1138,24 @@ export default class TrainingMapScene extends Phaser.Scene {
         entry.sprite.destroy();
         this.trashTexts.delete(id);
       }
+    }
+  }
+
+  // A small puff of dust at (x, y) in canvas pixels, `size` across: picking something up.
+  private dustPuff(x: number, y: number, size: number) {
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2 + Math.random() * 0.6;
+      const puff = this.add.ellipse(x + Math.cos(a) * size * 0.15, y + size * 0.2, size * 0.45, size * 0.3, 0xe8dcc0, 0.85);
+      puff.setDepth(9);
+      this.tweens.add({
+        targets: puff,
+        x: x + Math.cos(a) * size * 0.7,
+        y: y + size * 0.1 - Math.random() * size * 0.3,
+        scaleX: 1.8, scaleY: 1.6, alpha: 0,
+        duration: 420 + Math.random() * 120, ease: 'Cubic.easeOut',
+        onComplete: () => puff.destroy(),
+      });
     }
   }
 

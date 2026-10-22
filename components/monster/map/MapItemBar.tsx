@@ -265,7 +265,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
             data-testid="item-bag"
             className={`relative w-12 h-9 [@media(max-height:500px)]:w-9 [@media(max-height:500px)]:h-12 lg:w-10 lg:h-14 rounded-lg border-2 ${bagFull ? 'border-[#ef4444]' : 'border-[#8b5e2a]'} bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95`}
           >
-            🎒
+            <img src="/icons/stats/items_100.png" alt="" draggable={false} className="w-8 h-8 object-contain" style={{ imageRendering: 'pixelated' }} />
             {/* Nearly full: how many squares are used. Full: a red FULL tag. */}
             {bagNearlyFull && (
               <span
