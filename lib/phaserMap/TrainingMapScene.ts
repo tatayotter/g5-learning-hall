@@ -66,6 +66,7 @@
 // interpolate name tags/badges/bubbles in lockstep with the sprite.
 import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
+import SwayingGrass from './swayingGrass';
 
 export { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM };
 
@@ -272,7 +273,11 @@ export default class TrainingMapScene extends Phaser.Scene {
   private bg: Phaser.GameObjects.Image | null = null;
   private bgSrc = '';
   private tilemapKey = '';
-  private tilemapLayers: Phaser.Tilemaps.TilemapLayer[] = [];
+  // Everything that pans/zooms with the map: the tilemap layers plus the
+  // swaying-grass container (see swayingGrass.ts), which sits between them.
+  private tilemapLayers: (Phaser.Tilemaps.TilemapLayer | Phaser.GameObjects.Container)[] = [];
+  private grass: SwayingGrass | null = null;
+  private grassTile = '';
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -303,6 +308,10 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   constructor() {
     super('TrainingMapScene');
+  }
+
+  update(time: number) {
+    this.grass?.update(time);
   }
 
   create() {
@@ -350,6 +359,11 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (this.self.shadow) this.self.shadow.setPosition(px, py + h * 0.44);
     this.self.x = xTile;
     this.self.y = yTile;
+    const grassTile = `${Math.round(xTile)},${Math.round(yTile)}`;
+    if (grassTile !== this.grassTile) {
+      this.grassTile = grassTile;
+      this.grass?.rustle(Math.round(xTile), Math.round(yTile), this.time.now);
+    }
 
     // The camera (transform offset) changes every frame as the player moves,
     // so every other-player sprite needs repositioning every frame too, camera
@@ -631,6 +645,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
+    this.grass = null;
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -659,6 +674,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const t = this.lastTransform;
       const scale = t.tileW / bg.tileSize;
       let depth = 1;
+      let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       const order = [...bg.belowPlayerLayers, ...bg.abovePlayerLayers];
       for (const layerName of order) {
         const layer = map.createLayer(layerName, tilesets, t.offsetX, t.offsetY);
@@ -673,7 +689,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         layer.setDepth(isAbove ? 11 + depth : depth);
         depth++;
         this.tilemapLayers.push(layer as Phaser.Tilemaps.TilemapLayer);
+        if (layerName.toLowerCase() === 'ground detail') detailLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
+      this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
+      if (this.grass) this.tilemapLayers.push(this.grass.container);
       this.tilemap = map;
       this.followInitialized = true;
     };
