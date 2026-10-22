@@ -66,7 +66,8 @@ function cleanBag(raw: unknown): GardenBag {
 export async function fetchGarden(userId: string): Promise<GardenState | null> {
   const [bagRes, plantsRes] = await Promise.all([
     supabase.from('player_bag_items').select('item_key, quantity').eq('user_id', userId),
-    supabase.from('player_gather_nodes').select('region, node_id, last_picked_at, wrong_streak, rest_until, hits, chop_misses').eq('user_id', userId),
+    // Every column, so the veggies still load on a database without the tree columns yet.
+    supabase.from('player_gather_nodes').select('*').eq('user_id', userId),
   ]);
   const trees = new Set(Object.values(WILD_TREE_IDS).flat());
   if (bagRes.error || plantsRes.error) return null;
