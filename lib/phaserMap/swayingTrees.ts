@@ -6,8 +6,9 @@
 // camera like the layer does. Trees are stacks of tiles, so each tile slides
 // by how high it sits above the bottom of its tree (counting tree tiles in
 // "Objects Base" too): the bottom tile (trunk) stays put, the next row slides
-// up to 1 art pixel, rows above that up to 2. Whole art pixels only, so the
-// art never blurs. Slower and smaller than the grass: trees are heavy.
+// up to 1 art pixel, rows above that up to 2. The slide is continuous (the
+// tileset is drawn with smooth filtering, so sub-pixel steps don't smear),
+// which keeps the motion fluid. Slower and smaller than the grass: trees are heavy.
 import Phaser from 'phaser';
 
 // The Trees tileset's global ids in Ledger's Heart (firstgid 5121, 1024 tiles),
@@ -90,7 +91,7 @@ export default class SwayingTrees {
     for (const t of this.tiles) {
       // Leans with the wind and eases back, never far upwind.
       const lean = 0.25 + 0.55 * Math.sin(wind - t.phase) + 0.2 * Math.sin(wind * 0.37 - t.phase * 2);
-      t.image.x = t.x + Math.round(lean * t.shift) * t.px;
+      t.image.x = t.x + lean * t.shift * t.px;
     }
   }
 
