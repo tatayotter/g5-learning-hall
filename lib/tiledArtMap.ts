@@ -357,14 +357,13 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   const keepClearRects: NatureRect[] = [];
   const collisionRects: Rect[] = [];
   const forestRects: NatureRect[] = [];
-  // "Backdrop": land outside the map's wall where the day's trees still grow (the town's tree belt
-  // above its top hedge). Nobody walks there.
-  const backdropRects: Rect[] = [];
+  // "Tree Row": points where a tree grows every day (the town's line of trees under its top hedge).
+  const treeSpots: { x: number; y: number }[] = [];
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/backdrop/i.test(groupName)) {
-      backdropRects.push(...objectEls.map(parseObjectRect).filter(r => r.width > 0 && r.height > 0));
+    if (/tree\s*row/i.test(groupName)) {
+      for (const o of objectEls) treeSpots.push({ x: Math.floor(Number(attr(o, 'x')) / tileWidth), y: Math.floor(Number(attr(o, 'y')) / tileHeight) });
     } else if (/collision/i.test(groupName)) {
       collisionRects.push(...objectEls.map(parseObjectRect).filter(r => r.width > 0 && r.height > 0));
     } else if (/keep\s*clear/i.test(groupName)) {
@@ -424,16 +423,14 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     }
   }
   const stands = (g: number) => g !== 0 && !walkableGids.has(g & 0x1fffffff);
-  const inRects = (rects: Rect[], x: number, y: number) => {
+  const inCollision = (x: number, y: number) => {
     const cx = (x + 0.5) * tileWidth, cy = (y + 0.5) * tileHeight;
-    return rects.some(r => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height);
+    return collisionRects.some(r => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height);
   };
   const hardBlocked: boolean[] = new Array(mapWidth * mapHeight).fill(false);
-  const backdrop: boolean[] = new Array(mapWidth * mapHeight).fill(false);
   for (let y = 0; y < mapHeight; y++) for (let x = 0; x < mapWidth; x++) {
     const i = y * mapWidth + x;
-    backdrop[i] = inRects(backdropRects, x, y);
-    hardBlocked[i] = backdrop[i] || inRects(collisionRects, x, y) || layers.some(l => solidGids.has(l.data[i] & 0x1fffffff));
+    hardBlocked[i] = inCollision(x, y) || layers.some(l => solidGids.has(l.data[i] & 0x1fffffff));
   }
 
   // The day's nature layer: bushes go on Objects Base, grass, rocks and flowers on Ground
@@ -456,8 +453,8 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     const detail = ensure('detail', 'Ground Detail');
     const base = ensure('base', 'Objects Base');
     // Nothing grows on cliffs, skirts or liquid either, nor on the town's buildings and fences
-    // (plants may grow in a shadow). They do grow on a backdrop.
-    const occupied = hardBlocked.map((b, i) => (b && !backdrop[i]) || layers.some(l => l !== ground && l !== detail && l !== base && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'shadows' && l.data[i] !== 0));
+    // (plants may grow in a shadow).
+    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && l !== base && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'shadows' && l.data[i] !== 0));
     // Things standing on the ground (other than the layer nature grows bushes on) can't be walked through.
     const standing = layers.filter(l => roleOf.get(l.name) === 'base' && l !== base);
     const walls = hardBlocked.map((b, i) => b || standing.some(l => stands(l.data[i])));
@@ -467,7 +464,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
       regionId: nature.regionId, day: nature.day, width: mapWidth, height: mapHeight, tileSize: tileWidth,
       ground: ground.data, detail: detail.data, base: base.data, firstgid,
       spawn: spawnTile, portals, recycler: recyclerTile, reserved: nature.reserved,
-      keepClear: keepClearRects, forest: [...forestRects, ...backdropRects], backdrop: backdropRects, occupied, blocked: walls,
+      keepClear: keepClearRects, forest: forestRects, treeSpots, occupied, blocked: walls,
     });
     detail.data = grown.detail;
     base.data = grown.base;

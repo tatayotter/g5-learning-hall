@@ -114,8 +114,9 @@ the whole town (no wild curios there), and marks see-through stamp tiles `walkab
   row blocks), so kids walk behind both;
 - swaps the fountain's tiles for `FountainAnim` (6 frames made by `build_fountain.py`: rings across
   the pool, light down the jets, moving sparkles) with Tiled tile animations;
-- adds 6 rows of grass above the top hedge with a `Backdrop` box: nobody walks there, but the
-  day's trees grow in a line along it (3+ rows from the top, so their crowns show).
+- adds a `Tree Row` of points on row 3, under the north hedge, every 3 columns where nothing solid
+  stands: the daily nature layer grows a tree (choppable) on each, on top of the usual count;
+  behind a building the roof draws over it.
 The decor is toned to the game (softer color) by `build_decor.py`.
 The daily nature layer grows the Ledger's Heart's trees (choppable) on the open lawns, with flowers
 and tall grass; no bushes or rocks.
