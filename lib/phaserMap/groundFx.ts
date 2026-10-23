@@ -179,6 +179,8 @@ export default class GroundFx {
   private deepKey = '';
   private lavaGlow?: Phaser.GameObjects.Image; // the lava's light at night
   private lavaGlowKey = '';
+  private nextFlare = 0;
+  private flareAt = -1e9;
   private waves?: Phaser.GameObjects.Container; // the wave sprites, on the ground too
   private glow: Phaser.GameObjects.Graphics; // lights: they add light, and shine through the night
   private embers: Ember[] = [];
@@ -377,7 +379,13 @@ export default class GroundFx {
         this.glow.fillStyle(0xff6a20, a * 0.35).fillRect(x - 1, y - 1, 3, 3);
         return true;
       });
-      if (this.lavaGlow) this.lavaGlow.setVisible(night > 0.05).setAlpha(0.3 * night);
+      if (this.lavaGlow) {
+        // Firelight, not a lamp: a slow breath, a quicker flutter, and now and then a soft flare.
+        const flicker = 0.82 + 0.1 * Math.sin(time / 1700) + 0.06 * Math.sin(time / 230 + 1.3) + 0.04 * Math.sin(time / 97);
+        if (time > this.nextFlare) { this.flareAt = time; this.nextFlare = time + 3000 + Math.random() * 6000; }
+        const flare = Math.max(0, 1 - (time - this.flareAt) / 700) * 0.22;
+        this.lavaGlow.setVisible(night > 0.05).setAlpha(0.3 * night * (flicker + flare));
+      }
     }
 
     // Rings (ripples, splashes, pops): a pixel ellipse that grows and fades.
