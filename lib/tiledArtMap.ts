@@ -38,6 +38,8 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   // Crates, barrels, benches, flower boxes, pots and the well, cut from the town sheets onto the
   // tile grid (/mnt/project-files/town-map/build_decor.py).
   'TownDecor': '/tilesets/forgotten-memories/TownDecor.png',
+  // The town's ground shadows, drawn by its build script.
+  'TownShadows': '/tilesets/forgotten-memories/TownShadows.png',
   'WaterTiles-6frames': '/tilesets/forgotten-memories/WaterTiles-6frames.png',
   // Region looks (recolored copies of the pack's sheets, same layout): Cinderreach is scorched
   // and its liquid is lava.
@@ -440,8 +442,9 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     const ground = layers.find(l => roleOf.get(l.name) === 'ground')!;
     const detail = ensure('detail', 'Ground Detail');
     const base = ensure('base', 'Objects Base');
-    // Nothing grows on cliffs, skirts or liquid either, nor on the town's buildings and fences.
-    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && l !== base && roleOf.get(l.name) !== 'liquid' && l.data[i] !== 0));
+    // Nothing grows on cliffs, skirts or liquid either, nor on the town's buildings and fences
+    // (plants may grow in a shadow).
+    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && l !== base && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'shadows' && l.data[i] !== 0));
     // Things standing on the ground (other than the layer nature grows bushes on) can't be walked through.
     const standing = layers.filter(l => roleOf.get(l.name) === 'base' && l !== base);
     const walls = hardBlocked.map((b, i) => b || standing.some(l => stands(l.data[i])));

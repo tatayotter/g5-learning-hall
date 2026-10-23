@@ -105,5 +105,9 @@ the whole town (no wild curios there), and marks see-through stamp tiles `walkab
 - stamps the town decor (`TownDecor`, cut from the town sheets by `build_decor.py`: crates,
   barrels, benches, flower boxes, pots, potted plants, the well) at the spots listed in the script:
   `Town Decor` (the feet row, solid) and `Town Decor Top` (over the players).
+- draws ground shadows (`Shadows` layer, `TownShadows` tileset made from them) in the tileset's
+  style, flat (44,33,51) at alpha 125 with a ragged edge: halls, cottages, stalls and the fountain
+  cast their shape 8/9 px down-right, hedges, walls and fences 4/5 px, lamps and decor a blob.
+The decor is toned to the game (softer color) by `build_decor.py`.
 The daily nature layer grows the Ledger's Heart's trees (choppable) on the open lawns, with flowers
 and tall grass; no bushes or rocks.
