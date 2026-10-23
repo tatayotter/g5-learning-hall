@@ -128,7 +128,7 @@ const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'Tile
 // built by maps-incoming/fire-tiles/build_fire_nature.py and the like), thinner where the land
 // is harsh.
 interface Flora { bushes: Stamp[]; smallBushes: Stamp[]; rocks: Stamp[]; flowers: Stamp[]; tufts: Stamp[]; trees: number; meadow: number }
-const FIRE_BUSH: Stamp = { set: 'FireNature', col: 0, row: 0, w: 2, h: 1 };
+const FIRE_BUSH: Stamp = { set: 'FireNature', col: 0, row: 0, w: 1, h: 1 };
 const FLORA: Record<string, Flora> = {
   ledgers_heart: { bushes: BUSHES, smallBushes: SMALL_BUSHES, rocks: ROCKS, flowers: FLOWERS, tufts: TUFTS, trees: 1, meadow: 0.62 },
   cinderreach: {
@@ -139,7 +139,7 @@ const FLORA: Record<string, Flora> = {
     trees: 0.7, meadow: 0.7,
   },
   tidewrit_shallows: {
-    bushes: [{ set: 'TideNature', col: 0, row: 0, w: 2, h: 1 }], // reeds
+    bushes: [{ set: 'TideNature', col: 0, row: 0, w: 1, h: 1 }], // reeds
     smallBushes: SMALL_BUSHES,
     rocks: ROCKS.slice(0, 5),
     flowers: [{ set: 'TideNature', col: 3, row: 0, w: 1, h: 1 }],
