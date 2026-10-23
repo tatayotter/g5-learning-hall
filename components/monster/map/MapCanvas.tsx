@@ -21,6 +21,9 @@ import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
+import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
+import { mapSoundsOn, setMapSoundsOn, startRegionSounds, stopRegionSounds, REGION_SOUNDS } from '@/lib/regionSounds';
+import type { Habitat } from '@/lib/phaserMap/critters';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
 import { playPageFlip } from '@/lib/sounds';
 import type { OnlinePlayer } from '@/hooks/useMapPresence';
@@ -130,13 +133,17 @@ interface MapCanvasProps {
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
+  /** The map's little animals (lib/wildlife.ts). */
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
+  /** The region whose background sounds play (lib/regionSounds.ts), with an on/off button. */
+  soundRegion?: string | null;
   onPlayerClick: (userId: string) => void;
 }
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, onPlayerClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -180,6 +187,15 @@ export default function MapCanvas({
   // this session (chosenZoom) wins over it once they zoom.
   const savedZoom = useClientValue(readSavedZoom, null);
   const [chosenZoom, setChosenZoom] = useState<number | null>(null);
+
+  // The map's background sounds, while a tile-art map is showing and the kid hasn't turned them off.
+  const [soundsOn, setSoundsOn] = useState(() => typeof window === 'undefined' || mapSoundsOn());
+  const hasSounds = background.type === 'tilemap' && !!soundRegion && !!REGION_SOUNDS[soundRegion];
+  useEffect(() => {
+    if (!hasSounds || !soundsOn) return;
+    startRegionSounds(soundRegion!);
+    return () => stopRegionSounds();
+  }, [hasSounds, soundsOn, soundRegion]);
   const zoom = chosenZoom ?? savedZoom ?? TILE_ART_ZOOM;
   const changeZoom = useCallback((delta: number) => {
     setChosenZoom(z => {
@@ -342,6 +358,7 @@ export default function MapCanvas({
       highlight,
       onMapTap,
       ambience,
+      wildlife,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -484,6 +501,15 @@ export default function MapCanvas({
             onClick={() => { playPageFlip(); changeZoom(-TILE_ART_ZOOM_STEP); }}
             className="w-9 h-9 rounded-lg bg-black/60 text-white text-xl leading-none border border-white/30 disabled:opacity-40 active:scale-95"
           >−</button>
+          {hasSounds && (
+            <button
+              type="button"
+              aria-label={soundsOn ? 'Turn nature sounds off' : 'Turn nature sounds on'}
+              aria-pressed={soundsOn}
+              onClick={() => { playPageFlip(); setMapSoundsOn(!soundsOn); setSoundsOn(!soundsOn); }}
+              className="w-9 h-9 rounded-lg bg-black/60 text-white text-base leading-none border border-white/30 active:scale-95"
+            >{soundsOn ? '🔊' : '🔇'}</button>
+          )}
         </div>
       )}
 

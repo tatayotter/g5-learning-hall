@@ -7,7 +7,7 @@
 // (onSellVeggies, hooks/useGarden.ts).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
-import { GARDEN_KEYS, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, type GardenBag } from '@/lib/gardenConfig';
+import { GARDEN_KEYS, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 interface RecyclerTradePanelProps {
@@ -30,11 +30,13 @@ export default function RecyclerTradePanel({
   const forSale = gardenBag ? GARDEN_KEYS.filter(k => gardenSellable(k) && (gardenBag[k] ?? 0) > 0) : [];
   const saleCount = forSale.reduce((sum, k) => sum + (gardenBag?.[k] ?? 0), 0);
   const wood = gardenBag?.[WOOD_KEY] ?? 0;
-  const veggieCount = saleCount - wood;
+  const shells = gardenBag?.[veggieKey('seashell')] ?? 0;
+  const veggieCount = saleCount - wood - shells;
   const saleWords = [
     veggieCount > 0 && `${veggieCount} veggie${veggieCount === 1 ? '' : 's'}`,
+    shells > 0 && `${shells} shell${shells === 1 ? '' : 's'}`,
     wood > 0 && `${wood} wood`,
-  ].filter(Boolean).join(' and ');
+  ].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
   return (
     <div className="w-full max-w-sm bg-[#f0ddb8] border-2 border-[#c9a87a] rounded-2xl p-4 battle-panel-in">
       <div className="flex items-start gap-3 mb-4">
@@ -109,7 +111,7 @@ export default function RecyclerTradePanel({
       {onSellVeggies && (
         <div className="bg-[#e3f1cf] border border-[#7a9a4a] rounded-xl p-2 mb-3" data-testid="sell-veggies">
           <p className="text-xs font-bold text-[#2f4a12] mb-1.5">
-            I buy fresh veggies and wood too! {VEGGIE_SELL_PRICE} gold each.
+            I buy veggies, shells and wood too! {VEGGIE_SELL_PRICE} gold each.
           </p>
           {forSale.length > 0 ? (
             <>
@@ -134,7 +136,7 @@ export default function RecyclerTradePanel({
               </GameButton>
             </>
           ) : (
-            <p className="text-[11px] text-[#3f5a1f]">Pick ripe veggies or chop trees on the map and bring them here.</p>
+            <p className="text-[11px] text-[#3f5a1f]">Pick veggies, find shells or chop trees on the map and bring them here.</p>
           )}
         </div>
       )}

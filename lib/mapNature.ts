@@ -119,7 +119,7 @@ const FLOWERS: Stamp[] = [
 ];
 // Tall-grass tufts (they sway: lib/phaserMap/swayingGrass.ts).
 const TUFTS: Stamp[] = [18, 19, 20].map(col => ({ set: 'Trees', col, row: 11, w: 1, h: 1 }));
-const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4 };
+const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'TileSet-tide': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4, TideNature: 4 };
 
 // What grows in each region. Ledger's Heart uses the pack's own plants; the elemental regions
 // have their own trees (REGION_TREES) and plants drawn by Rowil (a small tileset per region,
@@ -135,6 +135,14 @@ const FLORA: Record<string, Flora> = {
     flowers: [{ set: 'FireNature', col: 3, row: 0, w: 1, h: 1 }],
     tufts: [{ set: 'FireNature', col: 2, row: 0, w: 1, h: 1 }],
     trees: 0.7, meadow: 0.7,
+  },
+  tidewrit_shallows: {
+    bushes: [{ set: 'TideNature', col: 0, row: 0, w: 2, h: 1 }], // reeds
+    smallBushes: SMALL_BUSHES,
+    rocks: ROCKS.slice(0, 5),
+    flowers: [{ set: 'TideNature', col: 3, row: 0, w: 1, h: 1 }],
+    tufts: [{ set: 'TideNature', col: 2, row: 0, w: 1, h: 1 }, ...TUFTS],
+    trees: 0.85, meadow: 0.66,
   },
 };
 

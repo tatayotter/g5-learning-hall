@@ -73,7 +73,10 @@ import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT } from '@/lib/mapTap';
-import AmbienceLayer from './ambience';
+import AmbienceLayer, { GLOW_DEPTH } from './ambience';
+import CritterLayer, { type Habitat } from './critters';
+import GroundFx from './groundFx';
+import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
 
 // Sprite shadows lie on the ground: above the flat ground layers (Ground, and
@@ -150,6 +153,8 @@ export interface MapCanvasSyncState {
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
   ambience?: { key: string; sky: Ambience } | null;
+  /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
 }
 
 interface TrackedSprite {
@@ -337,6 +342,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   private wildTreeSprites: TreeSprite[] = [];
   private highlight: MapCanvasSyncState['highlight'] = null;
   private ambience: AmbienceLayer | null = null;
+  private critters: CritterLayer | null = null;
+  private groundFx: GroundFx | null = null;
+  private nightLight: Phaser.GameObjects.Image | null = null;
+  private crittersKey = '';
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
@@ -384,6 +393,53 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.wildTrees?.update(time);
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
+    this.updateNightLight();
+    if (this.critters || this.groundFx) {
+      const walkers = this.walkers();
+      this.critters?.update(this.lastTransform, time, walkers);
+      if (this.groundFx) {
+        const liquid = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'liquid');
+        this.groundFx.setDepths((liquid?.depth ?? 1) + 0.5, this.shadowDepth - 0.05);
+        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+      }
+    }
+  }
+
+  // At night a soft warm light around the kid, so they can always see where they're going.
+  private updateNightLight() {
+    const night = this.ambience?.nightLevel ?? 0;
+    if (night < 0.05 || !this.self) { this.nightLight?.setVisible(false); return; }
+    if (!this.nightLight) {
+      if (!this.textures.exists('night-light')) {
+        const n = 256;
+        const tex = this.textures.createCanvas('night-light', n, n);
+        if (!tex) return;
+        const ctx = tex.getContext();
+        const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+        grad.addColorStop(0, 'rgba(255,214,150,0.55)');
+        grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
+        grad.addColorStop(1, 'rgba(255,170,100,0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, n, n);
+        tex.refresh();
+      }
+      this.nightLight = this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
+    }
+    const t = this.lastTransform;
+    this.nightLight.setVisible(true).setPosition(this.self.shadow.x, this.self.shadow.y - t.tileH * 0.4)
+      .setScale((t.tileW * 7) / 256).setAlpha(0.6 * night);
+  }
+
+  // Everyone walking the map (the kid, bots, other players), in map units (32 per tile).
+  // Where their feet are: the shadow under each.
+  private walkers(): { id: string; x: number; y: number }[] {
+    const t = this.lastTransform;
+    const k = 32 / t.tileW;
+    const out: { id: string; x: number; y: number }[] = [];
+    const add = (id: string, at: { x: number; y: number }) => out.push({ id, x: (at.x - t.offsetX) * k, y: (at.y - t.offsetY) * k });
+    if (this.self) add('self', this.self.shadow);
+    for (const [id, o] of this.others) add(id, o.shadow);
+    return out;
   }
 
   // Ready to chop (axe up, facing the tree) while the chop panel is open; axe away after.
@@ -735,6 +791,15 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.ambienceKey = skyKey;
       this.ambience?.destroy();
       this.ambience = state.ambience ? new AmbienceLayer(this, state.ambience.sky, state.ambience.key, state.mapWidth, state.mapHeight) : null;
+    }
+    const critterKey = state.wildlife?.key ?? '';
+    if (critterKey !== this.crittersKey) {
+      this.crittersKey = critterKey;
+      this.critters?.destroy();
+      this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
+      this.groundFx?.destroy();
+      const w = state.wildlife;
+      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;
     }
     this.highlight = state.highlight ?? null;
     this.applyHighlight();

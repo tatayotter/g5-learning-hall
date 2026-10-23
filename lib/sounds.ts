@@ -944,6 +944,11 @@ function sfxOut(): AudioNode {
   return busFor('sfx');
 }
 
+/** The audio context and the effects bus, for sounds built elsewhere (lib/regionSounds.ts). */
+export function effectsOutput(): { ctx: AudioContext; out: AudioNode } {
+  return { ctx: getContext(), out: sfxOut() };
+}
+
 function rampParam(p: AudioParam, value: number, timeConstant: number) {
   const t = audioCtx?.currentTime ?? 0;
   if (typeof p.cancelAndHoldAtTime === 'function') p.cancelAndHoldAtTime(t);

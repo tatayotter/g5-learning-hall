@@ -28,6 +28,10 @@ export interface Ambience {
   };
   // Multiplied over the map near sunset (about 5 to 7 pm in the Philippines).
   sunset: number;
+  // Some hours it drizzles: the share of 2-hour stretches with rain (0 = never).
+  rain?: number;
+  // Fireflies out at night, on a phone-sized view.
+  fireflies?: number;
 }
 
 const BASE_CLOUDS: Ambience['clouds'] = { cover: 0.25, darkness: 0.26, color: 0x1b2440, speed: 6 };
@@ -38,6 +42,7 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     clouds: BASE_CLOUDS,
     drift: { kind: 'fall', colors: [0xc0782a, 0xd09a30, 0x9a3f1c, 0xe0b040], count: 10, glow: false, wind: 10 },
     sunset: 0xffa860,
+    fireflies: 14,
   },
   fire: {
     clouds: { ...BASE_CLOUDS, color: 0x2a1410, darkness: 0.22 },
@@ -48,11 +53,15 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     clouds: { ...BASE_CLOUDS, color: 0x14304a },
     drift: { kind: 'fall', colors: [0x6fae4a, 0x9ccc6a, 0x4f8a3a], count: 7, glow: false, wind: 14 },
     sunset: 0xff9a8a,
+    rain: 0.3,
+    fireflies: 10,
   },
   leaf: {
     clouds: BASE_CLOUDS,
     drift: { kind: 'fall', colors: [0x5d8a2e, 0x7fae3e, 0xa8c84a, 0x46702a], count: 12, glow: false, wind: 8 },
     sunset: 0xffc070,
+    rain: 0.2,
+    fireflies: 16,
   },
   storm: {
     clouds: { ...BASE_CLOUDS, cover: 0.38, darkness: 0.28, color: 0x1a1f33, speed: 14 },
@@ -78,4 +87,23 @@ export function sunsetStrength(now = Date.now()): number {
   if (h < 17.75) return (h - 16.5) / 1.25;
   if (h < 18.25) return 1;
   return 1 - (h - 18.25) / 0.75;
+}
+
+/** How dark it is now (0..1): dusk from 6:15 to 7:15 pm, night until 5 am, dawn to 6 am (Manila). */
+export function nightStrength(now = Date.now()): number {
+  const h = (((now / 3600_000) + 8) % 24 + 24) % 24;
+  if (h >= 19.25 || h < 5) return 1;
+  if (h >= 18.25) return h - 18.25;
+  if (h < 6) return 1 - (h - 5);
+  return 0;
+}
+
+/** Whether it's drizzling on a map right now: the same for every kid, changing every 2 hours. */
+export function isRaining(sky: Ambience, key: string, now = Date.now()): boolean {
+  if (!sky.rain) return false;
+  const block = Math.floor((now / 3600_000 + 8) / 2);
+  let h = 2166136261;
+  const s = `rain:${key}:${block}`;
+  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  return ((h >>> 0) % 1000) / 1000 < sky.rain;
 }

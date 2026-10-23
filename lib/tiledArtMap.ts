@@ -37,8 +37,13 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   // and its liquid is lava.
   'TileSet-fire': '/tilesets/forgotten-memories/TileSet-fire.png',
   'LavaTiles-6frames': '/tilesets/forgotten-memories/LavaTiles-6frames.png',
+  // Tidewrit: beach sand (the light-dirt blobs recolored), water with bright shallows, a bridge.
+  'TileSet-tide': '/tilesets/forgotten-memories/TileSet-tide.png',
+  'TideWater-6frames': '/tilesets/forgotten-memories/TideWater-6frames.png',
+  'TideBridge': '/tilesets/region-nature/TideBridge.png',
   // Each region's own plants for the daily nature layer, on a 32 px grid.
   'FireNature': '/tilesets/region-nature/FireNature.png',
+  'TideNature': '/tilesets/region-nature/TideNature.png',
 };
 
 export interface TiledArtLayer {
@@ -97,6 +102,10 @@ export interface TiledArtMap {
   trees: NatureTree[];
   // Animated tiles (water, lava), from the tilesets' Tiled animations: gid -> its frames' gids.
   animatedTiles: Record<number, { frames: number[]; ms: number }>;
+  // True where the "Liquid" layer has water or lava (where the map's critters live near).
+  liquid: boolean[][];
+  // True on beach sand (Tidewrit's sand tiles), where footsteps leave prints.
+  sand: boolean[][];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -435,6 +444,18 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     layout.push(row);
   }
 
+  const liquidLayers = layers.filter(l => roleOf.get(l.name) === 'liquid');
+  const liquid = layout.map((row, y) => row.map((_, x) => liquidLayers.some(l => l.data[y * mapWidth + x] !== 0)));
+  // Sand: the recolored light-dirt blobs of TileSet-tide (columns 10-19, rows 0-9), on any layer
+  // under the player, with no liquid under it.
+  const tide = tilesets.find(ts => ts.name === 'TileSet-tide');
+  const isSand = (g: number) => {
+    if (!tide || g < tide.firstgid || g >= tide.firstgid + tide.tilecount) return false;
+    const id = g - tide.firstgid, col = id % tide.columns, row = Math.floor(id / tide.columns);
+    return col >= 10 && col < 20 && row < 10;
+  };
+  const sand = layout.map((row, y) => row.map((_, x) => !liquid[y][x] && layers.some(l => roleOf.get(l.name) !== 'top' && isSand(l.data[y * mapWidth + x] & 0x1fffffff))));
+
   // Foliage = anything drawn on Objects Top (canopy that covers the player);
   // used only to keep spawned markers from hiding under it.
   const foliageLayers = layers.filter(l => roleOf.get(l.name) === 'top');
@@ -495,5 +516,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     foliage,
     trees,
     animatedTiles,
+    liquid,
+    sand,
   };
 }

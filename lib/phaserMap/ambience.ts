@@ -9,13 +9,15 @@
 //   the clock and the day, so every kid sees the same sky.
 // - Drifting bits (leaves, embers, petals) float through the part of the map on screen, above
 //   the cloud shadows (they're in the air).
-// - Near sunset, a warm color is multiplied over the whole view.
+// - Near sunset, a warm color is multiplied over the whole view; at night a deep blue darkens it
+//   and fireflies blink over the grass (they glow over the dark).
+// - Some hours it drizzles (lib/ambience.ts isRaining): thin streaks and a grey cast.
 //
 // The containers work in map units (32 per tile) and follow the map's camera transform each
 // frame, so they fit tile-art and painted maps alike. With "reduce motion" on, the clouds
 // stand still and nothing drifts.
 import Phaser from 'phaser';
-import { sunsetStrength, type Ambience } from '@/lib/ambience';
+import { sunsetStrength, nightStrength, isRaining, type Ambience } from '@/lib/ambience';
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './constants';
 
 const UNIT = 32;
@@ -23,6 +25,10 @@ const CELL = 4; // art pixels per cloud pixel
 const CLOUD_DEPTH = 40;
 const DRIFT_DEPTH = 41;
 const SUNSET_DEPTH = 42;
+const NIGHT_DEPTH = 42.5;
+export const GLOW_DEPTH = 43; // lights that shine through the night (fireflies, lava, wisps)
+const NIGHT_COLOR = 0x28366e;
+const RAIN_COLOR = 0x8a94a0;
 // Wind direction: to the right and a little down, like the grass leans.
 const WIND = { x: 0.97, y: 0.24 };
 
@@ -38,6 +44,8 @@ function seededRand(seed: string): () => number {
 }
 
 interface Cloud { image: Phaser.GameObjects.Image; x: number; y: number; w: number; h: number }
+interface Fly { glow: Phaser.GameObjects.Arc; dot: Phaser.GameObjects.Rectangle; x: number; y: number; vx: number; vy: number; phase: number }
+interface Drop { shape: Phaser.GameObjects.Rectangle; x: number; y: number; speed: number }
 interface Bit {
   shape: Phaser.GameObjects.Rectangle;
   x: number; y: number; vx: number; vy: number;
@@ -51,6 +59,13 @@ export default class AmbienceLayer {
   private cloudBox: Phaser.GameObjects.Container;
   private driftBox: Phaser.GameObjects.Container;
   private sunset: Phaser.GameObjects.Rectangle;
+  private night: Phaser.GameObjects.Rectangle;
+  private rainCast: Phaser.GameObjects.Rectangle;
+  private glowBox: Phaser.GameObjects.Container;
+  private flies: Fly[] = [];
+  private drops: Drop[] = [];
+  private raining = false;
+  private darkness = 0;
   private bits: Bit[] = [];
   private readonly still: boolean;
   private lastNow = 0;
@@ -59,7 +74,7 @@ export default class AmbienceLayer {
   constructor(
     private scene: Phaser.Scene,
     private sky: Ambience,
-    key: string, // region + day: the day's clouds
+    private key: string, // region + day: the day's clouds
     private mapW: number, // tiles
     private mapH: number,
   ) {
@@ -68,6 +83,11 @@ export default class AmbienceLayer {
     this.driftBox = scene.add.container(0, 0).setDepth(DRIFT_DEPTH);
     this.sunset = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, sky.sunset).setOrigin(0, 0)
       .setDepth(SUNSET_DEPTH).setScrollFactor(0).setBlendMode(Phaser.BlendModes.MULTIPLY).setAlpha(0);
+    this.night = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, NIGHT_COLOR).setOrigin(0, 0)
+      .setDepth(NIGHT_DEPTH).setScrollFactor(0).setBlendMode(Phaser.BlendModes.MULTIPLY).setAlpha(0);
+    this.rainCast = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, RAIN_COLOR).setOrigin(0, 0)
+      .setDepth(SUNSET_DEPTH).setScrollFactor(0).setBlendMode(Phaser.BlendModes.MULTIPLY).setAlpha(0);
+    this.glowBox = scene.add.container(0, 0).setDepth(GLOW_DEPTH);
     this.makeClouds(key);
   }
 
@@ -122,9 +142,12 @@ export default class AmbienceLayer {
     this.scene.textures.addCanvas(tex, canvas);
   }
 
+  /** How dark the night is right now (0..1), for other layers' lights. */
+  get nightLevel() { return this.darkness; }
+
   update(t: Transform, time: number) {
     const scale = t.tileW / UNIT;
-    for (const box of [this.cloudBox, this.driftBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
+    for (const box of [this.cloudBox, this.driftBox, this.glowBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
 
     // Clouds: where the wind has carried them by now, wrapped around the map with a margin.
     const secs = this.still ? 0 : (Date.now() % 86_400_000) / 1000;
@@ -142,9 +165,64 @@ export default class AmbienceLayer {
     if (time - this.sunsetCheckedAt > 5000) {
       this.sunsetCheckedAt = time;
       this.sunset.setAlpha(0.5 * sunsetStrength());
+      this.darkness = nightStrength();
+      this.night.setAlpha(0.5 * this.darkness);
+      this.raining = isRaining(this.sky, this.key);
     }
+    // The grey of a rainy sky comes and goes gently.
+    const cast = this.raining ? 0.22 : 0;
+    this.rainCast.setAlpha(this.rainCast.alpha + (cast - this.rainCast.alpha) * 0.02);
 
-    if (!this.still) this.updateDrift(t, scale, time);
+    if (!this.still) {
+      this.updateDrift(t, scale, time);
+      this.updateFireflies(t, scale, time);
+      this.updateRain(t, scale);
+    }
+  }
+
+  private view(t: Transform, scale: number) {
+    return { x: -t.offsetX / scale, y: -t.offsetY / scale, w: CANVAS_WIDTH / scale, h: CANVAS_HEIGHT / scale };
+  }
+
+  // Fireflies: tiny yellow-green lights drifting low over the map at night, each blinking slowly.
+  private updateFireflies(t: Transform, scale: number, time: number) {
+    const view = this.view(t, scale);
+    const want = this.darkness > 0.3 && this.sky.fireflies ? Math.round(this.sky.fireflies * Math.min(3, (view.w * view.h) / (12 * 20 * UNIT * UNIT))) : 0;
+    while (this.flies.length < want) {
+      const glow = this.scene.add.circle(0, 0, 5, 0xc8ff60, 0.25).setBlendMode(Phaser.BlendModes.ADD);
+      const dot = this.scene.add.rectangle(0, 0, 2, 2, 0xf0ffb0);
+      this.glowBox.add([glow, dot]);
+      this.flies.push({ glow, dot, x: view.x + Math.random() * view.w, y: view.y + Math.random() * view.h, vx: 0, vy: 0, phase: Math.random() * Math.PI * 2 });
+    }
+    while (this.flies.length > want) { const f = this.flies.pop()!; f.glow.destroy(); f.dot.destroy(); }
+    for (const f of this.flies) {
+      f.vx += (Math.random() - 0.5) * 2; f.vy += (Math.random() - 0.5) * 2;
+      f.vx = Math.max(-8, Math.min(8, f.vx)); f.vy = Math.max(-6, Math.min(6, f.vy));
+      f.x += f.vx / 60; f.y += f.vy / 60;
+      // Wrap around the view so they stay where the kid is looking.
+      if (f.x < view.x - 10) f.x += view.w + 20; else if (f.x > view.x + view.w + 10) f.x -= view.w + 20;
+      if (f.y < view.y - 10) f.y += view.h + 20; else if (f.y > view.y + view.h + 10) f.y -= view.h + 20;
+      const blink = Math.max(0, Math.sin(time / 700 + f.phase)) ** 2 * this.darkness;
+      f.glow.setPosition(Math.round(f.x), Math.round(f.y)).setAlpha(0.35 * blink);
+      f.dot.setPosition(Math.round(f.x), Math.round(f.y)).setAlpha(0.2 + 0.8 * blink);
+    }
+  }
+
+  // Drizzle: thin streaks slanting down with the wind.
+  private updateRain(t: Transform, scale: number) {
+    const view = this.view(t, scale);
+    const want = this.raining ? Math.round(45 * Math.min(3, (view.w * view.h) / (12 * 20 * UNIT * UNIT))) : 0;
+    while (this.drops.length < want) {
+      const shape = this.scene.add.rectangle(0, 0, 1, 6, 0xcfe4f4, 0.45).setAngle(-12);
+      this.driftBox.add(shape);
+      this.drops.push({ shape, x: view.x + Math.random() * view.w, y: view.y + Math.random() * view.h, speed: 200 + Math.random() * 80 });
+    }
+    while (this.drops.length > want) this.drops.pop()!.shape.destroy();
+    for (const d of this.drops) {
+      d.y += d.speed / 60; d.x += d.speed * 0.2 / 60;
+      if (d.y > view.y + view.h + 8 || d.x > view.x + view.w + 8) { d.y = view.y - 8 - Math.random() * 40; d.x = view.x - 20 + Math.random() * (view.w + 20); }
+      d.shape.setPosition(Math.round(d.x), Math.round(d.y));
+    }
   }
 
   private updateDrift(t: Transform, scale: number, time: number) {
@@ -211,6 +289,11 @@ export default class AmbienceLayer {
     this.cloudBox.destroy();
     this.driftBox.destroy();
     this.sunset.destroy();
+    this.night.destroy();
+    this.rainCast.destroy();
+    this.glowBox.destroy();
+    this.flies = [];
+    this.drops = [];
     this.bits = [];
     this.clouds = [];
   }

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, type ComponentProps } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
@@ -37,13 +37,14 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, saplingKey, seedsKey, veggieKey,
+  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
   swingTiming, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
+import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
 import { natureDay } from '@/lib/mapNature';
 import type { InventoryMap } from '@/lib/inventory';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -356,6 +357,8 @@ export default function TrainingMap({
   // only — see lib/tiledArtMap.ts). null for painted-background elemental
   // regions, which have no such layer to derive this from.
   const [mapFoliage, setFoliage] = useState<boolean[][] | null>(null);
+  // The map's little animals (lib/wildlife.ts), set when a tile-art map loads.
+  const [wildlife, setWildlife] = useState<ComponentProps<typeof MapCanvas>['wildlife']>(null);
   // Plant tiles count as taken too, so no scroll, trash or curio lands on a plant (the map's
   // foliage already covers its trees).
   const foliage = useMemo(() => {
@@ -599,13 +602,11 @@ export default function TrainingMap({
   // Plants and trees open their question only when the kid asks (E, a tap on it, or the
   // Pick/Chop button), never just by walking past. The one close enough gets a gold outline.
   const openPlant = useCallback((plant: PlantView) => {
-    const name = VEGGIES[plant.veggie].label.toLowerCase();
     const now = Date.now();
     if (!plant.ripe) {
-      const mins = Math.max(1, Math.ceil(((plant.readyAt ?? now) - now) / 60000));
-      showBarMessage(`This ${name} is growing back. Ready in about ${mins} minute${mins === 1 ? '' : 's'}!`);
+      showBarMessage(regrowWords(plant.veggie, Math.max(1, Math.ceil(((plant.readyAt ?? now) - now) / 60000))));
     } else if (plant.restUntil && now < plant.restUntil) {
-      showBarMessage('This plant needs a short rest. Try again in a minute!');
+      showBarMessage(`This ${VEGGIES[plant.veggie].beach ? 'shell' : 'plant'} needs a short rest. Try again in a minute!`);
     } else if (itemBarRef.current.bagUsed + garden.squaresForPick(plant.veggie) > itemBarRef.current.bagSize) {
       showBarMessage('Your bag is full! Sell veggies or trade trash at the Recycler.');
     } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
@@ -729,6 +730,13 @@ export default function TrainingMap({
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);
         setFoliage(parsed.foliage);
+        setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] ? {
+          key: `${activeRegion.tileArtPath}:${natureDay()}`,
+          groups: WILDLIFE[activeRegion.id] ?? [],
+          habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined },
+          fx: GROUND_FX[activeRegion.id],
+          sand: parsed.sand,
+        } : null);
         // Ledger's Heart persists position to the DB, so a player whose saved
         // spot no longer exists on a re-authored map (out of bounds, or now
         // sitting inside a fence/tree) needs to be nudged back to the map's
@@ -784,17 +792,19 @@ export default function TrainingMap({
     const r = garden.lastResult.current;
     if (!plant || !r) return;
     const name = VEGGIES[plant.veggie].label;
+    const thing = VEGGIES[plant.veggie].beach ? 'shell' : 'plant';
     if (r.status === 'picked') {
       playChime();
       flyToBag([gardenItemIcon(veggieKey(plant.veggie)), ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : [])]);
-      showBarMessage(r.seeds > 0 ? `You picked a ${name} and found ${name} Seeds too!` : `You picked a ${name}! It's in your bag.`);
+      showBarMessage(r.seeds > 0 ? `You picked a ${name} and found ${name} Seeds too!`
+        : VEGGIES[plant.veggie].beach ? `You found a ${name}! It's in your bag.` : `You picked a ${name}! It's in your bag.`);
     } else if (r.status === 'wrong') {
       playClash();
-      showBarMessage(r.restUntil ? 'Oops! The plant needs a short rest. Try again in a minute.' : 'Not quite! Walk back on to try another question.');
+      showBarMessage(r.restUntil ? `Oops! The ${thing} needs a short rest. Try again in a minute.` : 'Not quite! Try again for another question.');
     } else if (r.status === 'growing') {
-      showBarMessage(`This ${name.toLowerCase()} is still growing back.`);
+      showBarMessage(regrowWords(plant.veggie, Math.max(1, Math.ceil(((r.readyAt ?? Date.now()) - Date.now()) / 60000))));
     } else {
-      showBarMessage('This plant needs a short rest. Try again in a minute!');
+      showBarMessage(`This ${thing} needs a short rest. Try again in a minute!`);
     }
   };
 
@@ -1015,6 +1025,8 @@ export default function TrainingMap({
         highlight={nearby && !controlsDisabled ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id } : null}
         onMapTap={handleMapTap}
         ambience={ambience}
+        wildlife={wildlife}
+        soundRegion={activeRegion.id}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {nearby && !controlsDisabled && (
@@ -1028,7 +1040,7 @@ export default function TrainingMap({
             src={nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY)}
             alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }}
           />
-          {nearby.kind === 'plant' ? `Pick ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].name}`}
+          {nearby.kind === 'plant' ? `${pickVerb(nearby.plant.veggie)} ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].name}`}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}

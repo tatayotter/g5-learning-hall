@@ -76,3 +76,14 @@ grow daily, lib/mapNature.ts, from the region's own trees and a small plants til
 tileset name, e.g. `TileSet-fire`, `LavaTiles-6frames`), listed in `KNOWN_TILESET_IMAGES`.
 Cinderreach is built from Rowil's Tiled file by
 `/mnt/project-files/maps-incoming/build_cinderreach.py` (lava, scorched tiles, local tilesets).
+Tidewrit is generated from a terrain plan by `/mnt/project-files/maps-incoming/tidewrit/build_tidewrit.py`
+(grass, path, sand and water on the tile corners; each tile takes the pack tile whose corners
+match, read off the sheet, so the soft edges line up): a river with a wooden bridge
+(`TideBridge`, on the `skirt` layer, walkable deck with no water under it) and a sandy coast
+(`TileSet-tide`: the light-dirt blobs recolored to sand; `TideWater-6frames`: the water sheet
+with bright shallows). Its entrance sits on rows 28-30 of the east edge, where the Ledger's
+Heart's lower west road leaves.
+
+The little animals (`lib/wildlife.ts`, drawn by `lib/phaserMap/critters.ts`) and the ground
+touches (foam, ripples, footprints, lava bubbles: `lib/phaserMap/groundFx.ts`) read the map's
+`Liquid` layer and, for footprints and crabs, the sand tiles of `TileSet-tide`.

@@ -84,10 +84,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/water_new.webp',
     tiledMapPath: '/maps-tiled/tidewrit_shallows.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 2, y: 13 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): a river, a bridge and a sandy coast. Entered from the Ledger's
+    // Heart's lower west road, so the kid arrives at the east entrance on the same rows.
+    spawn: { x: 57, y: 29 },
+    townCenter: { x: 57, y: 29 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/tidewrit/tidewrit.tmx',
+    dailyNature: true,
   },
   rootbound_wilds: {
     id: 'rootbound_wilds',
