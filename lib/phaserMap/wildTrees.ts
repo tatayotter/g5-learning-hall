@@ -1,7 +1,7 @@
 // lib/phaserMap/wildTrees.ts
 // Draws the wild trees (lib/gardenConfig.ts WILD_TREES) on a tile-art map, and the chop effects.
-// Each tree's art is a strip of four 96x144 frames: ready, stump, small tree, young tree, with
-// the trunk base at (48, 134) so it stands near the bottom of its trunk tile.
+// Each tree's art is a strip of four 96x144 frames: ready, stump, a sprout on the stump, a young
+// crown on it, with the trunk base at (48, 134) so it stands near the bottom of its trunk tile.
 //
 // Like the map's own trees, each one is split in two at the top of the trunk tile: the trunk
 // part sits under the players, the canopy above them, so a kid walking behind a tree goes

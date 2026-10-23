@@ -2,8 +2,8 @@
 -- A few trees in The Ledger's Heart wear a green ribbon. A kid walks up to one and chops it
 -- with three right answers, one per swing; a wrong answer just misses. The tree gives 3 wood,
 -- and half the time a sapling of its kind (always, on a "clean chop" with no misses), kept for
--- the Hideout grove later. It then grows back for 4 hours, per kid: a stump, a small tree, a
--- young tree, then ribboned again. Wood sells at the Recycler for 2 gold each, like veggies.
+-- the Hideout grove later. It then grows back for 4 hours, per kid: a stump, a sprout on it, a
+-- young crown, then ribboned again. Wood sells at the Recycler for 2 gold each, like veggies.
 -- Behind the same 'garden' rollout switch as the veggies.
 --
 -- - wild_tree_nodes: which tree stands at each spot (lib/gardenConfig.ts WILD_TREES holds the
@@ -21,7 +21,7 @@
 create table if not exists public.wild_tree_nodes (
   region text not null,
   node_id text not null,
-  tree text not null check (tree in ('maple', 'oak', 'birch')),
+  tree text not null check (tree in ('maple', 'oak', 'birch', 'pine')),
   tile_x integer not null,
   tile_y integer not null,
   primary key (region, node_id)
@@ -37,7 +37,7 @@ insert into public.wild_tree_nodes (region, node_id, tree, tile_x, tile_y) value
   ('ledgers_heart', 'maple_1', 'maple', 20,  7),
   ('ledgers_heart', 'oak_1',   'oak',   42, 13),
   ('ledgers_heart', 'birch_1', 'birch',  9, 35),
-  ('ledgers_heart', 'maple_2', 'maple', 42, 30)
+  ('ledgers_heart', 'pine_1',  'pine',  42, 30)
 on conflict (region, node_id) do update
   set tree = excluded.tree, tile_x = excluded.tile_x, tile_y = excluded.tile_y;
 

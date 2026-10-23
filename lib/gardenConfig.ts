@@ -52,15 +52,17 @@ export const VEGGIE_SELL_PRICE = 2;
 export const GARDEN_STACK = 20;
 
 // ── Trees ──────────────────────────────────────────────────────────────────
-// Art: public/garden/tree_<id>.png, four 96x144 frames (ready, stump, small tree, young tree)
-// with the trunk base at (48, 134), cut from the map's own tileset (Props.png).
-export type TreeId = 'maple' | 'oak' | 'birch';
+// Art: public/garden/tree_<id>.png, four 96x144 frames (ready, stump, sprout, young crown)
+// with the trunk base at (48, 134), cut from the map's own tileset (Props.png). Each kind
+// has its own stump, and every growth stage grows on that stump.
+export type TreeId = 'maple' | 'oak' | 'birch' | 'pine';
 export const TREES: Record<TreeId, { id: TreeId; label: string }> = {
   maple: { id: 'maple', label: 'Maple' },
   oak:   { id: 'oak',   label: 'Oak' },
   birch: { id: 'birch', label: 'Birch' },
+  pine:  { id: 'pine',  label: 'Pine' },
 };
-export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch'];
+export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine'];
 
 // Same list as wild_tree_nodes in the migration. x, y is the trunk's tile.
 export interface WildTreeNode { id: string; tree: TreeId; x: number; y: number }
@@ -69,7 +71,7 @@ export const WILD_TREES: Record<string, WildTreeNode[]> = {
     { id: 'maple_1', tree: 'maple', x: 20, y: 7 },
     { id: 'oak_1',   tree: 'oak',   x: 42, y: 13 },
     { id: 'birch_1', tree: 'birch', x: 9,  y: 35 },
-    { id: 'maple_2', tree: 'maple', x: 42, y: 30 },
+    { id: 'pine_1',  tree: 'pine',  x: 42, y: 30 },
   ],
 };
 // The tiles a tree's canopy covers above its trunk (3 wide, 3 up): nothing spawns there.
@@ -80,7 +82,7 @@ export const TREE_REGROW_MS = 4 * 60 * 60 * 1000;
 export const CHOP_SWINGS = 3;
 export const WOOD_PER_TREE = 3;
 
-// How a tree looks: ready (ribboned), a stump, a small tree, a young tree (thirds of the regrow).
+// How a tree looks: ready (ribboned), a stump, a sprout on it, a young crown (thirds of the regrow).
 export type TreeStage = 'ready' | 'stump' | 'small' | 'young';
 export function treeStage(readyAt: number | null, now: number): TreeStage {
   if (readyAt === null || now >= readyAt) return 'ready';
