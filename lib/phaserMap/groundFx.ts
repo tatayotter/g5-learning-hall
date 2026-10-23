@@ -306,8 +306,8 @@ export default class GroundFx {
     if (time > this.nextFloat && this.floats.length < 10) {
       this.nextFloat = time + 900 + Math.random() * 1600;
       for (let i = 0; i < 20; i++) {
-        // Mostly in the top half of the view, so it floats across the screen.
-        const x = view.x0 + Math.random() * (view.x1 - view.x0), y = view.y0 + Math.random() * (view.y1 - view.y0) * 0.6;
+        // Mostly up the stream (top of the view), so it floats across the screen.
+        const x = view.x0 + Math.random() * (view.x1 - view.x0), y = view.y0 + Math.random() * (view.y1 - view.y0) * (i < 12 ? 0.6 : 1);
         const mid = this.riverMid(x, y);
         if (mid < 0) continue;
         const kind = Math.random() < 0.18 ? 3 : Math.random() < 0.12 ? 4 : Math.floor(Math.random() * 3);
@@ -317,14 +317,17 @@ export default class GroundFx {
     }
     this.floats = this.floats.filter(f => {
       const age = time - f.born;
-      const mid = this.riverMid(f.x, f.y);
+      let mid = this.riverMid(f.x, f.y);
+      // Under a bridge (no water tiles for a few rows): it keeps floating down, out of sight.
+      let under = false;
+      if (mid < 0) for (let k = 1; k <= 3 && mid < 0; k++) { mid = this.riverMid(f.x, f.y + k * UNIT) >= 0 ? f.x : -1; under = mid >= 0; }
       if (age > f.life || mid < 0) return false;
       // Down the stream, drifting toward its middle with a gentle sway.
       f.vx += ((mid - f.x) * 0.25 + Math.sin(age / 1300 + f.spin) * 4 - f.vx) * Math.min(1, dt);
       f.x += f.vx * dt;
       f.y += FLOAT_SPEED * (0.85 + 0.15 * Math.sin(age / 900 + f.spin)) * dt;
       // Fades in and out (and out before the sea, where the next row isn't river any more).
-      const ahead = this.riverMid(f.x, f.y + UNIT * 0.6) >= 0 ? 1 : 0.4;
+      const ahead = under ? 0 : this.riverMid(f.x, f.y + UNIT * 0.6) >= 0 ? 1 : 0.4;
       const a = Math.min(1, age / 800, (f.life - age) / 1200) * ahead;
       const [light, dark] = FLOAT_COLORS[f.kind];
       const x = Math.round(f.x), y = Math.round(f.y);
@@ -349,7 +352,7 @@ export default class GroundFx {
         g.fillStyle(dark, a).fillRect(x + (flat ? s * 3 : 0), y + (flat ? 0 : s * 3), 1, 1);
       }
       // A faint wake behind it now and then.
-      if (Math.random() < dt * 0.25) this.rings.push({ x: f.x, y: f.y + 1, born: time, life: 900, size: 5, color: 0xe8fbff });
+      if (!under && Math.random() < dt * 0.25) this.rings.push({ x: f.x, y: f.y + 1, born: time, life: 900, size: 5, color: 0xe8fbff });
       return true;
     });
   }
