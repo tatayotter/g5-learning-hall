@@ -1,11 +1,13 @@
 // lib/phaserMap/critters.ts
 // The map's little animals (lib/wildlife.ts): fire wisps over the Cinderreach lava, dragonfly
-// swarms and beach crabs in Tidewrit, birds in the Ledger's Heart. They wander on their own and
+// swarms and beach crabs in Tidewrit, birds and butterflies in the Ledger's Heart. They wander on their own and
 // get away from anyone who walks up to them (the kid, bots, other players):
 // - a wisp darts off and settles somewhere new,
 // - a dragonfly swarm breaks apart, then gathers again a little way off,
 // - a flock of birds takes off together and lands further away,
-// - a crab scuttles sideways, digs into the sand, and pops up somewhere else later.
+// - a crab scuttles sideways, digs into the sand, and pops up somewhere else later,
+// - a butterfly flutters from flower to flower, resting on each one, and flits off up high
+//   (to a flower further away) when someone comes close. They sleep at night.
 //
 // Pixel art drawn in code (a few pixels each, like the pack's props), in map units (32 per tile)
 // inside containers that follow the map camera, like the sky (ambience.ts). Purely visual:
@@ -25,6 +27,7 @@ export interface Habitat {
   open: boolean[][]; // walkable
   liquid: boolean[][]; // water or lava
   sand?: boolean[][]; // beach sand (crabs keep to it)
+  flowers?: { x: number; y: number }[]; // the day's flowers (butterflies visit them)
 }
 
 // ---------- pixel art ----------
@@ -34,6 +37,19 @@ const PAL: Record<string, string> = {
   h: '#6b4a32', s: '#a07850', k: '#f0b040', l: '#4a3226', f: '#7d5a3c', // bird
   r: '#d8502a', R: '#f07a40', c: '#b03a1c', e: '#1a1010', g: '#902c16', // crab
 };
+// Butterflies come in a few colors: A = wing, a = wing tip, n = body.
+const BUTTERFLY_COLORS: [string, string][] = [
+  ['#f08a24', '#5a2a10'], // orange
+  ['#f4f0e0', '#9a9a8a'], // white
+  ['#5ab0f0', '#1e4a80'], // blue
+  ['#f6d23c', '#8a6a10'], // yellow
+  ['#e86aa8', '#7a2a50'], // pink
+];
+const BUTTERFLY_ART: string[][] = [
+  ['AA.AA', 'aAnAa', '.AnA.', '.a.a.'], // wings open
+  ['.A.A.', '.AnA.', '.AnA.', '..n..'], // half closed
+  ['..A..', '..A..', '..n..', '.....'], // folded up
+];
 const ART: Record<string, string[]> = {
   'wisp0': ['..y..', '.yYy.', '.yYy.', 'oyWyo', 'oYWYo', '.oYo.', '..o..'],
   'wisp1': ['.y...', '.yy..', '.yYy.', 'oyWYo', 'oYWYo', '.oYo.', '..o..'],
@@ -62,6 +78,19 @@ function makeTextures(scene: Phaser.Scene) {
     }));
     tex.refresh();
   }
+  BUTTERFLY_COLORS.forEach(([wing, tip], v) => BUTTERFLY_ART.forEach((rows, f) => {
+    const key = `critter:butterfly${v}_${f}`;
+    if (scene.textures.exists(key)) return;
+    const tex = scene.textures.createCanvas(key, rows[0].length, rows.length);
+    if (!tex) return;
+    const ctx = tex.getContext();
+    rows.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (ch === '.') return;
+      ctx.fillStyle = ch === 'A' ? wing : ch === 'a' ? tip : '#2a1e18';
+      ctx.fillRect(x, y, 1, 1);
+    }));
+    tex.refresh();
+  }));
   if (!scene.textures.exists('critter:glow')) {
     const n = 24;
     const tex = scene.textures.createCanvas('critter:glow', n, n);
@@ -92,6 +121,7 @@ interface Critter {
   tx: number; ty: number; // where it's heading
   ox: number; oy: number; // dragonfly: its spot in the swarm
   lift: number; // drawn this far above its spot (a wisp bobbing)
+  color: number; // butterfly: which colors
 }
 interface Group {
   kind: CritterKind;
@@ -100,7 +130,7 @@ interface Group {
   scaredAt: number; awayX: number; awayY: number;
 }
 
-const FLEE_R = { wisp: 3, dragonfly: 2.5, bird: 2.6, crab: 2.2 }; // tiles
+const FLEE_R = { wisp: 3, dragonfly: 2.5, bird: 2.6, crab: 2.2, butterfly: 1.8 }; // tiles
 
 export default class CritterLayer {
   private ground: Phaser.GameObjects.Container;
@@ -130,12 +160,13 @@ export default class CritterLayer {
       return false;
     };
     const near: [number, number][] = [], shore: [number, number][] = [], anyOpen: [number, number][] = [];
+    const flowers: [number, number][] = (hab.flowers ?? []).map(f => [f.x, f.y]);
     for (let y = 1; y < H - 1; y++) for (let x = 1; x < W - 1; x++) {
       if (open[y][x]) anyOpen.push([x, y]);
       if (open[y][x] && !liquid[y][x] && nearLiquid(x, y, 1) && (!hab.sand || hab.sand[y][x])) shore.push([x, y]);
       if ((open[y][x] || liquid[y][x]) && nearLiquid(x, y, 3)) near.push([x, y]);
     }
-    this.homes = { 'near-liquid': near, shore, open: anyOpen };
+    this.homes = { 'near-liquid': near, shore, open: anyOpen, flowers };
     const scale = (W * H) / 2400;
     for (const k of kinds) {
       const spots = this.homes[k.home];
@@ -162,8 +193,14 @@ export default class CritterLayer {
     box.add(img);
     const c: Critter = {
       kind, group, img, glow, x, y, vx: 0, vy: 0, homeX: x, homeY: y, phase: Math.random() * Math.PI * 2,
-      state: 'idle', until: 0, tx: x, ty: y, ox: 0, oy: 0, lift: 0,
+      state: 'idle', until: 0, tx: x, ty: y, ox: 0, oy: 0, lift: 0, color: Math.floor(Math.random() * BUTTERFLY_COLORS.length),
     };
+    if (kind === 'butterfly') {
+      // Each one starts resting on a flower of its own, near the group's spot.
+      const to = this.spot('flowers', { x, y, awayX: 0, awayY: 0 }, 0, 3) ?? this.nearestFlower(x, y, 0, { x, y });
+      c.state = 'land'; c.until = Math.random() * 3000;
+      if (to) { c.x = c.homeX = c.tx = to[0]; c.y = c.homeY = c.ty = to[1] + 6; }
+    }
     this.critters.push(c);
     return c;
   }
@@ -184,8 +221,8 @@ export default class CritterLayer {
     return null;
   }
 
-  // walkers: everyone walking the map, in map units.
-  update(t: Transform, time: number, walkers: { x: number; y: number }[]) {
+  // walkers: everyone walking the map, in map units. night: how dark it is (0..1).
+  update(t: Transform, time: number, walkers: { x: number; y: number }[], night = 0) {
     const scale = t.tileW / UNIT;
     for (const box of [this.ground, this.lowAir, this.highAir, this.glowBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
@@ -203,6 +240,7 @@ export default class CritterLayer {
       else for (const c of g.members) {
         if (c.kind === 'wisp') this.wisp(c, time, dt, nearest);
         else if (c.kind === 'bird') this.bird(c, time, dt, nearest);
+        else if (c.kind === 'butterfly') this.butterfly(c, time, dt, nearest, night);
         else this.crab(c, time, dt, nearest);
       }
     }
@@ -329,6 +367,55 @@ export default class CritterLayer {
     c.img.setTexture(`critter:birdfly${Math.floor(time / 90 + c.phase) % 2}`);
   }
 
+  private butterfly(c: Critter, time: number, dt: number, nearest: (x: number, y: number) => { d: number; x: number; y: number }, night: number) {
+    // Asleep at night: they fade away as it gets dark and come back in the morning.
+    c.img.setAlpha(Math.max(0, Math.min(1, (0.45 - night) / 0.2)));
+    const n = nearest(c.x, c.y);
+    const resting = c.state === 'land' || c.state === 'idle';
+    if (resting && n.d < FLEE_R.butterfly * UNIT) {
+      // Startled: flits up and off to a flower further away.
+      const { ux, uy } = this.away(c, n);
+      const to = this.spot('flowers', { x: c.x, y: c.y, awayX: ux, awayY: uy }, 3, 9) ?? this.nearestFlower(c.x + ux * 4 * UNIT, c.y + uy * 4 * UNIT, 3, c);
+      c.state = 'flee';
+      c.tx = to ? to[0] : c.x; c.ty = to ? to[1] + 6 : c.y;
+      c.vx = ux * 90; c.vy = uy * 90 - 40;
+      this.lowAir.remove(c.img); this.highAir.add(c.img);
+    } else if (resting && time > c.until) {
+      // Done resting: off to a flower nearby.
+      const to = this.spot('flowers', { x: c.x, y: c.y, awayX: 0, awayY: 0 }, 1, 5) ?? this.nearestFlower(c.x, c.y, 1, c);
+      c.state = 'fly';
+      c.tx = to ? to[0] : c.x; c.ty = to ? to[1] + 6 : c.y;
+    }
+    if (c.state === 'fly' || c.state === 'flee') {
+      const fast = c.state === 'flee';
+      const dx = c.tx - c.x, dy = c.ty - c.y, d = Math.hypot(dx, dy);
+      // Fluttery flight: it heads for the flower but wobbles along the way.
+      const sp = fast ? 75 : 34;
+      const wob = Math.sin(time / 170 + c.phase) * 0.9;
+      const wx = dx / (d || 1), wy = dy / (d || 1);
+      c.vx += ((wx - wy * wob) * sp - c.vx) * Math.min(1, 3 * dt);
+      c.vy += ((wy + wx * wob) * sp - c.vy) * Math.min(1, 3 * dt);
+      c.x += c.vx * dt; c.y += c.vy * dt;
+      // Flies a little above the ground (higher when startled), and comes down to land.
+      const cruise = fast ? 22 : 12;
+      const want = d < 14 ? d * (cruise / 14) : cruise + Math.sin(time / 240 + c.phase) * 3;
+      c.lift += (want - c.lift) * Math.min(1, 4 * dt);
+      if (Math.abs(c.vx) > 3) c.img.setFlipX(c.vx < 0);
+      c.img.setTexture(`critter:butterfly${c.color}_${[0, 1, 2, 1][Math.floor(time / (fast ? 45 : 70) + c.phase * 4) % 4]}`);
+      if (d < 3) {
+        c.state = 'land'; c.x = c.tx; c.y = c.ty; c.homeX = c.x; c.homeY = c.y; c.lift = 0; c.vx = c.vy = 0;
+        c.until = time + 2000 + Math.random() * 5000;
+        if (fast) { this.highAir.remove(c.img); this.lowAir.add(c.img); }
+      }
+    } else {
+      // Resting on the flower, slowly opening and closing its wings.
+      c.lift = 0;
+      const k = Math.sin(time / 600 + c.phase);
+      c.img.setTexture(`critter:butterfly${c.color}_${k > 0.3 ? 0 : k > -0.3 ? 1 : 2}`);
+    }
+    this.keepIn(c);
+  }
+
   private crab(c: Critter, time: number, dt: number, nearest: (x: number, y: number) => { d: number; x: number; y: number }) {
     const n = nearest(c.x, c.y);
     switch (c.state) {
@@ -381,6 +468,16 @@ export default class CritterLayer {
         break;
       }
     }
+  }
+
+  // The flower nearest (x, y) that is at least minTiles from `from`, as a spot (tile middle).
+  private nearestFlower(x: number, y: number, minTiles: number, from: { x: number; y: number }): [number, number] | null {
+    let best: [number, number] | null = null, bestD = Infinity;
+    for (const [fx, fy] of this.homes.flowers) {
+      const px = (fx + 0.5) * UNIT, py = (fy + 0.5) * UNIT, d = Math.hypot(px - x, py - y);
+      if (Math.hypot(px - from.x, py - from.y) >= minTiles * UNIT && d < bestD) { bestD = d; best = [px, py]; }
+    }
+    return best;
   }
 
   private isOpen(x: number, y: number) {

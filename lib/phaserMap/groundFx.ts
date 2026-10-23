@@ -9,7 +9,10 @@
 // - a fish jumping now and then,
 // - footprints left in the sand (fading after a while),
 // - puffs of ash kicked up by every step,
-// - embers rising off the lava, and at night the lava's light, fading out in curved bands.
+// - embers rising off the lava, and at night the lava's light, fading out in curved bands,
+// - leaves, twigs and petals floating down the river, turning as they go,
+// - heat haze: everything seen through the hot air over the lava wobbles (a displacement filter
+//   on the camera, whose map is redrawn from the lava's spots as the view moves).
 //
 // Drawn with a few pixel rectangles a frame (only what's on screen), in map units inside
 // containers that follow the camera like the sky (ambience.ts). Purely visual. With "reduce
@@ -32,6 +35,7 @@ interface Ring { x: number; y: number; born: number; life: number; size: number;
 interface Print { x: number; y: number; born: number; dx: number; dy: number }
 interface Puff { x: number; y: number; born: number; vx: number; vy: number }
 interface Fish { x0: number; y0: number; x1: number; born: number; color: number }
+interface Float { x: number; y: number; born: number; life: number; kind: number; spin: number; vx: number }
 interface Ember { x: number; y: number; born: number; life: number; vx: number }
 interface Edge { x: number; y: number; side: 0 | 1 | 2 | 3; sprite: Phaser.GameObjects.Sprite } // side: 0 up, 1 right, 2 down, 3 left
 
@@ -123,6 +127,18 @@ const DEEP_COLOR = '24,62,92';
 const GLOW_BANDS: [number, number][] = [[0, 1], [10, 0.7], [22, 0.45], [36, 0.25], [52, 0.1]];
 const GLOW_COLOR = '255,112,32';
 let shadeTextures = 0;
+// Heat haze: how far it reaches past the lava (art px), how hard it wobbles (screen px), and
+// the size of its displacement map (one cell per HAZE_CELL screen px; the GPU smooths it).
+// The river: water no wider than RIVER_MAX tiles across. Things float down it at FLOAT_SPEED
+// (art px a second), keeping to the middle of the stream.
+const RIVER_MAX = 7;
+const FLOAT_SPEED = 13;
+// [colors] for each floating thing: green leaf, yellow leaf, brown leaf, twig, pink petal.
+const FLOAT_COLORS: number[][] = [[0x5a9a3a, 0x3e7428], [0xd8b040, 0xa88020], [0xb06a30, 0x804818], [0x7a5434, 0x5a3c22], [0xf0a0c0, 0xd07898]];
+const HAZE_REACH = 18;
+const HAZE_RISE = 14; // the hot air rises, so it reaches further up than down
+const HAZE_PX = 2.2;
+const HAZE_CELL = 4;
 
 // How far each cell is from the nearest source tile, in px (a two-pass chamfer).
 function cellDistance(isSource: (x: number, y: number) => boolean, W: number, H: number) {
@@ -195,6 +211,10 @@ export default class GroundFx {
   private nextBubble = 0;
   private lastTile = new Map<string, { x: number; y: number }>();
   private lastNow = 0;
+  private floats: Float[] = [];
+  private nextFloat = 0;
+  private river?: Int16Array; // for each river tile: the middle of the stream on its row (art px), else -1
+  private haze?: { key: string; tex: Phaser.Textures.CanvasTexture; data: ImageData; filter: Phaser.Filters.Displacement; heat: Float32Array; cw: number; ch: number; at: number };
 
   static build(scene: Phaser.Scene, kinds: GroundFxKinds | undefined, map: FxMap): GroundFx | null {
     if (!kinds) return null;
@@ -227,6 +247,23 @@ export default class GroundFx {
       this.lavaGlow = scene.add.image(0, 0, this.lavaGlowKey).setOrigin(0, 0).setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false);
       this.lavaGlow.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
     }
+    if (kinds.shimmer) this.makeHaze();
+    if (kinds.river) {
+      // Each row's runs of water: the narrow ones are the river, and their middle is where
+      // floating things drift to.
+      const { width: W, height: H } = map;
+      this.river = new Int16Array(W * H).fill(-1);
+      for (let y = 0; y < H; y++) {
+        for (let x = 0; x < W;) {
+          if (!liquid(x, y)) { x++; continue; }
+          let end = x;
+          while (end < W && liquid(end, y)) end++;
+          const wide = end - x;
+          if (x > 0 && end < W && wide <= RIVER_MAX) for (let i = x; i < end; i++) this.river[y * W + i] = Math.round(((x + end) / 2) * UNIT);
+          x = end;
+        }
+      }
+    }
     if (kinds.foam) {
       const { width: W, height: H, liquid } = map;
       const dirs: [number, number][] = [[0, -1], [1, 0], [0, 1], [-1, 0]];
@@ -257,6 +294,128 @@ export default class GroundFx {
     }
   }
 
+  private riverMid(x: number, y: number) {
+    const tx = Math.floor(x / UNIT), ty = Math.floor(y / UNIT);
+    if (tx < 0 || ty < 0 || tx >= this.map.width || ty >= this.map.height) return -1;
+    return this.river![ty * this.map.width + tx];
+  }
+
+  // Leaves, twigs and petals float down the river, turning slowly, and fade out where it meets
+  // the sea.
+  private updateFloats(time: number, dt: number, view: { x0: number; y0: number; x1: number; y1: number }) {
+    if (time > this.nextFloat && this.floats.length < 10) {
+      this.nextFloat = time + 900 + Math.random() * 1600;
+      for (let i = 0; i < 20; i++) {
+        // Mostly in the top half of the view, so it floats across the screen.
+        const x = view.x0 + Math.random() * (view.x1 - view.x0), y = view.y0 + Math.random() * (view.y1 - view.y0) * 0.6;
+        const mid = this.riverMid(x, y);
+        if (mid < 0) continue;
+        const kind = Math.random() < 0.18 ? 3 : Math.random() < 0.12 ? 4 : Math.floor(Math.random() * 3);
+        this.floats.push({ x: mid + (Math.random() - 0.5) * UNIT * 1.6, y, born: time, life: 14000 + Math.random() * 8000, kind, spin: Math.random() * 6, vx: 0 });
+        break;
+      }
+    }
+    this.floats = this.floats.filter(f => {
+      const age = time - f.born;
+      const mid = this.riverMid(f.x, f.y);
+      if (age > f.life || mid < 0) return false;
+      // Down the stream, drifting toward its middle with a gentle sway.
+      f.vx += ((mid - f.x) * 0.25 + Math.sin(age / 1300 + f.spin) * 4 - f.vx) * Math.min(1, dt);
+      f.x += f.vx * dt;
+      f.y += FLOAT_SPEED * (0.85 + 0.15 * Math.sin(age / 900 + f.spin)) * dt;
+      // Fades in and out (and out before the sea, where the next row isn't river any more).
+      const ahead = this.riverMid(f.x, f.y + UNIT * 0.6) >= 0 ? 1 : 0.4;
+      const a = Math.min(1, age / 800, (f.life - age) / 1200) * ahead;
+      const [light, dark] = FLOAT_COLORS[f.kind];
+      const x = Math.round(f.x), y = Math.round(f.y);
+      // It turns slowly as it floats: drawn lying one of four ways.
+      const turn = Math.floor((age / 1800 + f.spin) % 4);
+      const g = this.water;
+      if (f.kind === 3) {
+        // Twig: a short stick with a little side shoot.
+        const along = turn % 2 === 0;
+        g.fillStyle(light, a).fillRect(x - (along ? 3 : 0), y - (along ? 0 : 2), along ? 7 : 1, along ? 1 : 5);
+        g.fillStyle(dark, a).fillRect(x + (along ? 1 : 1), y - (along ? 1 : 0), 1, 1);
+      } else if (f.kind === 4) {
+        // Petal: two pink dots.
+        g.fillStyle(light, a).fillRect(x, y, 2, 1);
+        g.fillStyle(dark, a).fillRect(x + (turn % 2), y + 1, 1, 1);
+      } else {
+        // Leaf: a little oval with a dark midrib, its stem pointing the way it's turned.
+        const flat = turn % 2 === 0;
+        g.fillStyle(light, a).fillRect(x - (flat ? 2 : 1), y - (flat ? 1 : 2), flat ? 5 : 3, flat ? 3 : 5);
+        g.fillStyle(dark, a).fillRect(x - (flat ? 1 : 0), y - (flat ? 0 : 1), flat ? 3 : 1, flat ? 1 : 3);
+        const s = turn < 2 ? 1 : -1;
+        g.fillStyle(dark, a).fillRect(x + (flat ? s * 3 : 0), y + (flat ? 0 : s * 3), 1, 1);
+      }
+      // A faint wake behind it now and then.
+      if (Math.random() < dt * 0.25) this.rings.push({ x: f.x, y: f.y + 1, born: time, life: 900, size: 5, color: 0xe8fbff });
+      return true;
+    });
+  }
+
+  // Heat haze needs WebGL filters; without them (a canvas renderer) there's simply none.
+  private makeHaze() {
+    const cam = this.scene.cameras.main;
+    if (!cam.filters) return;
+    // How hot the air is in each SHADE_CELL of the map: 1 over the lava, fading out past its edge.
+    const { width: W, height: H, liquid } = this.map;
+    const { d, cw, ch } = cellDistance((x, y) => !!liquid[y]?.[x], W, H);
+    const heat = new Float32Array(cw * ch);
+    const rise = Math.round(HAZE_RISE / SHADE_CELL);
+    for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+      // Above the lava counts as nearer (the heat rises off it).
+      const below = Math.min(ch - 1, y + rise);
+      const px = Math.min(d[y * cw + x], d[below * cw + x] + HAZE_RISE / SHADE_CELL) * SHADE_CELL;
+      heat[y * cw + x] = Math.max(0, Math.min(1, 1 - (px - 4) / HAZE_REACH));
+    }
+    const sw = Math.ceil(CANVAS_WIDTH / HAZE_CELL), sh = Math.ceil(CANVAS_HEIGHT / HAZE_CELL);
+    const key = `fx:haze:${++shadeTextures}`;
+    const tex = this.scene.textures.createCanvas(key, sw, sh);
+    if (!tex) return;
+    const ctx = tex.getContext();
+    ctx.fillStyle = 'rgb(128,128,0)';
+    ctx.fillRect(0, 0, sw, sh);
+    tex.refresh();
+    // A displacement of (value - 0.5) * amount, in parts of the view.
+    const filter = cam.filters.internal.addDisplacement(key, (2 * HAZE_PX) / CANVAS_WIDTH, (HAZE_PX) / CANVAS_HEIGHT);
+    this.haze = { key, tex, data: ctx.getImageData(0, 0, sw, sh), filter, heat, cw, ch, at: 0 };
+  }
+
+  private updateHaze(t: Transform, time: number) {
+    const h = this.haze;
+    if (!h || time - h.at < 33) return; // 30 times a second is plenty for a slow wobble
+    h.at = time;
+    const scale = t.tileW / UNIT;
+    const { data } = h.data;
+    const sw = h.data.width, sh = h.data.height;
+    let any = false;
+    for (let sy = 0; sy < sh; sy++) {
+      // Map position of this row (art px): the wobble is tied to the map, so it doesn't slide
+      // when the view moves.
+      const my = ((sy + 0.5) * HAZE_CELL - t.offsetY) / scale;
+      const cy = Math.floor(my / SHADE_CELL);
+      const rowOk = cy >= 0 && cy < h.ch;
+      for (let sx = 0; sx < sw; sx++) {
+        const i = (sy * sw + sx) * 4;
+        const mx = ((sx + 0.5) * HAZE_CELL - t.offsetX) / scale;
+        const cx = Math.floor(mx / SHADE_CELL);
+        const k = rowOk && cx >= 0 && cx < h.cw ? h.heat[cy * h.cw + cx] : 0;
+        if (k <= 0) { data[i] = 128; data[i + 1] = 128; continue; }
+        any = true;
+        // Rippling bands that drift up, bent a little side to side.
+        const wave = Math.sin(my * 0.42 + time / 260 + Math.sin(mx * 0.06 + time / 1900) * 1.6);
+        const lift = Math.sin(my * 0.23 - time / 410 + mx * 0.03);
+        data[i] = 128 + Math.round(127 * k * wave);
+        data[i + 1] = 128 + Math.round(70 * k * lift);
+      }
+    }
+    h.filter.active = any;
+    if (!any) return;
+    h.tex.getContext().putImageData(h.data, 0, 0);
+    h.tex.refresh();
+  }
+
   // Water bits go just over the liquid layer (under the land's soft edge), ground bits just
   // under the players' shadows. The scene says where those are once its map has loaded.
   setDepths(water: number, ground: number) {
@@ -273,6 +432,7 @@ export default class GroundFx {
     for (const g of [this.water, this.ground, this.glow]) g.setPosition(t.offsetX, t.offsetY).setScale(scale).clear();
     for (const img of [this.deep, this.lavaGlow]) img?.setPosition(t.offsetX, t.offsetY).setScale(scale * SHADE_CELL);
     this.waves?.setPosition(t.offsetX, t.offsetY).setScale(scale);
+    this.updateHaze(t, time);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
     this.lastNow = time;
     const view = { x0: -t.offsetX / scale - UNIT, y0: -t.offsetY / scale - UNIT, x1: (CANVAS_WIDTH - t.offsetX) / scale + UNIT, y1: (CANVAS_HEIGHT - t.offsetY) / scale + UNIT };
@@ -335,6 +495,8 @@ export default class GroundFx {
       this.water.fillStyle(f.color, 1).fillRect(Math.round(x) - dir * 3, Math.round(y) + (k < 0.5 ? 1 : -1), 1, 2); // tail
       return true;
     });
+
+    if (this.river) this.updateFloats(time, dt, view);
 
     // Lava bubbles: swell, then pop with a bright ring.
     if (this.kinds.bubbles && time > this.nextBubble) {
@@ -432,6 +594,10 @@ export default class GroundFx {
   }
 
   destroy() {
+    if (this.haze) {
+      this.scene.cameras.main.filters?.internal.remove(this.haze.filter);
+      if (this.scene.textures.exists(this.haze.key)) this.scene.textures.remove(this.haze.key);
+    }
     for (const img of [this.deep, this.lavaGlow]) img?.destroy();
     for (const key of [this.deepKey, this.lavaGlowKey]) if (key && this.scene.textures.exists(key)) this.scene.textures.remove(key);
     this.waves?.destroy(true);

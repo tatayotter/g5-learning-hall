@@ -733,7 +733,7 @@ export default function TrainingMap({
         setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] ? {
           key: `${activeRegion.tileArtPath}:${natureDay()}`,
           groups: WILDLIFE[activeRegion.id] ?? [],
-          habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined },
+          habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],
           sand: parsed.sand,
         } : null);

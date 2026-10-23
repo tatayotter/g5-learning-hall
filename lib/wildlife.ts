@@ -4,7 +4,7 @@
 // looks: they wander, and run, fly or dig away when anyone walks up to them (the kid, bots, or
 // other players). Nothing is saved; every kid sees their own.
 
-export type CritterKind = 'wisp' | 'dragonfly' | 'bird' | 'crab';
+export type CritterKind = 'wisp' | 'dragonfly' | 'bird' | 'crab' | 'butterfly';
 
 export interface CritterGroup {
   kind: CritterKind;
@@ -12,13 +12,15 @@ export interface CritterGroup {
   groups: number;
   size: [number, number];
   // Where they start: 'near-liquid' = open or liquid tiles within 3 of water or lava; 'shore' =
-  // walkable tiles right by the water (the beach); 'open' = any walkable tile.
-  home: 'near-liquid' | 'shore' | 'open';
+  // walkable tiles right by the water (the beach); 'open' = any walkable tile; 'flowers' = the
+  // day's flowers (butterflies, in the daytime only).
+  home: 'near-liquid' | 'shore' | 'open' | 'flowers';
 }
 
 export const WILDLIFE: Record<string, CritterGroup[]> = {
   ledgers_heart: [
     { kind: 'bird', groups: 5, size: [2, 3], home: 'open' },
+    { kind: 'butterfly', groups: 14, size: [1, 2], home: 'flowers' },
   ],
   cinderreach: [
     { kind: 'wisp', groups: 8, size: [1, 1], home: 'near-liquid' },
@@ -39,9 +41,11 @@ export interface GroundFxKinds {
   puffs?: boolean; // ash kicked up by every step
   embers?: boolean; // embers rising off the lava; it glows at night
   deep?: boolean; // the water gets darker the further it is from land, in soft curved bands
+  shimmer?: boolean; // heat haze: the air over the lava wobbles
+  river?: boolean; // leaves and twigs floating down the river (it runs down the map, to the sea)
 }
 
 export const GROUND_FX: Record<string, GroundFxKinds> = {
-  cinderreach: { bubbles: true, puffs: true, embers: true },
-  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true },
+  cinderreach: { bubbles: true, puffs: true, embers: true, shimmer: true },
+  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true },
 };

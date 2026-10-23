@@ -52,6 +52,8 @@ export interface NatureOutput {
   // The top row of each two-tall bush: drawn over the players and not solid, so a kid can walk
   // right up behind a bush (only its bottom row, where the leaves are, blocks).
   overhang: number[];
+  // Where flowers grew (butterflies visit them: lib/phaserMap/critters.ts).
+  flowers: { x: number; y: number }[];
 }
 
 /** Today's map day, in the Philippines (the new layout grows at midnight there). */
@@ -141,7 +143,8 @@ const FLORA: Record<string, Flora> = {
     smallBushes: SMALL_BUSHES,
     rocks: ROCKS.slice(0, 5),
     flowers: [{ set: 'TideNature', col: 3, row: 0, w: 1, h: 1 }],
-    tufts: [{ set: 'TideNature', col: 2, row: 0, w: 1, h: 1 }, ...TUFTS],
+    // Mostly its own sea grass, with a little of the pack's green tufts mixed in.
+    tufts: [...Array(6).fill({ set: 'TideNature', col: 2, row: 0, w: 1, h: 1 }), TUFTS[0], TUFTS[2]],
     trees: 0.85, meadow: 0.66,
   },
 };
@@ -300,7 +303,7 @@ export function growNature(input: NatureInput): NatureOutput {
       taken[i] = 1;
     }
   }
-  const sprinkle = (all: Stamp[], target: number) => {
+  const sprinkle = (all: Stamp[], target: number, placed?: { x: number; y: number }[]) => {
     const stamps = usable(all);
     if (!stamps.length) return;
     let n = 0;
@@ -309,11 +312,13 @@ export function growNature(input: NatureInput): NatureOutput {
       const s = stamps[Math.floor(rand() * stamps.length)];
       if (!fits(s, x, y, 1, true)) continue;
       stamp(detail, s, x, y);
+      placed?.push({ x, y });
       n++;
     }
   };
   sprinkle(flora.rocks, Math.round(ROCKS_PER_2400 * area));
-  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : 0.5)));
+  const flowers: { x: number; y: number }[] = [];
+  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : 0.5)), flowers);
 
   // ── Everything walkable must stay reachable from the spawn ──
   const solid = (x: number, y: number) => !!input.blocked?.[idx(x, y)] || !!input.base[idx(x, y)] || !!base[idx(x, y)] || trees.some(t => t.x === x && t.y === y);
@@ -359,5 +364,5 @@ export function growNature(input: NatureInput): NatureOutput {
 
   // Trees further down the map draw over the ones above them.
   trees.sort((a, b) => a.y - b.y || a.x - b.x);
-  return { trees, detail, base, overhang };
+  return { trees, detail, base, overhang, flowers };
 }

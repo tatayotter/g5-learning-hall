@@ -106,6 +106,8 @@ export interface TiledArtMap {
   liquid: boolean[][];
   // True on beach sand (Tidewrit's sand tiles), where footsteps leave prints.
   sand: boolean[][];
+  // Flower tiles grown by the daily nature layer (empty for hand-made maps).
+  flowers: { x: number; y: number }[];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -391,6 +393,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   // The day's nature layer: bushes go on Objects Base, grass, rocks and flowers on Ground
   // Detail (made if the map has none), trees are drawn by the scene.
   let trees: NatureTree[] = [];
+  let flowers: { x: number; y: number }[] = [];
   if (nature) {
     const ensure = (role: LayerRole, name: string) => {
       let l = layers.find(x => roleOf.get(x.name) === role);
@@ -419,6 +422,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     detail.data = grown.detail;
     base.data = grown.base;
     trees = grown.trees;
+    flowers = grown.flowers;
     if (grown.overhang.some(g => g !== 0)) {
       const top = ensure('top', 'Nature Overhang');
       top.data = top.data.map((g, i) => grown.overhang[i] || g);
@@ -518,5 +522,6 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     animatedTiles,
     liquid,
     sand,
+    flowers,
   };
 }

@@ -6,6 +6,7 @@
  <tileset firstgid="6145" source="Town Props 2.tsx"/>
  <tileset firstgid="7169" source="Trees.tsx"/>
  <tileset firstgid="8193" source="Props.tsx"/>
+ <tileset firstgid="9217" source="TideNature.tsx"/>
  <layer id="1" name="Liquid" width="60" height="40">
   <data encoding="csv">
 5026,5026,5026,5026,5026,5026,5026,5026,5026,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5026,5026,5026,5026,5026,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
