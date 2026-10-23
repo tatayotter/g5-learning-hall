@@ -1,8 +1,10 @@
--- Garden: Rootbound's trees (elder, bamboo) can be chopped there.
+-- Garden: every region's trees, ahead of its map.
 --
--- The Rootbound Wilds is now a flat map with the daily nature layer, and its own two trees grow
--- on it. chop_wild_tree only accepts a tree in the region it grows in (c_region_trees), so this
--- adds rootbound_wilds to that list. The function is otherwise unchanged from
+-- chop_wild_tree only accepts a tree in the region it grows in (c_region_trees). This lists all
+-- seven regions' trees now (Rowil, 2026-10-23: no database update each time a region's flat map
+-- is built), so a new region's trees can be chopped as soon as its map ships. A tree only grows
+-- on a region's map once the map has the daily nature layer (lib/regions.ts dailyNature), so
+-- listing a region early changes nothing in the game. The function is otherwise unchanged from
 -- 20261023180000_garden_tidewrit_trees.sql. Safe to re-run (create or replace + grants).
 
 create or replace function public.chop_wild_tree(
@@ -26,7 +28,10 @@ declare
     "ledgers_heart": ["maple", "oak", "birch", "pine"],
     "cinderreach": ["ember", "ashwillow"],
     "tidewrit_shallows": ["palm", "mangrove"],
-    "rootbound_wilds": ["elder", "bamboo"]
+    "rootbound_wilds": ["elder", "bamboo"],
+    "stormrun_reaches": ["stormpine", "silverbirch"],
+    "unread_margins": ["dusk", "glowcap"],
+    "radiant_archive": ["paperleaf", "sunblossom"]
   }'::jsonb;
   c_daily constant int := 8;
   c_rest constant interval := interval '1 minute';
