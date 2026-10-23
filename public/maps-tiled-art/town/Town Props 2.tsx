@@ -341,4 +341,9 @@
    <property name="walkable" type="bool" value="true"/>
   </properties>
  </tile>
+ <tile id="413">
+  <properties>
+   <property name="light" type="bool" value="true"/>
+  </properties>
+ </tile>
 </tileset>

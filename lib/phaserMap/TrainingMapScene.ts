@@ -108,6 +108,8 @@ export type MapBackground =
       layerOpacity?: Record<string, number>;
       // Animated tiles (water, lava): gid -> its frames' gids, from the tilesets.
       animatedTiles?: Record<number, { frames: number[]; ms: number }>;
+      // Lamps (tile coords of each lamp's head): they glow at night.
+      lights?: { x: number; y: number }[];
     };
 
 export interface MapCanvasSyncState {
@@ -345,6 +347,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private critters: CritterLayer | null = null;
   private groundFx: GroundFx | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
+  private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
+  private lampKey = '';
   private crittersKey = '';
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
@@ -394,6 +398,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
+    this.updateLamps(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
@@ -405,24 +410,59 @@ export default class TrainingMapScene extends Phaser.Scene {
     }
   }
 
+  // A soft warm round light (the kid's light at night, and the lamps').
+  private makeNightLightTexture() {
+    if (this.textures.exists('night-light')) return true;
+    const n = 256;
+    const tex = this.textures.createCanvas('night-light', n, n);
+    if (!tex) return false;
+    const ctx = tex.getContext();
+    const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+    grad.addColorStop(0, 'rgba(255,214,150,0.55)');
+    grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
+    grad.addColorStop(1, 'rgba(255,170,100,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, n, n);
+    tex.refresh();
+    return true;
+  }
+
+  // At night every lamp on the map shines: a warm pool of light around its head that flickers
+  // a little (steady with "reduce motion" on).
+  private updateLamps(time: number) {
+    const bg = this.lastBackground;
+    const lights = bg?.type === 'tilemap' ? bg.lights ?? [] : [];
+    const key = bg?.type === 'tilemap' ? `${bg.key}:${lights.length}` : '';
+    if (key !== this.lampKey) {
+      for (const g of this.lampGlows) g.img.destroy();
+      this.lampGlows = [];
+      this.lampKey = key;
+      if (lights.length && this.makeNightLightTexture()) {
+        this.lampGlows = lights.map((l, i) => ({
+          img: this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false),
+          x: l.x, y: l.y, seed: (i * 2.399) % (Math.PI * 2),
+        }));
+      }
+    }
+    if (!this.lampGlows.length) return;
+    const night = this.ambience?.nightLevel ?? 0;
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const t = this.lastTransform;
+    for (const g of this.lampGlows) {
+      if (night < 0.05) { g.img.setVisible(false); continue; }
+      const flicker = still ? 1 : 0.92 + 0.05 * Math.sin(time / 170 + g.seed) + 0.03 * Math.sin(time / 53 + g.seed * 3);
+      g.img.setVisible(true)
+        .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
+        .setScale((t.tileW * 5) / 256).setAlpha(0.85 * night * flicker);
+    }
+  }
+
   // At night a soft warm light around the kid, so they can always see where they're going.
   private updateNightLight() {
     const night = this.ambience?.nightLevel ?? 0;
     if (night < 0.05 || !this.self) { this.nightLight?.setVisible(false); return; }
     if (!this.nightLight) {
-      if (!this.textures.exists('night-light')) {
-        const n = 256;
-        const tex = this.textures.createCanvas('night-light', n, n);
-        if (!tex) return;
-        const ctx = tex.getContext();
-        const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
-        grad.addColorStop(0, 'rgba(255,214,150,0.55)');
-        grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
-        grad.addColorStop(1, 'rgba(255,170,100,0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, n, n);
-        tex.refresh();
-      }
+      if (!this.makeNightLightTexture()) return;
       this.nightLight = this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
     }
     const t = this.lastTransform;

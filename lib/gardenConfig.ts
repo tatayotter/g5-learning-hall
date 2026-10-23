@@ -108,6 +108,7 @@ export const TREES: Record<TreeId, { id: TreeId; label: string; name: string }> 
 // its map; a region's trees only grow once its map has the daily nature layer.
 export const REGION_TREES: Record<string, TreeId[]> = {
   ledgers_heart: ['maple', 'oak', 'birch', 'pine'],
+  town: ['maple', 'oak', 'birch', 'pine'],
   cinderreach: ['ember', 'ashwillow'],
   tidewrit_shallows: ['palm', 'mangrove'],
   rootbound_wilds: ['elder', 'bamboo'],

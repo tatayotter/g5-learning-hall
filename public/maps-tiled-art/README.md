@@ -98,5 +98,12 @@ hedges, market stalls and a fountain square, through the gate at the top of the 
 Heart's north road (portals on columns 28-31 of both maps). It is built from his file by
 `/mnt/project-files/town-map/build_town.py <repo> [townmap.tmx]`, which points the tilesets at
 local copies, adds the `ledgers_heart` portals in the bottom wall's gap and a No Encounter box over
-the whole town (no wild curios there), and marks see-through stamp tiles `walkable`. The daily
-nature layer only adds flowers and tall grass on its lawns (no trees, bushes or rocks).
+the whole town (no wild curios there), and marks see-through stamp tiles `walkable`. It also:
+- lays plain dirt (`Under Ground`, drawn first) under the brick road, whose gaps are see-through;
+- shows Rowil's `Lampposts` layer: each post's foot blocks, the rest moves to `Lamp Tops` (over the
+  players), and the lamp head tile is marked `light`, so it glows at night;
+- stamps the town decor (`TownDecor`, cut from the town sheets by `build_decor.py`: crates,
+  barrels, benches, flower boxes, pots, potted plants, the well) at the spots listed in the script:
+  `Town Decor` (the feet row, solid) and `Town Decor Top` (over the players).
+The daily nature layer grows the Ledger's Heart's trees (choppable) on the open lawns, with flowers
+and tall grass; no bushes or rocks.

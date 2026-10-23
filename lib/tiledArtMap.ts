@@ -35,6 +35,9 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   // The town: buildings, stalls and the fountain, and the round stone floor around it.
   'Town Props 1': '/tilesets/forgotten-memories/Town_Props_1.png',
   'fountain floor': '/tilesets/forgotten-memories/fountain_floor.png',
+  // Crates, barrels, benches, flower boxes, pots and the well, cut from the town sheets onto the
+  // tile grid (/mnt/project-files/town-map/build_decor.py).
+  'TownDecor': '/tilesets/forgotten-memories/TownDecor.png',
   'WaterTiles-6frames': '/tilesets/forgotten-memories/WaterTiles-6frames.png',
   // Region looks (recolored copies of the pack's sheets, same layout): Cinderreach is scorched
   // and its liquid is lava.
@@ -61,8 +64,10 @@ export interface TiledArtLayer {
 
 // The fixed layer contract every tile-art map follows (see
 // public/maps-tiled-art/README.md). Role order is also draw order.
-type LayerRole = 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
+type LayerRole = 'under' | 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
 const ROLE_BY_NAME: Record<string, LayerRole> = {
+  // Plain dirt under see-through ground (the town's brick road), drawn first.
+  'under ground': 'under',
   // Water or lava under the ground's see-through edges.
   'liquid': 'liquid',
   'ground': 'ground',
@@ -75,11 +80,14 @@ const ROLE_BY_NAME: Record<string, LayerRole> = {
   'objects top': 'top',
   // The town's plaza floor is walked on like a path.
   'fountain circle': 'detail',
+  // The town's lamp posts and decor above their feet: drawn over the players.
+  'lamp tops': 'top',
+  'town decor top': 'top',
 };
 // Any other layer is a thing standing on the ground (the town's buildings, fences, walls, stalls,
 // fountain): drawn behind the player and solid, like Objects Base.
 const roleFor = (name: string): LayerRole => ROLE_BY_NAME[name.trim().toLowerCase()] ?? 'base';
-const ROLE_ORDER: LayerRole[] = ['liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
+const ROLE_ORDER: LayerRole[] = ['under', 'liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
 
 export interface TiledArtPortal {
   x: number;
@@ -120,6 +128,8 @@ export interface TiledArtMap {
   sand: boolean[][];
   // Flower tiles grown by the daily nature layer (empty for hand-made maps).
   flowers: { x: number; y: number }[];
+  // Tiles drawn with a "light" tile (lamps): they glow at night.
+  lights: { x: number; y: number }[];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -163,24 +173,28 @@ interface EmbeddedTileset {
   // Tiles that are almost all see-through (the empty corners of a building or fountain stamp):
   // walkable even on Objects Base.
   walkable: number[];
+  // Tiles that shine at night (the town's lamps).
+  light: number[];
   anims: Record<number, { frames: number[]; ms: number }>;
 }
 
-// <tile id> entries: a "solid" or "walkable" bool property, and an <animation> of frames.
+// <tile id> entries: a "solid", "walkable" or "light" bool property, and an <animation> of frames.
 function parseTileData(tilesetEl: Element) {
   const solid: number[] = [];
   const walkable: number[] = [];
+  const light: number[] = [];
   const anims: Record<number, { frames: number[]; ms: number }> = {};
   for (const tileEl of Array.from(tilesetEl.querySelectorAll(':scope > tile'))) {
     const id = Number(attr(tileEl, 'id'));
     if (tileEl.querySelector('properties > property[name="solid"][value="true"]')) solid.push(id);
     if (tileEl.querySelector('properties > property[name="walkable"][value="true"]')) walkable.push(id);
+    if (tileEl.querySelector('properties > property[name="light"][value="true"]')) light.push(id);
     const frames = Array.from(tileEl.querySelectorAll('animation > frame'));
     if (frames.length > 1) {
       anims[id] = { frames: frames.map(f => Number(attr(f, 'tileid'))), ms: Number(attr(frames[0], 'duration')) || 200 };
     }
   }
-  return { solid, walkable, anims };
+  return { solid, walkable, light, anims };
 }
 
 async function resolveTileset(tilesetEl: Element, tmxUrl: string): Promise<EmbeddedTileset> {
@@ -386,10 +400,12 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   // Tiles the tilesets mark solid (water, lava), and tiles under a "collision" box.
   const solidGids = new Set<number>();
   const walkableGids = new Set<number>();
+  const lightGids = new Set<number>();
   const animatedTiles: Record<number, { frames: number[]; ms: number }> = {};
   for (const ts of tilesets) {
     for (const id of ts.solid) solidGids.add(ts.firstgid + id);
     for (const id of ts.walkable) walkableGids.add(ts.firstgid + id);
+    for (const id of ts.light) lightGids.add(ts.firstgid + id);
     for (const [id, a] of Object.entries(ts.anims)) {
       animatedTiles[ts.firstgid + Number(id)] = { frames: a.frames.map(f => ts.firstgid + f), ms: a.ms };
     }
@@ -516,6 +532,13 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     }
   }
 
+  const lights: { x: number; y: number }[] = [];
+  if (lightGids.size) {
+    for (const l of layers) l.data.forEach((g, i) => {
+      if (lightGids.has(g & 0x1fffffff)) lights.push({ x: i % mapWidth, y: Math.floor(i / mapWidth) });
+    });
+  }
+
   const tilesetImages: Record<string, string> = {};
   for (const ts of tilesets) tilesetImages[ts.name] = resolve(ts.image, tmxUrl);
 
@@ -561,5 +584,6 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     liquid,
     sand,
     flowers,
+    lights,
   };
 }
