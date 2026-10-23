@@ -27,6 +27,7 @@ import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtPortal } from '@/lib/tiledArtMap';
+import { nearestOpen, setWanderMap } from '@/lib/wander';
 import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
@@ -415,7 +416,22 @@ export default function TrainingMap({
   const posX = isLedgersHeart ? battleState.map_x : localPos.x;
   const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
-  const { onlinePlayers, waves, sendWave } = mapPresence;
+  const { onlinePlayers: presencePlayers, waves, sendWave } = mapPresence;
+  // Other players and bots only ever stand where a player could on this map: they wander on its
+  // open tiles (lib/wander.ts), and one whose spot is a cliff, lava or a tree here is shown on
+  // the nearest open tile.
+  const standable = useCallback((x: number, y: number) => map[y]?.[x] !== undefined && map[y][x].type !== 'wall', [map]);
+  useEffect(() => {
+    if (!mapReady) return;
+    setWanderMap(standable);
+    return () => setWanderMap(null);
+  }, [mapReady, standable]);
+  const onlinePlayers = useMemo(() => {
+    if (!mapReady) return presencePlayers;
+    const out: typeof presencePlayers = {};
+    for (const [id, p] of Object.entries(presencePlayers)) out[id] = standable(p.x, p.y) ? p : { ...p, ...nearestOpen(p.x, p.y, standable) };
+    return out;
+  }, [presencePlayers, mapReady, standable]);
 
   // Fills the scroll pool up to SCROLL_POOL_SIZE once the map has actually
   // loaded (mapReady — regionMap starts as an all-'grass' loading

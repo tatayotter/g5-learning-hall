@@ -4701,4 +4701,238 @@
    <frame tileid="904" duration="220"/>
   </animation>
  </tile>
+ <tile id="929">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="929" duration="220"/>
+   <frame tileid="930" duration="220"/>
+   <frame tileid="931" duration="220"/>
+   <frame tileid="932" duration="220"/>
+   <frame tileid="933" duration="220"/>
+   <frame tileid="934" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="930">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="930" duration="220"/>
+   <frame tileid="931" duration="220"/>
+   <frame tileid="932" duration="220"/>
+   <frame tileid="933" duration="220"/>
+   <frame tileid="934" duration="220"/>
+   <frame tileid="929" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="931">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="931" duration="220"/>
+   <frame tileid="932" duration="220"/>
+   <frame tileid="933" duration="220"/>
+   <frame tileid="934" duration="220"/>
+   <frame tileid="929" duration="220"/>
+   <frame tileid="930" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="932">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="932" duration="220"/>
+   <frame tileid="933" duration="220"/>
+   <frame tileid="934" duration="220"/>
+   <frame tileid="929" duration="220"/>
+   <frame tileid="930" duration="220"/>
+   <frame tileid="931" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="933">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="933" duration="220"/>
+   <frame tileid="934" duration="220"/>
+   <frame tileid="929" duration="220"/>
+   <frame tileid="930" duration="220"/>
+   <frame tileid="931" duration="220"/>
+   <frame tileid="932" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="934">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="934" duration="220"/>
+   <frame tileid="929" duration="220"/>
+   <frame tileid="930" duration="220"/>
+   <frame tileid="931" duration="220"/>
+   <frame tileid="932" duration="220"/>
+   <frame tileid="933" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="961">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="961" duration="220"/>
+   <frame tileid="962" duration="220"/>
+   <frame tileid="963" duration="220"/>
+   <frame tileid="964" duration="220"/>
+   <frame tileid="965" duration="220"/>
+   <frame tileid="966" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="962">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="962" duration="220"/>
+   <frame tileid="963" duration="220"/>
+   <frame tileid="964" duration="220"/>
+   <frame tileid="965" duration="220"/>
+   <frame tileid="966" duration="220"/>
+   <frame tileid="961" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="963">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="963" duration="220"/>
+   <frame tileid="964" duration="220"/>
+   <frame tileid="965" duration="220"/>
+   <frame tileid="966" duration="220"/>
+   <frame tileid="961" duration="220"/>
+   <frame tileid="962" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="964">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="964" duration="220"/>
+   <frame tileid="965" duration="220"/>
+   <frame tileid="966" duration="220"/>
+   <frame tileid="961" duration="220"/>
+   <frame tileid="962" duration="220"/>
+   <frame tileid="963" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="965">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="965" duration="220"/>
+   <frame tileid="966" duration="220"/>
+   <frame tileid="961" duration="220"/>
+   <frame tileid="962" duration="220"/>
+   <frame tileid="963" duration="220"/>
+   <frame tileid="964" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="966">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="966" duration="220"/>
+   <frame tileid="961" duration="220"/>
+   <frame tileid="962" duration="220"/>
+   <frame tileid="963" duration="220"/>
+   <frame tileid="964" duration="220"/>
+   <frame tileid="965" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="993">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="993" duration="220"/>
+   <frame tileid="994" duration="220"/>
+   <frame tileid="995" duration="220"/>
+   <frame tileid="996" duration="220"/>
+   <frame tileid="997" duration="220"/>
+   <frame tileid="998" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="994">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="994" duration="220"/>
+   <frame tileid="995" duration="220"/>
+   <frame tileid="996" duration="220"/>
+   <frame tileid="997" duration="220"/>
+   <frame tileid="998" duration="220"/>
+   <frame tileid="993" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="995">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="995" duration="220"/>
+   <frame tileid="996" duration="220"/>
+   <frame tileid="997" duration="220"/>
+   <frame tileid="998" duration="220"/>
+   <frame tileid="993" duration="220"/>
+   <frame tileid="994" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="996">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="996" duration="220"/>
+   <frame tileid="997" duration="220"/>
+   <frame tileid="998" duration="220"/>
+   <frame tileid="993" duration="220"/>
+   <frame tileid="994" duration="220"/>
+   <frame tileid="995" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="997">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="997" duration="220"/>
+   <frame tileid="998" duration="220"/>
+   <frame tileid="993" duration="220"/>
+   <frame tileid="994" duration="220"/>
+   <frame tileid="995" duration="220"/>
+   <frame tileid="996" duration="220"/>
+  </animation>
+ </tile>
+ <tile id="998">
+  <properties>
+   <property name="solid" type="bool" value="true"/>
+  </properties>
+  <animation>
+   <frame tileid="998" duration="220"/>
+   <frame tileid="993" duration="220"/>
+   <frame tileid="994" duration="220"/>
+   <frame tileid="995" duration="220"/>
+   <frame tileid="996" duration="220"/>
+   <frame tileid="997" duration="220"/>
+  </animation>
+ </tile>
 </tileset>
