@@ -70,10 +70,10 @@ export const REGIONS: Record<string, Region> = {
     mapImage: '/maps/ledgers_heart.webp',
     tiledMapPath: '/maps-tiled/ledgers_heart.json',
     // Walking up the Ledger's Heart's north road, the kid arrives just inside the town's gate.
-    spawn: { x: 29, y: 38 },
-    townCenter: { x: 29, y: 38 },
+    spawn: { x: 29, y: 44 },
+    townCenter: { x: 29, y: 44 },
     mapWidth: 60,
-    mapHeight: 40,
+    mapHeight: 46,
     tileArtPath: '/maps-tiled-art/town/town.tmx',
     dailyNature: true,
   },

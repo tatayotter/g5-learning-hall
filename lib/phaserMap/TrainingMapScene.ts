@@ -427,8 +427,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     return true;
   }
 
-  // At night every lamp on the map shines: a warm pool of light around its head that flickers
-  // a little (steady with "reduce motion" on).
+  // Every lamp on the map shines: a small warm glow around its head by day that grows into a
+  // pool of light at night, flickering a little (steady with "reduce motion" on).
   private updateLamps(time: number) {
     const bg = this.lastBackground;
     const lights = bg?.type === 'tilemap' ? bg.lights ?? [] : [];
@@ -449,11 +449,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const t = this.lastTransform;
     for (const g of this.lampGlows) {
-      if (night < 0.05) { g.img.setVisible(false); continue; }
       const flicker = still ? 1 : 0.92 + 0.05 * Math.sin(time / 170 + g.seed) + 0.03 * Math.sin(time / 53 + g.seed * 3);
       g.img.setVisible(true)
         .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
-        .setScale((t.tileW * 5) / 256).setAlpha(0.85 * night * flicker);
+        .setScale((t.tileW * (2.2 + 2.8 * night)) / 256).setAlpha((0.45 + 0.4 * night) * flicker);
     }
   }
 

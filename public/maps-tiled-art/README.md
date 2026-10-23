@@ -101,13 +101,21 @@ local copies, adds the `ledgers_heart` portals in the bottom wall's gap and a No
 the whole town (no wild curios there), and marks see-through stamp tiles `walkable`. It also:
 - lays plain dirt (`Under Ground`, drawn first) under the brick road, whose gaps are see-through;
 - shows Rowil's `Lampposts` layer: each post's foot blocks, the rest moves to `Lamp Tops` (over the
-  players), and the lamp head tile is marked `light`, so it glows at night;
+  players), and the lamp head tile is marked `light`, so it glows (softly by day, brighter at night);
 - stamps the town decor (`TownDecor`, cut from the town sheets by `build_decor.py`: crates,
   barrels, benches, flower boxes, pots, potted plants, the well) at the spots listed in the script:
   `Town Decor` (the feet row, solid) and `Town Decor Top` (over the players).
 - draws ground shadows (`Shadows` layer, `TownShadows` tileset made from them) in the tileset's
-  style, flat (44,33,51) at alpha 125 with a ragged edge: halls, cottages, stalls and the fountain
-  cast their shape 8/9 px down-right, hedges, walls and fences 4/5 px, lamps and decor a blob.
+  style, flat (44,33,51) at alpha 125 with a ragged edge: halls, cottages and the fountain cast
+  their shape 4 px straight down, hedges, walls and fences 2 px; stalls, lamps and decor get the
+  trees' dithered oval (`garden-art/trees/shadows.py`) tucked under their feet;
+- moves roofs to the `Roofs`/`Roofs 2` layers (over the players, never blocking): only a
+  building's bottom 3 rows per column stay solid; stall awnings go to `Roofs 3` (only the counter
+  row blocks), so kids walk behind both;
+- swaps the fountain's tiles for `FountainAnim` (6 frames made by `build_fountain.py`: rings across
+  the pool, light down the jets, moving sparkles) with Tiled tile animations;
+- adds 6 rows of grass above the top hedge with a `Backdrop` box: nobody walks there, but the
+  day's trees grow in a line along it (3+ rows from the top, so their crowns show).
 The decor is toned to the game (softer color) by `build_decor.py`.
 The daily nature layer grows the Ledger's Heart's trees (choppable) on the open lawns, with flowers
 and tall grass; no bushes or rocks.

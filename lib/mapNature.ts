@@ -39,6 +39,7 @@ export interface NatureInput {
   reserved: { x: number; y: number }[]; // tiles that must stay free (wild veggies)
   keepClear: NatureRect[]; // pixels, from a "Keep Clear" object layer
   forest: NatureRect[]; // pixels, from a "Forest" object layer
+  backdrop?: NatureRect[]; // pixels, from a "Backdrop" object layer: trees there stand 3+ rows from the top, so their crowns show
   // Tiles where nothing may grow: cliffs, skirts, liquid, "collision" boxes.
   occupied?: boolean[];
   // Tiles nobody can walk on (liquid, "collision" boxes), for the reachability check.
@@ -133,7 +134,7 @@ const FLORA: Record<string, Flora> = {
   ledgers_heart: { bushes: BUSHES, smallBushes: SMALL_BUSHES, rocks: ROCKS, flowers: FLOWERS, tufts: TUFTS, trees: 1, meadow: 0.62 },
   // The town keeps its lawns tidy: the Ledger's Heart's trees on the open lawns, flowers and a
   // little tall grass, no bushes or rocks.
-  town: { bushes: [], smallBushes: [], rocks: [], flowers: FLOWERS, tufts: TUFTS, trees: 0.6, meadow: 0.72 },
+  town: { bushes: [], smallBushes: [], rocks: [], flowers: FLOWERS, tufts: TUFTS, trees: 0.9, meadow: 0.72 },
   cinderreach: {
     bushes: [FIRE_BUSH], smallBushes: [FIRE_BUSH],
     rocks: ROCKS.slice(0, 5), // no mushrooms in the ash
@@ -275,7 +276,7 @@ export function growNature(input: NatureInput): NatureOutput {
   };
   for (const [x, y] of shuffled()) {
     if (trees.length >= treeTarget) break;
-    if (y < 1 || !open(x, y) || dist[idx(x, y)] < 2 || clear[idx(x, y)] || taken[idx(x, y)] || !spaced(x, y)) continue;
+    if (y < 1 || (y < 3 && input.backdrop && inRects(input.backdrop, x, y)) || !open(x, y) || dist[idx(x, y)] < 2 || clear[idx(x, y)] || taken[idx(x, y)] || !spaced(x, y)) continue;
     if (rand() >= treeChance(x, y)) continue;
     // Neighbouring trees are mostly one kind; one in five is any kind.
     const k = rand() < 0.2 ? Math.floor(rand() * KINDS.length) : Math.min(KINDS.length - 1, Math.floor(kindField(x, y) * KINDS.length * 1.2) % KINDS.length);
