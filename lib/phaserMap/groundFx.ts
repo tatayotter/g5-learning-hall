@@ -2,6 +2,8 @@
 // Little touches on the ground and the water (lib/wildlife.ts GROUND_FX says which a map has):
 // - waves rolling in to the shore, breaking into foam on the sand and pulling back (a Phaser
 //   animation, one sprite per stretch of shore, so the sets sweep along the coast),
+// - deep water: darker the further out it is, in soft curved bands (cut like the cloud
+//   shadows, ambience.ts), over one bright water tile everywhere,
 // - lava bubbles that swell and pop,
 // - ripples on the water next to anyone walking along it,
 // - a fish jumping now and then,
@@ -110,9 +112,55 @@ function makeWaveTexture(scene: Phaser.Scene) {
 }
 const PUFF_MS = 650;
 
+// Deep water shading: art px per shading px, and where each band starts (px from land).
+const DEEP_CELL = 4;
+const DEEP_BANDS: [number, number][] = [[34, 0.1], [62, 0.2], [96, 0.3], [140, 0.38]];
+const DEEP_COLOR = '24,62,92';
+let deepTextures = 0;
+
+// One picture over the whole map: for each water cell, how far it is from the nearest land
+// tile (a chamfer pass), pushed in and out by a couple of slow waves so the bands curve and
+// bulge like the cloud shadows instead of following the tile steps, then cut into DEEP_BANDS.
+function makeDeepTexture(scene: Phaser.Scene, liquid: boolean[][], W: number, H: number) {
+  const cw = (W * UNIT) / DEEP_CELL, ch = (H * UNIT) / DEEP_CELL, per = UNIT / DEEP_CELL;
+  const BIG = 1e9;
+  const d = new Float32Array(cw * ch);
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) d[y * cw + x] = liquid[Math.floor(y / per)][Math.floor(x / per)] ? BIG : 0;
+  const at = (x: number, y: number) => (x < 0 || y < 0 || x >= cw || y >= ch ? BIG : d[y * cw + x]);
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const i = y * cw + x;
+    if (d[i]) d[i] = Math.min(d[i], at(x - 1, y) + 1, at(x, y - 1) + 1, at(x - 1, y - 1) + 1.414, at(x + 1, y - 1) + 1.414);
+  }
+  for (let y = ch - 1; y >= 0; y--) for (let x = cw - 1; x >= 0; x--) {
+    const i = y * cw + x;
+    if (d[i]) d[i] = Math.min(d[i], at(x + 1, y) + 1, at(x, y + 1) + 1, at(x + 1, y + 1) + 1.414, at(x - 1, y + 1) + 1.414);
+  }
+  const canvas = document.createElement('canvas');
+  canvas.width = cw;
+  canvas.height = ch;
+  const g = canvas.getContext('2d')!;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
+    const dist = d[y * cw + x];
+    if (!dist) continue;
+    const px = x * DEEP_CELL, py = y * DEEP_CELL;
+    const wobble = 9 * Math.sin(px * 0.021 + py * 0.008) + 7 * Math.sin(py * 0.027 - px * 0.011 + 1.7) + 4 * Math.sin((px + py) * 0.05);
+    const dd = dist * DEEP_CELL + wobble;
+    let a = 0;
+    for (const [from, alpha] of DEEP_BANDS) if (dd >= from) a = alpha;
+    if (!a) continue;
+    g.fillStyle = `rgba(${DEEP_COLOR},${a})`;
+    g.fillRect(x, y, 1, 1);
+  }
+  const key = `fx:deep:${++deepTextures}`;
+  scene.textures.addCanvas(key, canvas);
+  return key;
+}
+
 export default class GroundFx {
   private water: Phaser.GameObjects.Graphics; // on the water, under the land's edge
   private ground: Phaser.GameObjects.Graphics; // on the ground, under players
+  private deep?: Phaser.GameObjects.Image; // the deep water shading, just over the water tiles
+  private deepKey = '';
   private waves?: Phaser.GameObjects.Container; // the wave sprites, on the ground too
   private glow: Phaser.GameObjects.Graphics; // lights: they add light, and shine through the night
   private embers: Ember[] = [];
@@ -134,10 +182,16 @@ export default class GroundFx {
     return new GroundFx(scene, kinds, map);
   }
 
-  private constructor(scene: Phaser.Scene, private kinds: GroundFxKinds, private map: FxMap) {
+  private constructor(private scene: Phaser.Scene, private kinds: GroundFxKinds, private map: FxMap) {
     this.water = scene.add.graphics();
     this.ground = scene.add.graphics();
     this.glow = scene.add.graphics().setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
+    if (kinds.deep) {
+      this.deepKey = makeDeepTexture(scene, map.liquid, map.width, map.height);
+      // Nearest-neighbour scaling keeps the band edges crisp pixel steps, like the clouds.
+      this.deep = scene.add.image(0, 0, this.deepKey).setOrigin(0, 0);
+      this.deep.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
+    }
     if (kinds.foam) {
       const { width: W, height: H, liquid } = map;
       const dirs: [number, number][] = [[0, -1], [1, 0], [0, 1], [-1, 0]];
@@ -172,6 +226,7 @@ export default class GroundFx {
   // under the players' shadows. The scene says where those are once its map has loaded.
   setDepths(water: number, ground: number) {
     if (this.water.depth !== water) this.water.setDepth(water);
+    if (this.deep && this.deep.depth !== water - 0.2) this.deep.setDepth(water - 0.2);
     if (this.ground.depth !== ground) this.ground.setDepth(ground);
     if (this.waves && this.waves.depth !== ground) this.waves.setDepth(ground);
   }
@@ -181,6 +236,7 @@ export default class GroundFx {
   update(t: Transform, time: number, walkers: { id: string; x: number; y: number }[], night = 0) {
     const scale = t.tileW / UNIT;
     for (const g of [this.water, this.ground, this.glow]) g.setPosition(t.offsetX, t.offsetY).setScale(scale).clear();
+    this.deep?.setPosition(t.offsetX, t.offsetY).setScale(scale * DEEP_CELL);
     this.waves?.setPosition(t.offsetX, t.offsetY).setScale(scale);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
     this.lastNow = time;
@@ -342,6 +398,8 @@ export default class GroundFx {
   }
 
   destroy() {
+    this.deep?.destroy();
+    if (this.deepKey && this.scene.textures.exists(this.deepKey)) this.scene.textures.remove(this.deepKey);
     this.waves?.destroy(true);
     this.water.destroy();
     this.ground.destroy();

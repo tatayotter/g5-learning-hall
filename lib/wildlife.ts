@@ -38,9 +38,10 @@ export interface GroundFxKinds {
   prints?: boolean; // footprints in the sand
   puffs?: boolean; // ash kicked up by every step
   embers?: boolean; // embers rising off the lava; it glows at night
+  deep?: boolean; // the water gets darker the further it is from land, in soft curved bands
 }
 
 export const GROUND_FX: Record<string, GroundFxKinds> = {
   cinderreach: { bubbles: true, puffs: true, embers: true },
-  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true },
+  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true },
 };
