@@ -68,7 +68,16 @@ import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
+import WildTrees, { type TreeSprite } from './wildTrees';
+import ChopSwing from './chopSwing';
+import type { SwingKind } from '@/lib/gardenConfig';
 import SwayingTrees from './swayingTrees';
+import { MAP_TAP_EVENT } from '@/lib/mapTap';
+import AmbienceLayer, { GLOW_DEPTH } from './ambience';
+import CritterLayer, { type Habitat } from './critters';
+import GroundFx from './groundFx';
+import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
+import type { Ambience } from '@/lib/ambience';
 
 // Sprite shadows lie on the ground: above the flat ground layers (Ground, and
 // Ground Detail's paths, pebbles and flowers) but under the swaying tall
@@ -97,6 +106,8 @@ export type MapBackground =
       belowPlayerLayers: string[];
       abovePlayerLayers: string[];
       layerOpacity?: Record<string, number>;
+      // Animated tiles (water, lava): gid -> its frames' gids, from the tilesets.
+      animatedTiles?: Record<number, { frames: number[]; ms: number }>;
     };
 
 export interface MapCanvasSyncState {
@@ -130,6 +141,20 @@ export interface MapCanvasSyncState {
   recyclerTile?: { x: number; y: number } | null;
   /** Wild veggie plants (lib/phaserMap/gardenPlants.ts), tile-art maps only. */
   gardenPlants?: PlantSprite[];
+  /** Wild trees (lib/phaserMap/wildTrees.ts), tile-art maps only. */
+  wildTrees?: TreeSprite[];
+  /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
+  treeSwing?: { id: string; n: number; kind: SwingKind } | null;
+  /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
+  chopTree?: string | null;
+  /** The plant or tree the player is close enough to use: drawn with a gold outline. */
+  highlight?: { kind: 'plant' | 'tree'; id: string } | null;
+  /** A tap or click on the map, as the tile under it. */
+  onMapTap?: (x: number, y: number) => void;
+  /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
+  ambience?: { key: string; sky: Ambience } | null;
+  /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
 }
 
 interface TrackedSprite {
@@ -283,6 +308,12 @@ function resolveFlipX(textureKey: string, facingRight: boolean): boolean {
   return facingRight;
 }
 
+// Player silhouettes under leaves: over every canopy (wild trees' at 11.5, and above the map's Objects
+// Top), a pale blue that reads on any leaf color.
+const GHOST_DEPTH = 12.5;
+const GHOST_COLOR = 0xdce8ff;
+const GHOST_ALPHA = 0.6;
+
 export default class TrainingMapScene extends Phaser.Scene {
   private ready = false;
   private pendingState: MapCanvasSyncState | null = null;
@@ -297,6 +328,27 @@ export default class TrainingMapScene extends Phaser.Scene {
   private trees: SwayingTrees | null = null;
   private garden: GardenPlants | null = null;
   private gardenPlants: PlantSprite[] = [];
+  private wildTrees: WildTrees | null = null;
+  private chopSwing: ChopSwing | null = null;
+  private chopTree: string | null = null;
+  // The map's "Objects Top" layer (canopy drawn over players), when it has one.
+  private topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+  // A see-through silhouette for each player (and bot) standing under leaves, drawn over them.
+  private ghosts = new Map<Phaser.GameObjects.Sprite, Phaser.GameObjects.Sprite>();
+  // Holds the silhouettes. With WebGL and no Objects Top, it's masked by the wild trees' canopies,
+  // so only the part of a player the leaves hide shows through (walking half behind a tree too).
+  private ghostLayer: Phaser.GameObjects.Container | null = null;
+  private ghostMasked = false;
+  private wildTreeSprites: TreeSprite[] = [];
+  private highlight: MapCanvasSyncState['highlight'] = null;
+  private ambience: AmbienceLayer | null = null;
+  private critters: CritterLayer | null = null;
+  private groundFx: GroundFx | null = null;
+  private nightLight: Phaser.GameObjects.Image | null = null;
+  private crittersKey = '';
+  private ambienceKey = '';
+  private onMapTap: MapCanvasSyncState['onMapTap'];
+  private lastTreeSwing = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -317,6 +369,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // the very first placement snaps instead of tweening (see applyState).
   private followInitialized = false;
   private selfWasMoving = false;
+  private selfFacingRight = false;
   // Trash items rendered below the foliage layer.
   // Key = trash id; value = { image sprite, tile coords }.
   private trashTexts = new Map<string, { sprite: Phaser.GameObjects.Image; tx: number; ty: number }>();
@@ -333,13 +386,132 @@ export default class TrainingMapScene extends Phaser.Scene {
   }
 
   update(time: number) {
+    this.animateTiles(time);
     this.grass?.update(time);
     this.trees?.update(time);
     this.garden?.update(time);
+    this.wildTrees?.update(time);
+    this.updateGhosts();
+    this.ambience?.update(this.lastTransform, time);
+    this.updateNightLight();
+    if (this.critters || this.groundFx) {
+      const walkers = this.walkers();
+      this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+      if (this.groundFx) {
+        const liquid = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'liquid');
+        this.groundFx.setDepths((liquid?.depth ?? 1) + 0.5, this.shadowDepth - 0.05);
+        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+      }
+    }
+  }
+
+  // At night a soft warm light around the kid, so they can always see where they're going.
+  private updateNightLight() {
+    const night = this.ambience?.nightLevel ?? 0;
+    if (night < 0.05 || !this.self) { this.nightLight?.setVisible(false); return; }
+    if (!this.nightLight) {
+      if (!this.textures.exists('night-light')) {
+        const n = 256;
+        const tex = this.textures.createCanvas('night-light', n, n);
+        if (!tex) return;
+        const ctx = tex.getContext();
+        const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+        grad.addColorStop(0, 'rgba(255,214,150,0.55)');
+        grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
+        grad.addColorStop(1, 'rgba(255,170,100,0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, n, n);
+        tex.refresh();
+      }
+      this.nightLight = this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
+    }
+    const t = this.lastTransform;
+    this.nightLight.setVisible(true).setPosition(this.self.shadow.x, this.self.shadow.y - t.tileH * 0.4)
+      .setScale((t.tileW * 7) / 256).setAlpha(0.6 * night);
+  }
+
+  // Everyone walking the map (the kid, bots, other players), in map units (32 per tile).
+  // Where their feet are: the shadow under each.
+  private walkers(): { id: string; x: number; y: number }[] {
+    const t = this.lastTransform;
+    const k = 32 / t.tileW;
+    const out: { id: string; x: number; y: number }[] = [];
+    const add = (id: string, at: { x: number; y: number }) => out.push({ id, x: (at.x - t.offsetX) * k, y: (at.y - t.offsetY) * k });
+    if (this.self) add('self', this.self.shadow);
+    for (const [id, o] of this.others) add(id, o.shadow);
+    return out;
+  }
+
+  // Ready to chop (axe up, facing the tree) while the chop panel is open; axe away after.
+  private applyChopStance() {
+    const swing = this.chopSwing;
+    if (!swing) return;
+    const trunk = this.chopTree ? this.wildTrees?.trunkAt(this.chopTree) : null;
+    if (trunk && this.self && swing.holding !== this.chopTree) {
+      swing.hold(this.chopTree!, trunk.x, trunk.y, this.self.x, this.self.y, this.selfFacingRight);
+    } else if (!this.chopTree && swing.holding) {
+      swing.putAway();
+    }
+  }
+
+  private applyHighlight() {
+    const h = this.highlight;
+    this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
+    this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
+  }
+
+  // Under leaves (a wild tree's canopy or the map's own Objects Top), a player shows through as
+  // a soft silhouette: a copy of their sprite, filled one color, drawn over every canopy.
+  private updateGhosts() {
+    const layer = this.ghostLayer;
+    if (!layer) return;
+    const players = [...(this.self ? [this.self] : []), ...this.others.values()];
+    const live = new Set<Phaser.GameObjects.Sprite>();
+    let any = false;
+    for (const p of players) {
+      const img = p.image;
+      if (!img.active) continue;
+      const covered = img.visible && (this.ghostMasked
+        ? !!this.wildTrees?.near(p.x, p.y)
+        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y)));
+      let ghost = this.ghosts.get(img);
+      if (!covered) { ghost?.setVisible(false); if (ghost) live.add(img); continue; }
+      if (!ghost) {
+        ghost = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name)
+          .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL);
+        layer.add(ghost);
+        this.ghosts.set(img, ghost);
+      }
+      live.add(img);
+      any = true;
+      if (ghost.texture.key !== img.texture.key || ghost.frame.name !== img.frame.name) ghost.setTexture(img.texture.key, img.frame.name);
+      ghost.setPosition(img.x, img.y).setOrigin(img.originX, img.originY).setScale(img.scaleX, img.scaleY)
+        .setFlipX(img.flipX).setAngle(img.angle).setAlpha(GHOST_ALPHA * img.alpha).setVisible(true);
+    }
+    for (const [img, ghost] of this.ghosts) {
+      if (!live.has(img)) { ghost.destroy(); this.ghosts.delete(img); }
+    }
+    // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
+    layer.setVisible(any);
   }
 
   create() {
     this.ready = true;
+    const tap = (gx: number, gy: number) => {
+      const t = this.lastTransform;
+      this.onMapTap?.(Math.floor((gx - t.offsetX) / t.tileW), Math.floor((gy - t.offsetY) / t.tileH));
+    };
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => tap(pointer.x, pointer.y));
+    // Taps on the left half land on the joystick's touch area (FloatingJoystick.tsx), which
+    // passes quick taps on as this event, in page coordinates.
+    const onJoystickTap = (e: Event) => {
+      const { clientX, clientY } = (e as CustomEvent<{ clientX: number; clientY: number }>).detail;
+      const rect = this.game.canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      tap((clientX - rect.left) * (this.scale.width / rect.width), (clientY - rect.top) * (this.scale.height / rect.height));
+    };
+    window.addEventListener(MAP_TAP_EVENT, onJoystickTap);
+    this.events.once(Phaser.Scenes.Events.DESTROY, () => window.removeEventListener(MAP_TAP_EVENT, onJoystickTap));
     if (this.pendingState) {
       this.applyState(this.pendingState);
       this.pendingState = null;
@@ -378,8 +550,12 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (this.tilemapLayers.length > 0) this.followInitialized = true;
 
     const { px, py, h } = this.tileToPixel(this.lastTransform, xTile, yTile);
-    this.self.image.setPosition(px, py);
-    this.self.image.setFlipX(resolveFlipX(this.self.image.texture.key, facingRight));
+    // Chopping moves the whole body (chopSwing.ts): its lean and lunge ride on the sprite.
+    const pose = this.chopSwing?.pose;
+    const k = this.lastTransform.tileW / 32;
+    this.self.image.setPosition(px + (pose?.dx ?? 0) * k, py + (pose?.dy ?? 0) * k).setAngle(pose?.angle ?? 0);
+    this.self.image.setFlipX(resolveFlipX(this.self.image.texture.key, pose?.face ? pose.face > 0 : facingRight));
+    this.selfFacingRight = facingRight;
     if (this.self.shadow) this.self.shadow.setPosition(px, py + h * 0.44);
     this.self.x = xTile;
     this.self.y = yTile;
@@ -466,16 +642,16 @@ export default class TrainingMapScene extends Phaser.Scene {
     let offsetX: number;
     if (this.visibleCanvasW < CANVAS_WIDTH) {
       // Cover-mode fullscreen: only the central strip [visLeft, visRight] of
-      // the canvas is visible. Clamp purely to keep the player inside that
-      // strip — the camera may scroll slightly past the map boundary at edges,
-      // briefly revealing a transparent void, which is better than the player
-      // disappearing off-screen.
+      // the canvas is visible. Centre the player in that strip, but stop at
+      // the map's edges like the top and bottom do, so no empty void shows
+      // beside the map (the strip is narrower than the map, so the player
+      // always stays in view).
       const visLeft = (CANVAS_WIDTH - this.visibleCanvasW) / 2;
       const visRight = CANVAS_WIDTH - visLeft;
       offsetX = Phaser.Math.Clamp(
         CANVAS_WIDTH / 2 - playerCenterX,
-        visLeft - playerCenterX,   // player ≥ visLeft
-        visRight - playerCenterX,  // player ≤ visRight
+        Math.min(visLeft, visRight - mapPixelW), // map's right edge ≥ visRight
+        visLeft,                                 // map's left edge ≤ visLeft
       );
     } else {
       // Normal mode: keep tilemap within canvas edges (no void).
@@ -607,6 +783,35 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyRecycler(state, this.lastTransform);
     this.gardenPlants = state.gardenPlants ?? [];
     this.garden?.setPlants(this.gardenPlants);
+    this.wildTreeSprites = state.wildTrees ?? [];
+    this.wildTrees?.setTrees(this.wildTreeSprites);
+    this.onMapTap = state.onMapTap;
+    const skyKey = state.ambience ? `${state.ambience.key}:${state.mapWidth}x${state.mapHeight}` : '';
+    if (skyKey !== this.ambienceKey) {
+      this.ambienceKey = skyKey;
+      this.ambience?.destroy();
+      this.ambience = state.ambience ? new AmbienceLayer(this, state.ambience.sky, state.ambience.key, state.mapWidth, state.mapHeight) : null;
+    }
+    const critterKey = state.wildlife?.key ?? '';
+    if (critterKey !== this.crittersKey) {
+      this.crittersKey = critterKey;
+      this.critters?.destroy();
+      this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
+      this.groundFx?.destroy();
+      const w = state.wildlife;
+      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;
+    }
+    this.highlight = state.highlight ?? null;
+    this.applyHighlight();
+    this.chopTree = state.chopTree ?? null;
+    this.applyChopStance();
+    if (state.treeSwing && state.treeSwing.n !== this.lastTreeSwing) {
+      this.lastTreeSwing = state.treeSwing.n;
+      const { id, kind } = state.treeSwing;
+      const land = () => this.wildTrees?.swing(id, kind === 'felled');
+      if (this.chopSwing?.holding === id) this.chopSwing.swing(kind, land);
+      else if (kind !== 'miss') land();
+    }
     // Wall-bump screen shake was removed (felt too jarring) — `bumping`
     // still flows through from TrainingMap.tsx (it still drives the bump
     // sound there) but this scene no longer reacts to it visually.
@@ -675,13 +880,33 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.buildTilemap(bgState);
   }
 
+  // Water and lava: every animated tile shows the frame for the shared clock, so a whole lake
+  // moves together (each tile's frame list starts at the frame it was painted with).
+  private animTiles: { tile: Phaser.Tilemaps.Tile; frames: number[]; ms: number }[] = [];
+  private readonly reduceMotion = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  private animateTiles(time: number) {
+    if (this.reduceMotion) return;
+    for (const a of this.animTiles) {
+      const index = a.frames[Math.floor(time / a.ms) % a.frames.length];
+      if (a.tile.index !== index) a.tile.index = index;
+    }
+  }
+
   private clearTilemap() {
+    this.animTiles = [];
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
     this.grass = null;
     this.trees = null;
     this.garden = null;
+    this.wildTrees = null;
+    this.chopSwing = null;
+    this.topLayer = null;
+    this.ghostLayer?.destroy();
+    this.ghostLayer = null;
+    this.ghostMasked = false;
+    this.ghosts.clear();
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -727,11 +952,19 @@ export default class TrainingMapScene extends Phaser.Scene {
         layer.setDepth(isAbove ? 11 + depth : depth);
         depth++;
         this.tilemapLayers.push(layer as Phaser.Tilemaps.TilemapLayer);
+        if (bg.animatedTiles) {
+          const anims = bg.animatedTiles;
+          layer.forEachTile(tile => {
+            const a = anims[tile.index];
+            if (a) this.animTiles.push({ tile, frames: a.frames, ms: a.ms });
+          });
+        }
         const lower = layerName.toLowerCase();
         if (lower === 'ground detail') detailLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects base') baseLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects top') topLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
+      this.topLayer = topLayer;
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);
@@ -743,6 +976,20 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden = new GardenPlants(this, anyLayer, 8.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.garden.container);
         this.garden.setPlants(this.gardenPlants);
+        // Trunks with the plants; canopies over the players, next to the map's own canopies.
+        this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools);
+        this.wildTrees.setTrees(this.wildTreeSprites);
+        this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.applyHighlight();
+      }
+      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1));
+      if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
+        this.ghostLayer.enableFilters();
+        // The filter covers the whole view, not just the silhouettes' bounds.
+        this.ghostLayer.filtersFocusContext = true;
+        this.ghostLayer.filters?.internal.addMask(this.wildTrees.above);
+        this.ghostMasked = true;
       }
       this.tilemap = map;
       this.followInitialized = true;
@@ -1114,14 +1361,15 @@ export default class TrainingMapScene extends Phaser.Scene {
         if (entry) {
           this.trashAnimating.add(id);
           this.trashTexts.delete(id);
+          // A quick shrink and a puff of dust; the icon itself pops up and flies to the
+          // bag as a DOM overlay (components/monster/map/flyToBag.ts).
+          this.dustPuff(entry.sprite.x, entry.sprite.y, entry.sprite.displayHeight);
           this.tweens.add({
             targets: entry.sprite,
-            y: entry.sprite.y - 28,
-            alpha: 0,
-            scaleX: entry.sprite.scaleX * 1.4,
-            scaleY: entry.sprite.scaleY * 1.4,
-            duration: 450,
-            ease: 'Cubic.easeOut',
+            scaleX: 0,
+            scaleY: 0,
+            duration: 140,
+            ease: 'Back.easeIn',
             onComplete: () => {
               entry.sprite.destroy();
               this.trashAnimating.delete(id);
@@ -1137,6 +1385,24 @@ export default class TrainingMapScene extends Phaser.Scene {
         entry.sprite.destroy();
         this.trashTexts.delete(id);
       }
+    }
+  }
+
+  // A small puff of dust at (x, y) in canvas pixels, `size` across: picking something up.
+  private dustPuff(x: number, y: number, size: number) {
+    if (typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    for (let i = 0; i < 5; i++) {
+      const a = (i / 5) * Math.PI * 2 + Math.random() * 0.6;
+      const puff = this.add.ellipse(x + Math.cos(a) * size * 0.15, y + size * 0.2, size * 0.45, size * 0.3, 0xe8dcc0, 0.85);
+      puff.setDepth(9);
+      this.tweens.add({
+        targets: puff,
+        x: x + Math.cos(a) * size * 0.7,
+        y: y + size * 0.1 - Math.random() * size * 0.3,
+        scaleX: 1.8, scaleY: 1.6, alpha: 0,
+        duration: 420 + Math.random() * 120, ease: 'Cubic.easeOut',
+        onComplete: () => puff.destroy(),
+      });
     }
   }
 

@@ -620,6 +620,60 @@ export function playHitThud() {
   noise.start(now);
 }
 
+// --- Garden: an axe biting into a trunk. A woody "tok" (a short knock of filtered noise over a
+// low thump); the blow that fells the tree is deeper and longer, with a creak after it. ---
+export function playChop(heavy = false) {
+  if (!sfxEnabled) return;
+  const ctx = getContext();
+  const now = ctx.currentTime;
+  const len = heavy ? 0.16 : 0.1;
+  const buffer = ctx.createBuffer(1, Math.floor(ctx.sampleRate * len), ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / data.length, 3);
+  const knock = ctx.createBufferSource();
+  knock.buffer = buffer;
+  const band = ctx.createBiquadFilter();
+  band.type = 'bandpass';
+  band.frequency.value = heavy ? 700 : 1100;
+  band.Q.value = 4;
+  const knockGain = ctx.createGain();
+  knockGain.gain.value = heavy ? 0.9 : 0.7;
+  knock.connect(band);
+  band.connect(knockGain);
+  knockGain.connect(sfxOut());
+  knock.start(now);
+  const thump = ctx.createOscillator();
+  const thumpGain = ctx.createGain();
+  thump.type = 'sine';
+  thump.frequency.setValueAtTime(heavy ? 150 : 210, now);
+  thump.frequency.exponentialRampToValueAtTime(heavy ? 55 : 90, now + 0.12);
+  thumpGain.gain.setValueAtTime(heavy ? 0.45 : 0.3, now);
+  thumpGain.gain.exponentialRampToValueAtTime(0.001, now + (heavy ? 0.25 : 0.14));
+  thump.connect(thumpGain);
+  thumpGain.connect(sfxOut());
+  thump.start(now);
+  thump.stop(now + 0.3);
+  if (heavy) {
+    // The trunk giving way: a slow creak.
+    const creak = ctx.createOscillator();
+    const creakGain = ctx.createGain();
+    creak.type = 'sawtooth';
+    creak.frequency.setValueAtTime(95, now + 0.18);
+    creak.frequency.linearRampToValueAtTime(60, now + 0.7);
+    creakGain.gain.setValueAtTime(0.0001, now);
+    creakGain.gain.linearRampToValueAtTime(0.05, now + 0.25);
+    creakGain.gain.exponentialRampToValueAtTime(0.001, now + 0.75);
+    const lp = ctx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 500;
+    creak.connect(lp);
+    lp.connect(creakGain);
+    creakGain.connect(sfxOut());
+    creak.start(now + 0.18);
+    creak.stop(now + 0.8);
+  }
+}
+
 // --- Battle: miss swoosh ---
 export function playMiss() {
   if (!sfxEnabled) return;
@@ -888,6 +942,11 @@ function busFor(ch: VolumeChannel): GainNode {
 // Where every sound effect connects (instead of ctx.destination).
 function sfxOut(): AudioNode {
   return busFor('sfx');
+}
+
+/** The audio context and the effects bus, for sounds built elsewhere (lib/regionSounds.ts). */
+export function effectsOutput(): { ctx: AudioContext; out: AudioNode } {
+  return { ctx: getContext(), out: sfxOut() };
 }
 
 function rampParam(p: AudioParam, value: number, timeConstant: number) {

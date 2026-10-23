@@ -15,6 +15,7 @@
 // needed zero changes.
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useHasMounted } from '@/hooks/useClientValue';
+import { MAP_TAP_EVENT } from '@/lib/mapTap';
 import { createPortal } from 'react-dom';
 import type { Direction } from '@/hooks/useContinuousMovement';
 
@@ -43,6 +44,8 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   // (an accidental palm touch, or the other thumb in a two-handed grip)
   // would silently end or misalign the real drag (2026-09-05 fix).
   const pointerIdRef = useRef<number | null>(null);
+  // Where and when the current press started, to tell a quick tap from a drag.
+  const pressRef = useRef({ x: 0, y: 0, t: 0 });
   const [visible, setVisible] = useState(false);
   const [anchor, setAnchor] = useState({ x: 0, y: 0 });
   const [knobOffset, setKnobOffset] = useState({ x: 0, y: 0 });
@@ -115,6 +118,12 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
   const handlePointerUp = useCallback((e: PointerEvent) => {
     if (e.pointerId !== pointerIdRef.current) return;
     stopDraggingRef.current();
+    // A quick tap that didn't drag is a tap on the map under it (a plant or tree to use):
+    // lib/phaserMap/TrainingMapScene.ts listens for this event.
+    const p = pressRef.current;
+    if (Math.hypot(e.clientX - p.x, e.clientY - p.y) < 12 && performance.now() - p.t < 350) {
+      window.dispatchEvent(new CustomEvent(MAP_TAP_EVENT, { detail: { clientX: e.clientX, clientY: e.clientY } }));
+    }
   }, []);
 
   const stopDragging = useCallback(() => {
@@ -146,6 +155,7 @@ export default function FloatingJoystick({ disabled, setDirectionPressed }: Floa
     if (disabled || draggingRef.current) return;
     pointerIdRef.current = e.pointerId;
     anchorRef.current = { x: e.clientX, y: e.clientY };
+    pressRef.current = { x: e.clientX, y: e.clientY, t: performance.now() };
     setAnchor(anchorRef.current);
     setKnobOffset({ x: 0, y: 0 });
     setVisible(true);

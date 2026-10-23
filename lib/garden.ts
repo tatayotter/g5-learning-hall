@@ -1,18 +1,25 @@
 // lib/garden.ts
-// Reads and writes for the wild veggies (lib/gardenConfig.ts). The bag counts and plant timers
-// live on the account (player_bag_items, player_gather_nodes) and only change through
-// gather_wild_plant / sell_garden_items. A copy is kept on the device so the map can show
-// them, and offline_play kids can keep picking, with no connection: offline picks are graded
-// from the downloaded answer key, shown straight away and queued in the map outbox
-// (lib/offlineMap.ts), and the server grades them again when they sync.
+// Reads and writes for the wild veggies and trees (lib/gardenConfig.ts). The bag counts and
+// plant/tree timers live on the account (player_bag_items, player_gather_nodes) and only
+// change through gather_wild_plant / chop_wild_tree / sell_garden_items. A copy is kept on the
+// device so the map can show them, and offline_play kids can keep picking and chopping with
+// no connection: offline answers are graded from the downloaded answer key, shown straight
+// away and queued in the map outbox (lib/offlineMap.ts), and the server grades them again
+// when they sync.
 import { supabase } from '@/lib/supabase';
-import { REGROW_MS, REST_MS, WRONG_LIMIT, veggieKey, type GardenBag, type VeggieId } from '@/lib/gardenConfig';
+import {
+  CHOP_SWINGS, DAILY_TREE_LIMIT, REGROW_MS, REST_MS, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
+  type GardenBag, type TreeId, type VeggieId,
+} from '@/lib/gardenConfig';
 
 export interface PlantTimer {
   // Epoch ms; null = ripe.
   readyAt: number | null;
   restUntil: number | null;
   wrong: number;
+  // Trees only: swings landed so far, and misses in this chop (a clean chop has none).
+  hits?: number;
+  misses?: number;
 }
 
 export interface GardenState {
@@ -22,6 +29,24 @@ export interface GardenState {
 }
 
 export const plantKey = (region: string, nodeId: string) => `${region}:${nodeId}`;
+
+// Trees come with the day's map (lib/mapNature.ts), so their ids start with the day:
+// "2026-10-23:12_7". A chopped tree stays a stump until that day is over.
+const TREE_ID = /^(\d{4}-\d{2}-\d{2}):\d+_\d+$/;
+export const treeDayOf = (nodeId: string) => TREE_ID.exec(nodeId)?.[1] ?? null;
+// Midnight in the Philippines at the end of that day, in epoch ms.
+export const endOfTreeDay = (day: string) => Date.parse(`${day}T00:00:00+08:00`) + 24 * 3600_000;
+
+/** Trees this kid has chopped down on `day` (from the device copy). */
+export function treesFelledOn(state: GardenState, day: string): number {
+  let n = 0;
+  for (const [key, t] of Object.entries(state.plants)) {
+    const nodeId = key.slice(key.indexOf(':') + 1);
+    if (treeDayOf(nodeId) === day && t.readyAt !== null) n++;
+  }
+  return n;
+}
+
 export const emptyGarden = (): GardenState => ({ bag: {}, plants: {} });
 
 const LOCAL = (userId: string) => `lh_garden_${userId}`;
@@ -56,17 +81,24 @@ function cleanBag(raw: unknown): GardenBag {
 export async function fetchGarden(userId: string): Promise<GardenState | null> {
   const [bagRes, plantsRes] = await Promise.all([
     supabase.from('player_bag_items').select('item_key, quantity').eq('user_id', userId),
-    supabase.from('player_gather_nodes').select('region, node_id, last_picked_at, wrong_streak, rest_until').eq('user_id', userId),
+    // Every column, so the veggies still load on a database without the tree columns yet.
+    supabase.from('player_gather_nodes').select('*').eq('user_id', userId),
   ]);
   if (bagRes.error || plantsRes.error) return null;
   const bag = cleanBag(Object.fromEntries((bagRes.data ?? []).map(r => [r.item_key, r.quantity])));
   const plants: Record<string, PlantTimer> = {};
   for (const r of plantsRes.data ?? []) {
     const picked = toMs(r.last_picked_at);
-    plants[plantKey(r.region, r.node_id)] = {
-      readyAt: picked === null ? null : picked + REGROW_MS,
+    const key = plantKey(r.region, r.node_id);
+    const day = treeDayOf(r.node_id);
+    const tree = day !== null;
+    // Trees from days gone by are long gone from the map.
+    if (tree && endOfTreeDay(day) < Date.now() - 24 * 3600_000) continue;
+    plants[key] = {
+      readyAt: picked === null ? null : tree ? endOfTreeDay(day) : picked + REGROW_MS,
       restUntil: toMs(r.rest_until),
       wrong: r.wrong_streak ?? 0,
+      ...(tree ? { hits: r.hits ?? 0, misses: r.chop_misses ?? 0 } : {}),
     };
   }
   return { bag, plants };
@@ -155,4 +187,97 @@ export function applyLocalPick(state: GardenState, region: string, nodeId: strin
     ? { ...prev, wrong: 0, restUntil: now + REST_MS }
     : { ...prev, wrong };
   return { ...state, plants: { ...state.plants, [key]: next } };
+}
+
+// 'stump': already chopped today. 'tired': the day's DAILY_TREE_LIMIT trees are chopped.
+export type ChopStatus = 'hit' | 'felled' | 'wrong' | 'stump' | 'resting' | 'tired';
+
+export interface ChopResult {
+  status: ChopStatus;
+  correct: boolean | null;
+  correctAnswer: string | null;
+  tree: TreeId;
+  hits: number;
+  clean: boolean;
+  wood: number;
+  saplings: number;
+  readyAt: number | null;
+  restUntil: number | null;
+  bag: GardenBag | null;
+  replayed: boolean;
+}
+
+export type ChopCall = { ok: true; result: ChopResult } | { ok: false; network: boolean };
+
+export async function chopWildTree(args: {
+  userId: string; region: string; nodeId: string; tree: TreeId; questionId: string; selected: string;
+  entryId: string; playedAt?: string | null;
+}): Promise<ChopCall> {
+  const { data, error } = await supabase.rpc('chop_wild_tree', {
+    p_user_id: args.userId,
+    p_region: args.region,
+    p_node_id: args.nodeId,
+    p_tree: args.tree,
+    p_question_id: args.questionId,
+    p_selected: args.selected,
+    p_entry_id: args.entryId,
+    p_played_at: args.playedAt ?? null,
+  });
+  if (error || !data) {
+    if (error) console.error('chop_wild_tree error:', error);
+    return { ok: false, network: !error?.code };
+  }
+  return {
+    ok: true,
+    result: {
+      status: data.status,
+      correct: data.correct ?? null,
+      correctAnswer: data.correct_answer ?? null,
+      tree: data.tree,
+      hits: data.hits ?? 0,
+      clean: !!data.clean,
+      wood: data.wood ?? 0,
+      saplings: data.saplings ?? 0,
+      // A chopped tree stays a stump until its day is over.
+      readyAt: data.status === 'felled' || data.status === 'stump' ? endOfTreeDay(treeDayOf(args.nodeId) ?? '') : null,
+      restUntil: toMs(data.rest_until),
+      bag: data.bag ? cleanBag(data.bag) : null,
+      replayed: !!data.replayed,
+    },
+  };
+}
+
+// What a swing does to the device copy: the same rules chop_wild_tree applies. A clean chop's
+// sapling is certain, so it shows straight away; the 50% roll for the others waits for sync.
+export function applyLocalChop(state: GardenState, region: string, nodeId: string, tree: TreeId, correct: boolean, now: number): { state: GardenState; result: Pick<ChopResult, 'status' | 'hits' | 'clean' | 'wood' | 'saplings' | 'restUntil'> } {
+  const key = plantKey(region, nodeId);
+  const prev = state.plants[key] ?? { readyAt: null, restUntil: null, wrong: 0, hits: 0, misses: 0 };
+  const hits = prev.hits ?? 0;
+  const misses = prev.misses ?? 0;
+  const day = treeDayOf(nodeId);
+  if (day && treesFelledOn(state, day) >= DAILY_TREE_LIMIT) {
+    return { state, result: { status: 'tired', hits, clean: false, wood: 0, saplings: 0, restUntil: null } };
+  }
+  if (correct && hits + 1 >= CHOP_SWINGS) {
+    const clean = misses === 0;
+    const bag: GardenBag = { ...state.bag, [WOOD_KEY]: (state.bag[WOOD_KEY] ?? 0) + WOOD_PER_TREE };
+    if (clean) bag[saplingKey(tree)] = (bag[saplingKey(tree)] ?? 0) + 1;
+    return {
+      state: { bag, plants: { ...state.plants, [key]: { readyAt: day ? endOfTreeDay(day) : now, restUntil: null, wrong: 0, hits: 0, misses: 0 } } },
+      result: { status: 'felled', hits: CHOP_SWINGS, clean, wood: WOOD_PER_TREE, saplings: clean ? 1 : 0, restUntil: null },
+    };
+  }
+  if (correct) {
+    return {
+      state: { ...state, plants: { ...state.plants, [key]: { ...prev, wrong: 0, hits: hits + 1, misses } } },
+      result: { status: 'hit', hits: hits + 1, clean: false, wood: 0, saplings: 0, restUntil: null },
+    };
+  }
+  const wrong = prev.wrong + 1;
+  const restUntil = wrong >= WRONG_LIMIT ? now + REST_MS : null;
+  const next: PlantTimer = { ...prev, hits, misses: misses + 1, wrong: restUntil ? 0 : wrong, restUntil: restUntil ?? prev.restUntil };
+  return {
+    state: { ...state, plants: { ...state.plants, [key]: next } },
+    result: { status: 'wrong', hits, clean: false, wood: 0, saplings: 0, restUntil },
+  };
 }

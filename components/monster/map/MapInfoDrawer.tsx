@@ -51,7 +51,15 @@ export default function MapInfoDrawer({
           { id: 'team' as const, label: 'Team' },
           { id: 'online' as const, label: `Online (${Object.keys(onlinePlayers).length})` },
           { id: 'friends' as const, label: `Friends${friendData.incoming.length > 0 ? ` (${friendData.incoming.length})` : ''}` },
-          { id: 'bag' as const, label: '🎒 Bag' },
+          {
+            id: 'bag' as const,
+            label: (
+              <span className="inline-flex items-center gap-1">
+                <img src="/icons/stats/items_100.png" alt="" className="w-4 h-4" style={{ imageRendering: 'pixelated' }} />
+                Bag
+              </span>
+            ),
+          },
         ]).map(tab => (
           <GameButton
             key={tab.id}

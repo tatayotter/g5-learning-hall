@@ -19,6 +19,7 @@ import { fetchQuestionPool, fetchSubclassProfile, fetchAnsweredArenaQuestionIds,
 import { fetchInventory, InventoryMap } from '@/lib/inventory';
 import { fetchCurioCollection } from '@/lib/curioCollection';
 import { loadTiledArtMap } from '@/lib/tiledArtMap';
+import { WILD_PLANTS } from '@/lib/gardenConfig';
 import { REGIONS } from '@/lib/regions';
 import type { UserMonster } from '@/components/battle/shared';
 import type { BattleState, CaughtMonster } from '@/components/monster/types';
@@ -81,7 +82,7 @@ export function prefetchAllTabs(userId: string, _grade: string | number | undefi
   // URL, so this just warms that cache directly; components call
   // loadTiledArtMap the normal way and transparently get the warm result.
   const heartPath = REGIONS.ledgers_heart.tileArtPath;
-  if (heartPath) void loadTiledArtMap(heartPath);
+  if (heartPath) void loadTiledArtMap(heartPath, { regionId: 'ledgers_heart', reserved: WILD_PLANTS.ledgers_heart ?? [] });
 }
 
 // Consumes (and removes) a prefetched entry if one is pending/ready for this

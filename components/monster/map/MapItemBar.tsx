@@ -18,7 +18,7 @@ import { MonsterImage } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
 import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import { playPageFlip } from '@/lib/sounds';
-import { GARDEN_KEYS, GARDEN_STACK, VEGGIE_SELL_PRICE, gardenItemIcon, gardenItemLabel, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
+import { GARDEN_KEYS, GARDEN_STACK, VEGGIE_SELL_PRICE, WOOD_SELL_PRICE, gardenItemIcon, gardenItemLabel, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
 
 interface MapItemBarProps {
   api: ItemBarApi;
@@ -26,12 +26,12 @@ interface MapItemBarProps {
   // Short note shown beside the slots (full bag, meter progress).
   message: string | null;
   onMessage: (text: string) => void;
-  // Veggies and seed packets (garden on). They live in the bag only, not the slots.
+  // Garden items: veggies, wood, seed packets, saplings. They live in the bag only, not the slots.
   gardenBag?: GardenBag;
 }
 
 // What a bag square holds: a Tracking Scroll (by inventory key), a stack of
-// one kind of trash, or a stack of veggies or seed packets (by bag item key). A
+// one kind of trash, or a stack of one garden item (by bag item key). A
 // kind with more than TRASH_STACK (GARDEN_STACK) pieces fills several squares.
 type BagPick = { item: string } | { trash: TrashType } | { garden: string };
 type BagSquare = { pick: BagPick; n: number; key: string };
@@ -265,7 +265,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
             data-testid="item-bag"
             className={`relative w-12 h-9 [@media(max-height:500px)]:w-9 [@media(max-height:500px)]:h-12 lg:w-10 lg:h-14 rounded-lg border-2 ${bagFull ? 'border-[#ef4444]' : 'border-[#8b5e2a]'} bg-[#3a2610]/90 flex items-center justify-center text-xl active:scale-95`}
           >
-            🎒
+            <img src="/icons/stats/items_100.png" alt="" draggable={false} className="w-8 h-8 object-contain" style={{ imageRendering: 'pixelated' }} />
             {/* Nearly full: how many squares are used. Full: a red FULL tag. */}
             {bagNearlyFull && (
               <span
@@ -370,8 +370,14 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                 <div className="min-w-0">
                   <p className="text-sm font-extrabold text-[#2a1505]">{gardenItemLabel(k)} ×{n}</p>
                   <p className="text-[11px] text-[#6b4820]">
-                    {g.kind === 'veggie'
+                    {g.kind === 'veggie' && g.veggie.beach
+                      ? `Found on the beach! The Recycler buys shells for ${VEGGIE_SELL_PRICE} gold each.`
+                      : g.kind === 'veggie'
                       ? `Picked fresh! The Recycler buys veggies for ${VEGGIE_SELL_PRICE} gold each.`
+                      : g.kind === 'wood'
+                      ? `From a tree on the map. Save it for building, or the Recycler buys it for ${WOOD_SELL_PRICE} gold each.`
+                      : g.kind === 'sapling'
+                      ? 'A baby tree! Keep it safe. Soon you can plant it at your own Hideout.'
                       : 'Keep these safe. Soon you can plant them in your own garden!'}
                   </p>
                 </div>

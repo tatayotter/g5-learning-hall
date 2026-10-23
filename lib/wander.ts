@@ -14,6 +14,26 @@ export const TICK_MS_MAX = 7000;   // per-entity maximum move interval
 // batch that all start at once doesn't move in lockstep.
 export const STAGGER_MS_MAX = 4000;
 
+// The map on screen right now, so wanderers only stand where a player could (not on cliffs,
+// water, lava, trunks or bushes). TrainingMap sets it when its map loads and clears it when it
+// closes; with none set, anywhere goes (the old behaviour).
+let canStand: ((x: number, y: number) => boolean) | null = null;
+export function setWanderMap(fn: ((x: number, y: number) => boolean) | null) {
+  canStand = fn;
+}
+
+/** The open tile nearest (x, y) on the current map: where a wanderer stuck in a wall belongs. */
+export function nearestOpen(x: number, y: number, stand = canStand): { x: number; y: number } {
+  if (!stand || stand(x, y)) return { x, y };
+  for (let r = 1; r <= 12; r++) {
+    for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) {
+      if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;
+      if (stand(x + dx, y + dy)) return { x: x + dx, y: y + dy };
+    }
+  }
+  return { x, y };
+}
+
 /** Compute the next position for one wandering entity given its current position. */
 export function wanderStep(
   x: number,
@@ -21,6 +41,8 @@ export function wanderStep(
   homeX: number,
   homeY: number,
 ): { x: number; y: number } {
+  // Stuck somewhere nobody can stand (a new map, or one that grew a tree there): step out.
+  if (canStand && !canStand(x, y)) return nearestOpen(x, y);
   // Bias back toward home when drifted too far
   const dxBias = Math.abs(x - homeX) >= WANDER_RADIUS ? Math.sign(homeX - x) : 0;
   const dyBias = Math.abs(y - homeY) >= WANDER_RADIUS ? Math.sign(homeY - y) : 0;
@@ -28,8 +50,15 @@ export function wanderStep(
   const dy = dyBias !== 0 ? dyBias : (Math.random() < 0.5 ? 1 : -1);
   // 70% chance to actually step on each axis — sometimes the entity just
   // stands still for a tick, adding further variety.
-  return {
+  const next = {
     x: Math.max(1, x + (Math.random() < 0.7 ? dx : 0)),
     y: Math.max(1, y + (Math.random() < 0.7 ? dy : 0)),
   };
+  if (!canStand) return next;
+  // Never through a wall: the diagonal needs both of its side steps open, like a player's walk.
+  const ok = (tx: number, ty: number) => canStand!(tx, ty) && (tx === x || ty === y || (canStand!(tx, y) && canStand!(x, ty)));
+  if (ok(next.x, next.y)) return next;
+  if (ok(next.x, y)) return { x: next.x, y };
+  if (ok(x, next.y)) return { x, y: next.y };
+  return { x, y };
 }

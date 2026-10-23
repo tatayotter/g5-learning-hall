@@ -23,8 +23,8 @@ export default function GatherQuestionPanel({ veggie, questions, gradingUserId, 
       <div className="flex items-center gap-3 mb-3 bg-[#e3f1cf] border border-[#7a9a4a] rounded-xl px-3 py-2">
         <img src={gardenItemIcon(veggieKey(veggie))} alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
         <div className="min-w-0">
-          <p className="text-stone-900 font-bold text-sm leading-tight">A ripe {def.label.toLowerCase()}!</p>
-          <p className="text-xs text-stone-600 leading-tight">Answer right to pick it and put it in your bag.</p>
+          <p className="text-stone-900 font-bold text-sm leading-tight">{def.beach ? `A pretty ${def.label.toLowerCase()}!` : `A ripe ${def.label.toLowerCase()}!`}</p>
+          <p className="text-xs text-stone-600 leading-tight">Answer right to {def.beach ? 'pick it up' : 'pick it'} and put it in your bag.</p>
         </div>
       </div>
       <BattleQuestionModal

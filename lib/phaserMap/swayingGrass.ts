@@ -1,6 +1,6 @@
 // lib/phaserMap/swayingGrass.ts
-// Makes the tall-grass tufts on a tile-art map sway in the wind, and rustle
-// when the player walks into them. Purely visual.
+// Makes the tall-grass tufts (and each region's own grass and flowers) on a tile-art map sway
+// in the wind, and rustle when the player walks into them. Purely visual.
 //
 // A tilemap layer is one baked surface, so a single tile can't move on its
 // own. At map build, each tuft tile in the "Ground Detail" layer is hidden
@@ -15,14 +15,24 @@
 // field doesn't move in lockstep.
 import Phaser from 'phaser';
 
-// Global tile ids (Ledger's Heart's tileset order) of the tall-grass tufts,
-// mapped to the pixel row where the clump's base sits inside its 32 px tile.
-// Each draws the same 16 px tall clump.
-const TUFT_BASE_Y: Record<number, number> = { 5491: 32, 5492: 24, 5493: 16 };
-const CLUMP_H = 16;
-// Slices from the top of the clump down: [rows, max shift in art pixels].
-// Bottom 30% anchored, top 70% bends (same rule as the garden plants).
-const SLICES: [number, number][] = [[6, 2], [5, 1], [5, 0]];
+// Swaying tiles, by tileset name and tile id within it: the pixel row where the clump's base
+// sits inside its 32 px tile, and how tall the clump is. The pack's tall grass draws the same
+// 16 px clump at three heights; a region's own plants (FireNature: grass, flowers) stand on
+// their shadow near the bottom of the tile.
+const CLUMPS: Record<string, { base: number; h: number }> = {
+  'Trees:370': { base: 32, h: 16 },
+  'Trees:371': { base: 24, h: 16 },
+  'Trees:372': { base: 16, h: 16 },
+  'FireNature:2': { base: 26, h: 17 },
+  'FireNature:3': { base: 25, h: 18 },
+  'TideNature:2': { base: 24, h: 18 },
+  'TideNature:3': { base: 27, h: 15 },
+  'LeafNature:2': { base: 25, h: 19 },
+  'LeafNature:3': { base: 26, h: 17 },
+};
+// Slices from the top of the clump down, as shares of its height: [share, max shift in art
+// pixels]. Bottom 30% anchored, top 70% bends (same rule as the garden plants).
+const SLICES: [number, number][] = [[6 / 16, 2], [5 / 16, 1], [5 / 16, 0]];
 
 const SWAY_PERIOD_MS = 5200;  // one full gust: slow and calm
 const WAVE_X = 0.35;          // phase step per tile: the wave travels right...
@@ -53,17 +63,18 @@ export default class SwayingGrass {
     this.container.setScale(layer.scaleX);
     this.container.setDepth(layer.depth + 0.5);
     layer.forEachTile(tile => {
-      const baseY = TUFT_BASE_Y[tile.index];
       const tileset = tile.tileset;
-      if (baseY === undefined || !tileset?.image) return;
+      const clump = tileset && CLUMPS[`${tileset.name}:${tile.index - tileset.firstgid}`];
+      if (!clump || !tileset.image) return;
       const at = tileset.getTileTextureCoordinates(tile.index) as { x: number; y: number } | null;
       if (!at) return;
       const texture = tileset.image;
       const px = tile.height / 32; // map pixels per art pixel
       const left = tile.x * tile.width;
-      let row = baseY - CLUMP_H;
+      let row = clump.base - clump.h;
       const slices: Tuft['slices'] = [];
-      SLICES.forEach(([rows, shift], i) => {
+      SLICES.forEach(([share, shift], i) => {
+        const rows = i === SLICES.length - 1 ? clump.base - row : Math.round(share * clump.h);
         const frameName = `tuft:${tile.index}:${i}`;
         if (!texture.has(frameName)) texture.add(frameName, 0, at.x, at.y + row, tileset.tileWidth, rows);
         const image = scene.add.image(left, tile.y * tile.height + row * px, texture.key, frameName).setOrigin(0, 0);

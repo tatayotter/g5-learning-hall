@@ -1774,3 +1774,21 @@ body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }
 @media (prefers-reduced-motion: reduce) {
   .curio-card, .curio-card-foil, .curio-card-flipper { animation: none; transition: none; }
 }
+
+/* Wild tree chop panel (components/monster/map/panels/ChopTreePanel.tsx): the little tree
+   shakes and a pip pops when a swing lands. */
+.chop-shake { animation: chop-shake 0.45s ease-out; transform-origin: 50% 92%; }
+@keyframes chop-shake {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-7deg); }
+  45% { transform: rotate(5deg); }
+  70% { transform: rotate(-2deg); }
+}
+.chop-pip-pop { animation: chop-pip-pop 0.35s ease-out; }
+@keyframes chop-pip-pop {
+  0% { transform: scale(1.7); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chop-shake, .chop-pip-pop { animation: none; }
+}

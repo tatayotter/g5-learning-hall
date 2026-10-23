@@ -3,11 +3,11 @@
 // within 1 tile of the recycler (pendingRecyclerTrade). Pure presentation;
 // TrainingMap owns the trade itself (useTrashItems.tradeAll, the gold-earned
 // flash, and the achievement-stats RPC) and passes the finished onTradeAll
-// callback down. With the garden on, the Recycler also buys veggies
+// callback down. With the garden on, the Recycler also buys veggies and wood
 // (onSellVeggies, hooks/useGarden.ts).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
-import { VEGGIE_ORDER, VEGGIE_SELL_PRICE, VEGGIES, gardenItemIcon, veggieKey, type GardenBag } from '@/lib/gardenConfig';
+import { GARDEN_KEYS, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 interface RecyclerTradePanelProps {
@@ -17,7 +17,7 @@ interface RecyclerTradePanelProps {
   pendingTradeGold: number;
   onTradeAll: () => void;
   onDismiss: () => void;
-  // Garden on: the bag's veggies, and selling them all (online only).
+  // Garden on: the bag's veggies and wood, and selling them all (online only).
   gardenBag?: GardenBag;
   onSellVeggies?: () => void;
   sellingVeggies?: boolean;
@@ -27,8 +27,16 @@ interface RecyclerTradePanelProps {
 export default function RecyclerTradePanel({
   trashInventory, canTrade, pendingTradeGold, onTradeAll, onDismiss, gardenBag, onSellVeggies, sellingVeggies, offline,
 }: RecyclerTradePanelProps) {
-  const veggies = gardenBag ? VEGGIE_ORDER.filter(v => (gardenBag[veggieKey(v)] ?? 0) > 0) : [];
-  const veggieCount = veggies.reduce((sum, v) => sum + (gardenBag?.[veggieKey(v)] ?? 0), 0);
+  const forSale = gardenBag ? GARDEN_KEYS.filter(k => gardenSellable(k) && (gardenBag[k] ?? 0) > 0) : [];
+  const saleCount = forSale.reduce((sum, k) => sum + (gardenBag?.[k] ?? 0), 0);
+  const wood = gardenBag?.[WOOD_KEY] ?? 0;
+  const shells = gardenBag?.[veggieKey('seashell')] ?? 0;
+  const veggieCount = saleCount - wood - shells;
+  const saleWords = [
+    veggieCount > 0 && `${veggieCount} veggie${veggieCount === 1 ? '' : 's'}`,
+    shells > 0 && `${shells} shell${shells === 1 ? '' : 's'}`,
+    wood > 0 && `${wood} wood`,
+  ].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
   return (
     <div className="w-full max-w-sm bg-[#f0ddb8] border-2 border-[#c9a87a] rounded-2xl p-4 battle-panel-in">
       <div className="flex items-start gap-3 mb-4">
@@ -103,15 +111,15 @@ export default function RecyclerTradePanel({
       {onSellVeggies && (
         <div className="bg-[#e3f1cf] border border-[#7a9a4a] rounded-xl p-2 mb-3" data-testid="sell-veggies">
           <p className="text-xs font-bold text-[#2f4a12] mb-1.5">
-            I buy fresh veggies too! {VEGGIE_SELL_PRICE} gold each.
+            I buy veggies, shells and wood too! {VEGGIE_SELL_PRICE} gold each.
           </p>
-          {veggies.length > 0 ? (
+          {forSale.length > 0 ? (
             <>
               <div className="flex flex-wrap gap-1.5 mb-2">
-                {veggies.map(v => (
-                  <span key={v} className="flex items-center gap-1 bg-white/80 border border-[#a8c486] rounded-md pl-0.5 pr-1.5 py-0.5 text-[11px] font-bold text-[#2a1505]">
-                    <img src={gardenItemIcon(veggieKey(v))} alt={VEGGIES[v].label} className="w-5 h-5 object-contain" style={{ imageRendering: 'pixelated' }} />
-                    {gardenBag?.[veggieKey(v)]}
+                {forSale.map(k => (
+                  <span key={k} className="flex items-center gap-1 bg-white/80 border border-[#a8c486] rounded-md pl-0.5 pr-1.5 py-0.5 text-[11px] font-bold text-[#2a1505]">
+                    <img src={gardenItemIcon(k)} alt={gardenItemLabel(k)} className="w-5 h-5 object-contain" style={{ imageRendering: 'pixelated' }} />
+                    {gardenBag?.[k]}
                   </span>
                 ))}
               </div>
@@ -124,11 +132,11 @@ export default function RecyclerTradePanel({
                 style={{ fontSize: 13 }}
                 data-testid="sell-veggies-button"
               >
-                {offline ? 'Selling needs internet' : `Sell ${veggieCount} veggie${veggieCount === 1 ? '' : 's'} (+${veggieCount * VEGGIE_SELL_PRICE}g)`}
+                {offline ? 'Selling needs internet' : `Sell ${saleWords} (+${saleCount * VEGGIE_SELL_PRICE}g)`}
               </GameButton>
             </>
           ) : (
-            <p className="text-[11px] text-[#3f5a1f]">Pick ripe veggies on the map and bring them here.</p>
+            <p className="text-[11px] text-[#3f5a1f]">Pick veggies, find shells or chop trees on the map and bring them here.</p>
           )}
         </div>
       )}

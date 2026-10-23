@@ -1,17 +1,26 @@
 // lib/gardenConfig.ts
-// Wild veggies on the Training Map (garden step 1, behind the 'garden' switch). Plants grow
-// at fixed spots; walking onto a ripe one and answering one question right picks it. The
+// Wild veggies and trees on the Training Map (behind the 'garden' switch). Plants grow at
+// fixed spots; next to a ripe one, a kid asks to pick it (E, a tap on it, or the Pick button)
+// and answering one question right picks it. The
 // veggie goes into the bag, sometimes with a seed packet, and the plant regrows for
-// REGROW_MS. The rules live in supabase/migrations/20261022120000_garden_wild_plants.sql
-// (gather_wild_plant, sell_garden_items); the numbers here mirror them for the screen.
+// REGROW_MS. Every tree on the day's map takes CHOP_SWINGS right answers, one per swing, and
+// gives wood and sometimes a sapling; it stays a stump until the next day's map. The rules live in
+// supabase/migrations/20261022120000_garden_wild_plants.sql (gather_wild_plant,
+// sell_garden_items) and 20261023120000_garden_wild_trees.sql (chop_wild_tree); the numbers
+// here mirror them for the screen.
 
-export type VeggieId = 'tomato' | 'eggplant' | 'pumpkin' | 'carrot' | 'cabbage' | 'corn' | 'beans';
+// Seashells ride along as a "veggie" found on the beach: picked with one question the same way,
+// sold at the Recycler for the same gold, but they never come with seeds, and the tide brings a
+// new one instead of the plant growing back (beachFind below).
+export type VeggieId = 'tomato' | 'eggplant' | 'pumpkin' | 'carrot' | 'cabbage' | 'corn' | 'beans' | 'seashell';
 
 export interface VeggieDef {
   id: VeggieId;
   label: string;
   // Two tiles tall (a 32x64 art frame) instead of one.
   tall: boolean;
+  // Washed up on the beach rather than grown: no seeds, and the words change (see below).
+  beach?: boolean;
 }
 
 export const VEGGIES: Record<VeggieId, VeggieDef> = {
@@ -22,8 +31,20 @@ export const VEGGIES: Record<VeggieId, VeggieDef> = {
   cabbage:  { id: 'cabbage',  label: 'Cabbage',  tall: false },
   corn:     { id: 'corn',     label: 'Corn',     tall: true },
   beans:    { id: 'beans',    label: 'Beans',    tall: true },
+  seashell: { id: 'seashell', label: 'Seashell', tall: false, beach: true },
 };
-export const VEGGIE_ORDER: VeggieId[] = ['tomato', 'eggplant', 'pumpkin', 'carrot', 'cabbage', 'corn', 'beans'];
+export const VEGGIE_ORDER: VeggieId[] = ['tomato', 'eggplant', 'pumpkin', 'carrot', 'cabbage', 'corn', 'beans', 'seashell'];
+// Veggies that can give seed packets (not seashells).
+export const SEED_ORDER: VeggieId[] = VEGGIE_ORDER.filter(v => !VEGGIES[v].beach);
+
+// The words for one spot: "Pick Tomato" / "Pick up Seashell", and what to say while it comes back.
+export const pickVerb = (v: VeggieId) => (VEGGIES[v].beach ? 'Pick up' : 'Pick');
+export const regrowWords = (v: VeggieId, mins: number) => {
+  const time = `about ${mins} minute${mins === 1 ? '' : 's'}`;
+  return VEGGIES[v].beach
+    ? `The waves will bring a new shell here in ${time}!`
+    : `This ${VEGGIES[v].label.toLowerCase()} is growing back. Ready in ${time}!`;
+};
 
 // Same list as wild_plant_nodes in the migration.
 export interface WildPlantNode { id: string; veggie: VeggieId; x: number; y: number }
@@ -38,6 +59,16 @@ export const WILD_PLANTS: Record<string, WildPlantNode[]> = {
     { id: 'cabbage_1',  veggie: 'cabbage',  x: 50, y: 13 },
     { id: 'beans_1',    veggie: 'beans',    x: 48, y: 15 },
   ],
+  // Seashells along Tidewrit's beaches, each right by the water.
+  tidewrit_shallows: [
+    { id: 'shell_1', veggie: 'seashell', x: 9,  y: 3 },
+    { id: 'shell_2', veggie: 'seashell', x: 6,  y: 11 },
+    { id: 'shell_3', veggie: 'seashell', x: 10, y: 21 },
+    { id: 'shell_4', veggie: 'seashell', x: 17, y: 31 },
+    { id: 'shell_5', veggie: 'seashell', x: 26, y: 36 },
+    { id: 'shell_6', veggie: 'seashell', x: 45, y: 36 },
+    { id: 'shell_7', veggie: 'seashell', x: 55, y: 35 },
+  ],
 };
 
 export const REGROW_MS = 20 * 60 * 1000;
@@ -48,30 +79,123 @@ export const VEGGIE_SELL_PRICE = 2;
 // Veggies or seed packets of one kind per bag square (same as trash).
 export const GARDEN_STACK = 20;
 
-// Bag item keys (player_bag_items.item_key).
+// ── Trees ──────────────────────────────────────────────────────────────────
+// Art: public/garden/tree_<id>.png, two 128x160 frames (grown, stump) with the trunk base at
+// (64, 134). Ledger's Heart's trees are cut from the map's own tileset (Props.png); each region
+// also has trees found only there, drawn by Rowil (garden-art/out/region-<element>). Each kind
+// has its own stump. `name` is what the kid sees on the map ("Chop Ember Tree").
+export type TreeId = 'maple' | 'oak' | 'birch' | 'pine' | 'ember' | 'ashwillow' | 'palm' | 'mangrove' | 'elder' | 'bamboo'
+  | 'stormpine' | 'silverbirch' | 'dusk' | 'glowcap' | 'paperleaf' | 'sunblossom';
+export const TREES: Record<TreeId, { id: TreeId; label: string; name: string }> = {
+  maple:     { id: 'maple',     label: 'Maple',      name: 'Maple Tree' },
+  oak:       { id: 'oak',       label: 'Oak',        name: 'Oak Tree' },
+  birch:     { id: 'birch',     label: 'Birch',      name: 'Birch Tree' },
+  pine:      { id: 'pine',      label: 'Pine',       name: 'Pine Tree' },
+  ember:     { id: 'ember',     label: 'Ember',      name: 'Ember Tree' },
+  ashwillow: { id: 'ashwillow', label: 'Ash Willow', name: 'Ash Willow' },
+  palm:      { id: 'palm',      label: 'Palm',       name: 'Palm Tree' },
+  mangrove:  { id: 'mangrove',  label: 'Mangrove',   name: 'Mangrove' },
+  elder:     { id: 'elder',     label: 'Elder',      name: 'Elder Tree' },
+  bamboo:    { id: 'bamboo',    label: 'Bamboo',     name: 'Bamboo' },
+  stormpine:   { id: 'stormpine',   label: 'Storm Pine',  name: 'Storm Pine' },
+  silverbirch: { id: 'silverbirch', label: 'Silver Birch', name: 'Silver Birch' },
+  dusk:        { id: 'dusk',        label: 'Dusk',        name: 'Dusk Tree' },
+  glowcap:     { id: 'glowcap',     label: 'Glowcap',     name: 'Glowcap' },
+  paperleaf:   { id: 'paperleaf',   label: 'Paperleaf',   name: 'Paperleaf Tree' },
+  sunblossom:  { id: 'sunblossom',  label: 'Sunblossom',  name: 'Sunblossom Tree' },
+};
+// Which trees grow where (chop_wild_tree checks the same pairs). Every region is listed ahead of
+// its map; a region's trees only grow once its map has the daily nature layer.
+export const REGION_TREES: Record<string, TreeId[]> = {
+  ledgers_heart: ['maple', 'oak', 'birch', 'pine'],
+  cinderreach: ['ember', 'ashwillow'],
+  tidewrit_shallows: ['palm', 'mangrove'],
+  rootbound_wilds: ['elder', 'bamboo'],
+  stormrun_reaches: ['stormpine', 'silverbirch'],
+  unread_margins: ['dusk', 'glowcap'],
+  radiant_archive: ['paperleaf', 'sunblossom'],
+};
+export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine', 'ember', 'ashwillow', 'palm', 'mangrove', 'elder', 'bamboo',
+  'stormpine', 'silverbirch', 'dusk', 'glowcap', 'paperleaf', 'sunblossom'];
+
+// The trees themselves grow with the day's nature layer (lib/mapNature.ts): every one of them
+// can be chopped, and a chopped tree stays a stump until the next day's map.
+export interface WildTreeNode { id: string; tree: TreeId; x: number; y: number }
+
+export const CHOP_SWINGS = 3;
+export const WOOD_PER_TREE = 3;
+// Trees one kid can chop a day (chop_wild_tree mirrors it): 8 trees is 24 wood, 48 gold at the
+// Recycler, about a sixth of an active player's daily gold.
+export const DAILY_TREE_LIMIT = 8;
+
+export type TreeStage = 'ready' | 'stump';
+
+// One swing of the axe, shared by the map animation (lib/phaserMap/chopSwing.ts), its sounds and
+// the chop panel, which steps aside while it plays. Times in ms from when the swing starts:
+// the kid winds up (lean back, axe high), strikes, freezes for a beat on contact, the axe
+// recoils, and they settle back to the ready stance. The blow that fells a tree winds up
+// longer and lands harder. A miss swings through and stumbles instead of landing.
+export type SwingKind = 'hit' | 'miss' | 'felled';
+export function swingTiming(kind: SwingKind) {
+  const windUp = kind === 'felled' ? 520 : 400;
+  const strike = 110;
+  const freeze = kind === 'felled' ? 150 : kind === 'hit' ? 90 : 0;
+  const recover = kind === 'miss' ? 650 : 520;
+  return { windUp, strike, impact: windUp + strike, freeze, total: windUp + strike + freeze + recover };
+}
+// The right/wrong reveal stays up this long before the panel steps aside and the swing starts.
+export const SWING_REVEAL_MS = 500;
+
+// ── Bag items ──────────────────────────────────────────────────────────────
+// Keys in player_bag_items.item_key.
 export const veggieKey = (v: VeggieId) => `veggie_${v}`;
 export const seedsKey = (v: VeggieId) => `seeds_${v}`;
-export type GardenItemKey = `veggie_${VeggieId}` | `seeds_${VeggieId}`;
+export const WOOD_KEY = 'wood';
+export const saplingKey = (t: TreeId) => `sapling_${t}`;
 export type GardenBag = Partial<Record<string, number>>;
+// Wood sells at the Recycler for the same price as a veggie.
+export const WOOD_SELL_PRICE = VEGGIE_SELL_PRICE;
 
-export function parseGardenKey(key: string): { kind: 'veggie' | 'seeds'; veggie: VeggieDef } | null {
+export type ParsedGardenKey =
+  | { kind: 'veggie' | 'seeds'; veggie: VeggieDef }
+  | { kind: 'wood' }
+  | { kind: 'sapling'; tree: TreeId };
+
+export function parseGardenKey(key: string): ParsedGardenKey | null {
+  if (key === WOOD_KEY) return { kind: 'wood' };
+  const s = /^sapling_(\w+)$/.exec(key);
+  if (s) return s[1] in TREES ? { kind: 'sapling', tree: s[1] as TreeId } : null;
   const m = /^(veggie|seeds)_(\w+)$/.exec(key);
   const def = m ? VEGGIES[m[2] as VeggieId] : undefined;
-  return m && def ? { kind: m[1] as 'veggie' | 'seeds', veggie: def } : null;
+  if (!m || !def || (m[1] === 'seeds' && def.beach)) return null;
+  return { kind: m[1] as 'veggie' | 'seeds', veggie: def };
 }
+
+// Whether the Recycler buys it (veggies and wood; seeds and saplings are for planting).
+export const gardenSellable = (key: string) => {
+  const p = parseGardenKey(key);
+  return p?.kind === 'veggie' || p?.kind === 'wood';
+};
 
 export const gardenItemLabel = (key: string) => {
   const p = parseGardenKey(key);
   if (!p) return key;
+  if (p.kind === 'wood') return 'Wood';
+  if (p.kind === 'sapling') return `${TREES[p.tree].label} Sapling`;
   return p.kind === 'veggie' ? p.veggie.label : `${p.veggie.label} Seeds`;
 };
 export const gardenItemIcon = (key: string) => {
   const p = parseGardenKey(key);
-  return p ? `/garden/icon_${p.kind === 'seeds' ? 'seeds_' : ''}${p.veggie.id}.png` : '';
+  if (!p) return '';
+  if (p.kind === 'wood') return '/garden/icon_wood.png';
+  if (p.kind === 'sapling') return `/garden/icon_sapling_${p.tree}.png`;
+  return `/garden/icon_${p.kind === 'seeds' ? 'seeds_' : ''}${p.veggie.id}.png`;
 };
 
-// Bag keys in display order: veggies, then seed packets.
-export const GARDEN_KEYS: string[] = [...VEGGIE_ORDER.map(veggieKey), ...VEGGIE_ORDER.map(seedsKey)];
+// Bag keys in display order: veggies, wood, then seed packets and saplings.
+export const GARDEN_KEYS: string[] = [
+  ...VEGGIE_ORDER.map(veggieKey), WOOD_KEY, ...SEED_ORDER.map(seedsKey), ...TREE_ORDER.map(saplingKey),
+];
 
 export const gardenSquares = (bag: GardenBag) =>
   GARDEN_KEYS.reduce((sum, k) => sum + Math.ceil((bag[k] ?? 0) / GARDEN_STACK), 0);

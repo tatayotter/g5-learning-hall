@@ -38,6 +38,9 @@ export interface Region {
   // Present only for regions rendered as real tile art (lib/tiledArtMap.ts)
   // instead of a single painted background image + logic-only Tiled layer.
   tileArtPath?: string;
+  // The tile-art map is ground and paths only; trees, bushes, grass and flowers grow on it
+  // fresh every day (lib/mapNature.ts).
+  dailyNature?: boolean;
 }
 
 export const REGIONS: Record<string, Region> = {
@@ -54,6 +57,7 @@ export const REGIONS: Record<string, Region> = {
     mapWidth: 60,
     mapHeight: 40,
     tileArtPath: '/maps-tiled-art/ledgers_heart/ledgers_heart.tmx',
+    dailyNature: true,
   },
   cinderreach: {
     id: 'cinderreach',
@@ -63,10 +67,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/fire_new.webp',
     tiledMapPath: '/maps-tiled/cinderreach.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 13, y: 2 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Rowil's flat map (2026-10-23): entered from the Ledger's Heart's west road, so the kid
+    // arrives at the east entrance, the same height as that road.
+    spawn: { x: 57, y: 11 },
+    townCenter: { x: 57, y: 11 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/cinderreach/cinderreach.tmx',
+    dailyNature: true,
   },
   tidewrit_shallows: {
     id: 'tidewrit_shallows',
@@ -76,10 +84,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/water_new.webp',
     tiledMapPath: '/maps-tiled/tidewrit_shallows.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 2, y: 13 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): a river, a bridge and a sandy coast. Entered from the Ledger's
+    // Heart's lower west road, so the kid arrives at the east entrance on the same rows.
+    spawn: { x: 57, y: 29 },
+    townCenter: { x: 57, y: 29 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/tidewrit/tidewrit.tmx',
+    dailyNature: true,
   },
   rootbound_wilds: {
     id: 'rootbound_wilds',
@@ -89,10 +101,15 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/leaf_new.webp',
     tiledMapPath: '/maps-tiled/rootbound_wilds.json',
-    spawn: { x: 4, y: 1 },
-    townCenter: { x: 7, y: 2 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): a high wood and a low wood split by a rocky ridge, a river that
+    // drops over it in a waterfall. Entered from the Ledger's Heart's south road, so the kid
+    // arrives at the top entrance on the same columns.
+    spawn: { x: 22, y: 1 },
+    townCenter: { x: 22, y: 1 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/rootbound/rootbound.tmx',
+    dailyNature: true,
   },
   stormrun_reaches: {
     id: 'stormrun_reaches',
