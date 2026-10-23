@@ -113,6 +113,9 @@ export type MapBackground =
       // Exits on the map's edge (a run of portal tiles to one map): a glow, drifting sparks and a
       // bobbing arrow pointing out. `side` is the edge they're on; locked ones glow grey.
       exits?: MapExit[];
+      // Roofs, awnings, lamp heads, bench backs: per tile the ground row each stands on (-1 none),
+      // so a player in front of one draws over it and one behind it is covered (lib/tiledArtMap.ts).
+      ysortBase?: number[];
     };
 
 // `color`: the glow's tint (the next map's element color).
@@ -347,6 +350,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   // so only the part of a player the leaves hide shows through (walking half behind a tree too).
   private ghostLayer: Phaser.GameObjects.Container | null = null;
   private ghostMasked = false;
+  // Silhouettes of players behind a roof, awning or lamp: unmasked (the roof hides them whole).
+  private roofGhostLayer: Phaser.GameObjects.Container | null = null;
+  // Over everything drawn over the players: a player in front of a roof or lamp is drawn here.
+  private frontDepth = 40;
   private wildTreeSprites: TreeSprite[] = [];
   private highlight: MapCanvasSyncState['highlight'] = null;
   private ambience: AmbienceLayer | null = null;
@@ -403,6 +410,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees?.update(time);
     this.garden?.update(time);
     this.wildTrees?.update(time);
+    this.sortAgainstRoofs();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
@@ -604,6 +612,38 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
   }
 
+  // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
+  // the one above): 'behind' one (it stands on a row below the player's feet), else 'front' when
+  // it overlaps any, else null.
+  private roofSide(p: TrackedSprite): 'behind' | 'front' | null {
+    const bg = this.lastBackground;
+    const base = bg?.type === 'tilemap' ? bg.ysortBase : undefined;
+    const W = this.tilemap?.width ?? 0;
+    if (!base || !W) return null;
+    const x = Math.round(p.x), feet = Math.round(p.y);
+    let front = false;
+    for (let y = feet - 1; y <= feet; y++) {
+      const b = base[y * W + x];
+      if (b === undefined || b < 0) continue;
+      if (b > feet) return 'behind';
+      front = true;
+    }
+    return front ? 'front' : null;
+  }
+
+  // A player in front of a roof, awning or lamp is drawn over it (whole); behind one, it covers
+  // them as before (with a silhouette, see updateGhosts).
+  private sortAgainstRoofs() {
+    const players: [TrackedSprite, number][] = [
+      ...(this.self ? [[this.self, 10] as [TrackedSprite, number]] : []),
+      ...[...this.others.values()].map(o => [o, 9] as [TrackedSprite, number]),
+    ];
+    for (const [p, normal] of players) {
+      const want = this.roofSide(p) === 'front' ? this.frontDepth + (normal - 9) * 0.1 : normal;
+      if (p.image.depth !== want) p.image.setDepth(want);
+    }
+  }
+
   // Under leaves (a wild tree's canopy or the map's own Objects Top), a player shows through as
   // a soft silhouette: a copy of their sprite, filled one color, drawn over every canopy.
   private updateGhosts() {
@@ -615,7 +655,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const p of players) {
       const img = p.image;
       if (!img.active) continue;
-      const covered = img.visible && (this.ghostMasked
+      const behindRoof = img.visible && this.roofSide(p) === 'behind';
+      const covered = img.visible && (behindRoof || this.ghostMasked
         ? !!this.wildTrees?.near(p.x, p.y)
         : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y)));
       let ghost = this.ghosts.get(img);
@@ -623,9 +664,11 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (!ghost) {
         ghost = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name)
           .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL);
-        layer.add(ghost);
         this.ghosts.set(img, ghost);
       }
+      // Behind a roof: the unmasked layer; under leaves: the one masked by the canopies.
+      const into = behindRoof && this.roofGhostLayer ? this.roofGhostLayer : layer;
+      if (ghost.parentContainer !== into) { ghost.parentContainer?.remove(ghost); into.add(ghost); }
       live.add(img);
       any = true;
       if (ghost.texture.key !== img.texture.key || ghost.frame.name !== img.frame.name) ghost.setTexture(img.texture.key, img.frame.name);
@@ -636,7 +679,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (!live.has(img)) { ghost.destroy(); this.ghosts.delete(img); }
     }
     // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
-    layer.setVisible(any);
+    layer.setVisible(any && layer.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
+    this.roofGhostLayer?.setVisible(any);
   }
 
   create() {
@@ -1049,6 +1093,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.topLayer = null;
     this.ghostLayer?.destroy();
     this.ghostLayer = null;
+    this.roofGhostLayer?.destroy();
+    this.roofGhostLayer = null;
     this.ghostMasked = false;
     this.ghosts.clear();
     this.tilemap.destroy();
@@ -1127,7 +1173,11 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.applyHighlight();
       }
-      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1));
+      // Over every layer drawn over the players (roofs included), so silhouettes show on them.
+      const aboveMax = this.tilemapLayers.reduce((m, l) => Math.max(m, l.depth), 0);
+      this.frontDepth = aboveMax + 1;
+      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1, aboveMax + 2));
+      this.roofGhostLayer = this.add.container(0, 0).setDepth(this.ghostLayer.depth);
       if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
         this.ghostLayer.enableFilters();
         // The filter covers the whole view, not just the silhouettes' bounds.

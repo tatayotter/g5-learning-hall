@@ -91,9 +91,13 @@ const ROLE_BY_NAME: Record<string, LayerRole> = {
   'roofs': 'top',
   'roofs 2': 'top',
   'roofs 3': 'top',
+  // The fountain's spire and back rim.
+  'fountain top': 'top',
 };
 // Any other layer is a thing standing on the ground (the town's buildings, fences, walls, stalls,
 // fountain): drawn behind the player and solid, like Objects Base.
+// Layers drawn over the players that a player can also stand in front of (see ysortBase).
+const Y_SORTED = new Set(['roofs', 'roofs 2', 'roofs 3', 'fountain top', 'lamp tops', 'town decor top']);
 const roleFor = (name: string): LayerRole => ROLE_BY_NAME[name.trim().toLowerCase()] ?? 'base';
 const ROLE_ORDER: LayerRole[] = ['under', 'liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
 
@@ -138,6 +142,9 @@ export interface TiledArtMap {
   flowers: { x: number; y: number }[];
   // Tiles drawn with a "light" tile (lamps): they glow at night.
   lights: { x: number; y: number }[];
+  // Per tile (row-major), for the layers in Y_SORTED: the ground row the thing drawn there
+  // stands on, or -1. Undefined when the map has none.
+  ysortBase?: number[];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -552,6 +559,25 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     });
   }
 
+  // Things drawn over the players that stand on something solid (the town's roofs, stall awnings,
+  // lamp heads, bench backs): for each of their tiles, the row of the ground line they stand on
+  // (the bottom of what's under them in that column), so the scene can tell whether a player is
+  // behind one (covered, with a silhouette) or in front (drawn whole, over it). -1: none.
+  const ysortLayers = layers.filter(l => Y_SORTED.has(l.name.trim().toLowerCase()));
+  let ysortBase: number[] | undefined;
+  if (ysortLayers.length) {
+    const standing = layers.filter(l => roleOf.get(l.name) === 'base');
+    const has = (ls: TiledArtLayer[], i: number) => ls.some(l => l.data[i] !== 0);
+    ysortBase = new Array<number>(mapWidth * mapHeight).fill(-1);
+    for (let y = 0; y < mapHeight; y++) for (let x = 0; x < mapWidth; x++) {
+      const i = y * mapWidth + x;
+      if (!has(ysortLayers, i)) continue;
+      let b = y;
+      while (b + 1 < mapHeight && (has(ysortLayers, (b + 1) * mapWidth + x) || has(standing, (b + 1) * mapWidth + x))) b++;
+      ysortBase[i] = b;
+    }
+  }
+
   const tilesetImages: Record<string, string> = {};
   for (const ts of tilesets) tilesetImages[ts.name] = resolve(ts.image, tmxUrl);
 
@@ -598,5 +624,6 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     sand,
     flowers,
     lights,
+    ysortBase,
   };
 }

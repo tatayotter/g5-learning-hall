@@ -734,6 +734,7 @@ export default function TrainingMap({
           layerOpacity: parsed.layerOpacity,
           animatedTiles: parsed.animatedTiles,
           lights: parsed.lights,
+          ysortBase: parsed.ysortBase,
         });
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);
