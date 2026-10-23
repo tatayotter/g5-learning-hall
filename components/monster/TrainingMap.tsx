@@ -42,6 +42,8 @@ import {
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
+import { AMBIENCE } from '@/lib/ambience';
+import { natureDay } from '@/lib/mapNature';
 import type { InventoryMap } from '@/lib/inventory';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
 import { TRACKING_GOAL } from '@/lib/curioTracking';
@@ -522,27 +524,6 @@ export default function TrainingMap({
       return;
     }
 
-    // A wild veggie plant: ripe ones ask one question to pick.
-    const plantHere = garden.plantAt(newX, newY);
-    if (plantHere) {
-      const name = VEGGIES[plantHere.veggie].label.toLowerCase();
-      const now = Date.now();
-      if (!plantHere.ripe) {
-        const mins = Math.max(1, Math.ceil(((plantHere.readyAt ?? now) - now) / 60000));
-        showBarMessage(`This ${name} is growing back. Ready in about ${mins} minute${mins === 1 ? '' : 's'}!`);
-      } else if (plantHere.restUntil && now < plantHere.restUntil) {
-        showBarMessage('This plant needs a short rest. Try again in a minute!');
-      } else if (itemBarRef.current.bagUsed + garden.squaresForPick(plantHere.veggie) > itemBarRef.current.bagSize) {
-        showBarMessage('Your bag is full! Sell veggies or trade trash at the Recycler.');
-      } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
-        showBarMessage("No internet, and this week's questions aren't saved here yet.");
-      } else {
-        playMonsterAppear();
-        setActivePlant(plantHere);
-      }
-      return;
-    }
-
     // Trash pickup — play coin sound + start lift animation, then remove from map
     // Trash goes into the bag; with no room it stays on the map.
     const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
@@ -582,39 +563,104 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage, garden]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage]);
 
-  // Walking into a tree's trunk starts chopping it (garden switch): a question per swing.
-  const tryChop = useCallback((tile: { x: number; y: number }) => {
-    const pos = { x: posX, y: posY };
-    // The player's feet stop at the trunk's edge, so the sprite's own tile can be the trunk's.
-    const treeHere = garden.treeAt(tile.x, tile.y)
-      ?? [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0]].map(([dx, dy]) => garden.treeAt(pos.x + dx, pos.y + dy)).find(Boolean)
-      ?? null;
-    if (!treeHere) return false;
+  // Plants and trees open their question only when the kid asks (E, a tap on it, or the
+  // Pick/Chop button), never just by walking past. The one close enough gets a gold outline.
+  const openPlant = useCallback((plant: PlantView) => {
+    const name = VEGGIES[plant.veggie].label.toLowerCase();
     const now = Date.now();
-    if (!treeHere.ready) {
+    if (!plant.ripe) {
+      const mins = Math.max(1, Math.ceil(((plant.readyAt ?? now) - now) / 60000));
+      showBarMessage(`This ${name} is growing back. Ready in about ${mins} minute${mins === 1 ? '' : 's'}!`);
+    } else if (plant.restUntil && now < plant.restUntil) {
+      showBarMessage('This plant needs a short rest. Try again in a minute!');
+    } else if (itemBarRef.current.bagUsed + garden.squaresForPick(plant.veggie) > itemBarRef.current.bagSize) {
+      showBarMessage('Your bag is full! Sell veggies or trade trash at the Recycler.');
+    } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
+      showBarMessage("No internet, and this week's questions aren't saved here yet.");
+    } else {
+      playMonsterAppear();
+      setActivePlant(plant);
+    }
+  }, [garden, showBarMessage, userId, questions]);
+
+  const openTree = useCallback((tree: TreeView) => {
+    const now = Date.now();
+    if (!tree.ready) {
       showBarMessage('You chopped this tree today. A new forest grows tomorrow!');
     } else if (garden.felledToday >= DAILY_TREE_LIMIT) {
       showBarMessage(`Your arms are tired after ${DAILY_TREE_LIMIT} trees. Chop more tomorrow!`);
-    } else if (treeHere.restUntil && now < treeHere.restUntil) {
+    } else if (tree.restUntil && now < tree.restUntil) {
       showBarMessage('This tree needs a short rest. Try again in a minute!');
-    } else if (itemBarRef.current.bagUsed + garden.squaresForChop(treeHere.tree) > itemBarRef.current.bagSize) {
+    } else if (itemBarRef.current.bagUsed + garden.squaresForChop(tree.tree) > itemBarRef.current.bagSize) {
       showBarMessage('Your bag is full! Sell wood and veggies or trade trash at the Recycler.');
     } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
       showBarMessage("No internet, and this week's questions aren't saved here yet.");
     } else {
       playMonsterAppear();
-      setActiveTree(treeHere);
+      setActiveTree(tree);
     }
-    return true;
-  }, [garden, showBarMessage, userId, questions, posX, posY]);
+  }, [garden, showBarMessage, userId, questions]);
 
-  const handleBlocked = useCallback((tile: { x: number; y: number }) => {
-    if (tryChop(tile)) return;
+  // Plants and trees within reach (on or next to the player's tile; the trunk for a tree),
+  // nearest first, plants before trees at the same distance.
+  const inReach = useMemo(() => {
+    if (!garden.on) return [];
+    const dist = (o: { x: number; y: number }) => Math.max(Math.abs(o.x - posX), Math.abs(o.y - posY));
+    const found = [
+      ...garden.plants.map(plant => ({ kind: 'plant' as const, plant, usable: plant.ripe, d: dist(plant), x: plant.x, y: plant.y })),
+      ...garden.trees.map(tree => ({ kind: 'tree' as const, tree, usable: tree.ready, d: dist(tree), x: tree.x, y: tree.y })),
+    ].filter(o => o.d <= 1);
+    return found.sort((a, b) => a.d - b.d || (a.kind === b.kind ? 0 : a.kind === 'plant' ? -1 : 1));
+  }, [garden.on, garden.plants, garden.trees, posX, posY]);
+  const nearby = inReach.find(o => o.usable) ?? null;
+
+  // The sky over this map: its biome's clouds, drifting bits and sunset, new clouds each day.
+  const ambience = useMemo(
+    () => ({ key: `${activeRegion.id}:${natureDay()}`, sky: AMBIENCE[activeRegion.element] }),
+    [activeRegion.id, activeRegion.element],
+  );
+  type Reachable = (typeof inReach)[number];
+
+  const interact = useCallback((target: Reachable) => {
+    if (target.kind === 'plant') openPlant(target.plant);
+    else openTree(target.tree);
+  }, [openPlant, openTree]);
+
+  const handleBlocked = useCallback(() => {
     playWallBump();
     pulse(setBumping);
-  }, [tryChop]);
+  }, []);
+
+  // A tap on the map: on a plant or tree in reach, use it; on one further off, say to walk up.
+  const handleMapTap = useCallback((tx: number, ty: number) => {
+    if (!garden.on || activeScroll || activePlant || activeTree || movementLocked) return;
+    const plantCovers = (p: { x: number; y: number; veggie: PlantView['veggie'] }) =>
+      p.x === tx && (p.y === ty || (VEGGIES[p.veggie].tall && p.y - 1 === ty));
+    // A tree's art spans about three tiles across and four up from its trunk.
+    const treeCovers = (t: { x: number; y: number }) => Math.abs(t.x - tx) <= 1 && ty <= t.y && ty >= t.y - 4;
+    const hit = inReach.find(o => (o.kind === 'plant' ? plantCovers(o.plant) : treeCovers(o.tree)));
+    if (hit) { interact(hit); return; }
+    if (garden.plants.some(plantCovers) || garden.trees.some(t => t.ready && treeCovers(t))) {
+      showBarMessage('Walk up next to it first!');
+    }
+  }, [garden.on, garden.plants, garden.trees, inReach, interact, showBarMessage, activeScroll, activePlant, activeTree, movementLocked]);
+
+  // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
+  const panelOpen = !!(activeScroll || activePlant || activeTree || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
+  useEffect(() => {
+    const target = nearby ?? inReach[0];
+    if (panelOpen || !target) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      interact(target);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [nearby, inReach, panelOpen, interact]);
 
   const contMove = useContinuousMovement({
     map,
@@ -920,8 +966,26 @@ export default function TrainingMap({
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
+        highlight={nearby && !controlsDisabled ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id } : null}
+        onMapTap={handleMapTap}
+        ambience={ambience}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
+      {nearby && !controlsDisabled && (
+        <button
+          type="button"
+          data-testid="interact-button"
+          onClick={() => interact(nearby)}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-1.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
+        >
+          <img
+            src={nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY)}
+            alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }}
+          />
+          {nearby.kind === 'plant' ? `Pick ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].label} Tree`}
+          <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
+        </button>
+      )}
       {lockedPortalMsg && (
         <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/80 border border-amber-600 text-amber-400 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap z-20">
           🔒 {lockedPortalMsg}

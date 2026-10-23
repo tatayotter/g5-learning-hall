@@ -12,6 +12,7 @@
 // from ready to a stump it topples over and lands in a puff of dust and leaves.
 import Phaser from 'phaser';
 import type { TreeId, TreeStage } from '@/lib/gardenConfig';
+import { addOutline, outlineAlpha } from './outline';
 
 export interface TreeSprite {
   id: string;
@@ -39,6 +40,10 @@ interface Drawn {
   below: Phaser.GameObjects.Image[];
   canopy: Phaser.GameObjects.Image | null;
   canopyX: number;
+  // The gold outline when this is the tree the kid can chop now: the trunk's copies are in
+  // `below` (so they shake with it), the canopy's follow the canopy each frame.
+  outline: Phaser.GameObjects.Image[];
+  canopyOutline: { image: Phaser.GameObjects.Image; dx: number }[];
   phase: number;
   // Sideways shake from a swing, in art pixels (the canopy's glide adds it each frame).
   shake: number;
@@ -50,6 +55,7 @@ export default class WildTrees {
   private drawn = new Map<string, Drawn>();
   private wanted: TreeSprite[] = [];
   private readonly still: boolean;
+  private highlight: string | null = null;
 
   constructor(
     private scene: Phaser.Scene,
@@ -86,19 +92,36 @@ export default class WildTrees {
   private clear(d: Drawn) {
     d.below.forEach(i => i.destroy());
     d.canopy?.destroy();
+    d.canopyOutline.forEach(o => o.image.destroy());
+  }
+
+  /** Outline the tree with this id (the one the kid can chop now), or none. */
+  setHighlight(id: string | null) {
+    if (id === this.highlight) return;
+    const was = this.highlight;
+    this.highlight = id;
+    for (const tid of [was, id]) {
+      const t = tid && this.wanted.find(w => w.id === tid);
+      const d = tid ? this.drawn.get(tid) : undefined;
+      if (t && d) this.draw(t, `garden:tree_${t.tree}`, d.key, d.key);
+    }
   }
 
   private origin(t: { x: number; y: number }) {
     return { left: t.x * 32 + 16 - BASE_X, top: t.y * 32 + 28 - BASE_Y };
   }
 
-  private frame(tex: string, stage: TreeStage, part: 'top' | 'bottom') {
+  // 'top' and 'bottom' are the canopy and trunk; the 'clip' versions leave out the row at the
+  // seam, for the outline copies that would otherwise draw a gold line across the trunk there.
+  private frame(tex: string, stage: TreeStage, part: 'top' | 'bottom' | 'topclip' | 'bottomclip') {
     const name = `${stage}:${part}`;
     const texture = this.scene.textures.get(tex);
     if (!texture.has(name)) {
       const fx = FRAME_OF[stage] * FW;
       if (part === 'top') texture.add(name, 0, fx, 0, FW, SPLIT);
-      else texture.add(name, 0, fx, SPLIT, FW, FH - SPLIT);
+      else if (part === 'topclip') texture.add(name, 0, fx, 0, FW, SPLIT - 1);
+      else if (part === 'bottom') texture.add(name, 0, fx, SPLIT, FW, FH - SPLIT);
+      else texture.add(name, 0, fx, SPLIT + 1, FW, FH - SPLIT - 1);
     }
     return name;
   }
@@ -111,13 +134,31 @@ export default class WildTrees {
     if (prevKey?.endsWith(':ready') && t.stage === 'stump') this.topple(t, tex);
 
     const below: Phaser.GameObjects.Image[] = [];
+    const outline: Phaser.GameObjects.Image[] = [];
+    const canopyOutline: Drawn['canopyOutline'] = [];
+    const focus = t.id === this.highlight;
+    if (focus) {
+      const trunkRim = [
+        ...addOutline(this.scene, this.below, tex, this.frame(tex, t.stage, 'bottom'), left, top + SPLIT, ['left', 'right', 'down']),
+        ...addOutline(this.scene, this.below, tex, this.frame(tex, t.stage, 'bottomclip'), left, top + SPLIT + 1, ['up']),
+      ];
+      below.push(...trunkRim);
+      outline.push(...trunkRim);
+      if (t.stage !== 'stump') {
+        const rim = [
+          ...addOutline(this.scene, this.above, tex, this.frame(tex, t.stage, 'top'), left, top, ['left', 'right', 'up']),
+          ...addOutline(this.scene, this.above, tex, this.frame(tex, t.stage, 'topclip'), left, top, ['down']),
+        ];
+        for (const image of rim) { canopyOutline.push({ image, dx: image.x - left }); outline.push(image); }
+      }
+    }
     const trunk = this.scene.add.image(left, top + SPLIT, tex, this.frame(tex, t.stage, 'bottom')).setOrigin(0, 0);
     this.below.add(trunk);
     below.push(trunk);
     const canopy = t.stage === 'stump' ? null
       : this.scene.add.image(left, top, tex, this.frame(tex, t.stage, 'top')).setOrigin(0, 0);
     if (canopy) this.above.add(canopy);
-    this.drawn.set(t.id, { key, tree: t, below, canopy, canopyX: left, phase: Math.random() * Math.PI * 2, shake: 0 });
+    this.drawn.set(t.id, { key, tree: t, below, canopy, canopyX: left, outline, canopyOutline, phase: Math.random() * Math.PI * 2, shake: 0 });
   }
 
   /** Whether tile (x, y) is under a standing tree's leaves (the rows above its trunk). */
@@ -128,9 +169,20 @@ export default class WildTrees {
     return false;
   }
 
+  /** Whether a player at float tile (x, y) may be partly behind a standing tree's leaves. */
+  near(x: number, y: number) {
+    for (const d of this.drawn.values()) {
+      if (d.canopy && Math.abs(x - d.tree.x) < 2.2 && y > d.tree.y - 5 && y < d.tree.y + 0.5) return true;
+    }
+    return false;
+  }
+
   update(now: number) {
+    const glow = outlineAlpha(now);
     for (const d of this.drawn.values()) {
       if (d.canopy) d.canopy.x = d.canopyX + d.shake + (this.still ? 0 : Math.sin((now / GLIDE_MS) * Math.PI * 2 + d.phase));
+      for (const o of d.canopyOutline) o.image.x = (d.canopy?.x ?? d.canopyX) + o.dx;
+      for (const o of d.outline) o.setAlpha(glow);
     }
   }
 

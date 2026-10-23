@@ -1,6 +1,7 @@
 // lib/gardenConfig.ts
 // Wild veggies and trees on the Training Map (behind the 'garden' switch). Plants grow at
-// fixed spots; walking onto a ripe one and answering one question right picks it. The
+// fixed spots; next to a ripe one, a kid asks to pick it (E, a tap on it, or the Pick button)
+// and answering one question right picks it. The
 // veggie goes into the bag, sometimes with a seed packet, and the plant regrows for
 // REGROW_MS. Every tree on the day's map takes CHOP_SWINGS right answers, one per swing, and
 // gives wood and sometimes a sapling; it stays a stump until the next day's map. The rules live in

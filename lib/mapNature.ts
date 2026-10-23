@@ -45,6 +45,9 @@ export interface NatureOutput {
   trees: NatureTree[];
   detail: number[];
   base: number[];
+  // The top row of each two-tall bush: drawn over the players and not solid, so a kid can walk
+  // right up behind a bush (only its bottom row, where the leaves are, blocks).
+  overhang: number[];
 }
 
 /** Today's map day, in the Philippines (the new layout grows at midnight there). */
@@ -222,7 +225,8 @@ export function growNature(input: NatureInput): NatureOutput {
     for (let dy = -3; dy <= 0; dy++) for (let dx = -1; dx <= 1; dx++) if (inMap(x + dx, y + dy)) canopy[idx(x + dx, y + dy)] = 1;
   }
 
-  // ── Bushes (solid) ──
+  // ── Bushes (bottom row solid, top row hangs over) ──
+  const overhang = new Array<number>(W * H).fill(0);
   let bushes = 0;
   const bushTarget = Math.round(BUSHES_PER_2400 * area);
   const placedBushes: { s: Stamp; x: number; y: number }[] = [];
@@ -232,6 +236,10 @@ export function growNature(input: NatureInput): NatureOutput {
     if (!fits(s, x, y, 1, false) || rand() > 0.35 + clump(x, y) * 0.5) continue;
     if (placedBushes.some(b => Math.abs(b.x - x) < 3 && Math.abs(b.y - y) < 3)) continue;
     stamp(base, s, x, y);
+    for (let dy = 0; dy < s.h - 1; dy++) for (let dx = 0; dx < s.w; dx++) {
+      overhang[idx(x + dx, y + dy)] = base[idx(x + dx, y + dy)];
+      base[idx(x + dx, y + dy)] = input.base[idx(x + dx, y + dy)];
+    }
     placedBushes.push({ s, x, y });
     bushes++;
   }
@@ -288,7 +296,10 @@ export function growNature(input: NatureInput): NatureOutput {
         const b = placedBushes.findIndex(pb => nx >= pb.x && nx < pb.x + pb.s.w && ny >= pb.y && ny < pb.y + pb.s.h);
         if (b >= 0) {
           const pb = placedBushes[b];
-          for (let yy = 0; yy < pb.s.h; yy++) for (let xx = 0; xx < pb.s.w; xx++) base[idx(pb.x + xx, pb.y + yy)] = input.base[idx(pb.x + xx, pb.y + yy)];
+          for (let yy = 0; yy < pb.s.h; yy++) for (let xx = 0; xx < pb.s.w; xx++) {
+            base[idx(pb.x + xx, pb.y + yy)] = input.base[idx(pb.x + xx, pb.y + yy)];
+            overhang[idx(pb.x + xx, pb.y + yy)] = 0;
+          }
           placedBushes.splice(b, 1);
           removed = true;
         }
@@ -299,5 +310,5 @@ export function growNature(input: NatureInput): NatureOutput {
 
   // Trees further down the map draw over the ones above them.
   trees.sort((a, b) => a.y - b.y || a.x - b.x);
-  return { trees, detail, base };
+  return { trees, detail, base, overhang };
 }

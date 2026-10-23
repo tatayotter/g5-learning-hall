@@ -244,7 +244,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   }
   layers.sort((a, b) => ROLE_ORDER.indexOf(roleOf.get(a.name)!) - ROLE_ORDER.indexOf(roleOf.get(b.name)!));
   let belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
-  const abovePlayerLayers = layers.filter(l => roleOf.get(l.name) === 'top').map(l => l.name);
+  let abovePlayerLayers = layers.filter(l => roleOf.get(l.name) === 'top').map(l => l.name);
   const layerOpacity: Record<string, number> = {};
   for (const l of layers) layerOpacity[l.name] = l.opacity;
 
@@ -328,7 +328,12 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     detail.data = grown.detail;
     base.data = grown.base;
     trees = grown.trees;
+    if (grown.overhang.some(g => g !== 0)) {
+      const top = ensure('top', 'Nature Overhang');
+      top.data = top.data.map((g, i) => grown.overhang[i] || g);
+    }
     belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
+    abovePlayerLayers = layers.filter(l => roleOf.get(l.name) === 'top').map(l => l.name);
   }
   const trunkAt = new Set(trees.map(t => `${t.x},${t.y}`));
 

@@ -70,6 +70,9 @@ import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import SwayingTrees from './swayingTrees';
+import { MAP_TAP_EVENT } from '@/lib/mapTap';
+import AmbienceLayer from './ambience';
+import type { Ambience } from '@/lib/ambience';
 
 // Sprite shadows lie on the ground: above the flat ground layers (Ground, and
 // Ground Detail's paths, pebbles and flowers) but under the swaying tall
@@ -135,6 +138,12 @@ export interface MapCanvasSyncState {
   wildTrees?: TreeSprite[];
   /** A swing that just landed on a tree; n goes up by one per swing. */
   treeSwing?: { id: string; n: number } | null;
+  /** The plant or tree the player is close enough to use: drawn with a gold outline. */
+  highlight?: { kind: 'plant' | 'tree'; id: string } | null;
+  /** A tap or click on the map, as the tile under it. */
+  onMapTap?: (x: number, y: number) => void;
+  /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
+  ambience?: { key: string; sky: Ambience } | null;
 }
 
 interface TrackedSprite {
@@ -289,10 +298,10 @@ function resolveFlipX(textureKey: string, facingRight: boolean): boolean {
 }
 
 // Player silhouettes under leaves: over every canopy (wild trees' at 11.5, and above the map's Objects
-// Top), a deep blue at half strength.
+// Top), a pale blue that reads on any leaf color.
 const GHOST_DEPTH = 12.5;
-const GHOST_COLOR = 0x2b3566;
-const GHOST_ALPHA = 0.5;
+const GHOST_COLOR = 0xdce8ff;
+const GHOST_ALPHA = 0.6;
 
 export default class TrainingMapScene extends Phaser.Scene {
   private ready = false;
@@ -313,7 +322,15 @@ export default class TrainingMapScene extends Phaser.Scene {
   private topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   // A see-through silhouette for each player (and bot) standing under leaves, drawn over them.
   private ghosts = new Map<Phaser.GameObjects.Sprite, Phaser.GameObjects.Sprite>();
+  // Holds the silhouettes. With WebGL and no Objects Top, it's masked by the wild trees' canopies,
+  // so only the part of a player the leaves hide shows through (walking half behind a tree too).
+  private ghostLayer: Phaser.GameObjects.Container | null = null;
+  private ghostMasked = false;
   private wildTreeSprites: TreeSprite[] = [];
+  private highlight: MapCanvasSyncState['highlight'] = null;
+  private ambience: AmbienceLayer | null = null;
+  private ambienceKey = '';
+  private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
@@ -356,26 +373,39 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.update(time);
     this.wildTrees?.update(time);
     this.updateGhosts();
+    this.ambience?.update(this.lastTransform, time);
+  }
+
+  private applyHighlight() {
+    const h = this.highlight;
+    this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
+    this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
   }
 
   // Under leaves (a wild tree's canopy or the map's own Objects Top), a player shows through as
   // a soft silhouette: a copy of their sprite, filled one color, drawn over every canopy.
   private updateGhosts() {
+    const layer = this.ghostLayer;
+    if (!layer) return;
     const players = [...(this.self ? [this.self] : []), ...this.others.values()];
     const live = new Set<Phaser.GameObjects.Sprite>();
+    let any = false;
     for (const p of players) {
       const img = p.image;
       if (!img.active) continue;
-      const tx = Math.round(p.x), ty = Math.round(p.y);
-      const covered = img.visible && (this.wildTrees?.covers(tx, ty) || !!this.topLayer?.hasTileAt(tx, ty));
+      const covered = img.visible && (this.ghostMasked
+        ? !!this.wildTrees?.near(p.x, p.y)
+        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y)));
       let ghost = this.ghosts.get(img);
       if (!covered) { ghost?.setVisible(false); if (ghost) live.add(img); continue; }
       if (!ghost) {
         ghost = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name)
-          .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL).setDepth(Math.max(GHOST_DEPTH, (this.topLayer?.depth ?? 0) + 1));
+          .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL);
+        layer.add(ghost);
         this.ghosts.set(img, ghost);
       }
       live.add(img);
+      any = true;
       if (ghost.texture.key !== img.texture.key || ghost.frame.name !== img.frame.name) ghost.setTexture(img.texture.key, img.frame.name);
       ghost.setPosition(img.x, img.y).setOrigin(img.originX, img.originY).setScale(img.scaleX, img.scaleY)
         .setFlipX(img.flipX).setAlpha(GHOST_ALPHA * img.alpha).setVisible(true);
@@ -383,10 +413,27 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const [img, ghost] of this.ghosts) {
       if (!live.has(img)) { ghost.destroy(); this.ghosts.delete(img); }
     }
+    // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
+    layer.setVisible(any);
   }
 
   create() {
     this.ready = true;
+    const tap = (gx: number, gy: number) => {
+      const t = this.lastTransform;
+      this.onMapTap?.(Math.floor((gx - t.offsetX) / t.tileW), Math.floor((gy - t.offsetY) / t.tileH));
+    };
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => tap(pointer.x, pointer.y));
+    // Taps on the left half land on the joystick's touch area (FloatingJoystick.tsx), which
+    // passes quick taps on as this event, in page coordinates.
+    const onJoystickTap = (e: Event) => {
+      const { clientX, clientY } = (e as CustomEvent<{ clientX: number; clientY: number }>).detail;
+      const rect = this.game.canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      tap((clientX - rect.left) * (this.scale.width / rect.width), (clientY - rect.top) * (this.scale.height / rect.height));
+    };
+    window.addEventListener(MAP_TAP_EVENT, onJoystickTap);
+    this.events.once(Phaser.Scenes.Events.DESTROY, () => window.removeEventListener(MAP_TAP_EVENT, onJoystickTap));
     if (this.pendingState) {
       this.applyState(this.pendingState);
       this.pendingState = null;
@@ -656,6 +703,15 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.setPlants(this.gardenPlants);
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
+    this.onMapTap = state.onMapTap;
+    const skyKey = state.ambience ? `${state.ambience.key}:${state.mapWidth}x${state.mapHeight}` : '';
+    if (skyKey !== this.ambienceKey) {
+      this.ambienceKey = skyKey;
+      this.ambience?.destroy();
+      this.ambience = state.ambience ? new AmbienceLayer(this, state.ambience.sky, state.ambience.key, state.mapWidth, state.mapHeight) : null;
+    }
+    this.highlight = state.highlight ?? null;
+    this.applyHighlight();
     if (state.treeSwing && state.treeSwing.n !== this.lastTreeSwing) {
       this.lastTreeSwing = state.treeSwing.n;
       this.wildTrees?.swing(state.treeSwing.id);
@@ -737,6 +793,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden = null;
     this.wildTrees = null;
     this.topLayer = null;
+    this.ghostLayer?.destroy();
+    this.ghostLayer = null;
+    this.ghostMasked = false;
+    this.ghosts.clear();
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -803,6 +863,15 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above);
         this.wildTrees.setTrees(this.wildTreeSprites);
+        this.applyHighlight();
+      }
+      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1));
+      if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
+        this.ghostLayer.enableFilters();
+        // The filter covers the whole view, not just the silhouettes' bounds.
+        this.ghostLayer.filtersFocusContext = true;
+        this.ghostLayer.filters?.internal.addMask(this.wildTrees.above);
+        this.ghostMasked = true;
       }
       this.tilemap = map;
       this.followInitialized = true;
