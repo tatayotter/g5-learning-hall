@@ -110,7 +110,13 @@ export type MapBackground =
       animatedTiles?: Record<number, { frames: number[]; ms: number }>;
       // Lamps (tile coords of each lamp's head): they glow at night.
       lights?: { x: number; y: number }[];
+      // Exits on the map's edge (a run of portal tiles to one map): a glow, drifting sparks and a
+      // bobbing arrow pointing out. `side` is the edge they're on; locked ones glow grey.
+      exits?: MapExit[];
     };
+
+// `color`: the glow's tint (the next map's element color).
+export interface MapExit { x: number; y: number; w: number; h: number; side: 'n' | 's' | 'e' | 'w'; locked: boolean; color: number }
 
 export interface MapCanvasSyncState {
   mapWidth: number;
@@ -349,6 +355,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
   private lampKey = '';
+  private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
+  private exitKey = '';
   private crittersKey = '';
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
@@ -399,6 +407,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
     this.updateLamps(time);
+    this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
@@ -453,6 +462,102 @@ export default class TrainingMapScene extends Phaser.Scene {
       g.img.setVisible(true)
         .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
         .setScale((t.tileW * (2.2 + 2.8 * night)) / 256).setAlpha((0.45 + 0.4 * night) * flicker);
+    }
+  }
+
+  // Textures for the exits: a glow fading from the edge inward (drawn pointing up, rotated per
+  // side), a pixel chevron arrow, and a soft spark.
+  private makeExitTextures() {
+    if (this.textures.exists('exit-band')) return true;
+    const band = this.textures.createCanvas('exit-band', 64, 64);
+    const arrow = this.textures.createCanvas('exit-arrow', 15, 11);
+    const spark = this.textures.createCanvas('exit-spark', 8, 8);
+    if (!band || !arrow || !spark) return false;
+    let ctx = band.getContext();
+    const g = ctx.createLinearGradient(0, 0, 0, 64);
+    g.addColorStop(0, 'rgba(255,255,255,0.95)');
+    g.addColorStop(0.35, 'rgba(255,255,255,0.45)');
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 64, 64);
+    // Soft side ends, so the glow fades out at both ends of the gap too.
+    ctx.globalCompositeOperation = 'destination-in';
+    const h = ctx.createLinearGradient(0, 0, 64, 0);
+    h.addColorStop(0, 'rgba(0,0,0,0)'); h.addColorStop(0.2, 'rgba(0,0,0,1)'); h.addColorStop(0.8, 'rgba(0,0,0,1)'); h.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = h;
+    ctx.fillRect(0, 0, 64, 64);
+    band.refresh();
+    // Chevron pointing up: dark outline, then a warm white body.
+    ctx = arrow.getContext();
+    const rows = ['.......#.......', '......#o#......', '.....#ooo#.....', '....#ooooo#....', '...#ooo#ooo#...', '..#ooo#.#ooo#..', '.#ooo#...#ooo#.', '#ooo#.....#ooo#', '#oo#.......#oo#', '.##.........##.', '...............'];
+    rows.forEach((r, y) => [...r].forEach((c, x) => {
+      if (c === '.') return;
+      ctx.fillStyle = c === '#' ? '#2a2233' : '#ffffff';
+      ctx.fillRect(x, y, 1, 1);
+    }));
+    arrow.refresh();
+    ctx = spark.getContext();
+    const rg = ctx.createRadialGradient(4, 4, 0, 4, 4, 4);
+    rg.addColorStop(0, 'rgba(255,255,255,1)'); rg.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, 8, 8);
+    spark.refresh();
+    return true;
+  }
+
+  // Every exit on the map's edge shines: a glow that breathes along the gap, sparks drifting out
+  // through it, and an arrow bobbing toward it (all still with "reduce motion" on).
+  private updateExits(time: number) {
+    const bg = this.lastBackground;
+    const exits = bg?.type === 'tilemap' ? bg.exits ?? [] : [];
+    const key = bg?.type === 'tilemap' ? `${bg.key}:${exits.map(e => `${e.x},${e.y},${e.locked},${e.color}`).join(';')}` : '';
+    if (key !== this.exitKey) {
+      for (const f of this.exitFx) { f.band.destroy(); f.arrow.destroy(); f.sparks.forEach(sp => sp.destroy()); }
+      this.exitFx = [];
+      this.exitKey = key;
+      if (exits.length && this.makeExitTextures()) {
+        const depth = this.shadowDepth + 0.02;
+        this.exitFx = exits.map((exit, i) => {
+          const tint = exit.locked ? 0x9a9a9a : exit.color;
+          return {
+            exit, seed: i * 1.7,
+            band: this.add.image(0, 0, 'exit-band').setDepth(depth).setBlendMode(Phaser.BlendModes.ADD).setTint(tint),
+            arrow: this.add.image(0, 0, 'exit-arrow').setDepth(depth + 0.01).setTint(tint),
+            sparks: Array.from({ length: Math.max(3, (exit.w + exit.h) * 2) }, () =>
+              this.add.image(0, 0, 'exit-spark').setDepth(depth + 0.02).setBlendMode(Phaser.BlendModes.ADD).setTint(tint)),
+          };
+        });
+      }
+    }
+    if (!this.exitFx.length) return;
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const t = this.lastTransform;
+    const ROT = { n: 0, s: Math.PI, e: Math.PI / 2, w: -Math.PI / 2 };
+    for (const f of this.exitFx) {
+      const { exit } = f;
+      // Out of the map, in tile units, and along the gap.
+      const out = { n: [0, -1], s: [0, 1], e: [1, 0], w: [-1, 0] }[exit.side];
+      const along = exit.side === 'n' || exit.side === 's' ? exit.w : exit.h;
+      const deep = 2.2;
+      // The gap's outer edge, at its middle (px).
+      const mx = t.offsetX + (exit.x + exit.w / 2 + out[0] * (exit.w / 2)) * t.tileW;
+      const my = t.offsetY + (exit.y + exit.h / 2 + out[1] * (exit.h / 2)) * t.tileH;
+      const breathe = still ? 0.8 : 0.7 + 0.25 * Math.sin(time / 600 + f.seed);
+      f.band.setPosition(mx - out[0] * deep * t.tileW / 2, my - out[1] * deep * t.tileH / 2).setRotation(ROT[exit.side])
+        .setDisplaySize((along + 1) * t.tileW, deep * t.tileH).setAlpha((exit.locked ? 0.35 : 0.75) * breathe);
+      const bob = still ? 0 : (Math.sin(time / 260 + f.seed) + 1) * 0.12;
+      f.arrow.setPosition(mx - out[0] * (1.6 - bob) * t.tileW, my - out[1] * (1.6 - bob) * t.tileH).setRotation(ROT[exit.side])
+        .setScale(t.tileW / 16).setAlpha(exit.locked ? 0.5 : 0.95);
+      f.sparks.forEach((sp, k) => {
+        // Each spark drifts from inside the gap out through it, fading, then starts again.
+        const life = 2400, ph = still ? 0.5 : ((time + k * 977 + f.seed * 500) % life) / life;
+        const across = ((k * 0.618 + Math.floor((time + k * 977) / life) * 0.37) % 1) * along - along / 2;
+        const inward = (1 - ph) * deep;
+        const x = mx + (out[1] !== 0 ? across : 0) * t.tileW - out[0] * inward * t.tileW;
+        const y = my + (out[0] !== 0 ? across : 0) * t.tileH - out[1] * inward * t.tileH;
+        sp.setPosition(x + (still ? 0 : Math.sin(time / 300 + k) * t.tileW * 0.08), y).setScale(t.tileW / 24)
+          .setAlpha(Math.sin(ph * Math.PI) * (exit.locked ? 0.4 : 0.9));
+      });
     }
   }
 

@@ -24,11 +24,11 @@ import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChalle
 import ScrollQuestionPanel from '@/components/monster/map/panels/ScrollQuestionPanel';
 import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionPanel';
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
-import { REGIONS, type MapTile } from '@/lib/regions';
+import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
-import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
+import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -977,8 +977,49 @@ export default function TrainingMap({
   // lib/tiledArtMap.ts's header comment) — so no marker to show there.
   // Flat (tile-art) region maps have no healing tile either; their only marker is the way home.
   const townMarkerTile = isLedgersHeart || activeRegion.tileArtPath ? null : region!.townCenter;
+  // Exits on the map's edge (a run of portal tiles to one map, Rowil 2026-10-23): the scene draws
+  // a glow in the next map's element color (the Ledger's Heart's and the town's: leaf green, like
+  // Rootbound's), sparks and an arrow; here they get one name label, a little inside the gap.
+  // Portals inside the map keep their spinning sprite.
+  const mapW = regionMap[0]?.length ?? 0, mapH = regionMap.length;
+  const exitGroups = useMemo(() => {
+    const sideOf = (p: { x: number; y: number }): MapExit['side'] | null =>
+      p.y === 0 ? 'n' : p.y === mapH - 1 ? 's' : p.x === 0 ? 'w' : p.x === mapW - 1 ? 'e' : null;
+    const groups: { regionId: string; side: MapExit['side']; tiles: { x: number; y: number }[] }[] = [];
+    for (const p of [...portals].sort((a, b) => a.y - b.y || a.x - b.x)) {
+      const side = sideOf(p);
+      if (!side) continue;
+      const g = groups.find(q => q.regionId === p.regionId && q.side === side &&
+        q.tiles.some(t => Math.abs(t.x - p.x) + Math.abs(t.y - p.y) === 1));
+      if (g) g.tiles.push(p); else groups.push({ regionId: p.regionId, side, tiles: [p] });
+    }
+    return groups;
+  }, [portals, mapW, mapH]);
+  const exits = useMemo<MapExit[]>(() => exitGroups.map(g => {
+    const xs = g.tiles.map(t => t.x), ys = g.tiles.map(t => t.y);
+    const dest = REGIONS[g.regionId];
+    const el = dest && dest.element !== 'all' ? dest.element : 'leaf';
+    return {
+      x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs) + 1, h: Math.max(...ys) - Math.min(...ys) + 1,
+      side: g.side, locked: playerLevel < (dest?.unlockLevel ?? 0), color: parseInt(ELEMENT_COLOR[el].text.slice(1), 16),
+    };
+  }), [exitGroups, playerLevel]);
+  const sceneBackground = useMemo<MapBackground | null>(
+    () => (background?.type === 'tilemap' && exits.length ? { ...background, exits } : background),
+    [background, exits],
+  );
   const portalMarkers = portals.length
-    ? portals.map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) }))
+    ? [
+        ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
+          .map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) })),
+        ...exits.map((e, i) => {
+          const IN = { n: [0, 3], s: [0, -2], w: [2, 0], e: [-2, 0] }[e.side];
+          return {
+            x: e.x + (e.w - 1) / 2 + IN[0], y: e.y + (e.h - 1) / 2 + IN[1],
+            regionId: exitGroups[i].regionId, locked: e.locked, labelOnly: true,
+          };
+        }),
+      ]
     : undefined;
   // Hoisted to avoid an IIFE allocation on every render inside the scroll panel JSX.
   const activeMonsterExpToNext = activeMonster
@@ -996,10 +1037,10 @@ export default function TrainingMap({
           FloatingJoystick.tsx for why). Replaces the old always-visible
           bottom-left Joystick (2026-09-05). */}
       <FloatingJoystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
-      {background && <MapCanvas
+      {sceneBackground && <MapCanvas
         mapWidth={activeRegion.mapWidth}
         mapHeight={activeRegion.mapHeight}
-        background={background}
+        background={sceneBackground}
         bumping={bumping}
         stepping={stepping}
         posX={posX}

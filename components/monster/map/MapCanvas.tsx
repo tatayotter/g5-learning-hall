@@ -107,7 +107,8 @@ interface MapCanvasProps {
   inBattle: (userId: string) => boolean;
   resultWon: (userId: string) => boolean | undefined;
   townMarkerTile: { x: number; y: number } | null;
-  portalMarkers?: { x: number; y: number; regionId: string; locked: boolean }[];
+  // labelOnly: an exit on the map's edge, drawn by the scene (glow and arrow): just its name here.
+  portalMarkers?: { x: number; y: number; regionId: string; locked: boolean; labelOnly?: boolean }[];
   // Scrolls (training questions) and the curio (wild-encounter entry point)
   // are stationary, walked-into map entities — rendered the same way as
   // portal markers (static DOM overlay, no per-frame updates needed) since
@@ -563,7 +564,7 @@ export default function MapCanvas({
             {/* The sprite (public/tilesets/portals/portal-orange.png) is
                 32x48 — taller than a tile — so it's bottom-anchored to sit on
                 the tile like a standee instead of being squashed to fit. */}
-            <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />
+            {!portal.labelOnly && <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />}
           </div>
         );
       })}
