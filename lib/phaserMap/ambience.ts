@@ -93,10 +93,13 @@ export default class AmbienceLayer {
   private paintCloud(tex: string, wTiles: number, hTiles: number, rand: () => number, darkness: number, color: number) {
     const w = Math.round((wTiles * UNIT) / CELL);
     const h = Math.round((hTiles * UNIT) / CELL);
-    const blobs = Array.from({ length: 5 + Math.floor(rand() * 4) }, () => ({
-      x: w * (0.2 + rand() * 0.6), y: h * (0.3 + rand() * 0.4),
-      r: Math.min(w, h) * (0.22 + rand() * 0.2),
-    }));
+    // Blobs kept inside the picture, and the shade fading out before its border, so a cloud's
+    // edge is always its own lumpy outline, never the straight edge of the picture.
+    const blobs = Array.from({ length: 5 + Math.floor(rand() * 4) }, () => {
+      const r = Math.min(w, h) * (0.16 + rand() * 0.14);
+      return { x: r * 1.4 + rand() * (w - r * 2.8), y: r * 1.2 + rand() * (h - r * 2.4), r };
+    });
+    const margin = Math.min(w, h) * 0.18;
     const canvas = document.createElement('canvas');
     canvas.width = w;
     canvas.height = h;
@@ -109,6 +112,8 @@ export default class AmbienceLayer {
         const d2 = ((x - bl.x) ** 2 + ((y - bl.y) * 1.3) ** 2) / (bl.r * bl.r);
         f += Math.exp(-d2);
       }
+      const edge = Math.min(x, y, w - 1 - x, h - 1 - y) / margin;
+      if (edge < 1) f *= Math.max(0, edge) ** 1.5;
       const level = f > 1.3 ? 3 : f > 0.95 ? 2 : f > 0.7 ? 1 : f > 0.5 ? 0 : -1;
       if (level < 0) continue;
       g.fillStyle = `rgba(${r},${gr},${b},${(darkness * steps[level]).toFixed(3)})`;

@@ -1,11 +1,11 @@
 -- pgTAP tests for 20261023120000_garden_wild_trees.sql: chopping a tree of today's map with
 -- three right answers, misses that cost a clean chop, a stump staying a stump, the rest after 3
 -- wrong answers, the 8-trees-a-day limit, a re-sent offline swing never landing twice, trees
--- from another day or of an unknown kind, and wood selling for 2 gold while saplings stay.
+-- from another day or of an unknown kind (or a kind from another region), and wood selling for 2 gold while saplings stay.
 
 begin;
 create extension if not exists pgtap;
-select plan(23);
+select plan(25);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
@@ -104,6 +104,15 @@ select throws_ok(
 select throws_ok(
   $$ select pg_temp.swing('5_5', 1, 'a', gen_random_uuid(), 'gold') $$,
   'P0001', null, 'only real kinds of tree'
+);
+-- Each region grows its own trees: fire trees only in the Cinderreach.
+select throws_ok(
+  $$ select pg_temp.swing('5_5', 1, 'a', gen_random_uuid(), 'ember') $$,
+  'P0001', null, 'no Ember Trees in the Ledger''s Heart'
+);
+select is(
+  public.chop_wild_tree((select kid from fx), 'cinderreach', pg_temp.tree('9_9'), 'ember', (select id from qs where n = 1), 'a', gen_random_uuid(), null) ->> 'status',
+  'hit', 'an Ember Tree in the Cinderreach can be chopped'
 );
 select throws_ok(
   $$ select public.chop_wild_tree((select kid from fx), 'ledgers_heart', 'maple_1', 'maple', (select id from qs where n = 1), 'a', gen_random_uuid(), null) $$,

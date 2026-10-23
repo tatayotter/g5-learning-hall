@@ -19,6 +19,7 @@ import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality'
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
 import { playPageFlip } from '@/lib/sounds';
@@ -122,7 +123,8 @@ interface MapCanvasProps {
   gardenPlants?: PlantSprite[];
   /** Wild trees (garden), and the latest swing at one. */
   wildTrees?: TreeSprite[];
-  treeSwing?: { id: string; n: number } | null;
+  treeSwing?: { id: string; n: number; kind: SwingKind } | null;
+  chopTree?: string | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
   highlight?: { kind: 'plant' | 'tree'; id: string } | null;
   onMapTap?: (x: number, y: number) => void;
@@ -134,7 +136,7 @@ interface MapCanvasProps {
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, highlight, onMapTap, ambience, onPlayerClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, onPlayerClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -336,6 +338,7 @@ export default function MapCanvas({
       gardenPlants,
       wildTrees,
       treeSwing,
+      chopTree,
       highlight,
       onMapTap,
       ambience,

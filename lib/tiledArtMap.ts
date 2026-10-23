@@ -33,6 +33,12 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'Trees_seperated': '/tilesets/forgotten-memories/Trees_seperated.png',
   'Town Props 2': '/tilesets/forgotten-memories/Town_Props_2.png',
   'WaterTiles-6frames': '/tilesets/forgotten-memories/WaterTiles-6frames.png',
+  // Region looks (recolored copies of the pack's sheets, same layout): Cinderreach is scorched
+  // and its liquid is lava.
+  'TileSet-fire': '/tilesets/forgotten-memories/TileSet-fire.png',
+  'LavaTiles-6frames': '/tilesets/forgotten-memories/LavaTiles-6frames.png',
+  // Each region's own plants for the daily nature layer, on a 32 px grid.
+  'FireNature': '/tilesets/region-nature/FireNature.png',
 };
 
 export interface TiledArtLayer {
@@ -43,15 +49,20 @@ export interface TiledArtLayer {
 
 // The fixed layer contract every tile-art map follows (see
 // public/maps-tiled-art/README.md). Role order is also draw order.
-type LayerRole = 'ground' | 'detail' | 'shadows' | 'base' | 'top';
+type LayerRole = 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
 const ROLE_BY_NAME: Record<string, LayerRole> = {
+  // Water or lava under the ground's see-through edges.
+  'liquid': 'liquid',
   'ground': 'ground',
   'ground detail': 'detail',
+  // Cliff skirts: drawn like Ground Detail (the "collision" boxes say where cliffs block).
+  'skirt': 'detail',
+  'excess skirt': 'detail',
   'shadows': 'shadows',
   'objects base': 'base',
   'objects top': 'top',
 };
-const ROLE_ORDER: LayerRole[] = ['ground', 'detail', 'shadows', 'base', 'top'];
+const ROLE_ORDER: LayerRole[] = ['liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
 
 export interface TiledArtPortal {
   x: number;
@@ -84,6 +95,8 @@ export interface TiledArtMap {
   foliage: boolean[][];
   // Trees grown by the daily nature layer (lib/mapNature.ts); empty for hand-made maps.
   trees: NatureTree[];
+  // Animated tiles (water, lava), from the tilesets' Tiled animations: gid -> its frames' gids.
+  animatedTiles: Record<number, { frames: number[]; ms: number }>;
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -122,6 +135,24 @@ interface EmbeddedTileset {
   tilecount: number;
   margin: number;
   spacing: number;
+  // Per-tile data from the tileset (local tile ids): tiles marked solid, and animations.
+  solid: number[];
+  anims: Record<number, { frames: number[]; ms: number }>;
+}
+
+// <tile id> entries: a "solid" bool property, and an <animation> of frames.
+function parseTileData(tilesetEl: Element) {
+  const solid: number[] = [];
+  const anims: Record<number, { frames: number[]; ms: number }> = {};
+  for (const tileEl of Array.from(tilesetEl.querySelectorAll(':scope > tile'))) {
+    const id = Number(attr(tileEl, 'id'));
+    if (tileEl.querySelector('properties > property[name="solid"][value="true"]')) solid.push(id);
+    const frames = Array.from(tileEl.querySelectorAll('animation > frame'));
+    if (frames.length > 1) {
+      anims[id] = { frames: frames.map(f => Number(attr(f, 'tileid'))), ms: Number(attr(frames[0], 'duration')) || 200 };
+    }
+  }
+  return { solid, anims };
 }
 
 async function resolveTileset(tilesetEl: Element, tmxUrl: string): Promise<EmbeddedTileset> {
@@ -143,6 +174,7 @@ async function resolveTileset(tilesetEl: Element, tmxUrl: string): Promise<Embed
       tilecount: Number(attr(tilesetEl, 'tilecount')),
       margin: Number(attr(tilesetEl, 'margin') || 0),
       spacing: Number(attr(tilesetEl, 'spacing') || 0),
+      ...parseTileData(tilesetEl),
     };
   }
 
@@ -167,6 +199,7 @@ async function resolveTileset(tilesetEl: Element, tmxUrl: string): Promise<Embed
     tilecount: Number(attr(tileset, 'tilecount')),
     margin: Number(attr(tileset, 'margin') || 0),
     spacing: Number(attr(tileset, 'spacing') || 0),
+    ...parseTileData(tileset),
   };
 }
 
@@ -190,6 +223,25 @@ function parseObjectRect(objectEl: Element): Rect {
 function parseObjectProperty(objectEl: Element, name: string): string | undefined {
   const propEl = objectEl.querySelector(`properties > property[name="${name}"]`);
   return propEl?.getAttribute('value') ?? undefined;
+}
+
+// A portal's region, forgiving spelling: "ledgersheart" or "Ledger's Heart" for ledgers_heart.
+function regionIdFrom(name: string): string {
+  if (REGIONS[name]) return name;
+  const squash = (s: string) => s.toLowerCase().replace(/[^a-z]/g, '');
+  return Object.keys(REGIONS).find(id => squash(id) === squash(name) || squash(REGIONS[id].name).replace(/^the/, '') === squash(name).replace(/^the/, '')) ?? name;
+}
+
+/** The tile one step into the map from a portal on its edge: where a kid walking in through it
+ *  arrives (the road continues from the map they came from). */
+export function stepInside(p: { x: number; y: number }, width: number, height: number) {
+  const gaps = [
+    { d: p.x, to: { x: p.x + 1, y: p.y } },
+    { d: width - 1 - p.x, to: { x: p.x - 1, y: p.y } },
+    { d: p.y, to: { x: p.x, y: p.y + 1 } },
+    { d: height - 1 - p.y, to: { x: p.x, y: p.y - 1 } },
+  ];
+  return gaps.sort((a, b) => a.d - b.d)[0].to;
 }
 
 const cache = new Map<string, Promise<TiledArtMap>>();
@@ -255,14 +307,17 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   const objectGroupEls = Array.from(mapEl.querySelectorAll(':scope > objectgroup'));
   const noEncounterRects: Rect[] = [];
   const portals: TiledArtPortal[] = [];
-  let spawnTile = { x: 1, y: 1 };
+  let spawnTile: { x: number; y: number } | null = null;
   let recyclerTile: { x: number; y: number } | null = null;
   const keepClearRects: NatureRect[] = [];
+  const collisionRects: Rect[] = [];
   const forestRects: NatureRect[] = [];
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/keep\s*clear/i.test(groupName)) {
+    if (/collision/i.test(groupName)) {
+      collisionRects.push(...objectEls.map(parseObjectRect).filter(r => r.width > 0 && r.height > 0));
+    } else if (/keep\s*clear/i.test(groupName)) {
       keepClearRects.push(...objectEls.map(parseObjectRect));
     } else if (/forest/i.test(groupName)) {
       forestRects.push(...objectEls.map(parseObjectRect));
@@ -284,7 +339,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
         // Accept either a custom "region" property or the object's own Name
         // field set to a region id (simpler to author — just rename the
         // point in Tiled) — whichever is present.
-        const regionId = (parseObjectProperty(objectEl, 'region') ?? attr(objectEl, 'name')).trim();
+        const regionId = regionIdFrom((parseObjectProperty(objectEl, 'region') ?? attr(objectEl, 'name')).trim());
         if (!regionId) {
           console.warn(`[tiledArtMap] Portal object in "${groupName}" has no region id (set a "region" property or name the object) — skipping.`);
           continue;
@@ -297,6 +352,31 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
         portals.push({ x: Math.floor(rect.x / tileWidth), y: Math.floor(rect.y / tileHeight), regionId });
       }
     }
+  }
+
+  // No spawn point drawn: a region map starts at its entrance from the Ledger's Heart.
+  if (!spawnTile) {
+    const door = portals.find(p => p.regionId === 'ledgers_heart');
+    spawnTile = door ? stepInside(door, mapWidth, mapHeight) : { x: 1, y: 1 };
+  }
+
+  // Tiles the tilesets mark solid (water, lava), and tiles under a "collision" box.
+  const solidGids = new Set<number>();
+  const animatedTiles: Record<number, { frames: number[]; ms: number }> = {};
+  for (const ts of tilesets) {
+    for (const id of ts.solid) solidGids.add(ts.firstgid + id);
+    for (const [id, a] of Object.entries(ts.anims)) {
+      animatedTiles[ts.firstgid + Number(id)] = { frames: a.frames.map(f => ts.firstgid + f), ms: a.ms };
+    }
+  }
+  const inCollision = (x: number, y: number) => {
+    const cx = (x + 0.5) * tileWidth, cy = (y + 0.5) * tileHeight;
+    return collisionRects.some(r => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height);
+  };
+  const hardBlocked: boolean[] = new Array(mapWidth * mapHeight).fill(false);
+  for (let y = 0; y < mapHeight; y++) for (let x = 0; x < mapWidth; x++) {
+    const i = y * mapWidth + x;
+    hardBlocked[i] = inCollision(x, y) || layers.some(l => solidGids.has(l.data[i] & 0x1fffffff));
   }
 
   // The day's nature layer: bushes go on Objects Base, grass, rocks and flowers on Ground
@@ -316,6 +396,8 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     };
     const ground = layers.find(l => roleOf.get(l.name) === 'ground')!;
     const detail = ensure('detail', 'Ground Detail');
+    // Nothing grows on cliffs, skirts or liquid either.
+    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'base' && l.data[i] !== 0));
     const base = ensure('base', 'Objects Base');
     const firstgid: Record<string, number> = {};
     for (const ts of tilesets) firstgid[ts.name] = ts.firstgid;
@@ -323,7 +405,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
       regionId: nature.regionId, day: nature.day, width: mapWidth, height: mapHeight, tileSize: tileWidth,
       ground: ground.data, detail: detail.data, base: base.data, firstgid,
       spawn: spawnTile, portals, recycler: recyclerTile, reserved: nature.reserved,
-      keepClear: keepClearRects, forest: forestRects,
+      keepClear: keepClearRects, forest: forestRects, occupied, blocked: hardBlocked,
     });
     detail.data = grown.detail;
     base.data = grown.base;
@@ -346,7 +428,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
       const cy = (y + 0.5) * tileHeight;
       const inRect = (r: Rect) => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height;
       // Painted means blocked: any tile on an Objects Base layer is solid.
-      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0) || trunkAt.has(`${x},${y}`);
+      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0) || trunkAt.has(`${x},${y}`) || hardBlocked[y * mapWidth + x];
       const noEncounter = !blocked && noEncounterRects.some(inRect);
       row.push({ type: blocked ? 'wall' : noEncounter ? 'path' : 'grass' });
     }
@@ -412,5 +494,6 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     portals,
     foliage,
     trees,
+    animatedTiles,
   };
 }

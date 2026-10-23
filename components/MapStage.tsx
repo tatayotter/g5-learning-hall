@@ -39,6 +39,8 @@ interface MapStageProps {
   drawerLabel?: string;
   drawer?: ReactNode;
   overlay?: ReactNode;
+  /** Drop the overlay's dimming for a moment (e.g. while the kid's axe swing plays on the map). */
+  overlayClear?: boolean;
   /** The map item slots (MapItemBar), a column on the right edge (the
    *  bottom is taken by the menu compass and Arena button). Kept outside the
    *  scaled canvas in fullscreen so it stays full size and uncropped. */
@@ -60,6 +62,7 @@ export default function MapStage({
   drawerLabel = 'Info',
   drawer,
   overlay,
+  overlayClear,
   hotbar,
   fullscreen,
 }: MapStageProps) {
@@ -147,7 +150,7 @@ export default function MapStage({
   );
 
   const overlayLayer = overlay ? (
-    <div className="stage-overlay bg-[#0a0807]/70">
+    <div className={`stage-overlay transition-colors duration-300 ${overlayClear ? 'bg-transparent' : 'bg-[#0a0807]/70'}`}>
       {overlay}
     </div>
   ) : null;

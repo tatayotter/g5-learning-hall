@@ -48,9 +48,11 @@ security definer
 set search_path to 'public'
 as $$
 declare
-  -- lib/gardenConfig.ts mirrors these.
-  c_regions constant text[] := array['ledgers_heart'];
-  c_trees constant text[] := array['maple', 'oak', 'birch', 'pine'];
+  -- lib/gardenConfig.ts mirrors these (REGION_TREES): which trees grow in which region.
+  c_region_trees constant jsonb := '{
+    "ledgers_heart": ["maple", "oak", "birch", "pine"],
+    "cinderreach": ["ember", "ashwillow"]
+  }'::jsonb;
   c_daily constant int := 8;
   c_rest constant interval := interval '1 minute';
   c_wrong_limit constant int := 3;
@@ -84,7 +86,7 @@ begin
   if not public.feature_enabled_for(p_user_id, 'garden') then
     raise exception 'garden is not on for this player';
   end if;
-  if not (p_region = any (c_regions)) or not (p_tree = any (c_trees))
+  if p_region is null or p_tree is null or not coalesce(c_region_trees -> p_region ? p_tree, false)
     or p_node_id is null or p_node_id !~ '^\d{4}-\d{2}-\d{2}:\d{1,3}_\d{1,3}$' then
     raise exception 'no such tree: % % %', p_region, p_node_id, p_tree;
   end if;

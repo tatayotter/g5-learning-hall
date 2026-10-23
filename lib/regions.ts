@@ -67,10 +67,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/fire_new.webp',
     tiledMapPath: '/maps-tiled/cinderreach.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 13, y: 2 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Rowil's flat map (2026-10-23): entered from the Ledger's Heart's west road, so the kid
+    // arrives at the east entrance, the same height as that road.
+    spawn: { x: 57, y: 11 },
+    townCenter: { x: 57, y: 11 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/cinderreach/cinderreach.tmx',
+    dailyNature: true,
   },
   tidewrit_shallows: {
     id: 'tidewrit_shallows',

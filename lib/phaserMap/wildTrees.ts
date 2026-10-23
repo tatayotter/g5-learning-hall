@@ -1,15 +1,16 @@
 // lib/phaserMap/wildTrees.ts
 // Draws the trees of a map's daily nature layer (lib/mapNature.ts), and the chop effects.
-// Each tree's art is a strip of two 96x144 frames, grown and stump, with the trunk base at
-// (48, 134) so it stands near the bottom of its trunk tile.
+// Each tree's art is a strip of two 128x160 frames, grown and stump, with the trunk base at
+// (64, 134) so it stands near the bottom of its trunk tile (the room around it is for the shadow).
 //
 // Like the map's own trees, each one is split in two at the top of the trunk tile: the trunk
 // part sits under the players, the canopy above them, so a kid walking behind a tree goes
 // under its leaves. A grown tree's canopy glides a little like the map's trees
 // (swayingTrees.ts).
 //
-// Effects: swing() shakes the tree and throws wood chips and a few leaves; when a tree goes
-// from ready to a stump it topples over and lands in a puff of dust and leaves.
+// Effects: swing() is the axe landing (the swing itself is chopSwing.ts): the tree shakes and
+// throws wood chips and a few leaves, more for the blow that fells it. When a tree goes from
+// ready to a stump it topples over and lands in a puff of dust and leaves.
 import Phaser from 'phaser';
 import type { TreeId, TreeStage } from '@/lib/gardenConfig';
 import { addOutline, outlineAlpha } from './outline';
@@ -23,9 +24,9 @@ export interface TreeSprite {
   hits: number;
 }
 
-const FW = 96;
-const FH = 144;
-const BASE_X = 48;
+const FW = 128;
+const FH = 160;
+const BASE_X = 64;
 const BASE_Y = 134;
 // Frame row at the top of the trunk tile: above it is canopy (drawn over the players).
 const SPLIT = BASE_Y - 28;
@@ -33,6 +34,7 @@ const SPLIT = BASE_Y - 28;
 const FALL_H = BASE_Y - 20;
 const FRAME_OF: Record<TreeStage, number> = { ready: 0, stump: 1 };
 const GLIDE_MS = 7000;
+
 
 interface Drawn {
   key: string;
@@ -52,6 +54,8 @@ interface Drawn {
 export default class WildTrees {
   readonly below: Phaser.GameObjects.Container;
   readonly above: Phaser.GameObjects.Container;
+  // The kid's axe (chopSwing.ts), in front of the players but under the leaves.
+  readonly tools: Phaser.GameObjects.Container;
   private drawn = new Map<string, Drawn>();
   private wanted: TreeSprite[] = [];
   private readonly still: boolean;
@@ -67,6 +71,7 @@ export default class WildTrees {
     const make = (depth: number) => scene.add.container(layer.x, layer.y).setScale(layer.scaleX).setDepth(depth);
     this.below = make(belowDepth);
     this.above = make(aboveDepth);
+    this.tools = make(10.5);
     this.still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   }
 
@@ -186,8 +191,14 @@ export default class WildTrees {
     }
   }
 
+  /** Where a tree's trunk stands, in map units (32 a tile), or null if it isn't drawn. */
+  trunkAt(id: string) {
+    const d = this.drawn.get(id);
+    return d ? { x: d.tree.x, y: d.tree.y } : null;
+  }
+
   /** One swing landed on the tree: it shakes, chips fly from the trunk and a few leaves drop. */
-  swing(id: string) {
+  swing(id: string, heavy = false) {
     const d = this.drawn.get(id);
     if (!d || this.still) return;
     const { left, top } = this.origin(d.tree);
@@ -198,9 +209,9 @@ export default class WildTrees {
       this.scene.tweens.add({ targets: img, x: x + 1.5, duration: 50, yoyo: true, repeat: 2, ease: 'Sine.easeInOut', onComplete: () => { img.x = x; } });
     }
     // The canopy swings further than the trunk.
-    this.scene.tweens.add({ targets: d, shake: 3, duration: 60, yoyo: true, repeat: 2, ease: 'Sine.easeInOut', onComplete: () => { d.shake = 0; } });
+    this.scene.tweens.add({ targets: d, shake: heavy ? 5 : 3, duration: 60, yoyo: true, repeat: heavy ? 3 : 2, ease: 'Sine.easeInOut', onComplete: () => { d.shake = 0; } });
     const chips = [0x8a5a33, 0xc89a62, 0x6b4426, 0xe0c08a];
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < (heavy ? 12 : 7); i++) {
       const side = Math.random() < 0.5 ? -1 : 1;
       const chip = this.scene.add.rectangle(bx + side * 4, by - 14, 2 + (i % 2), 2, chips[i % chips.length]);
       this.above.add(chip);
@@ -211,7 +222,7 @@ export default class WildTrees {
         onComplete: () => this.scene.tweens.add({ targets: chip, y: by + 2, alpha: 0, duration: 260, ease: 'Quad.easeIn', onComplete: () => chip.destroy() }),
       });
     }
-    this.leaves(bx, top + 40, 4, 30);
+    this.leaves(bx, top + 40, heavy ? 8 : 4, 30);
   }
 
   // Leaves that flutter down from (x, y), spread over `spread` art pixels.
@@ -269,6 +280,7 @@ export default class WildTrees {
   destroy() {
     this.below.destroy();
     this.above.destroy();
+    this.tools.destroy();
     this.drawn.clear();
   }
 }

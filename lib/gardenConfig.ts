@@ -53,16 +53,25 @@ export const VEGGIE_SELL_PRICE = 2;
 export const GARDEN_STACK = 20;
 
 // ── Trees ──────────────────────────────────────────────────────────────────
-// Art: public/garden/tree_<id>.png, two 96x144 frames (grown, stump) with the trunk base at
-// (48, 134), cut from the map's own tileset (Props.png). Each kind has its own stump.
-export type TreeId = 'maple' | 'oak' | 'birch' | 'pine';
-export const TREES: Record<TreeId, { id: TreeId; label: string }> = {
-  maple: { id: 'maple', label: 'Maple' },
-  oak:   { id: 'oak',   label: 'Oak' },
-  birch: { id: 'birch', label: 'Birch' },
-  pine:  { id: 'pine',  label: 'Pine' },
+// Art: public/garden/tree_<id>.png, two 128x160 frames (grown, stump) with the trunk base at
+// (64, 134). Ledger's Heart's trees are cut from the map's own tileset (Props.png); each region
+// also has trees found only there, drawn by Rowil (garden-art/out/region-<element>). Each kind
+// has its own stump. `name` is what the kid sees on the map ("Chop Ember Tree").
+export type TreeId = 'maple' | 'oak' | 'birch' | 'pine' | 'ember' | 'ashwillow';
+export const TREES: Record<TreeId, { id: TreeId; label: string; name: string }> = {
+  maple:     { id: 'maple',     label: 'Maple',      name: 'Maple Tree' },
+  oak:       { id: 'oak',       label: 'Oak',        name: 'Oak Tree' },
+  birch:     { id: 'birch',     label: 'Birch',      name: 'Birch Tree' },
+  pine:      { id: 'pine',      label: 'Pine',       name: 'Pine Tree' },
+  ember:     { id: 'ember',     label: 'Ember',      name: 'Ember Tree' },
+  ashwillow: { id: 'ashwillow', label: 'Ash Willow', name: 'Ash Willow' },
 };
-export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine'];
+// Which trees grow where (chop_wild_tree checks the same pairs).
+export const REGION_TREES: Record<string, TreeId[]> = {
+  ledgers_heart: ['maple', 'oak', 'birch', 'pine'],
+  cinderreach: ['ember', 'ashwillow'],
+};
+export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine', 'ember', 'ashwillow'];
 
 // The trees themselves grow with the day's nature layer (lib/mapNature.ts): every one of them
 // can be chopped, and a chopped tree stays a stump until the next day's map.
@@ -75,6 +84,22 @@ export const WOOD_PER_TREE = 3;
 export const DAILY_TREE_LIMIT = 8;
 
 export type TreeStage = 'ready' | 'stump';
+
+// One swing of the axe, shared by the map animation (lib/phaserMap/chopSwing.ts), its sounds and
+// the chop panel, which steps aside while it plays. Times in ms from when the swing starts:
+// the kid winds up (lean back, axe high), strikes, freezes for a beat on contact, the axe
+// recoils, and they settle back to the ready stance. The blow that fells a tree winds up
+// longer and lands harder. A miss swings through and stumbles instead of landing.
+export type SwingKind = 'hit' | 'miss' | 'felled';
+export function swingTiming(kind: SwingKind) {
+  const windUp = kind === 'felled' ? 520 : 400;
+  const strike = 110;
+  const freeze = kind === 'felled' ? 150 : kind === 'hit' ? 90 : 0;
+  const recover = kind === 'miss' ? 650 : 520;
+  return { windUp, strike, impact: windUp + strike, freeze, total: windUp + strike + freeze + recover };
+}
+// The right/wrong reveal stays up this long before the panel steps aside and the swing starts.
+export const SWING_REVEAL_MS = 500;
 
 // ── Bag items ──────────────────────────────────────────────────────────────
 // Keys in player_bag_items.item_key.

@@ -17,7 +17,7 @@
 // Trees aren't tiles: they're drawn by lib/phaserMap/wildTrees.ts (each one can be chopped,
 // garden switch), and only their trunk tile is solid. Bushes go on Objects Base (solid);
 // grass, flowers, pebbles and small rocks on Ground Detail (walkable).
-import type { TreeId } from '@/lib/gardenConfig';
+import { REGION_TREES, type TreeId } from '@/lib/gardenConfig';
 
 export interface NatureRect { x: number; y: number; width: number; height: number }
 
@@ -39,6 +39,10 @@ export interface NatureInput {
   reserved: { x: number; y: number }[]; // tiles that must stay free (wild veggies)
   keepClear: NatureRect[]; // pixels, from a "Keep Clear" object layer
   forest: NatureRect[]; // pixels, from a "Forest" object layer
+  // Tiles where nothing may grow: cliffs, skirts, liquid, "collision" boxes.
+  occupied?: boolean[];
+  // Tiles nobody can walk on (liquid, "collision" boxes), for the reachability check.
+  blocked?: boolean[];
 }
 
 export interface NatureOutput {
@@ -115,9 +119,24 @@ const FLOWERS: Stamp[] = [
 ];
 // Tall-grass tufts (they sway: lib/phaserMap/swayingGrass.ts).
 const TUFTS: Stamp[] = [18, 19, 20].map(col => ({ set: 'Trees', col, row: 11, w: 1, h: 1 }));
-const COLUMNS: Record<string, number> = { TileSet: 64, Props: 32, Trees: 32, 'Town Props 2': 32 };
+const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4 };
 
-const KINDS: TreeId[] = ['maple', 'oak', 'birch', 'pine'];
+// What grows in each region. Ledger's Heart uses the pack's own plants; the elemental regions
+// have their own trees (REGION_TREES) and plants drawn by Rowil (a small tileset per region,
+// built by maps-incoming/fire-tiles/build_fire_nature.py and the like), thinner where the land
+// is harsh.
+interface Flora { bushes: Stamp[]; smallBushes: Stamp[]; rocks: Stamp[]; flowers: Stamp[]; tufts: Stamp[]; trees: number; meadow: number }
+const FIRE_BUSH: Stamp = { set: 'FireNature', col: 0, row: 0, w: 2, h: 1 };
+const FLORA: Record<string, Flora> = {
+  ledgers_heart: { bushes: BUSHES, smallBushes: SMALL_BUSHES, rocks: ROCKS, flowers: FLOWERS, tufts: TUFTS, trees: 1, meadow: 0.62 },
+  cinderreach: {
+    bushes: [FIRE_BUSH], smallBushes: [FIRE_BUSH],
+    rocks: ROCKS.slice(0, 5), // no mushrooms in the ash
+    flowers: [{ set: 'FireNature', col: 3, row: 0, w: 1, h: 1 }],
+    tufts: [{ set: 'FireNature', col: 2, row: 0, w: 1, h: 1 }],
+    trees: 0.7, meadow: 0.7,
+  },
+};
 
 // How many of each, on a 60 x 40 map (scaled by area).
 const TREES_PER_2400 = 56;
@@ -136,12 +155,29 @@ export function growNature(input: NatureInput): NatureOutput {
   const clump = noise(seed + 1, 7);
   const kindField = noise(seed + 2, 11);
   const meadow = noise(seed + 3, 6);
+  const flora = FLORA[input.regionId] ?? FLORA.ledgers_heart;
+  const KINDS = REGION_TREES[input.regionId] ?? REGION_TREES.ledgers_heart;
+  // A stamp from a tileset the map doesn't have can't be drawn.
+  const usable = (list: Stamp[]) => list.filter(st => input.firstgid[st.set] !== undefined);
 
-  // Plain grass: the map's most common ground tile, with nothing drawn over it.
+  // Plain ground: the map's most common ground tile and its variants (tiles next to it on the
+  // tileset sheet, like a 3x3 block of dirt drawn mixed together), with nothing drawn over it.
   const counts = new Map<number, number>();
-  for (const g of ground) counts.set(g, (counts.get(g) ?? 0) + 1);
-  const grass = [...counts.entries()].sort((a, b) => b[1] - a[1])[0][0];
-  const open = (x: number, y: number) => inMap(x, y) && ground[idx(x, y)] === grass && !input.detail[idx(x, y)] && !input.base[idx(x, y)];
+  for (const g of ground) if (g) counts.set(g, (counts.get(g) ?? 0) + 1);
+  const ranked = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+  const top = ranked[0][0];
+  const sheet = (g: number) => {
+    const [name, first] = Object.entries(input.firstgid).filter(([, f]) => f <= g).sort((a, b) => b[1] - a[1])[0] ?? ['', 1];
+    const cols = COLUMNS[name] ?? 32;
+    return { name, col: (g - first) % cols, row: Math.floor((g - first) / cols) };
+  };
+  const t0 = sheet(top);
+  const plain = new Set(ranked.filter(([g, n]) => {
+    if (g === top) return true;
+    const t = sheet(g);
+    return n >= ranked[0][1] * 0.1 && t.name === t0.name && Math.abs(t.col - t0.col) <= 2 && Math.abs(t.row - t0.row) <= 2;
+  }).map(([g]) => g));
+  const open = (x: number, y: number) => inMap(x, y) && plain.has(ground[idx(x, y)]) && !input.detail[idx(x, y)] && !input.base[idx(x, y)] && !input.occupied?.[idx(x, y)];
 
   // Distance (in tiles, 8-way) to the nearest path or other non-grass tile.
   const dist = new Array<number>(W * H).fill(Infinity);
@@ -204,7 +240,7 @@ export function growNature(input: NatureInput): NatureOutput {
 
   // ── Trees ──
   const trees: NatureTree[] = [];
-  const treeTarget = Math.round(TREES_PER_2400 * area);
+  const treeTarget = Math.round(TREES_PER_2400 * area * flora.trees);
   const spaced = (x: number, y: number) => trees.every(t => Math.abs(t.x - x) >= 3 || Math.abs(t.y - y) >= 3);
   const treeChance = (x: number, y: number) => {
     const edge = Math.min(x, y, W - 1 - x, H - 1 - y);
@@ -232,7 +268,9 @@ export function growNature(input: NatureInput): NatureOutput {
   const placedBushes: { s: Stamp; x: number; y: number }[] = [];
   for (const [x, y] of shuffled()) {
     if (bushes >= bushTarget) break;
-    const s = rand() < 0.7 ? BUSHES[Math.floor(rand() * BUSHES.length)] : SMALL_BUSHES[Math.floor(rand() * SMALL_BUSHES.length)];
+    const big = usable(flora.bushes), small = usable(flora.smallBushes);
+    if (!big.length || !small.length) break;
+    const s = rand() < 0.7 ? big[Math.floor(rand() * big.length)] : small[Math.floor(rand() * small.length)];
     if (!fits(s, x, y, 1, false) || rand() > 0.35 + clump(x, y) * 0.5) continue;
     if (placedBushes.some(b => Math.abs(b.x - x) < 3 && Math.abs(b.y - y) < 3)) continue;
     stamp(base, s, x, y);
@@ -248,12 +286,15 @@ export function growNature(input: NatureInput): NatureOutput {
   for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
     const i = idx(x, y);
     if (!open(x, y) || dist[i] < 1 || clear[i] || taken[i] || canopy[i]) continue;
-    if (meadow(x, y) > 0.62 && rand() < 0.75) {
-      detail[i] = gid(TUFTS[Math.floor(rand() * TUFTS.length)], 0, 0);
+    const tufts = usable(flora.tufts);
+    if (tufts.length && meadow(x, y) > flora.meadow && rand() < 0.75) {
+      detail[i] = gid(tufts[Math.floor(rand() * tufts.length)], 0, 0);
       taken[i] = 1;
     }
   }
-  const sprinkle = (stamps: Stamp[], target: number) => {
+  const sprinkle = (all: Stamp[], target: number) => {
+    const stamps = usable(all);
+    if (!stamps.length) return;
     let n = 0;
     for (const [x, y] of shuffled()) {
       if (n >= target) break;
@@ -263,12 +304,12 @@ export function growNature(input: NatureInput): NatureOutput {
       n++;
     }
   };
-  sprinkle(ROCKS, Math.round(ROCKS_PER_2400 * area));
-  sprinkle(FLOWERS, Math.round(FLOWERS_PER_2400 * area));
+  sprinkle(flora.rocks, Math.round(ROCKS_PER_2400 * area));
+  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : 0.5)));
 
   // ── Everything walkable must stay reachable from the spawn ──
-  const solid = (x: number, y: number) => !!input.base[idx(x, y)] || !!base[idx(x, y)] || trees.some(t => t.x === x && t.y === y);
-  const solidOrig = (x: number, y: number) => !!input.base[idx(x, y)];
+  const solid = (x: number, y: number) => !!input.blocked?.[idx(x, y)] || !!input.base[idx(x, y)] || !!base[idx(x, y)] || trees.some(t => t.x === x && t.y === y);
+  const solidOrig = (x: number, y: number) => !!input.blocked?.[idx(x, y)] || !!input.base[idx(x, y)];
   for (let round = 0; round < 50; round++) {
     const seen = new Uint8Array(W * H);
     const q = [idx(input.spawn.x, input.spawn.y)];

@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
-import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip, playLevelUp } from '@/lib/sounds';
+import { playMonsterAppear, playChime, playClash, playFootstepGrass, playFootstepTown, playWallBump, playCoins, playPageFlip, playLevelUp, playAttackWhoosh, playMiss, playChop } from '@/lib/sounds';
 import { useMapPresence } from '@/hooks/useMapPresence';
 import { useContinuousMovement } from '@/hooks/useContinuousMovement';
 import PlayerStatsPopup from '@/components/PlayerStatsPopup';
@@ -26,7 +26,7 @@ import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionP
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import { REGIONS, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
-import { loadTiledArtMap, type TiledArtPortal } from '@/lib/tiledArtMap';
+import { loadTiledArtMap, stepInside, type TiledArtPortal } from '@/lib/tiledArtMap';
 import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
@@ -36,8 +36,8 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  DAILY_TREE_LIMIT, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, saplingKey, seedsKey, veggieKey,
-  type WildTreeNode,
+  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, saplingKey, seedsKey, veggieKey,
+  swingTiming, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
@@ -246,7 +246,10 @@ export default function TrainingMap({
   const [activePlant, setActivePlant] = useState<PlantView | null>(null);
   // The tree being chopped, and the latest swing that landed (for the shake).
   const [activeTree, setActiveTree] = useState<TreeView | null>(null);
-  const [treeSwing, setTreeSwing] = useState<{ id: string; n: number } | null>(null);
+  const [treeSwing, setTreeSwing] = useState<{ id: string; n: number; kind: SwingKind } | null>(null);
+  // How long the latest swing plays: the chop panel stays out of the way for it.
+  const [swingMs, setSwingMs] = useState(0);
+  const [swingAway, setSwingAway] = useState(false);
   const [sellingVeggies, setSellingVeggies] = useState(false);
   // Tagged with the curio it was picked for, so a new curio never flashes
   // at the previous one's tile before its own spot is picked.
@@ -462,7 +465,7 @@ export default function TrainingMap({
     const tileData = map[newY]?.[newX];
     if (!tileData) return;
 
-    const portal = isLedgersHeart ? portals.find(p => p.x === newX && p.y === newY) : undefined;
+    const portal = portals.find(p => p.x === newX && p.y === newY);
 
     if (tileData.type === 'town') {
       playFootstepTown();
@@ -484,7 +487,19 @@ export default function TrainingMap({
 
     if (portal) {
       const targetRegion = REGIONS[portal.regionId];
-      if (targetRegion && playerLevel >= targetRegion.unlockLevel) {
+      if (targetRegion && !isLedgersHeart && portal.regionId === 'ledgers_heart' && targetRegion.tileArtPath) {
+        // Back home: the kid comes out at the end of the road that leads here, so the walk
+        // carries on from one map to the next.
+        const here = activeRegion.id;
+        loadTiledArtMap(targetRegion.tileArtPath).then(lh => {
+          const door = lh.portals.find(p => p.regionId === here);
+          if (door) {
+            const at = stepInside(door, lh.mapWidth, lh.mapHeight);
+            onBattleStateChange({ ...battleState, map_x: at.x, map_y: at.y });
+            positionWriteThrottleRef.current.call(at.x, at.y);
+          }
+        }).catch(() => {}).finally(() => onEnterRegion?.('ledgers_heart'));
+      } else if (targetRegion && playerLevel >= targetRegion.unlockLevel) {
         onEnterRegion?.(portal.regionId);
       } else {
         setLockedPortalMsg(`${targetRegion?.name ?? 'This region'} unlocks at Player Level ${targetRegion?.unlockLevel ?? '?'}`);
@@ -563,7 +578,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, activeRegion.id, questions, showBarMessage]);
 
   // Plants and trees open their question only when the kid asks (E, a tap on it, or the
   // Pick/Chop button), never just by walking past. The one close enough gets a gold outline.
@@ -599,6 +614,7 @@ export default function TrainingMap({
       showBarMessage("No internet, and this week's questions aren't saved here yet.");
     } else {
       playMonsterAppear();
+      setSwingAway(false);
       setActiveTree(tree);
     }
   }, [garden, showBarMessage, userId, questions]);
@@ -692,6 +708,7 @@ export default function TrainingMap({
           belowPlayerLayers: parsed.belowPlayerLayers,
           abovePlayerLayers: parsed.abovePlayerLayers,
           layerOpacity: parsed.layerOpacity,
+          animatedTiles: parsed.animatedTiles,
         });
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);
@@ -765,13 +782,19 @@ export default function TrainingMap({
     }
   };
 
-  // One swing at a tree, graded by useGarden; a swing that lands shakes the tree.
+  // One swing at a tree, graded by useGarden. Once the right/wrong reveal has shown, the chop panel
+  // steps aside and the kid swings on the map (lib/phaserMap/chopSwing.ts): it lands with a woody
+  // chop on a right answer and whiffs past on a wrong one. The sounds follow the swing.
   const gradeSwing = async (tree: TreeView, q: BattleQuestion, selected: string) => {
     const res = await garden.chop(tree, q, selected);
     const r = garden.lastChop.current;
-    if (r && (r.status === 'hit' || r.status === 'felled')) {
-      playCoins();
-      setTreeSwing(s => ({ id: tree.id, n: (s?.n ?? 0) + 1 }));
+    const kind: SwingKind | null = r?.status === 'felled' ? 'felled' : r?.status === 'hit' ? 'hit' : r?.status === 'wrong' ? 'miss' : null;
+    setSwingMs(kind ? swingTiming(kind).total : 0);
+    if (kind) {
+      const t = swingTiming(kind);
+      setTimeout(() => setTreeSwing(s => ({ id: tree.id, n: (s?.n ?? 0) + 1, kind })), SWING_REVEAL_MS);
+      setTimeout(() => (kind === 'miss' ? playMiss() : playAttackWhoosh()), SWING_REVEAL_MS + t.windUp);
+      if (kind !== 'miss') setTimeout(() => playChop(kind === 'felled'), SWING_REVEAL_MS + t.impact);
     }
     return res;
   };
@@ -917,8 +940,9 @@ export default function TrainingMap({
   // see components/monster/map/MapCanvas.tsx for the split rationale.
   // Ledger's Heart's tile-art map has no dedicated healing tile (see
   // lib/tiledArtMap.ts's header comment) — so no marker to show there.
-  const townMarkerTile = isLedgersHeart ? null : region!.townCenter;
-  const portalMarkers = isLedgersHeart
+  // Flat (tile-art) region maps have no healing tile either; their only marker is the way home.
+  const townMarkerTile = isLedgersHeart || activeRegion.tileArtPath ? null : region!.townCenter;
+  const portalMarkers = portals.length
     ? portals.map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) }))
     : undefined;
   // Hoisted to avoid an IIFE allocation on every render inside the scroll panel JSX.
@@ -966,6 +990,7 @@ export default function TrainingMap({
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
+        chopTree={activeTree?.id ?? null}
         highlight={nearby && !controlsDisabled ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id } : null}
         onMapTap={handleMapTap}
         ambience={ambience}
@@ -982,7 +1007,7 @@ export default function TrainingMap({
             src={nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY)}
             alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }}
           />
-          {nearby.kind === 'plant' ? `Pick ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].label} Tree`}
+          {nearby.kind === 'plant' ? `Pick ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].name}`}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
@@ -1124,6 +1149,8 @@ export default function TrainingMap({
       questions={scrollGradeOverride ? offlineScrollQuestions(userId, questions) : questions}
       gradingUserId={gradingUserId}
       grade={(q, selected) => gradeSwing(activeTree, q, selected)}
+      swingMs={swingMs}
+      onAway={setSwingAway}
       onAnswered={handleSwingAnswered}
       onLeave={() => setActiveTree(null)}
     />
@@ -1147,6 +1174,7 @@ export default function TrainingMap({
         drawerLabel="Info"
         drawer={drawer}
         overlay={overlay}
+        overlayClear={swingAway && !!activeTree}
         hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} />}
         fullscreen={fullscreen}
       />
