@@ -9,7 +9,7 @@
 // - a fish jumping now and then,
 // - footprints left in the sand (fading after a while),
 // - puffs of ash kicked up by every step,
-// - embers rising off the lava, and the lava glowing brighter at night.
+// - embers rising off the lava, and at night the lava's light, fading out in curved bands.
 //
 // Drawn with a few pixel rectangles a frame (only what's on screen), in map units inside
 // containers that follow the camera like the sky (ambience.ts). Purely visual. With "reduce
@@ -112,20 +112,24 @@ function makeWaveTexture(scene: Phaser.Scene) {
 }
 const PUFF_MS = 650;
 
-// Deep water shading: art px per shading px, and where each band starts (px from land).
-const DEEP_CELL = 4;
+// Deep water shading and the lava's night glow are each one picture over the whole map, in
+// cells of SHADE_CELL art px, cut into a few flat bands like the cloud shadows (ambience.ts).
+const SHADE_CELL = 4;
+// Deep water: bands by px from the nearest land tile.
 const DEEP_BANDS: [number, number][] = [[34, 0.1], [62, 0.2], [96, 0.3], [140, 0.38]];
 const DEEP_COLOR = '24,62,92';
-let deepTextures = 0;
+// Lava glow: bands by px from the open lava (lava all around), so it lights the lava and spills
+// a little warm light onto the rocks at its edge, fading out in curves.
+const GLOW_BANDS: [number, number][] = [[0, 1], [10, 0.7], [22, 0.45], [36, 0.25], [52, 0.1]];
+const GLOW_COLOR = '255,112,32';
+let shadeTextures = 0;
 
-// One picture over the whole map: for each water cell, how far it is from the nearest land
-// tile (a chamfer pass), pushed in and out by a couple of slow waves so the bands curve and
-// bulge like the cloud shadows instead of following the tile steps, then cut into DEEP_BANDS.
-function makeDeepTexture(scene: Phaser.Scene, liquid: boolean[][], W: number, H: number) {
-  const cw = (W * UNIT) / DEEP_CELL, ch = (H * UNIT) / DEEP_CELL, per = UNIT / DEEP_CELL;
+// How far each cell is from the nearest source tile, in px (a two-pass chamfer).
+function cellDistance(isSource: (x: number, y: number) => boolean, W: number, H: number) {
+  const cw = (W * UNIT) / SHADE_CELL, ch = (H * UNIT) / SHADE_CELL, per = UNIT / SHADE_CELL;
   const BIG = 1e9;
   const d = new Float32Array(cw * ch);
-  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) d[y * cw + x] = liquid[Math.floor(y / per)][Math.floor(x / per)] ? BIG : 0;
+  for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) d[y * cw + x] = isSource(Math.floor(x / per), Math.floor(y / per)) ? 0 : BIG;
   const at = (x: number, y: number) => (x < 0 || y < 0 || x >= cw || y >= ch ? BIG : d[y * cw + x]);
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
     const i = y * cw + x;
@@ -135,32 +139,46 @@ function makeDeepTexture(scene: Phaser.Scene, liquid: boolean[][], W: number, H:
     const i = y * cw + x;
     if (d[i]) d[i] = Math.min(d[i], at(x + 1, y) + 1, at(x, y + 1) + 1, at(x + 1, y + 1) + 1.414, at(x - 1, y + 1) + 1.414);
   }
+  for (let i = 0; i < d.length; i++) d[i] *= SHADE_CELL;
+  return { d, cw, ch };
+}
+
+// The distance is pushed in and out by a couple of slow waves, so the bands curve and bulge
+// instead of following the tile steps. alphaAt picks a band's strength for a distance (0 = none).
+function makeShadeTexture(scene: Phaser.Scene, cells: { d: Float32Array; cw: number; ch: number }, color: string, alphaAt: (px: number) => number, only?: (x: number, y: number) => boolean) {
+  const { d, cw, ch } = cells;
   const canvas = document.createElement('canvas');
   canvas.width = cw;
   canvas.height = ch;
   const g = canvas.getContext('2d')!;
   for (let y = 0; y < ch; y++) for (let x = 0; x < cw; x++) {
-    const dist = d[y * cw + x];
-    if (!dist) continue;
-    const px = x * DEEP_CELL, py = y * DEEP_CELL;
+    const px = x * SHADE_CELL, py = y * SHADE_CELL;
+    if (only && !only(Math.floor(px / UNIT), Math.floor(py / UNIT))) continue;
     const wobble = 9 * Math.sin(px * 0.021 + py * 0.008) + 7 * Math.sin(py * 0.027 - px * 0.011 + 1.7) + 4 * Math.sin((px + py) * 0.05);
-    const dd = dist * DEEP_CELL + wobble;
-    let a = 0;
-    for (const [from, alpha] of DEEP_BANDS) if (dd >= from) a = alpha;
+    const a = alphaAt(d[y * cw + x] + wobble);
     if (!a) continue;
-    g.fillStyle = `rgba(${DEEP_COLOR},${a})`;
+    g.fillStyle = `rgba(${color},${a})`;
     g.fillRect(x, y, 1, 1);
   }
-  const key = `fx:deep:${++deepTextures}`;
+  const key = `fx:shade:${++shadeTextures}`;
   scene.textures.addCanvas(key, canvas);
   return key;
 }
+
+// Deep water: the band for how far out it is.
+const deepAt = (px: number) => {
+  let a = 0;
+  for (const [from, alpha] of DEEP_BANDS) if (px >= from) a = alpha;
+  return a;
+};
 
 export default class GroundFx {
   private water: Phaser.GameObjects.Graphics; // on the water, under the land's edge
   private ground: Phaser.GameObjects.Graphics; // on the ground, under players
   private deep?: Phaser.GameObjects.Image; // the deep water shading, just over the water tiles
   private deepKey = '';
+  private lavaGlow?: Phaser.GameObjects.Image; // the lava's light at night
+  private lavaGlowKey = '';
   private waves?: Phaser.GameObjects.Container; // the wave sprites, on the ground too
   private glow: Phaser.GameObjects.Graphics; // lights: they add light, and shine through the night
   private embers: Ember[] = [];
@@ -186,11 +204,26 @@ export default class GroundFx {
     this.water = scene.add.graphics();
     this.ground = scene.add.graphics();
     this.glow = scene.add.graphics().setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
+    const liquid = (x: number, y: number) => !!map.liquid[y]?.[x];
     if (kinds.deep) {
-      this.deepKey = makeDeepTexture(scene, map.liquid, map.width, map.height);
+      const cells = cellDistance((x, y) => !liquid(x, y), map.width, map.height);
+      this.deepKey = makeShadeTexture(scene, cells, DEEP_COLOR, deepAt, liquid);
       // Nearest-neighbour scaling keeps the band edges crisp pixel steps, like the clouds.
       this.deep = scene.add.image(0, 0, this.deepKey).setOrigin(0, 0);
       this.deep.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
+    }
+    if (kinds.embers) {
+      // Open lava: lava on every side, so the glow starts inside the pool, not at its rim.
+      const open = (x: number, y: number) => [-1, 0, 1].every(dy => [-1, 0, 1].every(dx => liquid(x + dx, y + dy) || x + dx < 0 || y + dy < 0 || x + dx >= map.width || y + dy >= map.height));
+      const cells = cellDistance(open, map.width, map.height);
+      const glowAt = (px: number) => {
+        let a = 0;
+        for (const [from, alpha] of GLOW_BANDS) if (px <= from + 6) { a = alpha; break; }
+        return a;
+      };
+      this.lavaGlowKey = makeShadeTexture(scene, cells, GLOW_COLOR, glowAt);
+      this.lavaGlow = scene.add.image(0, 0, this.lavaGlowKey).setOrigin(0, 0).setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false);
+      this.lavaGlow.texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
     }
     if (kinds.foam) {
       const { width: W, height: H, liquid } = map;
@@ -236,7 +269,7 @@ export default class GroundFx {
   update(t: Transform, time: number, walkers: { id: string; x: number; y: number }[], night = 0) {
     const scale = t.tileW / UNIT;
     for (const g of [this.water, this.ground, this.glow]) g.setPosition(t.offsetX, t.offsetY).setScale(scale).clear();
-    this.deep?.setPosition(t.offsetX, t.offsetY).setScale(scale * DEEP_CELL);
+    for (const img of [this.deep, this.lavaGlow]) img?.setPosition(t.offsetX, t.offsetY).setScale(scale * SHADE_CELL);
     this.waves?.setPosition(t.offsetX, t.offsetY).setScale(scale);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
     this.lastNow = time;
@@ -344,14 +377,7 @@ export default class GroundFx {
         this.glow.fillStyle(0xff6a20, a * 0.35).fillRect(x - 1, y - 1, 3, 3);
         return true;
       });
-      if (night > 0.05) {
-        this.glow.fillStyle(0xff7020, 0.28 * night);
-        for (let y = Math.max(0, Math.floor(view.y0 / UNIT)); y < Math.min(this.map.height, Math.ceil(view.y1 / UNIT)); y++) {
-          for (let x = Math.max(0, Math.floor(view.x0 / UNIT)); x < Math.min(this.map.width, Math.ceil(view.x1 / UNIT)); x++) {
-            if (this.wet(x, y)) this.glow.fillRect(x * UNIT, y * UNIT, UNIT, UNIT);
-          }
-        }
-      }
+      if (this.lavaGlow) this.lavaGlow.setVisible(night > 0.05).setAlpha(0.3 * night);
     }
 
     // Rings (ripples, splashes, pops): a pixel ellipse that grows and fades.
@@ -398,8 +424,8 @@ export default class GroundFx {
   }
 
   destroy() {
-    this.deep?.destroy();
-    if (this.deepKey && this.scene.textures.exists(this.deepKey)) this.scene.textures.remove(this.deepKey);
+    for (const img of [this.deep, this.lavaGlow]) img?.destroy();
+    for (const key of [this.deepKey, this.lavaGlowKey]) if (key && this.scene.textures.exists(key)) this.scene.textures.remove(key);
     this.waves?.destroy(true);
     this.water.destroy();
     this.ground.destroy();
