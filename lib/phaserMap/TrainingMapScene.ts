@@ -288,6 +288,12 @@ function resolveFlipX(textureKey: string, facingRight: boolean): boolean {
   return facingRight;
 }
 
+// Player silhouettes under leaves: over every canopy (wild trees' at 11.5, and above the map's Objects
+// Top), a deep blue at half strength.
+const GHOST_DEPTH = 12.5;
+const GHOST_COLOR = 0x2b3566;
+const GHOST_ALPHA = 0.5;
+
 export default class TrainingMapScene extends Phaser.Scene {
   private ready = false;
   private pendingState: MapCanvasSyncState | null = null;
@@ -303,6 +309,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   private garden: GardenPlants | null = null;
   private gardenPlants: PlantSprite[] = [];
   private wildTrees: WildTrees | null = null;
+  // The map's "Objects Top" layer (canopy drawn over players), when it has one.
+  private topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+  // A see-through silhouette for each player (and bot) standing under leaves, drawn over them.
+  private ghosts = new Map<Phaser.GameObjects.Sprite, Phaser.GameObjects.Sprite>();
   private wildTreeSprites: TreeSprite[] = [];
   private lastTreeSwing = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
@@ -345,6 +355,34 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees?.update(time);
     this.garden?.update(time);
     this.wildTrees?.update(time);
+    this.updateGhosts();
+  }
+
+  // Under leaves (a wild tree's canopy or the map's own Objects Top), a player shows through as
+  // a soft silhouette: a copy of their sprite, filled one color, drawn over every canopy.
+  private updateGhosts() {
+    const players = [...(this.self ? [this.self] : []), ...this.others.values()];
+    const live = new Set<Phaser.GameObjects.Sprite>();
+    for (const p of players) {
+      const img = p.image;
+      if (!img.active) continue;
+      const tx = Math.round(p.x), ty = Math.round(p.y);
+      const covered = img.visible && (this.wildTrees?.covers(tx, ty) || !!this.topLayer?.hasTileAt(tx, ty));
+      let ghost = this.ghosts.get(img);
+      if (!covered) { ghost?.setVisible(false); if (ghost) live.add(img); continue; }
+      if (!ghost) {
+        ghost = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name)
+          .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL).setDepth(Math.max(GHOST_DEPTH, (this.topLayer?.depth ?? 0) + 1));
+        this.ghosts.set(img, ghost);
+      }
+      live.add(img);
+      if (ghost.texture.key !== img.texture.key || ghost.frame.name !== img.frame.name) ghost.setTexture(img.texture.key, img.frame.name);
+      ghost.setPosition(img.x, img.y).setOrigin(img.originX, img.originY).setScale(img.scaleX, img.scaleY)
+        .setFlipX(img.flipX).setAlpha(GHOST_ALPHA * img.alpha).setVisible(true);
+    }
+    for (const [img, ghost] of this.ghosts) {
+      if (!live.has(img)) { ghost.destroy(); this.ghosts.delete(img); }
+    }
   }
 
   create() {
@@ -698,6 +736,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees = null;
     this.garden = null;
     this.wildTrees = null;
+    this.topLayer = null;
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -748,6 +787,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         if (lower === 'objects base') baseLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects top') topLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
+      this.topLayer = topLayer;
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);

@@ -120,6 +120,14 @@ export default class WildTrees {
     this.drawn.set(t.id, { key, tree: t, below, canopy, canopyX: left, phase: Math.random() * Math.PI * 2, shake: 0 });
   }
 
+  /** Whether tile (x, y) is under a standing tree's leaves (the rows above its trunk). */
+  covers(x: number, y: number) {
+    for (const d of this.drawn.values()) {
+      if (d.canopy && y >= d.tree.y - 3 && y < d.tree.y && Math.abs(x - d.tree.x) <= 1) return true;
+    }
+    return false;
+  }
+
   update(now: number) {
     for (const d of this.drawn.values()) {
       if (d.canopy) d.canopy.x = d.canopyX + d.shake + (this.still ? 0 : Math.sin((now / GLIDE_MS) * Math.PI * 2 + d.phase));
