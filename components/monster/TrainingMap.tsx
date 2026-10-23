@@ -37,7 +37,7 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
+  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
   swingTiming, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { flyToBag } from '@/components/monster/map/flyToBag';
@@ -607,7 +607,7 @@ export default function TrainingMap({
     if (!plant.ripe) {
       showBarMessage(regrowWords(plant.veggie, Math.max(1, Math.ceil(((plant.readyAt ?? now) - now) / 60000))));
     } else if (plant.restUntil && now < plant.restUntil) {
-      showBarMessage(`This ${VEGGIES[plant.veggie].beach ? 'shell' : 'plant'} needs a short rest. Try again in a minute!`);
+      showBarMessage(`This ${VEGGIES[plant.veggie].found?.noun ?? 'plant'} needs a short rest. Try again in a minute!`);
     } else if (itemBarRef.current.bagUsed + garden.squaresForPick(plant.veggie) > itemBarRef.current.bagSize) {
       showBarMessage('Your bag is full! Sell veggies or trade trash at the Recycler.');
     } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
@@ -793,12 +793,12 @@ export default function TrainingMap({
     const r = garden.lastResult.current;
     if (!plant || !r) return;
     const name = VEGGIES[plant.veggie].label;
-    const thing = VEGGIES[plant.veggie].beach ? 'shell' : 'plant';
+    const thing = VEGGIES[plant.veggie].found?.noun ?? 'plant';
     if (r.status === 'picked') {
       playChime();
       flyToBag([gardenItemIcon(veggieKey(plant.veggie)), ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : [])]);
-      showBarMessage(r.seeds > 0 ? `You picked a ${name} and found ${name} Seeds too!`
-        : VEGGIES[plant.veggie].beach ? `You found a ${name}! It's in your bag.` : `You picked a ${name}! It's in your bag.`);
+      showBarMessage(r.seeds > 0 ? `You picked ${withA(name)} and found ${name} Seeds too!`
+        : VEGGIES[plant.veggie].found ? `You found ${withA(name)}! It's in your bag.` : `You picked ${withA(name)}! It's in your bag.`);
     } else if (r.status === 'wrong') {
       playClash();
       showBarMessage(r.restUntil ? `Oops! The ${thing} needs a short rest. Try again in a minute.` : 'Not quite! Try again for another question.');

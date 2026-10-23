@@ -34,8 +34,8 @@ export interface Ambience {
   fireflies?: number;
   // While it rains, lightning flashes now and then.
   lightning?: boolean;
-  // Never brighter than this much night (0..1): a half-lit place, dim even at noon, where the
-  // fireflies and lights stay out all day.
+  // Never brighter than this much night (0..1): 1 is a place that stays as dark as night all
+  // day (the Unread Margins), fireflies and lights out at every hour.
   gloom?: number;
 }
 
@@ -80,7 +80,7 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     drift: { kind: 'rise', colors: [0xb28cff, 0x8a6ad8, 0xd8c0ff], count: 10, glow: true, wind: 3 },
     sunset: 0xd080ff,
     fireflies: 18,
-    gloom: 0.5,
+    gloom: 1,
   },
   light: {
     clouds: { ...BASE_CLOUDS, cover: 0.18, darkness: 0.16, color: 0x2a2a40 },

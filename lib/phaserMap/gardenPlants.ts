@@ -3,7 +3,7 @@
 // a strip of three frames: ripe, just picked, growing back. Short plants are one tile
 // (32x32), corn and beans two tiles tall (32x64), standing on their tile.
 //
-// Only ripe plants sway, so a kid can spot what's ready from far off. Like the grass
+// Only ripe plants sway (finds like shells lie still), so a kid can spot what's ready from far off. Like the grass
 // (swayingGrass.ts), the sway bends rather than rotates: the bottom 30% (soil and stem base)
 // stays put and every art-pixel row above slides sideways in proportion to its height, a
 // skew. Each plant gets its own speed, strength and start from its spot id, plus a smaller
@@ -14,6 +14,7 @@
 // keeps it in its tilemapLayers list), between the ground objects and the players.
 import Phaser from 'phaser';
 import { addOutline, outlineAlpha } from './outline';
+import { VEGGIES, type VeggieId } from '@/lib/gardenConfig';
 
 export interface PlantSprite {
   id: string;
@@ -135,7 +136,8 @@ export default class GardenPlants {
       if (!texture.has(name)) texture.add(name, 0, fx, 0, FRAME_W, h);
       outline = addOutline(this.scene, this.container, tex, name, left, top);
     }
-    if (p.stage !== 'ripe' || this.still || focus) {
+    // Finds (shells, crystals...) lie still: only growing things sway.
+    if (p.stage !== 'ripe' || this.still || focus || VEGGIES[p.veggie as VeggieId]?.found) {
       add(`${p.stage}:full`, 0, h);
     } else {
       const seam = Math.round(h * (1 - ANCHOR));

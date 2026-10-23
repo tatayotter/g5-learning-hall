@@ -13,7 +13,7 @@
 //   and fireflies blink over the grass (they glow over the dark).
 // - Some hours it drizzles (lib/ambience.ts isRaining): thin streaks and a grey cast, and over
 //   the Stormrun lightning flashes now and then.
-// - A gloomy place (the Unread Margins) stays half-dark all day, fireflies out.
+// - A gloomy place (the Unread Margins) stays dark as night all day, fireflies out.
 //
 // The containers work in map units (32 per tile) and follow the map's camera transform each
 // frame, so they fit tile-art and painted maps alike. With "reduce motion" on, the clouds

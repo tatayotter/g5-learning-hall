@@ -370,8 +370,8 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                 <div className="min-w-0">
                   <p className="text-sm font-extrabold text-[#2a1505]">{gardenItemLabel(k)} ×{n}</p>
                   <p className="text-[11px] text-[#6b4820]">
-                    {g.kind === 'veggie' && g.veggie.beach
-                      ? `Found on the beach! The Recycler buys shells for ${VEGGIE_SELL_PRICE} gold each.`
+                    {g.kind === 'veggie' && g.veggie.found
+                      ? `${g.veggie.found.where} The Recycler buys ${g.veggie.found.noun}s for ${VEGGIE_SELL_PRICE} gold each.`
                       : g.kind === 'veggie'
                       ? `Picked fresh! The Recycler buys veggies for ${VEGGIE_SELL_PRICE} gold each.`
                       : g.kind === 'wood'
