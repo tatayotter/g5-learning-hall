@@ -642,16 +642,16 @@ export default class TrainingMapScene extends Phaser.Scene {
     let offsetX: number;
     if (this.visibleCanvasW < CANVAS_WIDTH) {
       // Cover-mode fullscreen: only the central strip [visLeft, visRight] of
-      // the canvas is visible. Clamp purely to keep the player inside that
-      // strip — the camera may scroll slightly past the map boundary at edges,
-      // briefly revealing a transparent void, which is better than the player
-      // disappearing off-screen.
+      // the canvas is visible. Centre the player in that strip, but stop at
+      // the map's edges like the top and bottom do, so no empty void shows
+      // beside the map (the strip is narrower than the map, so the player
+      // always stays in view).
       const visLeft = (CANVAS_WIDTH - this.visibleCanvasW) / 2;
       const visRight = CANVAS_WIDTH - visLeft;
       offsetX = Phaser.Math.Clamp(
         CANVAS_WIDTH / 2 - playerCenterX,
-        visLeft - playerCenterX,   // player ≥ visLeft
-        visRight - playerCenterX,  // player ≤ visRight
+        Math.min(visLeft, visRight - mapPixelW), // map's right edge ≥ visRight
+        visLeft,                                 // map's left edge ≤ visLeft
       );
     } else {
       // Normal mode: keep tilemap within canvas edges (no void).

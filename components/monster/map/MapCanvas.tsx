@@ -10,6 +10,7 @@
 // scene file's header comment for the full rationale.
 import { useEffect, useRef, useContext, useState, useCallback } from 'react';
 import { useClientValue } from '@/hooks/useClientValue';
+import { coverArea } from '@/hooks/useStageScale';
 import { MapScaleContext, MapHudContext } from '@/components/MapStage';
 import { USERS } from '@/lib/userSession';
 import { GMBadge, MonsterImage } from '@/components/battle/shared';
@@ -153,7 +154,7 @@ export default function MapCanvas({
   // (CANVAS_WIDTH is the canvas's own pre-transform CSS pixel width; the
   // transform scales it up so only viewport_width / scale pixels are visible.)
   const visibleCanvasW = (mapScale > 1 && typeof window !== 'undefined')
-    ? Math.round(window.innerWidth / mapScale)
+    ? Math.round(coverArea().width / mapScale)
     : CANVAS_WIDTH;
 
   const containerRef = useRef<HTMLDivElement>(null);

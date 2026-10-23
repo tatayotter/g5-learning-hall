@@ -451,6 +451,26 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     }
     layout.push(row);
   }
+  // Land nobody can walk to (across a river, behind a cliff) counts as solid too, so no trash,
+  // scroll, curio, bot or other player ever lands there. Walk out from the start and every door.
+  const reached = new Uint8Array(mapWidth * mapHeight);
+  const todo = [spawnTile, ...portals.map(p => stepInside(p, mapWidth, mapHeight))]
+    .filter(t => layout[t.y]?.[t.x] && layout[t.y][t.x].type !== 'wall');
+  for (const t of todo) reached[t.y * mapWidth + t.x] = 1;
+  while (todo.length) {
+    const { x, y } = todo.pop()!;
+    for (const [nx, ny] of [[x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]]) {
+      if (nx < 0 || ny < 0 || nx >= mapWidth || ny >= mapHeight || reached[ny * mapWidth + nx]) continue;
+      if (layout[ny][nx].type === 'wall') continue;
+      reached[ny * mapWidth + nx] = 1;
+      todo.push({ x: nx, y: ny });
+    }
+  }
+  if (reached.some(Boolean)) {
+    for (let y = 0; y < mapHeight; y++) for (let x = 0; x < mapWidth; x++) {
+      if (!reached[y * mapWidth + x]) layout[y][x] = { type: 'wall' };
+    }
+  }
 
   const liquidLayers = layers.filter(l => roleOf.get(l.name) === 'liquid');
   const liquid = layout.map((row, y) => row.map((_, x) => liquidLayers.some(l => l.data[y * mapWidth + x] !== 0)));

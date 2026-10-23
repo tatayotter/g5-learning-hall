@@ -27,6 +27,8 @@ const CLUMPS: Record<string, { base: number; h: number }> = {
   'FireNature:3': { base: 25, h: 18 },
   'TideNature:2': { base: 24, h: 18 },
   'TideNature:3': { base: 27, h: 15 },
+  'LeafNature:2': { base: 25, h: 19 },
+  'LeafNature:3': { base: 26, h: 17 },
 };
 // Slices from the top of the clump down, as shares of its height: [share, max shift in art
 // pixels]. Bottom 30% anchored, top 70% bends (same rule as the garden plants).

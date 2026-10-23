@@ -378,6 +378,7 @@ export default function TrainingMap({
   // as scroll/curio spawning so trash never lands on trees or fences.
   const walkableTiles = useMemo(() => {
     const tiles: { x: number; y: number }[] = [];
+    if (!mapReady) return tiles;
     for (let y = 0; y < activeRegion.mapHeight; y++) {
       for (let x = 0; x < activeRegion.mapWidth; x++) {
         if (map[y]?.[x]?.type !== 'grass') continue;
@@ -386,7 +387,7 @@ export default function TrainingMap({
       }
     }
     return tiles;
-  }, [map, foliage, activeRegion.mapWidth, activeRegion.mapHeight]);
+  }, [map, mapReady, foliage, activeRegion.mapWidth, activeRegion.mapHeight]);
 
   // Tiles that trash must not spawn on — exact tiles plus a 3-tile buffer
   // around each portal so trash never appears directly next to an exit.

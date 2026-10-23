@@ -85,8 +85,10 @@ export function useTrashItems(
     }, TRASH_RESPAWN_MS);
   }, [doRespawn]);
 
-  // Initial spawn + reset when region changes. Spawning is random, so it
-  // can't happen during render; the region change is the trigger.
+  // Initial spawn + reset when region changes, once the real map has loaded (before that the
+  // tiles are a blank placeholder, which put trash in rivers and waterfalls). Spawning is
+  // random, so it can't happen during render; the region change is the trigger.
+  const ready = walkableTiles.length > 0;
   useEffect(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (tickRef.current)  clearInterval(tickRef.current);
@@ -98,7 +100,7 @@ export function useTrashItems(
       if (timerRef.current) clearTimeout(timerRef.current);
       if (tickRef.current)  clearInterval(tickRef.current);
     };
-  }, [regionId]);
+  }, [regionId, ready]);
 
   /** Remove item from the map (the caller has already put it in a slot). */
   const collectTrash = useCallback((id: string) => {

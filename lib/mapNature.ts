@@ -149,7 +149,7 @@ const FLORA: Record<string, Flora> = {
   },
   // An old, damp wood: thick with trees, its own ferny bushes and grass, and red mushrooms.
   rootbound_wilds: {
-    bushes: [{ set: 'LeafNature', col: 0, row: 0, w: 2, h: 1 }, ...BUSHES.slice(0, 1)],
+    bushes: [{ set: 'LeafNature', col: 0, row: 0, w: 1, h: 1 }, ...BUSHES.slice(0, 1)],
     smallBushes: SMALL_BUSHES.slice(0, 1),
     rocks: ROCKS,
     flowers: [{ set: 'LeafNature', col: 3, row: 0, w: 1, h: 1 }, ...FLOWERS.slice(0, 1)],

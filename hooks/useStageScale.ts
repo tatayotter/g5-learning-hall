@@ -23,6 +23,17 @@ import { useState, useEffect, useRef } from 'react';
 // Typography Scale" media query in app/globals.css).
 const MOBILE_QUERY = '(max-width: 1024px)';
 
+/** The screen area a full-screen map gets: the window minus what the navigation covers (the
+ *  desktop sidebar on the left, the phone tab bar at the bottom; see --nav-left/--nav-bottom in
+ *  app/globals.css). Without this the map sized itself to the whole window and the sidebar
+ *  hid its left side (and cut off its right-hand buttons). */
+export function coverArea(): { width: number; height: number } {
+  const cs = getComputedStyle(document.body);
+  const left = parseFloat(cs.getPropertyValue('--nav-left')) || 0;
+  const bottom = parseFloat(cs.getPropertyValue('--nav-bottom')) || 0;
+  return { width: window.innerWidth - left, height: window.innerHeight - bottom };
+}
+
 export function useStageScale(canvasWidth: number, canvasHeight: number, coverMode = false, growHeight = false, inline = false) {
   const shellRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -47,8 +58,9 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
     // centered with letterbox bars) instead of actually covering the screen.
     if (isMobile || coverMode) {
       const update = () => {
-        const scaleW = window.innerWidth / canvasWidth;
-        const scaleH = window.innerHeight / canvasHeight;
+        const area = coverMode ? coverArea() : { width: window.innerWidth, height: window.innerHeight };
+        const scaleW = area.width / canvasWidth;
+        const scaleH = area.height / canvasHeight;
         if (growHeight && !coverMode && isMobile && scaleH > scaleW) {
           setGrownHeight(Math.floor(window.innerHeight / scaleW));
           setScale(scaleW);
@@ -62,7 +74,10 @@ export function useStageScale(canvasWidth: number, canvasHeight: number, coverMo
       };
       update();
       window.addEventListener('resize', update);
-      return () => window.removeEventListener('resize', update);
+      // The nav shows, hides or changes shape by switching classes on <body>.
+      const mo = new MutationObserver(update);
+      mo.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+      return () => { window.removeEventListener('resize', update); mo.disconnect(); };
     }
     const el = shellRef.current;
     if (!el) return;
