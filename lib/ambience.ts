@@ -32,6 +32,11 @@ export interface Ambience {
   rain?: number;
   // Fireflies out at night, on a phone-sized view.
   fireflies?: number;
+  // While it rains, lightning flashes now and then.
+  lightning?: boolean;
+  // Never brighter than this much night (0..1): a half-lit place, dim even at noon, where the
+  // fireflies and lights stay out all day.
+  gloom?: number;
 }
 
 const BASE_CLOUDS: Ambience['clouds'] = { cover: 0.25, darkness: 0.26, color: 0x1b2440, speed: 6 };
@@ -67,11 +72,15 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     clouds: { ...BASE_CLOUDS, cover: 0.38, darkness: 0.28, color: 0x1a1f33, speed: 14 },
     drift: { kind: 'fall', colors: [0x8a9a7a, 0x6f7f66, 0xb0b8a0], count: 12, glow: false, wind: 30 },
     sunset: 0xb8a0ff,
+    rain: 0.6,
+    lightning: true,
   },
   shadow: {
     clouds: { ...BASE_CLOUDS, cover: 0.32, darkness: 0.24, color: 0x1a1030 },
     drift: { kind: 'rise', colors: [0xb28cff, 0x8a6ad8, 0xd8c0ff], count: 10, glow: true, wind: 3 },
     sunset: 0xd080ff,
+    fireflies: 18,
+    gloom: 0.5,
   },
   light: {
     clouds: { ...BASE_CLOUDS, cover: 0.18, darkness: 0.16, color: 0x2a2a40 },

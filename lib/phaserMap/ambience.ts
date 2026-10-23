@@ -11,7 +11,9 @@
 //   the cloud shadows (they're in the air).
 // - Near sunset, a warm color is multiplied over the whole view; at night a deep blue darkens it
 //   and fireflies blink over the grass (they glow over the dark).
-// - Some hours it drizzles (lib/ambience.ts isRaining): thin streaks and a grey cast.
+// - Some hours it drizzles (lib/ambience.ts isRaining): thin streaks and a grey cast, and over
+//   the Stormrun lightning flashes now and then.
+// - A gloomy place (the Unread Margins) stays half-dark all day, fireflies out.
 //
 // The containers work in map units (32 per tile) and follow the map's camera transform each
 // frame, so they fit tile-art and painted maps alike. With "reduce motion" on, the clouds
@@ -61,6 +63,9 @@ export default class AmbienceLayer {
   private sunset: Phaser.GameObjects.Rectangle;
   private night: Phaser.GameObjects.Rectangle;
   private rainCast: Phaser.GameObjects.Rectangle;
+  private flash: Phaser.GameObjects.Rectangle;
+  private nextFlash = 0;
+  private flashAt = -Infinity;
   private glowBox: Phaser.GameObjects.Container;
   private flies: Fly[] = [];
   private drops: Drop[] = [];
@@ -87,6 +92,9 @@ export default class AmbienceLayer {
       .setDepth(NIGHT_DEPTH).setScrollFactor(0).setBlendMode(Phaser.BlendModes.MULTIPLY).setAlpha(0);
     this.rainCast = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, RAIN_COLOR).setOrigin(0, 0)
       .setDepth(SUNSET_DEPTH).setScrollFactor(0).setBlendMode(Phaser.BlendModes.MULTIPLY).setAlpha(0);
+    // Lightning: a white flash over everything, brightest for a blink, then a second flicker.
+    this.flash = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 0xe8f0ff).setOrigin(0, 0)
+      .setDepth(GLOW_DEPTH + 1).setScrollFactor(0).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
     this.glowBox = scene.add.container(0, 0).setDepth(GLOW_DEPTH);
     this.makeClouds(key);
   }
@@ -165,7 +173,7 @@ export default class AmbienceLayer {
     if (time - this.sunsetCheckedAt > 5000) {
       this.sunsetCheckedAt = time;
       this.sunset.setAlpha(0.5 * sunsetStrength());
-      this.darkness = nightStrength();
+      this.darkness = Math.max(nightStrength(), this.sky.gloom ?? 0);
       this.night.setAlpha(0.5 * this.darkness);
       this.raining = isRaining(this.sky, this.key);
     }
@@ -174,10 +182,24 @@ export default class AmbienceLayer {
     this.rainCast.setAlpha(this.rainCast.alpha + (cast - this.rainCast.alpha) * 0.02);
 
     if (!this.still) {
+      this.updateLightning(time);
       this.updateDrift(t, scale, time);
       this.updateFireflies(t, scale, time);
       this.updateRain(t, scale);
     }
+  }
+
+  // Every 6 to 16 seconds of rain: a bright blink, a dimmer second one just after, fading out.
+  // Off with reduced motion (flashing light).
+  private updateLightning(time: number) {
+    if (!this.sky.lightning || !this.raining) { this.flash.setAlpha(0); return; }
+    if (time > this.nextFlash) {
+      if (this.nextFlash) this.flashAt = time;
+      this.nextFlash = time + 6000 + Math.random() * 10000;
+    }
+    const t = time - this.flashAt;
+    const a = t < 0 ? 0 : t < 80 ? 0.55 : t < 160 ? 0.1 : t < 240 ? 0.35 : t < 700 ? 0.35 * (1 - (t - 240) / 460) : 0;
+    this.flash.setAlpha(a);
   }
 
   private view(t: Transform, scale: number) {
@@ -291,6 +313,7 @@ export default class AmbienceLayer {
     this.sunset.destroy();
     this.night.destroy();
     this.rainCast.destroy();
+    this.flash.destroy();
     this.glowBox.destroy();
     this.flies = [];
     this.drops = [];

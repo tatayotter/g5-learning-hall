@@ -119,10 +119,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/storm_new.webp',
     tiledMapPath: '/maps-tiled/stormrun_reaches.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 13, y: 13 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): a windswept heath with a rocky plateau, two tarns, stony debris
+    // fields and a stone plaza. Entered from Ledger's Heart's south-east road, at the top.
+    spawn: { x: 38, y: 1 },
+    townCenter: { x: 38, y: 1 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/stormrun/stormrun.tmx',
+    dailyNature: true,
   },
   unread_margins: {
     id: 'unread_margins',
@@ -132,10 +136,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/shadow_new.webp',
     tiledMapPath: '/maps-tiled/unread_margins.json',
-    spawn: { x: 1, y: 4 },
-    townCenter: { x: 2, y: 13 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): dim violet woods cut by narrow winding paths, hidden nooks and ink
+    // pools. Entered from Ledger's Heart's east road (rows 32-34), on the west edge.
+    spawn: { x: 1, y: 33 },
+    townCenter: { x: 1, y: 33 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/margins/margins.tmx',
+    dailyNature: true,
   },
   radiant_archive: {
     id: 'radiant_archive',
@@ -145,10 +153,14 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/light_new.webp',
     tiledMapPath: '/maps-tiled/radiant_archive.json',
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
-    spawn: { x: 4, y: 1 },
-    townCenter: { x: 2, y: 2 },
+    // Flat map (2026-10-23): a golden meadow round a clear pool, paths radiating like sunbeams and
+    // curved hedge rows like shelves. Entered from Ledger's Heart's north-east road (rows 6-8).
+    mapWidth: 60,
+    mapHeight: 40,
+    spawn: { x: 1, y: 7 },
+    townCenter: { x: 1, y: 7 },
+    tileArtPath: '/maps-tiled-art/archive/archive.tmx',
+    dailyNature: true,
   },
 };
 
