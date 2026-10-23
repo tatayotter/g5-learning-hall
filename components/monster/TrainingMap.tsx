@@ -787,6 +787,11 @@ export default function TrainingMap({
   // chop on a right answer and whiffs past on a wrong one. The sounds follow the swing.
   const gradeSwing = async (tree: TreeView, q: BattleQuestion, selected: string) => {
     const res = await garden.chop(tree, q, selected);
+    if (garden.refused.current) {
+      setActiveTree(null);
+      showBarMessage("This tree can't be chopped right now. Try again later!");
+      return res;
+    }
     const r = garden.lastChop.current;
     const kind: SwingKind | null = r?.status === 'felled' ? 'felled' : r?.status === 'hit' ? 'hit' : r?.status === 'wrong' ? 'miss' : null;
     setSwingMs(kind ? swingTiming(kind).total : 0);
@@ -1138,7 +1143,14 @@ export default function TrainingMap({
       veggie={activePlant.veggie}
       questions={scrollGradeOverride ? offlineScrollQuestions(userId, questions) : questions}
       gradingUserId={gradingUserId}
-      grade={(q, selected) => garden.grade(activePlant, q, selected)}
+      grade={async (q, selected) => {
+        const res = await garden.grade(activePlant, q, selected);
+        if (garden.refused.current) {
+          setActivePlant(null);
+          showBarMessage("This plant can't be picked right now. Try again later!");
+        }
+        return res;
+      }}
       onComplete={handleGatherAnswer}
       onLeave={() => setActivePlant(null)}
     />

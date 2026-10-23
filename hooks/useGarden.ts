@@ -112,10 +112,15 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
 
   // The last pick's full result, for the panel's onComplete (the modal only knows right/wrong).
   const lastResult = useRef<GatherResult | null>(null);
+  // The server answered but turned the last pick or swing down (not a connection problem), so
+  // asking again won't help: the map closes the panel and says so instead of "the internet
+  // hiccuped".
+  const refused = useRef(false);
 
   // BattleQuestionModal's grader for one pick attempt at a plant.
   const grade = useCallback(async (plant: PlantView, question: BattleQuestion, selected: string) => {
     lastResult.current = null;
+    refused.current = false;
     if (offlineMap) {
       const res = gradeScrollOffline(userId, question, selected);
       queueGather(userId, regionId, plant.id, question.id, selected);
@@ -129,7 +134,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     const call = await gatherWildPlant({
       userId, region: regionId, nodeId: plant.id, questionId: question.id, selected, entryId: crypto.randomUUID(),
     });
-    if (!call.ok) return { correct: false, correctAnswer: null, failed: true };
+    if (!call.ok) { refused.current = !call.network; return { correct: false, correctAnswer: null, failed: true }; }
     const r = call.result;
     lastResult.current = r;
     const key = plantKey(regionId, plant.id);
@@ -153,6 +158,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
   // BattleQuestionModal's grader for one swing at a tree.
   const chop = useCallback(async (tree: TreeView, question: BattleQuestion, selected: string) => {
     lastChop.current = null;
+    refused.current = false;
     if (offlineMap) {
       const res = gradeScrollOffline(userId, question, selected);
       queueChop(userId, regionId, tree.id, tree.tree, question.id, selected);
@@ -167,7 +173,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     const call = await chopWildTree({
       userId, region: regionId, nodeId: tree.id, tree: tree.tree, questionId: question.id, selected, entryId: crypto.randomUUID(),
     });
-    if (!call.ok) return { correct: false, correctAnswer: null, failed: true };
+    if (!call.ok) { refused.current = !call.network; return { correct: false, correctAnswer: null, failed: true }; }
     const r = call.result;
     lastChop.current = r;
     const key = plantKey(regionId, tree.id);
@@ -213,6 +219,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     squaresForChop,
     chop,
     lastChop,
+    refused,
     sell,
   };
 }
