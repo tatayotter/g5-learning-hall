@@ -121,7 +121,7 @@ const FLOWERS: Stamp[] = [
 ];
 // Tall-grass tufts (they sway: lib/phaserMap/swayingGrass.ts).
 const TUFTS: Stamp[] = [18, 19, 20].map(col => ({ set: 'Trees', col, row: 11, w: 1, h: 1 }));
-const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'TileSet-tide': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4, TideNature: 4 };
+const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'TileSet-tide': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4, TideNature: 4, LeafNature: 4 };
 
 // What grows in each region. Ledger's Heart uses the pack's own plants; the elemental regions
 // have their own trees (REGION_TREES) and plants drawn by Rowil (a small tileset per region,
@@ -146,6 +146,15 @@ const FLORA: Record<string, Flora> = {
     // Mostly its own sea grass, with a little of the pack's green tufts mixed in.
     tufts: [...Array(6).fill({ set: 'TideNature', col: 2, row: 0, w: 1, h: 1 }), TUFTS[0], TUFTS[2]],
     trees: 0.85, meadow: 0.66,
+  },
+  // An old, damp wood: thick with trees, its own ferny bushes and grass, and red mushrooms.
+  rootbound_wilds: {
+    bushes: [{ set: 'LeafNature', col: 0, row: 0, w: 2, h: 1 }, ...BUSHES.slice(0, 1)],
+    smallBushes: SMALL_BUSHES.slice(0, 1),
+    rocks: ROCKS,
+    flowers: [{ set: 'LeafNature', col: 3, row: 0, w: 1, h: 1 }, ...FLOWERS.slice(0, 1)],
+    tufts: [...Array(4).fill({ set: 'LeafNature', col: 2, row: 0, w: 1, h: 1 }), ...TUFTS],
+    trees: 1.15, meadow: 0.6,
   },
 };
 
@@ -318,7 +327,7 @@ export function growNature(input: NatureInput): NatureOutput {
   };
   sprinkle(flora.rocks, Math.round(ROCKS_PER_2400 * area));
   const flowers: { x: number; y: number }[] = [];
-  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : 0.5)), flowers);
+  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : flora === FLORA.rootbound_wilds ? 0.8 : 0.5)), flowers);
 
   // ── Everything walkable must stay reachable from the spawn ──
   const solid = (x: number, y: number) => !!input.blocked?.[idx(x, y)] || !!input.base[idx(x, y)] || !!base[idx(x, y)] || trees.some(t => t.x === x && t.y === y);

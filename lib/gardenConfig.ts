@@ -84,7 +84,7 @@ export const GARDEN_STACK = 20;
 // (64, 134). Ledger's Heart's trees are cut from the map's own tileset (Props.png); each region
 // also has trees found only there, drawn by Rowil (garden-art/out/region-<element>). Each kind
 // has its own stump. `name` is what the kid sees on the map ("Chop Ember Tree").
-export type TreeId = 'maple' | 'oak' | 'birch' | 'pine' | 'ember' | 'ashwillow' | 'palm' | 'mangrove';
+export type TreeId = 'maple' | 'oak' | 'birch' | 'pine' | 'ember' | 'ashwillow' | 'palm' | 'mangrove' | 'elder' | 'bamboo';
 export const TREES: Record<TreeId, { id: TreeId; label: string; name: string }> = {
   maple:     { id: 'maple',     label: 'Maple',      name: 'Maple Tree' },
   oak:       { id: 'oak',       label: 'Oak',        name: 'Oak Tree' },
@@ -94,14 +94,17 @@ export const TREES: Record<TreeId, { id: TreeId; label: string; name: string }> 
   ashwillow: { id: 'ashwillow', label: 'Ash Willow', name: 'Ash Willow' },
   palm:      { id: 'palm',      label: 'Palm',       name: 'Palm Tree' },
   mangrove:  { id: 'mangrove',  label: 'Mangrove',   name: 'Mangrove' },
+  elder:     { id: 'elder',     label: 'Elder',      name: 'Elder Tree' },
+  bamboo:    { id: 'bamboo',    label: 'Bamboo',     name: 'Bamboo' },
 };
 // Which trees grow where (chop_wild_tree checks the same pairs).
 export const REGION_TREES: Record<string, TreeId[]> = {
   ledgers_heart: ['maple', 'oak', 'birch', 'pine'],
   cinderreach: ['ember', 'ashwillow'],
   tidewrit_shallows: ['palm', 'mangrove'],
+  rootbound_wilds: ['elder', 'bamboo'],
 };
-export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine', 'ember', 'ashwillow', 'palm', 'mangrove'];
+export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine', 'ember', 'ashwillow', 'palm', 'mangrove', 'elder', 'bamboo'];
 
 // The trees themselves grow with the day's nature layer (lib/mapNature.ts): every one of them
 // can be chopped, and a chopped tree stays a stump until the next day's map.

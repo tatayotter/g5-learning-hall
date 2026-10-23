@@ -41,9 +41,13 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'TileSet-tide': '/tilesets/forgotten-memories/TileSet-tide.png',
   'TideWater-6frames': '/tilesets/forgotten-memories/TideWater-6frames.png',
   'TideBridge': '/tilesets/region-nature/TideBridge.png',
+  // Rootbound: lusher greens, riverbank loam, the cliff face over grass, and a tall waterfall.
+  'TileSet-leaf': '/tilesets/forgotten-memories/TileSet-leaf.png',
+  'RootFalls': '/tilesets/region-nature/RootFalls.png',
   // Each region's own plants for the daily nature layer, on a 32 px grid.
   'FireNature': '/tilesets/region-nature/FireNature.png',
   'TideNature': '/tilesets/region-nature/TideNature.png',
+  'LeafNature': '/tilesets/region-nature/LeafNature.png',
 };
 
 export interface TiledArtLayer {

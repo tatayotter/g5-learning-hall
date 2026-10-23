@@ -101,10 +101,15 @@ export const REGIONS: Record<string, Region> = {
     unlockLevel: 10,
     mapImage: '/maps/leaf_new.webp',
     tiledMapPath: '/maps-tiled/rootbound_wilds.json',
-    spawn: { x: 4, y: 1 },
-    townCenter: { x: 7, y: 2 },
-    mapWidth: MAP_SIZE,
-    mapHeight: MAP_SIZE,
+    // Flat map (2026-10-23): a high wood and a low wood split by a rocky ridge, a river that
+    // drops over it in a waterfall. Entered from the Ledger's Heart's south road, so the kid
+    // arrives at the top entrance on the same columns.
+    spawn: { x: 22, y: 1 },
+    townCenter: { x: 22, y: 1 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/rootbound/rootbound.tmx',
+    dailyNature: true,
   },
   stormrun_reaches: {
     id: 'stormrun_reaches',

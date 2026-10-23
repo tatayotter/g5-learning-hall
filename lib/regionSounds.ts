@@ -21,6 +21,7 @@ export const REGION_SOUNDS: Record<string, Recipe> = {
   ledgers_heart: 'breeze',
   cinderreach: 'fire',
   tidewrit_shallows: 'shore',
+  rootbound_wilds: 'breeze',
 };
 
 let playing: { stop: () => void } | null = null;

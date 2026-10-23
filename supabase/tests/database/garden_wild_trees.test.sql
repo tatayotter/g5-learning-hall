@@ -5,7 +5,7 @@
 
 begin;
 create extension if not exists pgtap;
-select plan(27);
+select plan(29);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
@@ -117,6 +117,14 @@ select is(
 select is(
   public.chop_wild_tree((select kid from fx), 'tidewrit_shallows', pg_temp.tree('8_8'), 'palm', (select id from qs where n = 1), 'a', gen_random_uuid(), null) ->> 'status',
   'hit', 'a Palm Tree in the Tidewrit Shallows can be chopped'
+);
+select is(
+  public.chop_wild_tree((select kid from fx), 'rootbound_wilds', pg_temp.tree('31_31'), 'elder', (select id from qs where n = 1), 'a', gen_random_uuid(), null) ->> 'status',
+  'hit', 'an Elder Tree in the Rootbound Wilds can be chopped'
+);
+select throws_ok(
+  $$ select public.chop_wild_tree((select kid from fx), 'rootbound_wilds', pg_temp.tree('32_32'), 'palm', (select id from qs where n = 1), 'a', gen_random_uuid(), null) $$,
+  'P0001', null, 'no Palm Trees in the Rootbound Wilds'
 );
 select throws_ok(
   $$ select public.chop_wild_tree((select kid from fx), 'cinderreach', pg_temp.tree('7_7'), 'palm', (select id from qs where n = 1), 'a', gen_random_uuid(), null) $$,
