@@ -134,7 +134,7 @@ export default function RecyclerTradePanel({
               </GameButton>
             </>
           ) : (
-            <p className="text-[11px] text-[#3f5a1f]">Pick ripe veggies or chop ribbon trees on the map and bring them here.</p>
+            <p className="text-[11px] text-[#3f5a1f]">Pick ripe veggies or chop trees on the map and bring them here.</p>
           )}
         </div>
       )}

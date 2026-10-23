@@ -8,16 +8,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import {
-  WILD_PLANTS, WILD_TREES, VEGGIES, GARDEN_STACK, WOOD_KEY, WOOD_PER_TREE, gardenSquares, plantStage, saplingKey, treeStage, veggieKey,
+  WILD_PLANTS, VEGGIES, GARDEN_STACK, WOOD_KEY, WOOD_PER_TREE, gardenSquares, plantStage, saplingKey, veggieKey,
   type GardenBag, type WildPlantNode, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import {
-  applyLocalChop, applyLocalPick, chopWildTree, emptyGarden, fetchGarden, gatherWildPlant, loadLocalGarden, plantKey, saveLocalGarden,
+  applyLocalChop, applyLocalPick, treesFelledOn, chopWildTree, emptyGarden, fetchGarden, gatherWildPlant, loadLocalGarden, plantKey, saveLocalGarden,
   sellGardenItems, type ChopResult, type GardenState, type GatherResult, type SoldVeggies,
 } from '@/lib/garden';
 import { flushMapOutbox, gradeScrollOffline, pendingMapEntries, queueChop, queueGather } from '@/lib/offlineMap';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import { natureDay } from '@/lib/mapNature';
 
 export interface UseGardenArgs {
   userId: string;
@@ -25,14 +26,16 @@ export interface UseGardenArgs {
   enabled: boolean;
   // Playing from the device (lib/offlineMap.ts playingMapOffline).
   offlineMap: boolean;
+  // The trees on today's map (lib/mapNature.ts); every one can be chopped.
+  mapTrees: WildTreeNode[];
 }
 
 export type PlantView = WildPlantNode & { readyAt: number | null; restUntil: number | null; ripe: boolean };
 export type TreeView = WildTreeNode & { readyAt: number | null; restUntil: number | null; ready: boolean; hits: number };
 
-export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenArgs) {
+export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: UseGardenArgs) {
   const nodes = useMemo(() => (enabled ? WILD_PLANTS[regionId] ?? [] : []), [enabled, regionId]);
-  const treeNodes = useMemo(() => (enabled ? WILD_TREES[regionId] ?? [] : []), [enabled, regionId]);
+  const treeNodes = useMemo(() => (enabled ? mapTrees : []), [enabled, mapTrees]);
   const on = nodes.length > 0 || treeNodes.length > 0;
   const [state, setState] = useState<GardenState>(() => (on && typeof window !== 'undefined' ? loadLocalGarden(userId) : emptyGarden()));
   const stateRef = useRef(state);
@@ -81,9 +84,17 @@ export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenAr
     return { ...n, readyAt, restUntil: timer?.restUntil ?? null, ready: readyAt === null || now >= readyAt, hits: timer?.hits ?? 0 };
   }), [treeNodes, state.plants, regionId, now]);
 
-  const treeSprites: TreeSprite[] = useMemo(() => trees.map(t => ({
-    id: t.id, tree: t.tree, x: t.x, y: t.y, stage: treeStage(t.readyAt, now), hits: t.hits,
-  })), [trees, now]);
+  // Every tree on the map is drawn; with the garden switch on, the ones this kid chopped are stumps.
+  const treeSprites: TreeSprite[] = useMemo(() => {
+    const byId = new Map(trees.map(t => [t.id, t]));
+    return mapTrees.map(n => {
+      const t = byId.get(n.id);
+      return { id: n.id, tree: n.tree, x: n.x, y: n.y, stage: t && !t.ready ? 'stump' as const : 'ready' as const, hits: t?.hits ?? 0 };
+    });
+  }, [mapTrees, trees]);
+
+  // Trees chopped today, against DAILY_TREE_LIMIT.
+  const felledToday = useMemo(() => treesFelledOn(state, natureDay(now)), [state, now]);
 
   // The tree whose trunk stands on (x, y).
   const treeAt = useCallback((x: number, y: number) => trees.find(t => t.x === x && t.y === y) ?? null, [trees]);
@@ -144,7 +155,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenAr
     lastChop.current = null;
     if (offlineMap) {
       const res = gradeScrollOffline(userId, question, selected);
-      queueChop(userId, regionId, tree.id, question.id, selected);
+      queueChop(userId, regionId, tree.id, tree.tree, question.id, selected);
       const local = applyLocalChop(stateRef.current, regionId, tree.id, tree.tree, res.correct, Date.now());
       update(local.state);
       lastChop.current = {
@@ -154,7 +165,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenAr
       return res;
     }
     const call = await chopWildTree({
-      userId, region: regionId, nodeId: tree.id, questionId: question.id, selected, entryId: crypto.randomUUID(),
+      userId, region: regionId, nodeId: tree.id, tree: tree.tree, questionId: question.id, selected, entryId: crypto.randomUUID(),
     });
     if (!call.ok) return { correct: false, correctAnswer: null, failed: true };
     const r = call.result;
@@ -168,7 +179,8 @@ export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenAr
         [key]: r.status === 'felled' ? { readyAt: r.readyAt, restUntil: null, wrong: 0, hits: 0, misses: 0 }
           : r.status === 'hit' ? { ...prev, wrong: 0, hits: r.hits }
           : r.status === 'wrong' ? { ...prev, misses: (prev.misses ?? 0) + 1, ...(r.restUntil ? { wrong: 0, restUntil: r.restUntil } : { wrong: prev.wrong + 1 }) }
-          : r.status === 'growing' ? { ...prev, readyAt: r.readyAt }
+          : r.status === 'stump' ? { ...prev, readyAt: r.readyAt }
+          : r.status === 'tired' ? prev
           : { ...prev, restUntil: r.restUntil },
       },
     });
@@ -197,6 +209,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap }: UseGardenAr
     trees,
     treeSprites,
     treeAt,
+    felledToday,
     squaresForChop,
     chop,
     lastChop,

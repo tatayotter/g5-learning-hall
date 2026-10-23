@@ -38,6 +38,9 @@ export interface Region {
   // Present only for regions rendered as real tile art (lib/tiledArtMap.ts)
   // instead of a single painted background image + logic-only Tiled layer.
   tileArtPath?: string;
+  // The tile-art map is ground and paths only; trees, bushes, grass and flowers grow on it
+  // fresh every day (lib/mapNature.ts).
+  dailyNature?: boolean;
 }
 
 export const REGIONS: Record<string, Region> = {
@@ -54,6 +57,7 @@ export const REGIONS: Record<string, Region> = {
     mapWidth: 60,
     mapHeight: 40,
     tileArtPath: '/maps-tiled-art/ledgers_heart/ledgers_heart.tmx',
+    dailyNature: true,
   },
   cinderreach: {
     id: 'cinderreach',

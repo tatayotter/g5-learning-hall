@@ -1,5 +1,5 @@
 'use client';
-// Wild tree chop panel: shown by TrainingMap.tsx when the player walks onto a ribboned tree's
+// Wild tree chop panel: shown by TrainingMap.tsx when the player walks into a tree's
 // trunk (hooks/useGarden.ts). One question per swing; a right answer lands a swing and fills a
 // pip, CHOP_SWINGS of them fell the tree. Grading goes through the garden hook
 // (chop_wild_tree online, the answer key offline). After each answer TrainingMap says whether
@@ -36,12 +36,12 @@ export default function ChopTreePanel({ tree, hits, questions, gradingUserId, gr
         <div
           key={hits}
           className={`w-10 h-[60px] flex-shrink-0 ${hits > 0 ? 'chop-shake' : ''}`}
-          style={{ backgroundImage: `url(/garden/tree_${tree}.png)`, backgroundSize: '160px 60px', backgroundPosition: '0 0', imageRendering: 'pixelated' }}
+          style={{ backgroundImage: `url(/garden/tree_${tree}.png)`, backgroundSize: '80px 60px', backgroundPosition: '0 0', imageRendering: 'pixelated' }}
           aria-hidden="true"
           data-testid="chop-tree"
         />
         <div className="min-w-0 flex-1">
-          <p className="text-stone-900 font-bold text-sm leading-tight">A ribbon {label.toLowerCase()} tree!</p>
+          <p className="text-stone-900 font-bold text-sm leading-tight">A {label.toLowerCase()} tree!</p>
           <p className="text-xs text-stone-600 leading-tight">
             Each right answer is one swing. {CHOP_SWINGS} swings chop it for {WOOD_PER_TREE} wood. No misses for a bonus sapling!
           </p>

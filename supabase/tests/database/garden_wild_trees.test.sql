@@ -1,11 +1,11 @@
--- pgTAP tests for 20261023120000_garden_wild_trees.sql: chopping a ribboned tree with three
--- right answers, misses that cost a clean chop, the 4-hour regrow, the rest after 3 wrong
--- answers, a re-sent offline swing never landing twice, and wood selling for 2 gold while
--- saplings stay.
+-- pgTAP tests for 20261023120000_garden_wild_trees.sql: chopping a tree of today's map with
+-- three right answers, misses that cost a clean chop, a stump staying a stump, the rest after 3
+-- wrong answers, the 8-trees-a-day limit, a re-sent offline swing never landing twice, trees
+-- from another day or of an unknown kind, and wood selling for 2 gold while saplings stay.
 
 begin;
 create extension if not exists pgtap;
-select plan(19);
+select plan(23);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
@@ -47,10 +47,15 @@ begin
 end;
 $$ language plpgsql;
 
+-- Today's tree at trunk tile x_y ("2026-10-23:12_7"), on the Manila day.
+create or replace function pg_temp.tree(p_xy text) returns text as $$
+  select ((now() at time zone 'Asia/Manila')::date)::text || ':' || p_xy;
+$$ language sql;
+
 -- One swing by the kid at a tree, answering question n with p_selected.
-create or replace function pg_temp.swing(p_node text, p_n int, p_selected text, p_entry uuid default gen_random_uuid())
+create or replace function pg_temp.swing(p_node text, p_n int, p_selected text, p_entry uuid default gen_random_uuid(), p_tree text default 'maple')
 returns jsonb as $$
-  select public.chop_wild_tree((select kid from fx), 'ledgers_heart', p_node, (select id from qs where n = p_n), p_selected, p_entry, null);
+  select public.chop_wild_tree((select kid from fx), 'ledgers_heart', pg_temp.tree(p_node), p_tree, (select id from qs where n = p_n), p_selected, p_entry, null);
 $$ language sql;
 
 -- How many of an item the kid has.
@@ -58,13 +63,11 @@ create or replace function pg_temp.have(p_key text) returns int as $$
   select coalesce((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = p_key), 0);
 $$ language sql;
 
-select is((select count(*)::int from wild_tree_nodes where region = 'ledgers_heart'), 4, 'The Ledger''s Heart has 4 ribboned trees');
-
 update feature_flags set mode = 'off' where key = 'garden';
 select pg_temp.login_as(kid_auth) from fx;
 set local role authenticated;
 select throws_ok(
-  $$ select pg_temp.swing('maple_1', 1, 'a') $$,
+  $$ select pg_temp.swing('1_1', 1, 'a') $$,
   'P0001', 'garden is not on for this player',
   'nobody can chop while the garden is off'
 );
@@ -74,36 +77,55 @@ update feature_flags set mode = 'allowlist', allowlist = array[(select kid from 
 set local role authenticated;
 
 -- A clean chop: three right answers in a row.
-select is((select pg_temp.swing('maple_1', 1, 'a', (select entry_swing from fx)) ->> 'hits'), '1', 'a right answer lands the first swing');
-select is((select pg_temp.swing('maple_1', 1, 'a', (select entry_swing from fx)) ->> 'replayed'), 'true', 'the same swing sent again is a replay');
-select is(pg_temp.swing('maple_1', 2, 'a') ->> 'hits', '2', 'a replay never lands a swing twice');
-create temp table felled as select pg_temp.swing('maple_1', 3, 'a') as r;
+select is((select pg_temp.swing('1_1', 1, 'a', (select entry_swing from fx)) ->> 'hits'), '1', 'a right answer lands the first swing');
+select is((select pg_temp.swing('1_1', 1, 'a', (select entry_swing from fx)) ->> 'replayed'), 'true', 'the same swing sent again is a replay');
+select is(pg_temp.swing('1_1', 2, 'a') ->> 'hits', '2', 'a replay never lands a swing twice');
+create temp table felled as select pg_temp.swing('1_1', 3, 'a') as r;
 select is((select r ->> 'status' from felled), 'felled', 'the third right answer fells the tree');
 select is((select (r ->> 'clean')::boolean from felled), true, 'no misses is a clean chop');
 select is(pg_temp.have('wood'), 3, 'the tree gave 3 wood');
 select is(pg_temp.have('sapling_maple'), 1, 'a clean chop always gives a sapling of its kind');
 select is((select r -> 'bag' ->> 'wood' from felled), '3', 'the result carries the new bag');
 
-select is(pg_temp.swing('maple_1', 4, 'a') ->> 'status', 'growing', 'a chopped tree is growing back');
+select is(pg_temp.swing('1_1', 4, 'a') ->> 'status', 'stump', 'a chopped tree stays a stump today');
 
 -- A miss in the middle: the chop still finishes, but it isn't clean.
-select is(pg_temp.swing('oak_1', 1, 'b') ->> 'status', 'wrong', 'a wrong answer misses');
-create temp table oak as select pg_temp.swing('oak_1', 2, 'a') as a, pg_temp.swing('oak_1', 3, 'a') as b, pg_temp.swing('oak_1', 4, 'a') as c;
+select is(pg_temp.swing('2_2', 1, 'b') ->> 'status', 'wrong', 'a wrong answer misses');
+create temp table oak as select pg_temp.swing('2_2', 2, 'a', gen_random_uuid(), 'oak') as a, pg_temp.swing('2_2', 3, 'a', gen_random_uuid(), 'oak') as b, pg_temp.swing('2_2', 4, 'a', gen_random_uuid(), 'oak') as c;
 select is((select c ->> 'status' from oak), 'felled', 'three right answers fell it even after a miss');
 select is((select (c ->> 'clean')::boolean from oak), false, 'a chop with a miss is not clean');
 select is(pg_temp.have('wood'), 6, '3 more wood');
 
--- Four hours later the maple is ready again.
-reset role;
-update player_gather_nodes set last_picked_at = now() - interval '4 hours 1 minute'
-where user_id = (select kid from fx) and node_id = 'maple_1';
-set local role authenticated;
-select is(pg_temp.swing('maple_1', 5, 'a') ->> 'status', 'hit', 'it can be chopped again once it regrows');
+-- Yesterday's tree, and a tree that isn't a kind we grow.
+select throws_ok(
+  $$ select public.chop_wild_tree((select kid from fx), 'ledgers_heart', ((now() at time zone 'Asia/Manila')::date - 2)::text || ':5_5', 'maple', (select id from qs where n = 1), 'a', gen_random_uuid(), null) $$,
+  'P0001', null, 'a tree from an older day''s map cannot be chopped'
+);
+select throws_ok(
+  $$ select pg_temp.swing('5_5', 1, 'a', gen_random_uuid(), 'gold') $$,
+  'P0001', null, 'only real kinds of tree'
+);
+select throws_ok(
+  $$ select public.chop_wild_tree((select kid from fx), 'ledgers_heart', 'maple_1', 'maple', (select id from qs where n = 1), 'a', gen_random_uuid(), null) $$,
+  'P0001', null, 'a tree id names its day and tile'
+);
 
 -- Three wrong answers in a row and the tree rests.
-create temp table misses as select pg_temp.swing('birch_1', 1, 'b') as a, pg_temp.swing('birch_1', 2, 'b') as b;
-select ok((select pg_temp.swing('birch_1', 3, 'b') ->> 'rest_until') is not null, 'the third wrong answer in a row starts a rest');
-select is(pg_temp.swing('birch_1', 4, 'a') ->> 'status', 'resting', 'a resting tree cannot be chopped');
+create temp table misses as select pg_temp.swing('3_3', 1, 'b') as a, pg_temp.swing('3_3', 2, 'b') as b;
+select ok((select pg_temp.swing('3_3', 3, 'b') ->> 'rest_until') is not null, 'the third wrong answer in a row starts a rest');
+select is(pg_temp.swing('3_3', 4, 'a') ->> 'status', 'resting', 'a resting tree cannot be chopped');
+
+-- 8 trees a day: two felled so far, six more, then the kid is tired.
+create temp table more as
+select x, pg_temp.swing(x || '_9', 1, 'a') as a, pg_temp.swing(x || '_9', 2, 'a') as b, pg_temp.swing(x || '_9', 3, 'a') as c
+from generate_series(10, 15) x;
+select is((select count(*)::int from more where c ->> 'status' = 'felled'), 6, 'six more trees fall');
+select is(pg_temp.swing('20_20', 1, 'a') ->> 'status', 'tired', 'the ninth tree today: too tired to chop');
+select is(pg_temp.have('wood'), 24, '8 trees gave 24 wood');
+reset role;
+delete from player_bag_items where user_id = (select kid from fx) and item_key = 'wood';
+insert into player_bag_items (user_id, item_key, quantity) select kid, 'wood', 6 from fx;
+set local role authenticated;
 
 -- Selling: wood goes for 2 gold each, saplings stay.
 select is(

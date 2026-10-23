@@ -19,6 +19,7 @@
 // TileType in lib/regions.ts. Every other walkable tile counts as a normal
 // wild-encounter tile (this map has no separate "town/heal" tile type).
 import { REGIONS, type MapTile } from './regions';
+import { growNature, natureDay, type NatureRect, type NatureTree } from './mapNature';
 
 // The .tsx files' own recorded `<image source>` points at the *author's*
 // local filesystem (e.g. "../Downloads/ForgottenMemories/X.png") — not
@@ -81,6 +82,15 @@ export interface TiledArtMap {
   // markers from rendering visually under/behind tree foliage; has no
   // effect on walkability/collision itself.
   foliage: boolean[][];
+  // Trees grown by the daily nature layer (lib/mapNature.ts); empty for hand-made maps.
+  trees: NatureTree[];
+}
+
+// A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
+export interface NatureOptions {
+  regionId: string;
+  // Tiles that must stay free, e.g. the wild veggies.
+  reserved: { x: number; y: number }[];
 }
 
 interface Rect { x: number; y: number; width: number; height: number }
@@ -184,16 +194,19 @@ function parseObjectProperty(objectEl: Element, name: string): string | undefine
 
 const cache = new Map<string, Promise<TiledArtMap>>();
 
-export function loadTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
-  let promise = cache.get(tmxUrl);
+export function loadTiledArtMap(tmxUrl: string, nature?: NatureOptions): Promise<TiledArtMap> {
+  // A grown map is new every day.
+  const day = nature ? natureDay() : '';
+  const key = nature ? `${tmxUrl}|${nature.regionId}|${day}` : tmxUrl;
+  let promise = cache.get(key);
   if (!promise) {
-    promise = parseTiledArtMap(tmxUrl);
-    cache.set(tmxUrl, promise);
+    promise = parseTiledArtMap(tmxUrl, nature ? { ...nature, day } : undefined);
+    cache.set(key, promise);
   }
   return promise;
 }
 
-async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
+async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: string }): Promise<TiledArtMap> {
   const doc = await fetchXml(tmxUrl);
   const mapEl = doc.querySelector('map')!;
   const mapWidth = Number(attr(mapEl, 'width'));
@@ -230,7 +243,7 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     throw new Error(`${tmxUrl} has no visible "Ground" tile layer.`);
   }
   layers.sort((a, b) => ROLE_ORDER.indexOf(roleOf.get(a.name)!) - ROLE_ORDER.indexOf(roleOf.get(b.name)!));
-  const belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
+  let belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
   const abovePlayerLayers = layers.filter(l => roleOf.get(l.name) === 'top').map(l => l.name);
   const layerOpacity: Record<string, number> = {};
   for (const l of layers) layerOpacity[l.name] = l.opacity;
@@ -244,10 +257,16 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
   const portals: TiledArtPortal[] = [];
   let spawnTile = { x: 1, y: 1 };
   let recyclerTile: { x: number; y: number } | null = null;
+  const keepClearRects: NatureRect[] = [];
+  const forestRects: NatureRect[] = [];
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/encounter/i.test(groupName)) {
+    if (/keep\s*clear/i.test(groupName)) {
+      keepClearRects.push(...objectEls.map(parseObjectRect));
+    } else if (/forest/i.test(groupName)) {
+      forestRects.push(...objectEls.map(parseObjectRect));
+    } else if (/encounter/i.test(groupName)) {
       noEncounterRects.push(...objectEls.map(parseObjectRect));
     } else if (/spawn/i.test(groupName)) {
       const spawnEl = objectEls.find(o => /spawn/i.test(attr(o, 'name'))) ?? objectEls[0];
@@ -280,6 +299,39 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     }
   }
 
+  // The day's nature layer: bushes go on Objects Base, grass, rocks and flowers on Ground
+  // Detail (made if the map has none), trees are drawn by the scene.
+  let trees: NatureTree[] = [];
+  if (nature) {
+    const ensure = (role: LayerRole, name: string) => {
+      let l = layers.find(x => roleOf.get(x.name) === role);
+      if (!l) {
+        l = { name, data: new Array(mapWidth * mapHeight).fill(0), opacity: 1 };
+        roleOf.set(name, role);
+        layers.push(l);
+        layers.sort((a, b) => ROLE_ORDER.indexOf(roleOf.get(a.name)!) - ROLE_ORDER.indexOf(roleOf.get(b.name)!));
+        layerOpacity[name] = 1;
+      }
+      return l;
+    };
+    const ground = layers.find(l => roleOf.get(l.name) === 'ground')!;
+    const detail = ensure('detail', 'Ground Detail');
+    const base = ensure('base', 'Objects Base');
+    const firstgid: Record<string, number> = {};
+    for (const ts of tilesets) firstgid[ts.name] = ts.firstgid;
+    const grown = growNature({
+      regionId: nature.regionId, day: nature.day, width: mapWidth, height: mapHeight, tileSize: tileWidth,
+      ground: ground.data, detail: detail.data, base: base.data, firstgid,
+      spawn: spawnTile, portals, recycler: recyclerTile, reserved: nature.reserved,
+      keepClear: keepClearRects, forest: forestRects,
+    });
+    detail.data = grown.detail;
+    base.data = grown.base;
+    trees = grown.trees;
+    belowPlayerLayers = layers.filter(l => roleOf.get(l.name) !== 'top').map(l => l.name);
+  }
+  const trunkAt = new Set(trees.map(t => `${t.x},${t.y}`));
+
   const baseLayers = layers.filter(l => roleOf.get(l.name) === 'base');
   const layout: MapTile[][] = [];
   for (let y = 0; y < mapHeight; y++) {
@@ -289,7 +341,7 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
       const cy = (y + 0.5) * tileHeight;
       const inRect = (r: Rect) => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height;
       // Painted means blocked: any tile on an Objects Base layer is solid.
-      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0);
+      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0) || trunkAt.has(`${x},${y}`);
       const noEncounter = !blocked && noEncounterRects.some(inRect);
       row.push({ type: blocked ? 'wall' : noEncounter ? 'path' : 'grass' });
     }
@@ -306,6 +358,12 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
       row.push(foliageLayers.some(l => l.data[y * mapWidth + x] !== 0));
     }
     foliage.push(row);
+  }
+  // A grown tree's leaves cover 3 tiles across and 4 up from its trunk.
+  for (const t of trees) {
+    for (let dy = -3; dy <= 0; dy++) for (let dx = -1; dx <= 1; dx++) {
+      if (foliage[t.y + dy]?.[t.x + dx] !== undefined) foliage[t.y + dy][t.x + dx] = true;
+    }
   }
 
   const tilesetImages: Record<string, string> = {};
@@ -348,5 +406,6 @@ async function parseTiledArtMap(tmxUrl: string): Promise<TiledArtMap> {
     recycler: recyclerTile,
     portals,
     foliage,
+    trees,
   };
 }

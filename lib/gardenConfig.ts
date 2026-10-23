@@ -2,8 +2,8 @@
 // Wild veggies and trees on the Training Map (behind the 'garden' switch). Plants grow at
 // fixed spots; walking onto a ripe one and answering one question right picks it. The
 // veggie goes into the bag, sometimes with a seed packet, and the plant regrows for
-// REGROW_MS. Ribboned trees take CHOP_SWINGS right answers, one per swing, and give wood and
-// sometimes a sapling, then grow back for TREE_REGROW_MS. The rules live in
+// REGROW_MS. Every tree on the day's map takes CHOP_SWINGS right answers, one per swing, and
+// gives wood and sometimes a sapling; it stays a stump until the next day's map. The rules live in
 // supabase/migrations/20261022120000_garden_wild_plants.sql (gather_wild_plant,
 // sell_garden_items) and 20261023120000_garden_wild_trees.sql (chop_wild_tree); the numbers
 // here mirror them for the screen.
@@ -52,9 +52,8 @@ export const VEGGIE_SELL_PRICE = 2;
 export const GARDEN_STACK = 20;
 
 // ── Trees ──────────────────────────────────────────────────────────────────
-// Art: public/garden/tree_<id>.png, four 96x144 frames (ready, stump, sprout, young crown)
-// with the trunk base at (48, 134), cut from the map's own tileset (Props.png). Each kind
-// has its own stump, and every growth stage grows on that stump.
+// Art: public/garden/tree_<id>.png, two 96x144 frames (grown, stump) with the trunk base at
+// (48, 134), cut from the map's own tileset (Props.png). Each kind has its own stump.
 export type TreeId = 'maple' | 'oak' | 'birch' | 'pine';
 export const TREES: Record<TreeId, { id: TreeId; label: string }> = {
   maple: { id: 'maple', label: 'Maple' },
@@ -64,31 +63,17 @@ export const TREES: Record<TreeId, { id: TreeId; label: string }> = {
 };
 export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine'];
 
-// Same list as wild_tree_nodes in the migration. x, y is the trunk's tile.
+// The trees themselves grow with the day's nature layer (lib/mapNature.ts): every one of them
+// can be chopped, and a chopped tree stays a stump until the next day's map.
 export interface WildTreeNode { id: string; tree: TreeId; x: number; y: number }
-export const WILD_TREES: Record<string, WildTreeNode[]> = {
-  ledgers_heart: [
-    { id: 'maple_1', tree: 'maple', x: 20, y: 7 },
-    { id: 'oak_1',   tree: 'oak',   x: 42, y: 13 },
-    { id: 'birch_1', tree: 'birch', x: 9,  y: 35 },
-    { id: 'pine_1',  tree: 'pine',  x: 42, y: 30 },
-  ],
-};
-// The tiles a tree's canopy covers above its trunk (3 wide, 3 up): nothing spawns there.
-export const treeTiles = (t: { x: number; y: number }) =>
-  [-3, -2, -1, 0].flatMap(dy => [-1, 0, 1].map(dx => ({ x: t.x + dx, y: t.y + dy })));
 
-export const TREE_REGROW_MS = 4 * 60 * 60 * 1000;
 export const CHOP_SWINGS = 3;
 export const WOOD_PER_TREE = 3;
+// Trees one kid can chop a day (chop_wild_tree mirrors it): 8 trees is 24 wood, 48 gold at the
+// Recycler, about a sixth of an active player's daily gold.
+export const DAILY_TREE_LIMIT = 8;
 
-// How a tree looks: ready (ribboned), a stump, a sprout on it, a young crown (thirds of the regrow).
-export type TreeStage = 'ready' | 'stump' | 'small' | 'young';
-export function treeStage(readyAt: number | null, now: number): TreeStage {
-  if (readyAt === null || now >= readyAt) return 'ready';
-  const left = (readyAt - now) / TREE_REGROW_MS;
-  return left > 2 / 3 ? 'stump' : left > 1 / 3 ? 'small' : 'young';
-}
+export type TreeStage = 'ready' | 'stump';
 
 // ── Bag items ──────────────────────────────────────────────────────────────
 // Keys in player_bag_items.item_key.

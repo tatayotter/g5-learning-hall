@@ -373,7 +373,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                     {g.kind === 'veggie'
                       ? `Picked fresh! The Recycler buys veggies for ${VEGGIE_SELL_PRICE} gold each.`
                       : g.kind === 'wood'
-                      ? `From a ribbon tree. Save it for building, or the Recycler buys it for ${WOOD_SELL_PRICE} gold each.`
+                      ? `From a tree on the map. Save it for building, or the Recycler buys it for ${WOOD_SELL_PRICE} gold each.`
                       : g.kind === 'sapling'
                       ? 'A baby tree! Keep it safe. Soon you can plant it at your own Hideout.'
                       : 'Keep these safe. Soon you can plant them in your own garden!'}

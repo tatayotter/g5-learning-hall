@@ -36,7 +36,8 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  TREES, VEGGIES, WILD_PLANTS, WILD_TREES, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, saplingKey, seedsKey, treeTiles, veggieKey,
+  DAILY_TREE_LIMIT, TREES, VEGGIES, WILD_PLANTS, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, saplingKey, seedsKey, veggieKey,
+  type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
@@ -215,8 +216,10 @@ export default function TrainingMap({
   const offline = useIsOffline();
   // Wild veggies and trees (garden switch): plants to pick, trees to chop, and their stacks in the bag.
   const gardenRegion = regionId ?? 'ledgers_heart';
+  // Trees on today's map (lib/mapNature.ts), once it has loaded.
+  const [mapTrees, setMapTrees] = useState<WildTreeNode[]>([]);
   const garden = useGarden({
-    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId),
+    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId), mapTrees,
   });
   const itemBar = useItemBar({
     userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
@@ -239,7 +242,7 @@ export default function TrainingMap({
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
   // The ripe veggie plant whose question is up.
   const [activePlant, setActivePlant] = useState<PlantView | null>(null);
-  // The ribbon tree being chopped, and the latest swing that landed (for the shake).
+  // The tree being chopped, and the latest swing that landed (for the shake).
   const [activeTree, setActiveTree] = useState<TreeView | null>(null);
   const [treeSwing, setTreeSwing] = useState<{ id: string; n: number } | null>(null);
   const [sellingVeggies, setSellingVeggies] = useState(false);
@@ -347,12 +350,10 @@ export default function TrainingMap({
   // only — see lib/tiledArtMap.ts). null for painted-background elemental
   // regions, which have no such layer to derive this from.
   const [mapFoliage, setFoliage] = useState<boolean[][] | null>(null);
-  // Plant and tree tiles count as taken too, so no scroll, trash or curio lands on a plant or
-  // under a tree.
+  // Plant tiles count as taken too, so no scroll, trash or curio lands on a plant (the map's
+  // foliage already covers its trees).
   const foliage = useMemo(() => {
-    const taken = garden.on
-      ? [...(WILD_PLANTS[gardenRegion] ?? []), ...(WILD_TREES[gardenRegion] ?? []).flatMap(treeTiles)]
-      : [];
+    const taken = garden.on ? WILD_PLANTS[gardenRegion] ?? [] : [];
     if (!mapFoliage || taken.length === 0) return mapFoliage;
     const f = mapFoliage.map(row => [...row]);
     for (const p of taken) if (f[p.y]?.[p.x] !== undefined) f[p.y][p.x] = true;
@@ -542,27 +543,6 @@ export default function TrainingMap({
       return;
     }
 
-    // A wild tree's trunk: a ribboned one is chopped with a question per swing.
-    const treeHere = garden.treeAt(newX, newY);
-    if (treeHere) {
-      const now = Date.now();
-      if (!treeHere.ready) {
-        const mins = Math.max(1, Math.ceil(((treeHere.readyAt ?? now) - now) / 60000));
-        const wait = mins >= 60 ? `about ${Math.round(mins / 60)} hour${Math.round(mins / 60) === 1 ? '' : 's'}` : `about ${mins} minute${mins === 1 ? '' : 's'}`;
-        showBarMessage(`This tree is growing back. It gets a new ribbon in ${wait}!`);
-      } else if (treeHere.restUntil && now < treeHere.restUntil) {
-        showBarMessage('This tree needs a short rest. Try again in a minute!');
-      } else if (itemBarRef.current.bagUsed + garden.squaresForChop(treeHere.tree) > itemBarRef.current.bagSize) {
-        showBarMessage('Your bag is full! Sell wood and veggies or trade trash at the Recycler.');
-      } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
-        showBarMessage("No internet, and this week's questions aren't saved here yet.");
-      } else {
-        playMonsterAppear();
-        setActiveTree(treeHere);
-      }
-      return;
-    }
-
     // Trash pickup — play coin sound + start lift animation, then remove from map
     // Trash goes into the bag; with no room it stays on the map.
     const trashHere = trashItems.find(t => t.x === newX && t.y === newY);
@@ -604,10 +584,37 @@ export default function TrainingMap({
     }
   }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, questions, showBarMessage, garden]);
 
-  const handleBlocked = useCallback(() => {
+  // Walking into a tree's trunk starts chopping it (garden switch): a question per swing.
+  const tryChop = useCallback((tile: { x: number; y: number }) => {
+    const pos = { x: posX, y: posY };
+    // The player's feet stop at the trunk's edge, so the sprite's own tile can be the trunk's.
+    const treeHere = garden.treeAt(tile.x, tile.y)
+      ?? [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0]].map(([dx, dy]) => garden.treeAt(pos.x + dx, pos.y + dy)).find(Boolean)
+      ?? null;
+    if (!treeHere) return false;
+    const now = Date.now();
+    if (!treeHere.ready) {
+      showBarMessage('You chopped this tree today. A new forest grows tomorrow!');
+    } else if (garden.felledToday >= DAILY_TREE_LIMIT) {
+      showBarMessage(`Your arms are tired after ${DAILY_TREE_LIMIT} trees. Chop more tomorrow!`);
+    } else if (treeHere.restUntil && now < treeHere.restUntil) {
+      showBarMessage('This tree needs a short rest. Try again in a minute!');
+    } else if (itemBarRef.current.bagUsed + garden.squaresForChop(treeHere.tree) > itemBarRef.current.bagSize) {
+      showBarMessage('Your bag is full! Sell wood and veggies or trade trash at the Recycler.');
+    } else if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
+      showBarMessage("No internet, and this week's questions aren't saved here yet.");
+    } else {
+      playMonsterAppear();
+      setActiveTree(treeHere);
+    }
+    return true;
+  }, [garden, showBarMessage, userId, questions, posX, posY]);
+
+  const handleBlocked = useCallback((tile: { x: number; y: number }) => {
+    if (tryChop(tile)) return;
     playWallBump();
     pulse(setBumping);
-  }, []);
+  }, [tryChop]);
 
   const contMove = useContinuousMovement({
     map,
@@ -624,8 +631,10 @@ export default function TrainingMap({
   useEffect(() => {
     let cancelled = false;
     if (activeRegion.tileArtPath) {
-      loadTiledArtMap(activeRegion.tileArtPath).then(parsed => {
+      const nature = activeRegion.dailyNature ? { regionId: activeRegion.id, reserved: WILD_PLANTS[activeRegion.id] ?? [] } : undefined;
+      loadTiledArtMap(activeRegion.tileArtPath, nature).then(parsed => {
         if (cancelled) return;
+        setMapTrees(parsed.trees);
         setRegionMap(parsed.layout);
         setMapReady(true);
         setBackground({
@@ -710,7 +719,7 @@ export default function TrainingMap({
     }
   };
 
-  // One swing at a ribbon tree, graded by useGarden; a swing that lands shakes the tree.
+  // One swing at a tree, graded by useGarden; a swing that lands shakes the tree.
   const gradeSwing = async (tree: TreeView, q: BattleQuestion, selected: string) => {
     const res = await garden.chop(tree, q, selected);
     const r = garden.lastChop.current;
@@ -734,13 +743,15 @@ export default function TrainingMap({
       playChime();
       const sapling = r.saplings > 0 ? gardenItemIcon(saplingKey(tree.tree)) : null;
       flyToBag([...Array(WOOD_PER_TREE).fill(gardenItemIcon(WOOD_KEY)), ...(sapling ? [sapling] : [])]);
-      const got = `${WOOD_PER_TREE} wood${r.saplings > 0 ? ` and a ${label} Sapling` : ''}`;
+      const got = `${WOOD_PER_TREE} wood${r.saplings > 0 ? ` and ${/^[AEIOU]/.test(label) ? 'an' : 'a'} ${label} Sapling` : ''}`;
       showBarMessage(r.clean ? `Clean chop! You got ${got}!` : `Timber! You got ${got}!`);
     } else if (r.status === 'wrong') {
       playClash();
       showBarMessage('Oops! The tree needs a short rest. Try again in a minute.');
-    } else if (r.status === 'growing') {
-      showBarMessage('This tree is still growing back.');
+    } else if (r.status === 'stump') {
+      showBarMessage('You chopped this tree today. A new forest grows tomorrow!');
+    } else if (r.status === 'tired') {
+      showBarMessage(`Your arms are tired after ${DAILY_TREE_LIMIT} trees. Chop more tomorrow!`);
     } else {
       showBarMessage('This tree needs a short rest. Try again in a minute!');
     }
@@ -907,7 +918,7 @@ export default function TrainingMap({
         // (lib/phaserMap/gardenPlants.ts) plays where the player can see it.
         gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id ? { ...p, stage: 'ripe' as const } : p)) : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
-        wildTrees={garden.on ? garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)) : undefined}
+        wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}

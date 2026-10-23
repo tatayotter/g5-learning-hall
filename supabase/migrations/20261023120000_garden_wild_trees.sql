@@ -1,45 +1,23 @@
 -- Garden, step 2: wild trees on the Training Map (plan: "Garden and Grove", 2026-10-22).
--- A few trees in The Ledger's Heart wear a green ribbon. A kid walks up to one and chops it
--- with three right answers, one per swing; a wrong answer just misses. The tree gives 3 wood,
--- and half the time a sapling of its kind (always, on a "clean chop" with no misses), kept for
--- the Hideout grove later. It then grows back for 4 hours, per kid: a stump, a sprout on it, a
--- young crown, then ribboned again. Wood sells at the Recycler for 2 gold each, like veggies.
--- Behind the same 'garden' rollout switch as the veggies.
+-- The Ledger's Heart is now drawn as ground and paths only, and its trees, bushes, grass and
+-- flowers grow by code, a new layout every day (lib/mapNature.ts, seeded by the region and the
+-- day in Manila, so every kid sees the same map). Every tree can be chopped: three right
+-- answers, one per swing; a wrong answer just misses. The tree gives 3 wood, and half the time
+-- a sapling of its kind (always, on a "clean chop" with no misses), kept for the Hideout grove
+-- later. It stays a stump for that kid until the next day's map. A kid can chop 8 trees a day.
+-- Wood sells at the Recycler for 2 gold each, like veggies. Behind the same 'garden' rollout
+-- switch as the veggies.
 --
--- - wild_tree_nodes: which tree stands at each spot (lib/gardenConfig.ts WILD_TREES holds the
---   same list for drawing them).
+-- A tree's id names its day and trunk tile ("2026-10-23:12_7"), so no list of trees is kept
+-- here: the day in the id has to match the day the swing was played.
+--
 -- - player_gather_nodes gets the swings landed on the tree so far (hits) and the misses in this
 --   chop (chop_misses), so a chop can be finished later.
 -- - chop_wild_tree(): one swing, online or synced from the offline outbox (keyed by the
 --   device's entry id, so a retry never swings twice).
 -- - sell_garden_items(): now buys wood too.
 --
--- Additive only: a new table, two new columns, a new function, one replaced function.
-
--- ── Tree spots ───────────────────────────────────────────────────────────────
-
-create table if not exists public.wild_tree_nodes (
-  region text not null,
-  node_id text not null,
-  tree text not null check (tree in ('maple', 'oak', 'birch', 'pine')),
-  tile_x integer not null,
-  tile_y integer not null,
-  primary key (region, node_id)
-);
-alter table public.wild_tree_nodes enable row level security;
-do $$ begin
-  if not exists (select 1 from pg_policies where schemaname = 'public' and tablename = 'wild_tree_nodes' and policyname = 'wild_tree_nodes: read all') then
-    create policy "wild_tree_nodes: read all" on public.wild_tree_nodes for select using (true);
-  end if;
-end $$;
-
-insert into public.wild_tree_nodes (region, node_id, tree, tile_x, tile_y) values
-  ('ledgers_heart', 'maple_1', 'maple', 20,  7),
-  ('ledgers_heart', 'oak_1',   'oak',   42, 13),
-  ('ledgers_heart', 'birch_1', 'birch',  9, 35),
-  ('ledgers_heart', 'pine_1',  'pine',  42, 30)
-on conflict (region, node_id) do update
-  set tree = excluded.tree, tile_x = excluded.tile_x, tile_y = excluded.tile_y;
+-- Additive only: two new columns, a new function, one replaced function.
 
 -- ── Swings so far ────────────────────────────────────────────────────────────
 
@@ -52,12 +30,13 @@ alter table public.player_gather_nodes add column if not exists chop_misses inte
 -- - 'felled': right answer on the third swing; 3 wood (and maybe a sapling) are in the bag.
 --   clean says it was a clean chop (no misses), which always gives a sapling.
 -- - 'wrong': wrong answer; the swing missed. Three wrong in a row and the tree rests a minute.
--- - 'growing' / 'resting': the tree can't be chopped yet (ready_at / rest_until say when).
---   Nothing is graded then.
+-- - 'stump': this kid already chopped the tree today. 'tired': 8 trees chopped today.
+--   'resting': rest_until says when. Nothing is graded then.
 create or replace function public.chop_wild_tree(
   p_user_id text,
   p_region text,
   p_node_id text,
+  p_tree text,
   p_question_id uuid,
   p_selected text,
   p_entry_id uuid,
@@ -70,7 +49,9 @@ set search_path to 'public'
 as $$
 declare
   -- lib/gardenConfig.ts mirrors these.
-  c_regrow constant interval := interval '4 hours';
+  c_regions constant text[] := array['ledgers_heart'];
+  c_trees constant text[] := array['maple', 'oak', 'birch', 'pine'];
+  c_daily constant int := 8;
   c_rest constant interval := interval '1 minute';
   c_wrong_limit constant int := 3;
   c_swings constant int := 3;
@@ -80,7 +61,9 @@ declare
   v_idem text := 'garden_chop:' || p_entry_id::text;
   v_prev jsonb;
   v_played timestamptz;
-  v_tree text;
+  v_day date;
+  v_played_day date;
+  v_felled int;
   v_node public.player_gather_nodes%rowtype;
   v_answer text;
   v_correct boolean := null;
@@ -89,7 +72,6 @@ declare
   v_clean boolean := false;
   v_wood int := 0;
   v_saplings int := 0;
-  v_ready timestamptz := null;
   v_rest timestamptz := null;
   v_out jsonb;
 begin
@@ -102,6 +84,11 @@ begin
   if not public.feature_enabled_for(p_user_id, 'garden') then
     raise exception 'garden is not on for this player';
   end if;
+  if not (p_region = any (c_regions)) or not (p_tree = any (c_trees))
+    or p_node_id is null or p_node_id !~ '^\d{4}-\d{2}-\d{2}:\d{1,3}_\d{1,3}$' then
+    raise exception 'no such tree: % % %', p_region, p_node_id, p_tree;
+  end if;
+  v_day := substring(p_node_id from 1 for 10)::date;
 
   -- Same lock as gather_wild_plant and sell_garden_items: they all write the bag.
   perform pg_advisory_xact_lock(hashtext('gather_wild_plant:' || p_user_id));
@@ -112,11 +99,6 @@ begin
     return v_prev || jsonb_build_object('replayed', true, 'bag', public.garden_bag_json(p_user_id));
   end if;
 
-  select tree into v_tree from public.wild_tree_nodes where region = p_region and node_id = p_node_id;
-  if not found then
-    raise exception 'no such tree: % %', p_region, p_node_id;
-  end if;
-
   -- Same claimed-time rule as gather_wild_plant: an offline swing counts when it happened.
   v_played := case
     when p_played_at is not null
@@ -125,16 +107,25 @@ begin
     then least(p_played_at, now())
     else now()
   end;
+  -- The tree grew on its day's map: a swing that day, or just after midnight by a kid still on
+  -- that map.
+  v_played_day := (v_played at time zone 'Asia/Manila')::date;
+  if v_played_day not in (v_day, v_day + 1) then
+    raise exception 'that tree is not on the map any more: %', p_node_id;
+  end if;
 
   insert into public.player_gather_nodes (user_id, region, node_id) values (p_user_id, p_region, p_node_id)
   on conflict do nothing;
   select * into v_node from public.player_gather_nodes
   where user_id = p_user_id and region = p_region and node_id = p_node_id;
   v_hits := v_node.hits;
+  select count(*) into v_felled from public.player_gather_nodes
+  where user_id = p_user_id and node_id like v_day::text || ':%' and last_picked_at is not null;
 
-  if v_node.last_picked_at is not null and v_played < v_node.last_picked_at + c_regrow then
-    v_status := 'growing';
-    v_ready := v_node.last_picked_at + c_regrow;
+  if v_node.last_picked_at is not null then
+    v_status := 'stump';
+  elsif v_felled >= c_daily then
+    v_status := 'tired';
   elsif v_node.rest_until is not null and v_played < v_node.rest_until then
     v_status := 'resting';
     v_rest := v_node.rest_until;
@@ -162,14 +153,13 @@ begin
       do update set quantity = least(player_bag_items.quantity + v_wood, c_max_stack), updated_at = now();
       if v_saplings > 0 then
         insert into public.player_bag_items (user_id, item_key, quantity)
-        values (p_user_id, 'sapling_' || v_tree, 1)
+        values (p_user_id, 'sapling_' || p_tree, 1)
         on conflict (user_id, item_key)
         do update set quantity = least(player_bag_items.quantity + 1, c_max_stack), updated_at = now();
       end if;
       update public.player_gather_nodes
       set last_picked_at = v_played, hits = 0, chop_misses = 0, wrong_streak = 0, rest_until = null, picks = picks + 1
       where user_id = p_user_id and region = p_region and node_id = p_node_id;
-      v_ready := v_played + c_regrow;
     elsif v_correct then
       v_status := 'hit';
       v_hits := v_node.hits + 1;
@@ -192,7 +182,7 @@ begin
     'status', v_status,
     'region', p_region,
     'node_id', p_node_id,
-    'tree', v_tree,
+    'tree', p_tree,
     'question_id', p_question_id,
     'correct', v_correct,
     'correct_answer', case when v_correct is null then null else v_answer end,
@@ -200,7 +190,6 @@ begin
     'clean', v_clean,
     'wood', v_wood,
     'saplings', v_saplings,
-    'ready_at', v_ready,
     'rest_until', v_rest,
     'played_at', v_played,
     'claimed_at', p_played_at
@@ -213,8 +202,8 @@ begin
 end;
 $$;
 
-revoke all on function public.chop_wild_tree(text, text, text, uuid, text, uuid, timestamptz) from public, anon;
-grant execute on function public.chop_wild_tree(text, text, text, uuid, text, uuid, timestamptz) to authenticated, service_role;
+revoke all on function public.chop_wild_tree(text, text, text, text, uuid, text, uuid, timestamptz) from public, anon;
+grant execute on function public.chop_wild_tree(text, text, text, text, uuid, text, uuid, timestamptz) to authenticated, service_role;
 
 -- ── Selling ──────────────────────────────────────────────────────────────────
 -- Same as step 1, and wood sells now too, at the same 2 gold. Seed packets and saplings still

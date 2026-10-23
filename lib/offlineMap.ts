@@ -18,6 +18,7 @@ import { updateOfflineCopy } from '@/lib/offlineReads';
 import type { CurioCollection } from '@/lib/curioCollection';
 import { BATTLE_CONSTANTS, getMonsterLevel } from '@/lib/monsterConfig';
 import { chopWildTree, gatherWildPlant } from '@/lib/garden';
+import type { TreeId } from '@/lib/gardenConfig';
 
 const OUTBOX = (userId: string) => `lh_map_outbox_${userId}`;
 
@@ -69,6 +70,8 @@ export interface MapOutboxEntry {
   // A veggie pick or tree swing: which plant or tree.
   region?: string | null;
   nodeId?: string | null;
+  // A tree swing: the kind of tree (it decides the sapling).
+  tree?: TreeId | null;
   playedAt: string;
   // Server rejections (not network failures) so far; kept for a look, never dropped.
   failures: number;
@@ -122,8 +125,8 @@ export function queueGather(userId: string, region: string, nodeId: string, ques
   queue(userId, { kind: 'gather', region, nodeId, questionId, selected });
 }
 
-export function queueChop(userId: string, region: string, nodeId: string, questionId: string, selected: string) {
-  queue(userId, { kind: 'chop', region, nodeId, questionId, selected });
+export function queueChop(userId: string, region: string, nodeId: string, tree: TreeId, questionId: string, selected: string) {
+  queue(userId, { kind: 'chop', region, nodeId, tree, questionId, selected });
 }
 
 export function queuePosition(userId: string, x: number, y: number) {
@@ -160,7 +163,8 @@ export function flushMapOutbox(userId: string): Promise<SyncedMapEntries> {
             }
           : null;
         const res = !args ? { ok: false as const, network: false }
-          : entry.kind === 'chop' ? await chopWildTree(args) : await gatherWildPlant(args);
+          : entry.kind === 'chop' ? (entry.tree ? await chopWildTree({ ...args, tree: entry.tree }) : { ok: false as const, network: false })
+          : await gatherWildPlant(args);
         const remaining = pendingMapEntries(userId);
         if (!res.ok) {
           if (res.network) break;

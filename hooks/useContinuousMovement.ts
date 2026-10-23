@@ -47,7 +47,8 @@ export interface ContinuousMovementOptions {
   enabled: boolean;
   initialTile: Tile;
   onTileCrossed: (tile: Tile, prevTile: Tile) => void;
-  onBlocked: () => void;
+  // Walked into something solid; `tile` is the tile the player pushed against.
+  onBlocked: (tile: Tile) => void;
   /** Additional tiles treated as walls (e.g. NPC positions). */
   extraBlockedTiles?: Tile[];
 }
@@ -176,11 +177,14 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
       const step = SPEED_TILES_PER_SEC * dt;
 
       let moved = false;
+      let pushedAgainst: Tile | null = null;
       if (dx !== 0) {
         const candidateX = pos.x + dx * step;
         if (!isBlocked(map, mapWidth, mapHeight, candidateX, pos.y, extraBlockedRef.current)) {
           pos.x = candidateX;
           moved = true;
+        } else {
+          pushedAgainst = { x: Math.floor(pos.x) + Math.sign(dx), y: Math.floor(pos.y) };
         }
       }
       if (dy !== 0) {
@@ -188,13 +192,15 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
         if (!isBlocked(map, mapWidth, mapHeight, pos.x, candidateY, extraBlockedRef.current)) {
           pos.y = candidateY;
           moved = true;
+        } else {
+          pushedAgainst = { x: Math.floor(pos.x), y: Math.floor(pos.y) + Math.sign(dy) };
         }
       }
 
       isMovingRef.current = moved;
 
       const blockedNow = hasInput && !moved;
-      if (blockedNow && !wasBlockedRef.current) onBlockedRef.current();
+      if (blockedNow && !wasBlockedRef.current && pushedAgainst) onBlockedRef.current(pushedAgainst);
       wasBlockedRef.current = blockedNow;
 
       const tileX = Math.floor(pos.x);

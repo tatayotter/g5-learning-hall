@@ -1,12 +1,12 @@
 // lib/phaserMap/wildTrees.ts
-// Draws the wild trees (lib/gardenConfig.ts WILD_TREES) on a tile-art map, and the chop effects.
-// Each tree's art is a strip of four 96x144 frames: ready, stump, a sprout on the stump, a young
-// crown on it, with the trunk base at (48, 134) so it stands near the bottom of its trunk tile.
+// Draws the trees of a map's daily nature layer (lib/mapNature.ts), and the chop effects.
+// Each tree's art is a strip of two 96x144 frames, grown and stump, with the trunk base at
+// (48, 134) so it stands near the bottom of its trunk tile.
 //
 // Like the map's own trees, each one is split in two at the top of the trunk tile: the trunk
 // part sits under the players, the canopy above them, so a kid walking behind a tree goes
-// under its leaves. A ready tree wears a green ribbon (only those can be chopped) and its
-// canopy glides a little like the map's trees (swayingTrees.ts).
+// under its leaves. A grown tree's canopy glides a little like the map's trees
+// (swayingTrees.ts).
 //
 // Effects: swing() shakes the tree and throws wood chips and a few leaves; when a tree goes
 // from ready to a stump it topples over and lands in a puff of dust and leaves.
@@ -28,9 +28,10 @@ const BASE_X = 48;
 const BASE_Y = 134;
 // Frame row at the top of the trunk tile: above it is canopy (drawn over the players).
 const SPLIT = BASE_Y - 28;
-const FRAME_OF: Record<TreeStage, number> = { ready: 0, stump: 1, small: 2, young: 3 };
+// The rows of a grown tree above its stump's cut (the part that falls when it's chopped).
+const FALL_H = BASE_Y - 20;
+const FRAME_OF: Record<TreeStage, number> = { ready: 0, stump: 1 };
 const GLIDE_MS = 7000;
-const RIBBON_KEY = 'garden:ribbon';
 
 interface Drawn {
   key: string;
@@ -74,11 +75,11 @@ export default class WildTrees {
       const prev = this.drawn.get(t.id);
       if (prev?.key === key) continue;
       const tex = `garden:tree_${t.tree}`;
-      this.loadTexture(tex, `/garden/tree_${t.tree}.png`, () => this.loadTexture(RIBBON_KEY, '/garden/ribbon_green.png', () => {
+      this.loadTexture(tex, `/garden/tree_${t.tree}.png`, () => {
         const now = this.wanted.find(w => w.id === t.id);
         if (!now || `${now.tree}:${now.stage}` !== key || this.drawn.get(t.id)?.key === key) return;
         this.draw(now, tex, key, prev?.key ?? null);
-      }));
+      });
     }
   }
 
@@ -113,23 +114,10 @@ export default class WildTrees {
     const trunk = this.scene.add.image(left, top + SPLIT, tex, this.frame(tex, t.stage, 'bottom')).setOrigin(0, 0);
     this.below.add(trunk);
     below.push(trunk);
-    if (t.stage === 'ready') {
-      const ribbon = this.scene.add.image(left + BASE_X, top + BASE_Y - 18, RIBBON_KEY).setOrigin(0.5, 0.5);
-      this.below.add(ribbon);
-      below.push(ribbon);
-      // A little flutter, so a choppable tree catches the eye.
-      if (!this.still) this.scene.tweens.add({ targets: ribbon, scaleX: 0.8, duration: 700, yoyo: true, repeat: -1, ease: 'Sine.easeInOut', delay: Math.random() * 700 });
-    }
     const canopy = t.stage === 'stump' ? null
       : this.scene.add.image(left, top, tex, this.frame(tex, t.stage, 'top')).setOrigin(0, 0);
     if (canopy) this.above.add(canopy);
     this.drawn.set(t.id, { key, tree: t, below, canopy, canopyX: left, phase: Math.random() * Math.PI * 2, shake: 0 });
-    // Grown back: a small pop as it changes.
-    if (prevKey && !this.still && t.stage !== 'stump') {
-      for (const img of [...below, ...(canopy ? [canopy] : [])]) {
-        this.scene.tweens.add({ targets: img, y: img.y - 2, duration: 120, yoyo: true, ease: 'Quad.easeOut' });
-      }
-    }
   }
 
   update(now: number) {
@@ -180,16 +168,17 @@ export default class WildTrees {
     }
   }
 
-  // The whole tree tips over from its base, away from the trunk tile, and lands in dust.
+  // The tree tips over from its stump, away from the trunk tile, and lands in dust.
   private topple(t: TreeSprite, tex: string) {
     if (this.still) return;
     const { left, top } = this.origin(t);
     const bx = left + BASE_X;
     const by = top + BASE_Y;
-    const name = `ready:full`;
+    // Everything above the stump falls; the stump stays (drawn by the stump frame).
+    const name = `ready:fall`;
     const texture = this.scene.textures.get(tex);
-    if (!texture.has(name)) texture.add(name, 0, 0, 0, FW, FH);
-    const tree = this.scene.add.image(bx, by, tex, name).setOrigin(BASE_X / FW, BASE_Y / FH);
+    if (!texture.has(name)) texture.add(name, 0, 0, 0, FW, FALL_H);
+    const tree = this.scene.add.image(bx, top + FALL_H, tex, name).setOrigin(BASE_X / FW, 1);
     this.above.add(tree);
     const side = t.x % 2 === 0 ? 1 : -1;
     this.scene.tweens.add({

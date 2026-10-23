@@ -8,7 +8,7 @@
 // when they sync.
 import { supabase } from '@/lib/supabase';
 import {
-  CHOP_SWINGS, REGROW_MS, REST_MS, TREE_REGROW_MS, WILD_TREES, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
+  CHOP_SWINGS, DAILY_TREE_LIMIT, REGROW_MS, REST_MS, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
   type GardenBag, type TreeId, type VeggieId,
 } from '@/lib/gardenConfig';
 
@@ -29,8 +29,23 @@ export interface GardenState {
 }
 
 export const plantKey = (region: string, nodeId: string) => `${region}:${nodeId}`;
-// Every tree's plant key, by region.
-const WILD_TREE_IDS = Object.fromEntries(Object.entries(WILD_TREES).map(([r, ts]) => [r, ts.map(t => `${r}:${t.id}`)]));
+
+// Trees come with the day's map (lib/mapNature.ts), so their ids start with the day:
+// "2026-10-23:12_7". A chopped tree stays a stump until that day is over.
+const TREE_ID = /^(\d{4}-\d{2}-\d{2}):\d+_\d+$/;
+export const treeDayOf = (nodeId: string) => TREE_ID.exec(nodeId)?.[1] ?? null;
+// Midnight in the Philippines at the end of that day, in epoch ms.
+export const endOfTreeDay = (day: string) => Date.parse(`${day}T00:00:00+08:00`) + 24 * 3600_000;
+
+/** Trees this kid has chopped down on `day` (from the device copy). */
+export function treesFelledOn(state: GardenState, day: string): number {
+  let n = 0;
+  for (const [key, t] of Object.entries(state.plants)) {
+    const nodeId = key.slice(key.indexOf(':') + 1);
+    if (treeDayOf(nodeId) === day && t.readyAt !== null) n++;
+  }
+  return n;
+}
 
 export const emptyGarden = (): GardenState => ({ bag: {}, plants: {} });
 
@@ -69,16 +84,18 @@ export async function fetchGarden(userId: string): Promise<GardenState | null> {
     // Every column, so the veggies still load on a database without the tree columns yet.
     supabase.from('player_gather_nodes').select('*').eq('user_id', userId),
   ]);
-  const trees = new Set(Object.values(WILD_TREE_IDS).flat());
   if (bagRes.error || plantsRes.error) return null;
   const bag = cleanBag(Object.fromEntries((bagRes.data ?? []).map(r => [r.item_key, r.quantity])));
   const plants: Record<string, PlantTimer> = {};
   for (const r of plantsRes.data ?? []) {
     const picked = toMs(r.last_picked_at);
     const key = plantKey(r.region, r.node_id);
-    const tree = trees.has(key);
+    const day = treeDayOf(r.node_id);
+    const tree = day !== null;
+    // Trees from days gone by are long gone from the map.
+    if (tree && endOfTreeDay(day) < Date.now() - 24 * 3600_000) continue;
     plants[key] = {
-      readyAt: picked === null ? null : picked + (tree ? TREE_REGROW_MS : REGROW_MS),
+      readyAt: picked === null ? null : tree ? endOfTreeDay(day) : picked + REGROW_MS,
       restUntil: toMs(r.rest_until),
       wrong: r.wrong_streak ?? 0,
       ...(tree ? { hits: r.hits ?? 0, misses: r.chop_misses ?? 0 } : {}),
@@ -172,7 +189,8 @@ export function applyLocalPick(state: GardenState, region: string, nodeId: strin
   return { ...state, plants: { ...state.plants, [key]: next } };
 }
 
-export type ChopStatus = 'hit' | 'felled' | 'wrong' | 'growing' | 'resting';
+// 'stump': already chopped today. 'tired': the day's DAILY_TREE_LIMIT trees are chopped.
+export type ChopStatus = 'hit' | 'felled' | 'wrong' | 'stump' | 'resting' | 'tired';
 
 export interface ChopResult {
   status: ChopStatus;
@@ -192,13 +210,14 @@ export interface ChopResult {
 export type ChopCall = { ok: true; result: ChopResult } | { ok: false; network: boolean };
 
 export async function chopWildTree(args: {
-  userId: string; region: string; nodeId: string; questionId: string; selected: string;
+  userId: string; region: string; nodeId: string; tree: TreeId; questionId: string; selected: string;
   entryId: string; playedAt?: string | null;
 }): Promise<ChopCall> {
   const { data, error } = await supabase.rpc('chop_wild_tree', {
     p_user_id: args.userId,
     p_region: args.region,
     p_node_id: args.nodeId,
+    p_tree: args.tree,
     p_question_id: args.questionId,
     p_selected: args.selected,
     p_entry_id: args.entryId,
@@ -219,7 +238,8 @@ export async function chopWildTree(args: {
       clean: !!data.clean,
       wood: data.wood ?? 0,
       saplings: data.saplings ?? 0,
-      readyAt: toMs(data.ready_at),
+      // A chopped tree stays a stump until its day is over.
+      readyAt: data.status === 'felled' || data.status === 'stump' ? endOfTreeDay(treeDayOf(args.nodeId) ?? '') : null,
       restUntil: toMs(data.rest_until),
       bag: data.bag ? cleanBag(data.bag) : null,
       replayed: !!data.replayed,
@@ -234,12 +254,16 @@ export function applyLocalChop(state: GardenState, region: string, nodeId: strin
   const prev = state.plants[key] ?? { readyAt: null, restUntil: null, wrong: 0, hits: 0, misses: 0 };
   const hits = prev.hits ?? 0;
   const misses = prev.misses ?? 0;
+  const day = treeDayOf(nodeId);
+  if (day && treesFelledOn(state, day) >= DAILY_TREE_LIMIT) {
+    return { state, result: { status: 'tired', hits, clean: false, wood: 0, saplings: 0, restUntil: null } };
+  }
   if (correct && hits + 1 >= CHOP_SWINGS) {
     const clean = misses === 0;
     const bag: GardenBag = { ...state.bag, [WOOD_KEY]: (state.bag[WOOD_KEY] ?? 0) + WOOD_PER_TREE };
     if (clean) bag[saplingKey(tree)] = (bag[saplingKey(tree)] ?? 0) + 1;
     return {
-      state: { bag, plants: { ...state.plants, [key]: { readyAt: now + TREE_REGROW_MS, restUntil: null, wrong: 0, hits: 0, misses: 0 } } },
+      state: { bag, plants: { ...state.plants, [key]: { readyAt: day ? endOfTreeDay(day) : now, restUntil: null, wrong: 0, hits: 0, misses: 0 } } },
       result: { status: 'felled', hits: CHOP_SWINGS, clean, wood: WOOD_PER_TREE, saplings: clean ? 1 : 0, restUntil: null },
     };
   }
