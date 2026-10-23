@@ -145,6 +145,8 @@ export interface TiledArtMap {
   // Per tile (row-major), for the layers in Y_SORTED: the ground row the thing drawn there
   // stands on, or -1. Undefined when the map has none.
   ysortBase?: number[];
+  // The names of those layers.
+  ysortLayers: string[];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -625,5 +627,6 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     flowers,
     lights,
     ysortBase,
+    ysortLayers: ysortLayers.map(l => l.name),
   };
 }

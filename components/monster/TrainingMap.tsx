@@ -735,6 +735,7 @@ export default function TrainingMap({
           animatedTiles: parsed.animatedTiles,
           lights: parsed.lights,
           ysortBase: parsed.ysortBase,
+          ysortLayers: parsed.ysortLayers,
         });
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);

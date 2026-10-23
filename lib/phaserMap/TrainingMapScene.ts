@@ -116,6 +116,7 @@ export type MapBackground =
       // Roofs, awnings, lamp heads, bench backs: per tile the ground row each stands on (-1 none),
       // so a player in front of one draws over it and one behind it is covered (lib/tiledArtMap.ts).
       ysortBase?: number[];
+      ysortLayers?: string[];
     };
 
 // `color`: the glow's tint (the next map's element color).
@@ -350,8 +351,9 @@ export default class TrainingMapScene extends Phaser.Scene {
   // so only the part of a player the leaves hide shows through (walking half behind a tree too).
   private ghostLayer: Phaser.GameObjects.Container | null = null;
   private ghostMasked = false;
-  // Silhouettes of players behind a roof, awning or lamp: unmasked (the roof hides them whole).
-  private roofGhostLayer: Phaser.GameObjects.Container | null = null;
+  // Silhouettes of players behind a roof, awning or lamp: one holder per such layer, masked by it
+  // (WebGL), so only the part of the player it hides shows through.
+  private roofGhostLayers = new Map<Phaser.Tilemaps.TilemapLayer, Phaser.GameObjects.Container>();
   // Over everything drawn over the players: a player in front of a roof or lamp is drawn here.
   private frontDepth = 40;
   private wildTreeSprites: TreeSprite[] = [];
@@ -477,23 +479,21 @@ export default class TrainingMapScene extends Phaser.Scene {
   // side), a pixel chevron arrow, and a soft spark.
   private makeExitTextures() {
     if (this.textures.exists('exit-band')) return true;
-    const band = this.textures.createCanvas('exit-band', 64, 64);
+    const band = this.textures.createCanvas('exit-band', 64, 32);
     const arrow = this.textures.createCanvas('exit-arrow', 15, 11);
     const spark = this.textures.createCanvas('exit-spark', 8, 8);
     if (!band || !arrow || !spark) return false;
+    // A soft oval pool of light (no hard sides, so it reads the same on a road and on grass).
     let ctx = band.getContext();
-    const g = ctx.createLinearGradient(0, 0, 0, 64);
-    g.addColorStop(0, 'rgba(255,255,255,0.95)');
-    g.addColorStop(0.35, 'rgba(255,255,255,0.45)');
+    ctx.save();
+    ctx.scale(1, 0.5);
+    const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, 'rgba(255,255,255,0.9)');
+    g.addColorStop(0.45, 'rgba(255,255,255,0.45)');
     g.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, 64, 64);
-    // Soft side ends, so the glow fades out at both ends of the gap too.
-    ctx.globalCompositeOperation = 'destination-in';
-    const h = ctx.createLinearGradient(0, 0, 64, 0);
-    h.addColorStop(0, 'rgba(0,0,0,0)'); h.addColorStop(0.2, 'rgba(0,0,0,1)'); h.addColorStop(0.8, 'rgba(0,0,0,1)'); h.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = h;
-    ctx.fillRect(0, 0, 64, 64);
+    ctx.restore();
     band.refresh();
     // Chevron pointing up: dark outline, then a warm white body.
     ctx = arrow.getContext();
@@ -524,13 +524,14 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.exitFx = [];
       this.exitKey = key;
       if (exits.length && this.makeExitTextures()) {
-        const depth = this.shadowDepth + 0.02;
+        // Over every ground and object layer, just under the players (9): the arrow under the kid.
+        const depth = 8.8;
         this.exitFx = exits.map((exit, i) => {
           const tint = exit.locked ? 0x9a9a9a : exit.color;
           return {
             exit, seed: i * 1.7,
             band: this.add.image(0, 0, 'exit-band').setDepth(depth).setBlendMode(Phaser.BlendModes.ADD).setTint(tint),
-            arrow: this.add.image(0, 0, 'exit-arrow').setDepth(depth + 0.01).setTint(tint),
+            arrow: this.add.image(0, 0, 'exit-arrow').setDepth(depth + 0.01).setTint(exit.locked ? 0x9a9a9a : 0xffffff, 0xffffff, tint, tint),
             sparks: Array.from({ length: Math.max(3, (exit.w + exit.h) * 2) }, () =>
               this.add.image(0, 0, 'exit-spark').setDepth(depth + 0.02).setBlendMode(Phaser.BlendModes.ADD).setTint(tint)),
           };
@@ -551,11 +552,12 @@ export default class TrainingMapScene extends Phaser.Scene {
       const mx = t.offsetX + (exit.x + exit.w / 2 + out[0] * (exit.w / 2)) * t.tileW;
       const my = t.offsetY + (exit.y + exit.h / 2 + out[1] * (exit.h / 2)) * t.tileH;
       const breathe = still ? 0.8 : 0.7 + 0.25 * Math.sin(time / 600 + f.seed);
-      f.band.setPosition(mx - out[0] * deep * t.tileW / 2, my - out[1] * deep * t.tileH / 2).setRotation(ROT[exit.side])
-        .setDisplaySize((along + 1) * t.tileW, deep * t.tileH).setAlpha((exit.locked ? 0.35 : 0.75) * breathe);
+      // The pool sits just inside the gap, a little wider than it.
+      f.band.setPosition(mx - out[0] * 0.9 * t.tileW, my - out[1] * 0.9 * t.tileH).setRotation(ROT[exit.side])
+        .setDisplaySize((along + 2) * t.tileW, 2.6 * t.tileH).setAlpha((exit.locked ? 0.35 : 0.85) * breathe);
       const bob = still ? 0 : (Math.sin(time / 260 + f.seed) + 1) * 0.12;
-      f.arrow.setPosition(mx - out[0] * (1.6 - bob) * t.tileW, my - out[1] * (1.6 - bob) * t.tileH).setRotation(ROT[exit.side])
-        .setScale(t.tileW / 16).setAlpha(exit.locked ? 0.5 : 0.95);
+      f.arrow.setPosition(mx - out[0] * (1.5 - bob) * t.tileW, my - out[1] * (1.5 - bob) * t.tileH).setRotation(ROT[exit.side])
+        .setScale(t.tileW / 12).setAlpha(exit.locked ? 0.5 : 1);
       f.sparks.forEach((sp, k) => {
         // Each spark drifts from inside the gap out through it, fading, then starts again.
         const life = 2400, ph = still ? 0.5 : ((time + k * 977 + f.seed * 500) % life) / life;
@@ -563,7 +565,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         const inward = (1 - ph) * deep;
         const x = mx + (out[1] !== 0 ? across : 0) * t.tileW - out[0] * inward * t.tileW;
         const y = my + (out[0] !== 0 ? across : 0) * t.tileH - out[1] * inward * t.tileH;
-        sp.setPosition(x + (still ? 0 : Math.sin(time / 300 + k) * t.tileW * 0.08), y).setScale(t.tileW / 24)
+        sp.setPosition(x + (still ? 0 : Math.sin(time / 300 + k) * t.tileW * 0.08), y).setScale(t.tileW / 40)
           .setAlpha(Math.sin(ph * Math.PI) * (exit.locked ? 0.4 : 0.9));
       });
     }
@@ -616,19 +618,24 @@ export default class TrainingMapScene extends Phaser.Scene {
   // the one above): 'behind' one (it stands on a row below the player's feet), else 'front' when
   // it overlaps any, else null.
   private roofSide(p: TrackedSprite): 'behind' | 'front' | null {
+    return this.roofCover(p).side;
+  }
+
+  // The same, plus the layer covering a player who is behind one.
+  private roofCover(p: TrackedSprite): { side: 'behind' | 'front' | null; layer?: Phaser.Tilemaps.TilemapLayer } {
     const bg = this.lastBackground;
     const base = bg?.type === 'tilemap' ? bg.ysortBase : undefined;
     const W = this.tilemap?.width ?? 0;
-    if (!base || !W) return null;
+    if (!base || !W) return { side: null };
     const x = Math.round(p.x), feet = Math.round(p.y);
     let front = false;
     for (let y = feet - 1; y <= feet; y++) {
       const b = base[y * W + x];
       if (b === undefined || b < 0) continue;
-      if (b > feet) return 'behind';
+      if (b > feet) return { side: 'behind', layer: [...this.roofGhostLayers.keys()].find(l => l.hasTileAt(x, y)) };
       front = true;
     }
-    return front ? 'front' : null;
+    return { side: front ? 'front' : null };
   }
 
   // A player in front of a roof, awning or lamp is drawn over it (whole); behind one, it covers
@@ -655,10 +662,11 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const p of players) {
       const img = p.image;
       if (!img.active) continue;
-      const behindRoof = img.visible && this.roofSide(p) === 'behind';
-      const covered = img.visible && (behindRoof || this.ghostMasked
+      const cover = img.visible ? this.roofCover(p) : { side: null };
+      const behindRoof = cover.side === 'behind';
+      const covered = img.visible && (behindRoof || (this.ghostMasked
         ? !!this.wildTrees?.near(p.x, p.y)
-        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y)));
+        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y))));
       let ghost = this.ghosts.get(img);
       if (!covered) { ghost?.setVisible(false); if (ghost) live.add(img); continue; }
       if (!ghost) {
@@ -667,7 +675,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.ghosts.set(img, ghost);
       }
       // Behind a roof: the unmasked layer; under leaves: the one masked by the canopies.
-      const into = behindRoof && this.roofGhostLayer ? this.roofGhostLayer : layer;
+      const into = (behindRoof && cover.layer && this.roofGhostLayers.get(cover.layer)) || layer;
       if (ghost.parentContainer !== into) { ghost.parentContainer?.remove(ghost); into.add(ghost); }
       live.add(img);
       any = true;
@@ -680,7 +688,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     }
     // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
     layer.setVisible(any && layer.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
-    this.roofGhostLayer?.setVisible(any);
+    for (const c of this.roofGhostLayers.values()) c.setVisible(c.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
   }
 
   create() {
@@ -1093,8 +1101,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.topLayer = null;
     this.ghostLayer?.destroy();
     this.ghostLayer = null;
-    this.roofGhostLayer?.destroy();
-    this.roofGhostLayer = null;
+    for (const c of this.roofGhostLayers.values()) c.destroy();
+    this.roofGhostLayers.clear();
     this.ghostMasked = false;
     this.ghosts.clear();
     this.tilemap.destroy();
@@ -1125,6 +1133,9 @@ export default class TrainingMapScene extends Phaser.Scene {
       const t = this.lastTransform;
       const scale = t.tileW / bg.tileSize;
       let depth = 1;
+      // Layers under the players stay under 8.5 (plants, trunks) and the players (9, 10), however
+      // many a map has (the town has a dozen); above ones go from 11 up.
+      const belowStep = Math.min(1, 7 / Math.max(1, bg.belowPlayerLayers.length));
       let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let baseLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -1139,7 +1150,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         layer.setAlpha(bg.layerOpacity?.[layerName] ?? 1);
         layer.setScale(scale);
         const isAbove = bg.abovePlayerLayers.includes(layerName);
-        layer.setDepth(isAbove ? 11 + depth : depth);
+        layer.setDepth(isAbove ? 11 + depth : 1 + (depth - 1) * belowStep);
         depth++;
         this.tilemapLayers.push(layer as Phaser.Tilemaps.TilemapLayer);
         if (bg.animatedTiles) {
@@ -1177,7 +1188,17 @@ export default class TrainingMapScene extends Phaser.Scene {
       const aboveMax = this.tilemapLayers.reduce((m, l) => Math.max(m, l.depth), 0);
       this.frontDepth = aboveMax + 1;
       this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1, aboveMax + 2));
-      this.roofGhostLayer = this.add.container(0, 0).setDepth(this.ghostLayer.depth);
+      for (const name of bg.ysortLayers ?? []) {
+        const roof = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name === name) as Phaser.Tilemaps.TilemapLayer | undefined;
+        if (!roof) continue;
+        const holder = this.add.container(0, 0).setDepth(this.ghostLayer.depth).setVisible(false);
+        if (this.renderer.type === Phaser.WEBGL) {
+          holder.enableFilters();
+          holder.filtersFocusContext = true;
+          holder.filters?.internal.addMask(roof);
+        }
+        this.roofGhostLayers.set(roof, holder);
+      }
       if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
         this.ghostLayer.enableFilters();
         // The filter covers the whole view, not just the silhouettes' bounds.
