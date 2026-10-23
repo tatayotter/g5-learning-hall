@@ -1,6 +1,7 @@
 // lib/phaserMap/groundFx.ts
 // Little touches on the ground and the water (lib/wildlife.ts GROUND_FX says which a map has):
-// - foam washing in and out where water meets land (drawn over the sand's soft edge),
+// - waves rolling in to the shore, breaking into foam on the sand and pulling back (a Phaser
+//   animation, one sprite per stretch of shore, so the sets sweep along the coast),
 // - lava bubbles that swell and pop,
 // - ripples on the water next to anyone walking along it,
 // - a fish jumping now and then,
@@ -30,14 +31,89 @@ interface Print { x: number; y: number; born: number; dx: number; dy: number }
 interface Puff { x: number; y: number; born: number; vx: number; vy: number }
 interface Fish { x0: number; y0: number; x1: number; born: number; color: number }
 interface Ember { x: number; y: number; born: number; life: number; vx: number }
-interface Edge { x: number; y: number; side: 0 | 1 | 2 | 3; phase: number } // side: 0 up, 1 right, 2 down, 3 left
+interface Edge { x: number; y: number; side: 0 | 1 | 2 | 3; sprite: Phaser.GameObjects.Sprite } // side: 0 up, 1 right, 2 down, 3 left
 
 const PRINT_MS = 9000;
+// One wave: WAVE_FRAMES frames at WAVE_FPS, then a rest so each spot gets a wave every WAVE_CYCLE ms.
+const WAVE_TEX = 'fx:wave';
+const WAVE_ANIM = 'fx:wave';
+const WAVE_FRAMES = 10;
+const WAVE_FPS = 7;
+const WAVE_CYCLE = 3400;
+
+// The wave's frames, drawn for a shore tile with the land at the top (the sprite turns for the
+// other sides). The water's edge runs through the middle of a shore tile (the sand's soft edge
+// covers the land half). A light swell rolls in from the bottom, crests, breaks into a white
+// band with spray, washes a sheet of foam up the sand, then slips back leaving lace and a
+// darker band of wet sand that dries. Every pixel row is wobbly, so it never looks like a ruler.
+function makeWaveTexture(scene: Phaser.Scene) {
+  if (scene.textures.exists(WAVE_TEX)) return;
+  const tex = scene.textures.createCanvas(WAVE_TEX, UNIT * WAVE_FRAMES, UNIT);
+  if (!tex) return;
+  const ctx = tex.getContext();
+  const hash = (a: number, b: number) => {
+    let h = Math.imul(a * 374761393 + b * 668265263, 1274126177);
+    h = Math.imul(h ^ (h >>> 13), 1103515245);
+    return ((h ^ (h >>> 16)) >>> 0) / 4294967296;
+  };
+  const wob = (x: number, f: number) => Math.round(Math.sin(x * 0.45 + f * 0.7) * 1.2);
+  const px = (f: number, x: number, y: number, rgb: string, a: number) => {
+    if (y < 0 || y >= UNIT || a <= 0) return;
+    ctx.fillStyle = `rgba(${rgb},${a})`;
+    ctx.fillRect(f * UNIT + x, y, 1, 1);
+  };
+  const FOAM = '244,255,255', CREST = '200,245,248', DARK = '40,120,140', WET = '110,80,45';
+  // [frame]: swell row (or -1), crest strength, foam sheet top..bottom, foam alpha, wet alpha
+  const plan: [number, number, number, number, number, number][] = [
+    [29, 0.4, -1, -1, 0, 0],
+    [25, 0.6, -1, -1, 0, 0],
+    [21, 0.8, -1, -1, 0, 0],
+    [17, 1, -1, -1, 0, 0],
+    [-1, 0, 13, 17, 1, 0],
+    [-1, 0, 9, 15, 0.95, 0.12],
+    [-1, 0, 8, 12, 0.8, 0.24],
+    [-1, 0, 10, 13, 0.6, 0.22],
+    [-1, 0, 13, 15, 0.4, 0.14],
+    [-1, 0, 15, 16, 0.2, 0.06],
+  ];
+  plan.forEach(([swell, crest, top, bottom, foam, wet], f) => {
+    for (let x = 0; x < UNIT; x++) {
+      const w = wob(x, f);
+      if (swell >= 0) {
+        // The swell: a bright crest line with the dark face of the wave under it.
+        if (hash(x, f) > 0.12) px(f, x, swell + w, CREST, crest);
+        if (crest > 0.6) px(f, x, swell + w - 1, FOAM, (crest - 0.5) * hash(x, f + 9));
+        px(f, x, swell + w + 1, DARK, crest * 0.35);
+      }
+      if (wet > 0) for (let y = 6; y < 12; y++) px(f, x, y + w, WET, wet * (y < 8 ? 0.5 : 1));
+      if (top >= 0) {
+        for (let y = top; y <= bottom; y++) {
+          // A sheet near the leading edge, lace (with holes) behind it.
+          const lead = y - top < 2;
+          const keep = lead ? hash(x, y * 31 + f) > 0.08 : hash(x, y * 17 + f) > 0.55;
+          if (keep) px(f, x, y + w, FOAM, foam * (lead ? 1 : 0.7));
+        }
+      }
+      // Spray thrown up when it breaks.
+      if (f === 4 || f === 5) if (hash(x, f * 77) > 0.86) px(f, x, top - 2 - Math.floor(hash(x, f) * 3), FOAM, 0.8);
+    }
+  });
+  for (let f = 0; f < WAVE_FRAMES; f++) tex.add(f, 0, f * UNIT, 0, UNIT, UNIT);
+  tex.refresh();
+  if (!scene.anims.exists(WAVE_ANIM)) {
+    scene.anims.create({
+      key: WAVE_ANIM,
+      frames: Array.from({ length: WAVE_FRAMES }, (_, i) => ({ key: WAVE_TEX, frame: i })),
+      frameRate: WAVE_FPS,
+    });
+  }
+}
 const PUFF_MS = 650;
 
 export default class GroundFx {
   private water: Phaser.GameObjects.Graphics; // on the water, under the land's edge
   private ground: Phaser.GameObjects.Graphics; // on the ground, under players
+  private waves?: Phaser.GameObjects.Container; // the wave sprites, on the ground too
   private glow: Phaser.GameObjects.Graphics; // lights: they add light, and shine through the night
   private embers: Ember[] = [];
   private nextEmber = 0;
@@ -70,9 +146,24 @@ export default class GroundFx {
         dirs.forEach(([dx, dy], side) => {
           const nx = x + dx, ny = y + dy;
           if (nx < 0 || ny < 0 || nx >= W || ny >= H || liquid[ny][nx]) return;
-          // Waves roll along the coast: neighbours are a little behind each other.
-          this.edges.push({ x, y, side: side as Edge['side'], phase: (x * 0.9 + y * 0.6) % (Math.PI * 2) });
+          this.edges.push({ x, y, side: side as Edge['side'], sprite: null as unknown as Phaser.GameObjects.Sprite });
         });
+      }
+      makeWaveTexture(scene);
+      this.waves = scene.add.container(0, 0);
+      const cycleMs = WAVE_CYCLE;
+      const playMs = (WAVE_FRAMES / WAVE_FPS) * 1000;
+      for (const e of this.edges) {
+        const sprite = scene.add.sprite((e.x + 0.5) * UNIT, (e.y + 0.5) * UNIT, WAVE_TEX, WAVE_FRAMES - 1)
+          .setAngle([0, 90, 180, -90][e.side]);
+        // Sets of waves sweep along the coast: each spot a little behind its neighbour, with a
+        // touch of chance so it isn't a perfect line.
+        const lag = ((e.x * 0.9 + e.y * 0.6) * 140 + Math.random() * 260) % cycleMs;
+        sprite.play({ key: WAVE_ANIM, repeat: -1, repeatDelay: cycleMs - playMs, delay: lag });
+        if (Math.random() < 0.5 && (e.side === 0 || e.side === 2)) sprite.setFlipX(true);
+        if (Math.random() < 0.5 && (e.side === 1 || e.side === 3)) sprite.setFlipY(true);
+        e.sprite = sprite;
+        this.waves.add(sprite);
       }
     }
   }
@@ -82,6 +173,7 @@ export default class GroundFx {
   setDepths(water: number, ground: number) {
     if (this.water.depth !== water) this.water.setDepth(water);
     if (this.ground.depth !== ground) this.ground.setDepth(ground);
+    if (this.waves && this.waves.depth !== ground) this.waves.setDepth(ground);
   }
 
   private wet(x: number, y: number) { return !!this.map.liquid[y]?.[x]; }
@@ -89,6 +181,7 @@ export default class GroundFx {
   update(t: Transform, time: number, walkers: { id: string; x: number; y: number }[], night = 0) {
     const scale = t.tileW / UNIT;
     for (const g of [this.water, this.ground, this.glow]) g.setPosition(t.offsetX, t.offsetY).setScale(scale).clear();
+    this.waves?.setPosition(t.offsetX, t.offsetY).setScale(scale);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
     this.lastNow = time;
     const view = { x0: -t.offsetX / scale - UNIT, y0: -t.offsetY / scale - UNIT, x1: (CANVAS_WIDTH - t.offsetX) / scale + UNIT, y1: (CANVAS_HEIGHT - t.offsetY) / scale + UNIT };
@@ -120,29 +213,9 @@ export default class GroundFx {
       }
     }
 
-    // Foam: short white dashes along the shore, washing in and out.
-    if (this.kinds.foam) {
-      for (const e of this.edges) {
-        const cx = (e.x + 0.5) * UNIT, cy = (e.y + 0.5) * UNIT;
-        if (!onScreen(cx, cy)) continue;
-        const wave = Math.sin(time / 900 + e.phase); // -1 out .. 1 in
-        // The water's edge runs through the middle of a shore tile (the sand's soft edge covers
-        // the land half), so the foam starts there and washes up to 4 px onto the sand and back.
-        const reach = Math.round(14 + wave * 4); // px from the land side of the tile
-        const a = 0.35 + 0.35 * Math.max(0, wave);
-        for (let i = 0; i < 4; i++) {
-          // Dashes spread along the edge, each a slightly different length.
-          const along = 2 + i * 8 + ((e.x * 7 + e.y * 3 + i * 5) % 4);
-          const len = 3 + ((e.x + e.y * 5 + i) % 4);
-          const back = reach + (i % 2) * 2;
-          let x = 0, y = 0, w = len, h = 1;
-          if (e.side === 0) { x = e.x * UNIT + along; y = e.y * UNIT + back; }
-          else if (e.side === 2) { x = e.x * UNIT + along; y = (e.y + 1) * UNIT - 1 - back; }
-          else if (e.side === 3) { x = e.x * UNIT + back; y = e.y * UNIT + along; w = 1; h = len; }
-          else { x = (e.x + 1) * UNIT - 1 - back; y = e.y * UNIT + along; w = 1; h = len; }
-          this.ground.fillStyle(0xf4ffff, a).fillRect(x, y, w, h);
-        }
-      }
+    // Waves: only the ones on screen are drawn (they keep their timing either way).
+    if (this.waves) {
+      for (const e of this.edges) e.sprite.setVisible(onScreen((e.x + 0.5) * UNIT, (e.y + 0.5) * UNIT));
     }
 
     // A fish jumps somewhere in open water on screen now and then.
@@ -269,6 +342,7 @@ export default class GroundFx {
   }
 
   destroy() {
+    this.waves?.destroy(true);
     this.water.destroy();
     this.ground.destroy();
     this.glow.destroy();
