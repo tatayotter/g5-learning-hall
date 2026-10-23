@@ -19,6 +19,7 @@ export function setMapSoundsOn(on: boolean) {
 type Recipe = 'breeze' | 'fire' | 'shore';
 export const REGION_SOUNDS: Record<string, Recipe> = {
   ledgers_heart: 'breeze',
+  town: 'breeze',
   cinderreach: 'fire',
   tidewrit_shallows: 'shore',
   rootbound_wilds: 'breeze',

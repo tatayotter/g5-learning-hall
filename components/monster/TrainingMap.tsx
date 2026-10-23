@@ -512,7 +512,9 @@ export default function TrainingMap({
         // carries on from one map to the next.
         const here = activeRegion.id;
         loadTiledArtMap(targetRegion.tileArtPath).then(lh => {
-          const door = lh.portals.find(p => p.regionId === here);
+          // A wide road has a door on each of its tiles: come out on the same lane.
+          const lane = (p: { x: number; y: number }) => Math.min(Math.abs(p.x - portal.x), Math.abs(p.y - portal.y));
+          const door = lh.portals.filter(p => p.regionId === here).sort((a, b) => lane(a) - lane(b))[0];
           if (door) {
             const at = stepInside(door, lh.mapWidth, lh.mapHeight);
             onBattleStateChange({ ...battleState, map_x: at.x, map_y: at.y });

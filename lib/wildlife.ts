@@ -22,6 +22,10 @@ export const WILDLIFE: Record<string, CritterGroup[]> = {
     { kind: 'bird', groups: 5, size: [2, 3], home: 'open' },
     { kind: 'butterfly', groups: 14, size: [1, 2], home: 'flowers' },
   ],
+  town: [
+    { kind: 'bird', groups: 3, size: [2, 3], home: 'open' },
+    { kind: 'butterfly', groups: 8, size: [1, 2], home: 'flowers' },
+  ],
   cinderreach: [
     { kind: 'wisp', groups: 8, size: [1, 1], home: 'near-liquid' },
   ],

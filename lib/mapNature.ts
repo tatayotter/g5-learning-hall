@@ -131,6 +131,8 @@ interface Flora { bushes: Stamp[]; smallBushes: Stamp[]; rocks: Stamp[]; flowers
 const FIRE_BUSH: Stamp = { set: 'FireNature', col: 0, row: 0, w: 1, h: 1 };
 const FLORA: Record<string, Flora> = {
   ledgers_heart: { bushes: BUSHES, smallBushes: SMALL_BUSHES, rocks: ROCKS, flowers: FLOWERS, tufts: TUFTS, trees: 1, meadow: 0.62 },
+  // The town keeps its lawns tidy: flowers and a little tall grass, no trees, bushes or rocks.
+  town: { bushes: [], smallBushes: [], rocks: [], flowers: FLOWERS, tufts: TUFTS, trees: 0, meadow: 0.72 },
   cinderreach: {
     bushes: [FIRE_BUSH], smallBushes: [FIRE_BUSH],
     rocks: ROCKS.slice(0, 5), // no mushrooms in the ash

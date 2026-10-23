@@ -59,6 +59,24 @@ export const REGIONS: Record<string, Region> = {
     tileArtPath: '/maps-tiled-art/ledgers_heart/ledgers_heart.tmx',
     dailyNature: true,
   },
+  // Rowil's town (2026-10-23): buildings, market stalls and a fountain square, through the gate at
+  // the top of the Ledger's Heart's north road. A safe place: no wild curios here.
+  town: {
+    id: 'town',
+    name: 'Inkwell Town',
+    lore: 'The busy little town at the top of the Ledger\'s Heart, where tamers meet, trade and rest.',
+    element: 'all',
+    unlockLevel: 1,
+    mapImage: '/maps/ledgers_heart.webp',
+    tiledMapPath: '/maps-tiled/ledgers_heart.json',
+    // Walking up the Ledger's Heart's north road, the kid arrives just inside the town's gate.
+    spawn: { x: 29, y: 38 },
+    townCenter: { x: 29, y: 38 },
+    mapWidth: 60,
+    mapHeight: 40,
+    tileArtPath: '/maps-tiled-art/town/town.tmx',
+    dailyNature: true,
+  },
   cinderreach: {
     id: 'cinderreach',
     name: 'The Cinderreach',

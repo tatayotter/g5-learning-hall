@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="23">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="60" height="40" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="27">
  <tileset firstgid="1" source="TileSet.tsx"/>
  <tileset firstgid="4097" source="Town Props 2.tsx"/>
  <tileset firstgid="5121" source="Trees.tsx"/>
@@ -98,6 +98,18 @@
   </object>
  </objectgroup>
  <objectgroup id="8" name="portals">
+  <object id="23" name="town" x="912" y="16">
+   <point/>
+  </object>
+  <object id="24" name="town" x="944" y="16">
+   <point/>
+  </object>
+  <object id="25" name="town" x="976" y="16">
+   <point/>
+  </object>
+  <object id="26" name="town" x="1008" y="16">
+   <point/>
+  </object>
   <object id="2" name="cinderreach" x="24" y="389">
    <point/>
   </object>
