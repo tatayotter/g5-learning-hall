@@ -1,5 +1,6 @@
 // lib/phaserMap/critters.ts
-// The map's little animals (lib/wildlife.ts): fire wisps over the Cinderreach lava, dragonfly
+// The map's little animals (lib/wildlife.ts): fire wisps over the Cinderreach lava (violet and
+// cyan spirit wisps in the Unread Margins), dragonfly
 // swarms and beach crabs in Tidewrit, birds and butterflies in the Ledger's Heart. They wander on their own and
 // get away from anyone who walks up to them (the kid, bots, other players):
 // - a wisp darts off and settles somewhere new,
@@ -13,7 +14,7 @@
 // inside containers that follow the map camera, like the sky (ambience.ts). Purely visual:
 // nothing is saved and each kid sees their own. With "reduce motion" on there are none.
 import Phaser from 'phaser';
-import type { CritterGroup, CritterKind } from '@/lib/wildlife';
+import type { CritterGroup, CritterKind, WispColor } from '@/lib/wildlife';
 import { GLOW_DEPTH, type Transform } from './ambience';
 
 const UNIT = 32;
@@ -32,7 +33,6 @@ export interface Habitat {
 
 // ---------- pixel art ----------
 const PAL: Record<string, string> = {
-  W: '#fff6d0', Y: '#ffd24a', y: '#ffa030', o: '#e0501e', // wisp
   b: '#2f8fb8', B: '#1d5f82', H: '#16384c', w: '#d8f4ff', // dragonfly
   h: '#6b4a32', s: '#a07850', k: '#f0b040', l: '#4a3226', f: '#7d5a3c', // bird
   r: '#d8502a', R: '#f07a40', c: '#b03a1c', e: '#1a1010', g: '#902c16', // crab
@@ -50,10 +50,19 @@ const BUTTERFLY_ART: string[][] = [
   ['.A.A.', '.AnA.', '.AnA.', '..n..'], // half closed
   ['..A..', '..A..', '..n..', '.....'], // folded up
 ];
+// Wisps: W = white-hot core, Y = bright, y = mid, o = outer flame; one set of colors each, with
+// the glow around them (inner and outer gradient stops).
+const WISP_ART: string[][] = [
+  ['..y..', '.yYy.', '.yYy.', 'oyWyo', 'oYWYo', '.oYo.', '..o..'],
+  ['.y...', '.yy..', '.yYy.', 'oyWYo', 'oYWYo', '.oYo.', '..o..'],
+  ['...y.', '..yy.', '.yYy.', 'oYWyo', 'oYWYo', '.oYo.', '..o..'],
+];
+const WISP_COLORS: Record<WispColor, { W: string; Y: string; y: string; o: string; glow: [string, string, string] }> = {
+  fire: { W: '#fff6d0', Y: '#ffd24a', y: '#ffa030', o: '#e0501e', glow: ['rgba(255,170,60,0.55)', 'rgba(255,110,30,0.2)', 'rgba(255,80,20,0)'] },
+  violet: { W: '#f6eaff', Y: '#d2a6ff', y: '#a46cf4', o: '#6a36c8', glow: ['rgba(190,130,255,0.55)', 'rgba(140,80,240,0.2)', 'rgba(110,50,220,0)'] },
+  cyan: { W: '#eafffe', Y: '#9ef4ff', y: '#4cd4ec', o: '#1e8eb8', glow: ['rgba(120,240,255,0.55)', 'rgba(50,190,230,0.2)', 'rgba(30,150,210,0)'] },
+};
 const ART: Record<string, string[]> = {
-  'wisp0': ['..y..', '.yYy.', '.yYy.', 'oyWyo', 'oYWYo', '.oYo.', '..o..'],
-  'wisp1': ['.y...', '.yy..', '.yYy.', 'oyWYo', 'oYWYo', '.oYo.', '..o..'],
-  'wisp2': ['...y.', '..yy.', '.yYy.', 'oYWyo', 'oYWYo', '.oYo.', '..o..'],
   'dragonfly0': ['.ww.ww.', '..w.w..', 'BbbbbHH', '..w.w..', '.ww.ww.'],
   'dragonfly1': ['.......', '.wwww..', 'BbbbbHH', '.wwww..', '.......'],
   'bird0': ['...hh..', '..hhhhk', 'sssshh.', '.ssss..', '..l.l..'],
@@ -91,19 +100,33 @@ function makeTextures(scene: Phaser.Scene) {
     }));
     tex.refresh();
   }));
-  if (!scene.textures.exists('critter:glow')) {
-    const n = 24;
-    const tex = scene.textures.createCanvas('critter:glow', n, n);
-    if (tex) {
+  for (const [name, pal] of Object.entries(WISP_COLORS)) {
+    WISP_ART.forEach((rows, f) => {
+      const key = `critter:wisp_${name}${f}`;
+      if (scene.textures.exists(key)) return;
+      const tex = scene.textures.createCanvas(key, rows[0].length, rows.length);
+      if (!tex) return;
       const ctx = tex.getContext();
-      const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
-      grad.addColorStop(0, 'rgba(255,170,60,0.55)');
-      grad.addColorStop(0.5, 'rgba(255,110,30,0.2)');
-      grad.addColorStop(1, 'rgba(255,80,20,0)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, n, n);
+      rows.forEach((row, y) => [...row].forEach((ch, x) => {
+        if (ch === '.') return;
+        ctx.fillStyle = pal[ch as 'W' | 'Y' | 'y' | 'o'];
+        ctx.fillRect(x, y, 1, 1);
+      }));
       tex.refresh();
-    }
+    });
+    const key = `critter:glow_${name}`;
+    if (scene.textures.exists(key)) continue;
+    const n = 24;
+    const tex = scene.textures.createCanvas(key, n, n);
+    if (!tex) continue;
+    const ctx = tex.getContext();
+    const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+    grad.addColorStop(0, pal.glow[0]);
+    grad.addColorStop(0.5, pal.glow[1]);
+    grad.addColorStop(1, pal.glow[2]);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, n, n);
+    tex.refresh();
   }
 }
 
@@ -122,6 +145,7 @@ interface Critter {
   ox: number; oy: number; // dragonfly: its spot in the swarm
   lift: number; // drawn this far above its spot (a wisp bobbing)
   color: number; // butterfly: which colors
+  wisp: WispColor; // wisp: which colors
 }
 interface Group {
   kind: CritterKind;
@@ -176,24 +200,25 @@ export default class CritterLayer {
         const cx = (hx + 0.5) * UNIT, cy = (hy + 0.5) * UNIT;
         const g: Group = { kind: k.kind, members: [], cx, cy, tx: cx, ty: cy, scaredAt: -Infinity, awayX: 0, awayY: 0 };
         const n = k.size[0] + Math.floor(Math.random() * (k.size[1] - k.size[0] + 1));
-        for (let j = 0; j < n; j++) g.members.push(this.make(k.kind, g, cx + (Math.random() - 0.5) * 20, cy + (Math.random() - 0.5) * 14));
+        for (let j = 0; j < n; j++) g.members.push(this.make(k.kind, g, cx + (Math.random() - 0.5) * 20, cy + (Math.random() - 0.5) * 14, k.colors));
         this.groups.push(g);
       }
     }
   }
 
-  private make(kind: CritterKind, group: Group, x: number, y: number): Critter {
+  private make(kind: CritterKind, group: Group, x: number, y: number, colors?: WispColor[]): Critter {
     const box = kind === 'crab' || kind === 'bird' ? this.ground : this.lowAir;
-    const img = this.scene.add.image(x, y, `critter:${kind}0`).setOrigin(0.5, 1);
+    const wisp = colors?.length ? colors[Math.floor(Math.random() * colors.length)] : 'fire';
+    const img = this.scene.add.image(x, y, kind === 'wisp' ? `critter:wisp_${wisp}0` : `critter:${kind}0`).setOrigin(0.5, 1);
     let glow: Phaser.GameObjects.Image | undefined;
     if (kind === 'wisp') {
-      glow = this.scene.add.image(x, y, 'critter:glow').setBlendMode(Phaser.BlendModes.ADD);
+      glow = this.scene.add.image(x, y, `critter:glow_${wisp}`).setBlendMode(Phaser.BlendModes.ADD);
       this.glowBox.add(glow);
     }
     box.add(img);
     const c: Critter = {
       kind, group, img, glow, x, y, vx: 0, vy: 0, homeX: x, homeY: y, phase: Math.random() * Math.PI * 2,
-      state: 'idle', until: 0, tx: x, ty: y, ox: 0, oy: 0, lift: 0, color: Math.floor(Math.random() * BUTTERFLY_COLORS.length),
+      state: 'idle', until: 0, tx: x, ty: y, ox: 0, oy: 0, lift: 0, color: Math.floor(Math.random() * BUTTERFLY_COLORS.length), wisp,
     };
     if (kind === 'butterfly') {
       // Each one starts resting on a flower of its own, near the group's spot.
@@ -273,7 +298,7 @@ export default class CritterLayer {
     }
     this.keepIn(c);
     const fast = c.state === 'flee';
-    c.img.setTexture(`critter:wisp${Math.floor(time / (fast ? 70 : 140) + c.phase * 3) % 3}`);
+    c.img.setTexture(`critter:wisp_${c.wisp}${Math.floor(time / (fast ? 70 : 140) + c.phase * 3) % 3}`);
     c.lift = 6 + Math.round(Math.sin(time / 380 + c.phase) * 2);
     c.glow?.setAlpha(0.7 + 0.3 * Math.sin(time / 110 + c.phase * 5)).setScale(fast ? 1.25 : 1);
   }

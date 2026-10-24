@@ -15,7 +15,11 @@ export interface CritterGroup {
   // walkable tiles right by the water (the beach); 'open' = any walkable tile; 'flowers' = the
   // day's flowers (butterflies, in the daytime only).
   home: 'near-liquid' | 'shore' | 'open' | 'flowers';
+  // Wisps only: the colors they come in, one picked per wisp (fire = the Cinderreach's orange).
+  colors?: WispColor[];
 }
+
+export type WispColor = 'fire' | 'violet' | 'cyan';
 
 export const WILDLIFE: Record<string, CritterGroup[]> = {
   ledgers_heart: [
@@ -28,6 +32,19 @@ export const WILDLIFE: Record<string, CritterGroup[]> = {
   rootbound_wilds: [
     { kind: 'butterfly', groups: 10, size: [1, 2], home: 'flowers' },
     { kind: 'dragonfly', groups: 2, size: [4, 5], home: 'near-liquid' },
+    { kind: 'bird', groups: 3, size: [2, 3], home: 'open' },
+  ],
+  stormrun_reaches: [
+    { kind: 'bird', groups: 6, size: [2, 4], home: 'open' },
+    { kind: 'dragonfly', groups: 1, size: [3, 4], home: 'near-liquid' },
+  ],
+  // Spirit wisps, violet and cyan, over the ink pools and drifting through the woods.
+  unread_margins: [
+    { kind: 'wisp', groups: 9, size: [1, 1], home: 'near-liquid', colors: ['violet', 'cyan'] },
+    { kind: 'wisp', groups: 6, size: [1, 1], home: 'open', colors: ['violet', 'cyan'] },
+  ],
+  radiant_archive: [
+    { kind: 'butterfly', groups: 16, size: [1, 2], home: 'flowers' },
     { kind: 'bird', groups: 3, size: [2, 3], home: 'open' },
   ],
   tidewrit_shallows: [
@@ -53,5 +70,8 @@ export interface GroundFxKinds {
 export const GROUND_FX: Record<string, GroundFxKinds> = {
   cinderreach: { bubbles: true, puffs: true, embers: true, shimmer: true },
   rootbound_wilds: { ripples: true, fish: true, river: true },
+  stormrun_reaches: { ripples: true, fish: true },
+  unread_margins: { ripples: true },
+  radiant_archive: { ripples: true, fish: true },
   tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true },
 };

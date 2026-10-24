@@ -22,6 +22,9 @@ export const REGION_SOUNDS: Record<string, Recipe> = {
   cinderreach: 'fire',
   tidewrit_shallows: 'shore',
   rootbound_wilds: 'breeze',
+  stormrun_reaches: 'breeze',
+  unread_margins: 'breeze',
+  radiant_archive: 'breeze',
 };
 
 let playing: { stop: () => void } | null = null;

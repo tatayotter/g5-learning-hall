@@ -48,6 +48,17 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'FireNature': '/tilesets/region-nature/FireNature.png',
   'TideNature': '/tilesets/region-nature/TideNature.png',
   'LeafNature': '/tilesets/region-nature/LeafNature.png',
+  // Stormrun (a cold heath), the Unread Margins (violet woods, ink pools) and the Radiant Archive
+  // (a golden meadow, a clear pool): made by maps-incoming/regions3/make_tiles.py.
+  'TileSet-storm': '/tilesets/forgotten-memories/TileSet-storm.png',
+  'Water-storm-6frames': '/tilesets/forgotten-memories/Water-storm-6frames.png',
+  'StormNature': '/tilesets/region-nature/StormNature.png',
+  'TileSet-shadow': '/tilesets/forgotten-memories/TileSet-shadow.png',
+  'Water-shadow-6frames': '/tilesets/forgotten-memories/Water-shadow-6frames.png',
+  'ShadowNature': '/tilesets/region-nature/ShadowNature.png',
+  'TileSet-light': '/tilesets/forgotten-memories/TileSet-light.png',
+  'Water-light-6frames': '/tilesets/forgotten-memories/Water-light-6frames.png',
+  'LightNature': '/tilesets/region-nature/LightNature.png',
 };
 
 export interface TiledArtLayer {

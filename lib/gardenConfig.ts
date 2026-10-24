@@ -9,18 +9,25 @@
 // sell_garden_items) and 20261023120000_garden_wild_trees.sql (chop_wild_tree); the numbers
 // here mirror them for the screen.
 
-// Seashells ride along as a "veggie" found on the beach: picked with one question the same way,
-// sold at the Recycler for the same gold, but they never come with seeds, and the tide brings a
-// new one instead of the plant growing back (beachFind below).
-export type VeggieId = 'tomato' | 'eggplant' | 'pumpkin' | 'carrot' | 'cabbage' | 'corn' | 'beans' | 'seashell';
+// Each region's finds ride along as a "veggie": seashells on Tidewrit's beaches, storm crystals in
+// the Stormrun's rubble, ink pearls by the Unread Margins' pools, golden petals in the Radiant
+// Archive. They're picked with one question the same way and sold at the Recycler for the same
+// gold, but they never come with seeds, and a new one turns up instead of the plant growing back
+// (`found` below).
+export type VeggieId = 'tomato' | 'eggplant' | 'pumpkin' | 'carrot' | 'cabbage' | 'corn' | 'beans'
+  | 'seashell' | 'crystal' | 'inkpearl' | 'petal';
 
 export interface VeggieDef {
   id: VeggieId;
   label: string;
   // Two tiles tall (a 32x64 art frame) instead of one.
   tall: boolean;
-  // Washed up on the beach rather than grown: no seeds, and the words change (see below).
-  beach?: boolean;
+  // Found rather than grown: no seeds, and the words change (see below).
+  found?: {
+    noun: string; // what the kid calls one ("shell")
+    where: string; // the bag's note: "Found on the beach!"
+    back: string; // what brings the next one: "The waves will bring"
+  };
 }
 
 export const VEGGIES: Record<VeggieId, VeggieDef> = {
@@ -31,18 +38,26 @@ export const VEGGIES: Record<VeggieId, VeggieDef> = {
   cabbage:  { id: 'cabbage',  label: 'Cabbage',  tall: false },
   corn:     { id: 'corn',     label: 'Corn',     tall: true },
   beans:    { id: 'beans',    label: 'Beans',    tall: true },
-  seashell: { id: 'seashell', label: 'Seashell', tall: false, beach: true },
+  seashell: { id: 'seashell', label: 'Seashell', tall: false, found: { noun: 'shell', where: 'Found on the beach!', back: 'The waves will bring' } },
+  crystal: { id: 'crystal', label: 'Storm Crystal', tall: false, found: { noun: 'crystal', where: 'Found in the rocks!', back: 'The storm will leave' } },
+  inkpearl: { id: 'inkpearl', label: 'Ink Pearl', tall: false, found: { noun: 'pearl', where: 'Found by an ink pool!', back: 'The ink pool will bring up' } },
+  petal: { id: 'petal', label: 'Golden Petal', tall: false, found: { noun: 'petal', where: 'Found in the meadow!', back: 'The wind will blow' } },
 };
-export const VEGGIE_ORDER: VeggieId[] = ['tomato', 'eggplant', 'pumpkin', 'carrot', 'cabbage', 'corn', 'beans', 'seashell'];
-// Veggies that can give seed packets (not seashells).
-export const SEED_ORDER: VeggieId[] = VEGGIE_ORDER.filter(v => !VEGGIES[v].beach);
+export const VEGGIE_ORDER: VeggieId[] = ['tomato', 'eggplant', 'pumpkin', 'carrot', 'cabbage', 'corn', 'beans',
+  'seashell', 'crystal', 'inkpearl', 'petal'];
+// Veggies that can give seed packets (not the finds).
+export const SEED_ORDER: VeggieId[] = VEGGIE_ORDER.filter(v => !VEGGIES[v].found);
+
+// "a Tomato", "an Ink Pearl".
+export const withA = (word: string) => `${/^[aeiou]/i.test(word) ? 'an' : 'a'} ${word}`;
 
 // The words for one spot: "Pick Tomato" / "Pick up Seashell", and what to say while it comes back.
-export const pickVerb = (v: VeggieId) => (VEGGIES[v].beach ? 'Pick up' : 'Pick');
+export const pickVerb = (v: VeggieId) => (VEGGIES[v].found ? 'Pick up' : 'Pick');
 export const regrowWords = (v: VeggieId, mins: number) => {
   const time = `about ${mins} minute${mins === 1 ? '' : 's'}`;
-  return VEGGIES[v].beach
-    ? `The waves will bring a new shell here in ${time}!`
+  const found = VEGGIES[v].found;
+  return found
+    ? `${found.back} a new ${found.noun} here in ${time}!`
     : `This ${VEGGIES[v].label.toLowerCase()} is growing back. Ready in ${time}!`;
 };
 
@@ -68,6 +83,36 @@ export const WILD_PLANTS: Record<string, WildPlantNode[]> = {
     { id: 'shell_5', veggie: 'seashell', x: 26, y: 36 },
     { id: 'shell_6', veggie: 'seashell', x: 45, y: 36 },
     { id: 'shell_7', veggie: 'seashell', x: 55, y: 35 },
+  ],
+  // Storm crystals in the Stormrun rubble fields.
+  stormrun_reaches: [
+    { id: 'crystal_1', veggie: 'crystal', x: 44, y: 3 },
+    { id: 'crystal_2', veggie: 'crystal', x: 15, y: 21 },
+    { id: 'crystal_3', veggie: 'crystal', x: 46, y: 25 },
+    { id: 'crystal_4', veggie: 'crystal', x: 33, y: 27 },
+    { id: 'crystal_5', veggie: 'crystal', x: 56, y: 32 },
+    { id: 'crystal_6', veggie: 'crystal', x: 2, y: 36 },
+    { id: 'crystal_7', veggie: 'crystal', x: 21, y: 37 },
+  ],
+  // Ink pearls by the Unread Margins ink pools.
+  unread_margins: [
+    { id: 'pearl_1', veggie: 'inkpearl', x: 36, y: 2 },
+    { id: 'pearl_2', veggie: 'inkpearl', x: 27, y: 8 },
+    { id: 'pearl_3', veggie: 'inkpearl', x: 54, y: 17 },
+    { id: 'pearl_4', veggie: 'inkpearl', x: 16, y: 21 },
+    { id: 'pearl_5', veggie: 'inkpearl', x: 27, y: 23 },
+    { id: 'pearl_6', veggie: 'inkpearl', x: 47, y: 23 },
+    { id: 'pearl_7', veggie: 'inkpearl', x: 21, y: 28 },
+  ],
+  // Golden petals in the Radiant Archive meadow.
+  radiant_archive: [
+    { id: 'petal_1', veggie: 'petal', x: 3, y: 3 },
+    { id: 'petal_2', veggie: 'petal', x: 54, y: 3 },
+    { id: 'petal_3', veggie: 'petal', x: 29, y: 14 },
+    { id: 'petal_4', veggie: 'petal', x: 13, y: 18 },
+    { id: 'petal_5', veggie: 'petal', x: 57, y: 34 },
+    { id: 'petal_6', veggie: 'petal', x: 2, y: 37 },
+    { id: 'petal_7', veggie: 'petal', x: 31, y: 37 },
   ],
 };
 
@@ -167,7 +212,7 @@ export function parseGardenKey(key: string): ParsedGardenKey | null {
   if (s) return s[1] in TREES ? { kind: 'sapling', tree: s[1] as TreeId } : null;
   const m = /^(veggie|seeds)_(\w+)$/.exec(key);
   const def = m ? VEGGIES[m[2] as VeggieId] : undefined;
-  if (!m || !def || (m[1] === 'seeds' && def.beach)) return null;
+  if (!m || !def || (m[1] === 'seeds' && def.found)) return null;
   return { kind: m[1] as 'veggie' | 'seeds', veggie: def };
 }
 
