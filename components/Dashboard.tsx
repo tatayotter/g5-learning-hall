@@ -103,6 +103,7 @@ import {
 import { CURRENT_TERM } from '@/lib/guildConfig';
 import { WEEKDAYS } from '@/lib/weekdays';
 import { MAIN_QUEST_DAILY_ATTEMPT_CAP } from '@/lib/mainQuestAttempts';
+import { useBackButton, useBackHandler } from '@/lib/backButton';
 
 // Swaps <html>'s theme class for the one tied to `themeKey` (default has
 // none). Always removes every known theme class first so switching between
@@ -540,7 +541,7 @@ export default function Dashboard() {
     recordPushOpenFromUrl();
     // The tab itself was already read by activeTab's initializer.
     if (new URLSearchParams(window.location.search).has('tab')) {
-      window.history.replaceState(null, '', window.location.pathname);
+      window.history.replaceState(window.history.state, '', window.location.pathname);
     }
   }, []);
 
@@ -732,6 +733,18 @@ export default function Dashboard() {
 
   // --- Term Exam Boss Fight ---
   const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
+  // The phone's Back button (lib/backButton.ts): a menu page goes back to its
+  // tab, any other tab goes to Today, and Today lets Back leave the game.
+  // Quests, guild runs, boss fights and battles have their own way out, so
+  // Back does nothing there rather than dropping the kid out mid-question.
+  useBackButton(newNav);
+  useBackHandler(newNav, 0, () => {
+    if (activeQuest !== null || activeEventQuest !== null || activeBossFight !== null || activeGauntletDay !== null || activeGuild !== null) return true;
+    if (document.body.classList.contains('battle-fullscreen-active')) return true;
+    if ((NAV_PAGES as readonly string[]).includes(activeTab)) { setActiveTab(lastMainTabRef.current); return true; }
+    if (activeTab !== 'board') { setActiveTab('board'); return true; }
+    return false;
+  });
   const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
   const bossProgress = useBossFightProgress(activeUserId ?? 'damien', bossGradeLevel);
   // Term boss ambient overrides the main theme game-wide while the event is

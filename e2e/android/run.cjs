@@ -7,7 +7,8 @@
 // Covers: both players log in online; Alpha plays a main quest and a trainer battle (with a
 // potion) offline; the app cold-starts offline; Alpha logs out and Bravo logs in offline with
 // a PIN (a wrong one refused) and plays a quest; back online, Bravo's PIN prompt, then each
-// player's play syncs to their own account. Exits non-zero on the first failed check.
+// player's play syncs to their own account. Then the phone's Back button with the new nav.
+// Exits non-zero on the first failed check.
 const { _android } = require('playwright');
 const { execSync } = require('child_process');
 const fs = require('fs');
@@ -198,6 +199,29 @@ const check = (ok, label, detail = '') => {
   check(events.includes('playerone:main_quest_offline') && events.includes('playerone:trainer_offline') && events.includes('playertwo:main_quest_offline'), 'server has each player\'s own play');
   check(sql("select won::text || ':' || coalesce(problem, 'none') from offline_battle_logs where user_id = 'playerone'") === 'true:none', 'battle log checked clean, win counted');
   check(sql("select quantity from player_inventory where app_user_id = 'playerone' and item_key = 'health_potion'") === '2', 'potion taken off the real inventory');
+
+  // ---- The phone's Back button with the new nav (lib/backButton.ts): it moves around the
+  // game instead of closing the app, and on Today it puts the game in the background.
+  sql("insert into public.feature_flags (key, mode, allowlist) values ('new_nav', 'allowlist', array['playerone']) on conflict (key) do update set mode = 'allowlist', allowlist = array['playerone']");
+  await page.reload(); await sleep(8000); await dismiss(); await sleep(800); await dismiss();
+  const nav = page.getByRole('navigation', { name: 'Main' });
+  await nav.waitFor({ timeout: 60000 });
+  const lit = async () => ((await nav.locator('[aria-current=page]').getAttribute('aria-label').catch(() => '')) || '').split(/[ ,]/)[0];
+  const pressBack = async () => { await device.shell('input keyevent KEYCODE_BACK'); await sleep(2000); };
+  const inFront = async () => (await device.shell('dumpsys activity activities')).toString().split('\n').some(l => /topResumedActivity|mResumedActivity/.test(l) && l.includes(PKG));
+  await nav.getByRole('button', { name: /^Journal/ }).click(); await sleep(2000); await dismiss();
+  await pressBack();
+  check(await inFront() && await lit() === 'Today', 'Back on Journal goes to Today, app stays open', await lit());
+  await nav.getByRole('button', { name: /^Vault/ }).click(); await sleep(2000); await dismiss();
+  await page.getByRole('button', { name: /^menu$/i }).first().click(); await sleep(1000);
+  await pressBack();
+  check(await inFront() && !(await page.getByRole('dialog', { name: 'Menu' }).isVisible().catch(() => false)) && await lit() === 'Vault', 'Back closes the menu and stays on Vault');
+  await shot('09-back-button');
+  await pressBack();
+  check(await lit() === 'Today', 'Back on Vault goes to Today');
+  await pressBack();
+  check(!(await inFront()), 'Back on Today puts the game in the background');
+  check((await device.shell(`pidof ${PKG}`)).toString().trim().length > 0, '...without closing it');
 
   console.log(failed ? `${failed} check(s) failed` : 'All checks passed');
   process.exit(failed ? 1 : 0);
