@@ -68,6 +68,7 @@ import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
+import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
@@ -173,7 +174,7 @@ export interface MapCanvasSyncState {
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[]; puddle?: boolean[][] } | null;
 }
 
 interface TrackedSprite {
@@ -343,6 +344,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   // swaying-grass container (see swayingGrass.ts), which sits between them.
   private tilemapLayers: (Phaser.Tilemaps.TilemapLayer | Phaser.GameObjects.Container)[] = [];
   private grass: SwayingGrass | null = null;
+  // Bushes on Objects Base that bend in the wind (only maps whose bush is listed in swayingGrass's CLUMPS).
+  private bushes: SwayingGrass | null = null;
+  // The map's wind (lib/ambience.ts `wind`): how hard the plants sway.
+  private windStrength = 1;
   private grassTile = '';
   private trees: SwayingTrees | null = null;
   private garden: GardenPlants | null = null;
@@ -380,6 +385,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
   private exitKey = '';
   private crittersKey = '';
+  // Whether this map has shadow creatures peeking from behind its trees (lib/wildlife.ts).
+  private peekersOn = false;
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
@@ -422,10 +429,11 @@ export default class TrainingMapScene extends Phaser.Scene {
   update(time: number, delta: number) {
     this.animateTiles(time);
     this.npcLayer?.update(this.lastTransform, time, Math.min(delta, 100), this.self);
-    this.grass?.update(time);
-    this.trees?.update(time);
+    this.grass?.update(time, this.windStrength);
+    this.bushes?.update(time, this.windStrength);
+    this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
-    this.wildTrees?.update(time);
+    this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.npcLayer?.syncOutlines(time);
     this.liftShadowsOnFloor();
@@ -437,11 +445,11 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
-      this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+      this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.windStrength);
       if (this.groundFx) {
         const liquid = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'liquid');
         this.groundFx.setDepths((liquid?.depth ?? 1) + 0.5, this.shadowDepth - 0.05);
-        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.ambience?.rainNow ?? false);
       }
     }
   }
@@ -545,22 +553,24 @@ export default class TrainingMapScene extends Phaser.Scene {
   // Textures for the exits: a glow fading from the edge inward (drawn pointing up, rotated per
   // side), a pixel chevron arrow, and a soft spark.
   private makeExitTextures() {
-    if (this.textures.exists('exit-band')) return true;
-    const band = this.textures.createCanvas('exit-band', 64, 32);
+    if (this.textures.exists('exit-glow')) return true;
+    const band = this.textures.createCanvas('exit-glow', 64, 64);
     const arrow = this.textures.createCanvas('exit-arrow', 15, 11);
     const spark = this.textures.createCanvas('exit-spark', 8, 8);
     if (!band || !arrow || !spark) return false;
-    // A soft oval pool of light (no hard sides, so it reads the same on a road and on grass).
+    // Light pouring in from beyond the map's edge: brightest right at the edge (the texture's top
+    // row), fading as it reaches in, across the road's whole width with only a hair of softening
+    // at its two sides so it sits exactly on the road.
     let ctx = band.getContext();
-    ctx.save();
-    ctx.scale(1, 0.5);
-    const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    g.addColorStop(0, 'rgba(255,255,255,0.9)');
-    g.addColorStop(0.45, 'rgba(255,255,255,0.45)');
-    g.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(0, 0, 64, 64);
-    ctx.restore();
+    const img = ctx.createImageData(64, 64);
+    for (let y = 0; y < 64; y++) for (let x = 0; x < 64; x++) {
+      const side = Math.min(1, (Math.min(x, 63 - x) + 0.5) / 3);
+      const reach = Math.pow(1 - y / 63, 1.7);
+      const i = (y * 64 + x) * 4;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = 255;
+      img.data[i + 3] = Math.round(255 * side * reach);
+    }
+    ctx.putImageData(img, 0, 0);
     band.refresh();
     // Chevron pointing up: dark outline, then a warm white body.
     ctx = arrow.getContext();
@@ -597,7 +607,7 @@ export default class TrainingMapScene extends Phaser.Scene {
           const tint = exit.locked ? 0x9a9a9a : exit.color;
           return {
             exit, seed: i * 1.7,
-            band: this.add.image(0, 0, 'exit-band').setDepth(depth).setBlendMode(Phaser.BlendModes.ADD).setTint(tint),
+            band: this.add.image(0, 0, 'exit-glow').setOrigin(0.5, 0).setDepth(depth).setBlendMode(Phaser.BlendModes.ADD).setTint(tint),
             arrow: this.add.image(0, 0, 'exit-arrow').setDepth(depth + 0.01).setTint(exit.locked ? 0x9a9a9a : 0xffffff, 0xffffff, tint, tint),
             sparks: Array.from({ length: Math.max(3, (exit.w + exit.h) * 2) }, () =>
               this.add.image(0, 0, 'exit-spark').setDepth(depth + 0.02).setBlendMode(Phaser.BlendModes.ADD).setTint(tint)),
@@ -619,9 +629,9 @@ export default class TrainingMapScene extends Phaser.Scene {
       const mx = t.offsetX + (exit.x + exit.w / 2 + out[0] * (exit.w / 2)) * t.tileW;
       const my = t.offsetY + (exit.y + exit.h / 2 + out[1] * (exit.h / 2)) * t.tileH;
       const breathe = still ? 0.8 : 0.7 + 0.25 * Math.sin(time / 600 + f.seed);
-      // The pool sits just inside the gap, a little wider than it.
-      f.band.setPosition(mx - out[0] * 0.9 * t.tileW, my - out[1] * 0.9 * t.tileH).setRotation(ROT[exit.side])
-        .setDisplaySize((along + 2) * t.tileW, 2.6 * t.tileH).setAlpha((exit.locked ? 0.35 : 0.85) * breathe);
+      // The glow hangs from the map's edge, exactly as wide as the road, reaching in 3 tiles.
+      f.band.setPosition(mx, my).setRotation(ROT[exit.side])
+        .setDisplaySize(along * t.tileW, 3 * t.tileH).setAlpha((exit.locked ? 0.35 : 0.9) * breathe);
       const bob = still ? 0 : (Math.sin(time / 260 + f.seed) + 1) * 0.12;
       f.arrow.setPosition(mx - out[0] * (1.5 - bob) * t.tileW, my - out[1] * (1.5 - bob) * t.tileH).setRotation(ROT[exit.side])
         .setScale(t.tileW / 12).setAlpha(exit.locked ? 0.5 : 1);
@@ -1070,6 +1080,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
+    this.windStrength = state.ambience?.sky.wind ?? 1;
     const skyKey = state.ambience ? `${state.ambience.key}:${state.mapWidth}x${state.mapHeight}` : '';
     if (skyKey !== this.ambienceKey) {
       this.ambienceKey = skyKey;
@@ -1088,7 +1099,9 @@ export default class TrainingMapScene extends Phaser.Scene {
         : null;
       this.groundFx?.destroy();
       const w = state.wildlife;
-      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;
+      this.peekersOn = !!w?.fx?.peekers;
+      this.wildTrees?.setPeekers(this.peekersOn);
+      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
     this.npcLayer?.setQuest(state.npcQuest ?? []);
     this.highlight = state.highlight ?? null;
@@ -1189,6 +1202,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
     this.grass = null;
+    this.bushes = null;
     this.trees = null;
     this.garden = null;
     this.wildTrees = null;
@@ -1267,6 +1281,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);
+      this.bushes = baseLayer && SwayingGrass.build(this, baseLayer);
+      if (this.bushes) this.tilemapLayers.push(this.bushes.container);
       this.trees = topLayer && SwayingTrees.build(this, topLayer, baseLayer);
       if (this.trees) this.tilemapLayers.push(this.trees.container);
       // Plants stand on the ground objects but under every player (9-10) and the trash (9).
@@ -1277,8 +1293,16 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden.setPlants(this.gardenPlants);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
-        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools);
+        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);
         this.wildTrees.setTrees(this.wildTreeSprites);
+        // The bushes the shadow creatures may hide behind too.
+        const peekBushes: PeekTree[] = [];
+        baseLayer?.forEachTile(tile => {
+          const ts = tile.tileset;
+          const top = ts ? PEEK_BUSHES[`${ts.name}:${tile.index - ts.firstgid}`] : undefined;
+          if (top !== undefined) peekBushes.push({ id: `bush:${tile.x},${tile.y}`, x: tile.x, y: tile.y, bush: top });
+        });
+        this.wildTrees.setPeekers(this.peekersOn, peekBushes);
         this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.applyHighlight();
       }

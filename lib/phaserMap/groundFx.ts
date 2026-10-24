@@ -8,6 +8,7 @@
 // - ripples on the water next to anyone walking along it,
 // - a fish jumping now and then,
 // - footprints left in the sand (fading after a while),
+// - while it rains, raindrop rings on the paths and a splash wherever anyone steps on them,
 // - puffs of ash kicked up by every step,
 // - embers rising off the lava, and at night the lava's light, fading out in curved bands,
 // - leaves, twigs and petals floating down the river, turning as they go,
@@ -29,9 +30,10 @@ export interface FxMap {
   height: number;
   liquid: boolean[][];
   sand: boolean[][];
+  puddle?: boolean[][]; // open path ground, where rain rings show
 }
 
-interface Ring { x: number; y: number; born: number; life: number; size: number; color: number }
+interface Ring { x: number; y: number; born: number; life: number; size: number; color: number; ground?: boolean }
 interface Print { x: number; y: number; born: number; dx: number; dy: number }
 interface Puff { x: number; y: number; born: number; vx: number; vy: number }
 interface Fish { x0: number; y0: number; x1: number; born: number; color: number }
@@ -205,6 +207,8 @@ export default class GroundFx {
   private rings: Ring[] = [];
   private prints: Print[] = [];
   private puffs: Puff[] = [];
+  private drops: Puff[] = []; // splash droplets, arcing up and falling back
+  private puddleTiles: [number, number][] = [];
   private fish: Fish[] = [];
   private bubbles: Ring[] = [];
   private nextFish = 0;
@@ -227,6 +231,9 @@ export default class GroundFx {
     this.ground = scene.add.graphics();
     this.glow = scene.add.graphics().setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
     const liquid = (x: number, y: number) => !!map.liquid[y]?.[x];
+    if (kinds.puddles && map.puddle) {
+      for (let y = 0; y < map.height; y++) for (let x = 0; x < map.width; x++) if (map.puddle[y]?.[x]) this.puddleTiles.push([x, y]);
+    }
     if (kinds.deep) {
       const cells = cellDistance((x, y) => !liquid(x, y), map.width, map.height);
       this.deepKey = makeShadeTexture(scene, cells, DEEP_COLOR, deepAt, liquid);
@@ -430,7 +437,8 @@ export default class GroundFx {
 
   private wet(x: number, y: number) { return !!this.map.liquid[y]?.[x]; }
 
-  update(t: Transform, time: number, walkers: { id: string; x: number; y: number }[], night = 0) {
+  // raining: the sky's rain right now (puddle rings and splashes only show while it rains).
+  update(t: Transform, time: number, walkers: { id: string; x: number; y: number }[], night = 0, raining = false) {
     const scale = t.tileW / UNIT;
     for (const g of [this.water, this.ground, this.glow]) g.setPosition(t.offsetX, t.offsetY).setScale(scale).clear();
     for (const img of [this.deep, this.lavaGlow]) img?.setPosition(t.offsetX, t.offsetY).setScale(scale * SHADE_CELL);
@@ -455,6 +463,16 @@ export default class GroundFx {
       if (this.kinds.puffs) {
         for (let i = 0; i < 4; i++) this.puffs.push({ x: w.x + (Math.random() - 0.5) * 8, y: w.y - 2, born: time, vx: (Math.random() - 0.5) * 14 - dx * 8, vy: -6 - Math.random() * 8 });
         if (this.puffs.length > 60) this.puffs.splice(0, this.puffs.length - 60);
+      }
+      if (raining && this.puddleTiles.length && this.map.puddle?.[ty]?.[tx]) {
+        // A splash: a ring round the feet and a few drops flicked up and out.
+        this.rings.push({ x: w.x, y: w.y - 2, born: time, life: 700, size: 9, color: 0xdcecf6, ground: true });
+        for (let i = 0; i < 6; i++) {
+          const a = Math.PI * (0.15 + 0.7 * Math.random());
+          const sp = 30 + Math.random() * 30;
+          this.drops.push({ x: w.x + (Math.random() - 0.5) * 6, y: w.y - 2, born: time, vx: Math.cos(a) * sp * (Math.random() < 0.5 ? -1 : 1) + dx * 10, vy: -Math.sin(a) * sp });
+        }
+        if (this.drops.length > 60) this.drops.splice(0, this.drops.length - 60);
       }
       if (this.kinds.ripples) {
         for (const [ax, ay] of [[tx + 1, ty], [tx - 1, ty], [tx, ty + 1], [tx, ty - 1]]) {
@@ -553,17 +571,44 @@ export default class GroundFx {
       }
     }
 
+    // Rain on the paths: raindrops land in the puddles as little rings, here and there on screen.
+    if (raining && this.puddleTiles.length) {
+      let n = dt * 40 * Math.min(3, ((view.x1 - view.x0) * (view.y1 - view.y0)) / (12 * 20 * UNIT * UNIT));
+      for (let tries = 0; n > 0 && tries < 30; tries++) {
+        if (n < 1 && Math.random() > n) break;
+        const [px, py] = this.puddleTiles[Math.floor(Math.random() * this.puddleTiles.length)];
+        const x = (px + 0.2 + Math.random() * 0.6) * UNIT, y = (py + 0.25 + Math.random() * 0.6) * UNIT;
+        if (!onScreen(x, y)) continue;
+        this.rings.push({ x, y, born: time, life: 600 + Math.random() * 300, size: 4 + Math.random() * 3, color: 0xd8e6f0, ground: true });
+        n -= 1;
+      }
+      if (this.rings.length > 90) this.rings.splice(0, this.rings.length - 90);
+    }
+
     // Rings (ripples, splashes, pops): a pixel ellipse that grows and fades.
     this.rings = this.rings.filter(r => {
       const k = (time - r.born) / r.life;
       if (k >= 1) return false;
       const rx = Math.round(2 + r.size * k), ry = Math.max(1, Math.round(rx * 0.45));
-      const a = 0.7 * (1 - k);
-      this.water.fillStyle(r.color, a);
-      for (let s = 0; s < 16; s++) {
-        const ang = (s / 16) * Math.PI * 2;
-        this.water.fillRect(Math.round(r.x + Math.cos(ang) * rx), Math.round(r.y + Math.sin(ang) * ry), 1, 1);
+      const a = (r.ground ? 0.5 : 0.7) * (1 - k);
+      const g = r.ground ? this.ground : this.water;
+      g.fillStyle(r.color, a);
+      const dots = rx < 5 ? 10 : 16;
+      for (let s = 0; s < dots; s++) {
+        const ang = (s / dots) * Math.PI * 2;
+        g.fillRect(Math.round(r.x + Math.cos(ang) * rx), Math.round(r.y + Math.sin(ang) * ry), 1, 1);
       }
+      return true;
+    });
+
+    // Splash drops: up and out, then back down.
+    this.drops = this.drops.filter(p => {
+      const age = time - p.born;
+      if (age > 420) return false;
+      p.vy += 260 * dt;
+      p.x += p.vx * dt; p.y += p.vy * dt;
+      this.ground.fillStyle(0xe4f2fa, 0.8 * (1 - age / 420));
+      this.ground.fillRect(Math.round(p.x), Math.round(p.y), 1, 1);
       return true;
     });
 

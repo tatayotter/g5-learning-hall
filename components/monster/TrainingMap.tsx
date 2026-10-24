@@ -26,7 +26,7 @@ import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionP
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
-import { loadTiledArtMap, stepInside, type TiledArtPortal } from '@/lib/tiledArtMap';
+import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
 import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
@@ -361,6 +361,7 @@ export default function TrainingMap({
     activeRegion.tileArtPath ? null : { type: 'image', src: activeRegion.mapImage }
   );
   const [portals, setPortals] = useState<TiledArtPortal[]>([]);
+  const [edgeExits, setEdgeExits] = useState<TiledArtExit[]>([]);
   // Tree-canopy exclusion zone for scroll/curio spawning (real-tile-art maps
   // only — see lib/tiledArtMap.ts). null for painted-background elemental
   // regions, which have no such layer to derive this from.
@@ -514,10 +515,8 @@ export default function TrainingMap({
       setLocalPos({ x: newX, y: newY });
     }
 
-    // An exit on the map's edge only takes the kid through when they choose to (E, tap): see
-    // goThroughExit.
-    const onEdge = !!portal && (portal.y === 0 || portal.x === 0 || portal.y === map.length - 1 || portal.x === (map[0]?.length ?? 0) - 1);
-    if (portal && (!onEdge || viaExit)) {
+    // A portal only takes the kid through when they choose to (E, tap): see goThroughExit.
+    if (portal && viaExit) {
       const targetRegion = REGIONS[portal.regionId];
       if (targetRegion && !isLedgersHeart && portal.regionId === 'ledgers_heart' && targetRegion.tileArtPath) {
         // Back home: the kid comes out at the end of the road that leads here, so the walk
@@ -747,6 +746,7 @@ export default function TrainingMap({
           ysortLayers: parsed.ysortLayers,
         });
         setPortals(parsed.portals);
+        setEdgeExits(parsed.exits);
         setMapRecycler(parsed.recycler);
         setFoliage(parsed.foliage);
         setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || TOWN_NPCS[activeRegion.id] ? {
@@ -756,6 +756,7 @@ export default function TrainingMap({
           fx: GROUND_FX[activeRegion.id],
           sand: parsed.sand,
           npcs: TOWN_NPCS[activeRegion.id],
+          puddle: parsed.puddle,
         } : null);
         // Ledger's Heart persists position to the DB, so a player whose saved
         // spot no longer exists on a re-authored map (out of bounds, or now
@@ -993,46 +994,41 @@ export default function TrainingMap({
   // lib/tiledArtMap.ts's header comment) — so no marker to show there.
   // Flat (tile-art) region maps have no healing tile either; their only marker is the way home.
   const townMarkerTile = isLedgersHeart || activeRegion.tileArtPath ? null : region!.townCenter;
-  // Exits on the map's edge (a run of portal tiles to one map, Rowil 2026-10-23): the scene draws
-  // a glow in the next map's element color (the Ledger's Heart's and the town's: leaf green, like
-  // Rootbound's), sparks and an arrow; here they get one name label, a little inside the gap.
-  // Portals inside the map keep their spinning sprite.
+  // Exits on the map's edge (the portals near it, lib/tiledArtMap.ts exits, Rowil 2026-10-23/24):
+  // the scene draws a glow in the next map's element color (the Ledger's Heart's and the town's:
+  // leaf green, like Rootbound's) stuck to the map's edge across exactly the road's width, sparks
+  // and an arrow; here they get one name label, a little inside the gap.
   const mapW = regionMap[0]?.length ?? 0, mapH = regionMap.length;
-  const exitGroups = useMemo(() => {
-    const sideOf = (p: { x: number; y: number }): MapExit['side'] | null =>
-      p.y === 0 ? 'n' : p.y === mapH - 1 ? 's' : p.x === 0 ? 'w' : p.x === mapW - 1 ? 'e' : null;
-    const groups: { regionId: string; side: MapExit['side']; tiles: { x: number; y: number }[] }[] = [];
-    for (const p of [...portals].sort((a, b) => a.y - b.y || a.x - b.x)) {
-      const side = sideOf(p);
-      if (!side) continue;
-      const g = groups.find(q => q.regionId === p.regionId && q.side === side &&
-        q.tiles.some(t => Math.abs(t.x - p.x) + Math.abs(t.y - p.y) === 1));
-      if (g) g.tiles.push(p); else groups.push({ regionId: p.regionId, side, tiles: [p] });
-    }
-    return groups;
-  }, [portals, mapW, mapH]);
-  const exits = useMemo<MapExit[]>(() => exitGroups.map(g => {
-    const xs = g.tiles.map(t => t.x), ys = g.tiles.map(t => t.y);
-    const dest = REGIONS[g.regionId];
+  const exitGroups = useMemo(() => edgeExits.map(e => ({ regionId: e.regionId, side: e.side, tiles: e.portals, exit: e })), [edgeExits]);
+  const exits = useMemo<MapExit[]>(() => exitGroups.map(({ regionId, side, exit: e }) => {
+    const dest = REGIONS[regionId];
     const el = dest && dest.element !== 'all' ? dest.element : 'leaf';
-    return {
-      x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs) + 1, h: Math.max(...ys) - Math.min(...ys) + 1,
-      side: g.side, locked: playerLevel < (dest?.unlockLevel ?? 0), color: parseInt(ELEMENT_COLOR[el].text.slice(1), 16),
-    };
-  }), [exitGroups, playerLevel]);
+    const at = e.from + e.fromInset, len = e.to + 1 - e.toInset - at;
+    const rect = side === 'n' || side === 's'
+      ? { x: at, y: side === 'n' ? 0 : mapH - 1, w: len, h: 1 }
+      : { x: side === 'w' ? 0 : mapW - 1, y: at, w: 1, h: len };
+    return { ...rect, side, locked: playerLevel < (dest?.unlockLevel ?? 0), color: parseInt(ELEMENT_COLOR[el].text.slice(1), 16) };
+  }), [exitGroups, playerLevel, mapW, mapH]);
   const sceneBackground = useMemo<MapBackground | null>(
     () => (background?.type === 'tilemap' && exits.length ? { ...background, exits } : background),
     [background, exits],
   );
   // An exit on the edge works like a tree (Rowil 2026-10-23): walk up to it, then press E, tap
   // the "Go to …" button or tap its name. Walking onto it alone doesn't leave the map.
+  // Near: on the road (or a tile beside it) within a tile of its portals' line.
   const nearExit = useMemo(() => {
-    const d = (g: (typeof exitGroups)[number]) => Math.min(...g.tiles.map(t => Math.max(Math.abs(t.x - posX), Math.abs(t.y - posY))));
+    const d = (g: (typeof exitGroups)[number]) => {
+      const e = g.exit;
+      const along = e.side === 'n' || e.side === 's' ? posX : posY;
+      const fromEdge = e.side === 'n' ? posY : e.side === 's' ? mapH - 1 - posY : e.side === 'w' ? posX : mapW - 1 - posX;
+      if (along < e.from - 1 || along > e.to + 1) return Infinity;
+      return Math.max(0, fromEdge - e.depth);
+    };
     const g = exitGroups.filter(q => d(q) <= 1).sort((a, b) => d(a) - d(b))[0];
     if (!g) return null;
     const tile = g.tiles.reduce((best, t) => Math.hypot(t.x - posX, t.y - posY) < Math.hypot(best.x - posX, best.y - posY) ? t : best);
     return { regionId: g.regionId, tile };
-  }, [exitGroups, posX, posY]);
+  }, [exitGroups, posX, posY, mapW, mapH]);
   const goThroughExit = useCallback(() => {
     if (nearExit) handleTileEnter(nearExit.tile, undefined, true);
   }, [nearExit, handleTileEnter]);

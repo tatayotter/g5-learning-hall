@@ -143,7 +143,7 @@ interface MapCanvasProps {
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/wildlife.ts). */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[]; puddle?: boolean[][] } | null;
   /** The region whose background sounds play (lib/regionSounds.ts), with an on/off button. */
   soundRegion?: string | null;
   onPlayerClick: (userId: string) => void;

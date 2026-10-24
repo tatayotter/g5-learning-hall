@@ -14,6 +14,7 @@
 // across the field (neighbours move together), with a per-tuft seed so the
 // field doesn't move in lockstep.
 import Phaser from 'phaser';
+import { gustAt } from '@/lib/ambience';
 
 // Swaying tiles, by tileset name and tile id within it: the pixel row where the clump's base
 // sits inside its 32 px tile, and how tall the clump is. The pack's tall grass draws the same
@@ -31,6 +32,8 @@ const CLUMPS: Record<string, { base: number; h: number }> = {
   'LeafNature:3': { base: 26, h: 17 },
   'StormNature:2': { base: 26, h: 14 },
   'StormNature:3': { base: 26, h: 21 },
+  // The Stormrun's bush (on Objects Base): its windy map bends it too.
+  'StormNature:0': { base: 26, h: 22 },
   'ShadowNature:2': { base: 26, h: 13 },
   'ShadowNature:3': { base: 25, h: 20 },
   'LightNature:2': { base: 25, h: 18 },
@@ -46,6 +49,7 @@ const WAVE_Y = 0.2;           // ...and a little down the map
 const RUSTLE_MS = 600;        // shake when stepped into
 
 interface Tuft {
+  tx: number; // map column (tiles), for the gust passing over it
   slices: { image: Phaser.GameObjects.Image; x: number; shift: number; px: number }[];
   phase: number;
   seed: number;
@@ -91,6 +95,7 @@ export default class SwayingGrass {
       tile.setVisible(false);
       const seed = Math.sin(tile.x * 12.9898 + tile.y * 78.233) * 43758.5453;
       this.tufts.set(`${tile.x},${tile.y}`, {
+        tx: tile.x,
         slices,
         phase: tile.x * WAVE_X + tile.y * WAVE_Y,
         seed: (seed - Math.floor(seed)) * Math.PI * 2,
@@ -99,15 +104,21 @@ export default class SwayingGrass {
     });
   }
 
-  update(now: number) {
-    const wind = (now / SWAY_PERIOD_MS) * Math.PI * 2;
+  // strength: the map's wind (lib/ambience.ts `wind`, 1 = the usual breeze). A windy map bends
+  // further and faster; between gusts it settles a little, and as a gust rolls over a tuft it
+  // flattens downwind and flutters.
+  update(now: number, strength = 1) {
+    const wind = (now / (SWAY_PERIOD_MS / (0.5 + 0.5 * strength))) * Math.PI * 2;
+    const windy = strength > 1;
     for (const tuft of this.tufts.values()) {
+      const g = windy ? gustAt(now, tuft.tx) : 0;
       // Leans mostly one way (the wind's direction), with a slow per-tuft drift.
       let lean = 0.35 + 0.5 * Math.sin(wind - tuft.phase) + 0.25 * Math.sin(wind * 0.43 + tuft.seed);
+      if (windy) lean = lean * (0.6 + 0.4 * g) + g * (0.7 + 0.3 * Math.sin(now / 90 + tuft.seed * 3));
       const r = (now - tuft.rustleStart) / RUSTLE_MS;
       if (r < 1) lean += 1.2 * Math.sin(r * Math.PI * 4) * (1 - r);
-      lean = Math.max(-1, Math.min(1, lean));
-      for (const s of tuft.slices) s.image.x = s.x + Math.round(lean * s.shift) * s.px;
+      lean = Math.max(-1, Math.min(1.2, lean));
+      for (const s of tuft.slices) s.image.x = s.x + Math.round(lean * s.shift * strength) * s.px;
     }
   }
 
