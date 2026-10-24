@@ -425,7 +425,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
-      this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+      this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.windStrength);
       if (this.groundFx) {
         const liquid = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'liquid');
         this.groundFx.setDepths((liquid?.depth ?? 1) + 0.5, this.shadowDepth - 0.05);

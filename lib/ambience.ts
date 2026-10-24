@@ -34,8 +34,10 @@ export interface Ambience {
   fireflies?: number;
   // While it rains, lightning flashes now and then.
   lightning?: boolean;
-  // How hard the wind blows the plants: 1 = the usual breeze. Above 1, grass, flowers, bushes
-  // and treetops lean further, sway faster and flutter in the gusts.
+  // How hard the wind blows: 1 = the usual breeze. Above 1 it's a windy place: grass, flowers,
+  // bushes and treetops lean further and sway faster, and gusts (gustAt) sweep across the map
+  // now and then, bending everything, slanting the rain, tumbling the leaves, pushing the birds
+  // back and drawing wind streaks.
   wind?: number;
   // Never brighter than this much night (0..1): 1 is a place that stays as dark as night all
   // day (the Unread Margins), fireflies and lights out at every hour.
@@ -75,7 +77,7 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     clouds: { ...BASE_CLOUDS, cover: 0.38, darkness: 0.28, color: 0x1a1f33, speed: 34 },
     drift: { kind: 'fall', colors: [0x8a9a7a, 0x6f7f66, 0xb0b8a0], count: 18, glow: false, wind: 70 },
     sunset: 0xb8a0ff,
-    rain: 0.6,
+    rain: 1,
     lightning: true,
     wind: 2,
   },
@@ -109,6 +111,23 @@ export function nightStrength(now = Date.now()): number {
   if (h >= 18.25) return h - 18.25;
   if (h < 6) return 1 - (h - 5);
   return 0;
+}
+
+// Gusts on a windy map: every GUST_EVERY seconds or so a gust rolls across the map from the
+// left at GUST_SPEED tiles a second, so a kid sees it sweep over the grass and trees; at any one
+// spot it swells and dies down over GUST_LONG seconds. Calm in between.
+const GUST_SPEED = 12;
+const GUST_EVERY = 8;
+const GUST_LONG = 2.8;
+
+/** How hard a gust is blowing at map column x (tiles) at scene time `now` (ms): 0 calm .. 1. */
+export function gustAt(now: number, x: number): number {
+  const t = now / 1000 - x / GUST_SPEED;
+  const i = Math.floor(t / GUST_EVERY);
+  // Each gust starts at its own moment in its window (seeded, so every layer agrees).
+  const start = ((Math.sin(i * 91.7) * 43758.5453) % 1 + 1) % 1 * (GUST_EVERY - GUST_LONG);
+  const u = (t - i * GUST_EVERY - start) / GUST_LONG;
+  return u <= 0 || u >= 1 ? 0 : Math.sin(Math.PI * u) ** 2;
 }
 
 /** Whether it's drizzling on a map right now: the same for every kid, changing every 2 hours. */

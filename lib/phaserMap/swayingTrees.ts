@@ -10,6 +10,7 @@
 // tileset is drawn with smooth filtering, so sub-pixel steps don't smear),
 // which keeps the motion fluid. Slower and smaller than the grass: trees are heavy.
 import Phaser from 'phaser';
+import { gustAt } from '@/lib/ambience';
 
 // The Trees tileset's global ids in Ledger's Heart (firstgid 5121, 1024 tiles),
 // minus the tall-grass tufts that live on the same sheet.
@@ -27,6 +28,7 @@ interface CanopyTile {
   shift: number;  // art pixels at full lean
   px: number;     // layer units per art pixel
   phase: number;
+  tx: number;     // map column (tiles), for the gust passing over it
 }
 
 export default class SwayingTrees {
@@ -82,18 +84,21 @@ export default class SwayingTrees {
       const image = scene.add.image(x, tile.y * tile.height, texture.key, frameName).setOrigin(0, 0);
       this.container.add(image);
       tile.setVisible(false);
-      this.tiles.push({ image, x, shift, px: tile.height / 32, phase });
+      this.tiles.push({ image, x, shift, px: tile.height / 32, phase, tx: tile.x });
     }
   }
 
   // strength: the map's wind (1 = the usual breeze); stronger bends the canopies further and faster.
   update(now: number, strength = 1) {
     const wind = (now / (SWAY_PERIOD_MS / (0.5 + 0.5 * strength))) * Math.PI * 2;
-    const gusty = Math.max(0, strength - 1) * 0.2;
+    const windy = strength > 1;
     for (const t of this.tiles) {
-      // Leans with the wind and eases back, never far upwind.
-      const lean = 0.25 + 0.55 * Math.sin(wind - t.phase) + 0.2 * Math.sin(wind * 0.37 - t.phase * 2)
-        + gusty * Math.sin(now / 260 + t.phase * 5);
+      // Leans with the wind and eases back, never far upwind; a passing gust pushes it further.
+      let lean = 0.25 + 0.55 * Math.sin(wind - t.phase) + 0.2 * Math.sin(wind * 0.37 - t.phase * 2);
+      if (windy) {
+        const g = gustAt(now, t.tx);
+        lean = lean * (0.6 + 0.4 * g) + g * (0.8 + 0.2 * Math.sin(now / 140 + t.phase * 5));
+      }
       t.image.x = t.x + lean * t.shift * strength * t.px;
     }
   }

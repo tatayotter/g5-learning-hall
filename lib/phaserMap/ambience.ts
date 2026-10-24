@@ -13,13 +13,15 @@
 //   and fireflies blink over the grass (they glow over the dark).
 // - Some hours it drizzles (lib/ambience.ts isRaining): thin streaks and a grey cast, and over
 //   the Stormrun lightning flashes now and then.
+// - On a windy map (the Stormrun, always raining) gusts roll across now and then: the rain slants
+//   harder, the leaves tumble and race, and faint wind streaks whip by.
 // - A gloomy place (the Unread Margins) stays dark as night all day, fireflies out.
 //
 // The containers work in map units (32 per tile) and follow the map's camera transform each
 // frame, so they fit tile-art and painted maps alike. With "reduce motion" on, the clouds
 // stand still and nothing drifts.
 import Phaser from 'phaser';
-import { sunsetStrength, nightStrength, isRaining, type Ambience } from '@/lib/ambience';
+import { sunsetStrength, nightStrength, isRaining, gustAt, type Ambience } from '@/lib/ambience';
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './constants';
 
 const UNIT = 32;
@@ -48,10 +50,12 @@ function seededRand(seed: string): () => number {
 interface Cloud { image: Phaser.GameObjects.Image; x: number; y: number; w: number; h: number }
 interface Fly { glow: Phaser.GameObjects.Arc; dot: Phaser.GameObjects.Rectangle; x: number; y: number; vx: number; vy: number; phase: number }
 interface Drop { shape: Phaser.GameObjects.Rectangle; x: number; y: number; speed: number }
+interface Streak { shape: Phaser.GameObjects.Rectangle; x: number; y: number; speed: number; born: number; life: number }
 interface Bit {
   shape: Phaser.GameObjects.Rectangle;
   x: number; y: number; vx: number; vy: number;
   phase: number; born: number; life: number;
+  spin: number; // radians a second: leaves tumbling in a strong wind
 }
 
 export interface Transform { tileW: number; tileH: number; offsetX: number; offsetY: number }
@@ -69,6 +73,8 @@ export default class AmbienceLayer {
   private glowBox: Phaser.GameObjects.Container;
   private flies: Fly[] = [];
   private drops: Drop[] = [];
+  private streaks: Streak[] = [];
+  private lastStreakAt = 0;
   private raining = false;
   private darkness = 0;
   private bits: Bit[] = [];
@@ -185,7 +191,8 @@ export default class AmbienceLayer {
       this.updateLightning(time);
       this.updateDrift(t, scale, time);
       this.updateFireflies(t, scale, time);
-      this.updateRain(t, scale);
+      this.updateRain(t, scale, time);
+      this.updateStreaks(t, scale, time, this.streakDt(time));
     }
   }
 
@@ -200,6 +207,12 @@ export default class AmbienceLayer {
     const t = time - this.flashAt;
     const a = t < 0 ? 0 : t < 80 ? 0.55 : t < 160 ? 0.1 : t < 240 ? 0.35 : t < 700 ? 0.35 * (1 - (t - 240) / 460) : 0;
     this.flash.setAlpha(a);
+  }
+
+  private streakDt(time: number) {
+    const dt = Math.min(0.1, this.lastStreakAt ? (time - this.lastStreakAt) / 1000 : 0);
+    this.lastStreakAt = time;
+    return dt;
   }
 
   private view(t: Transform, scale: number) {
@@ -231,26 +244,61 @@ export default class AmbienceLayer {
   }
 
   // Drizzle: thin streaks slanting down with the wind.
-  private updateRain(t: Transform, scale: number) {
+  // On a windy map the rain is heavier and slants hard with the wind, harder still in a gust.
+  private updateRain(t: Transform, scale: number, time: number) {
     const view = this.view(t, scale);
-    const want = this.raining ? Math.round(45 * Math.min(3, (view.w * view.h) / (12 * 20 * UNIT * UNIT))) : 0;
+    const wind = this.sky.wind ?? 1;
+    const heavy = 1 + (wind - 1) * 0.8;
+    const want = this.raining ? Math.round(45 * heavy * Math.min(3, (view.w * view.h) / (12 * 20 * UNIT * UNIT))) : 0;
     while (this.drops.length < want) {
-      const shape = this.scene.add.rectangle(0, 0, 1, 6, 0xcfe4f4, 0.45).setAngle(-12);
+      const shape = this.scene.add.rectangle(0, 0, 1, wind > 1 ? 8 : 6, 0xcfe4f4, 0.45).setAngle(-12);
       this.driftBox.add(shape);
       this.drops.push({ shape, x: view.x + Math.random() * view.w, y: view.y + Math.random() * view.h, speed: 200 + Math.random() * 80 });
     }
     while (this.drops.length > want) this.drops.pop()!.shape.destroy();
+    const g = wind > 1 ? gustAt(time, (view.x + view.w / 2) / UNIT) : 0;
+    const slant = 0.2 + 0.45 * (wind - 1) + 0.5 * g;
+    const angle = -Math.atan(slant) * 180 / Math.PI;
     for (const d of this.drops) {
-      d.y += d.speed / 60; d.x += d.speed * 0.2 / 60;
-      if (d.y > view.y + view.h + 8 || d.x > view.x + view.w + 8) { d.y = view.y - 8 - Math.random() * 40; d.x = view.x - 20 + Math.random() * (view.w + 20); }
-      d.shape.setPosition(Math.round(d.x), Math.round(d.y));
+      d.y += d.speed / 60; d.x += d.speed * slant / 60;
+      if (d.y > view.y + view.h + 8 || d.x > view.x + view.w + 8) {
+        // Back in from the top, or from the left side the wind blows it in from.
+        if (Math.random() < slant / (1 + slant)) { d.x = view.x - 8 - Math.random() * 30; d.y = view.y + Math.random() * view.h; }
+        else { d.y = view.y - 8 - Math.random() * 40; d.x = view.x - 20 + Math.random() * (view.w + 20); }
+      }
+      d.shape.setPosition(Math.round(d.x), Math.round(d.y)).setAngle(angle);
     }
+  }
+
+  // Wind streaks: on a windy map, faint white lines whip across the view now and then, many more
+  // while a gust is passing.
+  private updateStreaks(t: Transform, scale: number, time: number, dt: number) {
+    const wind = this.sky.wind ?? 1;
+    if (wind <= 1) return;
+    const view = this.view(t, scale);
+    const g = gustAt(time, (view.x + view.w / 2) / UNIT);
+    const area = Math.min(3, (view.w * view.h) / (12 * 20 * UNIT * UNIT));
+    if (Math.random() < (0.4 + 6 * g) * dt * area) {
+      const len = 14 + Math.random() * 26;
+      const shape = this.scene.add.rectangle(0, 0, len, 1, 0xf2f6ff).setOrigin(0, 0.5).setAngle(Math.atan2(WIND.y, WIND.x) * 180 / Math.PI).setAlpha(0);
+      this.driftBox.add(shape);
+      this.streaks.push({ shape, x: view.x - len + Math.random() * view.w * 0.8, y: view.y + Math.random() * view.h, speed: 260 + Math.random() * 160, born: time, life: 500 + Math.random() * 400 });
+    }
+    this.streaks = this.streaks.filter(s => {
+      const age = (time - s.born) / s.life;
+      if (age >= 1) { s.shape.destroy(); return false; }
+      s.x += s.speed * WIND.x * dt; s.y += s.speed * WIND.y * dt;
+      // A quick fade in and out, never more than a faint line.
+      s.shape.setPosition(Math.round(s.x), Math.round(s.y)).setAlpha(0.32 * Math.sin(Math.PI * age));
+      return true;
+    });
   }
 
   private updateDrift(t: Transform, scale: number, time: number) {
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
     this.lastNow = time;
     const { kind, colors, count, glow, wind } = this.sky.drift;
+    const windy = (this.sky.wind ?? 1) > 1;
     // The part of the map on screen, in map units.
     const view = {
       x: -t.offsetX / scale, y: -t.offsetY / scale,
@@ -265,7 +313,7 @@ export default class AmbienceLayer {
       const shape = this.scene.add.rectangle(0, 0, size, kind === 'fall' ? size - 1 : size, colors[Math.floor(Math.random() * colors.length)]);
       if (glow) shape.setBlendMode(Phaser.BlendModes.ADD);
       this.driftBox.add(shape);
-      const bit: Bit = { shape, x: 0, y: 0, vx: 0, vy: 0, phase: Math.random() * Math.PI * 2, born: time, life: 6000 + Math.random() * 5000 };
+      const bit: Bit = { shape, x: 0, y: 0, vx: 0, vy: 0, phase: Math.random() * Math.PI * 2, born: time, life: 6000 + Math.random() * 5000, spin: 0 };
       this.spawn(bit, view, kind, wind, fresh);
       this.bits.push(bit);
     }
@@ -277,13 +325,17 @@ export default class AmbienceLayer {
         continue;
       }
       const sway = Math.sin(time / 600 + bit.phase);
-      bit.x += (bit.vx + sway * 6) * dt;
-      bit.y += bit.vy * dt;
+      // On a windy map a passing gust hurls the bits along and lifts them in loops.
+      const g = windy ? gustAt(time, bit.x / UNIT) : 0;
+      bit.x += (bit.vx * (1 + 1.5 * g) + sway * 6) * dt;
+      bit.y += (bit.vy + (windy ? Math.sin(time / 260 + bit.phase * 2) * 18 * (0.4 + g) : 0)) * dt;
+      if (windy) bit.shape.rotation += bit.spin * (1 + 2 * g) * dt;
       // Fade in and out at the ends of its life; leaves tumble (flip), embers flicker.
       const edge = Math.min(1, age / 600, (bit.life - age) / 900);
       const flicker = glow ? 0.6 + 0.4 * Math.sin(time / 120 + bit.phase * 3) : 1;
       bit.shape.setPosition(Math.round(bit.x), Math.round(bit.y)).setAlpha(Math.max(0, edge) * flicker);
-      if (kind === 'fall') bit.shape.setScale(Math.abs(Math.sin(time / 300 + bit.phase)) < 0.3 ? 0.5 : 1, 1);
+      // Leaves flip as they fall; in a strong wind they tumble end over end, faster.
+      if (kind === 'fall') bit.shape.setScale(Math.abs(Math.sin(time / (windy ? 140 : 300) + bit.phase)) < 0.3 ? 0.5 : 1, 1);
     }
   }
 
@@ -293,6 +345,7 @@ export default class AmbienceLayer {
     bit.vx = wind * (0.6 + r() * 0.8);
     bit.vy = kind === 'fall' ? 10 + r() * 10 : kind === 'rise' ? -(8 + r() * 10) : (r() - 0.5) * 6;
     bit.phase = r() * Math.PI * 2;
+    bit.spin = (r() < 0.5 ? -1 : 1) * (3 + r() * 6);
     bit.life = 6000 + r() * 5000;
     if (anywhere || r() < 0.5) {
       bit.x = view.x + r() * view.w;
@@ -317,6 +370,7 @@ export default class AmbienceLayer {
     this.glowBox.destroy();
     this.flies = [];
     this.drops = [];
+    this.streaks = [];
     this.bits = [];
     this.clouds = [];
   }

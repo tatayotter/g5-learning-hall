@@ -13,6 +13,7 @@
 // ready to a stump it topples over and lands in a puff of dust and leaves.
 import Phaser from 'phaser';
 import type { TreeId, TreeStage } from '@/lib/gardenConfig';
+import { gustAt } from '@/lib/ambience';
 import { addOutline, outlineAlpha } from './outline';
 
 export interface TreeSprite {
@@ -186,9 +187,14 @@ export default class WildTrees {
   update(now: number, wind = 1) {
     const glow = outlineAlpha(now);
     const period = GLIDE_MS / (0.5 + 0.5 * wind);
-    const gusty = Math.max(0, wind - 1) * 0.35;
+    const windy = wind > 1;
     for (const d of this.drawn.values()) {
-      const glide = Math.sin((now / period) * Math.PI * 2 + d.phase) + gusty * Math.sin(now / 240 + d.phase * 5);
+      let glide = Math.sin((now / period) * Math.PI * 2 + d.phase);
+      if (windy) {
+        // A passing gust pushes the canopy downwind and shakes it.
+        const g = gustAt(now, d.tree.x);
+        glide = glide * (0.6 + 0.4 * g) + g * (1.3 + 0.3 * Math.sin(now / 120 + d.phase * 5));
+      }
       if (d.canopy) d.canopy.x = d.canopyX + d.shake + (this.still ? 0 : glide * wind);
       for (const o of d.canopyOutline) o.image.x = (d.canopy?.x ?? d.canopyX) + o.dx;
       for (const o of d.outline) o.setAlpha(glow);
