@@ -1,0 +1,167 @@
+// lib/phaserMap/shadowPeekers.ts
+// Little black shadow creatures with glowing purple eyes that peek out from behind the trees of
+// the Unread Margins. One at a time they slip out from behind a trunk, blink, and slip back. When
+// the kid walks up they rattle in fright and dart back behind the tree, then wait a while before
+// peeking again somewhere else. Only for looks, nothing is saved.
+//
+// They are drawn just under the trees' trunks (wildTrees.ts), so behind a trunk they are hidden.
+import Phaser from 'phaser';
+
+export interface PeekTree { id: string; x: number; y: number }
+
+// Pixel art, 14 x 16: '#' body, '+' its dim purple rim, 'o' the eyes (a texture of their own).
+const BODY = [
+  '....+..+..+...',
+  '...++.+#+.++..',
+  '..+########+..',
+  '.+##########+.',
+  '.+##########+.',
+  '+############+',
+  '+############+',
+  '+############+',
+  '+############+',
+  '+############+',
+  '.+##########+.',
+  '+############+',
+  '+############+',
+  '.+#+#+##+#+#+.',
+  '.+..+..+..+.+.',
+  '..............',
+];
+const EYE_ROW = 5;
+const EYE_COLS = [4, 5, 8, 9];
+const W = BODY[0].length;
+const H = BODY.length;
+const BODY_KEY = 'critter:shadow-body';
+const EYES_KEY = 'critter:shadow-eyes';
+const EYE_GLOW = 0xb050ff;
+
+// How many may be out at once, how close the kid gets before they hide (tiles), how far from
+// the kid a new peek must be, and how far out from the trunk's middle they lean (art pixels).
+const COUNT = 3;
+const SCARE = 3.5;
+const SAFE = 5;
+const OUT_PX = 9;
+
+type State = 'hidden' | 'out' | 'scared';
+
+interface Peeker {
+  body: Phaser.GameObjects.Image;
+  eyes: Phaser.GameObjects.Image;
+  state: State;
+  tree: PeekTree | null;
+  side: number;
+  // How far out it is now (0 behind the trunk, 1 fully out) and where it's heading.
+  out: number;
+  goal: number;
+  next: number;
+  blinkAt: number;
+  scaredAt: number;
+}
+
+function texture(scene: Phaser.Scene, key: string, paint: (ch: string) => string | null) {
+  if (scene.textures.exists(key)) return;
+  const tex = scene.textures.createCanvas(key, W, H);
+  const ctx = tex?.getContext();
+  if (!tex || !ctx) return;
+  BODY.forEach((row, y) => [...row].forEach((ch, x) => {
+    const isEye = y >= EYE_ROW && y <= EYE_ROW + 1 && EYE_COLS.includes(x);
+    const color = paint(isEye ? 'o' : ch);
+    if (!color) return;
+    ctx.fillStyle = color;
+    ctx.fillRect(x, y, 1, 1);
+  }));
+  tex.refresh();
+}
+
+export default class ShadowPeekers {
+  private peekers: Peeker[] = [];
+
+  constructor(private scene: Phaser.Scene, private layer: Phaser.GameObjects.Container) {
+    texture(scene, BODY_KEY, ch => (ch === '#' || ch === 'o' ? '#07040c' : ch === '+' ? '#24123a' : null));
+    texture(scene, EYES_KEY, ch => (ch === 'o' ? '#d9a0ff' : null));
+    for (let i = 0; i < COUNT; i++) {
+      const body = scene.add.image(0, 0, BODY_KEY).setOrigin(0.5, 1).setVisible(false);
+      const eyes = scene.add.image(0, 0, EYES_KEY).setOrigin(0.5, (EYE_ROW + 1) / H)
+        .setBlendMode(Phaser.BlendModes.ADD).setVisible(false);
+      eyes.enableFilters().filters?.internal.addGlow(EYE_GLOW, 4, 0, 1, false, 10, 6);
+      layer.add([body, eyes]);
+      // Staggered so they don't all pop out together.
+      this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0 });
+    }
+  }
+
+  /** trees: the standing trees they may hide behind; kid: where the kid is (float tiles). */
+  update(now: number, trees: PeekTree[], kid?: { x: number; y: number } | null) {
+    const far = (t: PeekTree) => !kid || Math.hypot(kid.x - t.x, kid.y - t.y) > SAFE;
+    for (const p of this.peekers) {
+      // Its tree was chopped: gone.
+      if (p.tree && !trees.some(t => t.id === p.tree!.id)) { this.hide(p, now, 0); p.out = 0; }
+      const near = !!(kid && p.tree && Math.hypot(kid.x - p.tree.x, kid.y - p.tree.y) < SCARE);
+
+      if (p.state === 'hidden' && p.out < 0.02 && now >= p.next) {
+        const busy = new Set(this.peekers.filter(o => o !== p && o.tree).map(o => o.tree!.id));
+        const choices = trees.filter(t => far(t) && !busy.has(t.id));
+        if (choices.length) {
+          p.tree = choices[Math.floor(Math.random() * choices.length)];
+          p.side = Math.random() < 0.5 ? -1 : 1;
+          p.state = 'out';
+          p.goal = 1;
+          p.next = now + 3000 + Math.random() * 4000;
+          p.blinkAt = now + 600 + Math.random() * 1500;
+        } else {
+          p.next = now + 1500;
+        }
+      } else if (p.state === 'out' && near) {
+        p.state = 'scared';
+        p.scaredAt = now;
+      } else if (p.state === 'out' && now >= p.next) {
+        this.hide(p, now, 2000 + Math.random() * 4000);
+      } else if (p.state === 'scared' && now - p.scaredAt > 380) {
+        // Done rattling: dart back behind the trunk, and stay hidden a good while.
+        this.hide(p, now, 5000 + Math.random() * 4000);
+      }
+
+      // Slide toward the goal: out slowly and shyly, back in fast.
+      const speed = p.goal > p.out ? 0.05 : p.state === 'hidden' && now - p.scaredAt < 10000 ? 0.35 : 0.12;
+      p.out += (p.goal - p.out) * speed;
+      this.draw(p, now);
+    }
+  }
+
+  private hide(p: Peeker, now: number, wait: number) {
+    p.state = 'hidden';
+    p.goal = 0;
+    p.next = now + wait;
+  }
+
+  private draw(p: Peeker, now: number) {
+    const show = !!p.tree && p.out > 0.02;
+    p.body.setVisible(show);
+    p.eyes.setVisible(show);
+    if (!show || !p.tree) return;
+    const rattle = p.state === 'scared' ? (Math.floor(now / 35) % 2 ? 1 : -1) : 0;
+    const x = p.tree.x * 32 + 16 + p.side * OUT_PX * p.out + rattle;
+    const y = p.tree.y * 32 + 26 + (p.state === 'scared' ? Math.floor(now / 50) % 2 : 0);
+    const lean = p.side * 8 * p.out;
+    p.body.setPosition(x, y).setAngle(lean).setAlpha(Math.min(1, p.out * 1.5));
+    // The eyes sit on the body (rotated with it); they shut for a moment now and then and go
+    // wide when scared.
+    const rad = Phaser.Math.DegToRad(lean);
+    const up = H - (EYE_ROW + 1);
+    p.eyes.setPosition(x + Math.sin(rad) * up, y - Math.cos(rad) * up).setAngle(lean).setAlpha(Math.min(1, p.out * 1.5));
+    if (p.state === 'out' && now >= p.blinkAt) p.blinkAt = now + 1500 + Math.random() * 3000;
+    const shut = p.state === 'out' && this.isBlinking(p, now);
+    p.eyes.setScale(p.state === 'scared' ? 1.25 : 1, shut ? 0.15 : p.state === 'scared' ? 1.25 : 1);
+  }
+
+  // A blink lasts the 120 ms before the next blink time is reached.
+  private isBlinking(p: Peeker, now: number) {
+    return p.blinkAt - now < 120;
+  }
+
+  destroy() {
+    for (const p of this.peekers) { p.body.destroy(); p.eyes.destroy(); }
+    this.peekers = [];
+  }
+}

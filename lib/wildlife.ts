@@ -70,13 +70,14 @@ export interface GroundFxKinds {
   shimmer?: boolean; // heat haze: the air over the lava wobbles
   puddles?: boolean; // while it rains: rings on the paths, and splashes where anyone walks on them
   river?: boolean; // leaves and twigs floating down the river (it runs down the map, to the sea)
+  peekers?: boolean; // shadow creatures peeking from behind the trees, hiding when anyone comes near
 }
 
 export const GROUND_FX: Record<string, GroundFxKinds> = {
   cinderreach: { bubbles: true, puffs: true, embers: true, shimmer: true },
   rootbound_wilds: { ripples: true, fish: true, river: true, puddles: true },
   stormrun_reaches: { ripples: true, fish: true, puddles: true },
-  unread_margins: { ripples: true },
+  unread_margins: { ripples: true, peekers: true },
   radiant_archive: { ripples: true, fish: true },
   tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true, puddles: true },
 };

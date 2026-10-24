@@ -19,6 +19,7 @@ import Phaser from 'phaser';
 import type { TreeId, TreeStage } from '@/lib/gardenConfig';
 import { gustAt } from '@/lib/ambience';
 import { addOutline, outlineAlpha } from './outline';
+import ShadowPeekers from './shadowPeekers';
 
 export interface TreeSprite {
   id: string;
@@ -75,6 +76,9 @@ export default class WildTrees {
   readonly above: Phaser.GameObjects.Container;
   // The kid's axe (chopSwing.ts), in front of the players but under the leaves.
   readonly tools: Phaser.GameObjects.Container;
+  // Shadow creatures peeking from behind the trunks (shadowPeekers.ts), on maps that have them.
+  readonly peek: Phaser.GameObjects.Container;
+  private peekers: ShadowPeekers | null = null;
   private drawn = new Map<string, Drawn>();
   private wanted: TreeSprite[] = [];
   private readonly still: boolean;
@@ -91,7 +95,14 @@ export default class WildTrees {
     this.below = make(belowDepth);
     this.above = make(aboveDepth);
     this.tools = make(10.5);
+    this.peek = make(belowDepth - 0.05);
     this.still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  /** Turn the peeking shadow creatures on or off (none for kids who prefer less motion). */
+  setPeekers(on: boolean) {
+    if (on && !this.peekers && !this.still) this.peekers = new ShadowPeekers(this.scene, this.peek);
+    else if (!on && this.peekers) { this.peekers.destroy(); this.peekers = null; }
   }
 
   setTrees(trees: TreeSprite[]) {
@@ -281,6 +292,10 @@ export default class WildTrees {
       for (const o of d.outline) o.setAlpha(glow);
       if (d.halo) this.shine(d, now, kid);
     }
+    if (this.peekers) {
+      const standing = [...this.drawn.values()].filter(d => d.canopy).map(d => d.tree);
+      this.peekers.update(now, standing, kid);
+    }
   }
 
   private shine(d: Drawn, now: number, kid?: { x: number; y: number } | null) {
@@ -385,6 +400,8 @@ export default class WildTrees {
     this.below.destroy();
     this.above.destroy();
     this.tools.destroy();
+    this.peekers?.destroy();
+    this.peek.destroy();
     this.drawn.clear();
   }
 }

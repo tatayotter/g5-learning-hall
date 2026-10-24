@@ -371,6 +371,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
   private exitKey = '';
   private crittersKey = '';
+  // Whether this map has shadow creatures peeking from behind its trees (lib/wildlife.ts).
+  private peekersOn = false;
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
@@ -1003,6 +1005,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
       this.groundFx?.destroy();
       const w = state.wildlife;
+      this.peekersOn = !!w?.fx?.peekers;
+      this.wildTrees?.setPeekers(this.peekersOn);
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
     this.highlight = state.highlight ?? null;
@@ -1190,8 +1194,9 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden.setPlants(this.gardenPlants);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
-        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools);
+        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek);
         this.wildTrees.setTrees(this.wildTreeSprites);
+        this.wildTrees.setPeekers(this.peekersOn);
         this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.applyHighlight();
       }
