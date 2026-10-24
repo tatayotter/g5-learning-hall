@@ -462,17 +462,19 @@ export default function MapCanvas({
     sceneRef.current?.getTransform() ?? naiveInitialTransform(mapWidth, mapHeight, background, posX, posY, zoom)
   );
 
-  const nameTag = (targetId: string, displayName?: string) => {
+  const nameTag = (targetId: string, displayName?: string, gradeKey?: string) => {
     const profile = USERS[targetId];
     // Use the passed displayName first (e.g. bot firstName), then the USERS
     // record, then the raw id as last resort.
     const label = displayName ?? profile?.name ?? targetId;
+    // Bots and other players bring their grade with them (hooks/useMapPresence.ts).
+    const grade = profile?.grade ?? gradeKey;
     return (
       // Crown over the name, grade under it; white with a black outline, no box.
       <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-0.5 flex flex-col items-center leading-none map-name-tag whitespace-nowrap">
         {profile?.showCrown && <GMBadge />}
         <span className="text-[11px] font-bold">{label}</span>
-        {profile?.grade && <span className="text-[9px] font-semibold mt-px">Grade {gradeToNumber(profile.grade)}</span>}
+        {grade && <span className="text-[9px] font-semibold mt-px">Grade {gradeToNumber(grade)}</span>}
       </div>
     );
   };
@@ -728,7 +730,7 @@ export default function MapCanvas({
           <div className="w-full h-full flex items-center justify-center relative">
             {statusIcon(p.userId)}
             {bubbles(p.userId)}
-            {nameTag(p.userId, p.name)}
+            {nameTag(p.userId, p.name, p.grade)}
           </div>
         </div>
       ))}

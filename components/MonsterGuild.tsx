@@ -549,6 +549,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     battleState?.map_x ?? 0,
     battleState?.map_y ?? 0,
     true,
+    selfProfileForMap?.grade,
   );
   const botOnlinePlayers = useBotPresence();
   // Merge bots into onlinePlayers so TrainingMap's Online tab, sprite renderer,
