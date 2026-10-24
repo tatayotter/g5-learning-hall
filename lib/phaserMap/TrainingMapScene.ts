@@ -1195,7 +1195,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden.setPlants(this.gardenPlants);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
-        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek);
+        this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);
         this.wildTrees.setTrees(this.wildTreeSprites);
         // The bushes the shadow creatures may hide behind too.
         const peekBushes: PeekTree[] = [];

@@ -8,11 +8,13 @@
 //
 // They are drawn just under the trees' trunks (wildTrees.ts), so behind a trunk they are hidden.
 // Bushes are part of the map below them, so over a bush only the part above its leaves is drawn.
+// Their eyes are drawn over the night's darkness (the map is always dark here), so they glow.
 import Phaser from 'phaser';
 
-// A hiding spot: a standing tree's trunk tile, or a bush's tile (bush: the pixel row of the top
-// of its leaves in the tile).
-export interface PeekTree { id: string; x: number; y: number; bush?: number }
+// A hiding spot: a standing tree's trunk tile (edges: how far its trunk reaches left and right
+// of the tile's middle, art pixels), or a bush's tile (bush: the pixel row of the top of its
+// leaves in the tile).
+export interface PeekTree { id: string; x: number; y: number; bush?: number; edges?: [number, number] }
 
 // Bush tiles they hide behind, by tileset name and tile id: the pixel row of the top of the
 // leaves inside the 32 px tile.
@@ -48,11 +50,14 @@ const EYES_KEY = 'critter:shadow-eyes';
 const EYE_GLOW = 0xb050ff;
 
 // How many may be out at once, how close the kid gets before they hide (tiles), how far from
-// the kid a new peek must be, and how far out from the trunk's middle they lean (art pixels).
+// the kid a new peek must be, and how far past the trunk's edge they lean (art pixels; most of
+// the 14 px body shows).
 const COUNT = 3;
 const SCARE = 3.5;
 const SAFE = 5;
-const OUT_PX = 9;
+// ...and how far they may be at most, so they stay round the kid.
+const RANGE = 16;
+const OUT_PX = 4;
 // Scurrying to the next spot: how often (instead of hiding), how far it may go (tiles) and how
 // fast it runs (art pixels a second).
 const SCURRY_CHANCE = 0.35;
@@ -97,8 +102,9 @@ function texture(scene: Phaser.Scene, key: string, paint: (ch: string) => string
 
 export default class ShadowPeekers {
   private peekers: Peeker[] = [];
+  private last = 0;
 
-  constructor(private scene: Phaser.Scene, private layer: Phaser.GameObjects.Container) {
+  constructor(scene: Phaser.Scene, layer: Phaser.GameObjects.Container, glow: Phaser.GameObjects.Container) {
     texture(scene, BODY_KEY, ch => (ch === '#' || ch === 'o' ? '#07040c' : ch === '+' ? '#24123a' : null));
     texture(scene, EYES_KEY, ch => (ch === 'o' ? '#d9a0ff' : null));
     for (let i = 0; i < COUNT; i++) {
@@ -106,15 +112,24 @@ export default class ShadowPeekers {
       const eyes = scene.add.image(0, 0, EYES_KEY).setOrigin(0.5, (EYE_ROW + 1) / H)
         .setBlendMode(Phaser.BlendModes.ADD).setVisible(false);
       eyes.enableFilters().filters?.internal.addGlow(EYE_GLOW, 4, 0, 1, false, 10, 6);
-      layer.add([body, eyes]);
+      layer.add(body);
+      glow.add(eyes);
       // Staggered so they don't all pop out together.
       this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0, dx: 0, run: null });
     }
   }
 
-  /** trees: the standing trees they may hide behind; kid: where the kid is (float tiles). */
+  /** trees: the spots they may hide behind; kid: where the kid is (float tiles). */
   update(now: number, trees: PeekTree[], kid?: { x: number; y: number } | null) {
-    const far = (t: PeekTree) => !kid || Math.hypot(kid.x - t.x, kid.y - t.y) > SAFE;
+    // Frames since the last update (at 60 a second), so they move as fast on a slow phone.
+    const frames = this.last ? Math.min(6, (now - this.last) / (1000 / 60)) : 1;
+    this.last = now;
+    // Spots in a ring round the kid: not too close, not too far.
+    const far = (t: PeekTree) => {
+      if (!kid) return false;
+      const d = Math.hypot(kid.x - t.x, kid.y - t.y);
+      return d >= SAFE && d <= RANGE;
+    };
     for (const p of this.peekers) {
       // Its tree was chopped: gone.
       if (p.tree && !trees.some(t => t.id === p.tree!.id)) { this.hide(p, now, 0); p.out = 0; }
@@ -165,7 +180,7 @@ export default class ShadowPeekers {
 
       // Slide toward the goal: out slowly and shyly, back in fast.
       const speed = p.goal > p.out ? 0.05 : p.state === 'hidden' && now - p.scaredAt < 10000 ? 0.35 : 0.12;
-      p.out += (p.goal - p.out) * speed;
+      p.out += (p.goal - p.out) * (1 - Math.pow(1 - speed, frames));
       this.draw(p, now);
     }
   }
@@ -186,7 +201,13 @@ export default class ShadowPeekers {
   // on top of a bush's leaves.
   private restAt(t: PeekTree, side: number) {
     if (t.bush !== undefined) return { x: t.x * 32 + 16, y: t.y * 32 + t.bush + H - RISE_PX, side };
-    return { x: t.x * 32 + 16 + side * OUT_PX, y: t.y * 32 + 26, side };
+    return { x: t.x * 32 + 16 + side * this.reach(t, side), y: t.y * 32 + 26, side };
+  }
+
+  // How far from the trunk's middle a creature stands when fully out on that side.
+  private reach(t: PeekTree, side: number) {
+    const edge = t.edges ? (side < 0 ? t.edges[0] : t.edges[1]) : 6;
+    return edge + OUT_PX;
   }
 
   private hide(p: Peeker, now: number, wait: number) {
@@ -229,7 +250,7 @@ export default class ShadowPeekers {
     }
     p.body.setCrop();
     p.eyes.setCrop();
-    const x = p.tree.x * 32 + 16 + p.side * OUT_PX * p.out + rattle;
+    const x = p.tree.x * 32 + 16 + p.side * this.reach(p.tree, p.side) * p.out + rattle;
     const y = p.tree.y * 32 + 26 + (p.state === 'scared' ? Math.floor(now / 50) % 2 : 0);
     const lean = p.side * 8 * p.out;
     p.body.setPosition(x, y).setAngle(lean).setAlpha(alpha);
@@ -237,7 +258,9 @@ export default class ShadowPeekers {
     // wide when scared.
     const rad = Phaser.Math.DegToRad(lean);
     const up = H - (EYE_ROW + 1);
-    p.eyes.setPosition(x + Math.sin(rad) * up, y - Math.cos(rad) * up).setAngle(lean).setAlpha(alpha);
+    // The eyes are drawn over the trunk (they shine through the night), so they only show once
+    // the creature is far enough out.
+    p.eyes.setPosition(x + Math.sin(rad) * up, y - Math.cos(rad) * up).setAngle(lean).setAlpha(Phaser.Math.Clamp((p.out - 0.4) / 0.4, 0, 1));
     this.blink(p, now);
   }
 

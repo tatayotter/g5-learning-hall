@@ -20,6 +20,7 @@ import type { TreeId, TreeStage } from '@/lib/gardenConfig';
 import { gustAt } from '@/lib/ambience';
 import { addOutline, outlineAlpha } from './outline';
 import ShadowPeekers, { type PeekTree } from './shadowPeekers';
+import { GLOW_DEPTH } from './ambience';
 
 export interface TreeSprite {
   id: string;
@@ -78,9 +79,13 @@ export default class WildTrees {
   readonly tools: Phaser.GameObjects.Container;
   // Shadow creatures peeking from behind the trunks (shadowPeekers.ts), on maps that have them.
   readonly peek: Phaser.GameObjects.Container;
+  // Lights that shine through the night's darkness (the glowcaps' spots, the creatures' eyes).
+  readonly glow: Phaser.GameObjects.Container;
   private peekers: ShadowPeekers | null = null;
   // The map's bushes they may also hide behind.
   private peekBushes: PeekTree[] = [];
+  // Each tree art's trunk edges around the creatures' height (shadowPeekers.ts), by texture.
+  private edges = new Map<string, [number, number]>();
   private drawn = new Map<string, Drawn>();
   private wanted: TreeSprite[] = [];
   private readonly still: boolean;
@@ -98,13 +103,14 @@ export default class WildTrees {
     this.above = make(aboveDepth);
     this.tools = make(10.5);
     this.peek = make(belowDepth - 0.05);
+    this.glow = make(GLOW_DEPTH);
     this.still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   }
 
   /** Turn the peeking shadow creatures on or off (none for kids who prefer less motion). */
   setPeekers(on: boolean, bushes: PeekTree[] = this.peekBushes) {
     this.peekBushes = bushes;
-    if (on && !this.peekers && !this.still) this.peekers = new ShadowPeekers(this.scene, this.peek);
+    if (on && !this.peekers && !this.still) this.peekers = new ShadowPeekers(this.scene, this.peek, this.glow);
     else if (!on && this.peekers) { this.peekers.destroy(); this.peekers = null; }
   }
 
@@ -206,11 +212,12 @@ export default class WildTrees {
     if (spotTex && color !== undefined) {
       halo = this.scene.add.image(left + BASE_X, top + HALO_Y, this.haloTexture())
         .setTint(color).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
-      this.above.addAt(halo, 0);
+      this.glow.add(halo);
       const low = this.scene.add.image(left, top + SPLIT, spotTex, this.frame(spotTex, 'ready', 'bottom')).setOrigin(0, 0);
       const high = this.scene.add.image(left, top, spotTex, this.frame(spotTex, 'ready', 'top')).setOrigin(0, 0);
-      this.below.add(low);
-      this.above.add(high);
+      // Over the night's darkness, so they shine in the gloom (the glow fades before the kid is
+      // close enough to walk in front of the tree).
+      this.glow.add([low, high]);
       for (const img of [low, high]) {
         img.setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
         const glow = img.enableFilters().filters?.internal.addGlow(color, 0, 0, 1, false, 10, 8);
@@ -220,6 +227,33 @@ export default class WildTrees {
     }
     const lit = old?.lit ?? 1;
     this.drawn.set(t.id, { key, tree: t, below, canopy, canopyX: left, outline, canopyOutline, phase: Math.random() * Math.PI * 2, shake: 0, spots, glows, halo, lit });
+  }
+
+  // How far the grown tree's trunk (and roots) reach left and right of its middle, over the rows
+  // a peeking creature's body covers. Cached per texture.
+  private trunkEdges(tex: string): [number, number] {
+    const known = this.edges.get(tex);
+    if (known) return known;
+    let edges: [number, number] = [6, 6];
+    const src = this.scene.textures.exists(tex) ? this.scene.textures.get(tex).getSourceImage() as CanvasImageSource : null;
+    const canvas = src && typeof document !== 'undefined' ? document.createElement('canvas') : null;
+    const ctx = canvas?.getContext('2d', { willReadFrequently: true });
+    if (canvas && ctx && src) {
+      const top = BASE_Y - 18;
+      const rows = 10;
+      canvas.width = FW;
+      canvas.height = rows;
+      ctx.drawImage(src, 0, top, FW, rows, 0, 0, FW, rows);
+      const data = ctx.getImageData(0, 0, FW, rows).data;
+      let min = BASE_X, max = BASE_X;
+      // Solid pixels only (the shadow is see-through).
+      for (let y = 0; y < rows; y++) for (let x = 0; x < FW; x++) {
+        if (data[(y * FW + x) * 4 + 3] > 200) { min = Math.min(min, x); max = Math.max(max, x); }
+      }
+      edges = [BASE_X - min, max - BASE_X];
+    }
+    this.edges.set(tex, edges);
+    return edges;
   }
 
   // Just the tree's glowing spots (pixels close to its glow colour), from the grown frame.
@@ -296,7 +330,8 @@ export default class WildTrees {
       if (d.halo) this.shine(d, now, kid);
     }
     if (this.peekers) {
-      const standing: PeekTree[] = [...this.drawn.values()].filter(d => d.canopy).map(d => d.tree);
+      const standing: PeekTree[] = [...this.drawn.values()].filter(d => d.canopy)
+        .map(d => ({ ...d.tree, edges: this.trunkEdges(`garden:tree_${d.tree.tree}`) }));
       this.peekers.update(now, [...standing, ...this.peekBushes], kid);
     }
   }
@@ -405,6 +440,7 @@ export default class WildTrees {
     this.tools.destroy();
     this.peekers?.destroy();
     this.peek.destroy();
+    this.glow.destroy();
     this.drawn.clear();
   }
 }
