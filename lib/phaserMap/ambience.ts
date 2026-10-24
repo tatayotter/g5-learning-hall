@@ -158,6 +158,7 @@ export default class AmbienceLayer {
 
   /** How dark the night is right now (0..1), for other layers' lights. */
   get nightLevel() { return this.darkness; }
+  get rainNow() { return this.raining; }
 
   update(t: Transform, time: number) {
     const scale = t.tileW / UNIT;

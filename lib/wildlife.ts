@@ -68,14 +68,15 @@ export interface GroundFxKinds {
   embers?: boolean; // embers rising off the lava; it glows at night
   deep?: boolean; // the water gets darker the further it is from land, in soft curved bands
   shimmer?: boolean; // heat haze: the air over the lava wobbles
+  puddles?: boolean; // while it rains: rings on the paths, and splashes where anyone walks on them
   river?: boolean; // leaves and twigs floating down the river (it runs down the map, to the sea)
 }
 
 export const GROUND_FX: Record<string, GroundFxKinds> = {
   cinderreach: { bubbles: true, puffs: true, embers: true, shimmer: true },
-  rootbound_wilds: { ripples: true, fish: true, river: true },
-  stormrun_reaches: { ripples: true, fish: true },
+  rootbound_wilds: { ripples: true, fish: true, river: true, puddles: true },
+  stormrun_reaches: { ripples: true, fish: true, puddles: true },
   unread_margins: { ripples: true },
   radiant_archive: { ripples: true, fish: true },
-  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true },
+  tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true, puddles: true },
 };

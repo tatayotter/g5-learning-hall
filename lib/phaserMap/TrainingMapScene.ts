@@ -166,7 +166,7 @@ export interface MapCanvasSyncState {
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; puddle?: boolean[][] } | null;
 }
 
 interface TrackedSprite {
@@ -429,7 +429,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (this.groundFx) {
         const liquid = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'liquid');
         this.groundFx.setDepths((liquid?.depth ?? 1) + 0.5, this.shadowDepth - 0.05);
-        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
+        this.groundFx.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.ambience?.rainNow ?? false);
       }
     }
   }
@@ -1001,7 +1001,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
       this.groundFx?.destroy();
       const w = state.wildlife;
-      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;
+      this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
     this.highlight = state.highlight ?? null;
     this.applyHighlight();

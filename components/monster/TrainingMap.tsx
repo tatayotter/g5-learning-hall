@@ -746,6 +746,7 @@ export default function TrainingMap({
           habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],
           sand: parsed.sand,
+          puddle: parsed.puddle,
         } : null);
         // Ledger's Heart persists position to the DB, so a player whose saved
         // spot no longer exists on a re-authored map (out of bounds, or now

@@ -149,6 +149,8 @@ export interface TiledArtMap {
   liquid: boolean[][];
   // True on beach sand (Tidewrit's sand tiles), where footsteps leave prints.
   sand: boolean[][];
+  // True on open path or rubble ground (no grass over it), where rain makes puddle rings.
+  puddle: boolean[][];
   // Flower tiles grown by the daily nature layer (empty for hand-made maps).
   flowers: { x: number; y: number }[];
   // Tiles drawn with a "light" tile (lamps): they glow at night.
@@ -546,6 +548,31 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     return col >= 10 && col < 20 && row < 10;
   };
   const sand = layout.map((row, y) => row.map((_, x) => !liquid[y][x] && layers.some(l => roleOf.get(l.name) !== 'top' && isSand(l.data[y * mapWidth + x] & 0x1fffffff))));
+  // Puddles: the pack's (or a region's recolored) TileSet path fills (columns 0-9, rows 15-19)
+  // and rubble (columns 42-49, rows 10-17) on the ground layer, with none of the grass
+  // blob tiles (columns 0-9, rows 5-14) drawn over it, on a walkable tile.
+  const groundSets = tilesets.filter(ts => ts.name === 'TileSet' || ts.name.startsWith('TileSet-'));
+  const packTile = (g: number) => {
+    const ts = groundSets.find(s => g >= s.firstgid && g < s.firstgid + s.tilecount);
+    if (!ts) return null;
+    const id = g - ts.firstgid;
+    return { col: id % ts.columns, row: Math.floor(id / ts.columns) };
+  };
+  const isPuddleGround = (g: number) => {
+    const t = packTile(g);
+    return !!t && ((t.col < 10 && t.row >= 15 && t.row < 20) || (t.col >= 42 && t.col < 50 && t.row >= 10 && t.row < 18));
+  };
+  const isGrassOver = (g: number) => {
+    const t = packTile(g);
+    return !!t && t.col < 10 && t.row >= 5 && t.row < 15;
+  };
+  const groundLayer = layers.find(l => roleOf.get(l.name) === 'ground');
+  const overLayers = layers.filter(l => l !== groundLayer && roleOf.get(l.name) !== 'top');
+  const puddle = layout.map((row, y) => row.map((cell, x) => {
+    const i = y * mapWidth + x;
+    return cell.type !== 'wall' && !liquid[y][x] && !!groundLayer && isPuddleGround(groundLayer.data[i] & 0x1fffffff)
+      && !overLayers.some(l => isGrassOver(l.data[i] & 0x1fffffff));
+  }));
 
   // Foliage = anything drawn on Objects Top (canopy that covers the player);
   // used only to keep spawned markers from hiding under it.
@@ -635,6 +662,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     animatedTiles,
     liquid,
     sand,
+    puddle,
     flowers,
     lights,
     ysortBase,
