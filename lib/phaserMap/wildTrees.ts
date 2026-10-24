@@ -19,7 +19,7 @@ import Phaser from 'phaser';
 import type { TreeId, TreeStage } from '@/lib/gardenConfig';
 import { gustAt } from '@/lib/ambience';
 import { addOutline, outlineAlpha } from './outline';
-import ShadowPeekers from './shadowPeekers';
+import ShadowPeekers, { type PeekTree } from './shadowPeekers';
 
 export interface TreeSprite {
   id: string;
@@ -79,6 +79,8 @@ export default class WildTrees {
   // Shadow creatures peeking from behind the trunks (shadowPeekers.ts), on maps that have them.
   readonly peek: Phaser.GameObjects.Container;
   private peekers: ShadowPeekers | null = null;
+  // The map's bushes they may also hide behind.
+  private peekBushes: PeekTree[] = [];
   private drawn = new Map<string, Drawn>();
   private wanted: TreeSprite[] = [];
   private readonly still: boolean;
@@ -100,7 +102,8 @@ export default class WildTrees {
   }
 
   /** Turn the peeking shadow creatures on or off (none for kids who prefer less motion). */
-  setPeekers(on: boolean) {
+  setPeekers(on: boolean, bushes: PeekTree[] = this.peekBushes) {
+    this.peekBushes = bushes;
     if (on && !this.peekers && !this.still) this.peekers = new ShadowPeekers(this.scene, this.peek);
     else if (!on && this.peekers) { this.peekers.destroy(); this.peekers = null; }
   }
@@ -293,8 +296,8 @@ export default class WildTrees {
       if (d.halo) this.shine(d, now, kid);
     }
     if (this.peekers) {
-      const standing = [...this.drawn.values()].filter(d => d.canopy).map(d => d.tree);
-      this.peekers.update(now, standing, kid);
+      const standing: PeekTree[] = [...this.drawn.values()].filter(d => d.canopy).map(d => d.tree);
+      this.peekers.update(now, [...standing, ...this.peekBushes], kid);
     }
   }
 

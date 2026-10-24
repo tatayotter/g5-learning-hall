@@ -1,13 +1,23 @@
 // lib/phaserMap/shadowPeekers.ts
 // Little black shadow creatures with glowing purple eyes that peek out from behind the trees of
-// the Unread Margins. One at a time they slip out from behind a trunk, blink, and slip back. When
-// the kid walks up they rattle in fright and dart back behind the tree, then wait a while before
-// peeking again somewhere else. Only for looks, nothing is saved.
+// the Unread Margins, and rise from behind its bushes. One at a time they slip out from behind a
+// trunk (or up over a bush), blink, and slip back. When the kid walks up they rattle in fright and
+// dart back into hiding, then wait a while before peeking again somewhere else. Only for looks,
+// nothing is saved.
 //
 // They are drawn just under the trees' trunks (wildTrees.ts), so behind a trunk they are hidden.
+// Bushes are part of the map below them, so over a bush only the part above its leaves is drawn.
 import Phaser from 'phaser';
 
-export interface PeekTree { id: string; x: number; y: number }
+// A hiding spot: a standing tree's trunk tile, or a bush's tile (bush: the pixel row of the top
+// of its leaves in the tile).
+export interface PeekTree { id: string; x: number; y: number; bush?: number }
+
+// Bush tiles they hide behind, by tileset name and tile id: the pixel row of the top of the
+// leaves inside the 32 px tile.
+export const PEEK_BUSHES: Record<string, number> = { 'ShadowNature:0': 8 };
+// How far they rise over a bush (art pixels): the spikes and eyes show, the rest stays hidden.
+const RISE_PX = 10;
 
 // Pixel art, 14 x 16: '#' body, '+' its dim purple rim, 'o' the eyes (a texture of their own).
 const BODY = [
@@ -57,6 +67,8 @@ interface Peeker {
   next: number;
   blinkAt: number;
   scaredAt: number;
+  // Over a bush: where along it, in art pixels from the tile's middle.
+  dx: number;
 }
 
 function texture(scene: Phaser.Scene, key: string, paint: (ch: string) => string | null) {
@@ -87,7 +99,7 @@ export default class ShadowPeekers {
       eyes.enableFilters().filters?.internal.addGlow(EYE_GLOW, 4, 0, 1, false, 10, 6);
       layer.add([body, eyes]);
       // Staggered so they don't all pop out together.
-      this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0 });
+      this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0, dx: 0 });
     }
   }
 
@@ -105,6 +117,7 @@ export default class ShadowPeekers {
         if (choices.length) {
           p.tree = choices[Math.floor(Math.random() * choices.length)];
           p.side = Math.random() < 0.5 ? -1 : 1;
+          p.dx = Math.round((Math.random() - 0.5) * 10);
           p.state = 'out';
           p.goal = 1;
           p.next = now + 3000 + Math.random() * 4000;
@@ -141,15 +154,32 @@ export default class ShadowPeekers {
     p.eyes.setVisible(show);
     if (!show || !p.tree) return;
     const rattle = p.state === 'scared' ? (Math.floor(now / 35) % 2 ? 1 : -1) : 0;
+    const alpha = Math.min(1, p.out * 1.5);
+    if (p.tree.bush !== undefined) {
+      // Rising over the leaves: only the rows above the bush's top are drawn.
+      const top = p.tree.y * 32 + p.tree.bush;
+      const rise = Math.max(1, Math.round(RISE_PX * p.out));
+      const bx = p.tree.x * 32 + 16 + p.dx + rattle;
+      p.body.setPosition(bx, top + H - rise).setAngle(0).setAlpha(alpha).setCrop(0, 0, W, rise);
+      p.eyes.setPosition(bx, top - rise + EYE_ROW + 1).setAngle(0).setAlpha(alpha).setCrop(0, 0, W, rise);
+      this.blink(p, now);
+      return;
+    }
+    p.body.setCrop();
+    p.eyes.setCrop();
     const x = p.tree.x * 32 + 16 + p.side * OUT_PX * p.out + rattle;
     const y = p.tree.y * 32 + 26 + (p.state === 'scared' ? Math.floor(now / 50) % 2 : 0);
     const lean = p.side * 8 * p.out;
-    p.body.setPosition(x, y).setAngle(lean).setAlpha(Math.min(1, p.out * 1.5));
+    p.body.setPosition(x, y).setAngle(lean).setAlpha(alpha);
     // The eyes sit on the body (rotated with it); they shut for a moment now and then and go
     // wide when scared.
     const rad = Phaser.Math.DegToRad(lean);
     const up = H - (EYE_ROW + 1);
-    p.eyes.setPosition(x + Math.sin(rad) * up, y - Math.cos(rad) * up).setAngle(lean).setAlpha(Math.min(1, p.out * 1.5));
+    p.eyes.setPosition(x + Math.sin(rad) * up, y - Math.cos(rad) * up).setAngle(lean).setAlpha(alpha);
+    this.blink(p, now);
+  }
+
+  private blink(p: Peeker, now: number) {
     if (p.state === 'out' && now >= p.blinkAt) p.blinkAt = now + 1500 + Math.random() * 3000;
     const shut = p.state === 'out' && this.isBlinking(p, now);
     p.eyes.setScale(p.state === 'scared' ? 1.25 : 1, shut ? 0.15 : p.state === 'scared' ? 1.25 : 1);

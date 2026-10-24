@@ -68,6 +68,7 @@ import Phaser from 'phaser';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from './constants';
 import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
+import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
@@ -1196,7 +1197,14 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek);
         this.wildTrees.setTrees(this.wildTreeSprites);
-        this.wildTrees.setPeekers(this.peekersOn);
+        // The bushes the shadow creatures may hide behind too.
+        const peekBushes: PeekTree[] = [];
+        baseLayer?.forEachTile(tile => {
+          const ts = tile.tileset;
+          const top = ts ? PEEK_BUSHES[`${ts.name}:${tile.index - ts.firstgid}`] : undefined;
+          if (top !== undefined) peekBushes.push({ id: `bush:${tile.x},${tile.y}`, x: tile.x, y: tile.y, bush: top });
+        });
+        this.wildTrees.setPeekers(this.peekersOn, peekBushes);
         this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.applyHighlight();
       }
