@@ -79,7 +79,7 @@ export interface TiledArtLayer {
 
 // The fixed layer contract every tile-art map follows (see
 // public/maps-tiled-art/README.md). Role order is also draw order.
-type LayerRole = 'under' | 'liquid' | 'ground' | 'floor' | 'detail' | 'shadows' | 'base' | 'top';
+type LayerRole = 'under' | 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
 const ROLE_BY_NAME: Record<string, LayerRole> = {
   // Plain dirt under see-through ground (the town's brick road), drawn first.
   'under ground': 'under',
@@ -93,9 +93,8 @@ const ROLE_BY_NAME: Record<string, LayerRole> = {
   'shadows': 'shadows',
   'objects base': 'base',
   'objects top': 'top',
-  // The town's plaza floor is walked on like a path; drawn under Ground Detail, so players'
-  // shadows (just over Ground Detail) show on it.
-  'fountain circle': 'floor',
+  // The town's plaza floor is walked on like a path.
+  'fountain circle': 'detail',
   // The town's lamp posts and decor above their feet: drawn over the players.
   'lamp tops': 'top',
   'town decor top': 'top',
@@ -111,7 +110,7 @@ const ROLE_BY_NAME: Record<string, LayerRole> = {
 // Layers drawn over the players that a player can also stand in front of (see ysortBase).
 const Y_SORTED = new Set(['roofs', 'roofs 2', 'roofs 3', 'fountain top', 'lamp tops', 'town decor top']);
 const roleFor = (name: string): LayerRole => ROLE_BY_NAME[name.trim().toLowerCase()] ?? 'base';
-const ROLE_ORDER: LayerRole[] = ['under', 'liquid', 'ground', 'floor', 'detail', 'shadows', 'base', 'top'];
+const ROLE_ORDER: LayerRole[] = ['under', 'liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
 
 export interface TiledArtPortal {
   x: number;

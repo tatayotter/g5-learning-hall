@@ -363,6 +363,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private ambience: AmbienceLayer | null = null;
   private critters: CritterLayer | null = null;
   private npcLayer: GuildNpcLayer | null = null;
+  // A floor drawn over Ground Detail (the town's fountain plaza): shadows on it are lifted over it.
+  private floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private groundFx: GroundFx | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
@@ -417,6 +419,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.update(time);
     this.wildTrees?.update(time);
     this.sortAgainstRoofs();
+    this.liftShadowsOnFloor();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
@@ -646,6 +649,18 @@ export default class TrainingMapScene extends Phaser.Scene {
       front = true;
     }
     return { side: front ? 'front' : null };
+  }
+
+  // Shadows sit just over Ground Detail (under the grass tufts); on a floor drawn above it (the
+  // plaza) they'd vanish, so whoever stands on one gets their shadow lifted over it.
+  private liftShadowsOnFloor() {
+    const floor = this.floorLayer;
+    if (!floor?.active) return;
+    const all: TrackedSprite[] = [...(this.self ? [this.self] : []), ...this.others.values(), ...(this.npcLayer?.npcs ?? [])];
+    for (const p of all) {
+      const want = floor.hasTileAt(Math.round(p.x), Math.round(p.y)) ? Math.max(this.shadowDepth, floor.depth + 0.05) : this.shadowDepth;
+      if (p.shadow.depth !== want) p.shadow.setDepth(want);
+    }
   }
 
   // A player in front of a roof, awning or lamp is drawn over it (whole); behind one, it covers
@@ -1107,6 +1122,7 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private clearTilemap() {
     this.animTiles = [];
+    this.floorLayer = null;
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
@@ -1154,6 +1170,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       // many a map has (the town has a dozen); above ones go from 11 up.
       const belowStep = Math.min(1, 7 / Math.max(1, bg.belowPlayerLayers.length));
       let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+      let floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let baseLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       const order = [...bg.belowPlayerLayers, ...bg.abovePlayerLayers];
@@ -1179,10 +1196,12 @@ export default class TrainingMapScene extends Phaser.Scene {
         }
         const lower = layerName.toLowerCase();
         if (lower === 'ground detail') detailLayer = layer as Phaser.Tilemaps.TilemapLayer;
+        if (lower === 'fountain circle') floorLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects base') baseLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects top') topLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
       this.topLayer = topLayer;
+      this.floorLayer = floorLayer;
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);
