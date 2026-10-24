@@ -2,7 +2,8 @@
 // Little black shadow creatures with glowing purple eyes that peek out from behind the trees of
 // the Unread Margins, and rise from behind its bushes. One at a time they slip out from behind a
 // trunk (or up over a bush), blink, and slip back. When the kid walks up they rattle in fright and
-// dart back into hiding, then wait a while before peeking again somewhere else. Only for looks,
+// dart back into hiding, then wait a while before peeking again somewhere else. Now and then one
+// scurries out in the open from its hiding spot to the next one along. Only for looks,
 // nothing is saved.
 //
 // They are drawn just under the trees' trunks (wildTrees.ts), so behind a trunk they are hidden.
@@ -52,8 +53,14 @@ const COUNT = 3;
 const SCARE = 3.5;
 const SAFE = 5;
 const OUT_PX = 9;
+// Scurrying to the next spot: how often (instead of hiding), how far it may go (tiles) and how
+// fast it runs (art pixels a second).
+const SCURRY_CHANCE = 0.35;
+const SCURRY_MIN = 1.5;
+const SCURRY_MAX = 6;
+const SCURRY_SPEED = 110;
 
-type State = 'hidden' | 'out' | 'scared';
+type State = 'hidden' | 'out' | 'scared' | 'run';
 
 interface Peeker {
   body: Phaser.GameObjects.Image;
@@ -69,6 +76,8 @@ interface Peeker {
   scaredAt: number;
   // Over a bush: where along it, in art pixels from the tile's middle.
   dx: number;
+  // A scurry: where it set off from (art pixels), when, and how long it takes.
+  run: { x: number; y: number; at: number; ms: number } | null;
 }
 
 function texture(scene: Phaser.Scene, key: string, paint: (ch: string) => string | null) {
@@ -99,7 +108,7 @@ export default class ShadowPeekers {
       eyes.enableFilters().filters?.internal.addGlow(EYE_GLOW, 4, 0, 1, false, 10, 6);
       layer.add([body, eyes]);
       // Staggered so they don't all pop out together.
-      this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0, dx: 0 });
+      this.peekers.push({ body, eyes, state: 'hidden', tree: null, side: 1, out: 0, goal: 0, next: 1500 + i * 2500, blinkAt: 0, scaredAt: 0, dx: 0, run: null });
     }
   }
 
@@ -129,7 +138,26 @@ export default class ShadowPeekers {
         p.state = 'scared';
         p.scaredAt = now;
       } else if (p.state === 'out' && now >= p.next) {
-        this.hide(p, now, 2000 + Math.random() * 4000);
+        const to = Math.random() < SCURRY_CHANCE ? this.nextSpot(p, trees, far) : null;
+        if (to && p.tree) {
+          // Off it goes, in the open, to the next spot along.
+          const from = { x: p.body.x, y: p.body.y };
+          const end = this.restAt(to, Math.random() < 0.5 ? -1 : 1);
+          p.tree = to;
+          p.side = end.side;
+          p.dx = 0;
+          p.state = 'run';
+          p.run = { ...from, at: now, ms: (Math.hypot(end.x - from.x, end.y - from.y) / SCURRY_SPEED) * 1000 };
+        } else {
+          this.hide(p, now, 2000 + Math.random() * 4000);
+        }
+      } else if (p.state === 'run' && p.run && now - p.run.at >= p.run.ms) {
+        // Arrived: peeking from the new spot (over a bush it ducks down a little first).
+        p.run = null;
+        p.state = 'out';
+        p.out = p.tree?.bush !== undefined ? 0.4 : 1;
+        p.goal = 1;
+        p.next = now + 2500 + Math.random() * 3000;
       } else if (p.state === 'scared' && now - p.scaredAt > 380) {
         // Done rattling: dart back behind the trunk, and stay hidden a good while.
         this.hide(p, now, 5000 + Math.random() * 4000);
@@ -142,19 +170,53 @@ export default class ShadowPeekers {
     }
   }
 
+  // A free spot a short run away from p's, and not near the kid.
+  private nextSpot(p: Peeker, spots: PeekTree[], far: (t: PeekTree) => boolean) {
+    const at = p.tree;
+    if (!at) return null;
+    const busy = new Set(this.peekers.filter(o => o !== p && o.tree).map(o => o.tree!.id));
+    const near = spots.filter(t => {
+      const d = Math.hypot(t.x - at.x, t.y - at.y);
+      return t.id !== at.id && !busy.has(t.id) && far(t) && d >= SCURRY_MIN && d <= SCURRY_MAX;
+    });
+    return near.length ? near[Math.floor(Math.random() * near.length)] : null;
+  }
+
+  // Where a creature stands peeking from a spot (its feet, art pixels): beside a trunk, or
+  // on top of a bush's leaves.
+  private restAt(t: PeekTree, side: number) {
+    if (t.bush !== undefined) return { x: t.x * 32 + 16, y: t.y * 32 + t.bush + H - RISE_PX, side };
+    return { x: t.x * 32 + 16 + side * OUT_PX, y: t.y * 32 + 26, side };
+  }
+
   private hide(p: Peeker, now: number, wait: number) {
+    p.run = null;
     p.state = 'hidden';
     p.goal = 0;
     p.next = now + wait;
   }
 
   private draw(p: Peeker, now: number) {
-    const show = !!p.tree && p.out > 0.02;
+    const show = !!p.tree && (p.out > 0.02 || p.state === 'run');
     p.body.setVisible(show);
     p.eyes.setVisible(show);
     if (!show || !p.tree) return;
     const rattle = p.state === 'scared' ? (Math.floor(now / 35) % 2 ? 1 : -1) : 0;
     const alpha = Math.min(1, p.out * 1.5);
+    if (p.state === 'run' && p.run) {
+      // Scurrying: little hops, leaning the way it runs.
+      const end = this.restAt(p.tree, p.side);
+      const k = Math.min(1, (now - p.run.at) / Math.max(1, p.run.ms));
+      const hop = Math.abs(Math.sin(k * p.run.ms / 90)) * 2;
+      const rx = p.run.x + (end.x - p.run.x) * k;
+      const ry = p.run.y + (end.y - p.run.y) * k - hop;
+      const lean = Math.sign(end.x - p.run.x) * 12;
+      p.body.setCrop().setPosition(rx, ry).setAngle(lean).setAlpha(1).setVisible(true);
+      const rad = Phaser.Math.DegToRad(lean);
+      const up = H - (EYE_ROW + 1);
+      p.eyes.setCrop().setPosition(rx + Math.sin(rad) * up, ry - Math.cos(rad) * up).setAngle(lean).setAlpha(1).setScale(1).setVisible(true);
+      return;
+    }
     if (p.tree.bush !== undefined) {
       // Rising over the leaves: only the rows above the bush's top are drawn.
       const top = p.tree.y * 32 + p.tree.bush;
