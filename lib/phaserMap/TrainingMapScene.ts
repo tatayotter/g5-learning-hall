@@ -590,6 +590,11 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   // Everyone walking the map (the kid, bots, other players), in map units (32 per tile).
   // Where their feet are: the shadow under each.
+  /** Where each guild NPC stands (tile, feet), for its DOM name tag; empty until it loads. */
+  getNpcSpots(): { id: string; x: number; y: number }[] {
+    return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
+  }
+
   private walkers(): { id: string; x: number; y: number }[] {
     const t = this.lastTransform;
     const k = 32 / t.tileW;
@@ -1535,6 +1540,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.self?.shadow.setDepth(depth);
     for (const o of this.others.values()) o.shadow.setDepth(depth);
     this.recyclerShadow?.setDepth(depth);
+    for (const n of this.npcLayer?.npcs ?? []) n.shadow.setDepth(depth);
   }
 
   private makeShadow(px: number, py: number, h: number): Phaser.GameObjects.Ellipse {

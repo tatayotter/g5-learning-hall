@@ -2,7 +2,7 @@
 // The guild masters in Inkwell Town (lib/townNpcs.ts): each strolls a few steps around their
 // hall door, stops for a while (turning to face a kid who walks up), then wanders on. Drawn like
 // the players (screen space, feet on the tile), so the scene sorts them against roofs and gives
-// them a silhouette behind one. Purely visual: every kid sees their own. With "reduce motion" on
+// them a silhouette behind one. Their name tags are DOM, like the players' (MapCanvas.tsx). Purely visual: every kid sees their own. With "reduce motion" on
 // they stand still at their door.
 import Phaser from 'phaser';
 import { NPC_WALK_FRAMES, type TownNpc } from '@/lib/townNpcs';
@@ -16,7 +16,6 @@ const BODY_TILES = 1.05; // shown about as tall as a player
 export interface NpcSprite {
   image: Phaser.GameObjects.Sprite;
   shadow: Phaser.GameObjects.Ellipse;
-  tag: Phaser.GameObjects.Text;
   x: number; // tile, feet
   y: number;
   baseScaleY: number;
@@ -53,12 +52,8 @@ export default class GuildNpcLayer {
       const key = `npc-walk:${def.id}`;
       const image = scene.add.sprite(-999, -999, '__DEFAULT').setOrigin(0.5, 1).setDepth(9.5).setVisible(false);
       const shadow = scene.add.ellipse(-999, -999, 10, 4, 0x000000, 0.28).setDepth(shadowDepth).setVisible(false);
-      const tag = scene.add.text(-999, -999, def.name, {
-        fontFamily: 'Arial, sans-serif', fontStyle: 'bold', fontSize: '12px', color: def.color,
-        stroke: '#1a1424', strokeThickness: 3,
-      }).setOrigin(0.5, 1).setDepth(41).setResolution(2).setVisible(false);
       const npc: Npc = {
-        def, image, shadow, tag, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
+        def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
         zone: layer.zoneAround(home.x, home.y, def.range), path: [],
         restUntil: 0, walking: false, ready: false,
       };
@@ -90,10 +85,7 @@ export default class GuildNpcLayer {
       n.baseScaleY = s;
       n.image.setPosition(px, feet).setScale(s, s * breathe).setVisible(true);
       if (n.shadow.width !== h * 0.5) n.shadow.setSize(h * 0.5, h * 0.12);
-      n.shadow.setPosition(px, feet - h * 0.03).setVisible(true);
-      const font = `${Math.max(10, Math.round(h * 0.2))}px`;
-      if (n.tag.style.fontSize !== font) n.tag.setFontSize(font);
-      n.tag.setPosition(px, feet - n.def.frameH * s - h * 0.02).setVisible(true);
+      n.shadow.setPosition(px, feet - h * 0.05).setVisible(true);
     }
   }
 
@@ -182,7 +174,7 @@ export default class GuildNpcLayer {
   }
 
   destroy() {
-    for (const n of this.npcs) { n.image.destroy(); n.shadow.destroy(); n.tag.destroy(); }
+    for (const n of this.npcs) { n.image.destroy(); n.shadow.destroy(); }
     this.npcs.length = 0;
   }
 }

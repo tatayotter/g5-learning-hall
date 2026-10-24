@@ -26,7 +26,7 @@ water and lava sheets, frames left to right) animate in the game too.
 Names are case-insensitive but otherwise exact. Hidden layers are skipped, and per-layer
 opacity is honored. Any other layer name (the town's `Building`, `building walls`, `Fences`,
 `perimeter wall`, `stalls`, `fountain`) counts as `Objects Base`: drawn behind the player and
-solid. `fountain circle` (the plaza floor) is walked on like `Ground Detail`. A tile a tileset
+solid. `fountain circle` (the plaza floor) is walked on like `Ground Detail` and drawn just under it, so the players' shadows show on it. A tile a tileset
 marks with a bool property `walkable` never blocks, even on `Objects Base` (the town's build
 script marks the almost see-through corner tiles of each building and fountain stamp). Painted on `Objects Base` = solid. Rectangles in an object layer whose
 name contains "collision" are solid too (a tile is blocked when its centre is inside one).

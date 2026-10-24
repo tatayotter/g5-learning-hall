@@ -6,8 +6,6 @@
 export interface TownNpc {
   id: string;
   name: string;
-  /** Name tag color. */
-  color: string;
   sheet: string;
   frameW: number;
   frameH: number;
@@ -19,11 +17,11 @@ export interface TownNpc {
 
 export const TOWN_NPCS: Record<string, TownNpc[]> = {
   town: [
-    { id: 'spellcaster', name: 'SpellCaster', color: '#c4a6ff', sheet: '/npcs/walk/spellcaster.webp', frameW: 100, frameH: 130, home: { x: 6, y: 16 }, range: 4 },
-    { id: 'numberrealm', name: 'Number Realm', color: '#fbbf24', sheet: '/npcs/walk/numberrealm.webp', frameW: 87, frameH: 115, home: { x: 16, y: 11 }, range: 5 },
-    { id: 'lorekeeper', name: 'Lorekeeper', color: '#6ee7b7', sheet: '/npcs/walk/lorekeeper.webp', frameW: 81, frameH: 116, home: { x: 30, y: 11 }, range: 5 },
-    { id: 'lexiconarena', name: 'Lexicon Arena', color: '#a5b4fc', sheet: '/npcs/walk/lexiconarena.webp', frameW: 88, frameH: 118, home: { x: 43, y: 11 }, range: 5 },
-    { id: 'logiclabyrinth', name: 'Logic Labyrinth', color: '#67e8f9', sheet: '/npcs/walk/logiclabyrinth.webp', frameW: 79, frameH: 117, home: { x: 54, y: 19 }, range: 5 },
+    { id: 'spellcaster', name: 'Spell Caster', sheet: '/npcs/walk/spellcaster.webp', frameW: 100, frameH: 130, home: { x: 6, y: 16 }, range: 4 },
+    { id: 'numberrealm', name: 'Realm Guardian', sheet: '/npcs/walk/numberrealm.webp', frameW: 87, frameH: 115, home: { x: 16, y: 11 }, range: 5 },
+    { id: 'lorekeeper', name: 'Lore Keeper', sheet: '/npcs/walk/lorekeeper.webp', frameW: 81, frameH: 116, home: { x: 30, y: 11 }, range: 5 },
+    { id: 'lexiconarena', name: 'Lexicon Admiral', sheet: '/npcs/walk/lexiconarena.webp', frameW: 88, frameH: 118, home: { x: 43, y: 11 }, range: 5 },
+    { id: 'logiclabyrinth', name: 'Logic Master', sheet: '/npcs/walk/logiclabyrinth.webp', frameW: 79, frameH: 117, home: { x: 54, y: 19 }, range: 5 },
   ],
 };
 

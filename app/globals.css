@@ -645,7 +645,11 @@ html {
 
 /* ── Training Map: name tag always readable on its dark pill, ── */
 /* regardless of theme (Tala's theme repaints .text-white elsewhere) */
-.map-name-tag { color: #ffffff; }
+.map-name-tag {
+  color: #ffffff;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+    0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000, 1px 0 0 #000;
+}
 
 /* ── Training Map: step + bump feedback ─────────────── */
 @keyframes map-step-bounce {
