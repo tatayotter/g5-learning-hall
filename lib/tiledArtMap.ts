@@ -118,6 +118,30 @@ export interface TiledArtPortal {
   regionId: string;
 }
 
+// A way off the map: a run of portal tiles to one region on (or up to 2 tiles in from) the map's
+// edge. from..to is the road it sits on, along that edge (columns on the top or bottom edge, rows
+// on the left or right): the road's own tiles on the edge line, so the exit's glow lines up with
+// the road exactly. depth: how far in from the edge its portal tiles are (0 = on the edge).
+export interface TiledArtExit {
+  regionId: string;
+  side: 'n' | 's' | 'e' | 'w';
+  from: number;
+  to: number;
+  // Where the road's dirt starts and ends inside the end tiles (0..1 of a tile): a grass blob
+  // tile laid over the end of the road covers part of it.
+  fromInset: number;
+  toInset: number;
+  depth: number;
+  portals: TiledArtPortal[];
+}
+
+// The pack's grass blob tiles (TileSet columns 0-9, rows 5-14; the same in every recolored
+// sheet): how many pixels of grass each covers from either end of each edge's 4-pixel band.
+// id: top band (from left, from right), bottom band (left, right), left band (from top, from
+// bottom), right band (top, bottom). Measured from TileSet.png.
+const BLOB_GRASS: Record<number, number[]> = Object.fromEntries('321:0,0,0,19,0,0,0,18;322:0,0,32,32,0,17,0,17;323:0,0,18,0,0,19,0,0;325:0,0,0,19,0,0,0,18;326:0,0,32,32,0,20,0,22;327:0,0,32,32,0,17,0,17;328:0,0,32,32,0,20,0,22;329:0,0,18,0,0,19,0,0;384:0,0,0,18,0,0,0,16;385:0,18,32,32,0,19,32,32;387:18,0,32,32,32,32,0,18;388:0,0,18,0,0,19,0,0;389:0,19,0,21,0,0,32,32;390:32,32,19,0,32,32,21,0;391:32,32,0,0,18,0,16,0;392:32,32,0,18,18,0,32,32;393:18,0,16,0,32,32,0,0;448:0,18,0,16,0,0,32,32;452:19,0,21,0,32,32,0,0;453:0,18,0,16,0,0,32,32;454:17,0,17,0,32,32,0,0;456:0,19,0,21,0,0,32,32;457:19,0,21,0,32,32,0,0;512:0,19,0,0,0,0,17,0;513:32,32,0,18,18,0,32,32;515:32,32,19,0,32,32,21,0;516:18,0,0,0,18,0,0,0;517:0,17,0,17,0,0,32,32;518:18,0,32,32,32,32,0,18;519:0,0,32,32,0,16,0,18;520:0,18,32,32,0,19,32,32;521:19,0,21,0,32,32,0,0;577:0,18,0,0,0,0,19,0;578:32,32,0,0,21,0,19,0;579:19,0,0,0,20,0,0,0;581:0,18,0,0,0,0,19,0;582:32,32,0,0,17,0,17,0;583:32,32,0,0,21,0,19,0;584:32,32,0,0,21,0,19,0;585:19,0,0,0,20,0,0,0;641:0,0,0,23,0,0,0,20;642:0,0,32,32,0,20,0,22;643:0,0,22,0,0,21,0,0;645:0,0,0,23,0,0,0,20;646:0,0,32,32,0,22,0,24;647:0,0,32,32,0,20,0,22;648:0,0,32,32,0,24,0,25;649:0,0,22,0,0,23,0,0;704:0,0,0,23,0,0,0,21;705:0,22,32,32,0,22,32,32;707:22,0,32,32,32,32,0,23;708:0,0,22,0,0,23,0,0;709:0,25,0,25,0,0,32,32;710:32,32,22,0,32,32,25,0;711:32,32,0,0,22,0,22,0;712:32,32,0,23,22,0,32,32;713:22,0,22,0,32,32,0,0;768:0,22,0,22,0,0,32,32;772:25,0,25,0,32,32,0,0;773:0,22,0,22,0,0,32,32;774:22,0,21,0,32,32,0,0;776:0,22,0,24,0,0,32,32;777:25,0,25,0,32,32,0,0;832:0,22,0,0,0,0,21,0;833:32,32,0,23,22,0,32,32;835:32,32,22,0,32,32,25,0;836:24,0,0,0,24,0,0,0;837:0,22,0,20,0,0,32,32;838:22,0,32,32,32,32,0,23;839:0,0,32,32,0,22,0,22;840:0,22,32,32,0,22,32,32;841:22,0,24,0,32,32,0,0;897:0,23,0,0,0,0,23,0;898:32,32,0,0,24,0,22,0;899:22,0,0,0,24,0,0,0;901:0,23,0,0,0,0,23,0;902:32,32,0,0,22,0,20,0;903:32,32,0,0,24,0,22,0;904:32,32,0,0,25,0,25,0;905:22,0,0,0,24,0,0,0'
+  .split(';').map(e => { const [id, v] = e.split(':'); return [Number(id), v.split(',').map(Number)]; }));
+
 export interface TiledArtMap {
   mapJson: object;
   tilesetImages: Record<string, string>;
@@ -135,6 +159,8 @@ export interface TiledArtMap {
   // the "Portals" objectgroup convention documented in
   // public/maps-tiled-art/README.md.
   portals: TiledArtPortal[];
+  // The portals near the map's edge, as exits lined up with their roads.
+  exits: TiledArtExit[];
   // True where the "Trees" tile layer draws canopy art, even though the
   // tile itself is walkable (only the trunk — a much smaller area — is
   // marked 'wall' via "Tree collision"). Used to keep spawned scroll/curio
@@ -149,6 +175,8 @@ export interface TiledArtMap {
   liquid: boolean[][];
   // True on beach sand (Tidewrit's sand tiles), where footsteps leave prints.
   sand: boolean[][];
+  // True on open path or rubble ground (no grass over it), where rain makes puddle rings.
+  puddle: boolean[][];
   // Flower tiles grown by the daily nature layer (empty for hand-made maps).
   flowers: { x: number; y: number }[];
   // Tiles drawn with a "light" tile (lamps): they glow at night.
@@ -546,6 +574,73 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     return col >= 10 && col < 20 && row < 10;
   };
   const sand = layout.map((row, y) => row.map((_, x) => !liquid[y][x] && layers.some(l => roleOf.get(l.name) !== 'top' && isSand(l.data[y * mapWidth + x] & 0x1fffffff))));
+  // Puddles: the pack's (or a region's recolored) TileSet path fills (columns 0-9, rows 15-19)
+  // and rubble (columns 42-49, rows 10-17) on the ground layer, with none of the grass
+  // blob tiles (columns 0-9, rows 5-14) drawn over it, on a walkable tile.
+  const groundSets = tilesets.filter(ts => ts.name === 'TileSet' || ts.name.startsWith('TileSet-'));
+  const packTile = (g: number) => {
+    const ts = groundSets.find(s => g >= s.firstgid && g < s.firstgid + s.tilecount);
+    if (!ts) return null;
+    const id = g - ts.firstgid;
+    return { col: id % ts.columns, row: Math.floor(id / ts.columns) };
+  };
+  const isPuddleGround = (g: number) => {
+    const t = packTile(g);
+    return !!t && ((t.col < 10 && t.row >= 15 && t.row < 20) || (t.col >= 42 && t.col < 50 && t.row >= 10 && t.row < 18));
+  };
+  const isGrassOver = (g: number) => {
+    const t = packTile(g);
+    return !!t && t.col < 10 && t.row >= 5 && t.row < 15;
+  };
+  const groundLayer = layers.find(l => roleOf.get(l.name) === 'ground');
+  const overLayers = layers.filter(l => l !== groundLayer && roleOf.get(l.name) !== 'top');
+  // Exits: each run of portal tiles to one region near an edge. Its span along the edge is the
+  // road there: the tiles on the edge line whose ground matches the ground under the portals
+  // (or, on a TileSet path, any path fill), at most 6 tiles past the portals on either side.
+  const isPathFill = (g: number) => { const t = packTile(g); return !!t && t.col < 10 && t.row >= 15 && t.row < 20; };
+  const exits: TiledArtExit[] = [];
+  const groups: TiledArtPortal[][] = [];
+  for (const p of portals) {
+    const g = groups.find(q => q[0].regionId === p.regionId && q.some(t => Math.max(Math.abs(t.x - p.x), Math.abs(t.y - p.y)) <= 1));
+    if (g) g.push(p); else groups.push([p]);
+  }
+  for (const g of groups) {
+    const xs = g.map(p => p.x), ys = g.map(p => p.y);
+    const gaps: [TiledArtExit['side'], number][] = [['n', Math.min(...ys)], ['s', mapHeight - 1 - Math.max(...ys)], ['w', Math.min(...xs)], ['e', mapWidth - 1 - Math.max(...xs)]];
+    const [side, depth] = gaps.sort((a, b) => a[1] - b[1])[0];
+    if (depth > 2) continue;
+    const horizontal = side === 'n' || side === 's';
+    const line = side === 'n' ? 0 : side === 's' ? mapHeight - 1 : side === 'w' ? 0 : mapWidth - 1;
+    const len = horizontal ? mapWidth : mapHeight;
+    const gidAt = (a: number) => (groundLayer ? groundLayer.data[horizontal ? line * mapWidth + a : a * mapWidth + line] & 0x1fffffff : 0);
+    const along = horizontal ? xs : ys;
+    let from = Math.min(...along), to = Math.max(...along);
+    const seeds = new Set(along.map(gidAt));
+    const seedPath = [...seeds].some(isPathFill);
+    const road = (a: number) => a >= 0 && a < len && (seeds.has(gidAt(a)) || (seedPath && isPathFill(gidAt(a))));
+    const lo = from - 6, hi = to + 6;
+    while (from - 1 >= lo && road(from - 1)) from--;
+    while (to + 1 <= hi && road(to + 1)) to++;
+    // Grass laid over either end of the road on the edge line: the glow starts where the dirt does.
+    const bandAt = (a: number, end: 0 | 1) => {
+      const i = horizontal ? line * mapWidth + a : a * mapWidth + line;
+      const k = { n: 0, s: 2, w: 4, e: 6 }[side] + end;
+      let px = 0;
+      for (const l of layers) {
+        if (roleOf.get(l.name) === 'top') continue;
+        const t = packTile(l.data[i] & 0x1fffffff);
+        const v = t && BLOB_GRASS[t.row * 64 + t.col];
+        if (v) px = Math.max(px, v[k]);
+      }
+      return Math.min(px, 31) / 32;
+    };
+    exits.push({ regionId: g[0].regionId, side, from, to, fromInset: bandAt(from, 0), toInset: bandAt(to, 1), depth, portals: g });
+  }
+  const puddle = layout.map((row, y) => row.map((cell, x) => {
+    const i = y * mapWidth + x;
+    return cell.type !== 'wall' && !liquid[y][x] && !!groundLayer && isPuddleGround(groundLayer.data[i] & 0x1fffffff)
+      && !overLayers.some(l => isGrassOver(l.data[i] & 0x1fffffff));
+  }));
 
   // Foliage = anything drawn on Objects Top (canopy that covers the player);
   // used only to keep spawned markers from hiding under it.
@@ -630,11 +725,13 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     spawn: spawnTile,
     recycler: recyclerTile,
     portals,
+    exits,
     foliage,
     trees,
     animatedTiles,
     liquid,
     sand,
+    puddle,
     flowers,
     lights,
     ysortBase,

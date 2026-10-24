@@ -16,6 +16,7 @@
 import Phaser from 'phaser';
 import type { CritterGroup, CritterKind, WispColor } from '@/lib/wildlife';
 import { GLOW_DEPTH, type Transform } from './ambience';
+import { gustAt } from '@/lib/ambience';
 
 const UNIT = 32;
 const GROUND_DEPTH = 9.6; // under players (10), over the ground
@@ -246,8 +247,9 @@ export default class CritterLayer {
     return null;
   }
 
-  // walkers: everyone walking the map, in map units. night: how dark it is (0..1).
-  update(t: Transform, time: number, walkers: { x: number; y: number }[], night = 0) {
+  // walkers: everyone walking the map, in map units. night: how dark it is (0..1). wind: the map's
+  // wind (lib/ambience.ts, 1 = the usual breeze); on a windy map birds battle the gusts.
+  update(t: Transform, time: number, walkers: { x: number; y: number }[], night = 0, wind = 1) {
     const scale = t.tileW / UNIT;
     for (const box of [this.ground, this.lowAir, this.highAir, this.glowBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
     const dt = Math.min(0.1, this.lastNow ? (time - this.lastNow) / 1000 : 0);
@@ -264,7 +266,7 @@ export default class CritterLayer {
       if (g.kind === 'dragonfly') this.swarm(g, time, dt, nearest);
       else for (const c of g.members) {
         if (c.kind === 'wisp') this.wisp(c, time, dt, nearest);
-        else if (c.kind === 'bird') this.bird(c, time, dt, nearest);
+        else if (c.kind === 'bird') this.bird(c, time, dt, nearest, wind);
         else if (c.kind === 'butterfly') this.butterfly(c, time, dt, nearest, night);
         else this.crab(c, time, dt, nearest);
       }
@@ -350,8 +352,25 @@ export default class CritterLayer {
     });
   }
 
-  private bird(c: Critter, time: number, dt: number, nearest: (x: number, y: number) => { d: number; x: number; y: number }) {
+  // On a windy map a bird now and then takes off into the wind on its own: it flaps hard, but the
+  // gusts push it back (it keeps facing upwind while drifting backwards), and it gives up and lands
+  // if it can't get there. ox: when it next tries; oy: when this flight began.
+  private bird(c: Critter, time: number, dt: number, nearest: (x: number, y: number) => { d: number; x: number; y: number }, wind: number) {
     const g = c.group;
+    const windy = wind > 1;
+    if (c.state === 'idle' && windy && time > c.ox) {
+      if (c.ox) {
+        const to = this.spot('open', { x: c.x, y: c.y, awayX: -1, awayY: 0 }, 5, 10);
+        if (to) {
+          c.state = 'fly'; c.until = time + 500; c.oy = time;
+          c.tx = to[0]; c.ty = to[1];
+          c.vx = -70; c.vy = -60;
+          this.ground.remove(c.img); this.highAir.add(c.img);
+        }
+      }
+      c.ox = time + 7000 + Math.random() * 14000;
+      if (c.state === 'fly') return;
+    }
     if (c.state === 'idle') {
       const n = nearest(c.x, c.y);
       const flockScared = time - g.scaredAt < 500;
@@ -386,10 +405,20 @@ export default class CritterLayer {
       }
       const sp = 120;
       c.vx += (dx / d * sp - c.vx) * Math.min(1, 2 * dt); c.vy += (dy / d * sp - c.vy) * Math.min(1, 2 * dt);
+      // Too long fighting the wind: it gives up and drops down where it is.
+      if (windy && c.oy && time - c.oy > 9000 && this.isOpen(c.x, c.y + 10)) { c.tx = c.x; c.ty = c.y + 10; c.oy = 0; }
     }
-    c.x += c.vx * dt; c.y += c.vy * dt;
+    let push = 0, bob = 0;
+    if (windy) {
+      const gust = gustAt(time, c.x / UNIT);
+      push = (wind - 1) * 60 * (0.4 + 1.8 * gust);
+      bob = Math.sin(time / 110 + c.phase * 4) * 40 * (0.3 + gust);
+    }
+    c.x += (c.vx + push) * dt; c.y += (c.vy + bob) * dt;
+    this.keepIn(c);
+    // Faces where it's trying to go, even while the wind carries it backwards.
     if (Math.abs(c.vx) > 5) c.img.setFlipX(c.vx < 0);
-    c.img.setTexture(`critter:birdfly${Math.floor(time / 90 + c.phase) % 2}`);
+    c.img.setTexture(`critter:birdfly${Math.floor(time / (windy ? 50 : 90) + c.phase) % 2}`);
   }
 
   private butterfly(c: Critter, time: number, dt: number, nearest: (x: number, y: number) => { d: number; x: number; y: number }, night: number) {
