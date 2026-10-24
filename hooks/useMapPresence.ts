@@ -12,6 +12,8 @@ export interface OnlinePlayer {
   y: number;
   /** Optional avatar path — bots supply their assigned userpic here. */
   userpic?: string;
+  /** Their grade ('G2'..'G6'), shown under their name on the map. */
+  grade?: string;
 }
 
 const WAVE_TTL_MS = 1500;
@@ -38,7 +40,7 @@ const WAVE_TTL_MS = 1500;
 // player, not the same path in sync. TrainingMapScene.ts already tweens any
 // "other player" sprite to its new tile over 200ms whenever its position
 // changes, so this glides exactly like a bot's wander step — no blink.
-export function useMapPresence(userId: string, name: string, gender: 'boy' | 'girl', x: number, y: number, enabled = true) {
+export function useMapPresence(userId: string, name: string, gender: 'boy' | 'girl', x: number, y: number, enabled = true, grade?: string) {
   // Raw presence state — one entry per other online player, holding the tile
   // they entered on. Never updated again after their initial track() below.
   const [rawPlayers, setRawPlayers] = useState<Record<string, OnlinePlayer>>({});
@@ -91,7 +93,7 @@ export function useMapPresence(userId: string, name: string, gender: 'boy' | 'gi
       if (status === 'SUBSCRIBED') {
         // Tracked exactly once per session (enter) — never re-tracked on
         // movement, see the header comment above.
-        await channel.track({ userId, name, gender, x: posRef.current.x, y: posRef.current.y });
+        await channel.track({ userId, name, gender, grade, x: posRef.current.x, y: posRef.current.y });
       }
     });
 
