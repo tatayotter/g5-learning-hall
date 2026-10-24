@@ -1771,6 +1771,7 @@ export default function Dashboard() {
             onTradeConfirmed={() => bumpCounters({ trades_completed: 1 })}
             onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
             onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
+            onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
           />
         )}
 

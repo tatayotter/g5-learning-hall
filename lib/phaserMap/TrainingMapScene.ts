@@ -162,7 +162,9 @@ export interface MapCanvasSyncState {
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
   chopTree?: string | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
-  highlight?: { kind: 'plant' | 'tree'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  /** Guild NPCs whose guild is still on today's to-do list: a glowing "?" over their name. */
+  npcQuest?: string[];
   /** A tap or click on the map, as the tile under it. */
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
@@ -419,6 +421,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.update(time);
     this.wildTrees?.update(time);
     this.sortAgainstRoofs();
+    this.npcLayer?.syncOutlines(time);
     this.liftShadowsOnFloor();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
@@ -625,6 +628,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const h = this.highlight;
     this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
+    this.npcLayer?.setHighlight(h?.kind === 'npc' ? h.id : null);
   }
 
   // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
@@ -1029,6 +1033,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const w = state.wildlife;
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;
     }
+    this.npcLayer?.setQuest(state.npcQuest ?? []);
     this.highlight = state.highlight ?? null;
     this.applyHighlight();
     this.chopTree = state.chopTree ?? null;

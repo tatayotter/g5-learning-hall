@@ -46,6 +46,8 @@ import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
 import { TOWN_NPCS } from '@/lib/townNpcs';
+import { fetchChecklistBattleFlags, GUILDS, type GuildKey } from '@/lib/dailyChecklist';
+import { manilaToday } from '@/lib/appDay';
 import { natureDay } from '@/lib/mapNature';
 import type { InventoryMap } from '@/lib/inventory';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -154,6 +156,8 @@ function pickNearbyReachableTile(
   return candidates[Math.floor(Math.random() * candidates.length)];
 }
 
+const GUILD_LABEL = Object.fromEntries(GUILDS.map(g => [g.key, g.label])) as Record<GuildKey, string>;
+
 interface TrainingMapProps {
   userId: string;
   battleState: BattleState;
@@ -200,6 +204,8 @@ interface TrainingMapProps {
   // public/maps-tiled-art/README.md) against each region's unlockLevel.
   playerLevel: number;
   onEnterRegion?: (regionId: string) => void;
+  /** Opens a guild's quests (a guild master in town, walked up to). */
+  onPlayGuild?: (guild: GuildKey) => void;
   /** Pass through to MapStage — renders the map as a fixed full-viewport layer. */
   fullscreen?: boolean;
   // Bag contents, for the map item slots (Tracking Scrolls).
@@ -215,7 +221,7 @@ export default function TrainingMap({
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, playerLevel, onEnterRegion, fullscreen,
+  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, fullscreen,
   inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
   const offline = useIsOffline();
@@ -1032,8 +1038,47 @@ export default function TrainingMap({
     if (nearExit?.regionId === regionId) goThroughExit();
     else showBarMessage('Walk up to the exit first!');
   }, [nearExit, goThroughExit, showBarMessage]);
+  // Guild masters in town (lib/townNpcs.ts): walk up, then E, the button or a tap on the name
+  // opens their guild. One whose guild isn't played yet today shows a "?".
+  const townNpcs = TOWN_NPCS[activeRegion.id];
+  const [nearNpcId, setNearNpcId] = useState<string | null>(null);
+  const nearNpc = (onPlayGuild && townNpcs?.find(n => n.id === nearNpcId)) || null;
+  const [guildsPlayed, setGuildsPlayed] = useState<GuildKey[] | null>(null);
   useEffect(() => {
-    if (!nearExit || nearby || inReach.length || panelOpen) return;
+    if (!townNpcs || offline) return;
+    let cancelled = false;
+    fetchChecklistBattleFlags(userId, manilaToday())
+      .then(f => { if (!cancelled) setGuildsPlayed(f.guilds_played_today); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [townNpcs, userId, offline]);
+  const npcQuest = useMemo(
+    () => (townNpcs && guildsPlayed ? townNpcs.filter(n => !guildsPlayed.includes(n.guild)).map(n => n.id) : undefined),
+    [townNpcs, guildsPlayed],
+  );
+  const talkToNpc = useCallback(() => {
+    if (!nearNpc || !onPlayGuild) return;
+    playPageFlip();
+    onPlayGuild(nearNpc.guild);
+  }, [nearNpc, onPlayGuild]);
+  const onNpcClick = useCallback((id: string) => {
+    if (!onPlayGuild) return;
+    if (nearNpc?.id === id) talkToNpc();
+    else showBarMessage(`Walk up to ${townNpcs?.find(n => n.id === id)?.name ?? 'them'} first!`);
+  }, [nearNpc, onPlayGuild, talkToNpc, townNpcs, showBarMessage]);
+  useEffect(() => {
+    if (!nearNpc || nearby || inReach.length || panelOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      talkToNpc();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [nearNpc, nearby, inReach.length, panelOpen, talkToNpc]);
+  useEffect(() => {
+    if (!nearExit || nearby || inReach.length || panelOpen || nearNpc) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1042,7 +1087,7 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearExit, nearby, inReach.length, panelOpen, goThroughExit]);
+  }, [nearExit, nearby, inReach.length, panelOpen, nearNpc, goThroughExit]);
   const portalMarkers = portals.length
     ? [
         ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
@@ -1103,14 +1148,31 @@ export default function TrainingMap({
         wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
-        highlight={nearby && !controlsDisabled ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id } : null}
+        highlight={controlsDisabled ? null
+          : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
+          : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
+        npcQuest={npcQuest}
+        onNpcNear={setNearNpcId}
+        onNpcClick={onNpcClick}
         onMapTap={handleMapTap}
         ambience={ambience}
         wildlife={wildlife}
         soundRegion={activeRegion.id}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
-      {!nearby && nearExit && !controlsDisabled && REGIONS[nearExit.regionId] && (
+      {!nearby && nearNpc && !controlsDisabled && (
+        <button
+          type="button"
+          data-testid="npc-button"
+          onClick={talkToNpc}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-2.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
+        >
+          {npcQuest?.includes(nearNpc.id) && <span className="text-[#ffd23f]">?</span>}
+          Play {GUILD_LABEL[nearNpc.guild]}
+          <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
+        </button>
+      )}
+      {!nearby && !nearNpc && nearExit && !controlsDisabled && REGIONS[nearExit.regionId] && (
         <button
           type="button"
           data-testid="exit-button"

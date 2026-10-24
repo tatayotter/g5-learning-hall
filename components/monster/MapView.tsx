@@ -14,6 +14,7 @@ import { UserMonster } from '@/components/battle/shared';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { InventoryMap } from '@/lib/inventory';
 import TrainingMap from '@/components/monster/TrainingMap';
+import type { GuildKey } from '@/lib/dailyChecklist';
 
 interface MapViewProps {
   userId: string;
@@ -45,6 +46,7 @@ interface MapViewProps {
   inventory: InventoryMap;
   onBattleStatePatch: (patch: Partial<BattleState>) => void;
   onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
+  onPlayGuild?: (guild: GuildKey) => void;
 }
 
 export default function MapView({
@@ -77,6 +79,7 @@ export default function MapView({
   inventory,
   onBattleStatePatch,
   onTrackedCurioSummoned,
+  onPlayGuild,
 }: MapViewProps) {
   return (
     <TrainingMap
@@ -110,6 +113,7 @@ export default function MapView({
       regionId={regionId}
       playerLevel={playerLevel}
       onEnterRegion={onEnterRegion}
+      onPlayGuild={onPlayGuild}
       fullscreen
     />
   );

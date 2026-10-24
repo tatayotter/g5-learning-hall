@@ -2,16 +2,24 @@
 // The guild masters in Inkwell Town (lib/townNpcs.ts): each strolls a few steps around their
 // hall door, stops for a while (turning to face a kid who walks up), then wanders on. Drawn like
 // the players (screen space, feet on the tile), so the scene sorts them against roofs and gives
-// them a silhouette behind one. Their name tags are DOM, like the players' (MapCanvas.tsx). Purely visual: every kid sees their own. With "reduce motion" on
-// they stand still at their door.
+// them a silhouette behind one. Their name tags are DOM, like the players' (MapCanvas.tsx).
+// A kid who walks up stops them; the one in reach gets the gold outline trees get, and a guild
+// still on today's to-do list shows a glowing "?" over the name. With "reduce motion" on they
+// stand still at their door and the "?" doesn't bob.
 import Phaser from 'phaser';
 import { NPC_WALK_FRAMES, type TownNpc } from '@/lib/townNpcs';
 import type { Transform } from './ambience';
+import { OUTLINE_COLOR, outlineAlpha } from './outline';
 
 const SPEED = 1.3; // tiles per second
 const FPS = 14;
 const BODY_PX = 112; // character height in the sheet (build_npcs.py BODY)
 const BODY_TILES = 1.05; // shown about as tall as a player
+const STOP_NEAR = 1.6; // tiles: a kid this close stops them
+// The name tag (MapCanvas.tsx) sits on a box 0.15 tile above the tile; the "?" goes over it.
+const TAG_LIFT = 0.15;
+const TAG_PX = 16;
+const MARK_DEPTH = 41; // over the cloud shadows (40)
 
 export interface NpcSprite {
   image: Phaser.GameObjects.Sprite;
@@ -29,11 +37,52 @@ interface Npc extends NpcSprite {
   restUntil: number;
   walking: boolean;
   ready: boolean;
+  outline: Phaser.GameObjects.Sprite[];
+  mark: Phaser.GameObjects.Container;
+}
+
+function makeMarkTextures(scene: Phaser.Scene) {
+  if (!scene.textures.exists('npc-quest-mark')) {
+    const tex = scene.textures.createCanvas('npc-quest-mark', 40, 52);
+    if (tex) {
+      const g = tex.getContext();
+      g.font = 'bold 44px Arial, sans-serif';
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.lineJoin = 'round';
+      g.lineWidth = 7;
+      g.strokeStyle = '#3a2208';
+      g.strokeText('?', 20, 27);
+      const grad = g.createLinearGradient(0, 6, 0, 46);
+      grad.addColorStop(0, '#fff6c0');
+      grad.addColorStop(0.5, '#ffd23f');
+      grad.addColorStop(1, '#f0a020');
+      g.fillStyle = grad;
+      g.fillText('?', 20, 27);
+      tex.refresh();
+    }
+  }
+  if (!scene.textures.exists('npc-quest-glow')) {
+    const n = 64;
+    const tex = scene.textures.createCanvas('npc-quest-glow', n, n);
+    if (tex) {
+      const g = tex.getContext();
+      const grad = g.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+      grad.addColorStop(0, 'rgba(255,220,110,0.9)');
+      grad.addColorStop(0.45, 'rgba(255,190,60,0.35)');
+      grad.addColorStop(1, 'rgba(255,170,40,0)');
+      g.fillStyle = grad;
+      g.fillRect(0, 0, n, n);
+      tex.refresh();
+    }
+  }
 }
 
 export default class GuildNpcLayer {
   readonly npcs: Npc[] = [];
   private still: boolean;
+  private quest = new Set<string>();
+  private highlight: string | null = null;
 
   private constructor(private scene: Phaser.Scene, private width: number, private height: number, private open: boolean[][]) {
     this.still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -46,16 +95,23 @@ export default class GuildNpcLayer {
   ): GuildNpcLayer | null {
     if (!defs.length) return null;
     const layer = new GuildNpcLayer(scene, habitat.width, habitat.height, habitat.open);
+    makeMarkTextures(scene);
     for (const def of defs) {
       const home = layer.nearestOpen(def.home.x, def.home.y);
       if (!home) continue;
       const key = `npc-walk:${def.id}`;
       const image = scene.add.sprite(-999, -999, '__DEFAULT').setOrigin(0.5, 1).setDepth(9.5).setVisible(false);
       const shadow = scene.add.ellipse(-999, -999, 10, 4, 0x000000, 0.28).setDepth(shadowDepth).setVisible(false);
+      const outline = [0, 1, 2, 3].map(() => scene.add.sprite(-999, -999, '__DEFAULT').setOrigin(0.5, 1)
+        .setTint(OUTLINE_COLOR).setTintMode(Phaser.TintModes.FILL).setVisible(false));
+      const mark = scene.add.container(-999, -999, [
+        scene.add.image(0, 0, 'npc-quest-glow').setBlendMode(Phaser.BlendModes.ADD),
+        scene.add.image(0, 0, 'npc-quest-mark'),
+      ]).setDepth(MARK_DEPTH).setVisible(false);
       const npc: Npc = {
         def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
         zone: layer.zoneAround(home.x, home.y, def.range), path: [],
-        restUntil: 0, walking: false, ready: false,
+        restUntil: 0, walking: false, ready: false, outline, mark,
       };
       layer.npcs.push(npc);
       load(key, def.sheet, def.frameW, def.frameH, () => {
@@ -66,11 +122,18 @@ export default class GuildNpcLayer {
           scene.anims.create({ key: anim, frames: scene.anims.generateFrameNumbers(key, { start: 0, end: NPC_WALK_FRAMES - 1 }), frameRate: FPS, repeat: -1 });
         }
         image.setTexture(key, NPC_WALK_FRAMES);
+        for (const o of outline) o.setTexture(key, NPC_WALK_FRAMES);
         npc.ready = true;
       });
     }
     return layer;
   }
+
+  /** The NPCs whose guild is still on today's to-do list (they show a "?"). */
+  setQuest(ids: string[]) { this.quest = new Set(ids); }
+
+  /** The NPC in reach (gold outline), or null. */
+  setHighlight(id: string | null) { this.highlight = id; }
 
   update(t: Transform, time: number, dt: number, self: { x: number; y: number } | null) {
     for (const n of this.npcs) {
@@ -86,10 +149,46 @@ export default class GuildNpcLayer {
       n.image.setPosition(px, feet).setScale(s, s * breathe).setVisible(true);
       if (n.shadow.width !== h * 0.5) n.shadow.setSize(h * 0.5, h * 0.12);
       n.shadow.setPosition(px, feet - h * 0.05).setVisible(true);
+      const marked = this.quest.has(n.def.id);
+      n.mark.setVisible(marked);
+      if (marked) {
+        const bob = this.still ? 0 : Math.sin(time / 380 + n.def.home.x) * h * 0.04;
+        const size = h * 0.42;
+        const markBottom = t.offsetY + (n.y - TAG_LIFT) * t.tileH - TAG_PX;
+        const pulse = this.still ? 1 : 1 + 0.12 * Math.sin(time / 300);
+        const [glow, q] = n.mark.list as Phaser.GameObjects.Image[];
+        q.setScale(size / 52);
+        glow.setScale((size * 1.9 * pulse) / 64).setAlpha(this.still ? 0.7 : 0.55 + 0.3 * Math.sin(time / 300));
+        n.mark.setPosition(px, markBottom - size / 2 + bob);
+      }
+    }
+  }
+
+  // After the scene has set each NPC's depth (against roofs): the gold outline follows the
+  // sprite just under it.
+  syncOutlines(time: number) {
+    for (const n of this.npcs) {
+      const on = n.ready && n.def.id === this.highlight && n.image.visible;
+      const step = Math.max(1, n.image.displayHeight / 70);
+      n.outline.forEach((o, i) => {
+        o.setVisible(on);
+        if (!on) return;
+        const [dx, dy] = [[-step, 0], [step, 0], [0, -step], [0, step]][i];
+        if (o.frame.name !== n.image.frame.name) o.setFrame(n.image.frame.name);
+        o.setPosition(n.image.x + dx, n.image.y + dy).setScale(n.image.scaleX, n.image.scaleY)
+          .setFlipX(n.image.flipX).setDepth(n.image.depth - 0.001).setAlpha(outlineAlpha(time));
+      });
     }
   }
 
   private step(n: Npc, time: number, dt: number, self: { x: number; y: number } | null) {
+    // A kid walking up stops them where they are (so they can be talked to).
+    if (n.walking && self && Math.hypot(self.x - n.x, self.y - n.y) < STOP_NEAR) {
+      n.walking = false;
+      n.path = [];
+      n.image.stop();
+      n.image.setFrame(NPC_WALK_FRAMES);
+    }
     if (!n.walking) {
       if (self && Math.hypot(self.x - n.x, self.y - n.y) < 2.6 && Math.abs(self.x - n.x) > 0.2) {
         n.image.setFlipX(self.x < n.x);
@@ -174,7 +273,7 @@ export default class GuildNpcLayer {
   }
 
   destroy() {
-    for (const n of this.npcs) { n.image.destroy(); n.shadow.destroy(); }
+    for (const n of this.npcs) { n.image.destroy(); n.shadow.destroy(); n.mark.destroy(); for (const o of n.outline) o.destroy(); }
     this.npcs.length = 0;
   }
 }

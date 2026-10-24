@@ -132,7 +132,13 @@ interface MapCanvasProps {
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   chopTree?: string | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
-  highlight?: { kind: 'plant' | 'tree'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  /** Guild NPCs (town) whose guild is still on today's to-do list: a glowing "?" over the name. */
+  npcQuest?: string[];
+  /** The guild NPC within reach of the player, or null; called when it changes. */
+  onNpcNear?: (id: string | null) => void;
+  /** Tapping a guild NPC's name. */
+  onNpcClick?: (id: string) => void;
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
@@ -149,6 +155,7 @@ export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  npcQuest, onNpcNear, onNpcClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -238,6 +245,9 @@ export default function MapCanvas({
   const otherPlayerElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
   // Guild NPC name tags (town), placed every frame where the scene's NPC walks.
   const npcTagElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
+  const npcNearRef = useRef<string | null>(null);
+  const onNpcNearRef = useRef(onNpcNear);
+  useEffect(() => { onNpcNearRef.current = onNpcNear; }, [onNpcNear]);
   // Mutated every render so the rAF loop always reads the latest interpolated
   // position without needing to re-subscribe to `onlinePlayers` as a dep.
   // Interpolated (not just the raw latest tile) so this overlay tracks the
@@ -366,6 +376,7 @@ export default function MapCanvas({
       onMapTap,
       ambience,
       wildlife,
+      npcQuest,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -424,6 +435,10 @@ export default function MapCanvas({
         });
         if (npcTagElsRef.current.size) {
           const spots = new Map((sceneRef.current?.getNpcSpots() ?? []).map(n => [n.id, n]));
+          // The one in reach (like a tree: walk up, then E or tap).
+          let near: string | null = null, best = 1.5;
+          spots.forEach(n => { const d = Math.hypot(n.x - (x - 0.5), n.y - (y - 0.5)); if (d < best) { best = d; near = n.id; } });
+          if (near !== npcNearRef.current) { npcNearRef.current = near; onNpcNearRef.current?.(near); }
           npcTagElsRef.current.forEach((el, id) => {
             const n = spots.get(id);
             el.style.display = n ? '' : 'none';
@@ -729,7 +744,11 @@ export default function MapCanvas({
           className="absolute pointer-events-none flex items-center justify-center"
           style={{ display: 'none', width: `${tileWPct}%`, height: `${tileHPct}%` }}
         >
-          <div className="w-full h-full flex items-center justify-center relative">
+          <div
+            className="w-full h-full flex items-center justify-center relative pointer-events-auto cursor-pointer"
+            data-testid={`npc-tag-${n.id}`}
+            onClick={() => onNpcClick?.(n.id)}
+          >
             {nameTag(`npc:${n.id}`, n.name)}
           </div>
         </div>
