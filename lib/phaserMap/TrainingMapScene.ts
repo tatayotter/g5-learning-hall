@@ -75,7 +75,10 @@ import type { SwingKind } from '@/lib/gardenConfig';
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
+import type { NightWindows } from '@/lib/nightWindows';
 import CritterLayer, { type Habitat } from './critters';
+import GuildNpcLayer from './guildNpcs';
+import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
@@ -111,6 +114,8 @@ export type MapBackground =
       animatedTiles?: Record<number, { frames: number[]; ms: number }>;
       // Lamps (tile coords of each lamp's head): they glow at night.
       lights?: { x: number; y: number }[];
+      // Windows that light up at night (lib/nightWindows.ts).
+      windows?: NightWindows;
       // Exits on the map's edge (a run of portal tiles to one map): a glow, drifting sparks and a
       // bobbing arrow pointing out. `side` is the edge they're on; locked ones glow grey.
       exits?: MapExit[];
@@ -161,13 +166,15 @@ export interface MapCanvasSyncState {
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
   chopTree?: string | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
-  highlight?: { kind: 'plant' | 'tree'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  /** Guild NPCs whose guild is still on today's to-do list: a glowing "?" over their name. */
+  npcQuest?: string[];
   /** A tap or click on the map, as the tile under it. */
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; puddle?: boolean[][] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[]; puddle?: boolean[][] } | null;
 }
 
 interface TrackedSprite {
@@ -365,10 +372,16 @@ export default class TrainingMapScene extends Phaser.Scene {
   private highlight: MapCanvasSyncState['highlight'] = null;
   private ambience: AmbienceLayer | null = null;
   private critters: CritterLayer | null = null;
+  private npcLayer: GuildNpcLayer | null = null;
+  // A floor drawn over Ground Detail (the town's fountain plaza): shadows on it are lifted over it.
+  private floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private groundFx: GroundFx | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
   private lampKey = '';
+  private windowKey = '';
+  private windowImgs: { img: Phaser.GameObjects.Image; upper: boolean }[] = [];
+  private windowGlows: { img: Phaser.GameObjects.Image; x: number; y: number; w: number; h: number; seed: number }[] = [];
   private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
   private exitKey = '';
   private crittersKey = '';
@@ -413,18 +426,22 @@ export default class TrainingMapScene extends Phaser.Scene {
     super('TrainingMapScene');
   }
 
-  update(time: number) {
+  update(time: number, delta: number) {
     this.animateTiles(time);
+    this.npcLayer?.update(this.lastTransform, time, Math.min(delta, 100), this.self);
     this.grass?.update(time, this.windStrength);
     this.bushes?.update(time, this.windStrength);
     this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
     this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
+    this.npcLayer?.syncOutlines(time);
+    this.liftShadowsOnFloor();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
     this.updateLamps(time);
+    this.updateWindows(time);
     this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
@@ -480,6 +497,56 @@ export default class TrainingMapScene extends Phaser.Scene {
       g.img.setVisible(true)
         .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
         .setScale((t.tileW * (2.2 + 2.8 * night)) / 256).setAlpha((0.45 + 0.4 * night) * flicker);
+    }
+  }
+
+  // Lit windows at night: the warm glass fades in as it gets dark (the windows on the walls under
+  // the players, the ones on roofs just over the roofs, so a kid in front still covers them), and
+  // each pane gets a soft glow that flickers a little like a candle (steady with "reduce motion").
+  private updateWindows(time: number) {
+    const bg = this.lastBackground;
+    const win = bg?.type === 'tilemap' ? bg.windows : undefined;
+    const key = win && bg?.type === 'tilemap' ? bg.key : '';
+    if (key !== this.windowKey) {
+      for (const w of this.windowImgs) w.img.destroy();
+      for (const g of this.windowGlows) g.img.destroy();
+      this.windowImgs = [];
+      this.windowGlows = [];
+      this.windowKey = key;
+      if (win) {
+        const add = (upper: boolean) => {
+          const tex = `night-windows-${upper ? 'upper' : 'lower'}:${key}`;
+          this.ensureTexture(tex, upper ? win.upper : win.lower, () => {
+            if (this.windowKey !== key) return;
+            this.windowImgs.push({ img: this.add.image(0, 0, tex).setOrigin(0, 0).setVisible(false), upper });
+          });
+        };
+        add(false);
+        add(true);
+        if (this.makeNightLightTexture()) {
+          this.windowGlows = win.panes.map(([x, y, w, h], i) => ({
+            img: this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false),
+            x, y, w, h, seed: (i * 2.399) % (Math.PI * 2),
+          }));
+        }
+      }
+    }
+    if (!this.windowImgs.length && !this.windowGlows.length) return;
+    const night = this.ambience?.nightLevel ?? 0;
+    const lit = night > 0.02;
+    const t = this.lastTransform;
+    const s = t.tileW / (bg?.type === 'tilemap' ? bg.tileSize : 32);
+    for (const { img, upper } of this.windowImgs) {
+      img.setVisible(lit);
+      if (lit) img.setPosition(t.offsetX, t.offsetY).setScale(s).setAlpha(Math.min(1, night * 1.5)).setDepth(upper ? this.frontDepth - 0.5 : 8.9);
+    }
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    for (const g of this.windowGlows) {
+      g.img.setVisible(lit);
+      if (!lit) continue;
+      const flicker = still ? 1 : 0.9 + 0.06 * Math.sin(time / 210 + g.seed) + 0.04 * Math.sin(time / 67 + g.seed * 3);
+      g.img.setPosition(t.offsetX + (g.x + g.w / 2) * s, t.offsetY + (g.y + g.h / 2) * s)
+        .setScale(((g.w + 26) * s * 1.6) / 256, ((g.h + 26) * s * 1.6) / 256).setAlpha(0.6 * night * flicker);
     }
   }
 
@@ -596,6 +663,11 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   // Everyone walking the map (the kid, bots, other players), in map units (32 per tile).
   // Where their feet are: the shadow under each.
+  /** Where each guild NPC stands (tile, feet), for its DOM name tag; empty until it loads. */
+  getNpcSpots(): { id: string; x: number; y: number }[] {
+    return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
+  }
+
   private walkers(): { id: string; x: number; y: number }[] {
     const t = this.lastTransform;
     const k = 32 / t.tileW;
@@ -603,6 +675,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const add = (id: string, at: { x: number; y: number }) => out.push({ id, x: (at.x - t.offsetX) * k, y: (at.y - t.offsetY) * k });
     if (this.self) add('self', this.self.shadow);
     for (const [id, o] of this.others) add(id, o.shadow);
+    for (const n of this.npcLayer?.npcs ?? []) add(`npc:${n.srcKey}`, n.shadow);
     return out;
   }
 
@@ -622,6 +695,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const h = this.highlight;
     this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
+    this.npcLayer?.setHighlight(h?.kind === 'npc' ? h.id : null);
   }
 
   // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
@@ -648,6 +722,18 @@ export default class TrainingMapScene extends Phaser.Scene {
     return { side: front ? 'front' : null };
   }
 
+  // Shadows sit just over Ground Detail (under the grass tufts); on a floor drawn above it (the
+  // plaza) they'd vanish, so whoever stands on one gets their shadow lifted over it.
+  private liftShadowsOnFloor() {
+    const floor = this.floorLayer;
+    if (!floor?.active) return;
+    const all: TrackedSprite[] = [...(this.self ? [this.self] : []), ...this.others.values(), ...(this.npcLayer?.npcs ?? [])];
+    for (const p of all) {
+      const want = floor.hasTileAt(Math.round(p.x), Math.round(p.y)) ? Math.max(this.shadowDepth, floor.depth + 0.05) : this.shadowDepth;
+      if (p.shadow.depth !== want) p.shadow.setDepth(want);
+    }
+  }
+
   // A player in front of a roof, awning or lamp is drawn over it (whole); behind one, it covers
   // them as before (with a silhouette, see updateGhosts).
   private sortAgainstRoofs() {
@@ -655,6 +741,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       ...(this.self ? [[this.self, 10] as [TrackedSprite, number]] : []),
       ...[...this.others.values()].map(o => [o, 9] as [TrackedSprite, number]),
     ];
+    // Guild NPCs: over the kid when standing lower on the screen, under them when higher.
+    for (const n of this.npcLayer?.npcs ?? []) players.push([n, this.self && n.y > this.self.y ? 10.05 : 9.5]);
     for (const [p, normal] of players) {
       const want = this.roofSide(p) === 'front' ? this.frontDepth + (normal - 9) * 0.1 : normal;
       if (p.image.depth !== want) p.image.setDepth(want);
@@ -666,7 +754,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private updateGhosts() {
     const layer = this.ghostLayer;
     if (!layer) return;
-    const players = [...(this.self ? [this.self] : []), ...this.others.values()];
+    const players: TrackedSprite[] = [...(this.self ? [this.self] : []), ...this.others.values(), ...(this.npcLayer?.npcs ?? [])];
     const live = new Set<Phaser.GameObjects.Sprite>();
     let any = false;
     for (const p of players) {
@@ -1004,12 +1092,18 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.crittersKey = critterKey;
       this.critters?.destroy();
       this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
+      this.npcLayer?.destroy();
+      this.npcLayer = state.wildlife?.npcs?.length
+        ? GuildNpcLayer.build(this, state.wildlife.npcs, state.wildlife.habitat,
+          (key, url, fw, fh, onReady) => this.ensureSpritesheet(key, url, fw, fh, onReady), this.shadowDepth)
+        : null;
       this.groundFx?.destroy();
       const w = state.wildlife;
       this.peekersOn = !!w?.fx?.peekers;
       this.wildTrees?.setPeekers(this.peekersOn);
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
+    this.npcLayer?.setQuest(state.npcQuest ?? []);
     this.highlight = state.highlight ?? null;
     this.applyHighlight();
     this.chopTree = state.chopTree ?? null;
@@ -1103,6 +1197,7 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private clearTilemap() {
     this.animTiles = [];
+    this.floorLayer = null;
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
@@ -1151,6 +1246,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       // many a map has (the town has a dozen); above ones go from 11 up.
       const belowStep = Math.min(1, 7 / Math.max(1, bg.belowPlayerLayers.length));
       let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+      let floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let baseLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       const order = [...bg.belowPlayerLayers, ...bg.abovePlayerLayers];
@@ -1176,10 +1272,12 @@ export default class TrainingMapScene extends Phaser.Scene {
         }
         const lower = layerName.toLowerCase();
         if (lower === 'ground detail') detailLayer = layer as Phaser.Tilemaps.TilemapLayer;
+        if (lower === 'fountain circle') floorLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects base') baseLayer = layer as Phaser.Tilemaps.TilemapLayer;
         if (lower === 'objects top') topLayer = layer as Phaser.Tilemaps.TilemapLayer;
       }
       this.topLayer = topLayer;
+      this.floorLayer = floorLayer;
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);
@@ -1547,6 +1645,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.self?.shadow.setDepth(depth);
     for (const o of this.others.values()) o.shadow.setDepth(depth);
     this.recyclerShadow?.setDepth(depth);
+    for (const n of this.npcLayer?.npcs ?? []) n.shadow.setDepth(depth);
   }
 
   private makeShadow(px: number, py: number, h: number): Phaser.GameObjects.Ellipse {
