@@ -107,7 +107,8 @@ interface MapCanvasProps {
   inBattle: (userId: string) => boolean;
   resultWon: (userId: string) => boolean | undefined;
   townMarkerTile: { x: number; y: number } | null;
-  portalMarkers?: { x: number; y: number; regionId: string; locked: boolean }[];
+  // labelOnly: an exit on the map's edge, drawn by the scene (glow and arrow): just its name here.
+  portalMarkers?: { x: number; y: number; regionId: string; locked: boolean; labelOnly?: boolean }[];
   // Scrolls (training questions) and the curio (wild-encounter entry point)
   // are stationary, walked-into map entities — rendered the same way as
   // portal markers (static DOM overlay, no per-frame updates needed) since
@@ -139,12 +140,14 @@ interface MapCanvasProps {
   /** The region whose background sounds play (lib/regionSounds.ts), with an on/off button. */
   soundRegion?: string | null;
   onPlayerClick: (userId: string) => void;
+  /** Tapping an edge exit's name (portalMarkers' labelOnly). */
+  onExitLabelClick?: (regionId: string) => void;
 }
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -547,7 +550,10 @@ export default function MapCanvas({
             title={portal.locked ? `${region.name} — locked until level ${region.unlockLevel}` : region.name}
           >
             {/* Name label above portal */}
-            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 flex items-center gap-0.5 whitespace-nowrap z-10">
+            <div
+              className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-1 flex items-center gap-0.5 whitespace-nowrap z-10 ${portal.labelOnly ? 'pointer-events-auto cursor-pointer bg-[#1a120c]/60 rounded-full px-1.5 py-0.5' : ''}`}
+              onClick={portal.labelOnly ? e => { e.stopPropagation(); onExitLabelClick?.(portal.regionId); } : undefined}
+            >
               {region.element !== 'all' && (
                 <img
                   src={ELEMENT_ICON_SRC[region.element]}
@@ -563,7 +569,7 @@ export default function MapCanvas({
             {/* The sprite (public/tilesets/portals/portal-orange.png) is
                 32x48 — taller than a tile — so it's bottom-anchored to sit on
                 the tile like a standee instead of being squashed to fit. */}
-            <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />
+            {!portal.labelOnly && <div className="map-portal-sprite absolute left-1/2 bottom-0 -translate-x-1/2" style={{ width: '100%', aspectRatio: '32 / 48' }} />}
           </div>
         );
       })}

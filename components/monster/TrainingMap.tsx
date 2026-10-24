@@ -24,11 +24,11 @@ import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChalle
 import ScrollQuestionPanel from '@/components/monster/map/panels/ScrollQuestionPanel';
 import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionPanel';
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
-import { REGIONS, type MapTile } from '@/lib/regions';
+import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
-import type { MapBackground } from '@/lib/phaserMap/TrainingMapScene';
+import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -480,7 +480,8 @@ export default function TrainingMap({
   // Fires once per tile the player newly enters (continuous movement crosses
   // tile boundaries instead of "completing a move()") — same side effects,
   // same odds/timing, as the old discrete move() used to run synchronously.
-  const handleTileEnter = useCallback((tile: { x: number; y: number }) => {
+  // viaExit: the kid chose to go through an edge exit (goThroughExit), not just walked onto it.
+  const handleTileEnter = useCallback((tile: { x: number; y: number }, _prev?: unknown, viaExit = false) => {
     const { x: newX, y: newY } = tile;
     const tileData = map[newY]?.[newX];
     if (!tileData) return;
@@ -505,14 +506,19 @@ export default function TrainingMap({
       setLocalPos({ x: newX, y: newY });
     }
 
-    if (portal) {
+    // An exit on the map's edge only takes the kid through when they choose to (E, tap): see
+    // goThroughExit.
+    const onEdge = !!portal && (portal.y === 0 || portal.x === 0 || portal.y === map.length - 1 || portal.x === (map[0]?.length ?? 0) - 1);
+    if (portal && (!onEdge || viaExit)) {
       const targetRegion = REGIONS[portal.regionId];
       if (targetRegion && !isLedgersHeart && portal.regionId === 'ledgers_heart' && targetRegion.tileArtPath) {
         // Back home: the kid comes out at the end of the road that leads here, so the walk
         // carries on from one map to the next.
         const here = activeRegion.id;
         loadTiledArtMap(targetRegion.tileArtPath).then(lh => {
-          const door = lh.portals.find(p => p.regionId === here);
+          // A wide road has a door on each of its tiles: come out on the same lane.
+          const lane = (p: { x: number; y: number }) => Math.min(Math.abs(p.x - portal.x), Math.abs(p.y - portal.y));
+          const door = lh.portals.filter(p => p.regionId === here).sort((a, b) => lane(a) - lane(b))[0];
           if (door) {
             const at = stepInside(door, lh.mapWidth, lh.mapHeight);
             onBattleStateChange({ ...battleState, map_x: at.x, map_y: at.y });
@@ -727,6 +733,9 @@ export default function TrainingMap({
           abovePlayerLayers: parsed.abovePlayerLayers,
           layerOpacity: parsed.layerOpacity,
           animatedTiles: parsed.animatedTiles,
+          lights: parsed.lights,
+          ysortBase: parsed.ysortBase,
+          ysortLayers: parsed.ysortLayers,
         });
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);
@@ -974,8 +983,76 @@ export default function TrainingMap({
   // lib/tiledArtMap.ts's header comment) — so no marker to show there.
   // Flat (tile-art) region maps have no healing tile either; their only marker is the way home.
   const townMarkerTile = isLedgersHeart || activeRegion.tileArtPath ? null : region!.townCenter;
+  // Exits on the map's edge (a run of portal tiles to one map, Rowil 2026-10-23): the scene draws
+  // a glow in the next map's element color (the Ledger's Heart's and the town's: leaf green, like
+  // Rootbound's), sparks and an arrow; here they get one name label, a little inside the gap.
+  // Portals inside the map keep their spinning sprite.
+  const mapW = regionMap[0]?.length ?? 0, mapH = regionMap.length;
+  const exitGroups = useMemo(() => {
+    const sideOf = (p: { x: number; y: number }): MapExit['side'] | null =>
+      p.y === 0 ? 'n' : p.y === mapH - 1 ? 's' : p.x === 0 ? 'w' : p.x === mapW - 1 ? 'e' : null;
+    const groups: { regionId: string; side: MapExit['side']; tiles: { x: number; y: number }[] }[] = [];
+    for (const p of [...portals].sort((a, b) => a.y - b.y || a.x - b.x)) {
+      const side = sideOf(p);
+      if (!side) continue;
+      const g = groups.find(q => q.regionId === p.regionId && q.side === side &&
+        q.tiles.some(t => Math.abs(t.x - p.x) + Math.abs(t.y - p.y) === 1));
+      if (g) g.tiles.push(p); else groups.push({ regionId: p.regionId, side, tiles: [p] });
+    }
+    return groups;
+  }, [portals, mapW, mapH]);
+  const exits = useMemo<MapExit[]>(() => exitGroups.map(g => {
+    const xs = g.tiles.map(t => t.x), ys = g.tiles.map(t => t.y);
+    const dest = REGIONS[g.regionId];
+    const el = dest && dest.element !== 'all' ? dest.element : 'leaf';
+    return {
+      x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs) + 1, h: Math.max(...ys) - Math.min(...ys) + 1,
+      side: g.side, locked: playerLevel < (dest?.unlockLevel ?? 0), color: parseInt(ELEMENT_COLOR[el].text.slice(1), 16),
+    };
+  }), [exitGroups, playerLevel]);
+  const sceneBackground = useMemo<MapBackground | null>(
+    () => (background?.type === 'tilemap' && exits.length ? { ...background, exits } : background),
+    [background, exits],
+  );
+  // An exit on the edge works like a tree (Rowil 2026-10-23): walk up to it, then press E, tap
+  // the "Go to …" button or tap its name. Walking onto it alone doesn't leave the map.
+  const nearExit = useMemo(() => {
+    const d = (g: (typeof exitGroups)[number]) => Math.min(...g.tiles.map(t => Math.max(Math.abs(t.x - posX), Math.abs(t.y - posY))));
+    const g = exitGroups.filter(q => d(q) <= 1).sort((a, b) => d(a) - d(b))[0];
+    if (!g) return null;
+    const tile = g.tiles.reduce((best, t) => Math.hypot(t.x - posX, t.y - posY) < Math.hypot(best.x - posX, best.y - posY) ? t : best);
+    return { regionId: g.regionId, tile };
+  }, [exitGroups, posX, posY]);
+  const goThroughExit = useCallback(() => {
+    if (nearExit) handleTileEnter(nearExit.tile, undefined, true);
+  }, [nearExit, handleTileEnter]);
+  const onExitLabelClick = useCallback((regionId: string) => {
+    if (nearExit?.regionId === regionId) goThroughExit();
+    else showBarMessage('Walk up to the exit first!');
+  }, [nearExit, goThroughExit, showBarMessage]);
+  useEffect(() => {
+    if (!nearExit || nearby || inReach.length || panelOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      goThroughExit();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [nearExit, nearby, inReach.length, panelOpen, goThroughExit]);
   const portalMarkers = portals.length
-    ? portals.map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) }))
+    ? [
+        ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
+          .map(p => ({ x: p.x, y: p.y, regionId: p.regionId, locked: playerLevel < (REGIONS[p.regionId]?.unlockLevel ?? 0) })),
+        ...exits.map((e, i) => {
+          const IN = { n: [0, 3], s: [0, -2], w: [2, 0], e: [-2, 0] }[e.side];
+          return {
+            x: e.x + (e.w - 1) / 2 + IN[0], y: e.y + (e.h - 1) / 2 + IN[1],
+            regionId: exitGroups[i].regionId, locked: e.locked, labelOnly: true,
+          };
+        }),
+      ]
     : undefined;
   // Hoisted to avoid an IIFE allocation on every render inside the scroll panel JSX.
   const activeMonsterExpToNext = activeMonster
@@ -993,10 +1070,10 @@ export default function TrainingMap({
           FloatingJoystick.tsx for why). Replaces the old always-visible
           bottom-left Joystick (2026-09-05). */}
       <FloatingJoystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
-      {background && <MapCanvas
+      {sceneBackground && <MapCanvas
         mapWidth={activeRegion.mapWidth}
         mapHeight={activeRegion.mapHeight}
-        background={background}
+        background={sceneBackground}
         bumping={bumping}
         stepping={stepping}
         posX={posX}
@@ -1010,6 +1087,7 @@ export default function TrainingMap({
         resultWon={id => liveBattleInbox?.battleResultFlashes[id]}
         townMarkerTile={townMarkerTile}
         portalMarkers={portalMarkers}
+        onExitLabelClick={onExitLabelClick}
         scrollMarkers={scrolls}
         curioMarker={activeCurio && curioPos ? { ...curioPos, monsterDef: monsterDisplay[activeCurio.monsterId], quality: activeCurio.quality } : null}
         trainerMarker={activeMapTrainer ? { id: activeMapTrainer.id, x: activeMapTrainer.x, y: activeMapTrainer.y, emoji: activeMapTrainer.emoji, name: activeMapTrainer.name, spriteOverride: activeMapTrainer.spriteOverride } : null}
@@ -1030,6 +1108,17 @@ export default function TrainingMap({
         soundRegion={activeRegion.id}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
+      {!nearby && nearExit && !controlsDisabled && REGIONS[nearExit.regionId] && (
+        <button
+          type="button"
+          data-testid="exit-button"
+          onClick={goThroughExit}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-2.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
+        >
+          Go to {REGIONS[nearExit.regionId].name}
+          <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
+        </button>
+      )}
       {nearby && !controlsDisabled && (
         <button
           type="button"

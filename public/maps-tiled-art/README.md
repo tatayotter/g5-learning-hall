@@ -23,9 +23,12 @@ Tiles a tileset marks with a bool property `solid` (the water and lava sheets ma
 mostly-liquid tile) block wherever they're painted. Tiles with a Tiled animation (the 6-frame
 water and lava sheets, frames left to right) animate in the game too.
 
-Names are case-insensitive but otherwise exact. Hidden layers are skipped,
-unknown layer names are skipped with a console warning, and per-layer opacity
-is honored. Painted on `Objects Base` = solid. Rectangles in an object layer whose
+Names are case-insensitive but otherwise exact. Hidden layers are skipped, and per-layer
+opacity is honored. Any other layer name (the town's `Building`, `building walls`, `Fences`,
+`perimeter wall`, `stalls`, `fountain`) counts as `Objects Base`: drawn behind the player and
+solid. `fountain circle` (the plaza floor) is walked on like `Ground Detail`. A tile a tileset
+marks with a bool property `walkable` never blocks, even on `Objects Base` (the town's build
+script marks the almost see-through corner tiles of each building and fountain stamp). Painted on `Objects Base` = solid. Rectangles in an object layer whose
 name contains "collision" are solid too (a tile is blocked when its centre is inside one).
 Non-blocking decoration belongs on `Ground Detail`.
 
@@ -52,7 +55,7 @@ Non-blocking decoration belongs on `Ground Detail`.
   the value must be a region id (spelling is forgiving: `ledgersheart` works for
   `ledgers_heart`). Region maps link home with a `ledgers_heart` portal placed exactly where
   that region's road leaves the Ledger's Heart, so the walk carries on across the two maps.
-  Ids:  `ledgers_heart`, `cinderreach`, `tidewrit_shallows`,
+  Ids:  `ledgers_heart`, `town`, `cinderreach`, `tidewrit_shallows`,
   `rootbound_wilds`, `stormrun_reaches`, `unread_margins`, `radiant_archive`
   (see `lib/regions.ts` for the full list — unrecognized or missing ids are
   skipped with a console warning). Walking onto a portal tile transitions to
@@ -87,3 +90,33 @@ Heart's lower west road leaves.
 The little animals (`lib/wildlife.ts`, drawn by `lib/phaserMap/critters.ts`) and the ground
 touches (foam, ripples, footprints, lava bubbles: `lib/phaserMap/groundFx.ts`) read the map's
 `Liquid` layer and, for footprints and crabs, the sand tiles of `TileSet-tide`.
+
+## The town
+
+Inkwell Town (`town/town.tmx`, region `town`) is Rowil's own Tiled map: buildings, fences,
+hedges, market stalls and a fountain square, through the gate at the top of the Ledger's
+Heart's north road (portals on columns 28-31 of both maps). It is built from his file by
+`/mnt/project-files/town-map/build_town.py <repo> [townmap.tmx]`, which points the tilesets at
+local copies, adds the `ledgers_heart` portals in the bottom wall's gap and a No Encounter box over
+the whole town (no wild curios there), and marks see-through stamp tiles `walkable`. It also:
+- lays plain dirt (`Under Ground`, drawn first) under the brick road, whose gaps are see-through;
+- shows Rowil's `Lampposts` layer: each post's foot blocks, the rest moves to `Lamp Tops` (over the
+  players), and the lamp head tile is marked `light`, so it glows (softly by day, brighter at night);
+- stamps the town decor (`TownDecor`, cut from the town sheets by `build_decor.py`: crates,
+  barrels, benches, flower boxes, pots, potted plants, the well) at the spots listed in the script:
+  `Town Decor` (the feet row, solid) and `Town Decor Top` (over the players).
+- draws ground shadows (`Shadows` layer, `TownShadows` tileset made from them) in the tileset's
+  style, flat (44,33,51) at alpha 125 with a ragged edge: halls, cottages and the fountain cast
+  their shape 4 px straight down, hedges, walls and fences 2 px; stalls, lamps and decor get the
+  trees' dithered oval (`garden-art/trees/shadows.py`) tucked under their feet;
+- moves roofs to the `Roofs`/`Roofs 2` layers (over the players, never blocking): only a
+  building's bottom 3 rows per column stay solid; stall awnings go to `Roofs 3` (only the counter
+  row blocks), so kids walk behind both;
+- swaps the fountain's tiles for `FountainAnim` (6 frames made by `build_fountain.py`: rings across
+  the pool, light down the jets, moving sparkles) with Tiled tile animations;
+- adds a `Tree Row` of points on row 3, under the north hedge, every 3 columns where nothing solid
+  stands: the daily nature layer grows a tree (choppable) on each, on top of the usual count;
+  behind a building the roof draws over it.
+The decor is toned to the game (softer color) by `build_decor.py`.
+The daily nature layer grows the Ledger's Heart's trees (choppable) on the open lawns, with flowers
+and tall grass; no bushes or rocks.

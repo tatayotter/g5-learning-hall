@@ -108,7 +108,19 @@ export type MapBackground =
       layerOpacity?: Record<string, number>;
       // Animated tiles (water, lava): gid -> its frames' gids, from the tilesets.
       animatedTiles?: Record<number, { frames: number[]; ms: number }>;
+      // Lamps (tile coords of each lamp's head): they glow at night.
+      lights?: { x: number; y: number }[];
+      // Exits on the map's edge (a run of portal tiles to one map): a glow, drifting sparks and a
+      // bobbing arrow pointing out. `side` is the edge they're on; locked ones glow grey.
+      exits?: MapExit[];
+      // Roofs, awnings, lamp heads, bench backs: per tile the ground row each stands on (-1 none),
+      // so a player in front of one draws over it and one behind it is covered (lib/tiledArtMap.ts).
+      ysortBase?: number[];
+      ysortLayers?: string[];
     };
+
+// `color`: the glow's tint (the next map's element color).
+export interface MapExit { x: number; y: number; w: number; h: number; side: 'n' | 's' | 'e' | 'w'; locked: boolean; color: number }
 
 export interface MapCanvasSyncState {
   mapWidth: number;
@@ -339,12 +351,21 @@ export default class TrainingMapScene extends Phaser.Scene {
   // so only the part of a player the leaves hide shows through (walking half behind a tree too).
   private ghostLayer: Phaser.GameObjects.Container | null = null;
   private ghostMasked = false;
+  // Silhouettes of players behind a roof, awning or lamp: one holder per such layer, masked by it
+  // (WebGL), so only the part of the player it hides shows through.
+  private roofGhostLayers = new Map<Phaser.Tilemaps.TilemapLayer, Phaser.GameObjects.Container>();
+  // Over everything drawn over the players: a player in front of a roof or lamp is drawn here.
+  private frontDepth = 40;
   private wildTreeSprites: TreeSprite[] = [];
   private highlight: MapCanvasSyncState['highlight'] = null;
   private ambience: AmbienceLayer | null = null;
   private critters: CritterLayer | null = null;
   private groundFx: GroundFx | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
+  private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
+  private lampKey = '';
+  private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
+  private exitKey = '';
   private crittersKey = '';
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
@@ -391,9 +412,12 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees?.update(time);
     this.garden?.update(time);
     this.wildTrees?.update(time);
+    this.sortAgainstRoofs();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
+    this.updateLamps(time);
+    this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0);
@@ -405,24 +429,154 @@ export default class TrainingMapScene extends Phaser.Scene {
     }
   }
 
+  // A soft warm round light (the kid's light at night, and the lamps').
+  private makeNightLightTexture() {
+    if (this.textures.exists('night-light')) return true;
+    const n = 256;
+    const tex = this.textures.createCanvas('night-light', n, n);
+    if (!tex) return false;
+    const ctx = tex.getContext();
+    const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
+    grad.addColorStop(0, 'rgba(255,214,150,0.55)');
+    grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
+    grad.addColorStop(1, 'rgba(255,170,100,0)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, n, n);
+    tex.refresh();
+    return true;
+  }
+
+  // Every lamp on the map shines: a small warm glow around its head by day that grows into a
+  // pool of light at night, flickering a little (steady with "reduce motion" on).
+  private updateLamps(time: number) {
+    const bg = this.lastBackground;
+    const lights = bg?.type === 'tilemap' ? bg.lights ?? [] : [];
+    const key = bg?.type === 'tilemap' ? `${bg.key}:${lights.length}` : '';
+    if (key !== this.lampKey) {
+      for (const g of this.lampGlows) g.img.destroy();
+      this.lampGlows = [];
+      this.lampKey = key;
+      if (lights.length && this.makeNightLightTexture()) {
+        this.lampGlows = lights.map((l, i) => ({
+          img: this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false),
+          x: l.x, y: l.y, seed: (i * 2.399) % (Math.PI * 2),
+        }));
+      }
+    }
+    if (!this.lampGlows.length) return;
+    const night = this.ambience?.nightLevel ?? 0;
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const t = this.lastTransform;
+    for (const g of this.lampGlows) {
+      const flicker = still ? 1 : 0.92 + 0.05 * Math.sin(time / 170 + g.seed) + 0.03 * Math.sin(time / 53 + g.seed * 3);
+      g.img.setVisible(true)
+        .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
+        .setScale((t.tileW * (2.2 + 2.8 * night)) / 256).setAlpha((0.45 + 0.4 * night) * flicker);
+    }
+  }
+
+  // Textures for the exits: a glow fading from the edge inward (drawn pointing up, rotated per
+  // side), a pixel chevron arrow, and a soft spark.
+  private makeExitTextures() {
+    if (this.textures.exists('exit-band')) return true;
+    const band = this.textures.createCanvas('exit-band', 64, 32);
+    const arrow = this.textures.createCanvas('exit-arrow', 15, 11);
+    const spark = this.textures.createCanvas('exit-spark', 8, 8);
+    if (!band || !arrow || !spark) return false;
+    // A soft oval pool of light (no hard sides, so it reads the same on a road and on grass).
+    let ctx = band.getContext();
+    ctx.save();
+    ctx.scale(1, 0.5);
+    const g = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, 'rgba(255,255,255,0.9)');
+    g.addColorStop(0.45, 'rgba(255,255,255,0.45)');
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, 64, 64);
+    ctx.restore();
+    band.refresh();
+    // Chevron pointing up: dark outline, then a warm white body.
+    ctx = arrow.getContext();
+    const rows = ['.......#.......', '......#o#......', '.....#ooo#.....', '....#ooooo#....', '...#ooo#ooo#...', '..#ooo#.#ooo#..', '.#ooo#...#ooo#.', '#ooo#.....#ooo#', '#oo#.......#oo#', '.##.........##.', '...............'];
+    rows.forEach((r, y) => [...r].forEach((c, x) => {
+      if (c === '.') return;
+      ctx.fillStyle = c === '#' ? '#2a2233' : '#ffffff';
+      ctx.fillRect(x, y, 1, 1);
+    }));
+    arrow.refresh();
+    ctx = spark.getContext();
+    const rg = ctx.createRadialGradient(4, 4, 0, 4, 4, 4);
+    rg.addColorStop(0, 'rgba(255,255,255,1)'); rg.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = rg;
+    ctx.fillRect(0, 0, 8, 8);
+    spark.refresh();
+    return true;
+  }
+
+  // Every exit on the map's edge shines: a glow that breathes along the gap, sparks drifting out
+  // through it, and an arrow bobbing toward it (all still with "reduce motion" on).
+  private updateExits(time: number) {
+    const bg = this.lastBackground;
+    const exits = bg?.type === 'tilemap' ? bg.exits ?? [] : [];
+    const key = bg?.type === 'tilemap' ? `${bg.key}:${exits.map(e => `${e.x},${e.y},${e.locked},${e.color}`).join(';')}` : '';
+    if (key !== this.exitKey) {
+      for (const f of this.exitFx) { f.band.destroy(); f.arrow.destroy(); f.sparks.forEach(sp => sp.destroy()); }
+      this.exitFx = [];
+      this.exitKey = key;
+      if (exits.length && this.makeExitTextures()) {
+        // Over every ground and object layer, just under the players (9): the arrow under the kid.
+        const depth = 8.8;
+        this.exitFx = exits.map((exit, i) => {
+          const tint = exit.locked ? 0x9a9a9a : exit.color;
+          return {
+            exit, seed: i * 1.7,
+            band: this.add.image(0, 0, 'exit-band').setDepth(depth).setBlendMode(Phaser.BlendModes.ADD).setTint(tint),
+            arrow: this.add.image(0, 0, 'exit-arrow').setDepth(depth + 0.01).setTint(exit.locked ? 0x9a9a9a : 0xffffff, 0xffffff, tint, tint),
+            sparks: Array.from({ length: Math.max(3, (exit.w + exit.h) * 2) }, () =>
+              this.add.image(0, 0, 'exit-spark').setDepth(depth + 0.02).setBlendMode(Phaser.BlendModes.ADD).setTint(tint)),
+          };
+        });
+      }
+    }
+    if (!this.exitFx.length) return;
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    const t = this.lastTransform;
+    const ROT = { n: 0, s: Math.PI, e: Math.PI / 2, w: -Math.PI / 2 };
+    for (const f of this.exitFx) {
+      const { exit } = f;
+      // Out of the map, in tile units, and along the gap.
+      const out = { n: [0, -1], s: [0, 1], e: [1, 0], w: [-1, 0] }[exit.side];
+      const along = exit.side === 'n' || exit.side === 's' ? exit.w : exit.h;
+      const deep = 2.2;
+      // The gap's outer edge, at its middle (px).
+      const mx = t.offsetX + (exit.x + exit.w / 2 + out[0] * (exit.w / 2)) * t.tileW;
+      const my = t.offsetY + (exit.y + exit.h / 2 + out[1] * (exit.h / 2)) * t.tileH;
+      const breathe = still ? 0.8 : 0.7 + 0.25 * Math.sin(time / 600 + f.seed);
+      // The pool sits just inside the gap, a little wider than it.
+      f.band.setPosition(mx - out[0] * 0.9 * t.tileW, my - out[1] * 0.9 * t.tileH).setRotation(ROT[exit.side])
+        .setDisplaySize((along + 2) * t.tileW, 2.6 * t.tileH).setAlpha((exit.locked ? 0.35 : 0.85) * breathe);
+      const bob = still ? 0 : (Math.sin(time / 260 + f.seed) + 1) * 0.12;
+      f.arrow.setPosition(mx - out[0] * (1.5 - bob) * t.tileW, my - out[1] * (1.5 - bob) * t.tileH).setRotation(ROT[exit.side])
+        .setScale(t.tileW / 12).setAlpha(exit.locked ? 0.5 : 1);
+      f.sparks.forEach((sp, k) => {
+        // Each spark drifts from inside the gap out through it, fading, then starts again.
+        const life = 2400, ph = still ? 0.5 : ((time + k * 977 + f.seed * 500) % life) / life;
+        const across = ((k * 0.618 + Math.floor((time + k * 977) / life) * 0.37) % 1) * along - along / 2;
+        const inward = (1 - ph) * deep;
+        const x = mx + (out[1] !== 0 ? across : 0) * t.tileW - out[0] * inward * t.tileW;
+        const y = my + (out[0] !== 0 ? across : 0) * t.tileH - out[1] * inward * t.tileH;
+        sp.setPosition(x + (still ? 0 : Math.sin(time / 300 + k) * t.tileW * 0.08), y).setScale(t.tileW / 40)
+          .setAlpha(Math.sin(ph * Math.PI) * (exit.locked ? 0.4 : 0.9));
+      });
+    }
+  }
+
   // At night a soft warm light around the kid, so they can always see where they're going.
   private updateNightLight() {
     const night = this.ambience?.nightLevel ?? 0;
     if (night < 0.05 || !this.self) { this.nightLight?.setVisible(false); return; }
     if (!this.nightLight) {
-      if (!this.textures.exists('night-light')) {
-        const n = 256;
-        const tex = this.textures.createCanvas('night-light', n, n);
-        if (!tex) return;
-        const ctx = tex.getContext();
-        const grad = ctx.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
-        grad.addColorStop(0, 'rgba(255,214,150,0.55)');
-        grad.addColorStop(0.45, 'rgba(255,190,120,0.22)');
-        grad.addColorStop(1, 'rgba(255,170,100,0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, 0, n, n);
-        tex.refresh();
-      }
+      if (!this.makeNightLightTexture()) return;
       this.nightLight = this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD);
     }
     const t = this.lastTransform;
@@ -460,6 +614,43 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
   }
 
+  // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
+  // the one above): 'behind' one (it stands on a row below the player's feet), else 'front' when
+  // it overlaps any, else null.
+  private roofSide(p: TrackedSprite): 'behind' | 'front' | null {
+    return this.roofCover(p).side;
+  }
+
+  // The same, plus the layer covering a player who is behind one.
+  private roofCover(p: TrackedSprite): { side: 'behind' | 'front' | null; layer?: Phaser.Tilemaps.TilemapLayer } {
+    const bg = this.lastBackground;
+    const base = bg?.type === 'tilemap' ? bg.ysortBase : undefined;
+    const W = this.tilemap?.width ?? 0;
+    if (!base || !W) return { side: null };
+    const x = Math.round(p.x), feet = Math.round(p.y);
+    let front = false;
+    for (let y = feet - 1; y <= feet; y++) {
+      const b = base[y * W + x];
+      if (b === undefined || b < 0) continue;
+      if (b > feet) return { side: 'behind', layer: [...this.roofGhostLayers.keys()].find(l => l.hasTileAt(x, y)) };
+      front = true;
+    }
+    return { side: front ? 'front' : null };
+  }
+
+  // A player in front of a roof, awning or lamp is drawn over it (whole); behind one, it covers
+  // them as before (with a silhouette, see updateGhosts).
+  private sortAgainstRoofs() {
+    const players: [TrackedSprite, number][] = [
+      ...(this.self ? [[this.self, 10] as [TrackedSprite, number]] : []),
+      ...[...this.others.values()].map(o => [o, 9] as [TrackedSprite, number]),
+    ];
+    for (const [p, normal] of players) {
+      const want = this.roofSide(p) === 'front' ? this.frontDepth + (normal - 9) * 0.1 : normal;
+      if (p.image.depth !== want) p.image.setDepth(want);
+    }
+  }
+
   // Under leaves (a wild tree's canopy or the map's own Objects Top), a player shows through as
   // a soft silhouette: a copy of their sprite, filled one color, drawn over every canopy.
   private updateGhosts() {
@@ -471,17 +662,21 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const p of players) {
       const img = p.image;
       if (!img.active) continue;
-      const covered = img.visible && (this.ghostMasked
+      const cover = img.visible ? this.roofCover(p) : { side: null };
+      const behindRoof = cover.side === 'behind';
+      const covered = img.visible && (behindRoof || (this.ghostMasked
         ? !!this.wildTrees?.near(p.x, p.y)
-        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y)));
+        : !!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y))));
       let ghost = this.ghosts.get(img);
       if (!covered) { ghost?.setVisible(false); if (ghost) live.add(img); continue; }
       if (!ghost) {
         ghost = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name)
           .setTint(GHOST_COLOR).setTintMode(Phaser.TintModes.FILL);
-        layer.add(ghost);
         this.ghosts.set(img, ghost);
       }
+      // Behind a roof: the unmasked layer; under leaves: the one masked by the canopies.
+      const into = (behindRoof && cover.layer && this.roofGhostLayers.get(cover.layer)) || layer;
+      if (ghost.parentContainer !== into) { ghost.parentContainer?.remove(ghost); into.add(ghost); }
       live.add(img);
       any = true;
       if (ghost.texture.key !== img.texture.key || ghost.frame.name !== img.frame.name) ghost.setTexture(img.texture.key, img.frame.name);
@@ -492,7 +687,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (!live.has(img)) { ghost.destroy(); this.ghosts.delete(img); }
     }
     // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
-    layer.setVisible(any);
+    layer.setVisible(any && layer.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
+    for (const c of this.roofGhostLayers.values()) c.setVisible(c.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
   }
 
   create() {
@@ -905,6 +1101,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.topLayer = null;
     this.ghostLayer?.destroy();
     this.ghostLayer = null;
+    for (const c of this.roofGhostLayers.values()) c.destroy();
+    this.roofGhostLayers.clear();
     this.ghostMasked = false;
     this.ghosts.clear();
     this.tilemap.destroy();
@@ -935,6 +1133,9 @@ export default class TrainingMapScene extends Phaser.Scene {
       const t = this.lastTransform;
       const scale = t.tileW / bg.tileSize;
       let depth = 1;
+      // Layers under the players stay under 8.5 (plants, trunks) and the players (9, 10), however
+      // many a map has (the town has a dozen); above ones go from 11 up.
+      const belowStep = Math.min(1, 7 / Math.max(1, bg.belowPlayerLayers.length));
       let detailLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let baseLayer: Phaser.Tilemaps.TilemapLayer | null = null;
       let topLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -949,7 +1150,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         layer.setAlpha(bg.layerOpacity?.[layerName] ?? 1);
         layer.setScale(scale);
         const isAbove = bg.abovePlayerLayers.includes(layerName);
-        layer.setDepth(isAbove ? 11 + depth : depth);
+        layer.setDepth(isAbove ? 11 + depth : 1 + (depth - 1) * belowStep);
         depth++;
         this.tilemapLayers.push(layer as Phaser.Tilemaps.TilemapLayer);
         if (bg.animatedTiles) {
@@ -983,7 +1184,21 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.chopSwing = new ChopSwing(this, this.wildTrees.tools, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.applyHighlight();
       }
-      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1));
+      // Over every layer drawn over the players (roofs included), so silhouettes show on them.
+      const aboveMax = this.tilemapLayers.reduce((m, l) => Math.max(m, l.depth), 0);
+      this.frontDepth = aboveMax + 1;
+      this.ghostLayer = this.add.container(0, 0).setDepth(Math.max(GHOST_DEPTH, (topLayer?.depth ?? 0) + 1, aboveMax + 2));
+      for (const name of bg.ysortLayers ?? []) {
+        const roof = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name === name) as Phaser.Tilemaps.TilemapLayer | undefined;
+        if (!roof) continue;
+        const holder = this.add.container(0, 0).setDepth(this.ghostLayer.depth).setVisible(false);
+        if (this.renderer.type === Phaser.WEBGL) {
+          holder.enableFilters();
+          holder.filtersFocusContext = true;
+          holder.filters?.internal.addMask(roof);
+        }
+        this.roofGhostLayers.set(roof, holder);
+      }
       if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
         this.ghostLayer.enableFilters();
         // The filter covers the whole view, not just the silhouettes' bounds.

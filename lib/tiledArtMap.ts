@@ -32,6 +32,16 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'Trees': '/tilesets/forgotten-memories/Trees.png',
   'Trees_seperated': '/tilesets/forgotten-memories/Trees_seperated.png',
   'Town Props 2': '/tilesets/forgotten-memories/Town_Props_2.png',
+  // The town: buildings, stalls and the fountain, and the round stone floor around it.
+  'Town Props 1': '/tilesets/forgotten-memories/Town_Props_1.png',
+  'fountain floor': '/tilesets/forgotten-memories/fountain_floor.png',
+  // Crates, barrels, benches, flower boxes, pots and the well, cut from the town sheets onto the
+  // tile grid (/mnt/project-files/town-map/build_decor.py).
+  'TownDecor': '/tilesets/forgotten-memories/TownDecor.png',
+  // The town's ground shadows, drawn by its build script.
+  'TownShadows': '/tilesets/forgotten-memories/TownShadows.png',
+  // The fountain's animation frames, made from its picture (/mnt/project-files/town-map/build_fountain.py).
+  'FountainAnim': '/tilesets/forgotten-memories/FountainAnim.png',
   'WaterTiles-6frames': '/tilesets/forgotten-memories/WaterTiles-6frames.png',
   // Region looks (recolored copies of the pack's sheets, same layout): Cinderreach is scorched
   // and its liquid is lava.
@@ -69,8 +79,10 @@ export interface TiledArtLayer {
 
 // The fixed layer contract every tile-art map follows (see
 // public/maps-tiled-art/README.md). Role order is also draw order.
-type LayerRole = 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
+type LayerRole = 'under' | 'liquid' | 'ground' | 'detail' | 'shadows' | 'base' | 'top';
 const ROLE_BY_NAME: Record<string, LayerRole> = {
+  // Plain dirt under see-through ground (the town's brick road), drawn first.
+  'under ground': 'under',
   // Water or lava under the ground's see-through edges.
   'liquid': 'liquid',
   'ground': 'ground',
@@ -81,8 +93,24 @@ const ROLE_BY_NAME: Record<string, LayerRole> = {
   'shadows': 'shadows',
   'objects base': 'base',
   'objects top': 'top',
+  // The town's plaza floor is walked on like a path.
+  'fountain circle': 'detail',
+  // The town's lamp posts and decor above their feet: drawn over the players.
+  'lamp tops': 'top',
+  'town decor top': 'top',
+  // Building roofs and stall awnings (everything above their bottom rows): players walk behind them.
+  'roofs': 'top',
+  'roofs 2': 'top',
+  'roofs 3': 'top',
+  // The fountain's spire and back rim.
+  'fountain top': 'top',
 };
-const ROLE_ORDER: LayerRole[] = ['liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
+// Any other layer is a thing standing on the ground (the town's buildings, fences, walls, stalls,
+// fountain): drawn behind the player and solid, like Objects Base.
+// Layers drawn over the players that a player can also stand in front of (see ysortBase).
+const Y_SORTED = new Set(['roofs', 'roofs 2', 'roofs 3', 'fountain top', 'lamp tops', 'town decor top']);
+const roleFor = (name: string): LayerRole => ROLE_BY_NAME[name.trim().toLowerCase()] ?? 'base';
+const ROLE_ORDER: LayerRole[] = ['under', 'liquid', 'ground', 'detail', 'shadows', 'base', 'top'];
 
 export interface TiledArtPortal {
   x: number;
@@ -123,6 +151,13 @@ export interface TiledArtMap {
   sand: boolean[][];
   // Flower tiles grown by the daily nature layer (empty for hand-made maps).
   flowers: { x: number; y: number }[];
+  // Tiles drawn with a "light" tile (lamps): they glow at night.
+  lights: { x: number; y: number }[];
+  // Per tile (row-major), for the layers in Y_SORTED: the ground row the thing drawn there
+  // stands on, or -1. Undefined when the map has none.
+  ysortBase?: number[];
+  // The names of those layers.
+  ysortLayers: string[];
 }
 
 // A map drawn as ground and paths only gets the day's nature layer (lib/mapNature.ts).
@@ -163,22 +198,31 @@ interface EmbeddedTileset {
   spacing: number;
   // Per-tile data from the tileset (local tile ids): tiles marked solid, and animations.
   solid: number[];
+  // Tiles that are almost all see-through (the empty corners of a building or fountain stamp):
+  // walkable even on Objects Base.
+  walkable: number[];
+  // Tiles that shine at night (the town's lamps).
+  light: number[];
   anims: Record<number, { frames: number[]; ms: number }>;
 }
 
-// <tile id> entries: a "solid" bool property, and an <animation> of frames.
+// <tile id> entries: a "solid", "walkable" or "light" bool property, and an <animation> of frames.
 function parseTileData(tilesetEl: Element) {
   const solid: number[] = [];
+  const walkable: number[] = [];
+  const light: number[] = [];
   const anims: Record<number, { frames: number[]; ms: number }> = {};
   for (const tileEl of Array.from(tilesetEl.querySelectorAll(':scope > tile'))) {
     const id = Number(attr(tileEl, 'id'));
     if (tileEl.querySelector('properties > property[name="solid"][value="true"]')) solid.push(id);
+    if (tileEl.querySelector('properties > property[name="walkable"][value="true"]')) walkable.push(id);
+    if (tileEl.querySelector('properties > property[name="light"][value="true"]')) light.push(id);
     const frames = Array.from(tileEl.querySelectorAll('animation > frame'));
     if (frames.length > 1) {
       anims[id] = { frames: frames.map(f => Number(attr(f, 'tileid'))), ms: Number(attr(frames[0], 'duration')) || 200 };
     }
   }
-  return { solid, anims };
+  return { solid, walkable, light, anims };
 }
 
 async function resolveTileset(tilesetEl: Element, tmxUrl: string): Promise<EmbeddedTileset> {
@@ -297,19 +341,14 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
 
   // Layer contract: Ground, Ground Detail, Shadows, Objects Base (solid, draws
   // behind the player), Objects Top (never solid, draws in front of the
-  // player). Hidden layers are skipped; unknown names are warned about and
-  // skipped rather than guessed at.
+  // player). Hidden layers are skipped; any other name counts as Objects Base.
   const layerEls = Array.from(mapEl.querySelectorAll(':scope > layer'));
   const roleOf = new Map<string, LayerRole>();
   const layers: TiledArtLayer[] = [];
   for (const layerEl of layerEls) {
     const name = attr(layerEl, 'name');
     if (attr(layerEl, 'visible') === '0') continue;
-    const role = ROLE_BY_NAME[name.trim().toLowerCase()];
-    if (!role) {
-      console.warn(`[tiledArtMap] Unknown tile layer "${name}" in ${tmxUrl} — skipped. Valid: Ground, Ground Detail, Shadows, Objects Base, Objects Top.`);
-      continue;
-    }
+    const role = roleFor(name);
     roleOf.set(name, role);
     layers.push({
       name,
@@ -338,10 +377,14 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   const keepClearRects: NatureRect[] = [];
   const collisionRects: Rect[] = [];
   const forestRects: NatureRect[] = [];
+  // "Tree Row": points where a tree grows every day (the town's line of trees under its top hedge).
+  const treeSpots: { x: number; y: number }[] = [];
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/collision/i.test(groupName)) {
+    if (/tree\s*row/i.test(groupName)) {
+      for (const o of objectEls) treeSpots.push({ x: Math.floor(Number(attr(o, 'x')) / tileWidth), y: Math.floor(Number(attr(o, 'y')) / tileHeight) });
+    } else if (/collision/i.test(groupName)) {
       collisionRects.push(...objectEls.map(parseObjectRect).filter(r => r.width > 0 && r.height > 0));
     } else if (/keep\s*clear/i.test(groupName)) {
       keepClearRects.push(...objectEls.map(parseObjectRect));
@@ -388,13 +431,18 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
 
   // Tiles the tilesets mark solid (water, lava), and tiles under a "collision" box.
   const solidGids = new Set<number>();
+  const walkableGids = new Set<number>();
+  const lightGids = new Set<number>();
   const animatedTiles: Record<number, { frames: number[]; ms: number }> = {};
   for (const ts of tilesets) {
     for (const id of ts.solid) solidGids.add(ts.firstgid + id);
+    for (const id of ts.walkable) walkableGids.add(ts.firstgid + id);
+    for (const id of ts.light) lightGids.add(ts.firstgid + id);
     for (const [id, a] of Object.entries(ts.anims)) {
       animatedTiles[ts.firstgid + Number(id)] = { frames: a.frames.map(f => ts.firstgid + f), ms: a.ms };
     }
   }
+  const stands = (g: number) => g !== 0 && !walkableGids.has(g & 0x1fffffff);
   const inCollision = (x: number, y: number) => {
     const cx = (x + 0.5) * tileWidth, cy = (y + 0.5) * tileHeight;
     return collisionRects.some(r => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height);
@@ -423,16 +471,20 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     };
     const ground = layers.find(l => roleOf.get(l.name) === 'ground')!;
     const detail = ensure('detail', 'Ground Detail');
-    // Nothing grows on cliffs, skirts or liquid either.
-    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'base' && l.data[i] !== 0));
     const base = ensure('base', 'Objects Base');
+    // Nothing grows on cliffs, skirts or liquid either, nor on the town's buildings and fences
+    // (plants may grow in a shadow).
+    const occupied = hardBlocked.map((b, i) => b || layers.some(l => l !== ground && l !== detail && l !== base && roleOf.get(l.name) !== 'liquid' && roleOf.get(l.name) !== 'shadows' && l.data[i] !== 0));
+    // Things standing on the ground (other than the layer nature grows bushes on) can't be walked through.
+    const standing = layers.filter(l => roleOf.get(l.name) === 'base' && l !== base);
+    const walls = hardBlocked.map((b, i) => b || standing.some(l => stands(l.data[i])));
     const firstgid: Record<string, number> = {};
     for (const ts of tilesets) firstgid[ts.name] = ts.firstgid;
     const grown = growNature({
       regionId: nature.regionId, day: nature.day, width: mapWidth, height: mapHeight, tileSize: tileWidth,
       ground: ground.data, detail: detail.data, base: base.data, firstgid,
       spawn: spawnTile, portals, recycler: recyclerTile, reserved: nature.reserved,
-      keepClear: keepClearRects, forest: forestRects, occupied, blocked: hardBlocked,
+      keepClear: keepClearRects, forest: forestRects, treeSpots, occupied, blocked: walls,
     });
     detail.data = grown.detail;
     base.data = grown.base;
@@ -455,8 +507,8 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
       const cx = (x + 0.5) * tileWidth;
       const cy = (y + 0.5) * tileHeight;
       const inRect = (r: Rect) => cx >= r.x && cx <= r.x + r.width && cy >= r.y && cy <= r.y + r.height;
-      // Painted means blocked: any tile on an Objects Base layer is solid.
-      const blocked = baseLayers.some(l => l.data[y * mapWidth + x] !== 0) || trunkAt.has(`${x},${y}`) || hardBlocked[y * mapWidth + x];
+      // Painted means blocked: any tile on an Objects Base layer is solid (but see-through ones).
+      const blocked = baseLayers.some(l => stands(l.data[y * mapWidth + x])) || trunkAt.has(`${x},${y}`) || hardBlocked[y * mapWidth + x];
       const noEncounter = !blocked && noEncounterRects.some(inRect);
       row.push({ type: blocked ? 'wall' : noEncounter ? 'path' : 'grass' });
     }
@@ -513,6 +565,32 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     }
   }
 
+  const lights: { x: number; y: number }[] = [];
+  if (lightGids.size) {
+    for (const l of layers) l.data.forEach((g, i) => {
+      if (lightGids.has(g & 0x1fffffff)) lights.push({ x: i % mapWidth, y: Math.floor(i / mapWidth) });
+    });
+  }
+
+  // Things drawn over the players that stand on something solid (the town's roofs, stall awnings,
+  // lamp heads, bench backs): for each of their tiles, the row of the ground line they stand on
+  // (the bottom of what's under them in that column), so the scene can tell whether a player is
+  // behind one (covered, with a silhouette) or in front (drawn whole, over it). -1: none.
+  const ysortLayers = layers.filter(l => Y_SORTED.has(l.name.trim().toLowerCase()));
+  let ysortBase: number[] | undefined;
+  if (ysortLayers.length) {
+    const standing = layers.filter(l => roleOf.get(l.name) === 'base');
+    const has = (ls: TiledArtLayer[], i: number) => ls.some(l => l.data[i] !== 0);
+    ysortBase = new Array<number>(mapWidth * mapHeight).fill(-1);
+    for (let y = 0; y < mapHeight; y++) for (let x = 0; x < mapWidth; x++) {
+      const i = y * mapWidth + x;
+      if (!has(ysortLayers, i)) continue;
+      let b = y;
+      while (b + 1 < mapHeight && (has(ysortLayers, (b + 1) * mapWidth + x) || has(standing, (b + 1) * mapWidth + x))) b++;
+      ysortBase[i] = b;
+    }
+  }
+
   const tilesetImages: Record<string, string> = {};
   for (const ts of tilesets) tilesetImages[ts.name] = resolve(ts.image, tmxUrl);
 
@@ -558,5 +636,8 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     liquid,
     sand,
     flowers,
+    lights,
+    ysortBase,
+    ysortLayers: ysortLayers.map(l => l.name),
   };
 }
