@@ -416,7 +416,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.bushes?.update(time, this.windStrength);
     this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
-    this.wildTrees?.update(time, this.windStrength);
+    this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
