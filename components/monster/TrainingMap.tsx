@@ -46,6 +46,7 @@ import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
 import { TOWN_NPCS } from '@/lib/townNpcs';
+import { NIGHT_WINDOWS } from '@/lib/nightWindows';
 import { fetchChecklistBattleFlags, GUILDS, type GuildKey } from '@/lib/dailyChecklist';
 import { manilaToday } from '@/lib/appDay';
 import { natureDay } from '@/lib/mapNature';
@@ -741,6 +742,7 @@ export default function TrainingMap({
           layerOpacity: parsed.layerOpacity,
           animatedTiles: parsed.animatedTiles,
           lights: parsed.lights,
+          windows: NIGHT_WINDOWS[activeRegion.id],
           ysortBase: parsed.ysortBase,
           ysortLayers: parsed.ysortLayers,
         });

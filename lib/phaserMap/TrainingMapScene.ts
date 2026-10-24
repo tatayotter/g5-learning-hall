@@ -74,6 +74,7 @@ import type { SwingKind } from '@/lib/gardenConfig';
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
+import type { NightWindows } from '@/lib/nightWindows';
 import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
@@ -112,6 +113,8 @@ export type MapBackground =
       animatedTiles?: Record<number, { frames: number[]; ms: number }>;
       // Lamps (tile coords of each lamp's head): they glow at night.
       lights?: { x: number; y: number }[];
+      // Windows that light up at night (lib/nightWindows.ts).
+      windows?: NightWindows;
       // Exits on the map's edge (a run of portal tiles to one map): a glow, drifting sparks and a
       // bobbing arrow pointing out. `side` is the edge they're on; locked ones glow grey.
       exits?: MapExit[];
@@ -371,6 +374,9 @@ export default class TrainingMapScene extends Phaser.Scene {
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
   private lampKey = '';
+  private windowKey = '';
+  private windowImgs: { img: Phaser.GameObjects.Image; upper: boolean }[] = [];
+  private windowGlows: { img: Phaser.GameObjects.Image; x: number; y: number; w: number; h: number; seed: number }[] = [];
   private exitFx: { band: Phaser.GameObjects.Image; arrow: Phaser.GameObjects.Image; sparks: Phaser.GameObjects.Image[]; exit: MapExit; seed: number }[] = [];
   private exitKey = '';
   private crittersKey = '';
@@ -427,6 +433,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.ambience?.update(this.lastTransform, time);
     this.updateNightLight();
     this.updateLamps(time);
+    this.updateWindows(time);
     this.updateExits(time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
@@ -482,6 +489,56 @@ export default class TrainingMapScene extends Phaser.Scene {
       g.img.setVisible(true)
         .setPosition(t.offsetX + (g.x + 0.5) * t.tileW, t.offsetY + (g.y + 0.45) * t.tileH)
         .setScale((t.tileW * (2.2 + 2.8 * night)) / 256).setAlpha((0.45 + 0.4 * night) * flicker);
+    }
+  }
+
+  // Lit windows at night: the warm glass fades in as it gets dark (the windows on the walls under
+  // the players, the ones on roofs just over the roofs, so a kid in front still covers them), and
+  // each pane gets a soft glow that flickers a little like a candle (steady with "reduce motion").
+  private updateWindows(time: number) {
+    const bg = this.lastBackground;
+    const win = bg?.type === 'tilemap' ? bg.windows : undefined;
+    const key = win && bg?.type === 'tilemap' ? bg.key : '';
+    if (key !== this.windowKey) {
+      for (const w of this.windowImgs) w.img.destroy();
+      for (const g of this.windowGlows) g.img.destroy();
+      this.windowImgs = [];
+      this.windowGlows = [];
+      this.windowKey = key;
+      if (win) {
+        const add = (upper: boolean) => {
+          const tex = `night-windows-${upper ? 'upper' : 'lower'}:${key}`;
+          this.ensureTexture(tex, upper ? win.upper : win.lower, () => {
+            if (this.windowKey !== key) return;
+            this.windowImgs.push({ img: this.add.image(0, 0, tex).setOrigin(0, 0).setVisible(false), upper });
+          });
+        };
+        add(false);
+        add(true);
+        if (this.makeNightLightTexture()) {
+          this.windowGlows = win.panes.map(([x, y, w, h], i) => ({
+            img: this.add.image(0, 0, 'night-light').setDepth(GLOW_DEPTH).setBlendMode(Phaser.BlendModes.ADD).setVisible(false),
+            x, y, w, h, seed: (i * 2.399) % (Math.PI * 2),
+          }));
+        }
+      }
+    }
+    if (!this.windowImgs.length && !this.windowGlows.length) return;
+    const night = this.ambience?.nightLevel ?? 0;
+    const lit = night > 0.02;
+    const t = this.lastTransform;
+    const s = t.tileW / (bg?.type === 'tilemap' ? bg.tileSize : 32);
+    for (const { img, upper } of this.windowImgs) {
+      img.setVisible(lit);
+      if (lit) img.setPosition(t.offsetX, t.offsetY).setScale(s).setAlpha(Math.min(1, night * 1.5)).setDepth(upper ? this.frontDepth - 0.5 : 8.9);
+    }
+    const still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    for (const g of this.windowGlows) {
+      g.img.setVisible(lit);
+      if (!lit) continue;
+      const flicker = still ? 1 : 0.9 + 0.06 * Math.sin(time / 210 + g.seed) + 0.04 * Math.sin(time / 67 + g.seed * 3);
+      g.img.setPosition(t.offsetX + (g.x + g.w / 2) * s, t.offsetY + (g.y + g.h / 2) * s)
+        .setScale(((g.w + 26) * s * 1.6) / 256, ((g.h + 26) * s * 1.6) / 256).setAlpha(0.6 * night * flicker);
     }
   }
 
