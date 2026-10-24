@@ -55,7 +55,7 @@ export const BOT_PROFILES: BotProfile[] = [
   // ── Easy ──────────────────────────────────────────────────────────────────
   {
     id: 'bote_john',
-    firstName: 'John', fullName: 'John Bote', gender: 'boy', grade: 'G5',
+    firstName: 'John', fullName: 'John Bote', gender: 'boy', grade: 'G4',
     school: 'Bagong Silangan Elementary School',
     userpic: '/userpics/userpics_premium/ssb3.png',
     accuracy: 0.35,
@@ -82,7 +82,7 @@ export const BOT_PROFILES: BotProfile[] = [
   // ── Mild ──────────────────────────────────────────────────────────────────
   {
     id: 'kibot_rose',
-    firstName: 'Rose', fullName: 'Rose Kibot', gender: 'girl', grade: 'G5',
+    firstName: 'Rose', fullName: 'Rose Kibot', gender: 'girl', grade: 'G6',
     school: 'Sampaloc Elementary School',
     userpic: '/userpics/userpics_premium/purplegirl.png',
     accuracy: 0.50,
@@ -95,7 +95,7 @@ export const BOT_PROFILES: BotProfile[] = [
   },
   {
     id: 'gabot_kyle',
-    firstName: 'Kyle', fullName: 'Kyle Gabot', gender: 'boy', grade: 'G5',
+    firstName: 'Kyle', fullName: 'Kyle Gabot', gender: 'boy', grade: 'G2',
     school: 'Pasig Elementary School',
     userpic: '/userpics/userpics_premium/dynokid.png',
     accuracy: 0.55,
@@ -109,7 +109,7 @@ export const BOT_PROFILES: BotProfile[] = [
   // ── Medium ────────────────────────────────────────────────────────────────
   {
     id: 'botero_chloe',
-    firstName: 'Chloe', fullName: 'Chloe Botero', gender: 'girl', grade: 'G5',
+    firstName: 'Chloe', fullName: 'Chloe Botero', gender: 'girl', grade: 'G4',
     school: 'Taguig Elementary School',
     userpic: '/userpics/userpics_premium/ssg3.png',
     accuracy: 0.60,
@@ -122,7 +122,7 @@ export const BOT_PROFILES: BotProfile[] = [
   },
   {
     id: 'cabote_josh',
-    firstName: 'Josh', fullName: 'Josh Cabote', gender: 'boy', grade: 'G5',
+    firstName: 'Josh', fullName: 'Josh Cabote', gender: 'boy', grade: 'G6',
     school: 'Cebu City Central School',
     userpic: '/userpics/userpics_premium/ssb3.png',
     accuracy: 0.65,
@@ -136,7 +136,7 @@ export const BOT_PROFILES: BotProfile[] = [
   // ── Medium-Hard ───────────────────────────────────────────────────────────
   {
     id: 'abot_ian',
-    firstName: 'Ian', fullName: 'Ian Abot', gender: 'boy', grade: 'G5',
+    firstName: 'Ian', fullName: 'Ian Abot', gender: 'boy', grade: 'G2',
     school: 'Davao City Central Elementary School',
     userpic: '/userpics/userpics_premium/dynokid.png',
     accuracy: 0.70,
@@ -150,7 +150,7 @@ export const BOT_PROFILES: BotProfile[] = [
   // ── Hard ──────────────────────────────────────────────────────────────────
   {
     id: 'sabot_kent',
-    firstName: 'Kent', fullName: 'Kent Sabot', gender: 'boy', grade: 'G5',
+    firstName: 'Kent', fullName: 'Kent Sabot', gender: 'boy', grade: 'G3',
     school: 'Iloilo Central Elementary School',
     userpic: '/userpics/userpics_premium/ssb3.png',
     accuracy: 0.75,
@@ -163,7 +163,7 @@ export const BOT_PROFILES: BotProfile[] = [
   },
   {
     id: 'labot_mark',
-    firstName: 'Mark', fullName: 'Mark Labot', gender: 'boy', grade: 'G5',
+    firstName: 'Mark', fullName: 'Mark Labot', gender: 'boy', grade: 'G3',
     school: 'Baguio City Central School',
     userpic: '/userpics/userpics_premium/dynokid.png',
     accuracy: 0.80,
