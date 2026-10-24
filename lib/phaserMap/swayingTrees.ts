@@ -86,12 +86,15 @@ export default class SwayingTrees {
     }
   }
 
-  update(now: number) {
-    const wind = (now / SWAY_PERIOD_MS) * Math.PI * 2;
+  // strength: the map's wind (1 = the usual breeze); stronger bends the canopies further and faster.
+  update(now: number, strength = 1) {
+    const wind = (now / (SWAY_PERIOD_MS / (0.5 + 0.5 * strength))) * Math.PI * 2;
+    const gusty = Math.max(0, strength - 1) * 0.2;
     for (const t of this.tiles) {
       // Leans with the wind and eases back, never far upwind.
-      const lean = 0.25 + 0.55 * Math.sin(wind - t.phase) + 0.2 * Math.sin(wind * 0.37 - t.phase * 2);
-      t.image.x = t.x + lean * t.shift * t.px;
+      const lean = 0.25 + 0.55 * Math.sin(wind - t.phase) + 0.2 * Math.sin(wind * 0.37 - t.phase * 2)
+        + gusty * Math.sin(now / 260 + t.phase * 5);
+      t.image.x = t.x + lean * t.shift * strength * t.px;
     }
   }
 

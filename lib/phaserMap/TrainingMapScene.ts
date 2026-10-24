@@ -336,6 +336,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   // swaying-grass container (see swayingGrass.ts), which sits between them.
   private tilemapLayers: (Phaser.Tilemaps.TilemapLayer | Phaser.GameObjects.Container)[] = [];
   private grass: SwayingGrass | null = null;
+  // Bushes on Objects Base that bend in the wind (only maps whose bush is listed in swayingGrass's CLUMPS).
+  private bushes: SwayingGrass | null = null;
+  // The map's wind (lib/ambience.ts `wind`): how hard the plants sway.
+  private windStrength = 1;
   private grassTile = '';
   private trees: SwayingTrees | null = null;
   private garden: GardenPlants | null = null;
@@ -408,10 +412,11 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   update(time: number) {
     this.animateTiles(time);
-    this.grass?.update(time);
-    this.trees?.update(time);
+    this.grass?.update(time, this.windStrength);
+    this.bushes?.update(time, this.windStrength);
+    this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
-    this.wildTrees?.update(time);
+    this.wildTrees?.update(time, this.windStrength);
     this.sortAgainstRoofs();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
@@ -982,6 +987,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
+    this.windStrength = state.ambience?.sky.wind ?? 1;
     const skyKey = state.ambience ? `${state.ambience.key}:${state.mapWidth}x${state.mapHeight}` : '';
     if (skyKey !== this.ambienceKey) {
       this.ambienceKey = skyKey;
@@ -1094,6 +1100,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
     this.grass = null;
+    this.bushes = null;
     this.trees = null;
     this.garden = null;
     this.wildTrees = null;
@@ -1169,6 +1176,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.setShadowDepth(detailLayer ? detailLayer.depth + SHADOW_ABOVE_DETAIL : DEFAULT_SHADOW_DEPTH);
       this.grass = detailLayer && SwayingGrass.build(this, detailLayer);
       if (this.grass) this.tilemapLayers.push(this.grass.container);
+      this.bushes = baseLayer && SwayingGrass.build(this, baseLayer);
+      if (this.bushes) this.tilemapLayers.push(this.bushes.container);
       this.trees = topLayer && SwayingTrees.build(this, topLayer, baseLayer);
       if (this.trees) this.tilemapLayers.push(this.trees.container);
       // Plants stand on the ground objects but under every player (9-10) and the trash (9).

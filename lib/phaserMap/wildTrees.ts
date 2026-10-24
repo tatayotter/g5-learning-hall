@@ -182,10 +182,14 @@ export default class WildTrees {
     return false;
   }
 
-  update(now: number) {
+  // wind: the map's wind (1 = the usual breeze); stronger bends the canopies further and faster.
+  update(now: number, wind = 1) {
     const glow = outlineAlpha(now);
+    const period = GLIDE_MS / (0.5 + 0.5 * wind);
+    const gusty = Math.max(0, wind - 1) * 0.35;
     for (const d of this.drawn.values()) {
-      if (d.canopy) d.canopy.x = d.canopyX + d.shake + (this.still ? 0 : Math.sin((now / GLIDE_MS) * Math.PI * 2 + d.phase));
+      const glide = Math.sin((now / period) * Math.PI * 2 + d.phase) + gusty * Math.sin(now / 240 + d.phase * 5);
+      if (d.canopy) d.canopy.x = d.canopyX + d.shake + (this.still ? 0 : glide * wind);
       for (const o of d.canopyOutline) o.image.x = (d.canopy?.x ?? d.canopyX) + o.dx;
       for (const o of d.outline) o.setAlpha(glow);
     }

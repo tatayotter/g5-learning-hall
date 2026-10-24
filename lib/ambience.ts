@@ -34,6 +34,9 @@ export interface Ambience {
   fireflies?: number;
   // While it rains, lightning flashes now and then.
   lightning?: boolean;
+  // How hard the wind blows the plants: 1 = the usual breeze. Above 1, grass, flowers, bushes
+  // and treetops lean further, sway faster and flutter in the gusts.
+  wind?: number;
   // Never brighter than this much night (0..1): 1 is a place that stays as dark as night all
   // day (the Unread Margins), fireflies and lights out at every hour.
   gloom?: number;
@@ -69,11 +72,12 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
     fireflies: 16,
   },
   storm: {
-    clouds: { ...BASE_CLOUDS, cover: 0.38, darkness: 0.28, color: 0x1a1f33, speed: 14 },
-    drift: { kind: 'fall', colors: [0x8a9a7a, 0x6f7f66, 0xb0b8a0], count: 12, glow: false, wind: 30 },
+    clouds: { ...BASE_CLOUDS, cover: 0.38, darkness: 0.28, color: 0x1a1f33, speed: 34 },
+    drift: { kind: 'fall', colors: [0x8a9a7a, 0x6f7f66, 0xb0b8a0], count: 18, glow: false, wind: 70 },
     sunset: 0xb8a0ff,
     rain: 0.6,
     lightning: true,
+    wind: 2,
   },
   shadow: {
     clouds: { ...BASE_CLOUDS, cover: 0.32, darkness: 0.24, color: 0x1a1030 },

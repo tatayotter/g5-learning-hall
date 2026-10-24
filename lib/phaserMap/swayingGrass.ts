@@ -31,6 +31,8 @@ const CLUMPS: Record<string, { base: number; h: number }> = {
   'LeafNature:3': { base: 26, h: 17 },
   'StormNature:2': { base: 26, h: 14 },
   'StormNature:3': { base: 26, h: 21 },
+  // The Stormrun's bush (on Objects Base): its windy map bends it too.
+  'StormNature:0': { base: 26, h: 22 },
   'ShadowNature:2': { base: 26, h: 13 },
   'ShadowNature:3': { base: 25, h: 20 },
   'LightNature:2': { base: 25, h: 18 },
@@ -99,15 +101,19 @@ export default class SwayingGrass {
     });
   }
 
-  update(now: number) {
-    const wind = (now / SWAY_PERIOD_MS) * Math.PI * 2;
+  // strength: the map's wind (lib/ambience.ts `wind`, 1 = the usual breeze). A stronger wind
+  // bends further and faster, and the gusts make each tuft flutter.
+  update(now: number, strength = 1) {
+    const wind = (now / (SWAY_PERIOD_MS / (0.5 + 0.5 * strength))) * Math.PI * 2;
+    const gusty = Math.max(0, strength - 1) * 0.3;
     for (const tuft of this.tufts.values()) {
       // Leans mostly one way (the wind's direction), with a slow per-tuft drift.
-      let lean = 0.35 + 0.5 * Math.sin(wind - tuft.phase) + 0.25 * Math.sin(wind * 0.43 + tuft.seed);
+      let lean = 0.35 + 0.5 * Math.sin(wind - tuft.phase) + 0.25 * Math.sin(wind * 0.43 + tuft.seed)
+        + gusty * Math.sin(now / 170 + tuft.seed * 3);
       const r = (now - tuft.rustleStart) / RUSTLE_MS;
       if (r < 1) lean += 1.2 * Math.sin(r * Math.PI * 4) * (1 - r);
       lean = Math.max(-1, Math.min(1, lean));
-      for (const s of tuft.slices) s.image.x = s.x + Math.round(lean * s.shift) * s.px;
+      for (const s of tuft.slices) s.image.x = s.x + Math.round(lean * s.shift * strength) * s.px;
     }
   }
 
