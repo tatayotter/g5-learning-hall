@@ -75,6 +75,8 @@ import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
 import CritterLayer, { type Habitat } from './critters';
+import GuildNpcLayer from './guildNpcs';
+import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
@@ -166,7 +168,7 @@ export interface MapCanvasSyncState {
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/phaserMap/critters.ts): key is the map. */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[] } | null;
 }
 
 interface TrackedSprite {
@@ -360,6 +362,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private highlight: MapCanvasSyncState['highlight'] = null;
   private ambience: AmbienceLayer | null = null;
   private critters: CritterLayer | null = null;
+  private npcLayer: GuildNpcLayer | null = null;
   private groundFx: GroundFx | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
@@ -406,8 +409,9 @@ export default class TrainingMapScene extends Phaser.Scene {
     super('TrainingMapScene');
   }
 
-  update(time: number) {
+  update(time: number, delta: number) {
     this.animateTiles(time);
+    this.npcLayer?.update(this.lastTransform, time, Math.min(delta, 100), this.self);
     this.grass?.update(time);
     this.trees?.update(time);
     this.garden?.update(time);
@@ -593,6 +597,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const add = (id: string, at: { x: number; y: number }) => out.push({ id, x: (at.x - t.offsetX) * k, y: (at.y - t.offsetY) * k });
     if (this.self) add('self', this.self.shadow);
     for (const [id, o] of this.others) add(id, o.shadow);
+    for (const n of this.npcLayer?.npcs ?? []) add(`npc:${n.srcKey}`, n.shadow);
     return out;
   }
 
@@ -645,6 +650,8 @@ export default class TrainingMapScene extends Phaser.Scene {
       ...(this.self ? [[this.self, 10] as [TrackedSprite, number]] : []),
       ...[...this.others.values()].map(o => [o, 9] as [TrackedSprite, number]),
     ];
+    // Guild NPCs: over the kid when standing lower on the screen, under them when higher.
+    for (const n of this.npcLayer?.npcs ?? []) players.push([n, this.self && n.y > this.self.y ? 10.05 : 9.5]);
     for (const [p, normal] of players) {
       const want = this.roofSide(p) === 'front' ? this.frontDepth + (normal - 9) * 0.1 : normal;
       if (p.image.depth !== want) p.image.setDepth(want);
@@ -656,7 +663,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private updateGhosts() {
     const layer = this.ghostLayer;
     if (!layer) return;
-    const players = [...(this.self ? [this.self] : []), ...this.others.values()];
+    const players: TrackedSprite[] = [...(this.self ? [this.self] : []), ...this.others.values(), ...(this.npcLayer?.npcs ?? [])];
     const live = new Set<Phaser.GameObjects.Sprite>();
     let any = false;
     for (const p of players) {
@@ -993,6 +1000,11 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.crittersKey = critterKey;
       this.critters?.destroy();
       this.critters = state.wildlife ? CritterLayer.build(this, state.wildlife.groups, state.wildlife.habitat) : null;
+      this.npcLayer?.destroy();
+      this.npcLayer = state.wildlife?.npcs?.length
+        ? GuildNpcLayer.build(this, state.wildlife.npcs, state.wildlife.habitat,
+          (key, url, fw, fh, onReady) => this.ensureSpritesheet(key, url, fw, fh, onReady), this.shadowDepth)
+        : null;
       this.groundFx?.destroy();
       const w = state.wildlife;
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand }) : null;

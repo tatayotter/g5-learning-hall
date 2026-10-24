@@ -23,6 +23,7 @@ import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
+import type { TownNpc } from '@/lib/townNpcs';
 import { mapSoundsOn, setMapSoundsOn, startRegionSounds, stopRegionSounds, REGION_SOUNDS } from '@/lib/regionSounds';
 import type { Habitat } from '@/lib/phaserMap/critters';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
@@ -136,7 +137,7 @@ interface MapCanvasProps {
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
   /** The map's little animals (lib/wildlife.ts). */
-  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][] } | null;
+  wildlife?: { key: string; groups: CritterGroup[]; habitat: Habitat; fx?: GroundFxKinds; sand: boolean[][]; npcs?: TownNpc[] } | null;
   /** The region whose background sounds play (lib/regionSounds.ts), with an on/off button. */
   soundRegion?: string | null;
   onPlayerClick: (userId: string) => void;

@@ -45,6 +45,7 @@ import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
+import { TOWN_NPCS } from '@/lib/townNpcs';
 import { natureDay } from '@/lib/mapNature';
 import type { InventoryMap } from '@/lib/inventory';
 import { ALL_MONSTERS } from '@/lib/monsterConfig';
@@ -740,12 +741,13 @@ export default function TrainingMap({
         setPortals(parsed.portals);
         setMapRecycler(parsed.recycler);
         setFoliage(parsed.foliage);
-        setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] ? {
+        setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || TOWN_NPCS[activeRegion.id] ? {
           key: `${activeRegion.tileArtPath}:${natureDay()}`,
           groups: WILDLIFE[activeRegion.id] ?? [],
           habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],
           sand: parsed.sand,
+          npcs: TOWN_NPCS[activeRegion.id],
         } : null);
         // Ledger's Heart persists position to the DB, so a player whose saved
         // spot no longer exists on a re-authored map (out of bounds, or now
