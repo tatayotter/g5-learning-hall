@@ -7,7 +7,7 @@
 // (onSellVeggies, hooks/useGarden.ts).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
-import { GARDEN_KEYS, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
+import { GARDEN_KEYS, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 interface RecyclerTradePanelProps {
@@ -30,11 +30,13 @@ export default function RecyclerTradePanel({
   const forSale = gardenBag ? GARDEN_KEYS.filter(k => gardenSellable(k) && (gardenBag[k] ?? 0) > 0) : [];
   const saleCount = forSale.reduce((sum, k) => sum + (gardenBag?.[k] ?? 0), 0);
   const wood = gardenBag?.[WOOD_KEY] ?? 0;
-  const shells = gardenBag?.[veggieKey('seashell')] ?? 0;
-  const veggieCount = saleCount - wood - shells;
+  // Finds (shells, crystals...) by name, every grown veggie together as "veggies".
+  const finds = VEGGIE_ORDER.filter(v => VEGGIES[v].found && (gardenBag?.[veggieKey(v)] ?? 0) > 0)
+    .map(v => ({ n: gardenBag?.[veggieKey(v)] ?? 0, noun: VEGGIES[v].found!.noun }));
+  const veggieCount = saleCount - wood - finds.reduce((sum, f) => sum + f.n, 0);
   const saleWords = [
     veggieCount > 0 && `${veggieCount} veggie${veggieCount === 1 ? '' : 's'}`,
-    shells > 0 && `${shells} shell${shells === 1 ? '' : 's'}`,
+    ...finds.map(f => `${f.n} ${f.noun}${f.n === 1 ? '' : 's'}`),
     wood > 0 && `${wood} wood`,
   ].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
   return (

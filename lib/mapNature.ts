@@ -122,13 +122,18 @@ const FLOWERS: Stamp[] = [
 ];
 // Tall-grass tufts (they sway: lib/phaserMap/swayingGrass.ts).
 const TUFTS: Stamp[] = [18, 19, 20].map(col => ({ set: 'Trees', col, row: 11, w: 1, h: 1 }));
-const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'TileSet-tide': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4, TideNature: 4, LeafNature: 4 };
+const COLUMNS: Record<string, number> = { TileSet: 64, 'TileSet-fire': 64, 'TileSet-tide': 64, Props: 32, Trees: 32, 'Town Props 2': 32, FireNature: 4, TideNature: 4, LeafNature: 4,
+  'TileSet-storm': 64, 'TileSet-shadow': 64, 'TileSet-light': 64, StormNature: 4, ShadowNature: 4, LightNature: 4 };
 
 // What grows in each region. Ledger's Heart uses the pack's own plants; the elemental regions
 // have their own trees (REGION_TREES) and plants drawn by Rowil (a small tileset per region,
 // built by maps-incoming/fire-tiles/build_fire_nature.py and the like), thinner where the land
 // is harsh.
-interface Flora { bushes: Stamp[]; smallBushes: Stamp[]; rocks: Stamp[]; flowers: Stamp[]; tufts: Stamp[]; trees: number; meadow: number }
+interface Flora {
+  bushes: Stamp[]; smallBushes: Stamp[]; rocks: Stamp[]; flowers: Stamp[]; tufts: Stamp[]; trees: number; meadow: number;
+  // More or fewer loose rocks and flowers than usual (1 = as many).
+  rockScale?: number; flowerScale?: number;
+}
 const FIRE_BUSH: Stamp = { set: 'FireNature', col: 0, row: 0, w: 1, h: 1 };
 const FLORA: Record<string, Flora> = {
   ledgers_heart: { bushes: BUSHES, smallBushes: SMALL_BUSHES, rocks: ROCKS, flowers: FLOWERS, tufts: TUFTS, trees: 1, meadow: 0.62 },
@@ -159,6 +164,30 @@ const FLORA: Record<string, Flora> = {
     flowers: [{ set: 'LeafNature', col: 3, row: 0, w: 1, h: 1 }, ...FLOWERS.slice(0, 1)],
     tufts: [...Array(4).fill({ set: 'LeafNature', col: 2, row: 0, w: 1, h: 1 }), ...TUFTS],
     trees: 1.15, meadow: 0.6,
+  },
+  // A windswept heath: few trees, its own silvery grass and bluebells, rocks strewn everywhere.
+  stormrun_reaches: {
+    bushes: [{ set: 'StormNature', col: 0, row: 0, w: 1, h: 1 }], smallBushes: [{ set: 'StormNature', col: 0, row: 0, w: 1, h: 1 }],
+    rocks: ROCKS.slice(2, 5),
+    flowers: [{ set: 'StormNature', col: 3, row: 0, w: 1, h: 1 }],
+    tufts: [{ set: 'StormNature', col: 2, row: 0, w: 1, h: 1 }],
+    trees: 0.6, meadow: 0.55, rockScale: 3, flowerScale: 0.6,
+  },
+  // A dim, crowded wood: trees right up to the narrow paths, dark bushes and grass, and mushrooms.
+  unread_margins: {
+    bushes: [{ set: 'ShadowNature', col: 0, row: 0, w: 1, h: 1 }], smallBushes: [{ set: 'ShadowNature', col: 0, row: 0, w: 1, h: 1 }],
+    rocks: [ROCKS[3], ROCKS[4], ROCKS[5]],
+    flowers: [{ set: 'ShadowNature', col: 3, row: 0, w: 1, h: 1 }],
+    tufts: [{ set: 'ShadowNature', col: 2, row: 0, w: 1, h: 1 }],
+    trees: 1.6, meadow: 0.6, flowerScale: 0.5,
+  },
+  // A bright meadow: its own golden grass and white flowers everywhere, a few trees.
+  radiant_archive: {
+    bushes: [{ set: 'LightNature', col: 0, row: 0, w: 1, h: 1 }], smallBushes: [{ set: 'LightNature', col: 0, row: 0, w: 1, h: 1 }],
+    rocks: ROCKS.slice(0, 2),
+    flowers: [{ set: 'LightNature', col: 3, row: 0, w: 1, h: 1 }],
+    tufts: [{ set: 'LightNature', col: 2, row: 0, w: 1, h: 1 }],
+    trees: 0.7, meadow: 0.58, rockScale: 0.5, flowerScale: 1.2,
   },
 };
 
@@ -335,9 +364,9 @@ export function growNature(input: NatureInput): NatureOutput {
       n++;
     }
   };
-  sprinkle(flora.rocks, Math.round(ROCKS_PER_2400 * area));
+  sprinkle(flora.rocks, Math.round(ROCKS_PER_2400 * area * (flora.rockScale ?? 1)));
   const flowers: { x: number; y: number }[] = [];
-  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora === FLORA.ledgers_heart ? 1 : flora === FLORA.rootbound_wilds ? 0.8 : 0.5)), flowers);
+  sprinkle(flora.flowers, Math.round(FLOWERS_PER_2400 * area * (flora.flowerScale ?? (flora === FLORA.ledgers_heart ? 1 : flora === FLORA.rootbound_wilds ? 0.8 : 0.5))), flowers);
 
   // ── Everything walkable must stay reachable from the spawn ──
   const solid = (x: number, y: number) => !!input.blocked?.[idx(x, y)] || !!input.base[idx(x, y)] || !!base[idx(x, y)] || trees.some(t => t.x === x && t.y === y);
