@@ -1044,7 +1044,7 @@ export default function TrainingMap({
   // opens their guild. One whose guild isn't played yet today shows a "?".
   const townNpcs = TOWN_NPCS[activeRegion.id];
   const [nearNpcId, setNearNpcId] = useState<string | null>(null);
-  const nearNpc = (onPlayGuild && townNpcs?.find(n => n.id === nearNpcId)) || null;
+  const nearNpc = (onPlayGuild && townNpcs?.find(n => n.id === nearNpcId && n.guild)) || null;
   const [guildsPlayed, setGuildsPlayed] = useState<GuildKey[] | null>(null);
   useEffect(() => {
     if (!townNpcs || offline) return;
@@ -1055,15 +1055,17 @@ export default function TrainingMap({
     return () => { cancelled = true; };
   }, [townNpcs, userId, offline]);
   const npcQuest = useMemo(
-    () => (townNpcs && guildsPlayed ? townNpcs.filter(n => !guildsPlayed.includes(n.guild)).map(n => n.id) : undefined),
+    () => (townNpcs && guildsPlayed ? townNpcs.filter(n => n.guild && !guildsPlayed.includes(n.guild)).map(n => n.id) : undefined),
     [townNpcs, guildsPlayed],
   );
   const talkToNpc = useCallback(() => {
-    if (!nearNpc || !onPlayGuild) return;
+    if (!nearNpc?.guild || !onPlayGuild) return;
     playPageFlip();
     onPlayGuild(nearNpc.guild);
   }, [nearNpc, onPlayGuild]);
   const onNpcClick = useCallback((id: string) => {
+    const hello = townNpcs?.find(n => n.id === id)?.hello;
+    if (hello) { showBarMessage(hello); return; }
     if (!onPlayGuild) return;
     if (nearNpc?.id === id) talkToNpc();
     else showBarMessage(`Walk up to ${townNpcs?.find(n => n.id === id)?.name ?? 'them'} first!`);
@@ -1170,7 +1172,7 @@ export default function TrainingMap({
           className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-2.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
         >
           {npcQuest?.includes(nearNpc.id) && <span className="text-[#ffd23f]">?</span>}
-          Play {GUILD_LABEL[nearNpc.guild]}
+          Play {nearNpc.guild && GUILD_LABEL[nearNpc.guild]}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
