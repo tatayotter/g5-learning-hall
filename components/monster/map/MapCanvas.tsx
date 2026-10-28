@@ -701,6 +701,8 @@ export default function MapCanvas({
       <div
         ref={selfWrapRef}
         data-testid="map-self-marker"
+        // FloatingJoystick.tsx steers the kid toward a held mouse cursor from here.
+        data-map-self
         className="absolute pointer-events-none flex items-center justify-center"
         style={{ left: `${leftPct(posX)}%`, top: `${topPct(posY)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
       >

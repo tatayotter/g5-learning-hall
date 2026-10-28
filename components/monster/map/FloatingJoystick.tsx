@@ -7,6 +7,9 @@
 //  - On a phone, pressing and dragging pops up a joystick where the finger first touched and
 //    steers in any direction while held. Nothing shows until the finger actually drags, and it
 //    hides again on release. The base follows a finger that drags past its rim.
+//  - With a mouse, holding the button down (or dragging) makes the kid follow the cursor, the
+//    same feel as the phone drag; letting go stops. Steers toward the cursor from where the kid
+//    is drawn (MapCanvas's [data-map-self] box), so it keeps up while the camera pans.
 //
 // Listens on the map frame itself (the element this renders into), but only to presses that
 // land on the map canvas, so buttons, name tags and panels over the map keep their own taps.
@@ -31,6 +34,10 @@ const DEAD_ZONE = 0.25;
 // FULL_PUSH of the rim and beyond.
 const MIN_SPEED = 0.45;
 const FULL_PUSH = 0.75;
+// A mouse press held this long (without letting go) starts following the cursor.
+const FOLLOW_HOLD_MS = 180;
+// Following stops once the kid is this many tiles from the cursor, so it doesn't jitter there.
+const FOLLOW_REACHED = 0.3;
 
 interface FloatingJoystickProps {
   disabled: boolean;
@@ -59,11 +66,30 @@ export default function FloatingJoystick({ disabled, setStick }: FloatingJoystic
     // Only one press at a time: a second finger (the other thumb, a palm) is ignored until
     // the first one lifts.
     let press: { id: number; touch: boolean; x: number; y: number; ax: number; ay: number; dragging: boolean; far: boolean } | null = null;
+    // Mouse follow: the cursor's latest spot, the hold timer and the steering loop.
+    let cursor = { x: 0, y: 0 };
+    let holdTimer: ReturnType<typeof setTimeout> | null = null;
+    let followRaf: number | null = null;
+    const follow = () => {
+      followRaf = requestAnimationFrame(follow);
+      const self = frame.querySelector<HTMLElement>('[data-map-self]')?.getBoundingClientRect();
+      if (!self || !self.width) return;
+      const dx = cursor.x - (self.left + self.width / 2), dy = cursor.y - (self.top + self.height / 2);
+      const dist = Math.hypot(dx, dy);
+      setStickRef.current(dist < self.width * FOLLOW_REACHED ? null : { x: dx / dist, y: dy / dist });
+    };
+    const startFollow = () => {
+      if (!press || press.dragging) return;
+      press.dragging = true;
+      follow();
+    };
 
     const stop = () => {
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
       window.removeEventListener('pointercancel', onCancel);
+      if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+      if (followRaf !== null) { cancelAnimationFrame(followRaf); followRaf = null; }
       if (press?.dragging) {
         setStickRef.current(null);
         setVisible(false);
@@ -77,8 +103,13 @@ export default function FloatingJoystick({ disabled, setStick }: FloatingJoystic
       if (!press || e.pointerId !== press.id) return;
       const moved = Math.hypot(e.clientX - press.x, e.clientY - press.y);
       if (moved >= TAP_SLOP) press.far = true;
+      if (!press.touch) {
+        cursor = { x: e.clientX, y: e.clientY };
+        if (press.far) startFollow();
+        return;
+      }
       if (!press.dragging) {
-        if (!press.touch || moved < DRAG_START) return;
+        if (moved < DRAG_START) return;
         press.dragging = true;
         setVisible(true);
       }
@@ -119,6 +150,10 @@ export default function FloatingJoystick({ disabled, setStick }: FloatingJoystic
       };
       setAnchor({ x: e.clientX, y: e.clientY });
       setKnobOffset({ x: 0, y: 0 });
+      if (!press.touch) {
+        cursor = { x: e.clientX, y: e.clientY };
+        holdTimer = setTimeout(startFollow, FOLLOW_HOLD_MS);
+      }
       window.addEventListener('pointermove', onMove);
       window.addEventListener('pointerup', onUp);
       window.addEventListener('pointercancel', onCancel);

@@ -35,8 +35,23 @@ const PLAYER_FOOTPRINT_OFFSET_Y = 0.32;
 const HALF_FOOTPRINT_W = PLAYER_FOOTPRINT_W / 2;
 const HALF_FOOTPRINT_H = PLAYER_FOOTPRINT_H / 2;
 
+// Arrow keys, and WASD on desktop (Rowil 2026-10-28). WASD by physical key (e.code), so it works
+// on any keyboard layout and with Caps Lock on.
 const KEY_TO_DIR: Record<string, Direction> = {
   ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right',
+};
+const CODE_TO_DIR: Record<string, Direction> = {
+  KeyW: 'up', KeyS: 'down', KeyA: 'left', KeyD: 'right',
+};
+const keyDir = (e: KeyboardEvent): Direction | undefined => {
+  if (KEY_TO_DIR[e.key]) return KEY_TO_DIR[e.key];
+  if (e.ctrlKey || e.metaKey || e.altKey) return undefined;
+  return CODE_TO_DIR[e.code];
+};
+// Typing a letter into a box (a name, a chat) must not walk the kid.
+const typing = (e: KeyboardEvent) => {
+  const el = e.target as HTMLElement | null;
+  return !!el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
 };
 
 interface Tile { x: number; y: number }
@@ -161,11 +176,12 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const dir = KEY_TO_DIR[e.key];
+      if (typing(e) && !KEY_TO_DIR[e.key]) return;
+      const dir = keyDir(e);
       if (dir) { heldRef.current[dir] = true; endRouteRef.current(false); }
     };
     const handleKeyUp = (e: KeyboardEvent) => {
-      const dir = KEY_TO_DIR[e.key];
+      const dir = KEY_TO_DIR[e.key] ?? CODE_TO_DIR[e.code];
       if (dir) heldRef.current[dir] = false;
     };
     window.addEventListener('keydown', handleKeyDown);
