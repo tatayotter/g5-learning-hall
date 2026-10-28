@@ -20,6 +20,7 @@ import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality'
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
@@ -133,8 +134,8 @@ interface MapCanvasProps {
   chopTree?: string | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
   highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
-  /** Guild NPCs (town) whose guild is still on today's to-do list: a glowing "?" over the name. */
-  npcQuest?: string[];
+  /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
+  npcMarks?: Record<string, NpcMark>;
   /** The guild NPC within reach of the player, or null; called when it changes. */
   onNpcNear?: (id: string | null) => void;
   /** Tapping a guild NPC's name. */
@@ -156,7 +157,7 @@ export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
-  npcQuest, onNpcNear, onNpcClick,
+  npcMarks, onNpcNear, onNpcClick,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -377,7 +378,7 @@ export default function MapCanvas({
       onMapTap,
       ambience,
       wildlife,
-      npcQuest,
+      npcMarks,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);

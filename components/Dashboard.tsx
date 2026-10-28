@@ -17,7 +17,7 @@ import { flushTrainerOutbox, pendingTrainerBattles } from '@/lib/offlineTrainers
 import { countUnsynced } from '@/lib/offlineOutbox';
 import { askToRelink, heroReadyOffline, offlineLoginSetupSnoozed, rememberHeroOnDevice } from '@/lib/deviceHeroes';
 import OfflineLoginSetup from '@/components/OfflineLoginSetup';
-import { GuildKey, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import { GuildKey, fetchDailyChecklistStreak, isQuestDayDone } from '@/lib/dailyChecklist';
 import type { TownPage } from '@/lib/townNpcs';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
@@ -66,6 +66,7 @@ import LinkParentBanner from '@/components/LinkParentBanner';
 import InstallNudge from '@/components/InstallNudge';
 import SidebarRail from '@/components/SidebarRail';
 import GameNav, { NAV_PAGES, NavBackButton } from '@/components/nav/GameNav';
+import BaylanQuestHeader from '@/components/nav/BaylanQuestHeader';
 import DailyChecklist from '@/components/DailyChecklist';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
@@ -117,6 +118,11 @@ function applyThemeClass(themeKey: string) {
 
 const NO_DAY_POOLS: Record<string, BossQuestion[]> = {};
 const NO_DAYS_DONE: Set<string> = new Set();
+
+// Read once as the page loads, before the dashboard (which can mount more than once while a hero
+// logs in) remembers its tab for the session.
+const PAGE_OPENED_ON_DEFAULT_TAB = typeof window !== 'undefined'
+  && !new URLSearchParams(window.location.search).get('tab') && !sessionStorage.getItem('activeTab');
 
 export default function Dashboard() {
   const [activeUserId, setActiveUserId] = useState<UserId | null>(null);
@@ -477,6 +483,8 @@ export default function Dashboard() {
     if (typeof window === 'undefined') return 'board';
     return new URLSearchParams(window.location.search).get('tab') || sessionStorage.getItem('activeTab') || 'board';
   });
+  // No link or remembered tab picked it: with the map as home (new nav) the game opens on the map.
+  const startedOnDefaultTab = useRef(PAGE_OPENED_ON_DEFAULT_TAB);
   useEffect(() => {
     sessionStorage.setItem('activeTab', activeTab);
   }, [activeTab]);
@@ -561,6 +569,7 @@ export default function Dashboard() {
   // A town NPC on the map opens a page (lib/townNpcs.ts). The Shop lives in the Vault tab, under
   // the real-world rewards for some kids, so the Shopkeeper scrolls straight down to it.
   const openTownPage = useCallback((page: TownPage) => {
+    if (page === 'quests') { setActiveTab('board'); return; }
     if (page === 'journal' || page === 'curios') { setActiveTab(page === 'curios' ? 'monster' : 'journal'); return; }
     setActiveTab('vault');
     if (page === 'shop') {
@@ -570,6 +579,19 @@ export default function Dashboard() {
   // The five-tab navigation (components/nav/GameNav.tsx), per kid behind the
   // new_nav flag; everyone else keeps the compass drawer.
   const newNav = useFeatureFlag(activeUserId, 'new_nav');
+  // The map is the game's home (docs/map-home.md): the game opens on the map, Baylan in town gives
+  // out the Main Quests, and the nav shows every button in town but only a few out on other maps.
+  const [mapPlace, setMapPlace] = useState<'town' | 'wild' | null>(null);
+  const [townRequest, setTownRequest] = useState(0);
+  const [curiosRequest, setCuriosRequest] = useState(0);
+  useEffect(() => {
+    if (!newNav || !startedOnDefaultTab.current) return;
+    startedOnDefaultTab.current = false;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the flag arrives after the first render
+    if (activeTab === 'board') setActiveTab('monster');
+  }, [newNav, activeTab, setActiveTab]);
+  const goHomeToTown = useCallback(() => { setActiveTab('monster'); setTownRequest(n => n + 1); }, [setActiveTab]);
+  const openCurios = useCallback(() => { setActiveTab('monster'); setCuriosRequest(n => n + 1); }, [setActiveTab]);
   const isNavPage = (NAV_PAGES as readonly string[]).includes(activeTab);
   // Where a menu page's Back goes: the last of the five tabs the kid was on.
   const lastMainTabRef = useRef('board');
@@ -744,7 +766,7 @@ export default function Dashboard() {
   // --- Term Exam Boss Fight ---
   const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
   // The phone's Back button (lib/backButton.ts): a menu page goes back to its
-  // tab, any other tab goes to Today, and Today lets Back leave the game.
+  // tab, any other tab goes to the map (home), and the map lets Back leave the game.
   // Quests, guild runs, boss fights and battles have their own way out, so
   // Back does nothing there rather than dropping the kid out mid-question.
   useBackButton(newNav);
@@ -752,7 +774,8 @@ export default function Dashboard() {
     if (activeQuest !== null || activeEventQuest !== null || activeBossFight !== null || activeGauntletDay !== null || activeGuild !== null) return true;
     if (document.body.classList.contains('battle-fullscreen-active')) return true;
     if ((NAV_PAGES as readonly string[]).includes(activeTab)) { setActiveTab(lastMainTabRef.current); return true; }
-    if (activeTab !== 'board') { setActiveTab('board'); return true; }
+    // Home is the map.
+    if (activeTab !== 'monster') { setActiveTab('monster'); return true; }
     return false;
   });
   const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
@@ -983,6 +1006,22 @@ export default function Dashboard() {
     () => ({ ...packageData, Friday: buildWeeklyReviewDay(packageData) }),
     [packageData]
   );
+  // Today's Main Quest is done (or there's none today): Baylan's "!" and the guide arrow go away,
+  // and the guild masters' "?" light up.
+  const questDoneToday = !!data && isQuestDayDone(format(new Date(), 'EEEE'), mainQuestPackageData, data.mastered_quizzes ?? []);
+  // With the map as home, finishing today's quest goes back to the map, next to Baylan, who cheers.
+  const questDoneAtStart = useRef<boolean | null>(null);
+  useEffect(() => {
+    if (activeQuest !== null) {
+      if (questDoneAtStart.current === null) questDoneAtStart.current = questDoneToday;
+      return;
+    }
+    const wasDone = questDoneAtStart.current;
+    questDoneAtStart.current = null;
+    if (!newNav || wasDone !== false || !questDoneToday) return;
+    goHomeToTown();
+    setToast({ show: true, message: "Baylan: Great job! The guild masters have side quests for you now." });
+  }, [activeQuest, questDoneToday, newNav, goHomeToTown]);
   const totalQuests = useMemo(
     () => Object.values(mainQuestPackageData).flatMap(subjects => Object.keys(subjects as object)).length,
     [mainQuestPackageData]
@@ -1446,6 +1485,12 @@ export default function Dashboard() {
           saveStatus={offlinePlayEnabled(activeUserId) ? { ...saveStatus, online } : undefined}
           onSyncNow={() => void syncNowRef.current()}
           onLogout={navLogout}
+          home={{
+            place: activeTab === 'monster' && mapPlace ? mapPlace : 'page',
+            questDone: questDoneToday,
+            onGoTown: goHomeToTown,
+            onOpenCurios: openCurios,
+          }}
         />
       ) : (
       <SidebarRail
@@ -1503,6 +1548,8 @@ export default function Dashboard() {
         {/* New nav: Today opens with the day's To-Do as a picture trail to
             the daily bonus chest, then the week's Main Quest board. */}
         {newNav && activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
+          <>
+          <BaylanQuestHeader hasQuestToday={Object.keys(mainQuestPackageData[currentDayName] ?? {}).length > 0} questDone={questDoneToday} />
           <div className="max-w-5xl mx-auto pt-3 pb-1">
             <DailyChecklist
               variant="journey"
@@ -1528,6 +1575,7 @@ export default function Dashboard() {
               onGoToEvent={() => { setActiveQuest(null); }}
             />
           </div>
+          </>
         )}
 
         {/* --- TAB A: QUEST BOARD --- */}
@@ -1757,7 +1805,8 @@ export default function Dashboard() {
 
         {/* --- TAB: ADMIN --- */}
 
-        {activeTab === 'monster' && <CurioExpertNpc key={curioGreetKey} />}
+        {/* With the map as home the Curio Expert lives in town instead of greeting every visit. */}
+        {activeTab === 'monster' && !newNav && <CurioExpertNpc key={curioGreetKey} />}
 
         {activeTab === 'monster' && (
           <MonsterGuild
@@ -1796,6 +1845,7 @@ export default function Dashboard() {
             onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
             onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
             onOpenPage={openTownPage}
+            mapHome={newNav ? { questDone: questDoneToday, townRequest, curiosRequest, onPlace: setMapPlace } : undefined}
           />
         )}
 

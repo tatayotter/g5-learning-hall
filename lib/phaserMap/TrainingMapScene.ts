@@ -77,7 +77,7 @@ import { MAP_TAP_EVENT, MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
 import type { NightWindows } from '@/lib/nightWindows';
 import CritterLayer, { type Habitat } from './critters';
-import GuildNpcLayer from './guildNpcs';
+import GuildNpcLayer, { type NpcMark } from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
@@ -167,8 +167,8 @@ export interface MapCanvasSyncState {
   chopTree?: string | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
   highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
-  /** Guild NPCs whose guild is still on today's to-do list: a glowing "?" over their name. */
-  npcQuest?: string[];
+  /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
+  npcMarks?: Record<string, NpcMark>;
   /** A tap or click on the map, as the tile under it. */
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky (cloud shadows, drifting bits, sunset): key is region + day. */
@@ -1111,7 +1111,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.wildTrees?.setPeekers(this.peekersOn);
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
-    this.npcLayer?.setQuest(state.npcQuest ?? []);
+    this.npcLayer?.setMarks(state.npcMarks ?? {});
     this.highlight = state.highlight ?? null;
     this.applyHighlight();
     this.chopTree = state.chopTree ?? null;

@@ -49,6 +49,8 @@ interface MapViewProps {
   onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
   onPlayGuild?: (guild: GuildKey) => void;
   onOpenPage?: (page: TownPage) => void;
+  spawnAt?: { x: number; y: number };
+  mapHome?: { questDone: boolean };
 }
 
 export default function MapView({
@@ -83,6 +85,8 @@ export default function MapView({
   onTrackedCurioSummoned,
   onPlayGuild,
   onOpenPage,
+  spawnAt,
+  mapHome,
 }: MapViewProps) {
   return (
     <TrainingMap
@@ -118,6 +122,8 @@ export default function MapView({
       onEnterRegion={onEnterRegion}
       onPlayGuild={onPlayGuild}
       onOpenPage={onOpenPage}
+      spawnAt={spawnAt}
+      mapHome={mapHome}
       fullscreen
     />
   );
