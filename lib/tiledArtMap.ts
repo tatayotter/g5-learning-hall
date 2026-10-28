@@ -69,6 +69,8 @@ const KNOWN_TILESET_IMAGES: Record<string, string> = {
   'TileSet-light': '/tilesets/forgotten-memories/TileSet-light.png',
   'Water-light-6frames': '/tilesets/forgotten-memories/Water-light-6frames.png',
   'LightNature': '/tilesets/region-nature/LightNature.png',
+  // The Radiant Archive's ruined pillars and rubble (maps-incoming/regions3/archive_ruins.py).
+  'ArchiveRuins': '/tilesets/region-nature/ArchiveRuins.png',
 };
 
 export interface TiledArtLayer {
