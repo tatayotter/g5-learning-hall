@@ -70,6 +70,7 @@ import BaylanQuestHeader from '@/components/nav/BaylanQuestHeader';
 import DailyChecklist from '@/components/DailyChecklist';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
+import { TUTORIALS_ON } from '@/lib/tutorial';
 import FirstCurioIntro, { isIntroTrainingPending, TRAINING_QUEST_LOG } from '@/components/intro/FirstCurioIntro';
 import { prefetchOriginStoryStart } from '@/lib/intro/storyPrefetch';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
@@ -590,6 +591,11 @@ export default function Dashboard() {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- the flag arrives after the first render
     if (activeTab === 'board') setActiveTab('monster');
   }, [newNav, activeTab, setActiveTab]);
+  const mapPanelOpen = newNav && activeTab !== 'monster';
+  useEffect(() => {
+    document.body.classList.toggle('map-panel-open', mapPanelOpen);
+    return () => document.body.classList.remove('map-panel-open');
+  }, [mapPanelOpen]);
   const goHomeToTown = useCallback(() => { setActiveTab('monster'); setTownRequest(n => n + 1); }, [setActiveTab]);
   const openCurios = useCallback(() => { setActiveTab('monster'); setCuriosRequest(n => n + 1); }, [setActiveTab]);
   const isNavPage = (NAV_PAGES as readonly string[]).includes(activeTab);
@@ -1106,7 +1112,7 @@ export default function Dashboard() {
   // Board appears.
   const boardIsCalm = activeTab === 'board' && activeQuest === null && activeEventQuest === null
     && activeBossFight === null && activeGauntletDay === null && introStart === null && !introHandoffQuest
-    && !showOnboarding && !showBossIntro && pendingEggHatches.length === 0 && hasCurio !== null;
+    && !(TUTORIALS_ON && showOnboarding) && !showBossIntro && pendingEggHatches.length === 0 && hasCurio !== null;
   const hasWon = (data?.character_stats?.xp ?? 0) > 0;
   useEffect(() => {
     if (!activeUserId || !boardIsCalm || showKeeperEgg || showKeeperEggReturn || keeperEgg === undefined) return;
@@ -1299,6 +1305,49 @@ export default function Dashboard() {
     setNotifications(prev => prev.map(n => ({ ...n, read: true })));
   };
 
+
+  // The Curio Arena and its map. With the map as home (new nav) it stays loaded, paused, under the
+  // page panels, so coming back to the map is instant and the kid is where they were.
+  const monsterGuild = (
+    <MonsterGuild
+      userId={activeUserId}
+      playerLevel={data.character_stats.level}
+      currentGold={data.character_stats.gold}
+      packageData={packageData}
+      weekStartingDate={data.week_starting_date}
+      initialView={guildInitialView}
+      onBattleWon={(kind) => updateStatsAndJournal(
+        data.character_stats, data.journal_logs,
+        data.purchased_items, data.mastery_count, data.honor_grants,
+        data.quiz_attempts || {}, data.mastered_quizzes || [],
+        data.honor_grants,
+        data.guild_sessions_count || 0,
+        (data.monster_battles_won || 0) + (kind === 'trainer' ? 1 : 0),
+        (data.sibling_battles_won || 0) + (kind === 'sibling' ? 1 : 0),
+        data.perfect_quizzes || 0,
+        (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
+      )}
+      onGoldAwarded={(amount) => playingMapOffline(activeUserId)
+        // Offline (recycler trades on the map): shown now, paid by sync_offline_map.
+        ? setCharacterStatsDirect({ ...data.character_stats, gold: data.character_stats.gold + amount })
+        : updateStatsAndJournal(
+          { ...data.character_stats, gold: data.character_stats.gold + amount },
+          data.journal_logs
+        )}
+      onGoldSynced={setCharacterStatsDirect}
+      onProgressSynced={syncCharacterStats}
+      onEggBadgeChange={setHasEggReadyCurio}
+      eggRefreshSignal={eggRefreshSignal}
+      onGraduated={() => bumpCounters({ curios_graduated: 1 })}
+      onTutored={() => bumpCounters({ tutor_rerolls: 1 })}
+      onTradeConfirmed={() => bumpCounters({ trades_completed: 1 })}
+      onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
+      onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
+      onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+      onOpenPage={openTownPage}
+      mapHome={newNav ? { questDone: questDoneToday, townRequest, curiosRequest, onPlace: setMapPlace, paused: mapPanelOpen } : undefined}
+    />
+  );
 
   return (
     <>
@@ -1534,9 +1583,12 @@ export default function Dashboard() {
         {/* Tab switches from the sidebar rail fade/slide the content area
             instead of snapping — keyed on activeTab only, so in-tab state
             (quest view, quiz phase) doesn't retrigger it. */}
+        {newNav && monsterGuild}
         <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
+          // With the map as home, every page opens as a panel over the map.
+          className={mapPanelOpen ? 'map-home-panel' : undefined}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
@@ -1808,46 +1860,8 @@ export default function Dashboard() {
         {/* With the map as home the Curio Expert lives in town instead of greeting every visit. */}
         {activeTab === 'monster' && !newNav && <CurioExpertNpc key={curioGreetKey} />}
 
-        {activeTab === 'monster' && (
-          <MonsterGuild
-            userId={activeUserId}
-            playerLevel={data.character_stats.level}
-            currentGold={data.character_stats.gold}
-            packageData={packageData}
-            weekStartingDate={data.week_starting_date}
-            initialView={guildInitialView}
-            onBattleWon={(kind) => updateStatsAndJournal(
-              data.character_stats, data.journal_logs,
-              data.purchased_items, data.mastery_count, data.honor_grants,
-              data.quiz_attempts || {}, data.mastered_quizzes || [],
-              data.honor_grants,
-              data.guild_sessions_count || 0,
-              (data.monster_battles_won || 0) + (kind === 'trainer' ? 1 : 0),
-              (data.sibling_battles_won || 0) + (kind === 'sibling' ? 1 : 0),
-              data.perfect_quizzes || 0,
-              (data.dummy_battles_won || 0) + (kind === 'dummy' ? 1 : 0)
-            )}
-            onGoldAwarded={(amount) => playingMapOffline(activeUserId)
-              // Offline (recycler trades on the map): shown now, paid by sync_offline_map.
-              ? setCharacterStatsDirect({ ...data.character_stats, gold: data.character_stats.gold + amount })
-              : updateStatsAndJournal(
-                { ...data.character_stats, gold: data.character_stats.gold + amount },
-                data.journal_logs
-              )}
-            onGoldSynced={setCharacterStatsDirect}
-            onProgressSynced={syncCharacterStats}
-            onEggBadgeChange={setHasEggReadyCurio}
-            eggRefreshSignal={eggRefreshSignal}
-            onGraduated={() => bumpCounters({ curios_graduated: 1 })}
-            onTutored={() => bumpCounters({ tutor_rerolls: 1 })}
-            onTradeConfirmed={() => bumpCounters({ trades_completed: 1 })}
-            onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
-            onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
-            onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
-            onOpenPage={openTownPage}
-            mapHome={newNav ? { questDone: questDoneToday, townRequest, curiosRequest, onPlace: setMapPlace } : undefined}
-          />
-        )}
+        {/* With the map as home it stays loaded under every page (monsterGuild above). */}
+        {!newNav && activeTab === 'monster' && monsterGuild}
 
         {/* --- TAB: CODEX --- */}
         {activeTab === 'codex' && <CodexPanel />}

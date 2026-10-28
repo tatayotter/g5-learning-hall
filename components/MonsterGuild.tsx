@@ -131,6 +131,8 @@ export interface MapHome {
   curiosRequest: number;
   /** Where the kid is: in town, out on another map, or not on the map (an arena page, a battle). */
   onPlace: (place: 'town' | 'wild' | null) => void;
+  /** A page is open over the map: the map sleeps and the kid can't walk. */
+  paused?: boolean;
 }
 
 // The first time a day the map opens as home, the kid starts in town next to Baylan; after that
@@ -1739,6 +1741,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onEnterRegion={enterRegion}
           spawnAt={activeRegion === 'town' && townHome ? TOWN_HOME_SPOT : undefined}
           mapHome={mapHome ? { questDone: mapHome.questDone } : undefined}
+          paused={mapHome?.paused}
           inventory={inventory}
           onBattleStatePatch={patchBattleState}
           onTrackedCurioSummoned={handleTrackedCurioSummoned}

@@ -51,6 +51,7 @@ interface MapViewProps {
   onOpenPage?: (page: TownPage) => void;
   spawnAt?: { x: number; y: number };
   mapHome?: { questDone: boolean };
+  paused?: boolean;
 }
 
 export default function MapView({
@@ -87,6 +88,7 @@ export default function MapView({
   onOpenPage,
   spawnAt,
   mapHome,
+  paused,
 }: MapViewProps) {
   return (
     <TrainingMap
@@ -124,6 +126,7 @@ export default function MapView({
       onOpenPage={onOpenPage}
       spawnAt={spawnAt}
       mapHome={mapHome}
+      paused={paused}
       fullscreen
     />
   );

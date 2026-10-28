@@ -1808,3 +1808,43 @@ body.new-nav-rail .arena-fab { bottom: auto; top: 3.25rem; }
 @media (prefers-reduced-motion: reduce) {
   .chop-shake, .chop-pip-pop { animation: none; }
 }
+
+/* Map as home (new nav): every page opens as a parchment panel over the map,
+   which stays loaded (and paused) underneath. A game moment that hides the
+   nav (quiz, battle) gets the whole screen. */
+body.new-nav .map-home-panel {
+  position: fixed;
+  z-index: 85;
+  top: 3.75rem;
+  left: calc(var(--nav-left) + 0.75rem);
+  right: 0.75rem;
+  bottom: calc(var(--nav-bottom) + 0.75rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  background: #ffffff;
+  color: #2a1505;
+  border: 3px solid #8b5e2a;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(26, 13, 5, 0.45);
+}
+@media (min-width: 1024px) {
+  body.new-nav .map-home-panel { top: 5rem; padding: 1.5rem 2rem; }
+}
+body.new-nav.new-nav-hidden .map-home-panel {
+  inset: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body.map-panel-open .arena-fab,
+body.map-panel-open .map-joystick-wrap,
+body.map-panel-open .map-hotbar { display: none; }
+/* The map dims behind a panel, and its own buttons can't be tapped. */
+body.map-panel-open .map-stage-full::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: rgba(26, 13, 5, 0.35);
+}

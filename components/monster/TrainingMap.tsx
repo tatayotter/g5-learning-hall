@@ -218,6 +218,8 @@ interface TrainingMapProps {
   /** The map is the game's home (new nav): Baylan's "!" for today's Main Quest, the guild
    *  masters' "?" grey until it's done, and a gold arrow toward Baylan meanwhile. */
   mapHome?: { questDone: boolean };
+  /** A page is open over the map (map as home): the map sleeps and the kid can't walk. */
+  paused?: boolean;
   // Bag contents, for the map item slots (Tracking Scrolls).
   inventory: InventoryMap;
   // Merges fields into MonsterGuild's battleState without spreading a stale copy.
@@ -230,11 +232,13 @@ export default function TrainingMap({
   userId, battleState, userMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
-  liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen, spawnAt, mapHome,
+  liveBattleInbox, mapPresence, movementLocked: movementLockedProp, walkLockActive, monsterDisplay,
+  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen, spawnAt, mapHome, paused,
   inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
   const offline = useIsOffline();
+  // A page open over the map locks walking like any panel on the map does.
+  const movementLocked = movementLockedProp || !!paused;
   // Wild veggies and trees (garden switch): plants to pick, trees to chop, and their stacks in the bag.
   const gardenRegion = regionId ?? 'ledgers_heart';
   // Trees on today's map (lib/mapNature.ts), once it has loaded.
@@ -1235,6 +1239,7 @@ export default function TrainingMap({
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
         npcMarks={npcMarks}
+        paused={paused}
         onNpcNear={setNearNpcId}
         onNpcClick={onNpcClick}
         onMapTap={handleMapTap}

@@ -13,6 +13,10 @@
 
 const PREFIX = 'tutorial_seen';
 
+/** The spotlight tutorials are off while the map-first game gets a new one
+ *  (Rowil, 2026-10-28). Flip back to true to bring the old ones back. */
+export const TUTORIALS_ON = false;
+
 function storageKey(tabKey: string, userId: string): string {
   return `${PREFIX}:${tabKey}:${userId}`;
 }

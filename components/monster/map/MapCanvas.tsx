@@ -141,6 +141,8 @@ interface MapCanvasProps {
   /** Tapping a guild NPC's name. */
   // `at`: where the NPC stands now (tile, feet), so a tap can walk up to it.
   onNpcClick?: (id: string, at?: { x: number; y: number }) => void;
+  /** A page is open over the map: stop drawing frames until it closes. */
+  paused?: boolean;
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
@@ -157,7 +159,7 @@ export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
-  npcMarks, onNpcNear, onNpcClick,
+  npcMarks, onNpcNear, onNpcClick, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -234,6 +236,7 @@ export default function MapCanvas({
     return () => el.removeEventListener('wheel', onWheel);
   }, [changeZoom]);
   const gameRef = useRef<import('phaser').Game | null>(null);
+  const pausedRef = useRef(!!paused);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
   // Direct DOM target for the self name-tag/status-icon wrapper — positioned
   // imperatively every animation frame (see the rAF effect below), bypassing
@@ -333,6 +336,7 @@ export default function MapCanvas({
       // Scene queues this (via its own `ready` guard) until create() has
       // actually run — safe to call immediately.
       if (latestStateRef.current) scene.sync(latestStateRef.current);
+      if (pausedRef.current) gameRef.current.loop.sleep();
     })();
 
     return () => {
@@ -343,6 +347,14 @@ export default function MapCanvas({
     };
     // Game is created once; all subsequent updates flow through sync() below.
   }, []);
+
+  // A page open over the map hides it, so the game loop sleeps until it closes.
+  useEffect(() => {
+    pausedRef.current = !!paused;
+    const loop = gameRef.current?.loop;
+    if (!loop) return;
+    if (paused) loop.sleep(); else loop.wake();
+  }, [paused]);
 
   useEffect(() => {
     const others: MapCanvasPlayer[] = Object.values(onlinePlayers).map(p => ({
