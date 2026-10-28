@@ -84,6 +84,7 @@ import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer, { type NpcMark } from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
+import ScrollGlow, { type ScrollFate } from './scrollGlow';
 import GroundTexture from './groundTexture';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
@@ -157,6 +158,10 @@ export interface MapCanvasSyncState {
   visibleCanvasBottom?: number;
   /** Tilemap camera zoom (player-adjustable); defaults to TILE_ART_ZOOM. */
   zoom?: number;
+  /** Question scrolls on the map, as tiles (lib/phaserMap/scrollGlow.ts). */
+  scrolls?: { id: number; x: number; y: number }[];
+  /** How each answered scroll ended (right or wrong), so its ending plays as it leaves. */
+  scrollFates?: Record<number, ScrollFate>;
   /** Trash items to render below the foliage layer (depth 9). */
   trashItems?: Array<{ id: string; type: string; x: number; y: number }>;
   /** IDs of trash items currently in pickup animation. */
@@ -177,7 +182,7 @@ export interface MapCanvasSyncState {
   /** The latest pickaxe or shovel swing at a find. */
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
   npcMarks?: Record<string, NpcMark>;
   /** A tap or click on the map, as the tile under it. */
@@ -368,6 +373,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // A floor drawn over Ground Detail (the town's fountain plaza): shadows on it are lifted over it.
   private floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private groundFx: GroundFx | null = null;
+  private scrollGlow: ScrollGlow | null = null;
   // The texture on the plain ground (see groundTexture.ts).
   private groundTexture: GroundTexture | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
@@ -443,6 +449,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateWindows(time);
     this.updateExits(time);
     this.updateWalkMark();
+    this.scrollGlow?.update(this.lastTransform, time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.windStrength);
@@ -702,6 +709,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
     this.npcLayer?.setHighlight(h?.kind === 'npc' ? h.id : null);
+    this.scrollGlow?.setHighlight(h?.kind === 'scroll' ? Number(h.id) : null);
   }
 
   // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
@@ -974,6 +982,17 @@ export default class TrainingMapScene extends Phaser.Scene {
     return { px: t.offsetX + (x + 0.5) * t.tileW, py: t.offsetY + (y + 0.5) * t.tileH, w: t.tileW, h: t.tileH };
   }
 
+  private applyScrolls(state: MapCanvasSyncState) {
+    if (!this.scrollGlow) {
+      // Pixel art (48 px wide): drawn with hard pixels, one art pixel per screen pixel at the usual zoom.
+      this.scrollGlow = new ScrollGlow(this, onReady => this.ensureTexture('scroll:art', '/sprite/question-scroll.png', () => {
+        this.textures.get('scroll:art').setFilter(Phaser.Textures.FilterMode.NEAREST);
+        onReady('scroll:art');
+      }));
+    }
+    this.scrollGlow.setScrolls(state.scrolls ?? [], state.scrollFates);
+  }
+
   private ensureTexture(key: string, url: string, onReady: () => void) {
     if (this.textures.exists(key)) {
       onReady();
@@ -1085,6 +1104,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyDustPuffs(state);
     this.applyTrashItems(state, this.lastTransform);
     this.applyRecycler(state, this.lastTransform);
+    this.applyScrolls(state);
     this.gardenPlants = state.gardenPlants ?? [];
     this.garden?.setPlants(this.gardenPlants);
     this.wildTreeSprites = state.wildTrees ?? [];

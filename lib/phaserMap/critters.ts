@@ -62,6 +62,8 @@ const WISP_COLORS: Record<WispColor, { W: string; Y: string; y: string; o: strin
   fire: { W: '#fff6d0', Y: '#ffd24a', y: '#ffa030', o: '#e0501e', glow: ['rgba(255,170,60,0.55)', 'rgba(255,110,30,0.2)', 'rgba(255,80,20,0)'] },
   violet: { W: '#f6eaff', Y: '#d2a6ff', y: '#a46cf4', o: '#6a36c8', glow: ['rgba(190,130,255,0.55)', 'rgba(140,80,240,0.2)', 'rgba(110,50,220,0)'] },
   cyan: { W: '#eafffe', Y: '#9ef4ff', y: '#4cd4ec', o: '#1e8eb8', glow: ['rgba(120,240,255,0.55)', 'rgba(50,190,230,0.2)', 'rgba(30,150,210,0)'] },
+  ash: { W: '#d8d8d8', Y: '#a8a8a8', y: '#848484', o: '#5e5e5e', glow: ['rgba(160,160,160,0.3)', 'rgba(120,120,120,0.1)', 'rgba(100,100,100,0)'] },
+  gold: { W: '#fffbe8', Y: '#ffe680', y: '#ffc23c', o: '#e88a1c', glow: ['rgba(255,214,110,0.6)', 'rgba(255,170,50,0.22)', 'rgba(255,140,30,0)'] },
 };
 const ART: Record<string, string[]> = {
   'dragonfly0': ['.ww.ww.', '..w.w..', 'BbbbbHH', '..w.w..', '.ww.ww.'],
@@ -74,7 +76,8 @@ const ART: Record<string, string[]> = {
   'crab1': ['c.e.e.c', 'crRRRrc', '.rrrrr.', '.g.g.g.'],
 };
 
-function makeTextures(scene: Phaser.Scene) {
+// Also used by the question scrolls' glow (scrollGlow.ts): critter:wisp_<color><frame> and critter:glow_<color>.
+export function makeTextures(scene: Phaser.Scene) {
   for (const [name, rows] of Object.entries(ART)) {
     const key = `critter:${name}`;
     if (scene.textures.exists(key)) continue;
