@@ -15,6 +15,8 @@
 // This hook only ever represents the local player.
 import { useEffect, useRef, useState } from 'react';
 import type { MapTile } from '@/lib/regions';
+import { findPath } from '@/lib/mapPath';
+import { MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
 
 export type Direction = 'up' | 'down' | 'left' | 'right';
 
@@ -33,8 +35,23 @@ const PLAYER_FOOTPRINT_OFFSET_Y = 0.32;
 const HALF_FOOTPRINT_W = PLAYER_FOOTPRINT_W / 2;
 const HALF_FOOTPRINT_H = PLAYER_FOOTPRINT_H / 2;
 
+// Arrow keys, and WASD on desktop (Rowil 2026-10-28). WASD by physical key (e.code), so it works
+// on any keyboard layout and with Caps Lock on.
 const KEY_TO_DIR: Record<string, Direction> = {
   ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right',
+};
+const CODE_TO_DIR: Record<string, Direction> = {
+  KeyW: 'up', KeyS: 'down', KeyA: 'left', KeyD: 'right',
+};
+const keyDir = (e: KeyboardEvent): Direction | undefined => {
+  if (KEY_TO_DIR[e.key]) return KEY_TO_DIR[e.key];
+  if (e.ctrlKey || e.metaKey || e.altKey) return undefined;
+  return CODE_TO_DIR[e.code];
+};
+// Typing a letter into a box (a name, a chat) must not walk the kid.
+const typing = (e: KeyboardEvent) => {
+  const el = e.target as HTMLElement | null;
+  return !!el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
 };
 
 interface Tile { x: number; y: number }
@@ -65,8 +82,21 @@ export interface ContinuousMovementHandle {
   // whatever direction was last faced, rather than snapping back to left.
   isFacingRight(): boolean;
   setDirectionPressed(dir: Direction, pressed: boolean): void;
+  // The touch joystick's push (components/monster/map/FloatingJoystick.tsx): any angle, length up
+  // to 1; null when let go. Wins over held keys while set.
+  setStick(v: { x: number; y: number } | null): void;
+  // Tap-to-walk (Rowil 2026-10-28): walk around walls to the nearest of `goals` (or as close
+  // as the kid can get), then call onArrive if a goal was reached. Any key or joystick push,
+  // a new walk, or movement switching off cancels it (onArrive is then dropped).
+  walkTo(goals: Tile[], onArrive?: () => void): void;
+  cancelWalk(): void;
   resetTo(tile: Tile): void;
 }
+
+// Under this much sideways push the joystick keeps the sprite's facing (nearly straight up/down).
+const FACE_TURN_MIN = 0.2;
+// Following a route and not moving for this long (something stepped in the way): give up.
+const STUCK_SEC = 0.3;
 
 function isBlocked(
   map: MapTile[][], mapWidth: number, mapHeight: number,
@@ -118,6 +148,17 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
   const wasBlockedRef = useRef(false);
   const lastTsRef = useRef<number | null>(null);
   const rafRef = useRef<number | null>(null);
+  const stickRef = useRef<{ x: number; y: number } | null>(null);
+  // The route being walked: tile-center points (smoothed), and what to do on arrival.
+  const routeRef = useRef<{ points: { x: number; y: number }[]; reaches: boolean; onArrive?: () => void; stuck: number } | null>(null);
+  const endRoute = (arrived: boolean) => {
+    const route = routeRef.current;
+    if (!route) return;
+    routeRef.current = null;
+    window.dispatchEvent(new CustomEvent(MAP_WALK_TARGET_EVENT, { detail: null }));
+    if (arrived && route.reaches) route.onArrive?.();
+  };
+  const endRouteRef = useRef(endRoute);
 
   useEffect(() => {
     enabledRef.current = opts.enabled;
@@ -127,17 +168,20 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
       // would resume movement instantly on re-enable, before any new
       // keypress, since the browser never fired a keyup for it.
       heldRef.current = { up: false, down: false, left: false, right: false };
+      stickRef.current = null;
       isMovingRef.current = false;
+      endRouteRef.current(false);
     }
   }, [opts.enabled]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const dir = KEY_TO_DIR[e.key];
-      if (dir) heldRef.current[dir] = true;
+      if (typing(e) && !KEY_TO_DIR[e.key]) return;
+      const dir = keyDir(e);
+      if (dir) { heldRef.current[dir] = true; endRouteRef.current(false); }
     };
     const handleKeyUp = (e: KeyboardEvent) => {
-      const dir = KEY_TO_DIR[e.key];
+      const dir = KEY_TO_DIR[e.key] ?? CODE_TO_DIR[e.code];
       if (dir) heldRef.current[dir] = false;
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -160,21 +204,36 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
       const held = heldRef.current;
       let dx = (held.right ? 1 : 0) - (held.left ? 1 : 0);
       let dy = (held.down ? 1 : 0) - (held.up ? 1 : 0);
-      const hasInput = dx !== 0 || dy !== 0;
-      // Only horizontal input changes facing — holding straight up/down (or
-      // standing still) keeps whatever direction was last faced.
-      if (dx > 0) facingRightRef.current = true;
-      else if (dx < 0) facingRightRef.current = false;
       if (dx !== 0 && dy !== 0) {
         const inv = Math.SQRT1_2;
         dx *= inv; dy *= inv;
       }
+      const stick = stickRef.current;
+      if (stick) { dx = stick.x; dy = stick.y; }
 
       const map = mapRef.current;
       const mapWidth = mapWidthRef.current;
       const mapHeight = mapHeightRef.current;
       const pos = posRef.current;
-      const step = SPEED_TILES_PER_SEC * dt;
+      let step = SPEED_TILES_PER_SEC * dt;
+
+      // No key or stick: follow the tap-to-walk route, if any, toward its next point.
+      const route = dx === 0 && dy === 0 ? routeRef.current : null;
+      if (route) {
+        while (route.points.length && Math.hypot(route.points[0].x - pos.x, route.points[0].y - pos.y) < 0.02) route.points.shift();
+        const next = route.points[0];
+        if (next) {
+          const ddx = next.x - pos.x, ddy = next.y - pos.y;
+          const dist = Math.hypot(ddx, ddy);
+          dx = ddx / dist; dy = ddy / dist;
+          step = Math.min(step, dist);
+        }
+      }
+      const hasInput = dx !== 0 || dy !== 0;
+      // Only sideways input changes facing — going (nearly) straight up/down, or standing
+      // still, keeps whatever direction was last faced.
+      if (dx > FACE_TURN_MIN) facingRightRef.current = true;
+      else if (dx < -FACE_TURN_MIN) facingRightRef.current = false;
 
       let moved = false;
       let pushedAgainst: Tile | null = null;
@@ -199,7 +258,8 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
 
       isMovingRef.current = moved;
 
-      const blockedNow = hasInput && !moved;
+      // A route that runs into something (a bot or a closing gap) just stops, without the bump.
+      const blockedNow = hasInput && !moved && !route;
       if (blockedNow && !wasBlockedRef.current && pushedAgainst) onBlockedRef.current(pushedAgainst);
       wasBlockedRef.current = blockedNow;
 
@@ -210,6 +270,12 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
         const newTile = { x: tileX, y: tileY };
         prevTileRef.current = newTile;
         onTileCrossedRef.current(newTile, prev);
+      }
+
+      if (route && routeRef.current === route) {
+        route.stuck = moved ? 0 : route.stuck + dt;
+        if (!route.points.length) endRouteRef.current(true);
+        else if (route.stuck > STUCK_SEC) endRouteRef.current(false);
       }
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -222,8 +288,55 @@ export function useContinuousMovement(opts: ContinuousMovementOptions): Continuo
     getFloatPos: () => ({ x: posRef.current.x, y: posRef.current.y }),
     isMoving: () => isMovingRef.current,
     isFacingRight: () => facingRightRef.current,
-    setDirectionPressed: (dir, pressed) => { heldRef.current[dir] = pressed; },
+    setDirectionPressed: (dir, pressed) => {
+      heldRef.current[dir] = pressed;
+      if (pressed) endRouteRef.current(false);
+    },
+    setStick: (v) => {
+      stickRef.current = v;
+      if (v) endRouteRef.current(false);
+    },
+    walkTo: (goals, onArrive) => {
+      endRouteRef.current(false);
+      if (!enabledRef.current || !goals.length) return;
+      const map = mapRef.current, w = mapWidthRef.current, h = mapHeightRef.current;
+      const extra = extraBlockedRef.current;
+      const open = (x: number, y: number) =>
+        x >= 0 && y >= 0 && x < w && y < h && map[y]?.[x]?.type !== 'wall' && !extra?.some(t => t.x === x && t.y === y);
+      const pos = posRef.current;
+      // Where the feet are is the tile the kid stands on.
+      const start = { x: Math.floor(pos.x), y: Math.floor(pos.y + PLAYER_FOOTPRINT_OFFSET_Y) };
+      const tiles = findPath(open, w, h, start, goals);
+      const last = tiles[tiles.length - 1] ?? start;
+      const reaches = goals.some(g => g.x === last.x && g.y === last.y);
+      if (!tiles.length) {
+        if (reaches) onArrive?.();
+        return;
+      }
+      // Cut corners where the way is clear, so the walk is straight lines, not tile steps.
+      const points = tiles.map(t => ({ x: t.x + 0.5, y: t.y + 0.5 }));
+      const clear = (a: { x: number; y: number }, b: { x: number; y: number }) => {
+        const n = Math.ceil(Math.hypot(b.x - a.x, b.y - a.y) / 0.05);
+        for (let i = 1; i <= n; i++) {
+          if (isBlocked(map, w, h, a.x + ((b.x - a.x) * i) / n, a.y + ((b.y - a.y) * i) / n, extra)) return false;
+        }
+        return true;
+      };
+      const smooth: { x: number; y: number }[] = [];
+      let from = { x: pos.x, y: pos.y };
+      for (let i = 0; i < points.length;) {
+        let j = Math.min(points.length - 1, i + 16);
+        while (j > i && !clear(from, points[j])) j--;
+        smooth.push(points[j]);
+        from = points[j];
+        i = j + 1;
+      }
+      routeRef.current = { points: smooth, reaches, onArrive, stuck: 0 };
+      window.dispatchEvent(new CustomEvent(MAP_WALK_TARGET_EVENT, { detail: last }));
+    },
+    cancelWalk: () => endRouteRef.current(false),
     resetTo: (tile: Tile) => {
+      endRouteRef.current(false);
       posRef.current = { x: tile.x + 0.5, y: tile.y + 0.5 };
       prevTileRef.current = { x: tile.x, y: tile.y };
       isMovingRef.current = false;

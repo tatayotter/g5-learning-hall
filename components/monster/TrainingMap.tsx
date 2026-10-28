@@ -28,6 +28,7 @@ import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
+import { tilesAround } from '@/lib/mapPath';
 import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
@@ -682,20 +683,6 @@ export default function TrainingMap({
     pulse(setBumping);
   }, []);
 
-  // A tap on the map: on a plant or tree in reach, use it; on one further off, say to walk up.
-  const handleMapTap = useCallback((tx: number, ty: number) => {
-    if (!garden.on || activeScroll || activePlant || activeTree || movementLocked) return;
-    const plantCovers = (p: { x: number; y: number; veggie: PlantView['veggie'] }) =>
-      p.x === tx && (p.y === ty || (VEGGIES[p.veggie].tall && p.y - 1 === ty));
-    // A tree's art spans about three tiles across and four up from its trunk.
-    const treeCovers = (t: { x: number; y: number }) => Math.abs(t.x - tx) <= 1 && ty <= t.y && ty >= t.y - 4;
-    const hit = inReach.find(o => (o.kind === 'plant' ? plantCovers(o.plant) : treeCovers(o.tree)));
-    if (hit) { interact(hit); return; }
-    if (garden.plants.some(plantCovers) || garden.trees.some(t => t.ready && treeCovers(t))) {
-      showBarMessage('Walk up next to it first!');
-    }
-  }, [garden.on, garden.plants, garden.trees, inReach, interact, showBarMessage, activeScroll, activePlant, activeTree, movementLocked]);
-
   // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
   const panelOpen = !!(activeScroll || activePlant || activeTree || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
   useEffect(() => {
@@ -1034,10 +1021,28 @@ export default function TrainingMap({
   const goThroughExit = useCallback(() => {
     if (nearExit) handleTileEnter(nearExit.tile, undefined, true);
   }, [nearExit, handleTileEnter]);
+  // Tap-to-walk (Rowil 2026-10-28): a tap on the map walks the kid there around walls (the
+  // nearest open spot when the tap lands on a wall); a tap on a tree, plant, exit, guild master
+  // or the Recycler walks up to it and uses it. The route is hooks/useContinuousMovement.ts's.
+  const canWalk = useCallback((x: number, y: number) => {
+    const t = map[y]?.[x];
+    return !!t && t.type !== 'wall' && !(recyclerTile && recyclerTile.x === x && recyclerTile.y === y);
+  }, [map, recyclerTile]);
+  const walkToExit = useCallback((g: (typeof exitGroups)[number]) => {
+    const goals = g.tiles.filter(t => canWalk(t.x, t.y));
+    contMove.walkTo(goals, () => {
+      const at = contMove.getFloatPos();
+      const tile = g.tiles.reduce((best, t) => Math.hypot(t.x + 0.5 - at.x, t.y + 0.5 - at.y) < Math.hypot(best.x + 0.5 - at.x, best.y + 0.5 - at.y) ? t : best);
+      handleTileEnter(tile, undefined, true);
+    });
+  }, [canWalk, contMove, handleTileEnter]);
   const onExitLabelClick = useCallback((regionId: string) => {
-    if (nearExit?.regionId === regionId) goThroughExit();
-    else showBarMessage('Walk up to the exit first!');
-  }, [nearExit, goThroughExit, showBarMessage]);
+    if (nearExit?.regionId === regionId) { goThroughExit(); return; }
+    const groups = exitGroups.filter(g => g.regionId === regionId);
+    const far = (g: (typeof exitGroups)[number]) => Math.min(...g.tiles.map(t => Math.hypot(t.x - posX, t.y - posY)));
+    const g = groups.sort((a, b) => far(a) - far(b))[0];
+    if (g) walkToExit(g);
+  }, [nearExit, goThroughExit, exitGroups, posX, posY, walkToExit]);
   // Guild masters in town (lib/townNpcs.ts): walk up, then E, the button or a tap on the name
   // opens their guild. One whose guild isn't played yet today shows a "?". The Shopkeeper and
   // the Curio Expert open their page the same way (no "?").
@@ -1061,13 +1066,20 @@ export default function TrainingMap({
     if (nearNpc?.guild && onPlayGuild) { playPageFlip(); onPlayGuild(nearNpc.guild); }
     else if (nearNpc?.opens && onOpenPage) { playPageFlip(); onOpenPage(nearNpc.opens); }
   }, [nearNpc, onPlayGuild, onOpenPage]);
-  const onNpcClick = useCallback((id: string) => {
+  const onNpcClick = useCallback((id: string, at?: { x: number; y: number }) => {
     const npc = townNpcs?.find(n => n.id === id);
     if (npc?.hello) { showBarMessage(npc.hello); return; }
-    if (!(npc?.guild && onPlayGuild) && !(npc?.opens && onOpenPage)) return;
-    if (nearNpc?.id === id) talkToNpc();
-    else showBarMessage(`Walk up to ${npc?.name ?? 'them'} first!`);
-  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, showBarMessage]);
+    const guild = onPlayGuild ? npc?.guild : undefined;
+    const opens = onOpenPage ? npc?.opens : undefined;
+    if (!guild && !opens) return;
+    if (nearNpc?.id === id) { talkToNpc(); return; }
+    if (!at) return;
+    contMove.walkTo(tilesAround(Math.floor(at.x), Math.floor(at.y), canWalk), () => {
+      playPageFlip();
+      if (guild) onPlayGuild!(guild);
+      else if (opens) onOpenPage!(opens);
+    });
+  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, showBarMessage, contMove, canWalk]);
   useEffect(() => {
     if (!nearNpc || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1090,6 +1102,49 @@ export default function TrainingMap({
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [nearExit, nearby, inReach.length, panelOpen, nearNpc, goThroughExit]);
+  const handleMapTap = useCallback((tx: number, ty: number) => {
+    if (panelOpen || movementLocked) return;
+    if (garden.on) {
+      const plantCovers = (p: { x: number; y: number; veggie: PlantView['veggie'] }) =>
+        p.x === tx && (p.y === ty || (VEGGIES[p.veggie].tall && p.y - 1 === ty));
+      // A tree's art spans about three tiles across and four up from its trunk.
+      const treeCovers = (t: { x: number; y: number }) => Math.abs(t.x - tx) <= 1 && ty <= t.y && ty >= t.y - 4;
+      const hit = inReach.find(o => (o.kind === 'plant' ? plantCovers(o.plant) : o.tree.ready && treeCovers(o.tree)));
+      if (hit) { interact(hit); return; }
+      const plant = garden.plants.find(plantCovers);
+      if (plant) {
+        // Not ready yet: just say so, no walk.
+        if (!plant.ripe) { openPlant(plant); return; }
+        const goals = [{ x: plant.x, y: plant.y }, ...tilesAround(plant.x, plant.y, canWalk)].filter(t => canWalk(t.x, t.y));
+        contMove.walkTo(goals, () => openPlant(plant));
+        return;
+      }
+      // Stumps don't count: a tap on one is a tap on the ground.
+      const tree = garden.trees.filter(t => t.ready && treeCovers(t))
+        .sort((a, b) => Math.abs(a.x - tx) + Math.abs(a.y - ty) - Math.abs(b.x - tx) - Math.abs(b.y - ty))[0];
+      if (tree) {
+        contMove.walkTo(tilesAround(tree.x, tree.y, canWalk), () => openTree(tree));
+        return;
+      }
+    }
+    // The Recycler (two tiles tall on screen).
+    if (recyclerTile && tx === recyclerTile.x && (ty === recyclerTile.y || ty === recyclerTile.y - 1)) {
+      contMove.walkTo(tilesAround(recyclerTile.x, recyclerTile.y, canWalk), () => setPendingRecyclerTrade(true));
+      return;
+    }
+    // An exit's glow on the map's edge, or the road just inside it.
+    const exitHit = exitGroups.find(g => {
+      const e = exits[exitGroups.indexOf(g)];
+      return e && tx >= e.x - 1 && tx < e.x + e.w + 1 && ty >= e.y - 1 && ty < e.y + e.h + 1;
+    });
+    if (exitHit) {
+      if (nearExit?.regionId === exitHit.regionId) goThroughExit();
+      else walkToExit(exitHit);
+      return;
+    }
+    const to = nearestOpen(tx, ty, canWalk);
+    contMove.walkTo([to]);
+  }, [panelOpen, movementLocked, garden.on, garden.plants, garden.trees, inReach, interact, openPlant, openTree, canWalk, contMove, recyclerTile, exitGroups, exits, nearExit, goThroughExit, walkToExit]);
   const portalMarkers = portals.length
     ? [
         ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
@@ -1114,11 +1169,9 @@ export default function TrainingMap({
 
   const frameContent = (
     <div className="relative w-full h-full">
-      {/* MOBA-style floating joystick — invisible until pressed, appears
-          centered on the finger, left half of the frame only (see
-          FloatingJoystick.tsx for why). Replaces the old always-visible
-          bottom-left Joystick (2026-09-05). */}
-      <FloatingJoystick disabled={controlsDisabled} setDirectionPressed={contMove.setDirectionPressed} />
+      {/* Taps on the map walk there; on a phone, a press-and-drag anywhere on the map shows a
+          joystick under the finger (hidden otherwise). See FloatingJoystick.tsx. */}
+      <FloatingJoystick disabled={controlsDisabled} setStick={contMove.setStick} />
       {sceneBackground && <MapCanvas
         mapWidth={activeRegion.mapWidth}
         mapHeight={activeRegion.mapHeight}

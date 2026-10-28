@@ -135,10 +135,17 @@ Same switch as offline play (`feature_flags`, `lib/featureFlags.ts`).
 - **Tests:** `/mnt/project-files/new-nav/e2e/nav.test.js` (real game, fake Supabase): 196 checks
   across the six screen sizes with the flag on, and the old nav unchanged with it off.
 
+- **Phone Back button:** `lib/backButton.ts`. Screens register what Back does with
+  `useBackHandler` (highest priority first): the menu sheet and logout question close, a menu page
+  goes back to its tab, any other tab goes to Today, and a quest, guild run, boss fight or battle
+  keeps the kid where they are. On Today, Back leaves as before: the Android app goes to the
+  background (`App.minimizeApp`, so the game keeps its place), a browser gets one spare history
+  entry, so the second Back leaves the site. Tests: `/mnt/project-files/new-nav/e2e/back.test.js`
+  (browser) and the Back section of `e2e/android/run.cjs` (the real app).
+
 ### Still to build (step 2)
 
-The live-battle invite listener moved out of `MonsterGuild` so invites work on every tab; Android
-back via `@capacitor/app`'s `backButton`; keyboard detection via `visualViewport`; offline guards for
+The live-battle invite listener moved out of `MonsterGuild` so invites work on every tab; keyboard detection via `visualViewport`; offline guards for
 journal, daily bonus and Vault; the no-internet strip replacing `OfflineBanner`; the gift and egg
 tiles and art banners on Today; the Arena's own menu button replaced by the map-edge buttons; the
 Arena tutorial step re-anchored.
