@@ -1,8 +1,8 @@
 // lib/townNpcs.ts
 // The guild masters (and Baylan the Loreteller, the Shopkeeper and the Curio Expert) who stroll in
 // front of their halls in Inkwell Town (drawn by lib/phaserMap/guildNpcs.ts). Each sheet in
-// public/npcs/walk/ is one row: the walk frames facing right (25 unless walkFrames says), then the
-// idle pose (built by /mnt/project-files/guild-npcs/build_npcs.py and
+// public/npcs/walk/ is one row: the walk frames (25 unless walkFrames says), then the idle pose,
+// all facing right (built by /mnt/project-files/guild-npcs/build_npcs.py and
 // /mnt/project-files/shopkeeper-npc/build_shopkeeper.py, soldier-npc/build_soldiers.py).
 import type { GuildKey } from '@/lib/dailyChecklist';
 
@@ -49,7 +49,7 @@ export const PATROL_ROUTES: Record<string, PatrolRoute> = {
   },
 };
 
-const SOLDIER = { sheet: '/npcs/walk/soldier.webp', frameW: 62, frameH: 116, walkFrames: 11 };
+const SOLDIER = { sheet: '/npcs/walk/soldier_right.webp', frameW: 62, frameH: 116, walkFrames: 11 };
 const GUARD_HELLO = 'All quiet in Inkwell Town! Have fun, young tamer.';
 
 export const BAYLAN_ID = 'loreteller';
@@ -59,25 +59,25 @@ export const TOWN_HOME_SPOT = { x: 25, y: 24 };
 
 export const TOWN_NPCS: Record<string, TownNpc[]> = {
   town: [
-    { id: 'spellcaster', name: 'Spell Caster', guild: 'spellcaster', sheet: '/npcs/walk/spellcaster.webp', frameW: 100, frameH: 130, home: { x: 6, y: 16 }, range: 4 },
-    { id: 'numberrealm', name: 'Realm Guardian', guild: 'number_realm', sheet: '/npcs/walk/numberrealm.webp', frameW: 87, frameH: 115, home: { x: 16, y: 11 }, range: 5 },
-    { id: 'lorekeeper', name: 'Lore Keeper', guild: 'lorekeeper', sheet: '/npcs/walk/lorekeeper.webp', frameW: 81, frameH: 116, home: { x: 30, y: 11 }, range: 5 },
-    { id: 'lexiconarena', name: 'Lexicon Admiral', guild: 'lexicon_arena', sheet: '/npcs/walk/lexiconarena.webp', frameW: 88, frameH: 118, home: { x: 43, y: 11 }, range: 5 },
+    { id: 'spellcaster', name: 'Spell Caster', guild: 'spellcaster', sheet: '/npcs/walk/spellcaster_right.webp', frameW: 100, frameH: 130, home: { x: 6, y: 16 }, range: 4 },
+    { id: 'numberrealm', name: 'Realm Guardian', guild: 'number_realm', sheet: '/npcs/walk/numberrealm_right.webp', frameW: 87, frameH: 115, home: { x: 16, y: 11 }, range: 5 },
+    { id: 'lorekeeper', name: 'Lore Keeper', guild: 'lorekeeper', sheet: '/npcs/walk/lorekeeper_right.webp', frameW: 81, frameH: 116, home: { x: 30, y: 11 }, range: 5 },
+    { id: 'lexiconarena', name: 'Lexicon Admiral', guild: 'lexicon_arena', sheet: '/npcs/walk/lexiconarena_right.webp', frameW: 88, frameH: 118, home: { x: 43, y: 11 }, range: 5 },
     // Baylan the Loreteller strolls around the fountain and gives out the day's Main Quests.
-    { id: BAYLAN_ID, name: 'Baylan the Loreteller', opens: 'quests', opensLabel: 'Quests', sheet: '/npcs/walk/loreteller.webp', frameW: 74, frameH: 116, home: { x: 26, y: 22 }, range: 4 },
+    { id: BAYLAN_ID, name: 'Baylan the Loreteller', opens: 'quests', opensLabel: 'Quests', sheet: '/npcs/walk/loreteller_right.webp', frameW: 74, frameH: 116, home: { x: 26, y: 22 }, range: 4 },
     // The Shopkeeper minds the red-roofed shop south-east of the fountain; the Curio Expert works
     // next door at the teal house. Neither gets a "?" (that's for the guild masters).
-    { id: 'shopkeeper', name: 'Shopkeeper', opens: 'shop', opensLabel: 'Shop', sheet: '/npcs/walk/shopkeeper.webp', frameW: 78, frameH: 116, walkFrames: 18, home: { x: 47, y: 27 }, range: 3 },
-    { id: 'curioexpert', name: 'Curio Expert', opens: 'curios', opensLabel: 'Curios', sheet: '/npcs/walk/curioexpert.webp', frameW: 70, frameH: 115, walkFrames: 18, home: { x: 56, y: 27 }, range: 3 },
+    { id: 'shopkeeper', name: 'Shopkeeper', opens: 'shop', opensLabel: 'Shop', sheet: '/npcs/walk/shopkeeper_right.webp', frameW: 78, frameH: 116, walkFrames: 18, home: { x: 47, y: 27 }, range: 3 },
+    { id: 'curioexpert', name: 'Curio Expert', opens: 'curios', opensLabel: 'Curios', sheet: '/npcs/walk/curioexpert_right.webp', frameW: 70, frameH: 115, walkFrames: 18, home: { x: 56, y: 27 }, range: 3 },
     // Town Guards on their beats: the south gate, the west and east roads, the north road.
     { id: 'guard_gate_s', name: 'Town Guard', ...SOLDIER, home: { x: 30, y: 35 }, range: 3, hello: GUARD_HELLO },
     { id: 'guard_road_w', name: 'Town Guard', ...SOLDIER, home: { x: 12, y: 20 }, range: 3, hello: GUARD_HELLO },
     { id: 'guard_road_e', name: 'Town Guard', ...SOLDIER, home: { x: 44, y: 19 }, range: 3, hello: GUARD_HELLO },
     { id: 'guard_road_n', name: 'Town Guard', ...SOLDIER, home: { x: 37, y: 12 }, range: 3, hello: GUARD_HELLO },
     // The Knight Commander marches his squad of four round the plaza (lib/phaserMap/guildNpcs.ts).
-    { id: 'knight_commander', name: 'Knight Commander', sheet: '/npcs/walk/commander.webp', frameW: 87, frameH: 132, walkFrames: 11, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot: 0 }, hello: 'Eyes front, squad! Hello there, young tamer!' },
+    { id: 'knight_commander', name: 'Knight Commander', sheet: '/npcs/walk/commander_right.webp', frameW: 87, frameH: 132, walkFrames: 11, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot: 0 }, hello: 'Eyes front, squad! Hello there, young tamer!' },
     ...[1, 2, 3, 4].map(slot => ({ id: `squad_${slot}`, name: 'Town Guard', ...SOLDIER, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot }, noTag: true, hello: GUARD_HELLO })),
-    { id: 'logiclabyrinth', name: 'Logic Master', guild: 'logic_labyrinth', sheet: '/npcs/walk/logiclabyrinth.webp', frameW: 79, frameH: 117, home: { x: 54, y: 19 }, range: 5 },
+    { id: 'logiclabyrinth', name: 'Logic Master', guild: 'logic_labyrinth', sheet: '/npcs/walk/logiclabyrinth_right.webp', frameW: 79, frameH: 117, home: { x: 54, y: 19 }, range: 5 },
   ],
 };
 

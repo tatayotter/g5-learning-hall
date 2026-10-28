@@ -309,9 +309,9 @@ export default class GuildNpcLayer {
     }
     if (!n.walking) {
       if (self && Math.hypot(self.x - n.x, self.y - n.y) < GREET_NEAR) {
-        // Turns to the kid (the idle pose is drawn turned to the left) and stays to say hello,
-        // whichever side the kid comes from, above and below too.
-        if (Math.abs(self.x - n.x) > 0.2) n.image.setFlipX(self.x > n.x);
+        // Turns to the kid and stays to say hello, whichever side the kid comes from, above and
+        // below too.
+        if (Math.abs(self.x - n.x) > 0.2) n.image.setFlipX(self.x < n.x);
         n.restUntil = Math.max(n.restUntil, time + 1500);
       }
       if (time < n.restUntil) return;
@@ -361,11 +361,11 @@ export default class GuildNpcLayer {
     return out;
   }
 
-  // Stops walking and stands in the idle pose, still facing the way they walked. Walk frames face
-  // right and the idle pose is turned to the left, so the flip swaps.
+  // Stops walking and stands in the idle pose, still facing the way they walked (every frame of a
+  // sheet, the idle pose too, faces right).
   private standIdle(n: Npc) {
     n.image.stop();
-    n.image.setFrame(n.idle).setFlipX(!n.image.flipX);
+    n.image.setFrame(n.idle);
   }
 
   private isOpen(x: number, y: number) {
