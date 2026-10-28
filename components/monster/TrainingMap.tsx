@@ -30,7 +30,7 @@ import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
 import { tilesAround } from '@/lib/mapPath';
-import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
+import type { MapBackground, MapExit, ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -40,7 +40,7 @@ import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
   SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
-  swingTiming, type SwingKind, type WildTreeNode,
+  swingTiming, strikeImpactMs, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { useGear } from '@/lib/gear';
 import { GEAR, TOOL_ORDER, bagSizeFor, toolForVeggie, toolIcon, toolKey, toolName, toolVerb, type ToolId } from '@/lib/gearConfig';
@@ -289,6 +289,10 @@ export default function TrainingMap({
   // The tree being chopped, and the latest swing that landed (for the shake).
   const [activeTree, setActiveTree] = useState<TreeView | null>(null);
   const [treeSwing, setTreeSwing] = useState<{ id: string; n: number; kind: SwingKind } | null>(null);
+  // The latest pickaxe or shovel swing at a find (the kid mines or digs it up on the map).
+  const [toolStrike, setToolStrike] = useState<ToolStrike | null>(null);
+  // The find being swung at stays on the map until the tool lands.
+  const [strikingId, setStrikingId] = useState<string | null>(null);
   // How long the latest swing plays: the chop panel stays out of the way for it.
   const [swingMs, setSwingMs] = useState(0);
   const [swingAway, setSwingAway] = useState(false);
@@ -853,17 +857,29 @@ export default function TrainingMap({
     const name = VEGGIES[plant.veggie].label;
     const thing = VEGGIES[plant.veggie].found?.noun ?? 'plant';
     if (r.status === 'picked') {
-      playChime();
-      flyToBag([
-        ...Array(Math.max(1, r.count)).fill(gardenItemIcon(veggieKey(plant.veggie))),
-        ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : []),
-        ...(r.rare ? [gardenItemIcon(r.rare)] : []),
-      ]);
-      const rareName = r.rare ? gardenItemLabel(r.rare) : null;
-      const found = r.count > 1 ? `2 ${name}s` : withA(name);
-      showBarMessage(rareName ? `WOW! You found ${withA(rareName)}! It's rare!`
-        : r.seeds > 0 ? `You picked ${withA(name)} and found ${name} Seeds too!`
-        : VEGGIES[plant.veggie].found ? `You found ${found}! ${r.count > 1 ? "They're" : "It's"} in your bag.` : `You picked ${withA(name)}! It's in your bag.`);
+      // A crystal or a shell: the kid swings their own pickaxe or shovel at it first, and it
+      // pops into the bag when the tool lands.
+      const tool = toolForVeggie(plant.veggie);
+      const swung = !!tool && (gear[tool] ?? 0) > 0;
+      if (swung) {
+        setToolStrike(s => ({ n: (s?.n ?? 0) + 1, id: plant.id, tool: tool!, x: plant.x, y: plant.y }));
+        setStrikingId(plant.id);
+      }
+      const land = () => {
+        setStrikingId(null);
+        playChime();
+        flyToBag([
+          ...Array(Math.max(1, r.count)).fill(gardenItemIcon(veggieKey(plant.veggie))),
+          ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : []),
+          ...(r.rare ? [gardenItemIcon(r.rare)] : []),
+        ]);
+        const rareName = r.rare ? gardenItemLabel(r.rare) : null;
+        const found = r.count > 1 ? `2 ${name}s` : withA(name);
+        showBarMessage(rareName ? `WOW! You found ${withA(rareName)}! It's rare!`
+          : r.seeds > 0 ? `You picked ${withA(name)} and found ${name} Seeds too!`
+          : VEGGIES[plant.veggie].found ? `You found ${found}! ${r.count > 1 ? "They're" : "It's"} in your bag.` : `You picked ${withA(name)}! It's in your bag.`);
+      };
+      if (swung) setTimeout(land, strikeImpactMs()); else land();
     } else if (r.status === 'no_tool') {
       const tool = toolForVeggie(plant.veggie);
       showBarMessage(tool ? `You need ${withA(GEAR[tool].tiers[0].name.replace(/^Stone /, ''))} for this! Buy one at the Shop.` : 'Try again later!');
@@ -1281,11 +1297,13 @@ export default function TrainingMap({
         recyclerTile={recyclerTile}
         // The plant being asked about stays ripe until the panel closes, so its dust pop
         // (lib/phaserMap/gardenPlants.ts) plays where the player can see it.
-        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id ? { ...p, stage: 'ripe' as const } : p)) : undefined}
+        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)) : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
+        tools={gear}
+        toolStrike={toolStrike}
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}

@@ -72,6 +72,10 @@ import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
+import type { ToolId } from '@/lib/gearConfig';
+
+/** One pickaxe or shovel swing at the find on tile (x, y); n goes up by one per swing. */
+export interface ToolStrike { n: number; id: string; tool: ToolId; x: number; y: number }
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT, MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
@@ -165,6 +169,10 @@ export interface MapCanvasSyncState {
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
   chopTree?: string | null;
+  /** The tier of each tool the kid owns: the one they swing (chopSwing.ts). */
+  tools?: Partial<Record<ToolId, number>>;
+  /** The latest pickaxe or shovel swing at a find. */
+  toolStrike?: ToolStrike | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
   highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
@@ -371,6 +379,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private ambienceKey = '';
   private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
+  private lastToolStrike = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -672,7 +681,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     const trunk = this.chopTree ? this.wildTrees?.trunkAt(this.chopTree) : null;
     if (trunk && this.self && swing.holding !== this.chopTree) {
       swing.hold(this.chopTree!, trunk.x, trunk.y, this.self.x, this.self.y, this.selfFacingRight);
-    } else if (!this.chopTree && swing.holding) {
+    } else if (!this.chopTree && swing.holding && !swing.holding.startsWith('find:')) {
       swing.putAway();
     }
   }
@@ -1096,8 +1105,16 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.npcLayer?.setMarks(state.npcMarks ?? {});
     this.highlight = state.highlight ?? null;
     this.applyHighlight();
+    this.chopSwing?.setTools(state.tools ?? {});
     this.chopTree = state.chopTree ?? null;
     this.applyChopStance();
+    const strike = state.toolStrike;
+    if (strike && strike.n !== this.lastToolStrike) {
+      this.lastToolStrike = strike.n;
+      if (this.chopSwing && this.self) {
+        this.chopSwing.strike(`find:${strike.id}:${strike.n}`, strike.tool, strike.x, strike.y, this.self.x, this.self.y, this.selfFacingRight, () => {});
+      }
+    }
     if (state.treeSwing && state.treeSwing.n !== this.lastTreeSwing) {
       this.lastTreeSwing = state.treeSwing.n;
       const { id, kind } = state.treeSwing;

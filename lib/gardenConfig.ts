@@ -196,6 +196,10 @@ export function swingTiming(kind: SwingKind) {
 }
 // The right/wrong reveal stays up this long before the panel steps aside and the swing starts.
 export const SWING_REVEAL_MS = 500;
+// A pickaxe or shovel swing at a find (chopSwing.ts strike()): the tool comes up for this long,
+// then one 'hit' swing; the find pops into the bag when it lands.
+export const STRIKE_LEAD_MS = 280;
+export const strikeImpactMs = () => STRIKE_LEAD_MS + swingTiming('hit').impact + swingTiming('hit').freeze;
 
 // ── Bag items ──────────────────────────────────────────────────────────────
 // Keys in player_bag_items.item_key.

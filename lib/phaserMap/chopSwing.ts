@@ -14,13 +14,36 @@
 // The blow that fells a tree winds up higher and longer and lands harder.
 //
 // The body moves through `pose`, which the scene adds to the player's sprite each frame (it's
-// placed every frame, so tweening the sprite itself would be overwritten). The axe is
-// public/garden/axe.png: upright, blade to the right, held at the bottom of its handle.
+// placed every frame, so tweening the sprite itself would be overwritten). The tool is the one
+// the kid owns (setTool()): public/gear/held_<tool>_<tier>.png, made from Rowil's shop art by
+// /mnt/project-files/economy-art/build_held.py, upright, head on top, held near the bottom of the
+// handle. public/garden/axe.png is the fallback.
+//
+// strike() is one quick swing at a rock or a dig spot (a find picked with a pickaxe or shovel).
 import Phaser from 'phaser';
-import { swingTiming, type SwingKind } from '@/lib/gardenConfig';
+import { STRIKE_LEAD_MS, swingTiming, type SwingKind } from '@/lib/gardenConfig';
+import type { ToolId } from '@/lib/gearConfig';
 
-// The hand's spot in the axe art (share of its width and height).
-const GRIP = { x: 5 / 14, y: 18 / 21 };
+interface HeldTool { key: string; url: string; grip: { x: number; y: number } }
+
+// The fallback axe; the hand's spot is a share of the art's width and height.
+const PLAIN_AXE: HeldTool = { key: 'garden:axe', url: '/garden/axe.png', grip: { x: 5 / 14, y: 18 / 21 } };
+
+// The hand's spot (share of width) in each held tool, tiers 1-4, as build_held.py printed it.
+// Every one is 21 px tall with the hand 2 px above the end of the handle. (held_rod_1-4.png,
+// 26 px tall, wait for fishing.)
+const HELD_GRIP_X: Partial<Record<ToolId, number[]>> = {
+  axe: [0.714, 0.615, 0.577, 0.679],
+  pickaxe: [0.575, 0.595, 0.575, 0.568],
+  shovel: [0.556, 0.683, 0.683, 0.611],
+};
+
+function heldTool(tool: ToolId, tier: number): HeldTool | null {
+  const xs = HELD_GRIP_X[tool];
+  if (!xs || tier < 1) return null;
+  const t = Math.min(tier, xs.length);
+  return { key: `gear:held_${tool}_${t}`, url: `/gear/held_${tool}_${t}.png`, grip: { x: xs[t - 1], y: 0.833 } };
+}
 
 // Axe angles for one tree, in degrees (0 = upright, clockwise). The blow lands where the blade
 // points at the trunk, and every other pose is measured from that, so a tree beside, above or
@@ -48,6 +71,8 @@ export interface BodyPose {
 export default class ChopSwing {
   readonly pose: BodyPose = { dx: 0, dy: 0, angle: 0, face: 0 };
   private axe: Phaser.GameObjects.Image | null = null;
+  private tools: Partial<Record<ToolId, number>> = {};
+  private tool: HeldTool = PLAIN_AXE;
   private side = 1;
   private aim: Aim = aimAt(1, 0, 1);
   private treeId: string | null = null;
@@ -64,24 +89,44 @@ export default class ChopSwing {
 
   get holding() { return this.treeId; }
 
+  /** The tier the kid owns of each tool (0 or missing = none). */
+  setTools(tiers: Partial<Record<ToolId, number>>) { this.tools = tiers; }
+
   /** Stand ready to chop the tree at trunk tile (tx, ty), the kid at float tile (px, py). */
-  hold(treeId: string, tx: number, ty: number, px: number, py: number, facingRight: boolean) {
+  hold(treeId: string, tx: number, ty: number, px: number, py: number, facingRight: boolean, toolId: ToolId = 'axe') {
     if (this.treeId === treeId && this.axe) return;
     this.putAway(true);
     this.treeId = treeId;
+    const held = heldTool(toolId, this.tools[toolId] ?? 0) ?? PLAIN_AXE;
+    this.tool = held;
+    const GRIP = held.grip;
     this.side = tx > px + 0.3 ? 1 : tx < px - 0.3 ? -1 : facingRight ? 1 : -1;
     this.pose.face = this.side;
     this.aim = aimAt(tx - px, ty - py, this.side);
-    this.loadTexture('garden:axe', '/garden/axe.png', () => {
-      if (this.treeId !== treeId || this.axe) return;
+    this.loadTexture(held.key, held.url, () => {
+      if (this.treeId !== treeId || this.axe || this.tool !== held) return;
       const { side: s, ux, uy, rest, down } = this.aim;
       // Held in front of the body on the tree's side, at about hip height.
-      const axe = this.scene.add.image((px + 0.5) * 32 + ux * 6, (py + 0.5) * 32 + 6 + uy * 4, 'garden:axe')
+      const axe = this.scene.add.image((px + 0.5) * 32 + ux * 6, (py + 0.5) * 32 + 6 + uy * 4, held.key)
         .setOrigin(s > 0 ? GRIP.x : 1 - GRIP.x, GRIP.y).setFlipX(s < 0).setAngle(down).setAlpha(0);
       this.container.add(axe);
       this.axe = axe;
       // Brought up, ready.
       this.scene.tweens.add({ targets: axe, angle: rest, alpha: 1, duration: this.still ? 0 : 260, ease: 'Back.easeOut' });
+    });
+  }
+
+  /**
+   * One swing with a pickaxe or shovel at the find on tile (tx, ty): up, down, away again.
+   * onImpact runs when it lands (straight away if the tool can't be shown).
+   */
+  strike(id: string, tool: ToolId, tx: number, ty: number, px: number, py: number, facingRight: boolean, onImpact: () => void) {
+    if (this.still || !heldTool(tool, this.tools[tool] ?? 0)) { onImpact(); return; }
+    this.hold(id, tx, ty, px, py, facingRight, tool);
+    this.scene.time.delayedCall(STRIKE_LEAD_MS, () => {
+      if (this.treeId !== id) { onImpact(); return; }
+      this.swing('hit', onImpact);
+      this.scene.time.delayedCall(swingTiming('hit').total, () => { if (this.treeId === id) this.putAway(); });
     });
   }
 
