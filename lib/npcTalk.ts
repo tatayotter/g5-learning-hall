@@ -7,7 +7,7 @@
 // The Knight Commander also chats with his squad and the guards (CHATTER), two lines at a time.
 import { CHATTER, LINES, type Exchange, type Line } from '@/lib/npcLines';
 
-/** A bubble over an NPC: `key` changes with each new line; `wave` = their first hello today. */
+/** A bubble over an NPC: `key` changes with each new line; `wave` = their first hello today (a little hop). */
 export interface NpcSay { text: string; wave?: boolean; key: number }
 
 /** Facts about the kid right now, e.g. 'quest_done', 'night', 'rain:tidewrit_shallows'. */

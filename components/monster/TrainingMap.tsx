@@ -1100,7 +1100,7 @@ export default function TrainingMap({
   }, [townNpcs, guildsPlayed, questWaiting]);
   // Talking town people (lib/npcTalk.ts): a bubble with a line that fits the kid right now, when
   // they walk up (now and then) or tap one who has no page to open. The first hello of the day
-  // comes with a wave and a hop. The Knight Commander chats with his squad and the guards too.
+  // comes with a little hop. The Knight Commander chats with his squad and the guards too.
   const [npcSay, setNpcSay] = useState<Record<string, NpcSay>>({});
   const sayTimers = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
   const lastSaidAt = useRef<Map<string, number>>(new Map());

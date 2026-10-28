@@ -837,7 +837,6 @@ export default function MapCanvas({
             data-testid={`npc-say-${id}`}
             className="npc-bubble absolute left-1/2 bottom-full mb-[18px] w-max max-w-[120px] -translate-x-1/2 rounded-md border border-[#8b5e2a] bg-[#f0ddb8] px-1.5 py-1 text-center text-[7px] leading-[1.25] text-[#2a1505] shadow-md"
           >
-            {say.wave && <span className="mr-0.5">👋</span>}
             {say.text}
             <span className="absolute left-1/2 top-full -translate-x-1/2 border-x-[4px] border-t-[5px] border-x-transparent border-t-[#8b5e2a]" />
           </div>
