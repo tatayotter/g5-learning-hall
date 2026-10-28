@@ -666,26 +666,6 @@ html {
 .map-step-bounce { animation: map-step-bounce 0.22s ease-out; }
 .map-dust-puff   { animation: map-dust-puff 0.45s ease-out forwards; }
 
-/* Scroll marker — gentle idle float so it reads as "alive" on the map. */
-@keyframes map-scroll-bob {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-4px); }
-}
-.map-scroll-sprite { display: inline-block; animation: map-scroll-bob 1.8s ease-in-out infinite; }
-
-/* Strong orange glow behind the scroll sprite — a wide, pulsing radial glow
-   so a spawned scroll reads clearly from a distance on the map. */
-@keyframes map-scroll-glow-pulse {
-  0%, 100% { opacity: 0.7; transform: scale(0.9); }
-  50%      { opacity: 1;   transform: scale(1.2); }
-}
-.map-scroll-glow {
-  inset: -20%;
-  background: radial-gradient(circle, rgba(251, 146, 60, 0.75) 0%, rgba(251, 146, 60, 0.35) 45%, transparent 72%);
-  animation: map-scroll-glow-pulse 1.8s ease-in-out infinite;
-  z-index: 0;
-}
-
 /* Curio marker — an oval ground-shadow glow pooled under its feet (as if lit
    from a light source above, not a halo behind it), colored per-instance via
    --glow-color (set inline from getQualityGroundGlowColor). Pulses/breathes

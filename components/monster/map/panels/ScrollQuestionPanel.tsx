@@ -1,6 +1,6 @@
 'use client';
 // Training-scroll question panel — shown by TrainingMap.tsx when the player
-// walks onto a scroll tile (activeScroll). Wraps the shared
+// reads a scroll on the map (activeScroll). Wraps the shared
 // BattleQuestionModal with the "your monster is practicing" framing; the
 // exp/level-up side effects of onComplete stay owned by TrainingMap.tsx
 // (handleScrollAnswer) since they touch battleState, monster exp, and the

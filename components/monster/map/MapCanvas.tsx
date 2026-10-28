@@ -116,11 +116,13 @@ interface MapCanvasProps {
   // labelOnly: an exit on the map's edge, drawn by the scene (glow and arrow): just its name here.
   portalMarkers?: { x: number; y: number; regionId: string; locked: boolean; labelOnly?: boolean }[];
   // Scrolls (training questions) and the curio (wild-encounter entry point)
-  // are stationary, walked-into map entities — rendered the same way as
-  // portal markers (static DOM overlay, no per-frame updates needed) since
-  // neither moves once spawned. See components/monster/TrainingMap.tsx for
-  // the spawn/lifecycle logic; this component only draws them.
+  // are stationary, walked-into map entities. Scrolls are drawn by the scene
+  // with their magic glow (lib/phaserMap/scrollGlow.ts); the curio is a
+  // static DOM overlay like the portal markers. See
+  // components/monster/TrainingMap.tsx for the spawn/lifecycle logic.
   scrollMarkers?: { id: number; x: number; y: number }[];
+  /** How each answered scroll ended, for its ending on the map (lib/phaserMap/scrollGlow.ts). */
+  scrollFates?: Record<number, 'right' | 'wrong'>;
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
   trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string; spriteOverride?: string } | null;
@@ -142,7 +144,7 @@ interface MapCanvasProps {
   tools?: Partial<Record<ToolId, number>>;
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'prop'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll' | 'prop'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
   npcMarks?: Record<string, NpcMark>;
   /** The guild NPC within reach of the player, or null; called when it changes. */
@@ -175,7 +177,7 @@ const NPC_APPROACH = 3;
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
-  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
+  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, scrollFates,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
@@ -429,6 +431,8 @@ export default function MapCanvas({
       ambience,
       wildlife,
       npcMarks,
+      scrolls: scrollMarkers,
+      scrollFates,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -679,28 +683,6 @@ export default function MapCanvas({
           </div>
         );
       })}
-
-      {scrollMarkers?.map(scroll => (
-        <div
-          key={scroll.id}
-          ref={el => registerMarker(`scroll:${scroll.id}`, scroll.x, scroll.y, el)}
-          className="absolute pointer-events-none flex items-center justify-center"
-          style={{
-            left: `${leftPct(scroll.x)}%`, top: `${topPct(scroll.y)}%`,
-            width: `${tileWPct}%`, height: `${tileHPct}%`,
-          }}
-        >
-          {/* Strong radiating orange glow behind the scroll, independent of
-              the bob animation on the image itself, so it reads from a
-              distance the same way the curio ground-glow does. */}
-          <span className="map-scroll-glow absolute rounded-full" />
-          <img
-            src="/sprite/question-scroll.png"
-            alt="Training scroll"
-            className="map-scroll-sprite relative w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
-          />
-        </div>
-      ))}
 
       {curioMarker && (
         <div

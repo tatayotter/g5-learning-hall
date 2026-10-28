@@ -308,6 +308,8 @@ export default function TrainingMap({
   useEffect(() => () => { if (barMessageTimer.current) clearTimeout(barMessageTimer.current); }, []);
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
+  // How each answered scroll ended: its wisps fly to the sky (right) or it crumbles (wrong).
+  const [scrollFates, setScrollFates] = useState<Record<number, 'right' | 'wrong'>>({});
   // The ripe veggie plant whose question is up.
   const [activePlant, setActivePlant] = useState<PlantView | null>(null);
   // The tree being chopped, and the latest swing that landed (for the shake).
@@ -618,19 +620,8 @@ export default function TrainingMap({
       return;
     }
 
-    // Scroll/curio are visible, walked-into map entities — replaces the old
-    // "40% chance while stepping on any grass tile" random roll entirely.
-    const scrollHere = scrolls.find(s => s.x === newX && s.y === newY);
-    if (scrollHere) {
-      // Offline, scrolls can only ask what the downloaded answer key covers.
-      if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
-        alert("📡 No internet, and this week's scroll questions aren't saved here yet. Open the map once with internet, and they'll work without it too.");
-        return;
-      }
-      playMonsterAppear();
-      setActiveScroll(scrollHere);
-      return;
-    }
+    // The curio is a walked-into map entity. Scrolls are not: the kid reads one by choice, like
+    // using a tree or talking to someone (openScroll below).
     if (curioPos && curioPos.x === newX && curioPos.y === newY) {
       setPendingCurioChallenge(true);
       if (activeCurio) logWildEncounterEvent(userId, 'approached', { region: regionId, monsterId: activeCurio.monsterId, quality: activeCurio.quality });
@@ -676,7 +667,7 @@ export default function TrainingMap({
     if (tileData.type === 'town') {
       onHeal();
     }
-  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, activeRegion.id, questions, showBarMessage]);
+  }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, activeRegion.id, showBarMessage]);
 
   // Why a tool can't be used right now (null = it can): the kid doesn't own one yet, or it isn't
   // in an item slot.
@@ -781,17 +772,29 @@ export default function TrainingMap({
     }
   }, [hideout, goToHideout, toolProblem, showBarMessage, offline]);
 
-  // Plants and trees within reach (on or next to the player's tile; the trunk for a tree),
-  // nearest first, plants before trees at the same distance.
+  // Reading a scroll: the kid chooses to, like using a tree (it no longer opens by walking onto it).
+  const openScroll = useCallback((scroll: { id: number; x: number; y: number }) => {
+    // Offline, scrolls can only ask what the downloaded answer key covers.
+    if (playingMapOffline(userId) && offlineScrollQuestions(userId, questions).length === 0) {
+      showBarMessage("No internet, and this week's questions aren't saved here yet.");
+      return;
+    }
+    playMonsterAppear();
+    setActiveScroll(scroll);
+  }, [userId, questions, showBarMessage]);
+
+  // Scrolls, plants and trees within reach (on or next to the player's tile; the trunk for a
+  // tree), nearest first; at the same distance scrolls, then plants, then trees.
   const inReach = useMemo(() => {
-    if (!garden.on) return [];
     const dist = (o: { x: number; y: number }) => Math.max(Math.abs(o.x - posX), Math.abs(o.y - posY));
     const found = [
-      ...garden.plants.map(plant => ({ kind: 'plant' as const, plant, usable: plant.ripe, d: dist(plant), x: plant.x, y: plant.y })),
-      ...garden.trees.map(tree => ({ kind: 'tree' as const, tree, usable: tree.ready, d: dist(tree), x: tree.x, y: tree.y })),
+      ...scrolls.map(scroll => ({ kind: 'scroll' as const, scroll, usable: true, d: dist(scroll), x: scroll.x, y: scroll.y })),
+      ...(garden.on ? garden.plants : []).map(plant => ({ kind: 'plant' as const, plant, usable: plant.ripe, d: dist(plant), x: plant.x, y: plant.y })),
+      ...(garden.on ? garden.trees : []).map(tree => ({ kind: 'tree' as const, tree, usable: tree.ready, d: dist(tree), x: tree.x, y: tree.y })),
     ].filter(o => o.d <= 1);
-    return found.sort((a, b) => a.d - b.d || (a.kind === b.kind ? 0 : a.kind === 'plant' ? -1 : 1));
-  }, [garden.on, garden.plants, garden.trees, posX, posY]);
+    const order = { scroll: 0, plant: 1, tree: 2 };
+    return found.sort((a, b) => a.d - b.d || order[a.kind] - order[b.kind]);
+  }, [scrolls, garden.on, garden.plants, garden.trees, posX, posY]);
   const nearby = inReach.find(o => o.usable) ?? null;
   // The Hideout signpost or plot right next to the player, if any (plants and trees come first).
   const nearSpot = useMemo(() => {
@@ -809,9 +812,10 @@ export default function TrainingMap({
   type Reachable = (typeof inReach)[number];
 
   const interact = useCallback((target: Reachable) => {
-    if (target.kind === 'plant') openPlant(target.plant);
+    if (target.kind === 'scroll') openScroll(target.scroll);
+    else if (target.kind === 'plant') openPlant(target.plant);
     else openTree(target.tree);
-  }, [openPlant, openTree]);
+  }, [openScroll, openPlant, openTree]);
 
   const handleBlocked = useCallback(() => {
     playWallBump();
@@ -861,6 +865,7 @@ export default function TrainingMap({
         setBackground({
           type: 'tilemap',
           key: artPath,
+          region: activeRegion.id,
           mapJson: parsed.mapJson,
           tilesetImages: parsed.tilesetImages,
           tileSize: parsed.tileSize,
@@ -1062,6 +1067,7 @@ export default function TrainingMap({
 
     // Consume the answered scroll and schedule its replacement, keeping the
     // pool at SCROLL_POOL_SIZE — same shape as dustPuffs' setTimeout cleanup.
+    setScrollFates(prev => ({ ...prev, [answered.id]: correctCount > 0 ? 'right' : 'wrong' }));
     setScrolls(prev => prev.filter(s => s.id !== answered.id));
     setTimeout(() => {
       setScrolls(prev => {
@@ -1390,12 +1396,20 @@ export default function TrainingMap({
   }, [nearExit, nearby, inReach.length, panelOpen, nearNpc, nearSpot, goThroughExit]);
   const handleMapTap = useCallback((tx: number, ty: number) => {
     if (panelOpen || movementLocked) return;
+    // A scroll: read it when it's in reach, else walk up to it and read it.
+    const scroll = scrolls.find(s => s.x === tx && s.y === ty);
+    if (scroll) {
+      if (inReach.some(o => o.kind === 'scroll' && o.scroll.id === scroll.id)) { openScroll(scroll); return; }
+      const goals = [{ x: scroll.x, y: scroll.y }, ...tilesAround(scroll.x, scroll.y, canWalk)].filter(t => canWalk(t.x, t.y));
+      contMove.walkTo(goals, () => openScroll(scroll));
+      return;
+    }
     if (garden.on) {
       const plantCovers = (p: { x: number; y: number; veggie: PlantView['veggie'] }) =>
         p.x === tx && (p.y === ty || (VEGGIES[p.veggie].tall && p.y - 1 === ty));
       // A tree's art spans about three tiles across and four up from its trunk.
       const treeCovers = (t: { x: number; y: number }) => Math.abs(t.x - tx) <= 1 && ty <= t.y && ty >= t.y - 4;
-      const hit = inReach.find(o => (o.kind === 'plant' ? plantCovers(o.plant) : o.tree.ready && treeCovers(o.tree)));
+      const hit = inReach.find(o => (o.kind === 'plant' ? plantCovers(o.plant) : o.kind === 'tree' && o.tree.ready && treeCovers(o.tree)));
       if (hit) { interact(hit); return; }
       const plant = garden.plants.find(plantCovers);
       if (plant) {
@@ -1438,7 +1452,7 @@ export default function TrainingMap({
     }
     const to = nearestOpen(tx, ty, canWalk);
     contMove.walkTo([to]);
-  }, [panelOpen, movementLocked, garden.on, garden.plants, garden.trees, inReach, interact, openPlant, openTree, canWalk, contMove, recyclerTile, exitGroups, exits, nearExit, goThroughExit, walkToExit, hideout.spots, nearSpot, applySpot]);
+  }, [panelOpen, movementLocked, scrolls, openScroll, garden.on, garden.plants, garden.trees, inReach, interact, openPlant, openTree, canWalk, contMove, recyclerTile, exitGroups, exits, nearExit, goThroughExit, walkToExit, hideout.spots, nearSpot, applySpot]);
   const portalMarkers = portals.length
     ? [
         ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
@@ -1485,6 +1499,7 @@ export default function TrainingMap({
         portalMarkers={portalMarkers}
         onExitLabelClick={onExitLabelClick}
         scrollMarkers={scrolls}
+        scrollFates={scrollFates}
         curioMarker={activeCurio && curioPos ? { ...curioPos, monsterDef: monsterDisplay[activeCurio.monsterId], quality: activeCurio.quality } : null}
         trainerMarker={activeMapTrainer ? { id: activeMapTrainer.id, x: activeMapTrainer.x, y: activeMapTrainer.y, emoji: activeMapTrainer.emoji, name: activeMapTrainer.name, spriteOverride: activeMapTrainer.spriteOverride } : null}
         trashItems={trashItems}
@@ -1501,7 +1516,7 @@ export default function TrainingMap({
         tools={gear}
         toolStrike={toolStrike}
         highlight={controlsDisabled ? null
-          : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
+          : nearby ? { kind: nearby.kind, id: nearby.kind === 'scroll' ? String(nearby.scroll.id) : nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearSpot ? { kind: hideout.trees.some(t => t.id === nearSpot.id) ? 'tree' : 'prop', id: nearSpot.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
         npcMarks={npcMarks}
@@ -1561,7 +1576,7 @@ export default function TrainingMap({
           onClick={() => interact(nearby)}
           className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-1.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
         >
-          {(() => {
+          {nearby.kind === 'scroll' ? <img src="/sprite/question-scroll.png" alt="" className="w-5 h-5 object-contain" style={{ imageRendering: 'pixelated' }} /> : (() => {
             // The tool it needs, when the kid has one; otherwise what they'd get.
             const tool = nearby.kind === 'plant' ? toolForVeggie(nearby.plant.veggie) : 'axe';
             const tier = tool ? gear[tool] ?? 0 : 0;
@@ -1569,7 +1584,8 @@ export default function TrainingMap({
               : nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY);
             return <img src={src} alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }} />;
           })()}
-          {nearby.kind === 'plant'
+          {nearby.kind === 'scroll' ? 'Read Scroll'
+            : nearby.kind === 'plant'
             ? `${toolVerb(toolForVeggie(nearby.plant.veggie)) ?? pickVerb(nearby.plant.veggie)} ${VEGGIES[nearby.plant.veggie].label}`
             : `Chop ${TREES[nearby.tree.tree].name}`}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
