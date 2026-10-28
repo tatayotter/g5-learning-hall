@@ -201,9 +201,11 @@ const check = (ok, label, detail = '') => {
   check(sql("select quantity from player_inventory where app_user_id = 'playerone' and item_key = 'health_potion'") === '2', 'potion taken off the real inventory');
 
   // ---- The phone's Back button with the new nav (lib/backButton.ts): it moves around the
-  // game instead of closing the app, and on Today it puts the game in the background.
+  // game instead of closing the app, and on the map (home) it puts the game in the background.
   sql("insert into public.feature_flags (key, mode, allowlist) values ('new_nav', 'allowlist', array['playerone']) on conflict (key) do update set mode = 'allowlist', allowlist = array['playerone']");
   await page.reload(); await sleep(8000); await dismiss(); await sleep(800); await dismiss();
+  // The map is home; out of town the bar steps aside, so go to town where it shows.
+  if (await page.getByTestId('calm-town').isVisible().catch(() => false)) { await page.getByTestId('calm-town').click(); await sleep(4000); }
   const nav = page.getByRole('navigation', { name: 'Main' });
   await nav.waitFor({ timeout: 60000 });
   const lit = async () => ((await nav.locator('[aria-current=page]').getAttribute('aria-label').catch(() => '')) || '').split(/[ ,]/)[0];
@@ -211,16 +213,16 @@ const check = (ok, label, detail = '') => {
   const inFront = async () => (await device.shell('dumpsys activity activities')).toString().split('\n').some(l => /topResumedActivity|mResumedActivity/.test(l) && l.includes(PKG));
   await nav.getByRole('button', { name: /^Journal/ }).click(); await sleep(2000); await dismiss();
   await pressBack();
-  check(await inFront() && await lit() === 'Today', 'Back on Journal goes to Today, app stays open', await lit());
-  await nav.getByRole('button', { name: /^Vault/ }).click(); await sleep(2000); await dismiss();
-  await page.getByRole('button', { name: /^menu$/i }).first().click(); await sleep(1000);
+  check(await inFront() && await lit() === 'Map', 'Back on Journal goes to the map, app stays open', await lit());
+  await nav.getByRole('button', { name: /^Quests/ }).click(); await sleep(2000); await dismiss();
+  await nav.getByRole('button', { name: 'Menu' }).click(); await sleep(1000);
   await pressBack();
-  check(await inFront() && !(await page.getByRole('dialog', { name: 'Menu' }).isVisible().catch(() => false)) && await lit() === 'Vault', 'Back closes the menu and stays on Vault');
+  check(await inFront() && !(await page.getByRole('dialog', { name: 'Menu' }).isVisible().catch(() => false)) && await lit() === 'Quests', 'Back closes the menu and stays on Quests');
   await shot('09-back-button');
   await pressBack();
-  check(await lit() === 'Today', 'Back on Vault goes to Today');
+  check(await lit() === 'Map', 'Back on Quests goes to the map');
   await pressBack();
-  check(!(await inFront()), 'Back on Today puts the game in the background');
+  check(!(await inFront()), 'Back on the map puts the game in the background');
   check((await device.shell(`pidof ${PKG}`)).toString().trim().length > 0, '...without closing it');
 
   console.log(failed ? `${failed} check(s) failed` : 'All checks passed');

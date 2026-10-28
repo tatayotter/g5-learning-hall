@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect, useCallback } from 'react';
 import type { GuildKey } from '@/lib/dailyChecklist';
-import type { TownPage } from '@/lib/townNpcs';
+import { TOWN_HOME_SPOT, type TownPage } from '@/lib/townNpcs';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -55,6 +55,7 @@ import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox, type InviteResponse } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { REGIONS } from '@/lib/regions';
+import { FIRST_REGION, readLastPlace, rememberRegion } from '@/lib/lastPlace';
 import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { trackingScrollKey, TRACKING_SCROLL_COST } from '@/lib/curioTracking';
@@ -116,6 +117,22 @@ interface MonsterGuildProps {
   onPlayGuild?: (guild: GuildKey) => void;
   /** A town NPC opens a page outside the arena (the Shopkeeper's Shop); Curios opens here. */
   onOpenPage?: (page: TownPage) => void;
+  /** The map is the game's home (new nav): see MapHome. */
+  mapHome?: MapHome;
+}
+
+/** The map as the game's home (new nav, components/nav/GameNav.tsx). */
+export interface MapHome {
+  /** Today's Main Quest is done (Baylan's "!" and the guide arrow go away). */
+  questDone: boolean;
+  /** Goes up by one to send the kid home to the town's fountain square, next to Baylan. */
+  townRequest: number;
+  /** Goes up by one to open the Curio Arena menu (team, hatchery, compendium...). */
+  curiosRequest: number;
+  /** Where the kid is: in town, out on another map, or not on the map (an arena page, a battle). */
+  onPlace: (place: 'town' | 'wild' | null) => void;
+  /** A page is open over the map: the map sleeps and the kid can't walk. */
+  paused?: boolean;
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -190,7 +207,7 @@ interface CurioState {
 // Wild curios, plus starters a Tracking Scroll can summon.
 const curioSpecies = (id: string) => WILD_MONSTERS[id] ?? ALL_MONSTERS[id];
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult, onPlayGuild, onOpenPage }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult, onPlayGuild, onOpenPage, mapHome }: MonsterGuildProps) {
   // Mounted/unmounted with this component (i.e. with the Curio Arena tab),
   // not app-wide — a deliberate tradeoff made 2026-08-12 to cut concurrent
   // Realtime connections against the free-tier ceiling. This means a PvP
@@ -288,7 +305,45 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // World Map — null shows the region picker; a region id enters that
   // region's Training Map. 'ledgers_heart' behaves exactly like the original
   // single Training Map (unfiltered encounters, DB-persisted position).
-  const [activeRegion, setActiveRegion] = useState<string>('ledgers_heart');
+  // A login starts where the kid last was (lib/lastPlace.ts); the very first one in Inkwell Town.
+  const [startPlace] = useState(() => {
+    const last = readLastPlace(userId);
+    return last && REGIONS[last.region] ? last : null;
+  });
+  const [activeRegion, setActiveRegion] = useState<string>(() => startPlace?.region ?? FIRST_REGION);
+  // The saved spot on that map, until the kid moves to another map.
+  const [resumeSpot, setResumeSpot] = useState(() => (
+    startPlace && startPlace.x !== undefined && startPlace.y !== undefined ? { x: startPlace.x, y: startPlace.y } : undefined
+  ));
+  // Coming home to town (first login, the Town button) lands next to Baylan; walking in
+  // through the gate lands at the gate. townVisit remounts the map even when already in town.
+  const [townHome, setTownHome] = useState(!startPlace);
+  const [townVisit, setTownVisit] = useState(0);
+  const enterRegion = useCallback((regionId: string) => { setTownHome(false); setResumeSpot(undefined); setActiveRegion(regionId); }, []);
+  const townRequest = mapHome?.townRequest ?? 0;
+  const curiosRequest = mapHome?.curiosRequest ?? 0;
+  const seenTownRequest = useRef(townRequest);
+  const seenCuriosRequest = useRef(curiosRequest);
+  useEffect(() => {
+    if (townRequest === seenTownRequest.current) return;
+    seenTownRequest.current = townRequest;
+    setView('map');
+    setTownHome(true);
+    setResumeSpot(undefined);
+    setActiveRegion('town');
+    setTownVisit(n => n + 1);
+  }, [townRequest]);
+  useEffect(() => {
+    if (curiosRequest === seenCuriosRequest.current) return;
+    seenCuriosRequest.current = curiosRequest;
+    setArenaNavOpen(true);
+  }, [curiosRequest]);
+  // Tells the nav where the kid is: the town shows every button, other maps only a few.
+  const onPlace = mapHome?.onPlace;
+  useEffect(() => { rememberRegion(userId, activeRegion); }, [userId, activeRegion]);
+  const place = view === 'map' && !trainingImmersive ? (activeRegion === 'town' ? 'town' : 'wild') : null;
+  useEffect(() => { onPlace?.(place); }, [onPlace, place]);
+  useEffect(() => () => onPlace?.(null), [onPlace]);
   const [activeBattle, setActiveBattle] = useState<NpcTrainer | null>(null);
   const [isWildEncounterBattle, setIsWildEncounterBattle] = useState(false);
   const [isDummyBattle, setIsDummyBattle] = useState(false);
@@ -1649,7 +1704,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           // onEnterRegion (portal walk-ins, or a direct region-access button)
           // updated `regionId` but the old map/background silently stuck
           // around. Keying by region forces the intended clean remount.
-          key={activeRegion}
+          key={`${activeRegion}:${townVisit}`}
           userId={userId}
           battleState={battleState}
           userMonsters={userMonsters}
@@ -1675,7 +1730,10 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           monsterDisplay={displayMonsters}
           regionId={activeRegion}
           playerLevel={playerLevel}
-          onEnterRegion={setActiveRegion}
+          onEnterRegion={enterRegion}
+          spawnAt={activeRegion === 'town' && townHome ? TOWN_HOME_SPOT : resumeSpot}
+          mapHome={mapHome ? { questDone: mapHome.questDone } : undefined}
+          paused={mapHome?.paused}
           inventory={inventory}
           onBattleStatePatch={patchBattleState}
           onTrackedCurioSummoned={handleTrackedCurioSummoned}

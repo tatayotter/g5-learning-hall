@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback, useRef, useMemo, type ComponentProps } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo, useContext, type ComponentProps } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { supabase } from '@/lib/supabase';
 import { createTrailingThrottle } from '@/lib/throttle';
@@ -14,7 +14,8 @@ import {
 } from '@/lib/monsterConfig';
 import { UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
-import MapStage from '@/components/MapStage';
+import MapStage, { MapScaleContext } from '@/components/MapStage';
+import { rememberSpot } from '@/lib/lastPlace';
 import MapCanvas from '@/components/monster/map/MapCanvas';
 import FloatingJoystick from '@/components/monster/map/FloatingJoystick';
 import MapInfoDrawer, { type InfoTab } from '@/components/monster/map/MapInfoDrawer';
@@ -46,7 +47,8 @@ import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
-import { TOWN_NPCS, type TownPage } from '@/lib/townNpcs';
+import { TOWN_NPCS, BAYLAN_ID, type TownPage } from '@/lib/townNpcs';
+import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import { NIGHT_WINDOWS } from '@/lib/nightWindows';
 import { fetchChecklistBattleFlags, GUILDS, type GuildKey } from '@/lib/dailyChecklist';
 import { manilaToday } from '@/lib/appDay';
@@ -212,6 +214,13 @@ interface TrainingMapProps {
   onOpenPage?: (page: TownPage) => void;
   /** Pass through to MapStage — renders the map as a fixed full-viewport layer. */
   fullscreen?: boolean;
+  /** Where the kid appears on a map that doesn't save its spot (the town's fountain square). */
+  spawnAt?: { x: number; y: number };
+  /** The map is the game's home (new nav): Baylan's "!" for today's Main Quest, the guild
+   *  masters' "?" grey until it's done, and a gold arrow toward Baylan meanwhile. */
+  mapHome?: { questDone: boolean };
+  /** A page is open over the map (map as home): the map sleeps and the kid can't walk. */
+  paused?: boolean;
   // Bag contents, for the map item slots (Tracking Scrolls).
   inventory: InventoryMap;
   // Merges fields into MonsterGuild's battleState without spreading a stale copy.
@@ -224,11 +233,13 @@ export default function TrainingMap({
   userId, battleState, userMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
-  liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen,
+  liveBattleInbox, mapPresence, movementLocked: movementLockedProp, walkLockActive, monsterDisplay,
+  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen, spawnAt, mapHome, paused,
   inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
   const offline = useIsOffline();
+  // A page open over the map locks walking like any panel on the map does.
+  const movementLocked = movementLockedProp || !!paused;
   // Wild veggies and trees (garden switch): plants to pick, trees to chop, and their stacks in the bag.
   const gardenRegion = regionId ?? 'ledgers_heart';
   // Trees on today's map (lib/mapNature.ts), once it has loaded.
@@ -428,7 +439,7 @@ export default function TrainingMap({
   // Elemental regions always start at their fixed spawn point and never
   // persist position — this local state naturally resets on region re-entry
   // since TrainingMap remounts when regionId changes.
-  const [localPos, setLocalPos] = useState(() => region?.spawn ?? { x: 1, y: 1 });
+  const [localPos, setLocalPos] = useState(() => spawnAt ?? region?.spawn ?? { x: 1, y: 1 });
   const posX = isLedgersHeart ? battleState.map_x : localPos.x;
   const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
@@ -516,6 +527,7 @@ export default function TrainingMap({
       positionWriteThrottleRef.current.call(newX, newY);
     } else {
       setLocalPos({ x: newX, y: newY });
+      rememberSpot(userId, regionId, newX, newY);
     }
 
     // A portal only takes the kid through when they choose to (E, tap): see goThroughExit.
@@ -1018,6 +1030,20 @@ export default function TrainingMap({
     const tile = g.tiles.reduce((best, t) => Math.hypot(t.x - posX, t.y - posY) < Math.hypot(best.x - posX, best.y - posY) ? t : best);
     return { regionId: g.regionId, tile };
   }, [exitGroups, posX, posY, mapW, mapH]);
+  // The map as home, today's Main Quest not done yet: a gold arrow at the edge of the screen points
+  // to Baylan in town, or elsewhere to the road toward town. It hides once he's close by.
+  const guide = useMemo(() => {
+    if (!mapHome || mapHome.questDone) return null;
+    let target: { x: number; y: number } | null = null;
+    if (activeRegion.id === 'town') {
+      target = TOWN_NPCS.town?.find(n => n.id === BAYLAN_ID)?.home ?? null;
+    } else {
+      const g = exitGroups.find(q => q.regionId === 'town') ?? exitGroups.find(q => q.regionId === 'ledgers_heart');
+      if (g?.tiles.length) target = { x: g.tiles.reduce((t, p) => t + p.x, 0) / g.tiles.length, y: g.tiles.reduce((t, p) => t + p.y, 0) / g.tiles.length };
+    }
+    if (!target || Math.hypot(target.x - posX, target.y - posY) < 5) return null;
+    return { angle: Math.atan2(target.y - posY, target.x - posX) };
+  }, [mapHome, activeRegion.id, exitGroups, posX, posY]);
   const goThroughExit = useCallback(() => {
     if (nearExit) handleTileEnter(nearExit.tile, undefined, true);
   }, [nearExit, handleTileEnter]);
@@ -1058,10 +1084,18 @@ export default function TrainingMap({
       .catch(() => {});
     return () => { cancelled = true; };
   }, [townNpcs, userId, offline]);
-  const npcQuest = useMemo(
-    () => (townNpcs && guildsPlayed ? townNpcs.filter(n => n.guild && !guildsPlayed.includes(n.guild)).map(n => n.id) : undefined),
-    [townNpcs, guildsPlayed],
-  );
+  // A guild master whose guild isn't played yet today shows a "?". With the map as home, Baylan
+  // shows a gold "!" until today's Main Quest is done, and the "?"s wait (small and grey) till then.
+  const questWaiting = !!mapHome && !mapHome.questDone;
+  const npcMarks = useMemo(() => {
+    if (!townNpcs) return undefined;
+    const marks: Record<string, NpcMark> = {};
+    if (questWaiting) marks[BAYLAN_ID] = 'bang';
+    for (const n of townNpcs) {
+      if (n.guild && guildsPlayed && !guildsPlayed.includes(n.guild)) marks[n.id] = questWaiting ? 'quiet' : 'quest';
+    }
+    return marks;
+  }, [townNpcs, guildsPlayed, questWaiting]);
   const talkToNpc = useCallback(() => {
     if (nearNpc?.guild && onPlayGuild) { playPageFlip(); onPlayGuild(nearNpc.guild); }
     else if (nearNpc?.opens && onOpenPage) { playPageFlip(); onOpenPage(nearNpc.opens); }
@@ -1206,7 +1240,8 @@ export default function TrainingMap({
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
-        npcQuest={npcQuest}
+        npcMarks={npcMarks}
+        paused={paused}
         onNpcNear={setNearNpcId}
         onNpcClick={onNpcClick}
         onMapTap={handleMapTap}
@@ -1215,6 +1250,7 @@ export default function TrainingMap({
         soundRegion={activeRegion.id}
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
+      {guide && !controlsDisabled && <GuideArrow angle={guide.angle} />}
       {!nearby && nearNpc && !controlsDisabled && (
         <button
           type="button"
@@ -1222,7 +1258,8 @@ export default function TrainingMap({
           onClick={talkToNpc}
           className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-2.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
         >
-          {npcQuest?.includes(nearNpc.id) && <span className="text-[#ffd23f]">?</span>}
+          {npcMarks?.[nearNpc.id] === 'quest' && <span className="text-[#ffd23f]">?</span>}
+          {npcMarks?.[nearNpc.id] === 'bang' && <span className="text-[#ffd23f]">!</span>}
           {nearNpc.guild ? `Play ${GUILD_LABEL[nearNpc.guild]}` : nearNpc.opensLabel}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
@@ -1440,5 +1477,31 @@ export default function TrainingMap({
         />
       )}
     </>
+  );
+}
+
+// The gold arrow toward Baylan (map as home). It sits inside the map's scaled frame, so its
+// distance from the middle is the screen's, divided by the frame's scale.
+function GuideArrow({ angle }: { angle: number }) {
+  const scale = useContext(MapScaleContext) || 1;
+  const r = `min(26vw, 24vh) / ${scale.toFixed(3)}`;
+  return (
+    <div
+      data-testid="guide-arrow"
+      aria-hidden
+      className="pointer-events-none absolute z-20 flex flex-col items-center"
+      style={{
+        left: `calc(50% + ${Math.cos(angle).toFixed(3)} * ${r})`,
+        top: `calc(50% + ${Math.sin(angle).toFixed(3)} * ${r})`,
+        transform: `translate(-50%, -50%) scale(${(1 / scale).toFixed(3)})`,
+      }}
+    >
+      <div style={{ transform: `rotate(${angle}rad)` }}>
+        <svg className="map-guide-arrow" width="38" height="30" viewBox="0 0 38 30" style={{ filter: 'drop-shadow(0 0 6px #ffd23f)' }}>
+          <path d="M3 11 H20 V4 L35 15 L20 26 V19 H3 Z" fill="#ffd23f" stroke="#3a2208" strokeWidth="2.5" strokeLinejoin="round" />
+        </svg>
+      </div>
+      <span className="mt-0.5 text-[11px] text-[#ffd23f] whitespace-nowrap" style={{ textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}>Baylan</span>
+    </div>
   );
 }

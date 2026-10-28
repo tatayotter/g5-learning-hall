@@ -61,27 +61,36 @@ interface Patrol {
   halted: boolean;
 }
 
+/** What floats over an NPC: a gold "!" (today's quest, Baylan), a gold "?" (a guild's side quest
+ *  waiting) or a small grey "?" (a side quest that wakes up once today's quest is done). */
+export type NpcMark = 'bang' | 'quest' | 'quiet';
+const MARK_TEXTURE: Record<NpcMark, string> = { bang: 'npc-bang-mark', quest: 'npc-quest-mark', quiet: 'npc-quiet-mark' };
+
+function makeMarkTexture(scene: Phaser.Scene, key: string, char: string, colors: [string, string, string], stroke: string) {
+  if (scene.textures.exists(key)) return;
+  const tex = scene.textures.createCanvas(key, 40, 52);
+  if (!tex) return;
+  const g = tex.getContext();
+  g.font = 'bold 44px Arial, sans-serif';
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  g.lineJoin = 'round';
+  g.lineWidth = 7;
+  g.strokeStyle = stroke;
+  g.strokeText(char, 20, 27);
+  const grad = g.createLinearGradient(0, 6, 0, 46);
+  grad.addColorStop(0, colors[0]);
+  grad.addColorStop(0.5, colors[1]);
+  grad.addColorStop(1, colors[2]);
+  g.fillStyle = grad;
+  g.fillText(char, 20, 27);
+  tex.refresh();
+}
+
 function makeMarkTextures(scene: Phaser.Scene) {
-  if (!scene.textures.exists('npc-quest-mark')) {
-    const tex = scene.textures.createCanvas('npc-quest-mark', 40, 52);
-    if (tex) {
-      const g = tex.getContext();
-      g.font = 'bold 44px Arial, sans-serif';
-      g.textAlign = 'center';
-      g.textBaseline = 'middle';
-      g.lineJoin = 'round';
-      g.lineWidth = 7;
-      g.strokeStyle = '#3a2208';
-      g.strokeText('?', 20, 27);
-      const grad = g.createLinearGradient(0, 6, 0, 46);
-      grad.addColorStop(0, '#fff6c0');
-      grad.addColorStop(0.5, '#ffd23f');
-      grad.addColorStop(1, '#f0a020');
-      g.fillStyle = grad;
-      g.fillText('?', 20, 27);
-      tex.refresh();
-    }
-  }
+  makeMarkTexture(scene, MARK_TEXTURE.quest, '?', ['#fff6c0', '#ffd23f', '#f0a020'], '#3a2208');
+  makeMarkTexture(scene, MARK_TEXTURE.bang, '!', ['#fff6c0', '#ffd23f', '#f0a020'], '#3a2208');
+  makeMarkTexture(scene, MARK_TEXTURE.quiet, '?', ['#f2f0ea', '#c9c4b8', '#a39d90'], '#3a3630');
   if (!scene.textures.exists('npc-quest-glow')) {
     const n = 64;
     const tex = scene.textures.createCanvas('npc-quest-glow', n, n);
@@ -101,7 +110,7 @@ function makeMarkTextures(scene: Phaser.Scene) {
 export default class GuildNpcLayer {
   readonly npcs: Npc[] = [];
   private still: boolean;
-  private quest = new Set<string>();
+  private marks: Record<string, NpcMark> = {};
   private patrols: Patrol[] = [];
   private highlight: string | null = null;
 
@@ -152,8 +161,8 @@ export default class GuildNpcLayer {
     return layer;
   }
 
-  /** The NPCs whose guild is still on today's to-do list (they show a "?"). */
-  setQuest(ids: string[]) { this.quest = new Set(ids); }
+  /** The mark over each NPC (by id); none when missing. */
+  setMarks(marks: Record<string, NpcMark>) { this.marks = marks; }
 
   /** The NPC in reach (gold outline), or null. */
   setHighlight(id: string | null) { this.highlight = id; }
@@ -257,16 +266,17 @@ export default class GuildNpcLayer {
       n.image.setPosition(px, feet).setScale(s, s * breathe).setVisible(true);
       if (n.shadow.width !== h * 0.5) n.shadow.setSize(h * 0.5, h * 0.12);
       n.shadow.setPosition(px, feet - h * 0.05).setVisible(true);
-      const marked = this.quest.has(n.def.id);
-      n.mark.setVisible(marked);
-      if (marked) {
+      const kind = this.marks[n.def.id];
+      n.mark.setVisible(!!kind);
+      if (kind) {
         const bob = this.still ? 0 : Math.sin(time / 380 + n.def.home.x) * h * 0.04;
-        const size = h * 0.42;
+        const size = h * (kind === 'quiet' ? 0.3 : kind === 'bang' ? 0.5 : 0.42);
         const markBottom = t.offsetY + (n.y - TAG_LIFT) * t.tileH - TAG_PX;
         const pulse = this.still ? 1 : 1 + 0.12 * Math.sin(time / 300);
         const [glow, q] = n.mark.list as Phaser.GameObjects.Image[];
+        if (q.texture.key !== MARK_TEXTURE[kind]) q.setTexture(MARK_TEXTURE[kind]);
         q.setScale(size / 52);
-        glow.setScale((size * 1.9 * pulse) / 64).setAlpha(this.still ? 0.7 : 0.55 + 0.3 * Math.sin(time / 300));
+        glow.setVisible(kind !== 'quiet').setScale((size * 1.9 * pulse) / 64).setAlpha(this.still ? 0.7 : 0.55 + 0.3 * Math.sin(time / 300));
         n.mark.setPosition(px, markBottom - size / 2 + bob);
       }
     }

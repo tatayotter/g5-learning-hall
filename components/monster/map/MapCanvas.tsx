@@ -20,6 +20,7 @@ import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality'
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
@@ -133,13 +134,15 @@ interface MapCanvasProps {
   chopTree?: string | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
   highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
-  /** Guild NPCs (town) whose guild is still on today's to-do list: a glowing "?" over the name. */
-  npcQuest?: string[];
+  /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
+  npcMarks?: Record<string, NpcMark>;
   /** The guild NPC within reach of the player, or null; called when it changes. */
   onNpcNear?: (id: string | null) => void;
   /** Tapping a guild NPC's name. */
   // `at`: where the NPC stands now (tile, feet), so a tap can walk up to it.
   onNpcClick?: (id: string, at?: { x: number; y: number }) => void;
+  /** A page is open over the map: stop drawing frames until it closes. */
+  paused?: boolean;
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
@@ -156,7 +159,7 @@ export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
-  npcQuest, onNpcNear, onNpcClick,
+  npcMarks, onNpcNear, onNpcClick, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -233,6 +236,7 @@ export default function MapCanvas({
     return () => el.removeEventListener('wheel', onWheel);
   }, [changeZoom]);
   const gameRef = useRef<import('phaser').Game | null>(null);
+  const pausedRef = useRef(!!paused);
   const sceneRef = useRef<import('@/lib/phaserMap/TrainingMapScene').default | null>(null);
   // Direct DOM target for the self name-tag/status-icon wrapper — positioned
   // imperatively every animation frame (see the rAF effect below), bypassing
@@ -332,6 +336,7 @@ export default function MapCanvas({
       // Scene queues this (via its own `ready` guard) until create() has
       // actually run — safe to call immediately.
       if (latestStateRef.current) scene.sync(latestStateRef.current);
+      if (pausedRef.current) gameRef.current.loop.sleep();
     })();
 
     return () => {
@@ -342,6 +347,14 @@ export default function MapCanvas({
     };
     // Game is created once; all subsequent updates flow through sync() below.
   }, []);
+
+  // A page open over the map hides it, so the game loop sleeps until it closes.
+  useEffect(() => {
+    pausedRef.current = !!paused;
+    const loop = gameRef.current?.loop;
+    if (!loop) return;
+    if (paused) loop.sleep(); else loop.wake();
+  }, [paused]);
 
   useEffect(() => {
     const others: MapCanvasPlayer[] = Object.values(onlinePlayers).map(p => ({
@@ -377,7 +390,7 @@ export default function MapCanvas({
       onMapTap,
       ambience,
       wildlife,
-      npcQuest,
+      npcMarks,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -474,8 +487,8 @@ export default function MapCanvas({
       // Crown over the name, grade under it; white with a black outline, no box.
       <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-0.5 flex flex-col items-center leading-none map-name-tag whitespace-nowrap">
         {profile?.showCrown && <GMBadge />}
-        <span className="text-[11px] font-bold">{label}</span>
-        {grade && <span className="text-[9px] font-semibold mt-px">Grade {gradeToNumber(grade)}</span>}
+        <span className="text-[8px]">{label}</span>
+        {grade && <span className="text-[7px] mt-px">Grade {gradeToNumber(grade)}</span>}
       </div>
     );
   };
@@ -592,10 +605,10 @@ export default function MapCanvas({
                 <img
                   src={ELEMENT_ICON_SRC[region.element]}
                   alt=""
-                  className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
+                  className="w-3 h-3 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
                 />
               )}
-              <span className="text-[10px] font-bold text-[#ffffff] drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
+              <span className="text-[8px] text-[#ffffff] drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
                 {region.name}
               </span>
               {portal.locked && <span className="text-[10px] leading-none">🔒</span>}
@@ -688,8 +701,8 @@ export default function MapCanvas({
             style={{ animationDuration: '0.9s' }}
           />
           {/* Name tag below the tile */}
-          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70
-                        text-amber-300 font-bold px-1 rounded whitespace-nowrap">
+          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[7px] bg-[#0a0807]/70
+                        text-amber-300 px-1 rounded whitespace-nowrap">
             {trainerMarker.name}
           </p>
         </div>
@@ -777,7 +790,7 @@ export default function MapCanvas({
             height: `${tileHPct}%`,
           }}
         >
-          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
+          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[7px] bg-[#0a0807]/70 text-green-300 px-1 rounded whitespace-nowrap">
             ♻️ Recycler
           </p>
         </div>

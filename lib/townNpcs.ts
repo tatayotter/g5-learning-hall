@@ -7,7 +7,7 @@
 import type { GuildKey } from '@/lib/dailyChecklist';
 
 /** A page a town NPC opens when talked to (instead of a guild). */
-export type TownPage = 'shop' | 'vault' | 'journal' | 'curios';
+export type TownPage = 'quests' | 'shop' | 'vault' | 'journal' | 'curios';
 
 export interface TownNpc {
   id: string;
@@ -52,14 +52,19 @@ export const PATROL_ROUTES: Record<string, PatrolRoute> = {
 const SOLDIER = { sheet: '/npcs/walk/soldier.webp', frameW: 62, frameH: 116, walkFrames: 11 };
 const GUARD_HELLO = 'All quiet in Inkwell Town! Have fun, young tamer.';
 
+export const BAYLAN_ID = 'loreteller';
+/** Where a kid appears when they come home to town (first login, the Town button):
+ *  on the fountain square, next to Baylan. */
+export const TOWN_HOME_SPOT = { x: 25, y: 24 };
+
 export const TOWN_NPCS: Record<string, TownNpc[]> = {
   town: [
     { id: 'spellcaster', name: 'Spell Caster', guild: 'spellcaster', sheet: '/npcs/walk/spellcaster.webp', frameW: 100, frameH: 130, home: { x: 6, y: 16 }, range: 4 },
     { id: 'numberrealm', name: 'Realm Guardian', guild: 'number_realm', sheet: '/npcs/walk/numberrealm.webp', frameW: 87, frameH: 115, home: { x: 16, y: 11 }, range: 5 },
     { id: 'lorekeeper', name: 'Lore Keeper', guild: 'lorekeeper', sheet: '/npcs/walk/lorekeeper.webp', frameW: 81, frameH: 116, home: { x: 30, y: 11 }, range: 5 },
     { id: 'lexiconarena', name: 'Lexicon Admiral', guild: 'lexicon_arena', sheet: '/npcs/walk/lexiconarena.webp', frameW: 88, frameH: 118, home: { x: 43, y: 11 }, range: 5 },
-    // Baylan the Loreteller strolls around the fountain; he'll run the notice board.
-    { id: 'loreteller', name: 'Baylan the Loreteller', sheet: '/npcs/walk/loreteller.webp', frameW: 74, frameH: 116, home: { x: 26, y: 22 }, range: 4, hello: "Hello! I'm Baylan. Big town news is coming soon!" },
+    // Baylan the Loreteller strolls around the fountain and gives out the day's Main Quests.
+    { id: BAYLAN_ID, name: 'Baylan the Loreteller', opens: 'quests', opensLabel: 'Quests', sheet: '/npcs/walk/loreteller.webp', frameW: 74, frameH: 116, home: { x: 26, y: 22 }, range: 4 },
     // The Shopkeeper minds the red-roofed shop south-east of the fountain; the Curio Expert works
     // next door at the teal house. Neither gets a "?" (that's for the guild masters).
     { id: 'shopkeeper', name: 'Shopkeeper', opens: 'shop', opensLabel: 'Shop', sheet: '/npcs/walk/shopkeeper.webp', frameW: 78, frameH: 116, walkFrames: 18, home: { x: 47, y: 27 }, range: 3 },

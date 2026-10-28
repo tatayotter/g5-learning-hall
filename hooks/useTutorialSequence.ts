@@ -20,6 +20,7 @@
 // genuinely change, so they're immune to how often the parent re-renders.
 
 import { useEffect, useRef, useState } from 'react';
+import { TUTORIALS_ON } from '@/lib/tutorial';
 import { trackEvent } from '@/lib/analytics';
 
 export interface TutorialStep {
@@ -40,7 +41,8 @@ interface UseTutorialSequenceOptions {
   onDone: (reason: 'completed' | 'skipped') => void;
 }
 
-export function useTutorialSequence({ tabKey, active, steps, onDone }: UseTutorialSequenceOptions) {
+export function useTutorialSequence({ tabKey, active: wanted, steps, onDone }: UseTutorialSequenceOptions) {
+  const active = wanted && TUTORIALS_ON;
   const [stepIndex, setStepIndex] = useState(0);
   const [result, setResult] = useState<'completed' | 'skipped' | null>(null);
 
