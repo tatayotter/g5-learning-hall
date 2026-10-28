@@ -140,6 +140,9 @@ const FLORA: Record<string, Flora> = {
   // The town keeps its lawns tidy: the Ledger's Heart's trees on the open lawns, flowers and a
   // little tall grass, no bushes or rocks.
   town: { bushes: [], smallBushes: [], rocks: [], flowers: FLOWERS, tufts: TUFTS, trees: 0.6, meadow: 0.72 },
+  // The Hideout: a kid's own tidy island. Flowers, tall grass and a few bushes; the only trees
+  // are the ones the kid plants in the grove.
+  hideout: { bushes: BUSHES.slice(0, 1), smallBushes: SMALL_BUSHES, rocks: ROCKS.slice(0, 2), flowers: FLOWERS, tufts: TUFTS, trees: 0, meadow: 0.66, rockScale: 0.4, flowerScale: 1.3 },
   cinderreach: {
     bushes: [FIRE_BUSH], smallBushes: [FIRE_BUSH],
     rocks: ROCKS.slice(0, 5), // no mushrooms in the ash

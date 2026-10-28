@@ -70,6 +70,7 @@ import SwayingGrass from './swayingGrass';
 import GardenPlants, { type PlantSprite } from './gardenPlants';
 import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
+import HideoutProps, { type PropSprite } from './hideoutProps';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
@@ -165,6 +166,8 @@ export interface MapCanvasSyncState {
   gardenPlants?: PlantSprite[];
   /** Wild trees (lib/phaserMap/wildTrees.ts), tile-art maps only. */
   wildTrees?: TreeSprite[];
+  /** The Hideout's plots and the Hideout signpost (lib/phaserMap/hideoutProps.ts). */
+  props?: PropSprite[];
   /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
@@ -174,7 +177,7 @@ export interface MapCanvasSyncState {
   /** The latest pickaxe or shovel swing at a find. */
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'prop'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
   npcMarks?: Record<string, NpcMark>;
   /** A tap or click on the map, as the tile under it. */
@@ -341,6 +344,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private trees: SwayingTrees | null = null;
   private garden: GardenPlants | null = null;
   private gardenPlants: PlantSprite[] = [];
+  private props: HideoutProps | null = null;
+  private propSprites: PropSprite[] = [];
   private wildTrees: WildTrees | null = null;
   private chopSwing: ChopSwing | null = null;
   private chopTree: string | null = null;
@@ -427,6 +432,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.bushes?.update(time, this.windStrength);
     this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
+    this.props?.update(time);
     this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.npcLayer?.syncOutlines(time);
@@ -695,6 +701,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private applyHighlight() {
     const h = this.highlight;
     this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
+    this.props?.setHighlight(h?.kind === 'prop' ? h.id : null);
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
     this.npcLayer?.setHighlight(h?.kind === 'npc' ? h.id : null);
   }
@@ -1082,6 +1089,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyRecycler(state, this.lastTransform);
     this.gardenPlants = state.gardenPlants ?? [];
     this.garden?.setPlants(this.gardenPlants);
+    this.propSprites = state.props ?? [];
+    this.props?.setProps(this.propSprites);
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
@@ -1218,6 +1227,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.bushes = null;
     this.trees = null;
     this.garden = null;
+    this.props = null;
     this.wildTrees = null;
     this.chopSwing = null;
     this.topLayer = null;
@@ -1304,6 +1314,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.garden = new GardenPlants(this, anyLayer, 8.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.garden.container);
         this.garden.setPlants(this.gardenPlants);
+        // The Hideout's plots, just under the crops growing in them.
+        this.props = new HideoutProps(this, anyLayer, 8.45, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.props.container);
+        this.props.setProps(this.propSprites);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);

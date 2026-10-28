@@ -155,6 +155,9 @@ export interface TiledArtMap {
   spawn: { x: number; y: number };
   // Optional "Recycler" object layer point; null → caller falls back to RECYCLER_TILES.
   recycler: { x: number; y: number } | null;
+  // Named points from a "Places" (or "Hideout Plots") object layer: where the game puts the
+  // Hideout's plots and the Hideout signpost.
+  places: Record<string, { x: number; y: number }>;
   // Walkable tiles that transition to another region when stepped on — see
   // the "Portals" objectgroup convention documented in
   // public/maps-tiled-art/README.md.
@@ -407,10 +410,17 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
   const forestRects: NatureRect[] = [];
   // "Tree Row": points where a tree grows every day (the town's line of trees under its top hedge).
   const treeSpots: { x: number; y: number }[] = [];
+  // "Places": named points the game puts things on (the Hideout's plots, the Hideout signpost).
+  const places: Record<string, { x: number; y: number }> = {};
   for (const groupEl of objectGroupEls) {
     const groupName = attr(groupEl, 'name');
     const objectEls = Array.from(groupEl.querySelectorAll('object'));
-    if (/tree\s*row/i.test(groupName)) {
+    if (/places|plots/i.test(groupName)) {
+      for (const o of objectEls) {
+        const name = attr(o, 'name').trim();
+        if (name) places[name] = { x: Math.floor(Number(attr(o, 'x')) / tileWidth), y: Math.floor(Number(attr(o, 'y')) / tileHeight) };
+      }
+    } else if (/tree\s*row/i.test(groupName)) {
       for (const o of objectEls) treeSpots.push({ x: Math.floor(Number(attr(o, 'x')) / tileWidth), y: Math.floor(Number(attr(o, 'y')) / tileHeight) });
     } else if (/collision/i.test(groupName)) {
       collisionRects.push(...objectEls.map(parseObjectRect).filter(r => r.width > 0 && r.height > 0));
@@ -511,7 +521,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     const grown = growNature({
       regionId: nature.regionId, day: nature.day, width: mapWidth, height: mapHeight, tileSize: tileWidth,
       ground: ground.data, detail: detail.data, base: base.data, firstgid,
-      spawn: spawnTile, portals, recycler: recyclerTile, reserved: nature.reserved,
+      spawn: spawnTile, portals, recycler: recyclerTile, reserved: [...nature.reserved, ...Object.values(places)],
       keepClear: keepClearRects, forest: forestRects, treeSpots, occupied, blocked: walls,
     });
     detail.data = grown.detail;
@@ -724,6 +734,7 @@ async function parseTiledArtMap(tmxUrl: string, nature?: NatureOptions & { day: 
     layout,
     spawn: spawnTile,
     recycler: recyclerTile,
+    places,
     portals,
     exits,
     foliage,

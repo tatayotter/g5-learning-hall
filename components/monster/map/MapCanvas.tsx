@@ -20,6 +20,7 @@ import { getQualityGroundGlowColor, type QualityTier } from '@/lib/curioQuality'
 import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } from '@/lib/phaserMap/TrainingMapScene';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
@@ -133,13 +134,15 @@ interface MapCanvasProps {
   gardenPlants?: PlantSprite[];
   /** Wild trees (garden), and the latest swing at one. */
   wildTrees?: TreeSprite[];
+  /** The Hideout's plots and the Hideout signpost in town. */
+  props?: PropSprite[];
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   chopTree?: string | null;
   /** The tier of each tool the kid owns (the one they swing), and the latest pickaxe/shovel swing at a find. */
   tools?: Partial<Record<ToolId, number>>;
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'prop'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
   npcMarks?: Record<string, NpcMark>;
   /** The guild NPC within reach of the player, or null; called when it changes. */
@@ -173,7 +176,7 @@ const NPC_APPROACH = 3;
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
@@ -416,6 +419,7 @@ export default function MapCanvas({
       recyclerTile: recyclerTile ?? null,
       gardenPlants,
       wildTrees,
+      props,
       treeSwing,
       chopTree,
       tools,

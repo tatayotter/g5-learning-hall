@@ -1,0 +1,157 @@
+// hooks/useHideoutMap.ts
+// The Hideout on the map (lib/hideoutConfig.ts, lib/hideout.ts): the signpost in Inkwell Town
+// and, on the Hideout's own island, its plots. Says what to draw for each (a prop, a crop, a
+// grown tree), which tiles they take, and what a kid standing next to one can do with it. The
+// panels and the travel are TrainingMap.tsx's.
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import { GARDEN_STACK, TREES, VEGGIES, gardenItemIcon, seedsKey, saplingKey, veggieKey, WOOD_KEY, type GardenBag, type TreeId, type VeggieId } from '@/lib/gardenConfig';
+import {
+  HIDEOUT_REGION, HARVEST_VEGGIES, PLOT_ART, PLOTS, SIGNPOST, SIGNPOST_ART, TREE_WOOD_PER_DAY, cropStage, groveStage,
+  type PlotDef, type PlotLook,
+} from '@/lib/hideoutConfig';
+import { useHideout } from '@/lib/hideout';
+import { manilaToday } from '@/lib/appDay';
+import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
+import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
+import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+
+// What a plot is up to now.
+export type PlotPhase =
+  | 'unbuilt' | 'soon'                 // not built (soon: not buildable yet)
+  | 'empty'                            // built, nothing growing
+  | 'growing' | 'ripe'                 // a crop or a tree growing / ready
+  | 'collected'                        // a grown tree whose wood was collected today
+  | 'camp';
+
+export interface HideoutSpot {
+  id: string;                          // 'signpost' or a plot id
+  kind: 'signpost' | 'plot';
+  x: number;
+  y: number;
+  plot?: PlotDef;
+  phase?: PlotPhase;
+  item?: string | null;
+  readyAt?: number | null;
+  watered?: boolean;
+  // The button's words and icon.
+  label: string;
+  icon: string;
+}
+
+interface Args {
+  userId: string;
+  regionId: string;
+  enabled: boolean;
+  online: boolean;
+  // Where the Hideout map puts each plot (its "Places" layer).
+  places: Record<string, { x: number; y: number }>;
+  bag: GardenBag;
+  onBag: (bag: GardenBag) => void;
+}
+
+export function useHideoutMap({ userId, regionId, enabled, online, places, bag, onBag }: Args) {
+  const onIsland = enabled && regionId === HIDEOUT_REGION;
+  const inTown = enabled && regionId === SIGNPOST.region;
+  const api = useHideout(userId, { enabled: onIsland || inTown, online, onBag });
+  const { state } = api;
+
+  // Crops and trees change look as they grow.
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!onIsland) return;
+    const t = setInterval(() => setNow(Date.now()), 5000);
+    return () => clearInterval(t);
+  }, [onIsland]);
+  const today = manilaToday();
+
+  const spots: HideoutSpot[] = useMemo(() => {
+    if (inTown) {
+      return [{
+        id: 'signpost', kind: 'signpost', x: SIGNPOST.x, y: SIGNPOST.y,
+        label: state.owned ? 'Go to My Hideout' : 'My Hideout', icon: SIGNPOST_ART.src,
+      }];
+    }
+    if (!onIsland || !state.owned) return [];
+    const out: HideoutSpot[] = [];
+    for (const def of Object.values(PLOTS)) {
+      const at = places[def.id];
+      if (!at) continue;
+      const p = state.plots[def.id];
+      const base = { id: def.id, kind: 'plot' as const, x: at.x, y: at.y, plot: def };
+      if (!p) {
+        out.push({ ...base, phase: def.soon ? 'soon' : 'unbuilt', label: def.soon ? def.name : `Build ${def.name}`, icon: def.soon ? PLOT_ART.kitchen_soon.src : gardenItemIcon(WOOD_KEY) });
+        continue;
+      }
+      if (def.kind === 'camp') { out.push({ ...base, phase: 'camp', label: 'Curio Camp', icon: PLOT_ART.camp.src }); continue; }
+      if (!p.item) {
+        out.push({ ...base, phase: 'empty', label: def.kind === 'bed' ? 'Plant Seeds' : 'Plant a Sapling', icon: def.kind === 'bed' ? '/garden/icon_seeds_tomato.png' : '/garden/icon_sapling_oak.png' });
+        continue;
+      }
+      const ripe = p.readyAt !== null && now >= p.readyAt;
+      const watered = p.wateredAt !== null;
+      const name = def.kind === 'bed' ? VEGGIES[p.item as VeggieId]?.label ?? p.item : `${TREES[p.item as TreeId]?.label ?? p.item} Tree`;
+      const icon = def.kind === 'bed' ? gardenItemIcon(veggieKey(p.item as VeggieId)) : gardenItemIcon(saplingKey(p.item as TreeId));
+      const spot = { ...base, item: p.item, readyAt: p.readyAt, watered };
+      if (!ripe) out.push({ ...spot, phase: 'growing', label: watered ? `${name} is growing` : `Water ${name}`, icon });
+      else if (def.kind === 'bed') out.push({ ...spot, phase: 'ripe', label: `Harvest ${name}`, icon });
+      else if (p.collectedOn === today) out.push({ ...spot, phase: 'collected', label: name, icon: gardenItemIcon(WOOD_KEY) });
+      else out.push({ ...spot, phase: 'ripe', label: 'Collect Wood', icon: gardenItemIcon(WOOD_KEY) });
+    }
+    return out;
+  }, [inTown, onIsland, state, places, now, today]);
+
+  // What each spot looks like on the map.
+  const look = useMemo(() => {
+    const props: PropSprite[] = [];
+    const crops: PlantSprite[] = [];
+    const trees: TreeSprite[] = [];
+    for (const s of spots) {
+      if (s.kind === 'signpost') { props.push({ id: s.id, src: SIGNPOST_ART.src, x: s.x, y: s.y }); continue; }
+      const def = s.plot!;
+      const art = (l: PlotLook) => ({ id: s.id, src: PLOT_ART[l].src, x: s.x, y: s.y });
+      if (s.phase === 'unbuilt') { props.push(art('site')); continue; }
+      if (s.phase === 'soon') { props.push(art('kitchen_soon')); continue; }
+      if (def.kind === 'camp') { props.push(art('camp')); continue; }
+      if (def.kind === 'bed') {
+        props.push(art('bed'));
+        const p = state.plots[s.id];
+        if (p?.item && p.plantedAt !== null && p.readyAt !== null) {
+          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall: VEGGIES[p.item as VeggieId]?.tall ?? false, stage: cropStage(p.plantedAt, p.readyAt, now) });
+        }
+        continue;
+      }
+      // A grove spot: the ring of soil, then a sapling, a young tree and a grown one.
+      const p = state.plots[s.id];
+      if (!p?.item || p.plantedAt === null || p.readyAt === null) { props.push(art('grove')); continue; }
+      const stage = groveStage(p.plantedAt, p.readyAt, now);
+      if (stage === 'grown') {
+        trees.push({ id: s.id, tree: p.item as TreeId, x: s.x, y: s.y, stage: 'ready', hits: 0 });
+      } else if (stage === 'young') {
+        props.push({ id: s.id, src: `/garden/tree_${p.item}.png`, x: s.x, y: s.y, frame: { x: 0, y: 0, w: 128, h: 160 }, anchor: { x: 64, y: 134 }, scale: 0.55 });
+      } else {
+        props.push({ id: s.id, src: gardenItemIcon(saplingKey(p.item as TreeId)), x: s.x, y: s.y, anchor: { x: 50, y: 96 }, scale: 0.36 });
+      }
+    }
+    return { props, crops, trees };
+  }, [spots, state.plots, now]);
+
+  // The plots and the signpost are solid: a kid uses one from the tile beside it.
+  const blocked = useMemo(() => spots.map(s => ({ x: s.x, y: s.y })), [spots]);
+
+  // Bag squares a harvest might need (the most it can give).
+  const squaresForHarvest = (s: HideoutSpot) => {
+    const adds: GardenBag = s.plot?.kind === 'bed' && s.item
+      ? { [veggieKey(s.item as VeggieId)]: HARVEST_VEGGIES * 2, [seedsKey(s.item as VeggieId)]: 2 }
+      : { [WOOD_KEY]: TREE_WOOD_PER_DAY };
+    return Object.entries(adds).reduce((sum, [k, n]) => {
+      const have = bag[k] ?? 0;
+      return sum + Math.ceil((have + (n ?? 0)) / GARDEN_STACK) - Math.ceil(have / GARDEN_STACK);
+    }, 0);
+  };
+
+  return { api, onIsland, inTown, spots, ...look, blocked, squaresForHarvest };
+}
+
+export type HideoutMap = ReturnType<typeof useHideoutMap>;

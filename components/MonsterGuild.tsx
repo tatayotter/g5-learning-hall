@@ -320,7 +320,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // through the gate lands at the gate. townVisit remounts the map even when already in town.
   const [townHome, setTownHome] = useState(!startPlace);
   const [townVisit, setTownVisit] = useState(0);
-  const enterRegion = useCallback((regionId: string) => { setTownHome(false); setResumeSpot(undefined); setActiveRegion(regionId); }, []);
+  // `at`: where to arrive (back over the Hideout's bridge: next to its signpost in town).
+  const enterRegion = useCallback((regionId: string, at?: { x: number; y: number }) => { setTownHome(false); setResumeSpot(at); setActiveRegion(regionId); }, []);
   const townRequest = mapHome?.townRequest ?? 0;
   const curiosRequest = mapHome?.curiosRequest ?? 0;
   const seenTownRequest = useRef(townRequest);
@@ -1742,6 +1743,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onBattleStatePatch={patchBattleState}
           onTrackedCurioSummoned={handleTrackedCurioSummoned}
           onPlayGuild={onPlayGuild}
+          gold={currentGold}
+          onLoadoutChange={refreshMonsterLoadouts}
           // The Curio Expert opens the Curio Arena menu (team, hatchery, compendium...).
           onOpenPage={page => { if (page === 'curios') setArenaNavOpen(true); else onOpenPage?.(page); }}
         />

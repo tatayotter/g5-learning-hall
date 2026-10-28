@@ -26,6 +26,8 @@ export interface GearDef {
   use: string;
   // Not sold yet: the skill it unlocks isn't in the game yet.
   soon?: string;
+  // The soon note only shows until the kid has one (it comes some other way first).
+  soonUntilOwned?: boolean;
   tiers: GearTierDef[];
 }
 
@@ -74,11 +76,13 @@ export const GEAR: Record<GearId, GearDef> = {
   can: {
     id: 'can',
     use: 'Water the plants in your own garden.',
-    soon: 'Comes with your Hideout garden!',
+    // The Tin can comes free with the Hideout; the better ones are sold after that.
+    soon: 'Comes free with your Hideout!',
+    soonUntilOwned: true,
     tiers: [
-      { tier: 1, name: 'Tin Watering Can', cost: 100, perk: 'Water your garden.' },
-      { tier: 2, name: 'Bronze Watering Can', cost: 800, perk: 'Plants grow faster.' },
-      { tier: 3, name: 'Silver Watering Can', cost: 2500, perk: 'Water 3 plants at once.' },
+      { tier: 1, name: 'Tin Watering Can', cost: 100, perk: 'Water a plant so it grows faster.' },
+      { tier: 2, name: 'Bronze Watering Can', cost: 800, perk: 'Watered plants grow even faster.' },
+      { tier: 3, name: 'Silver Watering Can', cost: 2500, perk: 'Water all your plants at once.' },
       { tier: 4, name: 'Gold Watering Can', cost: 6000, perk: 'Sometimes a double harvest!' },
     ],
   },
@@ -92,6 +96,10 @@ export const GEAR: Record<GearId, GearDef> = {
     ],
   },
 };
+
+// Why this gear can't be bought now, if it can't (have: the tier the kid owns).
+export const gearSoon = (g: GearId, have: number) =>
+  GEAR[g].soon && !(GEAR[g].soonUntilOwned && have > 0) ? GEAR[g].soon : null;
 
 export const TOOL_ORDER: ToolId[] = ['axe', 'pickaxe', 'shovel', 'rod', 'can'];
 export const GEAR_ORDER: GearId[] = [...TOOL_ORDER, 'bag'];
