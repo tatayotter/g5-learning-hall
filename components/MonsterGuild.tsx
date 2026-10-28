@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
 import { useTutorialSequence, TutorialStep } from '@/hooks/useTutorialSequence';
 import TutorialSpotlight from '@/components/TutorialSpotlight';
+import { claimTrainerFirstWin } from '@/lib/trainerGold';
 import { supabase } from '@/lib/supabase';
 import { fetchCurioCollection } from '@/lib/curioCollection';
 import { hasOfflineCopy, needsConnection, readingOffline } from '@/lib/offlineReads';
@@ -1438,9 +1439,12 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
       }
 
       await awardActiveMonsterExp(expEarned);
-      showNotification(`🏆 You defeated ${activeBattle.name}!`);
       await supabase.from('monster_battle_log').insert({ user_id: userId, opponent: activeBattle.id, result: 'win', monster_exp_earned: expEarned });
-      logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Curio EXP`, expEarned, 0);
+      // The trainer's gold, the first time they're beaten (the server pays it once, ever).
+      const prize = await claimTrainerFirstWin(userId, activeBattle.id);
+      if (prize.progress) onGoldSynced(prize.progress);
+      showNotification(prize.gold > 0 ? `🏆 You defeated ${activeBattle.name}! +${prize.gold} Gold!` : `🏆 You defeated ${activeBattle.name}!`);
+      logAction(userId, today, 'battle', `🏆 Defeated Trainer ${activeBattle.name} — +${expEarned} Curio EXP${prize.gold > 0 ? `, +${prize.gold} Gold` : ''}`, expEarned, prize.gold);
       onBattleWon('trainer');
       if (activeBattle.id === 'tatay') onTatayBattleResult?.(true);
     } else {

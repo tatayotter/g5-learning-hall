@@ -41,11 +41,11 @@ $$ language sql;
 select pg_temp.login_as(kid_a_auth) from fx;
 set local role authenticated;
 
-select is((public.apply_progress_deltas((select kid_a from fx), 0, 15000) ->> 'gold')::int, 10000,
-  'a 15,000 gold request is clamped to the 10,000 daily cap');
-select is((public.apply_progress_deltas((select kid_a from fx), 0, 500) ->> 'gold')::int, 10000,
+select is((public.apply_progress_deltas((select kid_a from fx), 0, 15000) ->> 'gold')::int, 5000,
+  'a 15,000 gold request is clamped to the 5,000 daily cap');
+select is((public.apply_progress_deltas((select kid_a from fx), 0, 500) ->> 'gold')::int, 5000,
   'further gold the same day is clamped to zero, not rejected');
-select is((public.apply_progress_deltas((select kid_a from fx), 0, -100) ->> 'gold')::int, 9900,
+select is((public.apply_progress_deltas((select kid_a from fx), 0, -100) ->> 'gold')::int, 4900,
   'spending (a negative delta) is never capped');
 select lives_ok(
   $$ select public.apply_progress_update((select kid_a from fx), 25000, 0) $$,
@@ -82,7 +82,7 @@ reset role;
 select is(
   (select format('%s/%s %s/%s %s/%s', xp_granted, xp_clamped, gold_granted, gold_clamped, items_granted, items_clamped)
    from reward_daily_ledger where user_id = (select kid_a from fx)),
-  '20000/5000 10000/5500 30/989',
+  '20000/5000 5000/10500 30/989',
   'the ledger records granted and clamped amounts'
 );
 
@@ -98,7 +98,7 @@ select set_config('request.jwt.claims', '{"role":"service_role"}', true);
 select set_config('request.jwt.claim.role', 'service_role', true);
 select set_config('request.jwt.claim.sub', '', true);
 set local role service_role;
-select is((public.apply_progress_deltas((select kid_a from fx), 0, 50) ->> 'gold')::int, 9950,
+select is((public.apply_progress_deltas((select kid_a from fx), 0, 50) ->> 'gold')::int, 4950,
   'service-role gold (live PvP win) is credited and not capped');
 
 -- ── Legacy weekly_packages side door ──────────────────────────────────────────

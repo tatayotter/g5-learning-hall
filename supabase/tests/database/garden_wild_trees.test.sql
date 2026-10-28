@@ -74,6 +74,8 @@ select throws_ok(
 
 reset role;
 update feature_flags set mode = 'allowlist', allowlist = array[(select kid from fx)] where key = 'garden';
+-- Stone tools (20261028090000_gear_tools_and_earning_trims.sql): the rules from before tools.
+insert into player_gear (user_id, gear, tier) select kid, g, 1 from fx, unnest(array['axe', 'pickaxe', 'shovel']) g;
 set local role authenticated;
 
 -- A clean chop: three right answers in a row.

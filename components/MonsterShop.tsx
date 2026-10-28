@@ -27,6 +27,9 @@ import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import {
   TRACKABLE_CURIOS, TRACKING_GOAL, TRACKING_SCROLL_COST, trackingScrollKey, trackingScrollName, trackedMonsterId, fetchOwnedSpecies,
 } from '@/lib/curioTracking';
+import { useGear } from '@/lib/gear';
+import { GEAR, GEAR_ORDER, gearIcon, gearTierDef, nextGearTier, type GearId } from '@/lib/gearConfig';
+import { useFeatureFlag } from '@/lib/featureFlags';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
   unlearn: 'Unlearn',
@@ -62,6 +65,8 @@ interface ShopDetailItem {
   effects?: SkillEffect[];
   // Tracking Scrolls only: the curio it tracks (one per species, and not for a curio you have).
   trackingMonsterId?: string;
+  // Tools and bags (lib/gearConfig.ts): bought one tier at a time through buy_gear.
+  gear?: GearId;
 }
 
 const trackingDetail = (def: (typeof TRACKABLE_CURIOS)[number]): ShopDetailItem => ({
@@ -195,7 +200,11 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   const [selectedItem, setSelectedItem] = useState<ShopDetailItem | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
-  const [activeSection, setActiveSection] = useState<'all' | 'items' | 'tracking' | 'scrolls' | 'tomes' | 'sprites'>('all');
+  const [activeSection, setActiveSection] = useState<'all' | 'gear' | 'items' | 'tracking' | 'scrolls' | 'tomes' | 'sprites'>('all');
+  // Tools unlock map skills that come with the garden; bag upgrades are for everyone.
+  const { gear, buy: buyGearTier } = useGear(userId);
+  const gardenOn = useFeatureFlag(userId, 'garden');
+  const gearShown = GEAR_ORDER.filter(g => g === 'bag' || gardenOn);
   const [ownedSpecies, setOwnedSpecies] = useState<Set<string>>(new Set());
   useEffect(() => {
     let cancelled = false;
@@ -280,6 +289,46 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       buyBusyRef.current = false;
       setBuyingKey(null);
     }
+  };
+
+  const handleBuyGear = async (g: GearId) => {
+    const next = nextGearTier(g, gear);
+    if (buyBusyRef.current || !next) return;
+    if (currentStats.gold < next.cost) {
+      alert(`❌ Not enough Gold! You need 🪙 ${next.cost - currentStats.gold} more.`);
+      return;
+    }
+    buyBusyRef.current = true;
+    setBuyingKey(`gear_${g}`);
+    try {
+      const res = await buyGearTier(g);
+      trackEvent('shop_purchase_attempt', { item_key: `gear_${g}_${next.tier}`, cost: next.cost, success: res.ok });
+      if (!res.ok) {
+        alert(res.reason === 'gold' ? '❌ Not enough Gold!' : '❌ That didn\'t work. Try again!');
+        return;
+      }
+      if (res.gold !== null) onSpendGold({ ...currentStats, gold: res.gold });
+      logAction(userId, new Date().toISOString().split('T')[0], 'purchase', `Bought ${next.name} from the Shop`, 0, -next.cost);
+      playShopPurchase();
+      setSelectedItem(null);
+    } finally {
+      buyBusyRef.current = false;
+      setBuyingKey(null);
+    }
+  };
+
+  // The popup for a tool or bag: what it does now and what the next tier adds.
+  const gearDetail = (g: GearId): ShopDetailItem => {
+    const have = gear[g] ?? 0;
+    const next = nextGearTier(g, gear);
+    return {
+      key: `gear_${g}`,
+      gear: g,
+      name: next?.name ?? gearTierDef(g, have)!.name,
+      icon: gearIcon(g, next?.tier ?? have),
+      desc: `${GEAR[g].use} ${next ? next.perk : 'You have the best one!'}`,
+      cost: next?.cost ?? 0,
+    };
   };
 
   if (loading) return <p className="text-stone-500 animate-pulse">Loading shop…</p>;
@@ -389,6 +438,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             className="sselect"
           >
             <option value="all">All Items</option>
+            <option value="gear">{gardenOn ? 'Tools and Bags' : 'Bags'}</option>
             <option value="items">Curio Battle Items</option>
             <option value="tracking">Tracking Scrolls</option>
             <option value="scrolls">Curio Battle Skills</option>
@@ -398,6 +448,31 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#7a4a0f] text-xs">▼</span>
         </div>
       </div>
+
+      {/* Tools and bag upgrades (lib/gearConfig.ts): each card is the next tier to buy. */}
+      {(activeSection === 'all' || activeSection === 'gear') && (
+        <div className="mb-8" data-testid="shop-gear">
+          {activeSection === 'all' && <h2 className="shead mb-3">🪓 {gardenOn ? 'Tools and Bags' : 'Bags'}</h2>}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+            {gearShown.map(g => {
+              const have = gear[g] ?? 0;
+              const next = nextGearTier(g, gear);
+              return (
+                <ShopCard
+                  key={g}
+                  icon={gearIcon(g, next?.tier ?? have)}
+                  name={next?.name ?? gearTierDef(g, have)!.name}
+                  cost={next?.cost ?? 0}
+                  affordable={!!next && !GEAR[g].soon && currentStats.gold >= next.cost}
+                  owned={!next}
+                  imageSize="w-full h-full [image-rendering:pixelated]"
+                  onClick={() => setSelectedItem(gearDetail(g))}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Curio Battle Items — consumables */}
       {(activeSection === 'all' || activeSection === 'items') && (
@@ -599,7 +674,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             <div className="mx-auto mb-3 w-28 h-28 p-3 rounded-full flex items-center justify-center" style={{ background: 'radial-gradient(circle,#fff6d6 0%,#f0ddb8 85%)', border: '2px solid #c9a87a' }}>
               {trackingPopupDef
                 ? <TrackingScrollIcon monster={trackingPopupDef} className="w-full h-full" />
-                : <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" />}
+                : <img src={selectedItem.icon} alt={selectedItem.name} className="w-full h-full object-contain" style={selectedItem.gear ? { imageRendering: 'pixelated' } : undefined} />}
             </div>
             <h3 className="font-display text-2xl font-extrabold text-[#7a4a0f] mb-1">{selectedItem.name}</h3>
             <p className="text-sm font-semibold text-[#6b4820] mb-4">{selectedItem.desc}</p>
@@ -682,7 +757,51 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               </div>
             )}
 
-            {(() => {
+            {selectedItem.gear && (() => {
+              const g = selectedItem.gear;
+              const have = gear[g] ?? 0;
+              const next = nextGearTier(g, gear);
+              const block = GEAR[g].soon ?? (next ? null : 'You have the best one!');
+              return (
+                <>
+                  <p className="mb-4">
+                    <span className="inline-block text-xs font-extrabold text-[#7a4a0f] bg-[#f0ddb8] border border-[#c9a87a] rounded-full px-3 py-0.5">
+                      {have > 0 ? `You have: ${gearTierDef(g, have)!.name}` : 'You don\'t have one yet'}
+                    </span>
+                  </p>
+                  {g !== 'bag' && have === 0 && !GEAR[g].soon && (
+                    <p className="text-[11px] text-[#6b4820] -mt-2 mb-3">Put it in an item slot on the map to use it.</p>
+                  )}
+                  <div className="flex gap-2">
+                    {block ? (
+                      <div className="flex-1 bg-[#e8d0a0] border-2 border-[#8b5e2a] text-[#6b4820] font-extrabold text-xs py-2.5 px-2 rounded-xl text-center flex items-center justify-center">
+                        {block}
+                      </div>
+                    ) : (
+                      <GameButton
+                        variant="quest"
+                        color={currentStats.gold >= next!.cost ? '#d97706' : '#57534e'}
+                        disabled={currentStats.gold < next!.cost || buyingKey === selectedItem.key}
+                        onClick={() => handleBuyGear(g)}
+                        className="flex-1"
+                        style={{ fontSize: 14 }}
+                        data-testid="buy-gear"
+                      >
+                        {buyingKey === selectedItem.key ? 'Buying…' : (
+                          <span className="inline-flex items-center gap-1">
+                            {have > 0 ? 'Upgrade' : 'Buy'} {next!.cost} <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3.5 h-3.5" />
+                          </span>
+                        )}
+                      </GameButton>
+                    )}
+                    <GameButton variant="quest" color="#57534e" onClick={() => setSelectedItem(null)} className="flex-1" style={{ fontSize: 14 }}>
+                      Close
+                    </GameButton>
+                  </div>
+                </>
+              );
+            })()}
+            {!selectedItem.gear && (() => {
               const owned = (inventory[selectedItem.key] || 0) > 0;
               const alreadyOwned = selectedItem.ownedOnly && owned;
               const trackingBlock = selectedItem.trackingMonsterId

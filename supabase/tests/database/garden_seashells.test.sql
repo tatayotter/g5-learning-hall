@@ -58,6 +58,8 @@ $$ language sql;
 select is((select count(*)::int from wild_plant_nodes where region = 'tidewrit_shallows' and veggie = 'seashell'), 7, 'Tidewrit has 7 seashell spots');
 
 update feature_flags set mode = 'allowlist', allowlist = array[(select kid from fx)] where key = 'garden';
+-- Stone tools (20261028090000_gear_tools_and_earning_trims.sql): the rules from before tools.
+insert into player_gear (user_id, gear, tier) select kid, g, 1 from fx, unnest(array['axe', 'pickaxe', 'shovel']) g;
 update player_progress set gold = 100 where user_id = (select kid from fx);
 select pg_temp.login_as(kid_auth) from fx;
 set local role authenticated;

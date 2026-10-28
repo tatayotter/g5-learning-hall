@@ -8,9 +8,10 @@
 // when they sync.
 import { supabase } from '@/lib/supabase';
 import {
-  CHOP_SWINGS, DAILY_TREE_LIMIT, REGROW_MS, REST_MS, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
+  REGROW_MS, REST_MS, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
   type GardenBag, type TreeId, type VeggieId,
 } from '@/lib/gardenConfig';
+import { alwaysSaplingFor, chopSwingsFor, dailyTreeLimitFor } from '@/lib/gearConfig';
 
 export interface PlantTimer {
   // Epoch ms; null = ripe.
@@ -104,14 +105,19 @@ export async function fetchGarden(userId: string): Promise<GardenState | null> {
   return { bag, plants };
 }
 
-export type GatherStatus = 'picked' | 'wrong' | 'growing' | 'resting';
+// 'no_tool': a find whose tool (pickaxe, shovel) the kid doesn't own; nothing was graded.
+export type GatherStatus = 'picked' | 'wrong' | 'growing' | 'resting' | 'no_tool';
 
 export interface GatherResult {
   status: GatherStatus;
   correct: boolean | null;
   correctAnswer: string | null;
   veggie: VeggieId;
+  // How many went into the bag (a Bronze tool and up sometimes finds 2).
+  count: number;
   seeds: number;
+  // A rare find's bag key (find_gem, find_coin), when one turned up.
+  rare: string | null;
   readyAt: number | null;
   restUntil: number | null;
   bag: GardenBag | null;
@@ -145,7 +151,9 @@ export async function gatherWildPlant(args: {
       correct: data.correct ?? null,
       correctAnswer: data.correct_answer ?? null,
       veggie: data.veggie,
+      count: data.count ?? (data.status === 'picked' ? 1 : 0),
       seeds: data.seeds ?? 0,
+      rare: data.rare ?? null,
       readyAt: toMs(data.ready_at),
       restUntil: toMs(data.rest_until),
       bag: data.bag ? cleanBag(data.bag) : null,
@@ -171,7 +179,7 @@ export async function sellGardenItems(userId: string, items: GardenBag | null): 
 }
 
 // What a pick does to the device copy: the same rules gather_wild_plant applies, minus the
-// seed roll (an offline pick's seed packet shows up once it syncs).
+// rolls (an offline pick's seed packet, second find or rare find shows up once it syncs).
 export function applyLocalPick(state: GardenState, region: string, nodeId: string, veggie: VeggieId, correct: boolean, now: number): GardenState {
   const key = plantKey(region, nodeId);
   const prev = state.plants[key] ?? { readyAt: null, restUntil: null, wrong: 0 };
@@ -189,8 +197,9 @@ export function applyLocalPick(state: GardenState, region: string, nodeId: strin
   return { ...state, plants: { ...state.plants, [key]: next } };
 }
 
-// 'stump': already chopped today. 'tired': the day's DAILY_TREE_LIMIT trees are chopped.
-export type ChopStatus = 'hit' | 'felled' | 'wrong' | 'stump' | 'resting' | 'tired';
+// 'stump': already chopped today. 'tired': the day's trees (dailyTreeLimitFor) are chopped.
+// 'no_tool': no axe; nothing was graded.
+export type ChopStatus = 'hit' | 'felled' | 'wrong' | 'stump' | 'resting' | 'tired' | 'no_tool';
 
 export interface ChopResult {
   status: ChopStatus;
@@ -247,24 +256,30 @@ export async function chopWildTree(args: {
   };
 }
 
-// What a swing does to the device copy: the same rules chop_wild_tree applies. A clean chop's
-// sapling is certain, so it shows straight away; the 50% roll for the others waits for sync.
-export function applyLocalChop(state: GardenState, region: string, nodeId: string, tree: TreeId, correct: boolean, now: number): { state: GardenState; result: Pick<ChopResult, 'status' | 'hits' | 'clean' | 'wood' | 'saplings' | 'restUntil'> } {
+// What a swing does to the device copy: the same rules chop_wild_tree applies for the kid's axe.
+// A sapling that's certain (a clean chop, or a Silver Axe) shows straight away; the 50% roll for
+// the others and a Gold Axe's double wood wait for sync.
+export function applyLocalChop(state: GardenState, region: string, nodeId: string, tree: TreeId, correct: boolean, now: number, axeTier: number): { state: GardenState; result: Pick<ChopResult, 'status' | 'hits' | 'clean' | 'wood' | 'saplings' | 'restUntil'> } {
+  const swings = chopSwingsFor(axeTier);
   const key = plantKey(region, nodeId);
   const prev = state.plants[key] ?? { readyAt: null, restUntil: null, wrong: 0, hits: 0, misses: 0 };
   const hits = prev.hits ?? 0;
   const misses = prev.misses ?? 0;
   const day = treeDayOf(nodeId);
-  if (day && treesFelledOn(state, day) >= DAILY_TREE_LIMIT) {
+  if (axeTier <= 0) {
+    return { state, result: { status: 'no_tool', hits, clean: false, wood: 0, saplings: 0, restUntil: null } };
+  }
+  if (day && treesFelledOn(state, day) >= dailyTreeLimitFor(axeTier)) {
     return { state, result: { status: 'tired', hits, clean: false, wood: 0, saplings: 0, restUntil: null } };
   }
-  if (correct && hits + 1 >= CHOP_SWINGS) {
+  if (correct && hits + 1 >= swings) {
     const clean = misses === 0;
+    const sapling = clean || alwaysSaplingFor(axeTier);
     const bag: GardenBag = { ...state.bag, [WOOD_KEY]: (state.bag[WOOD_KEY] ?? 0) + WOOD_PER_TREE };
-    if (clean) bag[saplingKey(tree)] = (bag[saplingKey(tree)] ?? 0) + 1;
+    if (sapling) bag[saplingKey(tree)] = (bag[saplingKey(tree)] ?? 0) + 1;
     return {
       state: { bag, plants: { ...state.plants, [key]: { readyAt: day ? endOfTreeDay(day) : now, restUntil: null, wrong: 0, hits: 0, misses: 0 } } },
-      result: { status: 'felled', hits: CHOP_SWINGS, clean, wood: WOOD_PER_TREE, saplings: clean ? 1 : 0, restUntil: null },
+      result: { status: 'felled', hits: swings, clean, wood: WOOD_PER_TREE, saplings: sapling ? 1 : 0, restUntil: null },
     };
   }
   if (correct) {

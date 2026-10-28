@@ -1,6 +1,6 @@
 // hooks/useTimeAttack.ts
 import { useState, useEffect, useCallback, useRef, useEffectEvent } from 'react';
-import { TIME_ATTACK_DURATION, XP_PER_CORRECT, GOLD_PER_CORRECT, SCORE_PER_CORRECT, SCORE_PENALTY_WRONG, getStreakMultiplier, getTierRewardMultiplier, rollCritBonus } from '@/lib/guildConfig';
+import { TIME_ATTACK_DURATION, XP_PER_CORRECT, GOLD_PER_CORRECT, SCORE_PER_CORRECT, SCORE_PENALTY_WRONG, getStreakMultiplier, getTierRewardMultiplier, goldMultiplier, rollCritBonus } from '@/lib/guildConfig';
 
 export interface CritBonusEvent {
   bonus: number;
@@ -91,7 +91,7 @@ export function useTimeAttack<T>(
       setCorrectCount(c => c + 1);
       setTotalXpEarned(x => x + XP_PER_CORRECT * tierMult);
       const critBonus = rollCritBonus();
-      const goldGain = GOLD_PER_CORRECT * streakMult * tierMult + (critBonus || 0);
+      const goldGain = GOLD_PER_CORRECT * goldMultiplier(streakMult, tierMult) + (critBonus || 0);
       setTotalGoldEarned(g => g + goldGain);
       if (critBonus) {
         setLastCrit({ bonus: critBonus, nonce: ++critNonceRef.current });

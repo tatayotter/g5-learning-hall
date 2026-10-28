@@ -9,6 +9,7 @@
 // - each battle goes into a per-player outbox with its hidden turn-by-turn log (lib/battleLog.ts),
 //   and on reconnect to sync_offline_trainer_battle once, which re-grades every answer, checks the
 //   log adds up, and decides the win and the EXP itself.
+import { claimTrainerFirstWin } from '@/lib/trainerGold';
 import { supabase } from '@/lib/supabase';
 import { isOffline } from '@/lib/offlineSnapshot';
 import { offlinePlayEnabled, offlineTermQuestions, type PoolQuestion } from '@/lib/offlineQuests';
@@ -119,6 +120,8 @@ export function queueTrainerBattle(
 export interface SyncedTrainerBattles {
   battles: number;
   wins: number;
+  // A trainer's first-win gold, paid once the win is on record (lib/trainerGold.ts).
+  gold: number;
 }
 
 const flushing = new Map<string, Promise<SyncedTrainerBattles>>();
@@ -129,7 +132,7 @@ export function flushTrainerOutbox(userId: string): Promise<SyncedTrainerBattles
   const running = flushing.get(userId);
   if (running) return running;
   const run = (async () => {
-    const synced: SyncedTrainerBattles = { battles: 0, wins: 0 };
+    const synced: SyncedTrainerBattles = { battles: 0, wins: 0, gold: 0 };
     for (const entry of pendingTrainerBattles(userId)) {
       if (isOffline()) break;
       const { data, error } = await supabase.rpc('sync_offline_trainer_battle', {
@@ -153,7 +156,10 @@ export function flushTrainerOutbox(userId: string): Promise<SyncedTrainerBattles
       write(OUTBOX(userId), remaining.filter(e => e.id !== entry.id));
       if (!data.replayed) {
         synced.battles += 1;
-        if (data.won) synced.wins += 1;
+        if (data.won) {
+          synced.wins += 1;
+          synced.gold += (await claimTrainerFirstWin(userId, entry.trainerId)).gold;
+        }
       }
     }
     return synced;

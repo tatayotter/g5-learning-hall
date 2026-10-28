@@ -40,6 +40,12 @@ export function getTierRewardMultiplier(tier: number) {
   return Math.max(1, tier);
 }
 
+// Streak x tier together never pays more than this many times GOLD_PER_CORRECT (economy plan,
+// 2026-10-28): without it a long streak on the hardest stage paid up to x25 and guild runs alone
+// filled wallets faster than anything in the game could empty them.
+export const MAX_REWARD_MULTIPLIER = 10;
+export const goldMultiplier = (streakMult: number, tierMult: number) => Math.min(streakMult * tierMult, MAX_REWARD_MULTIPLIER);
+
 // ~1 in 8 correct answers triggers a "Lucky Find" bonus of 1-3x the normal
 // gold rate — a small variable-reward moment on top of the deterministic
 // streak multiplier, so correct answers aren't 100% predictable in payout.
