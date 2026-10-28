@@ -18,6 +18,7 @@ const FPS = 14;
 const BODY_PX = 112; // character height in the sheet (build_npcs.py BODY)
 const BODY_TILES = 1.05; // shown about as tall as a player
 const STOP_NEAR = 1.6; // tiles: a kid this close stops them
+const GREET_NEAR = 2.6; // tiles: a standing NPC turns to a kid this close and waits
 // The name tag (MapCanvas.tsx) sits on a box 0.15 tile above the tile; the "?" goes over it.
 const TAG_LIFT = 0.15;
 const TAG_PX = 16;
@@ -304,13 +305,14 @@ export default class GuildNpcLayer {
     if (n.walking && self && Math.hypot(self.x - n.x, self.y - n.y) < STOP_NEAR) {
       n.walking = false;
       n.path = [];
-      n.image.stop();
-      n.image.setFrame(n.idle);
+      this.standIdle(n);
     }
     if (!n.walking) {
-      if (self && Math.hypot(self.x - n.x, self.y - n.y) < 2.6 && Math.abs(self.x - n.x) > 0.2) {
-        n.image.setFlipX(self.x < n.x);
-        n.restUntil = Math.max(n.restUntil, time + 1500); // stays to say hello
+      if (self && Math.hypot(self.x - n.x, self.y - n.y) < GREET_NEAR) {
+        // Turns to the kid and stays to say hello, whichever side the kid comes from, above and
+        // below too.
+        if (Math.abs(self.x - n.x) > 0.2) n.image.setFlipX(self.x < n.x);
+        n.restUntil = Math.max(n.restUntil, time + 1500);
       }
       if (time < n.restUntil) return;
       const path = this.pathToSomewhere(n);
@@ -330,8 +332,7 @@ export default class GuildNpcLayer {
     }
     if (!n.path.length) {
       n.walking = false;
-      n.image.stop();
-      n.image.setFrame(n.idle);
+      this.standIdle(n);
       n.restUntil = time + 2500 + Math.random() * 4500;
     }
   }
@@ -358,6 +359,13 @@ export default class GuildNpcLayer {
     const out: { x: number; y: number }[] = [];
     while (k !== start && k !== -1) { out.unshift({ x: k % W, y: Math.floor(k / W) }); k = prev.get(k)!; }
     return out;
+  }
+
+  // Stops walking and stands in the idle pose, still facing the way they walked (every frame of a
+  // sheet, the idle pose too, faces right).
+  private standIdle(n: Npc) {
+    n.image.stop();
+    n.image.setFrame(n.idle);
   }
 
   private isOpen(x: number, y: number) {
