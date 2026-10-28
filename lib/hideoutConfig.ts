@@ -102,7 +102,7 @@ export const PLOT_ART: Record<PlotLook, { src: string; w: number; h: number }> =
   camp: { src: '/hideout/curio_camp.png', w: 64, h: 64 },
   kitchen_soon: { src: '/hideout/kitchen_soon.png', w: 32, h: 48 },
 };
-export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 32, h: 48 };
+export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 29, h: 64 };
 
 // A crop's look as it grows: planted (soil and a sprout), growing, ripe (the wild veggies' strip).
 export type CropStage = 'picked' | 'growing' | 'ripe';
