@@ -84,6 +84,7 @@ import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer, { type NpcMark } from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
+import ScrollGlow from './scrollGlow';
 import GroundTexture from './groundTexture';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
@@ -157,6 +158,8 @@ export interface MapCanvasSyncState {
   visibleCanvasBottom?: number;
   /** Tilemap camera zoom (player-adjustable); defaults to TILE_ART_ZOOM. */
   zoom?: number;
+  /** Question scrolls on the map, as tiles (lib/phaserMap/scrollGlow.ts). */
+  scrolls?: { id: number; x: number; y: number }[];
   /** Trash items to render below the foliage layer (depth 9). */
   trashItems?: Array<{ id: string; type: string; x: number; y: number }>;
   /** IDs of trash items currently in pickup animation. */
@@ -368,6 +371,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // A floor drawn over Ground Detail (the town's fountain plaza): shadows on it are lifted over it.
   private floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private groundFx: GroundFx | null = null;
+  private scrollGlow: ScrollGlow | null = null;
   // The texture on the plain ground (see groundTexture.ts).
   private groundTexture: GroundTexture | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
@@ -443,6 +447,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateWindows(time);
     this.updateExits(time);
     this.updateWalkMark();
+    this.scrollGlow?.update(this.lastTransform, time);
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.windStrength);
@@ -974,6 +979,17 @@ export default class TrainingMapScene extends Phaser.Scene {
     return { px: t.offsetX + (x + 0.5) * t.tileW, py: t.offsetY + (y + 0.5) * t.tileH, w: t.tileW, h: t.tileH };
   }
 
+  private applyScrolls(state: MapCanvasSyncState) {
+    if (!this.scrollGlow) {
+      this.scrollGlow = new ScrollGlow(this, onReady => this.ensureTexture('scroll:art', '/sprite/question-scroll.png', () => {
+        this.setLinearFilter('scroll:art');
+        // Baked down to about a tile wide, like the trash (see bakeSmoothTexture).
+        onReady(this.bakeSmoothTexture('scroll:art', this.lastTransform.tileW));
+      }));
+    }
+    this.scrollGlow.setScrolls(state.scrolls ?? []);
+  }
+
   private ensureTexture(key: string, url: string, onReady: () => void) {
     if (this.textures.exists(key)) {
       onReady();
@@ -1085,6 +1101,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.applyDustPuffs(state);
     this.applyTrashItems(state, this.lastTransform);
     this.applyRecycler(state, this.lastTransform);
+    this.applyScrolls(state);
     this.gardenPlants = state.gardenPlants ?? [];
     this.garden?.setPlants(this.gardenPlants);
     this.wildTreeSprites = state.wildTrees ?? [];

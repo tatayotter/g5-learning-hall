@@ -115,10 +115,10 @@ interface MapCanvasProps {
   // labelOnly: an exit on the map's edge, drawn by the scene (glow and arrow): just its name here.
   portalMarkers?: { x: number; y: number; regionId: string; locked: boolean; labelOnly?: boolean }[];
   // Scrolls (training questions) and the curio (wild-encounter entry point)
-  // are stationary, walked-into map entities — rendered the same way as
-  // portal markers (static DOM overlay, no per-frame updates needed) since
-  // neither moves once spawned. See components/monster/TrainingMap.tsx for
-  // the spawn/lifecycle logic; this component only draws them.
+  // are stationary, walked-into map entities. Scrolls are drawn by the scene
+  // with their magic glow (lib/phaserMap/scrollGlow.ts); the curio is a
+  // static DOM overlay like the portal markers. See
+  // components/monster/TrainingMap.tsx for the spawn/lifecycle logic.
   scrollMarkers?: { id: number; x: number; y: number }[];
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
@@ -425,6 +425,7 @@ export default function MapCanvas({
       ambience,
       wildlife,
       npcMarks,
+      scrolls: scrollMarkers,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);
@@ -675,28 +676,6 @@ export default function MapCanvas({
           </div>
         );
       })}
-
-      {scrollMarkers?.map(scroll => (
-        <div
-          key={scroll.id}
-          ref={el => registerMarker(`scroll:${scroll.id}`, scroll.x, scroll.y, el)}
-          className="absolute pointer-events-none flex items-center justify-center"
-          style={{
-            left: `${leftPct(scroll.x)}%`, top: `${topPct(scroll.y)}%`,
-            width: `${tileWPct}%`, height: `${tileHPct}%`,
-          }}
-        >
-          {/* Strong radiating orange glow behind the scroll, independent of
-              the bob animation on the image itself, so it reads from a
-              distance the same way the curio ground-glow does. */}
-          <span className="map-scroll-glow absolute rounded-full" />
-          <img
-            src="/sprite/question-scroll.png"
-            alt="Training scroll"
-            className="map-scroll-sprite relative w-8 h-8 object-contain drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]"
-          />
-        </div>
-      ))}
 
       {curioMarker && (
         <div
