@@ -62,12 +62,12 @@ const TABS: { id: NavTabId; label: string; icon: string }[] = [
 // Baylan in Inkwell Town gives out the Main Quests, so Today becomes Quests (raised, in the middle)
 // and Side Quests moves to the menu (the guild masters give them on the map). Curios opens the
 // Curio Arena menu over the map. Out of town the bar steps aside: see CalmButtons.
+// No Vault button: the shop opens only from the Shopkeeper in Inkwell Town (Rowil 2026-10-28).
 const HOME_TABS: { id: NavTabId; label: string; icon: string }[] = [
   { id: 'monster', label: 'Map',     icon: '/icons/mapicon.png' },
   { id: 'curios',  label: 'Curios',  icon: '/nav/curios.png' },
   { id: 'board',   label: 'Quests',  icon: '/main ui/mainquest.png' },
   { id: 'journal', label: 'Journal', icon: '/nav/journal.png' },
-  { id: 'vault',   label: 'Vault',   icon: '/nav/vault.png' },
 ];
 
 /** The map as home: where the kid is and the buttons that only exist then. */
@@ -84,11 +84,10 @@ export interface NavHome {
 // and from old links.
 export const NAV_PAGES = ['profile', 'codex', 'bonus_quests', 'todo'] as const;
 type PageId = 'profile' | 'codex' | 'bonus_quests' | 'guilds' | 'journal' | 'vault';
-// With the map as home the menu also has Side Quests, and out of town (no bar) Journal and Vault.
+// With the map as home the menu also has Side Quests, and out of town (no bar) Journal.
 const SIDE_QUESTS_ITEM = { id: 'guilds' as const, label: 'Side Quests', icon: '/main ui/sidequest.png' };
 const CALM_ITEMS: { id: PageId; label: string; icon: string }[] = [
   { id: 'journal', label: 'Journal', icon: '/nav/journal.png' },
-  { id: 'vault',   label: 'Vault',   icon: '/nav/vault.png' },
 ];
 const MENU_ITEMS: { id: PageId; label: string; icon: string }[] = [
   { id: 'profile',      label: 'Profile',      icon: '/main ui/profile.png' },
@@ -174,10 +173,11 @@ export default function GameNav({ activeTab, onNavigate, badges, hidden, hud, on
     else onNavigate(tab);
   };
   const label = (t: { id: NavTabId; label: string }) => `${t.label}${badges[t.id] ? ', something new' : ''}`;
+  const openMenu = () => { playPageFlip(); setMenuOpen(true); };
   const menuButton = (
     <button
       type="button"
-      onClick={() => { playPageFlip(); setMenuOpen(true); }}
+      onClick={openMenu}
       aria-label="Menu"
       aria-haspopup="dialog"
       className={`flex items-center justify-center min-w-[44px] min-h-[44px] active:scale-95 ${FOCUS_RING}`}
@@ -196,11 +196,12 @@ export default function GameNav({ activeTab, onNavigate, badges, hidden, hud, on
           isDesktop={layout === 'sidebar'}
           isLandscape={layout !== 'bar'}
           left={calm ? 0 : layout === 'sidebar' ? SIDEBAR_W : layout === 'rail' ? RAIL_W : 0}
-          leading={layout === 'sidebar' && !calm ? undefined : menuButton}
+          // With the map as home the menu is in the bar, or with the calm buttons out of town.
+          leading={home || layout === 'sidebar' ? undefined : menuButton}
         />
       )}
 
-      {!hidden && calm && home && <CalmButtons questBang={questBang} onQuests={() => go('board')} onTown={() => { playPageFlip(); home.onGoTown(); }} />}
+      {!hidden && calm && home && <CalmButtons questBang={questBang} onQuests={() => go('board')} onTown={() => { playPageFlip(); home.onGoTown(); }} onMenu={openMenu} />}
 
       {!hidden && !calm && layout === 'sidebar' && (
         <nav aria-label="Main" className="fixed top-0 bottom-0 left-0 z-[79] flex flex-col" style={{ width: SIDEBAR_W, backgroundImage: DARK_BAR, borderRight: '2px solid #d4a017', boxShadow: '2px 0 8px -1px rgba(0,0,0,0.5)' }}>
@@ -291,6 +292,19 @@ export default function GameNav({ activeTab, onNavigate, badges, hidden, hud, on
               </button>
             );
           })}
+          {/* With the map as home the menu sits in the bar, where Vault was (Rowil 2026-10-28). */}
+          {home && (
+            <button
+              type="button"
+              onClick={openMenu}
+              aria-label="Menu"
+              aria-haspopup="dialog"
+              className={`relative flex flex-col items-center justify-end gap-0.5 min-h-[52px] min-w-[48px] active:scale-95 transition-transform ${FOCUS_RING} ${layout === 'bar' ? 'flex-1' : ''}`}
+            >
+              <img src="/nav/menu.png" alt="" className="object-contain opacity-85" style={{ width: 30, height: 30, filter: 'saturate(0.75)' }} />
+              <span className="text-center leading-[1.05]" style={{ ...TAB_TEXT, fontSize: 11, color: '#e8d0a0', maxWidth: 70 }}>Menu</span>
+            </button>
+          )}
         </nav>
       )}
 
@@ -377,7 +391,7 @@ function MenuTile({ icon, label, onClick }: { icon: string; label: string; onCli
 // Out on a map away from town (Rowil 2026-10-28: most buttons live in town): Quests, with the
 // gold "!" while today's Main Quest waits, and Town, straight home to Baylan. They sit on the right
 // above the Curio Arena button; the Menu button stays in the top bar.
-function CalmButtons({ questBang, onQuests, onTown }: { questBang: boolean; onQuests: () => void; onTown: () => void }) {
+function CalmButtons({ questBang, onQuests, onTown, onMenu }: { questBang: boolean; onQuests: () => void; onTown: () => void; onMenu: () => void }) {
   const round = `relative flex flex-col items-center justify-center rounded-full border-[3px] active:scale-95 ${FOCUS_RING}`;
   return (
     <div className="home-calm-buttons fixed right-3 z-[80] flex flex-col items-center gap-2.5" style={{ bottom: 'calc(5.75rem + env(safe-area-inset-bottom, 0px))' }}>
@@ -391,6 +405,11 @@ function CalmButtons({ questBang, onQuests, onTown }: { questBang: boolean; onQu
         className={round} style={{ width: 56, height: 56, backgroundImage: DARK_BAR, borderColor: '#d4a017', boxShadow: '0 3px 8px rgba(0,0,0,0.5)' }}>
         <span aria-hidden className="text-[24px] leading-none">🏘️</span>
         <span style={{ ...TAB_TEXT, fontSize: 9, color: '#e8d0a0' }}>Town</span>
+      </button>
+      <button type="button" onClick={onMenu} aria-label="Menu" aria-haspopup="dialog" data-testid="calm-menu"
+        className={round} style={{ width: 56, height: 56, backgroundImage: DARK_BAR, borderColor: '#d4a017', boxShadow: '0 3px 8px rgba(0,0,0,0.5)' }}>
+        <img src="/nav/menu.png" alt="" className="w-7 h-7 object-contain" />
+        <span style={{ ...TAB_TEXT, fontSize: 9, color: '#e8d0a0' }}>Menu</span>
       </button>
     </div>
   );
