@@ -258,7 +258,9 @@ interface AnimatedAvatarDef {
 }
 const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
   '/userpics/userpics_premium/ssb3.png': {
-    spriteSheet: '/sprite/ssb3_walk.png',
+    // New name when the art turned to face right, so a device's cached copy of the old
+    // left-facing sheet (public/sw.js keeps art) is never drawn with the new flip.
+    spriteSheet: '/sprite/ssb3_walk_right.png',
     frameWidth: 64,
     frameHeight: 64,
     animKey: 'ssb3-walk',
@@ -266,7 +268,7 @@ const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
     walkLastFrame: 30,
   },
   '/userpics/userpics_premium/ssg3.png': {
-    spriteSheet: '/sprite/ssg3_walk.png',
+    spriteSheet: '/sprite/ssg3_walk_right.png',
     frameWidth: 64,
     frameHeight: 64,
     animKey: 'ssg3-walk',
