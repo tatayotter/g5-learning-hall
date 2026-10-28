@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect, useCallback } from 'react';
 import type { GuildKey } from '@/lib/dailyChecklist';
 import { TOWN_HOME_SPOT, type TownPage } from '@/lib/townNpcs';
-import { manilaToday } from '@/lib/appDay';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -56,6 +55,7 @@ import { createInvite, respondToInvite, expireInvite } from '@/lib/liveBattle';
 import { useLiveBattleInbox, type InviteResponse } from '@/hooks/useLiveBattleInbox';
 import LiveBattleInviteToast from '@/components/LiveBattleInviteToast';
 import { REGIONS } from '@/lib/regions';
+import { FIRST_REGION, readLastPlace, rememberRegion } from '@/lib/lastPlace';
 import { CaughtMonster, BattleState, GuildView, PendingWildCurio } from '@/components/monster/types';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { trackingScrollKey, TRACKING_SCROLL_COST } from '@/lib/curioTracking';
@@ -133,23 +133,6 @@ export interface MapHome {
   onPlace: (place: 'town' | 'wild' | null) => void;
   /** A page is open over the map: the map sleeps and the kid can't walk. */
   paused?: boolean;
-}
-
-// The first time a day the map opens as home, the kid starts in town next to Baylan; after that
-// (back from a page or a battle) on the map they were on, for this visit to the game.
-const homeDayKey = (userId: string) => `g5_home_day:${userId}`;
-const homeRegionKey = (userId: string) => `g5_home_region:${userId}`;
-function homeStartRegion(userId: string): string {
-  try {
-    if (localStorage.getItem(homeDayKey(userId)) !== manilaToday()) return 'town';
-    return sessionStorage.getItem(homeRegionKey(userId)) ?? 'ledgers_heart';
-  } catch { return 'town'; }
-}
-function rememberHomeRegion(userId: string, regionId: string) {
-  try {
-    localStorage.setItem(homeDayKey(userId), manilaToday());
-    sessionStorage.setItem(homeRegionKey(userId), regionId);
-  } catch { /* storage blocked: the map starts in town next time */ }
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -322,12 +305,21 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   // World Map — null shows the region picker; a region id enters that
   // region's Training Map. 'ledgers_heart' behaves exactly like the original
   // single Training Map (unfiltered encounters, DB-persisted position).
-  const [activeRegion, setActiveRegion] = useState<string>(() => (mapHome ? homeStartRegion(userId) : 'ledgers_heart'));
-  // Coming home to town (first visit of the day, the Town button) lands next to Baylan; walking in
+  // A login starts where the kid last was (lib/lastPlace.ts); the very first one in Inkwell Town.
+  const [startPlace] = useState(() => {
+    const last = readLastPlace(userId);
+    return last && REGIONS[last.region] ? last : null;
+  });
+  const [activeRegion, setActiveRegion] = useState<string>(() => startPlace?.region ?? FIRST_REGION);
+  // The saved spot on that map, until the kid moves to another map.
+  const [resumeSpot, setResumeSpot] = useState(() => (
+    startPlace && startPlace.x !== undefined && startPlace.y !== undefined ? { x: startPlace.x, y: startPlace.y } : undefined
+  ));
+  // Coming home to town (first login, the Town button) lands next to Baylan; walking in
   // through the gate lands at the gate. townVisit remounts the map even when already in town.
-  const [townHome, setTownHome] = useState(activeRegion === 'town');
+  const [townHome, setTownHome] = useState(!startPlace);
   const [townVisit, setTownVisit] = useState(0);
-  const enterRegion = useCallback((regionId: string) => { setTownHome(false); setActiveRegion(regionId); }, []);
+  const enterRegion = useCallback((regionId: string) => { setTownHome(false); setResumeSpot(undefined); setActiveRegion(regionId); }, []);
   const townRequest = mapHome?.townRequest ?? 0;
   const curiosRequest = mapHome?.curiosRequest ?? 0;
   const seenTownRequest = useRef(townRequest);
@@ -337,6 +329,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
     seenTownRequest.current = townRequest;
     setView('map');
     setTownHome(true);
+    setResumeSpot(undefined);
     setActiveRegion('town');
     setTownVisit(n => n + 1);
   }, [townRequest]);
@@ -347,8 +340,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
   }, [curiosRequest]);
   // Tells the nav where the kid is: the town shows every button, other maps only a few.
   const onPlace = mapHome?.onPlace;
-  const homeOn = !!mapHome;
-  useEffect(() => { if (homeOn) rememberHomeRegion(userId, activeRegion); }, [homeOn, userId, activeRegion]);
+  useEffect(() => { rememberRegion(userId, activeRegion); }, [userId, activeRegion]);
   const place = view === 'map' && !trainingImmersive ? (activeRegion === 'town' ? 'town' : 'wild') : null;
   useEffect(() => { onPlace?.(place); }, [onPlace, place]);
   useEffect(() => () => onPlace?.(null), [onPlace]);
@@ -1739,7 +1731,7 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           regionId={activeRegion}
           playerLevel={playerLevel}
           onEnterRegion={enterRegion}
-          spawnAt={activeRegion === 'town' && townHome ? TOWN_HOME_SPOT : undefined}
+          spawnAt={activeRegion === 'town' && townHome ? TOWN_HOME_SPOT : resumeSpot}
           mapHome={mapHome ? { questDone: mapHome.questDone } : undefined}
           paused={mapHome?.paused}
           inventory={inventory}

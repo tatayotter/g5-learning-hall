@@ -15,6 +15,7 @@ import {
 import { UserMonster } from '@/components/battle/shared';
 import { useLiveBattleInbox } from '@/hooks/useLiveBattleInbox';
 import MapStage, { MapScaleContext } from '@/components/MapStage';
+import { rememberSpot } from '@/lib/lastPlace';
 import MapCanvas from '@/components/monster/map/MapCanvas';
 import FloatingJoystick from '@/components/monster/map/FloatingJoystick';
 import MapInfoDrawer, { type InfoTab } from '@/components/monster/map/MapInfoDrawer';
@@ -526,6 +527,7 @@ export default function TrainingMap({
       positionWriteThrottleRef.current.call(newX, newY);
     } else {
       setLocalPos({ x: newX, y: newY });
+      rememberSpot(userId, regionId, newX, newY);
     }
 
     // A portal only takes the kid through when they choose to (E, tap): see goThroughExit.
@@ -1499,7 +1501,7 @@ function GuideArrow({ angle }: { angle: number }) {
           <path d="M3 11 H20 V4 L35 15 L20 26 V19 H3 Z" fill="#ffd23f" stroke="#3a2208" strokeWidth="2.5" strokeLinejoin="round" />
         </svg>
       </div>
-      <span className="mt-0.5 text-[13px] font-black text-[#ffd23f] whitespace-nowrap" style={{ textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}>Baylan</span>
+      <span className="mt-0.5 text-[11px] text-[#ffd23f] whitespace-nowrap" style={{ textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}>Baylan</span>
     </div>
   );
 }

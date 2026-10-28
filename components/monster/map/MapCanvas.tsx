@@ -487,8 +487,8 @@ export default function MapCanvas({
       // Crown over the name, grade under it; white with a black outline, no box.
       <div className="absolute bottom-full left-1/2 -translate-x-1/2 -mb-0.5 flex flex-col items-center leading-none map-name-tag whitespace-nowrap">
         {profile?.showCrown && <GMBadge />}
-        <span className="text-[11px] font-bold">{label}</span>
-        {grade && <span className="text-[9px] font-semibold mt-px">Grade {gradeToNumber(grade)}</span>}
+        <span className="text-[8px]">{label}</span>
+        {grade && <span className="text-[7px] mt-px">Grade {gradeToNumber(grade)}</span>}
       </div>
     );
   };
@@ -605,10 +605,10 @@ export default function MapCanvas({
                 <img
                   src={ELEMENT_ICON_SRC[region.element]}
                   alt=""
-                  className="w-3.5 h-3.5 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
+                  className="w-3 h-3 object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,1)] flex-shrink-0"
                 />
               )}
-              <span className="text-[10px] font-bold text-[#ffffff] drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
+              <span className="text-[8px] text-[#ffffff] drop-shadow-[0_1px_2px_rgba(0,0,0,1)] leading-none">
                 {region.name}
               </span>
               {portal.locked && <span className="text-[10px] leading-none">🔒</span>}
@@ -701,8 +701,8 @@ export default function MapCanvas({
             style={{ animationDuration: '0.9s' }}
           />
           {/* Name tag below the tile */}
-          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70
-                        text-amber-300 font-bold px-1 rounded whitespace-nowrap">
+          <p className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-[7px] bg-[#0a0807]/70
+                        text-amber-300 px-1 rounded whitespace-nowrap">
             {trainerMarker.name}
           </p>
         </div>
@@ -790,7 +790,7 @@ export default function MapCanvas({
             height: `${tileHPct}%`,
           }}
         >
-          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] bg-[#0a0807]/70 text-green-300 font-bold px-1 rounded whitespace-nowrap">
+          <p className="absolute -top-5 left-1/2 -translate-x-1/2 text-[7px] bg-[#0a0807]/70 text-green-300 px-1 rounded whitespace-nowrap">
             ♻️ Recycler
           </p>
         </div>
