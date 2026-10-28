@@ -6,8 +6,11 @@
 // A kid who walks up stops them; the one in reach gets the gold outline trees get, and a guild
 // still on today's to-do list shows a glowing "?" over the name. With "reduce motion" on they
 // stand still at their door and the "?" doesn't bob.
+// A squad (TownNpc.patrol) marches its route instead: the leader in front, the rest two abreast
+// behind, all in step; at each stop the soldiers stand to attention (front pose) and the leader
+// turns to face them, then they march on.
 import Phaser from 'phaser';
-import { NPC_WALK_FRAMES, type TownNpc } from '@/lib/townNpcs';
+import { NPC_WALK_FRAMES, PATROL_ROUTES, type PatrolRoute, type TownNpc } from '@/lib/townNpcs';
 import type { Transform } from './ambience';
 import { OUTLINE_COLOR, outlineAlpha } from './outline';
 
@@ -20,6 +23,10 @@ const STOP_NEAR = 1.6; // tiles: a kid this close stops them
 const TAG_LIFT = 0.15;
 const TAG_PX = 16;
 const MARK_DEPTH = 41; // over the cloud shadows (40)
+const MARCH = 1.0; // tiles per second
+const LEAD_GAP = 1.3; // tiles from the leader to the first rank
+const RANK_GAP = 1.0; // tiles between ranks
+const FILE_HALF = 0.35; // tiles from the route to each file
 
 export interface NpcSprite {
   image: Phaser.GameObjects.Sprite;
@@ -41,6 +48,18 @@ interface Npc extends NpcSprite {
   idle: number;
   outline: Phaser.GameObjects.Sprite[];
   mark: Phaser.GameObjects.Container;
+}
+
+interface Patrol {
+  route: PatrolRoute;
+  members: Npc[];
+  cum: number[]; // arc length at each point
+  total: number;
+  stops: { at: number; ms: number }[];
+  s: number; // the leader's distance along the loop (grows forever)
+  nextStop: number;
+  haltUntil: number;
+  halted: boolean;
 }
 
 function makeMarkTextures(scene: Phaser.Scene) {
@@ -84,6 +103,7 @@ export default class GuildNpcLayer {
   readonly npcs: Npc[] = [];
   private still: boolean;
   private quest = new Set<string>();
+  private patrols: Patrol[] = [];
   private highlight: string | null = null;
 
   private constructor(private scene: Phaser.Scene, private width: number, private height: number, private open: boolean[][]) {
@@ -99,7 +119,7 @@ export default class GuildNpcLayer {
     const layer = new GuildNpcLayer(scene, habitat.width, habitat.height, habitat.open);
     makeMarkTextures(scene);
     for (const def of defs) {
-      const home = layer.nearestOpen(def.home.x, def.home.y);
+      const home = def.patrol ? def.home : layer.nearestOpen(def.home.x, def.home.y);
       if (!home) continue;
       const key = `npc-walk:${def.id}`;
       const image = scene.add.sprite(-999, -999, '__DEFAULT').setOrigin(0.5, 1).setDepth(9.5).setVisible(false);
@@ -112,7 +132,7 @@ export default class GuildNpcLayer {
       ]).setDepth(MARK_DEPTH).setVisible(false);
       const npc: Npc = {
         def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
-        zone: layer.zoneAround(home.x, home.y, def.range), path: [],
+        zone: def.patrol ? new Set() : layer.zoneAround(home.x, home.y, def.range), path: [],
         restUntil: 0, walking: false, ready: false, outline, mark,
         idle: def.walkFrames ?? NPC_WALK_FRAMES,
       };
@@ -129,6 +149,7 @@ export default class GuildNpcLayer {
         npc.ready = true;
       });
     }
+    layer.buildPatrols();
     return layer;
   }
 
@@ -138,10 +159,96 @@ export default class GuildNpcLayer {
   /** The NPC in reach (gold outline), or null. */
   setHighlight(id: string | null) { this.highlight = id; }
 
+  private buildPatrols() {
+    const groups = new Map<string, Npc[]>();
+    for (const n of this.npcs) {
+      if (!n.def.patrol || !PATROL_ROUTES[n.def.patrol.route]) continue;
+      groups.set(n.def.patrol.route, [...(groups.get(n.def.patrol.route) ?? []), n]);
+    }
+    groups.forEach((members, key) => {
+      const route = PATROL_ROUTES[key];
+      const pts = route.points;
+      const cum = [0];
+      for (let i = 1; i <= pts.length; i++) {
+        const a = pts[i - 1], b = pts[i % pts.length];
+        cum.push(cum[i - 1] + Math.hypot(b.x - a.x, b.y - a.y));
+      }
+      const stops = Object.entries(route.stops).map(([i, ms]) => ({ at: cum[Number(i)], ms })).sort((a, b) => a.at - b.at);
+      // Start with the whole squad on the route, just past its first point.
+      const s = LEAD_GAP + RANK_GAP + 0.5;
+      const p: Patrol = { route, members: members.sort((a, b) => a.def.patrol!.slot - b.def.patrol!.slot), cum, total: cum[pts.length], stops, s, nextStop: 0, haltUntil: 0, halted: false };
+      p.nextStop = this.stopAfter(p, s);
+      this.patrols.push(p);
+    });
+  }
+
+  // The next stop's distance (on the same ever-growing scale as Patrol.s) after `s`.
+  private stopAfter(p: Patrol, s: number) {
+    if (!p.stops.length) return Infinity;
+    const lap = Math.floor(s / p.total) * p.total;
+    for (const st of p.stops) if (lap + st.at > s + 1e-6) return lap + st.at;
+    return lap + p.total + p.stops[0].at;
+  }
+
+  private pointAt(p: Patrol, s: number) {
+    const pts = p.route.points;
+    const d = ((s % p.total) + p.total) % p.total;
+    let i = 0;
+    while (i < pts.length - 1 && p.cum[i + 1] < d) i++;
+    const a = pts[i], b = pts[(i + 1) % pts.length];
+    const seg = p.cum[i + 1] - p.cum[i] || 1;
+    const f = (d - p.cum[i]) / seg;
+    return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
+  }
+
+  private marchPatrol(p: Patrol, time: number, dt: number) {
+    const ready = p.members.every(n => n.ready);
+    if (!ready) return;
+    const still = this.still;
+    if (p.halted && !still && time >= p.haltUntil) {
+      p.halted = false;
+      p.nextStop = this.stopAfter(p, p.s);
+      // Everyone steps off together, so they march in step.
+      for (const n of p.members) { n.walking = true; n.image.play(`${n.srcKey}:walk`, true); }
+    } else if (!p.halted && !still) {
+      if (!p.members[0].walking) for (const n of p.members) { n.walking = true; n.image.play(`${n.srcKey}:walk`, true); }
+      p.s += (MARCH * dt) / 1000;
+      if (p.s >= p.nextStop) {
+        p.s = p.nextStop;
+        p.halted = true;
+        p.haltUntil = time + (p.stops.find(st => Math.abs((p.s % p.total) - st.at) < 1e-3)?.ms ?? 4000);
+      }
+    }
+    // Where each one stands: the leader on the route, the rest two abreast behind.
+    for (const n of p.members) {
+      const slot = n.def.patrol!.slot;
+      const rank = Math.ceil(slot / 2);
+      const along = slot === 0 ? p.s : p.s - LEAD_GAP - (rank - 1) * RANK_GAP;
+      const at = this.pointAt(p, along);
+      const ahead = this.pointAt(p, along + 0.6), behind = this.pointAt(p, along - 0.6);
+      let hx = ahead.x - behind.x, hy = ahead.y - behind.y;
+      const len = Math.hypot(hx, hy) || 1;
+      hx /= len; hy /= len;
+      const side = slot === 0 ? 0 : slot % 2 ? -1 : 1;
+      n.x = at.x - hy * side * FILE_HALF;
+      n.y = at.y + hx * side * FILE_HALF;
+      if (p.halted || still) {
+        if (n.walking || still) {
+          n.walking = false;
+          n.image.stop();
+          // The soldiers stand to attention; the leader turns round to face them.
+          if (slot === 0) { n.image.setFrame(0); if (Math.abs(hx) > 0.05) n.image.setFlipX(hx > 0); }
+          else n.image.setFrame(n.idle);
+        }
+      } else if (Math.abs(hx) > 0.05) n.image.setFlipX(hx < 0);
+    }
+  }
+
   update(t: Transform, time: number, dt: number, self: { x: number; y: number } | null) {
+    for (const p of this.patrols) this.marchPatrol(p, time, dt);
     for (const n of this.npcs) {
       if (!n.ready) continue;
-      if (!this.still) this.step(n, time, dt, self);
+      if (!this.still && !n.def.patrol) this.step(n, time, dt, self);
       const h = t.tileH;
       const px = t.offsetX + (n.x + 0.5) * t.tileW;
       const feet = t.offsetY + (n.y + 0.5) * t.tileH + h * 0.47;
@@ -278,5 +385,6 @@ export default class GuildNpcLayer {
   destroy() {
     for (const n of this.npcs) { n.image.destroy(); n.shadow.destroy(); n.mark.destroy(); for (const o of n.outline) o.destroy(); }
     this.npcs.length = 0;
+    this.patrols.length = 0;
   }
 }
