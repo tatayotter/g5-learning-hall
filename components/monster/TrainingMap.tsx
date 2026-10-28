@@ -777,6 +777,7 @@ export default function TrainingMap({
         setBackground({
           type: 'tilemap',
           key: activeRegion.tileArtPath!,
+          region: activeRegion.id,
           mapJson: parsed.mapJson,
           tilesetImages: parsed.tilesetImages,
           tileSize: parsed.tileSize,

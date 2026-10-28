@@ -84,6 +84,7 @@ import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer, { type NpcMark } from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
+import GroundTexture from './groundTexture';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
 
@@ -108,6 +109,8 @@ export type MapBackground =
   | {
       type: 'tilemap';
       key: string; // stable identity for this map (e.g. its .tmx path)
+      // The region it is, for its plain ground's texture (lib/groundLooks.ts).
+      region?: string;
       mapJson: object;
       tilesetImages: Record<string, string>;
       tileSize: number;
@@ -365,6 +368,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   // A floor drawn over Ground Detail (the town's fountain plaza): shadows on it are lifted over it.
   private floorLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   private groundFx: GroundFx | null = null;
+  // The texture on the plain ground (see groundTexture.ts).
+  private groundTexture: GroundTexture | null = null;
   private nightLight: Phaser.GameObjects.Image | null = null;
   private lampGlows: { img: Phaser.GameObjects.Image; x: number; y: number; seed: number }[] = [];
   private lampKey = '';
@@ -1211,6 +1216,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private clearTilemap() {
     this.animTiles = [];
     this.floorLayer = null;
+    this.groundTexture?.destroy();
+    this.groundTexture = null;
     if (!this.tilemap) return;
     for (const layer of this.tilemapLayers) layer.destroy();
     this.tilemapLayers = [];
@@ -1296,6 +1303,12 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (this.grass) this.tilemapLayers.push(this.grass.container);
       this.bushes = baseLayer && SwayingGrass.build(this, baseLayer);
       if (this.bushes) this.tilemapLayers.push(this.bushes.container);
+      // Over the ground's own layers, under the shadows and the swaying tufts (built after them,
+      // so it knows which tufts they took over).
+      const groundLayer = this.tilemapLayers.find(l => l instanceof Phaser.Tilemaps.TilemapLayer && l.layer.name.toLowerCase() === 'ground');
+      const groundTop = detailLayer ?? groundLayer;
+      this.groundTexture = groundTop ? GroundTexture.build(this, bg.region, this.tilemapLayers.filter((l): l is Phaser.Tilemaps.TilemapLayer => l instanceof Phaser.Tilemaps.TilemapLayer), groundTop.depth + 0.1) : null;
+      if (this.groundTexture) this.tilemapLayers.push(this.groundTexture.container);
       this.trees = topLayer && SwayingTrees.build(this, topLayer, baseLayer);
       if (this.trees) this.tilemapLayers.push(this.trees.container);
       // Plants stand on the ground objects but under every player (9-10) and the trash (9).
