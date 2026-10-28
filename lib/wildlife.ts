@@ -19,7 +19,7 @@ export interface CritterGroup {
   colors?: WispColor[];
 }
 
-export type WispColor = 'fire' | 'violet' | 'cyan' | 'gold'; // gold: the question scrolls' wisps (scrollGlow.ts)
+export type WispColor = 'fire' | 'violet' | 'cyan' | 'gold' | 'ash'; // gold, ash: the question scrolls' wisps (scrollGlow.ts)
 
 export const WILDLIFE: Record<string, CritterGroup[]> = {
   ledgers_heart: [

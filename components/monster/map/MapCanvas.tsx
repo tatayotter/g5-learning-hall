@@ -120,6 +120,8 @@ interface MapCanvasProps {
   // static DOM overlay like the portal markers. See
   // components/monster/TrainingMap.tsx for the spawn/lifecycle logic.
   scrollMarkers?: { id: number; x: number; y: number }[];
+  /** How each answered scroll ended, for its ending on the map (lib/phaserMap/scrollGlow.ts). */
+  scrollFates?: Record<number, 'right' | 'wrong'>;
   curioMarker?: { x: number; y: number; monsterDef: MonsterDef; quality: QualityTier } | null;
   /** Trainer NPC currently on the map — renders as a DOM overlay; cleared on encounter. */
   trainerMarker?: { id: string; x: number; y: number; emoji: string; name: string; spriteOverride?: string } | null;
@@ -139,7 +141,7 @@ interface MapCanvasProps {
   tools?: Partial<Record<ToolId, number>>;
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
   npcMarks?: Record<string, NpcMark>;
   /** The guild NPC within reach of the player, or null; called when it changes. */
@@ -172,7 +174,7 @@ const NPC_APPROACH = 3;
 
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
-  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
+  dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, scrollFates,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
@@ -426,6 +428,7 @@ export default function MapCanvas({
       wildlife,
       npcMarks,
       scrolls: scrollMarkers,
+      scrollFates,
     };
     latestStateRef.current = state;
     sceneRef.current?.sync(state);

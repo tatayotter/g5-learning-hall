@@ -84,7 +84,7 @@ import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer, { type NpcMark } from './guildNpcs';
 import type { TownNpc } from '@/lib/townNpcs';
 import GroundFx from './groundFx';
-import ScrollGlow from './scrollGlow';
+import ScrollGlow, { type ScrollFate } from './scrollGlow';
 import GroundTexture from './groundTexture';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { Ambience } from '@/lib/ambience';
@@ -160,6 +160,8 @@ export interface MapCanvasSyncState {
   zoom?: number;
   /** Question scrolls on the map, as tiles (lib/phaserMap/scrollGlow.ts). */
   scrolls?: { id: number; x: number; y: number }[];
+  /** How each answered scroll ended (right or wrong), so its ending plays as it leaves. */
+  scrollFates?: Record<number, ScrollFate>;
   /** Trash items to render below the foliage layer (depth 9). */
   trashItems?: Array<{ id: string; type: string; x: number; y: number }>;
   /** IDs of trash items currently in pickup animation. */
@@ -180,7 +182,7 @@ export interface MapCanvasSyncState {
   /** The latest pickaxe or shovel swing at a find. */
   toolStrike?: ToolStrike | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
-  highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
+  highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
   npcMarks?: Record<string, NpcMark>;
   /** A tap or click on the map, as the tile under it. */
@@ -707,6 +709,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.setHighlight(h?.kind === 'plant' ? h.id : null);
     this.wildTrees?.setHighlight(h?.kind === 'tree' ? h.id : null);
     this.npcLayer?.setHighlight(h?.kind === 'npc' ? h.id : null);
+    this.scrollGlow?.setHighlight(h?.kind === 'scroll' ? Number(h.id) : null);
   }
 
   // Where a player stands against the roofs, awnings and lamps their sprite overlaps (its tile and
@@ -987,7 +990,7 @@ export default class TrainingMapScene extends Phaser.Scene {
         onReady('scroll:art');
       }));
     }
-    this.scrollGlow.setScrolls(state.scrolls ?? []);
+    this.scrollGlow.setScrolls(state.scrolls ?? [], state.scrollFates);
   }
 
   private ensureTexture(key: string, url: string, onReady: () => void) {
