@@ -31,6 +31,7 @@ import UnlearnSkillModal from '@/components/monster/UnlearnSkillModal';
 import TutorRollModal from '@/components/TutorRollModal';
 import { EggChainMap, claimCurioEgg, eggReadyLevel } from '@/lib/curioEggs';
 import MissionsPanel from '@/components/monster/MissionsPanel';
+import { loadLocalHideout } from '@/lib/hideout';
 import { WhiteNailBox } from '@/components/monster/CompendiumPanel';
 import { woodTextureStyle, Nail } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -86,6 +87,8 @@ export default function TeamPanel({
   // the Compendium, which only ever shows a species' default base stats and
   // default attacks.
   const [detailMonster, setDetailMonster] = useState<UserMonster | null>(null);
+  // Kids with a Curio Camp at their Hideout send missions from there instead.
+  const [missionsAtCamp] = useState(() => typeof window !== 'undefined' && !!loadLocalHideout(userId).plots.camp);
   const [pendingSlot, setPendingSlot] = useState<{ monsterRowId: string; slotIndex: number } | null>(null);
   const [useTomeToggle, setUseTomeToggle] = useState(false);
   const [actionBusy, setActionBusy] = useState(false);
@@ -744,7 +747,14 @@ export default function TeamPanel({
         );
       })}
 
-      {/* Training Missions — between Your Team and Your Bench. */}
+      {/* Training Missions — between Your Team and Your Bench. With a Curio Camp they move to the
+          Hideout; the panel stays mounted (hidden) so curios out on a mission stay locked here. */}
+      {missionsAtCamp && (
+        <p data-testid="missions-at-camp" className="text-sm font-bold text-[#6b4820] bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-xl px-3 py-2 mb-4">
+          Missions moved to the Curio Camp at your Hideout.
+        </p>
+      )}
+      <div className={missionsAtCamp ? 'hidden' : undefined}>
       <MissionsPanel
         playerLevel={playerLevel}
         userId={userId}
@@ -754,6 +764,7 @@ export default function TeamPanel({
         onMissionLockedIdsChange={setMissionLockedIds}
         onLoadoutChange={onLoadoutChange}
       />
+      </div>
 
       {/* Everything not currently sitting in slot 1-3: monsters already owned but
           benched (slot IS NULL — displaced teammates, guild-reward familiars) and

@@ -43,7 +43,10 @@ interface MapViewProps {
   monsterDisplay: Record<string, MonsterDef>;
   regionId: string;
   playerLevel: number;
-  onEnterRegion: (regionId: string) => void;
+  onEnterRegion: (regionId: string, at?: { x: number; y: number }) => void;
+  // The kid's gold (the Hideout signpost), and a refresh after curio missions change.
+  gold?: number;
+  onLoadoutChange?: () => Promise<void> | void;
   inventory: InventoryMap;
   onBattleStatePatch: (patch: Partial<BattleState>) => void;
   onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
@@ -89,6 +92,8 @@ export default function MapView({
   spawnAt,
   mapHome,
   paused,
+  gold,
+  onLoadoutChange,
 }: MapViewProps) {
   return (
     <TrainingMap
@@ -127,6 +132,8 @@ export default function MapView({
       spawnAt={spawnAt}
       mapHome={mapHome}
       paused={paused}
+      gold={gold}
+      onLoadoutChange={onLoadoutChange}
       fullscreen
     />
   );

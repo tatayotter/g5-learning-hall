@@ -28,7 +28,7 @@ import {
   TRACKABLE_CURIOS, TRACKING_GOAL, TRACKING_SCROLL_COST, trackingScrollKey, trackingScrollName, trackedMonsterId, fetchOwnedSpecies,
 } from '@/lib/curioTracking';
 import { useGear } from '@/lib/gear';
-import { GEAR, GEAR_ORDER, gearIcon, gearTierDef, nextGearTier, type GearId } from '@/lib/gearConfig';
+import { GEAR, GEAR_ORDER, gearIcon, gearSoon, gearTierDef, nextGearTier, type GearId } from '@/lib/gearConfig';
 import { useFeatureFlag } from '@/lib/featureFlags';
 
 const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
@@ -463,7 +463,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                   icon={gearIcon(g, next?.tier ?? have)}
                   name={next?.name ?? gearTierDef(g, have)!.name}
                   cost={next?.cost ?? 0}
-                  affordable={!!next && !GEAR[g].soon && currentStats.gold >= next.cost}
+                  affordable={!!next && !gearSoon(g, have) && currentStats.gold >= next.cost}
                   owned={!next}
                   imageSize="w-full h-full [image-rendering:pixelated]"
                   onClick={() => setSelectedItem(gearDetail(g))}
@@ -761,7 +761,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               const g = selectedItem.gear;
               const have = gear[g] ?? 0;
               const next = nextGearTier(g, gear);
-              const block = GEAR[g].soon ?? (next ? null : 'You have the best one!');
+              const block = gearSoon(g, have) ?? (next ? null : 'You have the best one!');
               return (
                 <>
                   <p className="mb-4">
@@ -769,7 +769,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
                       {have > 0 ? `You have: ${gearTierDef(g, have)!.name}` : 'You don\'t have one yet'}
                     </span>
                   </p>
-                  {g !== 'bag' && have === 0 && !GEAR[g].soon && (
+                  {g !== 'bag' && have === 0 && !gearSoon(g, have) && (
                     <p className="text-[11px] text-[#6b4820] -mt-2 mb-3">Put it in an item slot on the map to use it.</p>
                   )}
                   <div className="flex gap-2">

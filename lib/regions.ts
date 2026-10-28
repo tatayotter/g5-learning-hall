@@ -77,6 +77,23 @@ export const REGIONS: Record<string, Region> = {
     tileArtPath: '/maps-tiled-art/town/town.tmx',
     dailyNature: true,
   },
+  // A kid's own island (lib/hideoutConfig.ts), bought at the signpost in Inkwell Town. Only its
+  // owner goes there: no wild curios, no other players. Its bridge leads back to town.
+  hideout: {
+    id: 'hideout',
+    name: 'My Hideout',
+    lore: 'Your own little island, where your veggies grow and your curios rest.',
+    element: 'all',
+    unlockLevel: 1,
+    mapImage: '/maps/ledgers_heart.webp',
+    tiledMapPath: '/maps-tiled/ledgers_heart.json',
+    spawn: { x: 46, y: 20 },
+    townCenter: { x: 46, y: 20 },
+    mapWidth: 54,
+    mapHeight: 43,
+    tileArtPath: '/maps-tiled-art/hideout/hideout_1.tmx',
+    dailyNature: true,
+  },
   cinderreach: {
     id: 'cinderreach',
     name: 'The Cinderreach',

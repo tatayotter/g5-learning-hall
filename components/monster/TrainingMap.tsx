@@ -25,6 +25,11 @@ import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChalle
 import ScrollQuestionPanel from '@/components/monster/map/panels/ScrollQuestionPanel';
 import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionPanel';
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
+import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/panels/HideoutPanel';
+import MissionsPanel from '@/components/monster/MissionsPanel';
+import GameButton from '@/components/GameButton';
+import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
+import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
 import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
@@ -40,9 +45,9 @@ import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
   SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
-  swingTiming, strikeImpactMs, type SwingKind, type WildTreeNode,
+  swingTiming, strikeImpactMs, type SwingKind, type VeggieId, type WildTreeNode,
 } from '@/lib/gardenConfig';
-import { useGear } from '@/lib/gear';
+import { refreshGear, useGear } from '@/lib/gear';
 import { GEAR, TOOL_ORDER, bagSizeFor, toolForVeggie, toolIcon, toolKey, toolName, toolVerb, type ToolId } from '@/lib/gearConfig';
 import { isItemSlot } from '@/lib/itemBar';
 import { flyToBag } from '@/components/monster/map/flyToBag';
@@ -212,7 +217,7 @@ interface TrainingMapProps {
   // Needed to gate the portal tiles placed in Ledger's Heart (see
   // public/maps-tiled-art/README.md) against each region's unlockLevel.
   playerLevel: number;
-  onEnterRegion?: (regionId: string) => void;
+  onEnterRegion?: (regionId: string, at?: { x: number; y: number }) => void;
   /** Opens a guild's quests (a guild master in town, walked up to). */
   onPlayGuild?: (guild: GuildKey) => void;
   /** Opens a page (the Shopkeeper's Shop, the Curio Expert's Curios...), a town NPC walked up to. */
@@ -232,15 +237,23 @@ interface TrainingMapProps {
   onBattleStatePatch: (patch: Partial<BattleState>) => void;
   // A full Tracking Scroll summoned its curio (already saved as the pending wild curio).
   onTrackedCurioSummoned: (curio: PendingWildCurio) => void;
+  /** The kid's gold, for the Hideout signpost. */
+  gold?: number;
+  /** After curio missions change (the Hideout's Curio Camp). */
+  onLoadoutChange?: () => Promise<void> | void;
 }
 
+// The Curio Camp's missions panel wants these; the map has nothing to do with either.
+const ignoreMissionIds = () => {};
+const ignoreLoadout = () => {};
+
 export default function TrainingMap({
-  userId, battleState, userMonsters, questions, gradingUserId,
+  userId, battleState, userMonsters, caughtMonsters, questions, gradingUserId,
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
   liveBattleInbox, mapPresence, movementLocked: movementLockedProp, walkLockActive, monsterDisplay,
   regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen, spawnAt, mapHome, paused,
-  inventory, onBattleStatePatch, onTrackedCurioSummoned,
+  inventory, onBattleStatePatch, onTrackedCurioSummoned, gold, onLoadoutChange,
 }: TrainingMapProps) {
   const offline = useIsOffline();
   // A page open over the map locks walking like any panel on the map does.
@@ -253,9 +266,18 @@ export default function TrainingMap({
   // to chop, mine or dig. Bag upgrades make the bag bigger.
   const { gear } = useGear(userId, { fetch: !offline });
   const toolKeys = useMemo(() => TOOL_ORDER.filter(t => (gear[t] ?? 0) > 0).map(toolKey), [gear]);
+  const gardenOn = useFeatureFlag(userId, 'garden');
   const garden = useGarden({
-    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId), mapTrees, gear,
+    userId, regionId: gardenRegion, enabled: gardenOn, offlineMap: playingMapOffline(userId), mapTrees, gear,
+    bagAnyway: gardenRegion === HIDEOUT_REGION,
   });
+  // The Hideout (garden switch): the signpost in town, and the plots on the kid's own island.
+  const [places, setPlaces] = useState<Record<string, { x: number; y: number }>>({});
+  const hideout = useHideoutMap({
+    userId, regionId: gardenRegion, enabled: gardenOn, online: !offline, places, bag: garden.bag, onBag: garden.setBag,
+  });
+  const [hideoutPanel, setHideoutPanel] = useState<{ mode: HideoutPanelMode; spot: HideoutSpot } | null>(null);
+  const [campOpen, setCampOpen] = useState(false);
   const itemBar = useItemBar({
     userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
     gardenSquares: garden.squares, toolKeys, bagSize: bagSizeFor(gear.bag ?? 0),
@@ -480,11 +502,13 @@ export default function TrainingMap({
     return () => setWanderMap(null);
   }, [mapReady, standable]);
   const onlinePlayers = useMemo(() => {
+    // Nobody else comes to a kid's own Hideout.
+    if (activeRegion.id === HIDEOUT_REGION) return {};
     if (!mapReady) return presencePlayers;
     const out: typeof presencePlayers = {};
     for (const [id, p] of Object.entries(presencePlayers)) out[id] = standable(p.x, p.y) ? p : { ...p, ...nearestOpen(p.x, p.y, standable) };
     return out;
-  }, [presencePlayers, mapReady, standable]);
+  }, [presencePlayers, mapReady, standable, activeRegion.id]);
 
   // Fills the scroll pool up to SCROLL_POOL_SIZE once the map has actually
   // loaded (mapReady — regionMap starts as an all-'grass' loading
@@ -574,7 +598,9 @@ export default function TrainingMap({
           }
         }).catch(() => {}).finally(() => onEnterRegion?.('ledgers_heart'));
       } else if (targetRegion && playerLevel >= targetRegion.unlockLevel) {
-        onEnterRegion?.(portal.regionId);
+        // Back over the Hideout's bridge: the kid comes out by its signpost in town.
+        const home = activeRegion.id === HIDEOUT_REGION && portal.regionId === SIGNPOST.region;
+        onEnterRegion?.(portal.regionId, home ? SIGNPOST_ARRIVE : undefined);
       } else {
         setLockedPortalMsg(`${targetRegion?.name ?? 'This region'} unlocks at Player Level ${targetRegion?.unlockLevel ?? '?'}`);
         setTimeout(() => setLockedPortalMsg(null), 2500);
@@ -699,6 +725,53 @@ export default function TrainingMap({
     }
   }, [garden, showBarMessage, userId, questions, toolProblem]);
 
+  // The Hideout: go there from the signpost (or buy it), or use a plot on the island.
+  const goToHideout = useCallback(() => { playPageFlip(); onEnterRegion?.(HIDEOUT_REGION); }, [onEnterRegion]);
+  const applySpot = useCallback(async (spot: HideoutSpot) => {
+    if (spot.kind === 'signpost') {
+      if (hideout.api.state.owned) goToHideout();
+      else { playPageFlip(); setHideoutPanel({ mode: 'deed', spot }); }
+      return;
+    }
+    const open = (mode: HideoutPanelMode) => { playPageFlip(); setHideoutPanel({ mode, spot }); };
+    switch (spot.phase) {
+      case 'unbuilt': return open('build');
+      case 'soon': case 'collected': return open('info');
+      case 'empty': return open('plant');
+      case 'camp': playPageFlip(); setCampOpen(true); return;
+      case 'growing': {
+        if (spot.watered) return open('info');
+        const problem = toolProblem('can', 'water plants');
+        if (problem) { showBarMessage(problem.replace('Buy one at the Shop.', 'It comes with your Hideout.')); return; }
+        return open('water');
+      }
+      case 'ripe': {
+        if (offline) { showBarMessage('Your Hideout needs internet right now.'); return; }
+        if (itemBarRef.current.bagUsed + hideout.squaresForHarvest(spot) > itemBarRef.current.bagSize) {
+          showBarMessage('Your bag is full! Sell some veggies or wood first.');
+          return;
+        }
+        const res = await hideout.api.harvest(spot.id);
+        if (res.status === 'harvested' && spot.item) {
+          playChime();
+          const veg = gardenItemIcon(veggieKey(spot.item as VeggieId));
+          flyToBag([...Array(Math.min(res.veggies, 6)).fill(veg), ...Array(res.seeds).fill(gardenItemIcon(seedsKey(spot.item as VeggieId)))]);
+          const name = pluralVeggie(VEGGIES[spot.item as VeggieId]?.label ?? 'veggie');
+          showBarMessage(res.double ? `Double harvest! ${res.veggies} ${name} and seeds!` : `You harvested ${res.veggies} ${name} and ${res.seeds > 1 ? `${res.seeds} seed packets` : 'a seed packet'}!`);
+        } else if (res.status === 'collected') {
+          playChime();
+          flyToBag(Array(res.wood).fill(gardenItemIcon(WOOD_KEY)));
+          showBarMessage(`You collected ${res.wood} wood! Your tree drops more tomorrow.`);
+        } else if (res.status === 'collected_today') {
+          showBarMessage('This tree gave its wood today. Come back tomorrow!');
+        } else {
+          showBarMessage("That didn't work. Try again!");
+        }
+        return;
+      }
+    }
+  }, [hideout, goToHideout, toolProblem, showBarMessage, offline]);
+
   // Reading a scroll: the kid chooses to, like using a tree (it no longer opens by walking onto it).
   const openScroll = useCallback((scroll: { id: number; x: number; y: number }) => {
     // Offline, scrolls can only ask what the downloaded answer key covers.
@@ -723,6 +796,13 @@ export default function TrainingMap({
     return found.sort((a, b) => a.d - b.d || order[a.kind] - order[b.kind]);
   }, [scrolls, garden.on, garden.plants, garden.trees, posX, posY]);
   const nearby = inReach.find(o => o.usable) ?? null;
+  // The Hideout signpost or plot right next to the player, if any (plants and trees come first).
+  const nearSpot = useMemo(() => {
+    if (nearby) return null;
+    // Nearest of its tiles (a garden bed takes six).
+    const d = (o: HideoutSpot) => Math.min(...o.tiles.map(t => Math.max(Math.abs(t.x - posX), Math.abs(t.y - posY))));
+    return hideout.spots.filter(o => d(o) <= 1).sort((a, b) => d(a) - d(b))[0] ?? null;
+  }, [nearby, hideout.spots, posX, posY]);
 
   // The sky over this map: its biome's clouds, drifting bits and sunset, new clouds each day.
   const ambience = useMemo(
@@ -743,7 +823,7 @@ export default function TrainingMap({
   }, []);
 
   // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
-  const panelOpen = !!(activeScroll || activePlant || activeTree || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
+  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
   useEffect(() => {
     const target = nearby ?? inReach[0];
     if (panelOpen || !target) return;
@@ -761,26 +841,30 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !activePlant && !activeTree && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
+    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
-    extraBlockedTiles: recyclerTile ? [recyclerTile] : undefined,
+    extraBlockedTiles: recyclerTile || hideout.blocked.length ? [...(recyclerTile ? [recyclerTile] : []), ...hideout.blocked] : undefined,
   });
 
   // Loads this region's map (declared after contMove, which it resets).
   useEffect(() => {
     let cancelled = false;
-    if (activeRegion.tileArtPath) {
-      const nature = activeRegion.dailyNature ? { regionId: activeRegion.id, reserved: WILD_PLANTS[activeRegion.id] ?? [] } : undefined;
-      loadTiledArtMap(activeRegion.tileArtPath, nature).then(parsed => {
+    // Each kid's Hideout is one of five island shapes (lib/hideoutConfig.ts).
+    const artPath = activeRegion.id === HIDEOUT_REGION ? hideoutMapPath(userId) : activeRegion.tileArtPath;
+    if (artPath) {
+      // The Hideout signpost's spot in town stays clear too.
+      const reserved = [...(WILD_PLANTS[activeRegion.id] ?? []), ...(activeRegion.id === SIGNPOST.region ? [SIGNPOST] : [])];
+      const nature = activeRegion.dailyNature ? { regionId: activeRegion.id, reserved } : undefined;
+      loadTiledArtMap(artPath, nature).then(parsed => {
         if (cancelled) return;
         setMapTrees(parsed.trees);
         setRegionMap(parsed.layout);
         setMapReady(true);
         setBackground({
           type: 'tilemap',
-          key: activeRegion.tileArtPath!,
+          key: artPath,
           region: activeRegion.id,
           mapJson: parsed.mapJson,
           tilesetImages: parsed.tilesetImages,
@@ -797,9 +881,10 @@ export default function TrainingMap({
         setPortals(parsed.portals);
         setEdgeExits(parsed.exits);
         setMapRecycler(parsed.recycler);
+        setPlaces(parsed.places);
         setFoliage(parsed.foliage);
         setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || TOWN_NPCS[activeRegion.id] ? {
-          key: `${activeRegion.tileArtPath}:${natureDay()}`,
+          key: `${artPath}:${natureDay()}`,
           groups: WILDLIFE[activeRegion.id] ?? [],
           habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],
@@ -1125,8 +1210,9 @@ export default function TrainingMap({
   // or the Recycler walks up to it and uses it. The route is hooks/useContinuousMovement.ts's.
   const canWalk = useCallback((x: number, y: number) => {
     const t = map[y]?.[x];
-    return !!t && t.type !== 'wall' && !(recyclerTile && recyclerTile.x === x && recyclerTile.y === y);
-  }, [map, recyclerTile]);
+    return !!t && t.type !== 'wall' && !(recyclerTile && recyclerTile.x === x && recyclerTile.y === y)
+      && !hideout.blocked.some(b => b.x === x && b.y === y);
+  }, [map, recyclerTile, hideout.blocked]);
   const walkToExit = useCallback((g: (typeof exitGroups)[number]) => {
     const goals = g.tiles.filter(t => canWalk(t.x, t.y));
     contMove.walkTo(goals, () => {
@@ -1276,7 +1362,7 @@ export default function TrainingMap({
     });
   }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, talk, contMove, canWalk]);
   useEffect(() => {
-    if (!nearNpc || nearby || inReach.length || panelOpen) return;
+    if (!nearNpc || nearby || inReach.length || nearSpot || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1285,9 +1371,20 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearNpc, nearby, inReach.length, panelOpen, talkToNpc]);
+  }, [nearNpc, nearby, inReach.length, nearSpot, panelOpen, talkToNpc]);
   useEffect(() => {
-    if (!nearExit || nearby || inReach.length || panelOpen || nearNpc) return;
+    if (!nearSpot || nearby || inReach.length || panelOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      void applySpot(nearSpot);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [nearSpot, nearby, inReach.length, panelOpen, applySpot]);
+  useEffect(() => {
+    if (!nearExit || nearby || inReach.length || panelOpen || nearNpc || nearSpot) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1296,7 +1393,7 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearExit, nearby, inReach.length, panelOpen, nearNpc, goThroughExit]);
+  }, [nearExit, nearby, inReach.length, panelOpen, nearNpc, nearSpot, goThroughExit]);
   const handleMapTap = useCallback((tx: number, ty: number) => {
     if (panelOpen || movementLocked) return;
     // A scroll: read it when it's in reach, else walk up to it and read it.
@@ -1330,6 +1427,14 @@ export default function TrainingMap({
         return;
       }
     }
+    // A Hideout plot or the signpost (its art reaches a tile or two above it): walk up and use it.
+    const reach = (o: HideoutSpot) => (o.plot?.kind === 'grove' || o.plot?.kind === 'camp' || o.kind === 'signpost' ? 2 : 1);
+    const spot = hideout.spots.find(o => o.tiles.some(t => t.x === tx && ty <= t.y && ty >= t.y - reach(o)));
+    if (spot) {
+      if (nearSpot?.id === spot.id) { void applySpot(spot); return; }
+      contMove.walkTo(tilesAround(spot.x, spot.y, canWalk), () => { void applySpot(spot); });
+      return;
+    }
     // The Recycler (two tiles tall on screen).
     if (recyclerTile && tx === recyclerTile.x && (ty === recyclerTile.y || ty === recyclerTile.y - 1)) {
       contMove.walkTo(tilesAround(recyclerTile.x, recyclerTile.y, canWalk), () => setPendingRecyclerTrade(true));
@@ -1347,7 +1452,7 @@ export default function TrainingMap({
     }
     const to = nearestOpen(tx, ty, canWalk);
     contMove.walkTo([to]);
-  }, [panelOpen, movementLocked, scrolls, openScroll, garden.on, garden.plants, garden.trees, inReach, interact, openPlant, openTree, canWalk, contMove, recyclerTile, exitGroups, exits, nearExit, goThroughExit, walkToExit]);
+  }, [panelOpen, movementLocked, scrolls, openScroll, garden.on, garden.plants, garden.trees, inReach, interact, openPlant, openTree, canWalk, contMove, recyclerTile, exitGroups, exits, nearExit, goThroughExit, walkToExit, hideout.spots, nearSpot, applySpot]);
   const portalMarkers = portals.length
     ? [
         ...portals.filter(p => !exitGroups.some(g => g.tiles.includes(p)))
@@ -1368,7 +1473,7 @@ export default function TrainingMap({
 
   // Gates both the floating joystick's press-and-drag and (previously) the
   // static dpad — matches the keyboard-movement path in useContinuousMovement.
-  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree;
+  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen;
 
   const frameContent = (
     <div className="relative w-full h-full">
@@ -1402,15 +1507,17 @@ export default function TrainingMap({
         recyclerTile={recyclerTile}
         // The plant being asked about stays ripe until the panel closes, so its dust pop
         // (lib/phaserMap/gardenPlants.ts) plays where the player can see it.
-        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)) : undefined}
+        gardenPlants={garden.on ? [...garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)), ...hideout.crops] : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
-        wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
+        wildTrees={[...garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)), ...hideout.trees]}
+        props={hideout.props}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
         tools={gear}
         toolStrike={toolStrike}
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'scroll' ? String(nearby.scroll.id) : nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
+          : nearSpot ? { kind: hideout.trees.some(t => t.id === nearSpot.id) ? 'tree' : 'prop', id: nearSpot.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
         npcMarks={npcMarks}
         paused={paused}
@@ -1426,7 +1533,19 @@ export default function TrainingMap({
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {guide && !controlsDisabled && <GuideArrow angle={guide.angle} />}
-      {!nearby && nearNpc && !controlsDisabled && (
+      {!nearby && nearSpot && !controlsDisabled && (
+        <button
+          type="button"
+          data-testid="hideout-button"
+          onClick={() => { void applySpot(nearSpot); }}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-1.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
+        >
+          <img src={nearSpot.icon} alt="" className="w-5 h-5 object-contain" style={{ imageRendering: 'pixelated' }} />
+          {nearSpot.label}
+          <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
+        </button>
+      )}
+      {!nearby && !nearSpot && nearNpc && !controlsDisabled && (
         <button
           type="button"
           data-testid="npc-button"
@@ -1439,7 +1558,7 @@ export default function TrainingMap({
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
-      {!nearby && !nearNpc && nearExit && !controlsDisabled && REGIONS[nearExit.regionId] && (
+      {!nearby && !nearSpot && !nearNpc && nearExit && !controlsDisabled && REGIONS[nearExit.regionId] && (
         <button
           type="button"
           data-testid="exit-button"
@@ -1529,7 +1648,54 @@ export default function TrainingMap({
     (sum, t) => sum + Math.floor(trashInventory[t] / TRASH_DEFS[t].bundleSize), 0,
   );
 
-  const overlay = pendingRecyclerTrade ? (
+  const overlay = hideoutPanel ? (
+    <HideoutPanel
+      key={`${hideoutPanel.spot.id}:${hideoutPanel.mode}`}
+      mode={hideoutPanel.mode}
+      spot={hideoutPanel.spot}
+      api={hideout.api}
+      bag={garden.bag}
+      gold={gold ?? 0}
+      canTier={gear.can ?? 0}
+      offline={offline}
+      questions={questions}
+      gradingUserId={gradingUserId}
+      onAnswered={answered => onQuestionsAnswered?.(answered)}
+      onBought={res => {
+        playCoins();
+        if (res.progress) onGoldSynced?.(res.progress);
+        void refreshGear(userId);
+      }}
+      onTravel={() => { setHideoutPanel(null); goToHideout(); }}
+      onDone={(say, fly) => {
+        setHideoutPanel(null);
+        if (fly?.length) flyToBag(fly);
+        if (say) showBarMessage(say);
+      }}
+    />
+  ) : campOpen ? (
+    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="camp-panel">
+      <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
+        <img src="/hideout/curio_camp.png" alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
+        <div className="min-w-0">
+          <p className="text-[#2a1505] font-bold text-sm leading-tight">Curio Camp</p>
+          <p className="text-xs text-[#6b4820] leading-tight">Curios on your bench can go on missions here and come back stronger.</p>
+        </div>
+      </div>
+      <MissionsPanel
+        playerLevel={playerLevel}
+        userId={userId}
+        benchedMonsters={userMonsters.filter(m => m.slot === null)}
+        caughtMonsters={caughtMonsters}
+        monsterDisplay={monsterDisplay}
+        onMissionLockedIdsChange={ignoreMissionIds}
+        onLoadoutChange={onLoadoutChange ?? ignoreLoadout}
+      />
+      <GameButton variant="quest" color="#57534e" onClick={() => setCampOpen(false)} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="camp-leave">
+        Close
+      </GameButton>
+    </div>
+  ) : pendingRecyclerTrade ? (
     <RecyclerTradePanel
       trashInventory={trashInventory}
       canTrade={canTrade}

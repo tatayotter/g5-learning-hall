@@ -31,16 +31,18 @@ export interface UseGardenArgs {
   mapTrees: WildTreeNode[];
   // The tools the kid owns (lib/gear.ts): an axe to chop, a pickaxe or shovel for the finds.
   gear: GearTiers;
+  // Load the bag even on a map with no plants or trees (the Hideout).
+  bagAnyway?: boolean;
 }
 
 export type PlantView = WildPlantNode & { readyAt: number | null; restUntil: number | null; ripe: boolean };
 export type TreeView = WildTreeNode & { readyAt: number | null; restUntil: number | null; ready: boolean; hits: number };
 
-export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees, gear }: UseGardenArgs) {
+export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees, gear, bagAnyway }: UseGardenArgs) {
   const axeTier = gear.axe ?? 0;
   const nodes = useMemo(() => (enabled ? WILD_PLANTS[regionId] ?? [] : []), [enabled, regionId]);
   const treeNodes = useMemo(() => (enabled ? mapTrees : []), [enabled, mapTrees]);
-  const on = nodes.length > 0 || treeNodes.length > 0;
+  const on = nodes.length > 0 || treeNodes.length > 0 || (enabled && !!bagAnyway);
   const [state, setState] = useState<GardenState>(() => (on && typeof window !== 'undefined' ? loadLocalGarden(userId) : emptyGarden()));
   const stateRef = useRef(state);
   const update = useCallback((next: GardenState) => {
@@ -225,9 +227,13 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees, gea
     return res;
   }, [offlineMap, userId, update]);
 
+  /** The bag as an action elsewhere left it (the Hideout's plots). */
+  const setBag = useCallback((bag: GardenBag) => update({ ...stateRef.current, bag }), [update]);
+
   return {
     on,
     bag: state.bag,
+    setBag,
     squares: gardenSquares(state.bag),
     plants,
     sprites,

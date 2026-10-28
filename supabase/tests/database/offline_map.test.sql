@@ -11,7 +11,8 @@ create temp table fx as
 select
   gen_random_uuid() as auth_a, 'pgtap_offmap_a_' || substr(md5(random()::text), 1, 8) as user_a,
   gen_random_uuid() as auth_b, 'pgtap_offmap_b_' || substr(md5(random()::text), 1, 8) as user_b,
-  (now() at time zone 'Asia/Manila')::date as today;
+  -- The scroll below is answered an hour ago: its credit is that hour's Manila day.
+  ((now() - interval '1 hour') at time zone 'Asia/Manila')::date as today;
 
 insert into user_identity_map (auth_uid, app_user_id)
 select auth_a, user_a from fx
