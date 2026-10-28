@@ -25,8 +25,7 @@ import Phaser from 'phaser';
 import { STRIKE_LEAD_MS as STRIKE_LEAD, swingTiming, type SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
 
-// mirror: the art's blade faces left, so it's flipped to lead with the edge when chopping to the right.
-interface HeldTool { key: string; url: string; grip: { x: number; y: number }; mirror?: boolean }
+interface HeldTool { key: string; url: string; grip: { x: number; y: number } }
 
 // The fallback axe; the hand's spot is a share of the art's width and height.
 const PLAIN_AXE: HeldTool = { key: 'garden:axe', url: '/garden/axe.png', grip: { x: 5 / 14, y: 18 / 21 } };
@@ -44,21 +43,23 @@ function heldTool(tool: ToolId, tier: number): HeldTool | null {
   const xs = HELD_GRIP_X[tool];
   if (!xs || tier < 1) return null;
   const t = Math.min(tier, xs.length);
-  return { key: `gear:held_${tool}_${t}`, url: `/gear/held_${tool}_${t}.png`, grip: { x: xs[t - 1], y: 0.833 }, mirror: tool === 'axe' };
+  return { key: `gear:held_${tool}_${t}`, url: `/gear/held_${tool}_${t}.png`, grip: { x: xs[t - 1], y: 0.833 } };
 }
 
-// Axe angles for one tree, in degrees (0 = upright, clockwise). The blow lands where the blade
-// points at the trunk, and every other pose is measured from that, so a tree beside, above or
-// below the kid is chopped the same way, just turned toward it.
+// Axe angles for one tree, in degrees (0 = upright, head up; clockwise). Every chop is a side
+// chop toward the tree's side (side 1 = right): raised up over the shoulder behind the kid, then
+// swung forward and down with the blade leading, so the head comes down onto the trunk the way a
+// real swing does. A tree above or below just tips the blow higher or lower.
 interface Aim { strike: number; rest: number; down: number; side: number; ux: number; uy: number }
 
 function aimAt(dx: number, dy: number, side: number): Aim {
   const len = Math.hypot(dx, dy) || 1;
   const ux = dx / len, uy = dy / len;
-  // The blade points along angle - 90; aim it a touch above the trunk's middle, like a real
-  // chop that bites in and down.
-  const strike = Phaser.Math.RadToDeg(Math.atan2(uy, ux)) + 90 - side * 12;
-  return { strike, rest: strike - side * 106, down: strike - side * 168, side, ux, uy };
+  // How far round from straight up the tree is, seen from its side (90 = level with the kid).
+  const toward = Phaser.Math.RadToDeg(Math.atan2(uy, Math.abs(ux))) + 90;
+  // A touch above the trunk's middle, like a real chop that bites in and down.
+  const strike = side * Phaser.Math.Clamp(toward - 12, 35, 140);
+  return { strike, rest: -side * 15, down: side * 160, side, ux, uy };
 }
 
 export interface BodyPose {
@@ -115,10 +116,10 @@ export default class ChopSwing {
     this.loadTexture(held.key, held.url, () => {
       if (this.treeId !== treeId || this.axe || this.tool !== held) return;
       const { side: s, ux, uy, rest, down } = this.aim;
-      // Held in front of the body on the tree's side, at about hip height, blade toward the tree.
-      const flip = (s < 0) !== !!held.mirror;
+      // Held in front of the body on the tree's side, at about hip height. The art has its blade
+      // on the right, the side that leads a swing to the right; it's mirrored for the left.
       const axe = this.scene.add.image((px + 0.5) * 32 + ux * 6, (py + 0.5) * 32 + 6 + uy * 4, held.key)
-        .setOrigin(flip ? 1 - GRIP.x : GRIP.x, GRIP.y).setFlipX(flip).setAngle(down).setAlpha(0);
+        .setOrigin(s > 0 ? GRIP.x : 1 - GRIP.x, GRIP.y).setFlipX(s < 0).setAngle(down).setAlpha(0);
       this.container.add(axe);
       this.axe = axe;
       // Brought up, ready.
@@ -237,11 +238,11 @@ export default class ChopSwing {
       tw.add({ targets: pose, dx: 0, dy: 0, angle: 0, duration, delay, ease: 'Sine.easeInOut' });
     };
 
-    // Wind-up: lean back, sink a little, axe high behind the head.
+    // Wind-up: lean back, sink a little, axe up over the shoulder behind the head.
     const back = heavy ? 3 : 2;
     tw.add({ targets: pose, dx: -ux * back, dy: (heavy ? 2 : 1) - uy * back * 0.5, angle: -s * (heavy ? 9 : 6), duration: t.windUp, ease: 'Sine.easeOut' });
     tw.add({
-      targets: axe, angle: strike - s * (heavy ? 228 : 203), duration: t.windUp, ease: 'Sine.easeOut',
+      targets: axe, angle: -s * (heavy ? 65 : 45), duration: t.windUp, ease: 'Sine.easeOut',
       onComplete: () => {
         // Strike: lunge in as the axe comes down.
         const lunge = kind === 'miss' ? 5 : 3;
