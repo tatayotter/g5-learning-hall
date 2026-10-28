@@ -1862,3 +1862,12 @@ body.new-nav-calm .arena-fab { display: none; }
     transform-origin: top right;
   }
 }
+
+/* Town people's talk bubbles (MapCanvas.tsx): a quick pop in. */
+@keyframes npc-bubble-pop {
+  0% { opacity: 0; transform: translateX(-50%) translateY(4px) scale(0.7); }
+  70% { opacity: 1; transform: translateX(-50%) translateY(-1px) scale(1.05); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+.npc-bubble { animation: npc-bubble-pop 0.22s ease-out both; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: reduce) { .npc-bubble { animation: none; } }
