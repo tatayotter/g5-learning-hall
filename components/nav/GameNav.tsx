@@ -201,7 +201,7 @@ export default function GameNav({ activeTab, onNavigate, badges, hidden, hud, on
         />
       )}
 
-      {!hidden && calm && home && <CalmButtons questBang={questBang} onQuests={() => go('board')} onTown={() => { playPageFlip(); home.onGoTown(); }} onMenu={openMenu} />}
+      {!hidden && calm && home && <CalmButtons questBang={questBang} onQuests={() => go('board')} onTown={() => { playPageFlip(); home.onGoTown(); }} onMenu={openMenu} onCurios={() => go('curios')} />}
 
       {!hidden && !calm && layout === 'sidebar' && (
         <nav aria-label="Main" className="fixed top-0 bottom-0 left-0 z-[79] flex flex-col" style={{ width: SIDEBAR_W, backgroundImage: DARK_BAR, borderRight: '2px solid #d4a017', boxShadow: '2px 0 8px -1px rgba(0,0,0,0.5)' }}>
@@ -391,10 +391,10 @@ function MenuTile({ icon, label, onClick }: { icon: string; label: string; onCli
 // Out on a map away from town (Rowil 2026-10-28: most buttons live in town): Quests, with the
 // gold "!" while today's Main Quest waits, and Town, straight home to Baylan. They sit on the right
 // above the Curio Arena button; the Menu button stays in the top bar.
-function CalmButtons({ questBang, onQuests, onTown, onMenu }: { questBang: boolean; onQuests: () => void; onTown: () => void; onMenu: () => void }) {
+function CalmButtons({ questBang, onQuests, onTown, onMenu, onCurios }: { questBang: boolean; onQuests: () => void; onTown: () => void; onMenu: () => void; onCurios: () => void }) {
   const round = `relative flex flex-col items-center justify-center rounded-full border-[3px] active:scale-95 ${FOCUS_RING}`;
   return (
-    <div className="home-calm-buttons fixed right-3 z-[80] flex flex-col items-center gap-2.5" style={{ bottom: 'calc(5.75rem + env(safe-area-inset-bottom, 0px))' }}>
+    <div className="home-calm-buttons fixed right-3 z-[80] flex flex-col items-center gap-2.5" style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}>
       <button type="button" onClick={onQuests} aria-label={questBang ? "Quests, today's quest is waiting" : 'Quests'} data-testid="calm-quests"
         className={round} style={{ width: 66, height: 66, backgroundImage: DARK_BAR, borderColor: questBang ? '#ffd23f' : '#d4a017', boxShadow: questBang ? '0 0 14px #ffd23f, 0 3px 8px rgba(0,0,0,0.5)' : '0 3px 8px rgba(0,0,0,0.5)' }}>
         <img src="/main ui/mainquest.png" alt="" className="w-9 h-9 object-contain" />
@@ -405,6 +405,12 @@ function CalmButtons({ questBang, onQuests, onTown, onMenu }: { questBang: boole
         className={round} style={{ width: 56, height: 56, backgroundImage: DARK_BAR, borderColor: '#d4a017', boxShadow: '0 3px 8px rgba(0,0,0,0.5)' }}>
         <span aria-hidden className="text-[24px] leading-none">🏘️</span>
         <span style={{ ...TAB_TEXT, fontSize: 9, color: '#e8d0a0' }}>Town</span>
+      </button>
+      {/* Stands in for the Curio Arena stadium button, which hides out of town (globals.css). */}
+      <button type="button" onClick={onCurios} aria-label="Curios" data-testid="calm-curios"
+        className={round} style={{ width: 56, height: 56, backgroundImage: DARK_BAR, borderColor: '#d4a017', boxShadow: '0 3px 8px rgba(0,0,0,0.5)' }}>
+        <img src="/nav/curios.png" alt="" className="w-7 h-7 object-contain" />
+        <span style={{ ...TAB_TEXT, fontSize: 9, color: '#e8d0a0' }}>Curios</span>
       </button>
       <button type="button" onClick={onMenu} aria-label="Menu" aria-haspopup="dialog" data-testid="calm-menu"
         className={round} style={{ width: 56, height: 56, backgroundImage: DARK_BAR, borderColor: '#d4a017', boxShadow: '0 3px 8px rgba(0,0,0,0.5)' }}>

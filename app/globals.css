@@ -1848,3 +1848,17 @@ body.map-panel-open .map-stage-full::after {
   z-index: 50;
   background: rgba(26, 13, 5, 0.35);
 }
+/* Out of town the calm buttons have their own round Curios button. */
+body.new-nav-calm .arena-fab { display: none; }
+/* Short screens (phone on its side): the calm buttons sit in a row at the top, left of the zoom
+   buttons, so they don't cover the item bar. */
+@media (max-height: 520px) {
+  body .home-calm-buttons {
+    flex-direction: row;
+    top: 3.4rem;
+    bottom: auto !important;
+    right: 3.5rem;
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+}
