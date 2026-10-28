@@ -29,7 +29,7 @@ import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/pa
 import MissionsPanel from '@/components/monster/MissionsPanel';
 import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
-import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, pluralVeggie } from '@/lib/hideoutConfig';
+import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
 import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
@@ -847,18 +847,20 @@ export default function TrainingMap({
   // Loads this region's map (declared after contMove, which it resets).
   useEffect(() => {
     let cancelled = false;
-    if (activeRegion.tileArtPath) {
+    // Each kid's Hideout is one of five island shapes (lib/hideoutConfig.ts).
+    const artPath = activeRegion.id === HIDEOUT_REGION ? hideoutMapPath(userId) : activeRegion.tileArtPath;
+    if (artPath) {
       // The Hideout signpost's spot in town stays clear too.
       const reserved = [...(WILD_PLANTS[activeRegion.id] ?? []), ...(activeRegion.id === SIGNPOST.region ? [SIGNPOST] : [])];
       const nature = activeRegion.dailyNature ? { regionId: activeRegion.id, reserved } : undefined;
-      loadTiledArtMap(activeRegion.tileArtPath, nature).then(parsed => {
+      loadTiledArtMap(artPath, nature).then(parsed => {
         if (cancelled) return;
         setMapTrees(parsed.trees);
         setRegionMap(parsed.layout);
         setMapReady(true);
         setBackground({
           type: 'tilemap',
-          key: activeRegion.tileArtPath!,
+          key: artPath,
           mapJson: parsed.mapJson,
           tilesetImages: parsed.tilesetImages,
           tileSize: parsed.tileSize,
@@ -877,7 +879,7 @@ export default function TrainingMap({
         setPlaces(parsed.places);
         setFoliage(parsed.foliage);
         setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || TOWN_NPCS[activeRegion.id] ? {
-          key: `${activeRegion.tileArtPath}:${natureDay()}`,
+          key: `${artPath}:${natureDay()}`,
           groups: WILDLIFE[activeRegion.id] ?? [],
           habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],

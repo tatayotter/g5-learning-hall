@@ -1,7 +1,7 @@
 // lib/hideoutConfig.ts
 // The Hideout (economy plan part 2, 2026-10-28): a kid's own island, bought for 2,000 gold at the
 // signpost in Inkwell Town. Its plots stand at fixed spots on the Hideout map (the "Places" layer
-// of public/maps-tiled-art/hideout/hideout.tmx) and each is built with wood from chopping:
+// of public/maps-tiled-art/hideout/hideout_<shape>.tmx) and each is built with wood from chopping:
 // garden beds grow veggies from seed packets, grove spots grow saplings into trees that drop
 // wood every day, and the Curio Camp is where curios go on missions. The kitchen comes with
 // cooking, later.
@@ -13,6 +13,18 @@ import { TREES, VEGGIES, gardenItemLabel, saplingKey, seedsKey, type TreeId, typ
 
 export const HIDEOUT_REGION = 'hideout';
 export const HIDEOUT_COST = 2000;
+
+// Five island shapes (Rowil, 2026-10-28: so each kid's island feels their own). The plots, road and
+// bridge are on the same tiles on all five, so none is better than another; only the coast
+// differs. Built by /mnt/project-files/hideout-map/build_hideout.py <repo> <shape>. A kid's shape
+// comes from their id, so it never changes.
+export const HIDEOUT_SHAPES = 5;
+export function hideoutShape(userId: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < userId.length; i++) h = Math.imul(h ^ userId.charCodeAt(i), 16777619);
+  return ((h >>> 0) % HIDEOUT_SHAPES) + 1;
+}
+export const hideoutMapPath = (userId: string) => `/maps-tiled-art/hideout/hideout_${hideoutShape(userId)}.tmx`;
 
 // The signpost in Inkwell Town: walk up to it to buy the Hideout or go there. Coming back over
 // the Hideout's bridge puts the kid right beside it.
@@ -96,7 +108,7 @@ export type PlotLook =
   | 'kitchen_soon';
 
 export const PLOT_ART: Record<PlotLook, { src: string; w: number; h: number }> = {
-  site: { src: '/hideout/build_site.png', w: 32, h: 32 },
+  site: { src: '/hideout/build_site.png', w: 56, h: 51 },
   bed: { src: '/hideout/garden_bed.png', w: 96, h: 64 },  // the tilled soil inside a bed's pen
   grove: { src: '/hideout/tree_spot.png', w: 32, h: 32 },
   camp: { src: '/hideout/curio_camp.png', w: 64, h: 64 },
