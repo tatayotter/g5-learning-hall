@@ -39,7 +39,7 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
+  SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
   swingTiming, strikeImpactMs, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { useGear } from '@/lib/gear';
@@ -48,7 +48,9 @@ import { isItemSlot } from '@/lib/itemBar';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
-import { AMBIENCE } from '@/lib/ambience';
+import { AMBIENCE, isRaining, nightStrength, sunsetStrength } from '@/lib/ambience';
+import { bubbleMs, cameFrom, canTalk, firstGreetToday, noteWildMap, pickExchange, pickLine, type NpcSay } from '@/lib/npcTalk';
+import { USERS } from '@/lib/userSession';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
 import { TOWN_NPCS, BAYLAN_ID, type TownPage } from '@/lib/townNpcs';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
@@ -1139,7 +1141,7 @@ export default function TrainingMap({
   // the Curio Expert open their page the same way (no "?").
   const townNpcs = TOWN_NPCS[activeRegion.id];
   const [nearNpcId, setNearNpcId] = useState<string | null>(null);
-  const nearNpc = townNpcs?.find(n => n.id === nearNpcId && ((n.guild && onPlayGuild) || (n.opens && onOpenPage))) || null;
+  const nearNpc = townNpcs?.find(n => n.id === nearNpcId && ((n.guild && onPlayGuild) || (n.opens && onOpenPage) || (!n.guild && !n.opens && canTalk(n.id)))) || null;
   const [guildsPlayed, setGuildsPlayed] = useState<GuildKey[] | null>(null);
   useEffect(() => {
     if (!townNpcs || offline) return;
@@ -1161,13 +1163,101 @@ export default function TrainingMap({
     }
     return marks;
   }, [townNpcs, guildsPlayed, questWaiting]);
+  // Talking town people (lib/npcTalk.ts): a bubble with a line that fits the kid right now, when
+  // they walk up (now and then) or tap one who has no page to open. The first hello of the day
+  // comes with a little hop. The Knight Commander chats with his squad and the guards too.
+  const [npcSay, setNpcSay] = useState<Record<string, NpcSay>>({});
+  const sayTimers = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
+  const lastSaidAt = useRef<Map<string, number>>(new Map());
+  const sayKey = useRef(0);
+  useEffect(() => { const timers = sayTimers.current; return () => timers.forEach(clearTimeout); }, []);
+  // Coming back from a wild map: town people may ask about it.
+  useEffect(() => { if (activeRegion.id !== 'town') noteWildMap(activeRegion.id); }, [activeRegion.id]);
+  const kidName = (USERS[userId]?.name ?? '').split(' ')[0];
+  const say = useCallback((id: string, text: string, wave = false) => {
+    const prev = sayTimers.current.get(id);
+    if (prev) clearTimeout(prev);
+    lastSaidAt.current.set(id, Date.now());
+    setNpcSay(s => ({ ...s, [id]: { text, wave, key: ++sayKey.current } }));
+    sayTimers.current.set(id, setTimeout(() => setNpcSay(s => { const next = { ...s }; delete next[id]; return next; }), bubbleMs(text)));
+  }, []);
+  const talkFacts = useCallback((npcId: string) => {
+    const f = new Set<string>();
+    const now = Date.now();
+    if (mapHome) f.add(mapHome.questDone ? 'quest_done' : 'quest_waiting');
+    const guild = townNpcs?.find(n => n.id === npcId)?.guild;
+    if (guild && guildsPlayed) f.add(guildsPlayed.includes(guild) ? 'guild_done' : 'guild_waiting');
+    const hour = ((now / 3600_000 + 8) % 24 + 24) % 24;
+    if (nightStrength(now) > 0.5) f.add('night');
+    else if (sunsetStrength(now) > 0.3) f.add('sunset');
+    else f.add(hour >= 5 && hour < 11 ? 'morning' : 'noon');
+    for (const r of Object.values(REGIONS)) {
+      if (isRaining(AMBIENCE[r.element], `${r.id}:${natureDay()}`, now)) f.add(`rain:${r.id}`);
+    }
+    if (f.has(`rain:${activeRegion.id}`)) f.add('rain_here');
+    const from = cameFrom();
+    if (from && activeRegion.id === 'town') f.add(`from:${from}`);
+    f.add(`here:${activeRegion.id}`);
+    const trash = Object.values(trashInventory).some(n => (n ?? 0) > 0);
+    if (trash) f.add('has_trash');
+    if (canTrade) f.add('can_trade');
+    for (const [key, n] of Object.entries(garden.bag)) {
+      if (!n) continue;
+      const g = parseGardenKey(key);
+      if (key === WOOD_KEY) f.add('has_wood');
+      else if (g?.kind === 'veggie') f.add(g.veggie.id === 'seashell' ? 'has_shells' : 'has_veggies');
+    }
+    if (!trash && !['has_wood', 'has_veggies', 'has_shells'].some(k => f.has(k))) f.add('bag_empty');
+    if (!userMonsters.length) f.add('no_team');
+    else if (userMonsters.length >= 4) f.add('big_team');
+    const day = new Date(now + 8 * 3600_000).getUTCDay();
+    if (day === 1) f.add('monday');
+    if (day === 5) f.add('friday');
+    if (day === 0 || day === 6) f.add('weekend');
+    if (playerLevel < 5) f.add('new_kid');
+    if (playerLevel >= 20) f.add('veteran');
+    return f;
+  }, [mapHome, townNpcs, guildsPlayed, activeRegion.id, trashInventory, canTrade, garden.bag, userMonsters.length, playerLevel]);
+  const talk = useCallback((id: string) => {
+    const facts = talkFacts(id);
+    const first = !lastSaidAt.current.has(id) && firstGreetToday(id);
+    if (first) facts.add('first_today');
+    const line = pickLine(id, facts, kidName);
+    if (line) say(id, line, first);
+  }, [talkFacts, kidName, say]);
+  // Walking up: a hello now and then (not every time, or it gets noisy).
+  const onNpcApproach = useCallback((id: string) => {
+    if (!canTalk(id) || panelOpen) return;
+    if (Date.now() - (lastSaidAt.current.get(id) ?? 0) < 90_000) return;
+    talk(id);
+  }, [talk, panelOpen]);
+  // The Recycler, out on the wild maps, says hi the same way.
+  const nearRecycler = !!recyclerTile && Math.hypot(recyclerTile.x - posX, recyclerTile.y - posY) <= 3;
+  useEffect(() => { if (nearRecycler) onNpcApproach('recycler'); }, [nearRecycler, onNpcApproach]);
+  // The squad halts at the fountain: the Knight Commander talks with a soldier, or calls over to a
+  // guard close enough to hear, when the kid is near enough to see it.
+  const onSquadHalt = useCallback((at: { x: number; y: number }, spots: { id: string; x: number; y: number }[]) => {
+    if (Math.hypot(at.x - posX, at.y - posY) > 9) return;
+    const guards = spots.filter(n => n.id.startsWith('guard_') && Math.hypot(n.x - at.x, n.y - at.y) < 14);
+    const withId = guards.length && Math.random() < 0.5 ? guards[Math.floor(Math.random() * guards.length)].id : 'squad';
+    const ex = pickExchange(withId, talkFacts('knight_commander'), kidName);
+    if (!ex) return;
+    const soldier = withId === 'squad' ? `squad_${1 + Math.floor(Math.random() * 4)}` : withId;
+    let wait = 0;
+    for (const [who, text] of ex.lines) {
+      const id = who === 'knight' ? 'knight_commander' : soldier;
+      sayTimers.current.set(`chat:${wait}`, setTimeout(() => say(id, text), wait));
+      wait += Math.min(2600, 900 + text.length * 40);
+    }
+  }, [posX, posY, talkFacts, kidName, say]);
   const talkToNpc = useCallback(() => {
     if (nearNpc?.guild && onPlayGuild) { playPageFlip(); onPlayGuild(nearNpc.guild); }
     else if (nearNpc?.opens && onOpenPage) { playPageFlip(); onOpenPage(nearNpc.opens); }
-  }, [nearNpc, onPlayGuild, onOpenPage]);
+    else if (nearNpc) talk(nearNpc.id);
+  }, [nearNpc, onPlayGuild, onOpenPage, talk]);
   const onNpcClick = useCallback((id: string, at?: { x: number; y: number }) => {
     const npc = townNpcs?.find(n => n.id === id);
-    if (npc?.hello) { showBarMessage(npc.hello); return; }
+    if (npc && !npc.guild && !npc.opens) { if (canTalk(id)) talk(id); return; }
     const guild = onPlayGuild ? npc?.guild : undefined;
     const opens = onOpenPage ? npc?.opens : undefined;
     if (!guild && !opens) return;
@@ -1178,7 +1268,7 @@ export default function TrainingMap({
       if (guild) onPlayGuild!(guild);
       else if (opens) onOpenPage!(opens);
     });
-  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, showBarMessage, contMove, canWalk]);
+  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, talk, contMove, canWalk]);
   useEffect(() => {
     if (!nearNpc || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1311,6 +1401,9 @@ export default function TrainingMap({
         paused={paused}
         onNpcNear={setNearNpcId}
         onNpcClick={onNpcClick}
+        npcSay={npcSay}
+        onNpcApproach={onNpcApproach}
+        onSquadHalt={onSquadHalt}
         onMapTap={handleMapTap}
         ambience={ambience}
         wildlife={wildlife}
@@ -1327,7 +1420,7 @@ export default function TrainingMap({
         >
           {npcMarks?.[nearNpc.id] === 'quest' && <span className="text-[#ffd23f]">?</span>}
           {npcMarks?.[nearNpc.id] === 'bang' && <span className="text-[#ffd23f]">!</span>}
-          {nearNpc.guild ? `Play ${GUILD_LABEL[nearNpc.guild]}` : nearNpc.opensLabel}
+          {nearNpc.guild ? `Play ${GUILD_LABEL[nearNpc.guild]}` : nearNpc.opensLabel ?? 'Talk'}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
