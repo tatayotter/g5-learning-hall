@@ -63,6 +63,15 @@ export const regrowWords = (v: VeggieId, mins: number) => {
 
 // Same list as wild_plant_nodes in the migration.
 export interface WildPlantNode { id: string; veggie: VeggieId; x: number; y: number }
+
+// A fenced field planted edge to edge with one crop, one plant per tile ("tomato_3_23" is the
+// tomato at tile 3, 23). Corners are inclusive.
+function field(veggie: VeggieId, x0: number, y0: number, x1: number, y1: number): WildPlantNode[] {
+  const plants: WildPlantNode[] = [];
+  for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) plants.push({ id: `${veggie}_${x}_${y}`, veggie, x, y });
+  return plants;
+}
+
 export const WILD_PLANTS: Record<string, WildPlantNode[]> = {
   ledgers_heart: [
     { id: 'tomato_1',   veggie: 'tomato',   x: 12, y: 10 },
@@ -73,6 +82,12 @@ export const WILD_PLANTS: Record<string, WildPlantNode[]> = {
     { id: 'tomato_2',   veggie: 'tomato',   x: 40, y: 6 },
     { id: 'cabbage_1',  veggie: 'cabbage',  x: 50, y: 13 },
     { id: 'beans_1',    veggie: 'beans',    x: 48, y: 15 },
+  ],
+  // Inkwell Town's two fenced dirt pens, west of the fountain (town.tmx Fences): tomatoes fill
+  // the small one, pumpkins the big one.
+  town: [
+    ...field('tomato', 3, 23, 7, 27),
+    ...field('pumpkin', 10, 23, 17, 27),
   ],
   // Seashells along Tidewrit's beaches, each right by the water.
   tidewrit_shallows: [
