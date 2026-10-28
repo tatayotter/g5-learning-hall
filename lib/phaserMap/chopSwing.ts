@@ -21,7 +21,7 @@
 //
 // strike() is one quick swing at a rock or a dig spot (a find picked with a pickaxe or shovel).
 import Phaser from 'phaser';
-import { STRIKE_LEAD_MS, swingTiming, type SwingKind } from '@/lib/gardenConfig';
+import { swingTiming, type SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
 
 interface HeldTool { key: string; url: string; grip: { x: number; y: number } }
@@ -89,11 +89,18 @@ export default class ChopSwing {
 
   get holding() { return this.treeId; }
 
-  /** The tier the kid owns of each tool (0 or missing = none). */
-  setTools(tiers: Partial<Record<ToolId, number>>) { this.tools = tiers; }
+  /** The tier the kid owns of each tool (0 or missing = none). Their art loads now, so a swing
+   *  never waits on it. */
+  setTools(tiers: Partial<Record<ToolId, number>>) {
+    this.tools = tiers;
+    for (const tool of Object.keys(HELD_GRIP_X) as ToolId[]) {
+      const held = heldTool(tool, tiers[tool] ?? 0);
+      if (held) this.loadTexture(held.key, held.url, () => {});
+    }
+  }
 
   /** Stand ready to chop the tree at trunk tile (tx, ty), the kid at float tile (px, py). */
-  hold(treeId: string, tx: number, ty: number, px: number, py: number, facingRight: boolean, toolId: ToolId = 'axe') {
+  hold(treeId: string, tx: number, ty: number, px: number, py: number, facingRight: boolean, toolId: ToolId = 'axe', onReady?: () => void) {
     if (this.treeId === treeId && this.axe) return;
     this.putAway(true);
     this.treeId = treeId;
@@ -112,7 +119,7 @@ export default class ChopSwing {
       this.container.add(axe);
       this.axe = axe;
       // Brought up, ready.
-      this.scene.tweens.add({ targets: axe, angle: rest, alpha: 1, duration: this.still ? 0 : 260, ease: 'Back.easeOut' });
+      this.scene.tweens.add({ targets: axe, angle: rest, alpha: 1, duration: this.still ? 0 : 260, ease: 'Back.easeOut', onComplete: onReady });
     });
   }
 
@@ -122,10 +129,12 @@ export default class ChopSwing {
    */
   strike(id: string, tool: ToolId, tx: number, ty: number, px: number, py: number, facingRight: boolean, onImpact: () => void) {
     if (this.still || !heldTool(tool, this.tools[tool] ?? 0)) { onImpact(); return; }
-    this.hold(id, tx, ty, px, py, facingRight, tool);
-    this.scene.time.delayedCall(STRIKE_LEAD_MS, () => {
-      if (this.treeId !== id) { onImpact(); return; }
-      this.swing('hit', onImpact);
+    // Swing once the tool is up (its art may still be loading the first time).
+    let landed = false;
+    const land = () => { if (!landed) { landed = true; onImpact(); } };
+    this.hold(id, tx, ty, px, py, facingRight, tool, () => {
+      if (this.treeId !== id) { land(); return; }
+      this.swing('hit', land);
       this.scene.time.delayedCall(swingTiming('hit').total, () => { if (this.treeId === id) this.putAway(); });
     });
   }
