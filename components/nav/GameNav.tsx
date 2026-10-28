@@ -24,6 +24,7 @@ import { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, 
 import SoundSettings from '@/components/SoundSettings';
 import { LogoutConfirmDialog, SaveStatusRow, TopHud, type SaveStatus, type TopHudProps } from '@/components/SidebarRail';
 import { playPageFlip } from '@/lib/sounds';
+import { useBackHandler } from '@/lib/backButton';
 
 export type NavLayout = 'bar' | 'rail' | 'sidebar';
 
@@ -107,6 +108,13 @@ export default function GameNav({ activeTab, onNavigate, badges, hidden, hud, on
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [menuOpen]);
+
+  // Back closes the logout question or the menu before it changes the tab.
+  useBackHandler(menuOpen || confirmingLogout, 10, () => {
+    if (confirmingLogout) { setConfirmingLogout(false); return true; }
+    if (menuOpen) { setMenuOpen(false); return true; }
+    return false;
+  });
 
   const go = (tab: string) => { playPageFlip(); setMenuOpen(false); onNavigate(tab); };
   const label = (t: { id: NavTabId; label: string }) => `${t.label}${badges[t.id] ? ', something new' : ''}`;
