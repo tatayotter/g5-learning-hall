@@ -7,8 +7,7 @@
 // still on today's to-do list shows a glowing "?" over the name. With "reduce motion" on they
 // stand still at their door and the "?" doesn't bob.
 // A squad (TownNpc.patrol) marches its route instead: the leader in front, the rest two abreast
-// behind, all in step; at each stop the soldiers stand to attention (front pose) and the leader
-// turns to face them, then they march on.
+// behind, all in step; at each stop they all stand to attention (front pose), then march on.
 import Phaser from 'phaser';
 import { NPC_WALK_FRAMES, PATROL_ROUTES, type PatrolRoute, type TownNpc } from '@/lib/townNpcs';
 import type { Transform } from './ambience';
@@ -236,9 +235,8 @@ export default class GuildNpcLayer {
         if (n.walking || still) {
           n.walking = false;
           n.image.stop();
-          // The soldiers stand to attention; the leader turns round to face them.
-          if (slot === 0) { n.image.setFrame(0); if (Math.abs(hx) > 0.05) n.image.setFlipX(hx > 0); }
-          else n.image.setFrame(n.idle);
+          // Everyone stands to attention in their front pose (a walk frame would freeze mid-step).
+          n.image.setFrame(n.idle).setFlipX(false);
         }
       } else if (Math.abs(hx) > 0.05) n.image.setFlipX(hx < 0);
     }
