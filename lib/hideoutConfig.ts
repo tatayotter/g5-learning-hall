@@ -90,19 +90,27 @@ export function timeWords(ms: number) {
 // public/hideout/<name>.png, standing on the plot's tile (bottom centre).
 export type PlotLook =
   | 'site'          // not built: a sign with stakes
-  | 'bed'           // an empty garden bed
+  | 'bed'           // a built garden bed: tilled soil filling its crop rows
   | 'grove'         // an empty tree spot
   | 'camp'
   | 'kitchen_soon';
 
 export const PLOT_ART: Record<PlotLook, { src: string; w: number; h: number }> = {
   site: { src: '/hideout/build_site.png', w: 32, h: 32 },
-  bed: { src: '/hideout/garden_bed.png', w: 32, h: 32 },
+  bed: { src: '/hideout/garden_bed.png', w: 96, h: 64 },  // the tilled soil inside a bed's pen
   grove: { src: '/hideout/tree_spot.png', w: 32, h: 32 },
   camp: { src: '/hideout/curio_camp.png', w: 64, h: 64 },
   kitchen_soon: { src: '/hideout/kitchen_soon.png', w: 32, h: 48 },
 };
 export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 29, h: 64 };
+
+// Each garden bed is a fenced dirt pen on the map (hideout.tmx, like the town's pens). Its Places
+// point is the middle of its two crop rows; the crops fill those rows, three across, and the kid
+// stands on the row in front. The tiles a plot takes (solid), around its Places point:
+export const plotTiles = (kind: PlotKind, x: number, y: number) =>
+  kind === 'bed'
+    ? [-1, 0, 1].flatMap(dx => [-1, 0].map(dy => ({ x: x + dx, y: y + dy })))
+    : [{ x, y }];
 
 // A crop's look as it grows: planted (soil and a sprout), growing, ripe (the wild veggies' strip).
 export type CropStage = 'picked' | 'growing' | 'ripe';

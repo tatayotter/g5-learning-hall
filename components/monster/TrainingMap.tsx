@@ -796,7 +796,8 @@ export default function TrainingMap({
   // The Hideout signpost or plot right next to the player, if any (plants and trees come first).
   const nearSpot = useMemo(() => {
     if (nearby) return null;
-    const d = (o: { x: number; y: number }) => Math.max(Math.abs(o.x - posX), Math.abs(o.y - posY));
+    // Nearest of its tiles (a garden bed takes six).
+    const d = (o: HideoutSpot) => Math.min(...o.tiles.map(t => Math.max(Math.abs(t.x - posX), Math.abs(t.y - posY))));
     return hideout.spots.filter(o => d(o) <= 1).sort((a, b) => d(a) - d(b))[0] ?? null;
   }, [nearby, hideout.spots, posX, posY]);
 
@@ -1411,7 +1412,8 @@ export default function TrainingMap({
       }
     }
     // A Hideout plot or the signpost (its art reaches a tile or two above it): walk up and use it.
-    const spot = hideout.spots.find(o => o.x === tx && ty <= o.y && ty >= o.y - (o.plot?.kind === 'grove' || o.plot?.kind === 'camp' || o.kind === 'signpost' ? 2 : 1));
+    const reach = (o: HideoutSpot) => (o.plot?.kind === 'grove' || o.plot?.kind === 'camp' || o.kind === 'signpost' ? 2 : 1);
+    const spot = hideout.spots.find(o => o.tiles.some(t => t.x === tx && ty <= t.y && ty >= t.y - reach(o)));
     if (spot) {
       if (nearSpot?.id === spot.id) { void applySpot(spot); return; }
       contMove.walkTo(tilesAround(spot.x, spot.y, canWalk), () => { void applySpot(spot); });

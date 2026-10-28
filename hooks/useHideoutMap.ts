@@ -8,7 +8,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { GARDEN_STACK, TREES, VEGGIES, gardenItemIcon, seedsKey, saplingKey, veggieKey, WOOD_KEY, type GardenBag, type TreeId, type VeggieId } from '@/lib/gardenConfig';
 import {
-  HIDEOUT_REGION, HARVEST_VEGGIES, PLOT_ART, PLOTS, SIGNPOST, SIGNPOST_ART, TREE_WOOD_PER_DAY, cropStage, groveStage,
+  HIDEOUT_REGION, HARVEST_VEGGIES, PLOT_ART, PLOTS, SIGNPOST, SIGNPOST_ART, TREE_WOOD_PER_DAY, cropStage, groveStage, plotTiles,
   type PlotDef, type PlotLook,
 } from '@/lib/hideoutConfig';
 import { useHideout } from '@/lib/hideout';
@@ -30,6 +30,8 @@ export interface HideoutSpot {
   kind: 'signpost' | 'plot';
   x: number;
   y: number;
+  // The tiles it takes (a garden bed: its crop rows).
+  tiles: { x: number; y: number }[];
   plot?: PlotDef;
   phase?: PlotPhase;
   item?: string | null;
@@ -69,7 +71,7 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
   const spots: HideoutSpot[] = useMemo(() => {
     if (inTown) {
       return [{
-        id: 'signpost', kind: 'signpost', x: SIGNPOST.x, y: SIGNPOST.y,
+        id: 'signpost', kind: 'signpost', x: SIGNPOST.x, y: SIGNPOST.y, tiles: [{ x: SIGNPOST.x, y: SIGNPOST.y }],
         label: state.owned ? 'Go to My Hideout' : 'My Hideout', icon: SIGNPOST_ART.src,
       }];
     }
@@ -79,7 +81,7 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       const at = places[def.id];
       if (!at) continue;
       const p = state.plots[def.id];
-      const base = { id: def.id, kind: 'plot' as const, x: at.x, y: at.y, plot: def };
+      const base = { id: def.id, kind: 'plot' as const, x: at.x, y: at.y, tiles: plotTiles(def.kind, at.x, at.y), plot: def };
       if (!p) {
         out.push({ ...base, phase: def.soon ? 'soon' : 'unbuilt', label: def.soon ? def.name : `Build ${def.name}`, icon: def.soon ? PLOT_ART.kitchen_soon.src : gardenItemIcon(WOOD_KEY) });
         continue;
@@ -115,10 +117,13 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       if (s.phase === 'soon') { props.push(art('kitchen_soon')); continue; }
       if (def.kind === 'camp') { props.push(art('camp')); continue; }
       if (def.kind === 'bed') {
+        // The tilled soil, and the crop on every tile of it.
         props.push(art('bed'));
         const p = state.plots[s.id];
         if (p?.item && p.plantedAt !== null && p.readyAt !== null) {
-          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall: VEGGIES[p.item as VeggieId]?.tall ?? false, stage: cropStage(p.plantedAt, p.readyAt, now) });
+          const stage = cropStage(p.plantedAt, p.readyAt, now);
+          const tall = VEGGIES[p.item as VeggieId]?.tall ?? false;
+          s.tiles.forEach((t, i) => crops.push({ id: i ? `${s.id}#${i}` : s.id, veggie: p.item!, x: t.x, y: t.y, tall, stage }));
         }
         continue;
       }
@@ -137,8 +142,8 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
     return { props, crops, trees };
   }, [spots, state.plots, now]);
 
-  // The plots and the signpost are solid: a kid uses one from the tile beside it.
-  const blocked = useMemo(() => spots.map(s => ({ x: s.x, y: s.y })), [spots]);
+  // The plots and the signpost are solid: a kid uses one from a tile beside it.
+  const blocked = useMemo(() => spots.flatMap(s => s.tiles), [spots]);
 
   // Bag squares a harvest might need (the most it can give).
   const squaresForHarvest = (s: HideoutSpot) => {
