@@ -138,7 +138,8 @@ interface MapCanvasProps {
   /** The guild NPC within reach of the player, or null; called when it changes. */
   onNpcNear?: (id: string | null) => void;
   /** Tapping a guild NPC's name. */
-  onNpcClick?: (id: string) => void;
+  // `at`: where the NPC stands now (tile, feet), so a tap can walk up to it.
+  onNpcClick?: (id: string, at?: { x: number; y: number }) => void;
   onMapTap?: (x: number, y: number) => void;
   /** The map's sky: cloud shadows, drifting leaves, sunset (lib/ambience.ts). */
   ambience?: { key: string; sky: Ambience } | null;
@@ -700,6 +701,8 @@ export default function MapCanvas({
       <div
         ref={selfWrapRef}
         data-testid="map-self-marker"
+        // FloatingJoystick.tsx steers the kid toward a held mouse cursor from here.
+        data-map-self
         className="absolute pointer-events-none flex items-center justify-center"
         style={{ left: `${leftPct(posX)}%`, top: `${topPct(posY)}%`, width: `${tileWPct}%`, height: `${tileHPct}%` }}
       >
@@ -749,7 +752,7 @@ export default function MapCanvas({
           <div
             className="w-full h-full flex items-center justify-center relative pointer-events-auto cursor-pointer"
             data-testid={`npc-tag-${n.id}`}
-            onClick={() => onNpcClick?.(n.id)}
+            onClick={() => onNpcClick?.(n.id, sceneRef.current?.getNpcSpots().find(s => s.id === n.id))}
           >
             {nameTag(`npc:${n.id}`, n.name)}
           </div>

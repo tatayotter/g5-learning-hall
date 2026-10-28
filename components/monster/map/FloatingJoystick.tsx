@@ -1,192 +1,191 @@
 'use client';
 // components/monster/map/FloatingJoystick.tsx
-// MOBA-style floating joystick — invisible until the player presses down,
-// at which point it pops into existence centered on the finger and tracks
-// the drag from there; releasing hides it again. Replaces the old
-// always-visible bottom-left Joystick.tsx (2026-09-05).
+// How a press on the map moves the kid (Rowil 2026-10-28):
+//  - A tap or click that stays put walks there (around walls), or walks up to the tree, plant,
+//    exit or guild master under it and uses it: passed on as MAP_TAP_EVENT (lib/mapTap.ts),
+//    which lib/phaserMap/TrainingMapScene.ts turns into a map tile.
+//  - On a phone, pressing and dragging pops up a joystick where the finger first touched and
+//    steers in any direction while held. Nothing shows until the finger actually drags, and it
+//    hides again on release. The base follows a finger that drags past its rim.
+//  - With a mouse, holding the button down (or dragging) makes the kid follow the cursor, the
+//    same feel as the phone drag; letting go stops. Steers toward the cursor from where the kid
+//    is drawn (MapCanvas's [data-map-self] box), so it keeps up while the camera pans.
 //
-// The press-and-drag zone is the LEFT HALF of the map frame only — the
-// right half stays free for tapping map objects (other online players'
-// avatars, the info-drawer toggle, etc.), same split most mobile MOBAs use
-// between a movement thumb and everything else.
-//
-// Same 8-way angle-sector direction math as the old Joystick, driving the
-// exact same setDirectionPressed(dir, pressed) API — useContinuousMovement
-// needed zero changes.
-import { useCallback, useEffect, useRef, useState } from 'react';
+// Listens on the map frame itself (the element this renders into), but only to presses that
+// land on the map canvas, so buttons, name tags and panels over the map keep their own taps.
+// Renders nothing in place: the joystick is portaled to document.body, because the frame sits
+// inside a `transform: scale(...)` wrapper (useStageScale), and a `position: fixed` descendant
+// of a transformed ancestor is placed relative to that ancestor instead of the viewport.
+import { useEffect, useRef, useState } from 'react';
 import { useHasMounted } from '@/hooks/useClientValue';
 import { MAP_TAP_EVENT } from '@/lib/mapTap';
 import { createPortal } from 'react-dom';
-import type { Direction } from '@/hooks/useContinuousMovement';
 
-const OUTER_SIZE = 96;
-const KNOB_SIZE = 40;
+const OUTER_SIZE = 104;
+const KNOB_SIZE = 44;
 const MAX_RADIUS = (OUTER_SIZE - KNOB_SIZE) / 2;
-// Fraction of MAX_RADIUS the knob must travel before any direction
-// registers — avoids phantom drift from a stationary thumb.
-const DEAD_ZONE = 0.3;
-
-const ALL_DIRECTIONS: Direction[] = ['up', 'down', 'left', 'right'];
+// How far a finger moves before a press counts as a drag (and the joystick shows).
+const DRAG_START = 10;
+// A press that moved less than this is a tap.
+const TAP_SLOP = 12;
+// Fraction of MAX_RADIUS the knob must travel before the kid moves — a resting thumb stays put.
+const DEAD_ZONE = 0.25;
+// Slowest walk, as a share of full speed, for a knob just past the dead zone; full speed at
+// FULL_PUSH of the rim and beyond.
+const MIN_SPEED = 0.45;
+const FULL_PUSH = 0.75;
+// A mouse press held this long (without letting go) starts following the cursor.
+const FOLLOW_HOLD_MS = 180;
+// Following stops once the kid is this many tiles from the cursor, so it doesn't jitter there.
+const FOLLOW_REACHED = 0.3;
 
 interface FloatingJoystickProps {
   disabled: boolean;
-  setDirectionPressed: (dir: Direction, pressed: boolean) => void;
+  setStick: (v: { x: number; y: number } | null) => void;
 }
 
-export default function FloatingJoystick({ disabled, setDirectionPressed }: FloatingJoystickProps) {
-  const activeRef = useRef<Set<Direction>>(new Set());
-  const draggingRef = useRef(false);
-  const anchorRef = useRef({ x: 0, y: 0 });
-  // Which pointer started the current drag — a second touch landing (or
-  // lifting) in the capture zone while already dragging must be ignored,
-  // not treated as a re-anchor or a release. The window-level move/up
-  // listeners fire for every pointer, so without this a stray second touch
-  // (an accidental palm touch, or the other thumb in a two-handed grip)
-  // would silently end or misalign the real drag (2026-09-05 fix).
-  const pointerIdRef = useRef<number | null>(null);
-  // Where and when the current press started, to tell a quick tap from a drag.
-  const pressRef = useRef({ x: 0, y: 0, t: 0 });
+export default function FloatingJoystick({ disabled, setStick }: FloatingJoystickProps) {
+  const markerRef = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
   const [anchor, setAnchor] = useState({ x: 0, y: 0 });
   const [knobOffset, setKnobOffset] = useState({ x: 0, y: 0 });
-
-  // The joystick's visual pop-up renders via a portal straight into
-  // document.body (see the render below) rather than in place — the map
-  // frame sits inside a `transform: scale(...)` wrapper (useStageScale), and
-  // a `position: fixed` descendant of a transformed ancestor is positioned
-  // (and scaled) relative to THAT ancestor instead of the real viewport per
-  // the CSS spec. Portaling out to body sidesteps that entirely, so
-  // `left/top: e.clientX/clientY` always lines up with the actual finger
-  // position. Needs a mount flag since document.body isn't available
-  // during SSR.
   const mounted = useHasMounted();
-
-  const clearAll = useCallback(() => {
-    activeRef.current.forEach(dir => setDirectionPressed(dir, false));
-    activeRef.current.clear();
-    setKnobOffset({ x: 0, y: 0 });
-  }, [setDirectionPressed]);
-
-  // Maps the drag vector to up to two simultaneously-held directions (8-way
-  // sectors, 45° each, centered on the 4 cardinal + 4 diagonal directions)
-  // so a diagonal drag drives diagonal movement the same way holding two
-  // arrow keys does.
-  const applyDirections = useCallback((dx: number, dy: number, magnitude: number) => {
-    const next = new Set<Direction>();
-    if (magnitude >= MAX_RADIUS * DEAD_ZONE) {
-      const deg = (Math.atan2(dy, dx) * 180) / Math.PI; // -180..180, 0 = right, +Y down
-      if (deg > -22.5 && deg <= 22.5) next.add('right');
-      else if (deg > 22.5 && deg <= 67.5) { next.add('right'); next.add('down'); }
-      else if (deg > 67.5 && deg <= 112.5) next.add('down');
-      else if (deg > 112.5 && deg <= 157.5) { next.add('left'); next.add('down'); }
-      else if (deg > 157.5 || deg <= -157.5) next.add('left');
-      else if (deg > -157.5 && deg <= -112.5) { next.add('left'); next.add('up'); }
-      else if (deg > -112.5 && deg <= -67.5) next.add('up');
-      else { next.add('right'); next.add('up'); }
-    }
-    ALL_DIRECTIONS.forEach(dir => {
-      const was = activeRef.current.has(dir);
-      const is = next.has(dir);
-      if (was !== is) setDirectionPressed(dir, is);
-    });
-    activeRef.current = next;
-  }, [setDirectionPressed]);
-
-  const handlePointerMove = useCallback((e: PointerEvent) => {
-    if (!draggingRef.current || e.pointerId !== pointerIdRef.current) return;
-    let dx = e.clientX - anchorRef.current.x;
-    let dy = e.clientY - anchorRef.current.y;
-    const dist = Math.hypot(dx, dy);
-    const clamped = Math.min(dist, MAX_RADIUS);
-    if (dist > 0) {
-      dx = (dx / dist) * clamped;
-      dy = (dy / dist) * clamped;
-    }
-    setKnobOffset({ x: dx, y: dy });
-    applyDirections(dx, dy, clamped);
-  }, [applyDirections]);
-
-  // Unconditional teardown — used both by the real pointerup handler (after
-  // it's confirmed the lifting pointer is the one that started the drag)
-  // and by the disabled/unmount effects below, which need to force-stop
-  // regardless of which pointer is "active" (there's no lifting pointer
-  // event to check an id against in those cases).
-  // stopDragging and handlePointerUp reference each other (stop removes the
-  // up-listener; the up-listener calls stop), so the listener reaches stop
-  // through a ref to keep both callbacks stable without a dependency cycle.
-  const stopDraggingRef = useRef<() => void>(() => {});
-  const handlePointerUp = useCallback((e: PointerEvent) => {
-    if (e.pointerId !== pointerIdRef.current) return;
-    stopDraggingRef.current();
-    // A quick tap that didn't drag is a tap on the map under it (a plant or tree to use):
-    // lib/phaserMap/TrainingMapScene.ts listens for this event.
-    const p = pressRef.current;
-    if (Math.hypot(e.clientX - p.x, e.clientY - p.y) < 12 && performance.now() - p.t < 350) {
-      window.dispatchEvent(new CustomEvent(MAP_TAP_EVENT, { detail: { clientX: e.clientX, clientY: e.clientY } }));
-    }
-  }, []);
-
-  const stopDragging = useCallback(() => {
-    draggingRef.current = false;
-    pointerIdRef.current = null;
-    window.removeEventListener('pointermove', handlePointerMove);
-    window.removeEventListener('pointerup', handlePointerUp);
-    setVisible(false);
-    clearAll();
-  }, [handlePointerMove, handlePointerUp, clearAll]);
-  useEffect(() => { stopDraggingRef.current = stopDragging; }, [stopDragging]);
-
-  // Cancel an in-progress drag if the joystick gets disabled mid-hold (e.g.
-  // a scroll/quiz overlay opens) — mirrors the old dpad/Joystick's guard.
+  // Latest props for the listeners, which are attached once.
+  const disabledRef = useRef(disabled);
+  const setStickRef = useRef(setStick);
+  useEffect(() => { setStickRef.current = setStick; }, [setStick]);
+  const stopRef = useRef<() => void>(() => {});
   useEffect(() => {
-    if (disabled && draggingRef.current) stopDragging();
-  }, [disabled, stopDragging]);
+    disabledRef.current = disabled;
+    if (disabled) stopRef.current();
+  }, [disabled]);
 
-  // Safety net if the component unmounts mid-drag (region change etc.).
-  useEffect(() => () => {
-    window.removeEventListener('pointermove', handlePointerMove);
-    window.removeEventListener('pointerup', handlePointerUp);
-  }, [handlePointerMove, handlePointerUp]);
+  useEffect(() => {
+    const frame = markerRef.current?.parentElement;
+    if (!frame) return;
+    // Only one press at a time: a second finger (the other thumb, a palm) is ignored until
+    // the first one lifts.
+    let press: { id: number; touch: boolean; x: number; y: number; ax: number; ay: number; dragging: boolean; far: boolean } | null = null;
+    // Mouse follow: the cursor's latest spot, the hold timer and the steering loop.
+    let cursor = { x: 0, y: 0 };
+    let holdTimer: ReturnType<typeof setTimeout> | null = null;
+    let followRaf: number | null = null;
+    const follow = () => {
+      followRaf = requestAnimationFrame(follow);
+      const self = frame.querySelector<HTMLElement>('[data-map-self]')?.getBoundingClientRect();
+      if (!self || !self.width) return;
+      const dx = cursor.x - (self.left + self.width / 2), dy = cursor.y - (self.top + self.height / 2);
+      const dist = Math.hypot(dx, dy);
+      setStickRef.current(dist < self.width * FOLLOW_REACHED ? null : { x: dx / dist, y: dy / dist });
+    };
+    const startFollow = () => {
+      if (!press || press.dragging) return;
+      press.dragging = true;
+      follow();
+    };
 
-  const handlePointerDown = (e: React.PointerEvent) => {
-    // A second touch landing in the zone while one is already dragging
-    // must not steal/re-anchor the drag — ignore it entirely and let the
-    // original pointer keep driving until it lifts.
-    if (disabled || draggingRef.current) return;
-    pointerIdRef.current = e.pointerId;
-    anchorRef.current = { x: e.clientX, y: e.clientY };
-    pressRef.current = { x: e.clientX, y: e.clientY, t: performance.now() };
-    setAnchor(anchorRef.current);
-    setKnobOffset({ x: 0, y: 0 });
-    setVisible(true);
-    draggingRef.current = true;
-    window.addEventListener('pointermove', handlePointerMove);
-    window.addEventListener('pointerup', handlePointerUp);
-  };
+    const stop = () => {
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onCancel);
+      if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+      if (followRaf !== null) { cancelAnimationFrame(followRaf); followRaf = null; }
+      if (press?.dragging) {
+        setStickRef.current(null);
+        setVisible(false);
+        setKnobOffset({ x: 0, y: 0 });
+      }
+      press = null;
+    };
+    stopRef.current = stop;
+
+    const onMove = (e: PointerEvent) => {
+      if (!press || e.pointerId !== press.id) return;
+      const moved = Math.hypot(e.clientX - press.x, e.clientY - press.y);
+      if (moved >= TAP_SLOP) press.far = true;
+      if (!press.touch) {
+        cursor = { x: e.clientX, y: e.clientY };
+        if (press.far) startFollow();
+        return;
+      }
+      if (!press.dragging) {
+        if (moved < DRAG_START) return;
+        press.dragging = true;
+        setVisible(true);
+      }
+      let dx = e.clientX - press.ax, dy = e.clientY - press.ay;
+      let dist = Math.hypot(dx, dy);
+      if (dist > MAX_RADIUS) {
+        // Past the rim: drag the base along so the knob stays under the finger.
+        press.ax += (dx / dist) * (dist - MAX_RADIUS);
+        press.ay += (dy / dist) * (dist - MAX_RADIUS);
+        dx = e.clientX - press.ax; dy = e.clientY - press.ay;
+        dist = MAX_RADIUS;
+      }
+      setAnchor({ x: press.ax, y: press.ay });
+      setKnobOffset({ x: dx, y: dy });
+      const push = dist / MAX_RADIUS;
+      if (push < DEAD_ZONE) { setStickRef.current(null); return; }
+      const speed = MIN_SPEED + (1 - MIN_SPEED) * Math.min(1, (push - DEAD_ZONE) / (FULL_PUSH - DEAD_ZONE));
+      setStickRef.current({ x: (dx / dist) * speed, y: (dy / dist) * speed });
+    };
+
+    const onUp = (e: PointerEvent) => {
+      if (!press || e.pointerId !== press.id) return;
+      const tap = !press.dragging && !press.far;
+      stop();
+      if (tap) window.dispatchEvent(new CustomEvent(MAP_TAP_EVENT, { detail: { clientX: e.clientX, clientY: e.clientY } }));
+    };
+    const onCancel = (e: PointerEvent) => {
+      if (press && e.pointerId === press.id) stop();
+    };
+
+    const onDown = (e: PointerEvent) => {
+      if (press || disabledRef.current || !e.isPrimary) return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      if (!(e.target instanceof HTMLCanvasElement)) return;
+      press = {
+        id: e.pointerId, touch: e.pointerType !== 'mouse',
+        x: e.clientX, y: e.clientY, ax: e.clientX, ay: e.clientY, dragging: false, far: false,
+      };
+      setAnchor({ x: e.clientX, y: e.clientY });
+      setKnobOffset({ x: 0, y: 0 });
+      if (!press.touch) {
+        cursor = { x: e.clientX, y: e.clientY };
+        holdTimer = setTimeout(startFollow, FOLLOW_HOLD_MS);
+      }
+      window.addEventListener('pointermove', onMove);
+      window.addEventListener('pointerup', onUp);
+      window.addEventListener('pointercancel', onCancel);
+    };
+
+    // A drag on the map must steer, not scroll or zoom the page.
+    const touchAction = frame.style.touchAction;
+    frame.style.touchAction = 'none';
+    frame.addEventListener('pointerdown', onDown);
+    return () => {
+      frame.removeEventListener('pointerdown', onDown);
+      frame.style.touchAction = touchAction;
+      stop();
+    };
+  }, []);
 
   return (
     <>
-      {/* Invisible capture zone — left half of the map frame. Sized to its
-          parent (the frame's own relative/w-full/h-full wrapper), so it
-          scales and repositions with the frame automatically. */}
-      <div
-        onPointerDown={handlePointerDown}
-        className="absolute inset-y-0 left-0 w-1/2 z-10"
-        style={{ touchAction: 'none' }}
-        aria-hidden="true"
-      />
-
+      <span ref={markerRef} hidden />
+      {/* z-[79]: just above the full-screen map stage (z-[78]), under the panels over it. */}
       {mounted && visible && createPortal(
         <div
-          className="fixed z-[70] pointer-events-none"
+          className="fixed z-[79] pointer-events-none"
           style={{ left: anchor.x, top: anchor.y, transform: 'translate(-50%, -50%)' }}
+          data-testid="map-joystick"
         >
           <div
-            className="relative rounded-full bg-[#0a0807]/40 border border-[#ffffff]/20"
+            className="relative rounded-full bg-[#0a0807]/45 border-2 border-[#ffffff]/30 shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
             style={{ width: OUTER_SIZE, height: OUTER_SIZE }}
           >
             <div
-              className="absolute rounded-full bg-[#ffffff]/80 shadow"
+              className="absolute rounded-full bg-[#ffffff]/85 border-2 border-[#d4a017] shadow"
               style={{
                 width: KNOB_SIZE, height: KNOB_SIZE,
                 left: '50%', top: '50%',
