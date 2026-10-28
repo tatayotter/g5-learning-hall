@@ -657,13 +657,13 @@ export default function Dashboard() {
         // Battles after the map walks: a battle is checked against the curio's level there, so
         // the EXP walked before it goes in first.
         const trainers = pendingMapEntries(activeUserId).length === 0
-          ? await flushTrainerOutbox(activeUserId) : { battles: 0, wins: 0 };
+          ? await flushTrainerOutbox(activeUserId) : { battles: 0, wins: 0, gold: 0 };
         // The Curio Arena reloads its curios so the server's EXP replaces the device's.
         if (hadMapEntries) setEggRefreshSignal(n => n + 1);
         if (quests.length === 0 && guilds.length === 0 && map.answers === 0 && map.gold === 0 && map.veggies === 0 && map.trees === 0 && trainers.battles === 0) return;
         achievementCheckAfterRef.current = dataRef.current;
         refresh();
-        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold;
+        const gold = [...quests, ...guilds].reduce((sum, e) => sum + e.gold, 0) + map.gold + trainers.gold;
         const parts = [
           quests.length > 0 && `${quests.length} quest${quests.length === 1 ? '' : 's'}`,
           guilds.length > 0 && `${guilds.length} guild session${guilds.length === 1 ? '' : 's'}`,

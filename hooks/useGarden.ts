@@ -19,6 +19,7 @@ import { flushMapOutbox, gradeScrollOffline, pendingMapEntries, queueChop, queue
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import { natureDay } from '@/lib/mapNature';
+import { chopSwingsFor, dailyTreeLimitFor, toolForVeggie, type GearTiers } from '@/lib/gearConfig';
 
 export interface UseGardenArgs {
   userId: string;
@@ -28,12 +29,15 @@ export interface UseGardenArgs {
   offlineMap: boolean;
   // The trees on today's map (lib/mapNature.ts); every one can be chopped.
   mapTrees: WildTreeNode[];
+  // The tools the kid owns (lib/gear.ts): an axe to chop, a pickaxe or shovel for the finds.
+  gear: GearTiers;
 }
 
 export type PlantView = WildPlantNode & { readyAt: number | null; restUntil: number | null; ripe: boolean };
 export type TreeView = WildTreeNode & { readyAt: number | null; restUntil: number | null; ready: boolean; hits: number };
 
-export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: UseGardenArgs) {
+export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees, gear }: UseGardenArgs) {
+  const axeTier = gear.axe ?? 0;
   const nodes = useMemo(() => (enabled ? WILD_PLANTS[regionId] ?? [] : []), [enabled, regionId]);
   const treeNodes = useMemo(() => (enabled ? mapTrees : []), [enabled, mapTrees]);
   const on = nodes.length > 0 || treeNodes.length > 0;
@@ -93,8 +97,9 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     });
   }, [mapTrees, trees]);
 
-  // Trees chopped today, against DAILY_TREE_LIMIT.
+  // Trees chopped today, against the axe's daily limit.
   const felledToday = useMemo(() => treesFelledOn(state, natureDay(now)), [state, now]);
+  const dailyTreeLimit = dailyTreeLimitFor(axeTier);
 
   // The tree whose trunk stands on (x, y).
   const treeAt = useCallback((x: number, y: number) => trees.find(t => t.x === x && t.y === y) ?? null, [trees]);
@@ -103,9 +108,11 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
   const squaresForChop = useCallback((tree: TreeView['tree']) => {
     const bag = stateRef.current.bag;
     const wood = bag[WOOD_KEY] ?? 0;
-    const woodSquares = Math.ceil((wood + WOOD_PER_TREE) / GARDEN_STACK) - Math.ceil(wood / GARDEN_STACK);
+    // A Gold Axe sometimes gives double wood.
+    const most = WOOD_PER_TREE * (axeTier >= 4 ? 2 : 1);
+    const woodSquares = Math.ceil((wood + most) / GARDEN_STACK) - Math.ceil(wood / GARDEN_STACK);
     return woodSquares + ((bag[saplingKey(tree)] ?? 0) % GARDEN_STACK === 0 ? 1 : 0);
-  }, []);
+  }, [axeTier]);
 
   // Squares one more of this veggie needs (0 when its stack has room).
   const squaresForPick = useCallback((veggie: PlantView['veggie']) => ((stateRef.current.bag[veggieKey(veggie)] ?? 0) % GARDEN_STACK === 0 ? 1 : 0), []);
@@ -122,12 +129,20 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     lastResult.current = null;
     refused.current = false;
     if (offlineMap) {
+      const tool = toolForVeggie(plant.veggie);
+      if (tool && !(gear[tool] ?? 0)) {
+        lastResult.current = {
+          status: 'no_tool', correct: null, correctAnswer: null,
+          veggie: plant.veggie, count: 0, seeds: 0, rare: null, readyAt: null, restUntil: null, bag: null, replayed: false,
+        };
+        return { correct: false, correctAnswer: null };
+      }
       const res = gradeScrollOffline(userId, question, selected);
       queueGather(userId, regionId, plant.id, question.id, selected);
       update(applyLocalPick(stateRef.current, regionId, plant.id, plant.veggie, res.correct, Date.now()));
       lastResult.current = {
         status: res.correct ? 'picked' : 'wrong', correct: res.correct, correctAnswer: res.correctAnswer,
-        veggie: plant.veggie, seeds: 0, readyAt: null, restUntil: null, bag: null, replayed: false,
+        veggie: plant.veggie, count: res.correct ? 1 : 0, seeds: 0, rare: null, readyAt: null, restUntil: null, bag: null, replayed: false,
       };
       return res;
     }
@@ -146,11 +161,12 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
         [key]: r.status === 'picked' ? { readyAt: r.readyAt, restUntil: null, wrong: 0 }
           : r.status === 'wrong' ? (r.restUntil ? { ...prev, wrong: 0, restUntil: r.restUntil } : { ...prev, wrong: prev.wrong + 1 })
           : r.status === 'growing' ? { ...prev, readyAt: r.readyAt }
+          : r.status === 'no_tool' ? prev
           : { ...prev, restUntil: r.restUntil },
       },
     });
     return { correct: !!r.correct, correctAnswer: r.correctAnswer };
-  }, [offlineMap, userId, regionId, update]);
+  }, [offlineMap, userId, regionId, update, gear]);
 
   // The last swing's full result, like lastResult for picks.
   const lastChop = useRef<ChopResult | null>(null);
@@ -160,9 +176,16 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     lastChop.current = null;
     refused.current = false;
     if (offlineMap) {
+      if (axeTier <= 0) {
+        lastChop.current = {
+          status: 'no_tool', hits: tree.hits, clean: false, wood: 0, saplings: 0, restUntil: null,
+          correct: null, correctAnswer: null, tree: tree.tree, readyAt: null, bag: null, replayed: false,
+        };
+        return { correct: false, correctAnswer: null };
+      }
       const res = gradeScrollOffline(userId, question, selected);
       queueChop(userId, regionId, tree.id, tree.tree, question.id, selected);
-      const local = applyLocalChop(stateRef.current, regionId, tree.id, tree.tree, res.correct, Date.now());
+      const local = applyLocalChop(stateRef.current, regionId, tree.id, tree.tree, res.correct, Date.now(), axeTier);
       update(local.state);
       lastChop.current = {
         ...local.result, correct: res.correct, correctAnswer: res.correctAnswer, tree: tree.tree,
@@ -186,12 +209,12 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
           : r.status === 'hit' ? { ...prev, wrong: 0, hits: r.hits }
           : r.status === 'wrong' ? { ...prev, misses: (prev.misses ?? 0) + 1, ...(r.restUntil ? { wrong: 0, restUntil: r.restUntil } : { wrong: prev.wrong + 1 }) }
           : r.status === 'stump' ? { ...prev, readyAt: r.readyAt }
-          : r.status === 'tired' ? prev
+          : r.status === 'tired' || r.status === 'no_tool' ? prev
           : { ...prev, restUntil: r.restUntil },
       },
     });
     return { correct: !!r.correct, correctAnswer: r.correctAnswer };
-  }, [offlineMap, userId, regionId, update]);
+  }, [offlineMap, userId, regionId, update, axeTier]);
 
   /** Sells veggies and wood (null = all of them). Null when it didn't work. */
   const sell = useCallback(async (items: GardenBag | null): Promise<SoldVeggies | null> => {
@@ -216,6 +239,8 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees }: U
     treeSprites,
     treeAt,
     felledToday,
+    dailyTreeLimit,
+    swings: chopSwingsFor(axeTier),
     squaresForChop,
     chop,
     lastChop,

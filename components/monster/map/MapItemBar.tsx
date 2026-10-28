@@ -18,7 +18,8 @@ import { MonsterImage } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
 import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import { playPageFlip } from '@/lib/sounds';
-import { GARDEN_KEYS, GARDEN_STACK, VEGGIE_SELL_PRICE, WOOD_SELL_PRICE, gardenItemIcon, gardenItemLabel, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
+import { GARDEN_KEYS, GARDEN_STACK, RARES, gardenItemIcon, gardenItemLabel, gardenSellPrice, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
+import { GEAR, gearTierDef, toolIcon, toolName, toolOfKey, type GearTiers, type ToolId } from '@/lib/gearConfig';
 
 interface MapItemBarProps {
   api: ItemBarApi;
@@ -28,7 +29,18 @@ interface MapItemBarProps {
   onMessage: (text: string) => void;
   // Garden items: veggies, wood, seed packets, saplings. They live in the bag only, not the slots.
   gardenBag?: GardenBag;
+  // The tier of each tool the kid owns (lib/gear.ts), for its picture and name.
+  gear?: GearTiers;
 }
+
+// What a tool in a slot is for, when it's tapped.
+const TOOL_TIP: Record<ToolId, string> = {
+  axe: 'Walk up to a tree and chop it!',
+  pickaxe: 'Walk up to a Storm Crystal and mine it!',
+  shovel: 'Walk up to a shell, pearl or petal and dig it up!',
+  rod: 'Fishing spots are coming soon!',
+  can: 'Use it in your Hideout garden. Coming soon!',
+};
 
 // What a bag square holds: a Tracking Scroll (by inventory key), a stack of
 // one kind of trash, or a stack of one garden item (by bag item key). A
@@ -83,8 +95,12 @@ const allowDrop = (e: React.DragEvent) => {
   if (e.dataTransfer.types.includes(DRAG_TYPE)) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; }
 };
 
+function ToolIcon({ tool, tier, className }: { tool: ToolId; tier: number; className: string }) {
+  return <img src={toolIcon(tool, tier)} alt="" draggable={false} className={`object-contain ${className}`} style={{ imageRendering: 'pixelated' }} />;
+}
+
 // What's in a slot, as a picture.
-function SlotThing({ s, trash, size }: { s: ItemSlot; trash: Record<TrashType, number>; size: 'sm' | 'lg' }) {
+function SlotThing({ s, trash, size, gear }: { s: ItemSlot; trash: Record<TrashType, number>; size: 'sm' | 'lg'; gear?: GearTiers }) {
   if (isTrashSlot(s)) {
     return (
       <>
@@ -93,6 +109,8 @@ function SlotThing({ s, trash, size }: { s: ItemSlot; trash: Record<TrashType, n
       </>
     );
   }
+  const tool = isItemSlot(s) ? toolOfKey(s.item) : null;
+  if (tool) return <ToolIcon tool={tool} tier={gear?.[tool] ?? 1} className={size === 'lg' ? 'w-9 h-9 lg:w-11 lg:h-11' : 'w-[86%] h-[86%]'} />;
   const id = isItemSlot(s) ? trackedMonsterId(s.item) : null;
   const def = id ? ALL_MONSTERS[id] : undefined;
   return def ? <TrackingScrollIcon monster={def} className={size === 'lg' ? 'w-11 h-11 lg:w-[52px] lg:h-[52px]' : 'w-[92%] h-[92%]'} /> : null;
@@ -111,7 +129,7 @@ function TrashIcon({ type, className }: { type: TrashType; className: string }) 
   return <img src={`/trash/${type}.png`} alt="" className={`object-contain ${className}`} />;
 }
 
-export default function MapItemBar({ api, offline, message, onMessage, gardenBag }: MapItemBarProps) {
+export default function MapItemBar({ api, offline, message, onMessage, gardenBag, gear }: MapItemBarProps) {
   const [panel, setPanel] = useState<Panel | null>(null);
   const { bar, trash, activeTracking, progress } = api;
 
@@ -136,6 +154,8 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
     const s = bar[i];
     if (!s) { setPanel({ kind: 'bag', pick: null }); return; }
     if (isTrashSlot(s)) { setPanel({ kind: 'trash', slot: i, type: s.trash }); return; }
+    const tool = toolOfKey(s.item);
+    if (tool) { onMessage(`${toolName(tool, gear?.[tool] ?? 1)}: ${TOOL_TIP[tool]}`); return; }
     const monsterId = trackedMonsterId(s.item);
     if (!monsterId) return;
     if (offline) { onMessage('Tracking Scrolls need internet.'); return; }
@@ -164,7 +184,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
     return () => window.removeEventListener('keydown', onKey);
   }, [tapSlotRef]);
 
-  // The bag's squares: scrolls first, then trash stacks, then veggies and seed packets.
+  // The bag's squares: tools and scrolls first, then trash stacks, then veggies and seed packets.
   const squares: BagSquare[] = [
     ...api.itemKeys.map(k => ({ pick: { item: k }, n: 1, key: k })),
     ...TRASH_ORDER.flatMap(t => {
@@ -242,14 +262,14 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                 onDragStart={e => startDrag(e, { slot: i })}
                 onDragOver={allowDrop}
                 onDrop={e => { e.preventDefault(); dropOnSlot(readDrag(e), i); }}
-                aria-label={s ? (isTrashSlot(s) ? `${TRASH_DEFS[s.trash].label} ×${trash[s.trash]}` : `Tracking Scroll: ${def?.name}`) : `Empty slot ${i + 1}`}
+                aria-label={s ? (isTrashSlot(s) ? `${TRASH_DEFS[s.trash].label} ×${trash[s.trash]}` : toolOfKey(s.item) ? toolName(toolOfKey(s.item)!, gear?.[toolOfKey(s.item)!] ?? 1) : `Tracking Scroll: ${def?.name}`) : `Empty slot ${i + 1}`}
                 data-testid={`item-slot-${i + 1}`}
                 className={`relative w-12 h-12 lg:w-14 lg:h-14 rounded-lg border-2 flex items-center justify-center bg-[#1c140c]/85 transition-transform active:scale-95 ${
                   isActive ? 'border-[#fde68a] shadow-[0_0_10px_2px_rgba(253,230,138,0.7)]' : 'border-[#8b5e2a]'
                 } ${isActive && p >= TRACKING_GOAL ? 'animate-pulse' : ''}`}
               >
                 <span className="absolute top-0 left-0.5 text-[9px] font-bold text-[#e8d0a0]/80 leading-none">{i + 1}</span>
-                <SlotThing s={s} trash={trash} size="lg" />
+                <SlotThing s={s} trash={trash} size="lg" gear={gear} />
                 {def && p > 0 && <Meter value={p} className="absolute bottom-0.5 left-1 right-4 !h-1" />}
                 {isActive && pop > 0 && (
                   <span key={pop} className="meter-plus-float absolute left-1/2 top-0 pointer-events-none" data-testid="meter-plus">+1</span>
@@ -307,7 +327,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                     }`}
                   >
                     <span className="absolute top-0 left-0.5 text-[8px] font-bold text-[#e8d0a0]/80 leading-none">{i + 1}</span>
-                    <SlotThing s={s} trash={trash} size="sm" />
+                    <SlotThing s={s} trash={trash} size="sm" gear={gear} />
                   </button>
                 );
               })}
@@ -328,9 +348,10 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
               const slot = 'garden' in sq.pick ? -1 : slotOf(bar, sq.pick);
               const picked = samePick(panel.pick, sq.pick);
               const scrollId = 'item' in sq.pick ? trackedMonsterId(sq.pick.item) : null;
+              const tool = 'item' in sq.pick ? toolOfKey(sq.pick.item) : null;
               const def = scrollId ? ALL_MONSTERS[scrollId] : undefined;
               const label = 'trash' in sq.pick ? `${TRASH_DEFS[sq.pick.trash].label} ×${sq.n}`
-                : garden ? `${gardenItemLabel(garden)} ×${sq.n}` : `Tracking Scroll: ${def?.name}`;
+                : garden ? `${gardenItemLabel(garden)} ×${sq.n}` : tool ? toolName(tool, gear?.[tool] ?? 1) : `Tracking Scroll: ${def?.name}`;
               return (
                 <button
                   key={sq.key}
@@ -346,6 +367,7 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                   {'trash' in sq.pick
                     ? <TrashIcon type={sq.pick.trash} className="w-[80%] h-[80%]" />
                     : garden ? <GardenIcon itemKey={garden} className="w-[86%] h-[86%]" />
+                    : tool ? <ToolIcon tool={tool} tier={gear?.[tool] ?? 1} className="w-[86%] h-[86%]" />
                     : def && <TrackingScrollIcon monster={def} className="w-[92%] h-[92%]" />}
                   {('trash' in sq.pick || garden) && (
                     <span className="absolute bottom-0 right-0.5 text-[10px] font-black text-white leading-none" style={{ textShadow: '0 1px 2px #000' }}>{sq.n}</span>
@@ -371,11 +393,13 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                   <p className="text-sm font-extrabold text-[#2a1505]">{gardenItemLabel(k)} ×{n}</p>
                   <p className="text-[11px] text-[#6b4820]">
                     {g.kind === 'veggie' && g.veggie.found
-                      ? `${g.veggie.found.where} The Recycler buys ${g.veggie.found.noun}s for ${VEGGIE_SELL_PRICE} gold each.`
+                      ? `${g.veggie.found.where} The Recycler buys ${g.veggie.found.noun}s for ${gardenSellPrice(k)} gold each.`
                       : g.kind === 'veggie'
-                      ? `Picked fresh! The Recycler buys veggies for ${VEGGIE_SELL_PRICE} gold each.`
+                      ? `Picked fresh! The Recycler buys veggies for ${gardenSellPrice(k)} gold each.`
+                      : g.kind === 'rare'
+                      ? `${RARES[g.rare].where} The Recycler buys it for ${gardenSellPrice(k)} gold.`
                       : g.kind === 'wood'
-                      ? `From a tree on the map. Save it for building, or the Recycler buys it for ${WOOD_SELL_PRICE} gold each.`
+                      ? `From a tree on the map. Save it for building, or the Recycler buys it for ${gardenSellPrice(k)} gold each.`
                       : g.kind === 'sapling'
                       ? 'A baby tree! Keep it safe. Soon you can plant it at your own Hideout.'
                       : 'Keep these safe. Soon you can plant them in your own garden!'}
@@ -423,6 +447,23 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
                       Throw away
                     </GameButton>
                   </div>
+                </div>
+              );
+            }
+            const tool = toolOfKey(pick.item);
+            if (tool && api.itemKeys.includes(pick.item)) {
+              const tier = gear?.[tool] ?? 1;
+              return (
+                <div className="bg-white border-2 border-[#c9a87a] rounded-xl p-3 mb-2" data-testid="bag-detail">
+                  <div className="flex items-center gap-3 text-left mb-2">
+                    <ToolIcon tool={tool} tier={tier} className="w-12 h-12 flex-shrink-0" />
+                    <div className="min-w-0">
+                      <p className="text-sm font-extrabold text-[#2a1505]">{toolName(tool, tier)}</p>
+                      <p className="text-[11px] text-[#6b4820]">{GEAR[tool].use} {gearTierDef(tool, tier)?.perk}</p>
+                      <p className="text-[11px] font-bold text-[#7a4a0f] mt-0.5">{slot >= 0 ? 'Ready to use!' : 'Put it in a slot to use it.'}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">{putIn}</div>
                 </div>
               );
             }

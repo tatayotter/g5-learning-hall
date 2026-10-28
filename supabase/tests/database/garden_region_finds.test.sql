@@ -55,6 +55,8 @@ select is((select count(*)::int from wild_plant_nodes where region = 'unread_mar
 select is((select count(*)::int from wild_plant_nodes where region = 'radiant_archive' and veggie = 'petal'), 7, 'the Archive has 7 petal spots');
 
 update feature_flags set mode = 'allowlist', allowlist = array[(select kid from fx)] where key = 'garden';
+-- Stone tools (20261028090000_gear_tools_and_earning_trims.sql): the rules from before tools.
+insert into player_gear (user_id, gear, tier) select kid, g, 1 from fx, unnest(array['axe', 'pickaxe', 'shovel']) g;
 select pg_temp.login_as(kid_auth) from fx;
 set local role authenticated;
 
@@ -92,7 +94,7 @@ select is(
 set local role authenticated;
 select is(
   (select sell_garden_items((select kid from fx), '{"veggie_crystal": 2, "veggie_inkpearl": 2, "veggie_petal": 1}'::jsonb) -> 'progress' ->> 'gold'),
-  '110', 'the Recycler buys 5 finds for 10 gold'
+  '120', 'the Recycler buys 5 finds for 4 gold each'
 );
 
 select * from finish();

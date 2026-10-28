@@ -22,6 +22,8 @@ import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
+import type { ToolId } from '@/lib/gearConfig';
+import type { ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { TownNpc } from '@/lib/townNpcs';
@@ -133,6 +135,9 @@ interface MapCanvasProps {
   wildTrees?: TreeSprite[];
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   chopTree?: string | null;
+  /** The tier of each tool the kid owns (the one they swing), and the latest pickaxe/shovel swing at a find. */
+  tools?: Partial<Record<ToolId, number>>;
+  toolStrike?: ToolStrike | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
   highlight?: { kind: 'plant' | 'tree' | 'npc'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
@@ -168,7 +173,7 @@ const NPC_APPROACH = 3;
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
@@ -413,6 +418,8 @@ export default function MapCanvas({
       wildTrees,
       treeSwing,
       chopTree,
+      tools,
+      toolStrike,
       highlight,
       onMapTap,
       ambience,

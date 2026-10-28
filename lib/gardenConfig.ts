@@ -121,6 +121,9 @@ export const REGROW_MS = 20 * 60 * 1000;
 export const WRONG_LIMIT = 3;
 export const REST_MS = 60 * 1000;
 export const VEGGIE_SELL_PRICE = 2;
+// The harder finds (they need a tool) sell for more; sell_garden_items mirrors these.
+export const FIND_SELL_PRICE = 4;
+export const RARE_SELL_PRICE = 10;
 // Veggies or seed packets of one kind per bag square (same as trash).
 export const GARDEN_STACK = 20;
 
@@ -168,6 +171,8 @@ export const TREE_ORDER: TreeId[] = ['maple', 'oak', 'birch', 'pine', 'ember', '
 // can be chopped, and a chopped tree stays a stump until the next day's map.
 export interface WildTreeNode { id: string; tree: TreeId; x: number; y: number }
 
+// With a Stone Axe. Better axes take fewer swings and chop more trees a day (lib/gearConfig.ts
+// chopSwingsFor, dailyTreeLimitFor).
 export const CHOP_SWINGS = 3;
 export const WOOD_PER_TREE = 3;
 // Trees one kid can chop a day (chop_wild_tree mirrors it): 8 trees is 24 wood, 48 gold at the
@@ -191,6 +196,10 @@ export function swingTiming(kind: SwingKind) {
 }
 // The right/wrong reveal stays up this long before the panel steps aside and the swing starts.
 export const SWING_REVEAL_MS = 500;
+// A pickaxe or shovel blow at a find (chopSwing.ts strike()): the tool appears over it (260 ms),
+// then one 'hit' swing; the find pops into the bag when it lands.
+export const STRIKE_LEAD_MS = 260;
+export const strikeImpactMs = () => STRIKE_LEAD_MS + swingTiming('hit').impact + swingTiming('hit').freeze;
 
 // ── Bag items ──────────────────────────────────────────────────────────────
 // Keys in player_bag_items.item_key.
@@ -202,13 +211,24 @@ export type GardenBag = Partial<Record<string, number>>;
 // Wood sells at the Recycler for the same price as a veggie.
 export const WOOD_SELL_PRICE = VEGGIE_SELL_PRICE;
 
+// Rare finds a Silver or Gold tool sometimes digs up (gather_wild_plant).
+export type RareId = 'gem' | 'coin';
+export const RARES: Record<RareId, { id: RareId; key: string; label: string; where: string }> = {
+  gem: { id: 'gem', key: 'find_gem', label: 'Storm Gem', where: 'A rare gem from deep in the rocks!' },
+  coin: { id: 'coin', key: 'find_coin', label: 'Old Coin', where: 'A very old coin, dug out of the sand!' },
+};
+export const RARE_ORDER: RareId[] = ['gem', 'coin'];
+
 export type ParsedGardenKey =
   | { kind: 'veggie' | 'seeds'; veggie: VeggieDef }
   | { kind: 'wood' }
-  | { kind: 'sapling'; tree: TreeId };
+  | { kind: 'sapling'; tree: TreeId }
+  | { kind: 'rare'; rare: RareId };
 
 export function parseGardenKey(key: string): ParsedGardenKey | null {
   if (key === WOOD_KEY) return { kind: 'wood' };
+  const r = RARE_ORDER.find(id => RARES[id].key === key);
+  if (r) return { kind: 'rare', rare: r };
   const s = /^sapling_(\w+)$/.exec(key);
   if (s) return s[1] in TREES ? { kind: 'sapling', tree: s[1] as TreeId } : null;
   const m = /^(veggie|seeds)_(\w+)$/.exec(key);
@@ -217,17 +237,23 @@ export function parseGardenKey(key: string): ParsedGardenKey | null {
   return { kind: m[1] as 'veggie' | 'seeds', veggie: def };
 }
 
-// Whether the Recycler buys it (veggies and wood; seeds and saplings are for planting).
-export const gardenSellable = (key: string) => {
+// What the Recycler pays for one (0 = it doesn't buy it: seeds and saplings are for planting).
+export const gardenSellPrice = (key: string) => {
   const p = parseGardenKey(key);
-  return p?.kind === 'veggie' || p?.kind === 'wood';
+  if (!p) return 0;
+  if (p.kind === 'rare') return RARE_SELL_PRICE;
+  if (p.kind === 'wood') return WOOD_SELL_PRICE;
+  if (p.kind !== 'veggie') return 0;
+  return p.veggie.id === 'crystal' || p.veggie.id === 'inkpearl' || p.veggie.id === 'petal' ? FIND_SELL_PRICE : VEGGIE_SELL_PRICE;
 };
+export const gardenSellable = (key: string) => gardenSellPrice(key) > 0;
 
 export const gardenItemLabel = (key: string) => {
   const p = parseGardenKey(key);
   if (!p) return key;
   if (p.kind === 'wood') return 'Wood';
   if (p.kind === 'sapling') return `${TREES[p.tree].label} Sapling`;
+  if (p.kind === 'rare') return RARES[p.rare].label;
   return p.kind === 'veggie' ? p.veggie.label : `${p.veggie.label} Seeds`;
 };
 export const gardenItemIcon = (key: string) => {
@@ -235,12 +261,13 @@ export const gardenItemIcon = (key: string) => {
   if (!p) return '';
   if (p.kind === 'wood') return '/garden/icon_wood.png';
   if (p.kind === 'sapling') return `/garden/icon_sapling_${p.tree}.png`;
+  if (p.kind === 'rare') return `/garden/icon_${RARES[p.rare].key}.png`;
   return `/garden/icon_${p.kind === 'seeds' ? 'seeds_' : ''}${p.veggie.id}.png`;
 };
 
-// Bag keys in display order: veggies, wood, then seed packets and saplings.
+// Bag keys in display order: veggies, rare finds, wood, then seed packets and saplings.
 export const GARDEN_KEYS: string[] = [
-  ...VEGGIE_ORDER.map(veggieKey), WOOD_KEY, ...SEED_ORDER.map(seedsKey), ...TREE_ORDER.map(saplingKey),
+  ...VEGGIE_ORDER.map(veggieKey), ...RARE_ORDER.map(r => RARES[r].key), WOOD_KEY, ...SEED_ORDER.map(seedsKey), ...TREE_ORDER.map(saplingKey),
 ];
 
 export const gardenSquares = (bag: GardenBag) =>

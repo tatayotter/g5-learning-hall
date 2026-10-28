@@ -7,7 +7,7 @@
 // (onSellVeggies, hooks/useGarden.ts).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
-import { GARDEN_KEYS, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
+import { FIND_SELL_PRICE, GARDEN_KEYS, RARES, RARE_ORDER, RARE_SELL_PRICE, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellPrice, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 interface RecyclerTradePanelProps {
@@ -33,10 +33,14 @@ export default function RecyclerTradePanel({
   // Finds (shells, crystals...) by name, every grown veggie together as "veggies".
   const finds = VEGGIE_ORDER.filter(v => VEGGIES[v].found && (gardenBag?.[veggieKey(v)] ?? 0) > 0)
     .map(v => ({ n: gardenBag?.[veggieKey(v)] ?? 0, noun: VEGGIES[v].found!.noun }));
-  const veggieCount = saleCount - wood - finds.reduce((sum, f) => sum + f.n, 0);
+  const rares = RARE_ORDER.filter(r => (gardenBag?.[RARES[r].key] ?? 0) > 0)
+    .map(r => ({ n: gardenBag?.[RARES[r].key] ?? 0, noun: RARES[r].label }));
+  const veggieCount = saleCount - wood - [...finds, ...rares].reduce((sum, f) => sum + f.n, 0);
+  const saleGold = forSale.reduce((sum, k) => sum + (gardenBag?.[k] ?? 0) * gardenSellPrice(k), 0);
   const saleWords = [
     veggieCount > 0 && `${veggieCount} veggie${veggieCount === 1 ? '' : 's'}`,
     ...finds.map(f => `${f.n} ${f.noun}${f.n === 1 ? '' : 's'}`),
+    ...rares.map(f => `${f.n} ${f.noun}${f.n === 1 ? '' : 's'}`),
     wood > 0 && `${wood} wood`,
   ].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
   return (
@@ -113,7 +117,7 @@ export default function RecyclerTradePanel({
       {onSellVeggies && (
         <div className="bg-[#e3f1cf] border border-[#7a9a4a] rounded-xl p-2 mb-3" data-testid="sell-veggies">
           <p className="text-xs font-bold text-[#2f4a12] mb-1.5">
-            I buy veggies, shells and wood too! {VEGGIE_SELL_PRICE} gold each.
+            I buy veggies, shells and wood too! {VEGGIE_SELL_PRICE} gold each. Crystals, pearls and petals {FIND_SELL_PRICE} gold. Rare finds {RARE_SELL_PRICE} gold!
           </p>
           {forSale.length > 0 ? (
             <>
@@ -134,7 +138,7 @@ export default function RecyclerTradePanel({
                 style={{ fontSize: 13 }}
                 data-testid="sell-veggies-button"
               >
-                {offline ? 'Selling needs internet' : `Sell ${saleWords} (+${saleCount * VEGGIE_SELL_PRICE}g)`}
+                {offline ? 'Selling needs internet' : `Sell ${saleWords} (+${saleGold}g)`}
               </GameButton>
             </>
           ) : (

@@ -1,15 +1,16 @@
 // lib/itemBar.ts
-// The Training Map's bag (up to BAG_SIZE squares, like an MMORPG bag) and
-// its 4 item slots (like a game hotbar).
+// The Training Map's bag (BAG_SIZE squares, more with a bag upgrade from the
+// Shop, like an MMORPG bag) and its 4 item slots (like a game hotbar).
 //
-// The bag holds the player's Tracking Scrolls (from player_inventory), the
+// The bag holds the player's tools (lib/gearConfig.ts, one square each),
+// Tracking Scrolls (from player_inventory), the
 // trash they pick up (counts per kind, saved on user_battle_state.bag_trash)
 // and, with the garden on, veggies and seed packets (player_bag_items,
 // hooks/useGarden.ts).
 // A kind of trash fills one square per TRASH_STACK pieces. A full bag means no
 // more trash until the player trades some at the Recycler or throws some away.
 //
-// A slot points at something in the bag: {item: <inventory key>} or
+// A slot points at something in the bag: {item: <inventory or tool key>} or
 // {trash: <kind>}; it never holds its own copy. Saved on
 // user_battle_state.item_bar, so slots and bag survive map changes, reloads
 // and other devices.
@@ -68,9 +69,9 @@ export function bagSquaresUsed(itemKeys: string[], trash: TrashCounts, extra = 0
 }
 
 // One more piece of trash, or null when it would need a square the bag doesn't have.
-export function addTrash(trash: TrashCounts, type: TrashType, itemKeys: string[], extra = 0): TrashCounts | null {
+export function addTrash(trash: TrashCounts, type: TrashType, itemKeys: string[], extra = 0, bagSize = BAG_SIZE): TrashCounts | null {
   const next = { ...trash, [type]: trash[type] + 1 };
-  return bagSquaresUsed(itemKeys, next, extra) > BAG_SIZE ? null : next;
+  return bagSquaresUsed(itemKeys, next, extra) > bagSize ? null : next;
 }
 
 // Trades every full bundle for gold (1 gold per bundle, see TRASH_DEFS);

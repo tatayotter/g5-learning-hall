@@ -30,7 +30,7 @@ import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
 import { tilesAround } from '@/lib/mapPath';
-import type { MapBackground, MapExit } from '@/lib/phaserMap/TrainingMapScene';
+import type { MapBackground, MapExit, ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -39,9 +39,12 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  DAILY_TREE_LIMIT, SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, WOOD_PER_TREE, gardenItemIcon, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
-  swingTiming, type SwingKind, type WildTreeNode,
+  SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
+  swingTiming, strikeImpactMs, type SwingKind, type WildTreeNode,
 } from '@/lib/gardenConfig';
+import { useGear } from '@/lib/gear';
+import { GEAR, TOOL_ORDER, bagSizeFor, toolForVeggie, toolIcon, toolKey, toolName, toolVerb, type ToolId } from '@/lib/gearConfig';
+import { isItemSlot } from '@/lib/itemBar';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
@@ -246,15 +249,30 @@ export default function TrainingMap({
   const gardenRegion = regionId ?? 'ledgers_heart';
   // Trees on today's map (lib/mapNature.ts), once it has loaded.
   const [mapTrees, setMapTrees] = useState<WildTreeNode[]>([]);
+  // Tools (lib/gearConfig.ts): each one owned takes a bag square, and has to sit in an item slot
+  // to chop, mine or dig. Bag upgrades make the bag bigger.
+  const { gear } = useGear(userId, { fetch: !offline });
+  const toolKeys = useMemo(() => TOOL_ORDER.filter(t => (gear[t] ?? 0) > 0).map(toolKey), [gear]);
   const garden = useGarden({
-    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId), mapTrees,
+    userId, regionId: gardenRegion, enabled: useFeatureFlag(userId, 'garden'), offlineMap: playingMapOffline(userId), mapTrees, gear,
   });
   const itemBar = useItemBar({
     userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
-    gardenSquares: garden.squares,
+    gardenSquares: garden.squares, toolKeys, bagSize: bagSizeFor(gear.bag ?? 0),
   });
   const itemBarRef = useRef(itemBar);
   useEffect(() => { itemBarRef.current = itemBar; });
+  // A tool goes into a free item slot the first time the map sees it (just bought, or handed
+  // out for free), so it works straight away. Taken out later, it stays out.
+  useEffect(() => {
+    const seenKey = `lh_tools_seen_${userId}`;
+    let seen: string[] = [];
+    try { seen = JSON.parse(localStorage.getItem(seenKey) ?? '[]'); } catch { /* storage blocked */ }
+    const fresh = toolKeys.filter(k => !seen.includes(k));
+    if (fresh.length === 0) return;
+    for (const k of fresh) itemBarRef.current.equip({ item: k });
+    try { localStorage.setItem(seenKey, JSON.stringify([...seen, ...fresh])); } catch { /* best-effort */ }
+  }, [toolKeys, userId]);
   const trashInventory = itemBar.trash;
   const canTrade = (Object.keys(TRASH_DEFS) as (keyof typeof TRASH_DEFS)[]).some(t => trashInventory[t] >= TRASH_DEFS[t].bundleSize);
   // Short message over the map for the item slots (full slots, tracking progress).
@@ -273,6 +291,10 @@ export default function TrainingMap({
   // The tree being chopped, and the latest swing that landed (for the shake).
   const [activeTree, setActiveTree] = useState<TreeView | null>(null);
   const [treeSwing, setTreeSwing] = useState<{ id: string; n: number; kind: SwingKind } | null>(null);
+  // The latest pickaxe or shovel swing at a find (the kid mines or digs it up on the map).
+  const [toolStrike, setToolStrike] = useState<ToolStrike | null>(null);
+  // The find being swung at stays on the map until the tool lands.
+  const [strikingId, setStrikingId] = useState<string | null>(null);
   // How long the latest swing plays: the chop panel stays out of the way for it.
   const [swingMs, setSwingMs] = useState(0);
   const [swingAway, setSwingAway] = useState(false);
@@ -630,11 +652,27 @@ export default function TrainingMap({
     }
   }, [map, userId, onBattleStateChange, onHeal, isLedgersHeart, battleState, portals, playerLevel, onEnterRegion, scrolls, curioPos, activeCurio, activeMapTrainer, pendingTrainerChallenge, trashItems, collectingTrashIds, collectTrash, recyclerTile, pendingRecyclerTrade, regionId, activeRegion.id, questions, showBarMessage]);
 
+  // Why a tool can't be used right now (null = it can): the kid doesn't own one yet, or it isn't
+  // in an item slot.
+  const toolProblem = useCallback((tool: ToolId, doing: string): string | null => {
+    const tier = gear[tool] ?? 0;
+    const noun = GEAR[tool].tiers[0].name.replace(/^Stone /, '');
+    if (tier <= 0) return `You need ${withA(noun)} to ${doing}! Buy one at the Shop.`;
+    if (!itemBarRef.current.bar.some(s => isItemSlot(s) && s.item === toolKey(tool))) {
+      return `Put your ${toolName(tool, tier)} in an item slot to ${doing}!`;
+    }
+    return null;
+  }, [gear]);
+
   // Plants and trees open their question only when the kid asks (E, a tap on it, or the
   // Pick/Chop button), never just by walking past. The one close enough gets a gold outline.
   const openPlant = useCallback((plant: PlantView) => {
     const now = Date.now();
-    if (!plant.ripe) {
+    const tool = toolForVeggie(plant.veggie);
+    const problem = tool ? toolProblem(tool, `${toolVerb(tool)!.toLowerCase()} ${VEGGIES[plant.veggie].found?.noun ?? 'it'}s`) : null;
+    if (problem) {
+      showBarMessage(problem);
+    } else if (!plant.ripe) {
       showBarMessage(regrowWords(plant.veggie, Math.max(1, Math.ceil(((plant.readyAt ?? now) - now) / 60000))));
     } else if (plant.restUntil && now < plant.restUntil) {
       showBarMessage(`This ${VEGGIES[plant.veggie].found?.noun ?? 'plant'} needs a short rest. Try again in a minute!`);
@@ -646,14 +684,17 @@ export default function TrainingMap({
       playMonsterAppear();
       setActivePlant(plant);
     }
-  }, [garden, showBarMessage, userId, questions]);
+  }, [garden, showBarMessage, userId, questions, toolProblem]);
 
   const openTree = useCallback((tree: TreeView) => {
     const now = Date.now();
-    if (!tree.ready) {
+    const problem = toolProblem('axe', 'chop trees');
+    if (problem) {
+      showBarMessage(problem);
+    } else if (!tree.ready) {
       showBarMessage('You chopped this tree today. A new forest grows tomorrow!');
-    } else if (garden.felledToday >= DAILY_TREE_LIMIT) {
-      showBarMessage(`Your arms are tired after ${DAILY_TREE_LIMIT} trees. Chop more tomorrow!`);
+    } else if (garden.felledToday >= garden.dailyTreeLimit) {
+      showBarMessage(`Your arms are tired after ${garden.dailyTreeLimit} trees. Chop more tomorrow!`);
     } else if (tree.restUntil && now < tree.restUntil) {
       showBarMessage('This tree needs a short rest. Try again in a minute!');
     } else if (itemBarRef.current.bagUsed + garden.squaresForChop(tree.tree) > itemBarRef.current.bagSize) {
@@ -665,7 +706,7 @@ export default function TrainingMap({
       setSwingAway(false);
       setActiveTree(tree);
     }
-  }, [garden, showBarMessage, userId, questions]);
+  }, [garden, showBarMessage, userId, questions, toolProblem]);
 
   // Plants and trees within reach (on or next to the player's tile; the trunk for a tree),
   // nearest first, plants before trees at the same distance.
@@ -818,10 +859,32 @@ export default function TrainingMap({
     const name = VEGGIES[plant.veggie].label;
     const thing = VEGGIES[plant.veggie].found?.noun ?? 'plant';
     if (r.status === 'picked') {
-      playChime();
-      flyToBag([gardenItemIcon(veggieKey(plant.veggie)), ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : [])]);
-      showBarMessage(r.seeds > 0 ? `You picked ${withA(name)} and found ${name} Seeds too!`
-        : VEGGIES[plant.veggie].found ? `You found ${withA(name)}! It's in your bag.` : `You picked ${withA(name)}! It's in your bag.`);
+      // A crystal or a shell: the kid swings their own pickaxe or shovel at it first, and it
+      // pops into the bag when the tool lands.
+      const tool = toolForVeggie(plant.veggie);
+      const swung = !!tool && (gear[tool] ?? 0) > 0;
+      if (swung) {
+        setToolStrike(s => ({ n: (s?.n ?? 0) + 1, id: plant.id, tool: tool!, x: plant.x, y: plant.y }));
+        setStrikingId(plant.id);
+      }
+      const land = () => {
+        setStrikingId(null);
+        playChime();
+        flyToBag([
+          ...Array(Math.max(1, r.count)).fill(gardenItemIcon(veggieKey(plant.veggie))),
+          ...(r.seeds > 0 ? [gardenItemIcon(seedsKey(plant.veggie))] : []),
+          ...(r.rare ? [gardenItemIcon(r.rare)] : []),
+        ]);
+        const rareName = r.rare ? gardenItemLabel(r.rare) : null;
+        const found = r.count > 1 ? `2 ${name}s` : withA(name);
+        showBarMessage(rareName ? `WOW! You found ${withA(rareName)}! It's rare!`
+          : r.seeds > 0 ? `You picked ${withA(name)} and found ${name} Seeds too!`
+          : VEGGIES[plant.veggie].found ? `You found ${found}! ${r.count > 1 ? "They're" : "It's"} in your bag.` : `You picked ${withA(name)}! It's in your bag.`);
+      };
+      if (swung) setTimeout(land, strikeImpactMs()); else land();
+    } else if (r.status === 'no_tool') {
+      const tool = toolForVeggie(plant.veggie);
+      showBarMessage(tool ? `You need ${withA(GEAR[tool].tiers[0].name.replace(/^Stone /, ''))} for this! Buy one at the Shop.` : 'Try again later!');
     } else if (r.status === 'wrong') {
       playClash();
       showBarMessage(r.restUntil ? `Oops! The ${thing} needs a short rest. Try again in a minute.` : 'Not quite! Try again for another question.');
@@ -866,16 +929,18 @@ export default function TrainingMap({
     if (r.status === 'felled') {
       playChime();
       const sapling = r.saplings > 0 ? gardenItemIcon(saplingKey(tree.tree)) : null;
-      flyToBag([...Array(WOOD_PER_TREE).fill(gardenItemIcon(WOOD_KEY)), ...(sapling ? [sapling] : [])]);
-      const got = `${WOOD_PER_TREE} wood${r.saplings > 0 ? ` and ${/^[AEIOU]/.test(label) ? 'an' : 'a'} ${label} Sapling` : ''}`;
-      showBarMessage(r.clean ? `Clean chop! You got ${got}!` : `Timber! You got ${got}!`);
+      flyToBag([...Array(r.wood).fill(gardenItemIcon(WOOD_KEY)), ...(sapling ? [sapling] : [])]);
+      const got = `${r.wood} wood${r.saplings > 0 ? ` and ${/^[AEIOU]/.test(label) ? 'an' : 'a'} ${label} Sapling` : ''}`;
+      showBarMessage(r.wood > 3 ? `Double wood! You got ${got}!` : r.clean ? `Clean chop! You got ${got}!` : `Timber! You got ${got}!`);
     } else if (r.status === 'wrong') {
       playClash();
       showBarMessage('Oops! The tree needs a short rest. Try again in a minute.');
     } else if (r.status === 'stump') {
       showBarMessage('You chopped this tree today. A new forest grows tomorrow!');
     } else if (r.status === 'tired') {
-      showBarMessage(`Your arms are tired after ${DAILY_TREE_LIMIT} trees. Chop more tomorrow!`);
+      showBarMessage(`Your arms are tired after ${garden.dailyTreeLimit} trees. Chop more tomorrow!`);
+    } else if (r.status === 'no_tool') {
+      showBarMessage('You need an Axe to chop trees! Buy one at the Shop.');
     } else {
       showBarMessage('This tree needs a short rest. Try again in a minute!');
     }
@@ -1322,11 +1387,13 @@ export default function TrainingMap({
         recyclerTile={recyclerTile}
         // The plant being asked about stays ripe until the panel closes, so its dust pop
         // (lib/phaserMap/gardenPlants.ts) plays where the player can see it.
-        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id ? { ...p, stage: 'ripe' as const } : p)) : undefined}
+        gardenPlants={garden.on ? garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)) : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t))}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
+        tools={gear}
+        toolStrike={toolStrike}
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
@@ -1375,11 +1442,17 @@ export default function TrainingMap({
           onClick={() => interact(nearby)}
           className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-1.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
         >
-          <img
-            src={nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY)}
-            alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }}
-          />
-          {nearby.kind === 'plant' ? `${pickVerb(nearby.plant.veggie)} ${VEGGIES[nearby.plant.veggie].label}` : `Chop ${TREES[nearby.tree.tree].name}`}
+          {(() => {
+            // The tool it needs, when the kid has one; otherwise what they'd get.
+            const tool = nearby.kind === 'plant' ? toolForVeggie(nearby.plant.veggie) : 'axe';
+            const tier = tool ? gear[tool] ?? 0 : 0;
+            const src = tool && tier > 0 ? toolIcon(tool, tier)
+              : nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY);
+            return <img src={src} alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }} />;
+          })()}
+          {nearby.kind === 'plant'
+            ? `${toolVerb(toolForVeggie(nearby.plant.veggie)) ?? pickVerb(nearby.plant.veggie)} ${VEGGIES[nearby.plant.veggie].label}`
+            : `Chop ${TREES[nearby.tree.tree].name}`}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
@@ -1524,6 +1597,8 @@ export default function TrainingMap({
   ) : activeTree ? (
     <ChopTreePanel
       tree={activeTree.tree}
+      swings={garden.swings}
+      axeTier={gear.axe ?? 0}
       hits={garden.trees.find(t => t.id === activeTree.id)?.hits ?? 0}
       questions={scrollGradeOverride ? offlineScrollQuestions(userId, questions) : questions}
       gradingUserId={gradingUserId}
@@ -1554,7 +1629,7 @@ export default function TrainingMap({
         drawer={drawer}
         overlay={overlay}
         overlayClear={swingAway && !!activeTree}
-        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} />}
+        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} gear={gear} />}
         fullscreen={fullscreen}
       />
 
