@@ -37,6 +37,8 @@ interface Npc extends NpcSprite {
   restUntil: number;
   walking: boolean;
   ready: boolean;
+  /** Frame of the idle pose (right after the walk frames). */
+  idle: number;
   outline: Phaser.GameObjects.Sprite[];
   mark: Phaser.GameObjects.Container;
 }
@@ -112,6 +114,7 @@ export default class GuildNpcLayer {
         def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
         zone: layer.zoneAround(home.x, home.y, def.range), path: [],
         restUntil: 0, walking: false, ready: false, outline, mark,
+        idle: def.walkFrames ?? NPC_WALK_FRAMES,
       };
       layer.npcs.push(npc);
       load(key, def.sheet, def.frameW, def.frameH, () => {
@@ -119,10 +122,10 @@ export default class GuildNpcLayer {
         scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR);
         const anim = `${key}:walk`;
         if (!scene.anims.exists(anim)) {
-          scene.anims.create({ key: anim, frames: scene.anims.generateFrameNumbers(key, { start: 0, end: NPC_WALK_FRAMES - 1 }), frameRate: FPS, repeat: -1 });
+          scene.anims.create({ key: anim, frames: scene.anims.generateFrameNumbers(key, { start: 0, end: npc.idle - 1 }), frameRate: FPS, repeat: -1 });
         }
-        image.setTexture(key, NPC_WALK_FRAMES);
-        for (const o of outline) o.setTexture(key, NPC_WALK_FRAMES);
+        image.setTexture(key, npc.idle);
+        for (const o of outline) o.setTexture(key, npc.idle);
         npc.ready = true;
       });
     }
@@ -187,7 +190,7 @@ export default class GuildNpcLayer {
       n.walking = false;
       n.path = [];
       n.image.stop();
-      n.image.setFrame(NPC_WALK_FRAMES);
+      n.image.setFrame(n.idle);
     }
     if (!n.walking) {
       if (self && Math.hypot(self.x - n.x, self.y - n.y) < 2.6 && Math.abs(self.x - n.x) > 0.2) {
@@ -213,7 +216,7 @@ export default class GuildNpcLayer {
     if (!n.path.length) {
       n.walking = false;
       n.image.stop();
-      n.image.setFrame(NPC_WALK_FRAMES);
+      n.image.setFrame(n.idle);
       n.restUntil = time + 2500 + Math.random() * 4500;
     }
   }

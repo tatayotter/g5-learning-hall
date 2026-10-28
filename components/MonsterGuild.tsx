@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useMemo, useEffectEvent, useLayoutEffect, useCallback } from 'react';
 import type { GuildKey } from '@/lib/dailyChecklist';
+import type { TownPage } from '@/lib/townNpcs';
 import type { WeeklyPackageData } from '@/lib/weeklyPackage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { hasSeenTabTutorial, markTabTutorialSeen } from '@/lib/tutorial';
@@ -113,6 +114,8 @@ interface MonsterGuildProps {
   onTatayBattleResult?: (won: boolean) => void;
   /** A guild master in town opens their guild's quests. */
   onPlayGuild?: (guild: GuildKey) => void;
+  /** A town NPC opens a page outside the arena (the Shopkeeper's Shop); Curios opens here. */
+  onOpenPage?: (page: TownPage) => void;
 }
 
 // Gold awarded when a wild encounter win would-be-catch a species already
@@ -187,7 +190,7 @@ interface CurioState {
 // Wild curios, plus starters a Tracking Scroll can summon.
 const curioSpecies = (id: string) => WILD_MONSTERS[id] ?? ALL_MONSTERS[id];
 
-export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult, onPlayGuild }: MonsterGuildProps) {
+export default function MonsterGuild({ userId, playerLevel, currentGold, packageData, weekStartingDate, onBattleWon, onGoldAwarded, onGoldSynced, onProgressSynced, initialView, onEggBadgeChange, eggRefreshSignal, onGraduated, onTutored, onTradeConfirmed, onLegendaryCaught, onTatayBattleResult, onPlayGuild, onOpenPage }: MonsterGuildProps) {
   // Mounted/unmounted with this component (i.e. with the Curio Arena tab),
   // not app-wide — a deliberate tradeoff made 2026-08-12 to cut concurrent
   // Realtime connections against the free-tier ceiling. This means a PvP
@@ -1677,6 +1680,8 @@ export default function MonsterGuild({ userId, playerLevel, currentGold, package
           onBattleStatePatch={patchBattleState}
           onTrackedCurioSummoned={handleTrackedCurioSummoned}
           onPlayGuild={onPlayGuild}
+          // The Curio Expert opens the Curio Arena menu (team, hatchery, compendium...).
+          onOpenPage={page => { if (page === 'curios') setArenaNavOpen(true); else onOpenPage?.(page); }}
         />
       )}
 

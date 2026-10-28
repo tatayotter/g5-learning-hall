@@ -45,7 +45,7 @@ import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import { AMBIENCE } from '@/lib/ambience';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
-import { TOWN_NPCS } from '@/lib/townNpcs';
+import { TOWN_NPCS, type TownPage } from '@/lib/townNpcs';
 import { NIGHT_WINDOWS } from '@/lib/nightWindows';
 import { fetchChecklistBattleFlags, GUILDS, type GuildKey } from '@/lib/dailyChecklist';
 import { manilaToday } from '@/lib/appDay';
@@ -207,6 +207,8 @@ interface TrainingMapProps {
   onEnterRegion?: (regionId: string) => void;
   /** Opens a guild's quests (a guild master in town, walked up to). */
   onPlayGuild?: (guild: GuildKey) => void;
+  /** Opens a page (the Shopkeeper's Shop, the Curio Expert's Curios...), a town NPC walked up to. */
+  onOpenPage?: (page: TownPage) => void;
   /** Pass through to MapStage — renders the map as a fixed full-viewport layer. */
   fullscreen?: boolean;
   // Bag contents, for the map item slots (Tracking Scrolls).
@@ -222,7 +224,7 @@ export default function TrainingMap({
   onBattleStateChange, onMonsterExpGained, onHeal, onQuestionsAnswered, onWildEncounterRoll,
   activeCurio, onEnterCurio, onChallengePlayer, onTradePlayer, onGatedPlayerClick, onTrainerEncounter, onTrashTraded, onGoldSynced,
   liveBattleInbox, mapPresence, movementLocked, walkLockActive, monsterDisplay,
-  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, fullscreen,
+  regionId, onExitRegion, playerLevel, onEnterRegion, onPlayGuild, onOpenPage, fullscreen,
   inventory, onBattleStatePatch, onTrackedCurioSummoned,
 }: TrainingMapProps) {
   const offline = useIsOffline();
@@ -1037,10 +1039,11 @@ export default function TrainingMap({
     else showBarMessage('Walk up to the exit first!');
   }, [nearExit, goThroughExit, showBarMessage]);
   // Guild masters in town (lib/townNpcs.ts): walk up, then E, the button or a tap on the name
-  // opens their guild. One whose guild isn't played yet today shows a "?".
+  // opens their guild. One whose guild isn't played yet today shows a "?". The Shopkeeper and
+  // the Curio Expert open their page the same way (no "?").
   const townNpcs = TOWN_NPCS[activeRegion.id];
   const [nearNpcId, setNearNpcId] = useState<string | null>(null);
-  const nearNpc = (onPlayGuild && townNpcs?.find(n => n.id === nearNpcId && n.guild)) || null;
+  const nearNpc = townNpcs?.find(n => n.id === nearNpcId && ((n.guild && onPlayGuild) || (n.opens && onOpenPage))) || null;
   const [guildsPlayed, setGuildsPlayed] = useState<GuildKey[] | null>(null);
   useEffect(() => {
     if (!townNpcs || offline) return;
@@ -1055,17 +1058,16 @@ export default function TrainingMap({
     [townNpcs, guildsPlayed],
   );
   const talkToNpc = useCallback(() => {
-    if (!nearNpc?.guild || !onPlayGuild) return;
-    playPageFlip();
-    onPlayGuild(nearNpc.guild);
-  }, [nearNpc, onPlayGuild]);
+    if (nearNpc?.guild && onPlayGuild) { playPageFlip(); onPlayGuild(nearNpc.guild); }
+    else if (nearNpc?.opens && onOpenPage) { playPageFlip(); onOpenPage(nearNpc.opens); }
+  }, [nearNpc, onPlayGuild, onOpenPage]);
   const onNpcClick = useCallback((id: string) => {
-    const hello = townNpcs?.find(n => n.id === id)?.hello;
-    if (hello) { showBarMessage(hello); return; }
-    if (!onPlayGuild) return;
+    const npc = townNpcs?.find(n => n.id === id);
+    if (npc?.hello) { showBarMessage(npc.hello); return; }
+    if (!(npc?.guild && onPlayGuild) && !(npc?.opens && onOpenPage)) return;
     if (nearNpc?.id === id) talkToNpc();
-    else showBarMessage(`Walk up to ${townNpcs?.find(n => n.id === id)?.name ?? 'them'} first!`);
-  }, [nearNpc, onPlayGuild, talkToNpc, townNpcs, showBarMessage]);
+    else showBarMessage(`Walk up to ${npc?.name ?? 'them'} first!`);
+  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, showBarMessage]);
   useEffect(() => {
     if (!nearNpc || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1168,7 +1170,7 @@ export default function TrainingMap({
           className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-2.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
         >
           {npcQuest?.includes(nearNpc.id) && <span className="text-[#ffd23f]">?</span>}
-          Play {nearNpc.guild && GUILD_LABEL[nearNpc.guild]}
+          {nearNpc.guild ? `Play ${GUILD_LABEL[nearNpc.guild]}` : nearNpc.opensLabel}
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
