@@ -18,6 +18,7 @@ import { countUnsynced } from '@/lib/offlineOutbox';
 import { askToRelink, heroReadyOffline, offlineLoginSetupSnoozed, rememberHeroOnDevice } from '@/lib/deviceHeroes';
 import OfflineLoginSetup from '@/components/OfflineLoginSetup';
 import { GuildKey, fetchDailyChecklistStreak } from '@/lib/dailyChecklist';
+import type { TownPage } from '@/lib/townNpcs';
 import { markGuildSessionToday, flushPendingGuildSessions, GuildSessionScore } from '@/lib/guildSessions';
 import { buildWeeklyReviewDay } from '@/lib/weeklyReview';
 import { useReadTimer } from '@/hooks/useReadTimer';
@@ -557,6 +558,15 @@ export default function Dashboard() {
     if (tab !== 'monster') setGuildInitialView(undefined);
     setActiveTabState(tab);
   }, []);
+  // A town NPC on the map opens a page (lib/townNpcs.ts). The Shop lives in the Vault tab, under
+  // the real-world rewards for some kids, so the Shopkeeper scrolls straight down to it.
+  const openTownPage = useCallback((page: TownPage) => {
+    if (page === 'journal' || page === 'curios') { setActiveTab(page === 'curios' ? 'monster' : 'journal'); return; }
+    setActiveTab('vault');
+    if (page === 'shop') {
+      window.setTimeout(() => document.querySelector('[data-tutorial-id="vault-welcome"]')?.scrollIntoView({ block: 'start' }), 350);
+    }
+  }, [setActiveTab]);
   // The five-tab navigation (components/nav/GameNav.tsx), per kid behind the
   // new_nav flag; everyone else keeps the compass drawer.
   const newNav = useFeatureFlag(activeUserId, 'new_nav');
@@ -1785,6 +1795,7 @@ export default function Dashboard() {
             onLegendaryCaught={() => bumpCounters({ legendaries_caught: 1 })}
             onTatayBattleResult={(won) => bumpCounters(won ? { tatay_battles_won: 1 } : { tatay_battles_lost: 1 })}
             onPlayGuild={(guildKey) => { setActiveTab('guilds'); setActiveGuild(guildKey); }}
+            onOpenPage={openTownPage}
           />
         )}
 

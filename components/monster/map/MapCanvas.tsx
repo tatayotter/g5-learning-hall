@@ -739,7 +739,7 @@ export default function MapCanvas({
       ))}
 
       {/* Guild NPCs (town): drawn in the scene, name tags here like the players'. */}
-      {(wildlife?.npcs ?? []).map(n => (
+      {(wildlife?.npcs ?? []).filter(n => !n.noTag).map(n => (
         <div
           key={n.id}
           ref={(el) => {
