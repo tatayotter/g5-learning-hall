@@ -73,7 +73,7 @@ import WildTrees, { type TreeSprite } from './wildTrees';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import SwayingTrees from './swayingTrees';
-import { MAP_TAP_EVENT } from '@/lib/mapTap';
+import { MAP_TAP_EVENT, MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
 import type { NightWindows } from '@/lib/nightWindows';
 import CritterLayer, { type Habitat } from './critters';
@@ -421,6 +421,10 @@ export default class TrainingMapScene extends Phaser.Scene {
   private recyclerShadow: Phaser.GameObjects.Ellipse | null = null;
   private shadowDepth = DEFAULT_SHADOW_DEPTH;
   private recyclerTilePos: { x: number; y: number } | null = null;
+  // Tap-to-walk: a gold ring on the ground where the walk ends (hooks/useContinuousMovement.ts).
+  private walkMark: { ring: Phaser.GameObjects.Ellipse; tween: Phaser.Tweens.Tween; x: number; y: number } | null = null;
+  // A tap on another player opens their card; the same tap must not also walk there.
+  private tapTakenAt = -Infinity;
 
   constructor() {
     super('TrainingMapScene');
@@ -443,6 +447,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.updateLamps(time);
     this.updateWindows(time);
     this.updateExits(time);
+    this.updateWalkMark();
     if (this.critters || this.groundFx) {
       const walkers = this.walkers();
       this.critters?.update(this.lastTransform, time, walkers, this.ambience?.nightLevel ?? 0, this.windStrength);
@@ -795,15 +800,18 @@ export default class TrainingMapScene extends Phaser.Scene {
       const t = this.lastTransform;
       this.onMapTap?.(Math.floor((gx - t.offsetX) / t.tileW), Math.floor((gy - t.offsetY) / t.tileH));
     };
-    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => tap(pointer.x, pointer.y));
-    // Taps on the left half land on the joystick's touch area (FloatingJoystick.tsx), which
-    // passes quick taps on as this event, in page coordinates.
+    // Clicks and taps reach the scene as this event, in page coordinates, from the joystick
+    // (FloatingJoystick.tsx), which tells a tap from a drag.
     const onJoystickTap = (e: Event) => {
+      if (performance.now() - this.tapTakenAt < 800) return;
       const { clientX, clientY } = (e as CustomEvent<{ clientX: number; clientY: number }>).detail;
       const rect = this.game.canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
       tap((clientX - rect.left) * (this.scale.width / rect.width), (clientY - rect.top) * (this.scale.height / rect.height));
     };
+    const onWalkTarget = (e: Event) => this.setWalkMark((e as CustomEvent<{ x: number; y: number } | null>).detail);
+    window.addEventListener(MAP_WALK_TARGET_EVENT, onWalkTarget);
+    this.events.once(Phaser.Scenes.Events.DESTROY, () => window.removeEventListener(MAP_WALK_TARGET_EVENT, onWalkTarget));
     window.addEventListener(MAP_TAP_EVENT, onJoystickTap);
     this.events.once(Phaser.Scenes.Events.DESTROY, () => window.removeEventListener(MAP_TAP_EVENT, onJoystickTap));
     if (this.pendingState) {
@@ -1384,7 +1392,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.tweens.add({ targets: image, alpha: 1, duration: 250, ease: 'Sine.easeOut' });
       if (interactive && onClick) {
         image.setInteractive({ useHandCursor: true });
-        image.on('pointerdown', () => onClick(player.id));
+        image.on('pointerdown', () => { this.tapTakenAt = performance.now(); onClick(player.id); });
       }
       const shadow = this.makeShadow(px, py, h);
       const next: OtherTrackedSprite = {
@@ -1646,6 +1654,25 @@ export default class TrainingMapScene extends Phaser.Scene {
     for (const o of this.others.values()) o.shadow.setDepth(depth);
     this.recyclerShadow?.setDepth(depth);
     for (const n of this.npcLayer?.npcs ?? []) n.shadow.setDepth(depth);
+  }
+
+  private setWalkMark(tile: { x: number; y: number } | null) {
+    this.walkMark?.tween.remove();
+    this.walkMark?.ring.destroy();
+    this.walkMark = null;
+    if (!tile) return;
+    const ring = this.add.ellipse(0, 0, 1, 1).setStrokeStyle(2, 0xffd23f, 0.9).setDepth(this.shadowDepth + 0.01);
+    const tween = this.tweens.add({ targets: ring, scale: { from: 1.25, to: 0.85 }, alpha: { from: 1, to: 0.55 }, duration: 520, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+    this.walkMark = { ring, tween, x: tile.x, y: tile.y };
+    this.updateWalkMark();
+  }
+
+  private updateWalkMark() {
+    const m = this.walkMark;
+    if (!m) return;
+    const { px, py, w, h } = this.tileToPixel(this.lastTransform, m.x, m.y);
+    // Where the kid's feet will stand (their shadow sits 0.44 of a tile below the middle).
+    m.ring.setPosition(px, py + h * 0.4).setSize(w * 0.55, h * 0.22);
   }
 
   private makeShadow(px: number, py: number, h: number): Phaser.GameObjects.Ellipse {
