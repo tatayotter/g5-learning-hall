@@ -25,6 +25,7 @@ import type { SwingKind } from '@/lib/gardenConfig';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { TownNpc } from '@/lib/townNpcs';
+import type { NpcSay } from '@/lib/npcTalk';
 import { mapSoundsOn, setMapSoundsOn, startRegionSounds, stopRegionSounds, REGION_SOUNDS } from '@/lib/regionSounds';
 import type { Habitat } from '@/lib/phaserMap/critters';
 import { CANVAS_WIDTH, CANVAS_HEIGHT, TILE_ART_ZOOM, TILE_ART_ZOOM_MIN, TILE_ART_ZOOM_MAX, TILE_ART_ZOOM_STEP, OTHER_PLAYER_MOVE_TWEEN_MS, easeInOutSine } from '@/lib/phaserMap/constants';
@@ -141,6 +142,12 @@ interface MapCanvasProps {
   /** Tapping a guild NPC's name. */
   // `at`: where the NPC stands now (tile, feet), so a tap can walk up to it.
   onNpcClick?: (id: string, at?: { x: number; y: number }) => void;
+  /** What each talking NPC says right now (by NPC id, or 'recycler'): a bubble over them. */
+  npcSay?: Record<string, NpcSay>;
+  /** The kid walked up close to a town NPC (once each time they come near). */
+  onNpcApproach?: (id: string) => void;
+  /** The Knight Commander's squad halted at a stop; where he stands. */
+  onSquadHalt?: (at: { x: number; y: number }, npcs: { id: string; x: number; y: number }[]) => void;
   /** A page is open over the map: stop drawing frames until it closes. */
   paused?: boolean;
   onMapTap?: (x: number, y: number) => void;
@@ -155,11 +162,14 @@ interface MapCanvasProps {
   onExitLabelClick?: (regionId: string) => void;
 }
 
+// Tiles: a kid this close to a town NPC may get a hello bubble.
+const NPC_APPROACH = 3;
+
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers,
   curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, treeSwing, chopTree, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
-  npcMarks, onNpcNear, onNpcClick, paused,
+  npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
   // central strip of the canvas is visible. Consume the scale so we can
@@ -253,6 +263,23 @@ export default function MapCanvas({
   const npcNearRef = useRef<string | null>(null);
   const onNpcNearRef = useRef(onNpcNear);
   useEffect(() => { onNpcNearRef.current = onNpcNear; }, [onNpcNear]);
+  // Talk bubbles (lib/npcTalk.ts), placed every frame over their speaker like the name tags.
+  const npcBubbleElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
+  const approachedRef = useRef<Set<string>>(new Set());
+  const squadHaltedRef = useRef(false);
+  const recyclerRef = useRef(recyclerTile);
+  useEffect(() => { recyclerRef.current = recyclerTile; }, [recyclerTile]);
+  const talkCbRef = useRef({ onNpcApproach, onSquadHalt });
+  useEffect(() => { talkCbRef.current = { onNpcApproach, onSquadHalt }; }, [onNpcApproach, onSquadHalt]);
+  // A first hello of the day comes with a little hop.
+  const noddedRef = useRef<Map<string, number>>(new Map());
+  useEffect(() => {
+    for (const [id, say] of Object.entries(npcSay ?? {})) {
+      if (!say.wave || noddedRef.current.get(id) === say.key) continue;
+      noddedRef.current.set(id, say.key);
+      sceneRef.current?.nodNpc(id);
+    }
+  }, [npcSay]);
   // Mutated every render so the rAF loop always reads the latest interpolated
   // position without needing to re-subscribe to `onlinePlayers` as a dep.
   // Interpolated (not just the raw latest tile) so this overlay tracks the
@@ -447,8 +474,29 @@ export default function MapCanvas({
           el.style.left = `${lp(px)}%`;
           el.style.top = `${tp(py)}%`;
         });
-        if (npcTagElsRef.current.size) {
+        if (npcTagElsRef.current.size || npcBubbleElsRef.current.size) {
           const spots = new Map((sceneRef.current?.getNpcSpots() ?? []).map(n => [n.id, n]));
+          // Coming close to a town NPC (they may say something), once per visit.
+          spots.forEach(n => {
+            if (!npcTagElsRef.current.has(n.id)) return;
+            const d = Math.hypot(n.x - (x - 0.5), n.y - (y - 0.5));
+            if (d < NPC_APPROACH && !approachedRef.current.has(n.id)) {
+              approachedRef.current.add(n.id);
+              talkCbRef.current.onNpcApproach?.(n.id);
+            } else if (d > NPC_APPROACH + 1.5) approachedRef.current.delete(n.id);
+          });
+          const squad = sceneRef.current?.getSquad();
+          if (squad && squad.halted !== squadHaltedRef.current) {
+            squadHaltedRef.current = squad.halted;
+            if (squad.halted) talkCbRef.current.onSquadHalt?.({ x: squad.x, y: squad.y }, [...spots.values()]);
+          }
+          npcBubbleElsRef.current.forEach((el, id) => {
+            const n = id === 'recycler' ? (recyclerRef.current ? { x: recyclerRef.current.x, y: recyclerRef.current.y - 0.6 } : null) : spots.get(id);
+            el.style.display = n ? '' : 'none';
+            if (!n) return;
+            el.style.left = `${lp(n.x)}%`;
+            el.style.top = `${tp(n.y - 0.15)}%`;
+          });
           // The one in reach (like a tree: walk up, then E or tap).
           let near: string | null = null, best = 1.5;
           spots.forEach(n => { const d = Math.hypot(n.x - (x - 0.5), n.y - (y - 0.5)); if (d < best) { best = d; near = n.id; } });
@@ -768,6 +816,29 @@ export default function MapCanvas({
             onClick={() => onNpcClick?.(n.id, sceneRef.current?.getNpcSpots().find(s => s.id === n.id))}
           >
             {nameTag(`npc:${n.id}`, n.name)}
+          </div>
+        </div>
+      ))}
+
+      {/* Talk bubbles (lib/npcTalk.ts) over town NPCs and the Recycler: parchment, ink text, a
+          little tail. Placed every frame by the rAF loop above. */}
+      {Object.entries(npcSay ?? {}).map(([id, say]) => (
+        <div
+          key={id}
+          ref={(el) => {
+            if (el) npcBubbleElsRef.current.set(id, el);
+            else npcBubbleElsRef.current.delete(id);
+          }}
+          className="absolute pointer-events-none z-[5]"
+          style={{ display: 'none', width: `${tileWPct}%`, height: `${tileHPct}%` }}
+        >
+          <div
+            key={say.key}
+            data-testid={`npc-say-${id}`}
+            className="npc-bubble absolute left-1/2 bottom-full mb-[18px] w-max max-w-[120px] -translate-x-1/2 rounded-md border border-[#8b5e2a] bg-[#f0ddb8] px-1.5 py-1 text-center text-[7px] leading-[1.25] text-[#2a1505] shadow-md"
+          >
+            {say.text}
+            <span className="absolute left-1/2 top-full -translate-x-1/2 border-x-[4px] border-t-[5px] border-x-transparent border-t-[#8b5e2a]" />
           </div>
         </div>
       ))}

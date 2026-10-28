@@ -48,6 +48,8 @@ interface Npc extends NpcSprite {
   idle: number;
   outline: Phaser.GameObjects.Sprite[];
   mark: Phaser.GameObjects.Container;
+  /** When they last greeted the kid with a little hop (scene time), or -1. */
+  nodAt: number;
 }
 
 interface Patrol {
@@ -142,7 +144,7 @@ export default class GuildNpcLayer {
       const npc: Npc = {
         def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
         zone: def.patrol ? new Set() : layer.zoneAround(home.x, home.y, def.range), path: [],
-        restUntil: 0, walking: false, ready: false, outline, mark,
+        restUntil: 0, walking: false, ready: false, outline, mark, nodAt: -1,
         idle: def.walkFrames ?? NPC_WALK_FRAMES,
       };
       layer.npcs.push(npc);
@@ -164,6 +166,20 @@ export default class GuildNpcLayer {
 
   /** The mark over each NPC (by id); none when missing. */
   setMarks(marks: Record<string, NpcMark>) { this.marks = marks; }
+
+  /** A little two-hop greeting (the first hello of the day), with their bubble. */
+  nod(id: string) {
+    const n = this.npcs.find(m => m.def.id === id);
+    // Starts on the next update, on that clock.
+    if (n && !this.still) n.nodAt = Infinity;
+  }
+
+  /** Whether the squad (its leader) is standing at a stop, and where the leader is. */
+  squad(): { halted: boolean; x: number; y: number } | null {
+    const p = this.patrols[0];
+    const lead = p?.members[0];
+    return lead?.ready ? { halted: p.halted, x: lead.x, y: lead.y } : null;
+  }
 
   /** The NPC in reach (gold outline), or null. */
   setHighlight(id: string | null) { this.highlight = id; }
@@ -259,14 +275,18 @@ export default class GuildNpcLayer {
       if (!this.still && !n.def.patrol) this.step(n, time, dt, self);
       const h = t.tileH;
       const px = t.offsetX + (n.x + 0.5) * t.tileW;
-      const feet = t.offsetY + (n.y + 0.5) * t.tileH + h * 0.47;
+      // The greeting hop: two small bounces over 0.7 s.
+      if (n.nodAt === Infinity) n.nodAt = time;
+      const u = n.nodAt < 0 ? 1 : (time - n.nodAt) / 700;
+      const hop = u < 1 ? Math.abs(Math.sin(u * Math.PI * 2)) * h * 0.07 : 0;
+      const feet = t.offsetY + (n.y + 0.5) * t.tileH + h * 0.47 - hop;
       const s = (BODY_TILES * h) / BODY_PX;
       // A slow breath while standing.
       const breathe = n.walking || this.still ? 1 : 1 + 0.012 * Math.sin(time / 520 + n.def.home.x);
       n.baseScaleY = s;
       n.image.setPosition(px, feet).setScale(s, s * breathe).setVisible(true);
       if (n.shadow.width !== h * 0.5) n.shadow.setSize(h * 0.5, h * 0.12);
-      n.shadow.setPosition(px, feet - h * 0.05).setVisible(true);
+      n.shadow.setPosition(px, feet + hop - h * 0.05).setVisible(true);
       const kind = this.marks[n.def.id];
       n.mark.setVisible(!!kind);
       if (kind) {

@@ -18,8 +18,6 @@ export interface TownNpc {
   opens?: TownPage;
   /** The button's words for `opens`, e.g. "Shop". */
   opensLabel?: string;
-  /** What they say when tapped, for one with no guild or page. */
-  hello?: string;
   sheet: string;
   /** Walk frames in the sheet when not NPC_WALK_FRAMES; the idle pose comes right after them. */
   walkFrames?: number;
@@ -50,7 +48,6 @@ export const PATROL_ROUTES: Record<string, PatrolRoute> = {
 };
 
 const SOLDIER = { sheet: '/npcs/walk/soldier_right.webp', frameW: 62, frameH: 116, walkFrames: 11 };
-const GUARD_HELLO = 'All quiet in Inkwell Town! Have fun, young tamer.';
 
 export const BAYLAN_ID = 'loreteller';
 /** Where a kid appears when they come home to town (first login, the Town button):
@@ -69,14 +66,16 @@ export const TOWN_NPCS: Record<string, TownNpc[]> = {
     // next door at the teal house. Neither gets a "?" (that's for the guild masters).
     { id: 'shopkeeper', name: 'Shopkeeper', opens: 'shop', opensLabel: 'Shop', sheet: '/npcs/walk/shopkeeper_right.webp', frameW: 78, frameH: 116, walkFrames: 18, home: { x: 47, y: 27 }, range: 3 },
     { id: 'curioexpert', name: 'Curio Expert', opens: 'curios', opensLabel: 'Curios', sheet: '/npcs/walk/curioexpert_right.webp', frameW: 70, frameH: 115, walkFrames: 18, home: { x: 56, y: 27 }, range: 3 },
-    // Town Guards on their beats: the south gate, the west and east roads, the north road.
-    { id: 'guard_gate_s', name: 'Town Guard', ...SOLDIER, home: { x: 30, y: 35 }, range: 3, hello: GUARD_HELLO },
-    { id: 'guard_road_w', name: 'Town Guard', ...SOLDIER, home: { x: 12, y: 20 }, range: 3, hello: GUARD_HELLO },
-    { id: 'guard_road_e', name: 'Town Guard', ...SOLDIER, home: { x: 44, y: 19 }, range: 3, hello: GUARD_HELLO },
-    { id: 'guard_road_n', name: 'Town Guard', ...SOLDIER, home: { x: 37, y: 12 }, range: 3, hello: GUARD_HELLO },
+    // Town Guards on their beats, each their own kind of guard (Rowil 2026-10-28; their lines are
+    // in lib/npcLines.ts): brave Rex at the south gate, goofy Bo on the west road, Milo (scared,
+    // acting tough) on the east road and Duke (always bragging) on the north road.
+    { id: 'guard_gate_s', name: 'Guard Rex', ...SOLDIER, home: { x: 30, y: 35 }, range: 3 },
+    { id: 'guard_road_w', name: 'Guard Bo', ...SOLDIER, home: { x: 12, y: 20 }, range: 3 },
+    { id: 'guard_road_e', name: 'Guard Milo', ...SOLDIER, home: { x: 44, y: 19 }, range: 3 },
+    { id: 'guard_road_n', name: 'Guard Duke', ...SOLDIER, home: { x: 37, y: 12 }, range: 3 },
     // The Knight Commander marches his squad of four round the plaza (lib/phaserMap/guildNpcs.ts).
-    { id: 'knight_commander', name: 'Knight Commander', sheet: '/npcs/walk/commander_right.webp', frameW: 87, frameH: 132, walkFrames: 11, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot: 0 }, hello: 'Eyes front, squad! Hello there, young tamer!' },
-    ...[1, 2, 3, 4].map(slot => ({ id: `squad_${slot}`, name: 'Town Guard', ...SOLDIER, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot }, noTag: true, hello: GUARD_HELLO })),
+    { id: 'knight_commander', name: 'Knight Commander', sheet: '/npcs/walk/commander_right.webp', frameW: 87, frameH: 132, walkFrames: 11, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot: 0 } },
+    ...[1, 2, 3, 4].map(slot => ({ id: `squad_${slot}`, name: 'Town Guard', ...SOLDIER, home: { x: 24, y: 16 }, range: 0, patrol: { route: 'plaza', slot }, noTag: true })),
     { id: 'logiclabyrinth', name: 'Logic Master', guild: 'logic_labyrinth', sheet: '/npcs/walk/logiclabyrinth_right.webp', frameW: 79, frameH: 117, home: { x: 54, y: 19 }, range: 5 },
   ],
 };

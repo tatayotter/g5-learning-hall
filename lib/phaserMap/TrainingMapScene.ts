@@ -654,6 +654,12 @@ export default class TrainingMapScene extends Phaser.Scene {
     return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
   }
 
+  /** A town NPC's little greeting hop (lib/phaserMap/guildNpcs.ts). */
+  nodNpc(id: string) { this.npcLayer?.nod(id); }
+
+  /** The Knight Commander's squad: standing at a stop or marching, and where he is. */
+  getSquad() { return this.npcLayer?.squad() ?? null; }
+
   private walkers(): { id: string; x: number; y: number }[] {
     const t = this.lastTransform;
     const k = 32 / t.tileW;
