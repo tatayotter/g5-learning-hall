@@ -10,10 +10,12 @@
 import Phaser from 'phaser';
 import { GLOW_DEPTH, type Transform } from './ambience';
 import { makeTextures } from './critters';
+import { TILE_ART_ZOOM } from './constants';
 
 const UNIT = 32;
 const GROUND_DEPTH = 9.4; // on the ground, under players (10) and critters (9.6)
-const ART_W = 26; // the scroll's width on the map, in map units
+// The scroll art is drawn at its own pixel size at the usual zoom (48 px art = about 27 map units).
+const ART_SCALE = 1 / TILE_ART_ZOOM;
 const WISPS = 3;
 const MOTES = 6;
 const POP_MS = 450;
@@ -78,8 +80,7 @@ export default class ScrollGlow {
   private still: boolean;
   private first = true;
 
-  // loadArt: loads the scroll picture and hands back its texture key (the scene bakes it down
-  // to the tile size).
+  // loadArt: loads the scroll picture and hands back its texture key.
   constructor(private scene: Phaser.Scene, loadArt: (onReady: (key: string) => void) => void) {
     this.still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     makeScrollTextures(scene);
@@ -139,7 +140,7 @@ export default class ScrollGlow {
   private addArt(s: Scroll) {
     if (!this.artKey || s.img) return;
     const img = this.scene.add.image(s.x, s.y - 4, this.artKey);
-    img.setScale(ART_W / img.width);
+    img.setScale(ART_SCALE);
     this.ground.add(img);
     s.img = img;
   }
@@ -178,7 +179,7 @@ export default class ScrollGlow {
       const pulse = this.still ? 0.6 : 0.5 + 0.5 * Math.sin(time / 520 + s.phase);
       const cy = s.y - 4 + bob;
 
-      s.img?.setPosition(s.x, cy).setScale((ART_W / s.img.width) * size).setAlpha(fade);
+      s.img?.setPosition(s.x, cy).setScale(ART_SCALE * size).setAlpha(fade);
       s.shadow.setScale(1 - bob * 0.06).setAlpha(fade);
       s.pool.setAlpha((0.55 + 0.3 * pulse) * fade).setScale(grow);
       // Brighter for a moment when it pops in or out.
@@ -189,7 +190,7 @@ export default class ScrollGlow {
         const a = time / 950 + s.phase + (i * Math.PI * 2) / WISPS;
         const front = Math.sin(a) > 0;
         // When the scroll is picked up, the wisps spin out and fly away.
-        const r = (14 + Math.sin(time / 700 + i) * 2) * grow + (s.dying === null ? 0 : 50 * (1 - fade));
+        const r = (17 + Math.sin(time / 700 + i) * 2) * grow + (s.dying === null ? 0 : 50 * (1 - fade));
         const wx = Math.round(s.x + Math.cos(a) * r);
         const wy = Math.round(cy - 3 + Math.sin(a) * r * 0.4 + Math.sin(time / 300 + i * 2) * 2);
         w.img.setTexture(`critter:wisp_gold${Math.floor(time / 140 + i) % 3}`)

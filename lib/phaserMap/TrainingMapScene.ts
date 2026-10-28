@@ -981,10 +981,10 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   private applyScrolls(state: MapCanvasSyncState) {
     if (!this.scrollGlow) {
+      // Pixel art (48 px wide): drawn with hard pixels, one art pixel per screen pixel at the usual zoom.
       this.scrollGlow = new ScrollGlow(this, onReady => this.ensureTexture('scroll:art', '/sprite/question-scroll.png', () => {
-        this.setLinearFilter('scroll:art');
-        // Baked down to about a tile wide, like the trash (see bakeSmoothTexture).
-        onReady(this.bakeSmoothTexture('scroll:art', this.lastTransform.tileW));
+        this.textures.get('scroll:art').setFilter(Phaser.Textures.FilterMode.NEAREST);
+        onReady('scroll:art');
       }));
     }
     this.scrollGlow.setScrolls(state.scrolls ?? []);
