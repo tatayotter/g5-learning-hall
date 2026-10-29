@@ -4,16 +4,22 @@
 // TrainingMap.tsx). A curio with bond hearts (lib/craftingConfig.ts) has them floating over its
 // head, one to five.
 //
-// The curio art is big painted art (public/monsters/*.webp, ~700 px); each is drawn once into a
-// small canvas so it stays smooth at map size. Everything sits in one Container that follows the
+// Sizes and floating follow the battle stage (lib/curioBody.ts): the art is trimmed of its
+// transparent padding like the battle scene does, then shown at its size class's battle height
+// times MAP_SCALE, so a huge curio towers over a tiny one here too, and a floater hovers over its
+// shadow and bobs instead of hopping. The curio art is big painted art (public/monsters/*.webp,
+// ~700 px); each is drawn once, trimmed, into a small canvas so it stays smooth at map size. Everything sits in one Container that follows the
 // camera like a tilemap layer (the scene keeps it in its tilemapLayers list), in map units (32 per
 // tile), over the plants and under the players. With "reduce motion" on they stand still.
 import Phaser from 'phaser';
+import { CURIO_MAX_WIDTH_PX, CURIO_SIZE_HEIGHT_PX, FLOAT_BOB_PX, FLOAT_LIFT_PX, type CurioSize } from '@/lib/curioBody';
 
 export interface IslandCurio {
   id: string;
   sprite: string; // public/monsters/<sprite>.webp
   hearts: number;
+  size: CurioSize;
+  floats: boolean;
 }
 
 export interface IslandCurioState {
@@ -35,8 +41,10 @@ export interface Grounds {
 }
 
 const UNIT = 32;
-const ART_PX = 80; // the small copy's height
-const BODY = 30; // shown this tall, in map pixels (a player is ~34)
+const ART_PX = 96; // the small copy's height
+// Battle-stage pixels to map pixels: a medium curio (125 on the stage) stands 30 tall here, a
+// little under a player (~34).
+const MAP_SCALE = 0.24;
 const SPEED = 0.9; // tiles per second
 const STOP_NEAR = 1.7; // tiles: a kid this close stops it and it looks at them
 const HEART_W = 7, HEART_H = 6, HEART_GAP = 1;
@@ -149,18 +157,32 @@ export default class IslandCurios {
       if (this.walkers.get(c.id) !== w || w.body) return;
       if (!this.scene.textures.exists(small)) {
         const src = this.scene.textures.get(big).getSourceImage() as HTMLImageElement;
-        const aspect = src.width / src.height;
-        const tex = this.scene.textures.createCanvas(small, Math.round(ART_PX * aspect), ART_PX);
+        // Find the art's own box (no transparent padding), on a quick small copy.
+        const probe = document.createElement('canvas');
+        const pk = Math.min(1, 256 / Math.max(src.width, src.height));
+        probe.width = Math.max(1, Math.round(src.width * pk)); probe.height = Math.max(1, Math.round(src.height * pk));
+        const pc = probe.getContext('2d', { willReadFrequently: true });
+        let box = { x: 0, y: 0, w: src.width, h: src.height };
+        if (pc) {
+          pc.drawImage(src, 0, 0, probe.width, probe.height);
+          const a = pc.getImageData(0, 0, probe.width, probe.height).data;
+          let x0 = probe.width, y0 = probe.height, x1 = -1, y1 = -1;
+          for (let y = 0; y < probe.height; y++) for (let x = 0; x < probe.width; x++) {
+            if (a[(y * probe.width + x) * 4 + 3] > 16) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+          }
+          if (x1 >= x0) box = { x: x0 / pk, y: y0 / pk, w: (x1 - x0 + 1) / pk, h: (y1 - y0 + 1) / pk };
+        }
+        const tex = this.scene.textures.createCanvas(small, Math.max(1, Math.round(ART_PX * box.w / box.h)), ART_PX);
         if (!tex) return;
         const ctx = tex.getContext();
         ctx.imageSmoothingEnabled = true;
         ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(src, 0, 0, tex.width, tex.height);
+        ctx.drawImage(src, box.x, box.y, box.w, box.h, 0, 0, tex.width, tex.height);
         tex.refresh();
       }
       const t = this.scene.textures.get(small).getSourceImage() as HTMLCanvasElement;
       w.aspect = t.width / t.height;
-      w.body = this.scene.add.image(0, 0, small).setOrigin(0.5, 1).setScale(BODY / ART_PX);
+      w.body = this.scene.add.image(0, 0, small).setOrigin(0.5, 1);
       w.box.add(w.body);
       this.drawHearts(w);
     };
@@ -229,19 +251,24 @@ export default class IslandCurios {
         }
       }
       const px = w.x * UNIT, py = w.y * UNIT + 6;
-      // A little hop while walking; breathing while resting.
-      const hop = walking ? Math.abs(Math.sin(time / 110 + w.phase)) * 2.5 : 0;
-      const breathe = this.still ? 1 : 1 + Math.sin(time / 600 + w.phase) * 0.025;
+      // Its battle height, capped in width like the battle stage.
+      const bodyH = Math.min(CURIO_SIZE_HEIGHT_PX[w.def.size] ?? CURIO_SIZE_HEIGHT_PX.medium, CURIO_MAX_WIDTH_PX / w.aspect) * MAP_SCALE;
+      // A walker hops along and breathes at rest; a floater hovers over its shadow and bobs.
+      const lift = w.def.floats
+        ? (FLOAT_LIFT_PX + (this.still ? 0 : Math.sin(time / 700 + w.phase) * FLOAT_BOB_PX / 2)) * MAP_SCALE
+        : walking ? Math.abs(Math.sin(time / 110 + w.phase)) * 2.5 : 0;
+      const breathe = this.still || w.def.floats ? 1 : 1 + Math.sin(time / 600 + w.phase) * 0.025;
       w.box.setPosition(px, py);
-      w.shadow.setScale(1 - hop * 0.06);
+      const shadowW = Math.max(10, Math.min(30, bodyH * w.aspect * 0.7));
+      w.shadow.setSize(shadowW, shadowW / 3).setScale(w.def.floats ? 0.8 : 1 - lift * 0.06).setAlpha(w.def.floats ? 0.2 : 0.3);
       if (w.body) {
-        const s = BODY / ART_PX;
-        w.body.setPosition(0, -hop).setScale(w.facingRight ? s : -s, s * breathe);
+        const s = bodyH / ART_PX;
+        w.body.setPosition(0, -lift).setScale(w.facingRight ? s : -s, s * breathe);
       }
       // Hearts float over the head, bobbing gently.
       const n = w.hearts.length;
       const rowW = n * HEART_W + (n - 1) * HEART_GAP;
-      const top = -hop - BODY * breathe - 3 + (this.still ? 0 : Math.sin(time / 450 + w.phase) * 1.2);
+      const top = -lift - bodyH * breathe - 3 + (this.still ? 0 : Math.sin(time / 450 + w.phase) * 1.2);
       w.hearts.forEach((h, i) => h.setPosition(-rowW / 2 + HEART_W / 2 + i * (HEART_W + HEART_GAP), top));
     }
     // Farther down the island draws in front.

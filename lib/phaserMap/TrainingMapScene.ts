@@ -1061,16 +1061,16 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (!animated) {
       const key = textureKeyFor(spriteSrc);
       this.ensureTexture(key, spriteSrc, () => {
-        // Override pixelArt:true global setting — player avatars are smooth
-        // PNG art, not pixel sprites, and need bilinear filtering.
-        this.setLinearFilter(key);
-        onReady(this.bakeSmoothTexture(key, targetSize));
+        // Player avatars are smooth painted art, not pixel sprites: baked at twice the size they
+        // stand at (so zooming in stays sharp) and drawn with real bilinear filtering (so zooming
+        // out doesn't turn them into boxes).
+        onReady(this.bakeSmoothTexture(key, targetSize * 2, true));
       });
       return;
     }
     const key = textureKeyFor(spriteSrc);
     this.ensureSpritesheet(key, animated.spriteSheet, animated.frameWidth, animated.frameHeight, () => {
-      this.setLinearFilter(key);
+      this.setSmoothFilter(key);
       if (!this.anims.exists(animated.animKey)) {
         this.anims.create({
           key: animated.animKey,
@@ -1690,7 +1690,7 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  halving via Canvas2D (which *does* do quality minification) down to
    *  the actual target size once, so what WebGL displays afterward is a
    *  near-1:1 sample instead of an 5-8x-aliased one. */
-  private bakeSmoothTexture(sourceKey: string, targetSize: number): string {
+  private bakeSmoothTexture(sourceKey: string, targetSize: number, smooth = false): string {
     const size = Math.max(1, Math.round(targetSize));
     const smoothKey = `smooth:${sourceKey}:${size}`;
     if (this.textures.exists(smoothKey)) return smoothKey;
@@ -1733,7 +1733,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     finalCtx.drawImage(cur as CanvasImageSource, 0, 0, curW, curH, 0, 0, dstW, dstH);
 
     this.textures.addCanvas(smoothKey, final);
-    this.setLinearFilter(smoothKey);
+    if (smooth) this.setSmoothFilter(smoothKey);
+    else this.setLinearFilter(smoothKey);
     return smoothKey;
   }
 
@@ -1932,6 +1933,12 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  positions aligned with the panning camera — same pattern as updateSelfPosition(). */
   /** Apply bilinear (LINEAR) filtering to one texture, overriding the global
    *  pixelArt:true setting. Safe to call repeatedly — no-ops once set. */
+  /** Real bilinear filtering (FilterMode.LINEAR), for painted art that's drawn smaller or bigger
+   *  than its pixels: the player avatars. */
+  private setSmoothFilter(key: string) {
+    try { this.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR); } catch { /* older Phaser */ }
+  }
+
   private setLinearFilter(key: string) {
     try {
       // NOTE: Phaser's FilterMode is LINEAR=0, NEAREST=1, so this has always
