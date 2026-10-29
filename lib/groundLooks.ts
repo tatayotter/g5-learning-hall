@@ -58,6 +58,18 @@ export const GROUND_LOOKS: Record<string, GroundLook> = {
   ledgers_heart: MEADOW,
   town: MEADOW,
 
+  // A kid's Hideout island: the meadow grass, with Tidewrit's beach (sand blown onto the grass,
+  // ripples and shell bits on the sand).
+  hideout: {
+    ...MEADOW,
+    marks: [
+      ...MEADOW.marks!,
+      { stamps: ['s', 's.s', 's\n.s'], colors: { s: [196, 180, 124] }, every: 5, chance: 0.6, nearExtra: 26 },
+      { stamps: ['p', 'w', 'wp'], colors: { p: [238, 206, 196], w: [250, 244, 228] }, every: 24, chance: 0.25, on: 'extra' },
+    ],
+    extra: { color: [226, 202, 152], ripples: { period: 9, dark: [211, 186, 137], light: [235, 215, 168] } },
+  },
+
   // Cinderreach: scorched, cracked ash. Burnt patches, cracks with an ember glowing in a few,
   // grey ash specks and little stones.
   cinderreach: {

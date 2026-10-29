@@ -56,6 +56,12 @@ export const WILDLIFE: Record<string, CritterGroup[]> = {
     { kind: 'crab', groups: 7, size: [1, 1], home: 'shore' },
     { kind: 'bird', groups: 2, size: [2, 3], home: 'open' },
   ],
+  // A kid's Hideout island: crabs on its beach, butterflies over the flowers, a few birds.
+  hideout: [
+    { kind: 'crab', groups: 5, size: [1, 1], home: 'shore' },
+    { kind: 'butterfly', groups: 5, size: [1, 2], home: 'flowers' },
+    { kind: 'bird', groups: 2, size: [2, 3], home: 'open' },
+  ],
 };
 
 export interface GroundFxKinds {
@@ -80,4 +86,5 @@ export const GROUND_FX: Record<string, GroundFxKinds> = {
   unread_margins: { ripples: true, peekers: true },
   radiant_archive: { ripples: true, fish: true },
   tidewrit_shallows: { foam: true, ripples: true, fish: true, prints: true, deep: true, river: true, puddles: true },
+  hideout: { foam: true, ripples: true, fish: true, prints: true, deep: true, puddles: true },
 };
