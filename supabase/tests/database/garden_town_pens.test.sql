@@ -1,4 +1,4 @@
--- pgTAP tests for 20261029000000_garden_town_pens.sql: Inkwell Town's two pens are planted edge
+-- pgTAP tests for 20261029030000_garden_town_pens.sql: Inkwell Town's two pens are planted edge
 -- to edge (25 tomatoes, 40 pumpkins) and picked like any wild veggie, no tool needed.
 
 begin;
