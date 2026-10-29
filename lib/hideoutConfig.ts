@@ -8,7 +8,7 @@
 //
 // The rules live in supabase/migrations/20261028160000_hideout.sql (buy_hideout,
 // build_hideout_plot, plant_hideout_plot, water_hideout_plot, harvest_hideout_plot) and
-// 20261029000000_hideout_tiles_and_trees.sql (a bed's six tiles, six tree spots) and
+// 20261029000000_hideout_tiles_and_trees.sql (a bed's tiles, six tree spots; nine tiles since 20261029120000_hideout_pens_nine_tiles.sql) and
 // 20261029090000_crafting_step1.sql (named woods and gold, costs that rise, the stations); the
 // numbers here mirror them for the screen.
 import { TREES, VEGGIES, gardenItemLabel, saplingKey, seedsKey, type TreeId, type VeggieId } from '@/lib/gardenConfig';
@@ -157,14 +157,15 @@ export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 29, h: 64 };
 export const TILE_CURSOR_ART = { src: '/hideout/tile_cursor.png', w: 32, h: 32 };
 
 // Each garden bed is a fenced dirt pen on the map (hideout.tmx, like the town's pens). Its Places
-// point is the middle of its two crop rows: six soil tiles, three across. A kid can walk on the
+// point is the middle of its nine soil tiles, three by three (Rowil, 2026-10-29). A kid can walk on the
 // soil of a built pen and uses the tile they stand on (or the one next to them). Each tile takes one seed packet (Rowil, 2026-10-29) and is its own plot on the
-// server, bed_N_0..bed_N_5 in this order. The tiles a plot takes (solid), around its Places point:
+// server, bed_N_0..bed_N_8 in this order (the front row, 6..8, came last). The tiles a plot takes
+// (solid), around its Places point:
 export const plotTiles = (kind: PlotKind, x: number, y: number) =>
   kind === 'bed'
-    ? [-1, 0, 1].flatMap(dx => [-1, 0].map(dy => ({ x: x + dx, y: y + dy })))
+    ? [...[-1, 0, 1].flatMap(dx => [-1, 0].map(dy => ({ x: x + dx, y: y + dy }))), ...[-1, 0, 1].map(dx => ({ x: x + dx, y: y + 1 }))]
     : [{ x, y }];
-export const BED_TILES = 6;
+export const BED_TILES = 9;
 export const bedTileId = (bed: string, i: number) => `${bed}_${i}`;
 
 // A crop's look as it grows: planted (soil and a sprout), growing, ripe (the wild veggies' strip).
