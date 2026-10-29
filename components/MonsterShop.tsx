@@ -40,6 +40,13 @@ const SCROLL_CATEGORY_LABELS: Record<ScrollItem['category'], string> = {
 
 const ELEMENTS: Element[] = ['fire', 'water', 'leaf', 'storm', 'shadow', 'light'];
 
+type ShopSection = 'all' | 'gear' | 'items' | 'tracking' | 'scrolls' | 'tomes' | 'sprites';
+// The pop-up's chips, short enough for a phone.
+const SECTIONS: [ShopSection, string][] = [
+  ['all', 'All'], ['items', 'Battle Items'], ['gear', 'Tools'], ['tracking', 'Tracking Scrolls'],
+  ['scrolls', 'Skills'], ['tomes', 'Tomes'], ['sprites', 'Looks'],
+];
+
 // A normalized shape for the detail popup — every catalog (consumables,
 // scrolls, tomes, userpics) has a slightly different item shape (userpics
 // have no `desc`/`icon`, e.g.), so each click site maps its own item into
@@ -109,6 +116,9 @@ interface Props {
   currentStats: CharacterStats;
   onSpendGold: (newStats: CharacterStats) => void;
   onThemeChange: (themeKey: string) => void;
+  /** Inside the Shopkeeper's pop-up (components/game/GamePopup.tsx): phone-first, small tiles,
+   *  category chips instead of the dropdown, no title, codes or inventory (the bag shows those). */
+  compact?: boolean;
 }
 
 // ---------------------------------------------------------------------------
@@ -149,6 +159,14 @@ const SHOP_CSS = `
   .spop::before { content:''; position:absolute; inset:6px; border:1px dashed #c9a87a; border-radius:14px; pointer-events:none; }
   .spop > * { position:relative; }
   .shead { font-family:var(--font-cinzel), serif; font-weight:800; font-size:20px; color:#7a4a0f; }
+  .shop-compact .scard { gap:3px; padding:5px 4px 6px; border-radius:12px; box-shadow:0 3px 0 #8b5e2a, 0 5px 8px rgba(42,21,5,.15); }
+  .shop-compact .scard::before { inset:3px; border-radius:9px; }
+  .shop-compact .scard-art { padding:4px; border-radius:9px; }
+  .shop-compact .scard-name { font-size:10.5px; min-height:2.5em; }
+  .shop-compact .sprice { font-size:11px; padding:1px 7px; border-width:1.5px; }
+  .shop-compact .sprice img { width:12px; height:12px; }
+  .shop-compact .shead { font-size:15px; margin-bottom:8px; }
+  .shop-compact .schip { flex:none; font-size:12px; padding:5px 12px; }
 `;
 
 interface ShopCardProps {
@@ -193,14 +211,14 @@ function ShopCard({
 
 // ---------------------------------------------------------------------------
 
-export default function MonsterShop({ userId, currentStats, onSpendGold }: Props) {
+export default function MonsterShop({ userId, currentStats, onSpendGold, compact = false }: Props) {
   const [inventory, setInventory] = useState<InventoryMap>({});
   const [loading, setLoading] = useState(true);
   const [buyingKey, setBuyingKey] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<ShopDetailItem | null>(null);
   const [scrollCategory, setScrollCategory] = useState<ScrollItem['category'] | 'all'>('all');
   const [scrollElement, setScrollElement] = useState<Element | 'all'>('all');
-  const [activeSection, setActiveSection] = useState<'all' | 'gear' | 'items' | 'tracking' | 'scrolls' | 'tomes' | 'sprites'>('all');
+  const [activeSection, setActiveSection] = useState<ShopSection>('all');
   // Tools unlock map skills that come with the garden; bag upgrades are for everyone.
   const { gear, buy: buyGearTier } = useGear(userId);
   const gardenOn = useFeatureFlag(userId, 'garden');
@@ -220,7 +238,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
   // spending gold is the tab's whole point, but gating the tutorial on a
   // real currency spend felt like too heavy a first touch; browsing what's
   // on offer is the safer, reversible equivalent.
-  const [shopTutorialActive, setShopTutorialActive] = useState(() => !hasSeenTabTutorial('vault', userId));
+  const [shopTutorialActive, setShopTutorialActive] = useState(() => !compact && !hasSeenTabTutorial('vault', userId));
   const shopTutorialSteps: TutorialStep[] = useMemo(() => [
     {
       id: 'vault-welcome',
@@ -333,12 +351,13 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
 
   if (loading) return <p className="text-stone-500 animate-pulse">Loading shop…</p>;
 
+  const grid = compact ? 'grid grid-cols-4 sm:grid-cols-6 gap-2' : 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3';
   const trackingPopupDef = selectedItem?.trackingMonsterId
     ? TRACKABLE_CURIOS.find(d => d.id === selectedItem.trackingMonsterId)
     : undefined;
 
   return (
-    <div>
+    <div className={compact ? 'shop-compact' : undefined} data-testid={compact ? 'shop-compact' : undefined}>
       <style>{SHOP_CSS}</style>
       {shopTutorial.step && (
         <TutorialSpotlight
@@ -353,6 +372,8 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
         />
       )}
 
+      {!compact && (
+      <>
       {/* Header — same Bungee/stroke/shadow text treatment as the quest
           GameButton's label (2026-08-29), in quest gold instead of the
           button's white. */}
@@ -426,15 +447,27 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           </div>
         )}
       </div>
+      </>
+      )}
 
-      {/* Category filter — a dropdown instead of tabs so it reads as
-          filtering by game-use rather than switching screens (2026-08-29). */}
+      {/* In the pop-up: chips that stay at the top while the shelves scroll. */}
+      {compact ? (
+        <div className="sticky -top-3 z-10 -mx-3 sm:-mx-4 -mt-3 mb-3 px-3 sm:px-4 py-2 bg-[#f0ddb8] border-b-2 border-[#c9a87a] flex gap-2 overflow-x-auto [scrollbar-width:none]" data-testid="shop-chips">
+          {SECTIONS.filter(([k]) => k !== 'gear' || gearShown.length).map(([k, label]) => (
+            <button key={k} type="button" onClick={() => setActiveSection(k)} className={`schip ${activeSection === k ? 'schip-on' : ''}`} data-testid={`shop-chip-${k}`}>
+              {k === 'gear' ? (gardenOn ? 'Tools' : 'Bags') : label}
+            </button>
+          ))}
+        </div>
+      ) : (
+      // Category filter — a dropdown instead of tabs so it reads as filtering by game-use rather
+      // than switching screens (2026-08-29).
       <div className="mb-6" data-tutorial-id="vault-sections">
         <label className="text-xs font-extrabold text-[#6b4820] uppercase tracking-widest block mb-2">Filter by category</label>
         <div className="relative max-w-xs">
           <select
             value={activeSection}
-            onChange={e => setActiveSection(e.target.value as typeof activeSection)}
+            onChange={e => setActiveSection(e.target.value as ShopSection)}
             className="sselect"
           >
             <option value="all">All Items</option>
@@ -448,12 +481,13 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#7a4a0f] text-xs">▼</span>
         </div>
       </div>
+      )}
 
       {/* Tools and bag upgrades (lib/gearConfig.ts): each card is the next tier to buy. */}
       {(activeSection === 'all' || activeSection === 'gear') && (
         <div className="mb-8" data-testid="shop-gear">
           {activeSection === 'all' && <h2 className="shead mb-3">🪓 {gardenOn ? 'Tools and Bags' : 'Bags'}</h2>}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {gearShown.map(g => {
               const have = gear[g] ?? 0;
               const next = nextGearTier(g, gear);
@@ -478,7 +512,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
       {(activeSection === 'all' || activeSection === 'items') && (
         <div className="mb-8">
           {activeSection === 'all' && <h2 className="shead mb-3">⚔️ Curio Battle Items</h2>}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {SHOP_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -506,7 +540,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               Pick the curio you want. Fill the scroll&apos;s meter on the map with right answers, then battle it to catch it.
             </p>
           )}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {TRACKABLE_CURIOS.map(def => (
               <ShopCard
                 key={def.id}
@@ -573,7 +607,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
             </>
           )}
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {SCROLL_CATALOG
               .filter(item => activeSection === 'all' || scrollCategory === 'all' || item.category === scrollCategory)
               .filter(item => activeSection === 'all' || scrollElement === 'all' || item.element === scrollElement || item.category === 'unlearn' || item.category === 'universal')
@@ -606,7 +640,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               currently at its matching quality tier.
             </p>
           )}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {TOME_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -636,7 +670,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
               Unlock premium portraits for your Hero Profile. Once purchased, equip them anytime from your avatar picker.
             </p>
           )}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
+          <div className={grid}>
             {USERPIC_CATALOG.map(item => (
               <ShopCard
                 key={item.key}
@@ -664,7 +698,7 @@ export default function MonsterShop({ userId, currentStats, onSpendGold }: Props
           (2026-08-29). */}
       {selectedItem && (
         <div
-          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+          className={`fixed inset-0 bg-black/70 ${compact ? 'z-[95]' : 'z-50'} flex items-center justify-center p-4`}
           onClick={() => setSelectedItem(null)}
         >
           <div

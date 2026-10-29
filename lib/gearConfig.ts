@@ -67,7 +67,7 @@ export const GEAR: Record<GearId, GearDef> = {
     use: 'Catch fish by the water.',
     soon: 'Fishing spots are coming soon!',
     tiers: [
-      { tier: 1, name: 'Bamboo Rod', cost: 200, perk: 'Catch fish.' },
+      { tier: 1, name: 'Bamboo Rod', cost: 200, perk: 'Your first fishing rod.' },
       { tier: 2, name: 'Bronze Rod', cost: 1200, perk: 'Fish bite faster.' },
       { tier: 3, name: 'Silver Rod', cost: 3500, perk: 'Sometimes catch a rare fish!' },
       { tier: 4, name: 'Gold Rod', cost: 9000, perk: 'Sometimes catch 2 fish.' },

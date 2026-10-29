@@ -95,6 +95,20 @@ export const AMBIENCE: Record<Element | 'all', Ambience> = {
   },
 };
 
+// A map with a sky of its own instead of its element's. The Hideout island: a sea breeze carries
+// meadow petals and leaves, and lots of fireflies come out over the grass at night.
+const REGION_SKY: Record<string, Ambience> = {
+  hideout: {
+    clouds: { ...BASE_CLOUDS, cover: 0.2 },
+    drift: { kind: 'fall', colors: [0x7fae3e, 0xa8c84a, 0xfff0f5, 0xf7c6d9], count: 9, glow: false, wind: 12 },
+    sunset: 0xff9a7a,
+    fireflies: 26,
+  },
+};
+
+/** The sky over a map: its own (REGION_SKY) or its element's. */
+export const skyFor = (region: { id: string; element: Element | 'all' }): Ambience => REGION_SKY[region.id] ?? AMBIENCE[region.element];
+
 /** How much sunset there is now (0..1): it warms from 4:30 pm, peaks 5:45 to 6:15, gone by 7 pm (Manila). */
 export function sunsetStrength(now = Date.now()): number {
   const h = (((now / 3600_000) + 8) % 24 + 24) % 24;

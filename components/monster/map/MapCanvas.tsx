@@ -21,10 +21,13 @@ import type { MapCanvasSyncState, MapCanvasPlayer, MapBackground, Transform } fr
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
+import type { GrowBar } from '@/lib/phaserMap/growBars';
+import type { CookFx } from '@/lib/phaserMap/cookFire';
+import type { IslandCurioState } from '@/lib/phaserMap/islandCurios';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
-import type { ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
+import type { CanPour, ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
 import type { Ambience } from '@/lib/ambience';
 import type { CritterGroup, GroundFxKinds } from '@/lib/wildlife';
 import type { TownNpc } from '@/lib/townNpcs';
@@ -138,11 +141,17 @@ interface MapCanvasProps {
   wildTrees?: TreeSprite[];
   /** The Hideout's plots and the Hideout signpost in town. */
   props?: PropSprite[];
+  growBars?: GrowBar[];
+  cookFx?: CookFx[];
+  islandCurios?: IslandCurioState | null;
+  /** The kid's curio at their Hideout within reach (walk up, then E or tap), or null. */
+  onCurioNear?: (id: string | null) => void;
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   chopTree?: string | null;
   /** The tier of each tool the kid owns (the one they swing), and the latest pickaxe/shovel swing at a find. */
   tools?: Partial<Record<ToolId, number>>;
   toolStrike?: ToolStrike | null;
+  canPour?: CanPour | null;
   /** The plant or tree the player can use now (gold outline), and taps on the map. */
   highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll' | 'prop'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?". */
@@ -178,7 +187,7 @@ const NPC_APPROACH = 3;
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, scrollFates,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, treeSwing, chopTree, tools, toolStrike, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, growBars, cookFx, islandCurios, onCurioNear, treeSwing, chopTree, tools, toolStrike, canPour, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
@@ -271,6 +280,9 @@ export default function MapCanvas({
   // Guild NPC name tags (town), placed every frame where the scene's NPC walks.
   const npcTagElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
   const npcNearRef = useRef<string | null>(null);
+  const onCurioNearRef = useRef(onCurioNear);
+  useEffect(() => { onCurioNearRef.current = onCurioNear; }, [onCurioNear]);
+  const curioNearRef = useRef<string | null>(null);
   const onNpcNearRef = useRef(onNpcNear);
   useEffect(() => { onNpcNearRef.current = onNpcNear; }, [onNpcNear]);
   // Talk bubbles (lib/npcTalk.ts), placed every frame over their speaker like the name tags.
@@ -351,6 +363,7 @@ export default function MapCanvas({
 
   useEffect(() => {
     let destroyed = false;
+    let sharpTimer: ReturnType<typeof setTimeout> | undefined;
     (async () => {
       const [{ default: Phaser }, { default: TrainingMapScene, CANVAS_WIDTH, CANVAS_HEIGHT }] = await Promise.all([
         import('phaser'),
@@ -360,24 +373,52 @@ export default function MapCanvas({
 
       const scene = new TrainingMapScene();
       sceneRef.current = scene;
+      // The scene works in a fixed 896 x 504 picture that CSS stretches to the screen. Drawn at
+      // that size a phone shows each of its pixels as a 3-5 px block, so the canvas is made as
+      // many real screen pixels as it covers (capped at 2x for battery), and the scene's camera
+      // zooms by the same amount: everything still thinks in 896 x 504, it's just sharper.
+      const cssW = containerRef.current.getBoundingClientRect().width || CANVAS_WIDTH;
+      let sharp = Math.round(Math.min(2, Math.max(1, (cssW * (window.devicePixelRatio || 1)) / CANVAS_WIDTH)) * 4) / 4;
+      // A device that struggles can be set back to the plain picture (localStorage g5_map_sharp = 1).
+      let forced = false;
+      try { const set = Number(localStorage.getItem('g5_map_sharp')); if (set >= 1 && set <= 2) { sharp = set; forced = true; } } catch { /* private mode */ }
       gameRef.current = new Phaser.Game({
         type: Phaser.AUTO,
         parent: containerRef.current,
-        width: CANVAS_WIDTH,
-        height: CANVAS_HEIGHT,
+        width: CANVAS_WIDTH * sharp,
+        height: CANVAS_HEIGHT * sharp,
         transparent: true,
         pixelArt: true,
-        scale: { mode: Phaser.Scale.NONE },
+        // zoom: the canvas's CSS size stays 896 x 504 (what the rest of the map lines up with).
+        scale: { mode: Phaser.Scale.NONE, zoom: 1 / sharp },
         scene: [scene],
       });
       // Scene queues this (via its own `ready` guard) until create() has
       // actually run — safe to call immediately.
       if (latestStateRef.current) scene.sync(latestStateRef.current);
       if (pausedRef.current) gameRef.current.loop.sleep();
+      // Too slow for the sharp picture (an older phone): back to the plain one, so walking and
+      // the breeze stay smooth. Checked twice a few seconds in, after the map has loaded.
+      if (sharp > 1 && !forced) {
+        let slow = 0;
+        const check = () => {
+          const game = gameRef.current;
+          if (destroyed || !game) return;
+          if (pausedRef.current) { sharpTimer = setTimeout(check, 3000); return; }
+          slow = game.loop.actualFps < 38 ? slow + 1 : 0;
+          if (slow < 2) { sharpTimer = setTimeout(check, 2000); return; }
+          console.info(`map: ${Math.round(game.loop.actualFps)} fps, back to the plain picture`);
+          game.scale.resize(CANVAS_WIDTH, CANVAS_HEIGHT);
+          game.scale.setZoom(1);
+          scene.cameras.main.setZoom(1);
+        };
+        sharpTimer = setTimeout(check, 4000);
+      }
     })();
 
     return () => {
       destroyed = true;
+      clearTimeout(sharpTimer);
       gameRef.current?.destroy(true);
       gameRef.current = null;
       sceneRef.current = null;
@@ -422,10 +463,14 @@ export default function MapCanvas({
       gardenPlants,
       wildTrees,
       props,
+      growBars,
+      cookFx,
+      islandCurios,
       treeSwing,
       chopTree,
       tools,
       toolStrike,
+      canPour,
       highlight,
       onMapTap,
       ambience,
@@ -489,6 +534,16 @@ export default function MapCanvas({
           el.style.left = `${lp(px)}%`;
           el.style.top = `${tp(py)}%`;
         });
+        {
+          // The kid's own curios at their Hideout: the one in reach.
+          let near: string | null = null, best = 1.5;
+          for (const c of sceneRef.current?.getIslandCurioSpots() ?? []) {
+            // Spots are tile middles (x + 0.5), like the kid's own float position.
+            const d = Math.hypot(c.x - x, c.y - y);
+            if (d < best) { best = d; near = c.id; }
+          }
+          if (near !== curioNearRef.current) { curioNearRef.current = near; onCurioNearRef.current?.(near); }
+        }
         if (npcTagElsRef.current.size || npcBubbleElsRef.current.size) {
           const spots = new Map((sceneRef.current?.getNpcSpots() ?? []).map(n => [n.id, n]));
           // Coming close to a town NPC (they may say something), once per visit.

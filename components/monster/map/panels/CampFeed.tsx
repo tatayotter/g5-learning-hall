@@ -26,7 +26,7 @@ export function BondHearts({ hearts, size = 12 }: { hearts: number; size?: numbe
   return (
     <span className="inline-flex gap-px" aria-label={`${hearts} of ${MAX_BOND_HEARTS} hearts`}>
       {Array.from({ length: MAX_BOND_HEARTS }, (_, i) => (
-        <img key={i} src={i < hearts ? '/craft/heart_full.png' : '/craft/heart_empty.png'} alt="" width={size} height={size} style={{ imageRendering: 'pixelated' }} />
+        <img key={i} src={i < hearts ? '/craft/heart_full.png' : '/craft/heart_empty.png'} alt="" width={size} height={Math.round(size * 11 / 13)} style={{ imageRendering: 'pixelated' }} />
       ))}
     </span>
   );

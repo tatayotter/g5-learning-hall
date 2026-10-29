@@ -59,6 +59,7 @@ import GuildsTab from '@/components/dashboard/GuildsTab';
 import BonusQuestsTab from '@/components/dashboard/BonusQuestsTab';
 import VaultTab from '@/components/dashboard/VaultTab';
 import VaultKeeperNpc from '@/components/VaultKeeperNpc';
+import ShopPopup from '@/components/game/ShopPopup';
 import CurioExpertNpc from '@/components/CurioExpertNpc';
 import EventAnnouncementPopup from '@/components/EventAnnouncementPopup';
 import CurioRevealModal from '@/components/CurioRevealModal';
@@ -567,15 +568,14 @@ export default function Dashboard() {
     if (tab !== 'monster') setGuildInitialView(undefined);
     setActiveTabState(tab);
   }, []);
-  // A town NPC on the map opens a page (lib/townNpcs.ts). The Shop lives in the Vault tab, under
-  // the real-world rewards for some kids, so the Shopkeeper scrolls straight down to it.
+  // A town NPC on the map opens a page (lib/townNpcs.ts). The Shopkeeper opens the Shop as a
+  // pop-up over the map (components/game/ShopPopup.tsx); the Vault tab keeps the full page.
+  const [shopPopup, setShopPopup] = useState(false);
   const openTownPage = useCallback((page: TownPage) => {
     if (page === 'quests') { setActiveTab('board'); return; }
     if (page === 'journal' || page === 'curios') { setActiveTab(page === 'curios' ? 'monster' : 'journal'); return; }
+    if (page === 'shop') { setShopPopup(true); return; }
     setActiveTab('vault');
-    if (page === 'shop') {
-      window.setTimeout(() => document.querySelector('[data-tutorial-id="vault-welcome"]')?.scrollIntoView({ block: 'start' }), 350);
-    }
   }, [setActiveTab]);
   // The five-tab navigation (components/nav/GameNav.tsx), per kid behind the
   // new_nav flag; everyone else keeps the compass drawer.
@@ -1788,6 +1788,15 @@ export default function Dashboard() {
         )}
 
         {activeTab === 'vault' && <VaultKeeperNpc key={vaultGreetKey} />}
+        {shopPopup && (
+          <ShopPopup
+            userId={activeUserId}
+            currentStats={data.character_stats}
+            onSpendGold={setCharacterStatsDirect}
+            onThemeChange={handleThemeChange}
+            onClose={() => setShopPopup(false)}
+          />
+        )}
 
         {/* --- TAB: SIDE QUEST GUILDS --- */}
         {activeTab === 'guilds' && (

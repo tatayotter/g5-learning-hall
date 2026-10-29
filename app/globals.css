@@ -1211,6 +1211,10 @@ body.battle-fullscreen-active .arena-fab { display: none; }
   padding: 16px;
   overflow-y: auto;
 }
+/* A game pop-up (components/game/GamePopup.tsx, inline) docks to the bottom on a phone. */
+@media (max-width: 639px) {
+  .stage-overlay:has(> .gp-inline) { align-items: flex-end; padding: 0; }
+}
 
 /* ── Map Stage — World Map / Training Map shell ──────────────────────────
    Same fixed 896x504 canvas + mobile-fullscreen treatment as the battle

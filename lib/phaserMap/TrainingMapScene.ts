@@ -71,12 +71,17 @@ import GardenPlants, { type PlantSprite } from './gardenPlants';
 import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import HideoutProps, { type PropSprite } from './hideoutProps';
+import GrowBars, { type GrowBar } from './growBars';
+import CookFire, { type CookFx } from './cookFire';
+import IslandCurios, { type Grounds as IslandCurioGrounds, type IslandCurioState } from './islandCurios';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
 
 /** One pickaxe or shovel swing at the find on tile (x, y); n goes up by one per swing. */
 export interface ToolStrike { n: number; id: string; tool: ToolId; x: number; y: number }
+/** A watering after a right answer: the can's tier and the tiles watered. */
+export interface CanPour { n: number; tier: number; tiles: { x: number; y: number }[] }
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT, MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
 import AmbienceLayer, { GLOW_DEPTH } from './ambience';
@@ -176,6 +181,12 @@ export interface MapCanvasSyncState {
   wildTrees?: TreeSprite[];
   /** The Hideout's plots and the Hideout signpost (lib/phaserMap/hideoutProps.ts). */
   props?: PropSprite[];
+  /** Progress bars over what a kid is growing (the Hideout). */
+  growBars?: GrowBar[];
+  /** Kitchens that are cooking: fire under the pot and steam (lib/phaserMap/cookFire.ts). */
+  cookFx?: CookFx[];
+  /** The kid's curios roaming their Hideout (lib/phaserMap/islandCurios.ts). */
+  islandCurios?: IslandCurioState | null;
   /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
@@ -184,6 +195,7 @@ export interface MapCanvasSyncState {
   tools?: Partial<Record<ToolId, number>>;
   /** The latest pickaxe or shovel swing at a find. */
   toolStrike?: ToolStrike | null;
+  canPour?: CanPour | null;
   /** The plant or tree the player is close enough to use: drawn with a gold outline. */
   highlight?: { kind: 'plant' | 'tree' | 'npc' | 'scroll' | 'prop'; id: string } | null;
   /** The mark over each town NPC: Baylan's "!", a guild's "?" or a grey "?" (lib/phaserMap/guildNpcs.ts). */
@@ -354,6 +366,13 @@ export default class TrainingMapScene extends Phaser.Scene {
   private gardenPlants: PlantSprite[] = [];
   private props: HideoutProps | null = null;
   private propSprites: PropSprite[] = [];
+  private growBarList: GrowBar[] = [];
+  private growBars: GrowBars | null = null;
+  private cookFire: CookFire | null = null;
+  private cookFxList: CookFx[] = [];
+  private islandCurios: IslandCurios | null = null;
+  private islandCurioState: IslandCurioState | null = null;
+  private islandGrounds: IslandCurioGrounds | null = null;
   private wildTrees: WildTrees | null = null;
   private chopSwing: ChopSwing | null = null;
   private chopTree: string | null = null;
@@ -396,6 +415,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   private onMapTap: MapCanvasSyncState['onMapTap'];
   private lastTreeSwing = 0;
   private lastToolStrike = 0;
+  private lastCanPour = 0;
   private tilemap: Phaser.Tilemaps.Tilemap | null = null;
   private self: TrackedSprite | null = null;
   private others = new Map<string, OtherTrackedSprite>();
@@ -444,6 +464,9 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees?.update(time, this.windStrength);
     this.garden?.update(time);
     this.props?.update(time);
+    this.growBars?.update(time);
+    this.cookFire?.update(time);
+    if (this.islandCurios) this.islandCurios.update(time, this.walkers().find(w => w.id === 'self') ?? null);
     this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.npcLayer?.syncOutlines(time);
@@ -681,6 +704,9 @@ export default class TrainingMapScene extends Phaser.Scene {
     return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
   }
 
+  /** Where each of the kid's curios stands at their Hideout (tile, feet). */
+  getIslandCurioSpots(): { id: string; x: number; y: number }[] { return this.islandCurios?.spots() ?? []; }
+
   /** A town NPC's little greeting hop (lib/phaserMap/guildNpcs.ts). */
   nodNpc(id: string) { this.npcLayer?.nod(id); }
 
@@ -812,6 +838,10 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   create() {
     this.ready = true;
+    // A canvas bigger than 896 x 504 (sharper on a phone, MapCanvas.tsx): the camera zooms from
+    // the top-left corner so the scene keeps drawing in 896 x 504.
+    const sharp = this.scale.width / CANVAS_WIDTH;
+    if (sharp !== 1) this.cameras.main.setOrigin(0, 0).setZoom(sharp);
     const tap = (gx: number, gy: number) => {
       const t = this.lastTransform;
       this.onMapTap?.(Math.floor((gx - t.offsetX) / t.tileW), Math.floor((gy - t.offsetY) / t.tileH));
@@ -823,7 +853,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const { clientX, clientY } = (e as CustomEvent<{ clientX: number; clientY: number }>).detail;
       const rect = this.game.canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
-      tap((clientX - rect.left) * (this.scale.width / rect.width), (clientY - rect.top) * (this.scale.height / rect.height));
+      tap((clientX - rect.left) * (CANVAS_WIDTH / rect.width), (clientY - rect.top) * (CANVAS_HEIGHT / rect.height));
     };
     const onWalkTarget = (e: Event) => this.setWalkMark((e as CustomEvent<{ x: number; y: number } | null>).detail);
     window.addEventListener(MAP_WALK_TARGET_EVENT, onWalkTarget);
@@ -1035,16 +1065,16 @@ export default class TrainingMapScene extends Phaser.Scene {
     if (!animated) {
       const key = textureKeyFor(spriteSrc);
       this.ensureTexture(key, spriteSrc, () => {
-        // Override pixelArt:true global setting — player avatars are smooth
-        // PNG art, not pixel sprites, and need bilinear filtering.
-        this.setLinearFilter(key);
-        onReady(this.bakeSmoothTexture(key, targetSize));
+        // Player avatars are smooth painted art, not pixel sprites: baked at twice the size they
+        // stand at (so zooming in stays sharp) and drawn with real bilinear filtering (so zooming
+        // out doesn't turn them into boxes).
+        onReady(this.bakeSmoothTexture(key, targetSize * 2, true));
       });
       return;
     }
     const key = textureKeyFor(spriteSrc);
     this.ensureSpritesheet(key, animated.spriteSheet, animated.frameWidth, animated.frameHeight, () => {
-      this.setLinearFilter(key);
+      this.setSmoothFilter(key);
       if (!this.anims.exists(animated.animKey)) {
         this.anims.create({
           key: animated.animKey,
@@ -1116,6 +1146,14 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.setPlants(this.gardenPlants);
     this.propSprites = state.props ?? [];
     this.props?.setProps(this.propSprites);
+    this.growBarList = state.growBars ?? [];
+    this.growBars?.setBars(this.growBarList);
+    this.cookFxList = state.cookFx ?? [];
+    this.cookFire?.setFx(this.cookFxList);
+    this.islandCurioState = state.islandCurios ?? null;
+    this.islandGrounds = state.wildlife?.habitat ?? null;
+    this.islandCurios?.setGrounds(this.islandGrounds);
+    this.islandCurios?.setState(this.islandCurioState);
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
@@ -1154,6 +1192,11 @@ export default class TrainingMapScene extends Phaser.Scene {
       if (this.chopSwing && this.self) {
         this.chopSwing.strike(`find:${strike.id}:${strike.n}`, strike.tool, strike.x, strike.y, this.self.x, this.self.y, this.selfFacingRight, () => {});
       }
+    }
+    const pour = state.canPour;
+    if (pour && pour.n !== this.lastCanPour) {
+      this.lastCanPour = pour.n;
+      if (this.chopSwing && this.self) this.chopSwing.pour(pour.tier, pour.tiles, this.self.x, this.self.y, this.selfFacingRight);
     }
     if (state.treeSwing && state.treeSwing.n !== this.lastTreeSwing) {
       this.lastTreeSwing = state.treeSwing.n;
@@ -1255,6 +1298,9 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.trees = null;
     this.garden = null;
     this.props = null;
+    this.growBars = null;
+    this.cookFire = null;
+    this.islandCurios = null;
     this.wildTrees = null;
     this.chopSwing = null;
     this.topLayer = null;
@@ -1351,6 +1397,18 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.props = new HideoutProps(this, anyLayer, 8.45, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.props.container);
         this.props.setProps(this.propSprites);
+        // Over the plants and the players, under the map's own canopies.
+        this.growBars = new GrowBars(this, anyLayer, topLayer ? topLayer.depth - 0.05 : 10.9);
+        this.tilemapLayers.push(this.growBars.container);
+        this.growBars.setBars(this.growBarList);
+        // The Kitchen's fire and steam, just over the plots.
+        this.cookFire = new CookFire(this, anyLayer, 8.47);
+        this.tilemapLayers.push(this.cookFire.container);
+        this.cookFire.setFx(this.cookFxList);
+        // The kid's curios at their Hideout: over the plants, under the players.
+        this.islandCurios = new IslandCurios(this, anyLayer, 8.6, this.islandGrounds, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.islandCurios.container);
+        this.islandCurios.setState(this.islandCurioState);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);
@@ -1636,7 +1694,7 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  halving via Canvas2D (which *does* do quality minification) down to
    *  the actual target size once, so what WebGL displays afterward is a
    *  near-1:1 sample instead of an 5-8x-aliased one. */
-  private bakeSmoothTexture(sourceKey: string, targetSize: number): string {
+  private bakeSmoothTexture(sourceKey: string, targetSize: number, smooth = false): string {
     const size = Math.max(1, Math.round(targetSize));
     const smoothKey = `smooth:${sourceKey}:${size}`;
     if (this.textures.exists(smoothKey)) return smoothKey;
@@ -1679,7 +1737,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     finalCtx.drawImage(cur as CanvasImageSource, 0, 0, curW, curH, 0, 0, dstW, dstH);
 
     this.textures.addCanvas(smoothKey, final);
-    this.setLinearFilter(smoothKey);
+    if (smooth) this.setSmoothFilter(smoothKey);
+    else this.setLinearFilter(smoothKey);
     return smoothKey;
   }
 
@@ -1878,6 +1937,12 @@ export default class TrainingMapScene extends Phaser.Scene {
    *  positions aligned with the panning camera — same pattern as updateSelfPosition(). */
   /** Apply bilinear (LINEAR) filtering to one texture, overriding the global
    *  pixelArt:true setting. Safe to call repeatedly — no-ops once set. */
+  /** Real bilinear filtering (FilterMode.LINEAR), for painted art that's drawn smaller or bigger
+   *  than its pixels: the player avatars. */
+  private setSmoothFilter(key: string) {
+    try { this.textures.get(key).setFilter(Phaser.Textures.FilterMode.LINEAR); } catch { /* older Phaser */ }
+  }
+
   private setLinearFilter(key: string) {
     try {
       // NOTE: Phaser's FilterMode is LINEAR=0, NEAREST=1, so this has always

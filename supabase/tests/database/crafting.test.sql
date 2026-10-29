@@ -1,11 +1,12 @@
 -- pgTAP tests for 20261029090000_crafting_step1.sql: a wood for each tree and its price, Hideout
 -- build costs that rise (and take gold), the Workbench, Compost Bin and Kitchen and their recipes
 -- (wrong answers use nothing, replays count once, trash comes off the server's copy), and bond
--- hearts: feeding twice a day, fading one a day, at most 5, and never set by the player.
+-- hearts: feeding twice a day, fading one a day, at most 5, and never set by the player. Kitchen food
+-- cooks for a while first (20261029130000_kitchen_cooking_time.sql).
 
 begin;
 create extension if not exists pgtap;
-select plan(55);
+select plan(67);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
@@ -151,11 +152,32 @@ reset role;
 select pg_temp.give('{"wood_ember": 15, "wood_pine": 15, "veggie_corn": 2, "veggie_beans": 1}');
 set local role authenticated;
 select is((pg_temp.build('kitchen') ->> 'ok')::boolean, true, 'the Kitchen is built');
-select is(pg_temp.craft('curio_kibble', 7) ->> 'output_qty', '3', 'Curio Kibble makes 3');
-select is(pg_temp.have('food_kibble'), 3, 'in the bag');
+create temp table kib as select pg_temp.craft('curio_kibble', 7) as r;
+select is((select r ->> 'status' from kib), 'cooking', 'Curio Kibble goes in the pot');
+select is((select r ->> 'output_qty' from kib), '3', 'Curio Kibble makes 3');
+select ok((select (r ->> 'ready_at')::timestamptz > now() + interval '40 seconds' from kib), 'it cooks for 45 seconds');
+select is(pg_temp.have('food_kibble'), 0, 'not in the bag while it cooks');
 select is(pg_temp.have('veggie_corn'), 0, '2 corn used');
-select is(pg_temp.craft('veggie_stew', 8) ->> 'status', 'crafted', 'Veggie Stew from any 3 veggies');
+select is(pg_temp.craft('veggie_stew', 8) ->> 'status', 'busy', 'one pot at a time');
+select is(public.collect_cooking((select kid from fx), 'kitchen') ->> 'status', 'not_ready', 'it cannot be taken out early');
+select is(pg_temp.have('food_kibble'), 0, 'still not in the bag');
+select is((select count(*)::int from player_cooking), 1, 'a kid sees their own pot');
+select throws_ok($$ update player_cooking set ready_at = now() $$, '42501', null, 'and cannot rush it');
+reset role;
+update player_cooking set ready_at = now() - interval '1 second' where user_id = (select kid from fx);
+set local role authenticated;
+select is(public.collect_cooking((select kid from fx), 'kitchen') ->> 'status', 'collected', 'once it is cooked it comes out');
+select is(pg_temp.have('food_kibble'), 3, 'in the bag');
+select is(public.collect_cooking((select kid from fx), 'kitchen') ->> 'status', 'empty', 'the pot is empty after');
+select is(pg_temp.craft('veggie_stew', 8) ->> 'status', 'cooking', 'Veggie Stew from any 3 veggies');
+reset role;
+update player_cooking set ready_at = now() - interval '1 second' where user_id = (select kid from fx);
+set local role authenticated;
+select is(public.collect_cooking((select kid from fx), 'kitchen') ->> 'output', 'veggie_stew', 'Veggie Stew comes out');
 select is((select quantity from player_inventory where app_user_id = (select kid from fx) and item_key = 'veggie_stew'), 1, 'it goes with the battle items');
+select pg_temp.login_as((select other_auth from fx));
+select throws_ok($$ select public.collect_cooking((select kid from fx), 'kitchen') $$, 'not authorized', 'nobody else can take it out');
+select pg_temp.login_as((select kid_auth from fx));
 reset role;
 update player_progress set gold = 10 where user_id = (select kid from fx);
 select pg_temp.give('{"veggie_tomato": 3}');

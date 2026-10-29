@@ -72,7 +72,7 @@ create or replace function pg_temp.harvest(p_plot text) returns jsonb as $$
 $$ language sql;
 
 select is((select count(*)::int from hideout_plot_defs where part_of is null), 14, 'the island has 14 plots (with the Workbench and Compost Bin)');
-select is((select count(*)::int from hideout_plot_defs where part_of = 'bed_3'), 6, 'a garden pen has 6 soil tiles');
+select is((select count(*)::int from hideout_plot_defs where part_of = 'bed_3'), 9, 'a garden pen has 9 soil tiles');
 select is((select count(*)::int from hideout_plot_defs where kind = 'grove'), 6, 'six of them are tree spots');
 
 update feature_flags set mode = 'allowlist', allowlist = array[(select kid from fx)] where key = 'garden';
@@ -104,7 +104,7 @@ set local role authenticated;
 select is((pg_temp.build('bed_1') ->> 'ok')::boolean, true, '10 Maple Wood, 10 Oak Wood and 50 gold build the first garden bed');
 select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'wood_oak'), 20, 'the wood left the bag');
 select is(pg_temp.build('bed_1') ->> 'reason', 'built', 'a bed is built once');
-select is((select count(*)::int from player_hideout_plots where user_id = (select kid from fx) and plot_id like 'bed\_1\_%'), 6, 'and comes with its 6 tiles');
+select is((select count(*)::int from player_hideout_plots where user_id = (select kid from fx) and plot_id like 'bed\_1\_%'), 9, 'and comes with its 9 tiles');
 select is(pg_temp.build('kitchen') ->> 'reason', 'items', 'the kitchen can be built now, with Ember and Pine Wood');
 
 -- ── Planting ──

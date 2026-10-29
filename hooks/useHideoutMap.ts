@@ -16,6 +16,10 @@ import { manilaToday } from '@/lib/appDay';
 import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { GrowBar } from '@/lib/phaserMap/growBars';
+import type { CookFx } from '@/lib/phaserMap/cookFire';
+import { fetchCooking, type CookingPot } from '@/lib/crafting';
+import { recipeById } from '@/lib/craftingConfig';
 
 // What a plot is up to now.
 export type PlotPhase =
@@ -40,6 +44,8 @@ export interface HideoutSpot {
   item?: string | null;
   readyAt?: number | null;
   watered?: boolean;
+  // The Kitchen: what's in its pot.
+  pot?: CookingPot | null;
   // The button's words and icon.
   label: string;
   icon: string;
@@ -71,6 +77,15 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
   }, [onIsland]);
   const today = manilaToday();
 
+  // Food cooking in the Kitchen's pot (lib/crafting.ts).
+  const [pots, setPots] = useState<CookingPot[]>([]);
+  useEffect(() => {
+    if (!onIsland || !online) return;
+    let gone = false;
+    void fetchCooking(userId).then(p => { if (p && !gone) setPots(p); });
+    return () => { gone = true; };
+  }, [onIsland, online, userId]);
+
   const spots: HideoutSpot[] = useMemo(() => {
     if (inTown) {
       return [{
@@ -91,7 +106,12 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       }
       if (def.kind === 'camp') { out.push({ ...base, phase: 'camp', label: 'Curio Camp', icon: PLOT_ART.camp.src }); continue; }
       if (def.kind === 'kitchen' || def.kind === 'workbench' || def.kind === 'compost') {
-        out.push({ ...base, phase: 'station', label: def.kind === 'kitchen' ? 'Cook' : `Use ${def.name}`, icon: PLOT_ART[def.kind].src });
+        const pot = pots.find(o => o.station === def.id) ?? null;
+        const food = pot ? recipeById(pot.recipe) : null;
+        const label = def.kind !== 'kitchen' ? `Use ${def.name}`
+          : !pot ? 'Cook'
+          : now >= pot.readyAt ? `Take out ${food?.name ?? 'the food'}` : `${food?.name ?? 'Food'} is cooking`;
+        out.push({ ...base, phase: 'station', pot, readyAt: pot?.readyAt ?? null, label, icon: pot && food ? food.icon : PLOT_ART[def.kind].src });
         continue;
       }
       // A built garden bed: each of its soil tiles is a spot of its own, one seed packet each.
@@ -125,13 +145,21 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       else out.push({ ...spot, phase: 'ripe', label: 'Collect Wood', icon: gardenItemIcon(woodKey(p.item as TreeId)) });
     }
     return out;
-  }, [inTown, onIsland, state, places, now, today]);
+  }, [inTown, onIsland, state, places, now, today, pots]);
 
   // What each spot looks like on the map.
   const look = useMemo(() => {
     const props: PropSprite[] = [];
     const crops: PlantSprite[] = [];
     const trees: TreeSprite[] = [];
+    // A bar over everything growing, at the top of its art.
+    const bars: GrowBar[] = [];
+    // Fire and steam at a Kitchen that's cooking.
+    const cooks: CookFx[] = [];
+    const bar = (s: HideoutSpot, top: number) => {
+      const p = state.plots[s.id];
+      if (p?.plantedAt != null && p.readyAt != null && now < p.readyAt) bars.push({ id: s.id, x: s.x, y: s.y, plantedAt: p.plantedAt, readyAt: p.readyAt, top, watered: p.wateredAt !== null });
+    };
     for (const s of spots) {
       if (s.kind === 'signpost') { props.push({ id: s.id, src: SIGNPOST_ART.src, x: s.x, y: s.y }); continue; }
       const def = s.plot!;
@@ -139,13 +167,22 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       if (s.phase === 'unbuilt') { props.push(art('site')); continue; }
       if (s.phase === 'soon') { props.push(art('kitchen_soon')); continue; }
       if (def.kind === 'camp') { props.push(art('camp')); continue; }
-      if (def.kind === 'kitchen' || def.kind === 'workbench' || def.kind === 'compost') { props.push(art(def.kind)); continue; }
+      if (def.kind === 'kitchen' || def.kind === 'workbench' || def.kind === 'compost') {
+        props.push(art(def.kind));
+        if (s.pot) {
+          cooks.push({ id: s.id, x: s.x, y: s.y, readyAt: s.pot.readyAt });
+          if (now < s.pot.readyAt) bars.push({ id: s.id, x: s.x, y: s.y, plantedAt: s.pot.startedAt, readyAt: s.pot.readyAt, top: 52, color: 0xf59e0b });
+        }
+        continue;
+      }
       if (def.kind === 'bed') {
         // A garden bed's tile: the pen's own dirt, and the crop once one is planted.
         const p = state.plots[s.id];
         if (p?.item && p.plantedAt !== null && p.readyAt !== null) {
           const stage = cropStage(p.plantedAt, p.readyAt, now);
-          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall: VEGGIES[p.item as VeggieId]?.tall ?? false, stage });
+          const tall = VEGGIES[p.item as VeggieId]?.tall ?? false;
+          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall, stage });
+          bar(s, stage === 'picked' ? 14 : tall ? 50 : 26);
         }
         continue;
       }
@@ -156,16 +193,19 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       if (stage === 'grown') {
         trees.push({ id: s.id, tree: p.item as TreeId, x: s.x, y: s.y, stage: 'ready', hits: 0 });
       } else if (stage === 'young') {
+        bar(s, 76);
         props.push({ id: s.id, src: `/garden/tree_${p.item}.png`, x: s.x, y: s.y, frame: { x: 0, y: 0, w: 128, h: 160 }, anchor: { x: 64, y: 134 }, scale: 0.55 });
       } else {
+        bar(s, 34);
         props.push({ id: s.id, src: gardenItemIcon(saplingKey(p.item as TreeId)), x: s.x, y: s.y, anchor: { x: 50, y: 96 }, scale: 0.36 });
       }
     }
-    return { props, crops, trees };
+    return { props, crops, trees, bars, cooks };
   }, [spots, state.plots, now]);
 
-  // The plots and the signpost are solid: a kid uses one from a tile beside it.
-  const blocked = useMemo(() => spots.flatMap(s => s.tiles), [spots]);
+  // The plots and the signpost are solid: a kid uses one from a tile beside it. A built pen's soil
+  // tiles are not: a kid walks onto a tile to plant it.
+  const blocked = useMemo(() => spots.flatMap(s => (s.bed ? [] : s.tiles)), [spots]);
 
   // A garden bed's ripe tiles: harvesting one picks them all.
   const ripeInBed = (s: HideoutSpot) => (s.bed ? spots.filter(o => o.bed === s.bed && o.phase === 'ripe') : [s]);
@@ -187,7 +227,7 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
     }, 0);
   };
 
-  return { api, onIsland, inTown, spots, ...look, blocked, squaresForHarvest, ripeInBed };
+  return { api, onIsland, inTown, spots, ...look, blocked, squaresForHarvest, ripeInBed, pots, setPots };
 }
 
 export type HideoutMap = ReturnType<typeof useHideoutMap>;

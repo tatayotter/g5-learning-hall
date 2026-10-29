@@ -20,6 +20,9 @@ export interface Marks {
 }
 
 export interface GroundLook {
+  // The plain ground's colour, when the map's most common colour isn't it (the Hideout island is
+  // mostly sea). Left out: found on the map.
+  ground?: RGB;
   // Big soft patches: darker where the noise is low, lighter where it's high. Their edges are
   // dithered pixel by pixel, so they never look like tiles or circles.
   patches?: {
@@ -62,6 +65,8 @@ export const GROUND_LOOKS: Record<string, GroundLook> = {
   // ripples and shell bits on the sand).
   hideout: {
     ...MEADOW,
+    // The sea covers more of the map than the grass does.
+    ground: [128, 132, 73],
     marks: [
       ...MEADOW.marks!,
       { stamps: ['s', 's.s', 's\n.s'], colors: { s: [196, 180, 124] }, every: 5, chance: 0.6, nearExtra: 26 },
@@ -221,8 +226,9 @@ export function paintGround(px: Uint8ClampedArray, W: number, H: number, look: G
 // The same, a strip at a time: it pauses (yields) every few milliseconds' worth of work, so the
 // game can spread it over several frames instead of stalling one.
 export function* paintGroundSteps(px: Uint8ClampedArray, W: number, H: number, look: GroundLook, seedName: string): Generator<void, boolean> {
-  const { color, share } = flatColor(px);
-  if (color < 0 || share < 0.15) return false;
+  const found = flatColor(px);
+  const color = look.ground ? (look.ground[0] << 16) | (look.ground[1] << 8) | look.ground[2] : found.color;
+  if (color < 0 || (!look.ground && found.share < 0.15)) return false;
   const seed = seedOf(seedName);
   const extra = look.extra ? (look.extra.color[0] << 16) | (look.extra.color[1] << 8) | look.extra.color[2] : -1;
   // 1 = the plain ground, 2 = the extra colour (sand), 0 = anything else.

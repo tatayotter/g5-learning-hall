@@ -12,11 +12,11 @@
 import Phaser from 'phaser';
 import { gustAt } from '@/lib/ambience';
 
-// The Trees tileset's global ids in Ledger's Heart (firstgid 5121, 1024 tiles),
-// minus the tall-grass tufts that live on the same sheet.
-const TREE_GIDS = { first: 5121, last: 6144 };
-const NOT_CANOPY = new Set([5491, 5492, 5493]);
-const isTree = (index: number) => index >= TREE_GIDS.first && index <= TREE_GIDS.last && !NOT_CANOPY.has(index);
+// Tiles from the Trees tileset (whatever its firstgid on a map: 5121 in Ledger's Heart, 7169 on
+// the Hideout islands and Rootbound), minus the tall-grass tufts that live on the same sheet.
+const NOT_CANOPY = new Set([370, 371, 372]);
+const isTree = (tile: Phaser.Tilemaps.Tile | null | undefined) =>
+  !!tile && tile.index >= 0 && tile.tileset?.name === 'Trees' && !NOT_CANOPY.has(tile.index - tile.tileset.firstgid);
 
 const SWAY_PERIOD_MS = 7000;
 const WAVE_X = 0.12;
@@ -47,11 +47,11 @@ export default class SwayingTrees {
     this.container.setScale(top.scaleX);
     this.container.setDepth(top.depth + 0.5);
     const treeAt = (x: number, y: number) =>
-      isTree(top.getTileAt(x, y)?.index ?? -1) || isTree(base?.getTileAt(x, y)?.index ?? -1);
+      isTree(top.getTileAt(x, y)) || isTree(base?.getTileAt(x, y));
     // How many rows of tree sit below each canopy tile (0 = trunk row).
     const below = new Map<Phaser.Tilemaps.Tile, number>();
     top.forEachTile(tile => {
-      if (!isTree(tile.index) || !tile.tileset?.image) return;
+      if (!isTree(tile) || !tile.tileset?.image) return;
       let n = 0;
       while (n < 3 && treeAt(tile.x, tile.y + n + 1)) n++;
       below.set(tile, n);

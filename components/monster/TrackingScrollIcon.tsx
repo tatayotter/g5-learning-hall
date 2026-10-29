@@ -1,5 +1,5 @@
 'use client';
-// A Tracking Scroll's icon: a rolled parchment scroll with a wax-seal emblem
+// A Tracking Scroll's icon: Rowil's parchment scroll (public/items/tracking_scroll.png) with a wax-seal emblem
 // showing the face of the curio it tracks, the seal tinted by that curio's
 // element. Used everywhere a scroll appears (map slots, bag, Shop, Compendium)
 // so each of the 27 scrolls is recognisable at a glance.
@@ -59,24 +59,17 @@ export default function TrackingScrollIcon({ monster, className = 'w-12 h-12' }:
   return (
     <span className={`relative inline-block shrink-0 ${className}`} role="img" aria-label={`Tracking Scroll: ${monster.name}`}>
       <svg viewBox="0 0 64 64" className="absolute inset-0 w-full h-full drop-shadow-[0_2px_2px_rgba(42,21,5,0.45)]" aria-hidden>
-        {/* paper */}
-        <path d="M13 11 H51 V53 H13 Z" fill="#f0dcae" stroke="#8b5e2a" strokeWidth="2" />
-        {/* rolled ends */}
-        <rect x="8" y="5" width="48" height="9" rx="4.5" fill="#d8b77c" stroke="#6b4820" strokeWidth="2" />
-        <rect x="8" y="50" width="48" height="9" rx="4.5" fill="#d8b77c" stroke="#6b4820" strokeWidth="2" />
-        <path d="M12 8.5 H52 M12 53.5 H52" stroke="#f3e2bb" strokeWidth="1.4" strokeLinecap="round" />
-        {/* seal ribbons */}
-        <path d="M26 48 L22 60 L27 57 L29 61 L31 50 Z" fill={seal.rim} />
-        <path d="M38 48 L42 60 L37 57 L35 61 L33 50 Z" fill={seal.rim} />
+        {/* the scroll (Rowil's art), its plain middle left for the seal */}
+        <image href="/items/tracking_scroll.png" x="0" y="0" width="64" height="64" style={{ imageRendering: 'pixelated' }} />
         {/* wax seal */}
-        <circle cx="32" cy="35" r="19" fill={seal.fill} stroke={seal.rim} strokeWidth="2.5" />
-        <circle cx="32" cy="35" r="15.5" fill="#fff7e6" stroke={seal.rim} strokeWidth="1" />
-        <clipPath id={clip}><circle cx="32" cy="35" r="15" /></clipPath>
+        <circle cx="32" cy="28.5" r="13" fill={seal.fill} stroke={seal.rim} strokeWidth="2" />
+        <circle cx="32" cy="28.5" r="10.5" fill="#fff7e6" stroke={seal.rim} strokeWidth="1" />
+        <clipPath id={clip}><circle cx="32" cy="28.5" r="10" /></clipPath>
         {failed ? (
-          <text x="32" y="40" textAnchor="middle" fontSize="16">{monster.emoji}</text>
+          <text x="32" y="33" textAnchor="middle" fontSize="12">{monster.emoji}</text>
         ) : (
           <g clipPath={`url(#${clip})`}>
-            <svg x="17" y="20" width="30" height="30" viewBox={face ? `${face[2]} ${face[3]} ${face[4]} ${face[4]}` : '0 0 100 100'} preserveAspectRatio="xMidYMid slice">
+            <svg x="22" y="18.5" width="20" height="20" viewBox={face ? `${face[2]} ${face[3]} ${face[4]} ${face[4]}` : '0 0 100 100'} preserveAspectRatio="xMidYMid slice">
               <image
                 href={`/monsters/${monster.spriteId ?? monster.id}.webp`}
                 width={face ? face[0] : 100} height={face ? face[1] : 100}
