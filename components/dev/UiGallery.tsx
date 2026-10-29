@@ -662,7 +662,9 @@ export default function UiGallery() {
             { quality: 'good', tries: 2 },
             { quality: 'perfect', tries: 1 },
           ] as const).map(c => (
-            <CurioEncounterPanel key={c.quality} curioDef={ALL_MONSTERS.bubbloon} quality={c.quality} attemptsLeft={c.tries} onBattle={() => {}} onRunAway={() => {}} />
+            <div key={c.quality} className="w-[390px] max-w-full">
+              <CurioEncounterPanel curioDef={ALL_MONSTERS.bubbloon} quality={c.quality} attemptsLeft={c.tries} onBattle={() => {}} onRunAway={() => {}} />
+            </div>
           ))}
         </div>
       </Section>

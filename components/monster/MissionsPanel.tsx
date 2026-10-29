@@ -14,6 +14,17 @@ import {
 } from '@/lib/curioMissions';
 import { playChime, playPageFlip } from '@/lib/sounds';
 import { bondHeartsNow } from '@/lib/craftingConfig';
+import { beatsShown, missionStory } from '@/lib/missionStories';
+import MissionStory, { MissionStoryCss } from '@/components/monster/MissionStory';
+
+// How many beats of a mission's story the kid has seen on this device (a "new" dot otherwise).
+const seenKey = (id: string) => `lh_mission_seen_${id}`;
+function readSeen(id: string): number {
+  try { return Number(localStorage.getItem(seenKey(id))) || 0; } catch { return 0; }
+}
+function writeSeen(id: string, n: number) {
+  try { localStorage.setItem(seenKey(id), String(n)); } catch { /* private mode */ }
+}
 
 // ─── TIER COLORS ─────────────────────────────────────────────────────────────
 // One distinct palette per duration tier: card bg, border, progress bar, claim btn.
@@ -123,6 +134,9 @@ export default function MissionsPanel({
 
   const [pickerSlot, setPickerSlot] = useState<number | null>(null);
   const [pickerTier, setPickerTier] = useState<MissionTier | null>(null);
+  // The mission whose story is open, and how many beats the kid had seen before opening it.
+  const [story, setStory] = useState<{ id: string; seen: number } | null>(null);
+  const [seenTick, setSeenTick] = useState(0);
 
   // Tick every 20 s to refresh countdowns
   const [, setTick] = useState(0);
@@ -176,6 +190,15 @@ export default function MissionsPanel({
 
   const lockedIds = new Set(missions.map(m => m.monster_row_id));
 
+  const toggleStory = (id: string, prog: number) => {
+    playPageFlip();
+    if (story?.id === id) { setStory(null); return; }
+    setPickerSlot(null); setPickerTier(null);
+    setStory({ id, seen: readSeen(id) });
+    writeSeen(id, beatsShown(prog));
+    setSeenTick(t => t + 1);
+  };
+
   // Normalise caught monsters to the minimal UserMonster shape needed by the
   // picker (id, monster_id, graduation_tier, quality, monster_level). Wild
   // catches and guild familiars live in user_caught_monsters until promoted;
@@ -194,13 +217,15 @@ export default function MissionsPanel({
     quality: cm.quality,
   }));
 
-  const available = [...benchedMonsters, ...normalizedCaught].filter(m => !lockedIds.has(m.id));
+  const owned = [...benchedMonsters, ...normalizedCaught];
+  const available = owned.filter(m => !lockedIds.has(m.id));
 
   if (loading) return null;
 
   return (
     // ── Outer container box ─────────────────────────────────────────────────
     <div className="rounded-xl border border-stone-200 bg-stone-50 p-3 space-y-3">
+      <MissionStoryCss />
 
       {/* Header — no emoji */}
       <div className="flex items-center justify-between">
@@ -231,22 +256,32 @@ export default function MissionsPanel({
           // ── Active / Complete mission ───────────────────────────────────────
           if (mission) {
             const p    = tierPalette(mission.duration_hours);
-            const um   = benchedMonsters.find(m => m.id === mission.monster_row_id);
+            const um   = owned.find(m => m.id === mission.monster_row_id);
             const def  = um ? getOwnedMonsterDisplay(monsterDisplay[um.monster_id], um.graduation_tier) : null;
             const done = isComplete(mission);
             const prog = missionProgress(mission);
+            const fresh = !done && def && seenTick >= 0 && beatsShown(prog) > readSeen(mission.id);
+            const open = story?.id === mission.id;
 
             return (
               <div
                 key={mission.id}
-                className={`flex flex-col items-center gap-1 p-2 rounded-xl border text-center min-h-[88px] transition-colors ${
-                  done ? p.cardDone : p.card
-                }`}
+                role={def && !done ? 'button' : undefined}
+                tabIndex={def && !done ? 0 : undefined}
+                onClick={def && !done ? () => toggleStory(mission.id, prog) : undefined}
+                onKeyDown={def && !done ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleStory(mission.id, prog); } } : undefined}
+                className={`relative flex flex-col items-center gap-1 p-2 rounded-xl border text-center min-h-[88px] transition-colors ${
+                  done ? `${p.cardDone} ms-glow` : p.card
+                } ${def && !done ? 'cursor-pointer' : ''} ${open ? 'ring-2 ring-amber-400' : ''}`}
+                data-testid={`mission-card-${i}`}
               >
-                {/* Sprite */}
+                {fresh && <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-rose-500 border-2 border-white" data-testid={`mission-new-${i}`} aria-label="New story" />}
+                {/* Sprite: hops while it's away, waves when it's back */}
                 {def && um ? (
                   <div className={`w-9 h-9 flex-shrink-0 ${getQualityGlowClass(um.quality)}`}>
-                    <MonsterImage monster={def} className="w-full h-full" />
+                    <div className={`w-full h-full ${done ? 'ms-wave' : 'ms-hop'}`}>
+                      <MonsterImage monster={def} className="w-full h-full" />
+                    </div>
                   </div>
                 ) : (
                   <div className="w-9 h-9 flex-shrink-0 rounded-full bg-white/60 flex items-center justify-center text-base">🧪</div>
@@ -260,11 +295,11 @@ export default function MissionsPanel({
                 {/* Progress + reward OR Claim */}
                 {done ? (
                   <button
-                    onClick={() => { playPageFlip(); handleClaim(mission); }}
+                    onClick={(e) => { e.stopPropagation(); playPageFlip(); handleClaim(mission); }}
                     disabled={busy === mission.id}
                     className={`mt-auto w-full ${p.claim} disabled:opacity-40 text-white text-[10px] font-bold py-1 rounded-lg transition-colors`}
                   >
-                    {busy === mission.id ? '…' : '✅ Claim!'}
+                    {busy === mission.id ? '…' : 'Claim!'}
                   </button>
                 ) : (
                   <div className="mt-auto w-full space-y-0.5">
@@ -292,6 +327,7 @@ export default function MissionsPanel({
               key={`empty-${i}`}
               onClick={() => {
                 playPageFlip();
+                setStory(null);
                 if (pickerSlot === i) { setPickerSlot(null); setPickerTier(null); }
                 else { setPickerSlot(i); setPickerTier(null); }
               }}
@@ -307,6 +343,30 @@ export default function MissionsPanel({
           );
         })}
       </div>
+
+      {/* ── Story of an ongoing mission ─────────────────────────────────────── */}
+      {story && pickerSlot === null && (() => {
+        const mission = missions.find(m => m.id === story.id);
+        const um = mission ? owned.find(m => m.id === mission.monster_row_id) : null;
+        const def = um ? getOwnedMonsterDisplay(monsterDisplay[um.monster_id], um.graduation_tier) : null;
+        if (!mission || !um || !def) return null;
+        const prog = missionProgress(mission);
+        const name = um.nickname || def.name;
+        return (
+          <MissionStory
+            def={def}
+            curioName={name}
+            missionName={mission.mission_name}
+            lines={missionStory(mission.mission_name, name, def.element)}
+            shown={beatsShown(prog)}
+            seen={story.seen}
+            progress={prog}
+            done={isComplete(mission)}
+            timeLeft={formatTimeRemaining(mission.ends_at)}
+            onClose={() => { playPageFlip(); setStory(null); }}
+          />
+        );
+      })()}
 
       {/* ── Picker panel ───────────────────────────────────────────────────── */}
       {pickerSlot !== null && (

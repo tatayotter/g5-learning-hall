@@ -72,44 +72,7 @@ export default function GamePopup({ title, speaker, icon, subtitle, toolbar, foo
       style={{ boxShadow: '0 0 0 3px #d4a017, 0 -6px 30px rgba(0,0,0,.45)' }}
       {...(inline ? { role: 'dialog', 'aria-labelledby': titleId, 'data-testid': testId, ...dataAttrs } : {})}
     >
-      {/* Header: wood, gold ring, nails. */}
-      <div className="relative flex-shrink-0 px-3 pt-2 pb-3 sm:pt-3" style={woodTextureStyle}>
-        <Nail className="top-2 left-2" />
-        <Nail className="top-2 right-2" />
-        {/* The grab bar says "this slides" on a phone. */}
-        <div className="sm:hidden mx-auto mb-1.5 h-1 w-10 rounded-full bg-[#f0ddb8]/50" aria-hidden />
-        <div className="flex items-center gap-3 pr-12">
-          {(speaker?.portrait ?? icon) && (
-            <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#d4a017] bg-[radial-gradient(circle,#fff6d6_0%,#f0ddb8_80%)] flex items-start justify-center">
-              {speaker?.portrait ?? icon}
-            </div>
-          )}
-          <div className="min-w-0 flex-1">
-            <h2 id={titleId} className="text-lg leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-              <span style={{ position: 'relative', display: 'inline-block' }}>
-                <span aria-hidden style={questTextShadowStyle}>{title}</span>
-                <span style={{ ...questTextStyle, color: '#f5c542' }}>{title}</span>
-              </span>
-            </h2>
-            {speaker?.line ? (
-              <p className="mt-1 inline-block max-w-full rounded-xl rounded-tl-sm bg-[#fffdf7] border-2 border-[#2a1505] px-2.5 py-1 text-[13px] font-semibold leading-snug text-[#2a1505]" data-testid={testId ? `${testId}-line` : undefined}>
-                {speaker.line}
-              </p>
-            ) : subtitle ? (
-              <p className="text-xs font-semibold leading-snug text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,.8)' }}>{subtitle}</p>
-            ) : null}
-          </div>
-        </div>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-[#2a1505] border-2 border-[#d4a017] text-[#fde68a] text-xl font-black leading-none shadow-[0_3px_0_#1a0d05] active:translate-y-[calc(-50%+2px)] active:shadow-none"
-          data-testid={testId ? `${testId}-close` : undefined}
-        >
-          ×
-        </button>
-      </div>
+      <GamePopupHeader title={title} titleId={titleId} speaker={speaker} icon={icon} subtitle={subtitle} onClose={onClose} testId={testId} />
       {toolbar && <div className="flex-shrink-0 bg-[#e8d0a0] border-b-2 border-[#c9a87a] px-3 py-2">{toolbar}</div>}
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-[#f0ddb8] px-3 py-3 sm:px-4">
         {children}
@@ -127,6 +90,50 @@ export default function GamePopup({ title, speaker, icon, subtitle, toolbar, foo
       <style>{POPUP_CSS}</style>
       <div className="gp-back absolute inset-0 bg-[#0a0807]/60" onClick={onClose} data-testid={testId ? `${testId}-backdrop` : undefined} />
       {sheet}
+    </div>
+  );
+}
+
+/** The pop-up's wood header on its own, for a page over the map that wants the same top
+ *  (Baylan's quests, components/nav/BaylanQuestHeader.tsx). */
+export function GamePopupHeader({ title, titleId, speaker, icon, subtitle, onClose, testId, className = '', grabBar = true }: Pick<GamePopupProps, 'title' | 'speaker' | 'icon' | 'subtitle' | 'onClose' | 'testId'> & { titleId?: string; className?: string; grabBar?: boolean }) {
+  return (
+    <div className={`relative flex-shrink-0 px-3 pt-2 pb-3 sm:pt-3 ${className}`} style={woodTextureStyle}>
+      <Nail className="top-2 left-2" />
+      <Nail className="top-2 right-2" />
+      {/* The grab bar says "this slides" on a phone. */}
+      {grabBar && <div className="sm:hidden mx-auto mb-1.5 h-1 w-10 rounded-full bg-[#f0ddb8]/50" aria-hidden />}
+      <div className="flex items-center gap-3 pr-12">
+        {(speaker?.portrait ?? icon) && (
+          <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#d4a017] bg-[radial-gradient(circle,#fff6d6_0%,#f0ddb8_80%)] flex items-start justify-center">
+            {speaker?.portrait ?? icon}
+          </div>
+        )}
+        <div className="min-w-0 flex-1">
+          <h2 id={titleId} className="text-lg leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              <span aria-hidden style={questTextShadowStyle}>{title}</span>
+              <span style={{ ...questTextStyle, color: '#f5c542' }}>{title}</span>
+            </span>
+          </h2>
+          {speaker?.line ? (
+            <p className="mt-1 inline-block max-w-full rounded-xl rounded-tl-sm bg-[#fffdf7] border-2 border-[#2a1505] px-2.5 py-1 text-[13px] font-semibold leading-snug text-[#2a1505]" data-testid={testId ? `${testId}-line` : undefined}>
+              {speaker.line}
+            </p>
+          ) : subtitle ? (
+            <p className="text-xs font-semibold leading-snug text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,.8)' }}>{subtitle}</p>
+          ) : null}
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close"
+        className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-[#2a1505] border-2 border-[#d4a017] text-[#fde68a] text-xl font-black leading-none shadow-[0_3px_0_#1a0d05] active:translate-y-[calc(-50%+2px)] active:shadow-none"
+        data-testid={testId ? `${testId}-close` : undefined}
+      >
+        ×
+      </button>
     </div>
   );
 }

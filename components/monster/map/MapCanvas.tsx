@@ -377,9 +377,8 @@ export default function MapCanvas({
       // that size a phone shows each of its pixels as a 3-5 px block, so the canvas is made as
       // many real screen pixels as it covers (capped at 2x for battery), and the scene's camera
       // zooms by the same amount: everything still thinks in 896 x 504, it's just sharper.
-      // Off by default for now: at 2x part of the map went undrawn on a real device (big black
-      // areas, stretched tiles). Only a device set by hand (g5_map_sharp) gets it until it's fixed.
-      let sharp = 1;
+      const cssW = containerRef.current.getBoundingClientRect().width || CANVAS_WIDTH;
+      let sharp = Math.round(Math.min(2, Math.max(1, (cssW * (window.devicePixelRatio || 1)) / CANVAS_WIDTH)) * 4) / 4;
       // A device that struggles can be set back to the plain picture (localStorage g5_map_sharp = 1).
       let forced = false;
       try { const set = Number(localStorage.getItem('g5_map_sharp')); if (set >= 1 && set <= 2) { sharp = set; forced = true; } } catch { /* private mode */ }

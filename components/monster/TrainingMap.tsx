@@ -28,13 +28,14 @@ import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/panels/HideoutPanel';
 import MissionsPanel from '@/components/monster/MissionsPanel';
 import CraftPanel from '@/components/monster/map/panels/CraftPanel';
+import GamePopup from '@/components/game/GamePopup';
+import { MonsterImage } from '@/components/battle/shared';
 import CampFeed from '@/components/monster/map/panels/CampFeed';
 import { bondHeartsNow, recipeById, type StationId } from '@/lib/craftingConfig';
 import { fetchActiveMissions } from '@/lib/curioMissions';
 import { getOwnedMonsterDisplay } from '@/lib/monsterConfig';
 import type { IslandCurioState } from '@/lib/phaserMap/islandCurios';
 import { collectCooking } from '@/lib/crafting';
-import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
 import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, TILE_CURSOR_ART, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
 import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
@@ -1611,6 +1612,10 @@ export default function TrainingMap({
 
   // Gates both the floating joystick's press-and-drag and (previously) the
   // static dpad — matches the keyboard-movement path in useContinuousMovement.
+  // The curio being fed, for the feed pop-up's header.
+  const fedMon = feedingCurio ? userMonsters.find(m => m.id === feedingCurio) : undefined;
+  const fedDef = fedMon ? getOwnedMonsterDisplay(monsterDisplay[fedMon.monster_id], fedMon.graduation_tier) : null;
+  const feedIcon = fedDef ? <MonsterImage monster={fedDef} className="w-12 h-12 mt-1" /> : undefined;
   const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen || !!craftStation || !!feedingCurio;
 
   const frameContent = (
@@ -1864,7 +1869,14 @@ export default function TrainingMap({
       }}
     />
   ) : feedingCurio && userMonsters.some(m => m.id === feedingCurio) ? (
-    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="curio-feed-panel">
+    <GamePopup
+      inline
+      title="Feed your curio"
+      subtitle="Food gives it hearts. Hearts give more EXP on missions."
+      icon={feedIcon}
+      onClose={() => setFeedingCurio(null)}
+      testId="curio-feed-panel"
+    >
       <CampFeed
         userId={userId}
         curios={userMonsters.filter(m => m.id === feedingCurio)}
@@ -1879,19 +1891,16 @@ export default function TrainingMap({
           void onLoadoutChange?.();
         }}
       />
-      <GameButton variant="quest" color="#57534e" onClick={() => setFeedingCurio(null)} className="w-full" style={{ fontSize: 13 }} data-testid="curio-feed-leave">
-        Close
-      </GameButton>
-    </div>
+    </GamePopup>
   ) : campOpen ? (
-    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="camp-panel">
-      <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
-        <img src="/hideout/curio_camp.png" alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
-        <div className="min-w-0">
-          <p className="text-[#2a1505] font-bold text-sm leading-tight">Curio Camp</p>
-          <p className="text-xs text-[#6b4820] leading-tight">Curios on your bench can go on missions and come back stronger. Your curios play around the island: walk up to one to feed it.</p>
-        </div>
-      </div>
+    <GamePopup
+      inline
+      title="Curio Camp"
+      subtitle="Send curios on missions. They come back stronger!"
+      icon={<img src="/hideout/curio_camp.png" alt="" className="w-11 h-11 mt-1.5 object-contain" style={{ imageRendering: 'pixelated' }} />}
+      onClose={() => setCampOpen(false)}
+      testId="camp-panel"
+    >
       <MissionsPanel
         playerLevel={playerLevel}
         userId={userId}
@@ -1901,10 +1910,8 @@ export default function TrainingMap({
         onMissionLockedIdsChange={setMissionAway}
         onLoadoutChange={onLoadoutChange ?? ignoreLoadout}
       />
-      <GameButton variant="quest" color="#57534e" onClick={() => setCampOpen(false)} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="camp-leave">
-        Close
-      </GameButton>
-    </div>
+      <p className="mt-2 text-[11px] text-center font-semibold text-[#6b4820]">Your curios play around the island. Walk up to one to feed it.</p>
+    </GamePopup>
   ) : pendingRecyclerTrade ? (
     <RecyclerTradePanel
       trashInventory={trashInventory}

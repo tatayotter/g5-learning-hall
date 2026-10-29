@@ -771,6 +771,7 @@ export default function Dashboard() {
 
   // --- Term Exam Boss Fight ---
   const [activeBossFight, setActiveBossFight] = useState<string | null>(null); // subject key
+  const baylanBoard = newNav && activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null;
   // The phone's Back button (lib/backButton.ts): a menu page goes back to its
   // tab, any other tab goes to the map (home), and the map lets Back leave the game.
   // Quests, guild runs, boss fights and battles have their own way out, so
@@ -1588,7 +1589,8 @@ export default function Dashboard() {
         <motion.div
           key={activeTab}
           // With the map as home, every page opens as a panel over the map.
-          className={mapPanelOpen ? 'map-home-panel' : undefined}
+          // Baylan's quest board wears the in-game pop-up look (wood header, parchment).
+          className={mapPanelOpen ? (baylanBoard ? 'map-home-panel game-panel' : 'map-home-panel') : undefined}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
@@ -1601,7 +1603,7 @@ export default function Dashboard() {
             the daily bonus chest, then the week's Main Quest board. */}
         {newNav && activeTab === 'board' && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && (
           <>
-          <BaylanQuestHeader hasQuestToday={Object.keys(mainQuestPackageData[currentDayName] ?? {}).length > 0} questDone={questDoneToday} />
+          <BaylanQuestHeader hasQuestToday={Object.keys(mainQuestPackageData[currentDayName] ?? {}).length > 0} questDone={questDoneToday} onClose={() => setActiveTab('monster')} />
           <div className="max-w-5xl mx-auto pt-3 pb-1">
             <DailyChecklist
               variant="journey"
