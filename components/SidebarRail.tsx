@@ -10,6 +10,7 @@ import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
 import SoundSettings from '@/components/SoundSettings';
 import { flyExp, flyGold } from '@/components/game/flyGold';
+import CelebrationOverlay from '@/components/CelebrationOverlay';
 
 export function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -229,6 +230,13 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
     if (playerGold > seen.gold && now - seen.since > 4000) flyGold(playerGold - seen.gold);
     seen.gold = playerGold;
   }, [playerGold, playerName]);
+  // A level-up also gets a banner under the bar for a few seconds (it doesn't block play).
+  const [levelUp, setLevelUp] = useState<{ level: number; key: number } | null>(null);
+  useEffect(() => {
+    if (!levelUp) return;
+    const t = setTimeout(() => setLevelUp(null), 3200);
+    return () => clearTimeout(t);
+  }, [levelUp]);
   // EXP and level-ups the same way, as stars into the level badge.
   const expSeen = useRef<{ who: string; level: number; xp: number; since: number } | null>(null);
   useEffect(() => {
@@ -236,7 +244,7 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
     const now = Date.now();
     if (!seen || seen.who !== playerName) { expSeen.current = { who: playerName, level: playerLevel, xp: playerXp, since: now }; return; }
     if (now - seen.since > 4000) {
-      if (playerLevel > seen.level) flyExp(playerXp, true);
+      if (playerLevel > seen.level) { flyExp(playerXp, true); setLevelUp({ level: playerLevel, key: now }); }
       else if (playerLevel === seen.level && playerXp > seen.xp) flyExp(playerXp - seen.xp);
     }
     seen.level = playerLevel; seen.xp = playerXp;
@@ -302,6 +310,36 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
         />
       </div>
     </div>
+    {/* Level up! A banner drops in under the bar, with the celebration sparks. */}
+    <AnimatePresence>
+      {levelUp && (
+        <motion.div
+          key={levelUp.key}
+          className="fixed z-[121] pointer-events-none select-none"
+          style={{ left: '50%', top: isDesktop ? 64 : 52 }}
+          initial={{ opacity: 0, y: -24, x: '-50%', scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }}
+          exit={{ opacity: 0, y: -16, x: '-50%' }}
+          transition={{ type: 'spring', stiffness: 380, damping: 22 }}
+          data-testid="level-up-banner"
+        >
+          <div className="relative flex items-center gap-3 rounded-2xl border-2 border-[#4a2f18] px-5 py-2.5" style={{ ...woodTextureStyle, boxShadow: '0 0 0 3px #d4a017, 0 8px 24px rgba(0,0,0,.5)' }}>
+            <Nail className="top-1.5 left-1.5" />
+            <Nail className="top-1.5 right-1.5" />
+            <div className="text-center" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span className="block text-[22px] leading-none" style={{ position: 'relative' }}>
+                <span aria-hidden style={questTextShadowStyle}>Level up!</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Level up!</span>
+              </span>
+              <span className="block mt-1 text-[13px] text-[#fde68a] leading-none" style={{ fontFamily: 'var(--font-inter), sans-serif', fontWeight: 800, letterSpacing: 'normal' }}>
+                You are now Level {levelUp.level}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    {levelUp && <CelebrationOverlay key={levelUp.key} userId={playerName} trigger type="levelup" />}
     </>
   );
 }
