@@ -93,12 +93,17 @@ export interface HideoutCall {
   veggies: number;
   seeds: number;
   wood: number;
+  // The wood a grown tree dropped (wood_oak...).
+  woodKey: string | null;
   double: boolean;
   // Watering: every plot that got water.
   watered: string[];
   progress: { gold: number; xp: number; level: number } | null;
-  // Building: what it takes, when the bag is short.
+  // Building: what it takes, when the bag is short, and the gold it takes.
   need: Record<string, number> | null;
+  goldCost: number | null;
+  // Building: the building that has to stand first.
+  needs: string | null;
   replayed: boolean;
 }
 
@@ -106,7 +111,7 @@ async function call(fn: string, args: Record<string, unknown>): Promise<HideoutC
   const { data, error } = await supabase.rpc(fn, args);
   if (error || !data) {
     if (error) console.error(`${fn} error:`, error);
-    return { status: 'failed', hideout: null, bag: null, correct: null, correctAnswer: null, veggies: 0, seeds: 0, wood: 0, double: false, watered: [], progress: null, need: null, replayed: false };
+    return { status: 'failed', hideout: null, bag: null, correct: null, correctAnswer: null, veggies: 0, seeds: 0, wood: 0, woodKey: null, double: false, watered: [], progress: null, need: null, goldCost: null, needs: null, replayed: false };
   }
   return {
     status: data.status ?? (data.ok ? 'ok' : data.reason ?? 'failed'),
@@ -117,10 +122,13 @@ async function call(fn: string, args: Record<string, unknown>): Promise<HideoutC
     veggies: data.veggies ?? 0,
     seeds: data.seeds ?? 0,
     wood: data.wood ?? 0,
+    woodKey: data.wood_key ?? null,
     double: !!data.double,
     watered: Array.isArray(data.plots) ? data.plots : [],
     progress: data.progress ?? null,
     need: data.need ?? null,
+    goldCost: data.gold_cost ?? null,
+    needs: data.needs ?? null,
     replayed: !!data.replayed,
   };
 }

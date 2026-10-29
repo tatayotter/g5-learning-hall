@@ -71,7 +71,7 @@ create or replace function pg_temp.harvest(p_plot text) returns jsonb as $$
   select public.harvest_hideout_plot((select kid from fx), p_plot);
 $$ language sql;
 
-select is((select count(*)::int from hideout_plot_defs where part_of is null), 12, 'the island has 12 plots');
+select is((select count(*)::int from hideout_plot_defs where part_of is null), 14, 'the island has 14 plots (with the Workbench and Compost Bin)');
 select is((select count(*)::int from hideout_plot_defs where part_of = 'bed_3'), 6, 'a garden pen has 6 soil tiles');
 select is((select count(*)::int from hideout_plot_defs where kind = 'grove'), 6, 'six of them are tree spots');
 
@@ -98,13 +98,14 @@ set local role authenticated;
 -- ── Building ──
 select is(pg_temp.build('bed_1') ->> 'reason', 'items', 'no wood: no garden bed');
 reset role;
-insert into player_bag_items (user_id, item_key, quantity) select kid, 'wood', 30 from fx;
+insert into player_bag_items (user_id, item_key, quantity) select kid, 'wood_maple', 10 from fx;
+insert into player_bag_items (user_id, item_key, quantity) select kid, 'wood_oak', 30 from fx;
 set local role authenticated;
-select is((pg_temp.build('bed_1') ->> 'ok')::boolean, true, '6 wood builds a garden bed');
-select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'wood'), 24, 'the wood left the bag');
+select is((pg_temp.build('bed_1') ->> 'ok')::boolean, true, '10 Maple Wood, 10 Oak Wood and 50 gold build the first garden bed');
+select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'wood_oak'), 20, 'the wood left the bag');
 select is(pg_temp.build('bed_1') ->> 'reason', 'built', 'a bed is built once');
 select is((select count(*)::int from player_hideout_plots where user_id = (select kid from fx) and plot_id like 'bed\_1\_%'), 6, 'and comes with its 6 tiles');
-select is(pg_temp.build('kitchen') ->> 'reason', 'not_yet', 'the kitchen is not buildable yet');
+select is(pg_temp.build('kitchen') ->> 'reason', 'items', 'the kitchen can be built now, with Ember and Pine Wood');
 
 -- ── Planting ──
 select is(pg_temp.plant('bed_1_0', 'tomato', 1) ->> 'status', 'no_item', 'no tomato seeds: nothing to plant');
@@ -146,22 +147,23 @@ select is((select crops_harvested from player_hideouts where user_id = (select k
 
 -- ── The grove ──
 reset role;
-insert into player_bag_items (user_id, item_key, quantity) select kid, 'sapling_oak', 1 from fx;
+insert into player_bag_items (user_id, item_key, quantity) select kid, k, 1 from fx, unnest(array['sapling_oak', 'stone_ring', 'garden_soil']) k;
 set local role authenticated;
-select is((pg_temp.build('grove_1') ->> 'ok')::boolean, true, '12 wood builds a grove spot');
+select is((pg_temp.build('grove_1') ->> 'ok')::boolean, true, '15 Oak Wood, a Stone Ring and Garden Soil build a tree spot');
 select is(pg_temp.plant('grove_1', 'tomato', 8) ->> 'status', 'cant_plant', 'veggies go in beds, not the grove');
 select is(pg_temp.plant('grove_1', 'oak', 9) ->> 'status', 'planted', 'a sapling goes in the grove');
 select is((select trees_planted from player_hideouts where user_id = (select kid from fx)), 1, 'one tree planted');
 reset role;
 update player_hideout_plots set ready_at = now() - interval '1 minute' where user_id = (select kid from fx) and plot_id = 'grove_1';
 set local role authenticated;
-select is(pg_temp.harvest('grove_1') ->> 'wood', '2', 'a grown tree drops 2 wood');
+select is(pg_temp.harvest('grove_1') ->> 'wood_key', 'wood_oak', 'a grown Oak drops Oak Wood');
 select is(pg_temp.harvest('grove_1') ->> 'status', 'collected_today', 'once a day');
 
 -- ── A Silver can waters everything ──
 reset role;
 update player_gear set tier = 3 where user_id = (select kid from fx) and gear = 'can';
 insert into player_bag_items (user_id, item_key, quantity) select kid, 'seeds_cabbage', 2 from fx;
+insert into player_bag_items (user_id, item_key, quantity) select kid, k, 10 from fx, unnest(array['wood_pine', 'wood_birch', 'wood_palm']) k;
 set local role authenticated;
 select pg_temp.build('bed_2');
 select pg_temp.plant('bed_1_0', 'cabbage', 10);

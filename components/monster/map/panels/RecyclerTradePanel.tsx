@@ -7,7 +7,7 @@
 // (onSellVeggies, hooks/useGarden.ts).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
-import { FIND_SELL_PRICE, GARDEN_KEYS, RARES, RARE_ORDER, RARE_SELL_PRICE, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, WOOD_KEY, gardenItemIcon, gardenItemLabel, gardenSellPrice, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
+import { FIND_SELL_PRICE, GARDEN_KEYS, RARES, RARE_ORDER, RARE_SELL_PRICE, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, gardenItemIcon, gardenItemLabel, gardenSellPrice, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
 import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
 
 interface RecyclerTradePanelProps {
@@ -29,7 +29,7 @@ export default function RecyclerTradePanel({
 }: RecyclerTradePanelProps) {
   const forSale = gardenBag ? GARDEN_KEYS.filter(k => gardenSellable(k) && (gardenBag[k] ?? 0) > 0) : [];
   const saleCount = forSale.reduce((sum, k) => sum + (gardenBag?.[k] ?? 0), 0);
-  const wood = gardenBag?.[WOOD_KEY] ?? 0;
+  const wood = forSale.filter(k => k.startsWith('wood_')).reduce((sum, k) => sum + (gardenBag?.[k] ?? 0), 0);
   // Finds (shells, crystals...) by name, every grown veggie together as "veggies".
   const finds = VEGGIE_ORDER.filter(v => VEGGIES[v].found && (gardenBag?.[veggieKey(v)] ?? 0) > 0)
     .map(v => ({ n: gardenBag?.[veggieKey(v)] ?? 0, noun: VEGGIES[v].found!.noun }));

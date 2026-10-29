@@ -13,6 +13,7 @@ import {
   getUnlockedMissionSlots, fetchActiveMissions, sendOnMission, claimMission,
 } from '@/lib/curioMissions';
 import { playChime, playPageFlip } from '@/lib/sounds';
+import { bondHeartsNow } from '@/lib/craftingConfig';
 
 // ─── TIER COLORS ─────────────────────────────────────────────────────────────
 // One distinct palette per duration tier: card bg, border, progress bar, claim btn.
@@ -145,7 +146,8 @@ export default function MissionsPanel({
 
   const handleSend = async (monsterRowId: string, tier: MissionTier) => {
     setBusy('send');
-    const result = await sendOnMission(userId, monsterRowId, tier);
+    const hearts = bondHeartsNow(benchedMonsters.find(m => m.id === monsterRowId));
+    const result = await sendOnMission(userId, monsterRowId, tier, hearts);
     setBusy(null);
     if (!result.success) {
       console.error('[MissionsPanel] sendOnMission failed:', result.error);
@@ -155,6 +157,7 @@ export default function MissionsPanel({
     setPickerSlot(null);
     setPickerTier(null);
     await load();
+    if (result.snack) await onLoadoutChange();
   };
 
   const handleClaim = async (mission: CurioMission) => {

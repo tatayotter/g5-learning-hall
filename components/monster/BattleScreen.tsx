@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { bondDamageMult } from '@/lib/craftingConfig';
 import type { BattleQuestion } from '@/components/battle/shared';
 import { playBattleSfx, playItemUse, playPageFlip, startBattleTheme, stopBattleTheme, pauseBattleTheme } from '@/lib/sounds';
 import { USERS } from '@/lib/userSession';
@@ -10,7 +11,7 @@ import {
   REST_BY_ELEMENT, ELEMENT_STATUS, SELF_TARGETING_ELEMENT_STATUSES, STATUS_DEFINITIONS,
   StatusEffect, NpcTrainer, getSkillIconSrc, type Skill,
 } from '@/lib/monsterConfig';
-import { SHOP_CATALOG, InventoryMap } from '@/lib/inventory';
+import { battleItemDef, InventoryMap } from '@/lib/inventory';
 import {
   ActiveBattleMonster, MonsterImage, BattleQuestionModal,
   BattleBeat, runBattleBeats, resolveItemEffect, getSkillSlotLock, useSkipForGold, type BattleQuestionProps,
@@ -84,7 +85,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
   // Battle consumables only (Graduation Scrolls are used from the team screen).
   const battleItems = Object.entries(inventory).filter(([key, qty]) => {
     if (!qty || qty <= 0) return false;
-    const itemData = SHOP_CATALOG.find(i => i.key === key);
+    const itemData = battleItemDef(key);
     return !!itemData && itemData.effect !== 'graduate_monster';
   });
 
@@ -203,6 +204,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     );
     if (attacker.status === 'atk_boost') dmg *= BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER;
     if (attacker.status === 'curse') dmg *= (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION);
+    // A sibling's curio fights with its own bond hearts too (half, like the player's below).
+    if (siblingTeam) dmg *= bondDamageMult(attacker.userMonster, true);
     if (defender.status === 'def_boost') dmg /= 2;
     return Math.round(dmg);
   };
@@ -247,7 +250,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     // Stays true through the 500ms npc_turn hand-off below too, so a second
     // click can't sneak in during that window either.
     if (itemBusyRef.current) return;
-    const item = SHOP_CATALOG.find(i => i.key === key);
+    const item = battleItemDef(key);
     if (!item) return;
 
     // Revive Stone can target any fainted teammate, not just the active
@@ -279,6 +282,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
       case 'heal_30':
       case 'heal_60':
       case 'heal_120':
+      case 'heal_60_cure':
       case 'atk_boost_1t':
       case 'def_boost_1t':
       case 'apply_blessed':
@@ -287,7 +291,9 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         const result = resolveItemEffect(item);
         if (result.healAmount !== undefined) {
           const newHp = Math.min(playerMon.maxHp, playerMon.currentHp + result.healAmount);
-          setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, currentHp: newHp } : m));
+          // Veggie Stew heals and cures at once.
+          const cure = result.selfStatus ? { status: result.selfStatus.status, statusTurns: result.selfStatus.statusTurns } : {};
+          setPlayerMonsters(prev => prev.map((m, i) => i === playerMonsterIdx ? { ...m, ...cure, currentHp: newHp } : m));
           onBattleEvent?.({ t: 'item', key, curio: playerMon.userMonster?.id ?? null, hpBefore: playerMon.currentHp, hpAfter: newHp });
         } else if (result.selfStatus) {
           const { status, statusTurns } = result.selfStatus;
@@ -438,6 +444,8 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
     );
     if (playerMon.status === 'atk_boost') damage = Math.round(damage * BATTLE_CONSTANTS.ATK_BOOST_MULTIPLIER);
     if (playerMon.status === 'curse') damage = Math.round(damage * (1 - BATTLE_CONSTANTS.CURSE_DAMAGE_REDUCTION));
+    // Bond hearts from feeding at the Curio Camp: +2% each, half against a sibling.
+    if (damage > 0) damage = Math.round(damage * bondDamageMult(playerMon.userMonster, !!siblingTeam));
     return damage;
   };
 
@@ -780,7 +788,7 @@ export default function BattleScreen({ userId, playerTeam, trainer, siblingTeam,
         <p className="text-gray-500 text-sm text-center">No items in inventory.</p>
       ) : (
           battleItems.map(([key, qty]) => {
-            const itemData = SHOP_CATALOG.find(i => i.key === key)!;
+            const itemData = battleItemDef(key)!;
             const noReviveTargets = itemData.effect === 'revive' && faintedPlayerMonsters.length === 0;
 
             return (

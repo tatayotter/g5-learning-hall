@@ -6,7 +6,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { GARDEN_STACK, TREES, VEGGIES, gardenItemIcon, seedsKey, saplingKey, veggieKey, WOOD_KEY, type GardenBag, type TreeId, type VeggieId } from '@/lib/gardenConfig';
+import { GARDEN_STACK, TREES, VEGGIES, gardenItemIcon, seedsKey, saplingKey, veggieKey, woodKey, WOOD_ICON, type GardenBag, type TreeId, type VeggieId } from '@/lib/gardenConfig';
 import {
   HIDEOUT_REGION, HARVEST_VEGGIES, PLOT_ART, PLOTS, SIGNPOST, SIGNPOST_ART, TREE_WOOD_PER_DAY, bedTileId, cropStage, groveStage, plotTiles,
   type PlotDef, type PlotLook,
@@ -23,7 +23,8 @@ export type PlotPhase =
   | 'empty'                            // built, nothing growing
   | 'growing' | 'ripe'                 // a crop or a tree growing / ready
   | 'collected'                        // a grown tree whose wood was collected today
-  | 'camp';
+  | 'camp'
+  | 'station';                         // a built Workbench, Compost Bin or Kitchen
 
 export interface HideoutSpot {
   id: string;                          // 'signpost', a plot id, or a garden bed's tile (bed_1_0)
@@ -85,10 +86,14 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       const p = state.plots[def.id];
       const base = { id: def.id, kind: 'plot' as const, x: at.x, y: at.y, tiles: plotTiles(def.kind, at.x, at.y), plot: def };
       if (!p) {
-        out.push({ ...base, phase: def.soon ? 'soon' : 'unbuilt', label: def.soon ? def.name : `Build ${def.name}`, icon: def.soon ? PLOT_ART.kitchen_soon.src : gardenItemIcon(WOOD_KEY) });
+        out.push({ ...base, phase: def.soon ? 'soon' : 'unbuilt', label: def.soon ? def.name : `Build ${def.name}`, icon: def.soon ? PLOT_ART.kitchen_soon.src : WOOD_ICON });
         continue;
       }
       if (def.kind === 'camp') { out.push({ ...base, phase: 'camp', label: 'Curio Camp', icon: PLOT_ART.camp.src }); continue; }
+      if (def.kind === 'kitchen' || def.kind === 'workbench' || def.kind === 'compost') {
+        out.push({ ...base, phase: 'station', label: def.kind === 'kitchen' ? 'Cook' : `Use ${def.name}`, icon: PLOT_ART[def.kind].src });
+        continue;
+      }
       // A built garden bed: each of its soil tiles is a spot of its own, one seed packet each.
       if (def.kind === 'bed') {
         base.tiles.forEach((t, i) => {
@@ -116,8 +121,8 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       const name = `${TREES[p.item as TreeId]?.label ?? p.item} Tree`;
       const spot = { ...base, item: p.item, readyAt: p.readyAt, watered };
       if (!ripe) out.push({ ...spot, phase: 'growing', label: watered ? `${name} is growing` : `Water ${name}`, icon: gardenItemIcon(saplingKey(p.item as TreeId)) });
-      else if (p.collectedOn === today) out.push({ ...spot, phase: 'collected', label: name, icon: gardenItemIcon(WOOD_KEY) });
-      else out.push({ ...spot, phase: 'ripe', label: 'Collect Wood', icon: gardenItemIcon(WOOD_KEY) });
+      else if (p.collectedOn === today) out.push({ ...spot, phase: 'collected', label: name, icon: gardenItemIcon(woodKey(p.item as TreeId)) });
+      else out.push({ ...spot, phase: 'ripe', label: 'Collect Wood', icon: gardenItemIcon(woodKey(p.item as TreeId)) });
     }
     return out;
   }, [inTown, onIsland, state, places, now, today]);
@@ -134,6 +139,7 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       if (s.phase === 'unbuilt') { props.push(art('site')); continue; }
       if (s.phase === 'soon') { props.push(art('kitchen_soon')); continue; }
       if (def.kind === 'camp') { props.push(art('camp')); continue; }
+      if (def.kind === 'kitchen' || def.kind === 'workbench' || def.kind === 'compost') { props.push(art(def.kind)); continue; }
       if (def.kind === 'bed') {
         // A garden bed's tile: the pen's own dirt, and the crop once one is planted.
         const p = state.plots[s.id];
@@ -174,7 +180,7 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
         adds[v] = (adds[v] ?? 0) + HARVEST_VEGGIES * 2;
         adds[sd] = (adds[sd] ?? 0) + 2;
       }
-    } else adds[WOOD_KEY] = TREE_WOOD_PER_DAY;
+    } else if (s.item) adds[woodKey(s.item as TreeId)] = TREE_WOOD_PER_DAY;
     return Object.entries(adds).reduce((sum, [k, n]) => {
       const have = bag[k] ?? 0;
       return sum + Math.ceil((have + (n ?? 0)) / GARDEN_STACK) - Math.ceil(have / GARDEN_STACK);

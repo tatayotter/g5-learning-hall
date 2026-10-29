@@ -3,6 +3,8 @@
 // Slot count scales with player level (see MISSION_SLOT_LEVELS); only benched curios
 // (slot === null in user_monsters) can be sent.
 import { supabase } from './supabase';
+import { BOND_BONUS_PER_HEART, MASH_TIME_FACTOR, SNACK_EXP_BONUS } from '@/lib/craftingConfig';
+import { takeCurioSnack } from '@/lib/crafting';
 import { BATTLE_CONSTANTS } from './monsterConfig';
 
 // ─── MISSION CONFIG ───────────────────────────────────────────────────────────
@@ -87,10 +89,16 @@ export async function sendOnMission(
   userId: string,
   monsterRowId: string,
   tier: MissionTier,
-): Promise<{ success: boolean; mission?: CurioMission; error?: string }> {
+  // The curio's bond hearts now (lib/craftingConfig.ts bondHeartsNow): +2% EXP each.
+  bondHearts = 0,
+): Promise<{ success: boolean; mission?: CurioMission; error?: string; snack?: string | null }> {
   const name = tier.names[Math.floor(Math.random() * tier.names.length)];
   const now = new Date();
-  const endsAt = new Date(now.getTime() + tier.durationHours * 60 * 60 * 1000);
+  // A snack eaten in the last day (feed_curio) goes along: more EXP, and Veggie Mash is quicker.
+  const snack = await takeCurioSnack(userId, monsterRowId);
+  const hours = tier.durationHours * (snack === 'food_mash' ? MASH_TIME_FACTOR : 1);
+  const exp = Math.round(tier.expReward * (1 + (snack ? SNACK_EXP_BONUS : 0) + bondHearts * BOND_BONUS_PER_HEART));
+  const endsAt = new Date(now.getTime() + hours * 60 * 60 * 1000);
 
   const { data, error } = await supabase
     .from('curio_missions')
@@ -99,7 +107,7 @@ export async function sendOnMission(
       monster_row_id: monsterRowId,
       mission_name: name,
       duration_hours: tier.durationHours,
-      exp_reward: tier.expReward,
+      exp_reward: exp,
       started_at: now.toISOString(),
       ends_at: endsAt.toISOString(),
     })
@@ -107,7 +115,7 @@ export async function sendOnMission(
     .single();
 
   if (error) return { success: false, error: error.message };
-  return { success: true, mission: data as CurioMission };
+  return { success: true, mission: data as CurioMission, snack };
 }
 
 /**

@@ -159,6 +159,13 @@ export function useItemBar({
     commit({ bar: stateRef.current.bar, trash: { ...stateRef.current.trash, [type]: 0 } });
   }, [commit]);
 
+  /** The trash the server says is left (crafting at the Compost Bin uses some up). */
+  const replaceTrash = useCallback((serverTrash: Partial<Record<TrashType, number>>) => {
+    const next = Object.fromEntries(Object.keys(stateRef.current.trash).map(k => [k, 0])) as typeof stateRef.current.trash;
+    for (const [k, n] of Object.entries(serverTrash)) next[k as TrashType] = n ?? 0;
+    commit({ bar: stateRef.current.bar, trash: next });
+  }, [commit]);
+
   // ── Slots ─────────────────────────────────────────────────────────────────
   const equip = useCallback((thing: Exclude<ItemSlot, null>): boolean => {
     const next = equipInBar(stateRef.current.bar, thing);
@@ -250,6 +257,7 @@ export function useItemBar({
     canPickUp,
     tradeAllTrash,
     throwAway,
+    replaceTrash,
     equip,
     unequip,
     placeAt,

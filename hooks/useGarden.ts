@@ -8,7 +8,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { BattleQuestion } from '@/components/battle/shared';
 import {
-  WILD_PLANTS, VEGGIES, GARDEN_STACK, WOOD_KEY, WOOD_PER_TREE, gardenSquares, plantStage, saplingKey, veggieKey,
+  WILD_PLANTS, VEGGIES, GARDEN_STACK, WOOD_PER_TREE, woodKey, gardenSquares, plantStage, saplingKey, veggieKey,
   type GardenBag, type WildPlantNode, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import {
@@ -109,7 +109,7 @@ export function useGarden({ userId, regionId, enabled, offlineMap, mapTrees, gea
   // Squares a felled tree's wood and sapling might need.
   const squaresForChop = useCallback((tree: TreeView['tree']) => {
     const bag = stateRef.current.bag;
-    const wood = bag[WOOD_KEY] ?? 0;
+    const wood = bag[woodKey(tree)] ?? 0;
     // A Gold Axe sometimes gives double wood.
     const most = WOOD_PER_TREE * (axeTier >= 4 ? 2 : 1);
     const woodSquares = Math.ceil((wood + most) / GARDEN_STACK) - Math.ceil(wood / GARDEN_STACK);

@@ -220,11 +220,34 @@ export const strikeImpactMs = () => STRIKE_LEAD_MS + swingTiming('hit').impact +
 // Keys in player_bag_items.item_key.
 export const veggieKey = (v: VeggieId) => `veggie_${v}`;
 export const seedsKey = (v: VeggieId) => `seeds_${v}`;
-export const WOOD_KEY = 'wood';
+// Every tree gives its own wood (crafting step 1, 2026-10-29), so recipes and Hideout buildings
+// can ask for the wood of a far-off region.
+export const woodKey = (t: TreeId) => `wood_${t}`;
 export const saplingKey = (t: TreeId) => `sapling_${t}`;
 export type GardenBag = Partial<Record<string, number>>;
-// Wood sells at the Recycler for the same price as a veggie.
+// The four town trees' woods sell like a veggie; a region's own wood takes a trip, so it sells
+// for more. garden_sell_price mirrors these.
+export const TOWN_WOODS: TreeId[] = ['maple', 'oak', 'birch', 'pine'];
 export const WOOD_SELL_PRICE = VEGGIE_SELL_PRICE;
+export const REGION_WOOD_SELL_PRICE = 3;
+export const woodSellPrice = (t: TreeId) => (TOWN_WOODS.includes(t) ? WOOD_SELL_PRICE : REGION_WOOD_SELL_PRICE);
+// What each wood is known for, in the bag (a hint at what it's for).
+export const WOOD_NOTES: Record<TreeId, string> = {
+  maple: 'Easy to work with.', oak: 'Strong and steady.', birch: 'Smooth and pale.', pine: 'Tall and straight.',
+  ember: 'Burns hot for a long time.', ashwillow: 'Bends without breaking.', palm: 'Light, and it floats.',
+  mangrove: 'Never rots in water.', elder: 'Old and wise.', bamboo: 'Hollow and fast-growing.',
+  stormpine: 'Tough as stone.', silverbirch: 'Shines like metal.', dusk: 'Dark as night.',
+  glowcap: 'Glows in the dark.', paperleaf: 'Makes the best paper.', sunblossom: 'Smells sweet. Bees love it!',
+};
+// Where each tree grows, in words ("Chop Ember Trees in Cinderreach.").
+const TREE_PLACE: Record<string, string> = {
+  ledgers_heart: "Ledger's Heart", cinderreach: 'Cinderreach', tidewrit_shallows: 'Tidewrit Shallows', rootbound_wilds: 'Rootbound Wilds',
+  stormrun_reaches: 'Stormrun Reaches', unread_margins: 'the Unread Margins', radiant_archive: 'the Radiant Archive',
+};
+export const whereTreeGrows = (t: TreeId) => (TOWN_WOODS.includes(t)
+  ? "Inkwell Town and Ledger's Heart"
+  : Object.entries(REGION_TREES).filter(([r, ts]) => ts.includes(t) && TREE_PLACE[r]).map(([r]) => TREE_PLACE[r]).join(' and '));
+export const woodLabel = (t: TreeId) => (t === 'bamboo' ? 'Bamboo' : t === 'glowcap' ? 'Glowcap Stem' : `${TREES[t].label} Wood`);
 
 // Rare finds a Silver or Gold tool sometimes digs up (gather_wild_plant).
 export type RareId = 'gem' | 'coin';
@@ -234,30 +257,43 @@ export const RARES: Record<RareId, { id: RareId; key: string; label: string; whe
 };
 export const RARE_ORDER: RareId[] = ['gem', 'coin'];
 
+// Things made at the Hideout's stations that stay in the bag (lib/craftingConfig.ts has the
+// recipes). Battle food goes to the Vault instead.
+export type CraftedId = 'stone_ring' | 'garden_soil' | 'food_kibble' | 'food_mash';
+export const CRAFTED: Record<CraftedId, { id: CraftedId; label: string; note: string }> = {
+  stone_ring: { id: 'stone_ring', label: 'Stone Ring', note: 'Stones for a tree spot at your Hideout.' },
+  garden_soil: { id: 'garden_soil', label: 'Garden Soil', note: 'Rich soil for a tree spot at your Hideout.' },
+  food_kibble: { id: 'food_kibble', label: 'Curio Kibble', note: 'Feed it to a curio at your Curio Camp.' },
+  food_mash: { id: 'food_mash', label: 'Veggie Mash', note: 'Feed it to a curio at your Curio Camp. Its next mission is shorter!' },
+};
+export const CRAFTED_ORDER: CraftedId[] = ['food_kibble', 'food_mash', 'stone_ring', 'garden_soil'];
+
 export type ParsedGardenKey =
   | { kind: 'veggie' | 'seeds'; veggie: VeggieDef }
-  | { kind: 'wood' }
+  | { kind: 'wood'; tree: TreeId }
   | { kind: 'sapling'; tree: TreeId }
-  | { kind: 'rare'; rare: RareId };
+  | { kind: 'rare'; rare: RareId }
+  | { kind: 'crafted'; crafted: CraftedId };
 
 export function parseGardenKey(key: string): ParsedGardenKey | null {
-  if (key === WOOD_KEY) return { kind: 'wood' };
   const r = RARE_ORDER.find(id => RARES[id].key === key);
   if (r) return { kind: 'rare', rare: r };
-  const s = /^sapling_(\w+)$/.exec(key);
-  if (s) return s[1] in TREES ? { kind: 'sapling', tree: s[1] as TreeId } : null;
+  if (key in CRAFTED) return { kind: 'crafted', crafted: key as CraftedId };
+  const s = /^(sapling|wood)_(\w+)$/.exec(key);
+  if (s) return s[2] in TREES ? { kind: s[1] as 'sapling' | 'wood', tree: s[2] as TreeId } : null;
   const m = /^(veggie|seeds)_(\w+)$/.exec(key);
   const def = m ? VEGGIES[m[2] as VeggieId] : undefined;
   if (!m || !def || (m[1] === 'seeds' && def.found)) return null;
   return { kind: m[1] as 'veggie' | 'seeds', veggie: def };
 }
 
-// What the Recycler pays for one (0 = it doesn't buy it: seeds and saplings are for planting).
+// What the Recycler pays for one (0 = it doesn't buy it: seeds and saplings are for planting,
+// and what you make is for using).
 export const gardenSellPrice = (key: string) => {
   const p = parseGardenKey(key);
   if (!p) return 0;
   if (p.kind === 'rare') return RARE_SELL_PRICE;
-  if (p.kind === 'wood') return WOOD_SELL_PRICE;
+  if (p.kind === 'wood') return woodSellPrice(p.tree);
   if (p.kind !== 'veggie') return 0;
   return p.veggie.id === 'crystal' || p.veggie.id === 'inkpearl' || p.veggie.id === 'petal' ? FIND_SELL_PRICE : VEGGIE_SELL_PRICE;
 };
@@ -266,23 +302,29 @@ export const gardenSellable = (key: string) => gardenSellPrice(key) > 0;
 export const gardenItemLabel = (key: string) => {
   const p = parseGardenKey(key);
   if (!p) return key;
-  if (p.kind === 'wood') return 'Wood';
+  if (p.kind === 'wood') return woodLabel(p.tree);
   if (p.kind === 'sapling') return `${TREES[p.tree].label} Sapling`;
   if (p.kind === 'rare') return RARES[p.rare].label;
+  if (p.kind === 'crafted') return CRAFTED[p.crafted].label;
   return p.kind === 'veggie' ? p.veggie.label : `${p.veggie.label} Seeds`;
 };
 export const gardenItemIcon = (key: string) => {
   const p = parseGardenKey(key);
   if (!p) return '';
-  if (p.kind === 'wood') return '/garden/icon_wood.png';
+  if (p.kind === 'wood') return `/garden/icon_wood_${p.tree}.png`;
   if (p.kind === 'sapling') return `/garden/icon_sapling_${p.tree}.png`;
   if (p.kind === 'rare') return `/garden/icon_${RARES[p.rare].key}.png`;
+  if (p.kind === 'crafted') return `/craft/icon_${p.crafted}.png`;
   return `/garden/icon_${p.kind === 'seeds' ? 'seeds_' : ''}${p.veggie.id}.png`;
 };
+// Any wood, for words like "Collect Wood".
+export const WOOD_ICON = '/garden/icon_wood.png';
 
-// Bag keys in display order: veggies, rare finds, wood, then seed packets and saplings.
+// Bag keys in display order: veggies, rare finds, woods, things made at the Hideout, then seed
+// packets and saplings.
 export const GARDEN_KEYS: string[] = [
-  ...VEGGIE_ORDER.map(veggieKey), ...RARE_ORDER.map(r => RARES[r].key), WOOD_KEY, ...SEED_ORDER.map(seedsKey), ...TREE_ORDER.map(saplingKey),
+  ...VEGGIE_ORDER.map(veggieKey), ...RARE_ORDER.map(r => RARES[r].key), ...TREE_ORDER.map(woodKey), ...CRAFTED_ORDER,
+  ...SEED_ORDER.map(seedsKey), ...TREE_ORDER.map(saplingKey),
 ];
 
 export const gardenSquares = (bag: GardenBag) =>

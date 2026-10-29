@@ -37,6 +37,13 @@ export const SHOP_CATALOG: ShopItem[] = [
   { key: 'graduation_scroll', name: 'Graduation Scroll', icon: '/items/graduation_scroll.svg', cost: GRADUATION_SCROLL_COST, desc: 'Use in the Compendium to graduate an eligible team monster into its next form once it\'s reached the required level.', effect: 'graduate_monster' },
 ];
 
+// Battle food cooked in the Hideout's Kitchen (lib/craftingConfig.ts): not sold in the Shop.
+export const CRAFTED_BATTLE_ITEMS: (Omit<ShopItem, 'key'> & { key: string })[] = [
+  { key: 'veggie_stew', name: 'Veggie Stew', icon: '/craft/icon_veggie_stew.png', cost: 0, desc: 'Home cooking! Restores 60 HP and cures Burn, Paralyze or Curse.', effect: 'heal_60_cure' },
+];
+// Any item that can be used in a solo battle: the Shop's, then the Kitchen's.
+export const battleItemDef = (key: string) => SHOP_CATALOG.find(i => i.key === key) ?? CRAFTED_BATTLE_ITEMS.find(i => i.key === key) ?? null;
+
 // Items given free daily to family players
 export const DAILY_FAMILY_ITEMS: { key: ItemKey; qty: number }[] = [
   { key: 'health_potion', qty: 3 },
