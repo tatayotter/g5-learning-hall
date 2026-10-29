@@ -163,7 +163,7 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
     const isBed = def.kind === 'bed';
     body = (
       <>
-        {header(isBed ? '/hideout/garden_bed.png' : '/hideout/tree_spot.png', isBed ? 'What will you plant?' : 'Which tree will you plant?', isBed ? 'Pick seeds from your bag.' : 'Pick a sapling from your bag.')}
+        {header(isBed ? '/garden/icon_seeds_tomato.png' : '/hideout/tree_spot.png', isBed ? 'What will you plant?' : 'Which tree will you plant?', isBed ? 'Pick seeds from your bag.' : 'Pick a sapling from your bag.')}
         {choices.length === 0 ? (
           <p className="text-xs text-[#3a2610] mb-2" data-testid="hideout-none">
             {isBed ? 'You have no seeds yet. Pick wild veggies on the map. Sometimes you find seeds too!' : 'You have no saplings yet. Chop trees on the map. Sometimes you find a sapling!'}
