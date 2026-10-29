@@ -19,6 +19,7 @@ import GameButton from '@/components/GameButton';
 import TrackingScrollIcon from '@/components/monster/TrackingScrollIcon';
 import { playPageFlip } from '@/lib/sounds';
 import { GARDEN_KEYS, GARDEN_STACK, RARES, gardenItemIcon, gardenItemLabel, gardenSellPrice, parseGardenKey, type GardenBag } from '@/lib/gardenConfig';
+import { battleItemDef, type InventoryMap } from '@/lib/inventory';
 import { GEAR, gearTierDef, toolIcon, toolName, toolOfKey, type GearTiers, type ToolId } from '@/lib/gearConfig';
 
 interface MapItemBarProps {
@@ -31,6 +32,9 @@ interface MapItemBarProps {
   gardenBag?: GardenBag;
   // The tier of each tool the kid owns (lib/gear.ts), for its picture and name.
   gear?: GearTiers;
+  // Everything else the kid owns (player_inventory): battle items show under the bag. They're
+  // used in battles, so they don't take bag squares.
+  inventory?: InventoryMap;
 }
 
 // What a tool in a slot is for, when it's tapped.
@@ -129,8 +133,13 @@ function TrashIcon({ type, className }: { type: TrashType; className: string }) 
   return <img src={`/trash/${type}.png`} alt="" className={`object-contain ${className}`} />;
 }
 
-export default function MapItemBar({ api, offline, message, onMessage, gardenBag, gear }: MapItemBarProps) {
+export default function MapItemBar({ api, offline, message, onMessage, gardenBag, gear, inventory }: MapItemBarProps) {
   const [panel, setPanel] = useState<Panel | null>(null);
+  const [battlePick, setBattlePick] = useState<string | null>(null);
+  const battleItems = Object.entries(inventory ?? {})
+    .map(([key, n]) => ({ key, n: n ?? 0, def: battleItemDef(key) }))
+    .filter(i => i.n > 0 && i.def)
+    .sort((a, b) => a.def!.name.localeCompare(b.def!.name));
   const { bar, trash, activeTracking, progress } = api;
 
   const activeDef: MonsterDef | undefined = activeTracking ? ALL_MONSTERS[activeTracking] : undefined;
@@ -484,7 +493,38 @@ export default function MapItemBar({ api, offline, message, onMessage, gardenBag
             );
           })()}
 
-          {squares.length === 0 && (
+          {battleItems.length > 0 && (
+            <div className="mb-2 text-left" data-testid="bag-battle-items">
+              <p className="text-xs font-extrabold text-[#2a1505] mb-1">Battle items <span className="font-normal text-[#6b4820]">(use them in battles)</span></p>
+              <div className="flex flex-wrap gap-1.5">
+                {battleItems.map(({ key, n, def }) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => { playPageFlip(); setBattlePick(p => (p === key ? null : key)); }}
+                    className={`relative w-11 h-11 rounded-md bg-[#1c140c] flex items-center justify-center border-2 ${battlePick === key ? 'border-white' : 'border-[#8b5e2a]'}`}
+                    aria-label={`${def!.name} ×${n}`}
+                    data-testid={`bag-battle-${key}`}
+                  >
+                    <img src={def!.icon} alt="" className="w-[86%] h-[86%] object-contain" style={{ imageRendering: 'pixelated' }} />
+                    <span className="absolute bottom-0 right-0.5 text-[10px] font-black text-white leading-none" style={{ textShadow: '0 1px 2px #000' }}>{n}</span>
+                  </button>
+                ))}
+              </div>
+              {(() => {
+                const it = battleItems.find(i => i.key === battlePick);
+                if (!it) return null;
+                return (
+                  <div className="bg-white border-2 border-[#c9a87a] rounded-xl p-2.5 mt-1.5" data-testid="bag-battle-detail">
+                    <p className="text-sm font-extrabold text-[#2a1505]">{it.def!.name} ×{it.n}</p>
+                    <p className="text-[11px] text-[#6b4820]">{it.def!.desc}</p>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {squares.length === 0 && battleItems.length === 0 && (
             <p className="text-xs text-[#3a2610] mb-2">Your bag is empty. Pick up trash on the map, or buy a Tracking Scroll in the Shop!</p>
           )}
           <GameButton variant="quest" onClick={() => setPanel(null)} className="w-full" style={{ fontSize: 14 }}>Close</GameButton>

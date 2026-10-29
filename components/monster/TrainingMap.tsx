@@ -1876,7 +1876,7 @@ export default function TrainingMap({
         drawer={drawer}
         overlay={overlay}
         overlayClear={swingAway && !!activeTree}
-        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} gear={gear} />}
+        hotbar={<MapItemBar api={itemBar} offline={offline} message={barMessage} onMessage={showBarMessage} gardenBag={garden.on ? garden.bag : undefined} gear={gear} inventory={inventory} />}
         fullscreen={fullscreen}
       />
 
