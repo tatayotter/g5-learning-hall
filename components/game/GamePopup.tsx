@@ -96,7 +96,7 @@ export default function GamePopup({ title, speaker, icon, subtitle, toolbar, foo
 
 /** The pop-up's wood header on its own, for a page over the map that wants the same top
  *  (Baylan's quests, components/nav/BaylanQuestHeader.tsx). */
-export function GamePopupHeader({ title, titleId, speaker, icon, subtitle, onClose, testId, className = '', grabBar = true }: Pick<GamePopupProps, 'title' | 'speaker' | 'icon' | 'subtitle' | 'onClose' | 'testId'> & { titleId?: string; className?: string; grabBar?: boolean }) {
+export function GamePopupHeader({ title, titleId, speaker, icon, subtitle, onClose, testId, className = '', grabBar = true, closeLabel = 'Close' }: Pick<GamePopupProps, 'title' | 'speaker' | 'icon' | 'subtitle' | 'onClose' | 'testId'> & { titleId?: string; className?: string; grabBar?: boolean; closeLabel?: string }) {
   return (
     <div className={`relative flex-shrink-0 px-3 pt-2 pb-3 sm:pt-3 ${className}`} style={woodTextureStyle}>
       <Nail className="top-2 left-2" />
@@ -128,7 +128,7 @@ export function GamePopupHeader({ title, titleId, speaker, icon, subtitle, onClo
       <button
         type="button"
         onClick={onClose}
-        aria-label="Close"
+        aria-label={closeLabel}
         className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-[#2a1505] border-2 border-[#d4a017] text-[#fde68a] text-xl font-black leading-none shadow-[0_3px_0_#1a0d05] active:translate-y-[calc(-50%+2px)] active:shadow-none"
         data-testid={testId ? `${testId}-close` : undefined}
       >

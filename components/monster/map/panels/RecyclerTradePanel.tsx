@@ -4,11 +4,12 @@
 // TrainingMap owns the trade itself (useTrashItems.tradeAll, the gold-earned
 // flash, and the achievement-stats RPC) and passes the finished onTradeAll
 // callback down. With the garden on, the Recycler also buys veggies and wood
-// (onSellVeggies, hooks/useGarden.ts).
+// (onSellVeggies, hooks/useGarden.ts). Uses the in-game pop-up frame (components/game/GamePopup.tsx).
 import { TRASH_DEFS, TRASH_ORDER } from '@/lib/trashConfig';
 import type { TrashInventory } from '@/hooks/useTrashItems';
 import { FIND_SELL_PRICE, GARDEN_KEYS, RARES, RARE_ORDER, RARE_SELL_PRICE, VEGGIES, VEGGIE_ORDER, VEGGIE_SELL_PRICE, gardenItemIcon, gardenItemLabel, gardenSellPrice, gardenSellable, veggieKey, type GardenBag } from '@/lib/gardenConfig';
-import GameButton, { questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
+import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 
 interface RecyclerTradePanelProps {
   trashInventory: TrashInventory;
@@ -44,31 +45,29 @@ export default function RecyclerTradePanel({
     wood > 0 && `${wood} wood`,
   ].filter(Boolean).join(', ').replace(/, ([^,]*)$/, ' and $1');
   return (
-    <div className="w-full max-w-sm bg-[#f0ddb8] border-2 border-[#c9a87a] rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <img
-          src="/npcs/recycler.png"
-          alt="Recycler"
-          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-white/70 border border-[#c9a87a]"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-        />
-        <div className="min-w-0">
-          <p
-            className="text-sm leading-tight"
-            style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}
-          >
-            <span style={{ position: 'relative', display: 'inline-block' }}>
-              <span aria-hidden style={questTextShadowStyle}>Recycler</span>
-              <span style={{ ...questTextStyle, color: '#16a34a' }}>Recycler</span>
-            </span>
-          </p>
-          <p className="text-[#6b4820] text-sm italic mt-1 leading-snug">
-            &quot;Got trash? I&apos;ll give you gold for it!&quot;
-          </p>
-        </div>
-      </div>
-
-      {/* 1×6 inventory list */}
+    <GamePopup
+      inline
+      title="Recycler"
+      speaker={{
+        portrait: (
+          <img
+            src="/npcs/recycler.png"
+            alt=""
+            className="w-14 h-14 object-contain object-top"
+            onError={(e) => { (e.target as HTMLImageElement).style.visibility = 'hidden'; }}
+          />
+        ),
+        line: "Got trash? I'll give you gold for it!",
+      }}
+      onClose={onDismiss}
+      testId="recycler-panel"
+      footer={
+        <GameButton variant="quest" color="#d97706" disabled={!canTrade} onClick={onTradeAll} className="w-full" style={{ fontSize: 15 }}>
+          Trade All
+        </GameButton>
+      }
+    >
+      {/* What the kid has of each kind of trash */}
       <div className="flex flex-col gap-1 mb-4">
         {TRASH_ORDER.map(type => {
           const def = TRASH_DEFS[type];
@@ -78,7 +77,7 @@ export default function RecyclerTradePanel({
             <div
               key={type}
               className={`flex items-center gap-2 rounded-md border px-2 py-1 ${
-                complete ? 'bg-green-100 border-green-600' : 'bg-white/70 border-[#c9a87a]'
+                complete ? 'bg-green-100 border-green-600' : 'bg-[#fffdf7] border-[#c9a87a]'
               }`}
             >
               <img
@@ -87,16 +86,14 @@ export default function RecyclerTradePanel({
                 className="w-6 h-6 object-contain flex-shrink-0"
                 style={{ imageRendering: 'auto' }}
               />
-              <span className="flex-1 text-[10px] text-[#3a2610] leading-none">{def.label}</span>
-              <span className="text-[10px] text-[#6b4820] leading-none">{def.bundleSize}=1g</span>
-              <span className={`text-[11px] font-bold leading-none w-5 text-right ${count > 0 ? 'text-[#2a1505]' : 'text-[#a89c86]'}`}>
+              <span className="flex-1 text-[12px] font-semibold text-[#3a2610] leading-none">{def.label}</span>
+              <span className="text-[11px] text-[#6b4820] leading-none">{def.bundleSize} = 1 gold</span>
+              <span className={`text-[13px] font-bold leading-none w-6 text-right ${count > 0 ? 'text-[#2a1505]' : 'text-[#a89c86]'}`}>
                 {count}
               </span>
             </div>
           );
         })}
-        {/* 6th slot empty */}
-        <div className="rounded-md border border-[#c9a87a] bg-white/40 h-8" />
       </div>
 
       {canTrade && (
@@ -147,25 +144,6 @@ export default function RecyclerTradePanel({
         </div>
       )}
 
-      <div className="flex gap-2" style={{ fontSize: 14 }}>
-        <GameButton
-          variant="quest"
-          color="#d97706"
-          disabled={!canTrade}
-          onClick={onTradeAll}
-          className="flex-1"
-        >
-          Trade All
-        </GameButton>
-        <GameButton
-          variant="quest"
-          color="#57534e"
-          onClick={onDismiss}
-          className="flex-1"
-        >
-          Maybe Later
-        </GameButton>
-      </div>
-    </div>
+    </GamePopup>
   );
 }

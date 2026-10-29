@@ -45,6 +45,8 @@ import { MtapSetComplete } from '@/components/bonusquests/MtapQuizPlayer';
 import { MixedTrainerComplete } from '@/components/bonusquests/MtapMixedTrainerPlayer';
 import CompendiumPanel from '@/components/monster/CompendiumPanel';
 import RecyclerTradePanel from '@/components/monster/map/panels/RecyclerTradePanel';
+import { NPC_TRAINERS } from '@/lib/monsterConfig';
+import TrainerChallengePanel from '@/components/monster/map/panels/TrainerChallengePanel';
 import CurioEncounterPanel from '@/components/monster/map/panels/CurioEncounterPanel';
 import StarterSelection from '@/components/monster/StarterSelection';
 import OriginStory from '@/components/intro/OriginStory';
@@ -749,21 +751,27 @@ export default function UiGallery() {
       </Section>
 
       <Section title="Recycler trade panel" note="components/monster/map/panels/RecyclerTradePanel.tsx — the map's trash-for-gold NPC panel">
-        <div className="grid sm:grid-cols-2 gap-4 bg-neutral-950 rounded-xl p-4">
-          <RecyclerTradePanel
+        <div className="flex flex-wrap gap-4 bg-neutral-950 rounded-xl p-4">
+          <div className="w-[390px] max-w-full"><RecyclerTradePanel
             trashInventory={{ paper: 10, bottle: 2, wrapper: 1, pencil: 0, chipbag: 0 }}
             canTrade={true}
             pendingTradeGold={1}
             onTradeAll={() => {}}
             onDismiss={() => {}}
-          />
-          <RecyclerTradePanel
+          /></div>
+          <div className="w-[390px] max-w-full"><RecyclerTradePanel
             trashInventory={{ paper: 3, bottle: 1, wrapper: 0, pencil: 0, chipbag: 0 }}
             canTrade={false}
             pendingTradeGold={0}
             onTradeAll={() => {}}
             onDismiss={() => {}}
-          />
+          /></div>
+        </div>
+      </Section>
+
+      <Section title="Trainer challenge" note="components/monster/map/panels/TrainerChallengePanel.tsx — a map trainer stops the player">
+        <div className="w-[390px] max-w-full">
+          <TrainerChallengePanel trainer={NPC_TRAINERS[0]} onAccept={() => {}} onRunAway={() => {}} />
         </div>
       </Section>
 

@@ -1,9 +1,11 @@
 'use client';
 // Trainer NPC challenge dialogue — shown by TrainingMap.tsx when the player
 // enters the trainer's 3×3 detection zone (pendingTrainerChallenge). Accept
-// launches the battle; Run Away dismisses and despawns the trainer.
+// launches the battle; Run Away (or the X) dismisses and despawns the trainer. Uses the
+// in-game pop-up frame (components/game/GamePopup.tsx).
 import type { NpcTrainer } from '@/lib/monsterConfig';
-import { playPageFlip } from '@/lib/sounds';
+import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 
 interface TrainerChallengePanelProps {
   trainer: NpcTrainer;
@@ -13,38 +15,36 @@ interface TrainerChallengePanelProps {
 
 export default function TrainerChallengePanel({ trainer, onAccept, onRunAway }: TrainerChallengePanelProps) {
   return (
-    <div className="w-full max-w-sm bg-neutral-900 border border-amber-700 rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <img
-          src={trainer.spriteOverride ?? `/trainers/${trainer.id}.png`}
-          alt={trainer.name}
-          className="w-14 h-14 flex-shrink-0 object-contain object-bottom rounded-lg bg-neutral-800"
-          onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).alt = trainer.emoji ?? ''; }}
-        />
-        <div className="min-w-0">
-          <p className="font-bold text-amber-300 text-sm leading-tight">{trainer.name}</p>
-          <p className="text-gray-300 text-sm italic mt-1 leading-snug">
-            &quot;{trainer.intro}&quot;
-          </p>
+    <GamePopup
+      inline
+      title={trainer.name}
+      speaker={{
+        portrait: (
+          <img
+            src={trainer.spriteOverride ?? `/trainers/${trainer.id}.png`}
+            alt=""
+            className="w-14 h-[72px] mt-0.5 object-cover object-top"
+            onError={(e) => { (e.target as HTMLImageElement).style.visibility = 'hidden'; }}
+          />
+        ),
+        line: trainer.intro,
+      }}
+      onClose={onRunAway}
+      testId="trainer-challenge"
+      footer={
+        <div className="flex gap-2">
+          <GameButton variant="quest" color="#d97706" onClick={onAccept} className="flex-1" style={{ fontSize: 15 }} data-testid="trainer-accept">
+            Accept!
+          </GameButton>
+          <GameButton variant="quest" color="#78716c" onClick={onRunAway} className="flex-1" style={{ fontSize: 15 }} data-testid="trainer-run">
+            Run Away!
+          </GameButton>
         </div>
-      </div>
-      <div className="flex gap-2">
-        <button
-          className="flex-1 bg-amber-600 hover:bg-amber-500 active:bg-amber-700
-                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={() => { playPageFlip(); onAccept(); }}
-        >
-          ⚔️ Accept!
-        </button>
-        <button
-          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
-                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
-                     transition-colors"
-          onClick={() => { playPageFlip(); onRunAway(); }}
-        >
-          🏃 Run Away!
-        </button>
-      </div>
-    </div>
+      }
+    >
+      <p className="rounded-xl border-2 border-[#8b5e2a] bg-[#fffdf7] px-3 py-2 text-[13px] font-semibold leading-snug text-[#2a1505]">
+        A trainer wants to battle your curios! Answer right to win.
+      </p>
+    </GamePopup>
   );
 }

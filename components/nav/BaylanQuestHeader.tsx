@@ -43,6 +43,8 @@ export default function BaylanQuestHeader({ hasQuestToday, questDone, onClose }:
         onClose={onClose}
         testId="baylan"
         grabBar={false}
+        // Not "Close": the X here goes back to the map like the Map tab.
+        closeLabel="Back to the map"
       />
     </div>
   );

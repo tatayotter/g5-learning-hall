@@ -1164,7 +1164,9 @@ export default function TrainingMap({
   };
 
   const handleScrollAnswer = async (correctCount: number, answeredQuestions: BattleQuestion[]) => {
-    const answered = activeScroll!;
+    const answered = activeScroll;
+    // Put down before the answer came back (the pop-up's X): nothing to do.
+    if (!answered) return;
     setActiveScroll(null);
     if (correctCount > 0) playChime(); else playClash();
     onQuestionsAnswered?.(answeredQuestions);
@@ -2015,6 +2017,7 @@ export default function TrainingMap({
       gradingUserId={gradingUserId}
       gradeOverride={scrollGradeOverride}
       onComplete={handleScrollAnswer}
+      onClose={() => setActiveScroll(null)}
     />
   ) : null;
 
