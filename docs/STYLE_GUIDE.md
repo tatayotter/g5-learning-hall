@@ -186,6 +186,36 @@ Tutor, duplicate catch, wild encounter) is built from this kit, which came from 
   a white quiz card inside the wood panel, with the usual `qopt` answer buttons. The quiz stays on
   the content layer even though the frame around it is the event look.
 
+## In-game pop-ups: `components/game/GamePopup.tsx` (2026-10-29)
+
+Every pop-up a kid opens from the world (talking to a town person who opens something, using a
+station, feeding a curio, a shop) uses this one frame, so they all feel like the same game.
+**Design it on a phone first** (390 x 844), then check a desktop; the frame adapts by itself.
+
+- **Phone:** a sheet that slides up from the bottom, as tall as its content but never more than
+  88% of the screen, with a grab bar. **Tablet and up:** a centred card (`size="md"` 480 px wide,
+  `size="lg"` 720 px for a shop or a long list).
+- **Header = wood** (`woodTextureStyle`, gold ring `#d4a017`, nails). Left: who the kid is
+  talking to (`speaker.portrait`, a 56 px circle showing head and shoulders) with their one
+  short line in a white speech box; or, for a place, an `icon` and a `subtitle`. Title in the
+  quest-button font, gold. The close X is top right, 44 px, always there.
+- **Body = parchment** (`#f0ddb8`), the only part that scrolls. Inside it, use the parchment
+  tokens above; tiles and rows sit on `#fffdf7`-ish cards with the `#8b5e2a` border.
+- **Toolbar** (optional): tabs or filter chips (`.schip`) that stay put while the body scrolls.
+  Chips, not a dropdown: a kid sees every choice at once and taps one.
+- **Footer** (optional): the main action, or the kid's gold in a shop. It stays put and clears
+  the phone's home bar.
+- Esc, the X and a tap outside close it. Nothing floats over the content (no speech bubbles
+  over the shelves): what a person says goes in the header.
+- Tiles on a phone: 4 across (`grid-cols-4`, 2 px gaps), icon, a two-line name at 10.5 px and the
+  price chip. Details and the Buy button go in a small detail card, not on the tile.
+- Words follow the in-game text rule: short, simple, kid-friendly.
+
+Built on it so far: the Shopkeeper's Shop (`components/game/ShopPopup.tsx`, `MonsterShop` with
+`compact`). Still on the older centred panel and next to move over: the Hideout panels
+(`HideoutPanel`, `CraftPanel`, the Curio Camp, feeding a curio), the Recycler trade and the map
+scroll/plant/tree question panels.
+
 ## Checklist before shipping a new quest/quiz/battle-adjacent screen
 
 1. Is this an everyday quest/quiz/review screen, or a deliberately atmospheric set-piece like
@@ -198,6 +228,7 @@ Tutor, duplicate catch, wild encounter) is built from this kit, which came from 
    ones?
 5. If there's an attack/skill button tied to a monster element, does it use the element-matched
    pastel set instead of a flat parchment tile?
+6. Is it a pop-up opened from the world? Then it's a `GamePopup`, designed at phone size first.
 
 ## What this doc does *not* cover
 
