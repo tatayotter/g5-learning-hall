@@ -29,7 +29,10 @@ import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/pa
 import MissionsPanel from '@/components/monster/MissionsPanel';
 import CraftPanel from '@/components/monster/map/panels/CraftPanel';
 import CampFeed from '@/components/monster/map/panels/CampFeed';
-import { recipeById, type StationId } from '@/lib/craftingConfig';
+import { bondHeartsNow, recipeById, type StationId } from '@/lib/craftingConfig';
+import { fetchActiveMissions } from '@/lib/curioMissions';
+import { getOwnedMonsterDisplay } from '@/lib/monsterConfig';
+import type { IslandCurioState } from '@/lib/phaserMap/islandCurios';
 import { collectCooking } from '@/lib/crafting';
 import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
@@ -248,7 +251,6 @@ interface TrainingMapProps {
 }
 
 // The Curio Camp's missions panel wants these; the map has nothing to do with either.
-const ignoreMissionIds = () => {};
 const ignoreLoadout = () => {};
 
 export default function TrainingMap({
@@ -838,6 +840,51 @@ export default function TrainingMap({
     return found.sort((a, b) => a.d - b.d || order[a.kind] - order[b.kind]);
   }, [scrolls, garden.on, garden.plants, garden.trees, posX, posY]);
   const nearby = inReach.find(o => o.usable) ?? null;
+  // The kid's curios at their Hideout (once the Curio Camp is built): they stroll around the island
+  // and a kid feeds one by walking up to it. Curios away on a mission aren't there.
+  const campBuilt = hideout.onIsland && !!hideout.api.state.plots.camp;
+  const [missionAway, setMissionAway] = useState<Set<string>>(() => new Set());
+  useEffect(() => {
+    if (!campBuilt || offline) return;
+    let gone = false;
+    void fetchActiveMissions(userId).then(m => { if (!gone) setMissionAway(new Set(m.map(x => x.monster_row_id))); });
+    return () => { gone = true; };
+  }, [campBuilt, offline, userId]);
+  // Hearts fade over the day: re-read them every minute.
+  const [heartsNow, setHeartsNow] = useState(() => Date.now());
+  useEffect(() => {
+    if (!campBuilt) return;
+    const t = setInterval(() => setHeartsNow(Date.now()), 60_000);
+    return () => clearInterval(t);
+  }, [campBuilt]);
+  const [nearCurioId, setNearCurioId] = useState<string | null>(null);
+  const [feedingCurio, setFeedingCurio] = useState<string | null>(null);
+  const islandCurioList = useMemo(() => (campBuilt ? userMonsters.filter(m => !missionAway.has(m.id)) : []), [campBuilt, userMonsters, missionAway]);
+  const curioName = useCallback((m: UserMonster) => {
+    const shown = getOwnedMonsterDisplay(monsterDisplay[m.monster_id], m.graduation_tier);
+    return m.nickname || shown?.name || 'Your curio';
+  }, [monsterDisplay]);
+  const islandCurios: IslandCurioState | null = useMemo(() => {
+    const camp = hideout.spots.find(sp => sp.id === 'camp');
+    if (!campBuilt || !camp || !islandCurioList.length) return null;
+    return {
+      curios: islandCurioList.map(m => {
+        const shown = getOwnedMonsterDisplay(monsterDisplay[m.monster_id], m.graduation_tier);
+        return { id: m.id, sprite: shown?.spriteId ?? shown?.id ?? m.monster_id, hearts: bondHeartsNow(m, heartsNow) };
+      }),
+      home: { x: camp.x, y: camp.y },
+      range: 9,
+      blocked: hideout.blocked,
+      hold: feedingCurio,
+    };
+  }, [campBuilt, islandCurioList, monsterDisplay, hideout.spots, hideout.blocked, feedingCurio, heartsNow]);
+  const nearCurio = nearCurioId ? islandCurioList.find(m => m.id === nearCurioId) ?? null : null;
+  const feedCurioOpen = useCallback(() => {
+    if (!nearCurio) return;
+    playPageFlip();
+    setFeedingCurio(nearCurio.id);
+  }, [nearCurio]);
+
   // The Hideout signpost or plot right next to the player, if any (plants and trees come first).
   const nearSpot = useMemo(() => {
     if (nearby) return null;
@@ -867,7 +914,7 @@ export default function TrainingMap({
   }, []);
 
   // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
-  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || craftStation || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
+  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || craftStation || feedingCurio || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
   useEffect(() => {
     const target = nearby ?? inReach[0];
     if (panelOpen || !target) return;
@@ -885,7 +932,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !craftStation && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
+    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !craftStation && !feedingCurio && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -1417,7 +1464,18 @@ export default function TrainingMap({
     return () => window.removeEventListener('keydown', onKey);
   }, [nearNpc, nearby, inReach.length, nearSpot, panelOpen, talkToNpc]);
   useEffect(() => {
-    if (!nearSpot || nearby || inReach.length || panelOpen) return;
+    if (!nearCurio || nearby || inReach.length || panelOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
+      const el = e.target as HTMLElement | null;
+      if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+      feedCurioOpen();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [nearCurio, nearby, inReach.length, panelOpen, feedCurioOpen]);
+  useEffect(() => {
+    if (!nearSpot || nearCurio || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1426,7 +1484,7 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearSpot, nearby, inReach.length, panelOpen, applySpot]);
+  }, [nearSpot, nearCurio, nearby, inReach.length, panelOpen, applySpot]);
   useEffect(() => {
     if (!nearExit || nearby || inReach.length || panelOpen || nearNpc || nearSpot) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1518,7 +1576,7 @@ export default function TrainingMap({
 
   // Gates both the floating joystick's press-and-drag and (previously) the
   // static dpad — matches the keyboard-movement path in useContinuousMovement.
-  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen || !!craftStation;
+  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen || !!craftStation || !!feedingCurio;
 
   const frameContent = (
     <div className="relative w-full h-full">
@@ -1557,6 +1615,8 @@ export default function TrainingMap({
         wildTrees={[...garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)), ...hideout.trees]}
         growBars={hideout.bars}
         cookFx={hideout.cooks}
+        islandCurios={islandCurios}
+        onCurioNear={setNearCurioId}
         props={nearSpot?.bed && !controlsDisabled ? [...hideout.props, { id: 'tile-cursor', src: TILE_CURSOR_ART.src, x: nearSpot.x, y: nearSpot.y }] : hideout.props}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
@@ -1581,7 +1641,19 @@ export default function TrainingMap({
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {guide && !controlsDisabled && <GuideArrow angle={guide.angle} />}
-      {!nearby && nearSpot && !controlsDisabled && (
+      {!nearby && nearCurio && !controlsDisabled && (
+        <button
+          type="button"
+          data-testid="curio-button"
+          onClick={feedCurioOpen}
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 bg-[#0a0807]/90 border-2 border-[#d4a017] text-[#fde68a] text-xs font-bold pl-1.5 pr-2.5 py-1 rounded-full shadow-lg whitespace-nowrap active:scale-95"
+        >
+          <img src="/craft/heart_full.png" alt="" className="w-5 h-5 object-contain" style={{ imageRendering: 'pixelated' }} />
+          Feed {curioName(nearCurio)}
+          <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
+        </button>
+      )}
+      {!nearby && !nearCurio && nearSpot && !controlsDisabled && (
         <button
           type="button"
           data-testid="hideout-button"
@@ -1756,35 +1828,42 @@ export default function TrainingMap({
         if (say) showBarMessage(say);
       }}
     />
-  ) : campOpen ? (
-    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="camp-panel">
-      <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
-        <img src="/hideout/curio_camp.png" alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
-        <div className="min-w-0">
-          <p className="text-[#2a1505] font-bold text-sm leading-tight">Curio Camp</p>
-          <p className="text-xs text-[#6b4820] leading-tight">Feed your curios to make friends. Curios on your bench can go on missions and come back stronger.</p>
-        </div>
-      </div>
+  ) : feedingCurio && userMonsters.some(m => m.id === feedingCurio) ? (
+    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="curio-feed-panel">
       <CampFeed
         userId={userId}
-        curios={userMonsters}
+        curios={userMonsters.filter(m => m.id === feedingCurio)}
         monsterDisplay={monsterDisplay}
         bag={garden.bag}
         offline={offline}
         onFed={(res, name) => {
           if (res.bag) garden.setBag(res.bag);
           playChime();
+          setFeedingCurio(null);
           showBarMessage(`${name} loved it! +1 heart`);
           void onLoadoutChange?.();
         }}
       />
+      <GameButton variant="quest" color="#57534e" onClick={() => setFeedingCurio(null)} className="w-full" style={{ fontSize: 13 }} data-testid="curio-feed-leave">
+        Close
+      </GameButton>
+    </div>
+  ) : campOpen ? (
+    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="camp-panel">
+      <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
+        <img src="/hideout/curio_camp.png" alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
+        <div className="min-w-0">
+          <p className="text-[#2a1505] font-bold text-sm leading-tight">Curio Camp</p>
+          <p className="text-xs text-[#6b4820] leading-tight">Curios on your bench can go on missions and come back stronger. Your curios play around the island: walk up to one to feed it.</p>
+        </div>
+      </div>
       <MissionsPanel
         playerLevel={playerLevel}
         userId={userId}
         benchedMonsters={userMonsters.filter(m => m.slot === null)}
         caughtMonsters={caughtMonsters}
         monsterDisplay={monsterDisplay}
-        onMissionLockedIdsChange={ignoreMissionIds}
+        onMissionLockedIdsChange={setMissionAway}
         onLoadoutChange={onLoadoutChange ?? ignoreLoadout}
       />
       <GameButton variant="quest" color="#57534e" onClick={() => setCampOpen(false)} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="camp-leave">

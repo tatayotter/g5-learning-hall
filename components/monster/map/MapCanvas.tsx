@@ -23,6 +23,7 @@ import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
 import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
 import type { GrowBar } from '@/lib/phaserMap/growBars';
 import type { CookFx } from '@/lib/phaserMap/cookFire';
+import type { IslandCurioState } from '@/lib/phaserMap/islandCurios';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
@@ -142,6 +143,9 @@ interface MapCanvasProps {
   props?: PropSprite[];
   growBars?: GrowBar[];
   cookFx?: CookFx[];
+  islandCurios?: IslandCurioState | null;
+  /** The kid's curio at their Hideout within reach (walk up, then E or tap), or null. */
+  onCurioNear?: (id: string | null) => void;
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   chopTree?: string | null;
   /** The tier of each tool the kid owns (the one they swing), and the latest pickaxe/shovel swing at a find. */
@@ -183,7 +187,7 @@ const NPC_APPROACH = 3;
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, scrollFates,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, growBars, cookFx, treeSwing, chopTree, tools, toolStrike, canPour, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, growBars, cookFx, islandCurios, onCurioNear, treeSwing, chopTree, tools, toolStrike, canPour, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
@@ -276,6 +280,9 @@ export default function MapCanvas({
   // Guild NPC name tags (town), placed every frame where the scene's NPC walks.
   const npcTagElsRef = useRef<Map<string, HTMLDivElement>>(new Map());
   const npcNearRef = useRef<string | null>(null);
+  const onCurioNearRef = useRef(onCurioNear);
+  useEffect(() => { onCurioNearRef.current = onCurioNear; }, [onCurioNear]);
+  const curioNearRef = useRef<string | null>(null);
   const onNpcNearRef = useRef(onNpcNear);
   useEffect(() => { onNpcNearRef.current = onNpcNear; }, [onNpcNear]);
   // Talk bubbles (lib/npcTalk.ts), placed every frame over their speaker like the name tags.
@@ -429,6 +436,7 @@ export default function MapCanvas({
       props,
       growBars,
       cookFx,
+      islandCurios,
       treeSwing,
       chopTree,
       tools,
@@ -497,6 +505,16 @@ export default function MapCanvas({
           el.style.left = `${lp(px)}%`;
           el.style.top = `${tp(py)}%`;
         });
+        {
+          // The kid's own curios at their Hideout: the one in reach.
+          let near: string | null = null, best = 1.5;
+          for (const c of sceneRef.current?.getIslandCurioSpots() ?? []) {
+            // Spots are tile middles (x + 0.5), like the kid's own float position.
+            const d = Math.hypot(c.x - x, c.y - y);
+            if (d < best) { best = d; near = c.id; }
+          }
+          if (near !== curioNearRef.current) { curioNearRef.current = near; onCurioNearRef.current?.(near); }
+        }
         if (npcTagElsRef.current.size || npcBubbleElsRef.current.size) {
           const spots = new Map((sceneRef.current?.getNpcSpots() ?? []).map(n => [n.id, n]));
           // Coming close to a town NPC (they may say something), once per visit.

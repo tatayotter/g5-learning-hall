@@ -91,7 +91,7 @@ export function buildCost(def: PlotDef, built: Record<string, unknown>): { cost:
 export const PLOT_USE: Record<PlotKind, string> = {
   bed: 'Plant seeds here and grow your own veggies.',
   grove: 'Plant a sapling here. It grows into a tree that drops wood every day.',
-  camp: 'Send your curios on missions, and feed them to make friends.',
+  camp: 'Send your curios on missions. Once it is built, your curios play around the island.',
   kitchen: 'Cook food for you and your curios.',
   workbench: 'Make things for your Hideout, like Stone Rings for tree spots.',
   compost: 'Turn trash and old veggies into Garden Soil.',

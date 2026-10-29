@@ -73,6 +73,7 @@ import WildTrees, { type TreeSprite } from './wildTrees';
 import HideoutProps, { type PropSprite } from './hideoutProps';
 import GrowBars, { type GrowBar } from './growBars';
 import CookFire, { type CookFx } from './cookFire';
+import IslandCurios, { type Grounds as IslandCurioGrounds, type IslandCurioState } from './islandCurios';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
@@ -184,6 +185,8 @@ export interface MapCanvasSyncState {
   growBars?: GrowBar[];
   /** Kitchens that are cooking: fire under the pot and steam (lib/phaserMap/cookFire.ts). */
   cookFx?: CookFx[];
+  /** The kid's curios roaming their Hideout (lib/phaserMap/islandCurios.ts). */
+  islandCurios?: IslandCurioState | null;
   /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
@@ -367,6 +370,9 @@ export default class TrainingMapScene extends Phaser.Scene {
   private growBars: GrowBars | null = null;
   private cookFire: CookFire | null = null;
   private cookFxList: CookFx[] = [];
+  private islandCurios: IslandCurios | null = null;
+  private islandCurioState: IslandCurioState | null = null;
+  private islandGrounds: IslandCurioGrounds | null = null;
   private wildTrees: WildTrees | null = null;
   private chopSwing: ChopSwing | null = null;
   private chopTree: string | null = null;
@@ -460,6 +466,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.props?.update(time);
     this.growBars?.update(time);
     this.cookFire?.update(time);
+    if (this.islandCurios) this.islandCurios.update(time, this.walkers().find(w => w.id === 'self') ?? null);
     this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.npcLayer?.syncOutlines(time);
@@ -696,6 +703,9 @@ export default class TrainingMapScene extends Phaser.Scene {
   getNpcSpots(): { id: string; x: number; y: number }[] {
     return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
   }
+
+  /** Where each of the kid's curios stands at their Hideout (tile, feet). */
+  getIslandCurioSpots(): { id: string; x: number; y: number }[] { return this.islandCurios?.spots() ?? []; }
 
   /** A town NPC's little greeting hop (lib/phaserMap/guildNpcs.ts). */
   nodNpc(id: string) { this.npcLayer?.nod(id); }
@@ -1136,6 +1146,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.growBars?.setBars(this.growBarList);
     this.cookFxList = state.cookFx ?? [];
     this.cookFire?.setFx(this.cookFxList);
+    this.islandCurioState = state.islandCurios ?? null;
+    this.islandGrounds = state.wildlife?.habitat ?? null;
+    this.islandCurios?.setGrounds(this.islandGrounds);
+    this.islandCurios?.setState(this.islandCurioState);
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
@@ -1282,6 +1296,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.props = null;
     this.growBars = null;
     this.cookFire = null;
+    this.islandCurios = null;
     this.wildTrees = null;
     this.chopSwing = null;
     this.topLayer = null;
@@ -1386,6 +1401,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.cookFire = new CookFire(this, anyLayer, 8.47);
         this.tilemapLayers.push(this.cookFire.container);
         this.cookFire.setFx(this.cookFxList);
+        // The kid's curios at their Hideout: over the plants, under the players.
+        this.islandCurios = new IslandCurios(this, anyLayer, 8.6, this.islandGrounds, (key, url, onReady) => this.ensureTexture(key, url, onReady));
+        this.tilemapLayers.push(this.islandCurios.container);
+        this.islandCurios.setState(this.islandCurioState);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);
