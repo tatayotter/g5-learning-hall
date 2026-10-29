@@ -57,7 +57,7 @@ import { isItemSlot } from '@/lib/itemBar';
 import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
-import { AMBIENCE, isRaining, nightStrength, sunsetStrength } from '@/lib/ambience';
+import { skyFor, isRaining, nightStrength, sunsetStrength } from '@/lib/ambience';
 import { bubbleMs, cameFrom, canTalk, firstGreetToday, noteWildMap, pickExchange, pickLine, type NpcSay } from '@/lib/npcTalk';
 import { USERS } from '@/lib/userSession';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
@@ -850,8 +850,8 @@ export default function TrainingMap({
 
   // The sky over this map: its biome's clouds, drifting bits and sunset, new clouds each day.
   const ambience = useMemo(
-    () => ({ key: `${activeRegion.id}:${natureDay()}`, sky: AMBIENCE[activeRegion.element] }),
-    [activeRegion.id, activeRegion.element],
+    () => ({ key: `${activeRegion.id}:${natureDay()}`, sky: skyFor(activeRegion) }),
+    [activeRegion],
   );
   type Reachable = (typeof inReach)[number];
 
@@ -1328,7 +1328,7 @@ export default function TrainingMap({
     else if (sunsetStrength(now) > 0.3) f.add('sunset');
     else f.add(hour >= 5 && hour < 11 ? 'morning' : 'noon');
     for (const r of Object.values(REGIONS)) {
-      if (isRaining(AMBIENCE[r.element], `${r.id}:${natureDay()}`, now)) f.add(`rain:${r.id}`);
+      if (isRaining(skyFor(r), `${r.id}:${natureDay()}`, now)) f.add(`rain:${r.id}`);
     }
     if (f.has(`rain:${activeRegion.id}`)) f.add('rain_here');
     const from = cameFrom();
