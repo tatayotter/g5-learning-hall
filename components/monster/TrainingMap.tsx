@@ -32,7 +32,7 @@ import CampFeed from '@/components/monster/map/panels/CampFeed';
 import type { StationId } from '@/lib/craftingConfig';
 import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
-import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
+import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, TILE_CURSOR_ART, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
 import { REGIONS, ELEMENT_COLOR, type MapTile } from '@/lib/regions';
 import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
@@ -816,9 +816,11 @@ export default function TrainingMap({
   // The Hideout signpost or plot right next to the player, if any (plants and trees come first).
   const nearSpot = useMemo(() => {
     if (nearby) return null;
-    // Nearest of its tiles (a garden bed takes six).
+    // Nearest of its tiles (a garden bed not built yet takes six). A garden tile: the one stood
+    // on, then the one straight beside rather than corner to corner.
     const d = (o: HideoutSpot) => Math.min(...o.tiles.map(t => Math.max(Math.abs(t.x - posX), Math.abs(t.y - posY))));
-    return hideout.spots.filter(o => d(o) <= 1).sort((a, b) => d(a) - d(b))[0] ?? null;
+    const side = (o: HideoutSpot) => Math.min(...o.tiles.map(t => Math.abs(t.x - posX) + Math.abs(t.y - posY)));
+    return hideout.spots.filter(o => d(o) <= 1).sort((a, b) => d(a) - d(b) || side(a) - side(b))[0] ?? null;
   }, [nearby, hideout.spots, posX, posY]);
 
   // The sky over this map: its biome's clouds, drifting bits and sunset, new clouds each day.
@@ -1445,11 +1447,12 @@ export default function TrainingMap({
       }
     }
     // A Hideout plot or the signpost (its art reaches a tile or two above it): walk up and use it.
-    const reach = (o: HideoutSpot) => (o.plot?.kind === 'grove' || o.plot?.kind === 'camp' || o.kind === 'signpost' ? 2 : 1);
+    const reach = (o: HideoutSpot) => (o.bed ? 0 : o.plot?.kind === 'grove' || o.plot?.kind === 'camp' || o.kind === 'signpost' ? 2 : 1);
     const spot = hideout.spots.find(o => o.tiles.some(t => t.x === tx && ty <= t.y && ty >= t.y - reach(o)));
     if (spot) {
       if (nearSpot?.id === spot.id) { void applySpot(spot); return; }
-      contMove.walkTo(tilesAround(spot.x, spot.y, canWalk), () => { void applySpot(spot); });
+      // A garden tile: step onto it.
+      contMove.walkTo(spot.bed ? [{ x: spot.x, y: spot.y }] : tilesAround(spot.x, spot.y, canWalk), () => { void applySpot(spot); });
       return;
     }
     // The Recycler (two tiles tall on screen).
@@ -1527,14 +1530,14 @@ export default function TrainingMap({
         gardenPlants={garden.on ? [...garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)), ...hideout.crops] : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={[...garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)), ...hideout.trees]}
-        props={hideout.props}
+        props={nearSpot?.bed && !controlsDisabled ? [...hideout.props, { id: 'tile-cursor', src: TILE_CURSOR_ART.src, x: nearSpot.x, y: nearSpot.y }] : hideout.props}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
         tools={gear}
         toolStrike={toolStrike}
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'scroll' ? String(nearby.scroll.id) : nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
-          : nearSpot ? { kind: hideout.trees.some(t => t.id === nearSpot.id) ? 'tree' : 'prop', id: nearSpot.id }
+          : nearSpot ? { kind: hideout.trees.some(t => t.id === nearSpot.id) ? 'tree' : hideout.crops.some(c => c.id === nearSpot.id) ? 'plant' : 'prop', id: nearSpot.id }
           : nearNpc ? { kind: 'npc', id: nearNpc.id } : null}
         npcMarks={npcMarks}
         paused={paused}

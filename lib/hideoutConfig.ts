@@ -145,18 +145,20 @@ export type PlotLook =
 
 export const PLOT_ART: Record<PlotLook, { src: string; w: number; h: number }> = {
   site: { src: '/hideout/build_site.png', w: 56, h: 51 },
-  grove: { src: '/hideout/tree_spot.png', w: 32, h: 32 },
-  camp: { src: '/hideout/curio_camp.png', w: 64, h: 64 },
+  grove: { src: '/hideout/tree_spot.png', w: 42, h: 28 },
+  camp: { src: '/hideout/curio_camp.png', w: 64, h: 44 },
   kitchen_soon: { src: '/hideout/kitchen_soon.png', w: 32, h: 48 },
-  kitchen: { src: '/hideout/kitchen.png', w: 48, h: 48 },
-  workbench: { src: '/hideout/workbench.png', w: 48, h: 40 },
-  compost: { src: '/hideout/compost_bin.png', w: 32, h: 40 },
+  kitchen: { src: '/hideout/kitchen.png', w: 47, h: 48 },
+  workbench: { src: '/hideout/workbench.png', w: 48, h: 28 },
+  compost: { src: '/hideout/compost_bin.png', w: 32, h: 38 },
 };
 export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 29, h: 64 };
+// Gold corners round the garden tile a kid would plant, water or harvest next.
+export const TILE_CURSOR_ART = { src: '/hideout/tile_cursor.png', w: 32, h: 32 };
 
 // Each garden bed is a fenced dirt pen on the map (hideout.tmx, like the town's pens). Its Places
-// point is the middle of its two crop rows: six soil tiles, three across, and the kid stands on
-// the row in front. Each tile takes one seed packet (Rowil, 2026-10-29) and is its own plot on the
+// point is the middle of its two crop rows: six soil tiles, three across. A kid can walk on the
+// soil of a built pen and uses the tile they stand on (or the one next to them). Each tile takes one seed packet (Rowil, 2026-10-29) and is its own plot on the
 // server, bed_N_0..bed_N_5 in this order. The tiles a plot takes (solid), around its Places point:
 export const plotTiles = (kind: PlotKind, x: number, y: number) =>
   kind === 'bed'

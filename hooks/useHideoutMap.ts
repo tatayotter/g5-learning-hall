@@ -164,8 +164,9 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
     return { props, crops, trees };
   }, [spots, state.plots, now]);
 
-  // The plots and the signpost are solid: a kid uses one from a tile beside it.
-  const blocked = useMemo(() => spots.flatMap(s => s.tiles), [spots]);
+  // The plots and the signpost are solid: a kid uses one from a tile beside it. A built pen's soil
+  // tiles are not: a kid walks onto a tile to plant it.
+  const blocked = useMemo(() => spots.flatMap(s => (s.bed ? [] : s.tiles)), [spots]);
 
   // A garden bed's ripe tiles: harvesting one picks them all.
   const ripeInBed = (s: HideoutSpot) => (s.bed ? spots.filter(o => o.bed === s.bed && o.phase === 'ripe') : [s]);
