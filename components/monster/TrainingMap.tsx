@@ -251,6 +251,29 @@ interface TrainingMapProps {
 }
 
 // The Curio Camp's missions panel wants these; the map has nothing to do with either.
+// Whether a kid at (x, y) can walk to the map's spawn (and so anywhere): not a wall, not off the
+// map, not fenced in.
+function reachableFromSpawn(layout: { type: string }[][], spawn: { x: number; y: number }, x: number, y: number): boolean {
+  const h = layout.length, w = layout[0]?.length ?? 0;
+  const open = (cx: number, cy: number) => cx >= 0 && cy >= 0 && cx < w && cy < h && layout[cy][cx].type !== 'wall';
+  if (!open(x, y)) return false;
+  if (!open(spawn.x, spawn.y)) return true; // a map without a usable spawn: nothing better to offer
+  const seen = new Uint8Array(w * h);
+  const queue = [y * w + x];
+  seen[y * w + x] = 1;
+  while (queue.length) {
+    const i = queue.pop()!;
+    const cx = i % w, cy = (i - cx) / w;
+    if (cx === spawn.x && cy === spawn.y) return true;
+    for (const [nx, ny] of [[cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]]) {
+      if (!open(nx, ny) || seen[ny * w + nx]) continue;
+      seen[ny * w + nx] = 1;
+      queue.push(ny * w + nx);
+    }
+  }
+  return false;
+}
+
 const ignoreLoadout = () => {};
 
 export default function TrainingMap({
@@ -496,6 +519,8 @@ export default function TrainingMap({
   // persist position — this local state naturally resets on region re-entry
   // since TrainingMap remounts when regionId changes.
   const [localPos, setLocalPos] = useState(() => spawnAt ?? region?.spawn ?? { x: 1, y: 1 });
+  const localPosRef = useRef(localPos);
+  useEffect(() => { localPosRef.current = localPos; }, [localPos]);
   const posX = isLedgersHeart ? battleState.map_x : localPos.x;
   const posY = isLedgersHeart ? battleState.map_y : localPos.y;
   const activeMonster = userMonsters.find(m => m.slot === battleState.active_monster_slot);
@@ -1002,6 +1027,15 @@ export default function TrainingMap({
                 .eq('user_id', userId)
                 .then(({ error }) => { if (error) console.error('save map position error:', error); });
             }
+            contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
+          }
+        } else {
+          // Every other map starts on the spot saved on this device (lib/lastPlace.ts). If the map
+          // changed since (new fences, pens, buildings), that spot can be a wall, or walled in
+          // with no way out: then the kid starts at the map's own spawn instead of being stuck.
+          const { x, y } = localPosRef.current;
+          if (!reachableFromSpawn(parsed.layout, parsed.spawn, x, y)) {
+            setLocalPos({ x: parsed.spawn.x, y: parsed.spawn.y });
             contMove.resetTo({ x: parsed.spawn.x, y: parsed.spawn.y });
           }
         }
