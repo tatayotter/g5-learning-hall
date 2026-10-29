@@ -1498,7 +1498,8 @@ export default function TrainingMap({
     return () => window.removeEventListener('keydown', onKey);
   }, [nearNpc, nearby, inReach.length, nearSpot, panelOpen, talkToNpc]);
   useEffect(() => {
-    if (!nearCurio || nearby || inReach.length || panelOpen) return;
+    // The plot or station the kid stands at wins over a curio that happens to stroll past.
+    if (!nearCurio || nearSpot || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1507,9 +1508,9 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearCurio, nearby, inReach.length, panelOpen, feedCurioOpen]);
+  }, [nearCurio, nearSpot, nearby, inReach.length, panelOpen, feedCurioOpen]);
   useEffect(() => {
-    if (!nearSpot || nearCurio || nearby || inReach.length || panelOpen) return;
+    if (!nearSpot || nearby || inReach.length || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.repeat || (e.key !== 'e' && e.key !== 'E')) return;
       const el = e.target as HTMLElement | null;
@@ -1518,7 +1519,7 @@ export default function TrainingMap({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [nearSpot, nearCurio, nearby, inReach.length, panelOpen, applySpot]);
+  }, [nearSpot, nearby, inReach.length, panelOpen, applySpot]);
   useEffect(() => {
     if (!nearExit || nearby || inReach.length || panelOpen || nearNpc || nearSpot) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1675,7 +1676,7 @@ export default function TrainingMap({
         onPlayerClick={(id: string) => { playPageFlip(); if (onGatedPlayerClick) onGatedPlayerClick(); else setStatsTargetId(id); }}
       />}
       {guide && !controlsDisabled && <GuideArrow angle={guide.angle} />}
-      {!nearby && nearCurio && !controlsDisabled && (
+      {!nearby && !nearSpot && nearCurio && !controlsDisabled && (
         <button
           type="button"
           data-testid="curio-button"
@@ -1687,7 +1688,7 @@ export default function TrainingMap({
           <span className="hidden [@media(pointer:fine)]:inline-block ml-1 px-1.5 rounded border border-[#d4a017] text-[11px] leading-5">E</span>
         </button>
       )}
-      {!nearby && !nearCurio && nearSpot && !controlsDisabled && (
+      {!nearby && nearSpot && !controlsDisabled && (
         <button
           type="button"
           data-testid="hideout-button"

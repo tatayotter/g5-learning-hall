@@ -406,13 +406,13 @@ export default function MapCanvas({
           if (destroyed || !game) return;
           if (pausedRef.current) { sharpTimer = setTimeout(check, 3000); return; }
           slow = game.loop.actualFps < 38 ? slow + 1 : 0;
-          if (slow < 2) { sharpTimer = setTimeout(check, 3000); return; }
+          if (slow < 2) { sharpTimer = setTimeout(check, 2000); return; }
           console.info(`map: ${Math.round(game.loop.actualFps)} fps, back to the plain picture`);
           game.scale.resize(CANVAS_WIDTH, CANVAS_HEIGHT);
           game.scale.setZoom(1);
           scene.cameras.main.setZoom(1);
         };
-        sharpTimer = setTimeout(check, 6000);
+        sharpTimer = setTimeout(check, 4000);
       }
     })();
 
