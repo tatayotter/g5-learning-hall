@@ -58,7 +58,7 @@ import {
 import { refreshGear, useGear } from '@/lib/gear';
 import { GEAR, TOOL_ORDER, bagSizeFor, toolForVeggie, toolIcon, toolKey, toolName, toolVerb, type ToolId } from '@/lib/gearConfig';
 import { isItemSlot } from '@/lib/itemBar';
-import { flyGold, flyToBag } from '@/components/monster/map/flyToBag';
+import { flyToBag } from '@/components/monster/map/flyToBag';
 import { useIsOffline } from '@/hooks/useIsOffline';
 import MapItemBar from '@/components/monster/map/MapItemBar';
 import { skyFor, isRaining, nightStrength, sunsetStrength } from '@/lib/ambience';
@@ -1923,7 +1923,6 @@ export default function TrainingMap({
         const gold = itemBar.tradeAllTrash();
         if (gold > 0) {
           onTrashTraded?.(gold);
-          flyGold(gold);
           setGoldEarnedFlash(gold);
           setTimeout(() => setGoldEarnedFlash(null), 1800);
           // Persist gold-from-recycling counter for achievements; skip for bots.
@@ -1946,7 +1945,6 @@ export default function TrainingMap({
         if (!sold) { showBarMessage("That didn't work. Try again!"); return; }
         if (sold.gold > 0) {
           playCoins();
-          flyGold(sold.gold);
           setGoldEarnedFlash(sold.gold);
           setTimeout(() => setGoldEarnedFlash(null), 1800);
         }

@@ -1,7 +1,7 @@
 // components/SidebarRail.tsx
 'use client';
 
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -9,6 +9,7 @@ import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
 import SoundSettings from '@/components/SoundSettings';
+import { flyGold } from '@/components/game/flyGold';
 
 export function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -218,6 +219,16 @@ export interface TopHudProps {
 // The top stat bar, shared by this compass nav and the new five-tab nav
 // (components/nav/GameNav.tsx).
 export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, playerLevel, playerXp, playerGold, playerStreak, weekLabel, notifications, onMarkNotificationsRead, left = 0, leading }: TopHudProps) {
+  // Gold coming in flies into the counter (components/game/flyGold.ts). Not on the first load,
+  // a change of player, or the first few seconds while the saved numbers catch up.
+  const goldSeen = useRef<{ who: string; gold: number; since: number } | null>(null);
+  useEffect(() => {
+    const seen = goldSeen.current;
+    const now = Date.now();
+    if (!seen || seen.who !== playerName) { goldSeen.current = { who: playerName, gold: playerGold, since: now }; return; }
+    if (playerGold > seen.gold && now - seen.since > 4000) flyGold(playerGold - seen.gold);
+    seen.gold = playerGold;
+  }, [playerGold, playerName]);
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   return (
