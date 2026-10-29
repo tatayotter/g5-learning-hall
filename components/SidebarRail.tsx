@@ -9,7 +9,7 @@ import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
 import SoundSettings from '@/components/SoundSettings';
-import { flyGold } from '@/components/game/flyGold';
+import { flyExp, flyGold } from '@/components/game/flyGold';
 
 export function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -229,6 +229,18 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
     if (playerGold > seen.gold && now - seen.since > 4000) flyGold(playerGold - seen.gold);
     seen.gold = playerGold;
   }, [playerGold, playerName]);
+  // EXP and level-ups the same way, as stars into the level badge.
+  const expSeen = useRef<{ who: string; level: number; xp: number; since: number } | null>(null);
+  useEffect(() => {
+    const seen = expSeen.current;
+    const now = Date.now();
+    if (!seen || seen.who !== playerName) { expSeen.current = { who: playerName, level: playerLevel, xp: playerXp, since: now }; return; }
+    if (now - seen.since > 4000) {
+      if (playerLevel > seen.level) flyExp(playerXp, true);
+      else if (playerLevel === seen.level && playerXp > seen.xp) flyExp(playerXp - seen.xp);
+    }
+    seen.level = playerLevel; seen.xp = playerXp;
+  }, [playerLevel, playerXp, playerName]);
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   return (
@@ -260,7 +272,7 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
       {leading && <div className="pointer-events-auto shrink-0 -my-1">{leading}</div>}
       <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
       <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-      <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
+      <span data-testid="hud-level" className={`inline-block text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
       <HudChip testId="hud-gold" iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
       <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
       {/* Grade/week only fit alongside everything else once there's
