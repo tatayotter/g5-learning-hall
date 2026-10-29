@@ -1,4 +1,4 @@
--- pgTAP tests for 20261028160000_hideout.sql: buying the Hideout once for 2,000 gold (with a
+-- pgTAP tests for 20261028160000_hideout.sql and 20261029000000_hideout_tiles_and_trees.sql: buying the Hideout once for 2,000 gold (with a
 -- free Tin Watering Can), building plots with wood from the bag, planting with a right answer,
 -- watering (and a Silver can watering everything at once), harvesting by the server's clock,
 -- a grown tree's wood once a day, replayed entries counting once, and kids never writing or
@@ -6,7 +6,7 @@
 
 begin;
 create extension if not exists pgtap;
-select plan(43);
+select plan(50);
 
 create temp table fx as
 select gen_random_uuid() as kid_auth,
@@ -32,7 +32,7 @@ select q.id, 'q' || g, '["a","b"]'::jsonb, 'a', g
 from content_quizzes q
 join content_days d on d.id = q.content_day_id
 join content_weeks w on w.id = d.content_week_id
-cross join generate_series(1, 12) g
+cross join generate_series(1, 16) g
 where w.grade = 5 and w.week_starting_date = '2030-06-16';
 
 create temp table qs as
@@ -71,7 +71,9 @@ create or replace function pg_temp.harvest(p_plot text) returns jsonb as $$
   select public.harvest_hideout_plot((select kid from fx), p_plot);
 $$ language sql;
 
-select is((select count(*)::int from hideout_plot_defs), 8, 'the island has 8 plots');
+select is((select count(*)::int from hideout_plot_defs where part_of is null), 12, 'the island has 12 plots');
+select is((select count(*)::int from hideout_plot_defs where part_of = 'bed_3'), 6, 'a garden pen has 6 soil tiles');
+select is((select count(*)::int from hideout_plot_defs where kind = 'grove'), 6, 'six of them are tree spots');
 
 update feature_flags set mode = 'allowlist', allowlist = array[(select kid from fx)] where key = 'garden';
 select pg_temp.login_as(kid_auth) from fx;
@@ -101,40 +103,45 @@ set local role authenticated;
 select is((pg_temp.build('bed_1') ->> 'ok')::boolean, true, '6 wood builds a garden bed');
 select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'wood'), 24, 'the wood left the bag');
 select is(pg_temp.build('bed_1') ->> 'reason', 'built', 'a bed is built once');
+select is((select count(*)::int from player_hideout_plots where user_id = (select kid from fx) and plot_id like 'bed\_1\_%'), 6, 'and comes with its 6 tiles');
 select is(pg_temp.build('kitchen') ->> 'reason', 'not_yet', 'the kitchen is not buildable yet');
 
 -- ── Planting ──
-select is(pg_temp.plant('bed_1', 'tomato', 1) ->> 'status', 'no_item', 'no tomato seeds: nothing to plant');
+select is(pg_temp.plant('bed_1_0', 'tomato', 1) ->> 'status', 'no_item', 'no tomato seeds: nothing to plant');
 reset role;
 insert into player_bag_items (user_id, item_key, quantity) select kid, 'seeds_tomato', 2 from fx;
 set local role authenticated;
-select is(pg_temp.plant('bed_1', 'tomato', 2, 'b') ->> 'status', 'wrong', 'a wrong answer plants nothing');
+select is(pg_temp.plant('bed_1_0', 'tomato', 2, 'b') ->> 'status', 'wrong', 'a wrong answer plants nothing');
 select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'seeds_tomato'), 2, 'and keeps the seeds');
-select is(pg_temp.plant('bed_1', 'tomato', 3, 'a', (select id from entry)) ->> 'status', 'planted', 'a right answer plants them');
+select is(pg_temp.plant('bed_1_0', 'tomato', 3, 'a', (select id from entry)) ->> 'status', 'planted', 'a right answer plants them');
 select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'seeds_tomato'), 1, 'one seed packet used');
 select ok((select ready_at between now() + interval '239 minutes' and now() + interval '241 minutes'
-           from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1'), 'tomatoes take 4 hours');
-select is((pg_temp.plant('bed_1', 'tomato', 3, 'a', (select id from entry)) ->> 'replayed')::boolean, true, 'the same entry again is a replay');
+           from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1_0'), 'tomatoes take 4 hours');
+select is((pg_temp.plant('bed_1_0', 'tomato', 3, 'a', (select id from entry)) ->> 'replayed')::boolean, true, 'the same entry again is a replay');
 select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'seeds_tomato'), 1, 'and uses no more seeds');
-select is(pg_temp.plant('bed_1', 'tomato', 4) ->> 'status', 'busy', 'one crop per bed');
-select is(pg_temp.plant('bed_2', 'tomato', 4) ->> 'status', 'not_built', 'no planting in an unbuilt bed');
+select is(pg_temp.plant('bed_1_0', 'tomato', 4) ->> 'status', 'busy', 'one seed per tile');
+select is(pg_temp.plant('bed_1', 'tomato', 4) ->> 'status', 'cant_plant', 'seeds go in a tile, not the pen');
+select is(pg_temp.plant('bed_1_1', 'tomato', 13) ->> 'status', 'planted', 'the next tile takes another seed');
+select is(pg_temp.plant('bed_2_0', 'tomato', 4) ->> 'status', 'not_built', 'no planting in an unbuilt bed');
 
 -- ── Watering ──
-select is(pg_temp.harvest('bed_1') ->> 'status', 'growing', 'not ripe yet');
-select is(pg_temp.water('bed_1', 5, 'b') ->> 'status', 'wrong', 'a wrong answer waters nothing');
-select is(pg_temp.water('bed_1', 6) ->> 'status', 'watered', 'a right answer waters it');
+select is(pg_temp.harvest('bed_1_0') ->> 'status', 'growing', 'not ripe yet');
+select is(pg_temp.water('bed_1_0', 5, 'b') ->> 'status', 'wrong', 'a wrong answer waters nothing');
+select is(pg_temp.water('bed_1_0', 6) -> 'plots', '["bed_1_0", "bed_1_1"]'::jsonb, 'a right answer waters every tile in the pen');
 select ok((select ready_at between now() + interval '143 minutes' and now() + interval '145 minutes'
-           from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1'), 'a Tin can takes 40% off');
-select is(pg_temp.water('bed_1', 7) ->> 'status', 'watered_already', 'once per crop');
+           from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1_0'), 'a Tin can takes 40% off');
+select is(pg_temp.water('bed_1_1', 7) ->> 'status', 'watered_already', 'once per crop');
 
 -- ── Harvesting ──
 reset role;
-update player_hideout_plots set ready_at = now() - interval '1 minute' where user_id = (select kid from fx) and plot_id = 'bed_1';
+update player_hideout_plots set ready_at = now() - interval '1 minute' where user_id = (select kid from fx) and plot_id = 'bed_1_0';
 set local role authenticated;
-select is(pg_temp.harvest('bed_1') ->> 'veggies', '3', 'a ripe bed gives 3 tomatoes');
-select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'veggie_tomato'), 3, 'in the bag');
-select ok((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'seeds_tomato') between 2 and 3, 'and a seed packet or two');
-select is((select item from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1'), null, 'the bed is empty again');
+select is(pg_temp.harvest('bed_1') ->> 'status', 'nothing', 'the pen itself has nothing to harvest');
+select is(pg_temp.harvest('bed_1_0') ->> 'veggies', '2', 'a ripe tile gives 2 tomatoes');
+select is((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'veggie_tomato'), 2, 'in the bag');
+select ok((select quantity from player_bag_items where user_id = (select kid from fx) and item_key = 'seeds_tomato') between 1 and 2, 'and a seed packet or two');
+select is((select item from player_hideout_plots where user_id = (select kid from fx) and plot_id = 'bed_1_0'), null, 'the tile is empty again');
+select is(pg_temp.harvest('bed_1_1') ->> 'status', 'growing', 'the other tile is still growing');
 select is((select crops_harvested from player_hideouts where user_id = (select kid from fx)), 1, 'one crop harvested');
 
 -- ── The grove ──
@@ -157,9 +164,9 @@ update player_gear set tier = 3 where user_id = (select kid from fx) and gear = 
 insert into player_bag_items (user_id, item_key, quantity) select kid, 'seeds_cabbage', 2 from fx;
 set local role authenticated;
 select pg_temp.build('bed_2');
-select pg_temp.plant('bed_1', 'cabbage', 10);
-select pg_temp.plant('bed_2', 'cabbage', 11);
-select is(pg_temp.water('bed_1', 12) -> 'plots', '["bed_1", "bed_2"]'::jsonb, 'a Silver can waters both beds at once');
+select pg_temp.plant('bed_1_0', 'cabbage', 10);
+select pg_temp.plant('bed_2_0', 'cabbage', 11);
+select is(pg_temp.water('bed_1_0', 12) -> 'plots', '["bed_1_0", "bed_2_0"]'::jsonb, 'a Silver can waters both beds at once');
 
 -- ── Nobody else's Hideout ──
 select pg_temp.login_as(other_auth) from fx;

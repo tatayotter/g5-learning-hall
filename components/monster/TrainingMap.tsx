@@ -751,14 +751,26 @@ export default function TrainingMap({
           showBarMessage('Your bag is full! Sell some veggies or wood first.');
           return;
         }
-        const res = await hideout.api.harvest(spot.id);
-        if (res.status === 'harvested' && spot.item) {
+        if (spot.bed) {
+          // A garden bed: every ripe tile in it at once.
+          let veggies = 0, seeds = 0, double = false;
+          const icons: string[] = [];
+          const items = new Set<string>();
+          for (const t of hideout.ripeInBed(spot)) {
+            const r = await hideout.api.harvest(t.id);
+            if (r.status !== 'harvested' || !t.item) continue;
+            veggies += r.veggies; seeds += r.seeds; double ||= r.double; items.add(t.item);
+            icons.push(...Array(r.veggies).fill(gardenItemIcon(veggieKey(t.item as VeggieId))), ...Array(r.seeds).fill(gardenItemIcon(seedsKey(t.item as VeggieId))));
+          }
+          if (!veggies) { showBarMessage("That didn't work. Try again!"); return; }
           playChime();
-          const veg = gardenItemIcon(veggieKey(spot.item as VeggieId));
-          flyToBag([...Array(Math.min(res.veggies, 6)).fill(veg), ...Array(res.seeds).fill(gardenItemIcon(seedsKey(spot.item as VeggieId)))]);
-          const name = pluralVeggie(VEGGIES[spot.item as VeggieId]?.label ?? 'veggie');
-          showBarMessage(res.double ? `Double harvest! ${res.veggies} ${name} and seeds!` : `You harvested ${res.veggies} ${name} and ${res.seeds > 1 ? `${res.seeds} seed packets` : 'a seed packet'}!`);
-        } else if (res.status === 'collected') {
+          flyToBag(icons.slice(0, 10));
+          const name = items.size === 1 ? pluralVeggie(VEGGIES[[...items][0] as VeggieId]?.label ?? 'veggie') : 'veggies';
+          showBarMessage(`${double ? 'Double harvest! ' : ''}You harvested ${veggies} ${name} and ${seeds > 1 ? `${seeds} seed packets` : 'a seed packet'}!`);
+          return;
+        }
+        const res = await hideout.api.harvest(spot.id);
+        if (res.status === 'collected') {
           playChime();
           flyToBag(Array(res.wood).fill(gardenItemIcon(WOOD_KEY)));
           showBarMessage(`You collected ${res.wood} wood! Your tree drops more tomorrow.`);
