@@ -38,7 +38,7 @@ import { loadTiledMap, blankLoadingMap } from '@/lib/tiledMap';
 import { loadTiledArtMap, stepInside, type TiledArtExit, type TiledArtPortal } from '@/lib/tiledArtMap';
 import { nearestOpen, setWanderMap } from '@/lib/wander';
 import { tilesAround } from '@/lib/mapPath';
-import type { MapBackground, MapExit, ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
+import type { CanPour, MapBackground, MapExit, ToolStrike } from '@/lib/phaserMap/TrainingMapScene';
 import { CaughtMonster, BattleState, PendingWildCurio } from '@/components/monster/types';
 import type { QualityTier } from '@/lib/curioQuality';
 import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
@@ -321,6 +321,7 @@ export default function TrainingMap({
   const [treeSwing, setTreeSwing] = useState<{ id: string; n: number; kind: SwingKind } | null>(null);
   // The latest pickaxe or shovel swing at a find (the kid mines or digs it up on the map).
   const [toolStrike, setToolStrike] = useState<ToolStrike | null>(null);
+  const [canPour, setCanPour] = useState<CanPour | null>(null);
   // The find being swung at stays on the map until the tool lands.
   const [strikingId, setStrikingId] = useState<string | null>(null);
   // How long the latest swing plays: the chop panel stays out of the way for it.
@@ -1530,11 +1531,13 @@ export default function TrainingMap({
         gardenPlants={garden.on ? [...garden.sprites.map(p => (p.id === activePlant?.id || p.id === strikingId ? { ...p, stage: 'ripe' as const } : p)), ...hideout.crops] : undefined}
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={[...garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)), ...hideout.trees]}
+        growBars={hideout.bars}
         props={nearSpot?.bed && !controlsDisabled ? [...hideout.props, { id: 'tile-cursor', src: TILE_CURSOR_ART.src, x: nearSpot.x, y: nearSpot.y }] : hideout.props}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
         tools={gear}
         toolStrike={toolStrike}
+        canPour={canPour}
         highlight={controlsDisabled ? null
           : nearby ? { kind: nearby.kind, id: nearby.kind === 'scroll' ? String(nearby.scroll.id) : nearby.kind === 'plant' ? nearby.plant.id : nearby.tree.id }
           : nearSpot ? { kind: hideout.trees.some(t => t.id === nearSpot.id) ? 'tree' : hideout.crops.some(c => c.id === nearSpot.id) ? 'plant' : 'prop', id: nearSpot.id }
@@ -1687,6 +1690,10 @@ export default function TrainingMap({
         void refreshGear(userId);
       }}
       onTravel={() => { setHideoutPanel(null); goToHideout(); }}
+      onWatered={plots => {
+        const tiles = plots.map(id => hideout.spots.find(s => s.id === id)).filter((s): s is HideoutSpot => !!s).map(s => ({ x: s.x, y: s.y }));
+        setCanPour(c => ({ n: (c?.n ?? 0) + 1, tier: gear.can ?? 0, tiles }));
+      }}
       onDone={(say, fly) => {
         setHideoutPanel(null);
         if (fly?.length) flyToBag(fly);

@@ -209,6 +209,43 @@ export default class ChopSwing {
     });
   }
 
+  /**
+   * Watering after a right answer: the kid's own can (its bag art, small) comes up beside the
+   * nearest plant, tips forward and pours; drops fall on every watered tile (tiles, in tile
+   * coordinates). tier 0: no can shown, drops only.
+   */
+  pour(tier: number, tiles: { x: number; y: number }[], px: number, py: number, facingRight: boolean) {
+    if (!tiles.length || this.still) return;
+    const near = tiles.reduce((a, b) => (Math.hypot(b.x - px, b.y - py) < Math.hypot(a.x - px, a.y - py) ? b : a));
+    const s = near.x > px + 0.3 ? 1 : near.x < px - 0.3 ? -1 : facingRight ? 1 : -1;
+    const rain = () => {
+      for (const t of tiles) {
+        const cx = (t.x + 0.5) * 32, cy = (t.y + 0.5) * 32 + 4;
+        for (let i = 0; i < 6; i++) {
+          const drop = this.scene.add.rectangle(cx - 7 + (i * 5) % 14, cy - 14 - (i % 3) * 3, 1, 3, 0x7cc8f0).setAlpha(0.9);
+          this.container.add(drop);
+          this.scene.tweens.add({
+            targets: drop, y: cy + (i % 2) * 2, alpha: 0, delay: 80 * i, duration: 360, ease: 'Quad.easeIn',
+            onComplete: () => { this.burst(drop.x, cy + (i % 2) * 2, 0xa8dcf5, 3, true); drop.destroy(); },
+          });
+        }
+      }
+    };
+    if (tier < 1) { rain(); return; }
+    const key = `gear:can_${Math.min(tier, 4)}`;
+    this.loadTexture(key, `/gear/can_${Math.min(tier, 4)}.png`, () => {
+      // Beside the plant, a little above it; the art's spout points up and to the right.
+      const cx = (near.x + 0.5) * 32 - s * 12, cy = (near.y + 0.5) * 32 - 12;
+      const img = this.scene.add.image(cx, cy + 4, key).setScale(0.2).setFlipX(s < 0).setAlpha(0).setAngle(-s * 10);
+      this.container.add(img);
+      const tw = this.scene.tweens;
+      tw.add({ targets: img, alpha: 1, y: cy, duration: 180, ease: 'Sine.easeOut' });
+      tw.add({ targets: img, delay: 200, angle: s * 40, duration: 260, ease: 'Sine.easeInOut', onComplete: rain });
+      tw.add({ targets: img, delay: 480, angle: s * 46, duration: 160, yoyo: true, repeat: 2, ease: 'Sine.easeInOut' });
+      tw.add({ targets: img, delay: 1500, angle: 0, alpha: 0, y: cy - 4, duration: 240, ease: 'Quad.easeIn', onComplete: () => img.destroy() });
+    });
+  }
+
   /** Done chopping: lower the axe and let the movement face the kid again. */
   putAway(now = false) {
     const axe = this.axe;

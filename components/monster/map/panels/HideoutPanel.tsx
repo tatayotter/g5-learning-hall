@@ -34,6 +34,8 @@ interface Props {
   gradingUserId: string;
   /** Closes the panel; `say` is shown over the map, `fly` flies into the bag. */
   onDone: (say?: string, fly?: string[]) => void;
+  /** A right answer watered these plots (the can pours on them). */
+  onWatered?: (plots: string[]) => void;
   /** Bought: go there now. */
   onTravel: () => void;
   onBought: (res: HideoutCall) => void;
@@ -43,7 +45,7 @@ interface Props {
 const Coin = () => <img src="/icons/rewards/gold_coin.svg" alt="" className="w-3.5 h-3.5 inline-block" />;
 const pixel = { imageRendering: 'pixelated' as const };
 
-export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offline, questions, gradingUserId, onDone, onTravel, onBought, onAnswered }: Props) {
+export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offline, questions, gradingUserId, onDone, onWatered, onTravel, onBought, onAnswered }: Props) {
   const def = spot.plot;
   const [busy, setBusy] = useState(false);
   const [bought, setBought] = useState(false);
@@ -244,7 +246,10 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
             const res = lastRes.current;
             if (!res) { onDone("That didn't work. Try again!"); return; }
             if (res.status === 'planted') onDone(def!.kind === 'bed' ? `You planted ${label}! Come back when it's ripe.` : `You planted a ${label}! It grows in a day.`);
-            else if (res.status === 'watered') onDone(res.watered.length > 1 ? `You watered ${res.watered.length} plants!` : `You watered the ${label}! It will be ready sooner.`);
+            else if (res.status === 'watered') {
+              onWatered?.(res.watered.length ? res.watered : [spot.id]);
+              onDone(res.watered.length > 1 ? `You watered ${res.watered.length} plants!` : `You watered the ${label}! It will be ready sooner.`);
+            }
             else if (res.status === 'wrong') onDone('Not quite! Try again for another question.');
             else onDone("That can't be done right now.");
           }}

@@ -16,6 +16,7 @@ import { manilaToday } from '@/lib/appDay';
 import type { PropSprite } from '@/lib/phaserMap/hideoutProps';
 import type { PlantSprite } from '@/lib/phaserMap/gardenPlants';
 import type { TreeSprite } from '@/lib/phaserMap/wildTrees';
+import type { GrowBar } from '@/lib/phaserMap/growBars';
 
 // What a plot is up to now.
 export type PlotPhase =
@@ -132,6 +133,12 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
     const props: PropSprite[] = [];
     const crops: PlantSprite[] = [];
     const trees: TreeSprite[] = [];
+    // A bar over everything growing, at the top of its art.
+    const bars: GrowBar[] = [];
+    const bar = (s: HideoutSpot, top: number) => {
+      const p = state.plots[s.id];
+      if (p?.plantedAt != null && p.readyAt != null && now < p.readyAt) bars.push({ id: s.id, x: s.x, y: s.y, plantedAt: p.plantedAt, readyAt: p.readyAt, top, watered: p.wateredAt !== null });
+    };
     for (const s of spots) {
       if (s.kind === 'signpost') { props.push({ id: s.id, src: SIGNPOST_ART.src, x: s.x, y: s.y }); continue; }
       const def = s.plot!;
@@ -145,7 +152,9 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
         const p = state.plots[s.id];
         if (p?.item && p.plantedAt !== null && p.readyAt !== null) {
           const stage = cropStage(p.plantedAt, p.readyAt, now);
-          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall: VEGGIES[p.item as VeggieId]?.tall ?? false, stage });
+          const tall = VEGGIES[p.item as VeggieId]?.tall ?? false;
+          crops.push({ id: s.id, veggie: p.item, x: s.x, y: s.y, tall, stage });
+          bar(s, stage === 'picked' ? 14 : tall ? 50 : 26);
         }
         continue;
       }
@@ -156,12 +165,14 @@ export function useHideoutMap({ userId, regionId, enabled, online, places, bag, 
       if (stage === 'grown') {
         trees.push({ id: s.id, tree: p.item as TreeId, x: s.x, y: s.y, stage: 'ready', hits: 0 });
       } else if (stage === 'young') {
+        bar(s, 76);
         props.push({ id: s.id, src: `/garden/tree_${p.item}.png`, x: s.x, y: s.y, frame: { x: 0, y: 0, w: 128, h: 160 }, anchor: { x: 64, y: 134 }, scale: 0.55 });
       } else {
+        bar(s, 34);
         props.push({ id: s.id, src: gardenItemIcon(saplingKey(p.item as TreeId)), x: s.x, y: s.y, anchor: { x: 50, y: 96 }, scale: 0.36 });
       }
     }
-    return { props, crops, trees };
+    return { props, crops, trees, bars };
   }, [spots, state.plots, now]);
 
   // The plots and the signpost are solid: a kid uses one from a tile beside it. A built pen's soil
