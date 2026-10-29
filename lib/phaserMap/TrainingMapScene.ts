@@ -1355,6 +1355,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         // draws a single pixel despite otherwise reporting fully built.
         layer.setAlpha(bg.layerOpacity?.[layerName] ?? 1);
         layer.setScale(scale);
+        // A zoomed camera (the sharper canvas, MapCanvas.tsx) trips this Phaser line's tile
+        // culling (see "Camera" above): it drops the tiles left of and above the view's middle.
+        // Draw every tile instead; the maps are small enough.
+        if (this.cameras.main.zoom !== 1 && 'setSkipCull' in layer) layer.setSkipCull(true);
         const isAbove = bg.abovePlayerLayers.includes(layerName);
         layer.setDepth(isAbove ? 11 + depth : 1 + (depth - 1) * belowStep);
         depth++;

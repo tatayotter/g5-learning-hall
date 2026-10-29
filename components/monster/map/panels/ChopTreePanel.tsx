@@ -8,7 +8,7 @@
 // (lib/phaserMap/chopSwing.ts).
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { BattleQuestionModal, type BattleQuestion, type GradeResult } from '@/components/battle/shared';
-import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 import { CHOP_SWINGS, TREES, WOOD_PER_TREE, type TreeId } from '@/lib/gardenConfig';
 import { alwaysSaplingFor } from '@/lib/gearConfig';
 
@@ -46,26 +46,32 @@ export default function ChopTreePanel({ tree, swings = CHOP_SWINGS, axeTier = 1,
   }, [questions, asked]);
   const label = TREES[tree].label;
   return (
+    // The wrapper slides the pop-up out of the way while a swing plays.
     <div
-      className={`w-full max-w-xl bg-[#f5e8c8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in transition-[transform,opacity] duration-300 ease-out ${away ? 'translate-y-[120%] opacity-0 pointer-events-none' : ''}`}
-      data-testid="chop-panel"
+      className={`w-full sm:w-auto transition-[transform,opacity] duration-300 ease-out ${away ? 'translate-y-[120%] opacity-0 pointer-events-none' : ''}`}
       data-away={away ? 'true' : undefined}
     >
-      <div className="flex items-center gap-3 mb-3 bg-[#e3f1cf] border border-[#7a9a4a] rounded-xl px-3 py-2">
-        {/* The tree itself (the ready frame of its art), shaking each time a swing lands. */}
+    <GamePopup
+      inline
+      title={`A ${label.toLowerCase()} tree!`}
+      subtitle={`Each right answer is one swing. ${swings} swings chop it for ${WOOD_PER_TREE} wood.`}
+      icon={
+        // The tree itself (the ready frame of its art), shaking each time a swing lands.
         <div
           key={hits}
-          className={`w-12 h-[60px] flex-shrink-0 ${hits > 0 ? 'chop-shake' : ''}`}
-          style={{ backgroundImage: `url(/garden/tree_${tree}.png)`, backgroundSize: '96px 60px', backgroundPosition: '0 0', imageRendering: 'pixelated' }}
+          className={`w-10 h-[50px] mt-1 ${hits > 0 ? 'chop-shake' : ''}`}
+          style={{ backgroundImage: `url(/garden/tree_${tree}.png)`, backgroundSize: '80px 50px', backgroundPosition: '0 0', imageRendering: 'pixelated' }}
           aria-hidden="true"
           data-testid="chop-tree"
         />
-        <div className="min-w-0 flex-1">
-          <p className="text-stone-900 font-bold text-sm leading-tight">A {label.toLowerCase()} tree!</p>
-          <p className="text-xs text-stone-600 leading-tight">
-            Each right answer is one swing. {swings} swings chop it for {WOOD_PER_TREE} wood. {alwaysSaplingFor(axeTier) ? 'Your axe gets a sapling every time!' : 'No misses for a bonus sapling!'}
-          </p>
-        </div>
+      }
+      onClose={onLeave}
+      testId="chop-panel"
+    >
+      <div className="flex items-center justify-between gap-2 mb-2 rounded-lg border-2 border-[#c9a87a] bg-[#fffdf7] px-2.5 py-1.5">
+        <p className="text-[12px] font-semibold text-[#6b4820] leading-snug">
+          {alwaysSaplingFor(axeTier) ? 'Your axe gets a sapling every time!' : 'No misses for a bonus sapling!'}
+        </p>
         <div className="flex gap-1 flex-shrink-0" aria-label={`${hits} of ${swings} swings`} data-testid="chop-meter" data-hits={hits}>
           {Array.from({ length: swings }, (_, i) => (
             <span
@@ -95,9 +101,7 @@ export default function ChopTreePanel({ tree, swings = CHOP_SWINGS, axeTier = 1,
           setTimeout(next, ms + 100);
         }}
       />
-      <GameButton variant="quest" color="#57534e" onClick={onLeave} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="chop-leave">
-        Stop for now
-      </GameButton>
+    </GamePopup>
     </div>
   );
 }

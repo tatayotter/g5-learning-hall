@@ -1855,3 +1855,25 @@ body.new-nav-calm .arena-fab { display: none; }
 }
 .npc-bubble { animation: npc-bubble-pop 0.22s ease-out both; transform-origin: 50% 100%; }
 @media (prefers-reduced-motion: reduce) { .npc-bubble { animation: none; } }
+/* Baylan's quest board (Dashboard.tsx) wears the in-game pop-up look: parchment with a gold ring,
+   and the wood header (BaylanQuestHeader.tsx) pinned to the top while the page scrolls. */
+body.new-nav .map-home-panel.game-panel {
+  padding: 0 0.75rem 1rem;
+  background: #f0ddb8;
+  border: 2px solid #4a2f18;
+  border-radius: 20px;
+  box-shadow: 0 0 0 3px #d4a017, 0 10px 30px rgba(26, 13, 5, 0.45);
+}
+body.new-nav .map-home-panel.game-panel .map-panel-head {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 -0.75rem;
+}
+@media (min-width: 1024px) {
+  body.new-nav .map-home-panel.game-panel { padding: 0 1.5rem 1.5rem; }
+  body.new-nav .map-home-panel.game-panel .map-panel-head { margin: 0 -1.5rem; }
+}
+/* A pop-up over the map (GamePopup inline) hides the round side buttons, which would sit over
+   its close X on a phone. */
+body:has(.gp-inline) .home-calm-buttons { display: none; }

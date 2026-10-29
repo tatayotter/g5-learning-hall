@@ -1,7 +1,7 @@
 // components/SidebarRail.tsx
 'use client';
 
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Nail, woodTextureStyle } from '@/components/battle/MonsterHpPanel';
 import GameButton, { questButtonDropShadow, questButtonFontFamily, questButtonLetterSpacing, questTextShadowStyle, questTextStyle } from '@/components/GameButton';
@@ -9,6 +9,8 @@ import NotificationInbox from '@/components/NotificationInbox';
 import type { PlayerNotification } from '@/lib/referral';
 import { playPageFlip } from '@/lib/sounds';
 import SoundSettings from '@/components/SoundSettings';
+import { flyExp, flyGold } from '@/components/game/flyGold';
+import CelebrationOverlay from '@/components/CelebrationOverlay';
 
 export function useIsLandscape() {
   const [isLandscape, setIsLandscape] = useState(false);
@@ -172,11 +174,12 @@ function HudName({ children, size }: { children: string; size: number }) {
 // counter) instead of bare colored text floating on the bar. Kept as its
 // own tiny component rather than a shared class string since the ring color
 // varies per stat (gold vs. streak-orange).
-function HudChip({ icon, iconSrc, value, ring, text, small }: { icon?: string; iconSrc?: string; value: string; ring: string; text: string; small: boolean }) {
+function HudChip({ icon, iconSrc, value, ring, text, small, testId }: { icon?: string; iconSrc?: string; value: string; ring: string; text: string; small: boolean; testId?: string }) {
   return (
     <span
       className={`inline-flex items-center gap-1 rounded-full font-bold leading-none shrink-0 bg-[#0a0807]/60 ${small ? 'text-xs px-1.5 py-1' : 'text-sm px-2 py-1'}`}
       style={{ boxShadow: `inset 0 0 0 1px ${ring}` }}
+      data-testid={testId}
     >
       {iconSrc
         ? <img src={iconSrc} alt="" className={small ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
@@ -217,6 +220,35 @@ export interface TopHudProps {
 // The top stat bar, shared by this compass nav and the new five-tab nav
 // (components/nav/GameNav.tsx).
 export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, playerLevel, playerXp, playerGold, playerStreak, weekLabel, notifications, onMarkNotificationsRead, left = 0, leading }: TopHudProps) {
+  // Gold coming in flies into the counter (components/game/flyGold.ts). Not on the first load,
+  // a change of player, or the first few seconds while the saved numbers catch up.
+  const goldSeen = useRef<{ who: string; gold: number; since: number } | null>(null);
+  useEffect(() => {
+    const seen = goldSeen.current;
+    const now = Date.now();
+    if (!seen || seen.who !== playerName) { goldSeen.current = { who: playerName, gold: playerGold, since: now }; return; }
+    if (playerGold > seen.gold && now - seen.since > 4000) flyGold(playerGold - seen.gold);
+    seen.gold = playerGold;
+  }, [playerGold, playerName]);
+  // A level-up also gets a banner under the bar for a few seconds (it doesn't block play).
+  const [levelUp, setLevelUp] = useState<{ level: number; key: number } | null>(null);
+  useEffect(() => {
+    if (!levelUp) return;
+    const t = setTimeout(() => setLevelUp(null), 3200);
+    return () => clearTimeout(t);
+  }, [levelUp]);
+  // EXP and level-ups the same way, as stars into the level badge.
+  const expSeen = useRef<{ who: string; level: number; xp: number; since: number } | null>(null);
+  useEffect(() => {
+    const seen = expSeen.current;
+    const now = Date.now();
+    if (!seen || seen.who !== playerName) { expSeen.current = { who: playerName, level: playerLevel, xp: playerXp, since: now }; return; }
+    if (now - seen.since > 4000) {
+      if (playerLevel > seen.level) { flyExp(playerXp, true); setLevelUp({ level: playerLevel, key: now }); }
+      else if (playerLevel === seen.level && playerXp > seen.xp) flyExp(playerXp - seen.xp);
+    }
+    seen.level = playerLevel; seen.xp = playerXp;
+  }, [playerLevel, playerXp, playerName]);
   const xpCap = 500 + playerLevel * 100;
   const xpPct = Math.min(100, Math.round((playerXp / xpCap) * 100));
   return (
@@ -248,8 +280,8 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
       {leading && <div className="pointer-events-auto shrink-0 -my-1">{leading}</div>}
       <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
       <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
-      <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
-      <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
+      <span data-testid="hud-level" className={`inline-block text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
+      <HudChip testId="hud-gold" iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
       <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
       {/* Grade/week only fit alongside everything else once there's
           real room to spare (desktop, or landscape phones/tablets) —
@@ -278,6 +310,36 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
         />
       </div>
     </div>
+    {/* Level up! A banner drops in under the bar, with the celebration sparks. */}
+    <AnimatePresence>
+      {levelUp && (
+        <motion.div
+          key={levelUp.key}
+          className="fixed z-[121] pointer-events-none select-none"
+          style={{ left: '50%', top: isDesktop ? 64 : 52 }}
+          initial={{ opacity: 0, y: -24, x: '-50%', scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, x: '-50%', scale: 1 }}
+          exit={{ opacity: 0, y: -16, x: '-50%' }}
+          transition={{ type: 'spring', stiffness: 380, damping: 22 }}
+          data-testid="level-up-banner"
+        >
+          <div className="relative flex items-center gap-3 rounded-2xl border-2 border-[#4a2f18] px-5 py-2.5" style={{ ...woodTextureStyle, boxShadow: '0 0 0 3px #d4a017, 0 8px 24px rgba(0,0,0,.5)' }}>
+            <Nail className="top-1.5 left-1.5" />
+            <Nail className="top-1.5 right-1.5" />
+            <div className="text-center" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span className="block text-[22px] leading-none" style={{ position: 'relative' }}>
+                <span aria-hidden style={questTextShadowStyle}>Level up!</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>Level up!</span>
+              </span>
+              <span className="block mt-1 text-[13px] text-[#fde68a] leading-none" style={{ fontFamily: 'var(--font-inter), sans-serif', fontWeight: 800, letterSpacing: 'normal' }}>
+                You are now Level {levelUp.level}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    {levelUp && <CelebrationOverlay key={levelUp.key} userId={playerName} trigger type="levelup" />}
     </>
   );
 }

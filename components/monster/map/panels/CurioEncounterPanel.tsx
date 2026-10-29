@@ -1,12 +1,14 @@
 'use client';
 // Wild curio encounter dialogue — shown by TrainingMap.tsx when the player
 // steps onto the curio tile (pendingCurioChallenge). Battle! enters the
-// encounter; Run Away lets the player walk away (the curio stays, and keeps
-// following them between maps until it's caught or out of tries).
+// encounter; Not yet (or the X) lets the player walk away (the curio stays, and
+// keeps following them between maps until it's caught or out of tries).
+// Uses the in-game pop-up frame (components/game/GamePopup.tsx).
 import { MonsterImage } from '@/components/battle/shared';
+import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 import type { MonsterDef } from '@/lib/monsterConfig';
 import { QUALITY_LABEL, type QualityTier } from '@/lib/curioQuality';
-import { playPageFlip } from '@/lib/sounds';
 
 interface CurioEncounterPanelProps {
   curioDef: MonsterDef;
@@ -16,53 +18,60 @@ interface CurioEncounterPanelProps {
   onRunAway: () => void;
 }
 
-const QUALITY_TEXT: Record<QualityTier, string> = {
-  normal: 'text-gray-400',
-  good: 'text-green-300',
-  outstanding: 'text-cyan-300',
-  perfect: 'text-orange-300',
+// The quality chip on parchment.
+const QUALITY_CHIP: Record<QualityTier, string> = {
+  normal: 'bg-[#e8d0a0] text-[#6b4820] border-[#c9a87a]',
+  good: 'bg-[#dcfce7] text-[#166534] border-[#4ade80]',
+  outstanding: 'bg-[#cffafe] text-[#155e75] border-[#22d3ee]',
+  perfect: 'bg-[#ffedd5] text-[#9a3412] border-[#fb923c]',
 };
 
 export default function CurioEncounterPanel({ curioDef, quality, attemptsLeft, onBattle, onRunAway }: CurioEncounterPanelProps) {
   const rare = quality !== 'normal';
+  const last = attemptsLeft === 1;
   return (
-    <div className="w-full max-w-sm bg-neutral-900 border border-emerald-700 rounded-2xl p-4 battle-panel-in">
-      <div className="flex items-start gap-3 mb-4">
-        <MonsterImage monster={curioDef} className="w-14 h-14 flex-shrink-0" />
-        <div className="min-w-0">
-          <p className="font-bold text-emerald-300 text-sm leading-tight">{curioDef.name} appeared!</p>
-          <p className="text-gray-400 text-xs mt-0.5 capitalize">
-            <span className={`font-bold ${QUALITY_TEXT[quality]}`}>{QUALITY_LABEL[quality]}</span> · {curioDef.element} type
-          </p>
-          <p className="text-gray-300 text-sm mt-1 leading-snug">
+    <GamePopup
+      inline
+      title={curioDef.name}
+      subtitle="A wild curio appeared! It wants to battle."
+      onClose={onRunAway}
+      testId="curio-encounter"
+      data={{ quality }}
+      footer={
+        <div className="flex gap-2">
+          <GameButton variant="quest" color="#16a34a" onClick={onBattle} className="flex-1" style={{ fontSize: 15 }} data-testid="curio-encounter-battle">
+            Battle!
+          </GameButton>
+          <GameButton variant="quest" color="#78716c" onClick={onRunAway} className="flex-1" style={{ fontSize: 15 }} data-testid="curio-encounter-later">
+            Not yet
+          </GameButton>
+        </div>
+      }
+    >
+      <div className="flex items-center gap-3 rounded-xl border-2 border-[#8b5e2a] bg-[#fffdf7] p-2.5">
+        <div className="w-20 h-20 flex-shrink-0 rounded-lg bg-[radial-gradient(circle,#fff6d6_0%,#f0ddb8_80%)] flex items-center justify-center">
+          <MonsterImage monster={curioDef} className="w-16 h-16" />
+        </div>
+        <div className="min-w-0 space-y-1.5">
+          <div className="flex flex-wrap gap-1.5">
+            <span className={`rounded-full border-2 px-2 py-0.5 text-[11px] font-black ${QUALITY_CHIP[quality]}`}>{QUALITY_LABEL[quality]}</span>
+            <span className="rounded-full border-2 border-[#c9a87a] bg-[#e8d0a0] px-2 py-0.5 text-[11px] font-black text-[#6b4820] capitalize">{curioDef.element} type</span>
+          </div>
+          <p className="text-[13px] font-semibold leading-snug text-[#2a1505]">
             {rare
               ? `A ${QUALITY_LABEL[quality]} curio is tougher: more HP and Attack. Win and you get more EXP, and you keep it at ${QUALITY_LABEL[quality]}.`
-              : 'A wild curio is challenging you!'}
-          </p>
-          <p className={`text-xs mt-1 ${attemptsLeft === 1 ? 'text-amber-300' : 'text-gray-400'}`}>
-            {attemptsLeft === 1
-              ? 'Last try! Answer right and win the battle to catch it. If you miss, it runs off, but more curios will come.'
-              : `${attemptsLeft} tries left. A wrong answer or a lost battle uses one.`}
+              : 'Answer right and win the battle to catch it!'}
           </p>
         </div>
       </div>
-      <div className="flex gap-2">
-        <button
-          className="flex-1 bg-emerald-700 hover:bg-emerald-600 active:bg-emerald-800
-                     text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
-          onClick={() => { playPageFlip(); onBattle(); }}
-        >
-          Battle!
-        </button>
-        <button
-          className="flex-1 bg-neutral-800 hover:bg-neutral-700 active:bg-neutral-900
-                     text-gray-400 font-bold text-sm py-2.5 rounded-xl border border-neutral-700
-                     transition-colors"
-          onClick={() => { playPageFlip(); onRunAway(); }}
-        >
-          Not yet
-        </button>
-      </div>
-    </div>
+      <p
+        className={`mt-2 rounded-lg border-2 px-2.5 py-1.5 text-[12px] font-bold leading-snug ${last ? 'border-[#d97706] bg-[#fef3c7] text-[#92400e]' : 'border-[#c9a87a] bg-[#e8d0a0]/60 text-[#6b4820]'}`}
+        data-testid="curio-encounter-tries"
+      >
+        {last
+          ? 'Last try! If you miss, it runs off, but more curios will come.'
+          : `${attemptsLeft} tries left. A wrong answer or a lost battle uses one.`}
+      </p>
+    </GamePopup>
   );
 }

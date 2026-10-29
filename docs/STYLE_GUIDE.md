@@ -212,9 +212,10 @@ station, feeding a curio, a shop) uses this one frame, so they all feel like the
 - Words follow the in-game text rule: short, simple, kid-friendly.
 
 Built on it so far: the Shopkeeper's Shop (`components/game/ShopPopup.tsx`, `MonsterShop` with
-`compact`). Still on the older centred panel and next to move over: the Hideout panels
-(`HideoutPanel`, `CraftPanel`, the Curio Camp, feeding a curio), the Recycler trade and the map
-scroll/plant/tree question panels.
+`compact`), the Hideout panels (`HideoutPanel`, `CraftPanel`, the Curio Camp, feeding a curio)
+and the wild curio encounter (`CurioEncounterPanel`). A page over the map can take just the wood
+header (`GamePopupHeader`): Baylan's Quests does (`BaylanQuestHeader`, `.map-home-panel.game-panel`).
+Still on the older centred panel: the Recycler trade and the map scroll/plant/tree question panels.
 
 ## Checklist before shipping a new quest/quiz/battle-adjacent screen
 

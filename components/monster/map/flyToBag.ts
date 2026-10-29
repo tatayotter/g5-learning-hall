@@ -60,3 +60,4 @@ export function flyToBag(icons: string[], { smooth = false }: { smooth?: boolean
     };
   });
 }
+
