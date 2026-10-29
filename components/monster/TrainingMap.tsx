@@ -895,7 +895,7 @@ export default function TrainingMap({
     return {
       curios: islandCurioList.map(m => {
         const shown = getOwnedMonsterDisplay(monsterDisplay[m.monster_id], m.graduation_tier);
-        return { id: m.id, sprite: shown?.spriteId ?? shown?.id ?? m.monster_id, hearts: bondHeartsNow(m, heartsNow), size: shown?.size ?? 'medium', floats: !!shown?.floats };
+        return { id: m.id, sprite: shown?.spriteId ?? shown?.id ?? m.monster_id, hearts: bondHeartsNow(m, heartsNow), size: shown?.size ?? 'medium', floats: !!shown?.floats, element: shown?.element };
       }),
       home: { x: camp.x, y: camp.y },
       range: 9,

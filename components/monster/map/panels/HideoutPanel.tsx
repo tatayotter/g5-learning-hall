@@ -11,6 +11,7 @@
 import { useMemo, useRef, useState, type ReactNode } from 'react';
 import { BattleQuestionModal, type BattleQuestion, type GradeResult } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 import {
   SEED_ORDER, TREE_ORDER, TREES, VEGGIES, WOOD_ICON, gardenItemIcon, gardenItemLabel, parseGardenKey, saplingKey, seedsKey, whereTreeGrows, type GardenBag, type TreeId, type VeggieId,
 } from '@/lib/gardenConfig';
@@ -64,20 +65,9 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
     return [];
   }, [def, bag]);
 
-  const header = (icon: string, title: string, sub: string) => (
-    <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
-      <img src={icon} alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={pixel} />
-      <div className="min-w-0">
-        <p className="text-[#2a1505] font-bold text-sm leading-tight">{title}</p>
-        <p className="text-xs text-[#6b4820] leading-tight">{sub}</p>
-      </div>
-    </div>
-  );
-  const leave = (words = 'Close') => (
-    <GameButton variant="quest" color="#57534e" onClick={() => onDone()} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="hideout-leave">
-      {words}
-    </GameButton>
-  );
+  // What the pop-up's header says (components/game/GamePopup.tsx); each mode sets it.
+  let head = { icon: spot.icon, title: 'Your Hideout', sub: '' };
+  const header = (icon: string, title: string, sub: string) => { head = { icon, title, sub }; return null; };
   const offlineNote = offline && <p className="text-xs text-red-700 font-bold mb-2">Your Hideout needs internet right now. Try again when you are back online.</p>;
   const problemNote = problem && <p className="text-xs text-red-700 font-bold mb-2" data-testid="hideout-problem">{problem}</p>;
 
@@ -122,7 +112,6 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
           </GameButton>
         )}
         {!owned && gold < HIDEOUT_COST && <p className="text-[11px] text-[#6b4820] mt-2 text-center">You have {gold} gold. Keep playing quests to save up!</p>}
-        {leave(owned ? 'Not now' : 'Close')}
       </>
     );
   } else if (mode === 'build' && def) {
@@ -182,7 +171,6 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
         >
           {busy ? 'Building…' : <span className="inline-flex items-center gap-1">Build{price.gold > 0 && <> for {price.gold} <Coin /></>}</span>}
         </GameButton>
-        {leave()}
       </>
     );
   } else if (mode === 'plant' && def && !picked) {
@@ -215,7 +203,6 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
           </div>
         )}
         {offlineNote}
-        {leave()}
       </>
     );
   } else if ((mode === 'plant' && def && picked) || (mode === 'water' && def)) {
@@ -254,7 +241,6 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
             else onDone("That can't be done right now.");
           }}
         />
-        {leave('Leave it for now')}
       </>
     );
   } else {
@@ -266,15 +252,23 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
       : `Ready in about ${timeWords(ready)}. ${spot.watered ? 'You watered it already!' : ''}`;
     body = (
       <>
-        {header(spot.icon, name ?? 'Your Hideout', text)}
-        {leave('OK')}
+        {header(spot.icon, name ?? 'Your Hideout', '')}
+        <p className="text-sm font-semibold text-[#3a2610]">{text}</p>
       </>
     );
   }
 
   return (
-    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="hideout-panel" data-mode={mode}>
+    <GamePopup
+      inline
+      title={head.title}
+      subtitle={head.sub}
+      icon={<img src={head.icon} alt="" className="w-11 h-11 mt-1.5 object-contain" style={pixel} />}
+      onClose={() => onDone()}
+      testId="hideout-panel"
+      data={{ mode }}
+    >
       {body}
-    </div>
+    </GamePopup>
   );
 }

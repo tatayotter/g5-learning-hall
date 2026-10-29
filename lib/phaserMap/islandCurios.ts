@@ -11,6 +11,10 @@
 // ~700 px); each is drawn once, trimmed, into a small canvas so it stays smooth at map size. Everything sits in one Container that follows the
 // camera like a tilemap layer (the scene keeps it in its tilemapLayers list), in map units (32 per
 // tile), over the plants and under the players. With "reduce motion" on they stand still.
+//
+// Elements pick their spots: a water curio loves the shore (it may roam a little past the Camp's
+// range to reach it, and mostly stops within two tiles of the water), and a fire curio keeps
+// away from it (never closer than two tiles, and it drifts to the driest spots).
 import Phaser from 'phaser';
 import { CURIO_MAX_WIDTH_PX, CURIO_SIZE_HEIGHT_PX, FLOAT_BOB_PX, FLOAT_LIFT_PX, type CurioSize } from '@/lib/curioBody';
 
@@ -20,6 +24,7 @@ export interface IslandCurio {
   hearts: number;
   size: CurioSize;
   floats: boolean;
+  element?: string;
 }
 
 export interface IslandCurioState {
@@ -48,6 +53,10 @@ const MAP_SCALE = 0.24;
 const SPEED = 0.9; // tiles per second
 const STOP_NEAR = 1.7; // tiles: a kid this close stops it and it looks at them
 const HEART_W = 7, HEART_H = 6, HEART_GAP = 1;
+const SHORE = 2; // tiles from the water that count as "by the water"
+const SHORE_REACH = 1.6; // a water curio may go this many times the range to reach the shore
+type Mood = 'water' | 'fire' | 'any';
+const moodOf = (c: IslandCurio): Mood => (c.element === 'water' ? 'water' : c.element === 'fire' ? 'fire' : 'any');
 
 interface Walker {
   def: IslandCurio;
@@ -63,14 +72,17 @@ interface Walker {
   facingRight: boolean;
   phase: number;
   aspect: number;
+  mood: Mood;
 }
 
 export default class IslandCurios {
   readonly container: Phaser.GameObjects.Container;
   private walkers = new Map<string, Walker>();
   private state: IslandCurioState | null = null;
-  private ok = new Set<number>();
-  private zone: { x: number; y: number }[] = [];
+  // Where each kind may stand, and how far each tile is from water (tiles; missing = far).
+  private ok: Record<Mood, Set<number>> = { any: new Set(), water: new Set(), fire: new Set() };
+  private zone: Record<Mood, { x: number; y: number }[]> = { any: [], water: [], fire: [] };
+  private wet = new Map<number, number>();
   private still = typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
   private lastT = 0;
 
@@ -104,6 +116,7 @@ export default class IslandCurios {
       if (w) {
         const heartsChanged = w.def.hearts !== c.hearts;
         w.def = c;
+        w.mood = moodOf(c);
         if (heartsChanged) this.drawHearts(w);
       } else this.add(c);
     }
@@ -117,27 +130,51 @@ export default class IslandCurios {
   private key = (x: number, y: number) => y * 10000 + x;
 
   private rebuildZone() {
-    this.ok.clear();
-    this.zone = [];
+    for (const m of ['any', 'water', 'fire'] as Mood[]) { this.ok[m].clear(); this.zone[m] = []; }
+    this.wet.clear();
     const s = this.state, g = this.grounds;
     if (!s || !g) return;
+    // Distance to the nearest water tile, by a short flood out from every water tile.
+    let edge: number[] = [];
+    for (let y = 0; y < g.height; y++) for (let x = 0; x < g.width; x++) if (g.liquid[y]?.[x]) { this.wet.set(this.key(x, y), 0); edge.push(x, y); }
+    for (let d = 1; d <= SHORE + 4 && edge.length; d++) {
+      const next: number[] = [];
+      for (let i = 0; i < edge.length; i += 2) {
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]) {
+          const x = edge[i] + dx, y = edge[i + 1] + dy, k = this.key(x, y);
+          if (x < 0 || y < 0 || x >= g.width || y >= g.height || this.wet.has(k)) continue;
+          this.wet.set(k, d); next.push(x, y);
+        }
+      }
+      edge = next;
+    }
     const blocked = new Set(s.blocked.map(t => this.key(t.x, t.y)));
-    for (let y = Math.max(0, s.home.y - s.range); y <= Math.min(g.height - 1, s.home.y + s.range); y++) {
-      for (let x = Math.max(0, s.home.x - s.range); x <= Math.min(g.width - 1, s.home.x + s.range); x++) {
-        if (!g.open[y]?.[x] || g.liquid[y]?.[x] || blocked.has(this.key(x, y))) continue;
-        if (Math.hypot(x - s.home.x, y - s.home.y) > s.range) continue;
-        this.ok.add(this.key(x, y));
-        this.zone.push({ x, y });
+    const reach = Math.ceil(s.range * SHORE_REACH);
+    for (let y = Math.max(0, s.home.y - reach); y <= Math.min(g.height - 1, s.home.y + reach); y++) {
+      for (let x = Math.max(0, s.home.x - reach); x <= Math.min(g.width - 1, s.home.x + reach); x++) {
+        const k = this.key(x, y);
+        if (!g.open[y]?.[x] || g.liquid[y]?.[x] || blocked.has(k)) continue;
+        const d = Math.hypot(x - s.home.x, y - s.home.y), wet = this.wet.get(k) ?? 99;
+        const add = (m: Mood) => { this.ok[m].add(k); this.zone[m].push({ x, y }); };
+        if (d <= s.range) { add('any'); if (wet > SHORE) add('fire'); }
+        if (d <= s.range || (d <= reach && wet <= SHORE)) add('water');
       }
     }
+    // No dry ground in range: a fire curio may stand anywhere the others can.
+    if (!this.zone.fire.length) { this.zone.fire = [...this.zone.any]; this.ok.fire = new Set(this.ok.any); }
     // Anyone now standing somewhere they can't: back into the zone.
     for (const w of this.walkers.values()) {
-      if (!this.ok.has(this.key(Math.floor(w.x), Math.floor(w.y)))) this.placeRandom(w);
+      if (!this.ok[w.mood].has(this.key(Math.floor(w.x), Math.floor(w.y)))) this.placeRandom(w);
     }
   }
 
+  private wetAt = (x: number, y: number) => this.wet.get(this.key(Math.floor(x), Math.floor(y))) ?? 99;
+
   private placeRandom(w: Walker) {
-    const t = this.zone.length ? this.zone[Math.floor(Math.random() * this.zone.length)] : this.state?.home ?? { x: 0, y: 0 };
+    let zone = this.zone[w.mood];
+    // A water curio starts out by the water when there's shore to stand on.
+    if (w.mood === 'water') { const shore = zone.filter(t => this.wetAt(t.x, t.y) <= SHORE); if (shore.length) zone = shore; }
+    const t = zone.length ? zone[Math.floor(Math.random() * zone.length)] : this.state?.home ?? { x: 0, y: 0 };
     w.x = t.x + 0.5; w.y = t.y + 0.5; w.to = null;
   }
 
@@ -148,7 +185,7 @@ export default class IslandCurios {
     this.container.add(box);
     const w: Walker = {
       def: c, box, body: null, shadow, hearts: [], x: 0, y: 0, to: null,
-      restUntil: 0, facingRight: Math.random() < 0.5, phase: Math.random() * Math.PI * 2, aspect: 1,
+      restUntil: 0, facingRight: Math.random() < 0.5, phase: Math.random() * Math.PI * 2, aspect: 1, mood: moodOf(c),
     };
     this.placeRandom(w);
     this.walkers.set(c.id, w);
@@ -216,11 +253,11 @@ export default class IslandCurios {
   }
 
   // Straight line from here to there over tiles they may stand on.
-  private clear(x0: number, y0: number, x1: number, y1: number) {
+  private clear(ok: Set<number>, x0: number, y0: number, x1: number, y1: number) {
     const steps = Math.ceil(Math.hypot(x1 - x0, y1 - y0) * 3);
     for (let i = 1; i <= steps; i++) {
       const x = x0 + (x1 - x0) * (i / steps), y = y0 + (y1 - y0) * (i / steps);
-      if (!this.ok.has(this.key(Math.floor(x), Math.floor(y)))) return false;
+      if (!ok.has(this.key(Math.floor(x), Math.floor(y)))) return false;
     }
     return true;
   }
@@ -240,16 +277,28 @@ export default class IslandCurios {
           const dx = w.to.x - w.x, dy = w.to.y - w.y, d = Math.hypot(dx, dy), step = SPEED * dt;
           if (d <= step) { w.x = w.to.x; w.y = w.to.y; w.to = null; w.restUntil = time + 2000 + Math.random() * 5000; }
           else { w.x += (dx / d) * step; w.y += (dy / d) * step; walking = true; if (Math.abs(dx) > 0.05) w.facingRight = dx > 0; }
-        } else if (time >= w.restUntil && this.zone.length) {
-          // A spot a few tiles away it can walk straight to.
-          for (let tries = 0; tries < 8; tries++) {
-            const t = this.zone[Math.floor(Math.random() * this.zone.length)];
+        } else if (time >= w.restUntil && this.zone[w.mood].length) {
+          // A spot a few tiles away it can walk straight to. Most curios take the first one; a
+          // water curio picks the wettest of a few (so it works its way to the shore and stays),
+          // a fire curio the driest.
+          const zone = this.zone[w.mood], ok = this.ok[w.mood];
+          const picky = w.mood !== 'any' && Math.random() < 0.9;
+          // A water curio already on the shore only walks along it.
+          const onShore = w.mood === 'water' && this.wetAt(w.x, w.y) <= SHORE;
+          let best: { x: number; y: number; score: number } | null = null;
+          for (let tries = 0; tries < (picky ? 20 : 8); tries++) {
+            const t = zone[Math.floor(Math.random() * zone.length)];
             const tx = t.x + 0.5, ty = t.y + 0.5;
-            if (Math.hypot(tx - w.x, ty - w.y) > 4 || !this.clear(w.x, w.y, tx, ty)) continue;
-            w.to = { x: tx, y: ty };
-            break;
+            if (Math.hypot(tx - w.x, ty - w.y) > 4 || !this.clear(ok, w.x, w.y, tx, ty)) continue;
+            const wet = this.wetAt(tx, ty);
+            if (onShore && wet > SHORE) continue;
+            // Water: anywhere on the shore is as good as the next; fire: the farther the better.
+            const score = !picky ? 0 : w.mood === 'water' ? Math.max(wet, SHORE) + Math.random() * 0.5 : -Math.min(wet, 20) + Math.random() * 0.5;
+            if (!best || score < best.score) best = { x: tx, y: ty, score };
+            if (!picky) break;
           }
-          if (!w.to) w.restUntil = time + 1000;
+          if (best) w.to = { x: best.x, y: best.y };
+          else w.restUntil = time + 1000;
         }
       }
       const px = w.x * UNIT, py = w.y * UNIT + 6;

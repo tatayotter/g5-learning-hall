@@ -34,6 +34,11 @@ export interface GamePopupProps {
   /** 'md' for a few rows, 'lg' for a shop or a list. Only changes the desktop width. */
   size?: 'md' | 'lg';
   testId?: string;
+  /** Already inside a dimmed full-screen layer (the map's overlay, MapStage.tsx): just the
+   *  frame, no backdrop of its own. app/globals.css docks it to the bottom on a phone. */
+  inline?: boolean;
+  /** Extra data-* attributes on the frame (tests read them). */
+  data?: Record<string, string>;
 }
 
 const POPUP_CSS = `
@@ -41,12 +46,13 @@ const POPUP_CSS = `
   @keyframes gp-pop { from { opacity: 0; transform: translate(-50%, -46%) scale(.96); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
   @keyframes gp-fade { from { opacity: 0; } to { opacity: 1; } }
   .gp-sheet { animation: gp-up .26s cubic-bezier(.2,.9,.3,1.1); }
-  @media (min-width: 640px) { .gp-sheet { animation: gp-pop .2s ease-out; } }
+  @media (min-width: 640px) { .gp-sheet { animation: gp-pop .2s ease-out; } .gp-inline { animation: gp-pop-inline .2s ease-out; } }
+  @keyframes gp-pop-inline { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
   .gp-back { animation: gp-fade .2s ease-out; }
   @media (prefers-reduced-motion: reduce) { .gp-sheet, .gp-back { animation: none; } }
 `;
 
-export default function GamePopup({ title, speaker, icon, subtitle, toolbar, footer, onClose, children, size = 'md', testId }: GamePopupProps) {
+export default function GamePopup({ title, speaker, icon, subtitle, toolbar, footer, onClose, children, size = 'md', testId, inline = false, data }: GamePopupProps) {
   const titleId = useId();
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -54,63 +60,73 @@ export default function GamePopup({ title, speaker, icon, subtitle, toolbar, foo
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
+  const dataAttrs = Object.fromEntries(Object.entries(data ?? {}).map(([k, v]) => [`data-${k}`, v]));
+  const sheet = (
+    <div
+      className={inline
+        ? `gp-sheet gp-inline relative flex flex-col w-full max-h-[88dvh] rounded-t-[20px] overflow-hidden border-2 border-b-0 border-[#4a2f18] sm:max-h-[85dvh] sm:rounded-[20px] sm:border-b-2
+          ${size === 'lg' ? 'sm:w-[min(720px,94vw)]' : 'sm:w-[min(480px,94vw)]'}`
+        : `gp-sheet absolute inset-x-0 bottom-0 flex flex-col max-h-[88dvh] rounded-t-[20px] overflow-hidden border-2 border-b-0 border-[#4a2f18]
+        sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:max-h-[85dvh] sm:rounded-[20px] sm:border-b-2
+        ${size === 'lg' ? 'sm:w-[min(720px,94vw)]' : 'sm:w-[min(480px,94vw)]'}`}
+      style={{ boxShadow: '0 0 0 3px #d4a017, 0 -6px 30px rgba(0,0,0,.45)' }}
+      {...(inline ? { role: 'dialog', 'aria-labelledby': titleId, 'data-testid': testId, ...dataAttrs } : {})}
+    >
+      {/* Header: wood, gold ring, nails. */}
+      <div className="relative flex-shrink-0 px-3 pt-2 pb-3 sm:pt-3" style={woodTextureStyle}>
+        <Nail className="top-2 left-2" />
+        <Nail className="top-2 right-2" />
+        {/* The grab bar says "this slides" on a phone. */}
+        <div className="sm:hidden mx-auto mb-1.5 h-1 w-10 rounded-full bg-[#f0ddb8]/50" aria-hidden />
+        <div className="flex items-center gap-3 pr-12">
+          {(speaker?.portrait ?? icon) && (
+            <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#d4a017] bg-[radial-gradient(circle,#fff6d6_0%,#f0ddb8_80%)] flex items-start justify-center">
+              {speaker?.portrait ?? icon}
+            </div>
+          )}
+          <div className="min-w-0 flex-1">
+            <h2 id={titleId} className="text-lg leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
+              <span style={{ position: 'relative', display: 'inline-block' }}>
+                <span aria-hidden style={questTextShadowStyle}>{title}</span>
+                <span style={{ ...questTextStyle, color: '#f5c542' }}>{title}</span>
+              </span>
+            </h2>
+            {speaker?.line ? (
+              <p className="mt-1 inline-block max-w-full rounded-xl rounded-tl-sm bg-[#fffdf7] border-2 border-[#2a1505] px-2.5 py-1 text-[13px] font-semibold leading-snug text-[#2a1505]" data-testid={testId ? `${testId}-line` : undefined}>
+                {speaker.line}
+              </p>
+            ) : subtitle ? (
+              <p className="text-xs font-semibold leading-snug text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,.8)' }}>{subtitle}</p>
+            ) : null}
+          </div>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-[#2a1505] border-2 border-[#d4a017] text-[#fde68a] text-xl font-black leading-none shadow-[0_3px_0_#1a0d05] active:translate-y-[calc(-50%+2px)] active:shadow-none"
+          data-testid={testId ? `${testId}-close` : undefined}
+        >
+          ×
+        </button>
+      </div>
+      {toolbar && <div className="flex-shrink-0 bg-[#e8d0a0] border-b-2 border-[#c9a87a] px-3 py-2">{toolbar}</div>}
+      <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-[#f0ddb8] px-3 py-3 sm:px-4">
+        {children}
+      </div>
+      {footer && (
+        <div className="flex-shrink-0 bg-[#e8d0a0] border-t-2 border-[#c9a87a] px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">{footer}</div>
+      )}
+      {!footer && <div className="flex-shrink-0 bg-[#f0ddb8] pb-[env(safe-area-inset-bottom)] sm:hidden" />}
+    </div>
+  );
+  if (inline) return <><style>{POPUP_CSS}</style>{sheet}</>;
+
   return (
-    <div className="fixed inset-0 z-[90]" role="dialog" aria-modal="true" aria-labelledby={titleId} data-testid={testId}>
+    <div className="fixed inset-0 z-[90]" role="dialog" aria-modal="true" aria-labelledby={titleId} data-testid={testId} {...dataAttrs}>
       <style>{POPUP_CSS}</style>
       <div className="gp-back absolute inset-0 bg-[#0a0807]/60" onClick={onClose} data-testid={testId ? `${testId}-backdrop` : undefined} />
-      <div
-        className={`gp-sheet absolute inset-x-0 bottom-0 flex flex-col max-h-[88dvh] rounded-t-[20px] overflow-hidden border-2 border-b-0 border-[#4a2f18]
-          sm:inset-x-auto sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:max-h-[85dvh] sm:rounded-[20px] sm:border-b-2
-          ${size === 'lg' ? 'sm:w-[min(720px,94vw)]' : 'sm:w-[min(480px,94vw)]'}`}
-        style={{ boxShadow: '0 0 0 3px #d4a017, 0 -6px 30px rgba(0,0,0,.45)' }}
-      >
-        {/* Header: wood, gold ring, nails. */}
-        <div className="relative flex-shrink-0 px-3 pt-2 pb-3 sm:pt-3" style={woodTextureStyle}>
-          <Nail className="top-2 left-2" />
-          <Nail className="top-2 right-2" />
-          {/* The grab bar says "this slides" on a phone. */}
-          <div className="sm:hidden mx-auto mb-1.5 h-1 w-10 rounded-full bg-[#f0ddb8]/50" aria-hidden />
-          <div className="flex items-center gap-3 pr-12">
-            {(speaker?.portrait ?? icon) && (
-              <div className="flex-shrink-0 w-14 h-14 rounded-full overflow-hidden border-2 border-[#d4a017] bg-[radial-gradient(circle,#fff6d6_0%,#f0ddb8_80%)] flex items-start justify-center">
-                {speaker?.portrait ?? icon}
-              </div>
-            )}
-            <div className="min-w-0 flex-1">
-              <h2 id={titleId} className="text-lg leading-tight truncate" style={{ fontFamily: questButtonFontFamily, letterSpacing: questButtonLetterSpacing }}>
-                <span style={{ position: 'relative', display: 'inline-block' }}>
-                  <span aria-hidden style={questTextShadowStyle}>{title}</span>
-                  <span style={{ ...questTextStyle, color: '#f5c542' }}>{title}</span>
-                </span>
-              </h2>
-              {speaker?.line ? (
-                <p className="mt-1 inline-block max-w-full rounded-xl rounded-tl-sm bg-[#fffdf7] border-2 border-[#2a1505] px-2.5 py-1 text-[13px] font-semibold leading-snug text-[#2a1505]" data-testid={testId ? `${testId}-line` : undefined}>
-                  {speaker.line}
-                </p>
-              ) : subtitle ? (
-                <p className="text-xs font-semibold leading-snug text-[#f0ddb8]" style={{ textShadow: '0 1px 2px rgba(0,0,0,.8)' }}>{subtitle}</p>
-              ) : null}
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close"
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 flex items-center justify-center rounded-full bg-[#2a1505] border-2 border-[#d4a017] text-[#fde68a] text-xl font-black leading-none shadow-[0_3px_0_#1a0d05] active:translate-y-[calc(-50%+2px)] active:shadow-none"
-            data-testid={testId ? `${testId}-close` : undefined}
-          >
-            ×
-          </button>
-        </div>
-        {toolbar && <div className="flex-shrink-0 bg-[#e8d0a0] border-b-2 border-[#c9a87a] px-3 py-2">{toolbar}</div>}
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-[#f0ddb8] px-3 py-3 sm:px-4">
-          {children}
-        </div>
-        {footer && (
-          <div className="flex-shrink-0 bg-[#e8d0a0] border-t-2 border-[#c9a87a] px-3 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">{footer}</div>
-        )}
-        {!footer && <div className="flex-shrink-0 bg-[#f0ddb8] pb-[env(safe-area-inset-bottom)] sm:hidden" />}
-      </div>
+      {sheet}
     </div>
   );
 }

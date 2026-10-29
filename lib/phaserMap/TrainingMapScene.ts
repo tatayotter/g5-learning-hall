@@ -838,6 +838,10 @@ export default class TrainingMapScene extends Phaser.Scene {
 
   create() {
     this.ready = true;
+    // A canvas bigger than 896 x 504 (sharper on a phone, MapCanvas.tsx): the camera zooms from
+    // the top-left corner so the scene keeps drawing in 896 x 504.
+    const sharp = this.scale.width / CANVAS_WIDTH;
+    if (sharp !== 1) this.cameras.main.setOrigin(0, 0).setZoom(sharp);
     const tap = (gx: number, gy: number) => {
       const t = this.lastTransform;
       this.onMapTap?.(Math.floor((gx - t.offsetX) / t.tileW), Math.floor((gy - t.offsetY) / t.tileH));
@@ -849,7 +853,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       const { clientX, clientY } = (e as CustomEvent<{ clientX: number; clientY: number }>).detail;
       const rect = this.game.canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
-      tap((clientX - rect.left) * (this.scale.width / rect.width), (clientY - rect.top) * (this.scale.height / rect.height));
+      tap((clientX - rect.left) * (CANVAS_WIDTH / rect.width), (clientY - rect.top) * (CANVAS_HEIGHT / rect.height));
     };
     const onWalkTarget = (e: Event) => this.setWalkMark((e as CustomEvent<{ x: number; y: number } | null>).detail);
     window.addEventListener(MAP_WALK_TARGET_EVENT, onWalkTarget);

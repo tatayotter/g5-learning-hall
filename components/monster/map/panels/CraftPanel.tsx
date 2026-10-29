@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { BattleQuestionModal, type BattleQuestion, type GradeResult } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
+import GamePopup from '@/components/game/GamePopup';
 import type { GardenBag } from '@/lib/gardenConfig';
 import type { TrashCounts } from '@/lib/itemBar';
 import { RECIPES, STATIONS, checkRecipe, recipeById, recipesAt, type RecipeDef, type StationId } from '@/lib/craftingConfig';
@@ -56,20 +57,6 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
   const list = useMemo(() => recipesAt(station), [station]);
   const recipe = picked ? recipeById(picked) : null;
 
-  const header = (icon: string, title: string, sub: string) => (
-    <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
-      <img src={icon} alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={pixel} />
-      <div className="min-w-0">
-        <p className="text-[#2a1505] font-bold text-sm leading-tight">{title}</p>
-        <p className="text-xs text-[#6b4820] leading-tight">{sub}</p>
-      </div>
-    </div>
-  );
-  const leave = (words = 'Close') => (
-    <GameButton variant="quest" color="#57534e" onClick={() => onDone()} className="w-full mt-3" style={{ fontSize: 13 }} data-testid="craft-leave">
-      {words}
-    </GameButton>
-  );
   const chips = (r: RecipeDef) => {
     const c = checkRecipe(r, bag, trash, gold);
     return (
@@ -90,7 +77,10 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
   };
 
   let body: ReactNode;
+  // The pop-up's header (components/game/GamePopup.tsx): what's open now.
+  let head = { icon: STATION_ICON[station], title: st.name, sub: st.use };
   if (recipe) {
+    head = { icon: recipe.icon, title: `${st.verb} ${recipe.name}`, sub: 'Answer right to make it.' };
     const grade = async (q: BattleQuestion, selected: string): Promise<GradeResult> => {
       const res = await craftItem(userId, recipe.id, q.id, selected, entryId.current);
       if (res.status === 'failed') return { correct: false, correctAnswer: null, failed: true };
@@ -101,7 +91,6 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
     };
     body = (
       <>
-        {header(recipe.icon, `${st.verb} ${recipe.name}`, 'Answer right to make it.')}
         <BattleQuestionModal
           questions={questions}
           count={1}
@@ -126,13 +115,12 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
             else onDone("That can't be done right now.");
           }}
         />
-        {leave('Not now')}
       </>
     );
   } else if (tab === 'book') {
+    head = { icon: '/craft/recipe_book.png', title: 'Recipe Book', sub: `You have made ${RECIPES.filter(r => made[r.id]).length} of ${RECIPES.length} recipes.` };
     body = (
       <>
-        {header('/craft/recipe_book.png', 'Recipe Book', `You have made ${RECIPES.filter(r => made[r.id]).length} of ${RECIPES.length} recipes.`)}
         <div className="space-y-1.5" data-testid="craft-book">
           {RECIPES.map(r => {
             const n = made[r.id] ?? 0;
@@ -158,7 +146,6 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
   } else {
     body = (
       <>
-        {header(STATION_ICON[station], st.name, st.use)}
         {offline && <p className="text-xs text-red-700 font-bold mb-2">Your Hideout needs internet right now. Try again when you are back online.</p>}
         {potBusy && <p className="text-xs text-amber-800 font-bold mb-2" data-testid="craft-pot-busy">Something is cooking in the pot. Take it out first!</p>}
         <div className="space-y-2" data-testid="craft-list">
@@ -197,14 +184,21 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
         <button type="button" onClick={() => setTab('book')} className="w-full mt-3 text-xs font-bold text-[#6b4820] underline" data-testid="craft-open-book">
           Open Recipe Book
         </button>
-        {leave()}
       </>
     );
   }
 
   return (
-    <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="craft-panel" data-station={station}>
+    <GamePopup
+      inline
+      title={head.title}
+      subtitle={head.sub}
+      icon={<img src={head.icon} alt="" className="w-11 h-11 mt-1.5 object-contain" style={pixel} />}
+      onClose={() => onDone()}
+      testId="craft-panel"
+      data={{ station }}
+    >
       {body}
-    </div>
+    </GamePopup>
   );
 }
