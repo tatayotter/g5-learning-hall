@@ -172,11 +172,12 @@ function HudName({ children, size }: { children: string; size: number }) {
 // counter) instead of bare colored text floating on the bar. Kept as its
 // own tiny component rather than a shared class string since the ring color
 // varies per stat (gold vs. streak-orange).
-function HudChip({ icon, iconSrc, value, ring, text, small }: { icon?: string; iconSrc?: string; value: string; ring: string; text: string; small: boolean }) {
+function HudChip({ icon, iconSrc, value, ring, text, small, testId }: { icon?: string; iconSrc?: string; value: string; ring: string; text: string; small: boolean; testId?: string }) {
   return (
     <span
       className={`inline-flex items-center gap-1 rounded-full font-bold leading-none shrink-0 bg-[#0a0807]/60 ${small ? 'text-xs px-1.5 py-1' : 'text-sm px-2 py-1'}`}
       style={{ boxShadow: `inset 0 0 0 1px ${ring}` }}
+      data-testid={testId}
     >
       {iconSrc
         ? <img src={iconSrc} alt="" className={small ? 'w-3 h-3' : 'w-3.5 h-3.5'} />
@@ -249,7 +250,7 @@ export function TopHud({ isDesktop, isLandscape, playerName, playerGrade, player
       <HudName size={isDesktop ? 16 : 13}>{playerName}</HudName>
       <div className={`w-px bg-[#ffffff]/20 shrink-0 ${isDesktop ? 'h-5' : 'h-4'}`} />
       <span className={`text-amber-400 leading-none shrink-0 ${isDesktop ? 'text-sm' : 'text-xs'}`} style={{ fontFamily: questButtonFontFamily, fontWeight: 400 }}>Lv.{playerLevel}</span>
-      <HudChip iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
+      <HudChip testId="hud-gold" iconSrc="/icons/rewards/gold_coin.svg" value={playerGold.toLocaleString()} ring="#d4a017" text="#f5c542" small={!isDesktop} />
       <HudChip iconSrc="/icons/streakicon.png" value={String(playerStreak)} ring="#ea580c" text="#fb923c" small={!isDesktop} />
       {/* Grade/week only fit alongside everything else once there's
           real room to spare (desktop, or landscape phones/tablets) —
