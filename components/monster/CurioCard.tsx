@@ -9,6 +9,8 @@
 // also flips over to its story (how it joined, battles, training, next goal)
 // and can be saved as a picture.
 import { useRef, useState } from 'react';
+import { BOND_BONUS_PER_HEART, bondTitle } from '@/lib/craftingConfig';
+import { BondHearts } from '@/components/monster/map/panels/CampFeed';
 import {
   ALL_MONSTERS, Element, ELEMENT_ICON_SRC, MonsterDef, MonsterArchetype, Skill,
   getCounterElements, getGraduatedMonsterDisplay, getGuildMonsterTierDef, getMaxGraduationTier,
@@ -204,7 +206,7 @@ function QuestionPips({ count, element }: { count: number; element: Element | nu
 }
 
 export default function CurioCard({
-  def, speciesId, stats, moves, stage, quality, level, exp, ownedNote, story,
+  def, speciesId, stats, moves, stage, quality, level, exp, ownedNote, story, hearts,
 }: {
   def: MonsterDef;
   speciesId: string;
@@ -216,6 +218,7 @@ export default function CurioCard({
   exp?: number;              // owned curio's total exp, for the XP bar
   ownedNote?: string;        // small note under the art, e.g. "In your collection"
   story?: CurioStory;        // set for an owned curio: adds the card back, Flip and Save
+  hearts?: number;           // bond hearts from feeding (lib/craftingConfig.ts), shown when 1 or more
 }) {
   const theme = ELEMENT_THEME[def.element];
   const cardRef = useRef<HTMLDivElement>(null);
@@ -359,6 +362,11 @@ export default function CurioCard({
             )}
             {level !== undefined && (
               <span className="absolute top-1.5 right-1.5 text-[11px] font-black px-1.5 py-0.5 rounded-md bg-white/90 text-[#2a1505] border border-[#4a2f18]" data-testid="curio-card-level">Lv.{level}</span>
+            )}
+            {!!hearts && (
+              <span className="absolute bottom-1.5 left-1.5 px-1 py-0.5 rounded-md bg-white/90 border border-[#4a2f18]" title={`${bondTitle(hearts)}: hits ${Math.round(hearts * BOND_BONUS_PER_HEART * 100)}% harder`} data-testid="curio-card-hearts">
+                <BondHearts hearts={hearts} size={10} />
+              </span>
             )}
           </div>
 

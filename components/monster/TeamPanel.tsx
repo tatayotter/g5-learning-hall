@@ -1,5 +1,6 @@
 'use client';
 import { useRef, useState } from 'react';
+import { bondHeartsNow } from '@/lib/craftingConfig';
 import { createPortal } from 'react-dom';
 import { supabase } from '@/lib/supabase';
 import { needsConnection } from '@/lib/offlineReads';
@@ -338,6 +339,7 @@ export default function TeamPanel({
               exp={monster.monster_exp}
               ownedNote={monster.slot !== null ? 'On your team' : 'Resting'}
               story={buildCurioStory(monster, stage, cardMoves)}
+              hearts={bondHeartsNow(monster)}
             />
           </div>
 

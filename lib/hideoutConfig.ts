@@ -3,13 +3,14 @@
 // signpost in Inkwell Town. Its plots stand at fixed spots on the Hideout map (the "Places" layer
 // of public/maps-tiled-art/hideout/hideout_<shape>.tmx) and each is built with wood from chopping:
 // garden beds grow veggies from seed packets (one per soil tile), grove spots grow saplings into trees that drop
-// wood every day, and the Curio Camp is where curios go on missions. The kitchen comes with
-// cooking, later.
+// wood every day, and the Curio Camp is where curios go on missions. The Workbench, Compost Bin
+// and Kitchen are crafting stations (lib/craftingConfig.ts).
 //
 // The rules live in supabase/migrations/20261028160000_hideout.sql (buy_hideout,
 // build_hideout_plot, plant_hideout_plot, water_hideout_plot, harvest_hideout_plot) and
-// 20261029000000_hideout_tiles_and_trees.sql (a bed's six tiles, six tree spots); the numbers
-// here mirror them for the screen.
+// 20261029000000_hideout_tiles_and_trees.sql (a bed's six tiles, six tree spots) and
+// 20261029090000_crafting_step1.sql (named woods and gold, costs that rise, the stations); the
+// numbers here mirror them for the screen.
 import { TREES, VEGGIES, gardenItemLabel, saplingKey, seedsKey, type TreeId, type VeggieId } from '@/lib/gardenConfig';
 
 export const HIDEOUT_REGION = 'hideout';
@@ -32,40 +33,68 @@ export const hideoutMapPath = (userId: string) => `/maps-tiled-art/hideout/hideo
 export const SIGNPOST = { region: 'town', x: 25, y: 36 } as const;
 export const SIGNPOST_ARRIVE = { x: 26, y: 36 } as const;
 
-export type PlotKind = 'bed' | 'grove' | 'camp' | 'kitchen';
+export type PlotKind = 'bed' | 'grove' | 'camp' | 'kitchen' | 'workbench' | 'compost';
 
 export interface PlotDef {
   id: string;
   kind: PlotKind;
   name: string;
-  // Bag items it takes to build.
+  // Bag items and gold it takes to build (garden beds and tree spots: see BUILD_STEPS).
   cost: Record<string, number>;
+  gold: number;
   // Not buildable yet: what to tell the kid.
   soon?: string;
 }
 
+const pen = (id: string): PlotDef => ({ id, kind: 'bed', name: 'Garden Bed', cost: {}, gold: 0 });
+const spot = (id: string): PlotDef => ({ id, kind: 'grove', name: 'Tree Spot', cost: {}, gold: 0 });
 export const PLOTS: Record<string, PlotDef> = {
-  bed_1: { id: 'bed_1', kind: 'bed', name: 'Garden Bed', cost: { wood: 6 } },
-  bed_2: { id: 'bed_2', kind: 'bed', name: 'Garden Bed', cost: { wood: 6 } },
-  bed_3: { id: 'bed_3', kind: 'bed', name: 'Garden Bed', cost: { wood: 6 } },
-  bed_4: { id: 'bed_4', kind: 'bed', name: 'Garden Bed', cost: { wood: 6 } },
-  grove_1: { id: 'grove_1', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  grove_2: { id: 'grove_2', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  grove_3: { id: 'grove_3', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  grove_4: { id: 'grove_4', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  grove_5: { id: 'grove_5', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  grove_6: { id: 'grove_6', kind: 'grove', name: 'Tree Spot', cost: { wood: 12 } },
-  camp: { id: 'camp', kind: 'camp', name: 'Curio Camp', cost: { wood: 15 } },
-  kitchen: { id: 'kitchen', kind: 'kitchen', name: 'Kitchen', cost: { wood: 20 }, soon: 'Cooking is coming soon!' },
+  bed_1: pen('bed_1'), bed_2: pen('bed_2'), bed_3: pen('bed_3'), bed_4: pen('bed_4'),
+  grove_1: spot('grove_1'), grove_2: spot('grove_2'), grove_3: spot('grove_3'),
+  grove_4: spot('grove_4'), grove_5: spot('grove_5'), grove_6: spot('grove_6'),
+  camp: { id: 'camp', kind: 'camp', name: 'Curio Camp', cost: { wood_oak: 10, wood_elder: 10, wood_bamboo: 10 }, gold: 100 },
+  kitchen: { id: 'kitchen', kind: 'kitchen', name: 'Kitchen', cost: { wood_ember: 15, wood_pine: 15 }, gold: 150 },
+  workbench: { id: 'workbench', kind: 'workbench', name: 'Workbench', cost: { wood_maple: 15, wood_birch: 10 }, gold: 100 },
+  compost: { id: 'compost', kind: 'compost', name: 'Compost Bin', cost: { wood_pine: 10, wood_mangrove: 10 }, gold: 50 },
 };
 export const PLOT_ORDER = Object.keys(PLOTS);
+
+// Garden beds and tree spots: the 1st, 2nd, ... one built costs this, whichever spot it is
+// (hideout_build_steps). Each asks for woods from different places, so building the island
+// takes a trip to every region.
+export const BUILD_STEPS: Partial<Record<PlotKind, { cost: Record<string, number>; gold: number }[]>> = {
+  bed: [
+    { cost: { wood_maple: 10, wood_oak: 10 }, gold: 50 },
+    { cost: { wood_pine: 10, wood_birch: 10, wood_palm: 10 }, gold: 100 },
+    { cost: { wood_bamboo: 15, wood_elder: 15, wood_ashwillow: 15 }, gold: 200 },
+    { cost: { wood_stormpine: 20, wood_mangrove: 20, wood_sunblossom: 20 }, gold: 400 },
+  ],
+  grove: [
+    { cost: { wood_oak: 15, stone_ring: 1, garden_soil: 1 }, gold: 50 },
+    { cost: { wood_birch: 10, wood_pine: 10, stone_ring: 1, garden_soil: 1 }, gold: 75 },
+    { cost: { wood_palm: 15, wood_mangrove: 10, stone_ring: 2, garden_soil: 2 }, gold: 100 },
+    { cost: { wood_ember: 15, wood_ashwillow: 15, stone_ring: 2, garden_soil: 2 }, gold: 150 },
+    { cost: { wood_elder: 20, wood_bamboo: 20, stone_ring: 3, garden_soil: 3 }, gold: 200 },
+    { cost: { wood_dusk: 20, wood_paperleaf: 15, wood_sunblossom: 15, stone_ring: 3, garden_soil: 3 }, gold: 300 },
+  ],
+};
+
+// What building a plot costs now, given the plots already built (hideout_build_cost).
+export function buildCost(def: PlotDef, built: Record<string, unknown>): { cost: Record<string, number>; gold: number } {
+  const steps = BUILD_STEPS[def.kind];
+  if (!steps) return { cost: def.cost, gold: def.gold };
+  const n = Object.values(PLOTS).filter(p => p.kind === def.kind && p.id in built).length;
+  return steps[Math.min(n, steps.length - 1)];
+}
 
 // What each plot is for, in a kid's words.
 export const PLOT_USE: Record<PlotKind, string> = {
   bed: 'Plant seeds here and grow your own veggies.',
   grove: 'Plant a sapling here. It grows into a tree that drops wood every day.',
-  camp: 'Send your curios on missions to train while you play.',
-  kitchen: 'Cook your veggies into yummy food.',
+  camp: 'Send your curios on missions, and feed them to make friends.',
+  kitchen: 'Cook food for you and your curios.',
+  workbench: 'Make things for your Hideout, like Stone Rings for tree spots.',
+  compost: 'Turn trash and old veggies into Garden Soil.',
 };
 
 // Minutes to grow (hideout_grow_minutes).
@@ -89,7 +118,7 @@ export const waterAllFor = (canTier: number) => canTier >= 3;
 // The bag item a plot takes to plant: seed packets in a bed, saplings in a grove spot.
 export const plantKeyFor = (kind: PlotKind, item: string) => (kind === 'bed' ? seedsKey(item as VeggieId) : saplingKey(item as TreeId));
 export const plantLabel = (kind: PlotKind, item: string) => (kind === 'bed' ? VEGGIES[item as VeggieId]?.label ?? item : `${TREES[item as TreeId]?.label ?? item} Tree`);
-export const costWords = (cost: Record<string, number>) => Object.entries(cost).map(([k, n]) => `${n} ${gardenItemLabel(k)}`).join(' and ');
+export const costWords = (cost: Record<string, number>) => Object.entries(cost).map(([k, n]) => `${n} ${gardenItemLabel(k)}`).join(', ').replace(/, ([^,]*)$/, ' and $1');
 
 // "3 Tomatoes", "3 Carrots", "3 Corn", "3 Beans".
 export const pluralVeggie = (label: string) => (/s$|^Corn$/.test(label) ? label : /o$/.test(label) ? `${label}es` : `${label}s`);
@@ -109,13 +138,19 @@ export type PlotLook =
   | 'site'          // not built: a sign with stakes
   | 'grove'         // an empty tree spot
   | 'camp'
-  | 'kitchen_soon';
+  | 'kitchen_soon'
+  | 'kitchen'
+  | 'workbench'
+  | 'compost';
 
 export const PLOT_ART: Record<PlotLook, { src: string; w: number; h: number }> = {
   site: { src: '/hideout/build_site.png', w: 56, h: 51 },
   grove: { src: '/hideout/tree_spot.png', w: 32, h: 32 },
   camp: { src: '/hideout/curio_camp.png', w: 64, h: 64 },
   kitchen_soon: { src: '/hideout/kitchen_soon.png', w: 32, h: 48 },
+  kitchen: { src: '/hideout/kitchen.png', w: 48, h: 48 },
+  workbench: { src: '/hideout/workbench.png', w: 48, h: 40 },
+  compost: { src: '/hideout/compost_bin.png', w: 32, h: 40 },
 };
 export const SIGNPOST_ART = { src: '/hideout/signpost.png', w: 29, h: 64 };
 

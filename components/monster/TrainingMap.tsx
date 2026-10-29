@@ -27,6 +27,9 @@ import GatherQuestionPanel from '@/components/monster/map/panels/GatherQuestionP
 import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/panels/HideoutPanel';
 import MissionsPanel from '@/components/monster/MissionsPanel';
+import CraftPanel from '@/components/monster/map/panels/CraftPanel';
+import CampFeed from '@/components/monster/map/panels/CampFeed';
+import type { StationId } from '@/lib/craftingConfig';
 import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
 import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
@@ -44,7 +47,7 @@ import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
 import { useFeatureFlag } from '@/lib/featureFlags';
 import {
-  SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, withA, WOOD_KEY, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey,
+  SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_ICON, withA, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey, woodKey, woodLabel,
   swingTiming, strikeImpactMs, type SwingKind, type VeggieId, type WildTreeNode,
 } from '@/lib/gardenConfig';
 import { refreshGear, useGear } from '@/lib/gear';
@@ -278,6 +281,7 @@ export default function TrainingMap({
   });
   const [hideoutPanel, setHideoutPanel] = useState<{ mode: HideoutPanelMode; spot: HideoutSpot } | null>(null);
   const [campOpen, setCampOpen] = useState(false);
+  const [craftStation, setCraftStation] = useState<StationId | null>(null);
   const itemBar = useItemBar({
     userId, battleState, inventory, offline, regionId: regionId ?? null, onBattleStatePatch, onTrackedCurioSummoned,
     gardenSquares: garden.squares, toolKeys, bagSize: bagSizeFor(gear.bag ?? 0),
@@ -739,6 +743,7 @@ export default function TrainingMap({
       case 'soon': case 'collected': return open('info');
       case 'empty': return open('plant');
       case 'camp': playPageFlip(); setCampOpen(true); return;
+      case 'station': playPageFlip(); setCraftStation(spot.plot!.kind as StationId); return;
       case 'growing': {
         if (spot.watered) return open('info');
         const problem = toolProblem('can', 'water plants');
@@ -772,8 +777,8 @@ export default function TrainingMap({
         const res = await hideout.api.harvest(spot.id);
         if (res.status === 'collected') {
           playChime();
-          flyToBag(Array(res.wood).fill(gardenItemIcon(WOOD_KEY)));
-          showBarMessage(`You collected ${res.wood} wood! Your tree drops more tomorrow.`);
+          flyToBag(Array(res.wood).fill(res.woodKey ? gardenItemIcon(res.woodKey) : WOOD_ICON));
+          showBarMessage(`You collected ${res.wood} ${res.woodKey ? gardenItemLabel(res.woodKey) : 'wood'}! Your tree drops more tomorrow.`);
         } else if (res.status === 'collected_today') {
           showBarMessage('This tree gave its wood today. Come back tomorrow!');
         } else {
@@ -835,7 +840,7 @@ export default function TrainingMap({
   }, []);
 
   // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
-  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
+  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || craftStation || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
   useEffect(() => {
     const target = nearby ?? inReach[0];
     if (panelOpen || !target) return;
@@ -853,7 +858,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
+    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !craftStation && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -1031,8 +1036,8 @@ export default function TrainingMap({
     if (r.status === 'felled') {
       playChime();
       const sapling = r.saplings > 0 ? gardenItemIcon(saplingKey(tree.tree)) : null;
-      flyToBag([...Array(r.wood).fill(gardenItemIcon(WOOD_KEY)), ...(sapling ? [sapling] : [])]);
-      const got = `${r.wood} wood${r.saplings > 0 ? ` and ${/^[AEIOU]/.test(label) ? 'an' : 'a'} ${label} Sapling` : ''}`;
+      flyToBag([...Array(r.wood).fill(gardenItemIcon(woodKey(tree.tree))), ...(sapling ? [sapling] : [])]);
+      const got = `${r.wood} ${woodLabel(tree.tree)}${r.saplings > 0 ? ` and ${/^[AEIOU]/.test(label) ? 'an' : 'a'} ${label} Sapling` : ''}`;
       showBarMessage(r.wood > 3 ? `Double wood! You got ${got}!` : r.clean ? `Clean chop! You got ${got}!` : `Timber! You got ${got}!`);
     } else if (r.status === 'wrong') {
       playClash();
@@ -1308,7 +1313,7 @@ export default function TrainingMap({
     for (const [key, n] of Object.entries(garden.bag)) {
       if (!n) continue;
       const g = parseGardenKey(key);
-      if (key === WOOD_KEY) f.add('has_wood');
+      if (g?.kind === 'wood') f.add('has_wood');
       else if (g?.kind === 'veggie') f.add(g.veggie.id === 'seashell' ? 'has_shells' : 'has_veggies');
     }
     if (!trash && !['has_wood', 'has_veggies', 'has_shells'].some(k => f.has(k))) f.add('bag_empty');
@@ -1485,7 +1490,7 @@ export default function TrainingMap({
 
   // Gates both the floating joystick's press-and-drag and (previously) the
   // static dpad — matches the keyboard-movement path in useContinuousMovement.
-  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen;
+  const controlsDisabled = movementLocked || !!activeScroll || !!activePlant || !!activeTree || !!hideoutPanel || campOpen || !!craftStation;
 
   const frameContent = (
     <div className="relative w-full h-full">
@@ -1593,7 +1598,7 @@ export default function TrainingMap({
             const tool = nearby.kind === 'plant' ? toolForVeggie(nearby.plant.veggie) : 'axe';
             const tier = tool ? gear[tool] ?? 0 : 0;
             const src = tool && tier > 0 ? toolIcon(tool, tier)
-              : nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(WOOD_KEY);
+              : nearby.kind === 'plant' ? gardenItemIcon(veggieKey(nearby.plant.veggie)) : gardenItemIcon(woodKey(nearby.tree.tree));
             return <img src={src} alt="" className="w-5 h-5" style={{ imageRendering: 'pixelated' }} />;
           })()}
           {nearby.kind === 'scroll' ? 'Read Scroll'
@@ -1685,15 +1690,53 @@ export default function TrainingMap({
         if (say) showBarMessage(say);
       }}
     />
+  ) : craftStation ? (
+    <CraftPanel
+      key={craftStation}
+      station={craftStation}
+      userId={userId}
+      built={new Set(Object.keys(hideout.api.state.plots))}
+      bag={garden.bag}
+      trash={trashInventory}
+      gold={gold ?? 0}
+      offline={offline}
+      questions={questions}
+      gradingUserId={gradingUserId}
+      onAnswered={answered => onQuestionsAnswered?.(answered)}
+      onCrafted={res => {
+        if (res.bag) garden.setBag(res.bag);
+        if (res.trash) itemBar.replaceTrash(res.trash);
+        if (res.progress) onGoldSynced?.(res.progress);
+        playCoins();
+      }}
+      onDone={(say, fly) => {
+        setCraftStation(null);
+        if (fly?.length) flyToBag(fly);
+        if (say) showBarMessage(say);
+      }}
+    />
   ) : campOpen ? (
     <div className="w-full max-w-xl bg-[#f0ddb8] border-2 border-[#8b5e2a] rounded-2xl p-4 max-h-full overflow-y-auto battle-panel-in" data-testid="camp-panel">
       <div className="flex items-center gap-3 mb-3 bg-[#e8d0a0]/60 border border-[#c9a87a] rounded-xl px-3 py-2">
         <img src="/hideout/curio_camp.png" alt="" className="w-10 h-10 flex-shrink-0 object-contain" style={{ imageRendering: 'pixelated' }} />
         <div className="min-w-0">
           <p className="text-[#2a1505] font-bold text-sm leading-tight">Curio Camp</p>
-          <p className="text-xs text-[#6b4820] leading-tight">Curios on your bench can go on missions here and come back stronger.</p>
+          <p className="text-xs text-[#6b4820] leading-tight">Feed your curios to make friends. Curios on your bench can go on missions and come back stronger.</p>
         </div>
       </div>
+      <CampFeed
+        userId={userId}
+        curios={userMonsters}
+        monsterDisplay={monsterDisplay}
+        bag={garden.bag}
+        offline={offline}
+        onFed={(res, name) => {
+          if (res.bag) garden.setBag(res.bag);
+          playChime();
+          showBarMessage(`${name} loved it! +1 heart`);
+          void onLoadoutChange?.();
+        }}
+      />
       <MissionsPanel
         playerLevel={playerLevel}
         userId={userId}

@@ -2,7 +2,7 @@
 // The Hideout's panels (lib/hideoutConfig.ts), opened by TrainingMap.tsx when a kid uses the
 // signpost in Inkwell Town or a plot on their island:
 // - deed: buy the Hideout (2,000 gold), then go there;
-// - build: a plot not built yet, and the wood it takes;
+// - build: a plot not built yet, and the wood, things and gold it takes;
 // - plant: pick seeds (a garden bed) or a sapling (a tree spot), then one question;
 // - water: one question with the watering can;
 // - info: something growing that's been watered, or the kitchen (coming soon).
@@ -12,10 +12,10 @@ import { useMemo, useRef, useState, type ReactNode } from 'react';
 import { BattleQuestionModal, type BattleQuestion, type GradeResult } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
 import {
-  SEED_ORDER, TREE_ORDER, TREES, VEGGIES, gardenItemIcon, gardenItemLabel, saplingKey, seedsKey, type GardenBag, type TreeId, type VeggieId,
+  SEED_ORDER, TREE_ORDER, TREES, VEGGIES, WOOD_ICON, gardenItemIcon, gardenItemLabel, parseGardenKey, saplingKey, seedsKey, whereTreeGrows, type GardenBag, type TreeId, type VeggieId,
 } from '@/lib/gardenConfig';
 import {
-  HIDEOUT_COST, PLOT_USE, TREE_GROW_MINUTES, GROW_MINUTES, costWords, plantLabel, timeWords, waterAllFor, waterFactorFor,
+  HIDEOUT_COST, PLOTS, PLOT_USE, TREE_GROW_MINUTES, buildCost, GROW_MINUTES, costWords, plantLabel, timeWords, waterAllFor, waterFactorFor,
 } from '@/lib/hideoutConfig';
 import type { HideoutApi, HideoutCall } from '@/lib/hideout';
 import type { HideoutSpot } from '@/hooks/useHideoutMap';
@@ -124,19 +124,39 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
       </>
     );
   } else if (mode === 'build' && def) {
-    const enough = Object.entries(def.cost).every(([k, n]) => (bag[k] ?? 0) >= n);
+    // Garden beds and tree spots cost more with each one built (lib/hideoutConfig.ts BUILD_STEPS).
+    const price = buildCost(def, api.state.plots);
+    const enoughItems = Object.entries(price.cost).every(([k, n]) => (bag[k] ?? 0) >= n);
+    const enoughGold = gold >= price.gold;
+    const enough = enoughItems && enoughGold;
+    const woods = Object.keys(price.cost).filter(k => k.startsWith('wood_'));
+    const made = Object.keys(price.cost).filter(k => !k.startsWith('wood_') && (bag[k] ?? 0) < price.cost[k]);
     body = (
       <>
-        {header(gardenItemIcon('wood'), `Build a ${def.name}`, PLOT_USE[def.kind])}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {Object.entries(def.cost).map(([k, n]) => (
+        {header(woods.length ? gardenItemIcon(woods[0]) : WOOD_ICON, `Build a ${def.name}`, PLOT_USE[def.kind])}
+        <div className="flex flex-wrap gap-2 mb-3" data-testid="hideout-cost">
+          {Object.entries(price.cost).map(([k, n]) => (
             <span key={k} className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-2.5 py-1 border ${(bag[k] ?? 0) >= n ? 'bg-green-100 border-green-600 text-green-800' : 'bg-red-100 border-red-500 text-red-700'}`}>
               <img src={gardenItemIcon(k)} alt="" className="w-4 h-4" style={pixel} />
               {bag[k] ?? 0} / {n} {gardenItemLabel(k)}
             </span>
           ))}
+          {price.gold > 0 && (
+            <span className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-full px-2.5 py-1 border ${enoughGold ? 'bg-green-100 border-green-600 text-green-800' : 'bg-red-100 border-red-500 text-red-700'}`}>
+              <Coin /> {price.gold} gold
+            </span>
+          )}
         </div>
-        {!enough && <p className="text-xs text-[#6b4820] mb-2">Chop trees on the map with your axe to get wood.</p>}
+        {!enoughItems && (
+          <ul className="text-xs text-[#6b4820] mb-2 space-y-0.5">
+            {woods.filter(k => (bag[k] ?? 0) < price.cost[k]).map(k => {
+              const g = parseGardenKey(k);
+              return g?.kind === 'wood' ? <li key={k}>{gardenItemLabel(k)}: chop {TREES[g.tree].name}s in {whereTreeGrows(g.tree)}.</li> : null;
+            })}
+            {made.includes('stone_ring') && <li>Stone Ring: make it at your Workbench.</li>}
+            {made.includes('garden_soil') && <li>Garden Soil: make it in your Compost Bin.</li>}
+          </ul>
+        )}
         {offlineNote}{problemNote}
         <GameButton
           variant="quest"
@@ -148,13 +168,17 @@ export default function HideoutPanel({ mode, spot, api, bag, gold, canTier, offl
             const res = await api.build(def.id);
             setBusy(false);
             if (res.status === 'ok') onDone(`You built a ${def.name}!`);
-            else setProblem(res.status === 'items' ? `You need ${costWords(def.cost)}.` : "That didn't work. Try again!");
+            else setProblem(
+              res.status === 'items' ? `You need ${costWords(res.need ?? price.cost)}.`
+              : res.status === 'gold' ? `You need ${res.goldCost ?? price.gold} gold.`
+              : res.status === 'needs' ? `Build the ${PLOTS[res.needs ?? '']?.name ?? 'other building'} first.`
+              : "That didn't work. Try again!");
           }}
           className="w-full"
           style={{ fontSize: 14 }}
           data-testid="hideout-build"
         >
-          {busy ? 'Building…' : `Build with ${costWords(def.cost)}`}
+          {busy ? 'Building…' : <span className="inline-flex items-center gap-1">Build{price.gold > 0 && <> for {price.gold} <Coin /></>}</span>}
         </GameButton>
         {leave()}
       </>

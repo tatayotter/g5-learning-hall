@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="54" height="43" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="300">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="54" height="43" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="302">
  <tileset firstgid="1" source="TileSet-tide.tsx"/>
  <tileset firstgid="4097" source="TideWater-6frames.tsx"/>
  <tileset firstgid="5121" source="TideBridge.tsx"/>
@@ -431,6 +431,12 @@
    <point/>
   </object>
   <object id="111" name="kitchen" x="1200" y="848">
+   <point/>
+  </object>
+  <object id="300" name="workbench" x="1456" y="816">
+   <point/>
+  </object>
+  <object id="301" name="compost" x="1328" y="528">
    <point/>
   </object>
  </objectgroup>

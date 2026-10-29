@@ -31,6 +31,13 @@ export interface UserMonster {
   battles_fought?: number;
   battles_won?: number;
   quests_trained?: number;
+  // Bond hearts from feeding at the Curio Camp (lib/craftingConfig.ts bondHeartsNow).
+  bond_hearts?: number | null;
+  bond_at?: string | null;
+  fed_day?: string | null;
+  fed_count?: number | null;
+  snack?: string | null;
+  snack_at?: string | null;
 }
 
 export interface ActiveBattleMonster {
@@ -473,6 +480,8 @@ export function resolveItemEffect(item: { name: string; effect?: string }, oppon
       const healAmount = Number(item.effect.split('_')[1]);
       return { logMessage: `🧪 Used ${item.name}: Restored ${healAmount} HP!`, healAmount };
     }
+    case 'heal_60_cure':
+      return { logMessage: `🍲 Used ${item.name}: Restored 60 HP and cured!`, healAmount: 60, selfStatus: { status: null, statusTurns: 0 } };
     case 'atk_boost_1t':
       return { logMessage: `⚔️ Used ${item.name}: Attack boosted!`, selfStatus: { status: 'atk_boost', statusTurns: statusDuration('atk_boost') } };
     case 'def_boost_1t':

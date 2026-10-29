@@ -8,7 +8,7 @@
 // when they sync.
 import { supabase } from '@/lib/supabase';
 import {
-  REGROW_MS, REST_MS, WOOD_KEY, WOOD_PER_TREE, WRONG_LIMIT, saplingKey, veggieKey,
+  REGROW_MS, REST_MS, WOOD_PER_TREE, woodKey, WRONG_LIMIT, saplingKey, veggieKey,
   type GardenBag, type TreeId, type VeggieId,
 } from '@/lib/gardenConfig';
 import { alwaysSaplingFor, chopSwingsFor, dailyTreeLimitFor } from '@/lib/gearConfig';
@@ -275,7 +275,7 @@ export function applyLocalChop(state: GardenState, region: string, nodeId: strin
   if (correct && hits + 1 >= swings) {
     const clean = misses === 0;
     const sapling = clean || alwaysSaplingFor(axeTier);
-    const bag: GardenBag = { ...state.bag, [WOOD_KEY]: (state.bag[WOOD_KEY] ?? 0) + WOOD_PER_TREE };
+    const bag: GardenBag = { ...state.bag, [woodKey(tree)]: (state.bag[woodKey(tree)] ?? 0) + WOOD_PER_TREE };
     if (sapling) bag[saplingKey(tree)] = (bag[saplingKey(tree)] ?? 0) + 1;
     return {
       state: { bag, plants: { ...state.plants, [key]: { readyAt: day ? endOfTreeDay(day) : now, restUntil: null, wrong: 0, hits: 0, misses: 0 } } },

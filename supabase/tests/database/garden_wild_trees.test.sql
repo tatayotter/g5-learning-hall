@@ -1,7 +1,7 @@
 -- pgTAP tests for 20261023120000_garden_wild_trees.sql: chopping a tree of today's map with
 -- three right answers, misses that cost a clean chop, a stump staying a stump, the rest after 3
 -- wrong answers, the 8-trees-a-day limit, a re-sent offline swing never landing twice, trees
--- from another day or of an unknown kind (or a kind from another region), and wood selling for 2 gold while saplings stay.
+-- from another day or of an unknown kind (or a kind from another region), and wood selling for 2 or 3 gold while saplings stay (each tree its own wood: 20261029090000_crafting_step1.sql).
 
 begin;
 create extension if not exists pgtap;
@@ -85,9 +85,9 @@ select is(pg_temp.swing('1_1', 2, 'a') ->> 'hits', '2', 'a replay never lands a 
 create temp table felled as select pg_temp.swing('1_1', 3, 'a') as r;
 select is((select r ->> 'status' from felled), 'felled', 'the third right answer fells the tree');
 select is((select (r ->> 'clean')::boolean from felled), true, 'no misses is a clean chop');
-select is(pg_temp.have('wood'), 3, 'the tree gave 3 wood');
+select is(pg_temp.have('wood_maple'), 3, 'the Maple gave 3 Maple Wood (each tree its own wood)');
 select is(pg_temp.have('sapling_maple'), 1, 'a clean chop always gives a sapling of its kind');
-select is((select r -> 'bag' ->> 'wood' from felled), '3', 'the result carries the new bag');
+select is((select r -> 'bag' ->> 'wood_maple' from felled), '3', 'the result carries the new bag');
 
 select is(pg_temp.swing('1_1', 4, 'a') ->> 'status', 'stump', 'a chopped tree stays a stump today');
 
@@ -96,7 +96,7 @@ select is(pg_temp.swing('2_2', 1, 'b') ->> 'status', 'wrong', 'a wrong answer mi
 create temp table oak as select pg_temp.swing('2_2', 2, 'a', gen_random_uuid(), 'oak') as a, pg_temp.swing('2_2', 3, 'a', gen_random_uuid(), 'oak') as b, pg_temp.swing('2_2', 4, 'a', gen_random_uuid(), 'oak') as c;
 select is((select c ->> 'status' from oak), 'felled', 'three right answers fell it even after a miss');
 select is((select (c ->> 'clean')::boolean from oak), false, 'a chop with a miss is not clean');
-select is(pg_temp.have('wood'), 6, '3 more wood');
+select is(pg_temp.have('wood_oak'), 3, 'the Oak gave 3 Oak Wood');
 
 -- Yesterday's tree, and a tree that isn't a kind we grow.
 select throws_ok(
@@ -160,17 +160,17 @@ select x, pg_temp.swing(x || '_9', 1, 'a') as a, pg_temp.swing(x || '_9', 2, 'a'
 from generate_series(10, 15) x;
 select is((select count(*)::int from more where c ->> 'status' = 'felled'), 6, 'six more trees fall');
 select is(pg_temp.swing('20_20', 1, 'a') ->> 'status', 'tired', 'the ninth tree today: too tired to chop');
-select is(pg_temp.have('wood'), 24, '8 trees gave 24 wood');
+select is((select sum(quantity)::int from player_bag_items where user_id = (select kid from fx) and item_key like 'wood\_%'), 24, '8 trees gave 24 wood');
 reset role;
-delete from player_bag_items where user_id = (select kid from fx) and item_key = 'wood';
-insert into player_bag_items (user_id, item_key, quantity) select kid, 'wood', 6 from fx;
+delete from player_bag_items where user_id = (select kid from fx) and item_key like 'wood\_%';
+insert into player_bag_items (user_id, item_key, quantity) select kid, k, n from fx, (values ('wood_maple', 6), ('wood_ember', 2)) v(k, n);
 set local role authenticated;
 
--- Selling: wood goes for 2 gold each, saplings stay.
+-- Selling: town woods go for 2 gold each, a region's wood for 3; saplings stay.
 select is(
   (select sell_garden_items((select kid from fx)) - 'bag' - 'progress'),
-  '{"gold": 12, "sold": {"wood": 6}}'::jsonb,
-  'wood sells for 2 gold each; saplings do not sell'
+  '{"gold": 18, "sold": {"wood_maple": 6, "wood_ember": 2}}'::jsonb,
+  'Maple Wood sells for 2 gold, Ember Wood for 3; saplings do not sell'
 );
 
 select * from finish();
