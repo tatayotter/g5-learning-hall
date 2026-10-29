@@ -37,6 +37,8 @@ export interface RecipeDef {
   icon: string;
   // What it does, in a kid's words.
   does: string;
+  // Kitchen food cooks for a while after the right answer (craft_recipes.cook_seconds).
+  cookSeconds?: number;
   // In the recipe book but not makeable yet (later steps).
   soon?: string;
 }
@@ -45,13 +47,13 @@ const kibbleIcon = '/craft/icon_food_kibble.png';
 
 export const RECIPES: RecipeDef[] = [
   { id: 'curio_kibble', station: 'kitchen', name: 'Curio Kibble', inputs: { veggie_corn: 2, veggie_beans: 1 }, gold: 15,
-    output: 'food_kibble', outputQty: 3, outputTo: 'bag', icon: kibbleIcon,
+    output: 'food_kibble', outputQty: 3, outputTo: 'bag', icon: kibbleIcon, cookSeconds: 45,
     does: 'Makes 3. Feed a curio for a bond heart, and its next mission gives 25% more EXP.' },
   { id: 'veggie_mash', station: 'kitchen', name: 'Veggie Mash', inputs: { veggie_pumpkin: 1, veggie_carrot: 1, veggie_cabbage: 1 }, gold: 15,
-    output: 'food_mash', outputQty: 2, outputTo: 'bag', icon: '/craft/icon_food_mash.png',
+    output: 'food_mash', outputQty: 2, outputTo: 'bag', icon: '/craft/icon_food_mash.png', cookSeconds: 45,
     does: 'Makes 2. Feed a curio for a bond heart. Its next mission gives 25% more EXP and ends sooner.' },
   { id: 'veggie_stew', station: 'kitchen', name: 'Veggie Stew', inputs: { [ANY_VEGGIE]: 3 }, gold: 40,
-    output: 'veggie_stew', outputQty: 1, outputTo: 'inventory', icon: '/craft/icon_veggie_stew.png',
+    output: 'veggie_stew', outputQty: 1, outputTo: 'inventory', icon: '/craft/icon_veggie_stew.png', cookSeconds: 90,
     does: 'Use it in battle: heals 60 HP and cures your curio, all in one turn.' },
   { id: 'stone_ring', station: 'workbench', name: 'Stone Ring', inputs: { veggie_crystal: 3 }, gold: 20,
     output: 'stone_ring', outputQty: 1, outputTo: 'bag', icon: '/craft/icon_stone_ring.png',

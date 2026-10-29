@@ -2,7 +2,8 @@
 // A crafting station at the Hideout (lib/craftingConfig.ts): the Kitchen, the Workbench or the
 // Compost Bin. Lists the station's recipes (the ones for later steps grey), what each takes
 // against what the kid has, then one question to make it (craft_item through lib/crafting.ts).
-// The Recipe Book tab shows every recipe in the game and which ones the kid has made.
+// The Recipe Book tab shows every recipe in the game and which ones the kid has made. Kitchen food
+// goes in the pot after the right answer and is collected on the map once it's cooked.
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { BattleQuestionModal, type BattleQuestion, type GradeResult } from '@/components/battle/shared';
 import GameButton from '@/components/GameButton';
@@ -23,7 +24,9 @@ interface Props {
   questions: BattleQuestion[];
   gradingUserId: string;
   onAnswered: (answered: BattleQuestion[]) => void;
-  /** After a craft: the server's bag, trash and gold. */
+  /** Something is in this station's pot: nothing else can cook until it's collected. */
+  potBusy?: boolean;
+  /** After a craft (or food going in the pot): the server's bag, trash and gold. */
   onCrafted: (res: CraftResult) => void;
   /** Closes the panel; `say` is shown over the map, `fly` flies into the bag. */
   onDone: (say?: string, fly?: string[]) => void;
@@ -35,7 +38,7 @@ const STATION_ICON: Record<StationId, string> = {
   kitchen: '/hideout/kitchen.png', workbench: '/hideout/workbench.png', compost: '/hideout/compost_bin.png',
 };
 
-export default function CraftPanel({ station, userId, built, bag, trash, gold, offline, questions, gradingUserId, onAnswered, onCrafted, onDone }: Props) {
+export default function CraftPanel({ station, userId, built, bag, trash, gold, offline, questions, gradingUserId, potBusy = false, onAnswered, onCrafted, onDone }: Props) {
   const [tab, setTab] = useState<'make' | 'book'>('make');
   const [picked, setPicked] = useState<string | null>(null);
   const [made, setMade] = useState<Record<string, number>>({});
@@ -93,7 +96,7 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
       if (res.status === 'failed') return { correct: false, correctAnswer: null, failed: true };
       entryId.current = crypto.randomUUID();
       lastRes.current = res;
-      if (res.status === 'crafted') onCrafted(res);
+      if (res.status === 'crafted' || res.status === 'cooking') onCrafted(res);
       return { correct: !!res.correct, correctAnswer: res.correctAnswer };
     };
     body = (
@@ -114,7 +117,10 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
               const what = n > 1 ? `${n} ${recipe.name}` : `a ${recipe.name}`;
               onDone(`${res.first ? 'New recipe! ' : ''}You made ${what}!${recipe.outputTo === 'inventory' ? ' Find it in your items for battle.' : ''}`,
                 Array(Math.min(n, 5)).fill(recipe.icon));
-            } else if (res.status === 'wrong') onDone('Not quite! Your things are safe. Try again.');
+            } else if (res.status === 'cooking') {
+              onDone(`${res.first ? 'New recipe! ' : ''}Your ${recipe.name} is cooking! Come back in ${recipe.cookSeconds ?? 30} seconds to take it.`);
+            } else if (res.status === 'busy') onDone('Something is already cooking. Take it out first!');
+            else if (res.status === 'wrong') onDone('Not quite! Your things are safe. Try again.');
             else if (res.status === 'items') onDone("You don't have enough for that yet.");
             else if (res.status === 'gold') onDone(`You need ${recipe.gold} gold.`);
             else onDone("That can't be done right now.");
@@ -154,10 +160,11 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
       <>
         {header(STATION_ICON[station], st.name, st.use)}
         {offline && <p className="text-xs text-red-700 font-bold mb-2">Your Hideout needs internet right now. Try again when you are back online.</p>}
+        {potBusy && <p className="text-xs text-amber-800 font-bold mb-2" data-testid="craft-pot-busy">Something is cooking in the pot. Take it out first!</p>}
         <div className="space-y-2" data-testid="craft-list">
           {list.map(r => {
             const c = checkRecipe(r, bag, trash, gold);
-            const ok = !r.soon && c.enoughItems && c.enoughGold && !offline;
+            const ok = !r.soon && c.enoughItems && c.enoughGold && !offline && !(potBusy && r.cookSeconds);
             return (
               <div key={r.id} className={`rounded-xl border-2 px-2.5 py-2 ${r.soon ? 'bg-[#e8d0a0]/40 border-[#d8c098] opacity-60' : 'bg-white border-[#c9a87a]'}`} data-testid={`recipe-${r.id}`}>
                 <div className="flex items-center gap-2">
@@ -167,6 +174,7 @@ export default function CraftPanel({ station, userId, built, bag, trash, gold, o
                       {r.name}{!r.soon && !made[r.id] && <span className="ml-1 text-[10px] text-amber-700">New!</span>}
                     </p>
                     <p className="text-[11px] text-[#6b4820] leading-tight">{r.soon ?? r.does}</p>
+                    {!r.soon && r.cookSeconds ? <p className="text-[11px] font-bold text-[#9a3412] leading-tight">Cooks in {r.cookSeconds} seconds</p> : null}
                   </div>
                   {!r.soon && (
                     <GameButton

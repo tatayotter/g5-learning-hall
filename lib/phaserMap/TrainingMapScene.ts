@@ -72,6 +72,7 @@ import { PEEK_BUSHES, type PeekTree } from './shadowPeekers';
 import WildTrees, { type TreeSprite } from './wildTrees';
 import HideoutProps, { type PropSprite } from './hideoutProps';
 import GrowBars, { type GrowBar } from './growBars';
+import CookFire, { type CookFx } from './cookFire';
 import ChopSwing from './chopSwing';
 import type { SwingKind } from '@/lib/gardenConfig';
 import type { ToolId } from '@/lib/gearConfig';
@@ -181,6 +182,8 @@ export interface MapCanvasSyncState {
   props?: PropSprite[];
   /** Progress bars over what a kid is growing (the Hideout). */
   growBars?: GrowBar[];
+  /** Kitchens that are cooking: fire under the pot and steam (lib/phaserMap/cookFire.ts). */
+  cookFx?: CookFx[];
   /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
@@ -362,6 +365,8 @@ export default class TrainingMapScene extends Phaser.Scene {
   private propSprites: PropSprite[] = [];
   private growBarList: GrowBar[] = [];
   private growBars: GrowBars | null = null;
+  private cookFire: CookFire | null = null;
+  private cookFxList: CookFx[] = [];
   private wildTrees: WildTrees | null = null;
   private chopSwing: ChopSwing | null = null;
   private chopTree: string | null = null;
@@ -454,6 +459,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden?.update(time);
     this.props?.update(time);
     this.growBars?.update(time);
+    this.cookFire?.update(time);
     this.wildTrees?.update(time, this.windStrength, this.self);
     this.sortAgainstRoofs();
     this.npcLayer?.syncOutlines(time);
@@ -1128,6 +1134,8 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.props?.setProps(this.propSprites);
     this.growBarList = state.growBars ?? [];
     this.growBars?.setBars(this.growBarList);
+    this.cookFxList = state.cookFx ?? [];
+    this.cookFire?.setFx(this.cookFxList);
     this.wildTreeSprites = state.wildTrees ?? [];
     this.wildTrees?.setTrees(this.wildTreeSprites);
     this.onMapTap = state.onMapTap;
@@ -1273,6 +1281,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.garden = null;
     this.props = null;
     this.growBars = null;
+    this.cookFire = null;
     this.wildTrees = null;
     this.chopSwing = null;
     this.topLayer = null;
@@ -1373,6 +1382,10 @@ export default class TrainingMapScene extends Phaser.Scene {
         this.growBars = new GrowBars(this, anyLayer, topLayer ? topLayer.depth - 0.05 : 10.9);
         this.tilemapLayers.push(this.growBars.container);
         this.growBars.setBars(this.growBarList);
+        // The Kitchen's fire and steam, just over the plots.
+        this.cookFire = new CookFire(this, anyLayer, 8.47);
+        this.tilemapLayers.push(this.cookFire.container);
+        this.cookFire.setFx(this.cookFxList);
         // Trunks with the plants; canopies over the players, next to the map's own canopies.
         this.wildTrees = new WildTrees(this, anyLayer, 8.5, topLayer ? topLayer.depth + 0.6 : 11.5, (key, url, onReady) => this.ensureTexture(key, url, onReady));
         this.tilemapLayers.push(this.wildTrees.below, this.wildTrees.above, this.wildTrees.tools, this.wildTrees.peek, this.wildTrees.glow);

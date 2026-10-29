@@ -29,7 +29,8 @@ import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/pa
 import MissionsPanel from '@/components/monster/MissionsPanel';
 import CraftPanel from '@/components/monster/map/panels/CraftPanel';
 import CampFeed from '@/components/monster/map/panels/CampFeed';
-import type { StationId } from '@/lib/craftingConfig';
+import { recipeById, type StationId } from '@/lib/craftingConfig';
+import { collectCooking } from '@/lib/crafting';
 import GameButton from '@/components/GameButton';
 import { useHideoutMap, type HideoutSpot } from '@/hooks/useHideoutMap';
 import { HIDEOUT_REGION, SIGNPOST, SIGNPOST_ARRIVE, TILE_CURSOR_ART, hideoutMapPath, pluralVeggie } from '@/lib/hideoutConfig';
@@ -744,7 +745,30 @@ export default function TrainingMap({
       case 'soon': case 'collected': return open('info');
       case 'empty': return open('plant');
       case 'camp': playPageFlip(); setCampOpen(true); return;
-      case 'station': playPageFlip(); setCraftStation(spot.plot!.kind as StationId); return;
+      case 'station': {
+        const pot = spot.pot;
+        if (pot && Date.now() < pot.readyAt) {
+          const left = Math.max(1, Math.ceil((pot.readyAt - Date.now()) / 1000));
+          showBarMessage(`Still cooking! Ready in ${left} second${left === 1 ? '' : 's'}.`);
+          return;
+        }
+        if (pot) {
+          if (offline) { showBarMessage('Your Hideout needs internet right now.'); return; }
+          const res = await collectCooking(userId, spot.plot!.id);
+          const food = recipeById(pot.recipe);
+          if (res.status === 'collected' || res.status === 'empty') hideout.setPots(ps => ps.filter(p => p.station !== spot.plot!.id));
+          if (res.bag) garden.setBag(res.bag);
+          if (res.status === 'collected' && food) {
+            playCoins();
+            const what = res.outputQty > 1 ? `${res.outputQty} ${food.name}` : `a ${food.name}`;
+            flyToBag(Array(Math.min(res.outputQty, 5)).fill(food.icon));
+            showBarMessage(`You took out ${what}!${food.outputTo === 'inventory' ? ' Find it in your items for battle.' : ''}`);
+          } else if (res.status === 'not_ready') showBarMessage('Still cooking! Come back soon.');
+          else if (res.status === 'failed') showBarMessage("That didn't work. Try again!");
+          return;
+        }
+        playPageFlip(); setCraftStation(spot.plot!.kind as StationId); return;
+      }
       case 'growing': {
         if (spot.watered) return open('info');
         const problem = toolProblem('can', 'water plants');
@@ -788,7 +812,7 @@ export default function TrainingMap({
         return;
       }
     }
-  }, [hideout, goToHideout, toolProblem, showBarMessage, offline]);
+  }, [hideout, garden, userId, goToHideout, toolProblem, showBarMessage, offline]);
 
   // Reading a scroll: the kid chooses to, like using a tree (it no longer opens by walking onto it).
   const openScroll = useCallback((scroll: { id: number; x: number; y: number }) => {
@@ -1532,6 +1556,7 @@ export default function TrainingMap({
         // Same for a tree: it stands until the panel closes, then falls where the player can see.
         wildTrees={[...garden.treeSprites.map(t => (t.id === activeTree?.id ? { ...t, stage: 'ready' as const } : t)), ...hideout.trees]}
         growBars={hideout.bars}
+        cookFx={hideout.cooks}
         props={nearSpot?.bed && !controlsDisabled ? [...hideout.props, { id: 'tile-cursor', src: TILE_CURSOR_ART.src, x: nearSpot.x, y: nearSpot.y }] : hideout.props}
         treeSwing={treeSwing}
         chopTree={activeTree?.id ?? null}
@@ -1713,7 +1738,13 @@ export default function TrainingMap({
       questions={questions}
       gradingUserId={gradingUserId}
       onAnswered={answered => onQuestionsAnswered?.(answered)}
+      potBusy={hideout.pots.some(p => p.station === craftStation)}
       onCrafted={res => {
+        if (res.status === 'cooking' && res.readyAt) {
+          const food = res.recipe ? recipeById(res.recipe) : null;
+          const readyAt = res.readyAt;
+          if (food) hideout.setPots(ps => [...ps.filter(p => p.station !== craftStation), { station: craftStation, recipe: food.id, startedAt: readyAt - (food.cookSeconds ?? 0) * 1000, readyAt }]);
+        }
         if (res.bag) garden.setBag(res.bag);
         if (res.trash) itemBar.replaceTrash(res.trash);
         if (res.progress) onGoldSynced?.(res.progress);

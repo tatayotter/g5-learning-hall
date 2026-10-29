@@ -1,6 +1,6 @@
 // lib/phaserMap/growBars.ts
 // A small bar over everything a kid is growing at their Hideout (lib/hideoutConfig.ts): how far a
-// crop or a tree has come from planting to ripe. It fills as time passes and goes once it's ripe.
+// crop or a tree has come from planting to ripe (and the Kitchen's food, from the pot to done). It fills as time passes and goes once it's ripe.
 //
 // The bars sit in one Container that follows the camera like a tilemap layer (the scene keeps it
 // in its tilemapLayers list), over the plants and the players.
@@ -16,6 +16,8 @@ export interface GrowBar {
   top: number;
   // Watered: the fill is blue-green instead of green.
   watered?: boolean;
+  // A fill colour of its own (the Kitchen's cooking bar is orange).
+  color?: number;
 }
 
 const W = 18, H = 4;
@@ -56,7 +58,7 @@ export default class GrowBars {
       g.fillStyle(0x1b120c, 0.85).fillRect(left - 1, top - 1, W + 2, H + 2);
       g.fillStyle(0x3d3226, 1).fillRect(left, top, W, H);
       const fill = Math.max(1, Math.round(W * done));
-      g.fillStyle(b.watered ? 0x4cc9b0 : 0x7bc043, 1).fillRect(left, top, fill, H);
+      g.fillStyle(b.color ?? (b.watered ? 0x4cc9b0 : 0x7bc043), 1).fillRect(left, top, fill, H);
       g.fillStyle(0xffffff, 0.35).fillRect(left, top, fill, 1);
     }
   }
