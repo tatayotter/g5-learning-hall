@@ -179,6 +179,8 @@ export default class IslandCurios {
         ctx.imageSmoothingQuality = 'high';
         ctx.drawImage(src, box.x, box.y, box.w, box.h, 0, 0, tex.width, tex.height);
         tex.refresh();
+        // Painted art: smooth, not the map's hard pixels.
+        tex.setFilter(Phaser.Textures.FilterMode.LINEAR);
       }
       const t = this.scene.textures.get(small).getSourceImage() as HTMLCanvasElement;
       w.aspect = t.width / t.height;
