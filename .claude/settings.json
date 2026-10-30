@@ -1,12 +1,23 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ \"$CLAUDE_CODE_REMOTE\" = \"true\" ] && bash \"$CLAUDE_PROJECT_DIR/scripts/graphify-setup.sh\" || true",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash|Grep",
         "hooks": [
           {
             "type": "command",
-            "command": "C:/Users/rowil/.local/bin/graphify.EXE hook-guard search"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/graphify-hook.sh\" search"
           }
         ]
       },
@@ -15,7 +26,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "C:/Users/rowil/.local/bin/graphify.EXE hook-guard read"
+            "command": "bash \"$CLAUDE_PROJECT_DIR/scripts/graphify-hook.sh\" read"
           }
         ]
       }
