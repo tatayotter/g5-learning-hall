@@ -1,0 +1,73 @@
+name: Code map (graphify)
+
+# Rebuilds the graphify knowledge graph of the codebase every time main changes (which is
+# every time something goes live) and publishes it to the `graphify` branch, so people and
+# AI sessions can navigate the app without grepping thousands of files.
+#
+# - No API key needed: `graphify update` is AST-only (tree-sitter), it never calls an LLM.
+# - The graph only indexes code that is already public in this repo; nothing else goes in.
+# - The `graphify` branch is a single force-pushed commit (no history), so the ~8 MB graph
+#   never piles up in git history. Its own vercel.json turns Vercel deploys off for it.
+# - Read it on GitHub: GRAPH_REPORT.md and wiki/index.md on the `graphify` branch.
+#   Locally / in Claude sessions: `bash scripts/graphify-setup.sh` fetches it into graphify-out/.
+
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: graphify
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install graphify
+        # Keep this version in step with scripts/graphify-setup.sh.
+        run: pip install "graphifyy[sql]==0.9.97"
+
+      - name: Build the graph
+        run: |
+          graphify update .
+          graphify export wiki
+
+      - name: Publish to the graphify branch
+        env:
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          out="$RUNNER_TEMP/graphify-publish"
+          mkdir -p "$out"
+          cp graphify-out/graph.json graphify-out/graph.html graphify-out/GRAPH_REPORT.md "$out/"
+          cp -r graphify-out/wiki "$out/wiki"
+          echo '{ "git": { "deploymentEnabled": false } }' > "$out/vercel.json"
+          cat > "$out/README.md" <<EOF
+          # Code map (auto-generated)
+
+          Built by \`.github/workflows/graphify.yml\` from main @ \`${SHA::8}\`.
+          Do not edit or merge this branch: it is replaced on every push to main.
+
+          - [GRAPH_REPORT.md](GRAPH_REPORT.md): overview, key files, communities
+          - [wiki/index.md](wiki/index.md): one page per area of the code
+          - graph.json: the full graph, used by \`graphify query/path/explain\`
+          - graph.html: interactive view (download and open in a browser)
+          EOF
+
+          cd "$out"
+          git init -q -b graphify
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Code map for main @ ${SHA::8}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" graphify:graphify
