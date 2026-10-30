@@ -10,6 +10,8 @@ import LoadingScreen from '@/components/LoadingScreen';
 import { useWeeklyData, CharacterStats } from '@/hooks/useWeeklyData';
 import { isOffline, loadOfflineProfile, saveOfflineProfile } from '@/lib/offlineSnapshot';
 import OfflineBanner from '@/components/OfflineBanner';
+import NewVersionPrompt from '@/components/NewVersionPrompt';
+import { useNewVersionReady } from '@/lib/appVersion';
 import { flushQuestOutbox, offlinePlayEnabled, pendingQuestEntries } from '@/lib/offlineQuests';
 import { flushGuildOutbox, pendingGuildEntries, playingGuildsOffline, queueGuildSession } from '@/lib/offlineGuilds';
 import { flushMapOutbox, pendingMapEntries, playingMapOffline } from '@/lib/offlineMap';
@@ -580,6 +582,7 @@ export default function Dashboard() {
   // The five-tab navigation (components/nav/GameNav.tsx), per kid behind the
   // new_nav flag; everyone else keeps the compass drawer.
   const newNav = useFeatureFlag(activeUserId, 'new_nav');
+  const newVersionReady = useNewVersionReady();
   // The map is the game's home (docs/map-home.md): the game opens on the map, Baylan in town gives
   // out the Main Quests, and the nav shows every button in town but only a few out on other maps.
   const [mapPlace, setMapPlace] = useState<'town' | 'wild' | null>(null);
@@ -1373,6 +1376,9 @@ export default function Dashboard() {
       )}
       {offlineSetupFor === activeUserId && online && activeTab === 'board' && !activeQuest && !introStart && !showKeeperEgg && pendingEggHatches.length === 0 && (
         <OfflineLoginSetup userId={activeUserId} onClose={() => setOfflineSetupFor(null)} />
+      )}
+      {newVersionReady && online && !showingOfflineCopy && activeQuest === null && activeEventQuest === null && activeBossFight === null && activeGauntletDay === null && !introStart && (
+        <NewVersionPrompt />
       )}
       <LinkParentBanner />
       <InstallNudge userId={activeUserId} />
