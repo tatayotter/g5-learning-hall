@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Which build this is, baked into the page and /api/version so an open tab can tell a newer
+  // version went live (lib/appVersion.ts). Vercel sets the commit; local builds stay 'dev'.
+  env: {
+    NEXT_PUBLIC_BUILD_ID: process.env.VERCEL_GIT_COMMIT_SHA || 'dev',
+  },
   devIndicators: {
     position: 'bottom-right',
   },
