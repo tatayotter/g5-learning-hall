@@ -291,9 +291,11 @@ const ANIMATED_AVATARS: Record<string, AnimatedAvatarDef> = {
   '/userpics/userpics_premium/ssb3.png': {
     // New name when the art turned to face right, so a device's cached copy of the old
     // left-facing sheet (public/sw.js keeps art) is never drawn with the new flip.
-    spriteSheet: '/sprite/ssb3_walk_right.png',
-    frameWidth: 64,
-    frameHeight: 64,
+    // 88px frames (2026-10-31): idle rebuilt from the avatar's own pixel art, walk frames
+    // re-cut with hard edges and the avatar's head, so the boy is crisp on phones.
+    spriteSheet: '/sprite/ssb3_walk_crisp_right.png',
+    frameWidth: 88,
+    frameHeight: 88,
     animKey: 'ssb3-walk',
     walkFirstFrame: 6,
     walkLastFrame: 30,
