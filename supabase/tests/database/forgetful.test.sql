@@ -21,7 +21,7 @@ insert into content_weeks (grade, week_starting_date) values (4, '2030-07-07');
 insert into content_days (content_week_id, weekday)
 select id, 'Monday' from content_weeks where grade = 4 and week_starting_date = '2030-07-07';
 insert into content_quizzes (content_day_id, subject)
-select d.id, 'Math' from content_days d
+select d.id, 'Mathematics' from content_days d
 join content_weeks w on w.id = d.content_week_id
 where w.grade = 4 and w.week_starting_date = '2030-07-07';
 insert into content_questions (content_quiz_id, prompt, options, correct_answer, sort_order)
