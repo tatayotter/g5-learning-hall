@@ -28,6 +28,8 @@ import ChopTreePanel from '@/components/monster/map/panels/ChopTreePanel';
 import HideoutPanel, { type HideoutPanelMode } from '@/components/monster/map/panels/HideoutPanel';
 import MissionsPanel from '@/components/monster/MissionsPanel';
 import CraftPanel from '@/components/monster/map/panels/CraftPanel';
+import ForgetfulPanel from '@/components/monster/map/panels/ForgetfulPanel';
+import { FORGETFUL_ID, forgetfulAllowedOn, forgetfulHello, rollForgetful } from '@/lib/forgetful';
 import GamePopup from '@/components/game/GamePopup';
 import { MonsterImage } from '@/components/battle/shared';
 import CampFeed from '@/components/monster/map/panels/CampFeed';
@@ -50,7 +52,7 @@ import { logWildEncounterEvent } from '@/lib/wildEncounterLog';
 import { useTrashItems } from '@/hooks/useTrashItems';
 import { useItemBar } from '@/hooks/useItemBar';
 import { useGarden, type PlantView, type TreeView } from '@/hooks/useGarden';
-import { useFeatureFlag } from '@/lib/featureFlags';
+import { hasFeatureFlag, useFeatureFlag } from '@/lib/featureFlags';
 import {
   SWING_REVEAL_MS, TREES, VEGGIES, WILD_PLANTS, WOOD_ICON, withA, gardenItemIcon, gardenItemLabel, parseGardenKey, pickVerb, regrowWords, saplingKey, seedsKey, veggieKey, woodKey, woodLabel,
   swingTiming, strikeImpactMs, type SwingKind, type VeggieId, type WildTreeNode,
@@ -65,7 +67,7 @@ import { skyFor, isRaining, nightStrength, sunsetStrength } from '@/lib/ambience
 import { bubbleMs, cameFrom, canTalk, firstGreetToday, noteWildMap, pickExchange, pickLine, type NpcSay } from '@/lib/npcTalk';
 import { USERS } from '@/lib/userSession';
 import { WILDLIFE, GROUND_FX } from '@/lib/wildlife';
-import { TOWN_NPCS, BAYLAN_ID, type TownPage } from '@/lib/townNpcs';
+import { TOWN_NPCS, BAYLAN_ID, type TownNpc, type TownPage } from '@/lib/townNpcs';
 import type { NpcMark } from '@/lib/phaserMap/guildNpcs';
 import { NIGHT_WINDOWS } from '@/lib/nightWindows';
 import { fetchChecklistBattleFlags, GUILDS, type GuildKey } from '@/lib/dailyChecklist';
@@ -339,6 +341,10 @@ export default function TrainingMap({
   useEffect(() => () => { if (barMessageTimer.current) clearTimeout(barMessageTimer.current); }, []);
   const [scrolls, setScrolls] = useState<{ id: number; x: number; y: number }[]>([]);
   const [activeScroll, setActiveScroll] = useState<{ id: number; x: number; y: number } | null>(null);
+  // A Forgetful on this map visit (lib/forgetful.ts), talking to the kid, and once done, running off.
+  const [forgetful, setForgetful] = useState<TownNpc | null>(null);
+  const [forgetfulOpen, setForgetfulOpen] = useState(false);
+  const [npcFled, setNpcFled] = useState<string[]>([]);
   // How each answered scroll ended: its wisps fly to the sky (right) or it crumbles (wrong).
   const [scrollFates, setScrollFates] = useState<Record<number, 'right' | 'wrong'>>({});
   // The ripe veggie plant whose question is up.
@@ -940,7 +946,7 @@ export default function TrainingMap({
   }, []);
 
   // E uses what's in reach: the outlined one, or else says why the nearest can't be used.
-  const panelOpen = !!(activeScroll || activePlant || activeTree || hideoutPanel || campOpen || craftStation || feedingCurio || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
+  const panelOpen = !!(forgetfulOpen || activeScroll || activePlant || activeTree || hideoutPanel || campOpen || craftStation || feedingCurio || movementLocked || pendingTrainerChallenge || pendingCurioChallenge || pendingRecyclerTrade);
   useEffect(() => {
     const target = nearby ?? inReach[0];
     if (panelOpen || !target) return;
@@ -958,7 +964,7 @@ export default function TrainingMap({
     map,
     mapWidth: activeRegion.mapWidth,
     mapHeight: activeRegion.mapHeight,
-    enabled: !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !craftStation && !feedingCurio && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
+    enabled: !forgetfulOpen && !activeScroll && !activePlant && !activeTree && !hideoutPanel && !campOpen && !craftStation && !feedingCurio && !movementLocked && !pendingTrainerChallenge && !pendingCurioChallenge && !pendingRecyclerTrade,
     initialTile: { x: posX, y: posY },
     onTileCrossed: handleTileEnter,
     onBlocked: handleBlocked,
@@ -1000,13 +1006,23 @@ export default function TrainingMap({
         setMapRecycler(parsed.recycler);
         setPlaces(parsed.places);
         setFoliage(parsed.foliage);
-        setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || TOWN_NPCS[activeRegion.id] ? {
-          key: `${artPath}:${natureDay()}`,
+        // Now and then a Forgetful turns up on a wild map (online, with the switch on), a few steps
+        // from where the kid starts.
+        const startAt = isLedgersHeart ? { x: battleState.map_x, y: battleState.map_y } : localPosRef.current;
+        const startOpen = parsed.layout[startAt.y]?.[startAt.x] && parsed.layout[startAt.y][startAt.x].type !== 'wall';
+        const forgetfulNpc = forgetfulAllowedOn(activeRegion.id) && hasFeatureFlag(userId, 'forgetful')
+          && !playingMapOffline(userId) && (typeof navigator === 'undefined' || navigator.onLine)
+          ? rollForgetful(userId, parsed.layout, startOpen ? startAt : parsed.spawn) : null;
+        setForgetful(forgetfulNpc);
+        const mapNpcs = [...(TOWN_NPCS[activeRegion.id] ?? []), ...(forgetfulNpc ? [forgetfulNpc] : [])];
+        setWildlife(WILDLIFE[activeRegion.id] || GROUND_FX[activeRegion.id] || mapNpcs.length ? {
+          // A Forgetful is part of this visit only: a new one means a fresh NPC layer.
+          key: `${artPath}:${natureDay()}${forgetfulNpc ? `:forgetful@${forgetfulNpc.home.x},${forgetfulNpc.home.y}` : ''}`,
           groups: WILDLIFE[activeRegion.id] ?? [],
           habitat: { width: parsed.mapWidth, height: parsed.mapHeight, open: parsed.layout.map(r => r.map(t => t.type !== 'wall')), liquid: parsed.liquid, sand: parsed.sand.some(r => r.some(Boolean)) ? parsed.sand : undefined, flowers: parsed.flowers },
           fx: GROUND_FX[activeRegion.id],
           sand: parsed.sand,
-          npcs: TOWN_NPCS[activeRegion.id],
+          npcs: mapNpcs,
           puddle: parsed.puddle,
         } : null);
         // Ledger's Heart persists position to the DB, so a player whose saved
@@ -1361,7 +1377,9 @@ export default function TrainingMap({
   // the Curio Expert open their page the same way (no "?").
   const townNpcs = TOWN_NPCS[activeRegion.id];
   const [nearNpcId, setNearNpcId] = useState<string | null>(null);
-  const nearNpc = townNpcs?.find(n => n.id === nearNpcId && ((n.guild && onPlayGuild) || (n.opens && onOpenPage) || (!n.guild && !n.opens && canTalk(n.id)))) || null;
+  const forgetfulHere = !!forgetful && !npcFled.includes(FORGETFUL_ID);
+  const nearNpc = (forgetfulHere && nearNpcId === FORGETFUL_ID ? forgetful : null)
+    ?? townNpcs?.find(n => n.id === nearNpcId && ((n.guild && onPlayGuild) || (n.opens && onOpenPage) || (!n.guild && !n.opens && canTalk(n.id)))) ?? null;
   const [guildsPlayed, setGuildsPlayed] = useState<GuildKey[] | null>(null);
   useEffect(() => {
     if (!townNpcs || offline) return;
@@ -1447,10 +1465,14 @@ export default function TrainingMap({
   }, [talkFacts, kidName, say]);
   // Walking up: a hello now and then (not every time, or it gets noisy).
   const onNpcApproach = useCallback((id: string) => {
+    if (id === FORGETFUL_ID) {
+      if (!panelOpen && !lastSaidAt.current.has(id) && !npcFled.includes(id)) say(id, forgetfulHello());
+      return;
+    }
     if (!canTalk(id) || panelOpen) return;
     if (Date.now() - (lastSaidAt.current.get(id) ?? 0) < 90_000) return;
     talk(id);
-  }, [talk, panelOpen]);
+  }, [talk, panelOpen, npcFled, say]);
   // The Recycler, out on the wild maps, says hi the same way.
   const nearRecycler = !!recyclerTile && Math.hypot(recyclerTile.x - posX, recyclerTile.y - posY) <= 3;
   useEffect(() => { if (nearRecycler) onNpcApproach('recycler'); }, [nearRecycler, onNpcApproach]);
@@ -1471,11 +1493,18 @@ export default function TrainingMap({
     }
   }, [posX, posY, talkFacts, kidName, say]);
   const talkToNpc = useCallback(() => {
+    if (nearNpc?.id === FORGETFUL_ID) { setForgetfulOpen(true); return; }
     if (nearNpc?.guild && onPlayGuild) { playPageFlip(); onPlayGuild(nearNpc.guild); }
     else if (nearNpc?.opens && onOpenPage) { playPageFlip(); onOpenPage(nearNpc.opens); }
     else if (nearNpc) talk(nearNpc.id);
   }, [nearNpc, onPlayGuild, onOpenPage, talk]);
   const onNpcClick = useCallback((id: string, at?: { x: number; y: number }) => {
+    if (id === FORGETFUL_ID) {
+      if (!forgetfulHere) return;
+      if (nearNpc?.id === id) { setForgetfulOpen(true); return; }
+      if (at) contMove.walkTo(tilesAround(Math.floor(at.x), Math.floor(at.y), canWalk), () => setForgetfulOpen(true));
+      return;
+    }
     const npc = townNpcs?.find(n => n.id === id);
     if (npc && !npc.guild && !npc.opens) { if (canTalk(id)) talk(id); return; }
     const guild = onPlayGuild ? npc?.guild : undefined;
@@ -1488,7 +1517,7 @@ export default function TrainingMap({
       if (guild) onPlayGuild!(guild);
       else if (opens) onOpenPage!(opens);
     });
-  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, talk, contMove, canWalk]);
+  }, [nearNpc, onPlayGuild, onOpenPage, talkToNpc, townNpcs, talk, contMove, canWalk, forgetfulHere]);
   useEffect(() => {
     if (!nearNpc || nearby || inReach.length || nearSpot || panelOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -1661,6 +1690,7 @@ export default function TrainingMap({
         onCurioNear={setNearCurioId}
         props={nearSpot?.bed && !controlsDisabled ? [...hideout.props, { id: 'tile-cursor', src: TILE_CURSOR_ART.src, x: nearSpot.x, y: nearSpot.y }] : hideout.props}
         treeSwing={treeSwing}
+        npcFled={npcFled}
         chopTree={activeTree?.id ?? null}
         tools={gear}
         toolStrike={toolStrike}
@@ -1810,7 +1840,21 @@ export default function TrainingMap({
     (sum, t) => sum + Math.floor(trashInventory[t] / TRASH_DEFS[t].bundleSize), 0,
   );
 
-  const overlay = hideoutPanel ? (
+  const overlay = forgetfulOpen && forgetful ? (
+    <ForgetfulPanel
+      npc={forgetful}
+      userId={userId}
+      region={activeRegion.id}
+      questions={questions}
+      onPaid={progress => { playCoins(); onGoldSynced?.(progress); }}
+      onAnswered={answered => onQuestionsAnswered?.(answered)}
+      onDone={say => {
+        setForgetfulOpen(false);
+        setNpcFled(f => (f.includes(FORGETFUL_ID) ? f : [...f, FORGETFUL_ID]));
+        if (say) showBarMessage(say);
+      }}
+    />
+  ) : hideoutPanel ? (
     <HideoutPanel
       key={`${hideoutPanel.spot.id}:${hideoutPanel.mode}`}
       mode={hideoutPanel.mode}
