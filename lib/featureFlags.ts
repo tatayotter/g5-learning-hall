@@ -10,7 +10,8 @@ import { supabase } from '@/lib/supabase';
 // offline_play: quests and battles with no internet (lib/offlineQuests.ts).
 // new_nav: the five-tab navigation (components/nav/GameNav.tsx, docs/nav-redesign.md).
 // garden: wild veggies on the Training Map (lib/gardenConfig.ts).
-export type FeatureFlag = 'offline_play' | 'new_nav' | 'garden';
+// forgetful: the Forgetful turning up on wild maps (lib/forgetful.ts).
+export type FeatureFlag = 'offline_play' | 'new_nav' | 'garden' | 'forgetful';
 
 // Fired after a refresh stores new flags, so screens already drawn can switch.
 const CHANGED_EVENT = 'lh-flags-changed';

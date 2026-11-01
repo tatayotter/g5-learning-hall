@@ -147,6 +147,8 @@ interface MapCanvasProps {
   /** The kid's curio at their Hideout within reach (walk up, then E or tap), or null. */
   onCurioNear?: (id: string | null) => void;
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
+  /** NPCs running off the map (a Forgetful after a talk). */
+  npcFled?: string[];
   chopTree?: string | null;
   /** The tier of each tool the kid owns (the one they swing), and the latest pickaxe/shovel swing at a find. */
   tools?: Partial<Record<ToolId, number>>;
@@ -187,7 +189,7 @@ const NPC_APPROACH = 3;
 export default function MapCanvas({
   mapWidth, mapHeight, background, bumping, stepping, posX, posY, movement, userId, waves,
   dustPuffs, onlinePlayers, inBattle, resultWon, townMarkerTile, portalMarkers, scrollMarkers, scrollFates,
-  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, growBars, cookFx, islandCurios, onCurioNear, treeSwing, chopTree, tools, toolStrike, canPour, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
+  curioMarker, trainerMarker, trashItems, collectingTrashIds, recyclerTile, gardenPlants, wildTrees, props, growBars, cookFx, islandCurios, onCurioNear, treeSwing, npcFled, chopTree, tools, toolStrike, canPour, highlight, onMapTap, ambience, wildlife, soundRegion, onPlayerClick, onExitLabelClick,
   npcMarks, onNpcNear, onNpcClick, npcSay, onNpcApproach, onSquadHalt, paused,
 }: MapCanvasProps) {
   // When MapStage renders in fullscreen cover mode (CSS scale > 1) only a
@@ -467,6 +469,7 @@ export default function MapCanvas({
       cookFx,
       islandCurios,
       treeSwing,
+      npcFled,
       chopTree,
       tools,
       toolStrike,

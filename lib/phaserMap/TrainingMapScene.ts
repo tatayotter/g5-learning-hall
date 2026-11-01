@@ -187,6 +187,8 @@ export interface MapCanvasSyncState {
   cookFx?: CookFx[];
   /** The kid's curios roaming their Hideout (lib/phaserMap/islandCurios.ts). */
   islandCurios?: IslandCurioState | null;
+  /** NPCs told to run off the map (a Forgetful after the kid talked to them; guildNpcs.ts flee). */
+  npcFled?: string[];
   /** The latest swing at a tree (hit, miss, or the one that fells it); n goes up by one per swing. */
   treeSwing?: { id: string; n: number; kind: SwingKind } | null;
   /** The tree the kid is chopping (chop panel open): they stand ready with the axe. */
@@ -701,7 +703,7 @@ export default class TrainingMapScene extends Phaser.Scene {
   // Where their feet are: the shadow under each.
   /** Where each guild NPC stands (tile, feet), for its DOM name tag; empty until it loads. */
   getNpcSpots(): { id: string; x: number; y: number }[] {
-    return (this.npcLayer?.npcs ?? []).filter(n => n.ready).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
+    return (this.npcLayer?.npcs ?? []).filter(n => n.ready && !this.npcLayer?.isGone(n.def.id)).map(n => ({ id: n.def.id, x: n.x, y: n.y }));
   }
 
   /** Where each of the kid's curios stands at their Hideout (tile, feet). */
@@ -1181,6 +1183,7 @@ export default class TrainingMapScene extends Phaser.Scene {
       this.groundFx = w ? GroundFx.build(this, w.fx, { width: w.habitat.width, height: w.habitat.height, liquid: w.habitat.liquid, sand: w.sand, puddle: w.puddle }) : null;
     }
     this.npcLayer?.setMarks(state.npcMarks ?? {});
+    for (const id of state.npcFled ?? []) this.npcLayer?.flee(id);
     this.highlight = state.highlight ?? null;
     this.applyHighlight();
     this.chopSwing?.setTools(state.tools ?? {});
