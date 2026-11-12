@@ -8,6 +8,8 @@
 // stand still at their door and the "?" doesn't bob.
 // A squad (TownNpc.patrol) marches its route instead: the leader in front, the rest two abreast
 // behind, all in step; at each stop they all stand to attention (front pose), then march on.
+// A Forgetful (lib/forgetful.ts) can be told to flee: they run (twice as fast) along open tiles
+// to the nearest map edge and on past it, then they're gone; with no way out they fade away.
 import Phaser from 'phaser';
 import { NPC_WALK_FRAMES, PATROL_ROUTES, type PatrolRoute, type TownNpc } from '@/lib/townNpcs';
 import type { Transform } from './ambience';
@@ -27,6 +29,9 @@ const MARCH = 1.0; // tiles per second
 const LEAD_GAP = 1.3; // tiles from the leader to the first rank
 const RANK_GAP = 1.0; // tiles between ranks
 const FILE_HALF = 0.35; // tiles from the route to each file
+const FLEE_SPEED = SPEED * 2; // running away
+const FLEE_PAST = 2; // tiles past the map edge before they vanish
+const FADE_MS = 700;
 
 export interface NpcSprite {
   image: Phaser.GameObjects.Sprite;
@@ -50,6 +55,11 @@ interface Npc extends NpcSprite {
   mark: Phaser.GameObjects.Container;
   /** When they last greeted the kid with a little hop (scene time), or -1. */
   nodAt: number;
+  /** Running away (flee), and gone for good once off the map. */
+  fleeing: boolean;
+  gone: boolean;
+  /** Fading out where they stand (no way to an edge): when it started, or -1. */
+  fadeAt: number;
 }
 
 interface Patrol {
@@ -144,7 +154,7 @@ export default class GuildNpcLayer {
       const npc: Npc = {
         def, image, shadow, x: home.x, y: home.y, baseScaleY: 1, srcKey: key,
         zone: def.patrol ? new Set() : layer.zoneAround(home.x, home.y, def.range), path: [],
-        restUntil: 0, walking: false, ready: false, outline, mark, nodAt: -1,
+        restUntil: 0, walking: false, ready: false, outline, mark, nodAt: -1, fleeing: false, gone: false, fadeAt: -1,
         idle: def.walkFrames ?? NPC_WALK_FRAMES,
       };
       layer.npcs.push(npc);
@@ -173,6 +183,21 @@ export default class GuildNpcLayer {
     // Starts on the next update, on that clock.
     if (n && !this.still) n.nodAt = Infinity;
   }
+
+  /** Runs off to the nearest map edge (open tiles only) and on past it, then is gone. */
+  flee(id: string) {
+    const n = this.npcs.find(m => m.def.id === id);
+    if (!n || n.fleeing || n.gone) return;
+    n.fleeing = true;
+    const path = this.pathToEdge(n);
+    if (!path.length || this.still) { n.fadeAt = Infinity; return; }
+    n.path = path;
+    n.walking = true;
+    if (n.ready) { n.image.play(`${n.srcKey}:walk`, true); n.image.anims.timeScale = 1.8; }
+  }
+
+  /** Whether that NPC has run off (or was never here). */
+  isGone(id: string) { return this.npcs.find(m => m.def.id === id)?.gone ?? true; }
 
   /** Whether the squad (its leader) is standing at a stop, and where the leader is. */
   squad(): { halted: boolean; x: number; y: number } | null {
@@ -271,8 +296,10 @@ export default class GuildNpcLayer {
   update(t: Transform, time: number, dt: number, self: { x: number; y: number } | null) {
     for (const p of this.patrols) this.marchPatrol(p, time, dt);
     for (const n of this.npcs) {
-      if (!n.ready) continue;
-      if (!this.still && !n.def.patrol) this.step(n, time, dt, self);
+      if (!n.ready || n.gone) continue;
+      if (n.fleeing) this.runAway(n, time, dt);
+      else if (!this.still && !n.def.patrol) this.step(n, time, dt, self);
+      if (n.gone) { this.hide(n); continue; }
       const h = t.tileH;
       const px = t.offsetX + (n.x + 0.5) * t.tileW;
       // The greeting hop: two small bounces over 0.7 s.
@@ -285,6 +312,13 @@ export default class GuildNpcLayer {
       const breathe = n.walking || this.still ? 1 : 1 + 0.012 * Math.sin(time / 520 + n.def.home.x);
       n.baseScaleY = s;
       n.image.setPosition(px, feet).setScale(s, s * breathe).setVisible(true);
+      if (n.fadeAt >= 0) {
+        if (n.fadeAt === Infinity) n.fadeAt = time;
+        const left = Math.max(0, 1 - (time - n.fadeAt) / FADE_MS);
+        n.image.setAlpha(left);
+        n.shadow.setAlpha(left);
+        if (left <= 0) { n.gone = true; this.hide(n); continue; }
+      }
       if (n.shadow.width !== h * 0.5) n.shadow.setSize(h * 0.5, h * 0.12);
       n.shadow.setPosition(px, feet + hop - h * 0.05).setVisible(true);
       const kind = this.marks[n.def.id];
@@ -307,7 +341,7 @@ export default class GuildNpcLayer {
   // sprite just under it.
   syncOutlines(time: number) {
     for (const n of this.npcs) {
-      const on = n.ready && n.def.id === this.highlight && n.image.visible;
+      const on = n.ready && !n.gone && !n.fleeing && n.def.id === this.highlight && n.image.visible;
       const step = Math.max(1, n.image.displayHeight / 70);
       n.outline.forEach((o, i) => {
         o.setVisible(on);
@@ -355,6 +389,60 @@ export default class GuildNpcLayer {
       this.standIdle(n);
       n.restUntil = time + 2500 + Math.random() * 4500;
     }
+  }
+
+  // Running away: along the path to the edge, then off the map.
+  private runAway(n: Npc, _time: number, dt: number) {
+    if (n.fadeAt >= 0) return;
+    let left = (FLEE_SPEED * dt) / 1000;
+    while (left > 0 && n.path.length) {
+      const next = n.path[0];
+      const dx = next.x - n.x, dy = next.y - n.y;
+      const d = Math.hypot(dx, dy);
+      if (Math.abs(dx) > 0.05) n.image.setFlipX(dx < 0);
+      if (d <= left) { n.x = next.x; n.y = next.y; n.path.shift(); left -= d; }
+      else { n.x += (dx / d) * left; n.y += (dy / d) * left; left = 0; }
+    }
+    if (!n.path.length) n.gone = true;
+  }
+
+  private hide(n: Npc) {
+    n.image.stop();
+    n.image.setVisible(false);
+    n.shadow.setVisible(false);
+    n.mark.setVisible(false);
+    for (const o of n.outline) o.setVisible(false);
+  }
+
+  // The shortest walk over open tiles to the nearest tile on the map's edge, then a few steps
+  // straight on past it (off the map). Empty when no edge can be reached.
+  private pathToEdge(n: Npc): { x: number; y: number }[] {
+    const W = this.width, H = this.height;
+    const sx = Math.round(n.x), sy = Math.round(n.y);
+    if (!this.isOpen(sx, sy)) return [];
+    const start = sy * W + sx;
+    const prev = new Map<number, number>([[start, -1]]);
+    const queue = [start];
+    let end = -1;
+    for (let qi = 0; qi < queue.length; qi++) {
+      const c = queue[qi];
+      const cx = c % W, cy = Math.floor(c / W);
+      if (cx === 0 || cy === 0 || cx === W - 1 || cy === H - 1) { end = c; break; }
+      for (const [ax, ay] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const nx = cx + ax, ny = cy + ay;
+        const k = ny * W + nx;
+        if (!this.isOpen(nx, ny) || prev.has(k)) continue;
+        prev.set(k, c); queue.push(k);
+      }
+    }
+    if (end < 0) return [];
+    const out: { x: number; y: number }[] = [];
+    for (let k = end; k !== start && k !== -1; k = prev.get(k)!) out.unshift({ x: k % W, y: Math.floor(k / W) });
+    const ex = end % W, ey = Math.floor(end / W);
+    const ox = ex === 0 ? -1 : ex === W - 1 ? 1 : 0;
+    const oy = ox ? 0 : ey === 0 ? -1 : 1;
+    out.push({ x: ex + ox * FLEE_PAST, y: ey + oy * FLEE_PAST });
+    return out;
   }
 
   // A walk (tile by tile) to a random spot of the zone at least 2 steps away.
