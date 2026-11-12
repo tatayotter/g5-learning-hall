@@ -16,6 +16,10 @@
 // - On a windy map (the Stormrun, always raining) gusts roll across now and then: the rain slants
 //   harder, the leaves tumble and race, and faint wind streaks whip by.
 // - A gloomy place (the Unread Margins) stays dark as night all day, fireflies out.
+// - During the Term Boss event the Forgetting's mist (lib/bossMist.ts) rolls over every map:
+//   pale banks drawn like the cloud shadows (chunky pixel edges, four steps of thickness) that
+//   creep along with the wind and swell and thin as they go. Thick at the start, thinner with
+//   every shadow the kid beats, gone when they've beaten them all. Greyer at night.
 //
 // The containers work in map units (32 per tile) and follow the map's camera transform each
 // frame, so they fit tile-art and painted maps alike. With "reduce motion" on, the clouds
@@ -23,6 +27,7 @@
 import Phaser from 'phaser';
 import { sunsetStrength, nightStrength, isRaining, gustAt, type Ambience } from '@/lib/ambience';
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from './constants';
+import { bossMist } from '@/lib/bossMist';
 
 const UNIT = 32;
 const CELL = 4; // art pixels per cloud pixel
@@ -31,6 +36,11 @@ const DRIFT_DEPTH = 41;
 const SUNSET_DEPTH = 42;
 const NIGHT_DEPTH = 42.5;
 export const GLOW_DEPTH = 43; // lights that shine through the night (fireflies, lava, wisps)
+// Players at night are drawn again here, over the dark and the lights (TrainingMapScene).
+export const NIGHT_TWIN_DEPTH = 43.6;
+const MIST_DEPTH = 43.8; // the Term Boss mist: over everything, players too
+const MIST_COLOR = 0xe6e3f0;
+const MIST_NIGHT = 0x5a5f7c;
 const NIGHT_COLOR = 0x28366e;
 const RAIN_COLOR = 0x8a94a0;
 // Wind direction: to the right and a little down, like the grass leans.
@@ -48,6 +58,7 @@ function seededRand(seed: string): () => number {
 }
 
 interface Cloud { image: Phaser.GameObjects.Image; x: number; y: number; w: number; h: number }
+interface MistBank extends Cloud { phase: number; speed: number }
 interface Fly { glow: Phaser.GameObjects.Arc; dot: Phaser.GameObjects.Rectangle; x: number; y: number; vx: number; vy: number; phase: number }
 interface Drop { shape: Phaser.GameObjects.Rectangle; x: number; y: number; speed: number }
 interface Streak { shape: Phaser.GameObjects.Rectangle; x: number; y: number; speed: number; born: number; life: number }
@@ -56,6 +67,11 @@ interface Bit {
   x: number; y: number; vx: number; vy: number;
   phase: number; born: number; life: number;
   spin: number; // radians a second: leaves tumbling in a strong wind
+}
+
+function lerpColor(a: number, b: number, t: number): number {
+  const ch = (shift: number) => Math.round(((a >> shift) & 255) + ((((b >> shift) & 255) - ((a >> shift) & 255)) * t));
+  return (ch(16) << 16) | (ch(8) << 8) | ch(0);
 }
 
 export interface Transform { tileW: number; tileH: number; offsetX: number; offsetY: number }
@@ -78,6 +94,11 @@ export default class AmbienceLayer {
   private raining = false;
   private darkness = 0;
   private bits: Bit[] = [];
+  private mistBox: Phaser.GameObjects.Container;
+  private mist: MistBank[] = [];
+  private mistLevel = 0;
+  private mistAt = 0;
+  private mistSeen = false;
   private readonly still: boolean;
   private lastNow = 0;
   private sunsetCheckedAt = -Infinity;
@@ -102,6 +123,7 @@ export default class AmbienceLayer {
     this.flash = scene.add.rectangle(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT, 0xe8f0ff).setOrigin(0, 0)
       .setDepth(GLOW_DEPTH + 1).setScrollFactor(0).setBlendMode(Phaser.BlendModes.ADD).setAlpha(0);
     this.glowBox = scene.add.container(0, 0).setDepth(GLOW_DEPTH);
+    this.mistBox = scene.add.container(0, 0).setDepth(MIST_DEPTH).setVisible(false);
     this.makeClouds(key);
   }
 
@@ -124,7 +146,7 @@ export default class AmbienceLayer {
   }
 
   // A lumpy cloud shadow: a few overlapping soft blobs, cut into four levels of shade.
-  private paintCloud(tex: string, wTiles: number, hTiles: number, rand: () => number, darkness: number, color: number) {
+  private paintCloud(tex: string, wTiles: number, hTiles: number, rand: () => number, darkness: number, color: number, steps = [0.3, 0.6, 0.85, 1]) {
     const w = Math.round((wTiles * UNIT) / CELL);
     const h = Math.round((hTiles * UNIT) / CELL);
     // Blobs kept inside the picture, and the shade fading out before its border, so a cloud's
@@ -139,7 +161,6 @@ export default class AmbienceLayer {
     canvas.height = h;
     const g = canvas.getContext('2d')!;
     const r = (color >> 16) & 255, gr = (color >> 8) & 255, b = color & 255;
-    const steps = [0.3, 0.6, 0.85, 1];
     for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
       let f = 0;
       for (const bl of blobs) {
@@ -156,13 +177,58 @@ export default class AmbienceLayer {
     this.scene.textures.addCanvas(tex, canvas);
   }
 
+  // The mist's banks: wide, low and lumpy, enough to cover most of the map, painted once per map.
+  private makeMist() {
+    const rand = seededRand(`mist:${this.key}`);
+    const mapArea = this.mapW * this.mapH;
+    let covered = 0;
+    for (let i = 0; covered < 0.9 * mapArea && i < 28; i++) {
+      const wTiles = 12 + rand() * 10;
+      const hTiles = wTiles * (0.35 + rand() * 0.15);
+      const tex = `ambience:mist:${this.key}:${i}`;
+      if (!this.scene.textures.exists(tex)) this.paintCloud(tex, wTiles, hTiles, rand, 0.5, 0xffffff, [0.25, 0.5, 0.75, 1]);
+      const image = this.scene.add.image(0, 0, tex).setOrigin(0, 0).setScale(CELL).setTint(MIST_COLOR);
+      this.mistBox.add(image);
+      this.mist.push({ image, x: rand() * this.mapW * UNIT, y: rand() * this.mapH * UNIT, w: wTiles * UNIT, h: hTiles * UNIT, phase: rand() * Math.PI * 2, speed: 0.6 + rand() * 0.6 });
+      covered += wTiles * hTiles * 0.55;
+    }
+  }
+
+  private updateMist(time: number) {
+    // Eases toward the kid's level, so a beaten shadow makes the mist thin out, not blink.
+    // (Already there when the map opens; after that, a change takes a few seconds.)
+    const want = bossMist();
+    const dt = Math.min(0.25, this.mistAt ? (time - this.mistAt) / 1000 : 0);
+    this.mistAt = time;
+    this.mistLevel = !this.mistSeen || Math.abs(want - this.mistLevel) < 0.005 ? want : this.mistLevel + (want - this.mistLevel) * (1 - Math.exp(-dt / 1.5));
+    if (want > 0) this.mistSeen = true;
+    const on = this.mistLevel > 0.01;
+    this.mistBox.setVisible(on);
+    if (!on) return;
+    if (!this.mist.length) this.makeMist();
+    const secs = this.still ? 0 : time / 1000;
+    const spanX = this.mapW * UNIT, spanY = this.mapH * UNIT;
+    const tint = this.darkness > 0.02 ? lerpColor(MIST_COLOR, MIST_NIGHT, Math.min(1, this.darkness)) : MIST_COLOR;
+    for (const m of this.mist) {
+      // Slow creep with the wind, a gentle sway across it, and each bank swelling and thinning.
+      const travel = secs * 3 * m.speed;
+      const sway = this.still ? 0 : Math.sin(secs / 9 + m.phase) * 12;
+      const wrapX = spanX + m.w, wrapY = spanY + m.h;
+      const x = ((m.x + travel * WIND.x) % wrapX + wrapX) % wrapX - m.w;
+      const y = ((m.y + travel * WIND.y * 0.5 + sway) % wrapY + wrapY) % wrapY - m.h;
+      const breathe = this.still ? 1 : 0.75 + 0.25 * Math.sin(secs / 6 + m.phase * 1.7);
+      m.image.setPosition(Math.round(x), Math.round(y)).setAlpha(this.mistLevel * breathe);
+      if (m.image.tintTopLeft !== tint) m.image.setTint(tint);
+    }
+  }
+
   /** How dark the night is right now (0..1), for other layers' lights. */
   get nightLevel() { return this.darkness; }
   get rainNow() { return this.raining; }
 
   update(t: Transform, time: number) {
     const scale = t.tileW / UNIT;
-    for (const box of [this.cloudBox, this.driftBox, this.glowBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
+    for (const box of [this.cloudBox, this.driftBox, this.glowBox, this.mistBox]) box.setPosition(t.offsetX, t.offsetY).setScale(scale);
 
     // Clouds: where the wind has carried them by now, wrapped around the map with a margin.
     const secs = this.still ? 0 : (Date.now() % 86_400_000) / 1000;
@@ -187,6 +253,7 @@ export default class AmbienceLayer {
     // The grey of a rainy sky comes and goes gently.
     const cast = this.raining ? 0.22 : 0;
     this.rainCast.setAlpha(this.rainCast.alpha + (cast - this.rainCast.alpha) * 0.02);
+    this.updateMist(time);
 
     if (!this.still) {
       this.updateLightning(time);
@@ -369,6 +436,8 @@ export default class AmbienceLayer {
     this.rainCast.destroy();
     this.flash.destroy();
     this.glowBox.destroy();
+    this.mistBox.destroy();
+    this.mist = [];
     this.flies = [];
     this.drops = [];
     this.streaks = [];
