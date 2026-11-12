@@ -91,7 +91,7 @@ import {
   hasClaimedEventReward,
   fetchClaimedMonsterId,
 } from '@/lib/customEvents';
-import BossMistOverlay from '@/components/BossMistOverlay';
+import { mistFor, setBossMist } from '@/lib/bossMist';
 import { TermBossIntroForUser } from '@/components/intro/TermBossIntro';
 import { useBossFightProgress } from '@/hooks/useBossFightProgress';
 import { isBossFightGrade, hasCutsceneBeenSeen, markCutsceneSeen } from '@/lib/bossPersonas';
@@ -788,7 +788,7 @@ export default function Dashboard() {
   const bossGradeLevel = gradeToNumber(USERS[activeUserId ?? 'damien']?.grade);
   const bossProgress = useBossFightProgress(activeUserId ?? 'damien', bossGradeLevel);
   // Term boss ambient overrides the main theme game-wide while the event is
-  // active — same gate as the mist overlay. Falls back to whatever was
+  // active — same gate as the map mist. Falls back to whatever was
   // already playing (main theme) once the event ends or the player leaves.
   const bossEventActive = isBossFightGrade(bossGradeLevel) && bossProgress.bossFightsEnabled;
   useEffect(() => {
@@ -796,6 +796,12 @@ export default function Dashboard() {
     else stopTermBossTheme();
     return () => { stopTermBossTheme(); };
   }, [bossEventActive]);
+  // The mist drifts over the map itself (lib/phaserMap/ambience.ts), thinning with each shadow beaten.
+  const bossMistLevel = bossEventActive ? mistFor(bossProgress.defeated.size, bossProgress.total) : 0;
+  useEffect(() => {
+    setBossMist(bossMistLevel);
+    return () => setBossMist(0);
+  }, [bossMistLevel]);
 
   // The Term Boss intro (components/intro/TermBossIntro.tsx) — plays once per
   // player per grade/term, the first time the event is seen active, for
@@ -1352,9 +1358,6 @@ export default function Dashboard() {
 
   return (
     <>
-      {bossEventActive && (
-        <BossMistOverlay defeated={bossProgress.defeated.size} total={bossProgress.total} />
-      )}
       {showBossIntro && hasCurio && introStart === null && activeUserId && (
         <TermBossIntroForUser
           userId={activeUserId}

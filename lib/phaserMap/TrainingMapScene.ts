@@ -84,7 +84,7 @@ export interface ToolStrike { n: number; id: string; tool: ToolId; x: number; y:
 export interface CanPour { n: number; tier: number; tiles: { x: number; y: number }[] }
 import SwayingTrees from './swayingTrees';
 import { MAP_TAP_EVENT, MAP_WALK_TARGET_EVENT } from '@/lib/mapTap';
-import AmbienceLayer, { GLOW_DEPTH } from './ambience';
+import AmbienceLayer, { GLOW_DEPTH, NIGHT_TWIN_DEPTH } from './ambience';
 import type { NightWindows } from '@/lib/nightWindows';
 import CritterLayer, { type Habitat } from './critters';
 import GuildNpcLayer, { type NpcMark } from './guildNpcs';
@@ -384,6 +384,13 @@ export default class TrainingMapScene extends Phaser.Scene {
   // so only the part of a player the leaves hide shows through (walking half behind a tree too).
   private ghostLayer: Phaser.GameObjects.Container | null = null;
   private ghostMasked = false;
+  // At night the dark and the lights are laid over the whole map, players too; so each player
+  // (and bot) is drawn again over them, in their own colors: the night darkens the ground and
+  // things around the kid, never the kid. Masked by the wild trees' canopies (WebGL), so leaves
+  // still cover a kid walking under them.
+  private twins = new Map<Phaser.GameObjects.Sprite, Phaser.GameObjects.Sprite>();
+  private twinLayer: Phaser.GameObjects.Container | null = null;
+  private twinMasked = false;
   // Silhouettes of players behind a roof, awning or lamp: one holder per such layer, masked by it
   // (WebGL), so only the part of the player it hides shows through.
   private roofGhostLayers = new Map<Phaser.Tilemaps.TilemapLayer, Phaser.GameObjects.Container>();
@@ -473,6 +480,7 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.liftShadowsOnFloor();
     this.updateGhosts();
     this.ambience?.update(this.lastTransform, time);
+    this.updateNightTwins();
     this.updateNightLight();
     this.updateLamps(time);
     this.updateWindows(time);
@@ -834,6 +842,44 @@ export default class TrainingMapScene extends Phaser.Scene {
     // Hidden when nobody is under leaves, so the mask isn't drawn for nothing.
     layer.setVisible(any && layer.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
     for (const c of this.roofGhostLayers.values()) c.setVisible(c.list.some(g => (g as Phaser.GameObjects.Sprite).visible));
+  }
+
+  // At night, each player drawn again over the dark (see `twins`). Not where something covers them:
+  // behind a roof or lamp, under the map's own Objects Top, or with a town NPC standing in front.
+  private updateNightTwins() {
+    const layer = this.twinLayer;
+    if (!layer) return;
+    const night = this.ambience?.nightLevel ?? 0;
+    if (night < 0.02) { if (layer.visible) layer.setVisible(false); return; }
+    const players: TrackedSprite[] = [...(this.self ? [this.self] : []), ...this.others.values()];
+    const npcs = this.npcLayer?.npcs ?? [];
+    const live = new Set<Phaser.GameObjects.Sprite>();
+    let any = false;
+    for (const p of players) {
+      const img = p.image;
+      if (!img.active) continue;
+      live.add(img);
+      let twin = this.twins.get(img);
+      const hidden = !img.visible || img.alpha <= 0.01 || this.roofSide(p) === 'behind'
+        || (!this.twinMasked && (!!this.wildTrees?.covers(Math.round(p.x), Math.round(p.y)) || !!this.topLayer?.hasTileAt(Math.round(p.x), Math.round(p.y))))
+        || npcs.some(n => n.ready && n.image.visible && n.y > p.y && Math.abs(n.x - p.x) < 1 && n.y - p.y < 1.5);
+      if (hidden) { twin?.setVisible(false); continue; }
+      if (!twin) {
+        twin = this.add.sprite(img.x, img.y, img.texture.key, img.frame.name);
+        layer.add(twin);
+        this.twins.set(img, twin);
+      }
+      if (twin.texture.key !== img.texture.key || twin.frame.name !== img.frame.name) twin.setTexture(img.texture.key, img.frame.name);
+      twin.setPosition(img.x, img.y).setOrigin(img.originX, img.originY).setScale(img.scaleX, img.scaleY)
+        .setFlipX(img.flipX).setAngle(img.angle).setAlpha(img.alpha).setVisible(true);
+      any = true;
+    }
+    for (const [img, twin] of this.twins) {
+      if (!live.has(img)) { twin.destroy(); this.twins.delete(img); }
+    }
+    // The lower on the screen, the nearer: drawn last.
+    if (any) layer.sort('y');
+    layer.setVisible(any);
   }
 
   create() {
@@ -1310,6 +1356,10 @@ export default class TrainingMapScene extends Phaser.Scene {
     this.roofGhostLayers.clear();
     this.ghostMasked = false;
     this.ghosts.clear();
+    this.twinLayer?.destroy();
+    this.twinLayer = null;
+    this.twinMasked = false;
+    this.twins.clear();
     this.tilemap.destroy();
     this.tilemap = null;
     this.tilemapKey = '';
@@ -1442,6 +1492,14 @@ export default class TrainingMapScene extends Phaser.Scene {
           holder.filters?.internal.addMask(roof);
         }
         this.roofGhostLayers.set(roof, holder);
+      }
+      this.twinLayer?.destroy();
+      this.twinLayer = this.add.container(0, 0).setDepth(NIGHT_TWIN_DEPTH).setVisible(false);
+      if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
+        this.twinLayer.enableFilters();
+        this.twinLayer.filtersFocusContext = true;
+        this.twinLayer.filters?.internal.addMask(this.wildTrees.above, true);
+        this.twinMasked = true;
       }
       if (this.wildTrees && !topLayer && this.renderer.type === Phaser.WEBGL) {
         this.ghostLayer.enableFilters();
