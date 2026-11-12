@@ -366,10 +366,12 @@ export default function MapCanvas({
   useEffect(() => {
     let destroyed = false;
     let sharpTimer: ReturnType<typeof setTimeout> | undefined;
+    let stopPerfReport: (() => void) | undefined;
     (async () => {
-      const [{ default: Phaser }, { default: TrainingMapScene, CANVAS_WIDTH, CANVAS_HEIGHT }] = await Promise.all([
+      const [{ default: Phaser }, { default: TrainingMapScene, CANVAS_WIDTH, CANVAS_HEIGHT }, { startMapPerfReport }] = await Promise.all([
         import('phaser'),
         import('@/lib/phaserMap/TrainingMapScene'),
+        import('@/lib/mapPerfReport'),
       ]);
       if (destroyed || !containerRef.current) return;
 
@@ -399,6 +401,9 @@ export default function MapCanvas({
       // actually run — safe to call immediately.
       if (latestStateRef.current) scene.sync(latestStateRef.current);
       if (pausedRef.current) gameRef.current.loop.sleep();
+      // Once a day: how smoothly the map runs on this phone, and what phone it is (perf_sample).
+      stopPerfReport = startMapPerfReport(gameRef.current as unknown as Parameters<typeof startMapPerfReport>[0],
+        { sharp, forced, isPaused: () => pausedRef.current, mapStartMs: performance.now() });
       // Too slow for the sharp picture (an older phone): back to the plain one, so walking and
       // the breeze stay smooth. Checked twice a few seconds in, after the map has loaded.
       if (sharp > 1 && !forced) {
@@ -421,6 +426,7 @@ export default function MapCanvas({
     return () => {
       destroyed = true;
       clearTimeout(sharpTimer);
+      stopPerfReport?.();
       gameRef.current?.destroy(true);
       gameRef.current = null;
       sceneRef.current = null;
